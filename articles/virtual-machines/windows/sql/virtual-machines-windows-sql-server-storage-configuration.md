@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/31/2017
+ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7d076b970481b68d9c352d54f3452b8e222f5c64
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Konfiguration för lagring för virtuella SQL Server-datorer
 När du konfigurerar en avbildning av virtuell dator för SQL Server i Azure hjälper portalen till att automatisera konfigurationen för lagring. Detta inkluderar ansluter lagringsenheter till den virtuella datorn, vilket gör att lagring tillgänglig för SQL Server och konfigurera den att optimera för dina specifika krav.
@@ -30,7 +30,7 @@ Det här avsnittet beskrivs hur Azure konfigurerar lagring för din SQL Server-d
 ## <a name="prerequisites"></a>Krav
 Om du vill använda inställningarna för automatisk lagring, kräver den virtuella datorn följande egenskaper:
 
-* Etablerade med en [bild av SQL Server-galleriet](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Etablerade med en [bild av SQL Server-galleriet](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Använder den [Resource Manager-distributionsmodellen](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Använder [Premiumlagring](../premium-storage.md).
 

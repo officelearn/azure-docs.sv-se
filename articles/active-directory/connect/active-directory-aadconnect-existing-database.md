@@ -4,7 +4,7 @@ description: "Det här avsnittet beskriver hur du använder en befintlig ADSync-
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server-databas för att lagra data. Du kan använda standardvärdet SQL Server 2012 Express LocalDB installerad med Azure AD Connect, eller så kan du använda din egen fullständig version av SQL Server. Tidigare skapades alltid en ny databas med namnet ADSync när du har installerat Azure AD Connect. Med Azure AD Connect version 1.1.613.0 (eller efter) har du möjlighet att installera Azure AD Connect genom att peka till en befintlig ADSync-databas.

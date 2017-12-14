@@ -4,7 +4,7 @@ description: Azure Active Directory B2B-samarbete inbjudan e-postmall
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementen i e-postinbjudan B2B-samarbete
 
@@ -36,7 +36,7 @@ Nu ska vi titta på några elementen i e-postmeddelandet så att du vet hur du b
 ### <a name="from-address"></a>Från-adress
 Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren av inbjudan och e-postadress som företagets och även tydliggöra att e-postmeddelandet kommer från Microsoft. Formatet är: &lt;visningsnamnet för bjuder in&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Svara på
+### <a name="reply-to"></a>Svara
 Svara till e-postmeddelandet har angetts till den bjuder in e-post när det är tillgängligt, så att svara på e-postmeddelandet skickar ett e-postmeddelande till avsändaren av inbjudan.
 
 ### <a name="branding"></a>Anpassning

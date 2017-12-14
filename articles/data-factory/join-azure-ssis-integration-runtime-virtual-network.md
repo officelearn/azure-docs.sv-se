@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: aa570379890023c83383d291aa5d57fb79b2d5aa
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta till en Azure-SSIS-integrering körning till ett virtuellt nätverk
 Du måste ansluta Azure SSIS-integrering runtime (IR) till ett Azure virtual network (VNet) om någon av följande villkor är uppfyllda: 
@@ -25,15 +25,15 @@ Du måste ansluta Azure SSIS-integrering runtime (IR) till ett Azure virtual net
 - Du är värd för SSIS-katalogdatabasen på en SQL Server-hanterad instans (privat förhandsversion) som är en del av ett VNet.
 - Du vill ansluta till lokala datalager från SSIS-paket som körs på Azure-SSIS Integration Runtime.
 
- Med Azure Data Factory version 2 (förhandsversion) kan du ansluta Azure-SSIS Integration Runtime till ett klassiskt virtuellt nätverk. För närvarande stöds Azure Resource Manager VNet inte ännu. Du kan dock arbeta runt som visas i följande avsnitt. 
+ Med Azure Data Factory version 2 (förhandsversion) kan du ansluta Azure-SSIS Integration Runtime till ett klassiskt virtuellt nätverk. Azure Resource Manager VNet stöds för närvarande inte. Du kan dock arbeta runt som visas i följande avsnitt. 
 
  > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
-Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du inte ansluta till Azure-SSIS IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta Azure SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. Om SSIS-katalogen finns i Azure SQL-databas som inte är i VNet, måste du öppna lämpliga portar. Om SSIS-katalogen finns i Azure SQL hanteras-instans som är i ett klassiskt virtuellt nätverk, kan du delta i Azure-SSIS IR till samma klassiska virtuella nätverk (eller) en annan klassiska virtuella nätverk som har en anslutning med klassen till klassiska VNet med Azure SQL hanteras instansen. Följande avsnitt innehåller mer information.  
-
 ## <a name="access-on-premises-data-stores"></a>Åtkomst till lokala datalager
-Om SSIS-paket åtkomst till lokala datalager, Anslut din Azure-SSIS-integrering runtime till ett virtuellt nätverk som är anslutet till det lokala nätverket. Här följer några viktiga saker att Observera: 
+Om SSIS-paket åtkomst till endast de offentliga moln datalager, behöver du inte ansluta till Azure-SSIS IR till ett virtuellt nätverk. Om SSIS-paket åtkomst till lokala datalager, måste du ansluta Azure SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. Om SSIS-katalogen finns i Azure SQL-databas som inte är i VNet, måste du öppna lämpliga portar. Om SSIS-katalogen finns i Azure SQL hanteras-instans som är i ett klassiskt virtuellt nätverk, kan du delta i Azure-SSIS IR till samma klassiska virtuella nätverk (eller) en annan klassiska virtuella nätverk som har en anslutning med klassen till klassiska VNet med Azure SQL hanteras instansen. Följande avsnitt innehåller mer information.
+
+Här följer några viktiga saker att Observera: 
 
 - Om det finns inga befintliga virtuella nätverk som är anslutna till ditt lokala nätverk måste du först skapa en [klassiska VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) för din Azure-SSIS-integrering runtime att ansluta till. Konfigurera sedan en plats-till-plats [VPN-gatewayanslutning](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) anslutning från det virtuella nätverket till ditt lokala nätverk.
 - Om det finns ett existerande klassiska VNet som är anslutna till ditt lokala nätverk på samma plats som din Azure-SSIS-integrering runtime, kan du delta i din Azure-SSIS-integrering runtime till den.
@@ -52,11 +52,28 @@ Om du behöver implementera Nätverkssäkerhetsgrupp (NSG) i ett VNet kopplas me
 | 443 | Utgående | TCP | Noderna i din Azure-SSIS-integrering körning i virtuella nätverk använda den här porten för att komma åt Azure-tjänster, till exempel Azure Storage, Event Hub osv. | INTERNET | 
 | 1433<br/>11000-11999<br/>14000-14999  | Utgående | TCP | Noderna i Azure-SSIS-integrering-körningsmiljön i VNet använda dessa portar för att komma åt SSISDB hos dina Azure SQL Database-server (gäller inte för SSISDB Azure SQL-instans som hanteras som värd). | Internet | 
 
-## <a name="script-to-configure-vnet"></a>Skript för att konfigurera virtuella nätverk 
-Du kan använda den interaktiva PowerShell-skriptet från [i den här artikeln](create-azure-ssis-integration-runtime.md) att etablera en Azure-SSIS-integrering körning i ett VNet. Skriptet konfigurerar automatiskt VNet behörigheter och inställningar så att du kan gå du Azure SSIS-integrering runtime till VNet.  
+## <a name="configure-vnet"></a>Konfigurera virtuella nätverk
+Först måste du konfigurera VNet med något av följande sätt (jämfört med skript. Azure portal) innan du kan ansluta till en Azure-SSIS-IR till VNet. 
 
+### <a name="script-to-configure-vnet"></a>Skript för att konfigurera virtuella nätverk 
+Lägg till följande skript för att automatiskt konfigurera VNet/behörighetsinställningar för din Azure-SSIS-integrering runtime att ansluta till det virtuella nätverket.
 
-## <a name="use-portal-to-configure-vnet"></a>Använda portalen för att konfigurera virtuella nätverk
+```powershell
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+    Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+```
+
+### <a name="use-portal-to-configure-vnet"></a>Använda portalen för att konfigurera virtuella nätverk
 Kör skriptet är det enklaste sättet att konfigurera virtuella nätverk. Om du inte har åtkomst till att konfigurera virtuella nätverk för den automatiska konfigurationen misslyckas, ägaren av det virtuella nätverket / du kan försöka att konfigurera dem manuellt i följande steg:
 
 ### <a name="find-the-resource-id-for-your-azure-vnet"></a>Hitta resurs-ID för ditt Azure VNet.
@@ -75,7 +92,7 @@ Kör skriptet är det enklaste sättet att konfigurera virtuella nätverk. Om du
     1. Åtkomstkontroll (IAM) på den vänstra menyn och klicka på **Lägg till** i verktygsfältet.
     
         ![Åtkomstkontroll -> Lägg till](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
-    2. I **lägga till behörigheter** väljer **klassiska Virtual Machine-deltagare** för **rollen**. Typen **MicrosoftAzureBatch** i den **Välj** textruta och välj sedan **MicrosoftAzureBatch** från listan över sökresultat. 
+    2. I **lägga till behörigheter** väljer **klassiska Virtual Machine-deltagare** för **rollen**. Kopiera och klistra in **ddbf3205-c6bd-46ae-8127-60eb93363864** i den **Välj** textruta och välj sedan **Microsoft Azure Batch** från listan över sökresultat. 
     
         ![Lägg till behörigheter – Sök](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
     3. Klicka på Spara för att spara inställningarna och stänga sidan.
@@ -92,8 +109,79 @@ Kör skriptet är det enklaste sättet att konfigurera virtuella nätverk. Om du
         ![bekräftelse-batch-registrerade](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
     Om du inte ser `Microsoft.Batch` i listan för att registrera den, [skapa ett tomt Azure Batch-konto](../batch/batch-account-create-portal.md) i din prenumeration. Du kan ta bort den senare. 
-         
 
+## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Skapa en Azure-SSIS-IR och ansluta den till ett virtuellt nätverk
+Du kan skapa en Azure-SSIS-IR och ansluta den till virtuella nätverk på samma gång. Fullständig skript och instruktioner för att skapa en Azure-SSIS-IR och ansluta den till ett virtuellt nätverk på samma gång finns [skapa Azure-SSIS-IR](create-azure-ssis-integration-runtime.md).
+
+## <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>Anslut en befintlig Azure-SSIS-IR till ett virtuellt nätverk
+Skriptet i den [skapa Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) artikeln visar hur du skapar en Azure-SSIS-IR och ansluta den till ett VNet i samma skript. Om du har en befintlig Azure-SSIS, utför följande steg för att ansluta till det virtuella nätverket. 
+
+1. Stoppa Azure SSIS-IR.
+2. Konfigurera Azure SSIS-IR för att ansluta det virtuella nätverket. 
+3. Starta Azure-SSIS-IR. 
+
+## <a name="define-the-variables"></a>Definiera variabler
+
+```powershell
+$ResourceGroupName = "<Azure resource group name>"
+$DataFactoryName = "<Data factory name>" 
+$AzureSSISName = "<Specify Azure-SSIS IR name>"
+# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
+# It should be in the format: 
+# $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
+$VnetId = "<Name of your Azure classic virtual netowrk>"
+$SubnetName = "<Name of the subnet in VNet>"
+```
+
+### <a name="stop-the-azure-ssis-ir"></a>Stoppa Azure SSIS-IR
+Stoppa Azure SSIS-integrering runtime innan du kan ansluta till ett virtuellt nätverk. Det här kommandot släpper alla dess noder och stoppar fakturering.
+
+```powershell
+Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force 
+```
+### <a name="configure-vnet-settings-for-the-azure-ssis-ir-to-join"></a>Konfigurera VNet-inställningarna att ansluta till Azure-SSIS IR
+Registrera Azure Batch-resursprovidern:
+
+```powershell
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+        Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+```
+
+### <a name="configure-the-azure-ssis-ir"></a>Konfigurera Azure SSIS-IR
+Kör kommandot Set-AzureRmDataFactoryV2IntegrationRuntime att konfigurera Azure SSIS-integrering runtime för att ansluta det virtuella nätverket: 
+
+```powershell
+Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
+                                            -DataFactoryName $DataFactoryName `
+                                            -Name $AzureSSISName `
+                                            -Type Managed `
+                                            -VnetId $VnetId `
+                                            -Subnet $SubnetName
+```
+
+## <a name="start-the-azure-ssis-ir"></a>Starta Azure-SSIS-IR
+Kör följande kommando för att starta Azure-SSIS Integration Runtime: 
+
+```powershell
+Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force
+
+```
+Det här kommandot tar mellan **20 till 30 minuter** att slutföra.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure-SSIS runtime finns i följande avsnitt: 

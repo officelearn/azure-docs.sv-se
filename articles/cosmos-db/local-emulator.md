@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -64,7 +64,7 @@ Azure-emulatorn Cosmos DB ger en hög återgivning emulering av tjänsten Azure 
 Medan vi har skapat en lokal emulering hög återgivning av tjänsten faktiska Azure Cosmos DB är implementeringen av Azure Cosmos DB-emulatorn än tjänsten. Till exempel använder Azure Cosmos DB-emulatorn standard OS-komponenter, till exempel det lokala filsystemet för beständighet och HTTPS-protokoll-stacken för anslutning. Detta innebär att vissa funktioner som förlitar sig på Azure-infrastrukturen som globala replikering, en siffra millisekunds fördröjning för läsning/skrivning och justerbara konsekvensnivåer inte är tillgängliga via Azure Cosmos DB-emulatorn.
 
 > [!NOTE]
-> Data Explorer i emulatorn stöder endast skapandet av DocumentDB API samlingar och MongoDB samlingar just nu. Data Explorer i emulatorn stöder för närvarande inte att skapa tabeller och diagram. 
+> Data Explorer i emulatorn stöder endast skapandet av SQL API samlingar och MongoDB samlingar just nu. Data Explorer i emulatorn stöder för närvarande inte att skapa tabeller och diagram. 
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Skillnader mellan emulatorn och tjänsten 
 Eftersom Azure Cosmos DB-emulatorn är en emulerade miljö som körs på en lokal developer-arbetsstation, finns det vissa skillnader i funktionalitet mellan emulatorn och ett Azure DB som Cosmos-konto i molnet:
@@ -136,7 +136,7 @@ Du kan köra emulatorn i ett lokalt nätverk. Om du vill aktivera nätverksåtko
 För att aktivera nätverksåtkomst för första gången användaren stänga emulatorn och ta bort den emulator datakatalog (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Utveckla med emulatorn
-När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/documentdb/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för DocumentDB och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
+När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/documentdb/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för SQL och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -195,7 +195,7 @@ Om du vill visa listan över alternativ skriver `CosmosDB.Emulator.exe /?` i Kom
   <td></td>
 </tr>
 <tr>
-  <td>avstängning</td>
+  <td>Avstängning</td>
   <td>Stänger ned Azure Cosmos DB-emulatorn.</td>
   <td>CosmosDB.Emulator.exe Shutdown</td>
   <td></td>

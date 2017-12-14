@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -78,7 +78,7 @@ I [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md), 
 
 På den [fel](../application-insights/app-insights-asp-net-exceptions.md) fliken kan du skapa diagram och aviseringar baserat på funktionen fel och server undantag. Den **åtgärdsnamn** är namnet på funktionen. Fel i beroenden visas inte om du implementerar [telemetri om anpassade](#custom-telemetry-in-c-functions) för beroenden.
 
-![fel](media/functions-monitoring/failures.png)
+![Fel](media/functions-monitoring/failures.png)
 
 På den [prestanda](../application-insights/app-insights-performance-counters.md) kan du analysera prestandaproblem.
 
@@ -486,7 +486,7 @@ Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Övervaka funktionen app-loggfiler med Azure CLI 1.0
 
-Du kommer igång [installera Azure CLI 1.0](../cli-install-nodejs.md) och [logga in på Azure](../xplat-cli-connect.md).
+Du kommer igång [installera Azure CLI 1.0](../cli-install-nodejs.md) och [logga in på Azure](/cli/azure/authenticate-azure-cli).
 
 Använd följande kommandon för att aktivera klassiska Service Management-läge, väljer din prenumeration och strömma loggfiler:
 

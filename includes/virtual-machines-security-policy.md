@@ -24,7 +24,7 @@ När du ansluter till virtuella datorer, använder du offentliga nycklar för at
 
 ## <a name="policies"></a>Principer
 
-[Azure Resource Manager principer](../articles/azure-resource-manager/resource-manager-policy.md) kan användas för att definiera önskat beteende för din organisation [virtuella Windows-datorer](../articles/virtual-machines/windows/policy.md) och [virtuella Linux-datorer](../articles/virtual-machines/linux/policy.md). En organisation kan tillämpa olika konventioner och regler i hela företaget med hjälp av principer. Tillämpning av önskat beteende kan du minimera risken när bidrar till att organisationen.
+[Azure principer](../articles/azure-policy/azure-policy-introduction.md) kan användas för att definiera önskat beteende för din organisation [virtuella Windows-datorer](../articles/virtual-machines/windows/policy.md) och [virtuella Linux-datorer](../articles/virtual-machines/linux/policy.md). En organisation kan tillämpa olika konventioner och regler i hela företaget med hjälp av principer. Tillämpning av önskat beteende kan du minimera risken när bidrar till att organisationen.
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 

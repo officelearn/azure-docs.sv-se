@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b59630d9aa8d1adf2f56cde6f8039d6bfe6718
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="community-portal"></a>Community-portal
 ## <a name="community-spotlight"></a>Community-spotlight
@@ -98,7 +98,7 @@ Du kan hålla dig uppdaterad med de senaste nyheterna Azure Cosmos DB och funkti
 
 ## <a name="events-and-recordings"></a>Händelser och inspelningar
 ### <a name="recent-and-upcoming-events"></a>Senaste och kommande händelser
-| Händelsenamnet | Talare | Plats | Date | Hashtaggar |
+| Händelsenamn | Talare | Plats | Date | Hashtaggar |
 | --- | --- | --- | --- | --- |
 |[Syd Florida Codecamp: NoSQL för .NET-utvecklare under 10 minuter med Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 mars 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL för .NET-utvecklare under 10 minuter med Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|Den 8 april 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
@@ -108,7 +108,7 @@ Du kan hålla dig uppdaterad med de senaste nyheterna Azure Cosmos DB och funkti
 *Är du talar på eller värd för en händelse? [Berätta för oss](mailto:askcosmosdb@microsoft.com) hur vi kan hjälpa!*
 
 ### <a name="previous-events-and-recordings"></a>Tidigare händelser och inspelningar
-| Händelsenamnet | Talare | Plats | Date | Registrering |
+| Händelsenamn | Talare | Plats | Date | Registrering |
 | --- | --- | --- | --- | --- |
 |[Ignite Australien: Hello DocumentDB: Azure snabb, blixtsnabb planeten skala NoSQL-databas](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Anders Liu](https://twitter.com/aliuy8)|Queensland, Australien|Onsdag 15 februari 2017|Kommande|
 |[Ignite Australien: En djupdykning med Azure DocumentDB: partitionering Data modellering och Geo-replikering](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Anders Liu](https://twitter.com/aliuy8)|Queensland, Australien|16 februari 2017|Kommande|
@@ -157,7 +157,7 @@ Du kan hålla dig uppdaterad med de senaste nyheterna Azure Cosmos DB och funkti
 | [Ignite](http://ignite.microsoft.com/) |Anders Hoh, John Macintyre |Chicago, IL |4-8 maj 2015 |[Välj senaste från DocumentDB video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) [DocumentDB och Azure HDInsight: bättre tillsammans video](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Version 2015](http://www.buildwindows.com/) |Ryan Crawcour |San Francisco, CA |29 april - 1 maj 2015 |[Skapa nästa stora sak med Azures NoSQL-tjänsten: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Globala Azure Bootcamp 2015 – Spanien](http://azurebootcamp.es/) |Thomas Pettersson Pavon, Roberto Gonzalez |Madrid, Spanien |25 april 2015 |[#DEAN DocumentDB + Express + AngularJS + NodeJS som körs på Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
-| [Meetup: Azure Usergroup Danmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) |Christian Holm Diget |Köpenhamn |16 april 2015 |Saknas |
+| [Meetup: Azure Usergroup Danmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) |Christian Holm Diget |Köpenhamn, Danmark |16 april 2015 |Saknas |
 | [Meetup: Storstad Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) |Johan Rance |Storstad, NC |Den 8 april 2015 |Saknas |
 | [SQL lördag #375 - Silicon DAL 2015](http://www.sqlsaturday.com/375/Sessions/Details.aspx?sid=15289) |IKE-Ellis |Mountain View, CA |28 mars 2015 |Saknas |
 | [Meetup: Istanbul Azure Meetup](http://www.meetup.com/istanbul-azure-meetup/events/220325538/) |Daron Yondem |Istanbul, Turkiet |7 mars 2015 |Saknas |
@@ -167,6 +167,7 @@ Du kan hålla dig uppdaterad med de senaste nyheterna Azure Cosmos DB och funkti
 ### <a name="videos-and-podcasts"></a>Videoklipp och poddsändningar
 | Visa | Talare | Date | Avsnitt |
 | --- | --- | --- | --- |
+| NoSQL-databas Podcast | Kirill Gavrylyuk | 16 maj 2017 | [Microsoft DocumentDB för NoSQL i molnet](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Azure Friday |Kirill Gavrylyuk |Den 31 oktober 2016 |[Vad är nytt i Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Channel 9: Microsoft + öppen källkod |Jose Miguel Parrella |14 april 2016 |[Från medelvärde till DEAN i Azure med Bitnami, Skalningsuppsättningar och DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |9 mars 2016 |[Utveckling av lösningar med Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) |
@@ -230,7 +231,7 @@ Projekten utvecklas aktivt Azure DocumentDB-teamet tillsammans med vår communit
 ## <a name="azure-cosmos-db-wizards"></a>Azure Cosmos DB guider
 Azure Cosmos DB guider är andra som har har visat ändamålsenliga engagemang för att hjälpa dig och andra få ut mesta av sin erfarenhet av Azure Cosmos DB nästa generation av Azure DocumentDB. De dela sina särskilda passion och verklig kunskap teknisk expertis med community och Azure DB som Cosmos-teamet.
 
-| Guiden | Bild |
+| Guide | Bild |
 | --- | --- |
 |  [Allan Mitchell](https://twitter.com/allansqlis) |[![Allan Mitchell](./media/community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) |
 |  [Lisa Stirrup](https://twitter.com/jenstirrup) |[![Lisa Stirrup](./media/community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) |

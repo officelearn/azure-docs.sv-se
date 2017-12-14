@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för diagnostikloggar i Azure
 
@@ -29,6 +29,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 
 | Tjänst | Schemat & Docs |
 | --- | --- |
+| Analysis Services | Schemat är inte tillgänglig. |
 | API Management | [API Management diagnostikloggar](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostikloggning för Programgateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Logganalys för Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-skydd | Schemat är inte tillgänglig. |
-| Recovery Services | Schemat är inte tillgänglig.|
+| Recovery Services | [Datamodell för Azure-säkerhetskopiering](../backup/backup-azure-reports-data-model.md)|
 | Söka |[Att aktivera och använda Sök trafik Analytics](../search/search-traffic-analytics.md) |
 | Serverhantering | Schemat är inte tillgänglig. |
 | Service Bus |[Azure Service Bus-diagnostikloggar](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 ## <a name="supported-log-categories-per-resource-type"></a>Stöd för kategorier i loggen resurstyp
 |Resurstyp|Kategori|Kategori visningsnamn|
 |---|---|---|
+|Microsoft.aadiam/tenants|Inloggning|Inloggning|
 |Microsoft.AnalysisServices/servers|Motorn|Motorn|
 |Microsoft.AnalysisServices/servers|Tjänst|Tjänst|
 |Microsoft.ApiManagement/service|GatewayLogs|Relaterade till ApiManagement Gateway|
@@ -63,6 +65,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.Automation/automationAccounts|JobStreams|Dataströmmar för jobbet|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC-noden Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Tjänsten loggar|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hämtar mätvärden för slutpunkten, t.ex. bandbredd, utgång osv.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|Aktivitetskörningen|Pipelinen körs aktivitetsloggen|
 |Microsoft.DataFactory/factories|PipelineRuns|Pipeline körs logg|
@@ -90,7 +93,7 @@ Schemat för resursen diagnostikloggar varierar beroende på kategorin resurs oc
 |Microsoft.EventHub/namespaces|OperationalLogs|Operativa loggar|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Automatisk skalning loggar|
 |Microsoft.KeyVault/vaults|AuditEvent|Granskningsloggar|
-|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostiska händelser|
+|Microsoft.Logic/workflows|WorkflowRuntime|Diagnostikhändelser för arbetsflödeskörning|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration konto spåra händelser|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Nätverkssäkerhetsgrupphändelse|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelräknare för Nätverkssäkerhetsgrupp|

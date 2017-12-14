@@ -4,7 +4,7 @@ description: "Diskutera grundläggande och avancerade begrepp på användarmigre
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsleverantören till Azure AD B2C. Artikeln är inte avsett att vara normativ, men i stället beskrivs två av många olika sätt. Utvecklaren ansvarar för lämplighet varje metod.
 
 ## <a name="user-migration-flows"></a>Flöden för migrering av användare
-Med Azure AD B2C kan du migrera användare via [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Migreringsprocessen användaren hamnar i två flöden:
+Med Azure AD B2C kan du migrera användare via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Migreringsprocessen användaren hamnar i två flöden:
 
 * **Före migreringen**: detta flöde gäller när du har antingen avmarkera åtkomst till en användarens autentiseringsuppgifter (användarnamn och lösenord) eller autentiseringsuppgifterna krypteras, men du kan dekryptera dem. Processen innan migrering innefattar läser användare från den gamla identitetsleverantören och skapa nya konton i Azure AD B2C-katalogen.
 
@@ -61,7 +61,7 @@ Först registrera ditt program för migrering i Azure AD. Sedan skapar en tangen
 
 5. Välj **nya appregistrering**.
 
-    ![Ny appregistrering](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+    ![Ny programregistrering](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
 
 6. Skapa ett nytt program genom att göra följande:
     * För **namn**, använda **B2CUserMigration** eller ett annat namn som du vill använda.
@@ -100,7 +100,7 @@ Läsa och skriva data katalogbehörigheter gör *inte* inkludera behörighet att
 > Du måste använda ett administratörskonto för B2C-klient som är *lokala* till B2C-klient. Namnsyntaxen konto är  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> Följande PowerShell-skript kräver [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Följande PowerShell-skript kräver [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 I det här PowerShell-skriptet kan du göra följande:
 1. Ansluta till din online-tjänst. Det gör du genom att köra den `Connect-AzureAD` cmdlet i Windows PowerShell kommandotolk och ange dina autentiseringsuppgifter. 
@@ -148,7 +148,7 @@ Redigera JSON-filen genom att öppna den `AADB2C.UserMigration.sln` Visual Studi
 ![Datafil för användaren](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Som du kan se innehåller filen en lista över enheter som användaren. Varje enhet som användaren har följande egenskaper:
-* E-post
+* e-post
 * Visningsnamn
 * Förnamn
 * Efternamn
@@ -278,7 +278,7 @@ För att spåra ändra lösenordet måste använda du en Azure-tabellen. När du
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Steg 4.2: Distribuera ditt webbprogram till Azure App Service
-Publicera din API-tjänsten i Azure App Service. Mer information finns i [distribuera din app till Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publicera din API-tjänsten i Azure App Service. Mer information finns i [distribuera din app till Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Steg 4.3: Lägga till en teknisk profil och tekniska profil validering din princip 
 1. Öppna i arbetskatalogen i *TrustFrameworkExtensions.xml* principfil för tillägget. 
@@ -384,7 +384,7 @@ Du kan visa och övervaka loggningsinformation i nära realtid.
 
 6. Kontrollera resultatet av RESTful-API.
 
-Mer information finns i [loggar och konsolen](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Mer information finns i [loggar och konsolen](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Använd diagnostik loggar endast under utveckling och testning. RESTful-API-utdata innehåller konfidentiell information som inte ska visas i produktion.

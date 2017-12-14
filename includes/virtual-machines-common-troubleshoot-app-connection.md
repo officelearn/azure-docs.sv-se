@@ -115,7 +115,7 @@ Om du har åtkomst till programmet, kontrollerar du att din Internet-insticksenh
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Steg 4 om du inte kan komma åt programmet, använda IP-verifiera Kontrollera inställningarna. 
 
-Mer information finns i [Azure nätverksövervakning översikt](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Mer information finns i [Azure nätverksövervakning översikt](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 [Felsöka anslutningar till fjärrskrivbord till en Windows-baserad Azure-dator](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

@@ -1,29 +1,29 @@
 ---
-title: "Skapa index, frågor och filter på sidor i Azure Search-portalen | Microsoft Docs"
-description: "Använd fördefinierade exempeldata för att generera ett index i Azure Portal. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat."
+title: "Azure Search-självstudiekurs om indexering, frågor och filtrering med hjälp av portalen | Microsoft Docs"
+description: "Använd fördefinierade exempeldata i Azure Portal för att generera ett index i Azure Search. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Skapa, fråga och filtrera ett Azure Search-index i portalen
 
-Gå till Azure-portalen och utgå från en fördefinierad exempeldatauppsättning för att snabbt skapa ett index med hjälp av guiden **Importera data**. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
+Gå till Azure Portal och utgå från en fördefinierad exempeldatauppsättning för att snabbt skapa ett Azure Search-index med hjälp av guiden **Importera data**. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning och geosearch med **Sökutforskaren**.  
 
 Det här är en introduktion helt utan kodning, så att du kan komma igång med att skriva intressanta frågor direkt utifrån fördefinierade data. Portalverktygen kan aldrig bli en fullgod ersättning för kodning, men de är mycket användbara till följande uppgifter:
 

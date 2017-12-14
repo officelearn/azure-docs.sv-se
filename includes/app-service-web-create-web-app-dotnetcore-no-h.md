@@ -1,6 +1,6 @@
-I Cloud Shell skapar du en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). 
+I Cloud Shell skapar du en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create). 
 
-I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `dotnetcore|1.1`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#list-runtimes). 
+I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `dotnetcore|1.1`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastisk databas
-[**Den elastiska databasen jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via den klassiska Azure-Portal.You kan komma åt för att skapa och hantera jobb med hjälp av PowerShell API endast om du har installerat PowerShell. Dessutom tillhandahålla PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.
+[**Den elastiska databasen jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via Azure-portalen. Du kan komma åt för att skapa och hantera jobb med hjälp av PowerShell API endast om du har installerat PowerShell. Dessutom tillhandahålla PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.
 
 Om du redan har installerat **elastisk databas jobb** via portalen från en befintlig **elastisk pool**, innehåller den senaste Powershell-förhandsversionen skript för att uppgradera den befintliga installationen. Vi rekommenderar starkt att uppgradera installationen till senast **elastisk databas jobb** komponenter för att kunna dra nytta av nya funktioner som exponeras via PowerShell APIs.
 

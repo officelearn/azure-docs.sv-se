@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
@@ -99,7 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
-I en webbläsare går du till Azure web app-URL: `http://<app_name>.azurewebsites.net`.
+Gå till Azure-webbappens URL i en webbläsare: `http://<app_name>.azurewebsites.net`.
 
 Sidan körs som en Azure App Service-webbapp.
 
@@ -111,7 +111,7 @@ Sidan körs som en Azure App Service-webbapp.
 
 Öppna filen *index.html* i en textredigerare och gör en ändring i koden. Ändra till exempel H1-rubriken från "Azure App Service - Sample Static HTML Site" till endast "Azure App Service".
 
-Genomför ändringarna i Git i lokala terminalfönster och sedan genomför kodändringarna i Azure.
+I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
 
 ```bash
 git commit -am "updated HTML"

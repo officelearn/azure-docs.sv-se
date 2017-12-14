@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -26,7 +26,7 @@ Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din
 Den här artikeln är utformat för att hjälpa dig att felsöka och lösa problem som kan uppstå med Azure filsynkronisering distributionen. Vi beskriver också hur du samlar in viktiga loggar från systemet om det krävs en mer ingående undersökning av problemet. Om du inte hittar svar på din fråga kan kontakta du oss via följande kanaler (i växande ordning):
 
 1. Avsnittet kommentarer i den här artikeln.
-2. [Forum för Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
@@ -69,22 +69,22 @@ Reset-StorageSyncServer
 Det här problemet uppstår när den **Förbättrad säkerhetskonfiguration i Internet Explorer** principen aktiveras under registreringen av servern. Mer information om hur du inaktiverar korrekt den **Förbättrad säkerhetskonfiguration i Internet Explorer** princip, se [förbereda Windows Server till Azure filsynkronisering](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) och [hur du distribuerar Azure File Synkronisera (förhandsgranskning)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Synkronisera grupphantering
-<a id="cloud-endpoint-using-share"></a>**Molnet Endpoint skapa misslyckas med felet: ”angivna Azure filresursen används redan av en annan CloudEndpoint”**  
-Det här problemet uppstår om Azure-filresursen används redan av en annan slutpunkt i molnet. 
+<a id="cloud-endpoint-using-share"></a>**Moln slutpunkt skapas misslyckas med felet: ”angivna Azure filresursen används redan av en annan CloudEndpoint”**  
+Det här problemet uppstår om Azure-filresursen används redan av en annan molnslutpunkt. 
 
-Om du ser det här meddelandet och Azure-filresursen är för närvarande inte används av en Molnslutpunkt, Slutför följande steg om du vill rensa metadata Azure filsynkronisering i Azure-filresursen:
+Om du ser det här meddelandet och Azure-filresursen är för närvarande inte används av en molnslutpunkt, Slutför följande steg om du vill rensa metadata Azure filsynkronisering i Azure-filresursen:
 
 > [!Warning]  
-> Ta bort metadata i en Azure-filresurs som för närvarande används av en Molnslutpunkt gör att Azure-filen synkroniseringsåtgärder misslyckas. 
+> Ta bort metadata i en Azure-filresurs som för närvarande används av en molnslutpunkt gör att Azure-filen synkroniseringsåtgärder misslyckas. 
 
 1. Gå till Azure-filresursen i Azure-portalen.  
 2. Högerklicka på Azure-filresursen och välj sedan **redigera metadata**.
 3. Högerklicka på **SyncService**, och välj sedan **ta bort**.
 
-<a id="cloud-endpoint-authfailed"></a>**Molnet Endpoint skapa misslyckas med felet: ”AuthorizationFailed”**  
-Det här problemet uppstår om ditt konto inte har tillräcklig behörighet för att skapa en Molnslutpunkt. 
+<a id="cloud-endpoint-authfailed"></a>**Moln slutpunkt skapas misslyckas med felet: ”AuthorizationFailed”**  
+Det här problemet uppstår om ditt konto inte har tillräcklig behörighet för att skapa en molnslutpunkt. 
 
-Om du vill skapa en Molnslutpunkt måste ditt användarkonto ha Microsoft Authorization följande behörigheter:  
+Om du vill skapa en molnslutpunkt måste ditt användarkonto ha Microsoft Authorization följande behörigheter:  
 * Läs: Hämta rolldefinitionen
 * Skriv: Skapa eller uppdatera anpassad rolldefinition
 * Läs: Hämta rolltilldelningen
@@ -102,10 +102,11 @@ Att avgöra om din användarroll konto har behörigheterna som krävs:
     * **Rolltilldelningen** ska ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** ska ha **Läs** och **skriva** behörigheter.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Molnet Endpoint borttagningen misslyckas med felet: ”MgmtInternalError”**  
-Det här problemet kan inträffa om Azure file filresurs- eller kontot har tagits bort innan du tar bort slutpunkten molnet. Det här problemet korrigeras i en kommande uppdatering. Du kommer att kunna ta bort en Molnslutpunkt när du tar bort det Azure file share eller lagring som helst.
+<a id="server-endpoint-createjobfailed"></a>**Server-slutpunkten har skapats misslyckas med felet: ”MgmtServerJobFailed” (felkod:-2134375898)**                                                                                                                           
+Det här problemet uppstår om slutpunktsökväg server finns i systemvolymen och moln skiktning är aktiverad. Molnet skiktning stöds inte på systemvolymen. Inaktivera molnet skiktning när du skapar Serverslutpunkten om du vill skapa en serverslutpunkt för på systemvolymen.
 
-Under tiden för att förhindra det här problemet kan ta bort molnet slutpunkten innan du tar bort kontot Azure file share eller lagring.
+<a id="server-endpoint-deletejobexpired"></a>**Borttagning av slutpunkten misslyckas med felet: ”MgmtServerJobExpired”**                
+Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern på portalen som tar bort server-slutpunkter. Om du vill ta bort server-slutpunkter, följer du stegen som beskrivs i [Avregistrerar en server med Azure filsynkronisering](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresursen via SMB eller via portalen hur lång tid det tar för filen som synkroniseras till servrar i gruppen synkronisering?**  
@@ -113,16 +114,16 @@ Under tiden för att förhindra det här problemet kan ta bort molnet slutpunkte
 
 <a id="broken-sync"></a>**Synkronisering misslyckas på en server**  
 Om synkroniseringen misslyckas på en server:
-1. Kontrollera att det finns en Server-slutpunkt i Azure-portalen för den katalog som du vill synkronisera till en Azure filresurs:
+1. Kontrollera att det finns en serverslutpunkt i Azure-portalen för den katalog som du vill synkronisera till en Azure filresurs:
     
-    ![En skärmbild av en grupp för synkronisering med både en Molnslutpunkt och en slutpunkt för Server i Azure-portalen](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
+    ![En skärmbild av en grupp för synkronisering med både en molnslutpunkt och en serverslutpunkt i Azure-portalen](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
 2. Granska de operativa och diagnostik händelseloggar, finns under program- och Services\Microsoft\FileSync\Agent i Loggboken.
     1. Kontrollera att servern är ansluten till internet.
     2. Kontrollera att Azure filen Sync-tjänsten körs på servern. Öppna snapin-modulen tjänster i MMC för att göra detta, och kontrollera att lagring Sync Agent-tjänsten (FileSyncSvc) körs.
 
 <a id="replica-not-ready"></a>**Synkroniseringen misslyckas med felet: ”0x80c8300f - repliken är inte redo att utföra nödvändiga åtgärden”**  
-Det här problemet är förväntat om du skapar en Molnslutpunkt och använda en Azure-filresurs som innehåller data. När ändringen identifiering jobbet har slutförts körs på Azure-filresursen (det kan ta upp till 24 timmar) ska starta synkronisering fungerar korrekt.
+Det här problemet är förväntat om du skapar en molnslutpunkt och använda en Azure-filresurs som innehåller data. När ändringen identifiering jobbet har slutförts körs på Azure-filresursen (det kan ta upp till 24 timmar) ska starta synkronisering fungerar korrekt.
 
 <a id="broken-sync-files"></a>**Felsökning av enskilda filer som inte kan synkronisera**  
 Om det inte går att synkronisera enskilda filer:
@@ -133,6 +134,28 @@ Om det inte går att synkronisera enskilda filer:
     > Azure filsynkronisering tar regelbundet VSS-ögonblicksbilder för att synkronisera filer som har öppna referenser.
 
 ## <a name="cloud-tiering"></a>Lagringsnivåer för moln 
+Det finns två sökvägar för fel i moln skiktning:
+
+- Filer kan det hända att nivån, vilket innebär att Azure filsynkronisering fel försöker tjänstnivån en fil till Azure Files.
+- Filer kan det hända att återkalla, vilket innebär att Azure filsynkronisering Filsystemfilter (StorageSync.sys) går inte att hämta data när en användare attemptes åtkomst till en fil som har varit nivåer.
+
+Det finns två huvudsakliga klasser av fel som kan ske via antingen fel sökväg:
+
+- Molnet lagringsfel
+    - *Problem med tjänsters tillgänglighet tillfälliga lagringen*. Se [serviceavtalet (SLA) för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) för mer information.
+    - *Tillgänglig Azure-filresursen*. Det här felet inträffar oftast när du tar bort Azure-filresursen när det är fortfarande är en molnslutpunkt i en grupp för synkronisering.
+    - *Tillgänglig lagringskonto*. Det här felet inträffar oftast när du tar bort lagringskontot medan det fortfarande har en Azure-filresurs som är en molnslutpunkt i en grupp för synkronisering. 
+- Serverfel 
+    - *Filsynkronisering Filsystemfilter som Azure (StorageSync.sys) har inte lästs in*. För att kunna svara på skiktning/återkalla begäranden, måste Azure filsynkronisering Filsystemfilter läsas in. Filtret inte läses kan inträffa av olika orsaker, men den vanligaste orsaken är att en administratör minnet den manuellt. Azure filsynkronisering Filsystemfilter måste läsas in på alla tider för Azure filsynkronisering ska fungera korrekt.
+    - *Saknas, är skadad eller på annat sätt brutna referenspunkt*. En referenspunkt är en särskild datastruktur för en fil som består av två delar:
+        1. En referenspunkt-tagg som anger att operativsystemet Azure filsynkronisering Filsystemfilter (StorageSync.sys) kan behöva vidta vissa åtgärder i/o till filen. 
+        2. Referensdata som anger att filsystemet filtrera URI för filen på slutpunkten associerade molnet (Azure-filresursen). 
+        
+        Det vanligaste sättet kan vara skadade en referenspunkt är om en administratör försöker att ändra koden eller dess data. 
+    - *Problem med nätverksanslutning*. Servern måste ha Internetanslutning för att kunna återkalla en fil eller tjänstnivån.
+
+Följande avsnitt visar hur du felsöker problem med cloud lagringsnivåer och avgöra om ett problem är ett problem för lagring av molnet eller ett serverproblem med.
+
 <a id="files-fail-tiering"></a>**Felsökning av filer som inte tjänstnivån**  
 Om filerna inte tjänstnivån till Azure Files:
 

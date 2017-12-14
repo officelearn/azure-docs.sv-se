@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
 ---
@@ -50,23 +50,23 @@ Installera paketet [psycopg2](http://initd.org/psycopg/docs/install.html) för a
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn i Azure-portalen klickar du på **alla resurser** och Sök efter **mypgserver 20170401** (den server som du har skapat).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter **mypgserver-20170401** (den server som du skapade).
 3. Klicka på servernamnet **mypgserver-20170401**.
 4. Välj serverns sida **Översikt** och notera **Servernamn** och **Inloggningsnamn för serveradministratören**.
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/connect-python/1-connection-string.png)
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="how-to-run-python-code"></a>Så här kör du Python-kod
-Den här artikeln innehåller totalt fyra kodexempel som utför en specifik funktion. Följande anvisningar beskriver hur du skapar en textfil, infogar ett kodblock och sedan sparar filen så att du kan köra den senare. Se till att du skapar fyra olika filer, en för varje kodblock.
+Den här artikeln innehåller totalt fyra kodexempel som vart och ett utför en viss funktion. Följande anvisningar beskriver hur du skapar en textfil, infogar ett kodblock och sedan sparar filen så att du kan köra den senare. Se till att du skapar fyra olika filer, en för varje kodblock.
 
 - Skapa en ny fil i valfri textredigerare.
 - Kopiera och klistra in ett av kodexemplen i följande avsnitt i textfilen. Ersätt parametrarna **host**, **dbname**, **user** och **password** med de värden som du angav när du skapade servern och databasen.
-- Spara filen med filnamnstillägget .py (till exempel postgres.py) i projektmappen. Om du kör i Windows, måste du markera UTF-8-kodning när du sparar filen. 
-- Starta Kommandotolken, Terminal eller Bash-gränssnitt och ändra katalogen till projektmappen, till exempel `cd postgres`.
+- Spara filen med filnamnstillägget .py (till exempel postgres.py) i projektmappen. Om du kör Windows ska du se till att välja UTF-8-kodning när du sparar filen. 
+- Starta kommandotolken, terminalen eller Bash-gränssnittet och byt katalog till din projektmapp, till exempel `cd postgres`.
 -  Skriv Python-kommandot följt av filnamnet, till exempel `Python postgres.py`, för att köra koden.
 
 > [!NOTE]
-> Från och med Python version 3, kan du se felet `SyntaxError: Missing parentheses in call to 'print'` när du kör följande kodblock: om det händer kan ersätta varje anrop till kommandot `print "string"` med ett funktionsanrop med parenteser, till exempel `print("string")`.
+> Från och med Python version 3 kan det hända att du ser felet `SyntaxError: Missing parentheses in call to 'print'` när du kör följande kodblock: Om det händer ersätter du varje anrop till kommandot `print "string"` med ett funktionsanrop som använder parentes, t.ex. `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
 Använd följande kod för att ansluta och läsa in data med hjälp av funktionen [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) med en **INSERT**-SQL-instruktion. Funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) används för att köra SQL-frågor mot en PostgreSQL-databas. Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen.
@@ -110,7 +110,7 @@ conn.close()
 
 När koden har körts visas utdata på följande sätt:
 
-![Kommandoraden](media/connect-python/2-example-python-output.png)
+![Kommandoradsutdata](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Läsa data
 Använd följande kod för att läsa data som infogats med funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) med **SELECT** SQL-instruktionen. Den här funktionen accepterar en fråga och returnerar en resultatuppsättning som kan upprepas med hjälp av [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Ersätt parametrarna host, dbname,user och password med de värden som du angav när du skapade servern och databasen.

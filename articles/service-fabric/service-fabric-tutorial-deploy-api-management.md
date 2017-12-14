@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
 Den här kursen ingår fyra i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API-hantering är användbart när du vill publicera API: er med en omfattande uppsättning regler för vidarebefordran för backend-Service Fabric-tjänster. Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. En gateway kan vara alla tillståndslösa tjänster som utformats för trafik ingång, till exempel en APP.NET Core programmet Event Hubs, IoT-hubb eller Azure API Management i Service Fabric. 

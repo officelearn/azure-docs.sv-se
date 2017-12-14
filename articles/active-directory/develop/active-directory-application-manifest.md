@@ -4,7 +4,7 @@ description: "Detaljerad täckning av Azure Active Directory-programmanifestet s
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Förstå Azure Active Directory-programmanifestet
 Program som integreras med Azure Active Directory (AD) måste vara registrerad med en Azure AD-klient som tillhandahåller en permanent identitet konfiguration för programmet. Den här konfigurationen samråd vid körning, aktivera scenarier som gör att ett program för att flytta ut och broker autentisering/auktorisering via Azure AD. Mer information om Azure AD-programmodell finns i [att lägga till, uppdatera och ta bort ett program] [ ADD-UPD-RMV-APP] artikel.

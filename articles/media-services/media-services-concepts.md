@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: MT
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncepten
 Det här avsnittet ger en översikt av de viktigaste Media Services-begrepp.
@@ -151,16 +151,15 @@ Principen för auktorisering av innehållsnyckel kan ha en eller flera auktorise
 När du konfigurerar token begränsad princip, måste du ange primär Verifieringsnyckeln, utfärdare och målgrupp parametrar. Primära Verifieringsnyckeln innehåller den nyckel som token som signerats med, utfärdaren är den säkra tokentjänst som utfärdar token. Målgruppen (kallas ibland för scope) beskrivs syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen.
 
 Mer information finns i följande artiklar:
-
-[Skydda Innehållsöversikt](media-services-content-protection-overview.md)
-[skydda med AES-128](media-services-protect-with-aes128.md)
-[skydda med DRM](media-services-protect-with-drm.md)
+- [Skydda innehåll-översikt](media-services-content-protection-overview.md)
+- [Skydda med AES-128](media-services-protect-with-aes128.md)
+- [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Leverera
 ### <a id="dynamic_packaging"></a>Dynamisk paketering
 När du arbetar med Media Services, rekommenderas att koda mezzanine filerna till en MP4-uppsättningen med anpassad bithastighet och sedan konvertera uppsättningen till önskade format med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
-### <a name="streaming-endpoint"></a>Strömmande slutpunkt
+### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning
 En StreamingEndpoint representerar en strömmande tjänst som kan leverera innehåll direkt till ett klientprogram player eller till en innehåll innehållsleveransnätverk (CDN) för vidare distribution (Azure Media Services tillhandahåller nu Azure CDN-integration.) Utgående dataströmmen från en strömmande slutpunkt-tjänst kan vara en direktsänd dataström eller en video på begäran tillgångar i Media Services-kontot. Media Services-kunder väljer antingen en **Standard**-slutpunkt för direktuppspelning eller en eller flera **Premium**-slutpunkter för direktuppspelning, utifrån behov. Standard strömmande slutpunkten är lämplig för de flesta strömmande arbetsbelastningar. 
 
 Standard-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Standard Strömningsslutpunkter ger flexibilitet för att leverera ditt innehåll till praktiskt taget alla enheten via dynamisk paketering till HLS, MPEG DASH, Smooth Streaming samt och dynamisk kryptering för Microsoft PlayReady, Google Widevines, Apple Fairplay och AES128.  De även skala från mycket små till stora målgrupper med tusentals samtidiga användare via Azure CDN-integrering. Om du har en avancerad arbetsbelastning eller dina strömmande kapacitetskrav inte får plats på standard strömmande slutpunkten genomströmning mål eller du vill styra tjänsten StreamingEndpoint förmåga att hantera växande behov av bandbredd, rekommenderas att allokera skalenheter (även kallat premium enheter för strömning).
@@ -191,7 +190,7 @@ För att ge användare URL: er för progressiv nedladdning måste skapa du förs
 
 http://amstest1.Streaming.mediaservices.Windows.NET/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>Strömmande URL: er
+### <a name="streaming-urls"></a>Direktuppspelnings-URL:er
 Direktuppspelning av ditt innehåll till klienter. För att ge användare URL: er för strömning måste skapa du först en OnDemandOrigin-positionerare. Skapa positioneraren ger rotsökvägen till den tillgång som du vill strömma innehållet. Men om du vill kunna strömma innehållet behöver du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till den strömmande manifestfilen måste du sammanfoga värdet för den positionerare sökväg och manifestet (filename.ism) namn. Lägg sedan till /Manifest och ett lämpligt format (vid behov) till sökvägen lokaliserare.
 
 Du kan också strömma ditt innehåll via en SSL-anslutning. Gör detta genom att kontrollera att din strömmande URL: er som börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  

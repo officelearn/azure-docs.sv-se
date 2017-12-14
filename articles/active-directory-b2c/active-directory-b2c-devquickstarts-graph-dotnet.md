@@ -4,7 +4,7 @@ description: "Så att anropa Graph API för en B2C-klient med hjälp av en progr
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använda Azure AD Graph API
 
@@ -71,7 +71,7 @@ Nu har du ett program som har behörighet att skapa, läsa och uppdatera använd
 ## <a name="configure-delete-permissions-for-your-application"></a>Konfigurera behörighet att ta bort programmet
 För närvarande den *läsning och skrivning katalogdata* behörighet har **inte** omfattar möjligheten att göra eventuella borttagningar, till exempel ta bort användare. Om du vill ge ditt program möjlighet att ta bort användare måste du utföra de här extra stegen som rör PowerShell, annars kan du gå till nästa avsnitt.
 
-Om du inte redan har installerats, installerar du först den [Azure AD PowerShell v1-modulen (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+Om du inte redan har installerats, installerar du först den [Azure AD PowerShell v1-modulen (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

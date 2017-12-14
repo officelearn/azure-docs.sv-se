@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ CosmosDB | Saknas
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | Saknas
 Notification Hubs | Saknas
-Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
-Storage-kö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Lagringskö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabell för lagring | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
 Twilio | Saknas
@@ -213,7 +213,7 @@ Den `@BindingName` anteckningen accepterar en `String` egenskap som representera
 
 Så när den här funktionen anropas nyttolasten för HTTP-begäran skickas en valfri `String` för argumentet `in` och en Azure-tabellagring `MyObject` typ skickades till argumentet `obj`. Använd den `Optional<T>` typen för att hantera indata till dina funktioner som kan vara null.
 
-## <a name="outputs"></a>utdata
+## <a name="outputs"></a>Utdata
 
 Utdata kan uttryckas både i returvärde eller utdataparametrar. Om det finns endast en utdata, rekommenderas du att använda det returnera värdet. Du måste använda utdataparametrar flera utdata.
 
@@ -270,7 +270,7 @@ som ska definiera utdata-bindning i `function.json`:
 
 En funktion måste ibland har detaljerad kontroll över indata och utdata. Särskilda typer i den `azure-functions-java-core` paketet har angetts för att manipulera begäraninformation och anpassa returnera statusen för en HTTP-utlösare:
 
-| Specialiserad typ      |       mål        | Normal användning                  |
+| Specialiserad typ      |       Mål        | Normal användning                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP-utlösare     | Hämta-metoden, sidhuvud eller frågor |
 | `HttpResponseMessage<T>` | Utdata för HTTP-bindning | Returstatus än 200   |

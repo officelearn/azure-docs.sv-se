@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om API Management
+metadata:
+  title: "Dokumentation om Azure API Management – självstudier, API-referens | Microsoft Docs"
+  description: "Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Självstudier, API-referenser och annan dokumentation visar hur du skapar och hanterar moderna API-gatewayer för befintliga serverdelstjänster var som helst."
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+  ms.openlocfilehash: 4a07555023e86dae1d77cc85cdcd5d10abb4bd96
+  ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/04/2017
+abstract:
+  description: "Lär dig hur du använder API Management för att publicera API:er till externa, partner och anställda utvecklare säkert och i större skala. Självstudier, API-referenser och annan dokumentation visar hur du skapar och hanterar moderna API-gatewayer för befintliga serverdelstjänster var som helst."
+sections:
+- title: "Snabbstarter på fem minuter"
+  items:
+  - type: paragraph
+    text: Skapa en API Management-instans.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: "Skapa en instans – portalen"
+      href: /azure/api-management/get-started-create-service-instance
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: "Skapa en instans – PowerShell"
+      href: /azure/api-management/powershell-create-service-instance
+- title: "Stegvisa självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du hanterar API Management."
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"/azure/api-management/import-and-publish\">Importera och publicera ditt första API</a>"
+    - html: <a href="/azure/api-management/api-management-howto-add-products">Skapa och publicera en produkt</a>
+    - html: <a href="/azure/api-management/mock-api-responses">Fingera API-svar</a>
+    - html: <a href="/azure/api-management/transform-api">Transformera och skydda ditt API</a>
+    - html: "<a href=\"/azure/api-management/api-management-howto-use-azure-monitor\">Övervaka publicerade API: er</a>"
+    - html: "<a href=\"/azure/api-management/api-management-howto-api-inspector\">Felsöka API: er med hjälp av spårning av förfrågningar</a>"
+    - html: "<a href=\"/azure/api-management/api-management-get-started-revise-api\">Använda revideringar för att göra ändringar på ett säkert sätt</a>"
+    - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicera flera versioner av ditt API</a>
+    - html: "<a href=\"/azure/api-management/api-management-customize-styles\">Anpassa stilen på utvecklingsportalens sidor</a>"
+- title: Exempel
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/api-management/policy-samples">Princip</a>
+    - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

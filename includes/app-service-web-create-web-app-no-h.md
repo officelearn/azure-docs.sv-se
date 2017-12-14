@@ -1,6 +1,6 @@
-I Cloud Shell skapar du en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). 
+I Cloud Shell skapar du en [webbapp](../articles/app-service/app-service-web-overview.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create). 
 
-I följande exempel ersätter  *\<appnamn >* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). 
+Ersätt *\<app_name>* med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -24,13 +24,13 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Du har skapat en tom webbapp med git-distribution som är aktiverad.
+Du har skapat en tom webbapp med git-distribution aktiverad.
 
 > [!NOTE]
-> URL för Git-fjärråtkomstprincipen visas i den `deploymentLocalGitUrl` egenskap med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL: en som du behöver senare.
+> URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >
 
-Bläddra till den nya webbappen.
+Bläddra till webbappen som precis skapades.
 
 ```bash
 http://<app_name>.azurewebsites.net

@@ -4,7 +4,7 @@ description: "Olicensierad användning rapporten kan du identifiera ej licensier
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92138f43-9528-4c8a-b834-66a47da476e3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Olicensierad användningsrapporten
 Olicensierad användning rapporten kan du identifiera ej licensierade användare som använder betald Azure AD-funktioner. Detta gör att du kan göra bättre användning av licenser som du har köpt och för att identifiera du vet när du eventuellt ytterligare licenser. 
@@ -27,7 +27,7 @@ Rapporten visar aktiva användning av funktionerna för betalda under de senaste
 ## <a name="report-structure"></a>Rapporten struktur
 | Kolumnnamn | Beskrivning |
 |:--- |:--- |
-| Olicensierad användare |Namnet på användaren |
+| Olicensierad användare |Användarens namn |
 | Funktion |Funktionsnamnet. Till exempel: villkorlig åtkomst |
 | Program som nås |Namnet på det program som nås med funktionen. Till exempel: Office 365 SharePoint Online |
 

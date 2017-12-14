@@ -4,7 +4,7 @@ description: "Lär dig hur du anpassar anspråk som utfärdats i SAML-token för
 services: active-directory
 documentationcenter: 
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Anpassa anspråk som utfärdats i SAML-token för företagsprogram i Azure Active Directory
 Idag Azure Active Directory har stöd för enkel inloggning på med de flesta företagsprogram, inklusive både program redan integrerade i Azure AD app-galleriet och anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av SAML 2.0-protokollet, skickar en token i Azure AD till programmet (via en HTTP POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga efter användarnamn och lösenord. Dessa SAML-token innehålla uppgifter om användaren som kallas ”anspråk”.

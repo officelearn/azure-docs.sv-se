@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e2df8fcbd342012e5e76730a68d9c72ce3264d8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till OMS logganalys
 
@@ -43,7 +43,7 @@ Om du vill börja skicka Automation DSC-rapporter till logganalys, behöver du:
 
 För att börja importera data från Azure Automation DSC till logganalys, gör du följande:
 
-1. Logga in på ditt Azure-konto i PowerShell. Se [logga in med Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Logga in på ditt Azure-konto i PowerShell. Se [logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Hämta den _ResourceId_ för automation-konto genom att köra följande PowerShell-kommando: (om du har mer än en automation-kontot väljer du den _ResourceID_ för det konto som du vill konfigurera).
 
   ```powershell

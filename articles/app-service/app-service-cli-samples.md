@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -29,6 +29,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | | |
 |-|-|
 |**Skapa app**||
+| [Skapa en webbapp och distribuera filer med FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en Azure webbapp och distribuerar en fil till den med hjälp av FTP. |
 | [Skapa en webbapp och distribuera kod från GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en Azure webbapp och distribuerar kod från en offentlig GitHub-databas. |
 | [Skapa en webbapp med kontinuerlig distribution från GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure-webbapp med kontinuerlig publicering från en GitHub-databas som du äger. |
 | [Skapa en webbapp och distribuera kod från en lokal Git-databas](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure-webbapp och konfigurerar push kod från en lokal Git-lagringsplats. |
@@ -45,6 +46,10 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Ansluta en webbapp till ett lagringskonto](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar ett Azure webbapp och ett lagringskonto och sedan lägger till lagringsanslutningssträngen i app-inställningar. |
 | [Ansluta en webbapp till ett redis-cache](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure webbapp och ett redis-cache och sedan lägger till redis-anslutningsinformationen i appinställningar.) |
 | [Ansluta en webbapp till Cosmos DB](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure webbapp och en Cosmos-DB och sedan lägger till Cosmos-DB-anslutningsinformationen i app-inställningar. |
+|**Säkerhetskopiera och återställa app**||
+| [Säkerhetskopiera en webbapp](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en Azure webbapp och skapar en enstaka säkerhetskopia för den. |
+| [Skapa en schemalagd säkerhetskopiering för en webbapp](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en Azure webbapp och skapar en schemalagd säkerhetskopiering för den. |
+| [Återställa en webbapp från en säkerhetskopia](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Återställer en Azure-webbapp från en säkerhetskopia. |
 |**Övervaka app**||
 | [Övervaka en webbapp med webbserverloggar](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar ett Azure-webbapp, aktiverar loggning för den och hämtar loggarna till din lokala dator. |
 | | |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomstkontroll i Application Insights
 Du kan styra vem som har läs- och uppdatera åtkomst till dina data i Azure [Programinsikter][start], med hjälp av [rollbaserad åtkomstkontroll i Microsoft Azure](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ Första vissa definitioner:
 
     ![Klicka på Bläddra, resursgrupper, och välj sedan en grupp](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Prenumerationen** ](https://manage.windowsazure.com) - om du vill använda Application Insights eller andra Azure-resurser som du loggar in på en Azure-prenumeration. Varje resursgrupp som hör till en Azure-prenumeration där du väljer pris-paketet och, om det är en organisation prenumeration, Välj medlemmar och deras behörigheter för åtkomst.
+* [**Prenumerationen** ](https://portal.azure.com) - om du vill använda Application Insights eller andra Azure-resurser som du loggar in på en Azure-prenumeration. Varje resursgrupp som hör till en Azure-prenumeration där du väljer pris-paketet och, om det är en organisation prenumeration, Välj medlemmar och deras behörigheter för åtkomst.
 * [**Microsoft-konto** ] [ account] -användarnamn och lösenord som du använder för att logga in på Microsoft Azure-prenumerationer, XBox Live, Outlook.com och andra Microsoft-tjänster.
 
 ## <a name="access"></a>Kontrollera åtkomst i resursgruppen
@@ -80,7 +80,7 @@ Eller gå in en annan och lägga till användaren till prenumerationen.
 'Redigera' omfattar att skapa, ta bort och uppdatera:
 
 * Resurser
-* Webbtester
+* Webbtest
 * Aviseringar
 * Löpande export
 

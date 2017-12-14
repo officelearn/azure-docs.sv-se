@@ -4,7 +4,7 @@ description: "När du planerar din hybrididentitetslösning identifiera dataskyd
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planera för att förbättra datasäkerhet via starkt identitetslösning
 Det första steget att skydda data är identifiera vem som kan komma åt dessa data och som en del av den här processen måste du ha en identitet lösning som kan integreras med systemet innehåller funktioner för autentisering och auktorisering. Autentisering och auktorisering ihop ofta med varandra och deras roller tror många. I verkligheten är de helt annorlunda, som visas i bilden nedan:

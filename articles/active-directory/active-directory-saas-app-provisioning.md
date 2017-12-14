@@ -4,7 +4,7 @@ description: "En introduktion till hur du kan använda Azure AD för att automat
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd82ef109abbc5707db4c02c2f14f9d55dfb74e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användaren etablering och avetablering för SaaS-program med Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Vad är automatisk användaretablering för SaaS-appar?
@@ -64,7 +64,7 @@ Den **Etableringstjänsten i Azure AD** etablerar du SaaS-appar och andra system
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan du använda med Azure AD automatisk användaretablering?
 
-Azure AD-funktioner redan integrerade stöd för en mängd olika populära SaaS-appar och personal-system, samt allmänna stöd för appar som implementerar vissa delar av den [SCIM 2.0 standard](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Azure AD-funktioner redan integrerade stöd för en mängd olika populära SaaS-appar och personal-system, samt allmänna stöd för appar som implementerar vissa delar av den [SCIM 2.0 standard](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Alla ”aktuell” appar i Azure AD application gallery stöder automatisk användaretablering. [Lista över aktuella appar kan visas här.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

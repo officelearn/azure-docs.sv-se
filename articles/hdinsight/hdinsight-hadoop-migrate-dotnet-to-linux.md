@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2657db61ff3161cd87bc97edfe5f84f8b29cbcfb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET lösningar för Windows-baserade HDInsight på Linux-baserat HDInsight
 
@@ -28,7 +28,7 @@ Linux-baserade HDInsight-kluster Använd [Mono (https://mono-project.com)](https
 
 ## <a name="mono-compatibility-with-net"></a>Monoljud kompatibilitet med .NET
 
-Monoljud version 4.2.1 ingår i HDInsight version 3.5. Mer information om versionen av Mono som ingår i HDInsight finns [HDInsight komponenten versioner](hdinsight-component-versioning.md). Om du vill installera en viss version av Mono den [installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md) dokumentet.
+Monoljud version 4.2.1 ingår i HDInsight version 3,6. Mer information om versionen av Mono som ingår i HDInsight finns [HDInsight komponenten versioner](hdinsight-component-versioning.md). Om du vill installera en viss version av Mono den [installera eller uppdatera Mono](hdinsight-hadoop-install-mono.md) dokumentet.
 
 Mer information om kompatibilitet mellan Mono och .NET finns i [monoljud kompatibilitet (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentet.
 

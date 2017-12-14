@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Dokumentation om Azure Monitor
 metadata:
-  title: 'Dokumentation om Azure Monitor – självstudier, API-referens | Microsoft Docs'
-  description: 'Azure Monitor är en del av Microsoft Azures övergripande övervakningslösning. Med Azure Monitor kan du spåra prestanda, underhålla säkerhet och identifiera trender. Lär dig att granska, skapa aviseringar och arkivera data med våra snabbstarter och självstudier.'
+  title: "Dokumentation om Azure Monitor – självstudier, API-referens | Microsoft Docs"
+  description: "Azure Monitor är en del av Microsoft Azures övergripande övervakningslösning. Med Azure Monitor kan du spåra prestanda, underhålla säkerhet och identifiera trender. Lär dig att granska, skapa aviseringar och arkivera data med våra snabbstarter och självstudier."
   services: monitoring-and-diagnostics
   author: czeumault
   manager: carolz
@@ -13,60 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: 44a32aae5b2e98e1f29ee56631e50c84dfe18902
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Azure Monitor är en del av Microsoft Azures övergripande övervakningslösning. Med Azure Monitor kan du spåra prestanda, underhålla säkerhet och identifiera trender. Lär dig att granska, skapa aviseringar och arkivera data med våra snabbstarter och självstudier.'
+  description: "Azure Monitor är en del av Microsoft Azures övergripande övervakningslösning. Med Azure Monitor kan du spåra prestanda, underhålla säkerhet och identifiera trender. Lär dig att granska, skapa aviseringar och arkivera data med våra snabbstarter och självstudier."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att ta emot meddelanden när vissa villkor sker i ditt Azure-program."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Lär dig att ta emot meddelanden när vissa villkor sker i ditt Azure-program.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/Chart.svg'
-            text: Övervaka mått
-            href: monitor-quick-resource-metric-alert-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_alert.svg'
-            text: Granskning och aviseringar för prenumeration
-            href: monitor-quick-audit-notify-action-in-subscription
-  - title: Stegvisa självstudier
+    - image:
+        src: https://docs.microsoft.com/media/common/Chart.svg
+      text: "Övervaka mått"
+      href: monitor-quick-resource-metric-alert-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_alert.svg
+      text: "Granskning och aviseringar för prenumeration"
+      href: monitor-quick-audit-notify-action-in-subscription
+- title: "Stegvisa självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig om autoskalning och att arkivera dina övervakningsdata."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Lär dig om autoskalning och att arkivera dina övervakningsdata.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoskala baserat på schema eller programprestanda</a>
-          - html: <a href="monitor-tutorial-archive-monitoring-data">Arkivera övervakningsdata</a>
-  - title: Kostnadsfri videoutbildning för PluralSight
+    - html: "<a href=\"monitor-tutorial-autoscale-performance-schedule\">Autoskala baserat på schema eller programprestanda</a>"
+    - html: "<a href=\"monitor-tutorial-archive-monitoring-data\">Arkivera övervakningsdata</a>"
+- title: "Kostnadsfri videoutbildning för PluralSight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Kom igång med IaaS-övervakning
-            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-          - title: Hantera infrastruktur i Microsoft Azure
-            href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
-  - title: Referens
+    - title: "Kom igång med IaaS-övervakning"
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+    - title: Hantera infrastruktur i Microsoft Azure
+      href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">Azure CLI</a></p><p><a href="/powershell/module/azurerm.insights">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/monitor/">REST</a></p>
-          - title: Övervakning
-            html: '<p><a href="monitoring-supported-metrics">Mått som stöds</a></p><p><a href="monitoring-diagnostic-logs-schema">Tjänster, kategorier och scheman för diagnostikloggar</a></p><p><a href="monitoring-activity-log-schema">Händelseschema för aktivitetslogg</a></p>'
-          - title: Diagnostik
-            html: <p><a href="azure-diagnostics-schema">Schema för Azure Diagnostics-tillägg</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">Azure CLI</a></p><p><a href="/powershell/module/azurerm.insights">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/monitor/">REST</a></p>
+    - title: "Övervakning"
+      html: "<p><a href=\"monitoring-supported-metrics\">Mått som stöds</a></p><p><a href=\"monitoring-diagnostic-logs-schema\">Tjänster, kategorier och scheman för diagnostikloggar</a></p><p><a href=\"monitoring-activity-log-schema\">Händelseschema för aktivitetslogg</a></p>"
+    - title: Diagnostik
+      html: "<p><a href=\"azure-diagnostics-schema\">Schema för Azure Diagnostics-tillägg</a></p>"

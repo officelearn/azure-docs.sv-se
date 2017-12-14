@@ -4,21 +4,21 @@ description: "Det här avsnittet ger en detaljerad översikt över riskhändelse
 services: active-directory
 keywords: "Azure active directory identitetsskydd, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -31,9 +31,13 @@ För närvarande identifierar Azure Active Directory sex typer av riskhändelser
 - [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) 
 - [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) 
 - [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) (exklusivt för **Azure Active Directory Premium P2** versioner)
+- [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risk händelse](./media/active-directory-reporting-risk-events/91.png)
+
+Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Om du har en Azure AD Premium P1-version (ingår i EMS E3 erbjudande) identifieringar som inte omfattas av din licens rapporteras som **logga in med ytterligare risker som identifierats**. Med andra ord kan du se en risk händelse logga in med ytterligare risk upptäcktes för identifieringar exklusivt för Azure AD Identity Protection prenumeranter.
+
 
 Det här avsnittet får du en detaljerad översikt över vilka riskhändelser är och hur du kan använda dem för att skydda din Azure AD-identiteter.
 
@@ -62,17 +66,17 @@ När tjänsten får användarnamn / lösenord par de kontrolleras mot AAD använ
 Den här typen av risk händelse identifierar användare som har loggat in från en IP-adress har identifierats som en anonym proxyserver IP-adress. Dessa proxyservrar används av personer som du vill dölja enhetens IP-adress och kan användas för skadliga åtgärder.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjlig resa till ej typiska platser
 
-Den här typen av risk händelse identifierar två inloggningar som sker från geografiskt avlägsna platser, där minst en av platserna kanske också onormal för användaren, anges tidigare beteende. Dessutom är tiden mellan de två inloggningarna kortare än den tid som det skulle ha tagit användaren att förflytta sig från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter. 
+Den här typen av risk händelse identifierar två inloggningar som sker från geografiskt avlägsna platser, där minst en av platserna kanske också onormal för användaren, anges tidigare beteende. Bland flera andra faktorer tar machine learning algoritmen hänsyn till tiden mellan de två inloggningarna och den tid som det skulle ha tagit för användaren att förflytta sig från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter.
 
-Den här maskininlärningsalgoritmen som ignorerar uppenbara ”*falska positiva identifieringar*” bidrar till villkoret omöjligt att resa till exempel VPN och platser som regelbundet används av andra användare i organisationen.  Systemet har en inledande learning-period på 14 dagar då den lär sig en ny användare loggar in beteende.
+Algoritmen ignorerar uppenbara ”falska positiva identifieringar” bidrar till omöjligt att resa-villkor, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Systemet har en inledande learning-period på 14 dagar då den lär sig en ny användare loggar in beteende. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logga in från okända platser
 
 Den här typen av risk händelse anser tidigare inloggning platser (IP, latitud / longitud och ASN) att fastställa nya / okända platser. Systemet lagrar information om tidigare platser som används av en användare så att dessa ”bekant” platser. Risk-händelsen utlöses när inloggningen sker från en plats som inte är redan i listan över välkända platser. Systemet har en inledande learning-period på 30 dagar då inte flaggas några nya platser som okända platser. Inloggningar från bekant enheter och platser som är geografiskt nära en bekant plats ignoreras också. 
 
-### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
+### <a name="sign-ins-from-infected-devices"></a>Inloggningar från smittade enheter
 
 Den här typen av risk händelse identifierar inloggningar från enheter som infekterats med skadlig kod, som är kända aktivt kommunicera med en botserver. Detta bestäms genom att sammanföra IP-adresser för användarens enhet mot IP-adresser som varit i kontakt med en botserver. 
 
@@ -132,7 +136,7 @@ Risknivå för den här typen av risk händelse är **medel** eftersom en anonym
 Vi rekommenderar att du omedelbart kontaktar användaren för att kontrollera om de använder anonym IP-adresser.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjlig resa till ej typiska platser
 
 Omöjlig resa är vanligtvis en bra indikator som en hackare har kunnat har inloggning. FALSKT positiva kan dock uppstå när en användare reser med hjälp av en ny enhet eller en VPN-anslutning som normalt inte används av andra användare i organisationen. En annan källa för falskt positiva är program som skickar felaktigt server IP-adresser som klient IP-adresser, som kan ge ut av inloggningar äger rum från datacentret där programmet har backend-värd (det är ofta Microsoft datacenter, vilket kan ge intryck av inloggningar tar placera från Microsoft som ägs av IP-adresser). På grund av dessa FALSKT positiva risknivå för den här risken händelsen är **medel**.
 
@@ -143,7 +147,7 @@ Omöjlig resa är vanligtvis en bra indikator som en hackare har kunnat har inlo
 
 Okända platser kan ge en stark indikation på att en angripare kan använda en stulen identitet. FALSE-positiva identifieringar kan uppstå när en användare reser, testar en ny enhet eller använder en ny VPN-anslutning. På grund av dessa falska positiva identifieringar risknivå för den här händelsen är **medel**.
 
-### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
+### <a name="sign-ins-from-infected-devices"></a>Inloggningar från smittade enheter
 
 Den här risken händelsen identifierar IP-adresser, inte användarenheter. Om flera enheter som finns bakom en IP-adress och endast vissa är styrs av ett bot nätverk, inloggningar från andra enheter min utlösaren händelsen i onödan, vilket är orsaken till att klassificera risk händelsen som **låg**.  
 

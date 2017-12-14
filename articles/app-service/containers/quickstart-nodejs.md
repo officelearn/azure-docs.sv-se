@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Node.js i Azure App Service på Linux | Microsoft Docs"
-description: "Distribuera din första Node.js Hello World i Azure App Service på Linux i minuter."
+title: Skapa en Node.js i Azure App Service i Linux | Microsoft Docs
+description: "Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service på Linux
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-webbapp i Azure App Service i Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här snabbstarten visar hur du distribuera en Node.js-app till App Service i Linux med hjälp av en inbyggd avbildning. Du skapar webbappen med inbyggda avbildningen med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), och du använder Git för att distribuera Node.js-kod till webbappen.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Node.js-app till App Service i Linux med hjälp av en inbyggd avbildning. Du skapar webbappen med inbyggd avbildning med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). Använd Git för att distribuera Node.js-koden till webbappen.
 
 ![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -40,7 +40,7 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando för att klona exempel app lagringsplatsen till den lokala datorn i ett terminalfönster på din dator.
+Kör följande kommando i ett terminalfönster på din dator för att klona databasen för exempelappen till den lokala datorn.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -62,7 +62,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda `npm s
 npm start
 ```
 
-Öppna en webbläsare och gå till exempelapp på `http://localhost:1337`.
+Öppna en webbläsare och navigera till exempelappen på `http://localhost:1337`.
 
 Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
@@ -82,7 +82,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med din webbprogrammets namn.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;app name>_ med namnet på din webbapp.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,15 +134,15 @@ Bläddra till den distribuerade appen via webbläsaren.
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js-exempelkod körs i en webbapp med inbyggda avbildning.
+Node.js-exempelkoden körs i en webbapp med inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Grattis!** Du har distribuerat din första Node.js-app till App Service på Linux.
+**Grattis!** Nu har du distribuerat din första Node.js-app till App Service i Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
-I den lokala katalogen öppnar den `index.js` filen i Node.js-app och göra en mindre ändring i texten i anropet till `response.end`:
+Öppna filen `index.js` i Node.js-appen i den lokala katalogen och gör små ändringar i texten i anropet till `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

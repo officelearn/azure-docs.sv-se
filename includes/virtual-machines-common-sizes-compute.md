@@ -1,6 +1,6 @@
 <!-- F-series, Fs-series* -->
 
-Beräkna optimerade VM-storlekar har förhållandet hög CPU-minne och är bra för medelhög trafik webbservrar, nätverksinstallationer, batchprocesser och programservrar. Den här artikeln innehåller information om antalet vCPUs, diskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen.
+Beräkna optimerade VM-storlekar har förhållandet hög CPU-minne och är bra för medelhög trafik webbservrar, nätverksinstallationer, batchprocesser och programservrar. Den här artikeln innehåller information om antalet vCPUs, datadiskar och nätverkskort samt lagring genomflöde och nätverket bandbredden för varje storlek i den här grupperingen.
 
 Fsv2-serien är baserad på Intel® Xeon® Platina 8168-processor med en frekvens som bas core 2.7 GHz och en största enkel kärna turbo frekvens 3.7 GHz. Intel® AVX-512 instruktioner som är nya Intel skalbara processorer, ger upp till en 2 X prestandaökning vector bearbetning arbetsbelastningarna på både enkla och dubbla precision flytande punkt åtgärder. De är med andra ord verkligen snabb för alla beräkningar arbetsbelastning. 
 
@@ -12,11 +12,11 @@ De virtuella datorerna i F-serien är ett utmärkt alternativ för arbetsbelastn
 
 Fs-serien ger alla fördelar med F-serien, och Premium-lagring.
 
-## <a name="fsv2-series"></a>Fsv2-serien
+## <a name="fsv2-series-sup1sup"></a>Fsv2-serien <sup>1</sup>
 
 ACU: 195-210
 
-| Storlek             | Vcpu's | Minne: GiB | Lokal SSD: GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
+| Storlek             | Vcpu's | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Mellan                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Mellan                                       |
@@ -26,8 +26,9 @@ ACU: 195-210
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Mycket hög                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Mycket hög                                 |
 
+<sup>1</sup>Fsv2-serien VM funktion Intel® flertrådsteknik
 
-## <a name="fs-series"></a>Fs-serien*
+## <a name="fs-series-sup1sup"></a>FS-serien <sup>1</sup>
 
 ACU: 210–250
 
@@ -41,7 +42,7 @@ ACU: 210–250
 
 Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
-*Det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i Fs-serien kan begränsas av de anslutna diskarnas antal, storlek och striping.  Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> maximal disk-genomströmning (IOPS eller Mbit/s) möjligt med en Fs serie VM kan begränsas av hur många storlek och striping av de anslutna diskarna.  Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

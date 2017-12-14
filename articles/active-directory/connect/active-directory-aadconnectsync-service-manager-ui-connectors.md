@@ -4,7 +4,7 @@ description: "Förstå fliken kopplingar i hanteraren för synkroniseringstjäns
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Med hjälp av anslutningar med Azure AD Connect Sync Service Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Fliken kopplingar används för att hantera alla system Synkroniseringsmotorn är ansluten till.
 
 ## <a name="connector-actions"></a>Åtgärder för kopplingen
-| Åtgärd | Kommentar |
+| Åtgärd | Kommentera |
 | --- | --- |
 | Skapa |Använd inte. Använd installationsguiden för att ansluta till ytterligare AD-skogar. |
 | Egenskaper |Används för domän- och organisationsenhetsfiltrering. |
@@ -39,7 +39,7 @@ Fliken kopplingar används för att hantera alla system Synkroniseringsmotorn ä
 | Exportera koppling |Använd inte. |
 | Importera koppling |Använd inte. |
 | Uppdatera anslutningen |Använd inte. |
-| Uppdatera Schema |Uppdaterar cachelagrade schemat. Det är att föredra att använda alternativet i installationsguiden i stället eftersom som också uppdateringar synkroniseras regler. |
+| Uppdatera schema |Uppdaterar cachelagrade schemat. Det är att föredra att använda alternativet i installationsguiden i stället eftersom som också uppdateringar synkroniseras regler. |
 | [Söka Anslutarplats](#search-connector-space) |Används för att söka efter objekt och [följer ett objekt och dess data genom systemet](#follow-an-object-and-its-data-through-the-system). |
 
 ### <a name="delete"></a>Ta bort

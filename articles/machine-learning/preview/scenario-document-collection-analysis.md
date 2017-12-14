@@ -2,18 +2,17 @@
 title: Dokumentera samling analys - Azure | Microsoft Docs
 description: "Så här sammanfatta och analysera en stor mängd dokument, inklusive tekniker som frasen learning, avsnittet modellering och avsnittet modellen analysis använder Azure ML-arbetsstationen."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Dokumentet samling analys
 
@@ -72,7 +71,7 @@ Skapa ett nytt projekt med det här exemplet som mall:
 
 ## <a name="data-description"></a>Beskrivning av data
 
-Dataset som används i detta scenario innehåller text sammanfattningar och associerade metadata för varje lagar åtgärd som tar med Congress oss. Data samlas in från [GovTrack.us](https://www.govtrack.us/), som spårar aktiviteter för USA Congress och hjälper Americans delta i sina nationella lagstiftningen. Stora mängder data kan hämtas [länken](https://www.govtrack.us/data/congress/) med hjälp av en manuell skript som inte ingår i det här scenariot. Information om hur du hämtar data hittades i den [GovTrack API-dokumentationen](https://www.govtrack.us/developers/api).
+Dataset som används i detta scenario innehåller text sammanfattningar och associerade metadata för varje rättsliga åtgärder som vidtas av Congress oss. Data samlas in från [GovTrack.us](https://www.govtrack.us/), som spårar aktiviteter för USA Congress och hjälper Americans delta i sina nationella lagstiftningen. Stora mängder data kan hämtas [länken](https://www.govtrack.us/data/congress/) med hjälp av en manuell skript som inte ingår i det här scenariot. Information om hur du hämtar data hittades i den [GovTrack API-dokumentationen](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Datakälla
 

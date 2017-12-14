@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -46,9 +46,11 @@ I det här scenariot fokuserar på arbetsbelastningen förutsägelsen för varje
 Förutsättningar för att kunna köra det här exemplet är följande:
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
-* En installerad kopia av [Machine Learning arbetsstationen](./overview-what-is-azure-ml.md). Om du vill installera programmet och skapa en arbetsyta, finns det [quickstart installationsguiden](./quickstart-installation.md).
+* En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md). Om du vill installera programmet och skapa en arbetsyta, finns det [quickstart installationsguiden](./quickstart-installation.md). Om du har flera prenumerationer, kan du [ange den önskade prenumerationen ska den aktuella aktiva prenumerationen](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (instruktionerna i det här exemplet är vanligtvis samma för macOS system).
-* En datavetenskap virtuell dator (DSVM) för Linux (Ubuntu). Du kan etablera ett Ubuntu DSVM genom att följa [instruktionerna](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Du kan också se [denna Snabbstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 32 GB minne. Du behöver DSVM IP-adress, användarnamn och lösenord för att testa det här exemplet. Spara i följande tabell med DSVM information senare stegen:
+* En Data vetenskap virtuell dator (DSVM) för Linux (Ubuntu), helst i östra USA region där data söker efter. Du kan etablera ett Ubuntu DSVM genom att följa [instruktionerna](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du kan också se [denna Snabbstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 32 GB minne. 
+
+Följ den [instruktion](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) att aktivera lösenord mindre sudoer åtkomst på den virtuella datorn för AML arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML arbetsstationen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord att komma åt den virtuella datorn.  Spara i följande tabell med DSVM information senare stegen:
 
  Fältnamn| Värde |  
  |------------|------|
@@ -56,9 +58,10 @@ DSVM IP-adress | xxx|
  Användarnamn  | xxx|
  Lösenord   | xxx|
 
+
  Du kan välja att använda en virtuell dator med [Docker-motorn](https://docs.docker.com/engine/) installerad.
 
-* Ett HDInsight Spark-kluster med Hortonworks Data Platform 3,6 och Spark-versionen 2.1.x. Besök [skapar ett Apache Spark-kluster i Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) mer information om hur du skapar HDInsight-kluster. Vi rekommenderar tre worker-kluster med varje arbetsprocessen har 16 kärnor och 112 GB minne. Eller kan du bara välja VM typ `D12 V2` för huvudnod, och `D14 V2` för arbetsnoden. Distributionen av klustret tar ungefär 20 minuter. Du behöver klusternamnet, SSH-användarnamn och lösenord för att testa det här exemplet. Spara i följande tabell med information för Azure HDInsight-kluster för senare steg:
+* Ett HDInsight Spark-kluster med Hortonworks Data Platform 3,6 och Spark-versionen 2.1.x helst i östra USA region där data söker efter. Besök [skapar ett Apache Spark-kluster i Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) mer information om hur du skapar HDInsight-kluster. Vi rekommenderar tre worker-kluster med varje arbetsprocessen har 16 kärnor och 112 GB minne. Eller kan du bara välja VM typ `D12 V2` för huvudnod, och `D14 V2` för arbetsnoden. Distributionen av klustret tar ungefär 20 minuter. Du behöver klusternamnet, SSH-användarnamn och lösenord för att testa det här exemplet. Spara i följande tabell med information för Azure HDInsight-kluster för senare steg:
 
  Fältnamn| Värde |  
  |------------|------|
@@ -71,7 +74,7 @@ DSVM IP-adress | xxx|
 
  Fältnamn| Värde |  
  |------------|------|
- Lagringskontonamnet| xxx|
+ Lagringskontonamn| xxx|
  Snabbtangent  | xxx|
 
 
@@ -91,24 +94,24 @@ Kör `git status` att kontrollera status för filerna för versionen spårning.
 
 ## <a name="data-description"></a>Beskrivning av data
 
-De data som används i det här exemplet är syntetiskt arbetsbelastning serverdata. Det finns i ett Azure Blob storage-konto som är offentligt tillgänglig. Kontoinformation för specifika lagring finns i den `dataFile` i [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). Du kan använda data direkt från Blob storage. Om lagringsutrymmet som används av många användare samtidigt, kan du använda [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) att hämta data till din egen lagring. 
+De data som används i det här exemplet är syntetiskt arbetsbelastning serverdata. Det finns i ett Azure Blob storage-konto som är offentligt tillgänglig i östra USA. Kontoinformation för specifika lagring finns i den `dataFile` i [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) i formatet ”wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>”. Du kan använda data direkt från Blob storage. Om lagringsutrymmet som används av många användare samtidigt, kan du använda [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) att hämta data till lagringen för en bättre upplevelse av experiment. 
 
 Den totala Datastorleken är cirka 1 TB. Varje fil är cirka 1 – 3 GB och är i CSV-format utan rubrik. Varje rad med data representerar inläsningen av en transaktion på en viss server. Detaljerad information för dataschemat är följande:
 
 Kolumnnumret | Fältnamn| Typ | Beskrivning |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datum och tid |    Starttid för session
-2  |`SessionEnd`    | Datum och tid | Sluttid för session
+1  | `SessionStart` | DateTime |    Starttid för session
+2  |`SessionEnd`    | DateTime | Sluttid för session
 3 |`ConcurrentConnectionCounts` | Integer | Antalet samtidiga anslutningar
 4 | `MbytesTransferred` | dubbla | Normaliserade data som överförs i megabyte
 5 | `ServiceGrade` | Integer |  Service-klass för session
 6 | `HTTP1` | Integer|  Sessionen använder HTTP1 eller HTTP2
 7 |`ServerType` | Integer   |Servertyp
 8 |`SubService_1_Load` | dubbla |   Läs in subservice 1
-9 | `SubService_1_Load` | dubbla |  Läs in subservice 2
-10 | `SubService_1_Load` | dubbla |     Läs in subservice 3
-11 |`SubService_1_Load` | dubbla |  Läs in subservice 4
-12 | `SubService_1_Load`| dubbla |      Läs in subservice 5
+9 | `SubService_2_Load` | dubbla |  Läs in subservice 2
+10 | `SubService_3_Load` | dubbla |     Läs in subservice 3
+11 |`SubService_4_Load` | dubbla |  Läs in subservice 4
+12 | `SubService_5_Load`| dubbla |      Läs in subservice 5
 13 |`SecureBytes_Load`  | dubbla | Läsa in säker byte
 14 |`TotalLoad` | dubbla | Totalt antal belastningen på servern
 15 |`ClientIP` | Sträng|    Klientens IP-adress
@@ -203,7 +206,7 @@ Det andra argumentet är felsökning. Ange värdet till FILTER_IP kan en snabbar
 
 Starta kommandoraden från Machine Learning arbetsstationen genom att välja **filen** > **öppnar du kommandotolken**. Kör sedan: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Följande två filer skapas i mappen aml_config i projektet:
 
@@ -266,11 +269,11 @@ När experiment på små data har slutförts, kan du fortsätta att köra experi
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Skapa beräknings-mål i Machine Learning-arbetsstationen för HDInsight-kluster
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Följande två filer skapas i mappen aml_config:
     
--  myhdo.Compute: den här filen innehåller information om anslutning och konfiguration för ett mål för fjärrkörning.
+-  myhdi.Compute: den här filen innehåller information om anslutning och konfiguration för ett mål för fjärrkörning.
 -  myhdi.runconfig: den här filen är en uppsättning kör alternativ som används i programmet för arbetsstationen.
 
 
@@ -324,7 +327,7 @@ På rätt sidopanelen i arbetsstationen, bläddrar du till **körs** att visa k�
 
 ### <a name="operationalize-the-model"></a>Operationalisera modellen
 
-I det här avsnittet operationalisera modell som du skapade i föregående steg som en webbtjänst. Du också lära dig hur du använder webbtjänsten för att förutsäga arbetsbelastning. Använd datorn språk operationalization kommandoradsverktyget gränssnitt (CLIs) att paketera koden och beroenden som Docker-bilder och för att publicera modellen som en av webbtjänst. Mer information finns i [översikten](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+I det här avsnittet operationalisera modell som du skapade i föregående steg som en webbtjänst. Du också lära dig hur du använder webbtjänsten för att förutsäga arbetsbelastning. Använd datorn språk operationalization kommandoradsverktyget gränssnitt (CLIs) att paketera koden och beroenden som Docker-bilder och för att publicera modellen som en av webbtjänst.
 
 Du kan använda i Kommandotolken i Machine Learning-arbetsstationen för att köra CLIs.  Du kan också köra CLIs på Ubuntu Linux genom att följa den [installationsguiden](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

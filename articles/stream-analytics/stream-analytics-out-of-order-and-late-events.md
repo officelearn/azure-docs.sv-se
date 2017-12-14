@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics händelse ordning beräkningen
 
 ## <a name="understand-arrival-time-and-application-time"></a>Förstå ankomsttid och tid för programmet.
 
-I en temporal dataström av händelser tilldelas varje händelse en tidsstämpel. Azure Stream Analytics tilldelar varje händelse med ankomsttid eller programmet tid tidsstämpel. Kolumnen ”System.Timestamp” har tidsstämpel som tilldelats händelsen. Ankomsttid tilldelas vid Indatakällan när händelsen når källan. Ankomsttid är EventEnqueuedTime för Event Hub indata och [blob senast ändrad](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) för blob-indata. Tid för programmet tilldelas när händelsen genereras och den ingår i nyttolasten. Använda ”tidsstämpel som”-Satsen i select-frågan för att bearbeta händelser vid tidpunkten för programmet. Om instruktionen ”tidsstämpel som” saknas bearbetas händelser av ankomsttid. Ankomsttid kan nås med hjälp av egenskapen EventEnqueuedTime för händelsehubb och använda BlobLastModified-egenskapen för blob-indata. Azure Stream Analytics ger utdata i ordningen som tidsstämpel och innehåller några inställningar för att hantera data i fel ordning.
+I en temporal dataström av händelser tilldelas varje händelse en tidsstämpel. Azure Stream Analytics tilldelar varje händelse med ankomsttid eller programmet tid tidsstämpel. Kolumnen ”System.Timestamp” har tidsstämpel som tilldelats händelsen. Ankomsttid tilldelas vid Indatakällan när händelsen når källan. Ankomsttid är EventEnqueuedTime för Event Hub indata och [blob senast ändrad](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) för blob-indata. Tid för programmet tilldelas när händelsen genereras och den ingår i nyttolasten. Använda ”tidsstämpel som”-Satsen i select-frågan för att bearbeta händelser vid tidpunkten för programmet. Om instruktionen ”tidsstämpel som” saknas bearbetas händelser av ankomsttid. Ankomsttid kan nås med hjälp av egenskapen EventEnqueuedTime för händelsehubb och använda BlobLastModified-egenskapen för blob-indata. Azure Stream Analytics ger utdata i ordningen som tidsstämpel och innehåller några inställningar för att hantera data i fel ordning.
 
 
 ## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics-hantering av flera strömmar
@@ -78,7 +78,7 @@ Om du vill ordna om händelser som tagits emot inom ”för oordnat” utdata fr
    * Händelsen 4 _programmet tid_ = 00:09:00 _ankomsttid_ = 00:10:03 _System.Timestamp_ = 00:09:00, accepteras med ursprungliga tidsstämpel som programmet är i out ordning toleransnivån.
    * Händelse 5 _programmet tid_ = 00:06:00 _ankomsttid_ = 00:10:04 _System.Timestamp_ = 00:07:00, justera eftersom programmet är äldre än den i fel ordning tolerans.
 
-## <a name="practical-considerations"></a>Praktiska överväganden
+### <a name="practical-considerations"></a>Praktiska överväganden
 Som nämnts ovan, *tolerans för sen ankomst* är den största skillnaden mellan program tid och ankomsttid.
 Även när bearbetningen av program samtidigt händelser som är senare än den konfigurerade *tolerans för sen ankomst* justeras innan den *i oordning tolerans* inställningen tillämpas. Gällande i oordning är därför, minimum för sen ankomst feltolerans och i oordning toleransen.
 
@@ -94,22 +94,33 @@ När du konfigurerar *tolerans för sen ankomst* och *i oordning tolerans* för 
 
 Följande är några exempel
 
-### <a name="example-1"></a>Exempel 1: 
+#### <a name="example-1"></a>Exempel 1: 
 Frågan har ”Partition med partitions-ID”-satsen och inom en enskild partition händelser skickas med hjälp av synkron skicka metoder. Synkron skicka metoder blockera tills händelser skickas.
 I det här fallet i oordning är noll eftersom händelser skickas i ordning med explicit bekräftelse innan du skickar nästa händelse. Sen ankomst är Maximal fördröjning mellan orsakar händelsen och skicka händelsen + Maximal fördröjning mellan avsändare och indatakälla
 
-### <a name="example-2"></a>Exempel 2:
+#### <a name="example-2"></a>Exempel 2:
 Frågan har ”Partition med partitions-ID”-satsen och inom en enskild partition händelser skickas med hjälp av asynkron send-metoden. Asynkron sändning metoder kan starta flera skickar samtidigt, vilket kan orsaka oordnade händelser.
 I det här fallet finns både i ordning och sen ankomst minst Maximal fördröjning mellan orsakar händelsen och skicka händelsen + Maximal fördröjning mellan avsändare och Indatakällan.
 
-### <a name="example-3"></a>Exempel 3:
+#### <a name="example-3"></a>Exempel 3:
 Frågan har inte ”Partition av PartitionId” och det finns minst två partitioner.
 Konfigurationen är samma som exempel 2. Men avsaknaden av data i en av partitionerna kan fördröja utdata av ytterligare * sen ankomst tolerans ”fönster.
+
+## <a name="handling-event-producers-with-differing-timelines"></a>Hanterar händelsen producenter med olika tidslinjer
+En enda inkommande händelseströmmen innehåller ofta händelser från flera händelse producenter (till exempel enskilda enheter).  Dessa händelser kan tas emot i rätt ordning på grund av orsaker som nämnts tidigare. I dessa scenarier när störning över händelse producenter kanske stora är störning i händelser från en enda producent liten (eller även obefintlig).
+Medan Azure Stream Analytics innehåller allmänna metoder för att hantera out ordning händelser, dessa mekanismer resultatet antingen bearbetning försening (väntan straggling händelser till systemet), släppa eller justeras händelser eller båda.
+Ännu i många fall är bearbetar den önskade frågan händelser från olika händelse producenter oberoende.  Det kan till exempel att sammanställa händelser per fönstret per enhet.  I sådana fall kan behövs det ingen fördröjning utdata som motsvarar en händelse producenten under väntan på händelsen producenter att komma ikapp.  Med andra ord behöver inte att behandla tiden skeva mellan producenter och det kan också bara ignoreras.
+Naturligtvis detta innebär att utdata händelser själva out ordning med avseende på deras tidsstämplar; underordnade konsumenten måste kunna hantera dessa beteende.  Men alla händelser i utdata blir korrekt.
+
+Azure Stream Analytics implementerar den här funktionen med hjälp av [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) satsen.
+
+
 
 ## <a name="to-summarize"></a>För att sammanfatta
 * Sen ankomst feltolerans och i oordning fönstret ska konfigureras baserat på är korrekt, fördröjning och bör också övervägas hur händelser skickas.
 * Du rekommenderas att i oordning tolerans är mindre än tolerans för sen ankomst.
 * När du kombinerar flera tidslinjer kan bristen på data i en av källorna eller partitioner fördröja utdata av ytterligare sen ankomst tolerans ett fönster.
+* När ordning bara är viktiga i en händelse producenten tidslinje, är det möjligt att använda TIMESTAMP BY OVER-satsen för att bearbeta varje händelse producent som en oberoende underström.
 
 ## <a name="get-help"></a>Få hjälp
 Mer hjälp, försök vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

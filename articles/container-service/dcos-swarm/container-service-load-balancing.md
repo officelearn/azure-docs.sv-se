@@ -1,28 +1,22 @@
 ---
-title: "Läsa in saldo behållare i Azure DC/OS-kluster | Microsoft Docs"
+title: "Läsa in saldo behållare i Azure DC/OS-klustret"
 description: "Belastningen över flera behållare i ett Azure Container Service DC/OS-kluster."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Behållare, Micro-tjänster, DC/OS, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Läsa in saldo behållare i ett Azure Container Service DC/OS-kluster
+
 I den här artikeln förklarar vi hur du skapar en intern belastningsutjämnare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Den här konfigurationen kan du skala ditt program vågrätt. Du kan också dra nytta av offentliga och privata agenten kluster genom att placera din belastningsutjämnare på det offentliga och behållarna programmet på det privata klustret. I den här kursen har du:
 
 > [!div class="checklist"]

@@ -32,3 +32,9 @@
 | Sydöstra Australien | 2                       |
 |                     |                         |
 | Södra Brasilien        | 2                       |
+|                     |                         |
+| Virginia (USA-förvaltad region)     | 2                       |
+| Texas (USA-förvaltad region)        | 2                       |
+| Arizona (USA-förvaltad region)      | 2                       |
+| US DoD, centrala      | 2                       |
+| US DoD, östra         | 2                       |

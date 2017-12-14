@@ -1,5 +1,5 @@
 ---
-title: "Kör Cassandra med Linux i Azure | Microsoft Docs"
+title: "Kör en Cassandra kluster på Linux i Azure från Node.js"
 description: "Hur du kör ett Cassandra kluster på Linux i Azure Virtual Machines från en Node.js-app"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Kör Cassandra med Linux på Azure och få åtkomst till det från Node.js
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Kör en Cassandra kluster på Linux i Azure med Node.js
+
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Se Resource Manager-mallar för [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) och [Väck klustret och Cassandra på CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
@@ -133,7 +134,7 @@ I det här steget i processen skapar vi Ubuntu avbildningen med programvara som 
 Azure behöver X509 offentlig nyckel som är PEM eller DER-kodade då etablering. Generera en offentliga/privata nyckelpar med instruktioner på hur du använda SSH med Linux på Azure. Om du planerar att använda putty.exe som en SSH-klienten på Windows eller Linux måste du konvertera PEM-kodade RSA den privata nyckeln PPK format med hjälp av puttygen.exe; instruktioner för detta finns på webbsidan som ovan.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>STEG 2: Skapa Ubuntu VM-mallen
-Logga in på den klassiska Azure-portalen för att skapa VM-mallen, och använder följande sekvens: Klicka på ny, beräkning, VIRTUELLA, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka på pilen till höger. En genomgång som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator kör Linux.
+Logga in på Azure portal för att skapa VM-mallen, och använder följande sekvens: Klicka på ny, beräkning, VIRTUELLA, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka på pilen till höger. En genomgång som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator kör Linux.
 
 Ange följande information på skärmen ”konfiguration av virtuell dator” #1:
 
@@ -157,7 +158,7 @@ Ange följande information på skärmen ”konfiguration av virtuell dator” #2
 <tr><td> MOLNTJÄNSTEN    </td><td> Skapa en ny molntjänst    </td><td>Molntjänst är en behållare beräkningsresurser som virtuella datorer</td></tr>
 <tr><td> DNS-MOLNTJÄNSTNAMNET    </td><td>Ubuntu template.cloudapp.net    </td><td>Ge en datorn storleksoberoende belastningsutjämnarens namn</td></tr>
 <tr><td> REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT NÄTVERK </td><td>    Västra USA    </td><td> Välj en region som ditt webbprogram till Cassandra klustret</td></tr>
-<tr><td>STORAGE-KONTO </td><td>    Använd standard    </td><td>Använda standardkontot för lagring eller ett befintligt lagringskonto i en viss region</td></tr>
+<tr><td>LAGRINGSKONTO </td><td>    Använd standard    </td><td>Använda standardkontot för lagring eller ett befintligt lagringskonto i en viss region</td></tr>
 <tr><td>TILLGÄNGLIGHETSUPPSÄTTNING </td><td>    Ingen </td><td>    Lämna det tomt</td></tr>
 <tr><td>SLUTPUNKTER    </td><td>Använd standard </td><td>    Använd standardkonfigurationen för SSH </td></tr>
 </table>
@@ -309,7 +310,7 @@ Detta tar några sekunder och avbildningen ska vara tillgänglig under Mina AVBI
 <tr><td>Namn</td><td>vnet-fråga-Väst-oss</td><td></td></tr>
 <tr><td>Region</td><td>Västra USA</td><td></td></tr>
 <tr><td>DNS-servrar</td><td>Ingen</td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
-<tr><td>Adressutrymmet</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>Adressutrymme</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Starta IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -318,8 +319,8 @@ Lägg till följande undernät:
 
 <table>
 <tr><th>Namn</th><th>Starta IP</th><th>CIDR</th><th>Kommentarer</th></tr>
-<tr><td>webbprogram</td><td>10.1.1.0</td><td>/24 (251)</td><td>Undernät för webbservergrupp</td></tr>
-<tr><td>Data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Undernät för databasnoder</td></tr>
+<tr><td>webben</td><td>10.1.1.0</td><td>/24 (251)</td><td>Undernät för webbservergrupp</td></tr>
+<tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Undernät för databasnoder</td></tr>
 </table>
 
 Data och Web undernät kan skyddas via nätverkssäkerhetsgrupper täckning som ligger utanför omfånget för den här artikeln.  
@@ -328,16 +329,16 @@ Data och Web undernät kan skyddas via nätverkssäkerhetsgrupper täckning som 
 
 <table>
 <tr><th>Datornamn    </th><th>Undernät    </th><th>IP-adress    </th><th>Tillgänglighetsuppsättning</th><th>DC/Rack</th><th>Startvärde för?</th></tr>
-<tr><td>HK-c1-Väst-oss    </td><td>Data    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ja</td></tr>
-<tr><td>HK-c2-Väst-oss    </td><td>Data    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Nej </td></tr>
-<tr><td>HK-c3-Väst-oss    </td><td>Data    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ja</td></tr>
-<tr><td>HK-c4-Väst-oss    </td><td>Data    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Nej </td></tr>
-<tr><td>HK-c5-Väst-oss    </td><td>Data    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ja</td></tr>
-<tr><td>HK-c6-Väst-oss    </td><td>Data    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Nej </td></tr>
-<tr><td>HK-c7-Väst-oss    </td><td>Data    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ja</td></tr>
-<tr><td>HK-c8-Väst-oss    </td><td>Data    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Nej </td></tr>
-<tr><td>HK-w1-Väst-oss    </td><td>webbprogram    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Saknas</td></tr>
-<tr><td>HK-w2-Väst-oss    </td><td>webbprogram    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Saknas</td></tr>
+<tr><td>HK-c1-Väst-oss    </td><td>data    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ja</td></tr>
+<tr><td>HK-c2-Väst-oss    </td><td>data    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Nej </td></tr>
+<tr><td>HK-c3-Väst-oss    </td><td>data    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ja</td></tr>
+<tr><td>HK-c4-Väst-oss    </td><td>data    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Nej </td></tr>
+<tr><td>HK-c5-Väst-oss    </td><td>data    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ja</td></tr>
+<tr><td>HK-c6-Väst-oss    </td><td>data    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Nej </td></tr>
+<tr><td>HK-c7-Väst-oss    </td><td>data    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ja</td></tr>
+<tr><td>HK-c8-Väst-oss    </td><td>data    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Nej </td></tr>
+<tr><td>HK-w1-Väst-oss    </td><td>webben    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Saknas</td></tr>
+<tr><td>HK-w2-Väst-oss    </td><td>webben    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Saknas</td></tr>
 </table>
 
 Skapa listan ovan för virtuella datorer kräver följande process:
@@ -470,7 +471,7 @@ Logga in på den klassiska Azure-portalen och skapa ett virtuellt nätverk med a
 <tr><td>DNS-servrar        </td><td></td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
 <tr><td>Konfigurera en punkt-till-plats-VPN</td><td></td><td>        Ignorera detta</td></tr>
 <tr><td>Konfigurera ett VPN mellan två platser</td><td></td><td>        Ignorera detta</td></tr>
-<tr><td>Adressutrymmet    </td><td>10.2.0.0/16</td><td></td></tr>
+<tr><td>Adressutrymme    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>Starta IP    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -479,8 +480,8 @@ Lägg till följande undernät:
 
 <table>
 <tr><th>Namn    </th><th>Starta IP    </th><th>CIDR    </th><th>Kommentarer</th></tr>
-<tr><td>webbprogram    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Undernät för webbservergrupp</td></tr>
-<tr><td>Data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Undernät för databasnoder</td></tr>
+<tr><td>webben    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Undernät för webbservergrupp</td></tr>
+<tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Undernät för databasnoder</td></tr>
 </table>
 
 
@@ -489,7 +490,7 @@ Ett lokalt nätverk i Azure virtuella nätverk är en proxy-adressutrymme som ma
 
 Skapa två lokala nätverk per följande information:
 
-| Nätverksnamn | VPN Gateway-adress | Adressutrymmet | Kommentarer |
+| Nätverksnamn | VPN Gateway-adress | Adressutrymme | Kommentarer |
 | --- | --- | --- | --- |
 | HK-lnet-Map-to-East-US |23.1.1.1 |10.2.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i östra USA. |
 | HK-lnet-Map-to-West-US |23.2.2.2 |10.1.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i USA, västra region. |
@@ -525,15 +526,15 @@ Skapa avbildningen Ubuntu enligt beskrivningen i region #1 distribution genom at
 
 | Datornamn | Undernät | IP-adress | Tillgänglighetsuppsättning | DC/Rack | Startvärde för? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Öst-oss |Data |10.2.2.4 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
-| HK-c2-Öst-oss |Data |10.2.2.5 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
-| HK-c3-Öst-oss |Data |10.2.2.6 |HK-c-aset-1 |DC = EASTUS rack = rack2 |Ja |
-| HK-c5-Öst-oss |Data |10.2.2.8 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Ja |
-| HK-c6-Öst-oss |Data |10.2.2.9 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
-| HK-c7-Öst-oss |Data |10.2.2.10 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
-| HK-c8-Öst-oss |Data |10.2.2.11 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
-| HK-w1-Öst-oss |webbprogram |10.2.1.4 |HK-w-aset-1 |Saknas |Saknas |
-| HK-w2-Öst-oss |webbprogram |10.2.1.5 |HK-w-aset-1 |Saknas |Saknas |
+| HK-c1-Öst-oss |data |10.2.2.4 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
+| HK-c2-Öst-oss |data |10.2.2.5 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
+| HK-c3-Öst-oss |data |10.2.2.6 |HK-c-aset-1 |DC = EASTUS rack = rack2 |Ja |
+| HK-c5-Öst-oss |data |10.2.2.8 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Ja |
+| HK-c6-Öst-oss |data |10.2.2.9 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
+| HK-c7-Öst-oss |data |10.2.2.10 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
+| HK-c8-Öst-oss |data |10.2.2.11 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
+| HK-w1-Öst-oss |webben |10.2.1.4 |HK-w-aset-1 |Saknas |Saknas |
+| HK-w2-Öst-oss |webben |10.2.1.5 |HK-w-aset-1 |Saknas |Saknas |
 
 Följ samma anvisningar som region #1 men använda 10.2.xxx.xxx adressutrymme.
 

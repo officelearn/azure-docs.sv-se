@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Spara en klassisk virtuell Linux-dator som en avbildning
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Dessa instruktioner förutsätter att du redan skapat en virtuell Azure-dator me
    > [!NOTE]
    > Stegen förutsätter att du redan har [installerade Azure CLI](../../../cli-install-nodejs.md) på klientdatorn. Följande steg kan även utföras den [Azure-portalen](http://portal.azure.com).
 
-5. Öppna Azure CLI och logga in på Azure-prenumerationen från klientdatorn. Mer information läser [Anslut till en Azure-prenumeration från Azure CLI](../../../xplat-cli-connect.md).
+5. Öppna Azure CLI och logga in på Azure-prenumerationen från klientdatorn. Mer information läser [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > Logga in på portalen i Azure-portalen.

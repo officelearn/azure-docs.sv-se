@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET SDK & resurser | Microsoft Docs
-description: "Lär dig mer om .NET-API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET SDK."
+title: 'Azure Cosmos DB: SQL .NET API, SDK & resurser | Microsoft Docs'
+description: "Läs mer om SQL .NET API- och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET SDK."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d68079e2bbf12f50eb74b0d2d2c5b17ddb42d28d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure DB .NET SDK för Cosmos: Hämta och viktig information
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: hämta och viktig information
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/18/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -86,7 +88,7 @@ ms.lasthandoff: 11/18/2017
 *   Tillagt stöd för att ange anpassade JsonSerializerSettings när [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Ett problem som påverkade x64 har åtgärdats datorer som inte stöder SSE4 instruktion och utlösa ett SEHException när du kör Azure Cosmos DB DocumentDB API-frågor.
+*   Ett problem som påverkade x64 har åtgärdats datorer som inte stöder SSE4 instruktion och utlösa ett SEHException när du kör Azure Cosmos-Databasens SQL-frågor.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Tillagt stöd för en ny konsekvensnivå kallas ConsistentPrefix.

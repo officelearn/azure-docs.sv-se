@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Den här artikeln lär du metodtips Autoskala i Azure. Azure övervakaren Autoskala gäller enbart för [Skalningsuppsättningar i virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), och [App Service - Webbappar](https://azure.microsoft.com/services/app-service/web/). Andra Azure-tjänster använda olika metoder för skalning.
@@ -30,8 +30,8 @@ Den här artikeln lär du metodtips Autoskala i Azure. Azure övervakaren Autosk
   En autoskalningsinställning har en högsta och lägsta standardvärdet instanser.
 * Ett jobb Autoskala alltid associerade mått till skala genom, kontrollerar om den har passerat den konfigurerade tröskeln för skalbar eller skala i. Du kan visa en lista av mätvärden som autoskalning kan skala genom på [Azure-Monitor autoskalning vanliga mått](insights-autoscale-common-metrics.md).
 * Alla tröskelvärden beräknas på en instansnivå. Till exempel ”skala ut med 1 instans när Genomsnittlig CPU > 80% när instansantalet är 2”, innebär att skalbar när Genomsnittlig CPU i alla instanser som är större än 80%.
-* Du får alltid meddelanden via e-post. Mer specifikt får ägare, deltagare och läsare av målresursen e-post. Du får alltid en *recovery* e-post när Autoskala återställer från ett fel och startar fungerar normalt.
-* Du kan anmäla sig för att ta emot en lyckad skala åtgärd avisering via e-post och webhooks.
+* Alla Autoskala fel loggas i aktivitetsloggen. Sedan kan du konfigurera en [loggen varning](./monitoring-activity-log-alerts.md) så att du kan få meddelanden via e-post, SMS, webhook osv. Om det uppstår ett fel i Autoskala.
+* På liknande sätt kan skickas alla lyckade skalningsåtgärder till aktivitetsloggen. Du kan sedan konfigurera en aktivitet loggen avisering så att du kan få meddelanden via e-post, SMS, webhooks, etc. när det är en lyckad Autoskala-åtgärd. Du kan också konfigurera e-post eller webhook-meddelanden till Håll dig informerad för lyckad skala åtgärder via fliken aviseringar i autoskalningsinställningen.
 
 ## <a name="autoscale-best-practices"></a>Autoskala bästa praxis
 Använd följande metodtips när du använder Autoskala.
@@ -40,7 +40,7 @@ Använd följande metodtips när du använder Autoskala.
 Om du har en inställning som har minst = 2, maximalt = 2 och aktuellt instanser är 2, ingen skalningsåtgärd kan uppstå. Behåll en tillräcklig marginal mellan antalet högsta och lägsta instanser, vilket är inklusiva. Autoskala skalas alltid mellan dessa gränser.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Manuell skalning återställs av Autoskala min och max
-Om du manuellt uppdatera instansantalet till ett värde över eller under maximalt, skalas Autoskala motorn automatiskt tillbaka till lägsta (om nedan) eller högsta (om ovan). Exempelvis kan du ange intervallet mellan 3 och 6. Om du har en instans som körs kan skalas Autoskala motorn till 3 instanser på dess nästa körning. På samma sätt är det skulle skala in 8 instanser tillbaka till 6 på dess nästa körning.  Manuell skalning är mycket tillfällig om du återställer närmare Autoskala.
+Om du manuellt uppdatera instansantalet till ett värde över eller under maximalt, skalas Autoskala motorn automatiskt tillbaka till lägsta (om nedan) eller högsta (om ovan). Exempelvis kan du ange intervallet mellan 3 och 6. Om du har en instans som körs kan skalas Autoskala motorn till 3 instanser på dess nästa körning. Likaså om du manuellt anger skalan till 8 instanser skalar på nästa kör Autoskala den tillbaka till 6 instanser på dess nästa körning.  Manuell skalning är mycket tillfällig om du återställer närmare Autoskala.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Använd alltid en skalbar och skala i regel kombination som utför en ökning och minskning
 Om du använder endast en del av en kombination av har Autoskala skala in att enkel, eller i en, tills de högsta eller lägsta, nåtts.
@@ -143,14 +143,17 @@ Följande inträffar:
 Standard-instanser är viktigt Autoskala skalas din tjänst till att antalet när mått inte är tillgängliga. Därför ska du välja en standard-instanser som är acceptabel för dina arbetsbelastningar.
 
 ### <a name="configure-autoscale-notifications"></a>Konfigurera meddelanden om autoskalning
-Autoskala meddelar administratörer och deltagare i resursen via e-post om något av följande villkor inträffar:
+Autoskala postar till aktivitetsloggen om något av följande villkor inträffar:
 
-* Autoskala tjänsten kan inte vidta en åtgärd.
+* Autoskala utfärdar en skalningsåtgärden
+* Autoskala tjänsten slutfört har en skalningsåtgärd
+* Autoskala service inte kan ta en skalningsåtgärd.
 * Mått är inte tillgängligt för Autoskala tjänst kan besluta skala.
 * Mått är tillgängliga (återställning) igen för att fatta ett beslut skala.
-  Du kan konfigurera e-post eller webhook-meddelanden till Håll dig informerad för lyckade skalningsåtgärder förutom villkoren ovan.
-  
+
 Du kan också använda en avisering i aktivitetsloggen för att övervaka hälsotillståndet hos Autoskala-motorn. Här följer exempel på [skapa en aktivitet loggen aviseringen om du vill övervaka alla Autoskala motorn åtgärder för din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) eller [skapa en aktivitet loggen aviseringen om du vill övervaka alla misslyckade Autoskala skala / skala ut åtgärder på din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Förutom att använda aktiviteten loggen aviseringar kan konfigurera du också e-post eller webhook-meddelanden till Håll dig informerad för lyckad skala åtgärder via fliken aviseringar i autoskalningsinställningen.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitet loggen aviseringen om du vill övervaka alla Autoskala motorn åtgärder för din prenumeration.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

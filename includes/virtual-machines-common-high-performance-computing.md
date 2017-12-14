@@ -139,7 +139,7 @@ Virtuella Azure-datorer, virtuella datorer, Batch och relaterade beräknings-tj�
 * [Fillagring](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Data och analys
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) för Hadoop-kluster i Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) för Hadoop-kluster i Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

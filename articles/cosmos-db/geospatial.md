@@ -1,6 +1,6 @@
 ---
 title: Arbeta med geospatiala data i Azure Cosmos DB | Microsoft Docs
-description: "Förstå hur du skapar, index- och fråga spatial objekt med Azure Cosmos DB och DocumentDB-API."
+description: "Förstå hur du skapar, index- och fråga spatial objekt med Azure Cosmos DB och SQL-API."
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Arbeta med geospatial och GeoJSON platsdata i Azure Cosmos DB
 Den här artikeln ger en introduktion till funktionen geospatiala i [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). När du har läst detta, kommer du att kunna besvara följande frågor:
@@ -28,16 +28,16 @@ Den här artikeln ger en introduktion till funktionen geospatiala i [Azure Cosmo
 * Hur kan jag fråga geospatiala data i Azure Cosmos-databasen i SQL- och LINQ?
 * Hur jag för att aktivera eller inaktivera spatial indexering i Azure Cosmos DB?
 
-Den här artikeln visar hur du arbetar med spatialdata med DocumentDB-API. Finns [GitHub projekt](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) för kodexempel.
+Den här artikeln visar hur du arbetar med spatialdata med SQL-API. Se den här [GitHub projekt](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) för kodexempel.
 
 ## <a name="introduction-to-spatial-data"></a>Introduktion till spatialdata
-Spatialdata beskriver position och form av objekt i utrymmet. I de flesta program motsvarar dessa objekt på jorden, d.v.s. geospatiala data. Spatialdata kan användas för att representera platsen där en person, en intressant plats eller på en stad eller ett lake kolumnrubrikens. Vanliga användningsområden innebär ofta närhet frågor för t.ex. ”hitta alla kaféer nära mitt aktuella plats”. 
+Spatialdata beskriver position och form av objekt i utrymmet. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Spatialdata kan användas för att representera platsen där en person, en intressant plats eller på en stad eller ett lake kolumnrubrikens. Vanliga användningsområden omfattar närhet frågor, till exempel ofta, ”hitta alla kaféer nära mitt aktuella plats”. 
 
 ### <a name="geojson"></a>GeoJSON
 Azure Cosmos-DB har stöd för indexering och frågar geospatiala punkt data som har representeras med hjälp av den [GeoJSON-specifikationen](https://tools.ietf.org/html/rfc7946). GeoJSON-datastrukturer är alltid giltig JSON-objekt så att de kan lagras och efterfrågas med hjälp av Azure Cosmos DB utan särskilda verktyg eller bibliotek. Azure Cosmos DB-SDK: er ger hjälpprogramklasser och metoder som gör det lättare att arbeta med spatialdata. 
 
 ### <a name="points-linestrings-and-polygons"></a>Punkter, LineStrings och polygoner
-En **punkt** anger en enda plats i utrymme. I geospatiala data representerar en punkt den exakta platsen, vilket kan vara en gatuadress i en affären, en kiosk, en bil eller en stad.  En punkt representeras i GeoJSON (och Azure Cosmos DB) med hjälp av dess koordinat par eller longitud och latitud. Här är ett exempel JSON för en punkt.
+En **punkt** anger en enda plats i utrymme. I geospatiala data representerar en punkt den exakta platsen, vilket kan vara en gatuadress i en affären, en kiosk, en bil, eller en stad.  En punkt representeras i GeoJSON (och Azure Cosmos DB) med hjälp av dess koordinat par eller longitud och latitud. Här är ett exempel JSON för en punkt.
 
 **Punkter i Azure Cosmos DB**
 
@@ -49,9 +49,9 @@ En **punkt** anger en enda plats i utrymme. I geospatiala data representerar en 
 ```
 
 > [!NOTE]
-> GeoJSON-specifikationen anger longitud första och latitud andra. Precis som i andra mappning program longitud och latitud är vinklar och representeras i grader. Longitudvärden mäts från nollmeridianen och är mellan-180 och 180.0 grader och latitud värden mäts från ekvatorn och mellan-90.0 och 90.0 grader. 
+> GeoJSON-specifikationen anger longitud första och latitud andra. Precis som i andra mappning program longitud och latitud är vinklar och representeras i grader. Longitudvärden mäts från nollmeridianen och mellan-180 grader och 180.0 grader och latitudvärden mäts från ekvatorn och är mellan-90.0 grader och 90.0 grader. 
 > 
-> Azure Cosmos-DB tolkar koordinater som representeras per referenssystem WGS 84. Mer information om koordinaten referenssystem finns nedan.
+> Azure Cosmos-DB tolkar koordinater som representeras per referenssystem WGS 84. Se nedan för mer information om koordinaten referenssystem.
 > 
 > 
 
@@ -61,7 +61,7 @@ Detta kan vara inbäddat i ett Azure DB som Cosmos-dokument som visas i det här
 
 ```json
 {
-    "id":"documentdb-profile",
+    "id":"cosmosdb-profile",
     "screen_name":"@CosmosDB",
     "city":"Redmond",
     "topics":[ "global", "distributed" ],
@@ -110,7 +110,7 @@ När du skapar dokument som innehåller GeoJSON värden indexeras de automatiskt
 
 ```json
 var userProfileDocument = {
-    "name":"documentdb",
+    "name":"cosmosdb",
     "location":{
         "type":"Point",
         "coordinates":[ -122.12, 47.66 ]
@@ -122,7 +122,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Om du arbetar med DocumentDB APIs, kan du använda den `Point` och `Polygon` klasserna i den `Microsoft.Azure.Documents.Spatial` namnområde att bädda in platsinformation i programobjekt. De här klasserna underlätta serialisering och deserialisering av spatialdata i GeoJSON.
+Om du arbetar med SQL-API: er, kan du använda den `Point` och `Polygon` klasserna i den `Microsoft.Azure.Documents.Spatial` namnområde att bädda in platsinformation i programobjekt. De här klasserna underlätta serialisering och deserialisering av spatialdata i GeoJSON.
 
 **Skapa ett dokument med geospatiala data i .NET**
 
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
     new UserProfile 
     { 
-        Name = "documentdb", 
+        Name = "cosmosdb", 
         Location = new Point (-122.12, 47.66) 
     });
 ```
@@ -155,7 +155,7 @@ Om du inte har nödvändig information för latitud och longitud, men har fysisk
 Nu när vi har valt en titt på hur du infogar geospatiala data ska vi titta på hur man frågar dessa data med Azure Cosmos-databasen med SQL och LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Spatial inbyggda SQL-funktioner
-Azure Cosmos-DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatial frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns i [frågan Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos-DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatial frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns [frågan Azure Cosmos DB](documentdb-sql-query.md).
 
 <table>
 <tr>
@@ -198,11 +198,11 @@ Spatial funktioner kan användas för att utföra närhet frågor mot spatialdat
       "id": "WakefieldFamily"
     }]
 
-Om du inkluderar spatial indexering i indexprincip, sedan hanteras ”avståndet frågor” effektivt via index. Mer information om spatial indexering, finns i avsnittet nedan. Om du inte har ett spatial index för angiven sökväg, kan du fortfarande utföra spatial frågor genom att ange `x-ms-documentdb-query-enable-scan` huvudet i begäran med värdet ”true”. I .NET, detta kan göras genom att skicka det valfria **FeedOptions** argumentet för frågor med [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) inställd på true. 
+Om du inkluderar spatial indexering i indexprincip, sedan hanteras ”avståndet frågor” effektivt via index. Se avsnittet nedan för mer information om spatial indexering. Om du inte har ett spatial index för angiven sökväg, kan du fortfarande utföra spatial frågor genom att ange `x-ms-documentdb-query-enable-scan` huvudet i begäran med värdet ”true”. I .NET, detta kan göras genom att skicka det valfria **FeedOptions** argumentet för frågor med [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) inställd på true. 
 
 ST_WITHIN kan användas för att kontrollera om en punkten befinner sig inom en Polygon. Polygoner används ofta för att representera gränser som postnummer, tillstånd gränser eller fysiska konstruktioner. Igen om du inkluderar spatial indexering i indexprincip, sedan ”i” frågor hanteras effektivt via index. 
 
-Polygon argument i ST_WITHIN kan innehålla endast en enkel signal, d.v.s. polygonerna får inte innehålla tomrum i dem. 
+Polygon argument i ST_WITHIN kan innehålla endast en enkel signal, det vill säga polygonerna får inte innehålla tomrum i dem. 
 
 **Fråga**
 
@@ -220,11 +220,11 @@ Polygon argument i ST_WITHIN kan innehålla endast en enkel signal, d.v.s. polyg
     }]
 
 > [!NOTE]
-> Liknar hur inkompatibla typer fungerar i Azure Cosmos DB-fråga om plats-värdet som angetts i antingen argumentet är skadad eller ogiltig sedan det utvärderas till **Odefinierad** och utvärderade dokumentet ska hoppas över från frågan resultat. Om frågan returnerar inga resultat, kör du ST_ISVALIDDETAILED till debug varför spatail typ är ogiltig.     
+> Liknar hur inkompatibla typer arbete i Azure Cosmos DB-fråga om plats-värdet som angetts i antingen argumentet är skadad eller ogiltig sedan värdet **Odefinierad** och utvärderade dokumentet ska hoppas över från resultatet av frågan. Om frågan returnerar inga resultat, kör du ST_ISVALIDDETAILED till debug varför spatial typ är ogiltig.     
 > 
 > 
 
-Azure Cosmos-DB stöder också utföra omvända frågor, dvs. Du kan indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik för att identifiera t.ex. när en lastbil anländer till eller lämnar avsedda området. 
+Azure Cosmos-DB stöder också utföra omvända frågor, det vill säga kan du indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik att till exempel identifiera när en lastbil anländer till eller lämnar avsedda området. 
 
 **Fråga**
 
@@ -273,9 +273,9 @@ Dessa funktioner kan också användas för att validera polygoner. Till exempel 
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>LINQ-frågor skickas i .NET SDK
-.NET DocumentDB SDK också providers stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. DocumentDB LINQ-providern översätter till motsvarande SQL inbyggda funktionsanropen metodanrop av (ST_DISTANCE och ST_WITHIN respektive). 
+SQL .NET SDK också providers stub-metoder `Distance()` och `Within()` för användning i LINQ-uttryck. SQL-LINQ-providern översätter till motsvarande SQL inbyggda funktionsanropen metodanrop av (ST_DISTANCE och ST_WITHIN respektive). 
 
-Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos DB samlingen vars ”plats”-värdet är inom en radie på 30km i den angivna peka med hjälp av LINQ.
+Här är ett exempel på en LINQ-fråga som hittar alla dokument i Azure Cosmos DB samlingen vars ”plats”-värdet är inom en radie på 30 km i den angivna peka med hjälp av LINQ.
 
 **LINQ-fråga för avstånd**
 
@@ -313,7 +313,7 @@ Nu när vi har valt en titt på hur man frågar dokument med hjälp av LINQ och 
 ## <a name="indexing"></a>Indexering
 Som det beskrivs i den [Schema oberoende indexering med Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) dokumentet, vi utformat Azure Cosmos DB databasmotorn ska verkligen schema oberoende och ge förstklassigt stöd för JSON. Databasmotorn skrivåtgärder som är optimerade för Azure Cosmos DB förstår internt spatial data (poäng, polygoner och rader) som representeras i GeoJSON-standard.
 
-I kort sagt kan geometrin planerat från geodetisk koordinater till ett 2D-plan och progressivt indelat i celler med hjälp av en **quadtree**. De här cellerna mappas till 1D baserat på platsen för en cell i en **Hilbert utrymme fylla kurvan**, som bevarar ort punkter. Dessutom när lokaliseringsuppgifter indexeras går via en process som kallas **tessellation**, dvs. alla celler som korsar en plats identifieras och lagras som nycklar i Azure DB som Cosmos-index. Frågan samtidigt är argument som points och polygoner också fasetterade extrahera relevanta cell ID-intervall och används för att hämta data från indexet.
+I kort sagt kan geometrin planerat från geodetisk koordinater till ett 2D-plan och progressivt indelat i celler med hjälp av en **quadtree**. De här cellerna mappas till 1D baserat på platsen för en cell i en **Hilbert utrymme fylla kurvan**, som bevarar ort punkter. Dessutom när lokaliseringsuppgifter indexeras går via en process som kallas **tessellation**, det vill säga alla celler som korsar en plats identifieras och lagras som nycklar i Azure DB som Cosmos-index. Frågan samtidigt är argument som points och polygoner också fasetterade extrahera relevanta cell ID-intervall och används för att hämta data från indexet.
 
 Om du anger en indexprincip som innehåller rumsindexet för / * (alla sökvägar) och sedan alla punkter hittades i samlingen indexeras för effektiv spatial frågor (ST_WITHIN och ST_DISTANCE). Rumsindex inte har Precisionvärdet och alltid använda ett standardvärde för precision.
 
@@ -322,7 +322,7 @@ Om du anger en indexprincip som innehåller rumsindexet för / * (alla sökväga
 > 
 > 
 
-Följande JSON-utdrag visar en indexprincip med spatial indexering aktiverat, index d.v.s. helst GeoJSON hittades inom dokument för spatial frågor. Om du ändrar den indexprincip med hjälp av Azure-portalen kan ange du följande JSON för indexprincip att aktivera spatial indexering på din samling.
+Följande JSON-fragment visas en indexprincip med spatial indexering som är aktiverad, index helst GeoJSON hittades inom dokument för spatial frågor. Om du ändrar den indexprincip som använder Azure portal, kan du ange följande JSON för indexprincip att aktivera spatial indexering på din samling.
 
 **Samlingen indexering princip-JSON med Spatial aktiverad för punkter och polygoner**
 
@@ -392,7 +392,7 @@ Här är hur du ändrar en befintlig samling om du vill dra nytta av spatial ind
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du kommer igång med geospatial stöd i Azure Cosmos DB, kan du:
+Nolearned som du har fått kännedom om hur du kommer igång med geospatial stöd i Azure Cosmos-databasen, kan du:
 
 * Börja koda med den [geospatiala .NET kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Hämta händerna med geospatial fråga på den [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

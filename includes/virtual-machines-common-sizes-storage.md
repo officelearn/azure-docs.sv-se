@@ -8,13 +8,13 @@ ACU: 180–240
  
 | Storlek          | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max temp genomflödet: IOPS / Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntat nätverksbandbredd (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4    | 32   | 678   | 8    | 20,000 / 200   | 10,000 / 250        | 2 / 4,000  | 
-| Standard_L8s   | 8    | 64   | 1,388 | 16   | 40,000 / 400   | 20,000 / 500       | 4 / 8,000  | 
-| Standard_L16s  | 16   | 128  | 2,807 | 32   | 80,000 / 800   | 40,000 / 1,000       | 8 / 6,000 - 16,000 &#8224; | 
-| Standard_L32s* | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80,000 / 2,000     | 8 / 20,000 | 
+| Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 10,000 / 250        | 2 / 4,000  | 
+| Standard_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 20,000 / 500       | 4 / 8,000  | 
+| Standard_L16s  | 16   | 128  | 2,807 | 64   | 80,000 / 800   | 40,000 / 1,000       | 8 / 6,000 - 16,000 &#8224; | 
+| Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 80,000 / 2,000     | 8 / 20,000 | 
  
 
 Det maximala diskgenomflödet för virtuella datorer i Ls-serien kan begränsas av de anslutna diskarnas antal, storlek och striping. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på virtuella datorer i Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-*Instansen är isolerad till maskinvara som är dedikerad till en enda kund.
+<sup>1</sup> instans är isolerad till maskinvara som är dedikerad till en kund.
 

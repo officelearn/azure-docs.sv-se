@@ -1,35 +1,27 @@
 ---
-title: Uppgradera ett kluster i Azure Container Service (AKS) | Microsoft Docs
-description: Uppgradera ett kluster i Azure Container Service (AKS)
+title: Uppgradera ett Azure Container Service-kluster (AKS)
+description: Uppgradera ett Azure Container Service-kluster (AKS)
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uppgradera ett kluster i Azure Container Service (AKS)
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Uppgradera ett Azure Container Service-kluster (AKS)
 
-Azure Container Service (AKS) gör det enkelt att utföra vanliga hanteringsuppgifter, inklusive uppgradera Kubernetes kluster.
+Azure Container Service (AKS) gör det enkelt att utföra vanliga hanteringsuppgifter, bland annat att uppgradera Kubernetes-kluster.
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
-Innan du uppgraderar ett kluster, använda den `az aks get-versions` kommando för att kontrollera vilka Kubernetes versioner är tillgängliga för uppgradering.
+Innan du uppgraderar ett kluster ska du använda kommandot `az aks get-versions` och kontrollera vilka Kubernetes-versioner som är tillgängliga för uppgradering.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -43,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Vi har tre versioner som är tillgängliga för uppgraderingen: 1.7.9, 1.8.1 och 1.8.2. Vi kan använda den `az aks upgrade` kommando för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingen, noder är noggrant [cordoned och tar slut](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) att minimera störningar för program som körs.
+Vi har tre versioner som är tillgängliga för uppgradering: 1.7.9, 1.8.1 och 1.8.2. Vi kan använda kommandot `az aks upgrade` för att uppgradera till den senaste tillgängliga versionen.  Under uppgraderingen, noder är noggrant [cordoned och tar slut] [ kubernetes-drain] att minimera störningar för program som körs.  Innan du påbörjar en uppgradering av klustret bör du se till att du har tillräckligt med beräkningskapacitet för att hantera arbetsbelastningen när klusternoder läggs till och tas bort.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -105,7 +97,7 @@ Resultat:
 }
 ```
 
-Du kan nu bekräfta uppgraderingen lyckades med den `az aks show` kommando.
+Du kan nu bekräfta att uppgraderingen lyckades med kommandot `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -121,7 +113,13 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om att distribuera och hantera AKS med AKS självstudier.
+Läs mer om att distribuera och hantera AKS med självstudier om AKS.
 
 > [!div class="nextstepaction"]
-> [AKS självstudiekursen](./tutorial-kubernetes-prepare-app.md)
+> [AKS självstudiekursen][aks-tutorial-prepare-app]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Översikt över App Service på Azure Stack
 
@@ -37,8 +37,8 @@ Här följer några viktiga funktioner och funktioner i Apptjänst:
 
 Apptjänst erbjuder flera apptyper som är avsedd att vara värd för en viss arbetsbelastning:
 
-- [Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) som värd för webbplatser och webbprogram.
-- [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) som värd för RESTful-API: er.
+- [Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) som värd för webbplatser och webbprogram.
+- [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) som värd för RESTful-API: er.
 - Azure Functions som värd för händelsen som drivs serverlösa arbetsbelastningar.
 
 Word-appen här refererar till de värdresurser som är dedikerade för att köra en arbetsbelastning. Med ”webbapp” som exempel är du antagligen van vid att tänka på en webbapp som både beräkningsresurser och programkod som tillsammans ger funktioner till en webbläsare. Men i App Service är en webbapp de beräkningsresurser som Azure Stack tillhandahåller för hantering av programkoden.

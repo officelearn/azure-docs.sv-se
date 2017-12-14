@@ -1,27 +1,19 @@
 ---
-title: "Övervaka Azure Kubernetes kluster - Verksamhetsstyrning | Microsoft Docs"
+title: "Övervaka Azure Kubernetes kluster - Verksamhetsstyrning"
 description: "Övervaka Kubernetes kluster i Azure Container Service med hjälp av Microsoft Operations Management Suite"
 services: container-service
-documentationcenter: 
 author: bburns
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c402d81841ed5a79df8a84d1f69f984d010dbe0d
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Övervaka ett Azure Container Service-kluster med Microsoft Operations Management Suite (OMS)
 

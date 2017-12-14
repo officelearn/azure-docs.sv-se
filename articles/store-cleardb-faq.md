@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
 Dessa vanliga frågor svar på vanliga frågor om att använda och inköp ClearDB MySQL databaser till Azure Web Apps.
@@ -68,7 +68,7 @@ Använd Basic eller en högre prisnivå för Web Apps. För ClearDB rekommendera
 I den [Azure-portalen](https://portal.azure.com), du kan skala upp ClearDB delad värd-databas. Läs [artikel](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) vill veta mer. För närvarande stöder inte vi uppgraderingen för ClearDB Premium kluster i Azure-portalen.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>ClearDB-databas på Azure-portalen ser inte?
-Om vi skapar ClearDB-databas med Azure Resource Manager eller [nya Azure-portalen](https://portal.azure.com), kommer inte att visas i den [gamla Azure-portalen](https://manage.windowsazure.com). Att arbete-runt problemet är att koppla databasen manuellt till webbprogrammet. På liknande sätt om skapa ClearDB databas i den [gamla portalen](https://manage.windowsazure.com) du kommer inte att kunna se databasen i den [nya Azure-portalen](https://portal.azure.com). Det finns inga arbete runt för det senare fallet.
+Om du har skapat en ClearDB-databas i klassiskt du inte kommer att kunna se databasen i den [Azure Portal](https://portal.azure.com). Det finns inga arbete runt för det här scenariot.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Vem jag kontakta för support när databasen är nere?
 Kontakta [ClearDB stöd](https://www.cleardb.com/developers/help/support) för databasen till problemen. Var beredd på att ge dem med din Azure-prenumerationsinformation.

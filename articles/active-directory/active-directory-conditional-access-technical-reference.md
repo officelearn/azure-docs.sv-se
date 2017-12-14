@@ -4,21 +4,21 @@ description: "Lär dig använda villkorlig åtkomstkontroll i Azure Active Direc
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory villkorlig åtkomst Teknisk referens
 
@@ -117,7 +117,7 @@ Du kan välja i principen för villkorlig åtkomst **webbläsare** som klientapp
 
 ![Kontrollera åtkomst för webbläsare som stöds](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Den här inställningen påverkar åtkomstförsök från följande webbläsare: 
+Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en princip, t.ex. en kompatibel enhet krav som följande operativsystem och webbläsare stöds:
 
 
 | Operativsystem                     | Webbläsare                            | Support     |
@@ -139,6 +139,9 @@ Den här inställningen påverkar åtkomstförsök från följande webbläsare:
 > För Chrome-stöd, måste du använda Windows 10 skapare Update (version 1703) eller senare.<br>
 > Du kan installera [tillägget](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
+Dessa webbläsare stöder enhetsautentisering att enheten kan identifieras och verifieras mot en princip. Det går inte att enheten kontrollen om webbläsaren körs i privat läge. 
+
+
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Stöd för mobila program och skrivbord klienter
 
 Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordsklienter** som klientapp.
@@ -150,7 +153,7 @@ Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordskl
 Den här inställningen påverkar åtkomstförsök från följande mobila appar och skrivbord klienter: 
 
 
-|Klientappar|Måltjänsten|Plattform|
+|Klientprogram|Måltjänsten|Plattform|
 |---|---|---|
 |Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
 |Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS och Android|

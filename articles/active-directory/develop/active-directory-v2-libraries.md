@@ -4,7 +4,7 @@ description: "Kompatibel klientbibliotek och server mellanprogram bibliotek och 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0-autentiseringsbibliotek
-Den [Azure Active Directory (AD Azure) v2.0-slutpunkten](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) stöder branschstandard OAuth 2.0 och OpenID Connect 1.0-protokollet. Du kan använda olika bibliotek från Microsoft och andra företag med v2.0-slutpunkten.
+Den [Azure Active Directory (AD Azure) v2.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) stöder branschstandard OAuth 2.0 och OpenID Connect 1.0-protokollet. Du kan använda olika bibliotek från Microsoft och andra företag med v2.0-slutpunkten.
 
 När du skapar ett program som använder v2.0-slutpunkten rekommenderar vi att du använder bibliotek som har skrivits av protokollet domän experter som följer en Security Development Lifecycle (SDL)-metod som [det följt av Microsoft][Microsoft-SDL]. Om du väljer att hand kod stöd för protokoll, rekommenderar vi du följer SDL-metoder och uppmärksam på säkerhetsaspekter i standarderna för varje protokoll.
 
 > [!NOTE]
-> Letar du efter Azure AD v1.0 bibliotek (ADAL)? Checka ut den [ADAL-biblioteket guiden](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Letar du efter Azure AD v1.0 bibliotek (ADAL)? Checka ut den [ADAL-biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 

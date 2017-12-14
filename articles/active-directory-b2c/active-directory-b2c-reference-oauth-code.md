@@ -4,7 +4,7 @@ description: "Lär dig mer om att skapa webbprogram med hjälp av autentiserings
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: dfc4f2e84704307ccbea6141c0dbc8d089733b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99a292c6be66016264e528525a5920667207b605
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0-auktoriseringskodflödet
 Du kan använda OAuth 2.0 auktorisering kod bevilja i appar som installeras på en enhet för att få åtkomst till skyddade resurser, till exempel web API: er. Med hjälp av Azure Active Directory B2C (Azure AD B2C) implementering av OAuth 2.0, kan du lägga till registrering, inloggning och andra Identitetshantering uppgifter till dina appar och program. Den här artikeln är språkoberoende. I artikeln beskrivs hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek med öppen källkod.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure logganalys uppgradera till ny logg-sökning
 
@@ -52,13 +52,13 @@ Om arbetsytan uppgraderas automatiskt, ser du en banderoll som anger som uppgrad
 Följande ändringar görs i din arbetsyta när konverteras:
 
 - Alla sparade sökningar, Varningsregler och vyer som du har skapat med Vydesigner konverteras automatiskt till det nya språket.  Söker i lösningar konverteras inte automatiskt, men de är i stället konverteras direkt när du öppnar dem.  
-- [Min instrumentpanel](log-analytics-dashboards.md) är inaktuell för [Vydesigner](log-analytics-view-designer.md) och [Azure instrumentpaneler](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Paneler som du lade till min instrumentpanel finns kvar, men de är skrivskyddad.
+- [Min instrumentpanel](log-analytics-dashboards.md) är inaktuell för [Vydesigner](log-analytics-view-designer.md) och [Azure instrumentpaneler](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Paneler som du lade till min instrumentpanel finns kvar, men de är skrivskyddad.
 - [Power BI-integration](log-analytics-powerbi.md) ersätts med en ny process.  Kommer att inaktiveras alla befintliga Power BI-scheman som du skapade och du måste ersätta dem med den nya processen.
 - Svar från [Varna åtgärder](log-analytics-alerts-actions.md) med webhooks och runbooks har ett nytt format och du kan behöva uppdateras din Varningsregler.
 - Ta en titt på den [loggen Sök vanliga frågor om](log-analytics-log-search-faq.md) för vanliga frågor om uppgraderingen.
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Hur vet jag om det fanns problem från uppgraderingen?
-När uppgraderingen har slutförts kan det finnas en **uppgradera sammanfattning** avsnitt i inställningarna för arbetsytan.  Kontrollera det här avsnittet för information om uppgraderingen och visa den
+När uppgraderingen har slutförts kan det finnas en **uppgradera sammanfattning** avsnitt i inställningarna för arbetsytan.  Kontrollera det här avsnittet för information om uppgraderingen och visa eventuella problem som har påträffats.
 
  ![Uppgradera sammanfattning](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

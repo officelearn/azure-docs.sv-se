@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 181ad8471c0d0cb24d8f4eae6bddd9d750b4ee61
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -31,7 +31,7 @@ En fullständig översikt över tillgängliga säkerhetsfunktioner på alla stil
 SQL Database skyddar dina data genom att tillhandahålla kryptering för data i rörelse med [Transport Layer Security](https://support.microsoft.com/kb/3135244), för vilande data med [transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och för data under användning med [alltid krypterad](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program, måste du ange parametrar för att kryptera anslutningen och *inte* lita på servercertifikatet (detta görs för dig om du kopierar anslutningssträngen utanför den klassiska Azure-portalen), annars kommer inte anslutningen att verifiera serverns identitet och kommer vara sårbar för "man-in-the-middle"-attacker. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. 
+>Alla anslutningar till Azure SQL Database kräver filkryptering (SSL/TLS) hela tiden medan data är "under överföringen" till och från databasen. I anslutningssträngen för ditt program måste du ange parametrar för att kryptera anslutningen och *inte* ska lita på certifikatet (det gör du om du kopierar anslutningssträngen utanför Azure-portalen), annars den anslutningen kommer inte att verifiera identiteten för servern och kommer att utsättas för angrepp med ”man-in-the-middle”. För t.ex. ADO.NET-drivrutinen är dessa parametrar för anslutningssträngen **Encrypt=True** och **TrustServerCertificate=False**. 
 
 För andra sätt att kryptera dina data, kan du överväga:
 

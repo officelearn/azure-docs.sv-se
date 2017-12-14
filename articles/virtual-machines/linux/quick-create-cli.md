@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Skapa en virtuell Linux-dator med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstartsguide information som använder Azure CLI för att distribuera en virtuell dator som kör Ubuntu server. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur man använder Azure CLI för att distribuera en virtuell dator som kör Ubuntu Server. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -85,7 +85,7 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>Installera NGINX
 
-Använd följande kommandon för att uppdatera paketet källor och installera det senaste NGINX-paketet. 
+Använd följande kommandon för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
 
 ```bash 
 # update package source
@@ -104,7 +104,7 @@ Du kan använda en webbläsare som du väljer för att visa välkomstsidan till 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-session till den virtuella datorn och ta sedan bort resurserna på följande sätt:
+När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-sessionen till den virtuella datorn och ta sedan bort resurserna enligt följande:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

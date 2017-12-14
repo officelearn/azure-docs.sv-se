@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Skapa och ladda upp en FreeBSD VHD till Azure
 Den här artikeln visar hur du skapar och överför en virtuell hårddisk (VHD) som innehåller FreeBSD-operativsystem. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure.
@@ -133,7 +133,7 @@ När du överför VHD-filen placerar du den någonstans i Blob storage. Följand
 
 * **BlobStorageURL** är URL-Adressen för det lagringskontot som du skapade i steg 2.
 * **YourImagesFolder** är behållare i Blob storage där du vill lagra bilderna.
-* **VHDName** är den etikett som visas i den klassiska Azure portalen för att identifiera den virtuella hårddisken.
+* **VHDName** är den etikett som visas i Azure portal för att identifiera den virtuella hårddisken.
 * **PathToVHDFile** är den fullständiga sökvägen och namnet på VHD-filen.
 
 Från Azure PowerShell-fönster som du använde i det föregående steget, skriver du:

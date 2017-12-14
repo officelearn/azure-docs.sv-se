@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>Översikt över tillbakaskrivning av lösenord
 
@@ -160,7 +160,6 @@ Lösenord skrivs tillbaka i följande situationer:
   * En administratör självbetjäning frivillig ändra lösenord
   * En administratör självbetjäning kraft ändra lösenord, till exempel lösenordet upphör att gälla
   * En administratör Självbetjäning för lösenordsåterställning som härrör från den [portalen för återställning av lösenord](https://passwordreset.microsoftonline.com)
-  * Alla administratörsstartade slutanvändarens lösenordsåterställning från den [klassiska Azure-portalen](https://manage.windowsazure.com)
   * Alla administratörsstartade slutanvändarens lösenordsåterställning från den [Azure-portalen](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Användar- och admin-åtgärder som inte stöds för tillbakaskrivning av lösenord

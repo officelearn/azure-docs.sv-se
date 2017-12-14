@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Event Grid-dokumentation
 metadata:
-  title: 'Azure Event Grid-dokumentation – självstudier, API-referens'
-  description: Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid.
+  title: "Azure Event Grid-dokumentation – självstudier, API-referens"
+  description: "Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid."
   services: event-grid
   author: czeumault
   manager: carolz
@@ -13,47 +13,52 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 63363a652402a20ed8972cf51bf475412f11bd4e
+  ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/02/2017
 abstract:
-  description: 'Azure Event Grid är en fullständigt hanterad smart händelsedirigeringstjänst för enhetlig händelsebearbetning med en offentlig prenumerationsmodell. Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid. Lär dig hur du använder Azure Event Grid med våra snabbstarter, självstudier och exempel.'
+  description: "Azure Event Grid är en fullständigt hanterad smart händelsedirigeringstjänst för enhetlig händelsebearbetning med en offentlig prenumerationsmodell. Använd Azure Event Grid för att agera på relevanta händelser i både Azure- och icke-Azure-tjänster i nära realtid. Lär dig hur du använder Azure Event Grid med våra snabbstarter, självstudier och exempel."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du skapar och prenumererar på anpassade händelser."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Lär dig hur du skapar och prenumererar på anpassade händelser.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Steg för steg-självstudier
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/event-grid/custom-event-quickstart-portal
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du utvecklar program som reagerar på händelser."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Lär dig hur du utvecklar program som reagerar på händelser.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Övervaka händelser i virtuella datorer med logiska appar</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Ändra storlek på överförda bilder</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrera Azure Automation med Event Grid</a>
-  - title: Referens
+    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Övervaka händelser i virtuella datorer med logiska appar</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Ändra storlek på överförda bilder</a>"
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrera Azure Automation med Event Grid</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: 'REST API:er'
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Scheman
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Prenumerationsschema</a></p><p><a href="/azure/event-grid/event-schema">Händelseschema</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: REST API:er
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: Scheman
+      html: "<p><a href=\"/azure/event-grid/subscription-creation-schema \">Prenumerationsschema</a></p><p><a href=\"/azure/event-grid/event-schema\">Händelseschema</a></p>"

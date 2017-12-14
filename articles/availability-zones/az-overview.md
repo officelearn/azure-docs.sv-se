@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ac89562a5156282bb0fe8a6aa6761d6acb97f785
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Översikt över tillgänglighet zoner i Azure (förhandsversion)
 
@@ -32,6 +32,7 @@ Tillgänglighet zoner hjälpa för att skydda dig från fel datacenter-nivå. De
 
 - Östra USA 2
 - Västra Europa
+- Frankrike, centrala
 
 ## <a name="services-that-support-availability-zones"></a>Tjänster som stöder tillgänglighet zoner
 
@@ -42,6 +43,7 @@ Azure-tjänster som stöder tillgänglighet zoner är:
 - Zonal virtuella datorer
 - Managed Disks
 - Belastningsutjämnare
+- Offentlig IP-adress
 
 ## <a name="supported-virtual-machine-size-families"></a>Virtuella datorer storlek familjer
 
@@ -52,7 +54,7 @@ Azure-tjänster som stöder tillgänglighet zoner är:
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Komma igång med tillgänglighet zoner preview
 
-Tillgänglighet zoner förhandsgranskningen är tillgängligt i östra USA 2 och Västeuropa regioner för specifika Azure-tjänster. 
+Tillgänglighet zoner förhandsgranskningen är tillgängligt i östra USA 2, västra Europa och Frankrike centrala områden för specifika Azure-tjänster. 
 
 1. [Logga för zonerna tillgänglighet Förhandsgranska](http://aka.ms/azenroll). 
 2. Logga in på Azure-prenumerationen.

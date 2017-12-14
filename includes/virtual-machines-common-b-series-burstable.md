@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Förhandsgranskningar görs tillgängliga för dig under förutsättning att du godkänner användningsvillkoren. Mer information finns i [de kompletterande villkoren för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Den här förhandsgranskningen är begränsad till följande områden:
-> - OSS - Väst 2
-> - OSS - Öst
-> - Europa - Väst
-> - Asien/Stillahavsområdet - sydost
-
-
 B-serien VM-familjen kan du välja vilka VM-storlek ger dig den nödvändiga basnivån prestandan för din arbetsbelastning möjligheten att burst CPU-prestanda upp till 100% av en Intel® Broadwell E5-2673 v4 2.3 GHz eller en Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
 De virtuella datorerna B-serien är idealisk för arbetsbelastningar som inte behöver fullständig prestanda för Processorn kontinuerligt, som webbservrar, små databaser och utveckling och testmiljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dig möjligheten att köpa en VM-storlek med baslinje-prestanda och VM-instans som bygger upp krediter när den använder mindre än dess baslinjen. När den virtuella datorn har ackumulerats kredit, kan den virtuella datorn burst ovanför baslinjen med upp till 100% av vCPU när programmet kräver högre CPU-prestanda.
 
 B-serien finns följande sex VM-storlekar:
 
-| Storlek          | Vcpu's | Minne: GiB | Lokal SSD: GiB | Grundläggande CPU-prestanda för den virtuella datorn | Högsta CPU-prestanda för den virtuella datorn | Krediter till bank / timme | Max till bank krediter |
+| Storlek          | Vcpu's | Minne: GiB | Temporär lagring (SSD) GiB | Grundläggande CPU-prestanda för den virtuella datorn | Högsta CPU-prestanda för den virtuella datorn | Krediter till bank / timme | Max till bank krediter |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10 %                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20 %                            | 100%                      | 12                    | 288                |
@@ -26,16 +17,11 @@ B-serien finns följande sex VM-storlekar:
 
 
 
-## <a name="q--a-about-this-preview"></a>Frågor och svar om den här förhandsgranskningen
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>F: hur kan delta i den här förhandsgranskningen?
-**En**: begäran kvoten för B-serien i någon av regionerna som stöds.  När din kvot har godkänts kan du använda portalen eller API: er för att göra din distribution som du normalt skulle. Mer information finns i [Resource Manager kärnkvot öka begäranden](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Frågor och svar 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>F: Hur skaffar du 135% baslinje-prestanda från en virtuell dator?
 **En**: 135% delas mellan den 8 Vcpu's som utgör VM-storlek. Till exempel om ditt program utnyttjar 4 8 kärnor arbetar med batch-bearbetning och var och en av de 4 vCPU körs med en 30% användning den totala mängden VM CPU-prestanda skulle vara lika med 120%.  Vilket innebär att den virtuella datorn skulle skapa kredit tid baserat på 15% delta från baslinje-prestanda.  Men det innebär också att om du har samma virtuella dator kan användas för 100% av alla 8 vCPU krediter ger den virtuella datorn en högsta CPU-prestanda för 800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>F: finns det en rabatt på pris under förhandsgranskningen?
-**En**: Ja, du kan visa förhandsgranskning priser för våra [sida med priser](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>F: hur övervakar jag min Kreditsaldot och förbrukning
 **En**: Vi kommer att 2 nya mått under de kommande veckorna den **kredit** mått kan du se hur många krediter som den virtuella datorn har till bank och **ConsumedCredit** måttet visar hur många CPU-krediter den virtuella datorn har förbrukat från banken.    Du kommer att kunna visa de här måtten från fönstret mått i portalen eller programmässigt via API: er för Azure-Monitor.
@@ -58,14 +44,7 @@ Om jag ta 120 krediter som jag har fått låg och subtrahera 96 krediter som jag
 **En**: Ja, alla B-serien storlekar stöd för Premium-lagring datadiskar.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>F: vilka regioner kan jag använda förhandsversionen från?
-**En**: B-serien förhandsgranskningen blir tillgängligt i följande områden:
-- OSS - Väst 2
-- OSS - Öst
-- Europa - Väst
-- Asien/Stillahavsområdet - sydost
 
-När förhandsgranskningen har slutförts kommer vi att släppa B-serien för att alla återstående regioner.
     
 
     

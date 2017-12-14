@@ -1,37 +1,36 @@
 ---
-title: Hitta aktivitetsrapporter i Azure portal | Microsoft Docs
-description: "Lär dig att hitta Azure Active Directory aktivitetsrapporter i Azure-portalen."
+title: "Hitta aktivitetsrapporter för Azure Active Directory-användare i Azure-portalen | Microsoft Docs"
+description: "Lär dig mer om aktivitetsrapporter för Azure Active Directory-användare finns i Azure-portalen."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure-portalen
 
-Om du flyttar från den klassiska Azure-portalen till Azure portal, får du en ny titt på Azure Active Directory (AD Azure) aktivitetsloggar. I en senaste [blogginlägget](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), förklarar vi hur du kan se aktiviteten loggar i kontexten för den resurs som du arbetar med i Azure-portalen. I den här artikeln beskrivs hur du hittar rapporter som du använde i den klassiska Azure-portalen i Azure-portalen.
+I den här artikeln beskrivs hur du hittar aktivitetsrapporter för Azure Active Directory-användare i Azure-portalen.
 
 ## <a name="whats-new"></a>Nyheter
 
-Rapporter i den klassiska Azure-portalen är uppdelade i kategorier:
-
-1.  Säkerhetsrapporter
-2.  Aktivitetsrapporter
-3.  Integrerad apprapporter
+Rapporter i den klassiska Azure-portalen har uppdelade i kategorier:
+* Säkerhetsrapporter
+* Aktivitetsrapporter
+* Integrerad apprapporter
 
 ### <a name="activity-and-integrated-app-reports"></a>Aktiviteten och integrerad apprapporter
 
@@ -43,14 +42,14 @@ Visa den här vyn på den **Azure Active Directory** bladet under **AKTIVITETEN*
 
 Följande rapporter konsolideras i den här vyn:
 
--   Granska rapporten
--   Lösenordsåterställningsaktivitet
--   Lösenordsåterställningsaktivitet för registrering
--   Självbetjäning grupper aktivitet
--   Ändringar av Office365 namn
--   Kontot etablering aktivitet
--   Status för förnyelse av lösenord
--   Kontoetableringsfel
+* Granska rapporten
+* Lösenordsåterställningsaktivitet
+* Lösenordsåterställningsaktivitet för registrering
+* Självbetjäning grupper aktivitet
+* Ändringar av Office365 namn
+* Kontot etablering aktivitet
+* Status för förnyelse av lösenord
+* Kontoetableringsfel
 
 
 Programanvändning rapporten har förbättrats och ingår i den **inloggningar** vyn. Visa den här vyn på den **Azure Active Directory** bladet under **AKTIVITETEN**väljer **inloggningar**.
@@ -96,9 +95,9 @@ Följande tabell listar Azure AD avvikande aktivitet säkerhetsrapporter och mot
 
 | Azure AD avvikande Aktivitetsrapport |  Identity protection risk händelsetyp|
 | :--- | :--- |
-| Används med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
+| Användare med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
 | Oregelbunden inloggningsaktivitet | Omöjligt att resa till ovanliga platser |
-| Inloggningar från potentiellt infekterade enheter | Inloggningar från angripna enheter|
+| Inloggningar från potentiellt infekterade enheter | Inloggningar från infekterade enheter|
 | Inloggningar från okända källor | Inloggningar från anonyma IP-adresser |
 | Inloggningar från IP-adresser med misstänkt aktivitet | Inloggningar från IP-adresser med misstänkt aktivitet |
 | - | Inloggningar från okända platser |

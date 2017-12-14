@@ -4,7 +4,7 @@ description: "Den här artikeln innehåller alla versioner av Azure AD Connect o
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
-
-Den här artikeln är utformad för att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
+”Den här artikeln är utformad för att hjälpa dig att hålla reda på de versioner som har släppts och att förstå om du behöver uppdatera till den senaste versionen eller inte.
 
 Det här är en lista över närliggande ämnen:
+
 
 
 Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect-versionen.
-Behörigheter som krävs | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Ladda ned| [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
+Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Status: 12 December 2017
+
+>[!NOTE]
+>Det här är en säkerhet relaterade snabbkorrigeringar för Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+När du installerar Azure AD Connect, kan ett nytt konto skapas som används för att köra tjänsten Azure AD Connect. Kontot har skapats med inställningar som tillåts användare med lösenord adminsitrator rättigheter möjligheten att ändra lösenordet till ett värde som känner till dem före den här versionen.  Detta gör att du kan logga in med det här kontot och detta skulle innebära en höjning av privilegier säkerhetsintrång. Den här versionen intensifierar inställningen på det konto som har skapats och tar bort den här säkerhetsrisken.
+
+>[!NOTE]
+>Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. Exisating installationer eller i fall där du skapar kontot själv kan du sould Kontrollera att problemet inte finns.
+
+Att öka inställningarna för det tjänstkonto som du kan köra [detta PowerShell-skript](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Den kommer att öka inställningarna på tjänstkontot för att ta bort sårbarhet för den under värden:
+
+*   Inaktivera arv på det angivna objektet
+*   Ta bort alla ACE: er för specifika objekt, förutom ACE: er som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill behålla standardbehörigheterna intakt när det gäller till sig SJÄLVT.
+*   Tilldela specifika behörigheter:
+
+Typ     | Namn                          | Åtkomst               | Gäller
+---------|-------------------------------|----------------------|--------------|
+Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Domänadministratörer                 | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Administratörer                | Fullständig behörighet         | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Lista innehåll        | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
+Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
+Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>PowerShell-skript för att öka ett befintligt tjänstkonto
+
+Du använder PowerShell-skript för att tillämpa de här inställningarna till ett befintligt tjänstkonto (ether som tillhandahålls av din organisation eller skapats med en tidigare installation av Azure AD Connect, ladda ned skriptet från den angivna länken ovan.
+
+##### <a name="usage"></a>Användning:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+där 
+
+$ObjectDN = Active Directory-konto som behörigheter behöver höjas.
+$Credential = autentiseringsuppgifter som används för att autentisera klienten när kommunicerar med Active Directory. Detta är normalt de autentiseringsuppgifter som företagsadministratör används för att skapa kontot vars behörigheter krävs tätare.
+
+>[!NOTE] 
+>$credential. Användarnamnet ska ha formatet domän\användarnamn.  
+
+##### <a name="example"></a>Exempel:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Den här säkerhetsrisken används för att få obehörig åtkomst?
+
+För att se om den här säkerhetsrisken användes för att kompromettera din Azure AD återställa Connect konfiguration bör du kontrollera det senaste lösenordet datum för tjänstkontot.  Om tidsstämpeln i oväntade, ytterligare undersökning via i händelseloggen för händelsen som lösenordsåterställning bör göras.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Status: Oktober 27 2017
+
+>[!NOTE]
+>Den här versionen är inte tillgängligt för kunder via funktionen Azure AD Connect automatiskt uppgradera
 
 ## <a name="116490"></a>1.1.649.0
 Status: Oktober 27 2017
@@ -335,7 +400,7 @@ CBool(
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
     |CertKeyAlgorithmParams|CertHashString|där|
-    |||med|
+    |||Med|
 
 * Följande schemaändringar har införts för att skapa anpassade Synkroniseringsregler för att flöda sAMAccountName domainNetBios och domainFQDN för gruppobjekt samt distinguishedName för användarobjekt kunder:
 

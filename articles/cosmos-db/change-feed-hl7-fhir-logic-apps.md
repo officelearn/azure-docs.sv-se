@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter HL7 FHIR hälsovård post ändringar med hjälp av Logic Apps och Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Denna lösning kräver tre Logic Apps att uppfylla kraven ovan och slutföra arb
 
 ### <a name="azure-services-used-in-the-solution"></a>Azure-tjänster används i lösningen
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL-API
 Azure Cosmos-DB är lagringsplatsen för FHIR resurser som visas i följande bild.
 
 ![Azure DB som Cosmos-kontot som används i självstudierna HL7 FHIR sjukvården](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ Följande bild visar patienterna kön. Taggen egenskapens värde används för �
 #### <a name="api-app"></a>API-app
 En API-app ansluter till Azure Cosmos DB och frågor om nya eller ändrade FHIR dokument uppdelat efter resurstyp. Det här programmet har en domänkontrollant **FhirNotificationApi** med en åtgärd **GetNewOrModifiedFhirDocuments**, se [källa för API-app](#api-app-source).
 
-Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) klass från Azure Cosmos DB DocumentDB .NET API. Mer information finns i [ändra feed artikel](change-feed.md). 
+Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) klass från Azure Cosmos SQL DB .NET API. Mer information finns i [ändra feed artikel](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments åtgärden
 

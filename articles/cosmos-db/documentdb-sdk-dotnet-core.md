@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET Core API, SDK & resurser | Microsoft Docs
-description: "Läs mer om .NET Core API- och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET Core SDK."
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resurser | Microsoft Docs'
+description: "Lär dig mer om SQL .NET Core API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB .NET Core SDK."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 552a9a9cfa1c1fc4eb3636e2d08da7afdc95b87f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: Viktig information och resurser
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/18/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -74,7 +76,7 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1 
 
-* Internt ändringar med stöd för [Microsoft.Azure.Graphs](https://docs.microsoft.com/en-us/azure/cosmos-db/graph-sdk-dotnet)
+* Internt ändringar med stöd för [Microsoft.Azure.Graphs](https://docs.microsoft.com/azure/cosmos-db/graph-sdk-dotnet)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 

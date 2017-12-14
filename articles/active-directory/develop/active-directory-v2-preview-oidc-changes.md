@@ -4,7 +4,7 @@ description: "En beskrivning av ändringar som görs i app model v2.0 förhandsv
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: e6c5b891-0b5d-47dc-8184-5d0ef6a1a006
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d344529d1ac9891e5a961de630dea3c1e4caab4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>Viktiga uppdateringar till v2.0-autentiseringsprotokoll
 Uppmärksamhet utvecklare! Under de kommande två veckorna kommer vi att göra några uppdateringar till vår v2.0-autentiseringsprotokoll som kan innebära att bryta ändringar för alla program som du har skrivit under våra förhandsversionen.  

@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Cosmos DB .NET Framework eller Core program med Graph API | Microsoft Docs
-description: "Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga Azure Cosmos DB"
+title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Graph API | Microsoft Docs
+description: "Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -17,11 +17,11 @@ ms.date: 10/06/2017
 ms.author: denlee
 ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framework eller Core-program med hjälp av Graph-API
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
@@ -31,7 +31,7 @@ Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en d
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
-Om du redan har Visual Studio 2017 installerad, se till att installeras på upp till [Visual Studio 2017 uppdatering 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+Om du redan har Visual Studio 2017 installerat ser du till att det är installerat upp till [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Om du redan har Visual Studio 2017 installerad, se till att installeras på upp 
 
 Nu ska vi klona en Graph API-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-Den här exempelprojektet formatet .NET Core projekt och har konfigurerats för att rikta nedan:
+Det här exempelprojektet använder projektformatet .NET Core och har konfigurerats för att rikta in sig på följande ramverk:
  - netcoreapp2.0
  - net461
 
@@ -114,7 +114,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa och kopiera en primärnyckel i Azure-portalen på sidan nycklar](./media/create-graph-dotnet/keys.png)
 
-3. Kopiera ditt **URI** värde från portalen och kontrollera värdet för nyckeln slutpunkt i appsettings.json. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
+3. Kopiera **URI**-värdet från portalen och använd det som värdet för slutpunktsnyckeln i appsettings.json. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
 
@@ -126,13 +126,13 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
-Innan du kör programmet, rekommenderas att du uppdaterar den *Microsoft.Azure.Graphs* paketet till den senaste versionen.
+Innan du kör programmet rekommenderar vi att du uppdaterar paketet *Microsoft.Azure.Graphs* till den senaste versionen.
 
 1. I Visual Studio högerklickar du på projektet **GraphGetStarted** i **Solution Explorer** och sedan på **Hantera NuGet-paket**. 
 
-2. I NuGet Package Manager **uppdateringar** Skriv *Microsoft.Azure.Graphs* och kontrollera den **innehåller förhandsversion** rutan. 
+2. På fliken **Bläddra** i NuGet-pakethanteraren skriver du *Microsoft.Azure.Graphs* och markerar kryssrutan **Include prerelease** (Ta med förhandsversioner). 
 
-3. I resultaten uppdatera den **Microsoft.Azure.Graphs** biblioteket till den senaste versionen av paketet. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
+3. I resultaten uppdaterar du biblioteket **Microsoft.Azure.Graphs** till den senaste versionen av paketet. Detta installerar bibliotekspaketet för Azure Cosmos DB-graftillägget och alla beroenden.
 
     Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 

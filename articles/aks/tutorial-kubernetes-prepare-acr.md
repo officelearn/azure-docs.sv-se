@@ -1,27 +1,19 @@
 ---
-title: "Kubernetes på Azure tutorial – förbereda ACR | Microsoft Docs"
+title: "Kubernetes på Azure tutorial – förbereda ACR"
 description: "AKS tutorial – förbereda ACR"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1848e15a2be8d89315657a6eabdb94617bd1b5bf
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
 
@@ -36,21 +28,21 @@ Den här ACR-instansen är integrerad med ett Kubernetes kluster i AKS i efterf�
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I den [tidigare kursen](./tutorial-kubernetes-prepare-app.md), en behållare avbildning har skapats för ett enkelt Azure röstning program. Om du inte har skapat appavbildning Azure röstning återgå till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
+I den [tidigare kursen][aks-tutorial-prepare-app], en behållare avbildning har skapats för ett enkelt Azure röstning program. Om du inte har skapat appavbildning Azure röstning återgå till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
-Den här kursen kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Den här kursen kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
 
 När du distribuerar ett Azure Container registret, måste du först en resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). I det här exemplet en resursgrupp med namnet `myResourceGroup` skapas i den `eastus` region.
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. I det här exemplet en resursgrupp med namnet `myResourceGroup` skapas i den `eastus` region.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en Azure-behållare registret med den [az acr skapa](/cli/azure/acr#create) kommando. Namnet på en behållare registret **måste vara unika**.
+Skapa en Azure-behållare registret med den [az acr skapa] [ az-acr-create] kommando. Namnet på en behållare registret **måste vara unika**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -60,7 +52,7 @@ I resten av den här kursen använder vi `<acrName>` som platshållare för regi
 
 ## <a name="container-registry-login"></a>Behållaren registret inloggning
 
-Använd den [az acr inloggning](https://docs.microsoft.com/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
+Använd den [az acr inloggning] [ az-acr-login] kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
 
 ```azurecli
 az acr login --name <acrName>
@@ -70,7 +62,7 @@ Kommandot returnerar ett inloggningen lyckades meddelande när den har slutfört
 
 ## <a name="tag-container-images"></a>Taggen behållaren bilder
 
-Om du vill se en lista över aktuella bilder i [docker bilder](https://docs.docker.com/engine/reference/commandline/images/) kommando.
+Om du vill se en lista över aktuella bilder i [docker bilder] [ docker-images] kommando.
 
 ```console
 docker images
@@ -99,7 +91,7 @@ Tagga nu den `azure-vote-front` avbildningen med loginServer av registret i beh�
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-När taggade, köra [docker bilder] (https://docs.docker.com/engine/reference/commandline/images/) att bekräfta åtgärden.
+När taggade, köra [docker bilder] [ docker-images] att bekräfta åtgärden.
 
 ```console
 docker images
@@ -129,7 +121,7 @@ Detta tar några minuter att slutföra.
 
 ## <a name="list-images-in-registry"></a>Lista över bilder i registret
 
-Returnera en lista över bilder som har aviserats i Azure-behållare i registret användaren den [az acr databaslistan](/cli/azure/acr/repository#list) kommando. Uppdatera kommandot med namnet på ACR-instansen.
+Returnera en lista över bilder som har aviserats i Azure-behållare i registret användaren den [az acr databaslistan] [ az-acr-repository-list] kommando. Uppdatera kommandot med namnet på ACR-instansen.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -143,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-Och sedan använda taggar för en viss bild visas den [az acr databasen Visa-taggar](/cli/azure/acr/repository#show-tags) kommando.
+Och sedan använda taggar för en viss bild visas den [az acr databasen Visa-taggar] [ az-acr-repository-show-tags] kommando.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -171,4 +163,17 @@ I den här självstudiekursen förbereddes ett Azure Container registret för an
 Gå vidare till nästa kurs mer information om hur du distribuerar ett Kubernetes kluster i Azure.
 
 > [!div class="nextstepaction"]
-> [Distribuera Kubernetes kluster](./tutorial-kubernetes-deploy-cluster.md)
+> [Distribuera Kubernetes kluster][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

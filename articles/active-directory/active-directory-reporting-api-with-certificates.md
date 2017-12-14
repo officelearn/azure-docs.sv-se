@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Hämta data med hjälp av Azure AD Reporting-API:et med certifikat
 Den här artikeln beskriver hur du använder Azure AD Reporting-API:et med certifikatautentiseringsuppgifter för att hämta data från kataloger utan inblandning av användaren. 
@@ -89,7 +89,7 @@ Nu kan du skapa skriptet. Nedan är ett exempel som använder cmdleten Invoke-Az
 Nu kan du exportera till en CSV-fil och spara till ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 
 ## <a name="next-steps"></a>Nästa steg
-[Grunderna i Azures identitetshantering](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Grunderna i Azures identitetshantering](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

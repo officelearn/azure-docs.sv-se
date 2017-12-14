@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuera och övervaka IoT kant moduler i skala - förhandsgranskning
 
@@ -42,19 +42,21 @@ Mer information om enheten twins och taggar finns [förstå och använda enheten
 
 1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb. 
 1. Välj **IoT kant (förhandsgranskning)**.
-1. Välj **skapa Edge distribution**.
+1. Välj **Lägg till IoT kant distribution**.
 
 Det finns fem steg för att skapa en distribution. Följande avsnitt beskriver hur vart och ett. 
 
-### <a name="step-1-label-deployment"></a>Steg 1: Etikett distribution
+### <a name="step-1-name-and-label"></a>Steg 1: Ange namnet och etiketten
 
-1. Ge din distribution ett unikt ID. Undvik blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
+1. Ge ett unikt namn för din distribution. Undvik blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 1. Lägga till etiketter om du vill spåra dina distributioner. Etiketter är **namn**, **värdet** par som beskriver distributionen. Till exempel `HostPlatform, Linux` eller `Version, 3.0.1`.
 1. Välj **nästa** gå vidare till steg två. 
 
-### <a name="step-2-add-modules"></a>Steg 2: Lägg till moduler
+### <a name="step-2-add-modules-optional"></a>Steg 2: Lägg till moduler (valfritt)
 
 Det finns två typer av moduler som du kan lägga till en distribution. Först är en modul som är baserade på en Azure-tjänst, t.ex. Lagringskonto eller Stream Analytics. Andra är en modul som är baserade på din kod. Du kan lägga till flera moduler båda typer av en distribution. 
+
+Om du skapar en distribution med några moduler, tar bort några befintliga moduler från enheter. 
 
 >[!NOTE]
 >Azure Machine Learning och Azure Functions stöder inte automatisk Azure tjänstdistributionen ännu. Använd anpassad modul distributionen manuellt lägga till dessa tjänster för din distribution. 

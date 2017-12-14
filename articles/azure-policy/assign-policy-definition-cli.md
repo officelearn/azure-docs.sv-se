@@ -1,6 +1,6 @@
 ---
-title: "Använda Azure CLI för att skapa en tilldelning av principer för att identifiera icke-kompatibla resurser i Azure-miljön | Microsoft Docs"
-description: "Använd PowerShell för att skapa en Azure principtilldelning för att identifiera resurser som icke-kompatibla."
+title: "Använda Azure CLI för att skapa en principtilldelning som identifierar icke-kompatibla resurser i Azure-miljön | Microsoft Docs"
+description: "Använda PowerShell för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser."
 services: azure-policy
 keywords: 
 author: bandersmsft
@@ -11,15 +11,15 @@ ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Skapa en tilldelning av principer för att identifiera icke-kompatibla resurser i Azure-miljön med Azure CLI
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön med Azure CLI
 
-Det första steget i att förstå efterlevnad i Azure är viktigt att veta där du stå med aktuella resurserna. Denna Snabbstart vägleder dig genom processen att skapa en tilldelning av principer för att identifiera virtuella datorer som inte använder hanterade diskar.
+Det första steget för att förstå efterlevnad i Azure är att veta hur du ligger till med dina befintliga resurser. Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
 
-I slutet av den här processen har identifieras vilka virtuella datorer inte använder hanterade diskar och är därför *icke-kompatibla*.
+I slutet av den här processen kommer du att ha lyckats identifiera virtuella datorer som inte använder hanterade diskar och därför är *icke-kompatibla*.
 .
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -28,69 +28,69 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="opt-in-to-azure-policy"></a>Välja att Azure-princip
+## <a name="opt-in-to-azure-policy"></a>Välja Azure Policy
 
-Azure princip är nu tillgänglig som förhandsversion och du behöver registrera att begära åtkomst.
+Azure Policy finns nu som en allmänt tillgänglig förhandsversion och du måste registrera dig för att begära åtkomst.
 
-1. Gå till Azure-princip på https://aka.ms/getpolicy och välj **registrera dig** i den vänstra rutan.
+1. Gå till Azure Policy på https://aka.ms/getpolicy och välj **Registrera dig** i det vänstra fönstret.
 
    ![Sök efter princip](media/assign-policy-definition/sign-up.png)
 
-2. Välja att Azure-principen genom att välja prenumerationer i den **prenumeration** listan som du vill arbeta med. Välj sedan **registrera**.
+2. Välj att använda Azure Policy genom att välja de prenumerationer i listan **Prenumeration** som du vill arbeta med. Välj sedan **Registrera**.
 
-   ![Om du vill använda Azure-princip](media/assign-policy-definition/preview-opt-in.png)
+   ![Välja att använda Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   Din förfrågan godkänns automatiskt för förhandsgranskning. Vänta i upp till 30 minuter för systemet för att bearbeta din registrering.
+   Din begäran godkänns automatiskt för förhandsversionen. Det kan ta upp till 30 minuter innan systemet har behandlat registreringen.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-I den här snabbstarten vi skapa en principtilldelning och tilldela Audit virtuella datorer utan diskar hanterade definition. Den här principdefinitionen identifierar resurser som inte uppfyller villkoren i principdefinitionen.
+I den här snabbstarten skapar vi en principtilldelning och tilldelar principdefinitionen Granska virtuella datorer utan Managed Disks. Den här principdefinitionen ska identifiera resurser som inte uppfyller villkoren i principdefinitionen.
 
-Följ dessa steg om du vill skapa en ny tilldelning av principer.
+Följ de här stegen om du vill skapa en ny principtilldelning.
 
-Visa alla principdefinitioner och hitta principdefinitionen ”Audit virtuella datorer utan hanterade diskar”:
+Visa alla principdefinitioner och leta reda på principdefinitionen ”Granska virtuella datorer utan Managed Disks”:
 
 ```azurecli
 az policy definition list
 ```
 
-Princip för Azure medföljer redan inbyggd i principdefinitioner som du kan använda. Visas inbyggda principdefinitioner som:
+Azure Policy har inbyggda principdefinitioner som du kan använda. Du kan se inbyggda principdefinitioner som:
 
-- Framtvinga taggen och dess värde
-- Tillämpa taggen och dess värde
-- Kräv SQL Server-Version 12.0
+- Framtvinga tagg och dess värde
+- Använd tagg och dess värde
+- Kräv SQL Server Version 12.0
 
-Därefter ange följande information och kör följande kommando för att tilldela principdefinitionen:
+Ange följande information och kör följande kommando för att tilldela principdefinitionen:
 
-- Visa **namn** för tilldelning av principer. I det här fallet ska vi använda *Audit virtuella datorer utan diskar hanteras*.
-- **Principen** – detta är principdefinitionen, baserade av som du använder för att skapa tilldelningen. I det här fallet är det principdefinitionen – *Audit virtuella datorer utan hanterade diskar*
-- En **omfång** – ett omfång avgör vilka resurser eller gruppering av resurser hämtar principtilldelningen tillämpas på. Det kan röra sig om en prenumeration till resursgrupper.
+- Visa ett **namn** för principtilldelningen. I det här fallet använder vi *Granska virtuella datorer utan Managed Disks*.
+- **Policy** – detta är principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionen *Granska virtuella datorer utan Managed Disks*.
+- **Scope** – en omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
 
-  Använda prenumerationen (eller resursgrupp) du tidigare har registrerat när du har valt att Azure-principen i det här exemplet använder vi den här prenumerations-ID - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** och resursgruppens namn - **FabrikamOMS**. Kom ihåg att ändra dessa ID för prenumerationen och namnet på resursgruppen som du arbetar med.
+  Använd prenumerationen (eller resursgruppen) som du registrerade tidigare när du valde Azure Policy. I det här exemplet använder vi prenumerations-ID:t **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** och resursgruppen med namnet **FabrikamOMS**. Kom ihåg att ändra dessa till ditt prenumerations-ID och namnet på den resursgrupp som du arbetar med.
 
-Detta är hur kommandot ska se ut:
+Så här ska kommandot se ut:
 
 ```azurecli
 az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
-En principtilldelning är en princip som har tilldelats äga rum inom ett specifikt omfång. Det här området kan också röra sig om en hanteringsgrupp till en resursgrupp.
+En principtilldelning är en princip som tilldelats ett specifikt område. Området kan även här vara allt från en hanteringsgrupp till en resursgrupp.
 
 ## <a name="identify-non-compliant-resources"></a>Identifiera icke-kompatibla resurser
 
-Visa de resurser som inte är kompatibla under den här nya tilldelning:
+Så här visar du icke-kompatibla resurser i samband med den nya tilldelningen:
 
-1. Gå tillbaka till sidan för principer för Azure.
-2. Välj **kompatibilitet** på den vänstra rutan och söka efter den **principtilldelning** du skapade.
+1. Gå tillbaka till sidan för Azure Policy.
+2. Välj **Efterlevnad** i det vänstra fönstret och sök efter den **principtilldelning** du skapade.
 
-   ![För principefterlevnad](media/assign-policy-definition/policy-compliance.png)
+   ![Principefterlevnad](media/assign-policy-definition/policy-compliance.png)
 
-   Om det finns några befintliga resurser som inte är kompatibla med den nya tilldelningen, de visas den **icke-kompatibel resurser** fliken som ovan.
+   Om det finns några befintliga resurser som inte är kompatibla med denna nya tilldelning visas de på fliken **Icke-kompatibla resurser** (se ovan).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Andra guider i den här samlingen bygger på denna Snabbstart. Om du vill fortsätta att arbeta med efterföljande självstudiekurser inte rensa upp de resurser som skapats i denna Snabbstart. Om du inte planerar att fortsätta, ta bort tilldelningen som du skapade genom att köra det här kommandot:
+De andra guiderna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta arbeta med efterföljande självstudier ska du inte rensa upp resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort tilldelningen som du skapade genom att köra det här kommandot:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
@@ -98,9 +98,9 @@ az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten tilldelas en principdefinition att identifiera icke-kompatibla resurser i Azure-miljön.
+I den här snabbstarten har du tilldelat en principdefinition för att identifiera icke-kompatibla resurser i Azure-miljön.
 
-Mer information om tilldelning av principer för att säkerställa att resurser som du skapar i den **framtida** är kompatibla, även i fortsättningen självstudierna för:
+Om du vill lära dig mer om att tilldela principer för att se till att **framtida** resurser som skapas är kompatibla kan du gå vidare till självstudien för:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./create-manage-policy.md)

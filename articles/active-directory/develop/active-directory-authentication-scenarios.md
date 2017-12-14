@@ -4,7 +4,7 @@ description: "En översikt över de fem vanligaste autentiseringsscenarier för 
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Autentiseringsscenarier för Azure AD
 Azure Active Directory (AD Azure) förenklar autentisering för utvecklare genom att tillhandahålla identitet som en tjänst med stöd för standardiserade protokoll, till exempel OAuth 2.0 och OpenID Connect, samt Öppna källa bibliotek för olika plattformar som hjälper dig att Börja koda snabbt. Det här dokumentet hjälper dig att förstå de olika scenarier för Azure AD stöder och visar hur du kommer igång. Den är uppdelad i följande avsnitt:
@@ -78,10 +78,10 @@ Säkerhetstoken som utfärdats av Azure AD innehåller anspråk eller intyg för
 | Grupper |Innehåller objekt-ID: N för Azure AD-grupper som användaren är medlem i. |
 | Identitetsprovider |Registrerar den identitetsleverantör som autentiserats föremål för token. |
 | Utfärdat till |Registrerar den tid då token har utfärdats, används ofta för token dokumentens. |
-| Utfärdaren |Identifierar STS som orsakat token som Azure AD-klient. |
+| Utfärdare |Identifierar STS som orsakat token som Azure AD-klient. |
 | Efternamn |Innehåller användarens efternamn som angetts i Azure AD. |
 | Namn |Ger en mänsklig läsbar värde som identifierar föremål för token. |
-| Objekt-Id |Innehåller en ändras, unik identifierare för ämnet i Azure AD. |
+| Objekt-ID |Innehåller en ändras, unik identifierare för ämnet i Azure AD. |
 | Roller |Innehåller egna namnen på Azure AD Application roller som användaren har beviljats. |
 | Omfång |Anger behörigheterna för klientprogrammet. |
 | Ämne |Anger huvudnamn som Assert token information. |

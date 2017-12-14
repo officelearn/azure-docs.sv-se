@@ -1,7 +1,7 @@
 
 | Resurs | Standardgräns | Övre gräns | 
 | --- | --- | --- |
-| CDN-profiler |8 |25 |
+| CDN-profiler |25 |25 |
 | CDN-slutpunkter per profil |10 |25 |
 | Anpassade domäner per slutpunkt |10 |25 |
 

@@ -4,7 +4,7 @@ description: "En självstudiekurs som visar hur du använder en Linux VM hantera
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: 4621ca88c0d1443cd8bdeea2d34e8f333727acc0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a4dda36ce1ae01c4fe66394a86dd9624b3c41d9f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Använd en Linux VM hanteras tjänstidentitet för åtkomst till Azure Storage via en SAS-autentiseringsuppgifter
 
@@ -40,7 +40,7 @@ En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagri
 [!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Skapa en virtuell Linux-dator i en ny resursgrupp

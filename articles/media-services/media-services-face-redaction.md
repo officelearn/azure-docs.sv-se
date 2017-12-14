@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigera bort personerna bakom Azure Media Analytics
 ## <a name="overview"></a>Översikt
 **Azure Media Redactor** är en [Azure Media Analytics](media-services-analytics-overview.md) medieprocessor (HP) som erbjuder skalbara ansikte bortredigering i molnet. Framsidan bortredigering kan du ändra videon för att kunna oskärpa ytor valda enskilda användare. Du kanske vill använda tjänsten ansikte bortredigering i offentliga säkerhet och nyheter media scenarier. Några minuter med material som innehåller flera ytor kan ta timmar att redigera bort manuellt, men med den här tjänsten ansikte bortredigering processen tar bara några få enkla steg. Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-redactor/) blogg.
 
-Det här avsnittet innehåller information om **Azure Media Redactor** och visar hur du använder det med Media Services SDK för .NET.
+Den här artikeln innehåller information om **Azure Media Redactor** och visar hur du använder det med Media Services SDK för .NET.
 
 ## <a name="face-redaction-modes"></a>Framsidan bortredigering lägen
-Ansikte bortredigering fungerar genom att identifiera ytor i varje ram av video och spåra ansikte objektet både framåt och bakåt i tiden, så att samma person kan oskarpa från andra vinklar samt. Automatisk bortredigering processen är mycket komplex och har inte alltid skapa 100% av önskade utgående därför Media Analytics ger dig med ett par olika sätt att ändra det slutgiltiga resultatet.
+Ansikte bortredigering fungerar genom att identifiera ytor i varje ram av video och spåra ansikte objektet både framåt och bakåt i tiden, så att samma person kan oskarpa från andra vinklar samt. Processen för automatisk bortredigering är komplex och har inte alltid skapa 100% av önskade utgående därför Media Analytics ger dig med ett par olika sätt att ändra det slutgiltiga resultatet.
 
-Förutom en fullständigt automatiskt läge finns ett arbetsflöde för två gånger som gör val/de-selection av hittade ytor via en lista över ID: N. Även använder om du vill att godtyckliga per ram justeringar MP en metadatafil i JSON-format. Det här arbetsflödet är uppdelat i **analysera** och **Redact** lägen. Du kan kombinera de två lägena i ett steg som kör både aktiviteter i ett jobb. Det här läget kallas **kombinerade**.
+Förutom en fullständigt automatiskt läge finns ett arbetsflöde för två gånger, vilket gör val/de-selection av hittade ytor via en lista över ID: N. Även använder om du vill att godtyckliga per ram justeringar MP en metadatafil i JSON-format. Det här arbetsflödet är uppdelat i **analysera** och **Redact** lägen. Du kan kombinera de två lägena i ett steg som kör både aktiviteter i ett jobb. Det här läget kallas **kombinerade**.
 
 ### <a name="combined-mode"></a>Kombinerade läge
-Detta genererar automatiskt en omarbetade mp4 utan alla manuella indata.
+Detta ger en omarbetade mp4 automatiskt utan att alla manuella indata.
 
 | Fas | Filnamn | Anteckningar |
 | --- | --- | --- |
@@ -172,7 +171,7 @@ Bortredigering MP ger hög precision min plats identifiering och spårning som k
 Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
-2. Skapa ett jobb med framsidan bortredigering uppgiften baserat på en konfigurationsfil som innehåller följande json-förinställning. 
+2. Skapa ett jobb med framsidan bortredigering uppgiften baserat på en konfigurationsfil som innehåller följande json-förinställda: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Hämta JSON utdatafilerna. 
@@ -183,30 +182,39 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

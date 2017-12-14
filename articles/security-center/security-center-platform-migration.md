@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migrering av Azure Security Center-plattformen
 
@@ -36,7 +36,7 @@ Från och med nu används Microsoft Monitoring Agent i Security Center (samma ag
 
 ## <a name="agent"></a>Agent
 
-Som en del av övergången installeras Microsoft Monitoring Agent (för [Windows](../log-analytics/log-analytics-windows-agents.md) eller [Linux](../log-analytics/log-analytics-linux-agents.md)) på alla virtuella Azure-datorer som data samlas in från.  Om den virtuella datorn redan har Microsoft Monitoring Agent installerad används den installerade agenten i Security Center.
+Som en del av övergången installeras Microsoft Monitoring Agent (för [Windows](../log-analytics/log-analytics-windows-agent.md) eller [Linux](../log-analytics/log-analytics-linux-agents.md)) på alla virtuella Azure-datorer som data samlas in från.  Om den virtuella datorn redan har Microsoft Monitoring Agent installerad används den installerade agenten i Security Center.
 
 Under en tid (vanligtvis några dagar) körs båda agenterna sida vid sida för att säkerställa en smidig övergång utan att data går förlorade. På så sätt kan Microsoft verifiera att den nya pipelinen för data fungerar innan den nuvarande pipelinen avslutas. Därefter tas Azure Monitoring Agent bort från dina virtuella datorer. Ingen åtgärd krävs från din sida. Du får ett e-postmeddelande när alla kunder har migrerats.
  

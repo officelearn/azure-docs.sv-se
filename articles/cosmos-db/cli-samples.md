@@ -13,22 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
-ms.date: 11/02/2017
+ms.date: 11/29/2017
 ms.author: mimig
-ms.openlocfilehash: 989ef9915028c42a4da817bf2dd3aa5ad2beb2ef
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure CLI-exempel för Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Följande tabell innehåller länkar till exempel Azure CLI-skript för Azure Cosmos DB. För referenssidor för alla Azure Cosmos DB CLI-kommandon finns i den [referens för Azure CLI 2.0](https://docs.microsoft.com/cli/azure/cosmosdb).
 
 | |  |
 |---|---|
 |**Skapa Azure DB som Cosmos-kontot, databas och behållare**||
-|[Skapa ett DocumentDB-API-konto](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en enda Azure Cosmos DB API-kontot, databas och behållare för användning med DocumentDB-API. |
+|[Skapa ett konto för SQL-API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en enda Azure Cosmos DB API-kontot, databas och behållare för användning med SQL-API. |
 | [Skapa ett konto för MongoDB-API](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en enda Azure Cosmos DB MongoDB API kontot, databas och samling. |
 |**Skala Azure Cosmos DB**||
 | [Skala behållaren genomflöde](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Ändrar den etablerade througput i en behållare.|

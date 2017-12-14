@@ -1,6 +1,6 @@
 ---
-title: "Azure Quickstart - objekt för överföring till/från Azure Blob storage med hjälp av Node.js| Microsoft Docs"
-description: "Lär dig snabbt att överföra objekt till och från Azure Blob storage med hjälp av Node.js"
+title: "Snabbstart för Azure – Överföra objekt till och från Azure Blob Storage med hjälp av Node.js | Microsoft Docs"
+description: "Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av Node.js"
 services: storage
 documentationcenter: storage
 author: georgewallace
@@ -17,13 +17,13 @@ ms.date: 10/30/2017
 ms.author: gwallace
 ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
 ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/13/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Överför objekt till/från Azure Blob storage med hjälp av Node.js
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Node.js
 
-Lär dig hur du använder Node.js att överföra, hämta och visa en lista med blockblobbar i en behållare i Azure Blob storage i denna Snabbstart.
+I den här snabbstarten får du lära dig att använda Node.js för att ladda upp, ladda ned och lista blockblobar i Azure Blob Storage.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,19 +37,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-Den [exempelprogram](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) används i den här snabbstarten är ett grundläggande konsolprogram. 
+[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) som används i den här snabbstarten är ett grundläggande konsolprogram. 
 
-Använd [git](https://git-scm.com/) att hämta en kopia av programmet till din utvecklingsmiljö.
+Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-Det här kommandot klonar databasen till din lokala git-mapp. Öppna den för att öppna programmet leta efter mappen storage-BLOB-nod-Snabbstart, och dubbelklicka på index.js.
+Det här kommandot klonar lagret till den lokala git-mappen. När du vill öppna programmet letar du reda på mappen storage-blobs-node-quickstart, öppnar den och dubbelklickar på index.js.
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna den `index.js` filen, söka efter den `connectionString` variabeln. Ersätt värdet med hela värdet för anslutningssträngen med den som du sparade från Azure-portalen. Anslutningssträngen för lagring bör se ut ungefär så här:
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna filen `index.js` och sök efter variabeln `connectionString`. Ersätt värdet med hela anslutningssträngens värde med det du sparade från Azure-portalen. Anslutningssträngen för lagring bör se ut ungefär så här:
 
 ```javascript
 // Create a blob client for interacting with the blob service from connection string
@@ -58,19 +58,19 @@ var connectionString = '<Your connection string here>';
 var blobService = storage.createBlobService(connectionString);
 ```
 
-## <a name="install-required-packages"></a>Installera nödvändiga paket
+## <a name="install-required-packages"></a>Installera de paket som krävs
 
-I programkatalogen kör `npm install` krävs för att installera någon paket som anges i den `package.json` filen.
+I programkatalogen kör du `npm install` för att installera eventuella paket som krävs som anges i filen `package.json`.
 
 ```javascript
 npm install
 ```
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
-Det här exemplet skapar en testfil i Mina dokument, överför det till Blob storage, visar en lista över blobbar i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
+Det här exemplet skapar en testfil i Mina dokument, överför den till Blob Storage, listar blobarna i behållaren och laddar sedan ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
-Köra exemplet genom att skriva `node index.js`. Följande utdata är från ett Windows-system.  En liknande utdata med lämpliga sökvägar kan förväntas om med hjälp av Linux.
+Kör exemplet genom att skriva `node index.js`. Följande utdata är från ett Windows-system.  Liknande utdata med lämpliga sökvägar kan förväntas om man använder Linux.
 
 ```
 Azure Storage Node.js Client Library Blobs Quick Start
@@ -97,25 +97,25 @@ Azure Storage Node.js Client Library Blobs Quick Start
 Sample finished running. When you hit <ENTER> key, the temporary files will be deleted and the sample application will exit.
 ```
 
-Kontrollera Mina dokument för de två filerna innan du fortsätter. Du kan öppna dem och de är identiska.
+Kontrollera att de två filerna finns i MyDocuments innan du fortsätter. Du kan öppna dem och se att de är identiska.
 
-Du kan också använda ett verktyg som den [Azure Lagringsutforskaren](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) att visa filer i Blob storage. Azure Lagringsutforskaren är ett kostnadsfritt plattformsoberoende verktyg som hjälper dig att komma åt kontoinformationen lagring.
+Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
 
-När du har kontrollerat filerna, trycka på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör du öppna filen index.js titta på koden. 
+När du har kontrollerat filerna trycker du på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen index.js och titta på koden. 
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-Därefter går vi igenom exempelkoden så att du förstår hur det fungerar.
+Härnäst går vi igenom exempelkoden så att du kan förstå hur den fungerar.
 
-### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekt
+### <a name="get-references-to-the-storage-objects"></a>Hämta referenser till lagringsobjekten
 
-Det första du gör är att skapa en referens till den `BlobService` används för att komma åt och hantera Blob storage. De här objekten som bygger på varandra – varje används av den nästa i listan.
+Det första du ska göra är att skapa referenser till `BlobService` som används för att komma åt och hantera Blob Storage. De här objekten bygger på varandra – vart och ett används av nästa i listan.
 
-* Skapa en instans av den  **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**  -objektet, vilket leder till Blob-tjänsten på ditt lagringskonto.
+* Skapa en instans av objektet **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)**, som pekar mot Blob Service i lagringskontot.
 
-* Skapa en ny behållare och ange behörigheter för behållaren så att blobbarna är offentliga och kan nås med bara en URL. Behållaren som börjar med **quickstartcontainer -**.
+* Skapa en ny behållare och ange sedan behörigheter för behållaren så att blobarna är offentliga och går att komma åt med bara en URL. Behållaren börjar med **quickstartcontainer-**.
 
-Det här exemplet används [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) eftersom vi vill skapa en ny behållare varje gång exemplet körs. I en produktionsmiljö där du använder samma behållare i ett program, är det bättre att man bara anropa CreateIfNotExists en gång. Du kan också skapa behållaren i förväg så du inte behöver skapa i koden.
+Det här exemplet använder [createContainerCreateIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) eftersom vi vill skapa en ny behållare varje gång exemplet körs. I en produktionsmiljö där du använder samma behållare i ett program är det bättre att bara anropa CreateIfNotExists en gång. Du kan också skapa behållaren i förväg så att du inte behöver skapa den i koden.
 
 ```javascript
 // Create a container for organizing blobs within the storage account.
@@ -124,13 +124,13 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-### <a name="upload-blobs-to-the-container"></a>Ladda upp blobbar i behållaren
+### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i behållaren
 
-Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobbar är de vanligaste. De är perfekt för lagring av text och binära data, vilket är anledningen till att de används i denna Snabbstart.
+Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är de vanligaste. De är perfekta för att lagra text och binära data, och det är därför de används i den här snabbstarten.
 
-Om du vill överföra en fil till en blobb måste du använda den [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile) metod. Den här åtgärden skapas blobben om den inte redan finns eller skriver över den om den redan finns.
+Om du vill överföra en fil till en blob måste du använda metoden [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över den om den finns.
 
-Exempelkoden skapar en lokal fil som ska användas för överföring och hämtning, spara filen ska överföras som **localPath** och namnet på blob i **localFileToUpload**. I följande exempel överför filen till den behållare som börjar med **quickstartcontainer -**.
+Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som **localPath** och namnet på bloben i **localFileToUpload**. I följande exempel överförs filen till behållaren som börjar med **quickstartcontainer-**.
 
 ```javascript
 console.log('2. Creating a file in ~/Documents folder to test the upload and download\n');
@@ -143,13 +143,13 @@ handleError(error);
 console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BLOB_NAME), '\n');
 ```
 
-Det finns flera överför metoder som du kan använda med Blob storage. Till exempel om du har en dataström med minne, du kan använda den [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) metod i stället [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
+Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du använda metoden [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) i stället för [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
-Därefter programmet hämtar en lista över filer i behållare med [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Följande kod hämtar listan över blobbar och loop genom dem, visar URI: er för de blobbar som påträffats. Du kan kopiera URI kommandofönstret och klistra in den i en webbläsare för att visa filen.
+Därefter hämtar programmet en lista över filer i behållaren med [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Följande kod hämtar listan över blobar och går sedan igenom dem och visar URI för de blobar som har påträffats. Du kan kopiera URI från kommandofönstret och klistra in den i en webbläsare om du vill visa filen.
 
-Om du har 5 000 eller färre blobbar i behållaren, hämtas alla blob-namn i ett anrop till [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Om du har mer än 5 000 blobbar i behållaren, hämtar tjänsten i listan i uppsättningar med 5 000 tills alla blob-namn har hämtats. Så första gången detta API anropas returnerar de första 5 000 blob-namn och en fortsättningstoken. Den andra gången du ange token, hämtar tjänsten nästa uppsättning blobbnamnen och förrän fortsättningstoken är null, vilket anger att alla blob-namn har hämtats.
+Om du har 5 000 eller färre blobar i behållaren hämtas alla blobnamn i ett anrop till [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Om du har fler än 5 000 blobar i behållaren hämtar tjänsten listan i uppsättningar om 5 000 tills alla blobnamn har hämtats. Första gången denna API anropas returnerar den därför de första 5 000 blobnamnen och en fortsättningstoken. Den andra gången anger du token och tjänsten hämtar nästa uppsättning med blobnamn och så vidare tills fortsättningstoken är null, vilket visar att alla blobnamn har hämtats.
 
 ```javascript
 console.log('4. Listing blobs in container\n');
@@ -164,9 +164,9 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Ladda ned blobbar till din lokala disk med hjälp av [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
+Ladda ned blobar till din lokala disk med hjälp av [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
-Följande kod hämtar blob som överförs i föregående avsnitt, att suffixet ”_DOWNLOADED” till blob-namn så att du kan se både filer på hårddisken. 
+Följande kod laddar ned bloben som överfördes i föregående avsnitt och lägger till ett suffix med "_DOWNLOADED" i blobnamnet så att du kan se båda filerna på den lokala disken. 
 
 ```javascript
 console.log('5. Downloading blob\n');
@@ -177,7 +177,7 @@ console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Om du behöver inte längre blobbar på den här snabbstarten, kan du ta bort hela behållaren med hjälp av [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) och [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Också ta bort de filer som skapas om de inte längre behövs. Detta har åtgärdat i programmet när du trycker på RETUR för att avsluta programmet.
+Om du inte längre behöver blobarna som laddades upp i denna snabbstart kan du ta bort hela behållaren med hjälp av [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) och [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Ta även bort de filer som skapades om de inte längre behövs. Detta sköts av programmet när du trycker på Retur för att avsluta programmet.
 
 ```javascript
 console.log('6. Deleting block Blob\n');
@@ -194,9 +194,9 @@ console.log('6. Deleting block Blob\n');
 
 ## <a name="next-steps"></a>Nästa steg
 
-I Snabbstart, du har lärt dig hur du överför filer mellan en lokal disk och Azure Blob storage med hjälp av Node.js. Mer information om hur du arbetar med Blob storage fortsätta till Blob storage anvisningar.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Node.js. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-nodejs-how-to-use-blob-storage.md)
 
-Mer information om Lagringsutforskaren och Blobbar finns [hantera Azure-blobblagringsresurser med Lagringsutforskaren](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Mer information om Storage Explorer och blobar finns i [Hantera Azure Blob Storage-resurser med Storage Explorer ](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

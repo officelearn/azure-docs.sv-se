@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Användardokumentation om Azure Stack
+title: "Användardokumentation om Azure Stack"
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Dokumentation om Azure Stack – självstudier, API-referens'
-  description: Lär dig hur du använder Azure-stacken services och hur man skapar appar för Azure-stacken.
+  title: "Dokumentation om Azure Stack – självstudier, API-referens"
+  description: "Lär dig hur du använder Azure-stacken services och hur man skapar appar för Azure-stacken."
   services: azure-stack
   author: carolz
   manager: carolz
@@ -14,58 +14,63 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
+  ms.openlocfilehash: 13bfcbfdb180ee50efa392ad43d58839e7e52cf0
+  ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/13/2017
 abstract:
-  description: 'Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href="/azure/azure-stack/">operatorn dokumentationen</a>.'
+  description: "Med Azure Stack, som är en plattform för hybridmoln, kan du använda Azure-tjänster från företagets eller leverantörens datacenter. Som utvecklare kan du skapa appar på Azure Stack. Du kan sedan distribuera dem till Azure Stack, till Azure eller skapa äkta hybridappar som utnyttjar anslutningen mellan ett Azure Stack-moln och Azure. Lär dig mer om att skapa resurser och distribuera appar med våra snabbstarter och självstudier.<br/><br/>Om du är operatör Azure Stack som hanterar infrastrukturen och erbjuder tjänster, finns våra <a href=\"/azure/azure-stack/\">operatorn dokumentationen</a>."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att distribuera en virtuell Windows-dator på Azure Stack:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig att distribuera en virtuell Windows-dator på Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portalen
-            href: azure-stack-quick-windows-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-windows-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-windows-cli.md
-      - type: paragraph
-        text: 'Lär dig att distribuera en virtuell Linux-dator på Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portalen
-            href: azure-stack-quick-linux-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-linux-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Steg för steg-självstudier
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portalen
+      href: azure-stack-quick-windows-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+  - type: paragraph
+    text: "Lär dig att distribuera en virtuell Linux-dator på Azure Stack:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Distribuera program i både Azure och Azure-stacken.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuera appar till Azure Stack och Azure</a>
-  - title: Referens
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portalen
+      href: azure-stack-quick-linux-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Distribuera program i både Azure och Azure-stacken."
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-stacken</a></p>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuera appar till Azure Stack och Azure</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Azure CLI-stacken</a></p>

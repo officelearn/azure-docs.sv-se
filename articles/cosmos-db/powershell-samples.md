@@ -15,20 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure PowerShell-exempel för Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Följande tabell innehåller länkar till exempel Azure PowerShell-skript för Azure Cosmos DB. Just nu kan du bara hantera Azure Cosmos DB accountlayer via PowerShell; andra resurser som databaser och samlingar kan inte hanteras via PowerShell.
 
 | |  |
 |---|---|
 |**Skapa ett Azure DB som Cosmos-konto**||
-|[Skapa ett DocumentDB-API-konto](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en enda Azure Cosmos DB-konto som ska användas med DocumentDB-API. |
+|[Skapa ett konto för SQL-API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en enda Azure Cosmos DB-konto som ska användas med SQL-API. |
 |**Skala Azure Cosmos DB**||
 |[Replikera Azure DB som Cosmos-kontot i flera områden och konfigurera redundans prioriteter](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replikerar globalt kontodata i flera regioner med angivna redundans prioritet.|
 |**Skydda Azure Cosmos DB**||

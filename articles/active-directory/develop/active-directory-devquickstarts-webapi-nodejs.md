@@ -1,10 +1,10 @@
 ---
-title: "Azure Active Directory Node.js komma igång | Microsoft Docs"
+title: "Azure Active Directory Node.js komma igång"
 description: "Hur du skapar en Node.js-REST-webb-API som kan integreras med Azure AD för autentisering."
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
-manager: routlaw
+manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Skydda Node.js-webb-API med Azure Active Directory
 

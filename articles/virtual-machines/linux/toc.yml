@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Minnesoptimerad
           href: sizes-memory.md
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: constrained-vcpu.md
         - name: Lagringsoptimerad
           href: sizes-storage.md
         - name: GPU-optimerad
@@ -121,6 +124,8 @@
       items:
         - name: Riktlinjer för infrastruktur
           href: infrastructure-example.md
+        - name: vCPU-kvoter
+          href: quotas.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'
@@ -164,6 +169,8 @@
       items:
         - name: Förskottsbetala för virtuella datorer – reserverade instanser
           href: prepay-reserved-vm-instances.md
+        - name: VM-användning
+          href: vm-usage.md
         - name: Vanliga CLI-åtgärder
           href: cli-manage.md
         - name: Flytta en virtuell dator
@@ -172,8 +179,6 @@
           href: change-vm-size.md
         - name: Tagga en virtuell dator
           href: tag.md
-        - name: Använd cloud-init
-          href: using-cloud-init.md
         - name: Köra skript på en virtuell dator
           href: extensions-customscript.md
         - name: Använd Fjärrskrivbord
@@ -252,6 +257,22 @@
               href: terraform-install-configure.md
             - name: Skapa fullständig virtuell dator
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Översikt över Cloud-init
+              href: using-cloud-init.md
+            - name: Konfigurera VM-värdnamn
+              href: cloudinit-update-vm-hostname.md
+            - name: Uppdateringspaket i en virtuell dator
+              href: cloudinit-update-vm.md
+            - name: Lägg till en användare till en virtuell dator
+              href: cloudinit-add-user.md
+            - name: Konfigurera växlingsfil
+              href: cloudinit-configure-swapfile.md
+            - name: Kör befintliga bash-skript
+              href: cloudinit-bash-script.md
+            - name: Förbered en befintlig virtuell dator för cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

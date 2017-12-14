@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Push-arkitekturvägledning för företag
 Företag befordras idag gradvis mot skapa mobila program för slutanvändarna (externa) eller för anställda (intern). De har befintliga serverdelssystem på plats vara den stordatorer eller vissa LoB-program som integreras i arkitektur för mobila program. Den här guiden kommer talar om hur bäst att göra den här integreringen rekommenderar möjlig lösning till vanliga scenarier.
@@ -212,7 +212,7 @@ Fullständig exempelkod finns på [Notification Hub exempel]. Den är uppdelad i
    
     ![][3]
    
-    g. Konfigurera jobbet för att vara ”kör kontinuerligt” så att när du loggar in på den [klassiska Azure-portalen] bör du se något som liknar följande:
+    g. Konfigurera jobbet för att vara ”kör kontinuerligt” så att när du loggar in på den [Azure-portalen] bör du se något som liknar följande:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ Fullständig exempelkod finns på [Notification Hub exempel]. Den är uppdelad i
 3. Kör den **EnterprisePushBackendSystem** konsolprogram som simulerar LoB-serverdelen och kommer att börja skicka meddelanden och du bör se popup-meddelanden som visas på följande:
    
     ![][5]
-4. Meddelandena som har ursprungligen skickats till Service Bus-ämnen som övervakades med Service Bus prenumerationer i ditt webb-jobb. När ett meddelande togs emot ett meddelande skapades och skickas till mobilappen. Du kan titta igenom Webbjobb loggfilerna för att bekräfta bearbetningen när du går till länken loggar i [klassiska Azure-portalen] för Web-jobb:
+4. Meddelandena som har ursprungligen skickats till Service Bus-ämnen som övervakades med Service Bus prenumerationer i ditt webb-jobb. När ett meddelande togs emot ett meddelande skapades och skickas till mobilappen. Du kan titta igenom Webbjobb loggfilerna för att bekräfta bearbetningen när du går till länken loggar i [Azure-portalen] för Web-jobb:
    
     ![][6]
 
@@ -264,4 +264,4 @@ Fullständig exempelkod finns på [Notification Hub exempel]. Den är uppdelad i
 [Service Bus Pub/Sub programmering]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure Webjobs]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs – självstudiekurs för Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[klassiska Azure-portalen]: https://manage.windowsazure.com/
+[Azure-portalen]: https://portal.azure.com/

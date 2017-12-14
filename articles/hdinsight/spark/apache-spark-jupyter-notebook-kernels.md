@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac45408dab31566be3089cbf2cd7d31d54b1655
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Spark-kluster i Azure HDInsight 
 
@@ -82,13 +82,13 @@ Här är några fördelar med att använda de nya kärnor med Jupyter notebook i
 
    | Magiskt tal | Exempel | Beskrivning |
    | --- | --- | --- |
-   | Hjälp |`%%help` |Genererar en tabell med alla tillgängliga användbara med exempel och beskrivning |
+   | hjälp |`%%help` |Genererar en tabell med alla tillgängliga användbara med exempel och beskrivning |
    | Info |`%%info` |Utdata sessionsinformation för den aktuella Livius slutpunkten |
-   | Konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Flaggan force (-f) om en session redan har skapats, vilket garanterar att sessionen släppas och återskapas. Titta på [Liviuss POST /sessions brödtext i begäran](https://github.com/cloudera/livy#request-body) en lista över giltiga parametrar. Parametrar måste överföras i som en JSON-sträng och måste vara på nästa rad efter magic, som visas i Exempelkolumnen. |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den %% lokala Python kontext som en [Pandas](http://pandas.pydata.org/) dataframe. |
+   | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Flaggan force (-f) om en session redan har skapats, vilket garanterar att sessionen släppas och återskapas. Titta på [Liviuss POST /sessions brödtext i begäran](https://github.com/cloudera/livy#request-body) en lista över giltiga parametrar. Parametrar måste överföras i som en JSON-sträng och måste vara på nästa rad efter magic, som visas i Exempelkolumnen. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om den `-o` -parameter har skickats, resultatet av frågan sparas i den %% lokala Python kontext som en [Pandas](http://pandas.pydata.org/) dataframe. |
    | lokala |`%%local`<br>`a=1` |Alla koden i efterföljande rader körs lokalt. Koden måste vara giltig Python2 kod även oavsett kernel som du använder. Så även om du har valt **PySpark3** eller **Spark** kärnor när du skapar den bärbara datorn om du använder den `%%local` magiskt i en cell, cellen får bara ha giltig Python2 kod... |
    | loggar |`%%logs` |Utdata loggar för den aktuella Livius-sessionen. |
-   | ta bort |`%%delete -f -s <session number>` |Tar bort en viss session på den aktuella Livius slutpunkten. Observera att du inte kan ta bort sessionen som initieras för kernel sig själv. |
+   | radera |`%%delete -f -s <session number>` |Tar bort en viss session på den aktuella Livius slutpunkten. Observera att du inte kan ta bort sessionen som initieras för kernel sig själv. |
    | Rensa |`%%cleanup -f` |Tar bort alla sessioner för aktuella Livius slutpunkten, inklusive anteckningsbokens session. Tvingad flaggan -f. är obligatoriskt. |
 
    > [!NOTE]

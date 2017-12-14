@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 08/30/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Ansluta en webbapp till ett redis-cache
 
-I det här scenariot du lära dig hur du skapar ett Azure redis-cache och en Azure-webbapp. Du kan länka redis-cache till det webbprogram som använder app-inställningar.
-
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+Det här exempelskriptet skapar ett Azure redis-cache och en Azure-webbapp. Därefter länkar redis-cache till det webbprogram som använder app-inställningar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -40,16 +40,16 @@ I det här scenariot du lära dig hur du skapar ett Azure redis-cache och en Azu
 
 ## <a name="script-explanation"></a>Skriptet förklaring
 
-Skriptet använder följande kommandon för att skapa en resursgrupp, webbprogram, redis-cache och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp, webbprogram, redis-cache och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. Detta påminner om en servergrupp för din Azure webbapp. |
-| [Skapa AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [Skapa AZ redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Skapa en ny Redis-Cache-instans. Detta är där data ska lagras. |
-| [AZ redis lista nycklar](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Visar åtkomstnycklarna för redis-cacheinstansen. |
-| [AZ webapp appsettings konfigurationsuppsättning](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Skapar en App Service-plan. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar ett Azure-webbapp. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az_redis_create) | Skapa en ny Redis-Cache-instans. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az_redis_list_keys) | Visar åtkomstnycklarna för redis-cacheinstansen. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Skapar eller uppdaterar en appinställning för ett Azure-webbapp. App-inställningar visas som miljövariabler för din app. |
 
 ## <a name="next-steps"></a>Nästa steg
 

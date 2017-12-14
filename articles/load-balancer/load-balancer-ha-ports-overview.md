@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar för hög tillgänglighet
 
@@ -74,7 +74,7 @@ Om du vill delta i förhandsversionen av funktionen hög tillgänglighet portar 
 
 Följande är de konfigurationer som stöds eller undantag för funktionen portar för hög tillgänglighet:
 
-- En enda frontend IP-konfiguration kan ha en enda DSR belastningsutjämningsregel med hög tillgänglighet portar eller den kan ha en enskild icke-DSR belastningsutjämningsregel med hög tillgänglighet portar. Det går inte att ha både.
+- En enda frontend IP-konfiguration kan ha en enda direkt Serverreturnering (flytande IP i Azure - DSR) belastningsutjämningsregeln med hög tillgänglighet portar eller den kan ha en enskild icke-DSR belastningsutjämningsregel med hög tillgänglighet portar. Det går inte att ha både.
 - En enda IP-konfiguration nätverksgränssnitt kan bara ha en icke-DSR belastningsutjämningsregeln med hög tillgänglighet portar. Du kan konfigurera andra regler för den här ipconfig.
 - En enda IP-konfiguration nätverksgränssnitt kan ha en eller flera DSR belastningsutjämningsreglerna med hög tillgänglighet portar, förutsatt att alla sina respektive frontend IP-konfigurationer är unika.
 - Om alla regler för belastningsutjämning har hög tillgänglighet portar (DSR) kan två (eller fler) belastningsutjämnare regler som pekar på samma backend-pool finnas tillsammans. Detsamma gäller om alla regler är icke-hög tillgänglighet portarna (DSR och icke-DSR). Om det finns en kombination av portar för hög tillgänglighet och icke-HA portar regler, men finnas två sådana belastningsutjämningsregler inte samtidigt.

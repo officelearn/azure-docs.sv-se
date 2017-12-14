@@ -142,6 +142,16 @@
               href: app-insights-proactive-failure-diagnostics.md
             - name: Prestandaavvikelser
               href: app-insights-proactive-performance-diagnostics.md
+            - name: Spårningsförsämring
+              href: app-insights-proactive-trace-severity.md
+            - name: Undantagsvolym
+              href: app-insights-proactive-exception-volume.md
+            - name: Minnesläcka
+              href: app-insights-proactive-potential-memory-leak.md
+            - name: Resursutnyttjande
+              href: app-insights-proactive-low-utilization-cloud-resources.md
+            - name: Säkerhetsidentifiering
+              href: app-insights-proactive-application-security-detection-pack.md
         - name: Skapa en resurs
           href: app-insights-create-new-resource.md
     - name: Analysera

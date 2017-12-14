@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2764a109e92d3eabf2b7064ce7cd2e428256c8b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Självstudier: Azure Active Directory-integrering med iLMS
 
@@ -134,10 +134,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
     | Division | User.Department |
-    | Region | User.state |
+    | region | User.state |
     | Avdelning | User.jobtitle |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.

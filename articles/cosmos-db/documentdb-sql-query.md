@@ -1,5 +1,5 @@
 ---
-title: "SQL-frågor för Azure Cosmos DB DocumentDB API | Microsoft Docs"
+title: "SQL-frågor för Azure Cosmos DB | Microsoft Docs"
 description: "Lär dig mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos-databasen."
 keywords: "SQL-syntax, sql-fråga, sql-frågor, json-frågespråket, databasbegrepp och sql-frågor, mängdfunktioner"
 services: cosmos-db
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f620e7eac0bd0c9d3e5047b52bcc149aa11c5644
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>SQL-frågor för Azure Cosmos DB DocumentDB API
-Microsoft Azure Cosmos DB stöder förfrågningar till dokument med SQL (Structured Query Language) som ett JSON-frågespråk. Cosmos DB är verkligen schemafria. Tack vare dess åtagande att JSON-datamodell direkt i databasmotorn ger automatisk indexering av JSON-dokument utan explicita schema eller att sekundärindex. 
+# <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Microsoft Azure Cosmos DB stöder förfrågningar till dokument med SQL (Structured Query Language) som ett JSON-frågespråk på SQL-API-konton. Azure Cosmos-DB är verkligen schemafria. Tack vare dess åtagande att JSON-datamodell direkt i databasmotorn ger automatisk indexering av JSON-dokument utan explicita schema eller att sekundärindex.
 
 När du utformar frågespråket för Cosmos DB hade vi två mål i åtanke:
 
 * I stället för inventing nya JSON frågespråk som vi ville har stöd för SQL. SQL är ett av de mest välkända och populära frågespråk. Cosmos-Databasens SQL är en formell programmeringsmodell för komplexa frågor via JSON-dokument.
-* Vi ville använda Javascripts programmeringsmodell som grund för våra frågespråk som JSON-dokument-databas kan utföra JavaScript direkt i databasmotorn. DocumentDB-API: T-SQL finns i typsystemet i Javascript's, utvärdering av uttryck och funktionsanrop. Detta i sin tur är en fysisk programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, self kopplingar, spatial frågor och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland andra funktioner. 
+* Vi ville använda Javascripts programmeringsmodell som grund för våra frågespråk som JSON-dokument-databas kan utföra JavaScript direkt i databasmotorn. SQL-API finns i typsystemet i Javascript's, utvärdering av uttryck och funktionsanrop. Detta i sin tur är en fysisk programmeringsmodell för relationella projektioner, hierarkisk navigering i JSON-dokument, self kopplingar, spatial frågor och anrop av användardefinierade funktioner (UDF) helt skrivna i JavaScript, bland andra funktioner. 
 
 Vi tror att dessa funktioner är nyckeln till att minska friktionen mellan programmet och databasen och är avgörande för utvecklarproduktivitet.
 
@@ -99,7 +102,7 @@ Här är ett andra dokument med en skillnaden mellan – `givenName` och `family
 }
 ```
 
-Nu ska vi prova några frågor mot dessa data för att förstå några viktiga aspekter av DocumentDB API SQL. Följande fråga returnerar exempelvis dokument där fältet id matchar `AndersenFamily`. Eftersom det är en `SELECT *`, utdata från frågan är klar JSON-dokumentet:
+Nu ska vi prova några frågor mot dessa data för att förstå några viktiga aspekter av Azure Cosmos DB SQL-frågespråket. Följande fråga returnerar exempelvis dokument där fältet id matchar `AndersenFamily`. Eftersom det är en `SELECT *`, utdata från frågan är klar JSON-dokumentet:
 
 **Fråga**
 
@@ -166,13 +169,13 @@ Nästa fråga returnerar alla angivna namnen på underordnade i familjen vars id
 
 Vi vill att uppmärksamma några anmärkningsvärda aspekter av Cosmos-DB-frågespråket igenom de exempel som vi har sett:  
 
-* Eftersom DocumentDB API SQL fungerar på JSON-värden, behandlar trädet Formats entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtycklig djup som `Node1.Node2.Node3…..Nodem`, liknande relationella SQL hänvisar till två del-referens för `<table>.<column>`.   
+* Eftersom SQL API fungerar på JSON-värden, behandlar trädet Formats entiteter i stället för rader och kolumner. Därför språk kan du referera till noder i trädet på varje godtycklig djup som `Node1.Node2.Node3…..Nodem`, liknande relationella SQL hänvisar till två del-referens för `<table>.<column>`.   
 * Structured query language fungerar med schemat mindre data. Typsystemet måste bindas dynamiskt. Samma uttryck kan ge olika typer på olika dokument. Resultatet av en fråga är ett giltigt JSON-värde, men är inte säkert att vara i ett fast schema.  
 * Cosmos DB stöder endast strikt JSON-dokument. Det innebär att typsystemet och uttryck begränsas till endast behandlar JSON-typer. Referera till den [JSON-specifikationen](http://www.json.org/) för mer information.  
 * En Cosmos-DB-samling är en schemafria behållare för JSON-dokument. Relationer i data enheter inom och mellan dokument i en samling fångas implicit av inneslutning och inte av primärnyckel och sekundärnyckel viktiga relationer. Det här är en viktig aspekt värt pekar hänsyn intra-dokument-kopplingar som beskrivs senare i den här artikeln.
 
 ## <a id="Indexing"></a>Cosmos DB indexering
-Innan vi går in DocumentDB API SQL-syntaxen är det vara värt att utforska indexering designen i Cosmos-databasen. 
+Innan vi går in SQL-syntaxen är det vara värt att utforska indexering designen i Azure Cosmos-databasen. 
 
 Syftet med-databasindex är att hantera frågor i olika formulär och former med minsta resursförbrukning (t.ex. CPU och in-/ utdata) och ger bra genomflöde och låg latens. Valet av rätt index för att fråga en databas kräver ofta mycket planering och experiment. Den här metoden innebär en utmaning för schemat mindre databaser där data stämmer inte överens med ett strikt schema och utvecklas snabbt samtidigt. 
 
@@ -280,7 +283,7 @@ Följande fråga begär dokument som innehåller en namnegenskapen vars värde �
     }]
 
 
-Föregående exempel visade en enkel likheten fråga. DocumentDB API SQL stöder också en mängd skalära uttryck. Det vanligaste är binär och unära uttryck. Egenskapsreferenser från källan JSON-objekt är också giltigt uttryck. 
+Föregående exempel visade en enkel likheten fråga. SQL-API: et stöder också en mängd skalära uttryck. Det vanligaste är binär och unära uttryck. Egenskapsreferenser från källan JSON-objekt är också giltigt uttryck. 
 
 Följande binära operatorer stöds för närvarande och kan användas i frågor som visas i följande exempel:  
 
@@ -338,7 +341,7 @@ Unära operatorer +,-, ~ inte stöds också och kan användas inuti frågor som 
 Förutom binär och unära operatorer tillåts egenskapsreferenser. Till exempel `SELECT * FROM Families f WHERE f.isRegistered` returnerar JSON-dokument som innehåller egenskapen `isRegistered` där egenskapens värde är lika med JSON `true` värde. Andra värden (FALSKT, null, Odefinierad, `<number>`, `<string>`, `<object>`, `<array>`osv) leder till källdokument som ska uteslutas från resultatet. 
 
 ### <a name="equality-and-comparison-operators"></a>Jämförelse av och likhetsfrågor operatörer
-I följande tabell visar resultatet av likheten jämförelser i DocumentDB API SQL mellan två typer som JSON.
+Följande tabell visar resultatet av likheten jämförelser i SQL-API mellan två typer som JSON.
 
 <table style = "width:300px">
    <tbody>
@@ -373,136 +376,136 @@ I följande tabell visar resultatet av likheten jämförelser i DocumentDB API S
             <strong>Odefinierad<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Null<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Booleskt värde<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Antal<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Sträng<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Objektet<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Matris<strong>
          </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
-Odefinierad </td>
+Odefinierat </td>
          <td valign="top">
             <strong>OKEJ</strong>
          </td>
@@ -533,28 +536,28 @@ Till skillnad från i ANSI-SQL, kan du också använda BETWEEN-satsen i FROM-sat
 
 Kom ihåg att skapa en indexprincip som använder en intervallet Indextypen mot alla numeriska egenskaper/sökvägar som är filtrerade i instruktionen BETWEEN för snabbare frågan körningstider. 
 
-Den största skillnaden mellan att använda BETWEEN i DocumentDB-API och ANSI SQL är att du kan ange intervallet frågor mot egenskaper för olika typer – du kan till exempel ha ”klass” vara ett tal (5) i vissa dokument och strängar i andra (”grade4”). I dessa fall, som i JavaScript, en jämförelse mellan två olika typer resultaten i ”Odefinierad” och dokumentet kommer att hoppas över.
+Den största skillnaden mellan att använda BETWEEN i SQL-API och ANSI SQL är att du kan ange intervallet frågor mot egenskaper för olika typer – du kan till exempel ha ”klass” vara ett tal (5) i vissa dokument och strängar i andra (”grade4”). I dessa fall, som i JavaScript, en jämförelse mellan två olika typer resultaten i ”Odefinierad” och dokumentet kommer att hoppas över.
 
 ### <a name="logical-and-or-and-not-operators"></a>Logisk (AND, OR och inte) operatorer
 Logiska operatorer fungerar med booleska värden. De logiska tabellerna sanningen för de här operatorerna visas i följande tabeller.
 
-| ELLER | True | False | Odefinierad |
+| ELLER | True | False | Odefinierat |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Odefinierad |
-| Odefinierad |True |Odefinierad |Odefinierad |
+| False |True |False |Odefinierat |
+| Odefinierat |True |Odefinierat |Odefinierat |
 
-| OCH | True | False | Odefinierad |
+| OCH | True | False | Odefinierat |
 | --- | --- | --- | --- |
-| True |True |False |Odefinierad |
+| True |True |False |Odefinierat |
 | False |False |False |False |
-| Odefinierad |Odefinierad |False |Odefinierad |
+| Odefinierat |Odefinierat |False |Odefinierat |
 
 | INTE |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Odefinierad |Odefinierad |
+| Odefinierat |Odefinierat |
 
 ### <a name="in-keyword"></a>I nyckelord
 IN-nyckelordet kan användas för att kontrollera om ett angivet värde matchar något värde i en lista. Den här frågan returnerar till exempel alla family dokument där id är ”WakefieldFamily” eller ”AndersenFamily”. 
@@ -750,7 +753,7 @@ I följande exempel är resultatet av det skalära uttrycket som ett booleskt v�
 
 
 ### <a name="object-and-array-creation"></a>Skapa en objekt och matris
-En annan nyckelfunktion i DocumentDB API SQL är array-objekt skapas. Observera att vi har skapat ett nytt JSON-objekt i det förra exemplet. På samma sätt kan kan en också skapa matriser som visas i följande exempel:
+En annan nyckelfunktion i SQL-API är array-objekt skapas. Observera att vi har skapat ett nytt JSON-objekt i det förra exemplet. På samma sätt kan kan en också skapa matriser som visas i följande exempel:
 
 **Fråga**
 
@@ -921,7 +924,7 @@ Du kan också utföra aggregeringar i kombination med filter. Följande fråga r
 
     [ 1 ]
 
-I följande tabell listas stöds mängdfunktioner i DocumentDB-API. `SUM`och `AVG` utförs via numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via siffror, strängar, booleska värden och null-värden. 
+I följande tabell listas stöds mängdfunktioner i SQL-API. `SUM`och `AVG` utförs via numeriska värden, medan `COUNT`, `MIN`, och `MAX` kan utföras via siffror, strängar, booleska värden och null-värden. 
 
 | Användning | Beskrivning |
 |-------|-------------|
@@ -987,7 +990,7 @@ Och här är en fråga som hämtar familjer efter skapandedatum som lagras som e
 ## <a id="Advanced"></a>Avancerade begrepp och SQL-frågor
 
 ### <a id="Iteration"></a>Upprepning
-En ny konstruktion har lagts till den **IN** nyckelord i DocumentDB API SQL kan ge stöd för att iterera över JSON-matriser. FRÅN-källa har stöd för iteration. Vi börjar med följande exempel:
+En ny konstruktion har lagts till den **IN** nyckelord i SQL-API för att ge stöd för att iterera över JSON-matriser. FRÅN-källa har stöd för iteration. Vi börjar med följande exempel:
 
 **Fråga**
 
@@ -1081,7 +1084,7 @@ Du kan också utföra sammanställning över resultatet av matrisen iteration. T
     ]
 
 ### <a id="Joins"></a>Kopplingar
-Du behöver ansluta över tabeller är viktigt i en relationsdatabas. Det är den logiska naturlig följd att designa normaliserade scheman. Strider mot det behandlar DocumentDB API Avnormaliserade datamodellen schemafria dokument. Det här är den logiska motsvarigheten till en ”självkoppling”.
+Du behöver ansluta över tabeller är viktigt i en relationsdatabas. Det är den logiska naturlig följd att designa normaliserade scheman. Strider mot det behandlar till SQL API Avnormaliserade datamodellen schemafria dokument. Det här är den logiska motsvarigheten till en ”självkoppling”.
 
 Den syntax som språket stöder är < from_source1 > < from_source2 > Anslut till koppling... Anslut < from_sourceN >. Generellt sett detta returnerar en uppsättning **N**- tupplar (tuppel med **N** värden). Varje tuppel har värden som genereras av alla samling alias iterera över sina respektive uppsättningar. Detta är med andra ord en fullständig kryssprodukten av mängderna deltar i kopplingen.
 
@@ -1236,9 +1239,9 @@ Azure Cosmos-DB är en programmeringsmodell för att köra JavaScript-baserade p
 * En fysisk modellering av Kontrollflöde, variabel omfång och tilldelning och integration av undantagshantering primitiver med databastransaktioner. Mer information om Azure DB som Cosmos-stöd för JavaScript-integrering finns i dokumentationen för programmering av serversidan JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Användardefinierade funktioner (UDF)
-DocumentDB API SQL ger stöd för användaren definierat funktioner (UDF) tillsammans med de typer som redan har definierats i den här artikeln. I synnerhet stöds skalära UDF: er där utvecklare kan skicka in noll eller flera argument och returnera ett enda argument resultat tillbaka. Var och en av de här argumenten kontrolleras för att vara giltiga JSON-värdena.  
+SQL-API ger stöd för användaren definierat funktioner (UDF) tillsammans med de typer som redan har definierats i den här artikeln. I synnerhet stöds skalära UDF: er där utvecklare kan skicka in noll eller flera argument och returnera ett enda argument resultat tillbaka. Var och en av de här argumenten kontrolleras för att vara giltiga JSON-värdena.  
 
-DocumentDB API SQL-syntaxen utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF: er kan registreras med DocumentDB-API och sedan refereras som en del av en SQL-fråga. I praktiken som de UDF: er exquisitely anropas av frågor. Följd att detta val har UDF: er inte åtkomst till context-objektet som har andra JavaScript typer (lagrade procedurer och utlösare). Eftersom frågor körs i skrivskyddat läge kan köras de på primära eller sekundära repliker. Därför är UDF: er avsedd att köras på sekundära repliker till skillnad från andra typer av JavaScript.
+SQL-syntaxen utökas så att den stöder anpassad programlogik med hjälp av dessa användardefinierade funktioner. UDF: er kan registreras med SQL-API och sedan refereras som en del av en SQL-fråga. I praktiken som de UDF: er exquisitely anropas av frågor. Följd att detta val har UDF: er inte åtkomst till context-objektet som har andra JavaScript typer (lagrade procedurer och utlösare). Eftersom frågor körs i skrivskyddat läge kan köras de på primära eller sekundära repliker. Därför är UDF: er avsedd att köras på sekundära repliker till skillnad från andra typer av JavaScript.
 
 Nedan visas ett exempel på hur en UDF kan registreras för Cosmos-DB-databasen, speciellt under en dokumentsamling.
 
@@ -1341,18 +1344,18 @@ Nedan visas ett exempel som utnyttjar en användardefinierad funktion.
     ]
 
 
-Som i föregående exempel demonstrerar integrera kraften i JavaScript-språket med DocumentDB API SQL som ett omfattande programmerbara gränssnitt för att göra komplex procedurmässig, villkorlig logik med hjälp av inbyggda funktioner för körning av JavaScript UDF: er.
+Som i föregående exempel demonstrerar integrera kraften i JavaScript-språket med SQL-API för att tillhandahålla en omfattande programmerbara gränssnitt för att göra komplex procedurmässig, villkorlig logik med hjälp av inbyggda funktioner för körning av JavaScript UDF: er.
 
-DocumentDB API SQL ger argumenten till de UDF: er för varje dokument i källan för den aktuella etappen (WHERE-satsen eller SELECT-satsen) bearbetning av en användardefinierad funktion. Resultatet är inbyggda i övergripande körning pipelinen sömlöst. Om egenskaperna som anges av en användardefinierad funktion parametrar finns inte i JSON-värde, parametern anses Odefinierad och därför UDF-anrop är helt hoppas över. På liknande sätt om resultatet av en användardefinierad funktion är odefinierad ingår den inte i resultatet. 
+SQL-API ger argumenten till de UDF: er för varje dokument i källan för den aktuella etappen (WHERE-satsen eller SELECT-satsen) bearbetning av en användardefinierad funktion. Resultatet är inbyggda i övergripande körning pipelinen sömlöst. Om egenskaperna som anges av en användardefinierad funktion parametrar finns inte i JSON-värde, parametern anses Odefinierad och därför UDF-anrop är helt hoppas över. På liknande sätt om resultatet av en användardefinierad funktion är odefinierad ingår den inte i resultatet. 
 
 Sammanfattningsvis är UDF: er bra verktyg för att göra komplicerad affärslogik som en del av frågan.
 
 ### <a name="operator-evaluation"></a>Operatorn utvärdering
 Cosmos DB, ritar bredd med JavaScript-operatörer och dess utvärdering semantik miljöpåverkan som JSON-databas. Medan Cosmos DB försöker bevara JavaScript-semantik i JSON-support, avviker åtgärden utvärdering i vissa fall.
 
-I DocumentDB API SQL, är till skillnad från i traditionella SQL typer av värden ofta inte känd tills värdena som hämtas från databasen. För att effektivt köra frågor, har de flesta av operatörerna strikt krav. 
+I SQL-API, är till skillnad från i traditionella SQL typer av värden ofta inte känd tills värdena som hämtas från databasen. För att effektivt köra frågor, har de flesta av operatörerna strikt krav. 
 
-DocumentDB API SQL utförs inte implicita konverteringar, till skillnad från JavaScript. Till exempel en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en ålder egenskap vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är däremot att JavaScript där strängvärden är implicit omvandlas till siffror (baserat på operator, ex: ==). Det här alternativet är avgörande för effektiv index som matchar i DocumentDB API SQL. 
+SQL-API utförs inte implicita konverteringar, till skillnad från JavaScript. Till exempel en fråga som `SELECT * FROM Person p WHERE p.Age = 21` matchar dokument som innehåller en ålder egenskap vars värde är 21. Andra dokument vars ålder-egenskap stämmer med strängen ”21” eller andra eventuellt oändlig variationer som ”021”, ”21.0”, ”0021”, ”00021”, etc. matchas inte. Detta är däremot att JavaScript där strängvärden är implicit omvandlas till siffror (baserat på operator, ex: ==). Det här alternativet är avgörande för effektiv index som matchar i SQL-API. 
 
 ## <a name="parameterized-sql-queries"></a>Parametriserade SQL-frågor
 Cosmos DB stöder frågor med parametrar som anges med @ notation. Parametriserade SQL ger stabil hantering och undantagstecken användarindata, förhindra oavsiktlig exponering av data via SQL injection. 
@@ -1665,12 +1668,12 @@ Spatial funktioner kan användas för att utföra närhet frågor mot spatialdat
 
 Mer information om geospatiala stöds i Cosmos-databasen finns [arbeta med geospatiala data i Azure Cosmos DB](geospatial.md). Som packar upp spatial funktioner och SQL-syntaxen för Cosmos DB. Nu ska vi ta en titt på hur LINQ-frågor fungerar och hur den interagerar med syntaxen vi sett hittills.
 
-## <a id="Linq"></a>LINQ till DocumentDB API SQL
+## <a id="Linq"></a>LINQ till SQL API
 LINQ är en programmeringsmodell för .NET som representerar beräkning som frågor för dataströmmar med objekt. Cosmos DB innehåller ett klientsidan bibliotek gränssnittet med LINQ genom att underlätta konvertering mellan JSON och .NET-objekt och mappning från en delmängd av LINQ-frågor till Cosmos-DB-frågor. 
 
 Bilden nedan visar arkitekturen för LINQ-frågor med Cosmos DB.  Med Cosmos-DB-klient kan utvecklare skapa ett **IQueryable** objekt som frågar direkt Cosmos DB frågan provider, som sedan översätter LINQ-fråga till en Cosmos-DB-fråga. Frågan skickas sedan till Cosmos-DB-servern för att hämta en uppsättning resultat i JSON-format. Returnerade resultat avserialiseras till en dataström med .NET-objekt på klientsidan.
 
-![Arkitektur för LINQ-frågor med DocumentDB-API: T - SQL-syntaxen, JSON-frågespråket, databasbegrepp och SQL-frågor][1]
+![Arkitektur för LINQ-frågor med SQL-API - SQL-syntaxen, JSON-frågespråket, databasbegrepp och SQL-frågor][1]
 
 ### <a name="net-and-json-mapping"></a>.NET och JSON-mappning
 Mappningen mellan .NET-objekt och JSON-dokument är naturlig - varje medlemsfält har mappats till ett JSON-objekt, där fältnamnet är mappad till den ”key”-delen av objektet och ”värde”-delen är rekursivt mappas till värdedelen för objektet. Exempel: I familjen-objekt som skapas är mappad till JSON-dokumentet som visas nedan. Och vice versa JSON-dokumentet är mappad till en .NET-objekt.
@@ -1775,7 +1778,7 @@ Vi kan först stöder alla JSON primitiva typer – numeriska typer, boolean, st
      nya int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Lista över stöds LINQ-operatorer
-Här är en lista över stöds LINQ operatorer i LINQ-providern ingår i .NET DocumentDB SDK.
+Här är en lista över stöds LINQ operatorer i LINQ-providern ingår i SQL .NET SDK.
 
 * **Välj**: projektioner översätta till SQL SELECT inklusive objektkonstruktion
 * **Där**: filter översätta till SQL WHERE och stöd för översättningen mellan & &, || och! för SQL-operatorerna
@@ -1992,7 +1995,7 @@ Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databasen ko
 
 Modellen grundläggande interaktion med dessa resurser är via HTTP-verb som GET, PUT, POST och DELETE med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos-DB-fråga. Frågor är alltid skrivskyddade åtgärder med inga sidoeffekter.
 
-I följande exempel visas en POST för en DocumentDB-API-fråga som görs mot en samling som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
+I följande exempel visas en POST för en SQL-API-fråga som görs mot en samling som innehåller två exempeldokument vi har granskat hittills. Frågan har ett enkelt filter på namnegenskapen JSON. Observera användningen av den `x-ms-documentdb-isquery` och Content-Type: `application/query+json` rubriker för att ange att åtgärden en fråga.
 
 **Förfrågan**
 
@@ -2120,7 +2123,7 @@ Använd för att hantera data konsekvent princip för frågor i `x-ms-consistenc
 
 Om den konfigurerade indexprincip på samlingen inte stöder den angivna frågan, returnerar servern Azure Cosmos DB 400 ”Felaktig begäran”. Returneras för intervallet frågor mot sökvägar som konfigurerats för sökningar hash (likhetsfrågor) och för sökvägar som uttryckligen är undantagen från indexering. Den `x-ms-documentdb-query-enable-scan` huvudet kan anges för att tillåta frågan för att utföra en genomsökning när ett index inte är tillgänglig.
 
-Du kan få detaljerad mått på Frågekörningen genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-frågan mätvärden för Azure Cosmos DB DocumentDB API](documentdb-sql-query-metrics.md).
+Du kan få detaljerad mått på Frågekörningen genom att ange `x-ms-documentdb-populatequerymetrics` sidhuvud till `True`. Mer information finns i [SQL-frågan mätvärden för Azure Cosmos DB](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK stöder både LINQ och SQL frågor. I följande exempel visas hur du utför enkelt filter-frågan som introduceras tidigare i det här dokumentet.

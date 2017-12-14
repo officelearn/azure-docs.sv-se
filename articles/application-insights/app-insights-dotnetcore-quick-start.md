@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -32,7 +32,7 @@ För att slutföra den här snabbstarten behöver du:
 - [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
-Om du inte har en ASP.NET Core-webbapp kan du skapa en genom att följa [guiden för att skapa en ASP.NET Core-webbapp](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Om du inte har en ASP.NET Core-webbapp kan du skapa en genom att följa [guiden för att skapa en ASP.NET Core-webbapp](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -126,4 +126,4 @@ Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera körningsundantag](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Hitta och diagnostisera körningsundantag](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)

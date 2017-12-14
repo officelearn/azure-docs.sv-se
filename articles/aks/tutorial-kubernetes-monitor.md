@@ -2,32 +2,24 @@
 title: "Kubernetes på kursen i Azure - Monitor Kubernetes"
 description: "AKS kursen - övervakaren Kubernetes med Microsoft Operations Management Suite (OMS)"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker behållare Micro-tjänster, Kubernetes, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a41f699291a65129906680cbb6719c2478c0d830
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d10f9ce965e832c826e2b27b4746231b47be83d0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Övervaka Azure Container Service (AKS)
 
 Övervaka dina Kubernetes klustret och behållare är viktigt, särskilt när du kör ett produktionskluster i skala, med flera program.
 
-I kursen får du konfigurera övervakning av du AKS kluster med hjälp av den [behållare lösning för Log Analytics](../log-analytics/log-analytics-containers.md).
+I kursen får du konfigurera övervakning av du AKS kluster med hjälp av den [behållare lösning för Log Analytics][log-analytics-containers].
 
 Den här självstudien del sju åtta omfattar följande aktiviteter:
 
@@ -40,7 +32,7 @@ Den här självstudien del sju åtta omfattar följande aktiviteter:
 
 I föregående självstudiekurser ett program som har paketerats i behållaren bilder, dessa bilder som har överförts till registret för Azure-behållaren och ett Kubernetes kluster skapas.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
+Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Konfigurera övervakning lösningen
 
@@ -66,7 +58,7 @@ Om du vill hämta dessa värden, Välj **OMS-arbetsytan** i den vänstra menyn l
 
 ## <a name="configure-monitoring-agents"></a>Konfigurera övervakning agenter
 
-Följande Kubernetes manifestfilen kan användas för att konfigurera behållaren övervakningsagenterna på ett Kubernetes kluster. Den skapar en Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), som körs en enda baljor på varje nod i klustret.
+Följande Kubernetes manifestfilen kan användas för att konfigurera behållaren övervakningsagenterna på ett Kubernetes kluster. Den skapar en Kubernetes [DaemonSet][kubernetes-daemonset], som körs en enda baljor på varje nod i klustret.
 
 Spara följande text i en fil med namnet `oms-daemonset.yaml`, och ersätter platshållarvärdena för `WSID` och `KEY` med Log Analytics arbetsyte-ID och nyckeln.
 
@@ -161,7 +153,7 @@ Välj logganalys-arbetsytan har fästs på portalens instrumentpanel i Azure-por
 
 ![Instrumentpanel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Finns det [Azure logganalys dokumentationen](../log-analytics/index.yml) för detaljerad information om frågor och analys av övervakningsdata.
+Finns det [Azure logganalys dokumentationen] [ log-analytics-docs] för detaljerad information om frågor och analys av övervakningsdata.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -175,4 +167,14 @@ I den här självstudiekursen övervakade Kubernetes klustret med OMS. Uppgifter
 Gå vidare till nästa kurs att lära dig om att uppgradera Kubernetes till en ny version.
 
 > [!div class="nextstepaction"]
-> [Uppgradera Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Uppgradera Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

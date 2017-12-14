@@ -1,31 +1,23 @@
 ---
-title: "Kubernetes på Azure tutorial – uppdatera kluster | Microsoft Docs"
+title: "Kubernetes på Azure tutorial – uppdatera kluster"
 description: "Kubernetes på Azure tutorial – uppdatera kluster"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d0193e891c6c41687f1aaa3a8033bc71e85b10c3
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Uppgradera Kubernetes i Azure Container Service (AKS)
 
-Ett kluster med Azure Container Service (AKS) kan uppgraderas med hjälp av Azure CLI. Under uppgraderingen, Kubernetes noder är noggrant [cordoned och tar slut](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) att minimera störningar för program som körs.
+Ett kluster med Azure Container Service (AKS) kan uppgraderas med hjälp av Azure CLI. Under uppgraderingen, Kubernetes noder är noggrant [cordoned och tar slut] [ kubernetes-drain] att minimera störningar för program som körs.
 
 I den här självstudiekursen del åtta åtta, ett Kubernetes kluster har uppgraderats. Uppgifterna som du har slutfört är:
 
@@ -38,12 +30,12 @@ I den här självstudiekursen del åtta åtta, ett Kubernetes kluster har uppgra
 
 I föregående självstudier, ett program som har paketerats i en behållare avbildning, avbildningen har överförts till registret för Azure-behållaren och ett Kubernetes kluster skapas. Programmet körs sedan Kubernetes klustret.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till den [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
+Om du inte har gjort dessa steg och vill följa med, gå tillbaka till den [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Hämta kluster-versioner
 
-Innan du uppgraderar ett kluster, använda den `az aks get-versions` kommando för att kontrollera vilka Kubernetes versioner är tillgängliga för uppgradering.
+Innan du uppgraderar ett kluster ska du använda kommandot `az aks get-versions` och kontrollera vilka Kubernetes-versioner som är tillgängliga för uppgradering.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -123,7 +115,7 @@ Resultat:
 
 ## <a name="validate-upgrade"></a>Verifiera uppgraderingen
 
-Du kan nu bekräfta uppgraderingen lyckades med den `az aks show` kommando.
+Du kan nu bekräfta att uppgraderingen lyckades med kommandot `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -149,4 +141,11 @@ I kursen får uppgraderat du Kubernetes i ett AKS-kluster. Följande uppgifter h
 Den här länken om du vill veta mer om AKS.
 
 > [!div class="nextstepaction"]
-> [Översikt över AKS](./intro-kubernetes.md)
+> [Översikt över AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

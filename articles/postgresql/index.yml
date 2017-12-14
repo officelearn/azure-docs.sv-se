@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Database för PostgreSQL-dokumentation
+title: "Azure Database för PostgreSQL-dokumentation"
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: 'Dokumentation om Azure PostgreSQL – självstudier, API-referens'
-  description: Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
+  title: "Dokumentation om Azure PostgreSQL – självstudier, API-referens"
+  description: "Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod."
   services: postgresql
   author: czeumault
   manager: carolz
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: ba951037be5416ef8c03a27e2248f1718ea14d4c
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel.'
+  description: "Azure Database för PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn för öppen källkod.  Det är en fullständigt hanterad databas som tjänst, för hantering av verksamhetskritiska arbetsbelastningar med förutsägbara prestanda, säkerhet, hög tillgänglighet och dynamisk skalbarhet.  Utveckla program med Azure Database för PostgreSQL och använd valfria verktyg för öppen källkod och plattform.  Lär dig hur du använder Azure Database med våra snabbstarter, självstudier och exempel."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att skapa en PostgreSQL-databas med:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig att skapa en PostgreSQL-databas med:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-  - title: Steg för steg-självstudier
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig att:"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Lär dig att:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
-  - title: Exempel
+    - html: Utforma en databas&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Skapa en webbapp med Python och CLI</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: "Hitta skript för att hantera vanliga uppgifter."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Hitta skript för att hantera vanliga uppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
-  - title: Referens
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Azure CLI</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">REST API</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/postgresql">REST API</a></p>

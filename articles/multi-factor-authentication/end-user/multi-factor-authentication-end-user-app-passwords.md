@@ -4,7 +4,7 @@ description: "Den här sidan hjälper användarna att förstå vad applösenord 
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c10a636b81751074f219682fec79ffe9f648a2c8
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Vad är Applösenord i Azure Multi-Factor Authentication?
-Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt.
+Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt. Du kan inte skapa applösenord om du tillämpar Multifaktorautentisering via principer för villkorlig åtkomst och inte via MFA per användare. Program som använder principer för villkorlig åtkomst för åtkomstkontroll behöver inte applösenord.
 
 När du har ett applösenord kan använda du den i stället för det ursprungliga lösenordet med dessa icke-webbläsarbaserade appar. Det beror på att när du registrerar dig för tvåstegsverifiering talar om Microsoft inte att vem som helst logga in med ditt lösenord om de inte kan också utföra andra verifieringen. Apple interna e-postklienten på telefonen logga inte in dig eftersom den inte kan fråga efter tvåstegsverifiering. Lösning för detta är att skapa en säkrare applösenord som du inte använder dagliga, men bara för de appar som inte stöder tvåstegsverifiering. Använd applösenordet så att appar kan hoppa över multifaktorautentisering och fortsätta att fungera.
 

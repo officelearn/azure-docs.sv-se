@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Azure AD Connect direkt-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Single Sign-on"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direkt-autentisering: Aktuella begränsningar
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 11/28/2017
 Följande scenarier stöds fullt ut:
 
 - Användarinloggningar webbläsarbaserade program för alla webbprogram
-- Användarinloggningar för Office 365-klientprogram som stöder [modern autentisering](https://aka.ms/modernauthga)
-- Office 2016 och Office 2013 _med_ modern autentisering
+- Användarinloggningar till Office-program som stöder [modern autentisering](https://aka.ms/modernauthga): Office 2016 och Office 2013 _med_ modern autentisering
+- Användarinloggningar till Skype för företag att modern autentisering support, inklusive Online och Hybrid-topologier. Mer information om topologier [här](https://technet.microsoft.com/library/mt803262.aspx).
 - Azure AD-domän som ansluter till för Windows 10-enheter
 - Stöd för Exchange ActiveSync
 
@@ -40,14 +40,17 @@ Följande scenarier stöds fullt ut:
 Följande scenarier är _inte_ stöds:
 
 - Användarinloggningar till äldre Office-program: Office 2010 och Office 2013 _utan_ modern autentisering. Organisationer uppmuntras att växla till modern autentisering, om möjligt. Modern autentisering tillåter stöd för direkt-autentisering. Du kan också skydda dina användarkonton med hjälp av [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) funktioner, till exempel Azure Multi-Factor Authentication.
-- Användarinloggningar till Skype för företag-klientprogram, inklusive Skype för företag 2016.
+- Användarinloggningar till Skype för företag-klientprogram _utan_ modern autentisering.
 - Användarinloggningar till PowerShell version 1.0. Vi rekommenderar att du använder PowerShell version 2.0.
-- Azure Active Directory Domain Services.
 - Applösenord för Multifaktorautentisering.
 - Identifiering av användare med [läcka ut autentiseringsuppgifter](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services måste synkronisering av lösenords-Hash måste vara aktiverat på klienten. Därför klienter som använder direkt autentisering _endast_ fungerar inte för scenarier som kräver Azure AD Domain Services.
 
 >[!IMPORTANT]
->Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden. Aktivera synkronisering av lösenords-hash ger dig också alternativet att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direkt autentisering för Active Directory-lösenord hash-synkronisering sker inte automatiskt. Den kräver hjälp från Microsoft Support.
+>Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-Hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden.
+
+>[!NOTE]
+Aktivera synkronisering av lösenords-hash kan du välja att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direkt autentisering för Active Directory-lösenord hash-synkronisering sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect kraschar, ska du behöver hjälp från Microsoft Support om du vill inaktivera direkt-autentisering.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md): komma igång med Azure AD direkt-autentisering.

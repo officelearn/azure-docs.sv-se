@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
@@ -35,13 +35,13 @@ Den här artikeln hjälper dig att länka virtuella nätverk (Vnet) för Azure E
 
 ## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
 
-* Du behöver den senaste versionen av kommandoradsgränssnittet (CLI). Mer information finns i [installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+* Du behöver den senaste versionen av kommandoradsgränssnittet (CLI). Mer information finns i [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Du behöver gå igenom den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du börjar konfigurera.
 * Du måste ha en aktiv ExpressRoute-krets. 
   * Följ instruktionerna för att [skapar du en ExpressRoute-krets](howto-circuit-cli.md) och ha kretsen aktiveras med anslutningsleverantören. 
   * Se till att du har privat Azure-peering konfigurerats för kretsen. Finns det [konfigurera routning](howto-routing-cli.md) artikel routning anvisningar. 
   * Kontrollera att Azure privat peering är konfigurerad. BGP-peering mellan ditt nätverk och Microsoft måste vara in så att du kan aktivera anslutning för slutpunkt till slutpunkt.
-  * Se till att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ instruktionerna för att [konfigurera en virtuell nätverksgateway för ExpressRoute](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Se till att använda `--gateway-type ExpressRoute`.
+  * Se till att du har ett virtuellt nätverk och en virtuell nätverksgateway skapas och helt etablerad. Följ instruktionerna för att [konfigurera en virtuell nätverksgateway för ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Se till att använda `--gateway-type ExpressRoute`.
 
 * Du kan länka upp till 10 virtuella nätverk till en standard ExpressRoute-krets. Alla virtuella nätverk måste vara i samma region geopolitiska när du använder en standard ExpressRoute-krets. 
 

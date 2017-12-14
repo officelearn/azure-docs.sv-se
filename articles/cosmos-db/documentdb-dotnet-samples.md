@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: .NET exempel DocumentDB-API: t | Microsoft Docs'
-description: "Hitta C# .NET-exemplen på github för vanliga aktiviteter i DocumentDB, inklusive CRUD-åtgärder."
+title: "Azure Cosmos DB: .NET-exempel för SQL-API | Microsoft Docs"
+description: "Hitta C# .NET-exemplen på github för vanliga uppgifter med hjälp av Azure Cosmos DB SQL API, inklusive CRUD-åtgärder."
 keywords: NoSQL-exempel
 services: cosmos-db
 author: rnagpal
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: bc019e50ba72adc8b399579d623a63e86f21f92c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c15440d78c43fce4613953c5151ff76729f28a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: .NET-exempel för DocumentDB-API
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL-API
 > [!div class="op_single_selector"]
 > * [.NET-exempel](documentdb-dotnet-samples.md)
 > * [Node.js-exempel](documentdb-nodejs-samples.md)
 > * [Python-exempel](documentdb-python-samples.md)
-> * [Azure kod exempel-galleriet](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Azure kod exempel-galleriet](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Senaste exempel lösningar som utför CRUD-åtgärder och andra vanliga åtgärder på Azure DB som Cosmos-resurser som ingår i den [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub-lagringsplatsen. Den här artikeln innehåller:
 

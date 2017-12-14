@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda en anpassad Docker-avbildning för webbprogrammet för behållare
 
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Skapa bilden från filen Docker
 
-Ta en titt på Git-lagringsplatsen, _Dockerfile_. Den här filen beskriver Python-miljö som krävs för att köra vår App. Dessutom avbildningen ställer in en [SSH](https://www.ssh.com/ssh/protocol/) server för säker kommunikation mellan behållaren och värden.
+Ta en titt på Git-lagringsplatsen, _Dockerfile_. Den här filen beskriver Python-miljö som krävs för att köra programmet. Dessutom avbildningen ställer in en [SSH](https://www.ssh.com/ssh/protocol/) server för säker kommunikation mellan behållaren och värden.
 
 ```docker
 FROM python:3.4
@@ -84,7 +84,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 Kommandot resulterar utdata som liknar följande:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -130,7 +130,7 @@ Ett register är ett program som är värd för avbildningar och tillhandahålle
 
 Docker-hubben är ett register för Docker-avbildningar som gör att du kan vara värd för dina egna databaser, offentlig eller privat. För att vidarebefordra en anpassad Docker-avbildning till offentliga Docker-hubben, Använd den [docker push](https://docs.docker.com/engine/reference/commandline/push/) kommando och ange ett fullständigt namn och en tagg. En fullständig avbildningsnamn och tagg ser ut som i följande exempel:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -143,12 +143,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 Meddelandet ”inloggningen har slutförts” bekräftar att du är inloggad. Efter loggat in kan du skicka bilden till Docker-hubb med hjälp av den [docker push](https://docs.docker.com/engine/reference/commandline/push/) kommando.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Kontrollera att push lyckades genom att undersöka kommandot utdata.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -279,7 +279,7 @@ SSH kan säker kommunikation mellan en behållare och en klient. För en anpassa
     > [!NOTE]
     > Den här konfigurationen tillåter inte externa anslutningar till behållaren. SSH är endast tillgängliga från Kudu/SCM-platsen. Kudu/SCM platsen autentiseras med publishing autentiseringsuppgifter.
 
-* En [kopiera](https://docs.docker.com/engine/reference/builder/#copy) instruktion som instruerar Docker-motorn att kopiera den [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på [sshd_config filen](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* En [kopiera](https://docs.docker.com/engine/reference/builder/#copy) instruktion som instruerar Docker-motorn att kopiera den [sshd_config](http://man.openbsd.org/sshd_config) filen till den */etc/ssh/* directory. Konfigurationsfilen ska baseras på [sshd_config filen](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -314,7 +314,7 @@ top
 
 Den `top` kommando visar alla processer som körs i en behållare.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -343,7 +343,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Kommandot visar utdata som liknar den följande JSON-strängen, som visar att konfigurationsändringen har slutförts:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -383,7 +383,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Skapa en behållare resulterar i följande utdata:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -447,6 +447,12 @@ Kontrollera att inloggningen lyckades.
 
 ### <a name="push-an-image-to-azure-container-registry"></a>Push-en bild till registret för Azure-behållare
 
+> [!NOTE]
+> Om du använder en egen avbildning tagga bilden på följande sätt:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Push-avbildningen med hjälp av den `docker push` kommando. Taggen bild med namnet på registret, följt av ditt namn och en tagg.
 
 ```bash
@@ -493,7 +499,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Molnet Shell och kör den [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container#az_webapp_config_container_set) kommando för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt  *\<appnamn >*,  *\<docker-registret-server-url >*, _< register-username >_, och  _<password>_ . För Azure-behållare registernyckeln  *\<docker-registret-server-url >* är i formatet `https://<azure-container-registry-name>.azurecr.io`. 
+Molnet Shell och kör den [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container#az_webapp_config_container_set) kommando för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt  *\<appnamn >*,  *\<docker-registret-server-url >*,  _\<register-username >_, och  _\<lösenord >_. För Azure-behållare registernyckeln  *\<docker-registret-server-url >* är i formatet `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -505,7 +511,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Kommandot visar utdata som liknar den följande JSON-strängen, som visar att konfigurationsändringen har slutförts:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
@@ -534,4 +540,5 @@ Kommandot visar utdata som liknar den följande JSON-strängen, som visar att ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Apptjänst i Linux vanliga frågor och svar](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Skapa en Docker Python och PostgreSQL-webbapp i Azure](tutorial-docker-python-postgresql-app.md)

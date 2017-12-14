@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-baserad API till PowerApps och Microsoft-flöde
 
@@ -34,7 +34,7 @@ Innan du exporterar ett API måste du beskriva API: et med ett OpenAPI definitio
 
 Följ dessa steg om du vill exportera API-definition:
 
-1. I den [Azure-portalen](https://portal.azure.com), navigera till programmet Azure Functions eller Apptjänst.
+1. I den [Azure-portalen](https://portal.azure.com), navigera till dina Azure-funktioner eller ett annat App-tjänstprogram.
 
     Om du använder Azure Functions, markera funktionen appen, Välj **plattformsfunktioner**, och sedan **API-definition**.
 
@@ -48,11 +48,11 @@ Följ dessa steg om du vill exportera API-definition:
 
     ![Exportera till PowerApps + Microsoft Flow knappen](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Välj den **exportläge**:
+3. Välj den **exportera läge**:
 
-    **Express** kan du skapa den anpassade-kopplingen från Azure-portalen. Det kräver att du är inloggad på PowerApps eller Microsoft Flow och har behörighet att skapa kopplingar i målmiljön. Detta är den rekommenderade metoden om detta krav kan uppfyllas. Om du använder det här läget, följer du de [använda snabb export](#express) anvisningarna nedan.
+    **Express** kan du skapa den anpassade-kopplingen från Azure-portalen. Det kräver att du är inloggad på PowerApps eller Microsoft Flow och har behörighet att skapa kopplingar i målmiljön. Detta är den rekommenderade metoden om dessa två krav kan uppfyllas. Om du använder det här läget, följer du de [använda snabb export](#express) anvisningarna nedan.
 
-    **Manuell** kan du exportera API-definition, som du sedan importera med hjälp av PowerApps eller Microsoft Flow portaler. Detta är den rekommenderade metoden om Azure användare och användare med behörighet att skapa kopplingar är olika personer eller om anslutningen måste skapas i en annan klient. Om du använder det här läget, följer du de [använda manuell export](#manual) anvisningarna nedan.
+    **Manuell** kan du exportera API-definition, som du sedan importera med hjälp av PowerApps eller Microsoft Flow portaler. Detta är den rekommenderade metoden om Azure användare och användare med behörighet att skapa kopplingar är olika personer eller om anslutningen måste skapas i en annan Azure-klient. Om du använder det här läget, följer du de [använda manuell export](#manual) anvisningarna nedan.
 
     ![Exportera läge](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -168,7 +168,7 @@ Följande konfigurationsvärden krävs:
 > [!IMPORTANT]
 > Om någon annan importeras API-definitionen till PowerApps och Microsoft Flow som en del av manuell flödet, måste du ange dem med klient-ID och klienthemlighet av den *registreringen av anslutningsverktyget*, samt resurs-URL för ditt API. Se till att dessa hemligheter hanteras på ett säkert sätt. **Dela inte säkerhetsreferenser för API: et sig själv.**
 
-### <a name="generic-oauth-20"></a>Allmän OAuth 2.0
+### <a name="generic-oauth-20"></a>Generic OAuth 2.0
 När du använder den allmänna OAuth 2.0 kan integrera du med valfri OAuth 2.0-provider. På så sätt kan du arbeta med anpassade providers som inte stöds.
 
 Följande konfigurationsvärden krävs:

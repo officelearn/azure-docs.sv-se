@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -76,9 +76,6 @@ En skriptåtgärd är Bash-skript som du anger en URI för och parametrar för. 
         > HDInsight stöder endast __allmänna__ Azure Storage-konton. För närvarande stöder inte den __Blob storage__ kontotyp.
 
 * Kan vara begränsad till **körs på vissa nodtyper**, för exempel huvudnoderna eller arbetsnoderna.
-
-  > [!NOTE]
-  > När det används med HDInsight Premium kan du ange att skriptet ska användas på kantnoden.
 
 * Kan vara **beständiga** eller **ad hoc-**.
 

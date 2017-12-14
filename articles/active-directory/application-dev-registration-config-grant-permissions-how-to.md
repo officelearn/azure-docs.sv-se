@@ -4,7 +4,7 @@ description: "Ge behörigheter till ditt anpassade utvecklade program med hjälp
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f13efd5e629bde592a3ab3a3e2db4a22180b5bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Ge behörigheter till ett anpassat utvecklade program
 
@@ -39,8 +39,8 @@ Alternativt kan du skapa en begäran om att *login.microsoftonline.com* med konf
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Medgivande och integrera appar till AzureAD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+[Medgivande och integrera appar till AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-[Medgivande och Permissioning för AzureAD v2.0 konvergerat appar](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Medgivande och Permissioning för AzureAD v2.0 konvergerat appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

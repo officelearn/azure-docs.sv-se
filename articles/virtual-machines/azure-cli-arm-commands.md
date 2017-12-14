@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Azure CLI-kommandona i Resource Manager-läge
 Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgränssnittet (CLI)-kommandon som du ofta använder för att skapa och hantera Azure-resurser i Azure Resource Manager-distributionsmodellen. Du har åtkomst till dessa kommandon genom att köra CLI i Resource Manager (arm)-läge. Detta är inte en fullständig referens och CLI-versionen kan indikera att något annorlunda kommandon eller parametrar. En allmän översikt över Azure-resurser och resursgrupper finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Den här artikeln innehåller syntax och alternativ för Azure-kommandoradsgrän
 >Lär dig mer om den [gamla och nya Azure CLIs](/cli/azure/old-and-new-clis).
 >
 
-Starta först [installerar Azure CLI](../cli-install-nodejs.md) och [ansluta till din Azure-prenumeration](../xplat-cli-connect.md).
+Starta först [installerar Azure CLI](../cli-install-nodejs.md) och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli).
 
 Skriv den aktuella kommandosyntax och alternativ på kommandoraden i Resource Manager-läget `azure help` eller, för att visa hjälp för ett visst kommando `azure help [command]`. Även kan hitta CLI exemplen i dokumentationen för att skapa och hantera specifika Azure-tjänster.
 

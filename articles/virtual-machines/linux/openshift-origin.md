@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Distribuera OpenShift ursprung i Azure
 
@@ -98,7 +98,7 @@ I följande exempel skapas en parameterfil som heter azuredeploy.parameters.json
 
 
 > [!NOTE] 
-> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan verifiera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-versionen finns [installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Kommandot kräver Azure CLI 2.0.8 eller senare. Du kan verifiera CLI-versionen med den `az --version` kommando. Om du vill uppdatera CLI-versionen finns [installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 I följande exempel distribuerar OpenShift kluster och alla relaterade resurser i en resursgrupp med namnet myResourceGroup, med ett distributionsnamn av myOpenShiftCluster. Mallen refereras direkt från GitHub-lagringsplatsen med hjälp av en lokal parameterfil som heter azuredeploy.parameters.json.
 

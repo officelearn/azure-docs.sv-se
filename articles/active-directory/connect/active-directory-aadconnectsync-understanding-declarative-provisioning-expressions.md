@@ -4,7 +4,7 @@ description: "Beskrivs uttryck för deklarativ etablering."
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
 Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. På så sätt kan du implementera affärslogik fullständig identity integration utan att behöva skriva koden.
@@ -50,7 +50,7 @@ En parameter har definierats av en koppling eller av en administratör med hjäl
 
 Active Directory-koppling avses regler för inkommande synkronisering följande parametrar:
 
-| Parameternamn | Kommentar |
+| Parameternamn | Kommentera |
 | --- | --- |
 | Domain.Netbios |NetBIOS-format för den domän som för närvarande importeras, till exempel FABRIKAMSALES |
 | Domain.FQDN |FQDN-format i domänen som importerats, till exempel sales.fabrikam.com |

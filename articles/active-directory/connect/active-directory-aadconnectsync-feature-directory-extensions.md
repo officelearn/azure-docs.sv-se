@@ -4,7 +4,7 @@ description: "Det här avsnittet beskriver katalogfunktionen i Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 16ce7da9321a4a36e892bad75819d1c30ab5197a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3ab8b02ad30315de23e5d8e7370cc385a53ecf3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: katalogtillägg
 Katalogtillägg kan du utöka schemat i Azure AD med dina egna attribut från lokala Active Directory. Den här funktionen kan du skapa LOB-appar som förbrukar attribut du fortsätta att hantera lokalt. Attributen kan användas via [Azure AD Graph katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://graph.microsoft.io/). Du kan se den attribut tillgängliga med hjälp av [Azure AD Graph explorer](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) respektive.

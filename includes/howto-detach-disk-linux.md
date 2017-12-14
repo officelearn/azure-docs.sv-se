@@ -6,7 +6,7 @@ När du inte längre behöver en datadisk som är ansluten till en virtuell dato
 ## <a name="find-the-disk"></a>Hitta disken
 Innan du kan koppla bort en disk från en virtuell dator måste du ta reda på LUN-numret, som är en identifierare för disken som ska kopplas från. Det gör du genom att följa dessa steg:
 
-1. Öppna Azure CLI och [anslut till din Azure-prenumeration](../articles/xplat-cli-connect.md). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
+1. Öppna Azure CLI och [anslut till din Azure-prenumeration](/cli/azure/authenticate-azure-cli). Kontrollera att du är i läget för Azure-tjänsthantering (`azure config mode asm`).
 2. Ta reda på vilka diskar som är anslutna till den virtuella datorn. I följande exempel visas diskar för den virtuella datorn med namnet `myVM`:
 
     ```azurecli

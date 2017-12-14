@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Rekommendationer
 
@@ -57,7 +57,12 @@ För att hjälpa dig att beräkna effekten av den här rekommendationen finns me
 
 När du använder den här rekommendationen aktiveras framtvingad parameterization inom minuter på din databas som startar övervakningsprocessen som varar cirka 24 timmar. Efter den här tiden kommer du kunna se verifieringsrapporten som visar CPU-användningen för din databas 24 timmar innan och efter rekommendationen har tillämpats. SQL Database Advisor har en säkerhetsmekanism som återställs automatiskt tillämpade rekommendationen om en prestanda regression har upptäckts.
 
-## <a name="fix-schema-issues-recommendations"></a>Åtgärda problem rekommendationer för schemat
+## <a name="fix-schema-issues-recommendations-preview"></a>Åtgärda schemat problem rekommendationer (förhandsgranskning)
+
+> [!IMPORTANT]
+> Microsoft håller på att sluta ”åtgärda problemet schema” rekommendationer. Du bör börja använda [Intelligent insikter](sql-database-intelligent-insights.md) för automatisk övervakning av ditt problem med databasprestanda som innehåller schema problem som tidigare ”åtgärda problemet schema” rekommendationer som omfattas.
+> 
+
 **Åtgärda problem med schemat** rekommendationer visas när SQL Database-tjänsten meddelanden avvikelser i antalet schema-relaterade SQL-fel som händer på din Azure SQL-databas. Denna rekommendation visas vanligen när databasen påträffar flera schema-relaterade fel (Ogiltigt kolumnnamn, Ogiltigt objektnamn osv.) inom en timme.
 
 ”Schema” problem är en typ av syntaxfel i SQL Server som inträffar när definitionen av SQL-frågan och definitionen av databasschemat inte är justerade. Till exempel en av kolumnerna som förväntades av frågan kan saknas i måltabellen eller tvärtom. 

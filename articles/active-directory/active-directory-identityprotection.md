@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem och säkerhetsprincip"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b3aaf2b717937fdf62de423f5d9219be5ce0ad60
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -92,7 +92,7 @@ Mer information finns i [Tilldela administratörsroller i Azure Active Directory
 
 ## <a name="detection"></a>Detection (Identifiering)
 
-### <a name="vulnerabilities"></a>Säkerhetsrisker
+### <a name="vulnerabilities"></a>Sårbarheter
 
 Azure Active Directory-identitetsskydd analyser konfigurationen och identifierar säkerhetsrisker som kan påverka din användaridentitet. Mer information finns i [sårbarheter som identifieras av Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md).
 
@@ -359,7 +359,7 @@ Blockera en inloggning:
 
 
 
-## <a name="multi-factor-authentication-registration-policy"></a>Princip för registrering av multifaktorautentisering
+## <a name="multi-factor-authentication-registration-policy"></a>Registreringsprincip för multifaktorautentisering
 Azure Multi-Factor authentication är en metod för att verifiera vem du är som kräver mer än bara ett användarnamn och lösenord. Det ger ett andra säkerhetslager till användarinloggningar och transaktioner.  
 Vi rekommenderar att du behöver Azure Multi-Factor authentication för användarinloggningar eftersom den:
 

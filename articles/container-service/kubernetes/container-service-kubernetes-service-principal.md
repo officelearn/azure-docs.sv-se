@@ -1,26 +1,19 @@
 ---
-title: "Tjänstens huvudnamn för Azure Kubernetes-kluster | Microsoft- Docs"
+title: "Tjänstens huvudnamn för Azure Kubernetes-kluster"
 description: "Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett Kubernetes-kluster i Azure Container Service"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
@@ -36,11 +29,11 @@ Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kuber
 
 Du kan använda ett befintligt Azure AD-tjänstobjekt som uppfyller kraven nedan, eller skapa ett nytt.
 
-* **Omfattning**: resursgruppen som används för att distribuera klustret.
+* **Omfång**: Resursgrupp
 
-* **Roll**: **Deltagare**
+* **Roll**: Deltagare
 
-* **Klienthemlighet**: måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
+* **Klienthemlighet**: Måste vara ett lösenord. För närvarande kan du inte använda ett huvudnamn för tjänsten som konfigurerats för certifikatautentisering.
 
 > [!IMPORTANT]
 > För att skapa ett tjänstobjekt måste du ha behörighet att registrera ett program med din Azure AD-klientorganisation, samt behörighet att tilldela programmet till en roll i din prenumeration. Du kan kontrollera om du har nödvändig behörighet [på portalen](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 De utdata som returneras ser ut ungefär så här (redigerat i bilden):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * När du anger **klient-ID:t** för tjänstobjektet kan du använda värdet för `appId` (som anges i den här artikeln) eller motsvarande `name` för tjänstobjektet (till exempel `https://www.contoso.org/example`).
 
-* På virtuella huvud- och agentdatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen /etc/kubernetes/azure.json.
+* På virtuella huvud- och agentdatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`.
 
-* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, skrivs autentiseringsuppgifterna för tjänstobjektet till filen ~/.azure/acsServicePrincipal.json på den dator som används för att köra kommandot.
+* Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/acsServicePrincipal.json` på den dator som används för att köra kommandot.
 
 * Om du använder kommandot `az acs create` för att generera tjänstobjektet automatiskt, kan tjänstobjektet även autentisera med ett [Azure-behållarregister](../../container-registry/container-registry-intro.md) som skapats i samma prenumeration.
+
+* Autentiseringsuppgifter för tjänstens huvudnamn kan upphöra att gälla, vilket sätter dina klusternoder i ett **NotReady**-tillstånd. Avsnittet [Utgångsdatum för autentiseringsuppgifter](#credential-expiration) innehåller åtgärdsinformation.
+
+## <a name="credential-expiration"></a>Utgångsdatum för autentiseringsuppgifter
+
+Om du inte anger en anpassad giltighetsperiod med parametern `--years` när du skapar ett huvudnamn för tjänsten så är autentiseringsuppgifterna giltiga i ett år från skapandet. När autentiseringsuppgifterna upphör att gälla kan dina klusternoder hamna i ett **NotReady**-tillstånd.
+
+Om du vill kontrollera utgångsdatumet för ett huvudnamn för tjänsten kör du kommandot [az ad app show](/cli/azure/ad/app#az_ad_app_show) med parametern `--debug` och letar efter värdet `endDate` för `passwordCredentials` längst ned i dina utdata:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Utdata (visas trunkerat):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Om dina autentiseringsuppgifter har upphört att gälla använder du kommandot [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) för att uppdatera autentiseringsuppgifterna:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Resultat:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Uppdatera sedan `/etc/kubernetes/azure.json` med de nya autentiseringsuppgifterna på alla klusternoder och starta om noderna.
 
 ## <a name="next-steps"></a>Nästa steg
 

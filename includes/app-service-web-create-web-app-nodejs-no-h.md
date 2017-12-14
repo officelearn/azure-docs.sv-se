@@ -1,6 +1,6 @@
-Skapa en webbapp i molnet Shell, den `myAppServicePlan` App Service-plan med den [az webapp skapa](/cli/azure/webapp#create) kommandot. 
+Skapa en webbapp i molnet Shell, den `myAppServicePlan` App Service-plan med den [az webapp skapa](/cli/azure/webapp#az_webapp_create) kommandot. 
 
-I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `NODE|6.9`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#list-runtimes). 
+I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `NODE|6.9`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
@@ -159,227 +159,33 @@ En fullständig lista över Mallfunktioner finns [Azure Resource Manager Mallfun
 ## <a name="parameters"></a>Parametrar
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurserna. Dessa värden kan du anpassa distributionen med värden som är anpassade för en viss miljö (t.ex dev, test- och). Du behöver inte ange parametrarna i mallen, men utan parametrar mallen skulle distribuera alltid samma resurser med samma namn, platser och egenskaper.
 
-Du kan definiera parametrar med följande struktur:
+I följande exempel visar en enkel parameterdefinition:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Elementnamn | Krävs | Beskrivning |
-|:--- |:--- |:--- |
-| parameterName |Ja |Parameterns namn. Måste vara en giltig JavaScript-identifierare. |
-| typ |Ja |Typ av parametervärdet. Se en lista över tillåtna typer efter den här tabellen. |
-| Standardvärde |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
-| allowedValues |Nej |Matris med tillåtna värden för parametern för att kontrollera att rätt värde har angetts. |
-| MinValue |Nej |Det lägsta värdet för int typparametrar det här värdet är inklusiva. |
-| MaxValue |Nej |Det maximala värdet för int typparametrar det här värdet är inklusiva. |
-| minLength |Nej |Den minsta längden för string, secureString och array typparametrar detta värde är inklusiva. |
-| maxLength |Nej |Den maximala längden för string, secureString och array typparametrar detta värde är inklusiva. |
-| description |Nej |Beskrivning av den parameter som visas för användarna via portalen. |
-
-Tillåtna typer och värden är:
-
-* **sträng**
-* **secureString**
-* **int**
-* **bool**
-* **objektet** 
-* **secureObject**
-* **matris**
-
-Ange defaultValue (kan vara en tom sträng) om du vill ange en parameter som valfria. 
-
-Om du anger ett parameternamn i mallen som matchar en parameter i kommandot för att distribuera mallen, finns det potentiella tvetydighet om värden du anger. Hanteraren för filserverresurser löser den här förvirring genom att lägga till username@Domain **från mall** till mallparameter. Till exempel om du lägger till en parameter med namnet **ResourceGroupName** i mallen, den orsakar en konflikt med den **ResourceGroupName** parametern i den [ny AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Under distributionen kan du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. I allmänhet bör du undvika den här förvirring genom att namnge inte parametrar med samma namn som parametrar som används för distributionsåtgärder.
-
-> [!NOTE]
-> Alla lösenord, nycklar och andra hemligheter ska använda den **secureString** typen. Om du skickar känsliga data i en JSON-objekt använder du den **secureObject** typen. Mallparametrar med secureString eller secureObject typer går inte att läsa efter resurs distributionen. 
-> 
-> Exempelvis visar följande post i distributionshistoriken värdet för en sträng och objekt men inte för secureString och secureObject.
->
-> ![Visa värden för distribution](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-I följande exempel visas hur du definierar parametrar:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Att ange parametervärden under distributionen, se [distribuera ett program med Azure Resource Manager-mall](resource-group-template-deploy.md). 
+Information om hur du definierar parametrar finns [parametrar avsnitt i Azure Resource Manager-mallar](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variabler
 I avsnittet variables kan skapa du värden som kan användas i hela din mall. Du behöver inte definiera variabler, men de förenkla ofta din mall genom att minska komplexa uttryck.
 
-Du kan definiera variabler med följande struktur:
+I följande exempel visas ett enkelt variabeldefinitionen:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-I följande exempel visas hur du definierar en variabel som konstrueras utifrån två parametervärden:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-I nästa exempel visas en variabel som är en komplex typ av JSON och variabler som skapas från andra variabler:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-Du kan använda den **kopiera** syntax för att skapa en variabel med en matris med flera element. Du kan ange ett antal för antalet element. Varje element innehåller egenskaper i den **inkommande** objekt. Du kan använda kopiera antingen i en variabel eller för att skapa variabeln. Båda metoderna visas i följande exempel:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-Du kan också ange fler än ett objekt när kopiera för att skapa variabler. I följande exempel definierar två matriser som variabler. En heter **diskar top-nivå-matriser** och har fem element. Den andra heter **en annan matris** och har tre element.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Information om hur du definierar variabler finns i [variabler avsnitt i Azure Resource Manager-mallar](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Resurser
 I avsnittet resurser kan du definiera de resurser som distribueras eller uppdateras. Det här avsnittet får komplicerad, eftersom du måste förstå vilka typer som du distribuerar för att tillhandahålla rätt värden. Resurs-specifika värden (apiVersion, typ och egenskaper) som du måste ange finns [definiera resurser i Azure Resource Manager-mallar](/azure/templates/). 
@@ -427,14 +233,14 @@ Du kan definiera resurser med följande struktur:
 
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| Villkor | Nej | Booleskt värde som anger om resursen har distribuerats. |
+| tillstånd | Nej | Booleskt värde som anger om resursen har distribuerats. |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. |
 | typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (exempelvis **Microsoft.Storage/storageAccounts**). |
 | namn |Ja |Namnet på resursen. Namnet måste följa URI komponenten begränsningar som definierats i RFC3986. Dessutom Azure-tjänster som exponerar resursnamnet att externa parter verifiera namnet så att den är inte ett försök att imitera en annan identitet. |
 | location |Det varierar |Geo-platser som stöds av den angivna resursen. Du kan välja någon av de tillgängliga platserna, men oftast är det klokt att välja ett som är nära dina användare. Vanligtvis gör det också bra att placera resurser som samverkar med varandra i samma region. De flesta resurstyper kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. Se [som resursplats i Azure Resource Manager-mallar](resource-manager-template-location.md). |
 | tags |Nej |Taggar som är kopplade till resursen. Se [tagga resurser i Azure Resource Manager-mallar](resource-manager-template-tags.md). |
 | Kommentarer |Nej |Anteckningar för dokumentation resurserna i mallen |
-| Kopiera |Nej |Om mer än en instans krävs antalet resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurser som ska distribueras på samma gång. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
+| kopiera |Nej |Om mer än en instans krävs antalet resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurser som ska distribueras på samma gång. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. Om resurserna inte är beroende av varandra kan distribueras de parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i denna mall måste redan finnas. Undvik att lägga till onödiga beroenden som de långsamma distributionen och skapa Cirkelberoenden. Information om inställningen beroenden finns [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
 | properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris om du vill skapa flera instanser av en egenskap. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts enligt schemat för den överordnade resursen. Den fullständigt kvalificerade typ av underordnade resursen innehåller resurstypen överordnade **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera sambandet. |

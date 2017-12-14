@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Använda Notification Hubs för att skicka de senaste nyheterna
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
 Appen kan nu användas för att lagra en uppsättning kategorier i enhetens lokala lagring som används för att registrera med notification hub när appen startar.  Användaren kan ändra valet av kategorier vid körning och klicka på den **prenumerera** metod för att uppdatera registreringen för enheten. Därefter uppdaterar du appen för att skicka meddelanden för senaste nyheterna direkt i själva appen.
 
 ## <a name="optional-sending-tagged-notifications"></a>(valfritt) Skicka taggade meddelanden
-Om du inte har åtkomst till Visual Studio, kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från den [klassiska Azure-portalen] med felsökningsfliken för meddelandehubben. 
+Om du inte har åtkomst till Visual Studio, kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från den [Azure-portalen] med felsökningsfliken för meddelandehubben. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ Vi lärt dig hur du broadcast senaste nyheterna efter kategori i den här själv
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[klassiska Azure-portalen]: https://manage.windowsazure.com
+[Azure-portalen]: https://portal.azure.com

@@ -4,7 +4,7 @@ description: "Azure AD Authentication Library (ADAL) kan klienten programvaruutv
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f017e3d323b98660fdee902770652b3165e70e5e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory-Autentiseringsbibliotek
 Azure Active Directory Authentication Library (ADAL) gör det möjligt för programutvecklare att autentisera användare till molnet eller lokala Active Directory (AD) och hämta token för att skydda API-anrop. ADAL underlättar autentisering för utvecklare med hjälp av funktioner som:
@@ -29,7 +29,7 @@ Azure Active Directory Authentication Library (ADAL) gör det möjligt för prog
  - och mycket mer
 
 > [!NOTE]
-> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Checka ut den [MSAL biblioteket guiden](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries). 
+> Letar du efter Azure AD v2.0-bibliotek (MSAL)? Checka ut den [MSAL biblioteket guiden](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries). 
 > 
 > 
 
@@ -59,7 +59,7 @@ Azure Active Directory Authentication Library (ADAL) gör det möjligt för prog
 
 ### <a name="v20-client-libraries-msal"></a>Klientbibliotek för v2.0 (MSAL)
 
-Den [Azure AD v2.0-slutpunkten](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) kombinerar Azure AD och Microsoft Accounts bakom en enda slutpunkt. Utvecklare kan använda för att komma åt den här slutpunkten den [stöd för produktion preview MSAL bibliotek](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries) i stället för ADAL.
+Den [Azure AD v2.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) kombinerar Azure AD och Microsoft Accounts bakom en enda slutpunkt. Utvecklare kan använda för att komma åt den här slutpunkten den [stöd för produktion preview MSAL bibliotek](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) i stället för ADAL.
 
 | Plattform | Bibliotek | Ladda ned | Källkoden | Exempel | Referens
 | --- | --- | --- | --- | --- | --- |

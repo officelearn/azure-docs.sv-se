@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -32,15 +32,17 @@ Azure Migrate-tjänsten utvärderar lokala arbetsbelastningar för migrering til
 Med Azure Migrate får du hjälp med att:
 
 - **Utvärdera Azure-beredskap**: Utvärdera om dina lokala datorer är lämpliga att köra i Azure. 
-- **Få storleksrekommendationer**: Rekommenderad storlek för virtuella Azure-datorer efter migrering, baserat på lokala virtuella datorers prestandahistorik. 
-- **Uppskatta månadskostnader**: Uppskattad kostnad för att köra lokala virtuella datorer i Azure.
-- **Migrera med stort förtroende**: När du grupperar lokala datorer för utvärdering kan du öka förtroendet genom att visualisera beroenden. Du kan för närvarande visa beroenden för en specifik dator eller för alla datorer i en grupp.
+- **Få storleksrekommendationer**: Få storleksrekommendationer för virtuella Azure-datorer baserat på lokala virtuella datorers prestandahistorik. 
+- **Uppskatta månadskostnader**: Få uppskattade kostnader för att köra lokala virtuella datorer i Azure.  
+- **Migrera med hög exakthet**: Visualisera beroenden för lokala datorer för att skapa grupper av datorer som utvärderas och migreras tillsammans. Du kan för närvarande visa beroenden för en specifik dator eller för alla datorer i en grupp.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - För närvarande kan du utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer.
+
 > [!NOTE]
 > Stöd för Hyper-V finns med i planeringen och kommer att aktiveras om några månader. Under tiden kan rekommenderar vi att du använder Distributionshanteraren för Azure Site Recovery för att planera migrering av Hyper-V-arbetsbelastningar. 
+
 - Du kan utvärdera upp till 1000 virtuella datorer med en enda utvärdering, och upp till 1500 datorer i ett enda Azure Migrate-projekt. Om du behöver utvärdera mer kan du öka antalet projekt eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
 - Virtuella datorer som du vill utvärdera måste hanteras av en vCenter Server, version 5.5, 6.0 eller 6.5.
 - Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
@@ -54,11 +56,11 @@ Azure Migrate är tillgänglig utan extra kostnad. Under den allmänt tillgängl
 
 ## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?
 
-Azure Migrate-utvärderingar baseras på inställningarna som sammanfattas i tabellen.
+En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala virtuella datorer och få rätt storleksrekommendationer och kostnadsbedömningar för de virtuella datorer som körs i Azure. Utvärderingar baseras på egenskaperna som sammanfattas i tabellen nedan. Du kan ändra de här egenskaperna på Azure Migrate-portalen. 
 
-**Inställning** | **Detaljer**
+**Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Azure-platsen du vill migrera till. Som standard är det platsen där du skapar Azure Migrate-projektet. Du kan ändra den här inställningen.   
+**Målplats** | Azure-platsen du vill migrera till. Målplatsen är som standard angiven som USA, västra 2. 
 **Lagringsredundans** | Den typ av lagring som de virtuella Azure-datorerna kommer att använda efter migreringen. LRS är standard.
 **Prisavtal** | Utvärderingen tittar på om du har registrerats i Software Assurance och kan använda [Azure Hybrid-användningsförmånen](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Den tittar också på Azure-erbjudanden som bör tillämpas, och låter dig ange prenumerationsspecifika rabatter (%) som du får utöver erbjudandet. 
 **prisnivå** | Du kan ange [prisnivå (basic/standard)](../virtual-machines/windows/sizes-general.md) för virtuella Azure-datorer. Detta hjälper dig att migrera till en lämplig Azure-familj med virtuella datorer, baserat på om du är i en produktionsmiljö eller inte. Som standard används [standardnivån](../virtual-machines/windows/sizes-general.md).
@@ -69,12 +71,12 @@ Azure Migrate-utvärderingar baseras på inställningarna som sammanfattas i tab
 ## <a name="how-does-azure-migrate-work"></a>Hur fungerar Azure Migrate?
 
 1.  Du skapar ett Azure Migrate-projekt.
-2.  Azure Migrate använder en lokal virtuell dator som kallas för insamlingsprogram för att upptäcka information om dina lokala datorer. För att skapa programmet laddar du ned installationsfilen i formatet Open Virtualization Appliance (.ova) och importerar den som en virtuell dator på din lokala vCenter-server.
-3.  Du ansluter till den virtuella datorn med skrivskyddade autentiseringsuppgifter för vCenter-servern och kör insamlaren.
+2.  Azure Migrate använder en lokal virtuell dator som kallas för insamlingsprogram för att upptäcka information om dina lokala datorer. För att skapa programmet laddar du ned en installationsfil i formatet Open Virtualization Appliance (.ova) och importerar den som en virtuell dator på din lokala vCenter-server.
+3.  Du ansluter till den virtuella datorn med hjälp av konsolanslutningen i vCenter Server. Sedan anger du ett nytt lösenord för den virtuella datorn när du ansluter och kör insamlingsprogrammet i den virtuella datorn för att inleda identifieringen.
 4.  Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
 5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
-6.  I utvärderingssyfte samlar du in virtuella datorer i grupper. Du kan exempelvis gruppera virtuella datorer som kör samma app. Du kan gruppera virtuella datorer med You can group VMs using taggning i vCenter eller i vCenter-portalen. Använd visualisering för att verifiera beroenden för en specifik dator eller för alla datorer i en grupp.
-7.  Du skapar en utvärdering för en grupp.
+6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. Du kan gruppera virtuella datorer på Azure Migrate-portalen eller använda märkning i vCenter Server. Du kan dessutom använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
+7.  När gruppen har bildats så skapar du en utvärdering för gruppen. 
 8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.
 
 
@@ -89,7 +91,7 @@ I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 |-------------------|------------------------|---------------|---------|
 |Insamlare          |Tjänsten Azure Migrate   |TCP 443        |Insamlaren ansluter till tjänsten via SSL-port 443|
 |Insamlare          |vCenter Server          |Standard 9443   | Som standard ansluter insamlaren till vCenter-servern på port 9443. Om servrarna lyssnar på en annan port ska den konfigureras som en utgående port på VM-insamlaren. |
-|Lokala virtuella datorer     | OMS-arbetsyta          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA-agenten. |
+|Lokala virtuella datorer     | Operations Management Suite (OMS)-arbetsyta          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA (Microsoft Monitoring Agent). |
 
 
   

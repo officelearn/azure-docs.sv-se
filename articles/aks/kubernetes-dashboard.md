@@ -1,37 +1,29 @@
 ---
-title: "Hantera Azure Kubernetes kluster med webbgränssnittet | Microsoft Docs"
+title: "Hantera Azure Kubernetes kluster med webbgränssnittet"
 description: Med instrumentpanelen Kubernetes i AKS
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service, kubernetes
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes instrumentpanel med Azure Container Service (AKS)
 
-Azure CLI kan användas för att starta Kubernetes instrumentpanelen. Det här dokumentet går igenom börjar Kubernetes instrumentpanelen med Azure CLI och även går igenom några grundläggande instrumentpanelen åtgärder. Mer information om instrumentpanelen finns i den Kubernetes [Kubernetes instrumentpanel för webbgränssnitt](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Azure CLI kan användas för att starta Kubernetes instrumentpanelen. Det här dokumentet går igenom börjar Kubernetes instrumentpanelen med Azure CLI och även går igenom några grundläggande instrumentpanelen åtgärder. Mer information om instrumentpanelen finns i den Kubernetes [Kubernetes instrumentpanel för webbgränssnitt][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Se [AKS-snabbstart](./kubernetes-walkthrough.md) om du behöver de här objekten.
+Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt visas den [AKS quickstart][aks-quickstart].
 
-Du också behöver Azure CLI version 2.0.21 eller senare installerat och konfigurerat. Kör az --version för att se versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Du måste också ha installerat och konfigurerat Azure CLI version 2.0.21 eller senare. Kör az --version för att se versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Starta Kubernetes instrumentpanelen
 
@@ -84,4 +76,11 @@ Välj **uppdatering** när redo.
 Mer information om Kubernetes instrumentpanelen finns i Kubernetes-dokumentationen.
 
 > [!div class="nextstepaction"]
-> [Instrumentpanel för webbgränssnitt Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+> [Instrumentpanel för webbgränssnitt Kubernetes][kubernetes-dashboard]
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

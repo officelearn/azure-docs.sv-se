@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.date: 09/22/2017
 ms.openlocfilehash: 92620c8081b1f0f5c96cc3ae09465b3526e74042
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Connector/C++ för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure-databas för MySQL med hjälp av en C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med C++ och att du har arbetat med Azure-databas för MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i C++ och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
-Denna Snabbstart använder de resurser som skapades i någon av följande guider som utgångspunkt:
+I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
@@ -35,30 +35,30 @@ Du måste också:
 I stegen i det här avsnittet förutsätter vi att du har erfarenhet av att utveckla med .NET.
 
 ### <a name="windows"></a>**Windows**
-- Installera Visual Studio 2017 Community, vilket är en fullständig funktioner, utökningsbar, ledigt IDE för att skapa moderna program för Android, iOS, Windows, samt webb- och databasprogram, tjänster och molntjänster. Du kan installera den fullständiga .NET Framework eller bara .NET Core: kodfragment i Snabbstart arbeta med. Om du redan har Visual Studio installerat på datorn kan du hoppa över följande två steg.
+- Installera Visual Studio 2017 Community, en komplett, utbyggbar och kostnadsfri IDE som du kan använda för att skapa moderna program för Android, iOS, Windows, samt webb- och databasprogram och molntjänster. Du kan installera det fullständiga .NET Framework eller bara .NET Core. Kodfragmenten i snabbstarten fungerar med båda. Om du redan har Visual Studio installerat på datorn kan du hoppa över de kommande två stegen.
    1. Ladda ned [installationsprogrammet för Visual Studio 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    2. Kör installationsprogrammet och följ anvisningarna för att slutföra installationen.
 
 ### <a name="configure-visual-studio"></a>**Konfigurera Visual Studio**
 1. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > länkare > allmänt > ytterligare bibliotekskataloger, lägg till katalogen lib\opt (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) av c++ connector.
-2. Projektet egenskapen från Visual Studio > konfigurationsegenskaper > C/C++ > Allmänt > ytterligare inkludera kataloger:
-   - Lägg till inkluderar / directory c ++ Connector (d.v.s.: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9\include\).
-   - Lägg till förstärkningen biblioteket rotkatalog (d.v.s.: C:\boost_1_64_0\).
-3. Projektet egenskapen från Visual Studio > konfigurationsegenskaper > C/C++ > linker > indata > ytterligare beroenden, lägga till mysqlcppconn.lib i textfältet.
-4. Kopiera mysqlcppconn.dll från mappen C++ connector biblioteket i steg 3 i samma katalog som den körbara programfilen eller lägga till den i miljövariabeln så att programmet kan hitta den.
+2. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > allmänt > ytterligare inkluderingskataloger:
+   - Lägg till katalogen include/ för c++ connector (t.ex.: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Lägg till Boost-biblioteksrotkatalog (t.ex.: C:\boost_1_64_0\).
+3. Från Visual Studio, projektegenskap > konfigurationsegenskaper > C/C++ > länkare > Indata> Ytterligare beroenden, lägger du till mysqlcppconn.lib i textfältet.
+4. Antingen kopierar du mysqlcppconn.dll från C++ connector-biblioteksmappen i steg 3 till samma katalog som den körbara programfilen eller lägger till den i miljövariabeln så att programmet kan hitta den.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra menyn i Azure-portalen klickar du på **alla resurser**, och Sök efter den server som du har skapat (exempelvis **myserver4demo**).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** och söker efter den server som du nyss skapade (till exempel **myserver4demo**).
 3. Klicka på servernamnet.
-4. Välj servern **egenskaper** sidan och anteckna sedan en av **servernamn** och **serverinloggningsnamnet för admin**.
+4. Välj sidan **Egenskaper** för servern och notera **Servernamn** och **Inloggningsnamn för serveradministratören**.
  ![Azure Database för MySQL-servernamn](./media/connect-cpp/1_server-properties-name-login.png)
-5. Om du glömmer bort inloggningsinformationen servern navigerar du till den **översikt** om du vill visa serverinloggningsnamnet admin och återställa lösenordet om det behövs.
+5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av **CREATE TABLE** och **INSERT INTO** SQL-instruktioner. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden createStatement() och execute() för att köra databaskommandona. 
+Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT INTO**. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden createStatement() och execute() för att köra databaskommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -125,7 +125,7 @@ int main()
 
 ## <a name="read-data"></a>Läsa data
 
-Använd följande kod för att ansluta och läsa data med hjälp av en **Välj** SQL-instruktionen. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra de valda kommandona. Därefter använder koden efter att gå vidare till poster i resultaten. Slutligen används getInt() och getString() för att parsa värdena i posten.
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **SELECT**. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra de valda kommandona. Härnäst använder koden next () för att gå vidare till posterna i resultaten. Slutligen använder koden getInt() och getString() för att parsa värdena i posten.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -177,7 +177,7 @@ int main()
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och läsa data med hjälp av en **uppdatering** SQL-instruktionen. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra uppdateringskommandona. 
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **UPDATE**. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra uppdateringskommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -227,7 +227,7 @@ int main()
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med hjälp av en **ta bort** SQL-instruktionen. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra borttagningskommandona.
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden prepareStatement() och executeQuery() för att köra borttagningskommandona.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 

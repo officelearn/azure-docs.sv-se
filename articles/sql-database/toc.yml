@@ -60,9 +60,8 @@
 - name: Koncept
   items:
     - name: Tjänstfunktioner
+      href: sql-database-servers-databases.md
       items:
-        - name: Översikt
-          href: sql-database-servers-databases.md
         - name: Tjänstnivåer
           href: sql-database-service-tiers.md
         - name: Resursbegränsningar
@@ -106,9 +105,8 @@
         - name: Vanliga funktioner i SQL Server
           href: sql-database-features.md
     - name: Säkerhet
+      href: sql-database-security-overview.md
       items:
-        - name: Översikt
-          href: sql-database-security-overview.md
         - name: Åtkomstkontroll
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Datamaskning
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Hög tillgänglighet
+      href: sql-database-high-availability.md
     - name: Verksamhetskontinuitet
+      href: sql-database-business-continuity.md
       items:
-        - name: Översikt
-          href: sql-database-business-continuity.md
         - name: Återställning av databaser
           href: sql-database-recovery-using-backups.md
         - name: Konfigurera säkerhet
@@ -140,9 +139,8 @@
         - name: Utföra återställningstest
           href: sql-database-disaster-recovery-drills.md
     - name: Migrera till SQL Database
+      href: sql-database-cloud-migrate.md
       items:
-        - name: Migrera SQL Server-databas
-          href: sql-database-cloud-migrate.md
         - name: Ändringar i T-SQL
           href: sql-database-transact-sql-information.md
         - name: Hantera databas efter migrering
@@ -158,9 +156,8 @@
         - name: Synkronisera data
           href: sql-database-sync-data.md
     - name: Övervaka och finjustera
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Översikt
-          href: sql-database-troubleshoot-performance.md
         - name: Prestandaövervakning
           href: sql-database-single-database-monitor.md
         - name: Prestandarekommendationer
@@ -180,9 +177,8 @@
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skala ut
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Översikt
-          href: sql-database-elastic-scale-introduction.md
         - name: Shardkartor
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routning för frågor
@@ -203,6 +199,8 @@
       items:
         - name: SaaS-designmönster
           href: saas-tenancy-app-design-patterns.md
+        - name: SaaS-videoindexerare
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: Säkerhet för SaaS-app
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
@@ -218,9 +216,8 @@
         - name: Konfigurera minnesintern
           href: sql-database-in-memory-oltp-migration.md
     - name: Utveckla appar
+      href: sql-database-develop-overview.md
       items:
-        - name: Översikt
-          href: sql-database-develop-overview.md
         - name: Anslutning
           href: sql-database-libraries.md
         - name: Autentisera app

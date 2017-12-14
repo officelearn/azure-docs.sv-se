@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Node.js API, SDK & resurser | Microsoft Docs
-description: "Lär dig mer om Node.js API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Node.js SDK."
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & resurser | Microsoft Docs'
+description: "Lär dig mer om SQL Node.js API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB Node.js SDK."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bd50bd37baeac0b06f1b3456637f68544f55f3d5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: Viktig information och resurser
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/29/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 

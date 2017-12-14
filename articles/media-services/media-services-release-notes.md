@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -96,7 +96,7 @@ Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre �
 
 ## <a name="january-2017-release"></a>Januari 2017 version
 
-I Microsoft Azure Media Services (AMS), en **Strömningsslutpunkt** representerar en strömmande tjänst som kan leverera innehåll direkt till ett klientprogram player eller till en innehåll innehållsleveransnätverk (CDN) för vidare distribution. Media Services tillhandahåller också sömlös integration av Azure CDN. Utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller progressiv hämtning av dina tillgångar i Media Services-kontot. Varje Azure Media Services-konto innehåller standard StreamingEndpoint. Du kan skapa ytterligare Strömningsslutpunkter under kontot. Det finns två versioner av Strömningsslutpunkter 1.0 och 2.0. Från och med januari 10 2017 alla konton som nyligen skapade AMS innehåller version 2.0 **standard** StreamingEndpoint. Ytterligare strömmande slutpunkter som du lägger till det här kontot kommer också att version 2.0. Den här ändringen påverkar inte befintliga konton; befintliga Strömningsslutpunkter blir version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen kommer det ske beteende, fakturering och funktionen förändringar (Mer information finns i [detta](media-services-streaming-endpoints-overview.md) artikel).
+I Microsoft Azure Media Services (AMS), en **Strömningsslutpunkt** representerar en strömmande tjänst som kan leverera innehåll direkt till ett klientprogram player eller till en innehåll innehållsleveransnätverk (CDN) för vidare distribution. Media Services tillhandahåller också sömlös integration av Azure CDN. Utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller progressiv hämtning av dina tillgångar i Media Services-kontot. Varje Azure Media Services-konto innehåller standard StreamingEndpoint. Du kan skapa ytterligare Strömningsslutpunkter under kontot. Det finns två versioner av Strömningsslutpunkter 1.0 och 2.0. Från och med 10 januari 2017 alla nyligen skapade AMS konton innehåller version 2.0 **standard** StreamingEndpoint. Ytterligare strömmande slutpunkter som du lägger till det här kontot kommer också att version 2.0. Den här ändringen påverkar inte befintliga konton; befintliga Strömningsslutpunkter är version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen det blir beteende, fakturering och ändringarna (Mer information finns i [detta](media-services-streaming-endpoints-overview.md) artikel).
 
 Dessutom från och med version 2.15, Azure Media Services lagt till följande egenskaper till entiteten Strömningsslutpunkt: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Detaljerad översikt över de här egenskaperna finns [detta](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
@@ -109,15 +109,15 @@ Azure Media Services kan du nu dataåtkomst telemetri/mått för dess tjänster.
 När en kodning uppgiften har skickats till Media Encoder Standard eller Azure Media Encoder kodning uppgiften genererar en [strömmande manifestfilen](media-services-deliver-content-overview.md) (* .ism)-fil i utdata tillgången. Syntaxen för den här strömmande manifestfilen har uppdaterats med den senaste versionen av tjänsten.
 
 > [!NOTE]
-> Syntaxen för strömmande manifestet (.ism)-fil är reserverad för internt bruk och kan ändras i framtida versioner. Du inte ändra eller manipulera innehållet i den här filen.
+> Syntaxen för strömmande manifestet (.ism)-fil är reserverad för internt bruk och kan ändras i framtida versioner. Ändra eller inte ändra innehållet i den här filen.
 > 
 > 
 
 ### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>En ny klient manifestet (*. ISMC)-filen har genererats i utdata tillgång när en kodning uppgift matar ut en eller flera MP4-filer
-Från och med den senaste versionen av tjänsten efter att en kodning uppgiften som genererar en mer MP4-filer, utdata innehåller tillgång också en strömmande klienten manifestet (*.ismc) fil. Filen .ismc hjälper till att förbättra prestandan för dynamiska strömning. 
+Från och med den senaste versionen av tjänsten efter att en kodning uppgiften som genererar en mer MP4-fil, utdata innehåller tillgång också en strömmande klienten manifestet (*.ismc) fil. Filen .ismc hjälper till att förbättra prestandan för dynamiska strömning. 
 
 > [!NOTE]
-> Syntaxen för filen för manifestet (.ismc) är reserverad för internt bruk och kan ändras i framtida versioner. Du inte ändra eller manipulera innehållet i den här filen.
+> Syntaxen för filen för manifestet (.ismc) är reserverad för internt bruk och kan ändras i framtida versioner. Ändra eller inte ändra innehållet i den här filen.
 > 
 > 
 
@@ -131,7 +131,7 @@ Vissa klienter kan stöta på ett problem med Upprepa tagg i manifestet Smooth S
 Azure Media Services introducerade Azure Media Analytics för kraftfulla video intelligence. Detaljerad information finns i [översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (förhandsgranskning)
-Azure Media Services kan du nu dynamiskt kryptera din HTTP Live Streaming (HLS) innehåll med Apple FairPlay. Du kan också använda AMS-Licenstjänsten leverans för att leverera FairPlay-licenser till klienter. Mer information finns i [Använd Azure Media Services för att strömma din HLS innehåll skyddade med Apple FairPlay ](media-services-protect-hls-with-fairplay.md).
+Azure Media Services kan du nu dynamiskt kryptera din HTTP Live Streaming (HLS) innehåll med Apple FairPlay. Du kan också använda AMS-Licenstjänsten leverans för att leverera FairPlay-licenser till klienter. Mer detaljerad information finns i [Använd Azure Media Services att strömma ditt innehåll skyddade HLS med Apple FairPlay.
 
 ## <a id="feb_changes16"></a>Februari 2016-versionen
 Den senaste versionen av Azure Media Services SDK för .NET (3.5.3) innehåller en relaterad felkorrigering Widevine. Problemet var: AssetDeliveryPolicy gick inte att återanvändas för flera resurser som är krypterat med Widevine. Som en del av den här buggfix följande egenskap har lagts till i SDK: **WidevineBaseLicenseAcquisitionUrl**.
@@ -162,26 +162,26 @@ Mer information finns i:
 * Den [Microsoft Azure Media Services SDK för PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blogg.
 * Följande [kodexempel](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) för att komma igång snabbt:
   * **vodworkflow_aes.php**: Detta är en PHP-fil som visar hur du använder AES-128 dynamisk kryptering och leverans av tjänsten. Den är baserad på .NET-exempel som beskrivs i [detta](media-services-protect-with-aes128.md) artikel.
-  * **vodworkflow_aes.php**: Detta är en PHP-fil som visar hur du använder PlayReady dynamisk kryptering och Licensleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [detta](media-services-protect-with-drm.md) artikel.
+  * **vodworkflow_aes.php**: Detta är en PHP-fil som visar hur du använder PlayReady dynamisk kryptering och Licensleveranstjänst. Den är baserad på .NET-exempel som beskrivs i [detta](media-services-protect-with-playready-widevine.md) artikel.
   * **scale_encoding_units.php**: Detta är en PHP-fil som visar hur du skalar kodning enhet.
 
 ## <a id="nov_changes_15"></a>November 2015-versionen
-Azure Media Services erbjuder Google Widevines licensleveranstjänst i molnet. Mer information finns i [meddelande bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [självstudierna](media-services-protect-with-drm.md) och [GitHub-lagringsplatsen](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+Azure Media Services erbjuder Google Widevines licensleveranstjänst i molnet. Mer information finns i [meddelande bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [självstudierna](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Observera att Widevines licensleveranstjänster i Azure Media Services är i förhandsgranskningen. Mer information finns i [bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Widevines licensleveranstjänster i Azure Media Services från Microsoft finns i förhandsgranskningen. Mer information finns i [bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Oktober 2015-versionen
-Azure Media Services (AMS) har publicerats i följande datacenter: södra, västra Indien, södra Indien och centrala Indien. Nu kan du använda Azure portal och [skapa Media Service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs [här](https://azure.microsoft.com/documentation/services/media-services/). Dock är Live Encoding inte aktiverat i dessa datacenter. Dessutom finns inte alla typer av Encoding-reserverade enheter i dessa datacenter.
+Azure Media Services (AMS) har publicerats i följande datacenter: södra Indien, västra, södra Indien och centrala Indien. Nu kan du använda Azure portal och [skapa Media Service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs [här](https://azure.microsoft.com/documentation/services/media-services/). Dock är Live Encoding inte aktiverat i dessa datacenter. Dessutom finns inte alla typer av Encoding-reserverade enheter i dessa datacenter.
 
 * Södra Brasilien:                                          Endast Encoding-reserverade enheter av grundläggande och standardtyp är tillgängliga
-* Västra Indien, södra Indien och centrala Indien:              Endast Encoding-reserverade enheter av grundläggande typ är tillgängliga
+* Indien, västra, södra Indien och centrala Indien: endast grundläggande Encoding-reserverade enheter är tillgängliga
 
 ## <a id="september_changes_15"></a>Utgåvan från september 2015
 * AMS finns nu möjlighet att skydda både Video-On-Demand (VOD) och Live dataströmmar med Widevine modulära DRM-teknik. Du kan använda följande leverans services partner som hjälper dig att leverera Widevine-licenser: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Mer information finns i [bloggen](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
     Du kan använda [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (från och med version 3.5.1) eller REST API för att konfigurera din AssetDeliveryConfiguration för att använda Widevine.  
 * AMS tillagt stöd för Apple ProRes videor. Du kan överföra QuickTime videor källfilerna som använder Apple ProRes eller andra codec. Mer information finns i [bloggen](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* Du kan nu använda Media Encoder Standard för att göra utvinning av underordnad urklippet och live Arkiv. Mer information finns i [bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* Du kan nu använda Media Encoder Standard för att göra utvinning subclipping och live Arkiv. Mer information finns i [bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Följande filtrera uppdateringar har gjorts: 
   
   * Nu kan du använda Apple HTTP Live Streaming (HLS)-format med ljuddata filter. Den här uppdateringen kan du ta bort ljuddata spåra genom att ange (ljuddata = false) i URL-Adressen.
@@ -193,7 +193,7 @@ Azure Media Services (AMS) har publicerats i följande datacenter: södra, väst
     Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogg.
 
 ## <a id="august_changes_15"></a>Augusti 2015-versionen
-* Azure Media Services SDK för Java V0.8.0 versionen och nya prov är nu tillgängliga. Mer information finns i:
+* Azure Media Services SDK för Java V0.8.0 versionen och nya prov är nu tillgänglig. Mer information finns i:
   
   * [Blogginlägget](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
   * [Databasen för Java-exempel](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -203,13 +203,13 @@ Azure Media Services (AMS) har publicerats i följande datacenter: södra, väst
 ## <a id="july_changes_15"></a>Versionen för juli 2015
 * Tillkännagivande Allmänt om Media Encoder Standard. Mer information finns i [i det här blogginlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard använder förinställningar som beskrivs i [detta](http://go.microsoft.com/fwlink/?LinkId=618336) avsnitt. Observera att när du använder en förinställning för 4k kodar, du får den **Premium** reserverade enhetstyp. Mer information finns i [så skala kodning](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard använder förinställningar som beskrivs i [detta](http://go.microsoft.com/fwlink/?LinkId=618336) avsnitt. När du använder en förinställning för 4k kodar, ska du hämta den **Premium** reserverade enhetstyp. Mer information finns i [så skala kodning](media-services-scale-media-processing-overview.md).
 * Live realtid etiketter med Azure Media Services och spelare. Mer information finns i [i det här blogginlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Azure Media Services .NET SDK är nu version 3.4.0.0. Följande funktioner har lagts till i den här versionen:  
 
-* Implementerade stöd för live Arkiv. Observera att du inte kan hämta en tillgång som innehåller ett live-Arkiv.
+* Implementerade stöd för live Arkiv. Du kan inte hämta en tillgång som innehåller ett live-Arkiv.
 * Implementerade stöd för dynamiska filter.
 * Implementerad funktionalitet som användarna kan hålla lagringsbehållaren när du tar bort tillgången.
 * Felkorrigeringar som rör försök principer i kanaler.
@@ -291,13 +291,13 @@ Den här versionen markerade Microsoft.WindowsAzure.MediaServices.Client.Content
 * Tillagda relativa förskjutningar för BeginDate och ExpirationDate i mallen PlayReady-licens.
 
 ## <a id="november_changes_14"></a>November 2014-versionen
-* Media Services kan du nu infoga ett Smooth Streaming (FMP4) innehållet via en SSL-anslutning. För att mata in via SSL, se till att uppdatera infognings-URL: en till HTTPS.  Observera att för närvarande AMS inte stöder SSL med anpassade domäner.  Läs mer om direktsänd strömning [arbetar med Azure Media Services Liveströmning].
+* Media Services kan du nu infoga ett Smooth Streaming (FMP4) innehållet via en SSL-anslutning. För att mata in via SSL, se till att uppdatera infognings-URL: en till HTTPS.  För närvarande stöder AMS inte SSL med anpassade domäner.  Läs mer om direktsänd strömning [arbetar med Azure Media Services Liveströmning].
 * Du kan för närvarande mata in en direktsänd dataström med RTMP via en SSL-anslutning.
 * Du kan bara strömma via SSL om den strömningsslutpunkt från vilken du kan leverera ditt innehåll skapades efter 10 September 2014. Om din strömmande URL: er baseras på strömningsslutpunkter som skapats efter 10 September, innehåller URL: en ”streaming.mediaservices.windows.net” (det nya formatet). Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det gamla formatet) stöder inte SSL. Om URL: en är i formatet gamla och du vill kunna strömma via SSL, [skapa en ny strömmande slutpunkt](media-services-portal-manage-streaming-endpoints.md). Använd URL: er skapas baserat på den nya strömmande slutpunkten för att strömma ditt innehåll via SSL.
 
 ## <a id="october_changes_14"></a>Oktober 2014-versionen
 ### <a id="new_encoder_release"></a>Media Services-kodaren versionen
-Om den nya versionen av Media Services Azure Media Encoder. Med senast Azure Media Encoder endast debiteras du för utgående GB, men annars nya kodaren är funktionen som är kompatibel med tidigare kodaren. Mer information [prisinformation för Media Services]).
+Om den nya versionen av Media Services Azure Media Encoder. Med den senaste Azure Media Encoder endast debiteras du för utgående GB, men annars nya kodaren är funktionen som är kompatibel med tidigare kodaren. Mer information [prisinformation för Media Services]).
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 Media Services SDK för .NET-tilläggen är nu version 2.0.0.3.
@@ -308,7 +308,7 @@ Följande ändringar har gjorts:
 
 * Eftersom i klasser som princip försök igen.
 * Lägger till användaragentsträngen för http-huvuden för begäran.
-* Lägga till nuget återställning build steg.
+* Lägga till NuGet återställning build steg.
 * Åtgärda scenariot testerna för att använda x509 certifikat från databasen.
 * Verifiera inställningarna vid uppdatering av kanal och strömmande slutpunkt.
 
@@ -340,8 +340,8 @@ Du har för närvarande följande två alternativ för att lösa problemet.
     Följande gäller:
   
   * Du måste ha ägarskap för det anpassade domännamnet.
-  * Ägarskap för domännamnet måste verifieras av Azure Media Services. Skapa en CNAME-post som mappar för att verifiera domänen <MediaServicesAccountId>.<parent domain> verifiera dns. < mediaservices dns-zon >. 
-  * Du måste skapa en annan CNAME-post som mappar det anpassa värdnamnet (till exempel sports.contoso.com) till värdnamnet för ditt Media Services StreamingEndpont (till exempel amstest.streaming.mediaservices.windows.net).
+  * Ägarskap för domännamnet måste verifieras av Azure Media Services. Skapa en CNAME-post som mappar för att verifiera domänen <MediaServicesAccountId> <parent domain> att verifiera DNS. < mediaservices dns-zon >. 
+  * Du måste skapa en annan CNAME-post som mappar det anpassa värdnamnet (t.ex: sports.contoso.com) till värdnamnet för ditt Media Services StreamingEndpont (t ex: amstest.streaming.mediaservices.windows.net).
 
     Mer information finns i **CustomHostNames** egenskap i den [StreamingEndpoint] artikel.
 
@@ -376,7 +376,7 @@ Följande förbättringar ingår i Media Services .NET SDK 3.0.0.5-versionen:
 * Förbättringar i försök logik och tillfälligt undantagshantering: 
   
   * Tillfälligt fel identifiering och försök igen logik har förbättrats för undantag som orsakas av frågor, spara ändringar, överföra och hämta filer. 
-  * När du hämtar Web undantag (till exempel under en ACS-tokenbegäran), ser du att allvarliga fel misslyckas snabbare nu.
+  * Du märker att allvarliga fel misslyckas snabbare nu när du hämtar Web undantag (till exempel under en Tokenbegäran för ACS).
 
 Mer information finns i [försök logiken i Media Services SDK för .NET].
 
@@ -395,7 +395,7 @@ Mer information finns i [försök logiken i Media Services SDK för .NET].
 * Fast problem relaterade till användning av LINQ-frågor med OrderBy-uttryck.
 * Dela testlösningar i [GitHub] i enhetsbaserad testerna och scenariobaserade tester.
 
-Mer information om ändringarna finns: [Azure Media Services .NET SDK 3.0.0.1 och 3.0.0.2 släpper].
+Läs mer om ändringarna: [Azure Media Services .NET SDK 3.0.0.1 och 3.0.0.2 släpper].
 
 Följande ändringar har gjorts i 3.0.0.3:
 
@@ -409,9 +409,9 @@ Följande ändringar har gjorts i 3.0.0.3:
 > 
 > 
 
-Den senaste versionen av Media Services SDK är nu 3.0.0.0. Du kan hämta det senaste paketet från Nuget eller hämta bits från [GitHub].
+Den senaste versionen av Media Services SDK är nu 3.0.0.0. Du kan hämta det senaste paketet från NuGet eller hämta bits från [GitHub].
 
-Från och med Media Services SDK version 3.0.0.0 kan återanvända du token för Azure Active Directory Access Control Service (ACS). 
+Från och med Media Services SDK version 3.0.0.0 kan du återanvända den [Azure Active Directory Access Control Service (ACS)] token. Mer information finns i avsnittet ”återanvända Access Control Service Tokens” i den [ansluter till Media Services med Media Services SDK för .NET] artikel.
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK-tilläggen 2.0.0.0
 Azure Media Services .NET SDK-tilläggen är en uppsättning tilläggsmetoder och hjälpfunktioner som förenklar koden och gör det enklare att utveckla med Azure Media Services. Du kan hämta den senaste bits från [Azure Media Services .NET SDK-tilläggen].
@@ -447,7 +447,7 @@ De ändringar som nämns i det här avsnittet är uppdateringar som ingår i jun
   
     Asset.StorageAccountName och Asset.StorageAccount
 * Möjligheten att uppdatera Job.Priority. 
-* Meddelanden relaterade entiteter och egenskaper: 
+* Meddelande-relaterade entiteter och egenskaper: 
   
     JobNotificationSubscription
   
@@ -471,7 +471,7 @@ Följande ändringar är inkluderade i juni 2013 versioner av Media Services SDK
     Egenskapen StorageAccountName.
   
     Mer information finns i [hantera Media Services tillgångar över flera Lagringskonton].
-* Meddelanden relaterade API: er. Från och med version 2.2.0.0 har du möjlighet att lyssna på Azure Queue storage-meddelanden. Mer information finns i [hantering av Media Services jobbet meddelanden].
+* Meddelande-relaterade API: er. Från och med version 2.2.0.0 har du möjlighet att lyssna på Azure Queue storage-meddelanden. Mer information finns i, [hantering av Media Services jobbet meddelanden].
   
     Egenskapen Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions.
   
@@ -495,13 +495,13 @@ Följande ändringar är inkluderade i juni 2013 versioner av Media Services SDK
 Korrigeringar för problem som hittas i November 2012 SDK:
 
 * IAsset.Locators.Count: Det här antalet nu korrekt rapporteras på nya IAsset gränssnitt när alla lokaliserare har tagits bort.
-* IAssetFile.ContentFileSize: Det här värdet nu korrekt anges efter en överföring av IAssetFile.Upload(filepath).
+* IAssetFile.ContentFileSize: Det här värdet nu korrekt anges efter en överföring av IAssetFile.Upload (filepath).
 * IAssetFile.ContentFileSize: Den här egenskapen kan nu anges när du skapar en resursfil. Det var tidigare skrivskyddad.
-* IAssetFile.Upload(filepath): Ett problem har åtgärdats där den här metoden Överför synkron har att följande fel vid överföring av flera filer till tillgången. Felkod: ”Det gick inte att autentisera begäran-Server. Kontrollera att värdet för Authorization-huvud är formaterad korrekt inklusive signaturen ”.
-* IAssetFile.UploadAsync: Ett problem har åtgärdats där fler än 5 filer kan överföras samtidigt.
+* IAssetFile.Upload (filepath): ett problem har åtgärdats där den här metoden Överför synkron har att följande fel vid överföring av flera filer till tillgången. Felkod: ”Det gick inte att autentisera begäran-Server. Kontrollera att värdet för Authorization-huvud är formaterad korrekt inklusive signaturen ”.
+* IAssetFile.UploadAsync: Ett problem har åtgärdats där fler än fem filer kan överföras samtidigt.
 * IAssetFile.UploadProgressChanged: Den här händelsen tillhandahålls nu av SDK.
 * IAssetFile.DownloadAsync (sträng, BlobTransferClient ILocator, CancellationToken): den här metodöverlagringen tillhandahålls nu.
-* IAssetFile.DownloadAsync: Ett problem har åtgärdats där fler än 5 filer kan hämtas samtidigt.
+* IAssetFile.DownloadAsync: Ett problem har åtgärdats där fler än fem filer kan hämtas samtidigt.
 * IAssetFile.Delete(): Ett problem har åtgärdats där anropa delete kan utlösa ett undantag om ingen fil har överförts för IAssetFile.
 * Jobb: Ett problem har åtgärdats där länkning en ”MP4 Smooth dataströmmar uppgiften” med ”PlayReady skydd uppgiften” med en jobbmall kan inte skapa några aktiviteter alls.
 * EncryptionUtils.GetCertificateFromStore(): Den här metoden genererar inte längre ett null-referensundantag på grund av ett fel söka efter certifikat som baseras på problem med certifikat.
@@ -513,7 +513,7 @@ De ändringar som nämns i det här avsnittet har uppdateringar som ingår i Nov
   
     IAsset.Create(assetName) är funktionen bara tillgång skapas. IAsset.Create överför inte längre filerna som en del av metodanropet. Använd IAssetFile för överföring.
   
-    Metoden IAsset.Publish och uppräkningsvärdet AssetState.Publish har tagits bort från Services SDK. All kod som förlitar sig på detta värde måste vara skrivna igen.
+    Metoden IAsset.Publish och uppräkningsvärdet AssetState.Publish har tagits bort från Services SDK. All kod som förlitar sig på detta värde måste skrivas.
 * FileInfo
   
     Den här klassen har tagits bort och ersatts av IAssetFile.
@@ -535,7 +535,7 @@ Följande funktioner är nya i November-versionen av SDK.
 
 * Ta bort enheter
   
-    IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objekt har nu tagits bort på objektnivå, d.v.s. IObject.Delete() i stället för att en delete i samlingen som är cloudMediaContext.ObjCollection.Delete(objInstance).
+    IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objekt har nu tagits bort på objektnivå, det vill säga IObject.Delete() i stället för att en delete i samlingen som är cloudMediaContext.ObjCollection.Delete(objInstance).
 * Positionerare
   
     Lokaliserare nu måste skapas med metoden CreateLocator och Använd uppräkningsvärden LocatorType.SAS eller LocatorType.OnDemandOrigin som ett argument för typ av lokaliserare som du vill skapa.
@@ -581,7 +581,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [segment för att gå till Video]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 och 3.0.0.2 släpper]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[ansluter till Media Services med Media Services SDK för .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK-tilläggen]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-verktyg]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

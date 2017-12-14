@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
 
@@ -57,7 +57,7 @@ Du kan distribuera och installera programuppdateringar på datorer som kräver u
 Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatorerna distributionen parallellt.  En sökning utförs först för att kontrollera om uppdateringarna fortfarande krävs och installerar dem.  Detta är viktigt att observera för WSUS-klientdatorer – om uppdateringarna inte är godkända i WSUS misslyckas uppdateringsdistributionen.  Resultaten av de tillämpade uppdateringarna vidarebefordras till OMS som ska bearbetas och sammanfattas i instrumentpaneler eller genom att söka efter händelser.     
 
 ## <a name="prerequisites"></a>Krav
-* Lösningen stöder utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och högre.  Installationsalternativ för Server Core och Nano Server stöds inte.
+* Lösningen stöder utvärderingar av uppdateringar av Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och högre.  Nano Server stöds inte.
 
     > [!NOTE]
     > Stöd för att distribuera uppdateringar till Windows Server 2008 R2 SP1 kräver .NET Framework 4.5 och WMF 5.0 eller senare.
@@ -81,7 +81,7 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
     > En OMS-agent för Linux som konfigurerats för att rapportera till flera OMS-arbetsytor stöds inte av den här lösningen.  
     >
 
-Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agents.md).  
+Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>Behörigheter
 För att skapa uppdateringsdistributioner måste du beviljas deltagarrollen både i ditt Automation-konto och på Log Analytics-arbetsytan.  
@@ -126,7 +126,7 @@ På en Windows-dator kan du läsa följande för att verifiera agentanslutning m
 1.  Öppna Microsoft Monitoring Agent i kontrollpanelen. På fliken **Azure Log Analytics (OMS)** visar agenten ett meddelande där det står: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite).   
 2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning.  Dessa händelser anger att datorn har registrerats med OMS-arbetsytan och tar emot konfigurationen.  
 
-Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agents.md#network) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md#network).
+Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agent.md) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om Linux-system har konfigurerats för att kommunicera med en proxy- eller OMS-Gateway och du är i färd med att aktivera den här lösningen ska du uppdatera behörigheten *proxy.conf* för att ge gruppen omiuser läsbehörighet för filen genom att utföra följande kommandon:  
@@ -156,7 +156,7 @@ Det kan ta alltifrån 30 minuter upp till 6 timmar för instrumentpanelen att vi
 
 ## <a name="using-the-solution"></a>Använda lösningen
 När du lägger till uppdateringshanteringslösningen i OMS-arbetsytan läggs panelen **Uppdateringshantering** till på OMS-instrumentpanelen. Den här panelen visar antal och en grafisk representation av antalet datorer i din miljö och deras uppdateringskompatibilitet.<br><br>
-![Sammanfattningspanel uppdateringshantering](media/oms-solution-update-management/update-management-summary-tile.png)  
+![Sammanfattningspanel för uppdateringshantering](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 
 ## <a name="viewing-update-assessments"></a>Visning av kontroll av uppdateringar

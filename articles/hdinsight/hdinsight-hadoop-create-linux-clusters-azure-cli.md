@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 25dc37c10435e45bc56fd48488f9f238922ed6e3
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -45,7 +45,7 @@ Stegen i den här genomgången för dokument som skapar ett HDInsight 3.5-kluste
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
 
-Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](../xplat-cli-connect.md) och anslut till din prenumeration med hjälp av metoden **inloggning**.
+Följ stegen i [Anslut till en Azure-prenumeration från Azure-kommandoradsgränssnittet (Azure CLI)](/cli/azure/authenticate-azure-cli) och anslut till din prenumeration med hjälp av metoden **inloggning**.
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
@@ -117,7 +117,7 @@ Följande steg ska utföras från en kommandorad, till exempel PowerShell- eller
     * Ersätt `sshuser` och `sshuserpassword` med användarnamn och lösenord som du vill använda när du ansluter till klustret via SSH
 
     > [!IMPORTANT]
-    > Det här exemplet skapar ett kluster med två worker anteckningar. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalning åtgärder. Om du tänker använda mer än 32 arbetarnoder, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnod storlek med den `--headNodeSize` parameter när klustret skapas.
+    > Det här exemplet skapar ett kluster med två arbetarnoder. Du kan också ändra antalet arbetarnoder när klustret har skapats genom att utföra skalning åtgärder. Om du tänker använda mer än 32 arbetarnoder, måste du välja en huvudnod storlek med minst 8 kärnor och 14 GB RAM-minne. Du kan ange huvudnod storlek med den `--headNodeSize` parameter när klustret skapas.
     >
     > Mer information om noden storlekar och relaterade kostnader finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 

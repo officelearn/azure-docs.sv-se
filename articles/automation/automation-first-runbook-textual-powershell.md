@@ -3,7 +3,7 @@ title: "Min första PowerShell-runbook i Azure Automation | Microsoft Docs"
 description: "En självstudiekurs som steg för steg beskriver hur du skapar, testar och publicerar en enkel PowerShell-runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "azure powershell, självstudier i powershell-skript, powershell-automation"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: 2645d149df1f337700fb627aaff99e869fc8b8e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885fe6caaa00bc0caea875d72fe2626f9e6b1863
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 

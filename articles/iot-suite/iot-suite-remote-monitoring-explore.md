@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Utforska funktionerna i fjärråtkomst övervakning förkonfigurerade lösningen
 
@@ -43,7 +43,7 @@ Om du inte har distribuerat remote övervakningslösning ännu, bör du genomfö
 Du kan använda Contoso IoT exempeldistribution för att förstå grundläggande scenarier fjärrdatabasen övervakningslösning ger out box. Dessa scenarier bygger på verkliga IoT-distributioner. Troligen kommer du vill anpassa remote övervakningslösning för att uppfylla dina specifika krav, men Contoso-exempel hjälper dig att lära dig grunderna.
 
 > [!NOTE]
-> Om du använde CLI för att distribuera förkonfigurerade lösningen filen `deployment-{your deployment name}-output.json` innehåller information om distribution, till exempel accss distribuerade exemplet URL-adress.
+> Om du använde CLI för att distribuera förkonfigurerade lösningen filen `deployment-{your deployment name}-output.json` innehåller information om distribution till exempel URL för åtkomst av distribuerade exemplet.
 
 Contoso-exempel etablerar en uppsättning simulerade enheter och regler för att fungera på dem. När du förstår de grundläggande scenarierna kan du utforska av lösningen funktioner i [utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning](iot-suite-remote-monitoring-monitor.md).
 
@@ -58,7 +58,7 @@ Contoso använder olika typer av smarta enheter. Dessa enheter uppfylla olika ro
 
 I följande tabell visas en sammanfattning av de etablerade enhetstyper:
 
-| Typ av enhet        | Telemetri                                  | Egenskaper                                  | Taggar                    | Metoder                                                                                      |
+| Enhetstyp        | Telemetri                                  | Egenskaper                                  | Taggar                    | Metoder                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Kylaggregat            | Tryck på temperatur, fuktighet            | Typ, version på inbyggd programvara, modell               | Plats, våning, plats | Starta om, inbyggd programvara uppdateringen nödfall ventilen versionen ökad belastning                          |
 | Prototyper enhet | Temperatur, tryck, geografiska plats        | Typ, version på inbyggd programvara, modell               | Plats, läge          | Starta om, Firmware-uppdatering, flytta enheten, Stop-enhet, temperatur versionen, temperatur öka |
@@ -75,8 +75,8 @@ Operatörer på Contoso vet de tröskelvärden som avgör om en enhet fungerar k
 
 | Regelnamn | Beskrivning | Tröskelvärde | Allvarsgrad | Berörda enheter |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Kylaggregat tryck för hög | Aviseringar om chillers nå högre än normalt tryck nivåer   |P > 250 psi       | kritiska | Chillers            |
-| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T > 80&deg; F |kritiska | Prototyper enheter |
+| Kylaggregat tryck för hög | Aviseringar om chillers nå högre än normalt tryck nivåer   |P > 250 psi       | Kritiskt | Chillers            |
+| Prototyper enheten temp för hög  | Aviseringar om prototyper enheter nå högre än normal temperatur nivåer  |T > 80&deg; F |Kritiskt | Prototyper enheter |
 | Motorn tanken tom  | Aviseringar om motorn bränsletanken går tom                     | F < 5 gallon | Information     | Motorer             |
 | Högre än normal last temperatur | Aviseringar om lastbils last temperatur är högre än normalt                 | T < 45&deg; F |Varning  | Lastbilar              |
 | Snabba vibration stoppades      | Aviseringar om snabba slutar helt (baserat på vibration nivå)                     | V < 0,1 mm |Varning  | Hissar           |

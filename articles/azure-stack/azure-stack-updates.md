@@ -3,8 +3,8 @@ title: "Hantera uppdateringar i Azure-stacken översikt | Microsoft Docs"
 description: "Mer information om uppdateringshantering för Azure-stacken integrerat system."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack-översikt
 
 *Gäller för: Azure Stack integrerat system*
 
-Microsoft kommer att släppa uppdateringspaket för Azure-stacken integrerat system med jämna mellanrum. Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Som operatör Azure Stack du enkelt kan importera, installera och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
+Microsoft kommer att släppa uppdateringspaket för Azure-stacken integrerat system i en vanlig takt som ankommer vanligtvis den fjärde tisdagen varje månad från och vid allmän tillgänglighet. Be OEM-tillverkaren om sina specifika meddelandeprocessen för att se till att uppdateringen meddelanden nå din organisation eller kontrollera här under Concepts\Release notes\Integrated system viktig information för mer information om specifika versioner.
+
+Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Som operatör Azure Stack du enkelt kan importera, installera och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
 
 Maskinvaruleverantören OEM-tillverkaren (OEM) kommer också att släppa uppdateringar, till exempel drivrutinen och firmware-uppdateringar. Dessa uppdateringar levereras som separata paket av maskinvarutillverkaren OEM och hanteras separat från Microsoft Update.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Självstudier: Processen EDIFACT fakturor med hjälp av Azure BizTalk-tjänst
 
@@ -55,7 +55,7 @@ Vi använder Service Bus-köer för att skicka faktura från Contoso till Northw
 
 ## <a name="prerequisites"></a>Krav
 * Du måste ha en Service Bus-namnrymd. Anvisningar om hur du skapar ett namnområde finns [hur man: skapa eller ändra en Service Bus-tjänsten Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Låt oss anta att du redan har ett namnområde för Service Bus etableras, kallas **edifactbts**.
-* Du måste ha en prenumeration BizTalk-tjänst. Instruktioner finns i [skapa en BizTalk Service med hjälp av Azure klassiska portal](http://go.microsoft.com/fwlink/?LinkID=302280). För den här självstudiekursen kommer vi förutsätter att du har en BizTalk-tjänst-prenumeration som kallas **contosowabs**.
+* Du måste ha en prenumeration BizTalk-tjänst. För den här självstudiekursen kommer vi förutsätter att du har en BizTalk-tjänst-prenumeration som kallas **contosowabs**.
 * Registrera prenumerationen BizTalk-tjänst för BizTalk-Services-portalen. Instruktioner finns i [registrerar en BizTalk Tjänstdistribution på BizTalk-Services-portalen](https://msdn.microsoft.com/library/hh689837.aspx)
 * Du måste ha Visual Studio installerat.
 * Du måste ha BizTalk Services SDK är installerat. Du kan hämta SDK från [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

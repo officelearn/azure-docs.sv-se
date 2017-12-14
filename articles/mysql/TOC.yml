@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Programutveckling
           href: concepts-database-application-development.md
-    - name: Migrera databasen
-      items:
-        - name: Dumpa och återställa
-          href: concepts-migrate-dump-restore.md
-        - name: Importera och exportera
-          href: concepts-migrate-import-export.md
 - name: Instruktionsguider
   items:
     - name: Hantera en server
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: Migrera en databas
+      items:
+        - name: Dumpa och återställa
+          href: concepts-migrate-dump-restore.md
+        - name: Importera och exportera
+          href: concepts-migrate-import-export.md
     - name: Anslut program
       items:
         - name: Skapa användare
@@ -161,3 +161,5 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Kundberättelser
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: Guide för databasmigrering
+      href: 'https://datamigration.microsoft.com/'

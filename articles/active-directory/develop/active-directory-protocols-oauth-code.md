@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -56,10 +56,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade.  Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Kan vara `query` eller `form_post`. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran returneras också token svar. Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| Resursen |Valfria |App-ID URI för webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID för webb-API, i Azure-portalen klickar du på **Active Directory**, klicka på katalogen programmet och klicka sedan på **konfigurera**. |
-| kommandotolk |Valfria |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
-| login_hint |Valfria |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Valfria |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
+| resurs |valfri |App-ID URI för webb-API (skyddad resurs). Om du vill hitta URI: N för App-ID för webb-API, i Azure-portalen klickar du på **Active Directory**, klicka på katalogen programmet och klicka sedan på **konfigurera**. |
+| kommandotolk |valfri |Ange vilken typ av användarinteraktion som krävs.<p> Giltiga värden är: <p> *inloggningen*: användaren ska uppmanas att autentiseras. <p> *medgivande*: tillstånd har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: en administratör ska ange tillstånd för alla användare i organisationen |
+| login_hint |valfri |Kan användas för att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar använder den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| domain_hint |valfri |Ger en ledtråd om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
 
 > [!NOTE]
 > Om användaren är en del av en organisation, kan en administratör i organisationen medgivande eller neka för användarens räkning eller Tillåt användaren att godkänna. Användaren har möjlighet att godkänna endast när administratören tillåter det.
@@ -138,7 +138,7 @@ grant_type=authorization_code
 | Koden |Krävs |Den `authorization_code` som du har införskaffade i föregående avsnitt |
 | redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
 | client_secret |krävs för webbprogram |Den hemlighet som programmet som du skapade i portalen för registrering av app för din app.  Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter.  Det krävs för webbappar och webb-API: er som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. |
-| Resursen |krävs om anges i tillståndet begäran, annars valfritt |App-ID URI för webb-API (skyddad resurs). |
+| resurs |krävs om anges i tillståndet begäran, annars valfritt |App-ID URI för webb-API (skyddad resurs). |
 
 Om du vill hitta URI: N för App-ID i Azure-hanteringsportalen, klickar du på **Active Directory**, klickar du på katalogen, klicka på programmet och klicka sedan på **konfigurera**.
 
@@ -169,7 +169,7 @@ Ett lyckat svar kan se ut så här:
 | token_type |Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är ägar. Mer information om ägar-token finns [OAuth2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |
-| Resursen |App-ID URI för webb-API (skyddad resurs). |
+| resurs |App-ID URI för webb-API (skyddad resurs). |
 | Omfång |Personifiering behörigheterna för klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
 | refresh_token |En token för uppdatering av OAuth 2.0. Appen kan använda denna token för att få ytterligare åtkomsttoken när den aktuella åtkomst-token upphör att gälla.  Uppdatera token är långlivade och kan användas för att få åtkomst till resurser för längre tid. |
 | id_token |En osignerad JSON-Webbtoken (JWT). Appen kan base64Url avkoda segmenten i den här variabeln för att begäraninformation om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
@@ -347,7 +347,7 @@ Ett lyckat token svar ser ut:
 | token_type |Tokentyp. Det enda värdet som stöds är **ägar**. |
 | expires_in |Återstående livslängd för token i sekunder. Ett vanligt värde är 3 600 (en timme). |
 | expires_on |Datum och tid då token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. |
-| Resursen |Identifierar skyddade resursen som den åtkomst-token som kan användas för att få åtkomst till. |
+| resurs |Identifierar skyddade resursen som den åtkomst-token som kan användas för att få åtkomst till. |
 | Omfång |Personifiering behörigheterna för native client-program. Standardbehörigheten är **user_impersonation**. Ägaren av målresursen kan registrera alternativ i Azure AD. |
 | access_token |Ny åtkomsttoken som begärdes. |
 | refresh_token |En ny OAuth 2.0-refresh_token som kan användas för att begära en ny åtkomsttoken när det i det här svaret upphör att gälla. |

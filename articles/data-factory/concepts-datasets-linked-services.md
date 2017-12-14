@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Om du är nybörjare på Data Factory finns [introduktion till Azure Data Factor
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utföra en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktiviteten för att kopiera data från en lokal SQL Server till Azure Blob storage. Du kan sedan använda en Hive-aktivitet som kör en Hive-skript i ett Azure HDInsight-kluster för bearbetning av data från Blob storage gav inga utdata. Slutligen kan du använda en andra kopia aktiviteten kopiera utdata till Azure SQL Data Warehouse ovanpå vilka business intelligence (BI) reporting lösningar har skapats. Mer information om pipelines och aktiviteter finns [Pipelines och aktiviteter](concepts-pipelines-activities.md) i Azure Data Factory.
 
-Nu kan en **dataset** är en namngiven vy som bara pekar eller refererar till de data som du vill använda i din **aktiviteter** som indata och utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. Azure-blobbdatauppsättning anger blobbehållaren och mappen i Blob storage från vilken aktiviteten ska läsa data.
+Nu kan en **dataset** är en namngiven vy som bara pekar eller refererar till de data som du vill använda i din **aktiviteter** som indata och utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobbehållaren och mappen i Blob Storage som aktiviteten ska läsa data från.
 
 Innan du skapar en datamängd, måste du skapa en **länkade tjänsten** länka datalager till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Se det här sättet. dataset representerar strukturen för data i länkade datalager och den länkade tjänsten definierar anslutningen till datakällan. Till exempel kopplad ett Azure Storage tjänst länkar ett lagringskonto till datafabriken. Azure-blobbdatauppsättning som representerar blob-behållaren och mappen inom det Azure storage-konto som innehåller den inkommande BLOB-objekt som ska bearbetas.
 
@@ -43,6 +43,56 @@ Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en
 Följande diagram visar relationerna mellan pipeline, aktivitet, datamängd och länkade tjänsten i Data Factory:
 
 ![Förhållandet mellan pipeline, aktivitet, dataset, länkade tjänster](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>Länkad tjänst-JSON
+En länkad tjänst i Data Factory har definierats i JSON-format på följande sätt:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+I följande tabell beskrivs egenskaperna i ovanstående JSON:
+
+Egenskap | Beskrivning | Krävs |
+-------- | ----------- | -------- |
+namn | Namnet på den länkade tjänsten. Se [Azure Data Factory - namngivningsregler](naming-rules.md). |  Ja |
+typ | Typ av den länkade tjänsten. Till exempel: AzureStorage (datalager) eller AzureBatch (beräkning). Se beskrivningen av typeProperties. | Ja |
+typeProperties | Typegenskaper är olika för varje dataarkiv eller compute. <br/><br/> Lagra typer och deras egenskaper för data som stöds, finns det [datauppsättningstypen](#dataset-type) tabellen i den här artikeln. Gå till data store connector artikeln lär dig mer om Typegenskaper som är specifika för ett datalager. <br/><br/> Stöds beräkningstyper och deras egenskaper finns i [Compute länkade tjänster](compute-linked-services.md). | Ja |
+connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i ett privat nätverk). Om inget anges används standard-Azure Integration Runtime. | Nej
+
+## <a name="linked-service-example"></a>Länkad tjänst-exempel
+Följande länkade tjänst är en länkad Azure Storage-tjänst. Observera att typen har angetts till AzureStorage. Typegenskaperna för länkad Azure Storage-tjänsten innehåller en anslutningssträng. Data Factory-tjänsten använder den här anslutningssträngen för att ansluta till datalagret under körning. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>Datauppsättnings-JSON
 En datamängd i Data Factory har definierats i JSON-format på följande sätt:
@@ -72,12 +122,12 @@ En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Krävs | Standard
--------- | ----------- | -------- | -------
-namn | Namnet på datamängden. | Se [Azure Data Factory - namngivningsregler](naming-rules.md). | Ja | Ej tillämpligt
-typ | Typ av datauppsättningen. | Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [Dataset typer](#dataset-types). | Ja | Ej tillämpligt
-struktur | Schemat för datauppsättningen. | Mer information finns i [datauppsättningsstrukturen](#dataset-structure). | Nej | Ej tillämpligt
-typeProperties | Typegenskaper är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#dataset-type). | Ja | Ej tillämpligt
+Egenskap | Beskrivning | Krävs |
+-------- | ----------- | -------- |
+namn | Namnet på datamängden. Se [Azure Data Factory - namngivningsregler](naming-rules.md). |  Ja |
+typ | Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [Dataset typer](#dataset-types). | Ja |
+struktur | Schemat för datauppsättningen. Mer information finns i [datauppsättningsstrukturen](#dataset-structure). | Nej |
+typeProperties | Typegenskaper är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#dataset-type). | Ja |
 
 ## <a name="dataset-example"></a>DataSet-exempel
 I följande exempel representerar datauppsättningen en tabell med namnet mytable prefix i en SQL-databas.
@@ -104,28 +154,6 @@ Observera följande punkter:
 - typen har angetts till AzureSqlTable.
 - tableName typegenskapen (specifikt för AzureSqlTable typ) anges till mytable prefix.
 - linkedServiceName refererar till en länkad tjänst av typen AzureSqlDatabase som definieras i nästa JSON-fragment.
-
-## <a name="linked-service-example"></a>Länkad tjänst-exempel
-AzureSqlLinkedService definieras enligt följande:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-I den föregående JSON-utdrag:
-
-- **typen** är inställd på AzureSqlDatabase.
-- **connectionString** typegenskapen anger information för att ansluta till en SQL-databas.
-
-Som du ser definierar den länkade tjänsten hur du ansluter till en SQL-databas. Dataset definierar vilka tabellen används som indata och utdata för aktiviteten i en pipeline.
 
 ## <a name="dataset-type"></a>Typen av datauppsättning
 Det finns många olika typer av datauppsättningar, beroende på dataarkivet du använder. Se följande tabell för en lista över datakällor som stöds av Data Factory. Klicka på ett datalager för att lära dig hur du skapar en länkad tjänst och en datauppsättning för att lagra data.

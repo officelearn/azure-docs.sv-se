@@ -4,7 +4,7 @@ description: "Skydda din anpassade REST API anspråk utbyte i din Azure AD B2C m
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda din RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 I en [relaterade Azure AD B2C-artikeln](active-directory-b2c-custom-rest-api-netfw.md), du skapar en RESTful-tjänst (webb-API) som kan integreras med Azure Active Directory B2C (Azure AD B2C) användaren resor utan autentisering. 
 
 I den här artikeln får du lägger till grundläggande HTTP-autentisering RESTful-tjänst så att endast verifieras användare, inklusive B2C, kan komma åt din API. Grundläggande HTTP-autentisering anger du användarens autentiseringsuppgifter (app-ID och app secret) i en anpassad princip. 
 
-Mer information finns i [grundläggande autentisering i ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Mer information finns i [grundläggande autentisering i ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Krav
 Utför stegen i den [integrera REST API-anspråk utbyte i din Azure AD B2C användaren resa](active-directory-b2c-custom-rest-api-netfw.md) artikel.

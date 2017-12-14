@@ -3,7 +3,7 @@ title: Hantera DNS-zoner i Azure DNS - Azure CLI 2.0 | Microsoft Docs
 description: "Du kan hantera DNS-zoner som använder Azure CLI 2.0. Den här artikeln visar hur du uppdatera, ta bort och skapa DNS-zoner på Azure DNS."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Hur du hanterar DNS-zoner i Azure DNS använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 Den här guiden visar hur du hanterar DNS-zoner med hjälp av plattformsoberoende Azure CLI, som är tillgänglig för Windows, Mac och Linux. Du kan också hantera DNS-zoner med [Azure PowerShell](dns-operations-dnszones.md) eller Azure-portalen.
-
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
-
-Du kan slutföra uppgiften med någon av följande CLI-versioner:
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) – vår nästa generations CLI för distributionsmodellen resurshantering.
 
 ## <a name="introduction"></a>Introduktion
 
@@ -49,7 +41,7 @@ Kontrollera att du har följande innan du påbörjar konfigurationen.
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Installera den senaste versionen av Azure CLI 2.0, tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+* Installera den senaste versionen av Azure CLI 2.0, tillgänglig för Windows, Linux och MAC. Mer information finns på [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation för förhandsversionen av Azure Databricks
+title: "Dokumentation för förhandsversionen av Azure Databricks"
 metadata:
-  title: Dokumentation om Azure Databricks – självstudier | Microsoft Docs
-  description: Lär dig hur du använder Azure Databricks med snabbstarten och de andra länkarna här. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster.
+  title: "Dokumentation om Azure Databricks – självstudier | Microsoft Docs"
+  description: "Lär dig hur du använder Azure Databricks med snabbstarten och de andra länkarna här. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster."
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -13,30 +13,35 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: nitinme
+  ms.openlocfilehash: 11d900597fecce1a0f421f21d1cce231f7108fcf
+  ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/29/2017
 abstract:
-  description: 'Lär dig hur du använder Azure Databricks med snabbstarten och de andra länkarna här. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster. Databricks har utformats med grundarna av Apache Spark och är integrerat med Azure för att tillhandahålla konfiguration med ett klick, effektiva arbetsflöden och en interaktiv arbetsyta som möjliggör samarbete mellan dataanalytiker, dataingenjörer och affärsanalytiker.'
+  description: "Lär dig hur du använder Azure Databricks med snabbstarten och de andra länkarna här. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster. Databricks har utformats med grundarna av Apache Spark och är integrerat med Azure för att tillhandahålla konfiguration med ett klick, effektiva arbetsflöden och en interaktiv arbetsyta som möjliggör samarbete mellan dataanalytiker, dataingenjörer och affärsanalytiker."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att skapa en arbetsyta för Azure Databricks, ett Spark-kluster och sedan hur du kör jobb med:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig att skapa en arbetsyta för Azure Databricks, ett Spark-kluster och sedan hur du kör jobb med:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/azure-databricks/media/index/portal.svg
-            text: Azure Portal
-            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-  - title: Steg för steg-självstudier
+    - image:
+        src: /azure/azure-databricks/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig arbeta med Azure Databricks:"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Lär dig arbeta med Azure Databricks:'
-      - type: list
-        style: ordered
-        items:
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Komma igång med Azure Databricks</a>'
-          - html: '<a href="https://go.microsoft.com/fwlink/?linkid=864083" target="_blank">Importera data från Azure Storage</a>'
-          - hmtl: '<a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Arbeta med bärbara datorer</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Köra Spark-jobb</a>'
-          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Använda datakällor från Spark</a>'
+    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/getting-started.html\" target=\"_blank\">Komma igång med Azure Databricks</a>"
+    - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Importera data från Azure Storage</a>"
+    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
+    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Arbeta med bärbara datorer</a>"
+    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/jobs.html\" target=\"_blank\">Köra Spark-jobb</a>"
+    - html: "<a href=\"https://docs.azuredatabricks.net/spark/latest/data-sources/index.html\" target=\"_blank\">Använda datakällor från Spark</a>"

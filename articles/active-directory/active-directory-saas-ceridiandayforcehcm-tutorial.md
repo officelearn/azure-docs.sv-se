@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b2ea3d92f233dab5bd6814e4875f881117eac8e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b87fe59f2761c26319ce9e13168dc6c4bf95f8b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Självstudier: Azure Active Directory-integrering med Ceridian Dayforce HCM
 
@@ -110,21 +110,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     a. I den **logga URL** textruta, Skriv URL: en som används av dina användare logga in i tillämpningsprogrammet Ceridian Dayforce HCM.
     
-    | Miljö | URL: EN |
+    | Miljö | Webbadress |
     | :-- | :-- |
     | För produktion | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | För testet | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
     
     b. I den **identifierare** textruta Skriv en URL med följande mönster:
     
-    | Miljö | URL: EN |
+    | Miljö | Webbadress |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp` |
     | För testet | `https://fs-test.dayforcehcm.com/sp` |
     
     c. I den **Reply URL** textruta, Skriv URL-Adressen används av Azure AD publicera svaret.
     
-    | Miljö | URL: EN |
+    | Miljö | Webbadress |
     | :-- | :-- |
     | För produktion | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | För testet | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
     
-    | Attributets namn  | Attributvärdet |
+    | Attributnamn  | Attributvärde |
     | --------------- | -------------------- |    
     | namn  | User.extensionattribute2 |    
 

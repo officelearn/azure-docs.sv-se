@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Kör ett Apache Hive, Pig eller Hadoop-jobb med hjälp av Azure Cosmos DB och HDInsight
 Den här kursen visar hur du kör [Apache Hive][apache-hive], [Apache Pig][apache-pig], och [Apache Hadoop] [ apache-hadoop] MapReduce-jobb på Azure HDInsight med Cosmos DB Hadoop-anslutningen. Cosmos DB Hadoop-anslutningen kan Cosmos-Databsen ska fungera som både käll- och mottagarnoderna för Hive, Pig och MapReduce-jobb. Den här kursen använder Cosmos DB som både källa och mål för Hadoop-jobb.
@@ -178,7 +178,7 @@ Ange: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/doc
         $clusterName = "<HDInsightClusterName>"
 2. <p>Vi börjar konstruera frågesträngen. Vi ska skriva en Hive-fråga som tar alla dokument systemgenererade tidsstämplar (_ts) och unika ID: n (_rid) från en samling Azure Cosmos DB, räknar alla dokument per minut och lagrar resultaten tillbaka till en ny Azure DB som Cosmos-samling.</p>
 
-    <p>Först ska vi skapa en Hive-tabell från våra Azure DB som Cosmos-samling. Lägga till följande kodavsnitt i fönstret PowerShell-skript <strong>när</strong> kodstycke från #1. Inkludera den valfria DocumentDB.query parameter t trim våra dokument bara _ts och _rid.</p>
+    <p>Först ska vi skapa en Hive-tabell från våra Azure DB som Cosmos-samling. Lägga till följande kodavsnitt i fönstret PowerShell-skript <strong>när</strong> kodstycke från #1. Kontrollera att du inkluderar valfria Frågeparametern Beskär dokument till bara _ts och _rid.</p>
 
    > [!NOTE]
    > **Namnge DocumentDB.inputCollections var inte fel.** Ja, tillåter vi lägger till flera samlingar som indata: </br>
@@ -276,7 +276,7 @@ Ange: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/doc
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Vi börjar konstruera frågesträngen. Vi ska skriva en Pig-fråga som tar alla dokument systemgenererade tidsstämplar (_ts) och unika ID: n (_rid) från en samling Azure Cosmos DB, räknar alla dokument per minut och lagrar resultaten tillbaka till en ny Azure DB som Cosmos-samling.</p>
-    <p>Ladda först dokument från Cosmos-DB i HDInsight. Lägga till följande kodavsnitt i fönstret PowerShell-skript <strong>när</strong> kodstycke från #1. Se till att lägga till ett DocumentDB-fråga i parametern DocumentDB-fråga att ta bort våra dokument bara _ts och _rid.</p>
+    <p>Ladda först dokument från Cosmos-DB i HDInsight. Lägga till följande kodavsnitt i fönstret PowerShell-skript <strong>när</strong> kodstycke från #1. Se till att lägga till en fråga i parametern DocumentDB-fråga att ta bort våra dokument bara _ts och _rid.</p>
 
    > [!NOTE]
    > Ja, tillåter vi lägger till flera samlingar som indata: </br>

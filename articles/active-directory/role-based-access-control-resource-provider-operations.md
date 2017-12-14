@@ -4,7 +4,7 @@ description: "Information om åtgärder som är tillgängliga på Microsoft Azur
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder i Azure Resource Manager-Resursprovidern
 
-Det här dokumentet innehåller åtgärder som är tillgängliga för varje resursprovider för Microsoft Azure Resource Manager. Dessa kan användas i anpassade roller för att tillhandahålla detaljerade rollbaserad åtkomstkontroll (RBAC) behörigheter till resurser i Azure. Lägg märke till detta är inte en omfattande lista och åtgärder kan läggas till eller tas bort under varje provider är uppdaterad. Åtgärden strängar följa formatet för `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Använd för en omfattande och aktuella lista `Get-AzureRmProviderOperation` (i PowerShell) eller `azure provider operations show` (i Azure CLI) till Liståtgärder över providers som Azure-resurs.
+Det här dokumentet innehåller åtgärder som är tillgängliga för varje resursprovider för Microsoft Azure Resource Manager. Dessa kan användas i anpassade roller för att tillhandahålla detaljerade rollbaserad åtkomstkontroll (RBAC) behörigheter till resurser i Azure. Lägg märke till detta är inte en omfattande lista och åtgärder kan läggas till eller tas bort under varje provider är uppdaterad. Åtgärden strängar följa formatet för `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Använd för en omfattande och aktuella lista `Get-AzureRmProviderOperation` (i PowerShell) eller `az provider operation list` (i Azure CLI v2) till Liståtgärder över providers som Azure-resurs.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -188,8 +191,8 @@ Det här dokumentet innehåller åtgärder som är tillgängliga för varje resu
 |/roleDefinitions/delete|Ta bort den angivna anpassade rolldefinitionen.|
 |/providerOperations/Read|Hämta åtgärder för alla providrar som kan användas i rolldefinitioner.|
 |/policyDefinitions/Read|Hämta information om en principdefinition.|
-|/ policyDefinitions/skrivning|Skapa en anpassad princip-definition.|
-|/policyDefinitions/delete|Ta bort en principdefinition.|
+|/ policyDefinitions/skrivning|Skapa en anpassad principdefinition.|
+|/policyDefinitions/delete|Ta bort en definition av principen.|
 |/roleAssignments/Read|Hämta information om en rolltilldelning.|
 |/ roleAssignments/skrivning|Skapa en rolltilldelning i det specificerade omfånget.|
 |/roleAssignments/delete|Ta bort en rolltilldelning i det specificerade omfånget.|
@@ -296,7 +299,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |---|---|
 |/ mapApis/Läs|Läsåtgärd|
 |/ mapApis/skrivning|Skrivåtgärd|
-|/ mapApis/ta bort|Åtgärden ta bort|
+|/ mapApis/ta bort|Borttagningsåtgärd|
 |/mapApis/regenerateKey/Action|Återskapa nyckeln|
 |/mapApis/listSecrets/Action|Lista hemligheterna|
 |/mapApis/listSingleSignOnToken/Action|Läs auktoriseringstoken för enkel inloggning för resursen|
@@ -357,172 +360,172 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|registrera/åtgärd|Registrera för klassisk beräkning|
+|registrera/åtgärd|Registrera till klassiska beräkning|
 |/ checkDomainNameAvailability/åtgärd|Kontrollerar tillgängligheten för ett visst domännamn.|
 |/ moveSubscriptionResources/åtgärd|Flytta alla klassiska resurser till en annan prenumeration.|
-|/ validateSubscriptionMoveAvailability/åtgärd|Verifiera prenumerationens tillgänglighet för klassisk flyttåtgärd.|
+|/ validateSubscriptionMoveAvailability/åtgärd|Verifiera prenumerationens tillgänglighet för klassiska move-åtgärd.|
 |/operatingSystemFamilies/Read|Visar en lista över de gäst operativsystem finns i Microsoft Azure och visar också versionerna av operativsystemet som är tillgängliga för varje f
 |/Capabilities/Read|Visar funktionerna|
-|/operatingSystems/Read|Listar de versioner av gästoperativsystemen som för tillfället är tillgängliga i Microsoft Azure.|
-|/resourceTypes/skus/Read|Hämtar SKU-listan för de resurstyper som stöds.|
-|/domainNames/Read|Returnera resursernas domännamn.|
-|/ domainNames/skrivning|Lägg till eller ändra resursernas domännamn.|
-|/domainNames/delete|Ta bort resursernas domännamn.|
+|/operatingSystems/Read|Visar de versioner av gästoperativsystemet som är tillgängliga i Microsoft Azure.|
+|/resourceTypes/skus/Read|Hämtar Sku-listan för resurstyper som stöds.|
+|/domainNames/Read|Returnera domännamn för resurser.|
+|/ domainNames/skrivning|Lägg till eller ändra domännamn för resurser.|
+|/domainNames/delete|Ta bort domännamn för resurser.|
 |/domainNames/Swap/Action|Byta mellanlagringsplatsen till produktionsplatsen.|
 |/domainNames/serviceCertificates/Read|Returnerar de tjänstcertifikat som används.|
 |/domainNames/serviceCertificates/Write|Lägg till eller ändra de tjänstcertifikat som används.|
 |/domainNames/serviceCertificates/delete|Ta bort de tjänstcertifikat som används.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Läser åtgärdsstatus för tjänstcertifikat för domännamn.|
-|/domainNames/Capabilities/Read|Visar domännamnsfunktionerna|
-|/domainNames/Extensions/Read|Returnerar domännamnstilläggen.|
+|/domainNames/serviceCertificates/operationStatuses/Read|Läser Åtgärdsstatus för domänen tjänstcertifikat.|
+|/domainNames/Capabilities/Read|Visar domännamnsfunktionerna för domänen|
+|/domainNames/Extensions/Read|Returnerar domänen filnamnstillägg.|
 |/domainNames/Extensions/Write|Lägg till domännamnstilläggen.|
 |/domainNames/Extensions/delete|Ta bort domännamnstilläggen.|
-|/domainNames/Extensions/operationStatuses/Read|Läser domännamnstilläggens åtgärdsstatus.|
+|/domainNames/Extensions/operationStatuses/Read|Läser Åtgärdsstatus för domänen domännamnstilläggens.|
 |/domainNames/Active/Write|Anger det aktiva domännamnet.|
-|/domainNames/slots/Read|Visar distributionsplatserna.|
+|/domainNames/slots/Read|Visar distributionsplatser.|
 |/domainNames/slots/Write|Skapar eller uppdaterar distributionen.|
-|/domainNames/slots/delete|Tar bort en given distributionsplats.|
+|/domainNames/slots/delete|Tar bort en viss distributionsplats.|
 |/domainNames/slots/Start/Action|Startar en distributionsplats.|
-|/domainNames/slots/stop/Action|Göra uppehåll för distributionsplatserna.|
-|/domainNames/slots/operationStatuses/Read|Läser domännamnsplatsernas åtgärdsstatus.|
-|/domainNames/slots/roles/Read|Hämta distributionsplatsens roll.|
+|/domainNames/slots/stop/Action|Pausar distributionsplatsen.|
+|/domainNames/slots/operationStatuses/Read|Läser Åtgärdsstatus för domänen domännamnsplatsernas.|
+|/domainNames/slots/roles/Read|Hämta rollen för distributionsplatsen.|
 |/domainNames/slots/roles/extensionReferences/Read|Returnerar tilläggsreferensen för distributionsplatsrollen.|
 |/domainNames/slots/roles/extensionReferences/Write|Lägg till eller ändra tilläggsreferensen för distributionsplatsrollen.|
 |/domainNames/slots/roles/extensionReferences/delete|Ta bort tilläggsreferensen för distributionsplatsrollen.|
-|/domainNames/slots/roles/extensionReferences/operationStatuses/Read|Läser åtgärdsstatus för rolltilläggsreferenser för domännamnsplatser.|
-|/domainNames/slots/roles/roleInstances/Read|Hämta rollinstansen.|
+|/domainNames/slots/roles/extensionReferences/operationStatuses/Read|Läser Åtgärdsstatus för domänen namn fack roller tillägget referenser.|
+|/domainNames/slots/roles/roleInstances/Read|Hämta instansen.|
 |/domainNames/slots/roles/roleInstances/restart/Action|Startar om rollinstanser.|
-|/domainNames/slots/roles/roleInstances/reimage/Action|Återställer avbildningen för rollinstansen.|
-|/domainNames/slots/roles/roleInstances/operationStatuses/Read|Läser åtgärdsstatus för rollinstanser för domännamnsplatsroller.|
-|/domainNames/slots/State/Start/Write|Ändrar distributionsplatsens status till stoppad.|
-|/domainNames/slots/State/stop/Write|Ändrar distributionsplatsens status till startad.|
-|/domainNames/slots/upgradeDomain/Write|Gå igenom uppgraderingsdomän.|
+|/domainNames/slots/roles/roleInstances/reimage/Action|Reimages instansen.|
+|/domainNames/slots/roles/roleInstances/operationStatuses/Read|Läser Åtgärdsstatus för rollinstanser för domänen namn fack roller.|
+|/domainNames/slots/State/Start/Write|Ändrar Distributionsplatsens status till Stoppad.|
+|/domainNames/slots/State/stop/Write|Ändrar Distributionsplatsens status till igång.|
+|/domainNames/slots/upgradeDomain/Write|Gå uppgradera domänen.|
 |/domainNames/internalLoadBalancers/Read|Hämtar de interna belastningsutjämnarna.|
-|/domainNames/internalLoadBalancers/Write|Skapa en ny intern belastningsutjämning.|
+|/domainNames/internalLoadBalancers/Write|Skapar en ny intern belastningsutjämning.|
 |/domainNames/internalLoadBalancers/delete|Ta bort en ny intern belastningsutjämning.|
-|/domainNames/internalLoadBalancers/operationStatuses/Read|Läser åtgärdsstatusen för domännamnens interna belastningsutjämnare.|
+|/domainNames/internalLoadBalancers/operationStatuses/Read|Läser Åtgärdsstatus för domännamnens interna belastningsutjämnare.|
 |/domainNames/loadBalancedEndpointSets/Read|Visar de belastningsutjämnade slutpunktsuppsättningarna|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Läser åtgärdsstatusen för belastningsutjämnade slutpunktsuppsättningar för domännamn.|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Läser Åtgärdsstatus för belastningsutjämnade slutpunktsuppsättningar domännamnen.|
 |/domainNames/availabilitySets/Read|Visa tillgänglighetsuppsättningen för resursen.|
-|/Quotas/Read|Hämta prenumerationens kvot.|
-|/virtualMachines/Read|Hämtar en lista över virtuella datorer.|
+|/Quotas/Read|Hämta kvoten för prenumerationen.|
+|/virtualMachines/Read|Hämtar listan över virtuella datorer.|
 |/ virtualMachines/skrivning|Lägg till eller ändra virtuella datorer.|
 |/virtualMachines/delete|Tar bort virtuella datorer.|
-|/virtualMachines/Start/Action|Startar den virtuella datorn.|
+|/virtualMachines/Start/Action|Starta den virtuella datorn.|
 |/virtualMachines/redeploy/Action|Återdistribuerar den virtuella datorn.|
 |/virtualMachines/restart/Action|Startar om virtuella datorer.|
 |/virtualMachines/stop/Action|Stoppar den virtuella datorn.|
-|/virtualMachines/Shutdown/Action|Stänga av den virtuella datorn.|
-|/virtualMachines/attachDisk/Action|Bifogar en datadisk till den virtuella datorn.|
+|/virtualMachines/Shutdown/Action|Stäng av den virtuella datorn.|
+|/virtualMachines/attachDisk/Action|Bifogar en datadisk till en virtuell dator.|
 |/virtualMachines/detachDisk/Action|Tar bort en datadisk från den virtuella datorn.|
 |/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Hämtar RDP-filen för den virtuella datorn.|
 |/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/läsning|Hämtar nätverkssäkerhetsgruppen som är kopplad till nätverksgränssnittet.|
 |/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/skrivning|Lägger till en nätverkssäkerhetsgrupp som är kopplad till nätverksgränssnittet.|
 |/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/ta bort|Tar bort nätverkssäkerhetsgruppen som är kopplad till nätverksgränssnittet.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/läsning|Läser åtgärdsstatus för nätverkssäkerhetsgrupp kopplad till virtuella datorer.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hämtar måttdefinitioner.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Hämta diagnostikinställningarna.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/läsning|Läser Åtgärdsstatus för virtuella datorer som är associerade med nätverkssäkerhetsgrupper.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Hämtar mått definitioner.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Hämta inställningarna för webbprogramdiagnostik.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Lägg till eller ändra diagnostikinställningarna.|
 |/virtualMachines/Metrics/Read|Hämtar måtten.|
-|/virtualMachines/operationStatuses/Read|Läser åtgärdsstatus för virtuella datorer.|
+|/virtualMachines/operationStatuses/Read|Läser Åtgärdsstatus för virtuella datorer.|
 |/virtualMachines/Extensions/Read|Hämtar tillägget för virtuell dator.|
 |/virtualMachines/Extensions/Write|Placerar tillägget för virtuell dator.|
-|/virtualMachines/Extensions/operationStatuses/Read|Läser åtgärdsstatus för tillägg för virtuella datorer.|
-|/virtualMachines/asyncOperations/Read|Hämta möjliga asynkrona åtgärder|
+|/virtualMachines/Extensions/operationStatuses/Read|Läser Åtgärdsstatus för tillägg för virtuella datorer.|
+|/virtualMachines/asyncOperations/Read|Hämtar möjliga asynkrona åtgärder|
 |/virtualMachines/Disks/Read|Hämtar en lista över datadiskar|
-|/virtualMachines/associatedNetworkSecurityGroups/Read|Hämtar nätverkssäkerhetsgruppen som är kopplad till den virtuella datorn.|
-|/virtualMachines/associatedNetworkSecurityGroups/Write|Lägger till en nätverkssäkerhetsgrupp som är kopplad till den virtuella datorn.|
-|/virtualMachines/associatedNetworkSecurityGroups/delete|Tar bort nätverkssäkerhetsgruppen som är kopplad till den virtuella datorn.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Läser åtgärdsstatus för nätverkssäkerhetsgrupp kopplad till virtuella datorer.|
+|/virtualMachines/associatedNetworkSecurityGroups/Read|Hämtar nätverkssäkerhetsgruppen som är kopplade till den virtuella datorn.|
+|/virtualMachines/associatedNetworkSecurityGroups/Write|Lägger till en nätverkssäkerhetsgrupp som är kopplade till den virtuella datorn.|
+|/virtualMachines/associatedNetworkSecurityGroups/delete|Tar bort nätverkssäkerhetsgruppen som är kopplade till den virtuella datorn.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Läser Åtgärdsstatus för virtuella datorer som är associerade med nätverkssäkerhetsgrupper.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | Åtgärd | Beskrivning |
 |---|---|
-|registrera/åtgärd|Registrera för klassiskt nätverk|
+|registrera/åtgärd|Registrera till klassiska nätverk|
 |/gatewaySupportedDevices/Read|Hämtar listan över enheter som stöds.|
-|/reservedIps/Read|Hämtar reserverade IP-adresser|
-|/ reserverade IP-adresser och skrivning|Lägga till en ny reserverad IP|
-|/reservedIps/delete|Ta bort en reserverad IP.|
-|/reservedIps/Link/Action|Länka en reserverad IP|
-|/reservedIps/JOIN/Action|Anslut till en reserverad IP|
-|/reservedIps/operationStatuses/Read|Läser åtgärdsstatus för reserverade IP:ar.|
-|/virtualNetworks/Read|Hämtar det virtuella nätverket.|
+|/reservedIps/Read|Hämtar den reserverade IP-adresser|
+|/ reserverade IP-adresser och skrivning|Lägg till en ny reserverad Ip|
+|/reservedIps/delete|Ta bort en reserverad Ip.|
+|/reservedIps/Link/Action|Länka en reserverad Ip|
+|/reservedIps/JOIN/Action|Ansluta till en reserverad Ip|
+|/reservedIps/operationStatuses/Read|Läser Åtgärdsstatus för reserverade IP-adresser.|
+|/virtualNetworks/Read|Hämta det virtuella nätverket.|
 |/ virtualNetworks/skrivning|Lägg till ett nytt virtuellt nätverk.|
 |/virtualNetworks/delete|Tar bort det virtuella nätverket.|
-|/virtualNetworks/peer/Action|Peerar ett virtuellt nätverk med ett annat virtuellt nätverk.|
-|/virtualNetworks/JOIN/Action|Anslut till det virtuella nätverket.|
+|/virtualNetworks/peer/Action|Peers ett virtuellt nätverk med ett annat virtuellt nätverk.|
+|/virtualNetworks/JOIN/Action|Ansluter till det virtuella nätverket.|
 |/virtualNetworks/checkIPAddressAvailability/Action|Kontrollerar tillgängligheten för en given IP-adress i ett virtuellt nätverk.|
 |/virtualNetworks/Capabilities/Read|Visar funktionerna|
-|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/läsning|Hämtar nätverkssäkerhetsgruppen som är kopplad till undernätet.|
-|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/skrivning|Lägger till en nätverkssäkerhetsgrupp som är kopplad till undernätet.|
-|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/ta bort|Tar bort nätverkssäkerhetsgruppen som är kopplad till undernätet.|
-|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/operationStatuses/läsning|Läser åtgärdsstatus för nätverkssäkerhetsgrupp kopplad till virtuella nätverksundernät.|
-|/virtualNetworks/operationStatuses/Read|Läser åtgärdsstatus för virtuella nätverk.|
-|/virtualNetworks/gateways/Read|Hämtar de virtuella nätverks-gatewayerna.|
-|/virtualNetworks/gateways/Write|Lägger till en virtuell nätverks-gateway.|
-|/virtualNetworks/gateways/delete|Tar bort den virtuella nätverks-gatewayen.|
-|/virtualNetworks/gateways/startDiagnostics/Action|Startar diagnostiken för den virtuella nätverks-gatewayen.|
-|/virtualNetworks/gateways/stopDiagnostics/Action|Stoppar diagnostiken för den virtuella nätverks-gatewayen.|
-|/virtualNetworks/gateways/downloadDiagnostics/Action|Hämtar gateway-diagnostiken.|
+|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/läsning|Hämtar nätverkssäkerhetsgruppen som är associerade med undernätet.|
+|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/skrivning|Lägger till en nätverkssäkerhetsgrupp som är associerade med undernätet.|
+|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/ta bort|Tar bort nätverkssäkerhetsgruppen som är associerade med undernätet.|
+|/virtualNetworks/undernät /<br>associatedNetworkSecurityGroups/operationStatuses/läsning|Läser Åtgärdsstatus för virtuella nätverk undernät associeted nätverkssäkerhetsgruppen.|
+|/virtualNetworks/operationStatuses/Read|Läser Åtgärdsstatus för virtuella nätverk.|
+|/virtualNetworks/gateways/Read|Hämtar de virtuella nätverksgatewayerna.|
+|/virtualNetworks/gateways/Write|Lägger till en virtuell nätverksgateway.|
+|/virtualNetworks/gateways/delete|Tar bort den virtuella nätverksgatewayen.|
+|/virtualNetworks/gateways/startDiagnostics/Action|Startar diagnostiken för den virtuella nätverksgatewayen.|
+|/virtualNetworks/gateways/stopDiagnostics/Action|Stoppar diagnostiken för den virtuella nätverksgatewayen.|
+|/virtualNetworks/gateways/downloadDiagnostics/Action|Hämtar gatewaydiagnostik.|
 |/virtualNetworks/gateways/listCircuitServiceKey/Action|Hämtar kretstjänstnyckeln.|
 |/virtualNetworks/gateways/downloadDeviceConfigurationScript/Action|Hämtar konfigurationsskriptet för enhet.|
 |/virtualNetworks/gateways/listPackage/Action|Listar gateway-paketet för virtuella nätverk.|
-|/virtualNetworks/gateways/operationStatuses/Read|Läser åtgärdsstatus för virtuella nätverksgatewayar.|
+|/virtualNetworks/gateways/operationStatuses/Read|Läser Åtgärdsstatus för virtuella nätverksgatewayar.|
 |/virtualNetworks/gateways/Packages/Read|Hämtar gateway-paketet för virtuella nätverk.|
 |/virtualNetworks/gateways/Connections/Read|Hämtar listan över anslutningar.|
-|/virtualNetworks/gateways/Connections/Connect/Action|Ansluter en plats-till-plats-gatewayanslutning.|
-|/virtualNetworks/gateways/Connections/disconnect/Action|Koppla från en plats-till-plats-gatewayanslutning.|
-|/virtualNetworks/gateways/Connections/test/Action|Testar en plats-till-plats-gatewayanslutning.|
+|/virtualNetworks/gateways/Connections/Connect/Action|Ansluter en plats till plats-gatewayanslutning.|
+|/virtualNetworks/gateways/Connections/disconnect/Action|Kopplar från en plats till plats-gatewayanslutning.|
+|/virtualNetworks/gateways/Connections/test/Action|Testar en plats till plats-gatewayanslutning.|
 |/virtualNetworks/gateways/clientRevokedCertificates/Read|Läs de återkallade klientcertifikaten.|
 |/virtualNetworks/gateways/clientRevokedCertificates/Write|Återkallar ett klientcertifikat.|
-|/virtualNetworks/gateways/clientRevokedCertificates/delete|Upphäver återkallningen av ett klientcertifikat.|
-|/virtualNetworks/gateways/clientRootCertificates/Read|Sök efter klientrotscertifikaten.|
-|/virtualNetworks/gateways/clientRootCertificates/Write|Laddar upp ett nytt klientrotscertifikat.|
-|/virtualNetworks/gateways/clientRootCertificates/delete|Tar bort klientcertifikatet för virtuell nätverksgateway.|
-|/virtualNetworks/gateways/clientRootCertificates/Download/Action|Hämtar certifikat efter tumavtryck.|
+|/virtualNetworks/gateways/clientRevokedCertificates/delete|Unrevokes ett klientcertifikat.|
+|/virtualNetworks/gateways/clientRootCertificates/Read|Hitta klienten rotcertifikat.|
+|/virtualNetworks/gateways/clientRootCertificates/Write|Överför ett nytt klientrotscertifikat.|
+|/virtualNetworks/gateways/clientRootCertificates/delete|Tar bort klientcertifikatet för gateway för virtuellt nätverk.|
+|/virtualNetworks/gateways/clientRootCertificates/Download/Action|Hämtar certifikatet med tumavtrycket.|
 |/virtualNetworks/gateways/clientRootCertificates/listPackage/Action|Listar gatewaycertifikatspaketet för virtuella nätverk.|
 |/networkSecurityGroups/Read|Hämtar nätverkssäkerhetsgruppen.|
 |/ networkSecurityGroups/skrivning|Lägger till en ny nätverkssäkerhetsgrupp.|
 |/networkSecurityGroups/delete|Tar bort nätverkssäkerhetsgruppen.|
-|/networkSecurityGroups/operationStatuses/Read|Läser åtgärdsstatus för nätverkssäkerhetsgrupp.|
+|/networkSecurityGroups/operationStatuses/Read|Läser Åtgärdsstatus för nätverkssäkerhetsgruppen.|
 |/networkSecurityGroups/securityRules/Read|Hämtar säkerhetsregeln.|
 |/networkSecurityGroups/securityRules/Write|Lägger till eller uppdaterar en säkerhetsregel.|
 |/networkSecurityGroups/securityRules/delete|Tar bort säkerhetsregeln.|
-|/networkSecurityGroups/securityRules/operationStatuses/Read|Läser åtgärdsstatus för säkerhetsroller för nätverkssäkerhetsgrupp.|
-|/Quotas/Read|Hämta prenumerationens kvot.|
+|/networkSecurityGroups/securityRules/operationStatuses/Read|Läser Åtgärdsstatus för de säkerhetsreglerna för nätverkssäkerhetsgrupper.|
+|/Quotas/Read|Hämta kvoten för prenumerationen.|
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 | Åtgärd | Beskrivning |
 |---|---|
-|registrera/åtgärd|Registrera för klassisk lagring|
+|registrera/åtgärd|Registrera till klassiska lagring|
 |/ checkStorageAccountAvailability/åtgärd|Kontrollerar tillgängligheten för ett lagringskonto.|
 |/Capabilities/Read|Visar funktionerna|
-|/publicImages/Read|Hämtar den offentliga avbildningen av den virtuella datorn.|
+|/publicImages/Read|Hämtar den offentliga virtuella datoravbildningen.|
 |/Images/Read|Returnerar bilden.|
-|/storageAccounts/Read|Returnerar lagringskontot med det givna kontot.|
+|/storageAccounts/Read|Returnera lagringskontot med angivet konto.|
 |/ storageAccounts/skrivning|Lägger till ett nytt lagringskonto.|
 |/storageAccounts/delete|Ta bort lagringskontot.|
-|/storageAccounts/listKeys/Action|Listar lagringskontots åtkomstnycklar.|
+|/storageAccounts/listKeys/Action|Visar åtkomstnycklarna för storage-konton.|
 |/storageAccounts/regenerateKey/Action|Återskapar befintliga åtkomstnycklar för lagringskontot.|
-|/storageAccounts/operationStatuses/Read|Läser resursens åtgärdsstatus.|
+|/storageAccounts/operationStatuses/Read|Läser Åtgärdsstatus för resursen.|
 |/storageAccounts/images/Read|Returnerar lagringskontoavbildningen.|
 |/storageAccounts/images/delete|Tar bort en given lagringskontoavbildning.|
-|/storageAccounts/Disks/Read|Returnerar lagringskontodisken.|
-|/storageAccounts/Disks/Write|Lägger till en lagringskontodisk.|
-|/storageAccounts/Disks/delete|Tar bort angiven lagringskontodisk.|
-|/storageAccounts/Disks/operationStatuses/Read|Läser resursens åtgärdsstatus.|
-|/storageAccounts/osImages/Read|Returnerar operativsystemsavbildningen för lagringskonto.|
-|/storageAccounts/osImages/delete|Tar bort en given operativsystemsavbildning för lagringskonto.|
-|/storageAccounts/Services/Read|Hämta de tjänster som är tillgängliga.|
-|/storageAccounts/Services/metricDefinitions/Read|Hämtar måttdefinitioner.|
+|/storageAccounts/Disks/Read|Returnerar en lagringsdisk för kontot.|
+|/storageAccounts/Disks/Write|Lägger till en disk för storage-konto.|
+|/storageAccounts/Disks/delete|Tar bort en given lagringsdisk för kontot.|
+|/storageAccounts/Disks/operationStatuses/Read|Läser Åtgärdsstatus för resursen.|
+|/storageAccounts/osImages/Read|Returnerar lagringskontoavbildningen för operativsystemet.|
+|/storageAccounts/osImages/delete|Tar bort en given lagringskontoavbildning för operativsystemet.|
+|/storageAccounts/Services/Read|Hämta tillgängliga tjänster.|
+|/storageAccounts/Services/metricDefinitions/Read|Hämtar mått definitioner.|
 |/storageAccounts/Services/Metrics/Read|Hämtar måtten.|
-|/storageAccounts/Services/diagnosticSettings/Read|Hämta diagnostikinställningarna.|
+|/storageAccounts/Services/diagnosticSettings/Read|Hämta inställningarna för webbprogramdiagnostik.|
 |/storageAccounts/Services/diagnosticSettings/Write|Lägg till eller ändra diagnostikinställningarna.|
-|/Disks/Read|Returnerar lagringskontodisken.|
+|/Disks/Read|Returnerar en lagringsdisk för kontot.|
 |/osImages/Read|Returnerar operativsystemsavbildningen.|
-|/Quotas/Read|Hämta prenumerationens kvot.|
+|/Quotas/Read|Hämta kvoten för prenumerationen.|
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -531,10 +534,10 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Accounts/Read|Läser API-konton.|
 |/ konton/skrivning|Skriver API-konton.|
 |/Accounts/delete|Tar bort API-konton|
-|/Accounts/listKeys/Action|Lista nycklar|
-|/Accounts/regenerateKey/Action|Återskapa nyckeln|
-|/Accounts/skus/Read|Läser tillgängliga SKU: er för en befintlig resurs.|
-|/Accounts/usages/Read|Hämta kvotanvändningen för en befintlig resurs.|
+|/Accounts/listKeys/Action|Visa nyckellista|
+|/Accounts/regenerateKey/Action|Återskapar nyckel|
+|/Accounts/skus/Read|Läser tillgängliga SKU:er för en befintlig resurs.|
+|/Accounts/usages/Read|Hämta kvotanvändning för en befintlig resurs.|
 |/ Operations/läsning|Beskrivning av åtgärden.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -595,7 +598,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/virtualMachines/delete|Tar bort den virtuella datorn|
 |/virtualMachines/Start/Action|Startar den virtuella datorn|
 |/virtualMachines/powerOff/Action|Stänger av den virtuella datorn. Observera att den virtuella datorn kommer att fortsätta debiteras.|
-|/virtualMachines/redeploy/Action|Återdistribuerar virtuell dator|
+|/virtualMachines/redeploy/Action|Distribuerar om virtuell dator|
 |/virtualMachines/restart/Action|Startar om den virtuella datorn|
 |/virtualMachines/deallocate/Action|Stänger av den virtuella datorn och frigör beräkningsresurser|
 |/virtualMachines/generalize/Action|Ställer in statusen för den virtuella datorn på Generaliserad och förbereder den virtuella datorn för avbildning|
@@ -641,7 +644,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Applications/Read|Läsåtgärd|
 |/ program/skrivning|Skrivåtgärd|
 |/ program/skrivning|Skrivåtgärd|
-|/Applications/delete|Åtgärden ta bort|
+|/Applications/delete|Borttagningsåtgärd|
 |/Applications/listSecrets/Action|Lista hemligheter|
 |/Applications/listSingleSignOnToken/Action|Läsa token för enkel inloggning|
 |/Operations/Read|Läs-och skrivåtgärder|
@@ -654,8 +657,8 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/ NAV/skrivning|Skapa eller uppdatera alla Azure kunden Insights hubb|
 |/hubs/delete|Ta bort alla Azure kunden Insights hubb|
 |/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Hämtar tillgängliga mått för resurs|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Hämtar den diagnostiska inställningen för resursen|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Skapar eller uppdaterar den diagnostiska inställningen för resursen|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Hämtar diagnostikinställningen för resursen|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Skapar eller uppdaterar diagnostikinställningen för resursen|
 |/hubs/providers/Microsoft.Insights/logDefinitions/Read|Hämtar de tillgängliga loggarna för resurs|
 |/hubs/authorizationPolicies/Read|Läsa några Azure kunden insikter delad åtkomstprincip för signatur|
 |/hubs/authorizationPolicies/Write|Skapa eller uppdatera princip för delad åtkomst-signatur alla Azure-kund insikter|
@@ -767,8 +770,8 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/iotHubs/eventHubEndpoints/consumerGroups/delete|Ta bort EventHub konsumentgrupp|
 |/iotHubs/Routing/routes/$ testall/åtgärd|Testmeddelande mot alla befintliga vägar|
 |/iotHubs/Routing/routes/$ testnew/åtgärd|Testmeddelande mot ett angivna test väg|
-|/ IotHubs/diagnosticSettings/läsning|Hämtar den diagnostiska inställningen för resursen|
-|/ IotHubs/diagnosticSettings/skrivning|Skapar eller uppdaterar den diagnostiska inställningen för resursen|
+|/ IotHubs/diagnosticSettings/läsning|Hämtar diagnostikinställningen för resursen|
+|/ IotHubs/diagnosticSettings/skrivning|Skapar eller uppdaterar diagnostikinställningen för resursen|
 |/iotHubs/skus/Read|Hämta giltiga IotHub Skus|
 |/iotHubs/jobs/Read|Hämta jobb information som skickats på angivna IotHub|
 |/iotHubs/routingEndpointsHealth/Read|Hämtar hälsotillståndet för alla routning slutpunkter för en IotHub|
@@ -909,16 +912,16 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|/ checkNameAvailability/åtgärd|Kontrollerar tillgänglighet för namnrymder i en viss prenumeration.|
+|/ checkNameAvailability/åtgärd|Kontrollerar tillgängligheten för namnområde under de angivna prenumerationen.|
 |registrera/åtgärd|Registrerar prenumerationen för EventHub-resursprovidern och gör det möjligt att skapa EventHub-resurser|
 |/ namnområden/skrivning|Skapa en resurs för Namespace och uppdatera dess egenskaper. Taggar och status för Namespace är egenskaper som kan uppdateras.|
-|/Namespaces/Read|Hämta listan över beskrivningar av namnrymdsresurs|
-|namnområden/ta bort|Ta bort Namespace-resurs|
+|/Namespaces/Read|Hämta listan över beskrivningar av namnområdesresurs|
+|namnområden/ta bort|Ta bort namnområdesresurs|
 |/Namespaces/metricDefinitions/Read|Hämta lista över Namespace mått resurs beskrivningar|
-|/Namespaces/authorizationRules/Read|Hämta listan över beskrivning av auktoriseringsregler för namnrymder.|
+|/Namespaces/authorizationRules/Read|Hämta listan över beskrivning av auktoriseringsregler för namnområden.|
 |/Namespaces/authorizationRules/Write|Skapa en nivå auktoriseringsregler Namespace och uppdatera dess egenskaper. Åtkomstbehörigheter för regler för auktorisering, primära och sekundärnycklar kan uppdateras.|
 |/Namespaces/authorizationRules/delete|Ta bort Namespace auktoriseringsregeln. Auktoriseringsregeln standard Namespace kan inte tas bort. |
-|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnrymden|
+|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnområdet|
 |/Namespaces/authorizationRules/regenerateKeys/Action|Återskapa den primära eller sekundära nyckeln till resursen|
 |/Namespaces/eventhubs/Write|Skapa eller uppdatera EventHub-egenskaper.|
 |/Namespaces/eventhubs/Read|Hämta lista över EventHub resurs beskrivningar|
@@ -939,8 +942,8 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|/providers/Features/Read|Hämtar en prenumerations funktion hos en given resursleverantör.|
-|/providers/Features/register/Action|Registrerar funktionen för en prenumerations hos en given resursleverantör.|
+|/providers/Features/Read|Hämtar funktionen för en prenumeration i en given resursleverantör.|
+|/providers/Features/register/Action|Registrerar funktionen för en prenumeration i en given resursleverantör.|
 |/Features/Read|Hämtar en prenumerations funktioner.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -955,7 +958,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Clusters/Configurations/Read|Hämta konfigurationer för HDInsight-kluster|
 |/Clusters/roles/Resize/Action|Ändra storlek på ett HDInsight-kluster|
 |/Locations/Capabilities/Read|Hämta prenumerationens funktioner|
-|/Locations/checkNameAvailability/Read|Kontrollera namnet tillgänglighet|
+|/Locations/checkNameAvailability/Read|Kontrollera namntillgänglighet|
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -977,13 +980,13 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/ AlertRules/ta bort|Tar bort en varningsregelskonfiguration|
 |/ AlertRules/läsning|Läser en varningsregelskonfiguration|
 |/ AlertRules/aktiverat/åtgärd|Varningsregeln har aktiverats|
-|/ AlertRules/löst/åtgärd|Regel för varning löst|
+|/ AlertRules/löst/åtgärd|Varningsregeln har lösts|
 |/ AlertRules/begränsas/åtgärd|Varningsregeln begränsas|
 |/ AlertRules/incidenter/läsning|Läser en konfiguration för varningsregelincidenter|
-|/ MetricDefinitions/läsning|Läs måttdefinitionerna|
+|/ MetricDefinitions/läsning|Läs måttdefinitioner|
 |/eventtypes/Values/Read|Läs värden för hanteringshändelsetyp|
 |/eventtypes/digestevents/Read|Läs sammandrag av hanteringshändelsetyp|
-|/ Mått/läsning|Läsa måtten|
+|/ Mått/läsning|Läs mått|
 |/ LogProfiles/skrivning|Skriva till en konfiguration för logg-profil|
 |/ LogProfiles/ta bort|Ta bort konfigurationen av loggen profiler|
 |/ LogProfiles/läsning|Läs loggen profiler|
@@ -991,13 +994,13 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/ AutoscaleSettings/ta bort|Tar bort en autoskalningskonfiguration|
 |/ AutoscaleSettings/läsning|Läser en autoskalningskonfiguration|
 |/ AutoscaleSettings/Scaleup/åtgärd|Åtgärd för autoskalning uppåt|
-|/ AutoscaleSettings/Scaledown/åtgärd|Autoskala skala ned igen|
-|/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Läs måttdefinitionerna|
+|/ AutoscaleSettings/Scaledown/åtgärd|Åtgärd för autoskalning nedåt|
+|/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Läs måttdefinitioner|
 |/ ActivityLogAlerts/aktiverat/åtgärd|Utlöste aviseringen aktivitet logg|
 |/ DiagnosticSettings/skrivning|Skriver till konfiguration av diagnostikinställningar|
-|/ DiagnosticSettings/ta bort|Tar bort konfigurationen för diagnostikinställningar|
+|/ DiagnosticSettings/ta bort|Tar bort konfigurationen av diagnostikinställningar|
 |/ DiagnosticSettings/läsning|Läser en konfiguration av diagnostikinställningar|
-|/ LogDefinitions/läsning|Läs Loggdefinitioner|
+|/ LogDefinitions/läsning|Läs loggdefinitioner|
 |/ ExtendedDiagnosticSettings/skrivning|Skrivning till utökade diagnostikinställningar för konfiguration|
 |/ ExtendedDiagnosticSettings/ta bort|Tar bort konfigurationen för utökade diagnostikinställningar|
 |/ ExtendedDiagnosticSettings/läsning|Läser en utökad diagnostikinställningar-konfiguration|
@@ -1007,14 +1010,14 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 | Åtgärd | Beskrivning |
 |---|---|
 |registrera/åtgärd|Registrerar en prenumeration|
-|/checkNameAvailability/Read|Kontrollera att nyckelvalvsnamnet är giltigt och inte används|
-|/vaults/Read|Visa egenskaperna för ett nyckelvalv|
-|/ valv/skrivning|Skapa ett nytt nyckelvalv eller uppdatera egenskaperna för ett befintligt nyckelvalv|
+|/checkNameAvailability/Read|Kontrollerar att ett nyckelvalv namn är giltigt och används inte|
+|/vaults/Read|Visa egenskaperna för en nyckelvalv|
+|/ valv/skrivning|Skapa ett nytt nyckelvalv eller uppdatera egenskaperna för en befintlig nyckelvalv|
 |/vaults/delete|Ta bort ett nyckelvalv|
 |/vaults/Deploy/Action|Aktiverar åtkomst till hemligheter i nyckelvalvet när du distribuerar Azure-resurser|
 |/vaults/secrets/Read|Visa egenskaperna för en hemlighet, men inte dess värde|
-|/vaults/secrets/Write|Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet|
-|/vaults/accessPolicies/Write|Uppdatera en befintlig åtkomstprincip genom att sammanfoga, ersätta eller lägga till en ny åtkomstprincip till ett valv.|
+|/vaults/secrets/Write|Skapa en ny hemlighet eller uppdatera värdet i en befintlig hemlighet|
+|/vaults/accessPolicies/Write|Uppdatera en befintlig åtkomstprincip för av sammanslagning eller ersätta eller lägga till en ny princip i ett valv.|
 |/deletedVaults/Read|Visa egenskaperna för ej permanent borttagna nyckelvalv|
 |/Locations/operationResults/Read|Kontrollera resultatet av en lång sikt|
 |/Locations/deletedVaults/Read|Visa egenskaperna för en ej permanent borttagna nyckelvalv|
@@ -1260,21 +1263,21 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|registrera/åtgärd|Registrerar prenumerationen för NotificationHubs-resursprovidern och gör det möjligt att skapa namnrymder och NotificationHubs|
-|/ CheckNamespaceAvailability/åtgärd|Kontrollerar huruvida ett visst namnrymdsresursnamn finns i NotificationHub-tjänsten.|
+|registrera/åtgärd|Registrerar prenumerationen för NotificationHubs-resursprovidern och gör det möjligt att skapa namnområden och NotificationHubs|
+|/ CheckNamespaceAvailability/åtgärd|Kontrollerar huruvida ett visst namnområdesresursnamn finns i NotificationHub-tjänsten.|
 |Och namnområden/skrivning|Skapa en resurs för Namespace och uppdatera dess egenskaper. Taggar och status för Namespace är egenskaper som kan uppdateras.|
-|/ Namnområden/läsning|Hämta listan över beskrivningar av namnrymdsresurs|
-|/ Namnområden/ta bort|Ta bort Namespace-resurs|
-|/ Namnområden/authorizationRules/åtgärd|Hämta listan över beskrivning av auktoriseringsregler för namnrymder.|
-|/ Namnområden/CheckNotificationHubAvailability/åtgärd|Kontrollerar huruvida ett visst NotificationHub-namn finns i en namnrymd.|
+|/ Namnområden/läsning|Hämta listan över beskrivningar av namnområdesresurs|
+|/ Namnområden/ta bort|Ta bort namnområdesresurs|
+|/ Namnområden/authorizationRules/åtgärd|Hämta listan över beskrivning av auktoriseringsregler för namnområden.|
+|/ Namnområden/CheckNotificationHubAvailability/åtgärd|Kontrollerar huruvida ett visst NotificationHub-namn finns i ett namnområde.|
 |Och namnområden/authorizationRules/skrivning|Skapa en nivå auktoriseringsregler Namespace och uppdatera dess egenskaper. Åtkomstbehörigheter för regler för auktorisering, primära och sekundärnycklar kan uppdateras.|
-|/ Namnområden/authorizationRules/läsning|Hämta listan över beskrivning av auktoriseringsregler för namnrymder.|
+|/ Namnområden/authorizationRules/läsning|Hämta listan över beskrivning av auktoriseringsregler för namnområden.|
 |/ Namnområden/authorizationRules/ta bort|Ta bort Namespace auktoriseringsregeln. Auktoriseringsregeln standard Namespace kan inte tas bort. |
-|/ Namnområden/authorizationRules/listkeys/åtgärd|Hämta anslutningssträngen till namnrymden|
-|/ Namnområden/authorizationRules/regenerateKeys/åtgärd|Auktoriseringsregel för namnrymd: återskapa primär/sekundär nyckel. Ange den nyckel som behöver återskapas|
+|/ Namnområden/authorizationRules/listkeys/åtgärd|Hämta anslutningssträngen till namnområdet|
+|/ Namnområden/authorizationRules/regenerateKeys/åtgärd|Auktoriseringsregel för namnområde: återskapa primär/sekundär nyckel. Ange den nyckel som behöver återskapas|
 |Och namnområden/NotificationHubs/skrivning|Skapa en Meddelandehubb och uppdatera dess egenskaper. Egenskaperna är främst PNS-autentiseringsuppgifter. Auktoriseringsregler och TTL-värde|
 |/ Namnområden/NotificationHubs/läsning|Hämta listan över resursbeskrivningar av Notification Hub|
-|/ Namnområden/NotificationHubs/ta bort|Ta bort resurs för Notification Hub|
+|/ Namnområden/NotificationHubs/ta bort|Ta bort Notification Hub-resurs|
 |/ Namnområden/NotificationHubs/authorizationRules/åtgärd|Hämta listan över auktoriseringsregler för Notification Hub|
 |/ Namnområden/NotificationHubs/pnsCredentials/åtgärd|Hämta alla Notification Hub PNS-autentiseringsuppgifter. Detta omfattar WNS, MPNS, APN, GCM och Baidu autentiseringsuppgifter|
 |/ Namnområden/NotificationHubs/debugSend/åtgärd|Skicka ett push-testmeddelande.|
@@ -1350,9 +1353,9 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|Distribuera Processerveravbildning|
 |/vaults/replicationFabrics/reassociateGateway/Action|Skapa en ny koppling Gateway|
-|/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>Läs|Läsa alla Recovery Services-Providers|
+|/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>läsa|Läsa alla Recovery Services-Providers|
 |/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>ta bort/åtgärd|Ta bort Recovery Services-Provider|
-|/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>ta bort|Ta bort alla Recovery Services-Providers|
+|/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>radera|Ta bort alla Recovery Services-Providers|
 |/ valv/replicationFabrics/replicationRecoveryServicesProviders /<br>refreshProvider/åtgärd|Uppdatera providern|
 |/vaults/replicationFabrics/replicationStorageClassifications/Read|Läsa alla Lagringsklassificeringar|
 |/ valv/replicationFabrics/replicationStorageClassifications /<br>replicationStorageClassificationMappings/läsning|Läsa alla mappningar för klassificering av lagring|
@@ -1365,7 +1368,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/ valv/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/läsning|Läsa alla nätverksmappningar|
 |/ valv/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/skrivning|Skapa eller uppdatera alla nätverksmappningar|
 |/ valv/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/ta bort|Ta bort alla nätverksmappningar|
-|/ valv/replicationFabrics/replicationProtectionContainers /<br>Läs|Läsa skydd behållare|
+|/ valv/replicationFabrics/replicationProtectionContainers /<br>läsa|Läsa skydd behållare|
 |/ valv/replicationFabrics/replicationProtectionContainers /<br>discoverProtectableItem/åtgärd|Identifiera skyddsobjekt|
 |/ valv/replicationFabrics/replicationProtectionContainers /<br>skriva|Skapa eller uppdatera Protection behållare|
 |/ valv/replicationFabrics/replicationProtectionContainers /<br>ta bort/åtgärd|Ta bort Skyddsbehållaren|
@@ -1457,14 +1460,14 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|/ checkNamespaceAvailability/åtgärd|Kontrollerar tillgänglighet för namnrymder i en viss prenumeration.|
+|/ checkNamespaceAvailability/åtgärd|Kontrollerar tillgängligheten för namnområde under de angivna prenumerationen.|
 |registrera/åtgärd|Registrerar prenumerationen för Relay-resursprovidern och gör det möjligt att skapa Relay-resurser|
 |/ namnområden/skrivning|Skapa en resurs för Namespace och uppdatera dess egenskaper. Taggar och status för Namespace är egenskaper som kan uppdateras.|
-|/Namespaces/Read|Hämta listan över beskrivningar av namnrymdsresurs|
-|namnområden/ta bort|Ta bort Namespace-resurs|
+|/Namespaces/Read|Hämta listan över beskrivningar av namnområdesresurs|
+|namnområden/ta bort|Ta bort namnområdesresurs|
 |/Namespaces/authorizationRules/Write|Skapa en nivå auktoriseringsregler Namespace och uppdatera dess egenskaper. Åtkomstbehörigheter för regler för auktorisering, primära och sekundärnycklar kan uppdateras.|
 |/Namespaces/authorizationRules/delete|Ta bort Namespace auktoriseringsregeln. Auktoriseringsregeln standard Namespace kan inte tas bort. |
-|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnrymden|
+|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnområdet|
 |/Namespaces/HybridConnections/Write|Skapa eller uppdatera HybridConnection egenskaper.|
 |/Namespaces/HybridConnections/Read|Hämta lista över HybridConnection resurs beskrivningar|
 |/Namespaces/HybridConnections/delete|Åtgärden ta bort HybridConnection resurs|
@@ -1490,17 +1493,17 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 | Åtgärd | Beskrivning |
 |---|---|
 |/ checkResourceName/åtgärd|Kontrollera resursnamnets giltighet.|
-|/providers/Read|Hämta listan över leverantörer.|
+|/providers/Read|Hämta listan med providers.|
 |/subscriptions/Read|Hämtar listan över prenumerationer.|
-|/subscriptions/operationresults/Read|Hämtar prenumerationsåtgärdsresultaten.|
+|/subscriptions/operationresults/Read|Resultatet prenumerationen igen.|
 |/subscriptions/providers/Read|Hämtar eller listar resursleverantörer.|
 |/subscriptions/tagNames/Read|Hämtar eller listar prenumerationstaggar.|
-|/subscriptions/tagNames/Write|Lägger till en prenumerationstagg.|
-|/subscriptions/tagNames/delete|Tar bort en prenumerationstagg.|
+|/subscriptions/tagNames/Write|Lägger till en tagg för prenumerationen.|
+|/subscriptions/tagNames/delete|Tar bort en tagg för prenumerationen.|
 |/subscriptions/tagNames/tagValues/Read|Hämtar eller listar prenumerationstaggsvärden.|
-|/subscriptions/tagNames/tagValues/Write|Lägger till ett prenumerationstaggsvärde.|
-|/subscriptions/tagNames/tagValues/delete|Tar bort ett prenumerationstaggsvärde.|
-|/subscriptions/Resources/Read|Hämtar en prenumerations resurser.|
+|/subscriptions/tagNames/tagValues/Write|Lägger till ett taggvärde för prenumerationen.|
+|/subscriptions/tagNames/tagValues/delete|Tar bort ett taggvärde för prenumerationen.|
+|/subscriptions/Resources/Read|Hämtar resurser till en prenumeration.|
 |/subscriptions/resourceGroups/Read|Hämtar eller listar resursgrupper.|
 |/subscriptions/resourceGroups/Write|Skapar eller uppdaterar en resursgrupp.|
 |/subscriptions/resourceGroups/delete|Tar bort en resursgrupp och alla dess resurser.|
@@ -1528,15 +1531,15 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|/jobcollections/Read|Hämta Jobbsamlingen|
+|/jobcollections/Read|Hämta jobbsamling|
 |/ jobbsamlingar/skrivning|Skapar eller uppdaterar en jobbsamling.|
-|/jobcollections/delete|Tar bort jobbet samling.|
-|/jobcollections/enable/Action|Aktiverar jobbet samling.|
-|/jobcollections/disable/Action|Inaktiverar jobbet samling.|
-|/jobcollections/jobs/Read|Hämtar jobbet.|
+|/jobcollections/delete|Tar bort en jobbsamling.|
+|/jobcollections/enable/Action|Aktiverar en jobbsamling.|
+|/jobcollections/disable/Action|Inaktiverar en jobbsamling.|
+|/jobcollections/jobs/Read|Hämtar jobb.|
 |/jobcollections/jobs/Write|Skapar eller uppdaterar jobb.|
-|/jobcollections/jobs/delete|Tar bort jobbet.|
-|/jobcollections/jobs/Run/Action|Kör jobbet.|
+|/jobcollections/jobs/delete|Tar bort ett jobb.|
+|/jobcollections/jobs/Run/Action|Kör jobb.|
 |/jobcollections/jobs/generateLogicAppDefinition/Action|Genererar en logikappsdefinition som baseras på ett Scheduler-jobb.|
 |/jobcollections/jobs/jobhistories/Read|Hämtar jobbhistorik.|
 
@@ -1601,16 +1604,16 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 
 | Åtgärd | Beskrivning |
 |---|---|
-|/ checkNameAvailability/åtgärd|Kontrollerar tillgänglighet för namnrymder i en viss prenumeration.|
+|/ checkNameAvailability/åtgärd|Kontrollerar tillgängligheten för namnområde under de angivna prenumerationen.|
 |registrera/åtgärd|Registrerar prenumerationen för ServiceBus-resursprovidern och gör det möjligt att skapa ServiceBus-resurser|
 |/ namnområden/skrivning|Skapa en resurs för Namespace och uppdatera dess egenskaper. Taggar och status för Namespace är egenskaper som kan uppdateras.|
-|/Namespaces/Read|Hämta listan över beskrivningar av namnrymdsresurs|
-|namnområden/ta bort|Ta bort Namespace-resurs|
+|/Namespaces/Read|Hämta listan över beskrivningar av namnområdesresurs|
+|namnområden/ta bort|Ta bort namnområdesresurs|
 |/Namespaces/metricDefinitions/Read|Hämta lista över Namespace mått resurs beskrivningar|
 |/Namespaces/authorizationRules/Write|Skapa en nivå auktoriseringsregler Namespace och uppdatera dess egenskaper. Åtkomstbehörigheter för regler för auktorisering, primära och sekundärnycklar kan uppdateras.|
-|/Namespaces/authorizationRules/Read|Hämta listan över beskrivning av auktoriseringsregler för namnrymder.|
+|/Namespaces/authorizationRules/Read|Hämta listan över beskrivning av auktoriseringsregler för namnområden.|
 |/Namespaces/authorizationRules/delete|Ta bort Namespace auktoriseringsregeln. Auktoriseringsregeln standard Namespace kan inte tas bort. |
-|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnrymden|
+|/Namespaces/authorizationRules/listkeys/Action|Hämta anslutningssträngen till namnområdet|
 |/Namespaces/authorizationRules/regenerateKeys/Action|Återskapa den primära eller sekundära nyckeln till resursen|
 |/Namespaces/diagnosticSettings/Read|Hämta lista över Namespace diagnostikinställningar resurs beskrivningar|
 |/Namespaces/diagnosticSettings/Write|Hämta lista över Namespace diagnostikinställningar resurs beskrivningar|
@@ -1670,8 +1673,8 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Servers/elasticPools/delete|Ta bort befintlig elastisk databaspool|
 |/Servers/elasticPools/operationResults/Read|Hämta information om en viss elastisk pool databasåtgärd|
 |/Servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/läsning|Returnera typer av mätvärden som är tillgängliga för elastiska databaspooler|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/läsning|Hämtar den diagnostiska inställningen för resursen|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/skrivning|Skapar eller uppdaterar den diagnostiska inställningen för resursen|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/läsning|Hämtar diagnostikinställningen för resursen|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/skrivning|Skapar eller uppdaterar diagnostikinställningen för resursen|
 |/Servers/elasticPools/Metrics/Read|Returnera elastisk databas poolen resurs användning mått|
 |/Servers/elasticPools/elasticPoolDatabaseActivity/Read|Hämta aktiviteter och information om en viss databas som ingår i en elastisk databaspool|
 |/Servers/elasticPools/Advisors/Read|Returnerar en lista över rådgivare som är tillgängliga för den elastiska poolen|
@@ -1718,8 +1721,8 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Servers/Databases/securityAlertPolicies/Read|Hämta information om hot identifiering principen som konfigurerats på en viss databas|
 |/Servers/Databases/securityAlertPolicies/Write|Ändra threat detection principen för en viss databas|
 |/Servers/Databases/providers/Microsoft.Insights/<br>metricDefinitions/läsning|Returnera typer av mätvärden som är tillgängliga för databaser|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/läsning|Hämtar den diagnostiska inställningen för resursen|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/skrivning|Skapar eller uppdaterar den diagnostiska inställningen för resursen|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/läsning|Hämtar diagnostikinställningen för resursen|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/skrivning|Skapar eller uppdaterar diagnostikinställningen för resursen|
 |/Servers/Databases/providers/Microsoft.Insights/<br>logDefinitions/läsning|Hämtar tillgängliga loggar för databaser|
 |/Servers/Databases/topQueries/Read|Returnerar samman körningsstatistik för den valda frågan i vald tidsperiod|
 |/Servers/Databases/topQueries/queryText/Read|Returnerar Transact-SQL-text för valda fråge-ID|
@@ -1764,13 +1767,13 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/storageAccounts/listkeys/Action|Returnerar åtkomstnycklarna för det angivna lagringskontot.|
 |/storageAccounts/regeneratekey/Action|Återskapar åtkomstnycklarna för det angivna lagringskontot.|
 |/storageAccounts/Read|Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot.|
-|/storageAccounts/listAccountSas/Action|Returnerar kontots SAS-token för det angivna lagringskontot.|
-|/storageAccounts/listServiceSas/Action|Storage Service SAS-Token|
+|/storageAccounts/listAccountSas/Action|Returnerar SAS-token för konto för det angivna lagringskontot.|
+|/storageAccounts/listServiceSas/Action|SAS-token för Storage-tjänsten|
 |/storageAccounts/Services/diagnosticSettings/Write|Skapa eller uppdatera diagnostikinställningar för storage-konto.|
 |/skus/Read|Visar en lista över SKU: er som stöds av Microsoft.Storage.|
 |/usages/Read|Returnerar gränsen och det aktuella antalet användningar för resurser i den angivna prenumerationen|
 |/Operations/Read|Avsöker status för en asynkron åtgärd.|
-|/Locations/deleteVirtualNetworkOrSubnets/Action|Meddelar Microsoft.Storage att virtuella nätverk eller undernät tas bort|
+|/Locations/deleteVirtualNetworkOrSubnets/Action|Aviserar Microsoft.Storage om att det virtuella nätverket eller undernätet tas bort|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1824,7 +1827,7 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 |/Managers/Devices/listFailoverSets/Action|Lista för växling vid fel anger för en befintlig enhet.|
 |/Managers/Devices/listFailoverTargets/Action|Lista redundansmål enheter|
 |/Managers/Devices/publicEncryptionKey/Action|Offentlig krypteringsnyckel för listan med Enhetshanteraren|
-|/ chefer/enheter/hardwareComponentGroups /<br>Läs|Visa en lista över maskinvara komponentgrupper|
+|/ chefer/enheter/hardwareComponentGroups /<br>läsa|Visa en lista över maskinvara komponentgrupper|
 |/ chefer/enheter/hardwareComponentGroups /<br>changeControllerPowerState/åtgärd|Ändra domänkontrollant energisparläge av maskinvara komponentgrupper|
 |/Managers/Devices/Metrics/Read|Visar eller hämtar mätvärden|
 |/Managers/Devices/chapSettings/Write|Skapa eller uppdatera Chap-inställningar|
@@ -2194,7 +2197,6 @@ Den här providern är inte en fullständig ARM-provider och ger inte några ARM
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapa en anpassad roll](role-based-access-control-custom-roles.md).
-
 - Granska de [inbyggda RBAC-roller](role-based-access-built-in-roles.md).
-
 - Lär dig att hantera åtkomst [av användare](role-based-access-control-manage-assignments.md) eller [per resurs](role-based-access-control-configure.md) 
+- Lär dig hur du [visa aktivitetsloggar granska åtgärder på resurser](~/articles/azure-resource-manager/resource-group-audit.md)

@@ -1,7 +1,7 @@
 ---
-title: "Skapa en .NET Core-webbapp och distribuera till App Service på Linux | Microsoft Docs"
-description: "Distribuera din första .NET Core Hello World-app till App Service på Linux i minuter."
-keywords: "Azure apptjänst, webbprogram, dotnet, core, linux, oss"
+title: "Skapa en .NET Core-webbapp och distribuera den till App Service på Linux | Microsoft Docs"
+description: "Distribuera din första Hello World-app med .NET Core i App Service på Linux på bara några minuter."
+keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
 documentationCenter: 
 author: cephalin
@@ -18,13 +18,13 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Skapa en .NET Core-webbapp i App Service på Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/) appen på Apptjänst i Linux. Du skapar en web app med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), och du använder Git för att distribuera .NET Core-kod till webbappen.
+Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till webbappen.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -41,14 +41,14 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="create-the-app-locally"></a>Skapa appen lokalt
 
-I ett terminalfönster på din dator skapar du en katalog med namnet `hellodotnetcore` och ändra katalogen till den.
+I ett terminalfönster på datorn skapar du en katalog med namnet `hellodotnetcore` och ändrar katalogen till den.
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
 ```
 
-Skapa ett nytt webbprogram för .NET Core.
+Skapa en ny .NET Core-webbapp.
 
 ```bash
 dotnet new web
@@ -56,14 +56,14 @@ dotnet new web
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
-Återställa NuGet-paketen och kör appen.
+Återställ NuGet-paketen och kör appen.
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-Öppna en webbläsare och gå till app på `http://localhost:5000`.
+Öppna webbläsaren och navigera till appen på `http://localhost:5000`.
 
 Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
@@ -89,7 +89,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med din webbprogrammets namn.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn>_ med namnet på din webbapp.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -136,7 +136,7 @@ Bläddra till den distribuerade appen via webbläsaren.
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js-exempelkod körs i en webbapp med inbyggda avbildning.
+Node.js-exempelkoden körs i en webbapp med inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -144,7 +144,7 @@ Node.js-exempelkod körs i en webbapp med inbyggda avbildning.
 
 ## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
-I den lokala katalogen öppnar den _Startup.cs_ fil. Göra en mindre ändring i texten i metodanropet `context.Response.WriteAsync`:
+Öppna filen _Startup.cs_ i den lokala katalogen. Göra en mindre ändring i texten i metodanropet `context.Response.WriteAsync`:
 
 ```csharp
 await context.Response.WriteAsync("Hello Azure!");
@@ -180,4 +180,4 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en .NET Core och SQL Database-webbapp i Azure App Service på Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Skapa en .NET Core- och SQL Database-webbapp i Azure App Service på Linux](tutorial-dotnetcore-sqldb-app.md)

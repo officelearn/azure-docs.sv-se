@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e8cf0ce8ed154a7e42b885e605dcdf37827a6447
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -112,7 +112,7 @@ Du kan ändra directory namnattributet under **Azure Active Directory** > **egen
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
 * [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 * [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)

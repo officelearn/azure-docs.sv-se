@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Följande egenskaper stöds för Amazon Redshift länkade tjänsten:
 | typ | Egenskapen type måste anges till: **AmazonRedshift** | Ja |
 | server |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
 | port |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej, standard är 5439 |
-| Databasen |Namnet på Amazon Redshift-databasen. |Ja |
+| databas |Namnet på Amazon Redshift-databasen. |Ja |
 | användarnamn |Namnet på användaren som har åtkomst till databasen. |Ja |
 | lösenord |Lösenordet för användarkontot. Markera det här fältet som en SecureString. |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
@@ -130,7 +130,7 @@ Om du vill kopiera data från Amazon Redshift, anger du källa i kopieringsaktiv
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från mytable prefix. |Nej (om ”tabellnamn” i datamängden har angetts) |
 | redshiftUnloadSettings | Egenskapsgrupp när du använder Amazon Redshift bort från MINNET. | Nej |
-| s3LinkedServiceName | Refererar till en Amazon S3 till-ska används som en mellanliggande arkivet genom att ange ett namn med ADF länkade tjänsten av typen ”AmazonS3”. | Ja om du använder INAKTIVERAS |
+| s3LinkedServiceName | Refererar till en Amazon S3 till-ska används som en mellanliggande arkivet genom att ange ett namn för länkade tjänsten av typen ”AmazonS3”. | Ja om du använder INAKTIVERAS |
 | bucketName | Ange S3-bucket för lagring av tillfälliga data. Om inte genererar Data Factory-tjänsten den automatiskt.  | Ja om du använder INAKTIVERAS |
 
 **Exempel: Amazon Redshift källa i kopieringsaktiviteten med bort från MINNET**
@@ -207,21 +207,21 @@ För det här exemplet användningsfall, aktiviteten tar bort data från Amazon 
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Datatypsmappningen för Amazon Redshift
 
-När du kopierar data från Teradata, används följande mappningar från Teradata-datatyper till Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
+När du kopierar data från Amazon Redshift, används följande mappningar från Amazon Redshift datatyper för Azure Data Factory tillfälliga datatyper. Se [Schema- och Skriv mappningar](copy-activity-schema-and-type-mapping.md) att lära dig hur kopieringsaktiviteten mappar källtypen schema och data till sink.
 
 | Amazon Redshift datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
-| DATUM |Datum och tid |
+| Datum |DateTime |
 | DECIMAL |Decimal |
 | DUBBEL PRECISION |dubbla |
 | HELTAL |Int32 |
-| VERKLIG |Enskild |
+| VERKLIG |Ogift |
 | SMALLINT |Int16 |
 | TEXT |Sträng |
-| TIDSSTÄMPEL |Datum och tid |
+| TIDSSTÄMPEL |DateTime |
 | VARCHAR |Sträng |
 
 ## <a name="next-steps"></a>Nästa steg

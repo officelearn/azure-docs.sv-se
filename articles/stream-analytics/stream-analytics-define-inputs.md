@@ -4,8 +4,8 @@ description: "Lär dig mer om hur du konfigurerar en dataanslutning till Stream 
 keywords: "dataströmmen, dataanslutning, händelseströmmen"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Dataanslutningen: Lär dig mer om data dataströmmen indata från händelser till Stream Analytics
 Dataanslutningen till ett Stream Analytics-jobb är en dataström med händelser från datakällan, vilket kallas jobbets *inkommande*. Stream Analytics har förstklassigt integrering med Azure strömmen datakällor, inklusive [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), och [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Dessa indatakällor kan vara från samma Azure-prenumerationen som analytics-jobb, eller från en annan prenumeration.
@@ -37,9 +37,9 @@ Information om hur du skapar referens indata finns [Använd referensdata](stream
 
 ## <a name="compression"></a>Komprimering
 
-Azure Stream Analytics stöder komprimering över alla dataströmmen inkommande datakällor (Händelsehubbar, IoT-hubb och Blob-lagring). Den här funktionen lägger till ett nytt alternativ i listrutan till den **nya indata** bladet i Azure-portalen så att du kan välja att komprimera dataströmmar. Typer som stöds för närvarande är None, GZip, och Deflate komprimering. 
+Azure Stream Analytics stöder komprimering över alla dataströmmen inkommande datakällor (Händelsehubbar, IoT-hubb och Blob-lagring). Den här funktionen lägger till ett nytt alternativ i listrutan till den **nya indata** bladet i Azure-portalen så att du kan välja att komprimera dataströmmar. Stöds för närvarande referens typer är - ingen GZip, och Deflate-komprimering. Det finns inte stöd för komprimering för referensdata.
 
-Komprimering stöds inte tillsammans med Avro serialisering och gäller inte för referensdata. 
+Du behöver inte ange Komprimeringstypen med Avro-serialisering. Om inkommande Avro-data komprimeras, hanteras den transparent. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Skapa en inkommande dataström från Event Hubs
 

@@ -1,9 +1,9 @@
 ---
 title: 'Azure Cosmos DB: Utveckla med Graph API i .NET | Microsoft Docs'
-description: "Lär dig att utveckla med Azure Cosmos DB DocumentDB-API med hjälp av .NET"
+description: "Lär dig att utveckla med Azure Cosmos DB SQL-API med hjälp av .NET"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ab2ee7dc91dbcb5c933554eea6cd239750885e22
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
 Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tjänsten. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
@@ -44,7 +44,7 @@ Gremlin är en funktionell programmeringsspråk som stöder skriva åtgärder (D
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
-    * Du kan också använda [Azure DocumentDB-emulatorn](local-emulator.md) för den här självstudien.
+    * Du kan också använda den [lokala emulatorn](local-emulator.md) för den här självstudiekursen.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Skapa konto
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Skapa en databas 
 
-Nu skapa en Azure-Cosmos-DB [databasen](documentdb-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den **DocumentClient** klass från den [.NET DocumentDB SDK](documentdb-sdk-dotnet.md).  
+Nu skapa en Azure-Cosmos-DB [databasen](documentdb-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

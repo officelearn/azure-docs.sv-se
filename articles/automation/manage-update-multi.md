@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -43,7 +43,7 @@ Uppdateringshantering stöds på följande operativsystem.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och senare. Installationsalternativ för Server Core och Nano Server stöds inte.
+* Windows Server 2008 eller senare och uppdateringsdistributioner av Windows Server 2008 R2 SP1 och senare. Nano Server stöds inte.
 
   Stöd för att distribuera uppdateringar till Windows Server 2008 R2 SP1 kräver .NET Framework 4.5 och Windows Management Framework 5.0 eller senare.
 
@@ -84,7 +84,7 @@ Uppdateringshantering har aktiverats för den virtuella datorn.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för virtuella datorer som inte använder Azure och datorer
 
-Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
+Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
 
 Instruktioner om hur du aktiverar uppdateringshantering för virtuella Linux-datorer och datorer som inte använder Azure finns i [Connect your Linux Computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Anslut dina Linux-datorer till Log Analytics).
 

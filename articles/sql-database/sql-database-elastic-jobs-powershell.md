@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database: elastiska jobb med hjälp av PowerShell (förhandsgranskning)
 
@@ -203,7 +203,7 @@ En anslutning måste anges till jobben *databasen* innan du använder jobb API: 
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Krypterade autentiseringsuppgifter i jobb för elastisk databas
 Databasautentiseringsuppgifter kan infogas i jobben *databasen* med dess lösenord krypteras. Det är nödvändigt att lagra autentiseringsuppgifter för att aktivera jobb som ska utföras vid ett senare tillfälle (med jobbscheman).
 
-Kryptering fungerar via ett certifikat som skapas som en del av installationen. Installationsskriptet skapar och laddar upp certifikatet i Azure Cloud Service för dekryptering av lagrade krypterade lösenord. Azure Cloud Service senare lagrar den offentliga nyckeln i jobben *databasen* som gör det möjligt för gränssnittet PowerShell API eller klassiska Azure-portalen att kryptera en lösenordet utan att certifikatet ska vara lokalt installerad.
+Kryptering fungerar via ett certifikat som skapas som en del av installationen. Installationsskriptet skapar och laddar upp certifikatet i Azure Cloud Service för dekryptering av lagrade krypterade lösenord. Azure Cloud Service senare lagrar den offentliga nyckeln i jobben *databasen* som aktiverar PowerShell API eller Azure portal gränssnittet att kryptera angivna lösenord utan att certifikatet installeras lokalt .
 
 Autentiseringsuppgifter lösenord är krypterad och säkra från användare med läsåtkomst till elastiska jobb databasobjekt. Men det är möjligt för en obehörig användare med skrivskyddad åtkomst till den elastiska databasen jobb objekt att extrahera ett lösenord. Autentiseringsuppgifterna är avsedda att återanvändas i jobbet körningar. Autentiseringsuppgifter skickas till måldatabaserna när anslutningar upprättas. Det finns för närvarande inga begränsningar för måldatabaserna används för varje autentiseringsuppgifter, obehörig användare kan lägga till databasen mål för en databas med skadliga användarkontrollen. Användaren kan sedan starta ett jobb som den här databasen för att få lösenord för de autentiseringsuppgifter som mål.
 

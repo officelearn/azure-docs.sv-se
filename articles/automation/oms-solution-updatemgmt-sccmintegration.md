@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrera System Center Configuration Manager med OMS-uppdateringshantering [förhandsversion]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrera System Center Configuration Manager med OMS-uppdateringshantering
 
 Kunder som har investerat i System Center Configuration Manager för att hantera datorer, servrar och mobila enheter är också beroende av dess styrka och mognad vid hantering av programuppdateringar som en del av sin cykel för hantering av programuppdatering (SUM).  
 
@@ -41,13 +41,14 @@ Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration
 
 Utför följande steg om du kommer att fortsätta att hantera distributioner från Configuration Manager.  OMS ansluts till Configuration Manager för att tillämpa uppdateringar för klientdatorer som är anslutna till din Log Analytics-arbetsyta. Uppdateringsinnehållet är tillgängligt från cachelagringen från klientdatorn som om distributionen hanterades av Configuration Manager.  
 
-1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Beteendet hanteras av OMS-lösningen för uppdateringshantering som skapar en schemalagd uppdateringsdistribution i nästa steg.  
-2. I Azure-portalen väljer du ditt Automation-konto på skärmen **Automation-konto** och skapar en variabel av typen boolean med namnet **UseOMSForSCCMUpdates** med värdet **true** genom att följa informationen om att [skapa en ny variabel med Azure-portalen](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. I OMS-portalen öppnar du instrumentpanelen Uppdateringshantering.  Skapa en ny distribution genom att följa stegen i [Skapa en uppdateringsdistribution](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) och välja lämplig Configuration Manager-samling som representeras som en OMS-datorgrupp från listrutan.  Tänk på följande viktiga punkter:
+1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Beteendet hanteras av OMS-lösningen för uppdateringshantering som skapar en schemalagd uppdateringsdistribution i nästa steg.  
+
+1. I OMS-portalen öppnar du instrumentpanelen Uppdateringshantering.  Skapa en ny distribution genom att följa stegen i [Skapa en uppdateringsdistribution](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) och välja lämplig Configuration Manager-samling som representeras som en OMS-datorgrupp från listrutan.  Tänk på följande viktiga punkter:
     1. Om ett underhållsfönster har definierats för den valda enhetssamlingen i Configuration Manager kan medlemmar av samlingen kontrollera den istället för inställningen **Varaktighet** som är angiven i den schemalagda distributionen i OMS.
-    2. Medlemmar i målsamlingen måste ha en anslutning till Internet (antingen direkt, via en proxyserver eller OMS-gateway).  
+    1. Medlemmar i målsamlingen måste ha en anslutning till Internet (antingen direkt, via en proxyserver eller OMS-gateway).  
 
 När distributionen av uppdateringen är slutförd med OMS-lösningen installerar de måldatorer som är medlemmar av den valda datorgruppen uppdateringar vid den schemalagda tiden från sin lokala klientcache.  Du kan [visa status för uppdateringsdistributionen](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) för att övervaka resultatet av distributionen.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Hantera programuppdateringar från OMS
 

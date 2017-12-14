@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Skapa eller ändra labs automatiskt med Azure Resource Manager-mallar och PowerShell
 
@@ -30,7 +30,7 @@ Den här artikeln får du stegvisa anvisningar genom att använda dessa mallar o
 Du kan hitta färdiga [Azure Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) och [PowerShell-skript](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) på vårt offentliga [Github-lagringsplatsen](https://github.com/Azure/azure-devtestlab). Använda dem som-är, eller anpassa dem efter dina behov och lagra dem i din egen [privata Git repo](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Steg 2: Ändra Azure Resource Manager-mall
-Du kan följa stegen i [skapa din första Azure Resource Manager-mallen](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template) om du aldrig har skapat en mall innan.
+Du kan följa stegen i [skapa din första Azure Resource Manager-mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) om du aldrig har skapat en mall innan.
 
 Dessutom [bästa praxis för att skapa mallar för Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) erbjuder många riktlinjer och förslag på hur du skapar Azure Resource Manager-mallar som är tillförlitliga och enkla att använda. Du kommer normalt använda en variant av en av de metoder eller exempel tillhandahålls och ändra mallen för dina behov.
 

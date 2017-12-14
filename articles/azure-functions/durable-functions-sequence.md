@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Funktionen länkning i varaktiga funktioner - Hello sekvens-exempel
 
@@ -39,7 +39,7 @@ I följande avsnitt beskrivs konfiguration och kod som används för utveckling 
  
 ## <a name="functionjson-file"></a>Function.JSON fil
 
-Om du använder Azure-portalen för utveckling, här är innehållet i den *function.json* filen för orchestrator-funktionen. De flesta orchestrator *function.json* filer ut nästan precis så här.
+Om du använder Visual Studio-koden eller Azure-portalen för utveckling, här är innehållet i den *function.json* filen för orchestrator-funktionen. De flesta orchestrator *function.json* filer ut nästan precis så här.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ Viktigt är den `orchestrationTrigger` bindningstyp. Alla orchestrator-funktione
 > [!WARNING]
 > Om du vill följa av regeln ”ingen i/o” orchestrator-funktioner inte använda några indata eller utdata bindningar när du använder den `orchestrationTrigger` utlösa bindning.  Om andra indata eller utdata bindningar krävs, de bör i stället användas i kontexten för `activityTrigger` funktioner som anropas av orchestrator.
 
-## <a name="c-script"></a>C#-skript
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C#-skript (Visual Studio Code och Azure portal exempelkod) 
 
 Här är källkoden:
 

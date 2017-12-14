@@ -4,7 +4,7 @@ description: "Azure AD Connect användaren logga in för anpassade inställninga
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect användaren inloggningsalternativ
 Azure Active Directory (AD Azure) Connect kan användarna att logga in på både till molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitetsmodellen som hjälper dig att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -28,6 +28,10 @@ Om du redan är bekant med Azure AD identitetsmodellen och vill veta mer om en v
 * [Synkronisering av lösenords-hash-](#password-synchronization) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Direkt-autentisering](active-directory-aadconnect-pass-through-authentication.md) med [sömlös enkel inloggning (SSO)](active-directory-aadconnect-sso.md)
 * [Federerad enkel inloggning (med Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Det är viktigt att komma ihåg att genom att konfigurera federation för Azure AD kan du upprätta förtroende mellan Azure AD-klienten och externa domäner. Med den här federerade domänen förtroende har användare åtkomst till Azure AD cloud resurser inom innehavaren.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Välja användare logga in metod för din organisation
 För de flesta organisationer som vill aktivera användare logga in på Office 365, SaaS-program och andra Azure AD-baserade resurser, rekommenderar vi alternativet standard lösenord hash-synkronisering. Vissa organisationer har dock en viss orsak till att de inte kan använda det här alternativet. De kan välja antingen en federerad inloggningsalternativ, till exempel AD FS eller direktautentisering. Du kan använda följande tabell som hjälper dig att fatta rätt beslut.
@@ -52,7 +56,7 @@ Dessutom kan du aktivera [sömlös SSO](active-directory-aadconnect-sso.md) för
 
 Mer information finns i [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
 
-### <a name="pass-through-authentication"></a>Direkt-autentisering
+### <a name="pass-through-authentication"></a>Direktautentisering
 Med direktautentisering verifieras användarens lösenord mot den lokala Active Directory-domänkontrollanten. Lösenordet behöver inte finnas i Azure AD i någon form. Detta ger lokala principer, till exempel inloggning timme begränsningar som ska utvärderas vid autentisering till molnet services.
 
 Direkt-autentisering använder en enkel agent på en Windows Server 2012 R2-domänansluten dator i den lokala miljön. Den här agenten lyssnar efter begäranden för verifiering av lösenord. Det kräver inte någon ingående portar vara öppna till Internet.
@@ -111,7 +115,7 @@ Azure AD-inloggningssida visas UPN-suffix som är definierade för lokala Active
 
 | Status | Beskrivning | Åtgärd krävs |
 |:--- |:--- |:--- |
-| Verifiera |Azure AD Connect att hitta en matchande verifierade domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
+| Verifierad |Azure AD Connect att hitta en matchande verifierade domän i Azure AD. Alla användare för den här domänen kan logga in med sina lokala autentiseringsuppgifter. |Ingen åtgärd krävs. |
 | Inte verifieras |Azure AD Connect finns matchande anpassade domäner i Azure AD, men verifieras inte. UPN-suffixet användare av den här domänen kommer att ändras till standardvärdet. onmicrosoft.com suffix efter synkroniseringen om domänen inte verifieras. | [Kontrollera den anpassade domänen i Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
 | Inte lägga till |Azure AD Connect hittade inte en anpassad domän som motsvarade UPN-suffixet. UPN-suffixet användare av den här domänen kommer att ändras till standardvärdet. onmicrosoft.com-suffix om domänen inte lagts till och verifieras i Azure. | [Lägg till och verifiera en anpassad domän som motsvarar UPN-suffixet.](../add-custom-domain.md) |
 
@@ -141,7 +145,7 @@ I följande information, antar vi att vi kan berörda med UPN-suffixet contoso.c
 |:---:|:--- |
 | Inte lägga till |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalog. Användare som har UPN lokalt med suffixet @contoso.com kommer inte att kunna använda sina lokala UPN för att logga in på Azure. De måste i stället använda ett nytt UPN som har angetts för dem av Azure AD genom att lägga till suffix för standard-Azure AD-katalog. Om du synkroniserar användare till Azure AD directory azurecontoso.onmicrosoft.com sedan lokala användare exempelvis user@contoso.com kommer att få ett UPN för user@azurecontoso.onmicrosoft.com. |
 | Inte verifieras |I detta fall har vi en domänen contoso.com som har lagts till i Azure AD-katalog. Men har ännu inte kontrolleras. Om du fortsätter med att synkronisera användare utan att verifiera domänen, och användarna kommer att tilldelas nya UPN av Azure AD, precis som i fallet ”inte lägga till”. |
-| Verifiera |I detta fall har vi en domänen contoso.com som redan har lagts till och verifieras i Azure AD för UPN-suffixet. Användare kommer att kunna använda sina lokala användarens huvudnamn, till exempel user@contoso.com, för att logga in på Azure, när de har synkroniserats till Azure AD. |
+| Verifierad |I detta fall har vi en domänen contoso.com som redan har lagts till och verifieras i Azure AD för UPN-suffixet. Användare kommer att kunna använda sina lokala användarens huvudnamn, till exempel user@contoso.com, för att logga in på Azure, när de har synkroniserats till Azure AD. |
 
 ###### <a name="ad-fs-federation"></a>AD FS-federation
 Du kan inte skapa en federation med standardinställningarna. onmicrosoft.com-domän i Azure AD eller en anpassad overifierade domän i Azure AD. När du använder Azure AD Connect-guiden om du väljer en overifierade domän för att skapa en federation med uppmanar Azure AD Connect dig med nödvändiga poster skapas där din DNS-Server är värd för domänen. Mer information finns i [verifiera Azure AD-domänen som valts för federation](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
@@ -152,12 +156,12 @@ Om du har valt alternativet för användare **Federation med AD FS**, du måste 
 |:---:|:--- |
 | Inte lägga till |I det här fallet hittade Azure AD Connect en matchande anpassad domän för UPN-suffixet contoso.com i Azure AD-katalog. Du måste lägga till en anpassad domän för contoso.com om du behöver användare att logga in med hjälp av AD FS med deras lokala UPN (t.ex. user@contoso.com). |
 | Inte verifieras |I det här fallet får Azure AD Connect du lämplig information om hur du kan verifiera din domän i ett senare skede. |
-| Verifiera |I det här fallet kan du gå vidare med konfiguration utan några ytterligare åtgärder. |
+| Verifierad |I det här fallet kan du gå vidare med konfiguration utan några ytterligare åtgärder. |
 
 ## <a name="changing-the-user-sign-in-method"></a>Ändra metoden för användaren
 Du kan ändra metoden för användare från federationstjänsten, synkronisering av lösenords-hash eller direktautentisering med hjälp av de uppgifter som är tillgängliga i Azure AD Connect efter den inledande konfigurationen av Azure AD Connect med hjälp av guiden. Kör Azure AD Connect-guiden igen och visas en lista över aktiviteter som du kan utföra. Välj **ändra användarens inloggning** från listan över aktiviteter.
 
-![Ändra användarens inloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Ändra användarinloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 På nästa sida uppmanas du att ange autentiseringsuppgifter för Azure AD.
 

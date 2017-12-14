@@ -1,6 +1,6 @@
 ---
 title: "SSMS: Ansluta och läsa data i Azure SQL Database | Microsoft Docs"
-description: "Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data."
+description: "Lär dig hur du ansluter till SQL Database på Azure med hjälp av SQL Server Management Studio (SSMS). Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor mot och redigera data."
 metacanonical: 
 keywords: anslut till sql database, sql server management studio
 services: sql-database
@@ -15,39 +15,31 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/26/2017
+ms.date: 11/28/2017
 ms.author: carlrab
-ms.openlocfilehash: f67ba82c3aaf312662096964b7b7942efa108607
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: MT
+ms.openlocfilehash: 6ed77d5c106f72a06e410410321c39b3d7059ae9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: Använd SQL Server Management Studio för att ansluta och skicka frågor till data
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL-databas för Microsoft Windows. Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använda Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen. 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) är en integrerad miljö för att hantera all SQL-infrastruktur från SQL Server till SQL Database för Microsoft Windows. Den här snabbstarten visar hur du använder SSMS för att ansluta till en Azure SQL-databas och sedan använder Transact-SQL-uttryck för att skicka frågor mot, infoga, uppdatera och ta bort data i databasen. 
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter som utgångspunkt:
+Den här snabbstarten använder resurser som har skapats i någon av dessa snabbstarter:
 
-- [Skapa DB – Portal](sql-database-get-started-portal.md)
-- [Skapa DB – CLI](sql-database-get-started-cli.md)
-- [Skapa DB – PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Innan du börjar bör du kontrollera att du har installerat den senaste versionen av [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
+#### <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
+
+Innan du börjar bör du kontrollera att du har installerat den senaste versionen av [SSMS][ssms-install-latest-84g]. 
 
 ## <a name="sql-server-connection-information"></a>Anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet, databasnamnet och inloggningsinformationen i nästa procedurer.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
-3. Granska serverns fullständiga namn på sidan **Översikt** för databasen, se bilden nedan. Om du hovrar över servernamnet visas alternativet **Kopiera genom att klicka**.
-
-   ![anslutningsinformation](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Om du har glömt inloggningsinformationen för Azure SQL Database-server öppnar du serversidan i SQL Database. Där ser du administratörsnamnet för servern och kan återställa lösenordet vid behov. 
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="connect-to-your-database"></a>Ansluta till databasen
 
@@ -61,13 +53,14 @@ Använd SQL Server Management Studio för att upprätta en anslutning till Azure
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-   | Inställning       | Föreslaget värde | Beskrivning | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Inställning      | Föreslaget värde    | Beskrivning | 
+   | ------------ | ------------------ | ----------- | 
    | **Servertyp** | Databasmotor | Det här värdet är obligatoriskt. |
    | **Servernamn** | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Autentisering** | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
    | **Inloggning** | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
    | **Lösenord** | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
+   ||||
 
    ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -172,3 +165,9 @@ Med följande kod tar du bort den nya produkt du tidigare lade till med Transact
 - Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
 - Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
 - Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
+
+
+<!-- Article link references. -->
+
+[ssms-install-latest-84g]: https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms
+

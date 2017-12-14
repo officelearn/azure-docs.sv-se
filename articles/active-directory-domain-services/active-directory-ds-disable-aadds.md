@@ -4,7 +4,7 @@ description: Inaktivera Azure Active Directory Domain Services med Azure-portale
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: maheshu
-ms.openlocfilehash: 32db916b319c531816a935fcfe3bc4fe82997fdd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f61f6df85e47bec32e147990d956a4409429a60c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inaktivera Azure Active Directory Domain Services med Azure-portalen
 Den här artikeln visar hur du använder Azure-portalen för att inaktivera Azure Active Directory (AD) Domain Services för din Azure AD-katalog.
@@ -41,7 +41,7 @@ Utför följande steg för att ta bort din Azure AD Domain Services-hanterad dom
 
 3. På den **översikt** klickar du på den **ta bort** knappen.
 
-    ![Ta bort domänen](./media/getting-started/domain-services-delete-domain.png)
+    ![Ta bort domän](./media/getting-started/domain-services-delete-domain.png)
 
 4. Ange DNS-domännamnet för den hanterade domänen för att bekräfta borttagningen. Klicka på den **ta bort** knappen när du är klar.
 

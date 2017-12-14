@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure-stacken 1711 uppdatering
 
@@ -123,6 +123,7 @@ Det här avsnittet innehåller efter installationen kända problem med build **2
 - När du skapar en Utjämning av nätverksbelastning måste du skapa en regel för network adress translation (NAT). Om du inte får ett fel när du försöker lägga till en NAT-regel när belastningsutjämnaren har skapats.
 - Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
 - Azure Stack-operatörer kanske inte kan distribuera, ta bort, ändra Vnet eller Nätverkssäkerhetsgrupper. Det här problemet visas främst på efterföljande update försök av samma paket. Detta beror på ett paketering problem med en uppdatering som för närvarande är under undersökningen.
+- Internt Load Balancing (ILB) hanterar felaktigt MAC-adresser för backend-virtuella datorer som bryter Linux-instanser.
  
 #### <a name="sqlmysql"></a>SQL/MySQL
 - Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 

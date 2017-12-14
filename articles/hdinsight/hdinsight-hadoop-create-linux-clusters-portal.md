@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,25 +52,18 @@ Azure-portalen visar de flesta egenskaper för klustret. Med Azure Resource Mana
 
     * Från den **prenumeration** listrutan, Välj den Azure-prenumeration som ska användas för klustret.
 
-    * Klicka på **kluster typen**, och välj sedan:
-   
-        * **Klustertyp**: Om du inte vet vad du ska välja väljer du **Hadoop**. Det är den mest populära klustertypen.
+    * Klicka på **kluster typen**, och välj sedan typ av kluster (Hadoop, Spark, etc.) som du vill skapa. För **operativsystemet**, klickar du på **Linux** och välj sedan en version. Använda standardversionen om du inte vet vad du ska välja. Mer information finns i [HDInsight-klusterversioner](hdinsight-component-versioning.md).
      
-            > [!IMPORTANT]
-            > HDInsight-kluster har på en mängd olika typer som motsvarar arbetsbelastning eller teknik som klustret är inställd för. Det finns ingen stöds metod för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase på ett kluster. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > HDInsight-kluster har på en mängd olika typer som motsvarar arbetsbelastning eller teknik som klustret är inställd för. Det finns ingen stöds metod för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase på ett kluster. 
+        > 
+        > 
         
-        * **Operativsystem**: Välj **Linux**.
-        
-        * **Version**: Använd standardversionen om du inte vet vad du ska välja. Mer information finns i [HDInsight-klusterversioner](hdinsight-component-versioning.md).
-        * **Klusternivå**: Azure HDInsight tillhandahåller molntjänster för stordata i två kategorier: Premium- och standardnivå. Mer information finns i [Klusternivåer](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
-
     * För **klustret inloggning användarnamn** och **klustret inloggningslösenordet**, ange användarnamn och lösenord för administratören.
 
     * Ange en **SSH-användarnamn** och om du vill ha SSH-lösenordet samma som det administratörslösenord du angav tidigare, Välj den **använda samma lösenord som klusterinloggning** kryssrutan. Om inte, kan du ange antingen en **lösenord** eller **offentliga nyckel**, som används för att autentisera SSH-användare. Den rekommenderade metoden är att använda en offentlig nyckel. Spara konfigurationen av autentiseringsuppgifterna genom att klicka på **Välj** längst ned.
    
-        Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+    Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
     * För **resursgruppen**, ange om du vill skapa en ny resursgrupp eller använda en befintlig.
 

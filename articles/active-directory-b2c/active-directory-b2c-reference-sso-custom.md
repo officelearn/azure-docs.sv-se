@@ -4,7 +4,7 @@ description: "Lär dig hur du hanterar SSO-sessioner som använder anpassade pri
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: parja
-ms.openlocfilehash: ff767993eaf0305168176d0ad6e15c068b8c85eb
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Enkel inloggning (SSO) sessionshantering
 
@@ -98,8 +98,8 @@ Det finns två metadataobjekt i tekniska profilen:
 
 | Objekt | Standardvärde | Möjliga värden | Beskrivning
 | --- | --- | --- | --- |
-| IncludeSessionIndex | SANT | SANT/FALSKT | Anger indexet session ska sparas till providern. |
-| RegisterServiceProviders | SANT | SANT/FALSKT | Anger att providern ska registrera SAML leverantörer som har utfärdats ett intyg. |
+| IncludeSessionIndex | true | SANT/FALSKT | Anger indexet session ska sparas till providern. |
+| RegisterServiceProviders | true | SANT/FALSKT | Anger att providern ska registrera SAML leverantörer som har utfärdats ett intyg. |
 
 När du använder providern för att lagra en SAML identitet provider-session, måste objekten ovan båda ha värdet false. När du använder providern för att lagra B2C SAML-session, vara artiklar ovan SANT eller utelämnat som standardvärdena är true.
 

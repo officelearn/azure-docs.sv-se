@@ -14,82 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc766abb5df38813b3eb6dde98cdc9afd24ac6b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Konfigurera principer för innehållsskydd med Azure-portalen
-> [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
-
-## <a name="overview"></a>Översikt
 Microsoft Azure Media Services (AMS) gör det möjligt för dig att skydda mediet från den tidpunkt som den lämnar din dator via lagring, bearbetning och leverans. Media Services kan du leverera ditt innehåll krypteras dynamiskt med Standard AES (Advanced Encryption) (med 128-bitars krypteringsnycklar), vanliga kryptering (CENC) med PlayReady och/eller Widevine DRM och Apple FairPlay. 
 
 AMS är en tjänst för att leverera DRM-licenser och AES avmarkera nycklar till auktoriserade klienter. Azure-portalen kan du skapa en **nyckel/licens auktoriseringsprincip** för alla typer av krypteringar.
 
-Den här artikeln visar hur du konfigurerar principer för innehållsskydd med Azure-portalen. Artikeln beskriver också hur du använder dynamisk kryptering till dina tillgångar.
-
-
-> [!NOTE]
-> Om du använder den klassiska Azure-portalen för att skapa skyddsprinciper för, principerna kan inte visas i den [Azure-portalen](https://portal.azure.com/). Men finns alla principer för gammalt kvar. Du kan kontrollera dem med Azure Media Services .NET SDK eller [Azure Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) verktyget (om du vill se principerna, högerklicka på tillgången -> Visa information (F4) -> Klicka på fliken innehåll nycklar -> klickar du på nyckeln). 
-> 
-> Om du vill kryptera en tillgång med nya principer konfigurera dem med Azure-portalen, klicka på Spara och återanvända dynamisk kryptering. 
-> 
-> 
+Den här artikeln visar hur du konfigurerar en princip för innehållsskydd med Azure-portalen. Artikeln beskriver också hur du använder dynamisk kryptering till dina tillgångar.
 
 ## <a name="start-configuring-content-protection"></a>Börja konfigurera innehållsskydd
 Om du vill använda portalen för att börja konfigurera innehållsskydd globala för AMS-kontot, gör du följande:
-
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. Välj **inställningar** > **innehåll skydd**.
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="keylicense-authorization-policy"></a>Auktoriseringsprincip för nyckel-licens
+## <a name="keylicense-authorization-policy"></a>Auktoriseringsprincip för nyckel/licens
 AMS stöder flera olika sätt att autentisera användare som begär eller licensinformation. Innehållsnyckelns auktoriseringsprincip måste konfigureras av dig och uppfyllas av klienten för nyckel/licensen till delived till klienten. Principen för auktorisering av innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar: **öppna** eller **token** begränsning.
 
 Azure-portalen kan du skapa en **nyckel/licens auktoriseringsprincip** för alla typer av krypteringar.
 
-### <a name="open"></a>Öppet
+### <a name="open-authorization"></a>Öppna auktorisering
 Öppna begränsning innebär att systemet ger nyckeln till alla som begär nycklar. Den här begränsningen kan vara användbart för testning. 
 
-### <a name="token"></a>Token
+### <a name="token-authorization"></a>Token auktorisering
 Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formatet Simple Web Tokens (SWT) och JSON-Webbtoken (JWT)-format. Media Services tillhandahåller inte Secure Token tjänster. Du kan skapa en anpassad STS eller använda Microsoft Azure ACS problemet tokens. STS måste konfigureras för att skapa en token som signerats med angiven nyckel och utfärda anspråk som du angav i tokenbegränsningar-konfigurationen. Media Services viktiga tjänsten returneras den begärda (eller licensinformation) till klienten om token är giltig och anspråk i token matchar de som konfigurerats för nyckeln (eller licens).
 
 När du konfigurerar token begränsad princip, måste du ange den primära Verifieringsnyckeln och utfärdaren målgruppen parametrar. Primära Verifieringsnyckeln innehåller den nyckel som token som signerats med, utfärdaren är den säkra tokentjänst som utfärdar token. Målgruppen (kallas ibland för scope) beskrivs syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services viktiga tjänsten verifierar att dessa värden i token matchar värdena i mallen.
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
-## <a name="playready-rights-template"></a>PlayReady-rättighetsprincipmall
-Detaljerad information om rättighetsprincipmall PlayReady finns [Media Services PlayReady licens mall översikt](media-services-playready-license-template-overview.md).
+## <a name="playready-license-template"></a>PlayReady license-mall
+PlayReady-licensmall anger funktionen aktiverad för PlayReady-licens. Detaljerad information om mallen PlayReady-licens finns [Media Services PlayReady licens mall översikt](media-services-playready-license-template-overview.md).
 
-### <a name="non-persistent"></a>Icke beständiga
+### <a name="non-persistent"></a>Icke-beständiga
 Om du konfigurerar licens som icke-beständig är det endast lagras i minnet medan Windows Media player använder licensen.  
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
-### <a name="persistent"></a>Beständiga
+### <a name="persistent"></a>Beständig
 Om du konfigurerar licensen som beständiga sparas den i permanent lagringsutrymme på klienten.
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
-## <a name="widevine-rights-template"></a>Widevine rättighetsprincipmall
-Detaljerad information om rättighetsprincipmall Widevine finns [Widevine-licens mall översikt](media-services-widevine-license-template-overview.md).
+## <a name="widevine-license-template"></a>Widevine-licensmall
+Widevine-licensmall anger funktionen aktiverad på Widevine-licenser.
 
 ### <a name="basic"></a>Basic
 När du väljer **grundläggande**, mallen kommer att skapas med alla standardvärden värden.
 
 ### <a name="advanced"></a>Advanced
-Mer detaljerad information om avancerade alternativ för Widevine konfigurationer finns [detta](media-services-widevine-license-template-overview.md) avsnittet.
+Detaljerad information om rättighetsprincipmall Widevine finns [Widevine-licens mall översikt](media-services-widevine-license-template-overview.md).
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay-konfiguration
-Om du vill aktivera FairPlay kryptering som du behöver ange App certifikat och programmet hemlig nyckel (be) via FairPlay konfigurationsalternativet. Detaljerad information om FairPlay konfiguration och krav finns [detta](media-services-protect-hls-with-fairplay.md) artikel.
+Om du vill aktivera FairPlay kryptering som du behöver ange App certifikat och programmet hemlig nyckel (be) via FairPlay konfigurationsalternativet. Detaljerad information om FairPlay konfiguration och krav finns [detta](media-services-protect-hls-with-FairPlay.md) artikel.
 
 ![Skydda innehåll](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -125,7 +110,7 @@ Om du vill aktivera FairPlay kryptering som du behöver ange App certifikat och 
 När du gör val av kryptering, tryck på **tillämpa**.
 
 >[!NOTE] 
->Om du planerar att spela upp en AES krypteras HLS i Safari, se [bloggen](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Om du planerar att spela upp en AES krypteras HLS i Safari, finns det [krypterade HLS i Safari blogginlägget](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

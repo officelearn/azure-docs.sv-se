@@ -4,7 +4,7 @@ description: "Hur du använder funktionerna i ADAL SDK för att aktivera enkel i
 services: active-directory
 documentationcenter: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Aktivera enkel inloggning mellan appar på Android använder ADAL
 Tillhandahåller enkel inloggning (SSO) så att användarna behöver bara ange sina autentiseringsuppgifter en gång och dessa autentiseringsuppgifter automatiskt fungerar över förväntade program nu av kunder. Svårt att ange sina användarnamn och lösenord på en liten skärm, ofta gånger kombineras med ytterligare en faktor (2FA) som ett telefonsamtal eller en textläge kod leder till att snabbt klagomål om en användare har att göra det mer än en gång till produkten.

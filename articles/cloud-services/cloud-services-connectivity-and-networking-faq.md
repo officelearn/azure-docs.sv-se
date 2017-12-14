@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med anslutningen och nätverk för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -48,8 +48,8 @@ Du kan också skapa en startåtgärd för att selektivt blockera vissa specifika
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>När jag försöker RDP Mina moln tjänstinstansen meddelandet, ”användarkontot har upphört att gälla”.
 Du kan få felmeddelandet ”det här användarkontot har upphört att gälla” när du kringgå förfallodatumet som konfigurerats i RDP-inställningar. Du kan ändra utgångsdatumet från portalen genom att följa dessa steg:
-1. Logga in på Azure-hanteringskonsolen (https://manage.windowsazure.com), navigera till Molntjänsten och markera den **konfigurera** fliken.
-2. Välj **Remote**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), navigera till Molntjänsten och välj den **fjärrskrivbord** fliken.
+2. Välj den **produktion** eller **mellanlagring** distributionsplatsen.
 3. Ändra datumet för ”upphör att gälla på” och sedan spara konfigurationen.
 
 Du nu ska kunna RDP till din dator.

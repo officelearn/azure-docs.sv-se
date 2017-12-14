@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Använda belastningsutjämnade uppsättningar till clusterize MySQL på Linux
 > [!IMPORTANT]
@@ -48,11 +48,11 @@ Du behöver följande resurser och funktioner:
 ### <a name="tested-environment"></a>Testad miljö
 * Ubuntu 13.10
   * DRBD
-  * MySQL-Server
+  * MySQL-server
   * Corosync och Pacemaker
 
 ### <a name="affinity-group"></a>Tillhörighetsgruppen
-Skapa en tillhörighetsgrupp för lösningen genom att logga in på den klassiska Azure-portalen att välja **inställningar**, och skapa en tillhörighetsgrupp. Resurserna som skapas senare ska tilldelas den här tillhörighetsgrupp.
+Skapa en tillhörighetsgrupp för lösningen genom att logga in på Azure Portal väljer **inställningar**, och skapa en tillhörighetsgrupp. Resurserna som skapas senare ska tilldelas den här tillhörighetsgrupp.
 
 ### <a name="networks"></a>Nätverk
 Ett nytt nätverk skapas och skapas ett undernät i nätverket. Det här exemplet använder ett 10.10.10.0/24 nätverk med endast en /24 undernät i.

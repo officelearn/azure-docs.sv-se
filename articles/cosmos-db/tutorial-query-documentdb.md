@@ -1,9 +1,9 @@
 ---
 title: "Hur man frågan med SQL i Azure Cosmos DB? | Microsoft Docs"
-description: "Lär dig hur du fråga med DocumentDB data med SQL i Azure Cosmos DB"
+description: "Lär dig att fråga med SQL i Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: 
 tags: 
@@ -15,16 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
-ms.openlocfilehash: 61a2516ec9f51df4ac88beaf55108208c7b8c6bc
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: rafats
+ms.openlocfilehash: ae2d7c4ecdeeb88714cdaa0558950ea52fab99d3
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Hur man frågan med hjälp av SQL?
 
-Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) stöder frågar dokument med hjälp av SQL. Den här artikeln innehåller ett exempel på dokument och två exempel SQL-frågor och resultat.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågar dokument med hjälp av SQL. Den här artikeln innehåller ett exempel på dokument och två exempel SQL-frågor och resultat.
 
 Den här artikeln omfattar följande aktiviteter: 
 

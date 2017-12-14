@@ -7,19 +7,18 @@ documentationcenter:
 author: eamonoreilly
 manager: 
 editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 8b698659ed91782b80dbefbfea02aa036c09210d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrera Azure Automation med händelsen rutnätet och Microsoft team
 
@@ -32,24 +31,26 @@ I den här guiden får du lära dig hur man:
 > * Skapa en händelse rutnätet prenumeration.
 > * Skapa en virtuell dator som utlöser en runbook.
 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
 ## <a name="prerequisites"></a>Krav
 
 Att slutföra den här självstudiekursen en [Azure Automation-konto](../automation/automation-offering-get-started.md) krävs för att rymma den runbook som utlöses från Azure Event rutnätet prenumerationen.
 
 ## <a name="import-an-event-grid-sample-runbook"></a>Importera en händelse rutnätet exempel-runbook
-1. Välj **Automation-konton**, och välj den **Runbooks** sidan.
+1. Välj ditt Automation-konto och välj den **Runbooks** sidan.
+
+   ![Välj runbooks](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Välj den **Bläddra galleriet** knappen.
 
-    ![Runbook-listan från Gränssnittet](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
-
-3. Sök efter **händelse rutnätet**, och importera runbook till Automation-kontot.
+3. Sök efter **händelse rutnätet**, och välj **integrera Azure Automation med händelsen rutnätet**. 
 
     ![Importera galleriet runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-4. Välj **redigera** att visa källan runbook och välj den **publicera** knappen.
+4. Välj **importera** och ger den namnet **titta på VMWrite**.
 
-    ![Publicera runbook från Gränssnittet](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+5. När den har importerats väljer **redigera** att visa runbook-källa. Välj sedan knappen **Publicera**.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Skapa en valfri Microsoft Teams-webhook
 1. Välj i Microsoft-Teams **fler alternativ** nästa till dess namn och välj sedan **kopplingar**.
@@ -58,11 +59,7 @@ Att slutföra den här självstudiekursen en [Azure Automation-konto](../automat
 
 2. Bläddra i listan över kopplingar till **inkommande Webhook**, och välj **Lägg till**.
 
-    ![Microsoft-Teams webhook-anslutning](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
-
 3. Ange **AzureAutomationIntegration** för namn och välj **skapa**.
-
-    ![Microsoft-Teams webhooken](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
 
 4. Kopiera webhooken till Urklipp och spara den. Webhooksadressen används för att skicka information till Microsoft-Teams.
 
@@ -73,13 +70,11 @@ Att slutföra den här självstudiekursen en [Azure Automation-konto](../automat
 
 2. Välj **Webhooks**, och välj den **lägga till Webhook** knappen.
 
-    ![Skapa webhook](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
-
 3. Ange **WatchVMEventGrid** för namnet. Kopiera Webbadressen till Urklipp och spara den.
 
-    ![Konfigurera namnet på webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
+    ![Konfigurera namnet på webhook](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-4. Välj **parametrar och körinställningar**, och ange Microsoft-Teams Webhooksadressen. Lämna **WEBHOOKDATA** tomt.
+4. Välj **konfigurera parametrar och körningsinställningar**, och ange Microsoft-Teams Webhooksadressen för **CHANNELURL**. Lämna **WEBHOOKDATA** tomt.
 
     ![Konfigurera parametrarna för webhooken](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
@@ -89,20 +84,18 @@ Att slutföra den här självstudiekursen en [Azure Automation-konto](../automat
 ## <a name="create-an-event-grid-subscription"></a>Skapa en händelse rutnätet-prenumeration
 1. På den **Automation-konto** översiktssidan väljer **händelse rutnätet**.
 
-    ![Händelselistan i rutnätet](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
+    ![Välj händelse rutnätet](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Välj den **händelseprenumerationen** knappen.
+2. Välj den **+ händelseprenumerationen** knappen.
 
 3. Konfigurera prenumerationen med följande information:
 
-    *   Ange **AzureAutomation** för namnet. 
+    *   Ange **AzureAutomation** för namnet.
     *   I **ämnestyp**väljer **Azure-prenumerationer**.
     *   Avmarkera den **prenumerera på alla händelsetyper** kryssrutan.
     *   I **händelsetyper**väljer **resurs skriva lyckade**.
-    *   I **fullständig slutpunkts-URL**, ange Webhooksadressen för titta på VMWrite runbook.
-    *   I **prefixet Filter**, anger du prenumerationen och resursgrupp där du vill söka efter nya virtuella datorer skapas. Det bör se ut /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
-
-    ![Händelselistan i rutnätet](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
+    *   I **prenumeranten Endpoint**, ange Webhooksadressen för titta på VMWrite runbook.
+    *   I **prefixet Filter**, anger du prenumerationen och resursgrupp där du vill söka efter nya virtuella datorer skapas. Det bör se ut:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Välj **skapa** spara händelsen rutnätet prenumerationen.
 

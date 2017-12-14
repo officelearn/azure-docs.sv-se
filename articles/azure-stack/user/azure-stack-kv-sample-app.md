@@ -3,8 +3,8 @@ title: "Tillåter att program att hämta Azure Stack Key Vault hemligheter | Mic
 description: "Använda en exempelapp för att arbeta med Azure-stacken Key Vault"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exempelprogram som använder nycklar och hemligheter som lagras i ett nyckelvalv
 
@@ -132,11 +132,11 @@ Anteckna den **VaultUrl**, **AuthClientId**, och **AuthClientSecret** värden so
 
 ## <a name="download-and-run-the-sample-application"></a>Hämta och kör exempelprogrammet
 
-Hämta exemplet som nyckelvalv från Azure [Key Vault klienten prover](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sidan. Extrahera innehållet i ZIP-filen på utvecklingsdatorn. Det finns två samplingarna i mappen samples. Vi använder HellpKeyVault exemplet i det här avsnittet. Bläddra till den **Microsoft.Azure.KeyVault.Samples** > **exempel** > **HelloKeyVault** mapp och öppna programmet HelloKeyVault i Visual Studio. 
+Hämta exemplet som nyckelvalv från Azure [Key Vault klienten prover](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sidan. Extrahera innehållet i ZIP-filen på utvecklingsdatorn. Det finns två samplingarna i mappen samples. Vi använder HellpKeyVault exemplet i den här artikeln. Bläddra till den **Microsoft.Azure.KeyVault.Samples** > **exempel** > **HelloKeyVault** mapp och öppna programmet HelloKeyVault i Visual Studio. 
 
 Öppna filen HelloKeyVault\App.config och Ersätt värdena i den <appSettings> element med den **VaultUrl**, **AuthClientId**, och **AuthClientSecret** värden returnerade det föregående skriptet. Observera att App.config som standard innehåller en platshållare för *AuthCertThumbprint*, men använda *AuthClientSecret* i stället. När du ersätter inställningarna bygg lösningen och starta programmet.
 
-![App-inställningar](media/azure-stack-kv-sample-app/appconfig.png)
+![Appinställningar](media/azure-stack-kv-sample-app/appconfig.png)
  
 Programmet loggar in på Azure AD och använder sedan den token för att autentisera till nyckelvalvet i Azure-stacken. Programmet utför åtgärder som att skapa, kryptera, omsluter och ta bort på nycklar och hemligheter i nyckelvalvet. Du kan också skicka specifika parametrar som *kryptera* och *dekryptera* till programmet, vilket säkerställer att programmet körs bara dessa åtgärder mot valvet. 
 

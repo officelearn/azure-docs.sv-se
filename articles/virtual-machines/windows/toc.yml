@@ -66,6 +66,9 @@
         - name: Beräkningsoptimerad
           href: sizes-compute.md
         - name: Minnesoptimerad
+          items:
+            - name: 'Begränsade vCPU:er'
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Lagringsoptimerad
           href: sizes-storage.md
@@ -113,6 +116,8 @@
       items:
         - name: Riktlinjer för infrastruktur
           href: infrastructure-example.md
+        - name: vCPU-kvoter
+          href: quotas.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'
@@ -164,6 +169,8 @@
       items:
         - name: Förskottsbetala för virtuella datorer – reserverade instanser
           href: prepay-reserved-vm-instances.md
+        - name: VM-användning
+          href: vm-usage.md
         - name: Vanliga PowerShell-åtgärder
           href: ps-common-ref.md
         - name: Flytta en virtuell dator

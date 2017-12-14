@@ -3,7 +3,7 @@ title: "Dedikerade kapacitet för Machine Learning Batch Execution Service jobb 
 description: "Översikt över Azure Batch-tjänster för Machine Learning-jobb."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.service: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Azure Batch-tjänsten för Machine Learning-jobb
 
@@ -110,4 +110,4 @@ Vi rekommenderar att du avsöka jobbstatus för att avgöra när jobben har slut
 
 | **Använd bearbetning när Batch-Pool**    | **Klassiska batchbearbetning när**  |
 |---|---|
-|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Du måste garanterad genomflöde. Du behöver exempelvis kör ett antal jobb i en angiven tidsperiod och vill skala upp dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>Och<br/> Du behöver inte jobb ska köras omedelbart |
+|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Du måste garanterad genomflöde. Du behöver exempelvis kör ett antal jobb i en angiven tidsperiod och vill skala upp dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>And<br/> Du behöver inte jobb ska köras omedelbart |

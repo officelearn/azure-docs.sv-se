@@ -5,7 +5,7 @@ services: active-directory
 keywords: cloud app discovery, hantera program
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Konfigurera Cloud App Discovery i Azure AD
 
@@ -79,6 +79,7 @@ För att kunna generera en rapport för Cloud App Discovery, måste dina trafikl
 * Barracuda - Brandvägg för webbaserade program (W3C)
 * Blue Coat Proxy SG – åtkomstlogg (W3C)
 * Check Point
+* Cisco ASA FirePOWER
 * Cisco ASA-brandväggar (Cisco ASA-brandväggar, ställa in information på 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
@@ -106,7 +107,7 @@ Om din logg inte stöds väljer **andra** som den **datakällan** och anger enhe
 
 ## <a name="data-attributes-according-to-vendor-documentation"></a>Dataattribut (enligt dokumentationen från leverantören)
 
-| Datakälla         | Riktad App-URL | Den aktuella appen IP-adress | Användarnamn | Ursprungliga IP-adressen | Totalt antal trafik | Överförda byte |
+| Datakälla         | Riktad App-URL | Den aktuella appen IP-adress | Användarnamn | Ursprungliga IP-adressen | Trafik totalt | Överförda byte |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Ja**        | **Ja**       | **Ja**  | **Ja**   | Nej            | Nej             |
 | Blue Coat                               | **Ja**        | Nej            | **Ja**  | **Ja**   | **Ja**       | **Ja**        |

@@ -4,7 +4,7 @@ description: "Lär dig hur du ställer in Azure Cosmos DB global distributionspl
 services: cosmos-db
 keywords: Global distributionsplatsen, diagram, gremlin
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av Graph-API
 
@@ -37,7 +37,7 @@ Den här artikeln omfattar följande aktiviteter:
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Ansluter till en önskad region med Graph-API med .NET SDK
 
-Graph API exponeras som ett tillägg bibliotek ovanpå DocumentDB SDK.
+Graph API exponeras som ett tillägg bibliotek ovanpå SQL-API.
 
 För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ställa in principen. Baserat på konfigurationen av Azure DB som Cosmos-kontot, aktuella regional tillgänglighet och inställningar listan som anges, kommer den mest optimala slutpunkten väljas av SDK, för att utföra skrivåtgärder och läsåtgärder.
 
@@ -87,7 +87,7 @@ I den här självstudiekursen kommer du har gjort följande:
 
 > [!div class="checklist"]
 > * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera globala distribution via DocumentDB APIs
+> * Konfigurera distributionslistor med SQL-API: er
 
 Du kan nu fortsätta till nästa kurs att lära dig hur du utvecklar lokalt med hjälp av lokala Azure DB som Cosmos-emulatorn.
 

@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 12/09/2017
+ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>Begränsningar i Azure-databas för MySQL (förhandsgranskning)
-Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
+# <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
+Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
 
 ## <a name="service-tier-maximums"></a>Tjänsten nivå maxkapacitet
 Azure MySQL-databas har flera tjänstnivåer för att välja mellan när du skapar en server. Mer information finns i [förstå vad som är tillgängliga i varje tjänstnivå](concepts-service-tiers.md).  
@@ -27,7 +27,7 @@ Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje t
 | :------------------------- | :---------------- |
 | **Högsta antal anslutningar**        |                   |
 | Grundläggande 50 beräknings-enheter     | 50-anslutningar    |
-| Grundläggande 100 beräknings-enheter    | 100-anslutningar   |
+| Grundläggande 100 beräknings-enheter    | 100 anslutningar   |
 | Standardenheter 100 beräkning | 200-anslutningar   |
 | Standardenheter 200 beräkning | 400-anslutningar   |
 | Standardenheter 400 beräkning | 800 anslutningar   |
@@ -42,6 +42,31 @@ Det finns ett maximalt antal anslutningar, Compute enheter och lagring i varje t
 När för många anslutningar har uppnåtts, får du följande fel:
 > FEL 1040 (08004): För många anslutningar
 
+## <a name="storage-engine-support"></a>Stödet för lagring
+
+### <a name="supported"></a>Stöds
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [MINNE](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Stöds inte
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [SVARTLISTADE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARKIV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERERAD](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Stöd för behörighet
+
+### <a name="unsupported"></a>Stöds inte
+- [SUPER behörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+
+## <a name="data-manipulation-statement-support"></a>Stöd för data manipulation instruktionen
+
+### <a name="supported"></a>Stöds
+- Läs in DATA INFIL - stöds, men det måste ange parametern [lokala] som är riktad till en UNC-sökväg (Azure lagringsutrymmet via XSMB).
+
+### <a name="unsupported"></a>Stöds inte
+- VÄLJ... I UTFIL
+
 ## <a name="preview-functional-limitations"></a>Funktionella begränsningar i förhandsversionen
 
 ### <a name="scale-operations"></a>Skalningsåtgärder
@@ -52,12 +77,14 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="server-version-upgrades"></a>Version serveruppgraderingarna
 - Automatisk migrering mellan större database engine versioner stöds inte för närvarande.
 
-### <a name="subscription-management"></a>Prenumerationshantering
-- Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.
-
 ### <a name="point-in-time-restore"></a>Återställning till tidpunkt
 - Är inte tillåtet att återställa till olika tjänstnivå och/eller Compute enheter och lagringsstorlek.
-- Återställa en släppt server stöds inte.
+- Återställa en borttagen server stöds inte.
+
+## <a name="functional-limitations"></a>Funktionella begränsningar
+
+### <a name="subscription-management"></a>Prenumerationshantering
+- Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Vad som är tillgängligt på respektive tjänstnivå](concepts-service-tiers.md)

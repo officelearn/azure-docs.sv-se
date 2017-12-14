@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar granska åtgärder på resurser
 Du kan bestämma via aktivitetsloggar:
@@ -38,10 +38,10 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
    
     ![Välj aktivitetsloggar](./media/resource-group-audit/select-monitor.png)
 
-   Om du vill filtrera automatiskt aktivitetsloggen för en viss resurs eller en resursgrupp, väljer du **aktivitetsloggen** från den resursbladet. Observera att aktivitetsloggen filtreras automatiskt av den valda resursen.
+   Om du vill filtrera automatiskt aktivitetsloggen för en viss resurs eller en resursgrupp, väljer du **aktivitetsloggen**. Observera att aktivitetsloggen filtreras automatiskt av den valda resursen.
    
     ![Filtrera efter resurs](./media/resource-group-audit/filtered-by-resource.png)
-2. I den **aktivitetsloggen** bladet visas en sammanfattning av nya åtgärder.
+2. I den **aktivitetsloggen**, visas en sammanfattning av nya åtgärder.
    
     ![Visa åtgärder](./media/resource-group-audit/audit-summary.png)
 3. Välj olika villkor för att begränsa antalet åtgärder visas. Till exempel följande bild visar den **Timespan** och **händelse som initieras av** fält ändras för att visa de åtgärder som vidtas av en viss användare eller ett program för den senaste månaden. Välj **tillämpa** att visa resultat av frågan.
@@ -147,4 +147,5 @@ REST-åtgärder för att arbeta med aktivitetsloggen är en del av den [insikter
 * Mer information om att ställa in säkerhetsprinciper, se [Azure rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md).
 * Läs om kommandona för att visa distributionsåtgärder i [visa distributionsåtgärder](resource-manager-deployment-operations.md).
 * Information om hur du hindrar borttagningar på en resurs för alla användare finns [låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
+* Om du vill se en lista över åtgärder som är tillgängliga för varje leverantör i Microsoft Azure Resource Manager finns [Azure Resource Manager-Resursprovidern åtgärder](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

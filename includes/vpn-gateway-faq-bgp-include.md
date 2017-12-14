@@ -10,7 +10,7 @@ Ja, du kan använda dina egna offentliga ASN:er eller privata ASN:er för både 
 ### <a name="are-there-asns-reserved-by-azure"></a>Finns det ASN:er reserverade av Azure?
 Ja, följande ASN:er är reserverade av Azure för både interna och externa peerings:
 
-* Offentliga ASN:er: 8075, 8076, 12076
+* Offentliga ASN: er: 8074 8075, 12076
 * Privata ASN:er: 65515, 65517, 65518, 65519, 65520
 
 Du kan inte ange dessa ASN:er för dina lokala VPN-enheter när du ansluter till Azure VPN-gatewayer.

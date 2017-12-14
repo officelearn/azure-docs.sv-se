@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB .NET ändra Feed Processor SDK & resurser | Microsoft Docs"
-description: "Läs mer om ändringen Feed Processor-API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av .NET DocumentDB ändra Feed Processor SDK."
+title: "Azure Cosmos DB: .NET ändra Feed Processor API, SDK & resurser | Microsoft Docs"
+description: "Läs mer om ändringen Feed Processor-API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av .NET-ändra Feed Processor-SDK."
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: maquaran
-ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 495d69ffc485cc0df148cff9898e9c1f734c296a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>DocumentDB .NET ändra Feed Processor SDK: Hämta och viktig information
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -32,31 +32,33 @@ ms.lasthandoff: 11/01/2017
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 |   |   |
 |---|---|
 |**SDK-hämtningen**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API-dokumentationen**|[Ändra Feed Processor biblioteket API-referensdokumentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Kom igång**|[Kom igång med ändringen Feed Processor .NET DocumentDB SDK](change-feed.md)|
+|**Kom igång**|[Kom igång med ändringen Feed Processor .NET SDK](change-feed.md)|
 |**Aktuella framework som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Lägger till stöd för .NET Standard 2.0. Paketet stöder nu `netstandard2.0` och `net451` framework monikrar.
-* Kompatibel med [.NET DocumentDB SDK](documentdb-sdk-dotnet.md) versioner 1.17.0 och högre.
-* Kompatibel med [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) versioner 1.5.1 och högre.
+* Kompatibel med [SQL .NET SDK](documentdb-sdk-dotnet.md) versioner 1.17.0 och högre.
+* Kompatibel med [SQL .NET Core SDK](documentdb-sdk-dotnet-core.md) versioner 1.5.1 och högre.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Åtgärdar problemet med beräkningen av uppskattning av återstående när ändringen Feed var tom eller inget arbete pågick.
-* Kompatibel med [.NET DocumentDB SDK](documentdb-sdk-dotnet.md) versioner 1.13.2 och högre.
+* Kompatibel med [SQL .NET SDK](documentdb-sdk-dotnet.md) versioner 1.13.2 och högre.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Lägga till en metod för att få en uppskattning av återstående arbete som ska bearbetas i ändra Feed.
-* Kompatibel med [.NET DocumentDB SDK](documentdb-sdk-dotnet.md) versioner 1.13.2 och högre.
+* Kompatibel med [SQL .NET SDK](documentdb-sdk-dotnet.md) versioner 1.13.2 och högre.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA-SDK
-* Kompatibel med [.NET DocumentDB SDK](documentdb-sdk-dotnet.md) versioner 1.14.1 och nedan.
+* Kompatibel med [SQL .NET SDK](documentdb-sdk-dotnet.md) versioner 1.14.1 och nedan.
 
 ## <a name="release--retirement-dates"></a>Versionen & pensionering datum
 Microsoft meddelar notification minst **12 månader** innan du tar bort en SDK för att utjämna övergången till en nyare/stöds version.
@@ -69,7 +71,7 @@ Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tj�
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
-| [1.2.0](#1.2.0) |Den 31 oktober 2017 |--- |
+| [1.2.0](#1.2.0) |31 oktober 2017 |--- |
 | [1.1.1](#1.1.1) |Den 29 augusti 2017 |--- |
 | [1.1.0](#1.1.0) |13 augusti 2017 |--- |
 | [1.0.0](#1.0.0) |07 juli 2017 |--- |

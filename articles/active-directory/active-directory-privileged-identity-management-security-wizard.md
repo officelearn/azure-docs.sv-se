@@ -4,7 +4,7 @@ description: "Första gången du använder Azure Active Directory Privileged Ide
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a53a3719-8cc7-4fc7-8164-aafca192871b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 260d178f3d8158411b3ad266e3b0d15edbebc722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a45e1bdbce299dce38a01a17a65024dc41a353f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Guiden Säkerhet i Azure AD Privileged Identity Management 
 Om du är den första personen att köra Azure Privileged Identity Management (PIM) för din organisation, visas en guide. Guiden hjälper dig att förstå säkerhetsriskerna med Privilegierade identiteter och hur du använder PIM för att minska riskerna. Du behöver inte göra ändringar i befintliga rolltilldelningar i guiden om du vill göra det senare.

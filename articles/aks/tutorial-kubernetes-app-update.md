@@ -1,27 +1,19 @@
 ---
-title: "Kubernetes på Azure kursen - uppdateringsprogrammet | Microsoft Docs"
+title: "Kubernetes på Azure kursen - uppdateringsprogrammet"
 description: AKS kursen - uppdateringsprogrammet
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e788a982d2580e90309df977c8e2e1cb22daadaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Uppdatera ett program i Azure Container Service (AKS)
 
@@ -43,7 +35,7 @@ I föregående självstudier, ett program som har paketerats i en behållare avb
 
 En program-databas har också klona som innehåller programmets källkod och en förskapad Docker Compose-fil som används i den här kursen. Kontrollera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger till katalogen klonade. I är en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yml`.
 
-Om du inte har utfört stegen och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md). 
+Om du inte har utfört stegen och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Uppdatera program
 
@@ -69,7 +61,7 @@ Spara och stäng filen.
 
 ## <a name="update-container-image"></a>Uppdatera behållaren avbildning
 
-Använd [docker compose](https://docs.docker.com/compose/) att återskapa frontend avbildningen och köra programmet uppdaterade. Den `--build` argument används för att instruera Docker Compose för att återskapa programavbildning.
+Använd [docker compose] [ docker-compose] att återskapa frontend avbildningen och köra programmet uppdaterade. Den `--build` argument används för att instruera Docker Compose för att återskapa programavbildning.
 
 ```console
 docker-compose up --build -d
@@ -91,13 +83,13 @@ Hämta servernamn inloggningen med den [az acr lista](/cli/azure/acr#list) komma
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd [docker-taggen](https://docs.docker.com/engine/reference/commandline/tag/) att tagga avbildningen. Ersätt `<acrLoginServer>` med Azure Container registret inloggningsnamnet server eller offentliga registret värdnamn. Även Lägg märke till att Bildversion uppdateras till `redis-v2`.
+Använd [docker-taggen] [ docker-tag] att tagga avbildningen. Ersätt `<acrLoginServer>` med Azure Container registret inloggningsnamnet server eller offentliga registret värdnamn. Även Lägg märke till att Bildversion uppdateras till `redis-v2`.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Använd [docker push](https://docs.docker.com/engine/reference/commandline/push/) att överföra avbildningen till registret. Ersätt `<acrLoginServer>` med server för Azure-behållare registret inloggningsnamn.
+Använd [docker push] [ docker-push] att överföra avbildningen till registret. Ersätt `<acrLoginServer>` med server för Azure-behållare registret inloggningsnamn.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -105,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Distribuera program för uppdatering
 
-För att säkerställa högsta drifttid, måste du köra flera instanser av programmet baljor. Kontrollera konfigurationen med den [kubectl hämta baljor](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) kommando.
+För att säkerställa högsta drifttid, måste du köra flera instanser av programmet baljor. Kontrollera konfigurationen med den [kubectl hämta baljor] [ kubectl-get] kommando.
 
 ```
 kubectl get pod
@@ -128,13 +120,13 @@ Om du inte har flera skida kör azure-röst-framför bilden skala den `azure-vot
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Uppdatera programmet med den [kubectl set](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) kommando. Uppdatera `<acrLoginServer>` med inloggningsnamnet för server eller värd för behållaren registret.
+Uppdatera programmet med den [kubectl set] [ kubectl-set] kommando. Uppdatera `<acrLoginServer>` med inloggningsnamnet för server eller värd för behållaren registret.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Du övervakar distributionen av [kubectl hämta baljor](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) kommando. Eftersom uppdaterade programmet distribueras avslutas din skida och återskapas med den nya behållare avbildningen.
+Du övervakar distributionen av [kubectl hämta baljor] [ kubectl-get] kommando. Eftersom uppdaterade programmet distribueras avslutas din skida och återskapas med den nya behållare avbildningen.
 
 ```azurecli
 kubectl get pod
@@ -175,4 +167,15 @@ I den här självstudiekursen, uppdatera ett program och distribuerat den här u
 Gå vidare till nästa kurs att lära dig hur du övervakar Kubernetes med Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Övervaka Kubernetes med Log Analytics](./tutorial-kubernetes-monitor.md)
+> [Övervakaren Kubernetes med logganalys][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

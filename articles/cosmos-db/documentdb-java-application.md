@@ -1,7 +1,7 @@
 ---
 title: "Självstudiekurs om Java-programutveckling med Azure Cosmos DB | Microsoft Docs"
-description: "Den här självstudien Java visar hur du använder Azure Cosmos-DB och DocumentDB-API för att lagra och komma åt data från en Java-program på Azure Websites."
-keywords: "Programutveckling, självstudier för databas, java-program, självstudier för java-webbprogram, documentdb, azure, Microsoft azure"
+description: "Den här självstudien Java visar hur du använder Azure Cosmos-databas och SQL-API för att lagra och komma åt data från en Java-program på Azure Websites."
+keywords: "Programutveckling, database-självstudier, java-program, java självstudien, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Skapa en Java-webbapp med Azure Cosmos DB och DocumentDB-API
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa en Java-webbapp med Azure Cosmos-databas och SQL-API
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här självstudien Java visar hur du använder den [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) -tjänsten för att lagra och komma åt data från en Java-program på Azure App Service Web Apps. I det här avsnittet får du veta följande:
 
@@ -86,8 +88,8 @@ Så här skapar du JSP-appen:
    
     ![Hello World – självstudie om Java-app](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Steg 3: Installera DocumentDB Java SDK:n
-Det enklaste sättet att dra in DocumentDB Java SDK och dess beroenden är via [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Steg 3: Installera SQL Java SDK
+Det enklaste sättet att dra in SQL Java SDK och dess beroenden är via [Apache Maven](http://maven.apache.org/).
 
 För att kunna göra det måste du konvertera ditt projekt till ett Maven-projekt genom följande steg:
 
@@ -101,12 +103,12 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
    * I den **artefakt-Id** ange azure documentdb.
    * I den **Version** ange 1.5.1.
      
-   ![Installera DocumentDB-SDK för Java-app](./media/documentdb-java-application/image13.png)
+   ![Installera SQL Java-program SDK](./media/documentdb-java-application/image13.png)
      
    * Eller lägga till beroendet XML för grupp-Id och artefakt-Id direkt till pom.xml via en textredigerare:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Klicka på **OK** så installerar Maven DocumentDB Java SDK.
+6. Klicka på **OK** så installerar Maven SQL Java SDK.
 7. Spara filen pom.xml.
 
 ## <a id="UseService"></a>Steg 4: Använda Azure Cosmos DB-tjänsten i ett Java-program
@@ -279,7 +281,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
                 return null;
             }
         }
-7. Vi kan även använda DocumentClient för att hämta en samling eller en lista över TodoItems med hjälp av DocumentDB SQL:
+7. Vi kan även använda DocumentClient för att hämta en samling eller en lista över TodoItems med hjälp av SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

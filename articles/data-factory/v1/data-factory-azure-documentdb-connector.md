@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32b72577002962f049f446d6f3c2353189867e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Flytta data till och från Azure Cosmos-databasen med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Azure Cosmos DB-kopplingen i V2](../connector-azure-cosmos-db.md).
 
-Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data till och från Azure Cosmos DB (DocumentDB-API). Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet. 
+Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data Factory för att flytta data till och från Azure Cosmos DB (SQL-API). Den bygger på den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel som presenterar en allmän översikt över dataflyttning med copy-aktivitet. 
 
 Du kan kopiera data från alla stöds källa datalagret till Azure Cosmos DB eller Azure Cosmos DB till alla stöds sink-datalagret. En lista över datakällor som stöds som datakällor eller sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. 
 
 > [!IMPORTANT]
-> Azure DB Cosmos-anslutningen har endast stöd för DocumentDB-API.
+> Azure DB Cosmos connector har bara stöd för SQL-API.
 
 Att kopiera data som-är till/från JSON-filer eller en annan Cosmos DB samling finns [Import/Export JSON-dokument](#importexport-json-documents).
 

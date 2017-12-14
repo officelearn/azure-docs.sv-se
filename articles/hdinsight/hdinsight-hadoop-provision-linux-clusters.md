@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer
 
@@ -62,7 +62,7 @@ Följ anvisningarna på skärmen för att göra en grundläggande konfiguration.
 > Linux är det enda operativsystemet som används med HDInsight version 3.4 och senare. Mer information finns i [HDInsight 3.3 pensionering](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>Resursgruppens namn 
+## <a name="resource-group-name"></a>Resursgruppsnamn 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) hjälper dig att arbeta med resurserna i ditt program som en grupp som kallas en Azure-resursgrupp. Du kan distribuera, uppdatera, övervaka eller ta bort alla resurser i programmet i en enda, samordnad åtgärd.
 
@@ -98,15 +98,6 @@ Mer information finns i [standard nod konfiguration och virtuella storlekar för
 
 ### <a name="hdinsight-version"></a>HDInsight-version
 Välj versionen av HDInsight för det här klustret. Mer information finns i [stöds HDInsight-versioner](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Klustret nivå: tjänstnivåer för HDInsight
-
-Azure HDInsight erbjuder molntjänster för stordata i två tjänstnivåer: Standard och Premium.  Mer information finns i [HDInsight Standard och HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-Följande skärmbild visar informationen om Azure portal för att välja klustertyper.
-
-![HDInsight premium-konfiguration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Klustrets inloggningsnamn och SSH-användarnamn
 Du kan konfigurera två användarkonton när klustret skapas med HDInsight-kluster:

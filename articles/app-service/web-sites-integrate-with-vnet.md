@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service virtuellt nätverk integrering och visar hur du ställer in den med appar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Om du inte känner till virtuella Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med hjälp av en mängd olika tekniker för VPN. Mer information om virtuella Azure-nätverk som startar med den här informationen: [Azure översikt över virtuella nätverk][VNETOverview]. 
@@ -39,7 +39,7 @@ Funktionen VNet-integrering:
 * kräver en Standard, Premium eller isolerad priser plan 
 * fungerar med klassiska eller Resource Manager VNet 
 * stöder TCP och UDP
-* fungerar med webb-, mobil- och API apps
+* fungerar med webb-, mobil, API apps och funktionen appar
 * gör att en app för att ansluta till endast 1 virtuellt nätverk i taget
 * Gör upp till fem Vnet integreras med i en Apptjänstplan 
 * Gör samma virtuella nätverk som ska användas av flera appar i en Apptjänstplan
@@ -93,7 +93,7 @@ Om ditt VNet har punkt till plats eller inte har en gateway, har att ställa in 
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Aktivera punkt till plats i en Resource Manager-VNet
-Om du vill konfigurera en Resource Manager-VNet med en gateway och pekar på platsen, kan du använda antingen PowerShell enligt beskrivningen här, [konfigurerar en punkt-till-plats-anslutning till ett virtuellt nätverk med PowerShell] [ V2VNETP2S] eller använda Azure portal som beskrivs här [konfigurerar en punkt-till-plats-anslutning till ett virtuellt nätverk med Azure-portalen][V2VNETPortal]. Användargränssnittet för att utföra den här funktionen är inte tillgänglig ännu. Observera att du behöver skapa certifikat för peka platskonfiguration. Detta konfigureras automatiskt när du ansluter din WebApp till VNet. 
+Om du vill konfigurera en Resource Manager-VNet med en gateway och pekar på platsen, kan du använda antingen PowerShell enligt beskrivningen här, [konfigurerar en punkt-till-plats-anslutning till ett virtuellt nätverk med PowerShell] [ V2VNETP2S] eller använda Azure portal som beskrivs här [konfigurerar en punkt-till-plats-anslutning till ett virtuellt nätverk med Azure-portalen][V2VNETPortal]. Användargränssnittet för att utföra den här funktionen är inte tillgänglig ännu. Observera att du inte behöver skapa certifikat för peka platskonfiguration. Detta konfigureras automatiskt när du ansluter din WebApp till VNet. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Skapa ett förkonfigurerade virtuellt nätverk
 Om du vill skapa ett nytt virtuellt nätverk som har konfigurerats med en gateway och punkt-till-plats har möjlighet att göra det men endast för en Resource Manager-VNet med App Service nätverk Användargränssnittet. Om du vill skapa ett klassiskt virtuellt nätverk med en gateway och punkt-till-plats måste du göra det manuellt via användargränssnittet för nätverk. 
@@ -101,11 +101,11 @@ Om du vill skapa ett nytt virtuellt nätverk som har konfigurerats med en gatewa
 Om du vill skapa en Resource Manager VNet i användargränssnittet för integrering av virtuellt nätverk väljer du helt enkelt **Skapa nytt virtuellt nätverk** och ange den:
 
 * Namn för virtuellt nätverk
-* Virtuellt Nätverksadressblock
+* Adressblock för virtuellt nätverk
 * Undernätsnamn
-* Adressblock för undernätet
+* Adressbok för undernät
 * Adressblock för gateway
-* Punkt-till-plats-Adressblock
+* Adressblock för punkt-till-plats
 
 Om du vill att detta virtuella nätverk att ansluta till andra nätverk, bör du inte välja IP-adressutrymmen som överlappar med dessa nätverk. 
 

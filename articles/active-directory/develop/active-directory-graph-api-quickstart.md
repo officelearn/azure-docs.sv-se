@@ -4,7 +4,7 @@ description: "Azure Active Directory Graph API ger programmatisk åtkomst till A
 services: active-directory
 documentationcenter: n/a
 author: viv-liu
-manager: mbaldwin
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.openlocfilehash: fad5c315a247673b7a2ad52b4a78b49c567a997a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2dc65598dd9a73e24a2f961027554bb10b961397
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Snabbstartsguide för Azure AD Graph API
 Azure Active Directory (AD) Graph API ger programmatisk åtkomst till Azure AD via OData REST API-slutpunkter. Program kan använda Graph API för att utföra skapa, läsa, uppdatera och ta bort CRUD-åtgärder i katalogdata och objekt. Du kan till exempel använda Graph API att skapa en ny användare, visa eller uppdatera användarens egenskaper, ändra användarens lösenord, kontrollera gruppmedlemskap för rollbaserad åtkomst, inaktivera eller ta bort användaren. Läs mer om Graph API-funktioner och Programscenarier [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) och [krav för Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). 

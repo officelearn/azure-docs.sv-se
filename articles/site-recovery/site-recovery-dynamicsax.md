@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replikera en programarkitektur i Dynamics AX med hjälp av Azure Site Recovery
 
@@ -31,7 +31,6 @@ Idag, ger Dynamics AX inte några out box-katastrofåterställning återställni
 
 Den här artikeln förklarar hur du kan skapa en lösning för katastrofåterställning för Dynamics AX-program med hjälp av [Azure Site Recovery](site-recovery-overview.md). Den omfattar också planerad/oplanerad redundanstestning med hjälp av en återställningsplan med ett klick, konfigurationer som stöds och förutsättningar.
 
-En lösning för katastrofåterställning för Site Recovery-baserade är fullständigt testade certifierad och rekommenderas av Dynamics AX.
 
 
 ## <a name="prerequisites"></a>Krav

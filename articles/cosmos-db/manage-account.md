@@ -1,7 +1,7 @@
 ---
 title: Hantera en Azure DB som Cosmos-konto via Azure Portal | Microsoft Docs
 description: "Lär dig hur du hanterar Azure DB som Cosmos-konto via Azure Portal. Hitta en vägledning om hur du använder Azure-portalen visa, kopiera, ta bort och ha åtkomst till konton."
-keywords: Azure-portalen documentdb, azure, Microsoft azure
+keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Så här hanterar du ett konto i Azure Cosmos DB
 Lär dig mer om att ställa in globalt konsekvensfel, fungerar med nycklar och ta bort ett Azure DB som Cosmos-konto i Azure-portalen.

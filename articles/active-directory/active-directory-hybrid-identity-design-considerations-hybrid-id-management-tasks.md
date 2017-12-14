@@ -4,7 +4,7 @@ description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 921c8391fc18eca35d10c3ade158a98ae88df397
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identity livscykel
 Identiteten är hör till grunderna för enterprise mobility och programmet åtkomststrategi. Om du registrerar din mobila enhet eller SaaS-app, är din identitet avgörande för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering enhetlig och synkroniseringen mellan din identitet databaser som innehåller automatisering och centralisera processen för etablering av resurser. Identitetslösning bör vara en centraliserad identitet i molnet och lokalt och även använda någon form av identitetsfederation att underhålla central autentisering på ett säkert sätt delar och samarbetar med externa användare och företag. Resurser mellan operativsystem och program till personer i eller kopplad till en organisation. Organisationsstruktur kan ändras för att anpassa provisioning principer och procedurer.

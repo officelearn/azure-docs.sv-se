@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorn certifikat för användning med Java, Python och Node.js
 
@@ -87,11 +87,11 @@ En gång i ”CosmosDBEmulatorCertificate” SSL-certifikatet har installerats d
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Hur du använder certifikatet i Python
 
-Som standard den [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) för DocumentDB-API: et inte kommer försöker och använda SSL-certifikatet när du ansluter till lokala emulatorn. Om du kan följa exemplen i men du vill använda SSL-verifiering av [Python socket omslutningar](https://docs.python.org/2/library/ssl.html) dokumentation.
+Som standard den [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) för SQL-API som inte kommer försök och använda SSL-certifikatet när du ansluter till lokala emulatorn. Om du kan följa exemplen i men du vill använda SSL-verifiering av [Python socket omslutningar](https://docs.python.org/2/library/ssl.html) dokumentation.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Hur du använder certifikatet i Node.js
 
-Som standard den [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) för DocumentDB-API: et inte kommer försöker och använda SSL-certifikatet när du ansluter till lokala emulatorn. Om du kan följa exemplen i men du vill använda SSL-verifiering av [Node.js dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Som standard den [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) för SQL-API som inte kommer försök och använda SSL-certifikatet när du ansluter till lokala emulatorn. Om du kan följa exemplen i men du vill använda SSL-verifiering av [Node.js dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Nästa steg
 

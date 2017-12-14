@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: c6aa188336ecc4c374b5dd651a80b57f6f16fb3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Självstudier: Azure Active Directory-integrering med bild fungerar
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [AVBILDNINGEN fungerar klienten supportteamet](mailto:riki.satou@fujifilm.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [AVBILDNINGEN fungerar klienten supportteamet](mailto:iw-sd-support@fujifilm.com) att hämta dessa värden. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -127,7 +127,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![BILD fungerar konfiguration](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Konfigurera enkel inloggning på **AVBILDNINGEN fungerar** sida, måste du skicka den hämtade **Certificate(Base64), Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** till [BILDEN fungerar supportteam](mailto:riki.satou@fujifilm.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+7. Konfigurera enkel inloggning på **AVBILDNINGEN fungerar** sida, måste du skicka den hämtade **Certificate(Base64), Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** till [BILDEN fungerar supportteam](mailto:iw-sd-support@fujifilm.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-image-works-test-user"></a>Skapa en avbildning fungerar testanvändare
 
-I det här avsnittet kan du skapa en användare som kallas Britta Simon i AVBILDNINGEN fungerar. Arbeta med [AVBILDNINGEN fungerar supportteam](mailto:riki.satou@fujifilm.com) att lägga till användare i AVBILDNINGEN fungerar-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet kan du skapa en användare som kallas Britta Simon i AVBILDNINGEN fungerar. Arbeta med [AVBILDNINGEN fungerar supportteam](mailto:iw-sd-support@fujifilm.com) att lägga till användare i AVBILDNINGEN fungerar-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

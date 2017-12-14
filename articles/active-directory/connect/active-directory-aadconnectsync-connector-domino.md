@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du konfigurerar Microsofts Lotus D
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Teknisk referens för Lotus Domino-koppling
 Den här artikeln beskriver kopplingen för Lotus Domino. Artikeln gäller för följande produkter:
@@ -39,7 +39,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 | Anslutna datakällan |Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Klient:<li>Lotus Domino 8.5.x</li><li>Lotus Notes-9.x</li> |
 | Scenarier |<li>Livscykelhantering för objektet</li><li>Grupphantering</li><li>Lösenordshantering</li> |
 | Åtgärder |<li>Fullständig och Deltaimport</li><li>Exportera</li><li>Ange och ändra lösenord på http-lösenord</li> |
-| Schemat |<li>Person (centrala användare, kontakta (personer med inget certifikat))</li><li>Grupp</li><li>Resursen (resurs, plats, möte)</li><li>E-post i databasen</li><li>Dynamisk identifiering av attribut för objekt som stöds</li><li>Stöd för upp till 250 anpassade certifiers med en organisation och organisationsenheter (OU)</li> |
+| Schema |<li>Person (centrala användare, kontakta (personer med inget certifikat))</li><li>Grupp</li><li>Resursen (resurs, plats, möte)</li><li>E-post i databasen</li><li>Dynamisk identifiering av attribut för objekt som stöds</li><li>Stöd för upp till 250 anpassade certifiers med en organisation och organisationsenheter (OU)</li> |
 
 Lotus Domino-kopplingen använder Lotus Notes-klienten för att kommunicera med Lotus Domino-Server. Till följd av detta beroende måste en stöds Lotus Notes-klienten installeras på synkroniseringsservern. Kommunikationen mellan klienten och servern implementeras via gränssnittet Lotus Notes .NET Interop (Interop.domino.dll). Det här gränssnittet underlättar kommunikationen mellan Microsoft.NET plattform och Lotus Notes-klienten och stöder åtkomst till dokument för Lotus Domino och vyer. För Deltaimport är det också möjligt att det interna gränssnittet C++ används (beroende på markerade delta importmetoden).
 
@@ -186,7 +186,7 @@ Dessa objekt har VC =\_kontakta lagts till deras unika namn.
 
 Det är möjligt att flera objekt har samma DN på grund av problem med replikering i en stor Domino-implementering. I dessa fall visas kopplingen två objekt med olika UniversalIDs men samma unika namn. Den här konflikten innebär att ett tillfälligt objekt som skapas i anslutningsplatsen. Kopplingen kan ignorera de objekt som har markerats i Domino som offer för replikering. Det rekommenderas att behålla den här kryssrutan markerad.
 
-#### <a name="export-settings"></a>Exportera inställningar
+#### <a name="export-settings"></a>Exportinställningar
 Om alternativet **använder AdminP för uppdatering av referenser** är avmarkerat, export av referensattribut, till exempel medlem, är ett direkt anrop och använder inte AdminP-processen. Använd endast det här alternativet om AdminP inte har konfigurerats för att upprätthålla referensintegritet.
 
 #### <a name="routing-information"></a>Information om routning
@@ -416,7 +416,7 @@ Det här avsnittet innehåller de attribut som är obligatoriska för varje obje
 | Main i databasen |<li>Fullständigt namn</li><li>MailFile</li><li>E-postserver</li><li>MailDomain</li> |
 | Person |<li>Efternamn</li><li>MailFile</li><li>Kort filnamn</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Kontaktpersonen med ingen certifier |<li>\_MMS_IDRegType</li> |
-| Resurs |<li>Fullständigt namn</li><li>ResourceType</li><li>ConfDB</li><li>Resurskapacitet</li><li>plats</li><li>Visningsnamn</li><li>MailFile</li><li>E-postserver</li><li>MailDomain</li> |
+| Resurs |<li>Fullständigt namn</li><li>ResourceType</li><li>ConfDB</li><li>Resurskapacitet</li><li>Webbplats</li><li>DisplayName</li><li>MailFile</li><li>E-postserver</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Vanliga problem och frågor
 ### <a name="schema-detection-does-not-work"></a>Schemat identifiering fungerar inte

@@ -4,7 +4,7 @@ description: "Mer information om användarens tillstånd i Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Så här kräver tvåstegsverifiering för en användare eller grupp
 
@@ -40,11 +40,11 @@ Båda dessa alternativ be användarna att registrera dig för Azure Multi-Factor
 
 Användarkonton i Azure Multi-Factor Authentication har följande tre skilda lägen:
 
-| Status | Beskrivning | Icke-webbläsarappar som påverkas | Webbläsarbaserade appar och modern autentisering som påverkas |
-|:---:|:---:|:---:|:--:|
-| Disabled |Standardläget för en ny användare har inte registrerats för Azure Multi-Factor Authentication (MFA). |Nej |Nej |
-| Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De uppmanas att registrera sig nästa gång de loggar in. |Nej.  De fortsätter att fungera tills registreringen har slutförts. | Ja. MFA-registrering måste utföras när uppdateringstoken för sessionen upphör att gälla.|
-| Enforced |Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. |Ja.  Appar kräver applösenord. |Ja. MFA krävs vid inloggningen. |
+| Status | Beskrivning | Icke-webbläsarappar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering som påverkas |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled |Standardläget för en ny användare har inte registrerats för Azure Multi-Factor Authentication (MFA). |Nej |Nej |Nej |
+| Enabled |Användaren har registrerats i Azure MFA, men har inte registrerats. De uppmanas att registrera sig nästa gång de loggar in. |Nej.  De fortsätter att fungera tills registreringen har slutförts. | Ja. MFA-registrering måste utföras när sessionen upphör att gälla.| Ja. MFA-registrering måste utföras när åtkomsttoken upphört att gälla. |
+| Enforced |Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. |Ja.  Appar kräver applösenord. |Ja. MFA krävs vid inloggningen. | Ja. MFA krävs vid inloggningen. |
 
 Tillstånd för en användare visar om en administratör har registrerats dem i Azure MFA och om de slutfört registreringsprocessen.
 

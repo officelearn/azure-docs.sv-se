@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka Cloud Service-roller som inte går att starta
 Här följer några vanliga problem och lösningar som rör Azure Cloud Services roller som inte går att starta.
@@ -62,9 +62,8 @@ När tjänsten är nytt, visas ett felmeddelande med namnet på sammansättninge
 Du kan använda Fjärrskrivbord för att få åtkomst till rollen och visa fullständig felinformation via fjärranslutning. Använd följande steg för att granska felen med hjälp av fjärrskrivbord:
 
 1. Kontrollera att Azure SDK 1.3 eller senare är installerad.
-2. Under distributionen av lösningen med hjälp av Visual Studio, välja att ”konfigurera anslutning till fjärrskrivbord...”. Mer information om hur du konfigurerar fjärrskrivbordsanslutningen finns [med hjälp av fjärrskrivbord med Azure-roller](../vs-azure-tools-remote-desktop-roles.md).
-3. I Microsoft Azure klassiska portal när instansen visar statusen **klar**, klicka på någon av rollinstanserna.
-4. Klicka på den **Anslut** ikonen i den **fjärråtkomst** område i menyfliksområdet.
+2. Under distributionen av lösningen med hjälp av Visual Studio, välja att ”konfigurera anslutning till fjärrskrivbord”. Mer information om hur du konfigurerar fjärrskrivbordsanslutningen finns [med hjälp av fjärrskrivbord med Azure-roller](../vs-azure-tools-remote-desktop-roles.md).
+3. I Microsoft Azure-portalen när instansen visar statusen **klar**till instansen. Mer information om hur du använder fjärrskrivbordet med molntjänster finns [till rollinstanser](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Logga in på den virtuella datorn med hjälp av autentiseringsuppgifterna som angavs vid konfiguration av fjärrskrivbord.
 6. Öppna ett kommandofönster.
 7. Skriv `IPconfig`.

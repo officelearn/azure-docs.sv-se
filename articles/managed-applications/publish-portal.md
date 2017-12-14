@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicera ett tjänstprogram katalogen via Azure portal
 
@@ -60,7 +60,6 @@ ZIP-filen som innehåller programdefinitionen av hanterade måste vara tillgäng
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program, se [hanteras Programöversikt](overview.md).
+* En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Hanterat program exempel finns [exempelprojekten för Azure hanterade program](sample-projects.md).
-* Information om hur du publicerar hanterade program på Azure Marketplace finns [Azure hanterade program i Marketplace](publish-marketplace-app.md).
-* Information om hur du skapar en UI-definitionsfilen för ett hanterat program finns [Kom igång med CreateUiDefinition](create-uidefinition-overview.md).
+* Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.

@@ -18,13 +18,13 @@ ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
 ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
-Azure Functions kan du köra din kod i en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) miljö utan att först skapa en virtuell dator eller publicera ett webbprogram. I det här ämnet får du lära dig att använda Functions till att skapa en ”hello world”-funktion i Azure Portal.
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/overview/serverless-computing/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. I det här ämnet får du lära dig att använda Functions till att skapa en ”hello world”-funktion i Azure Portal.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 

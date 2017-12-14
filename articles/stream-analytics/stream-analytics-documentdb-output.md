@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Mål Azure Cosmos DB för JSON-utdata från Stream Analytics
 Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor på Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskrivs några metoder för att implementera den här konfigurationen.
@@ -27,7 +27,7 @@ Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/service
 För de som inte är bekant med Cosmos DB, ta en titt på [Azure Cosmos DB Utbildningsväg](https://azure.microsoft.com/documentation/learning-paths/documentdb/) att komma igång. 
 
 > [!Note]
-> Just nu är Azure Stream Analytics endast stöd för anslutning till CosmosDB med **DocumentDB SQL-API**.
+> Just nu är Azure Stream Analytics endast stöd för anslutning till CosmosDB med **SQL API**.
 > Andra Azure Cosmos DB-API: er stöds inte ännu. Om platsen Azure Stream Analytics till Azure DB som Cosmos-konton som har skapats med andra API: er, kanske data inte korrekt lagras. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Grunderna i Cosmos DB som ett mål för utdata
@@ -36,7 +36,7 @@ Azure DB som Cosmos-utdata i Stream Analytics kan skriva strömmen bearbetning r
 Cosmos DB samling alternativen beskrivs nedan.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Finjustera konsekvens, tillgänglighet och svarstid
-Om du vill matcha ditt programkrav kan Cosmos DB du finjustera databasen och samlingar och kompromissa mellan konsekvens, tillgänglighet och svarstid. Beroende på vilka nivåer av läskonsekvens scenariot behov mot läsa och skriva latens, du kan välja en konsekvensnivå på ditt konto. Som standard kan Cosmos DB också synkron indexering på varje CRUD-åtgärd i din samling. Det här är ett annat bra alternativ för att ange skrivning/läsning prestanda i Cosmos-databasen. Ytterligare information om det här avsnittet finns det [ändra din databas och fråga konsekvensnivåer](../documentdb/documentdb-consistency-levels.md) artikel.
+Om du vill matcha ditt programkrav kan Cosmos DB du finjustera databasen och samlingar och kompromissa mellan konsekvens, tillgänglighet och svarstid. Beroende på vilka nivåer av läskonsekvens scenariot behov mot läsa och skriva latens, du kan välja en konsekvensnivå på ditt konto. Som standard kan Cosmos DB också synkron indexering på varje CRUD-åtgärd i din samling. Det här är ett annat bra alternativ för att ange skrivning/läsning prestanda i Cosmos-databasen. Ytterligare information om det här avsnittet finns det [ändra din databas och fråga konsekvensnivåer](../cosmos-db/consistency-levels.md) artikel.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts från Stream Analytics
 Stream Analytics-integrering med Cosmos DB kan du infoga eller uppdatera poster i din Cosmos-DB-samling baserat på en viss dokument-ID-kolumn. Detta kallas även för som en *Upsert*.

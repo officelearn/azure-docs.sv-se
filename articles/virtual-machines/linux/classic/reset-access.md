@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Hur du återställer en Linux VM lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk överensstämmelse med hjälp av VMAccess-tillägget
 Om du inte ansluta till en virtuell Linux-dator på Azure på grund av ett nytt lösenord, en felaktigt SSH (Secure Shell) nyckel eller ett problem med SSH-konfigurationen använder VMAccessForLinux-tillägget med Azure CLI för att återställa lösenord eller SSH-nyckel, åtgärda SSH-konfigurationen och kontrollera disk konsekvenskontroll. 
@@ -44,7 +44,7 @@ Med Azure CLI, kan du göra följande:
 ## <a name="prerequisites"></a>Krav
 Du måste göra följande:
 
-* Du behöver [installerar Azure CLI](../../../cli-install-nodejs.md) och [ansluta till din prenumeration](../../../xplat-cli-connect.md) att använda Azure-resurser som är kopplade till ditt konto.
+* Du behöver [installerar Azure CLI](../../../cli-install-nodejs.md) och [ansluta till din prenumeration](/cli/azure/authenticate-azure-cli) att använda Azure-resurser som är kopplade till ditt konto.
 * Ange rätt läge för den klassiska distributionsmodellen genom att skriva följande kommando i Kommandotolken:
     ``` 
         azure config mode asm

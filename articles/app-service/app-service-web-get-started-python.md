@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
@@ -66,7 +66,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda komman
 python main.py
 ```
 
-Öppna en webbläsare och gå till exempelapp på `http://localhost:5000`.
+Öppna en webbläsare och navigera till exempelappen på `http://localhost:5000`.
 
 Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
@@ -86,7 +86,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Bläddra till den nya webbappen. Ersätt  _&lt;appnamn >_ med ett unikt appnamn.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Python-exempelkoden körs i en Azure App Service-webbapp.
 return 'Hello, Azure!'
 ```
 
-Genomför ändringarna i Git i lokala terminalfönster och sedan genomför kodändringarna i Azure.
+I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
 
 ```bash
 git commit -am "updated output"

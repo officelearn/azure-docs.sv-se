@@ -1,6 +1,6 @@
 ---
-title: "Azure Behållarinstanser region och resurs tillgänglighet | Azure-dokument"
-description: "Identifiera vilka Azure-regioner stöd för distribution av behållarinstanser och gränser CPU och minne för dessa instanser."
+title: "Region- och resurstillgänglighet för Azure Container Instances | Azure Docs"
+description: "Ta reda på vilka Azure-regioner som har stöd för distribution av behållarinstanser, samt processor- och minnesgränser för dessa instanser."
 services: container-instances
 documentationcenter: 
 author: mmacy
@@ -19,25 +19,25 @@ ms.author: marsma
 ms.custom: 
 ms.openlocfilehash: 2b9b1b864bbfd73383759212dd7d91f8e4941544
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-availability-for-azure-container-instances"></a>Regional tillgänglighet för Azure-Behållarinstanser
+# <a name="region-availability-for-azure-container-instances"></a>Regional tillgänglighet för Azure Container Instances
 
-Under förhandsgranskning är Azure Behållarinstanser tillgängliga i följande regioner med angivna CPU och minne.
+I förhandsversionen är Azure Container Instances tillgängligt i följande regioner med angivna processor- och minnesgränser.
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
-| Västra Europa, västra USA, östra USA | Linux | 2 | 7 |
-| Västra Europa, västra USA, östra USA | Windows | 2 | 3.5 |
+| Europa, västra; USA, västra; USA, östra | Linux | 2 | 7 |
+| Europa, västra; USA, västra; USA, östra | Windows | 2 | 3.5 |
 
 ## <a name="resource-availability"></a>Resurstillgänglighet
 
-Behållarinstanser som skapats inom gränserna för dessa regleras av tillgänglighet för regionen distribution. När en region är hårt belastad kan uppstå det ett fel när du distribuerar instanser.
+Behållarinstanser som har skapats inom dessa resursgränser finns i mån av tillgång i distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser.
 
-Försök att distribuera instanser med lägre CPU och minnesinställningar för att åtgärda en distributionsfel, eller försök distributionen vid ett senare tillfälle.
+Du kan försöka lindra sådana distributionsfel genom att prova att distribuera instanser med lägre processor- och minnesinställningar. Du kan även prova att genomföra distributionen senare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du felsöker behållaren instans distribution finns [felsöka distributionsproblem med Azure Container instanser](container-instances-troubleshooting.md).
+Mer information om att felsöka distribution av behållarinstanser finns i [Troubleshoot deployment issues with Azure Container Instances](container-instances-troubleshooting.md) (Felsöka distributionsproblem med Azure Container Instances).

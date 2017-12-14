@@ -1,5 +1,5 @@
 
-1. Logga in på din Azure-prenumeration med hjälp av anvisningarna i [Connect to Azure from the Azure CLI 1.0](../articles/xplat-cli-connect.md) (Ansluta till Azure från Azure CLI 1.0).
+1. Logga in på din Azure-prenumeration med hjälp av anvisningarna i [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Ansluta till Azure från Azure CLI 1.0).
 
 2. Se till att du använder läget för klassisk distribution:
 

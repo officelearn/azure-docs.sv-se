@@ -4,7 +4,7 @@ description: "Få svar på vanliga frågor och svar om Azure Active Directory B2
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -115,7 +115,7 @@ Vi rekommenderar att du bjuda in en användare från partnerorganisationen att a
 Om partnern har en Azure AD-klient som är federerat till lokal autentisering infrastruktur, uppnås lokalt enkel inloggning (SSO) automatiskt. Om partnern som inte har en Azure AD-klient, skapas en Azure AD-kontot för nya användare. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Jag tror Azure AD B2B accepterade gmail.com och outlook.com-e-postadresser och att B2C användes för dessa typer av konton?
-Vi tar bort skillnaderna mellan B2B och företag att företagets (B2C) samarbete enligt vilken identiteter stöds. Den identitet som används är inte en bra anledning att välja mellan att använda B2B eller med hjälp av B2C. Information om hur du väljer ett samarbetsalternativ finns [jämför B2B-samarbete och B2C i Azure Active Directory](active-directory-b2b-compare-b2c.md).
+Vi tar bort skillnaderna mellan B2B- och business-to-consumer (B2C) samarbete enligt vilken identiteter stöds. Den identitet som används är inte en bra anledning att välja mellan att använda B2B eller med hjälp av B2C. Information om hur du väljer ett samarbetsalternativ finns [jämför B2B-samarbete och B2C i Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Vilka program och tjänster stöder Azure B2B gästanvändare?
 Alla Azure AD-integrerade program stöder Azure B2B gästanvändare. 

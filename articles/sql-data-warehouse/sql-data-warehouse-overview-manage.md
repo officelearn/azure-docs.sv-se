@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Hantera databaser i Azure SQL Data Warehouse
 SQL Data Warehouse automatiserar många aspekter av att hantera dina databaser. Om du vill skala prestanda behöver du bara att justera och betala för rätt nivå av beräkningsresurser och därefter låta SQL Data Warehouse gör allt arbete med skala ut och skala tillbaka.
@@ -47,7 +47,7 @@ Om du vill komma igång med Azure-portalen, se [skapa ett SQL Data Warehouse (Az
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools i Visual Studio
 [SQL Server Data Tools] [ SQL Server Data Tools] (SSDT) i Visual Studio kan du ansluta till, hantera och utveckla dina databaser. Om du är programutvecklare som är bekant med Visual Studio eller andra integrerad utvecklingsmiljöer (IDEs) kan du använda SSDT i Visual Studio.
 
-SSDT innehåller SQL Server Object Explorer, som gör det möjligt att visualisera, ansluta och köra skript mot SQL Data Warehouse-databaser. För att snabbt ansluta till SQL Data Warehouse, klickar du bara den **öppna i Visual Studio** knapp i kommandofältet när Visa databasen information i den klassiska Azure-portalen.  
+SSDT innehåller SQL Server Object Explorer, som gör det möjligt att visualisera, ansluta och köra skript mot SQL Data Warehouse-databaser. För att snabbt ansluta till SQL Data Warehouse, klickar du bara den **öppna i Visual Studio** knapp i kommandofältet när Visa databasen information i Azure-portalen.  
 
 Om du vill komma igång med SSDT i Visual Studio, se [frågan Azure SQL Data Warehouse med Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 

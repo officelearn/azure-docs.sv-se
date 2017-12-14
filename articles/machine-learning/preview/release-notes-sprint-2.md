@@ -10,9 +10,9 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 3209ad7c9b2afd9ff06d685c41b1775800a62a53
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/05/2017
 ---
@@ -73,10 +73,11 @@ Nedan följer en lista över detaljerade uppdateringar under varje komponent i A
 ### <a name="job-execution"></a>Jobbkörningen
 Du kan nu skapa och få åtkomst till remotedocker eller kluster typen Beräkning mål med SSH-nyckel för autentisering följa de här stegen:
 - Koppla beräkning mål med följande kommando i CLI
-```
-az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for your compute target> -u <username to be used to access the compute target> –k
-```
-[!NOTE] -k alternativet i kommandot anger för att generera och använder SSH-nyckel.
+
+    ```azure-cli
+    $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+    ```
+[!NOTE] -k (eller--Använd azureml-ssh-nyckel) anger i kommandot för att generera och använder SSH-nyckel.
 
 - Azure ML-arbetsstationen ska generera en offentlig nyckel och utdata som i konsolen. Logga in på målet beräkning med samma användarnamn och Lägg till ~/.ssh/authorized_keys filen med den här offentliga nyckeln.
 
@@ -109,11 +110,10 @@ Mer information om hur du skapar beräkning mål finns [konfigurerar Azure Machi
 - [AZTK integrering](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### <a name="sample-projects"></a>Exempelprojekt
-- Iris och SparkMML exempel uppdateras med den nya versionen av Azure ML-SDK
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) och [MMLSpark](https://github.com/Azure/mmlspark) exempel uppdateras med den nya versionen av Azure ML-SDK
 
 ## <a name="breaking-changes"></a>GÖR ÄNDRINGAR
 - Upphöja den `--type` växla i `az ml computetarget attach` till en underordnad. 
 
-- `az ml computetarget attach --type remotedocker`är nu`az ml computetarget attach remotedocker`
-
-- `az ml computetarget attach --type cluster`är nu`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker`är nu`az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster`är nu`az ml computetarget attach cluster`

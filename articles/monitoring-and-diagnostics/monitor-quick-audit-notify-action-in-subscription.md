@@ -1,6 +1,6 @@
 ---
 title: "Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration | Microsoft Docs"
-description: "Förstå historiken för resurshantering och tjänstens hälsa för andra aktiviteter för prenumerationen i aktivitetsloggen och sedan använda en avisering i aktivitetsloggen för att få ett e-postmeddelande när en åtgärd med höga privilegier utförs i din prenumeration."
+description: "Förstå historiken för resurshantering, tjänstehälsa och annan prenumerationsaktivitet i aktivitetsloggen och använd sedan en aktivitetsloggavisering för att få ett e-postmeddelande när en åtgärd med höga privilegier utförs i din prenumeration."
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.author: johnkem
 ms.custom: mvc
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration
 
-Den **Azure-aktivitetsloggen** innehåller en historik över prenumerationsnivån händelser i Azure. Det ger information om *som* skapas, uppdateras eller tas bort *vad* resurser och *när* de gjorde den. Du kan skapa en **aktivitetsloggen avisering** att ta emot e-post, SMS eller webhook meddelanden när en aktivitet inträffar som matchar din avisering villkor. Den här Snabbstartsguide för att skapa en enkel nätverkssäkerhetsgrupp, surfning aktivitetsloggen för att förstå den händelse som uppstått och sedan redigera en aktivitetsloggen avisering att bli meddelad när nätverkssäkerhetsgrupp har skapats kommer vidarebefordran.
+**Azure-aktivitetsloggen** innehåller historik över händelser på prenumerationsnivå i Azure. Loggen visar information om *vem* som har skapat, uppdaterat eller tagit bort *vilka* resurser och *när* det gjordes. Du kan skapa en **aktivitetsloggavisering** så att du får ett e-postmeddelande, SMS eller webhook-meddelande när en aktivitet utförs som matchar dina aviseringsvillkor. Den här snabbstarten visar hur du skapar en enkel nätverkssäkerhetsgrupp, förstår händelser i aktivitetsloggen och skapar en aktivitetsloggaviseringen så att du får ett meddelande när en nätverkssäkerhetsgrupp skapas i framtiden.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -26,76 +26,76 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-network-security-group"></a>Skapa en säkerhetsgrupp för nätverk
+## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
 1. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 
-2. Välj **nätverk**väljer **nätverkssäkerhetsgruppen**.
+2. Välj **Nätverk** och sedan **Nätverkssäkerhetsgrupp**.
 
-3. Ange ”myNetworkSG” som den **namn** och skapa en ny resursgrupp med namnet **myResourceGroup**. Klicka på knappen **Skapa**.
+3. Skriv myNetworkSG som **Namn** och skapa en ny resursgrupp med namnet **myResourceGroup**. Klicka på knappen **Skapa**.
 
-    ![Skapa en säkerhetsgrupp för nätverk i portalen](./media/monitor-quick-audit-notify-action-in-subscription/create-network-security-group.png)
+    ![Skapa en nätverkssäkerhetsgrupp i portalen](./media/monitor-quick-audit-notify-action-in-subscription/create-network-security-group.png)
 
-## <a name="browse-the-activity-log-in-the-portal"></a>Bläddra aktivitetsloggen i portalen
+## <a name="browse-the-activity-log-in-the-portal"></a>Bläddra i aktivitetsloggen i portalen
 
-En händelse har nu lagts till aktivitetsloggen som beskriver skapandet av nätverkssäkerhetsgruppen. Använd följande instruktioner för att identifiera händelsen.
+Nu har en händelse lagts till i aktivitetsloggen som beskriver skapandet av den nya nätverkssäkerhetsgruppen. Identifiera händelsen med hjälp av följande instruktioner.
 
-1. Klicka på den **övervakaren** knapp hittades i listan över vänstra navigeringsfönstret. Det öppnar du avsnittet aktivitetsloggen. Det här avsnittet innehåller en historik över alla åtgärder som användarna har utförts på resurser i din prenumeration, filtrera efter flera egenskaper som den **resursgruppen**, **Timespan**, och  **Kategori**.
+1. Klicka på knappen **Övervaka** i den vänstra navigeringslistan. Därmed öppnas avsnittet Aktivitetslogg. Avsnittet innehåller historik för alla åtgärder som användare har utfört på resurser i din prenumeration och de kan filtreras efter flera olika egenskaper, till exempel **resursgrupp**, **tidsintervall** och **kategori**.
 
-2. I den **aktivitetsloggen** klickar du på den **resursgruppen** listrutan och välj **myResourceGroup**. Ändra den **Timespan** dropdown till **senaste 1 timme**. Klicka på **Använd**.
+2. I avsnittet **Aktivitetslogg** klickar du på listrutan **Resursgrupp** och väljer **myResourceGroup**. Ändra värdet i listrutan **Tidsintervall** till **Senaste timmen**. Klicka på **Använd**.
 
     ![Filtrera aktivitetsloggen](./media/monitor-quick-audit-notify-action-in-subscription/browse-activity-log.png)
 
-3. Klicka på den **skriva NetworkSecurityGroups** händelse i tabellen i händelser som visas.
+3. Klicka på händelsen **Write NetworkSecurityGroups** i händelsetabellen som visas.
 
-## <a name="browse-an-event-in-the-activity-log"></a>Bläddra en händelse i aktivitetsloggen
+## <a name="browse-an-event-in-the-activity-log"></a>Läsa mer om en händelse i aktivitetsloggen
 
-Avsnittet som visas innehåller grundläggande information om åtgärden som utfördes, inklusive namn, tidsstämpel, och användaren eller programmet som utförts av den.
+Avsnittet som visas innehåller grundläggande information om åtgärden som utfördes, till exempel namn och tidsstämpel samt användaren eller programmet som utförde åtgärden.
 
-![Visa händelse sammanfattning i aktivitetsloggen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+![Visa en händelsesammanfattning i aktivitetsloggen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
 
-Klicka på den **JSON** fliken om du vill visa fullständig händelseinformationen. Detta omfattar information om hur användaren eller programmet har behörighet att utföra åtgärden, händelsekategori och nivå och status för åtgärden.
+Klicka på **JSON**-fliken om du vill visa all information om händelsen. Detta innefattar information om användarens eller programmets behörighet att utföra åtgärden, händelsekategorin och nivån samt status för åtgärden.
 
 ![Visa händelseinformation i aktivitetsloggen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-json.png)
 
-## <a name="create-an-activity-log-alert"></a>Skapa en avisering i aktivitetsloggen
+## <a name="create-an-activity-log-alert"></a>Skapa en aktivitetsloggavisering
 
-1. Klicka på den **sammanfattning** fliken att återgå till händelsesammanfattning.
+1. Klicka på fliken **Sammanfattning** för att återgå till händelsesammanfattningen.
 
-2. I avsnittet Sammanfattning som visas, klickar du på **Lägg till aktivitet loggen avisering**.
+2. Klicka på **Lägg till aktivitetsloggavisering** i sammanfattningsavsnittet som visas.
 
-    ![Skapa en säkerhetsgrupp för nätverk i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
+    ![Skapa en nätverkssäkerhetsgrupp i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-summary.png)
 
-3. Ge aktivitetsloggen aviseringen i avsnittet som visas, namn och beskrivning.
+3. I avsnittet som visas ger du aktivitetsloggaviseringen ett namn och en beskrivning.
 
-4. Under **kriterier** se till att **händelsekategori** är inställd på **administrativa**, **resurstypen** är inställd på **nätverk säkerhetsgrupper**, **åtgärdsnamn** är inställd på **skapa eller uppdatera Nätverkssäkerhetsgrupp**, **Status** är inställd på  **Lyckades** och alla andra villkor är antingen tomt eller ange att **alla**. Kriterierna som definierar de regler som används för att avgöra om aviseringen ska aktiveras när en ny händelse visas i aktivitetsloggen.
+4. Under **Villkor** ser du till att **Händelsekategori** har värdet **Administrativ**, att **Resurstyp** har värdet **Nätverkssäkerhetsgrupper**, att **Åtgärdsnamn** har värdet **Skapa eller uppdatera nätverkssäkerhetsgrupp**, att **Status** har värdet **Lyckades** och att alla andra villkorsfält är tomma eller har värdet **Alla**. Villkoren definierar de regler som används för att avgöra om aviseringen ska aktiveras när en ny händelse visas i aktivitetsloggen.
 
-    ![Skapa en säkerhetsgrupp för nätverk i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-criteria.png)
+    ![Skapa en nätverkssäkerhetsgrupp i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-criteria.png)
 
-5. Under **avisering via** Välj **ny** åtgärd gruppen och ge en **namn** och **kortnamnet** för åtgärdsgruppen. Åtgärdsgruppen definierar de åtgärder som vidtas när aviseringen aktiveras (när kriterierna som matchar en ny händelse).
+5. Välj **Ny åtgärdsgrupp** under **Meddela via** och ange ett **namn** och ett **kortnamn** för åtgärdsgruppen. Åtgärdsgruppen definierar de åtgärder som vidtas när aviseringen aktiveras (när villkoren matchar en ny händelse).
 
-6. Under **åtgärder** lägga till 1 eller fler åtgärder genom att tillhandahålla en **namn** åtgärd i **åtgärdstyp** (till exempel e-post eller SMS) och **information**för viss åtgärd (till exempel en Webhooksadressen, e-postadress eller SMS).
+6. Under **Åtgärder** lägger du till en eller flera åtgärder genom att ange ett **namn** för åtgärden, **åtgärdstyp** (till exempel e-post eller SMS) och **information** för den specifika åtgärdstypen (till exempel en webhook-URL, en e-postadress eller ett SMS-nummer).
 
-    ![Skapa en säkerhetsgrupp för nätverk i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
+    ![Skapa en nätverkssäkerhetsgrupp i portalen](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
-7. Klicka på **Ok** spara aktivitetsloggen aviseringen.
+7. Klicka på **Ok** för att spara aktivitetsloggaviseringen.
 
-## <a name="test-the-activity-log-alert"></a>Testa aktivitetsloggen aviseringen
+## <a name="test-the-activity-log-alert"></a>Testa aktivitetsloggaviseringen
 
 > [!NOTE]
-> Det tar cirka 10 minuter för en aktivitetsloggen varning ska aktiveras helt. Nya händelser som inträffar innan aktivitetsloggen aviseringen helt aktiverade genererar inte aviseringar.
+> Det tar cirka 10 minuter innan en aktivitetsloggavisering är helt aktiverad. Nya händelser som inträffar innan aktivitetsloggaviseringen är helt aktiverat genererar inte meddelanden.
 >
 >
 
-Om du vill testa aviseringen Upprepa det föregående avsnittet ska **skapar en nätverkssäkerhetsgrupp**, men ger ett annat namn för den här nätverkssäkerhetsgruppen och återanvända den befintliga resursgruppen. Du får ett meddelande om att nätverkssäkerhetsgruppen skapades inom några minuter.
+Om du vill testa aviseringen upprepar du instruktionerna ovan för att **skapa en nätverkssäkerhetsgrupp**, men ge den här nätverkssäkerhetsgruppen ett annat namn och återanvänd den befintliga resursgruppen. Inom ett par minuter får du ett meddelande om att nätverkssäkerhetsgruppen har skapats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen och nätverkssäkerhetsgruppen när de inte längre behövs. Om du vill göra det, skriver du namnet på resursgruppen som du skapade i sökrutan överst i portalen och klicka på namnet på resursgruppen. Klicka på avsnittet som visas i **ta bort resursgruppen** , skriver du namnet på resursgruppen och på **ta bort**.
+Ta bort resursgruppen och nätverkssäkerhetsgruppen när de inte längre behövs. Det gör du genom att skriva namnet på resursgruppen som du skapade i sökrutan överst i portalen och klicka på namnet på resursgruppen. I avsnittet som visas klickar du på knappen **Ta bort resursgrupp**, skriver namnet på resursgruppen och klickar på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguide utfört en åtgärd för att generera en händelse i aktivitetsloggen och sedan skapa en avisering för aktivitetsloggen att bli meddelad när den här åtgärden genomförs igen i framtiden. Du kan sedan testat aviseringen genom att utföra åtgärden igen. Azure gör tillgängliga aktivitetsloggen händelser från de senaste 90 dagarna. Om du vill behålla händelser som är längre än 90 dagar försök arkivering aktivitetsloggen data tillsammans med andra övervakningsdata.
+I den här snabbstarten har du utfört en åtgärd för att skapa en aktivitetslogghändelse och sedan skapat en aktivitetsloggavisering för att få ett meddelande när åtgärden inträffar igen i framtiden. Sedan testade du aviseringen genom att utföra åtgärden på nytt. Azure tillgängliggör aktivitetslogghändelser från de senaste 90 dagarna. Om du vill spara händelser längre än 90 dagar kan du arkivera aktivitetsloggdata tillsammans med dina övriga övervakningsdata.
 
 > [!div class="nextstepaction"]
 > [Arkivera övervakningsdata](./monitor-tutorial-archive-monitoring-data.md)

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 09d488a7600d85b6feab6a27cdd517240c95104b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -29,8 +29,10 @@ ms.lasthandoff: 12/04/2017
 
 Den [Blob storage-tjänst](../storage/common/storage-introduction.md#blob-storage) i Azure Storage är en av flera Azure-baserade ursprung integrerat med Azure Content Delivery Network (CDN). Alla offentliga blob-innehåll cachelagras i Azure CDN tills dess time to live (TTL) går ut. TTL-värdet bestäms av den `Cache-Control` rubriken i HTTP-svaret från den ursprungliga servern. Den här artikeln beskriver flera olika sätt som du kan ange den `Cache-Control` sidhuvud på en blobb i Azure Storage.
 
+Du kan också styra inställningar för cachelagring i Azure Portal genom att ange [CDN cachelagring regler](cdn-caching-rules.md). Om du ställer in en eller flera cachelagring regler och ange sina cachelagringsbeteendet till **åsidosätta** eller **kringgå cache**, de angivna ursprung inställningar för cachelagring i den här artikeln ignoreras. Information om allmänna cachelagring begrepp finns [hur cachelagring fungerar](cdn-how-caching-works.md).
+
 > [!TIP]
-> Du kan välja att ange inga TTL-värde för en blob. I det här fallet gäller Azure CDN automatiskt en standard-TTL sju dagar. Den här standardinställningen TTL-värde gäller enbart för Internet leverans optimeringar. Standard-TTL är en dag för stora filer optimeringar och för direktuppspelning av optimeringar, standard TTL-värde är ett år.
+> Du kan välja att ange inga TTL-värde för en blob. I det här fallet gäller Azure CDN automatiskt standard TTL-värde på sju dagar, om du har ställt in cachelagring regler i Azure-portalen. Den här standardinställningen TTL-värde gäller enbart för Internet leverans optimeringar. Standard-TTL är en dag för stora filer optimeringar och för direktuppspelning av optimeringar, standard TTL-värde är ett år.
 > 
 > Mer information om hur Azure CDN fungerar för att påskynda åtkomst till blobbar och andra filer finns [översikt över Azure innehållsleveransnätverk](cdn-overview.md).
 > 
@@ -129,4 +131,5 @@ Du kan enkelt kontrollera TTL-inställningarna för dina blobbar. Med din webbl�
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lär dig hur du hanterar du förfallodatum för Molntjänsten innehåll i Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [Lär dig mer om cachelagring begrepp](cdn-how-caching-works.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Vad är Operations Management Suite (OMS)?
 Den här artikeln ger en introduktion till Operations Management Suite (OMS) med en kort översikt över affärsvärdet, tjänsterna, hanteringslösningarna samt paketerbjudanden med olika tjänster och lösningar.  Det finns också länkar till detaljerad dokumentation om hur du distribuerar och använder varje tjänst och lösning.
@@ -64,7 +64,7 @@ Huvudfunktionerna i OMS tillhandahålls genom en uppsättning tjänster som kör
 #### <a name="collecting-data"></a>Samla in data
 Det finns en mängd olika sätt som du kan få data till databasen för Log Analytics för analys.
 
-- **Windows- eller Linux-datorer och virtuella datorer.**  Du installerar Microsoft Monitoring Agent på de [Windows](../log-analytics/log-analytics-windows-agents.md)- och [Linux](../log-analytics/log-analytics-linux-agents.md)-datorer eller virtuella datorer som du vill samla in data från.  Från Log Analytics hämtar agenten automatiskt en konfiguration som definierar vilka händelse- och prestandadata som ska samlas in.  Du kan enkelt installera agenten på virtuella datorer som körs i Azure med Azure Portal.  Om du har en befintlig Operations Manager-miljö kan du ansluta hanteringsgruppen till Log Analytics och automatiskt börja samla in data från alla befintliga agenter.
+- **Windows- eller Linux-datorer och virtuella datorer.**  Du installerar Microsoft Monitoring Agent på de [Windows](../log-analytics/log-analytics-windows-agent.md)- och [Linux](../log-analytics/log-analytics-linux-agents.md)-datorer eller virtuella datorer som du vill samla in data från.  Från Log Analytics hämtar agenten automatiskt en konfiguration som definierar vilka händelse- och prestandadata som ska samlas in.  Du kan enkelt installera agenten på virtuella datorer som körs i Azure med Azure Portal.  Om du har en befintlig Operations Manager-miljö kan du ansluta hanteringsgruppen till Log Analytics och automatiskt börja samla in data från alla befintliga agenter.
 - **Azure-tjänster.**  Log Analytics samlar in telemetri från [Azure Diagnostics och Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) i databasen så att du kan övervaka Azure-resurser.
 - **API för datainsamling.**  Log Analytics har ett [REST-API för att fylla i data från alla klienter](../log-analytics/log-analytics-data-collector-api.md).  Det gör att du kan samla in data från program från tredje part eller implementera anpassade scenarier.  En vanlig metod är att använda en runbook i Azure Automation för att samla in data och sedan använda API:t för datainsamling för att skriva dessa data till databasen.
 

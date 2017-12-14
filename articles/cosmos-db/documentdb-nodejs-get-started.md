@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs om Node.js för DocumentDB-API:et för Azure Cosmos DB | Microsoft-dokument"
-description: "En självstudiekurs om Node.js som beskriver hur du skapar en Cosmos DB-databas med DocumentDB-API:et."
+title: "Självstudie om node.js för SQL-API: et för Azure Cosmos DB | Microsoft Docs"
+description: "En självstudie om Node.js som skapar en Cosmos-DB med SQL-API."
 keywords: "självstudier för node.js, noddatabas"
 services: cosmos-db
 documentationcenter: node.js
@@ -15,13 +15,13 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 02e98aadc6a001c7275266d89a196a57bb366b3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 499caff06cc872be2b9fbd389adb9dcf974eeae8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nodejs-tutorial-use-the-documentdb-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Självstudie om node.js: använda DocumentDB-API i Azure Cosmos-databasen för att skapa en Node.js-konsolprogram
+# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Självstudie om node.js: använda SQL-API i Azure Cosmos-databasen för att skapa en Node.js-konsolprogram
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -31,6 +31,8 @@ ms.lasthandoff: 10/11/2017
 > * [C++](documentdb-cpp-get-started.md)
 >  
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Välkommen till självstudiekursen om Node.js för Azure Cosmos DB Node.js SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
 
@@ -626,7 +628,6 @@ Då är det bara att bygga den, så är du på väg!
 * Vill du ha ett mer komplext Node.js-exempel? Mer information finns i [Skapa ett Node.js-webbprogram med Azure Cosmos DB](documentdb-nodejs-application.md).
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
 * Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
-* Mer information om programmeringsmodellen finns i avsnittet Utveckla på [dokumentationssidan för Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png

@@ -4,7 +4,7 @@ description: "En administratörsroll kan skapa eller redigera användare, tillde
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
-Du kan ange separata administratörer att hantera olika funktioner med Azure Active Directory (AD Azure). Administratörer kan har åtkomst till olika funktioner i Azure-portalen eller den klassiska Azure-portalen och, beroende på deras roll, skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser och hantera domäner, bland annat saker. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på, oavsett om du tilldelar rollen i Office 365-portalen eller den klassiska Azure-portalen eller med hjälp av Azure AD-modulen  för Windows PowerShell.
+Du kan ange separata administratörer att hantera olika funktioner med Azure Active Directory (AD Azure). Administratörer kan har åtkomst till olika funktioner i Azure-portalen och, beroende på deras roll, skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser och hantera domäner, bland annat. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på, oavsett om du tilldelar rollen i Office 365-portalen eller i Azure-portalen eller med hjälp av Azure AD-modulen för Windows PowerShell.
 
 Följande administratörsroller är tillgängliga:
 

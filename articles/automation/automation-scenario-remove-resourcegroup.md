@@ -3,7 +3,7 @@ title: Automatiserad borttagning av resursgrupper | Microsoft Docs
 description: "PowerShells arbetsflödesversion av ett Azure Automation-scenario, inklusive runbooks för att ta bort alla resursgrupper i din prenumeration."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation-scenario – automatiserad borttagning av resursgrupper
 Många kunder skapar fler än en resursgrupp. En del används för att hantera driftsprogram, andra används som utvecklings-, testnings-, eller mellanlagringsmiljöer. Att automatisera distributionen av dessa resurser är en sak, men att kunna ta en resursgrupp ur drift genom att klicka på en knapp är en helt annan sak. Du kan förenkla den här vanliga hanteringsåtgärden med hjälp av Azure Automation. Det är också användbart om du arbetar med en Azure-prenumeration som har en utgiftsgräns via ett medlemserbjudande som till exempel MSDN eller Microsoft Partner Network Cloud Essentials-programmet.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos-databasen med Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 > * [Version 1 – allmänt tillgänglig](v1/data-factory-azure-documentdb-connector.md)
 > * [Version 2 – förhandsversion](connector-azure-cosmos-db.md)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från och till Azure Cosmos DB (DocumentDB-API). Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från och till Azure Cosmos DB (SQL-API). Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Azure Cosmos DB connnector i V1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Du kan kopiera data från Azure Cosmos DB till alla stöds sink-datalagret eller
 
 Mer specifikt stöder den här Azure DB som Cosmos-anslutningen:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - JSON-dokument som import/export-är eller kopiera data från/till tabular dataset t.ex. SQL-databas, CSV-filer, osv.
 
 Dokument som att kopiera-är till/från JSON-filer eller en annan Cosmos DB samling finns [Import/Export JSON-dokument](#importexport-json-documents).

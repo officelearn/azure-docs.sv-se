@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Konfigurera säkerhetsprinciper för ditt program
 Du kan skydda program som körs i kluster under olika användarkonton med hjälp av Azure Service Fabric. Service Fabric hjälper också till att skydda resurser som används av program vid tidpunkten för distribution under användarkonton – till exempel, filer, kataloger och certifikat. Det gör att program som körs, även i en delad värdmiljö säkrare från varandra.
@@ -30,7 +30,7 @@ Service Fabric-program körs under kontot som Fabric.exe-processen körs under s
 Du kan definiera och skapa användargrupper så att en eller flera användare kan läggas till varje grupp som ska hanteras tillsammans. Detta är användbart när det finns flera användare för olika startpunkter och de måste ha vissa vanliga behörigheter som är tillgängliga på gruppnivå.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Konfigurera princip för en startpunkt för installationen av tjänsten
-Enligt beskrivningen i den [programmodell](service-fabric-application-model.md), startpunkten installationsprogrammet **SetupEntryPoint**, är en privilegierade startpunkt som körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis den *NetworkService* konto) innan andra startpunkt. Den körbara filen som anges av **EntryPoint** är vanligtvis tjänstvärden tidskrävande. Med en separat installationsprogrammet startpunkten så slipper du köra körbara tjänstvärden med höga privilegier för längre tid. Den körbara filen som **EntryPoint** anger körs efter **SetupEntryPoint** avslutas korrekt. Resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den aldrig avslutar eller kraschar.
+Enligt beskrivningen i [programmet och service manifest](service-fabric-application-and-service-manifests.md), startpunkten installationsprogrammet **SetupEntryPoint**, är en privilegierade startpunkt som körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis *NetworkService* konto) innan andra startpunkt. Den körbara filen som anges av **EntryPoint** är vanligtvis tjänstvärden tidskrävande. Med en separat installationsprogrammet startpunkten så slipper du köra körbara tjänstvärden med höga privilegier för längre tid. Den körbara filen som **EntryPoint** anger körs efter **SetupEntryPoint** avslutas korrekt. Resulterande processen övervakas och startas om och börjar igen med **SetupEntryPoint** om den aldrig avslutar eller kraschar.
 
 Följande är en enkel service manifest-exempel som visar SetupEntryPoint och den huvudsakliga startadressen för tjänsten.
 

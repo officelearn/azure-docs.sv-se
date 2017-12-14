@@ -4,7 +4,7 @@ description: "Det här avsnittet beskrivs de konton som används och skapas och 
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 Installationsguiden för Azure AD Connect innehåller två olika sökvägar:
@@ -75,8 +75,8 @@ Azure AD Connect version 1.1.524.0 och senare har alternativet för att låta Az
 | Anslut till Azure AD |Autentiseringsuppgifter för Azure AD-katalog |Rollen som global administratör i Azure AD |<li>Aktiverar synkronisering i Azure AD-katalog.</li>  <li>Skapandet av den [Azure AD-kontot](#azure-ad-service-account) som används för pågående synkroniseringsåtgärder i Azure AD.</li> |
 | Anslut dina kataloger |Lokala Active Directory-autentiseringsuppgifter för varje skog som är ansluten till Azure AD |Behörigheterna som beror på vilka funktioner du aktiverar och finns i [skapa AD DS-konto](#create-the-ad-ds-account) |Det här kontot används för att läsa och skriva kataloginformation under synkroniseringen. |
 | AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
-| Webbprogramproxyservrarna |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
-| Autentiseringsuppgifter för proxy-förtroende |Federationstjänsten förtroende autentiseringsuppgifter (autentiseringsuppgifter proxyn använder för att registrera ett betrodda certifikat från en FS |Domänkonto som är lokal administratör på AD FS-servern |Första registreringen av FS WAP betrott certifikat. |
+| Webbprogramsproxyservrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
+| Autentiseringsuppgifter för proxyförtroende |Federationstjänsten förtroende autentiseringsuppgifter (autentiseringsuppgifter proxyn använder för att registrera ett betrodda certifikat från en FS |Domänkonto som är lokal administratör på AD FS-servern |Första registreringen av FS WAP betrott certifikat. |
 | Sidan för AD FS-tjänstkontot, ”använda kontoalternativet en domän användare” |Autentiseringsuppgifter för användarkontot AD |Domänanvändare |AD-användarkontot vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-account"></a>Skapa AD DS-konto
@@ -101,7 +101,7 @@ När du uppgraderar från en version av Azure AD Connect på en ny version, mås
 >Från och med version 1.1.484, introducerade Azure AD Connect en regression bugg som kräver sysadmin-behörighet för att uppgradera den SQL-databasen.  Det här felet är fortfarande kvar i den senaste versionen 1.1.614.  Om du uppgraderar till den här versionen måste sysadmin-behörighet.  Dbo-behörigheter är inte tillräcklig.  Om du försöker uppgradera Azure AD Connect utan att ha sysadmin-behörighet uppgraderingen misslyckas och Azure AD Connect kommer inte längre att fungera korrekt efteråt.  Microsoft är medvetna om detta och arbetar för att åtgärda detta.
 
 
-| Huvudnamn | Behörigheter som krävs | Används för |
+| Huvudkonto | Behörigheter som krävs | Används för |
 | --- | --- | --- |
 | Användaren som kör installationsguiden |Administratör på den lokala servern |Uppdatera binärfiler. |
 | Användaren som kör installationsguiden |Medlem i ADSyncAdmins |Göra ändringar i regler för synkronisering och annan konfiguration. |

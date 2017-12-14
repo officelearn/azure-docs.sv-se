@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: Klassificering av avbildning med hjälp av CNTK
           href: scenario-image-classification-using-cntk.md
+        - name: Djupinlärning för förutsägande underhåll
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: Referens
   items:
     - name: Förberedelse av data
@@ -176,6 +178,8 @@
           href: release-notes-sprint-0.md
         - name: Sprint 1 – november 2017
           href: release-notes-sprint-1.md
+        - name: Sprint 2 – december 2017
+          href: release-notes-sprint-2.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar

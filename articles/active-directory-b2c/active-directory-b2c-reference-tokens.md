@@ -4,7 +4,7 @@ description: "Vilka typer av token som utfärdats i Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
 
@@ -74,7 +74,7 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Namn | Begär | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråk identifierar den avsedda mottagaren av token. Azure AD B2C är målgruppen din app program-ID som tilldelats din app i portalen för registrering av app. Din app ska verifiera det här värdet och avvisa token om det inte matchar. |
-| Utfärdaren |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
+| Utfärdare |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Du identifierar även Azure AD-katalog där användaren autentiserades. Appen bör verifiera utfärdaren anspråk så att token som kommer från Azure Active Directory v2.0-slutpunkten. |
 | Utfärdat till |`iat` |`1438535543` |Detta anspråk är den tid då token har utfärdats, representeras i epok tid. |
 | Förfallotid |`exp` |`1438539443` |Förfallotiden anspråk är den tid då token blir ogiltigt, som representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1438535543` |Detta anspråk är den tid som token blir giltigt, representeras i epok tid. Detta är vanligtvis samma som den tid som token har utfärdats. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |

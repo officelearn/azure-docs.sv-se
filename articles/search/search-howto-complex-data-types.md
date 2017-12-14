@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Så här modellen komplexa datatyper i Azure Search
 Externa datauppsättningar som används för att fylla ett Azure Search index ibland inkluderar hierarkisk eller kapslade underordnade strukturer som inte nedbrytning av snyggt i en tabellvy raduppsättning. Exempel på sådana strukturer kan innehålla flera platser och telefonnummer för en kund, flera färger och storlekar för en enskild SKU flera författare av en enda bok och så vidare. Modeling villkor du kan se dessa strukturer kallas *komplexa datatyper*, *sammansatta datatyper*, *sammansatta datatyper*, eller *aggregera datatyper*, t.ex.
@@ -66,7 +66,7 @@ Data i fråga finns vanligen som en uppsättning JSON eller XML-dokument eller o
 Medan fält med namnet ”id” 'name' och 'företag' kan enkelt mappas 1 som fält i ett Azure Search-index, fältet 'platser' innehåller en matris med-platser med både en uppsättning plats-ID: N, samt beskrivningar av platsen. Med hänsyn till att Azure Search inte har en datatyp som stöder detta, behöver vi ett annat sätt att modellera detta i Azure Search. 
 
 > [!NOTE]
-> Den här tekniken beskrivs också av Kirk Evans i ett blogginlägg [indexering DocumentDB med Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), vilket visar att en teknik som kallas ”förenkla data”, där du vill ha ett fält med namnet `locationsID` och `locationsDescription` som är både [samlingar](https://msdn.microsoft.com/library/azure/dn798938.aspx) (eller en matris med strängar).   
+> Den här tekniken beskrivs också av Kirk Evans i ett blogginlägg [indexering Azure Cosmos DB med Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), vilket visar att en teknik som kallas ”förenkla data”, där du vill ha ett fält med namnet `locationsID` och `locationsDescription` som är både [samlingar](https://msdn.microsoft.com/library/azure/dn798938.aspx) (eller en matris med strängar).   
 > 
 > 
 

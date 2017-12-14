@@ -4,7 +4,7 @@ description: "Hur du skapar en iOS-app som loggar in användare med både person
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Lägga till inloggning till en iOS-app med hjälp av en tredjeparts-bibliotek med Graph API: et med v2.0-slutpunkten
 Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Utvecklare kan använda alla bibliotek som de vill integrera med våra tjänster. Vi har skrivit några genomgång som detta att demonstrera hur du konfigurerar tredjeparts-bibliotek för att ansluta till Microsoft identity-plattformen för att hjälpa utvecklare att använda vår plattform med andra bibliotek. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft identity-plattformen.

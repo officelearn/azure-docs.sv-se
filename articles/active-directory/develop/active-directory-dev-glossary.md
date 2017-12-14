@@ -4,7 +4,7 @@ description: "En lista över villkor för vanliga begrepp för utvecklare av Azu
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory developer ordlista
 Den här artikeln innehåller definitioner för några av de Azure Active Directory (AD) developer grundbegrepp, vilket underlättar vid utbildning om programutveckling för Azure AD.
@@ -54,7 +54,7 @@ För att ett program för att integrera med och delegera identitets- och åtkoms
 
 Se [integrera program med Azure Active Directory] [ AAD-Integrating-Apps] för mer information.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>autentisering
 Åtgärden för att utvärdera en part legitima autentiseringsuppgifter ligger till grund för att skapa ett säkerhetsobjekt som ska användas för identitets- och åtkomstkontroll. Under en [OAuth2 authorization grant](#authorization-grant) exempelvis part autentisera fyller rollen antingen [resursägare](#resource-owner) eller [klientprogrammet](#client-application), beroende på bevilja används.
 
 ## <a name="authorization"></a>Auktorisering

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Kontinuerlig leverans för molntjänster i Azure
 Processen som beskrivs i den här artikeln visar hur du ställer in kontinuerlig leverans för appar i Azure-molnet. Med processen kan du automatiskt skapa paket och distribuera dem till Azure varje gång du checkar in ny kod. Paketet build-processen som beskrivs i den här artikeln motsvarar den **paketet** kommandot i Visual Studio och publishing stegen är likvärdiga med den **publicera** i Visual Studio.
@@ -310,7 +310,7 @@ Det här valfria steget ansluter TFS Team bygga till det skript du skapade i ste
 12. Kön är en version för att köra båda paketet bygga och publicera. Om du har en utlösare som har angetts till kontinuerlig Integration, körs det här problemet på varje incheckning.
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 skript mall
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ För att aktivera fjärrfelsökning när du använder kontinuerlig leverans, se 
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

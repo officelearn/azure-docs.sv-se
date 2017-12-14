@@ -6,19 +6,18 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Skydda ditt innehåll med Apple FairPlay eller Microsoft PlayReady HLS
 Azure Media Services kan du kryptera dynamiskt innehåll HTTP Live Streaming (HLS) med hjälp av följande format:  
@@ -33,12 +32,12 @@ Azure Media Services kan du kryptera dynamiskt innehåll HTTP Live Streaming (HL
 
 Följande bild visar den **HLS + FairPlay eller PlayReady dynamisk kryptering** arbetsflöde.
 
-![Diagram över arbetsflödet för dynamisk kryptering](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram över arbetsflödet för dynamisk kryptering](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Det här avsnittet visar hur du använder Media Services för att kryptera din HLS innehåll med Apple FairPlay dynamiskt. Den visar även hur du använder Media Services licensleveranstjänst för att leverera FairPlay-licenser till klienter.
+Den här artikeln visar hur du använder Media Services för att kryptera din HLS innehåll med Apple FairPlay dynamiskt. Den visar även hur du använder Media Services licensleveranstjänst för att leverera FairPlay-licenser till klienter.
 
 > [!NOTE]
-> Om du även vill kryptera dina HLS innehåll med PlayReady måste du skapa en gemensam innehållsnyckel och associera den med din tillgång. Du måste också konfigurera innehållsnyckelns auktoriseringsprincip, enligt beskrivningen i [med PlayReady-kryptering för dynamiska vanliga](media-services-protect-with-drm.md).
+> Om du även vill kryptera dina HLS innehåll med PlayReady måste du skapa en gemensam innehållsnyckel och associera den med din tillgång. Du måste också konfigurera innehållsnyckelns auktoriseringsprincip, enligt beskrivningen i [med PlayReady-kryptering för dynamiska vanliga](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +64,14 @@ Följande måste anges på Media Services viktiga leverans sida:
         Gå till den mapp där FairPlay-certifikat och andra filer som levereras av Apple.
     2. Kör följande kommando från kommandoraden. Detta konverterar CER-filen till en PEM-filen.
 
-        ”C:\OpenSSL-Win32\bin\openssl.exe” x509-informera der-i fairplay.cer-ut fairplay out.pem
+        ”C:\OpenSSL-Win32\bin\openssl.exe” x509-informera der-i FairPlay.cer-ut FairPlay out.pem
     3. Kör följande kommando från kommandoraden. Detta konverterar PEM-filen till en .pfx-fil med den privata nyckeln. Lösenordet för PFX-filen blir sedan ombedd av OpenSSL.
 
-        ”C:\OpenSSL-Win32\bin\openssl.exe” pkcs12-exportera - ut fairplay out.pfx-inkey privatekey.pem-i fairplay out.pem - passin file:privatekey-pem-pass.txt
+        ”C:\OpenSSL-Win32\bin\openssl.exe” pkcs12-exportera - ut FairPlay out.pfx-inkey privatekey.pem-i FairPlay out.pem - passin file:privatekey-pem-pass.txt
   * **Appen Cert lösenord**: lösenordet för att skapa en .pfx-fil.
   * **ID för appen Cert lösenord**: du måste överföra lösenordet, som liknar hur de överför andra Media Services-nycklar. Använd den **ContentKeyType.FairPlayPfxPassword** enum-värde för att hämta ID för Media Services Det här är vad de behöver för att använda inuti alternativet viktiga leverans.
   * **IV**: Detta är ett slumpmässigt värde av 16 byte. Den måste matcha iv i principen för tillgångsleverans. Du genererar iv och placera den på båda platserna: tillgångsleveransprincip och alternativet viktiga leverans.
-  * **Be**: den här nyckeln tas emot när du skapar ett certifikat med hjälp av Apple Developer-portalen. Varje Utvecklingsteamet får en unik be. Spara en kopia av be och lagra den på en säker plats. Du behöver konfigurera be som FairPlayAsk till Media Services senare.
+  * **Be**: den här nyckeln tas emot när du skapar ett certifikat med hjälp av Apple Developer-portalen. Varje Utvecklingsteamet tar emot en unik be. Spara en kopia av be och lagra den på en säker plats. Du måste konfigurera be som FairPlayAsk till Media Services senare.
   * **Be ID**: Detta ID hämtas när du överför be till Media Services. Du måste överföra be med hjälp av den **ContentKeyType.FairPlayAsk** enum-värde. Media Services ID returneras som ett resultat, och det här är vad ska användas när du ställer in alternativet viktiga leverans.
 
 Följande måste anges av klientsidan FPS:
@@ -125,7 +124,7 @@ Du kan utveckla player appar med hjälp av iOS SDK. Om du vill kunna spela upp F
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player stöder inte FairPlay uppspelning direkt. Hämta exempel player från Apple developer-konto för att få FairPlay uppspelning i MAC OS X.
+> Azure Media Player stöder FairPlay uppspelning. Se [dokumentation för Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) för ytterligare information.
 >
 >
 
@@ -157,32 +156,37 @@ I följande exempel visar möjligheten att använda Media Services kan leverera 
 Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) artikel.
 
 Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
-    using Newtonsoft.Json;
-    using System.Security.Cryptography.X509Certificates;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+using Microsoft.WindowsAzure.MediaServices.Client.FairPlay;
+using Newtonsoft.Json;
+using System.Security.Cryptography.X509Certificates;
 
-    namespace DynamicEncryptionWithFairPlay
+namespace DynamicEncryptionWithFairPlay
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -200,7 +204,11 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -220,9 +228,9 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
             Console.WriteLine();
 
             if (tokenRestriction)
-            tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
             else
-            AddOpenAuthorizationPolicy(key);
+                AddOpenAuthorizationPolicy(key);
 
             Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
             Console.WriteLine();
@@ -233,19 +241,19 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-            // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
-            // back into a TokenRestrictionTemplate class instance.
-            TokenRestrictionTemplate tokenTemplate =
-                TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // back into a TokenRestrictionTemplate class instance.
+                TokenRestrictionTemplate tokenTemplate =
+                    TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
-            Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-            string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
-                                        DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-            Console.WriteLine();
+                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Note, you need to pass the key id Guid because we specified
+                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
+                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
+                                            DateTime.UtcNow.AddDays(365));
+                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+                Console.WriteLine();
             }
 
             string url = GetStreamingOriginLocator(encodedAsset);
@@ -258,8 +266,8 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
         {
             if (!File.Exists(singleFilePath))
             {
-            Console.WriteLine("File does not exist.");
-            return null;
+                Console.WriteLine("File does not exist.");
+                return null;
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
@@ -530,14 +538,14 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
             using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
             {
-            rng.GetBytes(returnValue);
+                rng.GetBytes(returnValue);
             }
 
             return returnValue;
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

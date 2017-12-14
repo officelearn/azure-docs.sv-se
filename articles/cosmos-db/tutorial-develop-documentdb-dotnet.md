@@ -1,9 +1,9 @@
 ---
-title: 'Azure Cosmos DB: Utveckla med DocumentDB API i .NET | Microsoft Docs'
-description: "Lär dig att utveckla med Azure Cosmos DB DocumentDB-API med hjälp av .NET"
+title: 'Azure Cosmos DB: Utveckla med SQL-API: et i .NET | Microsoft Docs'
+description: "Lär dig att utveckla med Azure Cosmos DB SQL-API med hjälp av .NET"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: 
 tags: 
@@ -14,21 +14,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9209d815cadcb3abfacdc765c503851ba63863bc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Utveckla med DocumentDB API i .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Utveckla med SQL-API: et i .NET
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och sedan skapa ett dokument databas och samling med en [partitionsnyckel](documentdb-partition-data.md#partition-keys) med hjälp av den [DocumentDB .NET API](documentdb-introduction.md). Genom att definiera en partitionsnyckel när du skapar en samling kan är ditt program beredd att skala utan problem när dina data växer. 
+Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och sedan skapa ett dokument databas och samling med en [partitionsnyckel](documentdb-partition-data.md#partition-keys) med hjälp av den [SQL .NET API](documentdb-introduction.md). Genom att definiera en partitionsnyckel när du skapar en samling kan är ditt program beredd att skala utan problem när dina data växer. 
 
-Den här kursen ingår följande uppgifter med hjälp av den [DocumentDB .NET API](documentdb-sdk-dotnet.md):
+Den här kursen ingår följande uppgifter med hjälp av den [SQL .NET API](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Skapa ett Azure Cosmos DB-konto
@@ -79,7 +81,7 @@ Börja med att skapa ett Azure DB som Cosmos-konto i Azure-portalen.
     Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
 ## <a id="Connect"></a>Lägg till referenser till ditt projekt
-Stegen i den här självstudiekursen innehåller DocumentDB API kodstycken som krävs för att skapa och uppdatera Azure Cosmos DB resurser i projektet.
+Stegen i den här självstudiekursen innehåller SQL API kodstycken som krävs för att skapa och uppdatera Azure Cosmos DB resurser i projektet.
 
 Lägg först till dessa referenser till programmet.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Skapa en databas
 
-Skapa sedan en Azure-Cosmos-DB [databasen](documentdb-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den **DocumentClient** klass från den [.NET DocumentDB SDK](documentdb-sdk-dotnet.md). En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
+Skapa sedan en Azure-Cosmos-DB [databasen](documentdb-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](documentdb-sdk-dotnet.md). En databas är en logisk behållare för JSON-dokumentlagring, partitionerad över samlingarna.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Parallell frågekörning
-Azure Cosmos DB DocumentDB SDK: erna 1.9.0 och högre support parallell körning frågealternativ, så att du kan utföra låg latens frågor mot partitionerade samlingar, även när de behöver touch ett stort antal partitioner. Till exempel är följande fråga konfigurerad för att köras parallellt över partitioner.
+Azure Cosmos DB SQL SDK 1.9.0 och högre support parallell körning frågealternativ, så att du kan utföra låg latens frågor mot partitionerade samlingar, även när de behöver touch ett stort antal partitioner. Till exempel är följande fråga konfigurerad för att köras parallellt över partitioner.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ Du kan hantera parallell frågekörning genom att justera följande parametrar:
 * Genom att ange `MaxDegreeOfParallelism`, du kan styra i vilken grad av parallellitet i d.v.s., det maximala antalet samtidiga anslutningar till den samling partitioner. Om du anger detta 1, grad av parallellitet hanteras av SDK. Om den `MaxDegreeOfParallelism` är inte angiven eller ange värdet 0, vilket är standardvärdet, finns en nätverksanslutning till den samling partitioner.
 * Genom att ange `MaxBufferedItemCount`, du kan handlar av frågan latens och klientsidan minnesanvändning. Om du utelämnar den här parametern eller Ställ in till -1, antal objekt som buffras under parallell frågekörning hanteras av SDK.
 
-Få samma tillstånd i mängden returnerar parallella frågan resultat i samma ordning som seriella körning. När du utför fråga cross-partition som innehåller sortering (ORDER BY och/eller TOP), DocumentDB SDK skickar fråga parallellt över partitioner och sammanfogar delvis sorterade resulterar i klientsidan inga globalt beställda resultat.
+Få samma tillstånd i mängden returnerar parallella frågan resultat i samma ordning som seriella körning. När du utför fråga cross-partition som innehåller sortering (ORDER BY och/eller TOP), SQL-SDK skickar fråga parallellt över partitioner och sammanfogar delvis sorterade resulterar i klientsidan inga globalt beställda resultat.
 
 ## <a name="execute-stored-procedures"></a>Köra lagrade procedurer
 Slutligen kan du köra atomiska transaktioner mot dokument med samma enhets-ID, t.ex. Om du underhålla mängdfunktioner eller det aktuella tillståndet för en enhet i ett enskilt dokument genom att lägga till följande kod i projektet.

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Klienterna använder [klientbibliotek](analysis-services-data-providers.md) av t
 ## <a name="get-help"></a>Få hjälp
 
 #### <a name="documentation"></a>Dokumentation
-Det är enkelt att konfigurera och hantera Azure Analysis Services. Här finns all information du behöver för att skapa och hantera servertjänsterna. När du skapar en datamodell som du ska distribuera till en server fungerar det ungefär som när du skapar en datamodell och distribuerar den på en lokal server. Det finns ett omfattande bibliotek med idéskisser, procedurer, självstudiekurser och referensartiklar på [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Det är enkelt att konfigurera och hantera Azure Analysis Services. Här finns all information du behöver för att skapa och hantera servertjänsterna. När du skapar en datamodell som du ska distribuera till en server fungerar det ungefär som när du skapar en datamodell och distribuerar den på en lokal server. Det finns ett omfattande bibliotek med idéskisser, procedurer, självstudiekurser och referensartiklar i [hjälpen för SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### <a name="videos"></a>Videoklipp
 Kolla in de användbara videoklippen på [Azure Analysis Services på Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

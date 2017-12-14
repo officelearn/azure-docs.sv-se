@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Hitta en Azure-prenumeration eller management-grupp
 
-Om du har svårt att hitta en prenumeration eller hanteringsgruppen i Azure, kan du titta i fel katalog. Den här situationen kan inträffa när ditt konto finns i flera aktiva Azure-kataloger. Varje [active directory är oberoende](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) och åtkomst ärvs inte i kataloger.      
+Om du har svårt att hitta en prenumeration eller hanteringsgruppen i Azure, kan du titta i fel katalog. Den här situationen kan inträffa när ditt konto finns i flera aktiva Azure-kataloger. Varje [active directory är oberoende](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) och åtkomst ärvs inte i kataloger.      
 
 ![Växeln Directory menyn](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Om du får ett felmeddelande ”den här tillgången är inte tillgänglig” n�
 ![tillgångsinformation inte hittades](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Kontakta administrera av prenumerationen eller hantering av grupper som ska få åtkomst.  
-* Prenumerationer, referera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) dokument för att få hjälp med rollen krävs.
+* Prenumerationer, referera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) dokument för att få hjälp med rollen krävs.
 * För hanteringsgrupper, RBAC åtkomst är inte tillgänglig och kommer snart. Kontakta din enterprise portal administrera för åtkomst som tilldelats.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Förbättra din upplevelse med hanteringsgrupper och prenumerationer i samma katalog 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -114,7 +114,7 @@ Så länge åtkomst till dina appar utförs enligt villkor som du kan styra kans
 
 I den aktuella implementationen av Azure Active Directory kan du definiera villkor för följande områden:
 
-- Logga in risk
+- Inloggningsrisk
 - Enhetsplattformar
 - Platser
 - Klientprogram
@@ -122,7 +122,7 @@ I den aktuella implementationen av Azure Active Directory kan du definiera villk
 
 ![Villkor](./media/active-directory-conditional-access-azure-portal/01.png)
 
-### <a name="sign-in-risk"></a>Logga in risk
+### <a name="sign-in-risk"></a>Inloggningsrisk
 
 En risk för inloggning är ett objekt som används av Azure Active Directory för att spåra sannolikheten för att en inloggning försök inte utfördes av legitima ägaren till ett användarkonto. I det här objektet sannolikheten (hög, medel eller låg) lagras i form av ett attribut som kallas [inloggning risknivå](active-directory-reporting-risk-events.md#risk-level). Det här objektet skapas under en inloggning för en användare logga in risker har upptäckts av Azure Active Directory. Mer information finns i avsnittet om [riskfyllda inloggningar](active-directory-identityprotection.md#risky-sign-ins).  
 Du kan använda den beräknade inloggning risknivån som villkor i en princip för villkorlig åtkomst. 
@@ -163,11 +163,11 @@ Mer information finns i [med namnet platser i Azure Active Directory](active-dir
 
 I principen för villkorlig åtkomst kan du:
 
-- Inkludera
-    - Valfri plats
+- Ta med
+    - Vilken plats som helst
     - Alla betrodda platser
     - Valda platser
-- Exkludera
+- Uteslut
     - Alla betrodda platser
     - Valda platser
      

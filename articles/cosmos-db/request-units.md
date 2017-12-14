@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Läs mer i [uppskatta dina genomströmning måste](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.docum
 ![Genomströmning Kalkylatorn][5]
 
 ## <a name="introduction"></a>Introduktion
-[Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är Microsofts globalt distribuerad flera modellen databas. Du behöver inte hyra ut virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos-DB drivs och övervakas kontinuerligt av Microsoft översta tekniker för att leverera world klassen tillgänglighet, prestanda och data protection. Du kan komma åt dina data med hjälp av API: er som du själv väljer, till exempel SQL via den [DocumentDB API](documentdb-introduction.md), MongoDB APIs [tabell API](table-introduction.md), och Gremlin via den [Graph API](graph-introduction.md) -är inbyggt stöd för. Azure Cosmos DB valuta är begära enhet (RU). Med RUs behöver du inte reserverad kapacitet för läsning och skrivning eller etablera CPU, minne och IOPS.
+[Azure Cosmos-DB](https://azure.microsoft.com/services/cosmos-db/) är Microsofts globalt distribuerad flera modellen databas. Du behöver inte hyra ut virtuella datorer, distribuera programvara eller övervaka databaser med Azure Cosmos DB. Azure Cosmos-DB drivs och övervakas kontinuerligt av Microsoft översta tekniker för att leverera world klassen tillgänglighet, prestanda och data protection. Du kan komma åt dina data med hjälp av API: er som du själv väljer, till exempel den [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tabell API](table-introduction.md), och Gremlin via den [Graph API](graph-introduction.md) - alla stöds. Azure Cosmos DB valuta är begära enhet (RU). Med RUs behöver du inte reserverad kapacitet för läsning och skrivning eller etablera CPU, minne och IOPS.
 
 Azure Cosmos-DB stöder ett antal API: er med olika åtgärder, från enkla läser och skriver till diagrammet komplexa frågor. Eftersom inte alla begäranden som är lika med de tilldelas en normaliserade mängd **programbegäran** baserat på mängden beräkning som är nödvändiga för att utföra begäran. Antalet enheter för begäran för en åtgärd är deterministisk och kan du spåra antalet begäran enheter som används av alla åtgärder i Azure Cosmos DB via en Svarsrubrik. 
 

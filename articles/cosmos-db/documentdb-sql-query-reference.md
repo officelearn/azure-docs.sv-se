@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB DocumentDB API: SQL-syntaxen | Microsoft Docs'
-description: "I referensdokumentationen för Azure Cosmos DB DocumentDB API SQL-frågespråket."
+title: "Azure Cosmos DB: Referens SQL-syntax fråga | Microsoft Docs"
+description: "I referensdokumentationen för Azure Cosmos-Databasens SQL-frågespråket."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure Cosmos DB DocumentDB API: Referens SQL-syntax
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Referens för Azure Cosmos-Databasens SQL-syntax
 
-API: et för Azure Cosmos DB DocumentDB stöder förfrågningar till dokument med en bekant SQL (Structured Query Language) som grammatik över hierarkiska JSON-dokument utan explicita schema eller att sekundärindex. Det här avsnittet finns i referensdokumentationen för frågespråket i DocumentDB API SQL.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-En genomgång av DocumentDB API SQL-frågespråket finns [SQL-frågor för Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
+Azure DB Cosmos stöder frågar dokument med hjälp av en bekant SQL (Structured Query Language) som grammatik över hierarkiska JSON-dokument utan explicita schema eller att sekundärindex. Det här avsnittet finns i referensdokumentationen för SQL-frågespråket som är kompatibla med SQL API-konton.
+
+En genomgång av SQL-frågespråket finns [SQL-frågor för Azure Cosmos DB](documentdb-sql-query.md).  
   
 Vi ber dig att besöka även den [Query Playground](http://www.documentdb.com/sql/demo) där du kan prova Azure Cosmos DB och köra SQL-frågor mot vår datauppsättning.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Syntaxen konventioner**  
   
-     I följande tabell beskrivs konventioner används för att beskriva syntax i frågespråket i DocumentDB API-referens.  
+     I följande tabell beskrivs konventioner används för att beskriva syntax i följande SQL-referens.  
   
     |**Konventionen**|**Används för**|  
     |-|-|    
@@ -683,7 +685,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a>Inbyggda funktioner  
  Azure Cosmos-DB innehåller många inbyggda SQL-funktioner. Kategorier av inbyggda funktioner i listan nedan.  
   
-|Funktionen|Beskrivning|  
+|Funktion|Beskrivning|  
 |--------------|-----------------|  
 |[Matematiska funktioner](#bk_mathematical_functions)|Matematiska funktioner utför en beräkning, vanligtvis baserat på värden som har angetts som argument och returnerar ett numeriskt värde.|  
 |[Ange kontrollerar funktioner](#bk_type_checking_functions)|Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL-frågor.|  
@@ -2791,6 +2793,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Nästa steg  
  [SQL-syntax och SQL-fråga för Azure Cosmos DB](documentdb-sql-query.md)   
- [Azure DB Cosmos-dokumentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Azure DB Cosmos-dokumentation](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

@@ -13,109 +13,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 6bb542537ec713be272f7e58e0b247763214ef4a
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="azure-databricks-preview-common-questions-and-help"></a>Förhandsgranskning, Azure Databricks: Vanliga frågor och hjälp
+# <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor och svar om Azure Databricks
 
-Den här artikeln visar upp frågor som du kanske relaterar till Azure Databricks. Dessutom visas några vanliga problem som kan uppstå när du använder Azure Databricks. Läs mer på Azure Databricks [vad är Azure Databricks?](what-is-azure-databricks.md) 
+Den här artikeln innehåller de vanligaste frågorna som du kan ha relaterade till Azure Databricks. Dessutom visas några vanliga problem som du kanske när du använder Databricks. Mer information finns i [vad är Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="common-questions"></a>Vanliga frågor
+## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan jag använda min egen nycklar för kryptering av lokala? 
+I den aktuella versionen stöds med egna nycklar från Azure Key Vault inte. 
 
-Det här avsnittet innehåller vanliga frågor rör Azure Databricks.
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Kan jag använda virtuella Azure-nätverk med Databricks?
+Ett nytt virtuellt nätverk skapas som en del av Databricks etablering. I den här versionen kan du inte använda ditt eget virtuella Azure-nätverket.
 
-### <a name="can-i-use-my-own-keys-for-local-encryption"></a>Kan jag använda min egen nycklar för kryptering av lokala? 
-I den aktuella versionen stöds med egna nycklar från Azure Keyvault inte. 
+## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hur kommer jag åt Azure Data Lake Store från en bärbar dator? 
 
-### <a name="can-i-use-azure-vnets-with-azure-databricks"></a>Kan jag använda Azure Vnet med Azure Databricks?
-Ett nytt virtuellt nätverk skapas som en del av Azure Databricks etablering. Som en del av den här versionen kan använda du inte din egen Azure VNET.
-
-### <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Hur kommer jag åt Azure Data Lake Store från en bärbar dator? 
-
-1. Etablera ett huvudnamn för tjänsten och registrera sin nyckel i Azure Active Directory.
-2. Tilldela behörighet till tjänstens huvudnamn i Azure Data Lake Store.
-3. Använd autentiseringsuppgifter för tjänstens huvudnamn i anteckningsboken för att komma åt en fil i Azure Data Lake Store.
+Följ de här stegen:
+1. Etablera ett huvudnamn för tjänsten i Azure Active Directory (Azure AD) och registrera sin nyckel.
+2. Tilldela behörighet till tjänstens huvudnamn i Data Lake Store.
+3. Använd service principal autentiseringsuppgifter i anteckningsboken för att komma åt en fil i Data Lake Store.
 
 Mer information finns i [Använd Data Lake Store med Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="fix-common-problems"></a>Åtgärda problem
 
-Det här avsnittet beskrivs hur du felsöker vanliga problem med Azure Databricks.
+Här följer några problem som kan uppstå med Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problem: Den här prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Databricks'
+### <a name="this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Den här prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Databricks'
 
-**Felmeddelande**
+#### <a name="error-message"></a>Felmeddelande
 
-Den här prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Databricks'. Se https://aka.ms/rps-not-found för att registrera prenumerationer. (Kod: MissingSubscriptionRegistration)
+”Den här prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Databricks'. Se https://aka.ms/rps-not-found för att registrera prenumerationer. (Code: MissingSubscriptionRegistration) ”
 
-**Lösning**
+#### <a name="solution"></a>Lösning
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Klicka på **prenumerationer**, den prenumeration som du använder och klicka sedan på **resursproviders**. 
-3. I listan över resursproviders, mot **Microsoft.Databricks**, klickar du på **registrera**. Du måste ha rollen deltagare eller ägare på prenumerationen på registrera resursprovidern.
+2. Välj **prenumerationer**, den prenumeration som du använder, och sedan **resursproviders**. 
+3. I listan över resursproviders, mot **Microsoft.Databricks**väljer **registrera**. Du måste ha rollen Medarbetare eller ägare på prenumerationen på registrera resursprovidern.
 
 
-### <a name="issue-your-account-email-does-not-have-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Problem: Kontot {e-post} inte har rollen som ägare eller deltagare på resursen Databricks arbetsytan i Azure-portalen.
+### <a name="your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>Ditt konto {e-post} har inte rollen som ägare eller deltagare på resursen Databricks arbetsytan i Azure-portalen
 
-**Felmeddelande**
+#### <a name="error-message"></a>Felmeddelande
 
-Ditt konto {e-post} har inte ägare eller deltagare roll på resursen Databricks arbetsytan i Azure-portalen. Det här felet kan också inträffa om du är en gästanvändaren i klienten. Be administratören att ge åtkomst till, eller lägga till dig som en användare direkt i arbetsytan Databricks. 
+”Ditt konto {e-post} har inte ägare eller deltagare roll på resursen Databricks arbetsytan i Azure-portalen. Det här felet kan också inträffa om du är en gästanvändaren i klienten. Be administratören att ge åtkomst till, eller lägga till dig som en användare direkt i arbetsytan Databricks ”. 
 
-**Lösning**
+#### <a name="solution"></a>Lösning
 
-Nedan följer några lösningar på problemet:
+Här följer några lösningar på problemet:
 
-* För att initiera klienten, måste du vara inloggad som en användare med klienten, inte en gästanvändare. Du måste också ha deltagarrollen på resursen Databricks arbetsytan. Du kan ge en användaråtkomst från den **åtkomstkontroll (IAM)** fliken i din Azure Databricks arbetsyta i Azure-portalen.
+* För att initiera klienten, måste du vara inloggad som en användare med klienten inte som gästanvändare. Du måste också ha en deltagarrollen på resursen Databricks arbetsytan. Du kan ge en användaråtkomst från den **åtkomstkontroll (IAM)** fliken inom Databricks arbetsytan i Azure-portalen.
 
-* Det här felet kan också uppstå om ditt domännamn för e-post har tilldelats flera aktiva kataloger. Undvik problemet genom att skapa en ny användare i Active Directory som innehåller prenumerationen med Databricks arbetsytan.
+* Det här felet kan också inträffa om ditt domännamn för e-post har tilldelats flera kataloger i Azure AD. Undvik problemet genom att skapa en ny användare i katalogen som innehåller prenumerationen med Databricks arbetsytan.
 
-    a. Gå till Azure Active Directory i Azure-portalen klickar du på **användare och grupper**, klickar du på **lägga till en användare**.
+    a. Gå till Azure AD i Azure-portalen. Välj **användare och grupper** > **lägga till en användare**.
 
-    b. Lägga till en användare med ett `@<tenant_name>.onmicrosoft.com` e-post i stället för @< domän > e-post. Du kan hitta < tenant_name >. onmicrosoft.com som är associerade med din Active Directory i den **anpassade domäner** under Azure Active Directory på Azure-portalen.
+    b. Lägga till en användare med en `@<tenant_name>.onmicrosoft.com` e-post i stället för `@<your_domain>` e-post. Du hittar det i **anpassade domäner**, under Azure AD i Azure-portalen.
     
-    c. Ge den nya användaren **deltagare** -rollen på resursen Databricks arbetsytan.
+    c. Ge den nya användaren i **deltagare** -rollen på resursen Databricks arbetsytan.
     
     d. Logga in på Azure-portalen med den nya användaren och hitta arbetsytan Databricks.
     
     e. Starta arbetsytan Databricks som den här användaren.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problem: Kontot {e-post} har inte registrerats i Databricks 
+### <a name="your-account-email-has-not-been-registered-in-databricks"></a>Ditt konto {e-post} har inte registrerats i Databricks 
 
-**Lösning**
+#### <a name="solution"></a>Lösning
 
-Om du inte har skapat arbetsytan och du läggs till som en användare i arbetsytan kontaktar du den person som skapade arbetsytan för att lägga till dig via Azure Databricks administratörskonsolen. Instruktioner finns i [lägga till och hantera användare](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Om arbetsytan skapades och fortfarande det här felet visas, kan du använda kommandot ”initiera arbetsytan” igen från Azure-portalen.
+Om du inte har skapat arbetsytan och du har lagts till som en användare, kontaktar du den person som skapade arbetsytan. Har personen lägga till dig med hjälp av Azure Databricks Admin-konsolen. Instruktioner finns i [lägga till och hantera användare](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Om du har skapat arbetsytan och fortfarande det här felet visas, försök med att välja **initiera arbetsytan** igen från Azure-portalen.
 
-### <a name="issue-cloud-provider-launch-failure-publicipcountlimitreached-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Problem: Molnet starta Providerfel (PublicIPCountLimitReached): ett moln provider-fel uppstod vid konfigurera klustret
+### <a name="cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Molnet providern startfel när du konfigurerar klustret
 
-**Felmeddelande**
+#### <a name="error-message"></a>Felmeddelande
 
-Startfel för moln-Provider: En molnet providern fel uppstod när du konfigurerar klustret. Se guiden Databricks för mer information. Azure-felkod: PublicIPCountLimitReached. Azure-felmeddelande: Det går inte att skapa mer än 60 offentliga IP-adresser för den här prenumerationen i den här regionen.
+”Molnet startfel för providern: ett moln provider-fel uppstod vid konfigurera klustret. Se guiden Databricks för mer information. Azure-felkod: PublicIPCountLimitReached. Azure-felmeddelande: Det går inte att skapa mer än 60 offentliga IP-adresser för den här prenumerationen i den här regionen ”.
 
-**Lösning**
+#### <a name="solution"></a>Lösning
 
-Azure Databricks kluster använder en offentlig IP-adress per nod. Om din prenumeration har redan använts alla dess offentliga IP-adresser, bör du [begäran om att öka kvoten](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som den **typ av problem**, **nätverk: ARM** som den **Kvottypen**, och begära en ökad offentliga IP-adressen kvot i  **Information om**. Till exempel om du vill skapa ett kluster med 100 noder och gränsen är för närvarande 60 få gränsen utökad till 160.
+Databricks kluster använder en offentlig IP-adress per nod. Om din prenumeration har redan använts alla dess offentliga IP-adresser, bör du [begäran om att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Välj **kvot** som den **utfärda typ**, och **nätverk: ARM** som den **Kvottypen**. I **information**, begära en ökad för kvot av offentlig IP-adress. Till exempel om du vill skapa ett kluster med noder 100 gränsen är för närvarande 60 och få gränsen utökad till 160.
 
-### <a name="issue-cloud-provider-launch-failure-missingsubscriptionregistration-a-cloud-provider-error-was-encountered-while-setting-up-the-cluster"></a>Problem: Molnet starta Providerfel (MissingSubscriptionRegistration): ett moln provider-fel uppstod vid konfigurera klustret
+### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>En andra typen av molnet providern startfel när du konfigurerar klustret
 
-**Felmeddelande**
+#### <a name="error-message"></a>Felmeddelande
 
-Startfel för moln-Provider: En molnet providern fel uppstod när du konfigurerar klustret. Se guiden Databricks för mer information.
-Azure-felkod: MissingSubscriptionRegistration Azure-felmeddelande: prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Compute'. Se https://aka.ms/rps-not-found för att registrera prenumerationer
+”Molnet startfel för providern: ett moln provider-fel uppstod vid konfigurera klustret. Se guiden Databricks för mer information.
+Azure-felkod: MissingSubscriptionRegistration Azure-felmeddelande: prenumerationen har inte registrerats för användning av namnrymden 'Microsoft.Compute'. Se https://aka.ms/rps-not-found för att registrera prenumerationer ”.
 
-**Lösning**
+#### <a name="solution"></a>Lösning
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Klicka på **prenumerationer**, den prenumeration som du använder och klicka sedan på **resursproviders**. 
-3. I listan över resursproviders, mot **Microsoft.Compute**, klickar du på **registrera**. Du måste ha rollen deltagare eller ägare på prenumerationen på registrera resursprovidern.
+2. Välj **prenumerationer**, den prenumeration som du använder, och sedan **resursproviders**. 
+3. I listan över resursproviders, mot **Microsoft.Compute**väljer **registrera**. Du måste ha rollen Medarbetare eller ägare på prenumerationen på registrera resursprovidern.
 
-Se [resursproviders och typer](../azure-resource-manager/resource-manager-supported-services.md) detaljerade instruktioner.
+Mer instruktioner finns [resursproviders och typer](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Stegvisa instruktioner för att skapa en datafabrik för version 2 finns i följande kurser:
 
 - [Snabbstart: Komma igång med Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Vad är Azure Databricks?](what-is-azure-databricks.md)

@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du konfigurerar Microsofts allmän
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Teknisk referens för allmän SQL Connector
 Den här artikeln beskriver allmänna SQL-anslutningen. Artikeln gäller för följande produkter:
@@ -41,7 +41,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 | Anslutna datakällan |Anslutningen stöds med alla 64-bitars ODBC-drivrutiner. Den har testats med följande: <li>Microsoft SQL Server och SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 11 &10;g</li><li>MySQL 5.x</li> |
 | Scenarier |<li>Livscykelhantering för objektet</li><li>Lösenordshantering</li> |
 | Åtgärder |<li>Fullständig Import och Deltaimport, Export</li><li>För Export: Lägga till, ta bort uppdateringen, och Ersätt</li><li>Ange lösenord, ändra lösenord</li> |
-| Schemat |<li>Dynamisk identifiering av objekt och attribut</li> |
+| Schema |<li>Dynamisk identifiering av objekt och attribut</li> |
 
 ### <a name="prerequisites"></a>Krav
 Innan du använder anslutningen kan du kontrollera att du har följande på synkroniseringsservern:

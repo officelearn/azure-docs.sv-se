@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c415fc55-6dc1-49f2-a8a2-2fc6e3790d65
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e97c365383ecdb72cc1cd449b522b75875fc1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fad672f9337f7bd10b154dc6ece76879da68fbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Självstudier: Azure Active Directory-integrering med Allocadia
 
@@ -131,11 +131,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
 5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | Förnamn | User.givenName |
     | Efternamn | User.surname |
-    | E-post | User.Mail |
+    | e-post | User.Mail |
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

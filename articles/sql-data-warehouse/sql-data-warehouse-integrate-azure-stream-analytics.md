@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använda Azure Stream Analytics med SQL Data Warehouse
 Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, hög tillgänglighet och skalbara komplexa händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en lösning för slutpunkt till slutpunkt med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] kursen.
@@ -53,7 +53,7 @@ Ange följande värden på nästa sida:
   * Om din SQL Data Warehouse-databas är i samma prenumeration som Stream Analytics-jobbet väljer du Använd SQL-databas från aktuell prenumeration.
   * Om databasen är i en annan prenumeration väljer du Använd SQL-databas från en annan prenumeration.
 * *Databasen*: Ange namnet på en måldatabasen.
-* *Servernamnet*: Ange namnet på servern för databasen som du precis angav. Du kan använda den klassiska Azure-portalen för att hitta detta.
+* *Servernamnet*: Ange namnet på servern för databasen som du precis angav. Du kan använda Azure-portalen för att hitta detta.
 
 ![][server-name]
 

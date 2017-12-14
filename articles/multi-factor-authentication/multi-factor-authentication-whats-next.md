@@ -4,7 +4,7 @@ description: "Detta är Azure Multi-Factor authentication-sidan som beskriver va
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Konfigurera inställningar för Azure Multi-Factor Authentication - Public preview
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
 Den här artikeln hjälper dig att hantera Azure Multi-Factor Authentication nu när du är igång.  Den omfattar olika avsnitt som hjälper dig att få ut mesta möjliga av Azure Multi-Factor Authentication.  Alla dessa funktioner är inte tillgängliga i varje [versionen av Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Dessa inställningar är tillgänglig som förhandsversion i Azure-portalen. Läs dokumentationen om hur du hanterar Azure Multi-Factor Authentication-inställningarna i portalen pfweb [konfigurerar Azure Multi-Factor Authentication-inställningar](multi-factor-authentication-whats-next-pfweb.md).
 
 | Funktion | Beskrivning | 
 |:--- |:--- |
@@ -142,7 +139,7 @@ Cachelagring är inte avsedd att användas för inloggningar till Azure AD.
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Gå till **Azure Active Directory** > **MFA-Server** > **cachelagring regler**.
 
-   ![Cachelagringsregler](./media/multi-factor-authentication-whats-next/cachingrules.png)
+   ![Regler för cachelagring](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 4. Välj **Lägg till**.
 5. Välj cachetyp i listrutan och ange antalet cachelagringssekunder som max. 

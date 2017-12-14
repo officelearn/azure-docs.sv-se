@@ -1,9 +1,9 @@
 ---
-title: "Azure Quickstart - skapa ett lagringskonto med hjälp av Azure CLI | Microsoft Docs"
-description: "Snabbt lära dig skapa ett nytt lagringskonto med hjälp av Azure CLI."
+title: "Azure snabbstart – Skapa ett lagringskonto med hjälp av Azure CLI | Microsoft Docs"
+description: "Lär dig snabbt att skapa ett nytt lagringskonto med hjälp av Azure CLI."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
-ms.author: marsma
-ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: d0f9f487226218e6a8409c60edd7ef39ce760386
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="create-a-storage-account-using-the-azure-cli"></a>Skapa ett lagringskonto med hjälp av Azure CLI
+# <a name="create-a-storage-account-using-the-azure-cli"></a>Skapa ett lagringskonto med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstartsguide information med Azure CLI för att skapa ett Azure Storage-konto.
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att skapa ett Azure Storage-konto.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en Azure-resursgrupp med kommandot [az group create](/cli/azure/group#create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Det här exemplet skapar en resursgrupp med namnet *myResourceGroup* i den *eastus* region.
+Skapa en Azure-resursgrupp med kommandot [az group create](/cli/azure/group#create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -41,7 +41,7 @@ az group create \
     --location eastus
 ```
 
-Om du inte vet vilken region som du anger för den `--location` parameter, kan du hämta en lista över regioner som stöds för din prenumeration med den [az konto lista-platser](/cli/azure/account#list) kommando.
+Om du inte vet vilken region du ska ange för parametern `--location` kan du hämta en lista över regioner som stöds för din prenumeration med kommandot [az account list-locations](/cli/azure/account#list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -51,12 +51,12 @@ az account list-locations \
 
 ## <a name="create-a-general-purpose-standard-storage-account"></a>Skapa ett allmänt standardlagringskonto
 
-Det finns flera typer av lagringskonton för olika Användningsscenarier, som har stöd för en eller flera av lagringstjänsterna (blobbar, filer, tabeller eller köer). I följande tabell beskrivs kontotyper tillgängligt lagringsutrymme.
+Det finns flera typer av lagringskonton som lämpar sig för olika användningsscenarier, och som var och en har stöd för en eller flera av lagringstjänsterna (Blob Service, File Service, Table Service eller Queue Service). I följande tabell beskrivs de olika typer av lagringskonton som är tillgängliga.
 
 |**Typ av lagringskonto**|**Allmän Standard**|**Allmän Premium**|**Blob Storage, frekvent och lågfrekvent åtkomstnivå**|
 |-----|-----|-----|-----|
-|**Tjänster som stöds**| BLOB-fil, tabell, Queue-tjänster | Blob Service | Blob Service|
-|**Typer av blobbar som stöds**|Blockblobbar, sidblobbar, tilläggsblobbar | Sidblobbar | Blockblobbar och tilläggsblobbar|
+|**Tjänster som stöds**| Blob Service, File Service, Table Service, Queue Service | Blob Service | Blob Service|
+|**Typer av blobbar som stöds**|Blockblobar, sidblobar och tilläggsblobar | Sidblobbar | Blockblobbar och tilläggsblobbar|
 
 Skapa ett allmänt lagringskonto med kommandot [az storage account create](/cli/azure/storage/account#create).
 
@@ -71,7 +71,7 @@ az storage account create \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive storage-konto som du skapade i Snabbstart, ta bort resursgruppen med den [ta bort grupp az](/cli/azure/group#delete) kommando.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade i den här snabbstarten, kan du ta bort resursgruppen med kommandot [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -79,7 +79,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapat du en resursgrupp och ett allmänt standardlagringskonto. Information om hur du överför data till och från ditt lagringskonto, fortsätter du till Blob storage Snabbstart.
+I den här snabbstarten har du skapat en resursgrupp och ett allmänt standardlagringskonto. Om du vill lära dig hur du överför data till och från lagringskontot kan du fortsätta med snabbstarten om Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Överför objekt till och från Azure Blob storage med hjälp av Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Överföra objekt till och från Azure Blob Storage med hjälp av Azure CLI](../blobs/storage-quickstart-blobs-cli.md)

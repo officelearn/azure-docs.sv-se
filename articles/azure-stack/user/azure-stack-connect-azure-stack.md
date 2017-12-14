@@ -3,8 +3,8 @@ title: Ansluta till Azure-stacken | Microsoft Docs
 description: "Lär dig hur du ansluter Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
-För att hantera resurser, måste du ansluta till Azure-stacken Development Kit. Det här avsnittet beskriver steg som krävs för att ansluta development Kit. Du kan använda något av följande anslutningsalternativ för:
+För att hantera resurser, måste du ansluta till Azure-stacken Development Kit. Det här artikeln beskriver steg som krävs för att ansluta development Kit. Du kan använda något av följande anslutningsalternativ för:
 
 * [Fjärrskrivbord](#connect-with-remote-desktop): tillåter att en enskild samtidiga användare enkelt kan ansluta development Kit.
 * [Virtuella privata nätverk (VPN)](#connect-with-vpn): tillåter att flera samtidiga användare ansluta från klienter utanför Azure Stack-infrastruktur (kräver konfiguration).
@@ -51,7 +51,7 @@ Du kan upprätta en delad tunnel virtuella privata nätverk (VPN)-anslutning til
 
 ### <a name="configure-vpn-connectivity"></a>Konfigurera VPN-anslutning
 
-Om du vill skapa en VPN-anslutning i development Kit, öppna en upphöjd PowerShell-session från den lokala Windows-baserade datorn och kör följande skript (se till att uppdatera den IP-adress och lösenord värden för din miljö):
+Öppna en upphöjd PowerShell-session från den lokala Windows-baserade datorn och kör följande skript (se till att uppdatera värdena för IP-adress och lösenord för din miljö) för att skapa en VPN-anslutning i development Kit:
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Om Ställ in lyckas, bör du se **azurestack** i listan över VPN-anslutningar.
+Om inställningen lyckas, bör du se **azurestack** i listan över VPN-anslutningar.
 
 ![Nätverksanslutningar](media/azure-stack-connect-azure-stack/image3.png)  
 

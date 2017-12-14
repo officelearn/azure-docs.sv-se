@@ -4,7 +4,7 @@ description: "Det här avsnittet innehåller reparationssteg för LargeObject fe
 services: active-directory
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: hantera LargeObject fel som orsakats av userCertificate attribut
 
@@ -90,7 +90,7 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
     | --- | --- |
     | Riktning |**Utgående** |
     | MV-objekttyp |**Person** |
-    | koppling |*namnet på Azure AD-koppling* |
+    | Koppling |*namnet på Azure AD-koppling* |
     | Objekttyp för kopplingen |**användaren** |
     | MV-attribut |**userCertificate** |
 
@@ -101,7 +101,7 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
 7. På skärmen redigera väljer den **Scoping filter** fliken.
 8. Notera målgrupp filterkonfiguration. Om du använder synkroniseringsregel OOB det exakt ska **en målgrupp filter-grupp som innehåller två satser**, inklusive:
 
-    | Attribut | Operatorn | Värde |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | LIKA MED | Användare |
     | cloudMastered | NOTEQUAL | True |

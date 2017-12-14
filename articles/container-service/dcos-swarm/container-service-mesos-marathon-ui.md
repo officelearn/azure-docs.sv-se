@@ -1,28 +1,22 @@
 ---
-title: "Hantera Azure DC/OS-kluster med Marathon-Gränssnittet | Microsoft Docs"
+title: "Hantera Azure DC/OS-kluster med Marathon-Gränssnittet"
 description: "Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt."
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b00088bb005519dc5d533433308c0e3e33c7f433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Hantera ett Azure Container Service DC/OS-kluster via webbgränssnittet för Marathon
+
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar.
 
 Även om ramverk är tillgängliga för många populära arbetsbelastningar beskriver det här dokumentet hur du kommer igång med att distribuera behållare med Marathon. 

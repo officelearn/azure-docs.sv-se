@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med SQL Server-katastrofåterställning och Azure Site Recovery
 
@@ -50,6 +50,7 @@ Site Recovery kan skydda SQL Server som sammanfattas i tabellen.
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
+**Azure**|Ej tillämpligt| Ja
 
 ### <a name="supported-sql-server-versions"></a>SQL Server-versioner som stöds
 De här SQL Server-versioner som stöds för scenarierna som stöds:

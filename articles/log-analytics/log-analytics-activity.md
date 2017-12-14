@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Visa Azure aktivitetsloggar
 
@@ -52,7 +52,7 @@ Till skillnad från de flesta andra logganalys-lösningar kan inte samlas in fö
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen samlar inte in information från Azure storage. |
@@ -88,7 +88,7 @@ Klicka på den **Azure aktivitetsloggar** öppna den **Azure aktivitetsloggar** 
 
 Loggdata för aktivitet visas bara *när* du har konfigurerat din aktivitetsloggar att gå till lösning, så att du kan visa data innan.
 
-| Bladet | Beskrivning |
+| Blad | Beskrivning |
 | --- | --- |
 | Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |

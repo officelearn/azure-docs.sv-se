@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: Konfigurera replikeringsinställningar för VMware till Azure
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Undanta diskar från replikering
+        - name: Undanta diskar från replikering för VMware till Azure
           href: site-recovery-exclude-disk.md
+        - name: Undanta diskar från replikering för Hyper-V till Azure
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: Distribuera mobilitetstjänsten för VMware-replikering
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:

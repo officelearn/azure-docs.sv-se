@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Hur du använder GPU i Azure Machine Learning
 Grafisk grafikprocessor (GPU) används ofta för att utföra beräkningsmässigt beräkningsintensiva aktiviteter som vanligtvis kan inträffa när utbildning vissa djupa neurala nätverket modeller. Genom att använda GPU-kort kan minska du tiden utbildning av modeller avsevärt. I det här dokumentet beskrivs hur du konfigurerar Azure ML-arbetsstationen för att använda [DSVM (datavetenskap virtuell dator)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) utrustade med GPU-kort som mål för körning. 
@@ -64,10 +64,10 @@ Azure ML-arbetsstationen stöder också körning i Docker i en Azure Linux-VM. H
 4. Klicka på **skapa** att skapa en Ubuntu DSVM.
 
 5. Fyll i den **grunderna** formulär med informationen som krävs.
-När du väljer en plats för den virtuella datorn, Observera att GPU virtuella datorer är bara tillgängliga i vissa Azure områden, till exempel **södra centrala USA**. Se [compute produkter som är tillgängliga efter region](https://azure.microsoft.com/en-us/regions/services/).
+När du väljer en plats för den virtuella datorn, Observera att GPU virtuella datorer är bara tillgängliga i vissa Azure områden, till exempel **södra centrala USA**. Se [compute produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
 Klicka på OK om du vill spara den **grunderna** information.
 
-6. Välj storleken på den virtuella datorn. Välj en av storlekar med NC-prefixet virtuella datorer, som är utrustade med NVidia GPU-minnet.  Klicka på **visa alla** att se en fullständig lista efter behov. Lär dig mer om [GPU-utrustade virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Välj storleken på den virtuella datorn. Välj en av storlekar med NC-prefixet virtuella datorer, som är utrustade med NVidia GPU-minnet.  Klicka på **visa alla** att se en fullständig lista efter behov. Lär dig mer om [GPU-utrustade virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Slutför de återstående inställningarna och granska informationen om inköp. Klicka på Köp för att skapa den virtuella datorn. Anteckna den IP-adress som tilldelats den virtuella datorn. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-Du kan också använda 1 bitars SGD versionen av Microsoft kognitiva Toolkit som ger bättre prestanda på flera GPU virtuella datorer. Observera [licenskrav för 1 bitars SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+Du kan också använda 1 bitars SGD versionen av Microsoft kognitiva Toolkit som ger bättre prestanda på flera GPU virtuella datorer. Observera [licenskrav för 1 bitars SGD](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

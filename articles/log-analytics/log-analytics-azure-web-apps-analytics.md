@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visa analytiska data för mått för alla webbprogram i Azure-resurser
 
@@ -39,7 +39,7 @@ Till skillnad från de flesta andra logganalys-lösningar är inte samlas in fö
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen matchar inte samlingsinformation från Azure storage. |
@@ -58,7 +58,7 @@ Utför följande steg för att konfigurera Azure Web Apps Analytics lösningen f
 Azure Web Apps Analytics lösningen samlar in två olika mått från Azure:
 
 - Azure Web Apps-mått
-  - Genomsnittlig minne arbetsminne
+  - Genomsnittligt arbetsminne
   - Genomsnittlig svarstid
   - Byte mottagna/skickas
   - CPU-tid

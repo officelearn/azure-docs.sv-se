@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-plattformen migrering vanliga frågor och svar
 I tidig juni 2017 började Azure Security Center med hjälp av Microsoft Monitoring Agent att samla in och lagra data. Läs mer i [Azure Security Center-plattformen migrering](security-center-platform-migration.md). Dessa vanliga frågor svar på frågor om migreringen plattform.
@@ -175,7 +175,7 @@ Du kanske vill välja att inaktivera automatisk etablering om följande gäller 
 När migreringen är klar, Security Center är inte kunna samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgänglig. Om du avböjer bör du installera Microsoft Monitoring Agent manuellt. Se [rekommenderas steg när du väljer](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Vilka är rekommenderade steg när du väljer bort automatisk etablering?
-Du bör installera Microsoft Monitoring Agent manuellt så Security Center kan samla in säkerhetsdata från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar. Se [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agents.md) vägledning om installationen.
+Du bör installera Microsoft Monitoring Agent manuellt så Security Center kan samla in säkerhetsdata från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar. Se [ansluta Windows-datorer i Azure logganalys-tjänsten](../log-analytics/log-analytics-windows-agent.md) vägledning om installationen.
 
 Du kan ansluta agenten till en befintlig anpassad arbetsyta eller Security Center skapa arbetsytan. Om en anpassad arbetsyta saknar 'Säkerhet' eller 'SecurityCenterFree' lösningar som aktiverad, måste gälla en lösning. Om du vill använda, väljer du anpassade arbetsytan eller en prenumeration och tillämpa en prisnivå via den **säkerhetsprincip – prisnivå** bladet.
 

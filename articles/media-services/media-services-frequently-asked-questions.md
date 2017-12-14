@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: juliako
-ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab66994b0212593aff1384b0801f3359eb0a3751
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -60,7 +60,7 @@ S: Media Services använder värdet för egenskapen IAssetFile.Name när du skap
 
 F: hur du ansluter med hjälp av REST?
 
-S: information om hur du ansluter till AMS API finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI. 
+S: information om hur du ansluter till AMS API finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 F: hur kan rotera en video under kodningen.
 

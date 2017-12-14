@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Sök i närheten intressant med hjälp av Azure baserad platstjänster
 
@@ -105,7 +105,7 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
     </body>
 
@@ -115,7 +115,7 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
  
 3.  Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel. 
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -126,7 +126,7 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
 
 4. Lägg till följande JavaScript-kod till den *skriptet* block, att lägga till ett lager av Sök PIN-koder i Kartkontrollen:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
     map.addPins([], {
@@ -146,7 +146,7 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
 Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktjänsts-API för att hitta en plats av intresse på kartan. Det är en RESTful-API för utvecklare att söka efter adresser, punkter av intresse och andra geografisk information. Söktjänsten tilldelar en latitud och longitud information till en angiven adress. 
 
 1. Öppna den **MapSearch.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block att illustrera Search-tjänsten. 
-    ```HTML/JavaScript
+    ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -189,7 +189,7 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
 
 2. Lägg till följande kod i den *skriptet* block, skicka XMLHttpRequest till Azure plats baserat tjänsterna Search-tjänsten:
 
-    ```HTML/JavaScript
+    ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
@@ -205,7 +205,7 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
 
 3. Lägg till följande rader till den *skriptet* blockera, skapa popup-fönster för punkter av intresse som returneras av söktjänsten:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
     var popup = new atlas.Popup();
     map.addEventListener("mouseover", searchLayerName, (e) => {

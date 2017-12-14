@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Dataströmmen Azure aktivitetsloggen i Händelsehubbar
 Den [ **Azure-aktivitetsloggen** ](monitoring-overview-activity-logs.md) kan strömmas i nära realtid för alla program med alternativet ”Export” inbyggda i portalen eller genom att aktivera Service Bus regel-Id i en logg profil via Azure PowerShell Cmdlet: ar eller Azure CLI.
@@ -30,7 +30,7 @@ Här följer några olika sätt som du kan använda den strömmande kapaciteten 
 * **Skapa en anpassad telemetri och loggning plattform** – om du redan har ett specialbyggt telemetri plattform eller är bara om du tänker skapa en mycket skalbar natur att publicera och prenumerera i Händelsehubbar kan du flexibelt infognings-aktivitetsloggen. [Finns Dan Rosanova guide med Händelsehubbar i en global skala telemetri platform här.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Strömning av aktivitetsloggen
-Du kan aktivera strömning av aktivitetsloggen programmässigt eller via portalen. Oavsett hur du väljer en Service Bus-Namespace och en princip för delad åtkomst för det namnområdet och en Händelsehubb skapas i namnutrymmet när den första nya aktivitetsloggen händelsen inträffar. Om du inte har en Service Bus-Namespace måste du först skapa en. Om du har tidigare strömmas aktivitetsloggen händelser till den här Service Bus-Namespace, kan Händelsehubben som skapades tidigare återanvändas. Princip för delad åtkomst definierar vilka behörigheter som har mekanismen för strömning. Idag strömning i en Händelsehubbar kräver **hantera**, **skicka**, och **lyssna** behörigheter. Du kan skapa eller ändra principer för Service Bus Namespace delad åtkomst i den klassiska portalen på fliken ”Konfigurera” för ditt Service Bus-Namespace. Om du vill uppdatera aktivitetsloggen loggen profilen om du vill inkludera strömning måste användaren att ändra ha behörigheten ListKey på den Service Bus-auktoriseringsregeln.
+Du kan aktivera strömning av aktivitetsloggen programmässigt eller via portalen. Oavsett hur du väljer en Service Bus-Namespace och en princip för delad åtkomst för det namnområdet och en Händelsehubb skapas i namnutrymmet när den första nya aktivitetsloggen händelsen inträffar. Om du inte har en Service Bus-Namespace måste du först skapa en. Om du har tidigare strömmas aktivitetsloggen händelser till den här Service Bus-Namespace, kan Händelsehubben som skapades tidigare återanvändas. Princip för delad åtkomst definierar vilka behörigheter som har mekanismen för strömning. Idag strömning i en Händelsehubbar kräver **hantera**, **skicka**, och **lyssna** behörigheter. Du kan skapa eller ändra principer för Service Bus Namespace delad åtkomst i Azure-portalen på fliken ”Konfigurera” för ditt Service Bus-Namespace. Om du vill uppdatera aktivitetsloggen loggen profilen om du vill inkludera strömning måste användaren att ändra ha behörigheten ListKey på den Service Bus-auktoriseringsregeln.
 
 Namnområdet för service bus eller händelse hubb behöver inte finnas i samma prenumeration som prenumerationen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 

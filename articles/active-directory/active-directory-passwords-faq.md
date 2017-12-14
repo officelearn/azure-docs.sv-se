@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -41,6 +41,11 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 * **F: kan användarna registrera sina egna data för återställning av lösenord?**
 
   > **S:** Ja. Så länge lösenordsåterställning har aktiverats och de licensierade kan användare gå till registreringsportalen för lösenordsåterställning (http://aka.ms/ssprsetup) att registrera sina autentiseringsinformationen. Användarna kan också registrera via åtkomstpanelen (http://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver väljer deras profilbild, väljer **profil**, och välj sedan den **registrera dig för lösenordsåterställning** alternativet.
+  >
+  >
+* **F: om jag aktiverar lösenord återställer för en grupp och sedan väljer att aktivera det för alla mina användare krävs registrera?**
+
+  > **S:** Nej. Användare som har fyllts autentiseringsdata behöver inte registrera igen.
   >
   >
 * **F: kan jag definiera data om återställning av lösenord för åt mina användare?**

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Ansluta datorer utan Internetanslutning till OMS med OMS-Gateway
 
@@ -104,7 +104,7 @@ Det finns tre sätt att få den senaste versionen av filen OMS Gateway Setup.
 Utför följande steg för att installera en gateway.  Om du har installerat en tidigare version kallades *Log Analytics vidarebefordrare*, kommer att uppgraderas till den här versionen.  
 
 1. Dubbelklicka på målmappen, **OMS Gateway.msi**.
-2. På den **Välkommen** klickar du på **nästa**.<br><br> ![Installationsguiden för gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. På sidan **Välkommen** klickar du på **Nästa**.<br><br> ![Installationsguiden för gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 3. På den **licensavtalet** väljer **jag accepterar villkoren i licensavtalet** du godkänner LICENSAVTALET och klicka sedan på **nästa**.
 4. På den **Port och proxy adress** sidan:
    1. Ange TCP-portnummer som ska användas för gatewayen. Installationsprogrammet konfigurerar en inkommande regel med det här portnumret på Windows-brandväggen.  Standardvärdet är 8080.
@@ -129,7 +129,7 @@ Om du vill lära dig mer om att skapa och distribuera en Windows Server 2016 Utj
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Konfigurera OMS-agent och Operations Manager-hanteringsgruppen
 Följande avsnitt innehåller anvisningar om hur du konfigurerar direktanslutna OMS agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Workers med OMS-Gateway för att kommunicera med OMS.  
 
-Information om krav och anvisningar om hur du installerar OMS-agent på Windows-datorer ansluta direkt till OMS finns [ansluta Windows-datorer till OMS](log-analytics-windows-agents.md) eller Linux-datorer finns i [ansluta Linux-datorer till OMS](log-analytics-linux-agents.md). 
+Information om krav och anvisningar om hur du installerar OMS-agent på Windows-datorer ansluta direkt till OMS finns [ansluta Windows-datorer till OMS](log-analytics-windows-agent.md) eller Linux-datorer finns i [ansluta Linux-datorer till OMS](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Konfigurera OMS-agent och Operations Manager om du vill använda OMS-Gateway som en proxyserver
 

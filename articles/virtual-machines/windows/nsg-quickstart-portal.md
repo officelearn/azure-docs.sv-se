@@ -4,7 +4,7 @@ description: "Lär dig hur du öppnar en port / skapa en slutpunkt för din Wind
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Hur du öppnar portar till en virtuell dator med Azure-portalen
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Välj en ny Nätverkssäkerhetsgrupp. Välj 'Inkommande säkerhetsregler' och v�
 
 ![Lägg till en inkommande regel](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Välj en gemensam **Service** i den nedrullningsbara menyn som *HTTP*. Du kan också välja *anpassad* att tillhandahålla en specifik port som ska användas. Om du vill ändra prioritet eller namn. Prioriteten påverkar den ordning som regler - Ju lägre det numeriska värdet, den tidigare regeln tillämpas. Du kan också välja **Avancerat** överst i den här skärmen för att ange en specifik käll-IP-block eller port adressintervall, till exempel. När du är klar väljer du **OK** att skapa regeln:
+Om du vill skapa en regel tillåter som trafik:
+
+- Välj den **grundläggande** knappen. Som standard den **Avancerat** fönstret innehåller några ytterligare konfigurationsalternativ såsom för att definiera en specifik käll-IP-block eller port adressintervall.
+- Välj en gemensam **Service** i den nedrullningsbara menyn som *HTTP*. Du kan också välja *anpassad* att tillhandahålla en specifik port som ska användas. 
+- Om du vill ändra prioritet eller namn. Prioriteten påverkar den ordning som regler - Ju lägre det numeriska värdet, den tidigare regeln tillämpas.
+- När du är klar väljer du **OK** att skapa regeln:
 
 ![Skapa en regel för inkommande trafik](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

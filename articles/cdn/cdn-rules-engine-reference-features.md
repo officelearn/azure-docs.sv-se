@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regler motorn funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Namn | Syfte
 [Parametrar för bandbredd](#bandwidth-parameters) | Anger om bandbredd bandbreddsbegränsning parametrarna (till exempel ec_rate och ec_prebuf) är aktiva.
 [Begränsning av bandbredd](#bandwidth-throttling) | Begränsar bandbredd för svar som tillhandahålls av Microsoft edge-servrar.
 [Kringgå Cache](#bypass-cache) | Anger om begäran bör kringgå cachelagring.
-[Cache-Control sidhuvud behandling](#cache-control-header-treatment) | Styr generering av Cache-Control-huvuden av gränsservern när externa maximal ålder funktionen är aktiv.
+[Cache-Control sidhuvud behandling](#cache-control-header-treatment) | Styr generering av `Cache-Control` huvuden av edge-servern när externa maximal ålder funktionen är aktiv.
 [Cachenyckel frågesträng](#cache-key-query-string) | Anger om cache-nyckel ska inkludera eller exkludera frågan string-parametrar som är associerade med en begäran.
 [Omarbetning av cache-nyckel](#cache-key-rewrite) | Skriver om cache-nyckeln som associeras med en begäran.
 [Slutföra Cache Fill](#complete-cache-fill) | Anger vad som händer när en begäran resulterar i en partiell cache-miss på edge-server.
 [Komprimera filtyper](#compress-file-types) | Definierar de filformat som ska komprimeras på servern.
 [Internt Max-åldern som standard](#default-internal-max-age) | Anger maximal ålder standardintervallet för edge-server till ursprunget server Cachevalidering.
-[Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av Expires-huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
+[Upphör att gälla sidhuvud behandling](#expires-header-treatment) | Styr generering av `Expires` huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
 [Externa maximal ålder](#external-max-age) | Anger intervallet för maximal ålder för webbläsaren edge server Cachevalidering.
 [Tvinga inre maximal ålder](#force-internal-max-age) | Anger intervallet för maximal ålder för edge-server till ursprunget server Cachevalidering.
 [H.264-stöd (http-progressiv nedladdning)](#h264-support-http-progressive-download) | Avgör vilka typer av H.264 som kan användas för att strömma innehåll.
@@ -162,7 +162,7 @@ Namn | Syfte
 -----|--------
 [Cacheable ställs http-metoder](#cacheable-http-methods) | Anger den ytterligare HTTP-metoder som kan cachelagras i nätverket.
 [Textstorleken för Cacheable ställs begäran](#cacheable-request-body-size) | Definierar tröskelvärdet för att fastställa om en POST svaret kan cachelagras.
-[Variabeln användare](#user-variable) | Använda primarity med Lua skript.
+[Variabeln användare](#user-variable) | Endast för intern användning.
 
  
 ## <a name="url-features"></a>URL-funktioner
@@ -181,7 +181,7 @@ Namn | Syfte
 
 ---
 ### <a name="age-response-header"></a>Ålder svarshuvud
-**Syfte**: avgör om en ålder svarshuvud ska inkluderas i svaret som skickas till beställaren.
+**Syfte**: avgör om en ålder svarshuvud är med i svaret till beställaren.
 Värde|Resultat
 --|--
 Enabled | Rubriken ålder ingår i svaret till beställaren.
@@ -295,10 +295,10 @@ Det enklaste sättet att uppnå den här typen av konfiguration är att placera 
 
 Värde|Resultat
 --|--
-Skriv över|Garanterar att följande åtgärder:<br/> -Skriver över Cache-Control-huvudet som genererats av den ursprungliga servern. <br/>-Lägger till den `Cache-Control` huvud som genereras av funktionen externa maximal ålder för svaret.
+Skriv över|Garanterar att följande åtgärder:<br/> -Skriver över den `Cache-Control` huvud som genererats av den ursprungliga servern. <br/>-Lägger till den `Cache-Control` huvud som genereras av funktionen externa maximal ålder för svaret.
 Skicka vidare|Garanterar att den `Cache-Control` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern producerar en `Cache-Control` sidhuvud, överförs via till slutanvändaren. <br/> Om den ursprungliga servern inte ger en `Cache-Control` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Cache-Control` huvud.
-Lägg till om de saknas|Om en `Cache-Control` huvud togs inte emot från den ursprungliga servern och sedan det här alternativet ökar den `Cache-Control` huvud som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att garantera att alla tillgångar kan tilldelas en `Cache-Control` huvud.
-Ta bort| Det här alternativet ser till att en `Cache-Control` huvud ingår inte i sidhuvud-svaret. Om en `Cache-Control` huvud har redan tilldelats och sedan rensas från huvud-svaret.
+Lägg till om de saknas|Om en `Cache-Control` huvud togs inte emot från den ursprungliga servern och sedan det här alternativet ökar den `Cache-Control` huvud som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att garantera att alla tillgångar tilldelas en `Cache-Control` huvud.
+Ta bort| Det här alternativet ser till att en `Cache-Control` huvud ingår inte i sidhuvud-svaret. Om en `Cache-Control` huvud har redan tilldelats sedan den tas bort från huvud-svaret.
 
 **Standardbeteende:** skrivas över.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 En partiell cache-miss inträffar vanligtvis när en användare avbryter en hämtning eller för tillgångar som begärs endast med hjälp av HTTP-begäranden för intervallet. Den här funktionen är mest användbara för stora tillgångar där användare kommer inte vanligtvis hämta dem från början till slut (till exempel videoklipp). Därför kan aktiveras den här funktionen som standard på stora HTTP-plattformen. Den är inaktiverad på alla plattformar.
 
-Det rekommenderas att lämna standardkonfigurationen för stora HTTP-plattformen, eftersom den minska belastningen på din kund ursprungsservern och öka hastigheten som dina kunder hämta ditt innehåll.
+Behåll standardkonfigurationen för stora HTTP-plattformen, eftersom det minskar belastningen på din kund ursprungsservern och ökar då kunderna hämta ditt innehåll.
 
 På grund av det sätt som i vilken cache inställningar spåras den här funktionen kan inte associeras med följande matchar: Edge Cname, begär sidhuvud Literal, begär huvud med jokertecken, URL-frågan Literal och URL: en fråga med jokertecken.
 
@@ -527,15 +527,15 @@ Disabled|Rubriken X EC Debug utesluts från svaret.
 
 Viktig information:
 
-- Den här åtgärden tar bara för svar från en ursprungsserver som inte tilldelar en beteckning maximal ålder i Cache-Control eller Expires-huvudet.
+- Den här åtgärden tar bara för svar från en ursprungsserver som inte tilldelar en maximal ålder indikation i den `Cache-Control` eller `Expires` huvud.
 - Den här åtgärden kommer inte ske för tillgångar som inte anses Cacheable ställs.
-- Den här åtgärden påverkar inte webbläsaren edge server cache revalidations. Dessa typer av revalidations bestäms av Cache-Control eller Expires-huvuden som skickas till webbläsaren, som kan anpassas med funktionen externa maximal ålder.
+- Den här åtgärden påverkar inte webbläsaren edge server cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` eller `Expires` huvuden som skickas till webbläsaren, som kan anpassas med funktionen externa maximal ålder.
 - Resultatet av den här åtgärden har inte en synliga effekt på svarshuvuden och innehållet som har returnerats från kant-servrar för ditt innehåll, men det kan påverka mängden Omverifiering trafik som skickas från kant-servrar till din ursprungsservern.
 - Konfigurera den här funktionen genom att:
     - Att välja statuskoden som en intern max-åldern som standard kan tillämpas.
     - Ange ett heltalsvärde och sedan välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.). Det här värdet definierar interna maximal ålder standardintervallet.
 
-- Anger tidsenheten till ”av” tilldelar interna maximal ålder standardintervallet 7 dagar för begäranden som inte har tilldelats en maximal ålder indikation i Cache-Control eller Expires-huvudet.
+- Anger tidsenheten till ”av” tilldelas en intern maximal ålder standardintervallet 7 dagar för begäranden som inte har tilldelats en maximal ålder indikation i sina `Cache-Control` eller `Expires` huvud.
 - Den här funktionen kan inte associeras med följande matchar villkor på grund av det sätt som i vilken cache inställningar spåras: 
     - Kant 
     - CNAME-post
@@ -571,16 +571,16 @@ Disabled| Återställer standardbeteendet. Standardinställningen är att den ur
 
 ---
 ### <a name="expires-header-treatment"></a>Upphör att gälla sidhuvud behandling
-**Syfte:** styr generering av Expires-huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
+**Syfte:** styr generering av `Expires` huvuden genom en gränsserver när funktionen externa maximal ålder är aktiv.
 
 Det enklaste sättet att uppnå den här typen av konfiguration är att placera den externa maximal åldern och upphör att gälla sidhuvud behandling funktioner i samma instruktion.
 
 Värde|Resultat
 --|--
-Skriv över|Garanterar att följande åtgärder utförs:<br/>-Skriver över Expires-huvudet som genererats av den ursprungliga servern.<br/>-Lägger till Expires-huvudet som genereras av funktionen externa maximal ålder för svaret.
-Skicka vidare|Garanterar att Expires-huvudet som genereras av funktionen externa maximal ålder aldrig har lagts till svaret. <br/> Om den ursprungliga servern producerar Expires-rubriken, kommer den genomströmning till slutanvändaren. <br/>Om den ursprungliga servern inte ger Expires-rubriken, kan det här alternativet orsaka svarshuvud inte innehålla Expires-rubriken.
-Lägg till om de saknas| Om Expires-rubriken inte togs emot från den ursprungliga servern, läggs det här alternativet Expires-huvudet som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att säkerställa att alla tillgångar tilldelas Expires-rubriken.
-Ta bort| Garanterar att Expires-rubriken inte ingår sidhuvud svaret. Om Expires-rubriken har redan tilldelats, sedan rensas den från huvud-svaret.
+Skriv över|Garanterar att följande åtgärder utförs:<br/>-Skriver över den `Expires` huvud som genererats av den ursprungliga servern.<br/>-Lägger till den `Expires` huvud som genereras av funktionen externa maximal ålder för svaret.
+Skicka vidare|Garanterar att den `Expires` huvud som genereras av funktionen externa maximal ålder aldrig har lagts till i svaret. <br/> Om den ursprungliga servern genererar ett `Expires` rubrik som är den ska passera till slutanvändaren. <br/>Om den ursprungliga servern inte ger ett `Expires` sidhuvud och sedan det här alternativet kan orsaka svarshuvud inte innehålla en `Expires` huvud.
+Lägg till om de saknas| Om en `Expires` huvud togs inte emot från den ursprungliga servern och sedan det här alternativet ökar den `Expires` huvud som genereras av funktionen externa maximal ålder. Det här alternativet är användbart för att garantera att alla tillgångar tilldelas en `Expires` huvud.
+Ta bort| Garanterar att en `Expires` huvud ingår inte i sidhuvud-svaret. Om en `Expires` huvud har redan tilldelats sedan den tas bort från huvud-svaret.
 
 **Standardbeteende:** skriva över
 
@@ -592,14 +592,14 @@ Ta bort| Garanterar att Expires-rubriken inte ingår sidhuvud svaret. Om Expires
 ### <a name="external-max-age"></a>Externa maximal ålder
 **Syfte:** bestämmer intervallet maximal ålder för webbläsaren edge server Cachevalidering. Hur lång tid som ska förflyta innan en webbläsare kan med andra ord att söka efter en ny version av en tillgång från en gränsserver.
 
-Den här funktionen aktiveras genererar Cache-Control: max-ålder och upphör att gälla huvuden från kant-servrar och skicka dem till HTTP-klienten. Dessa huvuden skriver över de som skapats i den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
+Den här funktionen aktiveras genererar `Cache-Control: max-age` och `Expires` huvuden från kant-servrar och skicka dem till HTTP-klienten. Dessa huvuden skriver över de som skapats i den ursprungliga servern. Dock användas behandling för Cache-Control-huvudet och upphör att gälla sidhuvud behandling funktioner beteendet.
 
 Viktig information:
 
-- Den här åtgärden påverkar inte edge-server till ursprunget server cache revalidations. Dessa typer av revalidations bestäms av Cache-Control/Expires-huvuden togs emot från den ursprungliga servern och kan anpassas med standard interna Max-ålder och funktionerna för inre Tvingad maximal-ålder.
+- Den här åtgärden påverkar inte edge-server till ursprunget server cache revalidations. Dessa typer av revalidations bestäms av den `Cache-Control` och `Expires` sidhuvuden togs emot från den ursprungliga servern och kan anpassas med standard interna Max-ålder och funktionerna för inre Tvingad maximal-ålder.
 - Konfigurera den här funktionen genom att ange ett heltalsvärde och välja önskad tidsenhet (till exempel sekunder, minuter, timmar, etc.).
-- Ställa in den här funktionen med ett negativt värde leder servrarna för att skicka en Cache-Control: no-cache och en Expires-tid som anges i förflutna med varje svar till webbläsaren. Även om HTTP-klienter inte kommer cachelagrar svaret, påverkar inte den här inställningen edge servrar möjligheten att cachelagra svaret från den ursprungliga servern.
-- Tidsenhet till ”av” inaktiveras den här funktionen. Expires-Cache-Control-huvuden cachelagrat svar för den ursprungliga servern passerar genom till webbläsaren.
+- Ställa in den här funktionen med ett negativt värde leder servrarna för att skicka en `Cache-Control: no-cache` och en `Expires` tid som anges i förflutna med varje svar till webbläsaren. Även om HTTP-klienter inte kommer cachelagrar svaret, påverkar inte den här inställningen edge servrar möjligheten att cachelagra svaret från den ursprungliga servern.
+- Tidsenhet till ”av” inaktiveras den här funktionen. Den `Cache-Control` och `Expires` huvuden cachelagrat svar för den ursprungliga servern ska passera till webbläsaren.
 
 **Standardbeteende:** ut
 
@@ -674,7 +674,7 @@ Viktig information:
 ### <a name="honor-no-cache-request"></a>Kontrollera No-Cache-begäran
 **Syfte:** avgör om en HTTP-klient har no-cache begäranden ska vidarebefordras till den ursprungliga servern.
 
-En begäran om no-cache inträffar när HTTP-klienten skickar en Cache-Control: no-cache och/eller Pragma:no-cache-huvud i HTTP-begäran.
+En begäran om no-cache inträffar när HTTP-klienten skickar en `Cache-Control: no-cache` och/eller `Pragma: no-cache` rubriken i HTTP-begäran.
 
 Värde|Resultat
 --|--
@@ -747,7 +747,7 @@ Om edge-server kan inte upprätta en anslutning till den ursprungliga servern vi
 
 Observera att detta tidsintervall startar när tillgångens max-ålder upphör att gälla, inte när misslyckade Omverifiering inträffar. Därför är den längsta tid under vilken en tillgång kan hanteras utan lyckad validering tidsperiod som angetts av kombinationen av maximal ålder plus max inaktuell. Till exempel om en tillgång cachelagrades 9:00 med en maximal ålder på 30 minuter och max-inaktuell 15 minuter skulle sedan Omverifiering av misslyckade försöket 9:44 leda till en användare tar emot inaktuella cachelagrade tillgången, medan en misslyckad validering försöket 9:46 skulle resultera i en d användare tar emot en 504 Gateway-Timeout.
 
-Ett värde som konfigurerats för den här funktionen har ersatts av `Cache-Control:must-revalidate` eller `Cache-Control:proxy-revalidate` huvuden som togs emot från den ursprungliga servern. Om någon av dessa huvuden tas emot från den ursprungliga servern när en tillgång till en början cachelagras, fungerar en inaktuella cachelagrade tillgång inte i edge-server. I sådana fall returnerar gränsservern en 504 Gateway-Timeout-fel om edge-servern inte kan verifiera med ursprung när tillgångens maximal ålder intervall har upphört att gälla.
+Ett värde som konfigurerats för den här funktionen har ersatts av `Cache-Control: must-revalidate` eller `Cache-Control: proxy-revalidate` huvuden som togs emot från den ursprungliga servern. Om någon av dessa huvuden tas emot från den ursprungliga servern när en tillgång till en början cachelagras, fungerar en inaktuella cachelagrade tillgång inte i edge-server. I sådana fall returnerar gränsservern en 504 Gateway-Timeout-fel om edge-servern inte kan verifiera med ursprung när tillgångens maximal ålder intervall har upphört att gälla.
 
 Viktig information:
 
@@ -823,7 +823,7 @@ Ta bort|Tar bort det angivna begärandehuvudet.|**Begära huvudvärde (klient):*
 Viktig information:
 
 - Kontrollera att värdet som anges i alternativet är en exakt matchning för begärandehuvudet önskade.
-- Om beaktas inte vid identifiering av ett sidhuvud. Till exempel kan någon av följande variationer av Cache-Control huvudets namn användas för att identifiera den:
+- Om beaktas inte vid identifiering av ett sidhuvud. Till exempel någon av följande variationer av den `Cache-Control` huvudets namn kan användas för att identifiera den:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Ta bort|Tar bort det angivna svarshuvudet.|**Svaret huvudvärde (klient):** Valu
 Viktig information:
 
 - Kontrollera att värdet som anges i alternativet är en exakt matchning för det önskade svarshuvudet. 
-- Om beaktas inte vid identifiering av ett sidhuvud. Till exempel kan någon av följande variationer av Cache-Control huvudets namn användas för att identifiera den:
+- Om beaktas inte vid identifiering av ett sidhuvud. Till exempel någon av följande variationer av den `Cache-Control` huvudets namn kan användas för att identifiera den:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Den här funktionen innehåller matchar villkoren som måste uppfyllas innan den
 
 ---
 ### <a name="user-variable"></a>Variabeln användare
-**Syfte:** används primarity med Lua skript. Med funktionen användaren variabeln du använder hash-liknande funktioner för att skydda hämta URL: er med ett Lua-skript.
+**Syfte:** endast för intern användning.
 
+[Överst på sidan](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Nästa steg
 * [Regler modulreferens](cdn-rules-engine-reference.md)

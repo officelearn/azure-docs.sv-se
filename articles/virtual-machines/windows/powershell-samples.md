@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d30361a7149342000c6e6cfdbfe1ee7e6caf945d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/13/2017

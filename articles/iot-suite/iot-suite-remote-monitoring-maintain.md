@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Felsök och åtgärda enhetsproblem
 
@@ -46,11 +46,7 @@ Om du vill undersöka problemet ytterligare, Välj den **utforska larm** alterna
 
 ![Utforska larm från instrumentpanelen](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Du kan nu se en lista över larm på den **Underhåll** sidan:
-
-![Lista över larm på underhållssidan](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Välj om du vill visa information om larmet larm i den **larm** lista. Visar detaljerad vy:
+Detaljerad vy av larmet visar:
 
 * När larmet utlöstes
 * Statusinformation om de enheter som är associerade med larm
@@ -70,7 +66,7 @@ I listan kan du se den **prototyp** ansvarar för startar temperatur larmet enhe
 
 Åtgärda problemet med den **prototyp** enhet, måste du anropa den **DecreaseTemperature** metod på enheten.
 
-För att fungera på en enhet väljer du den i listan över enheter och välj sedan **schema**. Den **motorn** enhetsmodell anger tre metoder måste ha stöd för en enhet:
+För att fungera på en enhet väljer du den i listan över enheter och välj sedan **schema**. Den **prototyp** enhetsmodell anger fyra metoder måste ha stöd för en enhet:
 
 ![Visa de metoder som har stöd för enheten](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Välj **DecreaseTemperature** och ange namnet på det jobb som **DecreaseTempera
 
 ![Skapa jobbet om du vill minska temperaturen](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Spåra status för jobbet på den **Underhåll** väljer **systemstatus**. Använd den **systemstatus** visa för att spåra alla jobb och metodanrop i lösningen:
+Spåra status för jobbet på den **Underhåll** väljer **jobb**. Använd den **jobb** visa för att spåra alla jobb och metodanrop i lösningen:
 
 ![Övervaka jobbet om du vill minska temperaturen](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Om du vill visa information om ett specifikt jobb eller metodanrop, väljer du den i listan i den **systemstatus** vy:
+Om du vill visa information om ett specifikt jobb eller metodanrop, väljer du den i listan i den **jobb** vy:
 
 ![Visa jobbinformation](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

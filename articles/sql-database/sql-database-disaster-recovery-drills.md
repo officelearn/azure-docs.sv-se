@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 10/20/2016
 ms.workload: Inactive
-ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: 8e395153fc9907107156c3412e5e0de554c83750
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Utför Återställningsgranskning för katastrofåterställning
 Du rekommenderas att verifieringen av programmet beredskap för återställningsarbetsflöde utförs med jämna mellanrum. Verifiera programfunktioner och följderna av förlust av data och/eller störningar innebär att redundansväxlingen är bra engineering. Det är också ett krav som de flesta branschstandarder som en del av business continuity certifikatutfärdare.
@@ -30,10 +31,10 @@ Utför en katastrofåterställning återställningsgranskning består av:
 * Återställa
 * Validera programåterställning integritet post
 
-Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-database-business-continuity.md), arbetsflödet att köra detaljerade kan variera. Nedan beskrivs bästa praxis som utför en katastrofåterställning återställningsgranskning i samband med Azure SQL Database.
+Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-database-business-continuity.md), arbetsflödet att köra detaljerade kan variera. Den här artikeln beskrivs bästa praxis för att utföra en katastrof återställningsgranskning i samband med Azure SQL Database.
 
 ## <a name="geo-restore"></a>Geo-återställning
-För att förhindra förlust av data när du utför en katastrofåterställning återställningsgranskning, rekommenderar vi den detaljerade som använder en testmiljö genom att skapa en kopia av produktionsmiljön och använder den för att kontrollera programmets redundans arbetsflöde.
+För att förhindra förlust av data när du utför en katastrofåterställning återställningsgranskning, utför du detaljgranska använder en testmiljö genom att skapa en kopia av produktionsmiljön och använder den för att kontrollera programmets redundans arbetsflöde.
 
 #### <a name="outage-simulation"></a>Avbrott simulering
 Om du vill simulera avbrottet kan du ta bort eller byta namn på källdatabasen. Detta medför anslutningsfel till programmet.
@@ -45,22 +46,22 @@ Om du vill simulera avbrottet kan du ta bort eller byta namn på källdatabasen.
 #### <a name="validation"></a>Validering
 * Slutför detaljerade genom att verifiera (inklusive anslutningssträngar, inloggningar, grundläggande funktioner testning eller andra verifieringar som en del av standardprogrammet signeringar procedurer) programmet integritet efter återställningen.
 
-## <a name="geo-replication"></a>Geo-replikering
-För en databas som skyddas med geo-replikering innebär ökad Övning planerad växling till den sekundära databasen. Planerad redundans garanterar att primärt och sekundära databaserna är synkroniserade när rollerna växlas. Till skillnad från en oplanerad redundansväxling leder åtgärden inte till dataförlust, så detaljerade kan utföras i produktionsmiljön.
+## <a name="failover-groups"></a>Redundansgrupper
+För en databas som skyddas med hjälp av grupper för växling vid fel, innebär ökad Övning planerad redundans till den sekundära servern. Planerad redundans garanterar att primärt och sekundära databaser i gruppen växling vid fel är synkroniserade när rollerna växlas. Till skillnad från en oplanerad redundansväxling leder åtgärden inte till dataförlust, så detaljerade kan utföras i produktionsmiljön.
 
 #### <a name="outage-simulation"></a>Avbrott simulering
 Om du vill simulera avbrottet kan inaktivera du webbprogram eller virtuella datorn är ansluten till databasen. Detta resulterar i anslutningsproblemet för webbklienter.
 
 #### <a name="recovery"></a>Återställning
-* Kontrollera programkonfigurationen i DR-region som pekar på den gamla sekundära som blir den nya primärt fullt tillgängliga.
-* Utföra [planerad redundans](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) så att den sekundära databasen till en ny primär
+* Kontrollera i programkonfigurationen i DR region pekar på den sekundära, tidigare som blir den nya primärt fullt tillgängliga.
+* Initiera [planerad redundans](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) i gruppen växling vid fel från den sekundära servern.
 * Följ den [konfigurera en databas efter återställningen](sql-database-disaster-recovery.md) guiden för att slutföra återställningen.
 
 #### <a name="validation"></a>Validering
-* Slutför detaljerade genom att verifiera (inklusive anslutningssträngar, inloggningar, grundläggande funktioner testning eller andra verifieringar som en del av standardprogrammet signeringar procedurer) programmet integritet efter återställningen.
+Slutför detaljerade genom att verifiera (inklusive anslutning, grundläggande funktioner test eller andra verifieringar som krävs för ökad signeringar) programmet integritet efter återställningen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om affärsscenarier kontinuitet i [kontinuitet scenarier](sql-database-business-continuity.md)
+* Läs om affärsscenarier kontinuitet i [kontinuitet scenarier](sql-database-business-continuity.md).
 * Lär dig mer om Azure SQL Database automatiserad säkerhetskopieringar, se [SQL-databas automatisk säkerhetskopiering](sql-database-automated-backups.md)
-* Läs om hur du använder automatisk säkerhetskopiering för återställning i [återställa en databas från säkerhetskopior service-initierad](sql-database-recovery-using-backups.md)
-* Mer information om alternativ för snabbare återställning, se [aktiv geo-replikering](sql-database-geo-replication-overview.md)  
+* Läs om hur du använder automatisk säkerhetskopiering för återställning i [återställa en databas från säkerhetskopior service-initierad](sql-database-recovery-using-backups.md).
+* Mer information om alternativ för snabbare återställning, se [aktiv geo-replikering och redundans grupper](sql-database-geo-replication-overview.md).  

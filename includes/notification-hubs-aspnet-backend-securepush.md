@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>WebAPI-projekt
 1. Öppna i Visual Studio den **AppBackend** projekt som du skapade i den **meddela användare** kursen.
-2. Ersätt hela i Notifications.cs, **meddelanden** klassen med följande kod. Se till att ersätta platshållarna med anslutningssträngen (med fullständig åtkomst) för meddelandehubben och hubbnamnet. Du kan hämta dessa värden från den [klassiska Azure-portalen](http://manage.windowsazure.com). Den här modulen representerar nu olika säkra meddelanden som skickas. En fullständig implementering ska meddelanden sparas i en databas. för enkelhetens skull lagrar i det här fallet vi dem i minnet.
+2. Ersätt hela i Notifications.cs, **meddelanden** klassen med följande kod. Se till att ersätta platshållarna med anslutningssträngen (med fullständig åtkomst) för meddelandehubben och hubbnamnet. Du kan hämta dessa värden från den [Azure-portalen](http://portal.azure.com). Den här modulen representerar nu olika säkra meddelanden som skickas. En fullständig implementering ska meddelanden sparas i en databas. för enkelhetens skull lagrar i det här fallet vi dem i minnet.
    
         public class Notification
         {

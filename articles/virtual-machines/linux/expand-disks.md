@@ -4,7 +4,7 @@ description: "Lär dig hur du expandera virtuella hårddiskar på en Linux-VM me
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Så här expanderar virtuella hårddiskar på en Linux-VM med Azure CLI
 Standardstorleken för virtuell hårddisk för operativsystem (OS) är vanligtvis 30 GB på en Linux-dator (VM) i Azure. Du kan [lägga till datadiskar](add-disk.md) att tillhandahålla för ytterligare lagringsutrymme, men du kan också expandera en befintlig datadisk. Den här artikeln beskriver hur du expandera hanterade diskar för en Linux-VM med Azure CLI 2.0. Du kan också expandera ohanterade OS-disk med den [Azure CLI 1.0](expand-disks-nodejs.md).
@@ -26,7 +26,7 @@ Standardstorleken för virtuell hårddisk för operativsystem (OS) är vanligtvi
 > [!WARNING]
 > Kontrollera alltid att du säkerhetskopierar dina data innan du utför disk ändra storlek på åtgärder. Mer information finns i [säkerhetskopiera virtuella Linux-datorer i Azure](tutorial-backup-vms.md).
 
-## <a name="expand-disk"></a>Expandera disk
+## <a name="expand-azure-managed-disk"></a>Expandera Azure hanterade diskar
 Se till att du har senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
 
 Den här artikeln kräver en befintlig virtuell dator i Azure med minst en datadisk ansluten och förberetts. Om du inte redan har en virtuell dator som du kan använda finns [skapa och förbereda en virtuell dator med datadiskar](tutorial-manage-disks.md#create-and-attach-disks).
@@ -40,7 +40,7 @@ Ersätt exempel parameternamn med egna värden i följande exempel. Exempel para
     ```
 
     > [!NOTE]
-    > `az vm stop`Frigör inte beräkningsresurserna. Använd om du vill frigöra beräkningsresurser `az vm deallocate`. Den virtuella datorn måste frigöras för att expandera den virtuella hårddisken.
+    > Den virtuella datorn måste frigöras för att expandera den virtuella hårddisken. `az vm stop`Frigör inte beräkningsresurserna. Använd om du vill frigöra beräkningsresurser `az vm deallocate`.
 
 2. Visa en lista över hanterade diskar i en resursgrupp med [az Disklista](/cli/azure/disk#list). I följande exempel visas en lista över hanterade diskar i resursgruppen med namnet *myResourceGroup*:
 
@@ -69,13 +69,17 @@ Ersätt exempel parameternamn med egna värden i följande exempel. Exempel para
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH till den virtuella datorn med rätt autentiseringsuppgifter. Du kan hämta den offentliga IP-adressen på den virtuella datorn med [az vm visa](/cli/azure/vm#show):
+
+## <a name="expand-disk-partition-and-filesystem"></a>Expandera diskpartition och filsystem
+Om du vill använda den expanderade disken måste du expandera den underliggande partitionen och filsystem.
+
+1. SSH till den virtuella datorn med rätt autentiseringsuppgifter. Du kan hämta den offentliga IP-adressen på den virtuella datorn med [az vm visa](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Om du vill använda den expanderade disken måste du expandera den underliggande partitionen och filsystem.
+2. Om du vill använda den expanderade disken måste du expandera den underliggande partitionen och filsystem.
 
     a. Om du redan är monterad demontera disken:
 
@@ -116,25 +120,25 @@ Ersätt exempel parameternamn med egna värden i följande exempel. Exempel para
 
     d. Om du vill avsluta, ange`quit`
 
-5. Partitionen storlek, verifiera partition konsekvens med `e2fsck`:
+3. Partitionen storlek, verifiera partition konsekvens med `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Nu ändra storlek på filsystemet med `resize2fs`:
+4. Nu ändra storlek på filsystemet med `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Montera partitionen till önskad plats som `/datadrive`:
+5. Montera partitionen till önskad plats som `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. Använd för att kontrollera att OS-disken har ändrats, `df -h`. Följande exempel visas dataenheten, */dev/sdc1*, är nu 200 GB:
+6. Använd för att kontrollera att OS-disken har ändrats, `df -h`. Följande exempel visas dataenheten, */dev/sdc1*, är nu 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

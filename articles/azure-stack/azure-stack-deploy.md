@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
@@ -85,7 +85,7 @@ För att distribuera Azure-stacken genom att använda en Azure AD-konto, måste 
 
 1. Skapa ett Azure AD-konto som är directory-administratör för minst en Azure AD. Om du redan har ett konto kan använda du det. Annars kan du skapa ett kostnadsfritt på [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (i Kina, besök <http://go.microsoft.com/fwlink/?LinkID=717821> i stället). Om du planerar att senare [registrera Azure stacken med Azure](azure-stack-register.md), du måste ha en prenumeration i den nya konto.
    
-    Spara autentiseringsuppgifterna för användning i steg 6 i [distribuera development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). Med det här *tjänstadministratörkontot* kan du konfigurera och hantera resursmoln, användarkonton, klientplaner för innehavare, kvoter och priser. I portalen kan de skapa webbplatsmoln, privata moln för virtuella datorer, skapa planer och hantera användarprenumerationer.
+    Spara autentiseringsuppgifterna för användning i steg 6 i [distribuera development kit](azure-stack-run-powershell-script.md). Med det här *tjänstadministratörkontot* kan du konfigurera och hantera resursmoln, användarkonton, klientplaner för innehavare, kvoter och priser. I portalen kan de skapa webbplatsmoln, privata moln för virtuella datorer, skapa planer och hantera användarprenumerationer.
 2. [Skapa](azure-stack-add-new-user-aad.md) minst ett konto så att du kan logga in i development Kit som en klient.
    
    | **Azure Active Directory-konto** | **Stöds?** |

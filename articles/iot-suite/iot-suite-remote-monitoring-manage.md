@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Hantera och konfigurera dina enheter
 
@@ -40,13 +40,13 @@ Om du vill följa den här självstudiekursen, måste en distribuerad instans av
 
 Om du inte har distribuerat remote övervakningslösning ännu, bör du genomföra den [Distribuera fjärråtkomst övervakning förkonfigurerade lösningen](iot-suite-remote-monitoring-deploy.md) kursen.
 
-## <a name="provision-a-simulated-device"></a>Etablera en simulerad enhet
+## <a name="add-a-simulated-device"></a>Lägg till en simulerad enhet
 
-Navigera till den **enheter** i lösningen och väljer sedan **etablera**. I den **etablera** panelen, väljer **simulerad**:
+Navigera till den **enheter** i lösningen och väljer sedan **ny enhet**. I den **ny enhet** panelen, väljer **simulerad**:
 
 ![Etablera en simulerad enhet](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Lämna antalet enheter för att etablera inställd på **1**. Välj **motorn** som den **enhetsmodell**, och välj sedan **tillämpa** att skapa den simulerade enheten:
+Lämna antalet enheter för att etablera inställd på **1**. Välj **felaktig motorn** som den **enhetsmodell**, och välj sedan **tillämpa** att skapa den simulerade enheten:
 
 ![Etablera en simulerad motorn-enhet](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Om du vill visa detaljerad diagnostik rulla visa **diagnostik**.
 
 ## <a name="act-on-a-device"></a>Fungerar på en enhet
 
-För att fungera på en enhet väljer du den i listan över enheter och välj sedan **schema**. Den **motorn** enhetsmodell anger fyra metoder måste ha stöd för en enhet:
+För att fungera på en eller flera enheter, markerar du dem i listan över enheter och välj sedan **schema**. Den **motorn** enhetsmodell anger fyra metoder måste ha stöd för en enhet:
 
 ![Motorn metoder](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Välj **starta om**, ange Jobbnamnet på **RestartEngine**, och välj sedan **Ve
 
 ![Schemalägga restart-metoden](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Spåra status för jobbet på den **Underhåll** väljer **systemstatus**:
+Spåra status för jobbet på den **Underhåll** väljer **jobb**:
 
 ![Övervaka jobbet scheman](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Lägga till ett namn för jobbet att ändra, uppdatera egenskapsvärden och väl
 
 ![Uppdatera ett egenskapsvärde för enhet](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Spåra status för jobbet på den **Underhåll** väljer **systemstatus**.
+Spåra status för jobbet på den **Underhåll** väljer **jobb**.
 
 ## <a name="next-steps"></a>Nästa steg
 

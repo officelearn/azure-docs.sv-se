@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -31,7 +31,7 @@ Innan du hämtar detaljer om att planera för distribution av en Azure filsynkro
 ### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
 Synkroniseringstjänsten lagring är översta Azure resurs för Azure filsynkronisering. Storage-synkroniseringstjänsten resursen är en peer-till-konto lagringsresurs och på samma sätt kan distribueras till Azure-resursgrupper. En distinkta översta resurs från resursen för storage-konto krävs eftersom synkroniseringstjänsten för lagring kan skapa synkroniseringsrelationer med flera lagringskonton via flera synkroniseringsgrupper. En prenumeration kan ha flera lagring synkroniseringstjänsten resurser har distribuerats.
 
-### <a name="sync-group"></a>Synkroniseringsgrupp
+### <a name="sync-group"></a>Synkronisera grupp
 En synkronisering grupp definierar sync-topologin för en uppsättning filer. Slutpunkter inom en synkronisering grupp hålls synkroniserade med varandra. Om du till exempel har två distinkta grupper av filer som du vill hantera med Azure filsynkronisering, skulle du skapa två synkroniseringsgrupper och Lägg till olika slutpunkter varje sync-grupp. Storage-synkroniseringstjänsten kan vara värd för så många synkroniseringsgrupper.  
 
 ### <a name="registered-server"></a>Registrerad server
@@ -158,6 +158,7 @@ Azure filsynkronisering är endast tillgänglig i följande regioner i förhands
 
 | Region | Datacenter-plats |
 |--------|---------------------|
+| Östra USA | Virginia, USA |
 | Västra USA | California, USA |
 | Västra Europa | Nederländerna |
 | Sydostasien | Singapore |

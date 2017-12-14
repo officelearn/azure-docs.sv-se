@@ -1,177 +1,230 @@
 ---
 title: "Självstudier: Azure Active Directory-integrering med TOPdesk - säker | Microsoft Docs"
-description: "Lär dig hur du använder TOPdesk - skydda med Azure Active Directory för att aktivera enkel inloggning, Automatisk etablering och mycket mer!."
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - säker."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
-ms.assetid: 8e149d2d-7849-48ec-9993-31f4ade5fdb4
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/22/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: e165a18c5a24071d52838ca95edbb5e6b39e63a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca3362bc3f966adaf9940f6eb4bec5235c6ea7d8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudier: Azure Active Directory-integrering med TOPdesk - säker
-Syftet med den här kursen är att visa integreringen av Azure och TOPdesk - säker.  
-Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
-* En giltig Azure-prenumeration
-* En TOPdesk - aktiverad prenumeration säker enkel inloggning
+I kursen får du lära dig hur du integrerar TOPdesk - skydda med Azure Active Directory (AD Azure).
 
-Den här kursen Azure AD-användare som du har tilldelat TOPdesk - säker kommer att kunna enkel inloggning till programmet på din TOPdesk - säkra företagets webbplats (service provider initierade inloggning) eller med hjälp av den [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
+Integrera TOPdesk - säker med Azure AD ger följande fördelar:
 
-Det scenario som beskrivs i den här kursen består av följande byggblock:
+- Du kan styra i Azure AD som har åtkomst till TOPdesk - säker.
+- Du kan aktivera användarna att automatiskt hämta loggat in på TOPdesk - säker (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
-1. Aktivera programintegrationstyp för TOPdesk - säker
-2. Konfigurera enkel inloggning
-3. Konfigurera användaretablering
-4. Tilldela användare
+Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenariot](./media/active-directory-saas-topdesk-secure-tutorial/IC790596.png "Scenario")
+## <a name="prerequisites"></a>Krav
 
-## <a name="enabling-the-application-integration-for-topdesk---secure"></a>Aktivera programintegrationstyp för TOPdesk - säker
-Syftet med det här avsnittet är att beskriva hur du aktiverar programintegrationstyp för TOPdesk - säker.
+Om du vill konfigurera Azure AD-integrering med TOPdesk - säker, behöver du följande:
 
-### <a name="to-enable-the-application-integration-for-topdesk---secure-perform-the-following-steps"></a>Om du vill aktivera programmet-integration för TOPdesk - säker, utför följande steg:
-1. I den klassiska Azure-portalen i det vänstra navigeringsfönstret klickar du på **Active Directory**.
-   
-    ![Active Directory](./media/active-directory-saas-topdesk-secure-tutorial/IC700993.png "Active Directory")
+- En Azure AD-prenumeration
+- En TOPdesk - aktiverad prenumeration säker enkel inloggning
 
-2. Från den **Directory** listan, Välj den katalog som du vill aktivera katalogintegrering.
+> [!NOTE]
+> Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-3. Klicka för att öppna vyn program i vyn directory **program** på huvudmenyn.
-   
-    ![Program](./media/active-directory-saas-topdesk-secure-tutorial/IC700994.png "program")
+Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
-4. Klicka på **Lägg till** längst ned på sidan.
-   
-    ![Lägg till program](./media/active-directory-saas-topdesk-secure-tutorial/IC749321.png "lägga till program")
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
-5. På den **vad vill du göra** dialogrutan klickar du på **lägga till ett program från galleriet**.
-   
-    ![Lägga till ett program från gallerry](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "lägga till ett program från gallerry")
+## <a name="scenario-description"></a>Scenariobeskrivning
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-6. I den **sökrutan**, typen **TOPdesk - säker**.
-   
-    ![Programgalleriet](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "Programgalleriet")
+1. Lägger till TOPdesk - skydda från galleriet
+2. Konfigurera och testa Azure AD enkel inloggning
 
-7. I resultatfönstret, Välj **TOPdesk - säker**, och klicka sedan på **Slutför** lägga till programmet.
-   
-    ![TOPdesk - säker](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - säker")
+## <a name="adding-topdesk---secure-from-the-gallery"></a>Lägger till TOPdesk - skydda från galleriet
+Så här konfigurerar du integrering av TOPdesk - skydda till Azure AD, måste du lägga till TOPdesk: skydda från galleriet i listan över hanterade SaaS-appar.
 
-## <a name="configuring-single-sign-on"></a>Konfigurera enkel inloggning
-Syftet med det här avsnittet är att beskriva hur användarna att autentisera till TOPdesk - skydda med sitt konto i Azure AD med hjälp av federation baserat på SAML-protokoll.  
-Konfigurera enkel inloggning för TOPdesk - säker kräver att du överför en logotyp ikonfil. Kontakta supportteamet TOPdesk för att få ikonfilen.
+**Om du vill lägga till TOPdesk - säker från galleriet, utför följande steg:**
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Utför följande steg för att konfigurera enkel inloggning:
-1. Logga in på ditt **TOPdesk - säker** företagets webbplats som administratör.
-2. I den **TOPdesk** -menyn klickar du på **inställningar**.
-   
-    ![Inställningar för](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "inställningar")
+1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-3. Klicka på **inloggningsinställningar**.
-   
-    ![Inloggningsinställningar](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "inloggningsinställningar")
+    ![Azure Active Directory-knappen][1]
 
-4. Expandera den **inloggningsinställningar** -menyn och klicka sedan på **allmänna**.
-   
-    ![Allmän](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Allmänt")
+2. Gå till **företagsprogram**. Gå till **alla program**.
 
-5. I den **Secure** avsnitt i den **SAML inloggningen** konfiguration och utför följande steg:
-   
-    ![Tekniska inställningar](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "tekniska inställningar")
+    ![Bladet Enterprise program][2]
+    
+3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
+
+    ![Knappen Nytt program][3]
+
+4. I sökrutan skriver **TOPdesk - säker**väljer **TOPdesk - säker** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
+
+    ![TOPdesk - Secure i resultatlistan](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med TOPdesk - säker baserat på en testanvändare som kallas ”Britta Simon”.
+
+Azure AD måste du känna till motsvarande användaren i TOPdesk - säker till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i TOPdesk - säker upprättas.
+
+I TOPdesk - säker, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+
+Om du vill konfigurera och testa Azure AD enkel inloggning med TOPdesk - säker, måste du slutföra följande byggblock:
+
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en TOPdesk - säker testanvändare](#create-a-topdesk---secure-test-user)**  – du har en motsvarighet för Britta Simon i TOPdesk - säkra som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din TOPdesk - säkra program.
+
+**Om du vill konfigurera Azure AD enkel inloggning med TOPdesk - säker, utför följande steg:**
+
+1. I Azure-portalen på den **TOPdesk - säker** integreringssidan för programmet, klickar du på **enkel inloggning**.
+
+    ![Konfigurera enkel inloggning länk][4]
+
+2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
+ 
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
+
+3. På den **TOPdesk - URL: er och säker domän** avsnittet, utför följande steg:
+
+    ![TOPdesk - URL: er och säker domän med enkel inloggning information](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
+
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net`
+
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/secure/login/verify`
+
+    c. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<companyname>.topdesk.net/tas/public/login/saml`
+
+    > [!NOTE] 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Reply URL beskrivs senare i självstudiekursen. Kontakta [TOPdesk - Secure klienten supportteamet](http://www.topdesk.com/us/support) att hämta dessa värden. 
+
+4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+
+    ![Länken hämta certifikatet](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
+
+5. Klicka på **spara** knappen.
+
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_400.png)
+
+6. På den **TOPdesk - konfiguration för säker** klickar du på **konfigurera TOPdesk - säker** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+
+    ![TOPdesk - säker konfiguration](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
+    
+7. Logga in på ditt **TOPdesk - säker** företagets webbplats som administratör.
+
+8. I den **TOPdesk** -menyn klickar du på **inställningar**.
+
+    ![Inställningar för](./media/active-directory-saas-topdesk-secure-tutorial/ic790598.png "inställningar")
+
+9. Klicka på **inloggningsinställningar**.
+
+    ![Inloggningsinställningar](./media/active-directory-saas-topdesk-secure-tutorial/ic790599.png "inloggningsinställningar")
+
+10. Expandera den **inloggningsinställningar** -menyn och klicka sedan på **allmänna**.
+
+    ![Allmän](./media/active-directory-saas-topdesk-secure-tutorial/ic790600.png "Allmänt")
+
+11. I den **Secure** avsnitt i den **SAML inloggningen** konfiguration och utför följande steg:
+
+    ![Tekniska inställningar](./media/active-directory-saas-topdesk-secure-tutorial/ic790855.png "tekniska inställningar")
    
     a. Klicka på **hämta** att hämta metadatafilen offentliga och sedan spara det lokalt på datorn.
    
     b. Öppna metadatafilen och leta upp den **AssertionConsumerService** nod.
     
-    ![Assertion kundtjänst](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion kundtjänst")
+    ![Assertion kundtjänst](./media/active-directory-saas-topdesk-secure-tutorial/ic790856.png "Assertion kundtjänst")
    
-    c. Kopiera den **AssertionConsumerService** värde.  
-      
-    > [!NOTE]
-    > Du behöver värdet i den **konfigurera App-URL** senare i den här kursen.
-    > 
-    > 
+    c. Kopiera den **AssertionConsumerService** värde, klistra in det här värdet i textrutan Reply URL i **TOPdesk - URL: er och säker domän** avsnitt.
 
-6. Logga in i ett annat webbläsarfönster din **klassiska Azure-portalen** som administratör.
-
-7. På den **TOPdesk - säker** integreringssidan för programmet, klickar du på **Konfigurera enkel inloggning** att öppna den ** Konfigurera enkel inloggning ** dialogrutan.
-   
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "Konfigurera enkel inloggning")
-
-8. På den **hur vill du att användarna kan logga in på TOPdesk - säker** väljer **Microsoft Azure AD enkel inloggning**, och klicka sedan på **nästa**.
-   
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-topdesk-secure-tutorial/IC790603.png "Konfigurera enkel inloggning")
-
-9. På den **konfigurera App-URL** utför följande steg:
-   
-    ![Konfigurera App-URL](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "konfigurera App-URL")
-   
-    a. I den **TOPdesk - säker inloggning på URL: en** textruta, Skriv URL-Adressen används av användarna att logga in på din TOPdesk - säkert program (t.ex. ”:*https://qssolutions.topdesk.net*”).
-   
-    b. I den **TOPdesk – offentliga Reply URL** textruta klistra in den **TOPdesk - URL för säker AssertionConsumerService** (t.ex. ”:*https://qssolutions.topdesk.net/tas/public/login/saml*”)
-   
-    c. Klicka på **Nästa**.
-
-10. På den **Konfigurera enkel inloggning på TOPdesk - säker** att hämta metadatafil klickar du på **hämtar metadata**, och sedan spara filen lokalt på datorn.
+12. Utför följande steg för att skapa en certifikatfil:
     
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-topdesk-secure-tutorial/IC790605.png "Konfigurera enkel inloggning")
+    ![Certifikatet](./media/active-directory-saas-topdesk-secure-tutorial/ic790606.png "certifikat")
+    
+    a. Öppna metadatafilen hämtas från Azure-portalen.
 
-11. Utför följande steg för att skapa en certifikatfil:
-    
-    ![Certifikatet](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "certifikat")
-    
-    a. Öppna metadatafilen hämtade.
     b. Expandera den **RoleDescriptor** nod som har en **xsi: type** av **aggregeringsdesignprocessen: ApplicationServiceType**.
+
     c. Kopiera värdet för den **X509Certificate** nod.
+
     d. Spara den kopierade **X509Certificate** värdet lokalt på din dator i en fil.
 
-12. Skydda företagets webbplats på din TOPdesk - på den **TOPdesk** -menyn klickar du på **inställningar**.
+13. I den **offentliga** klickar du på **Lägg till**.
     
-    ![Inställningar för](./media/active-directory-saas-topdesk-secure-tutorial/IC790598.png "inställningar")
+    ![Lägg till](./media/active-directory-saas-topdesk-secure-tutorial/ic790607.png "Lägg till")
 
-13. Klicka på **inloggningsinställningar**.
+14. På den **SAML configuration assistenten** dialogrutan utför följande steg:
     
-    ![Inloggningsinställningar](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "inloggningsinställningar")
-
-14. Expandera den **inloggningsinställningar** -menyn och klicka sedan på **allmänna**.
+    ![SAML Configuration assistenten](./media/active-directory-saas-topdesk-secure-tutorial/ic790608.png "assistenten för SAML-konfiguration")
     
-    ![Allmän](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "Allmänt")
-
-15. I den **offentliga** klickar du på **Lägg till**.
-    
-    ![Lägg till](./media/active-directory-saas-topdesk-secure-tutorial/IC790607.png "Lägg till")
-
-16. På den **SAML configuration assistenten** dialogrutan utför följande steg:
-    
-    ![SAML Configuration assistenten](./media/active-directory-saas-topdesk-secure-tutorial/IC790608.png "assistenten för SAML-konfiguration")
-    
-    a. Att överföra metadatafilen hämtade under **Federationsmetadata**, klickar du på **Bläddra**.
+    a. Att överföra metadatafilen hämtas från Azure-portalen under **Federationsmetadata**, klickar du på **Bläddra**.
 
     b. Att överföra din certifikatfil under **certifikat (RSA)**, klickar du på **Bläddra**.
 
     c. Att överföra logotypfilen som du har fått från supportteamet TOPdesk under **logotypen ikonen**, klickar du på **Bläddra**.
 
-    d. I den **användarnamn** textruta typen **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. I den **användarnamn** textruta typen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. I den **visningsnamn** textruta, ange ett namn för din konfiguration.
 
     f. Klicka på **Spara**.
 
-17. Välj bekräftelsen konfiguration för enkel inloggning på den klassiska Azure-portalen och klicka sedan på **Slutför** att stänga den **Konfigurera enkel inloggning** dialogrutan.
-    
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "Konfigurera enkel inloggning")
+> [!TIP]
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-## <a name="configuring-user-provisioning"></a>Konfigurera användaretablering
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+
+   ![Skapa en testanvändare i Azure AD][100]
+
+**Utför följande steg för att skapa en testanvändare i Azure AD:**
+
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+
+    ![Azure Active Directory-knappen](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_01.png)
+
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_02.png)
+
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+
+    ![Knappen Lägg till](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_03.png)
+
+4. I den **användaren** dialogrutan utför följande steg:
+
+    ![Dialogrutan användare](./media/active-directory-saas-topdesk-secure-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
+
+    d. Klicka på **Skapa**.
+ 
+### <a name="create-a-topdesk---secure-test-user"></a>Skapa en TOPdesk - säker testanvändare
+
 För att aktivera Azure AD-användare att logga in på TOPdesk - säker, de måste etableras i TOPdesk - säker.  
 När det gäller TOPdesk - säker, etablering är en manuell aktivitet.
 
@@ -179,15 +232,15 @@ När det gäller TOPdesk - säker, etablering är en manuell aktivitet.
 1. Logga in på ditt **TOPdesk - säker** företagets webbplats som administratör.
 2. Klicka på menyn högst upp **TOPdesk \> ny \> stödfiler \> operatorn**.
    
-    ![Operatorn](./media/active-directory-saas-topdesk-secure-tutorial/IC790610.png "Operator")
+    ![Operatorn](./media/active-directory-saas-topdesk-secure-tutorial/ic790610.png "Operator")
 
 3. På den **New-operatorn** dialogrutan, utför följande steg:
    
-    ![New-operatorn](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "New-operatorn")
+    ![New-operatorn](./media/active-directory-saas-topdesk-secure-tutorial/ic790611.png "New-operatorn")
    
-    a. Klicka på fliken Allmänt.
+    a. Klicka på den **allmänna** fliken.
    
-    b. I den **efternamn** textruta för den **allmänna** Skriv ett giltigt Azure Active Directory-konto som du vill etablera efternamn.
+    b. I den **efternamn** textruta typen efternamn för användaren som **Simon**.
    
     c. Välj en **plats** för kontot i den **plats** avsnitt.
    
@@ -197,21 +250,60 @@ När det gäller TOPdesk - säker, etablering är en manuell aktivitet.
 
 > [!NOTE]
 > Du kan använda alla andra TOPdesk - säker användare skapa verktyg eller API: er som tillhandahålls av TOPdesk - säker att tillhandahålla AAD användarkonton.
-> 
-> 
 
-## <a name="assigning-users"></a>Tilldela användare
-Om du vill testa konfigurationen måste du bevilja Azure AD-användare som du vill tillåta med hjälp av ditt programåtkomst till den genom att tilldela dem.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>Om du vill tilldela användare till TOPdesk - säker, utför följande steg:
-1. Skapa ett testkonto i den klassiska Azure-portalen.
-2. På den ** TOPdesk - säker ** integreringssidan för programmet, klickar du på **tilldela användare**.
-   
-    ![Tilldela användare](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "tilldela användare")
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TOPdesk - säker.
 
-3. Välj din testanvändare, klicka på **tilldela**, och klicka sedan på **Ja** att bekräfta din tilldelning.
-   
-    ![Ja](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Ja")
+![Tilldela rollen][200] 
 
-Om du vill testa dina inställningar för enkel inloggning, öppna åtkomstpanelen. Mer information om åtkomstpanelen finns [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
+**Om du vill tilldela TOPdesk - Britta Simon säker, utför följande steg:**
+
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
+
+    ![Tilldela användare][201] 
+
+2. Välj i listan med program **TOPdesk - säker**.
+
+    ![TOPdesk - säker länk i listan med program](./media/active-directory-saas-topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
+
+3. Klicka på menyn till vänster **användare och grupper**.
+
+    ![Länken ”användare och grupper”][202]
+
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+
+    ![Fönstret Lägg till tilldelning][203]
+
+5. På **användare och grupper** markerar **Britta Simon** på listan användare.
+
+6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
+
+7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+    
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
+
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
+
+När du klickar på TOPdesk - säker sida vid sida på panelen åtkomst du ska hämta automatiskt loggat in på ditt TOPdesk - säkra program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-topdesk-secure-tutorial/tutorial_general_203.png
 

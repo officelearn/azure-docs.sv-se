@@ -1,7 +1,7 @@
 ---
 title: "Använda en anpassad Docker-avbildning för webbprogrammet för behållare - Azure | Microsoft Docs"
 description: "Hur du använder en anpassad Docker-avbildning för webbprogrammet för behållare."
-keywords: "Azure apptjänst, webbprogram, linux, docker, behållare"
+keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda en anpassad Docker-avbildning för webbprogrammet för behållare
 
@@ -198,7 +198,7 @@ I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppService
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-När webbappen har skapats visas Azure CLI utdata liknar följande exempel:
+När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
 
 ```json
 {
@@ -294,10 +294,15 @@ SSH kan säker kommunikation mellan en behållare och en klient. För en anpassa
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* Se till att [starta den ssh-tjänsten](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) genom att använda ett kommandoskript i katalogen/BIN.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till behållaren
 
 Web App för behållare tillåter inte externa anslutningar till behållaren. SSH är endast tillgängliga från Kudu-plats som är tillgängliga i `https://<app_name>.scm.azurewebsites.net`.

@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
 Du kan köra Azure Functions i två olika lägen: förbrukning planerings- och Azure App Service-plan. Förbrukning planen tilldelar automatiskt datorkraft när koden körs skalas ut som behövs för att hantera belastningen och skalas när koden inte körs. Du behöver inte betala för inaktiv virtuella datorer och behöver inte reserverad kapacitet i förväg. Den här artikeln fokuserar på förbrukning-plan en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) appmodell. Mer information om hur programtjänstplanen fungerar finns i [Azure App Service-planer djupgående översikt över](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux-värd finns för närvarande endast i en apptjänstplan.
+> [Linux-värd](functions-create-first-azure-function-azure-cli-linux.md) finns för närvarande endast i en apptjänstplan.
 
 Om du inte är bekant med Azure Functions finns i [översikt över Azure Functions](functions-overview.md).
 
@@ -46,7 +46,7 @@ Du kan skala mellan nivåer att tilldela olika mängden resurser på en App Serv
 När du använder en plan för förbrukning läggs instanser av Azure Functions värden dynamiskt och tas bort baserat på antalet inkommande händelser. Den här planen skalar automatiskt och du debiteras för beräkningsresurser bara när din funktion körs. På en plan för förbrukning köra en funktion för högst 10 minuter. 
 
 > [!NOTE]
-> Standardvärdet för timeout för funktioner på en plan för förbrukning är 5 minuter. Värdet kan ökas till 10 minuter för funktionen appen genom att ändra egenskapen `functionTimeout` i [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Standardvärdet för timeout för funktioner på en plan för förbrukning är 5 minuter. Värdet kan ökas till 10 minuter för funktionen appen genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
 
 Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering sammanställs över alla funktioner i en funktionsapp. Mer information finns i [Azure Functions sida med priser].
 
@@ -80,7 +80,7 @@ Om du kör på en apptjänstplan, bör du aktivera den **alltid på** inställni
 
 Always On är bara tillgängliga på en App Service-plan. På en plan för förbrukning aktiverar plattformen funktionen appar automatiskt.
 
-## <a name="storage-account-requirements"></a>Lagringskraven för kontot
+## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
 På en plan för användning eller i en apptjänstplan kräver en funktionsapp en allmän Azure Storage-konto som stöder Azure Blob, köer, filer och tabellen lagring. Azure Functions används internt, Azure Storage för åtgärder som hanterar utlösare och loggning funktionen körningar. Vissa storage-konton stöder inte köer och tabeller, t.ex endast blob storage-konton (inklusive premium-lagring) och allmänna lagringskonton med zonredundant lagringsreplikering. De här kontona filtrerat från den **Lagringskonto** bladet när du skapar en funktionsapp.
 

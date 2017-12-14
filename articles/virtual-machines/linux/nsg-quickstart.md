@@ -4,7 +4,7 @@ description: "Lär dig hur du öppnar en port / skapa en slutpunkt för ditt Lin
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
@@ -12,23 +12,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d176187fe465264b5f433260de5178b48ca9dd4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Öppna portar och slutpunkter till en Linux-VM med Azure CLI
 Du öppnar en port eller skapa en slutpunkt för en virtuell dator (VM) i Azure genom att skapa ett filter för nätverk på ett undernät eller Virtuella datorns nätverksgränssnitt. Du kan placera dessa filter som styr både inkommande och utgående trafik på en Nätverkssäkerhetsgrupp kopplad till den resurs som tar emot trafiken. Nu ska vi använda ett vanligt exempel på Internet-trafik på port 80. Den här artikeln visar hur du öppnar en port till en virtuell dator med Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](nsg-quickstart-nodejs.md).
 
-
-## <a name="quick-commands"></a>Snabbkommandon
 Så här skapar du en säkerhetsgrupp för nätverk och regler som du behöver senast [Azure CLI 2.0](/cli/azure/install-az-cli2) installerad och inloggad till en Azure-konto med hjälp av [az inloggningen](/cli/azure/#login).
 
 Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn inkluderar *myResourceGroup*, *myNetworkSecurityGroup*, och *myVnet*.
 
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Snabbt öppna en port för en virtuell dator
+Om du behöver snabbt öppnar en port för en virtuell dator i ett scenario för utveckling och testning kan du använda den [az vm öppna port](/cli/azure/vm#az_vm_open_port) kommando. Det här kommandot skapar en Nätverkssäkerhetsgrupp, lägger till en regel och gäller för en virtuell dator eller ett undernät. I följande exempel öppnar port *80* på den virtuella datorn med namnet *myVM* i resursgrupp med namnet *myResourceGroup*.
+
+```azure-cli
+az vm open-port --resource-group myResourceGroup --name myVM --port 80
+```
+
+Mer kontroll över regler som definierar källa IP-adressintervall i fortsätta med ytterligare steg i den här artikeln.
+
+
+## <a name="create-a-network-security-group-and-rules"></a>Skapa en säkerhetsgrupp för nätverk och regler
 Skapa nätverkssäkerhetsgrupp med [az nätverket nsg skapa](/cli/azure/network/nsg#create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup* i den *eastus* plats:
 
 ```azurecli
@@ -50,6 +60,8 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
+
+## <a name="apply-network-security-group-to-vm"></a>Tillämpa Nätverkssäkerhetsgruppen för VM
 Koppla Nätverkssäkerhetsgruppen till den Virtuella datorns nätverksgränssnitt (NIC) med [az nätverket nic uppdatering](/cli/azure/network/nic#update). I följande exempel associerar en befintlig NIC som heter *myNic* med Nätverkssäkerhetsgruppen med namnet *myNetworkSecurityGroup*:
 
 ```azurecli

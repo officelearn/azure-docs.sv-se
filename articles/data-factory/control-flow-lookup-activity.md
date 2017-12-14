@@ -11,31 +11,97 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
-
-Följande datakällor stöds för närvarande för sökning:
-- JSON-fil i Azure Blob
-- Lokala JSON-fil
-- Azure SQL Database (JSON-data konverteras från fråga)
-- Azure Table Storage (JSON-data konverteras från fråga)
 
 Sökning aktivitet är användbar när du vill hämta en lista över filer dynamiskt / poster/tabeller från en fil eller en datakälla. Utdata från aktiviteten kan användas mer av andra aktiviteter för att utföra specifika bearbetning på endast dessa objekt.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Data Factory V1 dokumentationen](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Funktioner som stöds
+
+Följande datakällor stöds för närvarande för sökning:
+- JSON-fil i Azure Blob
+- JSON-fil i filsystemet
+- Azure SQL Database (JSON-data konverteras från fråga)
+- Azure SQL Data Warehouse (JSON-data konverteras från fråga)
+- SQL Server (JSON-data konverteras från fråga)
+- Azure Table Storage (JSON-data konverteras från fråga)
+
+## <a name="syntax"></a>Syntax
+
+```json
+{
+    "name": "LookupActivity",
+    "type": "Lookup",
+    "typeProperties": {
+        "source": {
+            "type": "<source type>"
+            <additional source specific properties (optional)>
+        },
+        "dataset": { 
+            "referenceName": "<source dataset name>",
+            "type": "DatasetReference"
+        },
+        "firstRowOnly": false
+    }
+}
+```
+
+## <a name="type-properties"></a>Typegenskaper
+Namn | Beskrivning | Typ | Krävs
+---- | ----------- | ---- | --------
+DataSet | Dataset-attributet är att tillhandahålla dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>`AzureBlobDataset`för [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) som källa</li><li>`FileShareDataset`för [filsystemet](connector-file-system.md#dataset-properties) som källa</li><li>`AzureSqlTableDataset`för [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) eller [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) som källa</li><li>`SqlServerTable`för [SQL Server](connector-sql-server.md#dataset-properties) som källa</li><li>`AzureTableDataset`för [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) som källa</li> | Nyckel/värde-par | Ja
+källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten. Lär dig mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-avsnitt. | Nyckel/värde-par | Ja
+firstRowOnly | Ange om du vill returnera endast den första raden eller alla rader. | Booleskt värde | Nej. Standardvärdet är `ture`.
+
+## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Använda sökning aktivitet resultatet i efterföljande aktivitet
+
+Sökning resultatet returneras den `output` avsnitt i aktiviteten kör resultat.
+
+**När `firstRowOnly` är inställd på `true` (standard)**, utdataformatet är följande. Sökning resultatet är enligt ett fast `firstRow` nyckel. Om du vill använda resultatet i efterföljande aktiviteten använder mönstret för `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+
+```json
+{
+    "firstRow":
+    {
+        "Id": "1",
+        "TableName" : "Table1"
+    }
+}
+```
+
+**När `firstRowOnly` är inställd på `false`** , foramt för utdata är som följer. En `count` fältet anger hur många poster returneras och detaljerad värden finns under en fast `value` matris. I så fall aktiviteten sökning vanligtvis följt av en [Foreach-aktiviteten](control-flow-for-each-activity.md), du kan skicka den `value` matris ForEach-aktiviteten `items` med hjälp av mönstret för `@activity('MyLookupActivity').output.value`.
+
+```json
+{
+    "count": "2",
+    "value": [
+        {
+            "Id": "1",
+            "TableName" : "Table1"
+        },
+        {
+            "Id": "2",
+            "TableName" : "Table2"
+        }
+    ]
+} 
+```
 
 ## <a name="example"></a>Exempel
 I det här exemplet kopierar kopieringsaktiviteten data från en SQLtabell i Azure SQL-databas till Azure Blob Storage. Namnet på SQL-tabell lagras i en JSON-fil i Blob Storage. Aktiviteten sökning letar upp tabellnamnet vid körning. Den här metoden möjliggör JSON som ska ändras dynamiskt utan att omdistribuera pipelines/datauppsättningar. 
+
+Det här exemplet demostrates letar du upp den första raden. Leta upp alla rader och kedja med ForEach-aktiviteten finns [Tutorial – kopieringsdata gruppvis](tutorial-bulk-copy.md) exempel.
 
 ### <a name="pipeline"></a>Pipeline
 Den här pipelinen innehåller två aktiviteter: **Leta upp** och **kopiera**. 
@@ -68,7 +134,7 @@ Den här pipelinen innehåller två aktiviteter: **Leta upp** och **kopiera**.
                 "typeProperties": {
                     "source": { 
                         "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" 
+                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
                     },
                     "sink": { 
                         "type": "BlobSink" 
@@ -131,7 +197,7 @@ Käll-dataset använder utdata från aktiviteten sökning är namnet på SQL-tab
     "properties": {
         "type": "AzureSqlTable",
         "typeProperties":{
-            "tableName": "@{activity('LookupActivity').output.tableName}"
+            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
         },
         "linkedServiceName": {
             "referenceName": "AzureSqlLinkedService",
@@ -215,6 +281,7 @@ Azure SQL-databasen innehåller data som ska kopieras till blob storage.
   "tableName": "Table2",
 }
 ```
+
 #### <a name="array-of-objects"></a>Matris med-objekt
 
 ```json
@@ -229,15 +296,6 @@ Azure SQL-databasen innehåller data som ska kopieras till blob storage.
     }
 ]
 ```
-
-
-
-## <a name="type-properties"></a>Typegenskaper
-Namn | Beskrivning | Typ | Krävs
----- | ----------- | ---- | --------
-DataSet | Dataset-attributet är att tillhandahålla dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Nyckel/värde-par | Ja
-källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten | Nyckel/värde-par | Nej
-firstRowOnly | Returnerar första raden eller alla rader. | Booleskt värde | Nej
 
 ## <a name="next-steps"></a>Nästa steg
 Se annan kontrollflödesaktiviteter som stöds av Data Factory: 

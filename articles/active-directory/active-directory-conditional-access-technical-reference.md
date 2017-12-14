@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory villkorlig åtkomst Teknisk referens | Microsoft Docs"
-description: "Lär dig använda villkorlig åtkomstkontroll i Azure Active Directory. Ange villkor för att autentisera användare och kontrollera åtkomsten till ditt program. När de angivna villkoren uppfylls användare autentiseras och beviljas åtkomst till programmet."
+title: "Inställningsreferens för villkorlig åtkomst till Azure Active Directory | Microsoft Docs"
+description: "Få en översikt över inställningar som stöds i en villkorlig åtkomstprincip för Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory villkorlig åtkomst Teknisk referens
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
-Du kan använda [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md) att finjustera hur behöriga användare kan komma åt dina resurser.   
+Du kan använda [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-conditional-access-azure-portal.md) att styra hur behöriga användare kan komma åt dina resurser.   
 
-Den här artikeln innehåller information om stöd för följande konfigurationsalternativ för en princip för villkorlig åtkomst: 
+Den här artikeln innehåller information om stöd för följande konfigurationsalternativ i en princip för villkorlig åtkomst: 
 
 - Molnet program tilldelningar
 
@@ -35,6 +35,7 @@ Den här artikeln innehåller information om stöd för följande konfigurations
 - Godkända klienten programkrav
 
 
+Om detta inte är den information du söker efter, lämna en kommentar i slutet av den här artikeln.
 
 ## <a name="cloud-apps-assignments"></a>Molnet appar tilldelningar
 

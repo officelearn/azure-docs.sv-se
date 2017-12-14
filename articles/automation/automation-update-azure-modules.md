@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: ce249694035c48d3f626006e63724f47fee3d877
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -28,11 +28,11 @@ Eftersom moduler uppdateras regelbundet med produktgruppen, kan förändringar u
 
 ## <a name="updating-azure-modules"></a>Uppdatera Azure moduler
 
-1. Modulerna bladet för Automation-kontot det är ett alternativ som kallas **Update Azure moduler**.  Det är alltid aktiverat.<br><br> ![Uppdatera Azure moduler alternativ i bladet för moduler](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. På sidan moduler i ditt Automation-konto är ett alternativ som kallas **Update Azure moduler**. Det är alltid aktiverat.<br><br> ![Uppdatera Azure moduler alternativet moduler på sidan](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Klicka på **Update Azure moduler** och du kommer att visas ett meddelande om bekräftelse som frågar om du vill fortsätta.<br><br> ![Uppdatera Azure moduler meddelande](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Klicka på **Update Azure moduler** och visas ett meddelande om bekräftelse som frågar om du vill fortsätta.<br><br> ![Uppdatera Azure moduler meddelande](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Klicka på **Ja** och börjar uppdateringsprocessen modulen.  Uppdateringen tar ungefär 15-20 minuter för att uppdatera följande moduler:
+3. Klicka på **Ja** och börjar uppdateringsprocessen modulen. Uppdateringen tar ungefär 15-20 minuter för att uppdatera följande moduler:
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ Eftersom moduler uppdateras regelbundet med produktgruppen, kan förändringar u
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Om modulerna som är redan uppdaterade, Slutför processen i några sekunder.  När uppdateringen är slutförd meddelas du.<br><br> ![Uppdatera uppdateringsstatus för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Om modulerna som är redan uppdaterade, sedan processen är klar på några sekunder. När uppdateringen har slutförts får du ett meddelande.<br><br> ![Uppdatera uppdateringsstatus för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
 > Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.    
 
-Om du använder cmdlet: ar från dessa Azure PowerShell-moduler i runbooks för att hantera Azure-resurser, kommer sedan du att utföra den här uppdateringen varje månad eller så att garantera att du har de senaste modulerna.
+Om du använder cmdlet: ar från dessa Azure PowerShell-moduler i runbooks för att hantera Azure-resurser, sedan vill du utföra den här uppdateringen varje månad eller så att garantera att du har de senaste modulerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Med hjälp av operatorn ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ Det kan också bearbeta händelsegrupper separat baserat på nyckeln som anges i
 
 ## <a name="syntax"></a>Syntax
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Exempel på användning
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argument
@@ -56,7 +56,7 @@ Det kan också bearbeta händelsegrupper separat baserat på nyckeln som anges i
 
 - **partition_by_clause** 
 
-  Den `PARTITION BY \<partition key\>` satsen dividerar learning och utbildning över olika partitioner. Med andra ord en separat modell används per värde för `\<partition key\>` och endast händelser som har värdet används för inlärning och utbildning i den här modellen. Exempel:
+  Den `PARTITION BY <partition key>` satsen dividerar learning och utbildning över olika partitioner. Med andra ord en separat modell används per värde för `<partition key>` och endast händelser som har värdet används för inlärning och utbildning i den här modellen. Exempel:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ Funktionen returnerar en post som innehåller samtliga tre värden som utdata. E
 
 Extrahera enskilda värden utanför posten med hjälp av **GetRecordPropertyValue** funktion. Exempel:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Ett fel av en viss typ har identifierats när något av dessa avvikelseidentifiering poäng överskrider ett tröskelvärde. Tröskelvärdet kan vara en flytande peka nummer \>= 0. Tröskelvärdet är en kompromiss mellan känslighet och förtroende. Ett lägre tröskelvärde skulle göra identifiering känsliga för ändringar och flera aviseringar genereras ett högre tröskelvärde kan göra identifiering mindre känsliga och lita mer men maskera vissa avvikelser. Det exakta tröskelvärdet som ska använda beror på scenariot. Det finns ingen övre gräns, men det rekommenderade intervallet är 3,25 5.
@@ -160,12 +160,12 @@ Som nämnts innan Hoppa inte över den `FillInMissingValuesStep` steg för tillf
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Referenser

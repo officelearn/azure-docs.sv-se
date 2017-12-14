@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 12/13/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -76,7 +76,7 @@ Följande administratörsroller är tillgängliga:
 
 * **Privilegierade rollen Administratör**: användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, såväl i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantering av alla aspekter av Privileged Identity Management.
 
-* **Säkerhetsadministratör**: användare med den här rollen har alla läsbehörighet reader säkerhetsrollen plus möjligheten att hantera konfigurationen för säkerhetsrelaterade services: Azure Active Directory-identitetsskydd, privilegierad Identity Management och Office 365 säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Säkerhetsadministratör**: användare med den här rollen har alla läsbehörighet reader säkerhetsrollen plus möjligheten att hantera konfigurationen för säkerhetsrelaterade services: Azure Active Directory-identitetsskydd, Azure Information Protection, Privileged Identity Management och Office 365-säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Säkerhet Reader**: användare med den här rollen har globala skrivskyddad åtkomst, inklusive alla uppgifter i Azure Active Directory, identitetsskydd, Privileged Identity Management, samt möjlighet att läsa Azure Active Directory-inloggning rapporter och granskningsloggar. Rollen ger även skrivskyddad behörighet i Office 365-säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 

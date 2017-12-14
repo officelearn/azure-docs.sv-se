@@ -3,7 +3,7 @@ title: Scheman i Azure Automation | Microsoft Docs
 description: "Automationsscheman används för att schemalägga runbooks i Azure Automation för att starta automatiskt. Beskriver hur du skapar och hanterar ett schema i så att automatiskt starta en runbook på en viss tidpunkt eller ett återkommande schema."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 Om du vill schemalägga en runbook i Azure Automation för att starta vid en viss tidpunkt länka du det till ett eller flera scheman. Ett schema kan konfigureras för att köras en gång eller på en igen timvis eller daglig schema för runbooks i den klassiska Azure-portalen och runbooks i Azure-portalen, du kan också schemalägga dem för varje vecka, månad, särskilda dagar i veckan eller dagar i månaden, eller en viss dag i månaden.  En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks som är länkade till den.

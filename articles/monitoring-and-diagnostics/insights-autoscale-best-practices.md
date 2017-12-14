@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Den här artikeln lär du metodtips Autoskala i Azure. Azure övervakaren Autoskala gäller enbart för [Skalningsuppsättningar i virtuella](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), och [App Service - Webbappar](https://azure.microsoft.com/services/app-service/web/). Andra Azure-tjänster använda olika metoder för skalning.
@@ -44,9 +44,6 @@ Om du manuellt uppdatera instansantalet till ett värde över eller under maxima
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Använd alltid en skalbar och skala i regel kombination som utför en ökning och minskning
 Om du använder endast en del av en kombination av har Autoskala skala in att enkel, eller i en, tills de högsta eller lägsta, nåtts.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Växla inte mellan Azure-portalen och den klassiska Azure-portalen när du hanterar Autoskala
-Använd Azure-portalen (portal.azure.com) att skapa och hantera automatiska inställningar för molntjänster och Apptjänster (webbprogram). Använd PowerShell, CLI eller REST API för Skalningsuppsättningar i virtuella datorer att skapa och hantera autoskalningsinställning. Växla inte mellan den klassiska Azure-portalen (manage.windowsazure.com) och Azure portal (portal.azure.com) när du hanterar Autoskala konfigurationer. Den klassiska Azure-portalen och dess underliggande backend har begränsningar. Flytta till Azure-portalen för att hantera Autoskala med ett grafiskt användargränssnitt. Alternativen är att använda Autoskala PowerShell, CLI eller REST API (via resursutforskaren i Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Välj lämplig statistiken för diagnostik-mått
 För diagnostik statistik, kan du välja mellan *genomsnittlig*, *minsta*, *maximala* och *totala* som ett mått för att skala med. De vanligaste statistiken är *genomsnittlig*.

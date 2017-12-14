@@ -3,7 +3,7 @@ title: "Starta/stoppa virtuella datorer vid låg belastning på nätverket lösn
 description: "VM-hanteringslösningar startar och stoppar Azure-resurshanteraren för virtuella datorer i ett schema och övervakar proaktivt från Log Analytics."
 services: automation
 documentationCenter: 
-authors: eslesar
+authors: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: magoedte
-ms.openlocfilehash: 2ff2208f62c24c460c9d17533e28fd007549828b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: e6f1189b9729c57718a5cd6d6f6a583b94f6f142
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -72,9 +72,9 @@ Alla överordnade runbooks innehåller den *WhatIf* parametern, som under instä
 | --- | --- | ---| 
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Skapar aviseringar på basis av per resurs för AutoStop scenario.| 
 |AutoStop_CreateAlert_Parent | WhatIf: True eller False <br> VMList | Skapar eller uppdaterar Azure Varningsregler på virtuella datorer i målgrupperna för prenumerationen eller resursen. <br> VMList: Kommaavgränsad lista över virtuella datorer.  Till exempel *vm1 vm2, vm3*| 
-|AutoStop_Disable | inga | Inaktivera AutoStop aviseringar och standardschemat.| 
+|AutoStop_Disable | ingen | Inaktivera AutoStop aviseringar och standardschemat.| 
 |AutoStop_StopVM_Child | WebHookData | Anropas från överordnad runbook bara. Varningsregler anropa runbook så att den inte arbetet med att stoppa den virtuella datorn.|  
-|Bootstrap_Main | inga | Använda en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI som normalt inte kan nås från Azure Resource Manager. Denna runbook tas bort automatiskt om distributionen är korrekt.|  
+|Bootstrap_Main | ingen | Använda en gång för att ställa in bootstrap konfigurationer, till exempel webhookURI som normalt inte kan nås från Azure Resource Manager. Denna runbook tas bort automatiskt om distributionen är korrekt.|  
 |ScheduledStartStop_Child | VMName <br> Åtgärd: Stoppa och starta <br> resourceGroupName | Anropas från överordnad runbook bara. Stöder faktiska körningen av för schemalagda stoppa ska startas eller stoppas.|  
 |ScheduledStartStop_Parent | Åtgärd: Stoppa och starta <br> WhatIf: True eller False | Detta börjar gälla på alla virtuella datorer i prenumerationen såvida du inte redigerar den **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** som begränsar den ska köras endast på dessa Target-resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera den **External_ExcludeVMNames** variabeln. WhatIf fungerar på samma sätt som andra runbooks.|  
 |SequencedStartStop_Parent | Åtgärd: Stoppa och starta <br> WhatIf: True eller False | Skapa en tagg som kallas **SequenceStart** och en annan tagg kallas **SequenceStop** på varje virtuell dator som du vill starta aktivitetssekvensen\\Stoppa aktiviteten för. Värdet för taggen ska vara ett positivt heltal (1,2,3) som motsvarar den ordning som du vill starta\\stoppa i stigande ordning. WhatIf fungerar på samma sätt som andra runbooks. <br> **Obs: Virtuella datorer måste vara inom resursgrupper definierade External_Start_ResourceGroupNames External_Stop_ResourceGroupNames och External_ExcludeVMNames i Azure Automation-variabler och ha lämpliga taggar för åtgärder ska börja gälla.**|

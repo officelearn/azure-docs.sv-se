@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Visa replikeringsstatus för Active Directory med logganalys
 
@@ -32,7 +32,7 @@ Replikeringsstatus för AD-lösningspaket regelbundet övervakar Active Director
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till OMS. Information om hur du ansluter en Windows-datorer till OMS finns [ansluta Windows-datorer till logganalys](log-analytics-windows-agents.md). Om domänkontrollanten tillhör redan en befintlig miljö för System Center Operations Manager som du vill ansluta till OMS finns [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
+* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till OMS. Information om hur du ansluter en Windows-datorer till OMS finns [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). Om domänkontrollanten tillhör redan en befintlig miljö för System Center Operations Manager som du vill ansluta till OMS finns [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
 * Lägg till Active Directory-replikeringsstatus lösningen i OMS-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD replikeringsstatus data samling information
@@ -47,7 +47,7 @@ Om du inte vill att ansluta alla domänkontrollanter direkt till OMS kan du anv�
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Så här aktiverar du en icke-domänkontrollant AD data ska skickas till OMS
 1. Kontrollera att datorn är medlem i den domän som du vill övervaka replikeringsstatus för AD-lösning.
-2. [Ansluta Windows-dator till OMS](log-analytics-windows-agents.md) eller [ansluta den med hjälp av din befintliga miljö för Operations Manager till OMS](log-analytics-om-agents.md), om den inte redan är ansluten.
+2. [Ansluta Windows-dator till OMS](log-analytics-windows-agent.md) eller [ansluta den med hjälp av din befintliga miljö för Operations Manager till OMS](log-analytics-om-agents.md), om den inte redan är ansluten.
 3. Ange följande registernyckel på datorn:
 
    * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupper\<ManagementGroupName > \Solutions\ADReplication**
@@ -148,7 +148,7 @@ S: normal användarbehörigheter till Active Directory är tillräckliga.
 ## <a name="troubleshoot-data-collection-problems"></a>Felsökning av problem med samlingen
 För att samla in data, kräver lösningspaket AD replikeringsstatus minst en domänkontrollant måste vara ansluten till din OMS-arbetsyta. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
 
-Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till logganalys](log-analytics-windows-agents.md). Alternativt, om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö, kan du visa dokumentationen på [ansluta System Center Operations Manager till logganalys](log-analytics-om-agents.md).
+Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). Alternativt, om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö, kan du visa dokumentationen på [ansluta System Center Operations Manager till logganalys](log-analytics-om-agents.md).
 
 Om du inte vill ansluta alla domänkontrollanter direkt till OMS eller SCOM [att aktivera en icke-domänkontrollant AD data ska skickas till OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

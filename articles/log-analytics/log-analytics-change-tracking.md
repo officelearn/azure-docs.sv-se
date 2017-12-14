@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar av programvaran i din miljö med lösningen för ändringsspårning
 
@@ -32,7 +32,7 @@ Du installerar lösningen för att uppdatera typ av agenten som är installerad.
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Du måste ha en [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md), eller [Linux](log-analytics-linux-agents.md) agenten på varje dator där du vill övervaka ändringar.
+* Du måste ha en [Windows](log-analytics-windows-agent.md), [Operations Manager](log-analytics-om-agents.md), eller [Linux](log-analytics-linux-agents.md) agenten på varje dator där du vill övervaka ändringar.
 * Lägg till ändringsspårning lösningen till OMS-arbetsyta från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Du kan också lägga till lösningen med hjälp av informationen i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md). Det krävs ingen ytterligare konfiguration.
 
 ### <a name="configure-linux-files-to-track"></a>Konfigurera Linux-filer för att spåra

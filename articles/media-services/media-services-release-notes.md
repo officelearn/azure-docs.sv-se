@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -58,7 +58,7 @@ Information om tidigare för Media Services REST API-versioner finns [Azure Medi
 2.  Om du har källa video som har kodats med H.265(HEVC) video-codec, som till exempel video till med iOS11 eller GoPro hjälte 6, kan du nu använda Premium-kodare eller Standard-kodare för att koda videoklipp. Mer information finns i [Online Services-villkoren](https://azure.microsoft.com/support/legal/) för viktigt patent återkallningslicens(er).
 3.  Om du har innehåll som innehåller flera språk ljud spår, sedan så länge språk-värden är korrekt märkta enligt motsvarande filformatsspecifikation (t.ex. ISO MP4) kan du använda Standard-kodare för att koda innehållet för strömning. Resulterande strömningslokaliseraren visar en lista över tillgängliga ljud språk.
 4.  Standard-kodare stöder nu två nya ljuddata systeminställningar, ”AAC ljud” och ”AAC bra kvalitet ljud”. Både resultat stereo AAC, vid bithastigheter 128 kbit/s och 192 kbps respektive.
-5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM.
+5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM.
 
 > [!NOTE]
 > Premium-kodare stöder inte, till exempel DVC/DVCPro video omslutas i QuickTime/MOV-filer som indata.  Standard-kodare stöder dessa video-codec.
@@ -324,13 +324,6 @@ Media Services SDK för .NET är nu version 3.0.0.7
 * **Ursprung** har bytt namn till [StreamingEndpoint].
 * En förändring i standardbeteendet när du använder den **Azure-portalen** att koda och publicera MP4-filer.
 
-Tidigare, när använder den klassiska Azure-portalen för att publicera en enda fil MP4 videotillgång en SAS-URL skulle skapas (SAS-URL: er kan du hämta videon från ett blob storage). När du använder den klassiska Azure-portalen för att koda och publicera en videotillgång av MP4-fil kan för närvarande pekar genererade URL på ett Azure Media Services strömmande slutpunkten.  Den här ändringen påverkar inte MP4-videor som överförs till Media Services direkt och publiceras utan som kodats med Azure Media Services.
-
-Du har för närvarande följande två alternativ för att lösa problemet.
-
-* Aktivera enheter för strömning och använda dynamisk paketering för att strömma .mp4 tillgången som smooth streaming-presentation.
-* Skapa en SAS-url för att hämta (eller progressivt play) på .mp4. Mer information om hur du skapar en SAS-lokaliserare finns [leverera innehåll].
-
 ### <a id="sept_14_GA_changes"></a>Nya funktioner/scenarier som ingår i GA-version
 * **Indexeraren Medieprocessor**. Mer information finns i [indexering mediefiler med Azure Media Indexer].
 * Den [StreamingEndpoint] entitet nu kan du lägga till anpassade domännamn (värd).
@@ -526,7 +519,7 @@ De ändringar som nämns i det här avsnittet har uppdateringar som ingår i Nov
   * IAssetFile.UploadAsync (filePath, blobTransferClient, lokaliserare, cancellationToken): en asynkron metod. Detta är den önskade överför mekanismen. 
     
     Känt fel: med cancellationToken verkligen avbryta uppladdningen; tillståndet annullering av aktiviteterna kan dock vara någon av ett antal tillstånd. Du måste korrekt fånga och hantera undantag.
-* Positionerare
+* Lokaliserare
   
     Ursprung-specifika versioner har tagits bort. SAS-specifika-kontext. Locators.CreateSasLocator (tillgången, accessPolicy) markeras som föråldrad eller tagits bort av GA. Se avsnittet lokaliserare under nya funktioner för uppdaterade beteendet.
 
@@ -536,7 +529,7 @@ Följande funktioner är nya i November-versionen av SDK.
 * Ta bort enheter
   
     IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objekt har nu tagits bort på objektnivå, det vill säga IObject.Delete() i stället för att en delete i samlingen som är cloudMediaContext.ObjCollection.Delete(objInstance).
-* Positionerare
+* Lokaliserare
   
     Lokaliserare nu måste skapas med metoden CreateLocator och Använd uppräkningsvärden LocatorType.SAS eller LocatorType.OnDemandOrigin som ett argument för typ av lokaliserare som du vill skapa.
   
@@ -561,7 +554,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [prisinformation för Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [indata Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [utdata Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[leverera innehåll]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [indexering mediefiler med Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [arbetar med Azure Media Services Liveströmning]: http://msdn.microsoft.com/library/azure/dn783466.aspx

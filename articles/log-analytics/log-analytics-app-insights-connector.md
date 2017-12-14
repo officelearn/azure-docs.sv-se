@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Application Insights Connector lösning (förhandsgranskning) i Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ Till skillnad från de flesta andra logganalys-lösningar är inte samlas in fö
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen matchar inte samlingsinformation från Azure storage. |
@@ -247,7 +247,7 @@ En post med en *typen* av *ApplicationInsights* skapas för varje typ av indata.
 | Begärande-ID | ID för att unikt identifiera begäran |
 | RequestName | GET/POST + URL-bas |
 | RequestDuration | Tid i sekunder, för varaktighet för begäran |
-| URL: EN | URL för begäran inte inklusive värden |
+| Webbadress | URL för begäran inte inklusive värden |
 | Värd | Web server-värd |
 | URLBase | Fullständig URL för begäran |
 | ApplicationProtocol | Typ av protokoll som används av programmet |

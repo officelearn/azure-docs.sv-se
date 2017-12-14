@@ -3,7 +3,7 @@ title: "Min första Python-runbook i Azure Automation | Microsoft Docs"
 description: "Självstudiekurs som vägleder dig genom att skapa, testa och publicering av en enkel Python-runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
@@ -213,5 +213,5 @@ Klicka på **OK** att starta runbook. Runbook körs och startar den virtuella da
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)
 * Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
 * Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
-* Läs om hur du utvecklar för Azure med Python i [Azure för Python-utvecklare](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Runbook-exempel Python 2 finns i [Azure Automation GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Läs om hur du utvecklar för Azure med Python i [Azure för Python-utvecklare](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Runbook-exempel Python 2 finns i [Azure Automation GitHub](https://docs.microsoft.com/python/azure/?view=azure-python).

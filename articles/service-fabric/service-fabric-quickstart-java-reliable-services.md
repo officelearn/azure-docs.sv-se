@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Service Fabric Java-program | Microsoft Docs
-description: "Skapa ett Java-program för Azure med hjälp av Service Fabric Snabbstart exemplet."
+title: Skapa en Azure Service Fabric Java-app | Microsoft Docs
+description: "Skapa ett Java-program för Azure med hjälp av snabbstartsexemplet för Service Fabric."
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -16,15 +16,15 @@ ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
 ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="create-a-java-application"></a>Skapa ett Java-program
-Azure Service Fabric är en plattform för distribuerade system för att distribuera och hantera mikrotjänster och behållare. 
+Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare. 
 
-Den här snabbstarten visar hur du distribuerar din första Java-program till Service Fabric med Eclipse IDE på en Linux-dator för utvecklare. När du är klar har du röstningsapp med en Java-webbklientservern som sparar röstning resultat i en tillståndskänslig backend-tjänst i klustret.
+I den här snabbstarten får du lära dig att distribuera ditt första Java-program till Service Fabric med hjälp av Eclipse Integrated Development Environment på en Linux-utvecklarmaskin. När du är klar har du ett röstningsprogram med en Java-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret.
 
 ![Skärmbild av programmet](./media/service-fabric-quickstart-java/votingapp.png)
 
@@ -32,67 +32,67 @@ I den här snabbstarten lär du dig att:
 
 > [!div class="checklist"]
 > * Använda Eclipse som ett verktyg för Service Fabric Java-program
-> * Distribuera programmet till det lokala klustret 
+> * Distribuera programmet till ditt lokala kluster 
 > * Distribuera programmet till ett kluster i Azure
-> * Skalbara program över flera noder
+> * Skala ut programmet över flera noder
 
 ## <a name="prerequisites"></a>Krav
 För att slutföra den här snabbstarten behöver du:
-1. [Installera Service Fabric SDK & Service Fabric kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installera Git](https://git-scm.com/)
 3. [Installera Eclipse](https://www.eclipse.org/downloads/)
-4. [Konfigurera en Java-miljö](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), att kontrollera att du följer de valfria stegen för att installera plugin-programmet Eclipse 
+4. [Konfigurera en Java-miljö](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och kontrollera att du följer de valfria stegen för att installera plugin-programmet Eclipse 
 
 ## <a name="download-the-sample"></a>Hämta exemplet
-Kör följande kommando för att klona exempel app lagringsplatsen till den lokala datorn i ett kommandofönster.
+Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
-1. Starta din lokala klustret genom att köra följande kommando:
+1. Starta ditt lokala kluster genom att köra följande kommando:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Starten av det lokala klustret tar en stund. För att bekräfta att klustret är fullständigt dig åtkomst till Service Fabric-Utforskaren på **http://localhost:19080**. Fem felfri noder ange det lokala klustret är igång. 
+    Det kan ta lite tid att starta det lokala klustret. Om du vill kontrollera att klustret är fullständigt aktiverat går du till Service Fabric Explorer på **http://localhost:19080**. När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
-    ![Lokala klustret felfri](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Öppna Eclipse.
-3. Klicka på Arkiv -> Öppna projekt från filsystemet... 
-4. Klicka på katalogen och välj den `Voting` katalog från den `service-fabric-java-quickstart` mappen som du har klonat från Github. Klicka på Slutför. 
+3. Klicka på File -> Open Projects (Arkiv -> Öppna projekt) under File System... (Filsystem). 
+4. Klicka på Directory (Katalog) och välj katalogen `Voting` från mappen `service-fabric-java-quickstart` som du klonade från Github. Klicka på Slutför. 
 
-    ![Dialogrutan för Eclipse-Import](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Dialogrutan för import till Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
     
-5. Nu har du den `Voting` paketet Explorer för Eclipse-projekt. 
-6. Högerklicka på projektet och välj **publicera program...**  under den **Service Fabric** listrutan. Välj **PublishProfiles/Local.json** som mål-profil och klicka på Publicera. 
+5. Nu finns projektet `Voting` i Package Explorer (Paketutforskaren) för Eclipse. 
+6. Högerklicka på projektet och välj **Publish Application...** (Publicera program) under listrutan **Service Fabric**. Välj **PublishProfiles/Local.json** som Target Profile (Målprofil) och klicka på Publish (Publicera). 
 
-    ![Publicera dialogrutan lokalt](./media/service-fabric-quickstart-java/localjson.png)
+    ![Dialogrutan för lokal publicering](./media/service-fabric-quickstart-java/localjson.png)
     
-7. Öppna valfri webbläsare och få åtkomst till programmet genom att öppna **http://localhost: 8080**. 
+7. Öppna valfri webbläsare och hitta programmet genom att gå till **http://localhost: 8080**. 
 
-    ![Programmet frontend lokalt](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java/runninglocally.png)
     
-Du kan nu lägga till en uppsättning röstning alternativ och starta tar röster. Programmet körs och lagrar alla data i din Service Fabric-klustret utan att behöva en separat databas.
+Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot röster. Programmet körs och lagrar alla data i Service Fabric-klustret, utan att en separat databas krävs.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 
-### <a name="set-up-your-azure-service-fabric-cluster"></a>Konfigurera Azure Service Fabric-kluster
-Skapa ditt eget kluster för att distribuera program till ett kluster i Azure, eller Använd ett part kluster.
+### <a name="set-up-your-azure-service-fabric-cluster"></a>Konfigurera ett Azure Service Fabric-kluster
+Om du vill distribuera programmet till ett kluster i Azure kan du antingen skapa ett eget kluster eller använda ett partykluster.
 
-Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De körs av Service Fabric-teamet där alla kan distribuera program och lär dig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
+Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. De körs av Service Fabric-teamet. Där kan alla distribuera program och lära sig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
 
-Information om hur du skapar ditt eget kluster finns i [skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
-> Webbtjänsten front-end konfigureras så att den lyssnar på port 8080 för inkommande trafik. Se till att den porten är öppen i ditt kluster. Om du använder part klustret är den här porten öppen.
+> Frontwebbtjänsten är konfigurerad för att lyssna efter inkommande trafik på port 8080. Se till att den porten är öppen i ditt kluster. Porten är öppen om du använder ett partykluster.
 >
 
 ### <a name="deploy-the-application-using-eclipse"></a>Distribuera programmet med Eclipse
-Nu när programmet och klustret är klar kan distribuera du den till klustret direkt från Eclipse.
+Nu när programmet är redo kan du distribuera det till ett kluster direkt från Visual Studio.
 
-1. Öppna den **Cloud.json** filen den **PublishProfiles** directory och Fyll i den `ConnectionIPOrURL` och `ConnectionPort` fälten på lämpligt sätt. Ett exempel finns: 
+1. Öppna filen **Cloud.json** som finns i katalogen **PublishProfiles** och fyll i uppgifter i fälten `ConnectionIPOrURL` och `ConnectionPort`. Exempel: 
 
     ```bash
     {
@@ -106,32 +106,32 @@ Nu när programmet och klustret är klar kan distribuera du den till klustret di
     }
     ```
 
-2. Högerklicka på projektet och välj **publicera program...**  under den **Service Fabric** listrutan. Välj **PublishProfiles/Cloud.json** som mål-profil och klicka på Publicera. 
+2. Högerklicka på projektet och välj **Publish Application...** (Publicera program) under listrutan **Service Fabric**. Välj **PublishProfiles/Cloud.json** som Target Profile (Målprofil) och klicka på Publish (Publicera). 
 
-    ![Publicera dialogrutan moln](./media/service-fabric-quickstart-java/cloudjson.png)
+    ![Dialogrutan för molnpublicering](./media/service-fabric-quickstart-java/cloudjson.png)
 
-3. Öppna valfri webbläsare och få åtkomst till programmet genom att öppna **http://\<ConnectionIPOrURL >: 8080**. 
+3. Öppna valfri webbläsare och hitta programmet genom att gå till **http://\<ConnectionIPOrURL>:8080**. 
 
-    ![Programmet frontend-moln](./media/service-fabric-quickstart-java/runningcloud.png)
+    ![Programmets klientdel i molnet](./media/service-fabric-quickstart-java/runningcloud.png)
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
-Tjänster kan skalas över ett kluster kan utföra en ändring i belastningen på tjänsterna. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Du har flera olika sätt att skala dina tjänster kan du använda skript eller kommandon från Service Fabric CLI (sfctl). I det här exemplet använder vi Service Fabric Explorer.
+Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från Service Fabric CLI (sfctl). I det här exemplet använder vi Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till kluster HTTP Hanteringsport (19080), till exempel `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 
 Gör så här om du vill skala frontwebbtjänsten:
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
-2. Klicka på ellipsknappen (tre punkter) bredvid den **fabric: / Röstningsdatabasen/VotingWeb** noder i trädvyn och välj **skala Service**.
+2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
 
-    ![Service Fabric Explorer skala Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     Du kan nu välja att skala antalet instanser av frontwebbtjänsten.
 
 3. Ändra antalet till **2** och klicka på **Scale Service** (Skala tjänst).
-4. Klicka på den **fabric: / Röstningsdatabasen/VotingWeb** noden i trädvyn och expandera noden partition (representerade av GUID).
+4. Klicka på noden **fabric:/Voting/VotingWeb** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
 
-    ![Service Fabric Explorer skala Service klar](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java/servicescaled.png)
 
     Du kan nu se att tjänsten har två instanser och i trädvyn du se vilka noder instanserna körs på.
 
@@ -142,10 +142,10 @@ I den här snabbstarten har du lärt dig att:
 
 > [!div class="checklist"]
 > * Använda Eclipse som ett verktyg för Service Fabric Java-program
-> * Distribuera Java-program till det lokala klustret 
+> * Distribuera Java-program till ditt lokala kluster 
 > * Distribuera Java-program till ett kluster i Azure
-> * Skalbara program över flera noder
+> * Skala ut programmet över flera noder
 
-* Lär dig mer om [tjänster i Java med Eclipse-felsökning](service-fabric-debugging-your-application-java.md)
-* Lär dig mer om [ställa in din kontinuerlig integreation & distribution med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
-* Utcheckning andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Läs mer om hur man [felsöker tjänster i Java med Eclipse](service-fabric-debugging-your-application-java.md)
+* Läs mer om hur man [konfigurerar kontinuerlig integration och distribution med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+* Se andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)

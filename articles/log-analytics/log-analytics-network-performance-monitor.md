@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Network Performance Monitor-lösning i logganalys
 
@@ -46,7 +46,7 @@ Om du vill övervaka en driftsapplikationer kan du använda Network Performance 
 Även om du redan investerar i andra nätverksövervakningsverktyg kan sedan lösningen kompletterar dessa verktyg eftersom de flesta traditionella övervakning nätverkslösningar inte tillhandahåller insikter om slutpunkt till slutpunkt prestandamått som förluster eller fördröjningar.  Network Performance Monitor-lösningen hjälper dig att fylla den lucka.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Installera och konfigurera agenter för lösningen
-Använd basic-processer för att installera agenter på [ansluta Windows-datorer till logganalys](log-analytics-windows-agents.md) och [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
+Använd basic-processer för att installera agenter på [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md) och [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Du måste installera minst 2 agenter för att få tillräckligt med data för att identifiera och övervaka dina nätverksresurser. Annars förblir lösningen konfigurera statusen tills du installerar och konfigurerar ytterligare agenter.

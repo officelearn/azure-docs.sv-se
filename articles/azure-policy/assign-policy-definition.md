@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön
 Det första steget för att förstå efterlevnad i Azure är att veta hur det ligger till med dina befintliga resurser. Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning för att identifiera virtuella datorer som inte använder hanterade diskar.
@@ -21,20 +21,6 @@ Det första steget för att förstå efterlevnad i Azure är att veta hur det li
 I slutet av den här processen kommer du att ha lyckats identifiera virtuella datorer som inte använder hanterade diskar och därför är *icke-kompatibla*.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-## <a name="opt-in-to-azure-policy"></a>Välja Azure Policy
-
-Azure Policy finns nu som en allmänt tillgänglig förhandsversion och du måste registrera dig för att begära åtkomst.
-
-1. Gå till Azure Policy på https://aka.ms/getpolicy och välj **Registrera dig** i det vänstra fönstret.
-
-   ![Sök efter princip](media/assign-policy-definition/sign-up.png)
-
-2. Välj att använda Azure Policy genom att välja de prenumerationer i listan **Prenumeration** som du vill arbeta med. Välj sedan **Registrera**.
-
-   ![Välja att använda Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Din begäran godkänns automatiskt för förhandsversionen. Det kan ta upp till 30 minuter innan systemet har behandlat registreringen.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
@@ -65,7 +51,7 @@ I den här snabbstarten skapar vi en principtilldelning och tilldelar principdef
    Det finns två prisnivåer i Azure Policy – *Kostnadsfri* och *Standard*. Med den kostnadsfria nivån kan du bara tillämpa principer på framtida resurser, medan Standard gör det möjligt att även tillämpa dem på befintliga resurser för att förstå kompatibilitetsstatusen bättre. Eftersom det är en begränsad förhandsversion har vi ännu inte lanserat någon prissättningsmodell, så du debiteras inte om du väljer *Standard*. Mer information om prissättning finns i [priser för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Välj vilken **Omfattning** som principen ska användas på.  En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
-8. Välj den prenumeration (eller resursgrupp) du registrerade tidigare när du valde att använda Azure Policy. I det här exemplet använder vi prenumerationen **Azure Analytics Capacity Dev**, men dina alternativ varierar.
+8. Välj den prenumeration (eller resursgrupp) du registrerade tidigare. I det här exemplet använder vi prenumerationen **Azure Analytics Capacity Dev**, men dina alternativ varierar.
 
    ![Hitta rätt principdefinition](media/assign-policy-definition/assign-policy.png)
 

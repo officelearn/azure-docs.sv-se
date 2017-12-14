@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Arbeta med blobar – Python
       href: storage-quickstart-blobs-python.md
+    - name: Arbeta med blobar – Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Arbeta med blobar – Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: Arbeta med blobar – Storage Explorer
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Sök efter ostrukturerade data i molnlagringen
       href: storage-unstructured-search.md
+    - name: Optimera prestanda och skalbarhet för lagringsprogram
+      items:
+        - name: Skapa en virtuell dator och ett lagringskonto
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Ladda upp stora datamängder till ett Azure-lagringskonto
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Ladda ned stora datamängder från ett Azure-lagringskonto
+          href: storage-blob-scalable-app-download-files.md
+        - name: Verifiera mått för dataflöde och svarstid
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Exempel
   items:
     - name: .NET

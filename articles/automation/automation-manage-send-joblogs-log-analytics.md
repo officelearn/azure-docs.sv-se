@@ -3,7 +3,7 @@ title: Vidarebefordra Azure Automation jobbdata till OMS Log Analytics | Microso
 description: "Den här artikeln visar hur du skicka jobbstatus och runbook-jobbet strömmar till logganalys för Microsoft Operations Management Suite att ge ytterligare insikter och hantering."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 21923adaa8f8118995799319c1fd496a6e449faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b9457e6c8ce501a7295859923838460e7ab6cc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Vidarebefordra jobbstatus och jobbet strömmar från Automation till logganalys (OMS)
 Automatisering kan skicka runbook jobbet status och jobbstatus strömmar till Microsoft Operations Management Suite (OMS) logganalys-arbetsytan.  Jobbet loggar och dataströmmar för jobbet är synliga i Azure-portalen eller med PowerShell, för enskilda jobb och detta kan du utföra enkla undersökningar. Med Log Analytics kan du nu:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsgranskning) i logganalys
 
@@ -43,7 +43,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Support | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Nej | Direkt Windows-agenter som inte används av lösningen. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Direkt Windows-agenter som inte används av lösningen. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Direkt Linux-agenter som inte används av lösningen. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | En direkt anslutning från SCOM-agent till logganalys används inte av lösningen. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Logganalys inte att läsa data från ett lagringskonto. |

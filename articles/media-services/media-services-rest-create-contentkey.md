@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Skapa innehåll nycklar med övriga
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ När du levererar tillgångar till dina klienter kan du [konfigurera för tillg�
 
 Krypterade tillgångar måste associeras med **ContentKey**s. Den här artikeln beskriver hur du skapar en innehållsnyckel.
 
-Följande är allmänna steg för att generera innehåll nycklar som ska associeras med resurser som du vill ska vara krypterad. 
+Följande är allmänna steg för att generera innehåll nycklar som associeras med resurser som du vill ska vara krypterad. 
 
 1. Generera slumpmässigt 16 byte AES-nyckel (för gemensamma och kuvert kryptering) eller en 32-byte AES-nyckel (för lagringskryptering). 
    
-    Det här är innehållsnyckeln för tillgången, vilket innebär att alla filer som hör till tillgången måste använda samma innehållsnyckeln under dekrypteringen. 
+    Det här är innehållsnyckeln för tillgången, vilket innebär att alla filer som hör till som tillgången måste använda samma innehållsnyckeln under dekrypteringen. 
 2. Anropa den [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) och [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metoder för att få rätt X.509-certifikat som ska användas för att kryptera din innehållsnyckeln.
 3. Kryptera din innehållsnyckeln med den offentliga nyckeln för X.509-certifikatet. 
    
    Media Services .NET SDK använder RSA med OAEP vid krypteringen.  Du kan se ett exempel i den [EncryptSymmetricKeyData funktionen](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Skapa ett kontrollsummevärde (baserat på algoritmen PlayReady AES kontrollsumma) beräknas med hjälp av nyckelidentifierare och innehållsnyckeln. Mer information finns i avsnittet ”PlayReady AES kontrollsumma nyckelalgoritm” i dokumentet PlayReady-objektet finns [här](http://www.microsoft.com/playready/documents/).
    
-   Följande är en .NET-exempel som beräknar kontrollsumma använder GUID-del av Nyckelidentifieraren och avmarkera innehållsnyckeln.
+   I följande exempel .NET beräknar kontrollsumma använder GUID-del av Nyckelidentifieraren och avmarkera innehållsnyckeln.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ Följande är allmänna steg för att generera innehåll nycklar som ska associe
 5. Skapa innehållsnyckel med den **EncryptedContentKey** (konverteras till base64-kodad sträng) **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, och **kontrollsumma** värden som du har fått i föregående steg.
 6. Koppla den **ContentKey** entitet med din **tillgången** via $links igen.
 
-Observera att det här avsnittet inte visar hur du skapar en AES-nyckel, kryptera nyckeln och beräkna kontrollsumman. 
+Den här artikeln visar inte hur du skapar en AES-nyckel, kryptera nyckeln och beräkna kontrollsumman. 
 
 >[!NOTE]
 
@@ -77,9 +77,6 @@ Observera att det här avsnittet inte visar hur du skapar en AES-nyckel, krypter
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
 Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Hämta ProtectionKeyId
 I följande exempel visas hur du hämtar ProtectionKeyId, en certifikat-tumavtrycket för certifikatet måste du använda när du krypterar din innehållsnyckeln. Gör detta steg för att se till att du redan har rätt certifikat på din dator.
@@ -92,7 +89,7 @@ Begäran:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +121,7 @@ Begäran:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +149,7 @@ Svar:
 ## <a name="create-the-contentkey"></a>Skapa ContentKey
 När du har hämtats X.509-certifikat och används den offentliga nyckeln för att kryptera din innehållsnyckeln, skapar du en **ContentKey** entiteten och ange egenskapen värden i enlighet med detta.
 
-Ett av de värden som du måste ange när skapa innehållet nyckeln är typen. Välj något av följande värden.
+Ett av de värden som du måste ange när skapa innehållet nyckeln är typen. Välj något av följande värden:
 
     public enum ContentKeyType
     {
@@ -179,7 +176,7 @@ Ett av de värden som du måste ange när skapa innehållet nyckeln är typen. V
     }
 
 
-I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** för lagringskryptering (”1”) och **ProtectionKeyType** värdet ”0” anger att skydd nyckeln Id är tumavtrycket för X.509-certifikatet.  
+I följande exempel visas hur du skapar en **ContentKey** med en **ContentKeyType** för lagringskryptering (”1”) och **ProtectionKeyType** angetts till ”0” som indikerar att Skyddsnyckel-ID är tumavtrycket för X.509-certifikatet.  
 
 Förfrågan
 
@@ -191,7 +188,7 @@ Förfrågan
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +238,7 @@ Begäran:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

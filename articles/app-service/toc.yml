@@ -89,6 +89,8 @@
       items:
         - name: Distribuera appen
           items:
+            - name: Distribuera en ZIP-fil
+              href: app-service-deploy-zip.md
             - name: Distribuera via FTP
               href: app-service-deploy-ftp.md
             - name: Distribuera via molnsynkronisering

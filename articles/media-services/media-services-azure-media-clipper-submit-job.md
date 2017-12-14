@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Skicka urklippet jobb från Azure Media Clipper
 Azure Media Clipper kräver en **submitSubclipCallback** metod ska implementeras för att hantera urklippet jobbet. Den här funktionen är för att implementera en HTTP POST Clipper utdata till en webbtjänst. Den här webbtjänsten är där du kan skicka kodningsjobbet. Utdata från Clipper är antingen en Media Encoder Standard kodning förinställda för renderade jobb eller REST API-nyttolasten för dynamiska manifestet filtret-anrop. Den här direkt modellen är nödvändigt eftersom autentiseringsuppgifterna för media services inte är säker i klientens webbläsare.
 
-Följande kodexempel illustrerar ett exempel på en **submitSubclipCallback** metod. I den här metoden kan implementera du HTTP POST MES kodning förinställda. Om efter lyckades (**resultatet**), **Promise** har åtgärdats, annars inte godkänns med felinformation.
+Följande sekvensdiagram illustrerar arbetsflödet mellan klientens webbläsare, din webbtjänsten och Azure Media Services: ![Azure Media Clipper sekvensdiagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+De fyra enheterna finns i föregående diagram: slutanvändarens webbläsare, webbtjänsten, CDN-slutpunkten värd Clipper resurser och Azure Media Services. När användaren navigerar till din webbsida, hämtar sidan Clipper JavaScript och CSS-resurser från värd CDN-slutpunkten. Användaren konfigurerar urklippet jobbet eller dynamiska manifestet filtret skapa-anrop från webbläsaren. När användaren skickar skapa-anrop eller filter för jobbet, placerar webbläsaren nyttolasten jobbet till en webbtjänst som du behöver distribuera. Den här webbtjänsten slutligen skickar jobbet urklippet eller filter skapa-anrop till Azure Media Services med media services-autentiseringsuppgifter.
+
+Följande kodexempel illustrerar ett exempel på en **submitSubclipCallback** metod. I den här metoden kan implementera du HTTP POST Media Encoder Standard kodning förinställda. Om efter lyckades (**resultatet**), **Promise** har åtgärdats, annars inte godkänns med felinformation.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-Utdata från jobbet är antingen systemet kodning förinställda för renderade jobbet eller REST API-nyttolasten för dynamiska manifestet filter.
+Utdata för jobbet att sända är antingen Media Encoder Standard kodning förinställningen för renderade jobbet eller REST API-nyttolasten för dynamiska manifestet filter.
 
-## <a name="rendered-output"></a>Återgiven utdata
+## <a name="submitting-encoding-job-to-create-video"></a>Skickar kodningsjobbet att skapa video
+Du kan skicka en Media Encoder Standard kodningsjobbet om du vill skapa ett ram-korrekt videoklipp. Kodning jobbet producerar renderas videor, fragmenterad en ny MP4-fil.
+
 Jobbet utdata kontraktet för renderade urklippet är en JSON-objekt med följande egenskaper:
 
 ```json
@@ -145,8 +151,10 @@ Jobbet utdata kontraktet för renderade urklippet är en JSON-objekt med följan
 }
 ```
 
-## <a name="filter-output"></a>Filterutdata
-Kontraktet utdata för ett filter Urklipp är en JSON-objekt med följande egenskaper:
+Att utföra jobbet kodning skicka Media Encoder Standard kodning jobbet med tillhörande förinställda. Finns den här artikeln för information om hur du överför kodning jobb med hjälp av den [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) eller [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Snabbt skapa videoklipp utan kodning
+I stället för att skapa ett kodningsjobb kan du använda Azure Media Clipper för att skapa manifestet dynamiska filter. Filter kräver inte kodning och kan skapas snabbt när en ny tillgång inte har skapats. Kontraktet utdata för ett filter Urklipp är en JSON-objekt med följande egenskaper:
 
 ```json
 {
@@ -218,3 +226,5 @@ Kontraktet utdata för ett filter Urklipp är en JSON-objekt med följande egens
   }
 }
 ```
+
+För att skicka REST-anrop för att skapa dynamiska manifestet filter, skicka den associerade filtret nyttolast med hjälp av den [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

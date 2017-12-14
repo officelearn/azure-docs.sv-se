@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cbdaac41f004051adeccd3f97b7bb5591ac21ef4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Viktig information för Hadoop-komponenter på Azure HDInsight
 
@@ -34,7 +34,7 @@ Den här artikeln innehåller information om den **senaste** uppdateringar med A
 
 | Rubrik | Beskrivning | Område som påverkas  | Typ av kluster  | 
 | --- | --- | --- | --- | --- |
-| Version av Microsoft R Server 9.1 i HDInsight |HDInsight stöder nu etablering R Server 9.1 kluster i HDInsight. Mer information om Microsoft R Server 9.1 versionen finns [bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Tjänst |R-server |
+| Version av Microsoft R Server 9.1 i HDInsight |HDInsight stöder nu etablering R Server 9.1 kluster i HDInsight. Mer information om Microsoft R Server 9.1 versionen finns [bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Tjänst |R Server |
 | HDInsight 3,6 innehåller nu nyare versioner av Hadoop-stacken|<ul><li>En detaljerad lista över uppdaterade versioner finns [Hadoop komponent-versioner som är tillgängliga i HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>En lista över programfel som har korrigerats i de senaste versionerna av Hadoop-stacken, se [Apache Korrigeringsinformation](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>En lista över bryta ändringar mellan HDP 2.6.1 (vilket är nu tillgängligt i HDInsight 3,6), se [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>En lista över kända problem i HDP 2.6.1 finns [kända problem](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Tjänst |Alla |Saknas |
 | Uppdateringar till interaktiva Hive (förhandsgranskning)-kluster |<ul><li><b>Funktionen förbättring.</b> Implementering av cachelagrade metastore som minskar belastningen på serverdelen SQL genom cachelagring av metadata och förbättrar prestandan för alla metadataåtgärder.  Denna förbättring är nu en standard på alla interaktiva Hive-kluster. Mer information finns i [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Funktionen förbättring.</b> Läser in dynamiska partitionen är optimerad. Mer information finns i [https://issues.apache.org/jira/browse/HIVE-14204] (https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Funktionen förbättring.</b> Konfiguration av optimeringar för HDInsight på Linux.</li><li><b>Buggfix.</b> `CredentialProviderFactory$getProviders`är inte trådsäker. Det här problemet löses nu. Mer information finns i [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Buggfix.</b> Hög CPU-användning med WASB drivrutinen `liststatus` API, vilket resulterar i felaktiga ATS prestanda. Det här problemet löses nu. Mer information finns i [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Tjänst |Interaktiva Hive (förhandsgranskning) |
 | Uppdateringar av Hadoop-kluster |Ökad tillförlitlighet för Templeton jobbet igen. Mer information finns i [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Tjänst |Hadoop |
@@ -101,7 +101,7 @@ Spark 2.0.1 är nu tillgänglig på Spark-kluster (HDInsight version 3.5).
 * URI för noden åtkomsten har ändrats till **klusternamn**-ed-ssh.azurehdinsight.net
 * R Server på HDInsight klusteretablering har effektiviserats.
 * R Server på HDInsight är nu tillgängligt som regelbundet HDInsight ”R Server” cluster typ och inte längre installeras som en separat HDInsight-program. Kantnod och R Server binärfiler tillhandahålls nu som en del av Klusterdistribution R Server. Detta förbättrar hastighet och tillförlitlighet för etablering. Priserna för R Server uppdateras.
-* R Server klusterpriset typen nu baserat på standardnivån pris plus R Server tillägg pris. Premium-nivån är reserverat för Premium-funktioner som är tillgängliga för olika klustertyper och används inte för typ av R Server-kluster. Den här ändringen påverkar inte gällande priser av R-Server. ändras endast hur avgifterna visas i växeln. Alla befintliga R Server-kluster fortsätter att fungera och Resource Manager-mallar fortsätter att fungera tills utfasningen meddelande. **Det rekommenderas även om du vill uppdatera dina skriptbaserade distributioner om du vill använda nya Resource Manager-mall.**
+* R Server klusterpriset typen nu baserat på standardnivån pris plus R Server tillägg pris. Den här ändringen påverkar inte gällande priser av R-Server. ändras endast hur avgifterna visas i växeln. Alla befintliga R Server-kluster fortsätter att fungera och Resource Manager-mallar fortsätter att fungera tills utfasningen meddelande. **Det rekommenderas även om du vill uppdatera dina skriptbaserade distributioner om du vill använda nya Resource Manager-mall.**
 
 
 

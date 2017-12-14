@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Skapa ditt första tillståndskänsliga tillförlitliga C# Service Fabric-program
 
@@ -84,7 +84,7 @@ När programmet startar visas loggboken **Diagnostik automatiskt**, där du kan 
 
 Om du använder mallen för tillståndskänsliga tjänster visar meddelandena bara antalet som ökar i metoden `RunAsync` i **MyStatefulService.cs**.
 
-Expandera någon av händelserna om du vill visa mer information, inklusive noden där koden körs. I det här fallet är det \_Node\_2, men det kan skilja sig på din dator.
+Expandera någon av händelserna om du vill visa mer information, inklusive noden där koden körs. I det här fallet är det \_Node\_0, men det kan skilja sig på din dator.
    
 ![Detaljer från loggboken Diagnostik][6]
 

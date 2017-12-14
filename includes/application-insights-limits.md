@@ -2,7 +2,7 @@ Det finns vissa begränsningar för antalet mätvärden och händelser per progr
 
 | **Resurs** | **Standardgräns** | **Obs!**
 | --- | --- | --- |
-| Totala data per dag | 500 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer skickar du ett e-postmeddelande till AIDataCap@microsoft.com.
+| Totala data per dag | 100 GB | Du kan minska datamängden genom att ange ett tak. Om du behöver mer kan du höja gränsen upp till 1 000 GB från portalen. Skicka e-post till kapacitet som är större än 1 000 GB AIDataCap@microsoft.com.
 | Kostnadsfria data per månad<br/> (Basic-prisplan) | 1 GB | Ytterligare data debiteras per gigabyte.
 | Begränsning | 32 K händelser/sek | Gränser är mätt under en minut.
 | Datakvarhållning | 90 dagar | Den här resursen är för [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) och [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).

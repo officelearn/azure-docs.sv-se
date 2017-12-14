@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/05/2017
@@ -334,12 +334,7 @@ Följande program visar hur du:
 
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 
-Följ dessa två ytterligare steg för det här exemplet ska fungera:
 
-1. Använd version 4.1.0 av **WindowsAzure.MediaServices.Extensions** (på grund av kompatibilitetsproblem med beroende paket). 
-2. Använd version 3.16.1 av **Microsoft.IdentityModel.Clients.ActiveDirectory** (på grund av ett känt fel i senare versioner).
-
-Dessa krav gäller från och med 24 November 2017.
 
 #### <a name="example"></a>Exempel
 

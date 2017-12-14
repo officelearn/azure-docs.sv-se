@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Vanliga frågor om Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Med versionerna från februari 2016 stöds detta.
 Ja. När du har installerat agenten måste slutföra du registreringen med följande PowerShell-cmdlet: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**F: AADConnect stöder Synkronisera från två domäner till på Azure AD?**</br>
+Ja, det stöds. Referera till [flera domäner](active-directory-aadconnect-multiple-domains.md)
+ 
+**F: Vi stöder med flera kopplingar för Active Directory-domän i Azure AD connect?**</br> Nej, detta stöds inte 
 
 ## <a name="network"></a>Nätverk
 **F: Jag har en brandvägg, nätverksenhet eller något annat som begränsar de maximala tiden anslutningarna kan vara öppen i nätverket. Hur lång tid ska min klient sida timeout tröskelvärdet vara när du använder Azure AD Connect?**  
@@ -78,8 +83,6 @@ Nej, detta stöds för närvarande inte.
 **F: är det stöd för att manuellt ange ImmutableId-attributet på befintliga Azure AD-grupp/kontakt-objekt som matchar den hårddisk lokala AD-gruppen/kontakt objekt?**  
 Nej, detta stöds för närvarande inte.
 
-
-
 ## <a name="custom-configuration"></a>Anpassad konfiguration
 **F: var dokumenteras PowerShell-cmdlets för Azure AD Connect?**  
 Andra PowerShell-cmdletar finns i Azure AD Connect stöds inte för kundens användning med undantag för de cmdlets som beskrivs i den här platsen.
@@ -95,8 +98,6 @@ Vi stöder för närvarande inte ändra HTML-attribut på sidan logga in. Vi arb
 
 **F: finns det ett sätt att förhindra samtidiga sessioner?**</br>
 Nej.
-
-
 
 ## <a name="troubleshooting"></a>Felsökning
 **F: hur kan jag få hjälp med Azure AD Connect?**

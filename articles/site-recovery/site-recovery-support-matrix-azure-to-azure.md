@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
 
@@ -90,11 +90,11 @@ Den nedan stöd gäller för alla arbetsbelastningar som körs på nämnda OS.
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
+(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
 
 >[!NOTE]
 >
-> Ubuntu servrar med hjälp av lösenordet autentisering och inloggning, och använder molnet init-paketet för att konfigurera molnet virtuella datorer, kan ha lösenord baserade inloggningen inaktiveras vid växling vid fel (beroende på cloudinit konfiguration.) Lösenordsbaserade inloggningen kan återaktiveras på den virtuella datorn genom att återställa lösenordet på inställningsmenyn (under stöd + felsökning avsnitt) för den över virtuell dator på Azure-portalen.
+> Ubuntu servrar använder lösenordsbaserad autentisering och inloggning och använder molnet init-paketet för att konfigurera molnet virtuella datorer kan ha lösenordsbaserade inloggning inaktiveras vid växling vid fel (beroende på cloudinit konfiguration.) Lösenordsbaserade inloggningen kan återaktiveras på den virtuella datorn genom att återställa lösenordet på inställningsmenyn (under stöd + felsökning avsnitt) för den över virtuell dator på Azure-portalen.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för virtuella Azure-datorer
 
@@ -122,10 +122,13 @@ Nordamerika | Kanada, Öst, Kanada Central, södra centrala USA, västra central
 Europa | Storbritannien Väst Storbritannien, Syd Nordeuropa, Västeuropa
 Asien | Södra Indien, centrala Indien, Sydostasien, östra Asien, östra samt västra och Korea-Central, Korea Syd
 Australien   | Östra Australien, sydost
+Azure Government    | USA GOV Virginia, USA GOV Iowa, USA GOV Arizona, USA GOV Texas, USA DOD Öst, DOD USA, Central
+Tyskland | Tyskland Central, Tyskland nordöst
+Kina | Kina Öst, Kina Nord
 
 >[!NOTE]
 >
-> Södra region kan du bara replikera och redundansväxla till en av södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och norra centrala USA regioner och återställning vid fel.
+> För södra region, kan du bara replikera och växla över till en av södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och norra centrala USA regioner och återställas.
 
 
 ## <a name="support-for-compute-configuration"></a>Stöd för beräkningskonfigurationen

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Installera Azure CLI 1.0
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Snabbt installera Azure-kommandoradsgränssnittet (Azure CLI 1.0) om du vill anv
 
 Fler alternativ och bakgrunden finns i databasen projektet på [GitHub](https://github.com/azure/azure-xplat-cli).
 
-När du har installerat Azure CLI 1.0 [ansluta till din Azure-prenumeration](xplat-cli-connect.md) och kör den **azure** kommandon från din kommandoradsgränssnittet (Bash, Terminal, Kommandotolken och så vidare) att arbeta med din Azure-resurser.
+När du har installerat Azure CLI 1.0 [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli) och kör den **azure** kommandon från din kommandoradsgränssnittet (Bash, Terminal, Kommandotolken och så vidare) att arbeta med din Azure-resurser.
 
 ## <a name="option-1-install-an-npm-package"></a>Alternativ 1: Installera npm-paket
 Om du vill installera CLI från ett npm-paket, kontrollera att du har hämtat och installerat den [senaste Node.js och npm](https://nodejs.org/en/download/package-manager/). Kör sedan **installera npm** att installera azure cli-paketet:
@@ -99,7 +99,7 @@ Om du vill se versionen av Azure CLI 1.0 som du har installerat, skriver du föl
 azure --version
 ```
 
-Nu är du klar! Åtkomst till alla CLI-kommandona ska fungera med egna resurser, [ansluta till din Azure-prenumeration från Azure CLI](xplat-cli-connect.md).
+Nu är du klar! Åtkomst till alla CLI-kommandona ska fungera med egna resurser, [ansluta till din Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > När du börjar använda Azure CLI, visas ett meddelande som frågar om du vill att Microsoft ska kunna samla in information om användning. Det är frivilligt att delta. Om du väljer att delta, du kan stoppa när som helst genom att köra `azure telemetry --disable`. Om du vill aktivera delta när som helst köra `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Ansluta från CLI på Azure-prenumerationen](xplat-cli-connect.md) att skapa och hantera Azure-resurser.
+* [Ansluta från CLI på Azure-prenumerationen](/cli/azure/authenticate-azure-cli) att skapa och hantera Azure-resurser.
 * Om du vill veta mer om Azure CLI, ladda ned källkoden rapportera problem eller bidra till projektet, finns det [GitHub-lagringsplatsen för Azure CLI](https://github.com/azure/azure-xplat-cli).
 * Om du har frågor om hur du använder Azure CLI eller Azure finns i [Azure forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

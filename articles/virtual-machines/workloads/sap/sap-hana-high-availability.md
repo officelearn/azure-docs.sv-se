@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (VM)
 
@@ -85,12 +85,12 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
 1. Skapa en belastningsutjämnare (internt)  
    Välj VNET i steget ovan
 1. Skapa virtuell dator 1  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet ska vi använda SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES för SAP program 12 SP1 (BYOS)  
    Välj Lagringskonto 1  
    Välj Tillgänglighetsuppsättning  
 1. Skapa virtuell dator 2  
-   https://Portal.Azure.com/#Create/SUSE-byos.SLES-for-SAP-byos12-SP1  
+   Använd minst SLES4SAP 12 SP1, i det här exemplet ska vi använda SLES4SAP 12 SP1 BYOS bilden https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES för SAP program 12 SP1 (BYOS)  
    Välj Lagringskonto 2   
    Välj Tillgänglighetsuppsättning  
@@ -99,7 +99,7 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
     1. Skapa en klientdel IP-adresspool
         1. Öppna belastningsutjämnaren, Välj klientdelens IP-pool och klicka på Lägg till
         1. Ange namnet på den nya klientdelens IP-adresspoolen (till exempel hana-klientdel)
-       1. Klicka på OK
+        1. Klicka på OK
         1. När du har skapat den nya klientdelens IP-poolen Skriv ned dess IP-adress
     1. Skapa en serverdelspool
         1. Öppna belastningsutjämnaren, Välj serverdelspooler och klicka på Lägg till
@@ -109,7 +109,7 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
         1. Välj de virtuella datorerna i SAP HANA-kluster
         1. Klicka på OK
     1. Skapa en hälsoavsökningen
-       1. Öppna belastningsutjämnaren, Välj hälsoavsökningar och klicka på Lägg till
+        1. Öppna belastningsutjämnaren, Välj hälsoavsökningar och klicka på Lägg till
         1. Ange namnet på den nya hälsoavsökningen (till exempel hana-hp)
         1. Välj TCP som protokoll, port 625**03**, hålla intervallet 5 och tröskelvärde för ohälsosamt värde 2
         1. Klicka på OK
@@ -119,17 +119,17 @@ Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP
         1. Välj IP-adress för klientdel, serverdelspool och hälsa avsökning du skapade tidigare (till exempel hana-klientdel)
         1. Håll protokollet TCP, ange port 3**03**15
         1. Öka tidsgränsen för inaktivitet till 30 minuter
-       1. **Se till att aktivera flytande IP**
+        1. **Se till att aktivera flytande IP**
         1. Klicka på OK
         1. Upprepa stegen ovan för port 3**03**17
 
 ### <a name="deploy-with-template"></a>Distribuera med mall
-Du kan använda en av Snabbstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
-1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure Portal mallen databasen skapas endast regler för belastningsutjämning för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
+1. Öppna den [databasen mallen] [ template-multisid-db] eller [konvergerat mallen] [ template-converged] på Azure portal databasen endast skapas på belastningsutjämning regler för en databas medan mallen konvergerade skapar också regler för belastningsutjämning för en ASCS/SCS ÄNDARE (endast Linux)-instans. Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera ASCS/SCS-instans på samma datorer använder den [konvergerat mallen][template-converged].
 1. Ange följande parametrar
-    1. SAP System-Id  
-       Ange SAP-systemet Id för SAP-system som du vill installera. Id som ska användas som ett prefix för de resurser som har distribuerats.
+    1. SAP System-ID  
+       Ange ID för SAP-system för SAP-system som du vill installera. ID som ska användas som ett prefix för de resurser som har distribuerats.
     1. Stacken typ (gäller endast om du använder mallen konvergerade)  
        Välj typ för SAP NetWeaver stack
     1. OS-typen  
@@ -144,8 +144,8 @@ Du kan använda en av Snabbstart mallar på github för att distribuera alla nö
        En ny användare skapas som kan användas för att logga in på datorn.
     1. Ny eller befintlig undernät  
        Avgör om ett nytt virtuellt nätverk och undernät som ska skapas eller ett befintligt undernät som ska användas. Om du redan har ett virtuellt nätverk som är anslutna till ditt lokala nätverk väljer du befintliga.
-    1. Undernät-Id  
-    ID för det undernät som de virtuella datorerna ska anslutas till. Välj undernätet i ditt VPN eller Expressroute virtuella nätverk att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så /subscriptions/`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    1. Undernät-ID  
+    ID för det undernät som de virtuella datorerna ska anslutas till. Välj undernätet i ditt VPN eller Expressroute virtuella nätverk att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så /subscriptions/`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Konfigurera Linux hög tillgänglighet
 
@@ -201,7 +201,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
 
 1. [A] disklayouten för installationsprogrammet för
     1. LVM  
-    Generellt rekommenderar vi för att använda LVM för volymer som lagrar data och loggfiler. Exemplet nedan förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
+    Normalt bör du använda LVM för volymer som lagrar data och loggfiler. Exemplet nedan förutsätter att de virtuella datorerna har fyra datadiskar som är anslutna som ska användas för att skapa två volymer.
         * Skapa fysiska volymer för alla diskar som du vill använda.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -229,7 +229,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Skapa fstab poster för de tre logiska volymerna
@@ -252,7 +252,7 @@ Följande objekt med antingen [A] - prefixet gäller för alla noder är [1] –
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>Anteckna id för /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>Anteckna ID för /dev/sdc1
     sudo/sbin/blkid sudo vi/etc/fstab
     ```
 
@@ -450,7 +450,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaperna och Skriv ned Directory-Id. Det här är den **klient-id**.
+   Gå till egenskaperna och Skriv ned Directory-ID. Det här är den **klient-ID**.
 1. Klicka på appen registreringar
 1. Klicka på Lägg till
 1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
@@ -458,7 +458,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Skriv ned det program-Id. Den används som användarnamnet (**inloggnings-id** i stegen nedan) för tjänstens huvudnamn
+1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
 Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Du behöver ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
 
@@ -476,13 +476,13 @@ När du har redigerat behörigheter för de virtuella datorerna kan du konfigure
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm konfigurera belastningen update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm konfigurera belastningen update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -622,12 +622,12 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-Migreringen skapar plats begränsningar som måste tas bort igen.
+Migreringen skapar Platsbegränsningar som måste tas bort igen.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 

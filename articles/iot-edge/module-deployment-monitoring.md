@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Förstå IoT kant distributioner för enstaka enheter eller i skala - förhandsgranskning
 
@@ -57,7 +57,23 @@ Av konfigurationsmetadata för varje modul omfattar:
 
 ### <a name="target-condition"></a>Målvillkoren
 
-Målobjekt villkor kan du ange om en IoT-enhet ska omfattas av en distribution. Målobjekt villkor baseras på enheten dubbla taggar. 
+Målvillkoren utvärderas kontinuerligt för att inkludera nya enheter som uppfyller kraven eller ta bort enheter som inte längre gör via livslängden för distributionen. Distributionen ska återaktiveras om tjänsten identifierar ändringar mål villkor. Exempelvis kan du har en distribution A som har ett mål villkoret tags.environment = 'prod'. När du startar distributionen, finns det 10 produktprenumeration enheter. Modulerna som är installerat i dessa 10 enheter. IoT kant agentens Status visas som 10 Totalt antal enheter, 10 har svar, 0 fel svar och 0 väntar på svar. Nu du lägga till 5 flera enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och Agentstatus för IoT-Edge blir 15 totalt antal enheter, 10 har svar, 0 fel svar och 5 väntande svar när den försöker distribuera till fem nya enheter.
+
+Använd booleskt villkor på enheten twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar som du behöver lägga till ”taggar” :{} i avsnittet enheten dubbla under samma nivå som egenskaper. [Mer information om taggar i enheten dubbla](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Exempel på mål villkor:
+* deviceId ='linuxprod1
+* Tags.Environment = 'prod'
+* Tags.Environment = prod och tags.location = 'westus'
+* Tags.Environment = prod eller tags.location = 'westus'
+* Tags.operator = ”John' och tags.environment = prod inte deviceId = 'linuxprod1'
+
+Här följer några avgränsar när du skapar ett villkor för mål:
+
+* Du kan bara bygga ett mål villkor med hjälp av taggar eller deviceId i enheten dubbla.
+* Dubbla citattecken tillåts inte i någon del av målvillkoren. Använd enkla citattecken.
+* Enkla citattecken representerar värden för målvillkoren. Du måste därför escape enkla citattecken med ett annat enkelt citattecken om det är en del av namnet på en enhet. Till exempel målvillkoren för: operator'sDevice skulle behöva skrivas som deviceId =' operatorn '' sDevice'.
+* Siffror, bokstäver och följande tecken är tillåtna i målet villkoret values:-:.+%_#*? (),=@;$
 
 ### <a name="priority"></a>Prioritet
 

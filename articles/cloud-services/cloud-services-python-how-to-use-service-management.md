@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Hur du använder Service Management från Python
-Den här guiden visar hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python. Den **ServiceManagementService** klassen i den [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder Programmeringsåtkomst till stor del av service management-relaterade funktioner som är tillgängliga i den [Azure klassiska portalen] [ management-portal] (exempelvis **skapa, uppdatera och ta bort molntjänster, distributioner, tjänster för data och virtuella datorer**). Den här funktionen kan vara användbar vid utveckling av program som behöver programmatisk åtkomst till service management.
+Den här guiden visar hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python. Den **ServiceManagementService** klassen i den [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder Programmeringsåtkomst till stor del av service management-relaterade funktioner som är tillgängliga i den [Azure portalen] [ management-portal] (exempelvis **skapa, uppdatera och ta bort molntjänster, distributioner, tjänster för data och virtuella datorer**). Den här funktionen kan vara användbar vid utveckling av program som behöver programmatisk åtkomst till service management.
 
 ## <a name="WhatIs"></a>Vad är Service Management
-Service Management API som ger programmatisk åtkomst till stor del av hanteringsfunktioner för tjänsten via den [klassiska Azure-portalen][management-portal]. Azure SDK för Python kan du hantera dina molntjänster och storage-konton.
+Service Management API som ger programmatisk åtkomst till stor del av hanteringsfunktioner för tjänsten via den [Azure-portalen][management-portal]. Azure SDK för Python kan du hantera dina molntjänster och storage-konton.
 
 Service Management API du vill använda, [skapa ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ Azure SDK för Python radbryts i [Azure Service Management API][svc-mgmt-rest-ap
 De funktioner som beskrivs i den här artikeln är tillgängliga i den `azure-servicemanagement-legacy` paket som du kan installera med hjälp av pip. Mer information om installation (till exempel om du har använt Python) finns i den här artikeln: [installerar Python och Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Så här: ansluta till service-hantering
-Om du vill ansluta till Service Management-slutpunkten måste Azure prenumerations-ID och ett giltigt certifikat. Du kan hämta ditt prenumerations-ID via den [klassiska Azure-portalen][management-portal].
+Om du vill ansluta till Service Management-slutpunkten måste Azure prenumerations-ID och ett giltigt certifikat. Du kan hämta ditt prenumerations-ID via den [Azure-portalen][management-portal].
 
 > [!NOTE]
 > Nu är det möjligt att använda certifikat som skapas med OpenSSL när de körs på Windows.  Det krävs Python 2.7.4 eller senare. Vi rekommenderar att användarna kan använda OpenSSL i stället för PFX, eftersom stöd för PFX-certifikat kommer troligen att tas bort i framtiden.
@@ -53,7 +53,7 @@ Att skapa den `.cer` certifikat, kör:
 
 Läs mer om Azure certifikat [certifikat översikt för Azure Cloud Services](cloud-services-certs-create.md). En fullständig beskrivning av OpenSSL parametrar finns i dokumentationen på [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-När du har skapat de här filerna måste du ladda upp den `.cer` filen till Azure via ”överför”-åtgärd på fliken ”Inställningar” i den [klassiska Azure-portalen][management-portal], och du behöver anteckna var du Spara den `.pem` filen.
+När du har skapat de här filerna måste du ladda upp den `.cer` filen till Azure via ”överför”-åtgärd på fliken ”Inställningar” i den [Azure-portalen][management-portal], och du behöver anteckna där du sparade den `.pem` fil.
 
 När du har fått ditt prenumerations-ID, skapas ett certifikat och överföra den `.cer` filen till Azure, som du kan ansluta till Azure management-slutpunkten genom att skicka prenumerations-id och sökvägen till den `.pem` filen till  **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Du kan skapa ett självsignerat certifikat på datorn med hjälp av `makecert.ex
 
 Kommandot skapar den `.cer` filen och installerar den i den **personliga** certifikatarkiv. Mer information finns i [certifikat översikt för Azure Cloud Services](cloud-services-certs-create.md).
 
-När du har skapat certifikatet, måste du ladda upp den `.cer` filen till Azure via ”överför”-åtgärd på fliken ”Inställningar” i den [klassiska Azure-portalen][management-portal].
+När du har skapat certifikatet, måste du ladda upp den `.cer` filen till Azure via ”överför”-åtgärd på fliken ”Inställningar” i den [Azure-portalen][management-portal].
 
 När du har fått ditt prenumerations-ID, skapas ett certifikat och överföra den `.cer` filen till Azure, som du kan ansluta till Azure management-slutpunkten genom att skicka prenumerations-id och platsen för certifikatet i din **personliga**  certifikatarkiv **ServiceManagementService** (igen och Ersätt *AzureCertificate* med namnet på ditt certifikat):
 
@@ -421,7 +421,7 @@ Mer information finns i [Python Developer Center](/develop/python/).
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

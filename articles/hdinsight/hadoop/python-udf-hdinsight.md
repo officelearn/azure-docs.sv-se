@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Använd användardefinierade Python funktioner (UDF) med Hive och Pig i HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-I exemplet Pig Latin vi har definierat den `LINE` indata som en chararray eftersom det finns inget konsekvent schema för indata. Python-skriptet omvandlar data till ett konsekvent schema för utdata.
+I exemplet Pig Latin i `LINE` indata har definierats som en chararray eftersom det finns inget konsekvent schema för indata. Python-skriptet omvandlar data till ett konsekvent schema för utdata.
 
 1. Den `@outputSchema` uttrycket definierar formatet för data som returneras till Pig. I det här fallet har en **data egenskapsuppsättning**, vilket är en Pig-datatyp. Uppsättningen innehåller följande fält som är chararray (strängar):
 
@@ -178,7 +178,7 @@ I exemplet Pig Latin vi har definierat den `LINE` indata som en chararray efters
 
 2. Sedan den `def create_structure(input)` definierar vilken funktion Pig skickar objekt till.
 
-3. Exempeldata `sample.log`, främst överensstämmer med datum, tid, classname, nivå, och innehåller information om schemat som vi vill returnera. Men den innehåller några rader som börjar med `*java.lang.Exception*`. Dessa rader måste ändras för att matcha schemat. Den `if` instruktionen kontrollerar för dem och sedan massages indata för att flytta den `*java.lang.Exception*` strängen i syfte att samla data i-raden med vår utdata som förväntas schemat.
+3. Exempeldata `sample.log`, främst överensstämmer med datum, tid, classname, nivå, och innehåller information om schemat. Men den innehåller några rader som börjar med `*java.lang.Exception*`. Dessa rader måste ändras för att matcha schemat. Den `if` instruktionen kontrollerar för dem och sedan massages indata för att flytta den `*java.lang.Exception*` strängen i syfte att samla data i-raden med schemat för utdata som förväntas.
 
 4. Sedan den `split` kommandot används för att dela data på de första fyra blanksteg. Utdata har tilldelats till `date`, `time`, `classname`, `level`, och `detail`.
 
@@ -291,7 +291,7 @@ Använd följande steg när du överför filerna för att köra Hive och Pig-job
     #from pig_util import outputSchema
     ```
 
-    Detta ändrar Python-skript för att arbeta med C Python i stället för Jython. När ändringen har gjorts, använder **Ctrl + X** att avsluta redigeraren. Välj **Y**, och sedan **RETUR** spara ändringarna.
+    Den här raden ändrar Python-skript för att arbeta med C Python i stället för Jython. När ändringen har gjorts, använder **Ctrl + X** att avsluta redigeraren. Välj **Y**, och sedan **RETUR** spara ändringarna.
 
 6. Använd den `pig` kommando för att starta gränssnittet igen. När du är på den `grunt>` uppmanar, Använd följande för att köra skriptet Python med Python C-tolken.
 

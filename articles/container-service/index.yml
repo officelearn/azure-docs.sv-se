@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Dokumentation om Container Service
 metadata:
-  document_id: null
-  title: 'Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs'
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Dokumentation om Azure Container Service – Självstudier, API-referens | Microsoft Docs"
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
   manager: carolz
@@ -14,22 +14,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: 7625fbb02a1ede91c01c35cddd286f4c26ad77be
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-, DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen.'
+  description: "Med Azure Container Service kan du snabbt distribuera ett produktionsklart Kubernetes-, DC/OS- eller Docker Swarm-kluster. Lär dig hur du använder Azure Container Service med de här snabbstarterna, självstudierna och exemplen."
 sections:
-  - title: null
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Komma igång med Kubernetes-kluster
-            href: /azure/container-service/kubernetes
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
-          - title: Komma igång med DC/OS och Docker Swarm-kluster
-            href: /azure/container-service/dcos-swarm
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+    - title: "Komma igång med Kubernetes-kluster"
+      href: /azure/container-service/kubernetes
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/kubernetes
+    - title: "Komma igång med DC/OS och Docker Swarm-kluster"
+      href: /azure/container-service/dcos-swarm
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/dcos-swarm

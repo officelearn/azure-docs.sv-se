@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -36,7 +36,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 * [Frågor om rapporter för lösenord](#password-management-reports)
 * [Frågor om tillbakaskrivning av lösenord](#password-writeback)
 
-## <a name="password-reset-registration"></a>Registrering för lösenordsåterställning
+## <a name="password-reset-registration"></a>Registrering av återställning av lösenord
 
 * **F: kan användarna registrera sina egna data för återställning av lösenord?**
 
@@ -81,6 +81,19 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 
 ## <a name="password-reset"></a>Lösenordsåterställning
 
+* **F: förhindrar du att användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
+
+  > **S:** Ja, det finns säkerhetsfunktioner som är inbyggda i om du vill skydda från missbruk för återställning av lösenord. 
+  >
+  > Användare kan försöka bara fem Återställ lösenordsförsök inom 24 timmar innan de är utelåst under 24 timmar. 
+  >
+  > Användare kan försöka att validera ett telefonnummer, skicka ett SMS eller verifiera säkerhetsfrågor och svar bara fem gånger inom en timme innan de är utelåst under 24 timmar. 
+  >
+  > Användarna kan skicka ett e-postmeddelande högst 10 gånger inom 10 minuter innan de är utelåst under 24 timmar.
+  >
+  > Räknarna återställs när en användare återställer sitt lösenord.
+  >
+  >
 * **F: hur lång tid ska gå att få ett e-post, SMS eller telefonsamtal från lösenordsåterställning?**
 
   > **S:** e-postmeddelanden, SMS-meddelanden och samtal ska tas emot i under en minut. I vanliga fall har 5 till 20 sekunder.
@@ -163,11 +176,6 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 * **F: om en användare har registrerats fler än det maximala antalet frågor som krävs för att återställa, hur säkerhetsfrågorna väljs under återställning?**
 
   > **S:** *N* antal säkerhetsfrågor väljs slumpmässigt utanför det totala antalet frågor en användare har registrerats för var *N* är den som har angetts för den  **Antal frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och uppvisas vid återställning. Om du vill förhindra att fråga hammering, om användaren får svar på frågorna fel markeringen processen startar över.
-  >
-  >
-* **F: förhindrar du att användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
-
-  > **S:** Ja, det finns säkerhetsfunktioner som är inbyggda i om du vill skydda från missbruk för återställning av lösenord. Användare kan försöka bara fem Återställ lösenordsförsök inom en timme innan de är utelåst under 24 timmar. Användare kan försöka att validera ett telefonnummer bara fem gånger inom en timme innan de är utelåst under 24 timmar. Användare kan försöka en enda autentiseringsmetod bara fem gånger inom en timme innan de är utelåst under 24 timmar.
   >
   >
 * **F: hur lång tid är e-post och SMS enstaka lösenord giltig?**
@@ -275,7 +283,7 @@ Dessa vanliga frågor är uppdelat i följande avsnitt:
 * [Hur gör jag för att slutföra en lyckad distribution av SSPR?](active-directory-passwords-best-practices.md)
 * [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md)
 * [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md)
-* [Har du en fråga med licensiering?](active-directory-passwords-licensing.md)
+* [Har du en fråga om licensiering?](active-directory-passwords-licensing.md)
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](active-directory-passwords-data.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](active-directory-passwords-policy.md)

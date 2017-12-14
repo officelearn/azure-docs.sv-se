@@ -1,5 +1,5 @@
 ---
-title: Node.js-program med Socket.io | Microsoft Docs
+title: "Node.js-program med Socket.io – Azure"
 description: "Lär dig hur du använder socket.io i ett node.js-program i Azure."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO i en Azure-molntjänst
-Socket.IO ger realtid kommunikation mellan mellan din node.js-server och klienter. Den här kursen får du via värdskap en socket. I/o baserat på Azure-chattprogram. Mer information om Socket.IO finns <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO i Azure-molntjänst
+
+Socket.IO ger realtid kommunikation mellan din node.js-server och klienter. Den här självstudiekursen vägleder dig genom värd för en socket. I/o baserat på Azure-chattprogram. Mer information om Socket.IO finns [socket.io](http://socket.io).
 
 En skärmbild av det färdiga programmet understiger:
 

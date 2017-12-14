@@ -20,16 +20,19 @@
  
 ## Hantera
 ### [Hantera med Azure PowerShell](cdn-manage-powershell.md)
+### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
+### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
+### Kontrollera funktionssättet för cachelagring
+#### [Så här fungerar cachelagring](cdn-how-caching-works.md)
+#### [Kontrollera funktionssättet för cachelagring med cachelagringsregler](cdn-caching-rules.md)
+#### Cachelagra innehåll efter frågesträngar
+##### [Standardnivå](cdn-query-string.md)
+##### [Premiumnivå](cdn-query-string-premium.md)
+#### [Rensa cachelagrade tillgångar](cdn-purge-endpoint.md)
+#### [Ladda in cachelagrade tillgångar i förväg](cdn-preload-endpoint.md)
 ### Konfigurera livslängd
 #### [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
-### [Begränsa åtkomst per land](cdn-restrict-access-by-country.md)
-### [Förbättra prestandan genom att komprimera filer](cdn-improve-performance.md)
-### Cachelagra innehåll efter frågesträng
-#### [Standardnivå](cdn-query-string.md)
-#### [Premiumnivå](cdn-query-string-premium.md)
-### [Rensa cachelagrade tillgångar](cdn-purge-endpoint.md)
-### [Ladda in cachelagrade tillgångar i förväg](cdn-preload-endpoint.md)
 ### [Tokenautentisering](cdn-token-auth.md)
 ### [Övervaka resurser](cdn-resource-health.md)
 ### [Åsidosätt beteende med regler](cdn-rules-engine.md)
@@ -38,13 +41,14 @@
 
 ## Analysera
 ### [Analysera användningsmönster för Azure CDN](cdn-log-analysis.md)
-#### [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)
-#### [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)
 #### [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md)
-### Analysverktyg för Azure CDN från Verizon
-#### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
-#### [Visa statistik i realtid](cdn-real-time-stats.md)
-#### [Analysera gränsnodsprestanda](cdn-edge-performance.md)
+#### Analysverktyg för Azure CDN från Verizon
+##### [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)
+##### [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)
+#### Analysverktyg för Azure CDN Premium från Verizon
+##### [Generera avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
+##### [Visa statistik i realtid](cdn-real-time-stats.md)
+##### [Analysera gränsnodsprestanda](cdn-edge-performance.md)
 
 ## Utveckla
 ### [.NET](cdn-app-dev-net.md)

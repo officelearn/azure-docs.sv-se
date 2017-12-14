@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Hantera resurser för Apache Spark-kluster i Azure HDInsight 
 
-I den här artikeln beskrivs hur du kan komma åt gränssnitt som Ambari UI, YARN-Användargränssnittet och servern Spark historik som är associerade med Spark-kluster. Du också information om hur du ställer in klusterkonfigurationen för optimala prestanda.
+Lär dig hur du kommer åt gränssnitt som Ambari UI, YARN-Användargränssnittet och Spark historik servern som associeras med Spark-kluster och hur du ställer in klusterkonfigurationen för optimala prestanda.
 
 **Krav:**
 
-* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Hur jag för att starta Ambari-Webbgränssnittet?
+## <a name="open-the-ambari-web-ui"></a>Öppna Ambari-webbgränssnittet
 1. På startsidan i [Azure Portal](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.
 2. Spark-kluster, klickar du på **instrumentpanelen**. När du uppmanas ange administratörsautentiseringsuppgifterna för Spark-klustret.
 
@@ -40,7 +39,7 @@ I den här artikeln beskrivs hur du kan komma åt gränssnitt som Ambari UI, YAR
 
     ![Ambari-webbgränssnittet](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari-webbgränssnittet")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Hur jag för att starta servern Spark historik?
+## <a name="open-the-spark-history-server"></a>Öppna Spark historik Server
 1. På startsidan i [Azure Portal](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan).
 2. I klusterbladet under **snabblänkar**, klickar du på **Klusterinstrumentpanel**. I den **Klusterinstrumentpanel** bladet, klickar du på **Spark historik Server**.
 
@@ -48,7 +47,7 @@ I den här artikeln beskrivs hur du kan komma åt gränssnitt som Ambari UI, YAR
 
     När du uppmanas ange administratörsautentiseringsuppgifterna för Spark-klustret.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Hur jag för att starta Användargränssnittet för Yarn?
+## <a name="open-the-yarn-ui"></a>Öppna Yarn-Användargränssnittet
 Du kan använda YARN-Användargränssnittet för att övervaka program som körs i Spark-klustret.
 
 1. Klusterbladet klickar du på **Klusterinstrumentpanel**, och klicka sedan på **YARN**.
@@ -60,7 +59,7 @@ Du kan använda YARN-Användargränssnittet för att övervaka program som körs
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Vad är optimal klusterkonfigurationen att köra Spark-program?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Optimal klusterkonfigurationen att köra Spark-program
 De tre viktiga parametrar som kan användas för konfiguration av Spark beroende på kraven för application är `spark.executor.instances`, `spark.executor.cores`, och `spark.executor.memory`. En utförare är en process startas för ett Spark-program. Körs på arbetsnoden och ansvarar för att utföra uppgifter för programmet. Standardantalet executors och utföraren storleken för varje kluster beräknas baserat på antalet arbetarnoder och nodstorlek worker. Den här informationen lagras i `spark-defaults.conf` head noderna i klustret.
 
 De tre konfigurationsparametrarna kan konfigureras på klusternivå (för alla program som körs på klustret) eller kan anges för varje enskilt program.

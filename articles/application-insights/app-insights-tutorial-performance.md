@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 1176e6ac33db5b9428a323c3a6271818807afc72
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
@@ -35,7 +35,7 @@ För att slutföra den här självstudien behöver du:
     - ASP.NET och webbutveckling
     - Azure Development
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md).
-- [Aktivera Application Insights profileraren](app-insights-profiler.md#enable-the-profiler) för ditt program.
+- [Aktivera Application Insights profileraren](app-insights-profiler.md#installation) för ditt program.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till Cortana Intelligence lösning mallen för begäran vid en prognos i energi
 ## <a name="overview"></a>**Översikt**
@@ -82,7 +82,7 @@ Den begäran prognoser för energi Lösningsmall består Azure Stream Analytics-
 
 Den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) fråga kan hittas av:
 
-* Logga in på den [Azure-portalen](https://manage.windowsazure.com/)
+* Logga in på den [Azure-portalen](https://portal.azure.com/)
 * Hitta stream analytics-jobb ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) som genererades när lösningen har distribuerats. En för att skicka data till blob storage (till exempel mytest1streaming432822asablob) och den andra är för att skicka data till Power BI (till exempel mytest1streaming432822asapbi).
 * Att välja
 

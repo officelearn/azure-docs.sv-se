@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2b873501085ba2d293be564009b5d5daccbf9c1e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Metadata Azure: Schemalagda händelser (förhandsversion) för virtuella Windows-datorer
 
@@ -86,7 +86,7 @@ När du frågar Metadata Service måste du ange rubriken `Metadata:true` så beg
 Första gången du skapar en begäran om schemalagda händelser aktiverar Azure implicit funktionen på den virtuella datorn. Därför bör du förväntar dig en fördröjd svar i din första anropet av upp till två minuter.
 
 > [!NOTE]
-> Schemalagda händelser inaktiveras automatiskt för din tjänst om tjänsten inte anropa slutpunkten för 1 dag. När schemalagda händelser är inaktiverat för tjänsten, kommer det inte händelser som har skapats för användarinitierad underhåll.
+> Schemalagda händelser inaktiveras automatiskt för din tjänst om tjänsten inte anropa slutpunkten för 1 dag. När schemalagda händelser är inaktiverat för tjänsten, finns inga händelser som skapats för användarinitierad underhåll.
 
 ### <a name="user-initiated-maintenance"></a>Användarinitierad Underhåll
 Användaren initierade underhålla virtuella datorer via Azure portal, API, CLI eller PowerShell resulterar i en schemalagd händelse. Det kan du testa Underhåll förberedelse av logiken i ditt program och att ditt program att förbereda för användarinitierad underhåll.

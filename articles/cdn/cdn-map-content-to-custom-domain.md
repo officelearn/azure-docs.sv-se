@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ec53b91b8aba4e38a8f7cb4b010d6be2a62150d5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Lägg till en anpassad domän i CDN-slutpunkten
-När du skapar en profil kan du vanligtvis också skapa en eller flera CDN [slutpunkter](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (en underdomän till `azureedge.net`) kan leverera ditt innehåll med HTTP och HTTPS. Som standard den här slutpunkten ingår i alla URL: er (till exempel `https://contoso.azureedge.net/photo.png`). För din bekvämlighet Azure CDN kan du associera en anpassad domän (till exempel `www.contoso.com`) med slutpunkten. Med det här alternativet kan använda du en anpassad domän kan leverera ditt innehåll i stället för din slutpunkt. Det här alternativet är användbart om du till exempel som ett eget domännamn ska vara synlig för kunderna för företagsanpassning syften.
+När du skapar en profil kan skapa du vanligtvis också en eller flera CDN-slutpunkter (en underdomän till azureedge.net) för att leverera ditt innehåll med HTTP och HTTPS. Som standard den här slutpunkten ingår i alla dina URL: er, till exempel `http(s)://contoso.azureedge.net/photo.png`). För din bekvämlighet Azure CDN ger möjlighet att koppla en anpassad domän (till exempel `www.contoso.com`) med slutpunkten. Med det här alternativet kan använda du en anpassad domän kan leverera ditt innehåll i stället för din slutpunkt. Det här alternativet är användbart om du till exempel som ett eget domännamn ska vara synlig för kunderna för företagsanpassning syften.
 
 Om du inte redan har en anpassad domän måste du först köpa ett med en domän-provider. När du har fått en anpassad domän, gör du följande:
 1. [Åtkomst till DNS-posterna för din domänleverantör](#step-1-access-dns-records-by-using-your-domain-provider)
 2. [Skapa CNAME DNS-poster](#step-2-create-the-cname-dns-records)
     - Alternativ 1: Direkt mappning av den anpassade domänen till CDN-slutpunkten
-    - Alternativ 2: Mappningen av den anpassade domänen till CDN-slutpunkten med hjälp av cdnverify 
+    - Alternativ 2: Mappningen av den anpassade domänen till CDN-slutpunkten med hjälp av den **cdnverify** underdomän 
 3. [Aktivera mappning för CNAME-post i Azure](#step-3-enable-the-cname-record-mapping-in-azure)
 4. [Kontrollera att den anpassa underdomänen refererar CDN-slutpunkten](#step-4-verify-that-the-custom-subdomain-references-your-cdn-endpoint)
 5. [(Beroende steg) Mappa permanent anpassad domän till CDN-slutpunkten](#step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint)
 
 ## <a name="step-1-access-dns-records-by-using-your-domain-provider"></a>Steg 1: Åtkomst DNS registrerar med hjälp av din domänleverantör
 
-Om du använder Azure till värd din [DNS-domäner](https://docs.microsoft.com/en-us/azure/dns/dns-overview), måste du delegera domän leverantörens DNS för en Azure DNS. Mer information finns i [delegera en domän till Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)
+Om du använder Azure till värd din [DNS-domäner](https://docs.microsoft.com/azure/dns/dns-overview), måste du delegera domän leverantörens DNS för en Azure DNS. Mer information finns i [Delegera en domän till Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 Annars, om du använder domän-providern ska hantera din DNS-domän, logga in på webbplatsen på din domän-provider. Hitta sidan för att hantera DNS-poster efter samråd med leverantörens dokumentation eller söka efter områden på webbplatsen med namnet **domännamn**, **DNS**, eller **namn serverhantering**. Du kan ofta hitta sidan DNS-poster genom att visa din kontoinformation och söker efter en länk som **min domäner**. Vissa providrar har olika länkar för att lägga till olika typer av poster.
 
@@ -46,25 +46,25 @@ Annars, om du använder domän-providern ska hantera din DNS-domän, logga in p�
 
 Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt, måste du först skapa en kanoniskt namn (CNAME) post med domänleverantören av. En CNAME-post är en typ av post i DNS Domain Name System () som mappar ett källdomänen till en måldomänen genom att ange ett alias domännamn för ”kanoniska” eller true domännamnet. För Azure CDN källdomänen anpassad domän (och underdomän) och måldomänen är CDN-slutpunkten. Azure CDN verifierar CNAME DNS-post när du lägger till anpassad domän till slutpunkten från portalen eller API. 
 
-En CNAME-post mappa en specifik domän och en underdomän, t.ex `www.contoso.com` eller `cdn.contoso.com`; det går inte att mappa en CNAME-post till en rotdomän som `contoso.com`. En underdomän kan associeras med endast en CDN-slutpunkten och CNAME-posten som du skapar kommer att vidarebefordra all trafik till en underdomän till den angivna slutpunkten. Om du kopplar till exempel `www.contoso.com` med din CDN-slutpunkten kan du associera den med en annan Azure slutpunkt, till exempel en slutpunkt för storage-konto eller ett moln tjänstslutpunkten. Du kan dock använda olika underdomäner från samma domän för olika slutpunkter. Du kan också mappa olika underdomäner till samma CDN-slutpunkten.
+En CNAME-post mappa en specifik domän och en underdomän, t.ex `www.contoso.com` eller `cdn.contoso.com`; det går inte att mappa en CNAME-post till en rotdomän som `contoso.com`. En underdomän kan associeras med endast en CDN-slutpunkten. En CNAME-post dirigerar all trafik till en underdomän till den angivna slutpunkten. Om du kopplar till exempel `www.contoso.com` med din CDN-slutpunkten kan du associera den med en annan Azure slutpunkt, till exempel en slutpunkt för storage-konto eller ett moln tjänstslutpunkten. Du kan dock använda olika underdomäner från samma domän för olika slutpunkter. Du kan också mappa olika underdomäner till samma CDN-slutpunkten.
 
 Använd en av följande alternativ för att mappa en anpassad domän till en CDN-slutpunkten:
 
-- Alternativ 1: Direkt mappning. Om ingen produktion trafik körs på den anpassade domänen kan du mappa en anpassad domän till en CDN-slutpunkt direkt. Processen för att mappa den anpassade domänen till CDN-slutpunkten kan resultera i en kort period driftstopp för domänen när du registrerar domänen i Azure-portalen. Posten CNAME-mappningen ska vara i formatet: 
+- Alternativ 1: Direkt mappning av den anpassade domänen till CDN-slutpunkten. Om ingen produktion trafik körs på den anpassade domänen kan du mappa en anpassad domän till en CDN-slutpunkt direkt. Processen för att mappa den anpassade domänen till CDN-slutpunkten kan resultera i en kort period driftstopp för domänen när du registrerar domänen i Azure-portalen. Posten CNAME-mappningen ska vara i formatet: 
  
   | NAMN             | TYP  | VÄRDE                  |
   |------------------|-------|------------------------|
-  | www\.contoso.com | CNAME | Contoso\.azureedge.net |
+  | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
 
 
-- Alternativ 2: Mappning med den **cdnverify** underdomänen. Om produktion trafik som inte kan avbrytas körs på den anpassade domänen kan skapa du en tillfällig CNAME-mappning till CDN-slutpunkten. Med det här alternativet kan du använda Azure **cdnverify** underdomän att tillhandahålla en mellanliggande registreringssteget så att användare kan komma åt din domän utan avbrott när DNS-mappning äger rum.
+- Alternativ 2: Mappningen av den anpassade domänen till CDN-slutpunkten med hjälp av den **cdnverify** underdomänen. Om produktion trafik som inte kan avbrytas körs på den anpassade domänen kan skapa du en tillfällig CNAME-mappning till CDN-slutpunkten. Med det här alternativet kan du använda Azure **cdnverify** underdomän att tillhandahålla en mellanliggande registreringssteget så att användare kan komma åt din domän utan avbrott när DNS-mappning äger rum.
 
-   1. Skapa en ny CNAME-post och ange en underdomän alias som innehåller den **cdnverify** underdomänen. Till exempel **cdnverify.www** eller **cdnverify.cdn**. 
+   1. Skapa en ny CNAME-post och ange en underdomän alias som innehåller den **cdnverify** underdomänen. Till exempel `cdnverify.www` eller `cdnverify.cdn`. 
    2. Ange värdnamnet, vilket är din CDN-slutpunkten i följande format: `cdnverify.<EndpointName>.azureedge.net`. Posten CNAME-mappningen ska vara i formatet: 
 
    | NAMN                       | TYP  | VÄRDE                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
+   | `cdnverify.www.contoso.com` | `CNAME` | `cdnverify.contoso.azureedge.net` | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Steg 3: Aktivera mappning för CNAME-post i Azure
@@ -97,13 +97,13 @@ När du har slutfört registreringen av den anpassade domänen, kan du kontrolle
 
 ## <a name="step-5-dependent-step-map-the-permanent-custom-domain-to-the-cdn-endpoint"></a>Steg 5 (beroende steg): mappa permanent anpassad domän till CDN-slutpunkten
 
-Det här steget är beroende av steg 2, alternativ 2 (mappning med den **cdnverify** underdomän). Om du använder tillfälligt **cdnverify** underdomän och har verifierat att den fungerar, du kan sedan mappa permanent domänen till CDN-slutpunkten.
+Det här steget är beroende av steg 2, alternativ 2: mappningen av den anpassade domänen till CDN-slutpunkten med hjälp av den **cdnverify** underdomänen. Om du använder tillfälligt **cdnverify** underdomän och har verifierat att den fungerar, du kan sedan mappa permanent domänen till CDN-slutpunkten.
 
 1. Skapa en CNAME DNS-post permanent domänen att mappa till CDN-slutpunkten på domänen leverantörens webbplats. Posten CNAME-mappningen ska vara i formatet: 
  
    | NAMN             | TYP  | VÄRDE                  |
    |------------------|-------|------------------------|
-   | www\.contoso.com | CNAME | Contoso\.azureedge.net |
+   | `www.contoso.com` | `CNAME` | `contoso.azureedge.net` |
 2. Ta bort CNAME-post med den **cdnverify** underdomän som du skapade tidigare.
 
 ## <a name="see-also"></a>Se även

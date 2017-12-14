@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Felsökning av problem med cloud service-distribution
 När du distribuerar ett cloud service-programpaket till Azure kan du få information om hur du distribuerar från den **egenskaper** rutan i Azure-portalen. Du kan använda informationen i det här fönstret för att felsöka problem med Molntjänsten och du kan ange den här informationen för stöd för Azure när du öppnar en ny supportförfrågan.
@@ -27,7 +27,6 @@ När du distribuerar ett cloud service-programpaket till Azure kan du få inform
 Du hittar den **egenskaper** rutan på följande sätt:
 
 * Klicka på distributionen av Molntjänsten i Azure-portalen, **alla inställningar**, och klicka sedan på **egenskaper**.
-* Klicka på distributionen av Molntjänsten i den klassiska Azure-portalen, **INSTRUMENTPANELEN**, som finns i det nedre högra hörnet på sidan (under **snabböversikten**). Tänk på att det finns ingen ”egenskaper” etikett på det här fönstret.
 
 > [!NOTE]
 > Du kan kopiera innehållet i den **egenskaper** fönstret till Urklipp genom att klicka på ikonen i det övre högra hörnet i fönstret.
@@ -83,6 +82,6 @@ Mer information om hur du felsöker problemet finns i blogginlägget [Compute di
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Visa mer [felsökning artiklar](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) för molntjänster.
+Visa mer [felsökning artiklar](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) för molntjänster.
 
 Information om hur du felsöker cloud service rollen problem med hjälp av Azure PaaS datorn diagnostikdata finns [Kevin Williamson bloggserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

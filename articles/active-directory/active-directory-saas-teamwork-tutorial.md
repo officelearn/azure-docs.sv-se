@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 190a47a25ba971038c4b4c9fb54d35c22e4804bf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Självstudier: Azure Active Directory-integrering med Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Självstudier: Azure Active Directory-integrering med [Teamwork.com](https://www.teamwork.com/projects)
 
 I kursen får lära du att integrera Teamwork.com med Azure Active Directory (AD Azure).
 
@@ -37,7 +37,7 @@ Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [v
 För att konfigurera Azure AD-integrering med Teamwork.com, behöver du följande:
 
 - En Azure AD-prenumeration
-- En Teamwork.com enkel inloggning aktiverad prenumeration
+- En [Teamwork.com](https://www.teamwork.com/projects) prenumeration på Pro-plan eller högre
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: 0e3a2f511d7f573c9591d1bc68fceffccc93526c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 093042da6f7d51cec3111f073da0ce3a66f2cddc
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -40,7 +40,7 @@ Innan du påbörjar den här artikeln måste du ha:
     azure login
     ```
   
-    Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](../xplat-cli-connect.md).
+    Mer information om autentisering med ett arbets- eller skolkonto finns i [Anslut till en Azure-prenumeration från Azure CLI](/cli/azure/authenticate-azure-cli).
 * **Växla till läget Azure Resource Manager**, med följande kommando:
   
     ```cli

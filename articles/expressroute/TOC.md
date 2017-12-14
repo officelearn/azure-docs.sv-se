@@ -28,6 +28,7 @@
 ### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [Konfigurera ett virtuellt privat nätverk för plats-till-plats via Microsoft-peering](site-to-site-vpn-over-microsoft-peering.md)
 ## Konfigurera en virtuell nätverksgateway för ExpressRoute
 ### [Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)

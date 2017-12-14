@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Information om skicka PSCredentials som parametrar finns <a href="#credential-assets"> **Inloggningstillgångar** </a> nedan.
+
+## <a name="composite-resources"></a>Sammansatta resurser
+
+**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration.  Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
+
+> [!NOTE]
+> För att **sammansatta resurser** kompilera korrekt måste du först kontrollera att DSC resurser som är beroende av sammansatt installeras först i Azure Automation-konto moduler databasen eller den importeras inte korrekt.
+
+Att lägga till en DSC **sammansatta resurs**, måste du lägga till modulen resurs till ett arkiv (* .zip). Gå till moduler-databas på Azure Automation-kontot.  Klicka på knappen ”Lägg till en modul'.
+
+![Lägg till modul](./media/automation-dsc-compile/add_module.png)
+
+Gå till den katalog där arkivet finns.  Välj arkivfilen och klicka på OK.
+
+![Välj modul](./media/automation-dsc-compile/select_dscresource.png)
+
+Sedan tas du tillbaka till katalogen moduler där du kan övervaka statusen för din **sammansatta resurs** medan den packas upp och registreras med Azure Automation.
+
+![Importera sammansatta resurs](./media/automation-dsc-compile/register_composite_resource.png)
+
+När modulen har registrerats kan du kan klicka på den för att kontrollera att den **sammansatta resurser** är nu tillgängliga som ska användas i en konfiguration.
+
+![Validera sammansatta resurs](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Du kan anropa den **sammansatta resurs** i konfigurationen t.ex:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** kan du avgränsa strukturella konfigurationen från miljön specifik konfiguration när du använder PowerShell DSC. Se [avgränsa ”vad” från ”där” i PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) att lära dig mer om **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importera nodkonfigurationer
 
-Du kan också importera noden configuratons (MOF-filer) som du har kompilerats utanför Azure. En fördel med detta är att noden confiturations kan signeras.
+Du kan också importera noden configuratons (MOF-filer) som du har kompilerats utanför Azure. En fördel med detta är att nodkonfigurationer kan signeras.
 En signerad nodkonfiguration verifieras lokalt på en hanterad nod av DSC-agenten säkerställer att konfigurationen tillämpas på noden kommer från en auktoriserad källa.
 
 > [!NOTE]

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure-molntjänster
-Certifikat används i Azure för molntjänster ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med management API ([hanteringscertifikat](#what-are-management-certificates) när du använder den klassiska Azure-portalen och inte den icke-klassisk Azure-portalen). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
+Certifikat används i Azure för molntjänster ([tjänsten certifikat](#what-are-service-certificates)) och för att autentisera med management API ([hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda typer av certifikat, hur till [skapa](#create) och [distribuera](#deploy) dem till Azure.
 
 Certifikat som används i Azure är x.509 v3-certifikat och kan vara signerat av en annan betrodda certifikat eller så kan de vara självsignerade. Ett självsignerat certifikat som är signerat av en egen skapare, därför inte är betrodd som standard. De flesta webbläsare kan ignorera det här problemet. Du bör endast använda självsignerade certifikat när du utvecklar och testar dina molntjänster. 
 
@@ -30,7 +30,7 @@ Certifikat som används av Azure kan innehålla en privat eller offentlig nyckel
 ## <a name="what-are-service-certificates"></a>Vad är service-certifikat?
 Tjänstcertifikat som är kopplade till molntjänster och aktivera säker kommunikation till och från tjänsten. Om du har distribuerat en webbroll skulle du till exempel vill ange ett certifikat som kan autentisera en exponerade HTTPS-slutpunkt. Tjänstcertifikat som definierats i din tjänstdefinitionen distribueras automatiskt till den virtuella datorn som kör en instans av din roll. 
 
-Du kan överföra tjänstcertifikat till klassiska Azure-portalen antingen med hjälp av den klassiska Azure-portalen eller genom att använda den klassiska distributionsmodellen. Tjänstcertifikat som är associerade med en specifik molnbaserad tjänst. De är tilldelade till en distribution i tjänstdefinitionsfilen.
+Du kan överföra tjänstcertifikat till Azure med antingen Azure-portalen eller med hjälp av den klassiska distributionsmodellen. Tjänstcertifikat som är associerade med en specifik molnbaserad tjänst. De är tilldelade till en distribution i tjänstdefinitionsfilen.
 
 Tjänstcertifikat kan hanteras separat från dina tjänster och kan hanteras av olika personer. En utvecklare kan till exempel överföra en tjänstpaket som refererar till ett certifikat som en IT-chef tidigare har överförts till Azure. En IT-chef kan hantera och förnya certifikatet (ändra konfigurationen av tjänsten) utan att behöva ladda upp ett nytt tjänstepaket. Det är möjligt att uppdatera utan ett nytt tjänstepaket eftersom logiska namn, store-namn och plats för certifikatet tjänstdefinitionsfilen och när certifikatets tumavtryck har angetts i tjänstkonfigurationsfilen. Om du vill uppdatera certifikatet krävs endast att överföra ett nytt certifikat och ändra tumavtrycksvärde i tjänstekonfigurationsfilen.
 
@@ -95,5 +95,5 @@ Det finns många sidor på internet som beskriver hur du gör detta med IIS. [H�
 ## <a name="next-steps"></a>Nästa steg
 [Överför din tjänstcertifikat till Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Överför en [hanteringscertifikat API](../azure-api-management-certs.md) till den klassiska Azure-portalen. Azure-portalen använder inte certifikat för autentisering.
+Överför en [hanteringscertifikat API](../azure-api-management-certs.md) till Azure-portalen.
 

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Functions-dokumentation
 metadata:
   document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
-  title: Dokumentation om Azure Functions – Självstudier | Microsoft Docs
+  title: "Dokumentation om Azure Functions – Självstudier | Microsoft Docs"
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
   author: czeumault
@@ -14,85 +14,90 @@ metadata:
   ms.topic: landing-page
   ms.date: 01-23-2017
   ms.author: carolz
+  ms.openlocfilehash: 05af130d89d78bedb43f4c5cf69203acfa17c64c
+  ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 11/29/2017
 abstract:
-  description: 'Azure Functions är en beräkningstjänst <a href="https://azure.microsoft.com/overview/serverless-computing/">utan server</a> som gör det möjligt att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel.'
+  description: "Azure Functions är en beräkningstjänst <a href=\"https://azure.microsoft.com/overview/serverless-computing/\">utan server</a> som gör det möjligt att köra kod på begäran utan att behöva installera eller hantera infrastruktur. Använd Azure Functions för att köra ett skript eller kod som svar på en rad olika händelser. Lär dig hur du använder Azure Functions med våra snabbstarter, självstudier och exempel."
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
       src: media/index/video-thumb-get-started.png
       width: 250
-    title: 'Kom igång med Azure Functions. (2:39)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/'
+    title: "Kom igång med Azure Functions. (2:39)"
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
     width: 250
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig att skapa funktioner som körs baserat på händelser som skapats via:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig att skapa funktioner som körs baserat på händelser som skapats via:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/media/common/i_http.svg'
-            text: HTTP
-            href: /azure/azure-functions/functions-create-first-azure-function
-          - image:
-              src: media/index/stopwatch.svg
-            text: Timer
-            href: /azure/azure-functions/functions-create-scheduled-function
-          - image:
-              src: media/index/octokitty.svg
-            text: GitHub-webhook
-            href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-          - image:
-              src: media/index/cosmosdb.svg
-            text: Azure Cosmos DB
-            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
-          - image:
-              src: media/index/blob.svg
-            text: Blob
-            href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-          - image:
-              src: media/index/storage.svg
-            text: Kö
-            href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-      - type: paragraph
-        text: 'Lär dig hur du utvecklar och felsöker lokalt:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio
-            href: /azure/azure-functions/functions-create-your-first-function-visual-studio
-  - title: Steg för steg-självstudier
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/i_http.svg
+      text: HTTP
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - image:
+        src: media/index/stopwatch.svg
+      text: Timer
+      href: /azure/azure-functions/functions-create-scheduled-function
+    - image:
+        src: media/index/octokitty.svg
+      text: GitHub-webhook
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image:
+        src: media/index/cosmosdb.svg
+      text: Azure Cosmos DB
+      href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+    - image:
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image:
+        src: media/index/storage.svg
+      text: "Kö"
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+  - type: paragraph
+    text: "Lär dig hur du utvecklar och felsöker lokalt:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar och hanterar Azure Functions:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-functions/functions-twitter-email">Skapa en funktion som kan integreras med Azure Logic Apps</a>
-          - html: <a href="/azure/azure-functions/functions-create-serverless-api">Skapa ett API utan server med Azure Functions</a>
-          - html: <a href="/azure/azure-functions/functions-openapi-definition">Skapa en definition för OpenAPI för en funktion</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automatisera storleksändring av överförda bilder med Event Grid</a>
-  - title: Exempel
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du skapar och hanterar Azure Functions:"
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
-  - title: Referens
+    - html: <a href="/azure/azure-functions/functions-twitter-email">Skapa en funktion som kan integreras med Azure Logic Apps</a>
+    - html: <a href="/azure/azure-functions/functions-create-serverless-api">Skapa ett API utan server med Azure Functions</a>
+    - html: "<a href=\"/azure/azure-functions/functions-openapi-definition\">Skapa en definition för OpenAPI för en funktion</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Automatisera storleksändring av överförda bilder med Event Grid</a>"
+- title: Exempel
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
-          - title: Bindningar
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Händelsehubb</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Extern fil</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP och webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Table Storage</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Timer</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio-utdatabindning</a></p>
+    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="/cli/azure">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+    - title: Bindningar
+      html: "<p><a href=\"/azure/azure-functions/functions-bindings-storage-blob\">Blob Storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-documentdb\">Azure Cosmos DB</a></p><p><a href=\"/azure/azure-functions/functions-bindings-event-hubs\">Händelsehubb</a></p><p><a href=\"/azure/azure-functions/functions-bindings-external-file\">Extern fil</a></p><p><a href=\"/azure/azure-functions/functions-bindings-http-webhook\">HTTP och webhooks</a></p><p><a href=\"/azure/azure-functions/functions-bindings-mobile-apps\">Mobile Apps</a></p><p><a href=\"/azure/azure-functions/functions-bindings-notification-hubs\">Notification Hubs</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-queue\">Queue Storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-sendgrid\">SendGrid</a></p><p><a href=\"/azure/azure-functions/functions-bindings-service-bus\">Service Bus</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-table\">Table Storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-timer\">Timer</a></p><p><a href=\"/azure/azure-functions/functions-bindings-twilio\">Twilio-utdatabindning</a></p>"

@@ -2,106 +2,115 @@
 documentType: LandingData
 title: Dokumentation om Azure Service Fabric
 metadata:
-  title: 'Dokumentation om Azure Service Fabric – Självstudier, API-referens | Microsoft Docs'
-  meta.description: 'Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.'
+  title: "Dokumentation om Azure Service Fabric – Självstudier, API-referens | Microsoft Docs"
+  meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
   services: service-fabric
-  author: null
+  author: 
   manager: carolz
   layout: LandingPage
-  ms.assetid: null
+  ms.assetid: 
   ms.service: service-fabric
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
+  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
+  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/08/2017
 abstract:
-  description: 'Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Lär dig hur du använder Azure Service Fabric med hjälp av våra snabbstarter, självstudier och exempel.'
+  description: "Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och behållare. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Lär dig hur du använder Azure Service Fabric med hjälp av våra snabbstarter, självstudier och exempel."
 sections:
-  - title: Snabbstarter på 5 minuter
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig distribuera ditt första Service Fabric-program till molnet:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Lär dig distribuera ditt första Service Fabric-program till molnet:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
-            text: .NET
-            href: service-fabric-quickstart-dotnet
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
-            text: Java
-            href: service-fabric-quickstart-java
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Linux-behållare
-            href: service-fabric-quickstart-containers-linux
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Windows-behållare
-            href: service-fabric-quickstart-containers
-  - title: Steg för steg-självstudier
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_net.svg
+      text: .NET
+      href: service-fabric-quickstart-dotnet
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Java.svg
+      text: Java (Reliable Services)
+      href: service-fabric-quickstart-java-reliable-services
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Java.svg
+      text: Java (Spring Boot)
+      href: service-fabric-quickstart-java-spring-boot
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: "Linux-behållare"
+      href: service-fabric-quickstart-containers-linux
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: "Windows-behållare"
+      href: service-fabric-quickstart-containers
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure"
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: 'Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuera ett .NET-program</a>
-          - html: <a href="service-fabric-host-app-in-a-container">Använd ett befintligt .NET-program i behållare</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Skapa ett program för Linux-behållare</a>
-          - html: Skapa och hantera ett <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows-</a> eller <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>-kluster
-  - title: Kostnadsfri videoutbildning för Pluralsight
+    - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuera ett .NET-program</a>
+    - html: "<a href=\"service-fabric-host-app-in-a-container\">Använd ett befintligt .NET-program i behållare</a>"
+    - html: "<a href=\"service-fabric-tutorial-create-container-images\">Skapa ett program för Linux-behållare</a>"
+    - html: Skapa och hantera ett <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows-</a> eller <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>-kluster
+- title: "Kostnadsfri videoutbildning för Pluralsight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Utveckla med .NET
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-          - title: Molnmönster och -arkitektur
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
-  - title: Koncept
+    - title: Utveckla med .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+    - title: "Molnmönster och -arkitektur"
+      href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+- title: Koncept
+  items:
+  - type: list
+    style: unordered
     items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-overview-microservices">Förstå mikrotjänster</a>
-          - html: <a href="service-fabric-content-roadmap">Helhetsbild</a>
-          - html: <a href="service-fabric-application-scenarios">Programscenarier</a>
-          - html: <a href="service-fabric-patterns-and-scenarios">Mönster och scenarier</a>
-          - html: <a href="service-fabric-architecture">Arkitektur</a>
-          - html: <a href="service-fabric-technical-overview">Terminologi</a>
-  - title: Exempel
+    - html: "<a href=\"service-fabric-overview-microservices\">Förstå mikrotjänster</a>"
+    - html: <a href="service-fabric-content-roadmap">Helhetsbild</a>
+    - html: <a href="service-fabric-application-scenarios">Programscenarier</a>
+    - html: "<a href=\"service-fabric-patterns-and-scenarios\">Mönster och scenarier</a>"
+    - html: <a href="service-fabric-architecture">Arkitektur</a>
+    - html: <a href="service-fabric-technical-overview">Terminologi</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: "Hitta skript för vanliga hanteringsuppgifter:"
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: paragraph
-        text: 'Hitta skript för vanliga hanteringsuppgifter:'
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Skriptexempel
-            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric CLI</a></p>
-          - title: .NET
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Komma igång</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Röstning</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Webbreferens</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>'
-          - title: Java
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Komma igång</a></p>'
-  - title: Referens
+    - title: Skriptexempel
+      html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric CLI</a></p>
+    - title: .NET
+      html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/\">Komma igång</a></p><p><a href=\"https://github.com/Azure-Samples/service-fabric-dotnet-quickstart\">Röstning</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/\">Webbreferens</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/\">IoT</a></p><p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/\">Watchdog</a></p>"
+    - title: Java
+      html: "<p><a href=\"https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/\">Komma igång</a></p>"
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: '<p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
-          - title: Språk
-            html: <p><a href="/java/api/overview/azure/servicefabric">Java-API</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">XML-schema för tjänstmodell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/servicefabric">REST API-referens</a></p>
+    - title: Kommandorad
+      html: <p><a href="/cli/azure/sf">Azure CLI</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">Service Fabric CLI</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+    - title: "Språk"
+      html: "<p><a href=\"/java/api/overview/azure/servicefabric\">Java-API</a></p><p><a href=\"/dotnet/api/overview/azure/service-fabric?view=azure-dotnet\">.NET</a></p><p><a href=\"/azure/service-fabric/service-fabric-service-model-schema\">XML-schema för tjänstmodell</a></p>"
+    - title: REST
+      html: <p><a href="/rest/api/servicefabric">REST API-referens</a></p>

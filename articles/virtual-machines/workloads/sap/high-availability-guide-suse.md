@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines på SUSE Linux Enterprise Server för SAP-program
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurera virtuella datorer, installera kluster framework och installera en högtillgänglig SAP NetWeaver 7,50.
-I exempelkonfigurationer installationskommandon osv. ASCS-instansnummer 00, ÄNDARE instansnummer 02 och SAP System-ID NWS används. Namnen på de resurser (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt den [konvergerat mallen] [ template-converged] med SAP system-ID NWS att skapa resurser.
+I exempelkonfigurationer installationskommandon osv. ASCS instansnummer 00 ÄNDARE instansen nummer 02 och SAP System-ID NWS används. Namnen på de resurser (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt den [konvergerat mallen] [ template-converged] med SAP system-ID NWS att skapa resurser.
 
 Läs följande SAP anteckningar och papper först
 
@@ -142,7 +142,7 @@ NFS-servern, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ÄNDARE och SA
 ### <a name="deploying-linux"></a>Distribuera Linux
 
 Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP program 12 som du kan använda för att distribuera nya virtuella datorer.
-Du kan använda en av Snabbstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
 1. Öppna den [mall för SAP server] [ template-file-server] i Azure-portalen   
 1. Ange följande parametrar
@@ -152,8 +152,8 @@ Du kan använda en av Snabbstart mallar på github för att distribuera alla nö
       Välj en av Linux-distributioner. Det här exemplet väljer du SLES 12
    3. Användarnamn och lösenord för Admin administratör  
       En ny användare skapas som kan användas för att logga in på datorn.
-   4. Undernät-Id  
-      ID för det undernät som de virtuella datorerna ska anslutas till. Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller välj undernätet i ditt VPN eller Expressroute virtuella nätverk att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så /subscriptions/**&lt;prenumerations-id&gt;**/resourceGroups/**&lt;resursgruppnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
+   4. Undernät-ID  
+      ID för det undernät som de virtuella datorerna ska anslutas till. Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller välj undernätet i ditt VPN eller Expressroute virtuella nätverk att ansluta den virtuella datorn till ditt lokala nätverk. ID som ser oftast ut så /subscriptions/**&lt;prenumerations-ID&gt;**/resourceGroups/**&lt;resursgruppnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
 
 ### <a name="installation"></a>Installation
 
@@ -475,7 +475,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaperna och Skriv ned Directory-Id. Det här är den **klient-id**.
+   Gå till egenskaperna och Skriv ned Directory-ID. Det här är den **klient-ID**.
 1. Klicka på appen registreringar
 1. Klicka på Lägg till
 1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
@@ -503,7 +503,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Skriv ned det program-Id. Den används som användarnamnet (**inloggnings-id** i stegen nedan) för tjänstens huvudnamn
+1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
 Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Du behöver ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
 
@@ -523,13 +523,13 @@ När du har redigerat behörigheter för de virtuella datorerna kan du konfigure
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,14 +549,14 @@ sudo crm configure property stonith-enabled=true
 
 Azure Marketplace innehåller en bild för SUSE Linux Enterprise Server för SAP program 12 som du kan använda för att distribuera nya virtuella datorer. Marketplace-avbildning innehåller resurs-agent för SAP NetWeaver.
 
-Du kan använda en av Snabbstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
+Du kan använda en av quickstart mallar på github för att distribuera alla nödvändiga resurser. Mallen distribuerar virtuella datorer, belastningsutjämnare, tillgänglighetsuppsättning osv. Följ dessa steg om du vill distribuera mallen:
 
 1. Öppna den [ASCS/SCS Multi SID-mall] [ template-multisid-xscs] eller [konvergerat mallen] [ template-converged] på Azure-portalen i ASCS/SCS endast skapas på belastningsutjämning regler för SAP NetWeaver ASCS/SCS och ÄNDARE (endast Linux) instanser medan mallen konvergerade skapar även reglerna för belastningsutjämning för en databas (till exempel Microsoft SQL Server eller SAP HANA). Om du planerar att installera ett SAP NetWeaver baserat system och du även vill installera databasen på samma datorer använder den [konvergerat mallen][template-converged].
 1. Ange följande parametrar
    1. Resursen Prefix (endast mall ASCS/SCS Multi SID)  
       Ange det prefix som du vill använda. Värdet används som ett prefix för de resurser som har distribuerats.
-   3. SAP System-Id (endast konvergerade mall)  
-      Ange SAP-systemet Id för SAP-system som du vill installera. Id som används som ett prefix för de resurser som har distribuerats.
+   3. SAP System-ID (endast konvergerade mall)  
+      Ange ID för SAP-system för SAP-system som du vill installera. ID som används som ett prefix för de resurser som har distribuerats.
    4. Stack-typ  
       Välj typ för SAP NetWeaver stack
    5. OS-typen  
@@ -569,8 +569,8 @@ Du kan använda en av Snabbstart mallar på github för att distribuera alla nö
       Välj hög tillgänglighet
    9. Användarnamn och lösenord för Admin administratör  
       En ny användare skapas som kan användas för att logga in på datorn.
-   10. Undernät-Id  
-   ID för det undernät som de virtuella datorerna ska anslutas till.  Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller Välj samma undernät som du användas eller skapas som en del av distributionen av NFS-servern. ID som ser oftast ut så /subscriptions/**&lt;prenumerations-id&gt;**/resourceGroups/**&lt;resursgruppnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
+   10. Undernät-ID  
+   ID för det undernät som de virtuella datorerna ska anslutas till.  Lämna tomt om du vill skapa ett nytt virtuellt nätverk eller Välj samma undernät som du användas eller skapas som en del av distributionen av NFS-servern. ID som ser oftast ut så /subscriptions/**&lt;prenumerations-ID&gt;**/resourceGroups/**&lt;resursgruppnamn&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuella nätverksnamnet&gt;**/subnets/**&lt;undernätsnamn&gt;**
 
 ### <a name="installation"></a>Installation
 
@@ -967,7 +967,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 
 1. **[1]**  Installera SAP NetWeaver ASCS  
 
-   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som till exempel mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS <b>nws ascs</b>, <b>10.0.0.10</b> och instansen tal som du använde för avsökning av belastningsutjämnaren till exempel <b>00</b>.
+   Installera SAP NetWeaver ASCS som rot på den första noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ASCS, till exempel <b>nws ascs</b>, <b>10.0.0.10</b> och instansen tal som du använde för avsökning av belastningsutjämnare, till exempel <b>00</b>.
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
 
@@ -1041,7 +1041,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ Följande objekt är prefixet antingen **[A]** - gäller för alla noder, **[1]*
 
 1. **[2]**  Installera SAP NetWeaver ÄNDARE  
 
-   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE exempelvis <b>nws ändare</b>, <b>10.0.0.11</b> och instansen tal som du använde för avsökning av belastningsutjämnaren till exempel <b>02</b>.
+   Installera SAP NetWeaver ÄNDARE som rot på den andra noden med hjälp av ett virtuellt värdnamn som mappar till IP-adressen för klientdel belastningsutjämningskonfigurationen för ÄNDARE, till exempel <b>nws ändare</b>, <b>10.0.0.11</b> och instansen tal som du använde för avsökning av belastningsutjämnare, till exempel <b>02</b>.
 
    Du kan använda parametern sapinst SAPINST_REMOTE_ACCESS_USER för att tillåta en rot-användare att ansluta till sapinst.
 
@@ -1228,7 +1228,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaperna och Skriv ned Directory-Id. Det här är den **klient-id**.
+   Gå till egenskaperna och Skriv ned Directory-ID. Det här är den **klient-ID**.
 1. Klicka på appen registreringar
 1. Klicka på Lägg till
 1. Ange ett namn, Välj typ av program ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
@@ -1236,7 +1236,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara
 1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Skriv ned det program-Id. Den används som användarnamnet (**inloggnings-id** i stegen nedan) för tjänstens huvudnamn
+1. Skriv ned program-ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
 
 Tjänstens huvudnamn har inte behörighet att komma åt Azure-resurser som standard. Du behöver ge behörighet att starta och stoppa tjänstens huvudnamn (frigöra) alla virtuella datorer i klustret.
 
@@ -1256,13 +1256,13 @@ När du har redigerat behörigheter för de virtuella datorerna kan du konfigure
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Installera databasen
 
-I det här exemplet är en SAP HANA System replikering installeras och konfigureras. SAP HANA körs i samma kluster som SAP NetWeaver ASCS/SCS och ÄNDARE. Du kan också installera SAP HANA på ett kluster. Se [hög tillgänglighet för SAP HANA på Azure Virtual Machines (virtuella datorer)] [ sap-hana-ha] för mer information.
+I det här exemplet är en SAP HANA System replikering installeras och konfigureras. SAP HANA körs i samma kluster som SAP NetWeaver ASCS/SCS och ÄNDARE. Du kan också installera SAP HANA på ett kluster. Mer information finns i [hög tillgänglighet för SAP HANA på Azure Virtual Machines (virtuella datorer)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Förbereda för SAP HANA-installation
 
@@ -1326,7 +1326,7 @@ Normalt bör du använda LVM för volymer som lagrar data och loggfiler. I tests
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ Följande steg baseras på kapitel 4 i den [SAP HANA SR prestanda optimerade sce
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ Följande steg baseras på kapitel 4 i den [SAP HANA SR prestanda optimerade sce
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

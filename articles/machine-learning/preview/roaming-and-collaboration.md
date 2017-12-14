@@ -1,6 +1,6 @@
 ---
-title: "Centrala och samarbete i Azure Maskininlärning arbetsstationen | Microsoft Docs"
-description: "Lista över kända problem och en guide för att felsöka"
+title: Centrala och samarbete i Azure Machine Learning arbetsstationen | Microsoft Docs
+description: "Lär dig mer om att ställa in centrala och samarbete i Machine Learning-arbetsstationen."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,193 +10,193 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 137608007716452ec6468f1e13f494b095a11cb0
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Centrala och samarbete i Azure Machine Learning arbetsstationen
-Det här dokumentet vägleder dig genom Azure Machine Learning arbetsstationen hur flyttas dina projekt över datorer, samt aktivera samarbete med dina gruppmedlemmar. 
+Den här artikeln beskriver hur du kan använda Azure Machine Learning-arbetsstationen för att ställa in projekt för växling mellan datorer och samarbeta med gruppmedlemmar. 
 
-När du skapar en Azure Machine Learning-projekt med en fjärransluten Git-lagringsplats (lagringsplatsen)-länk, lagras metadata för projektet och ögonblicksbilder i molnet. Länken molnet kan du få åtkomst till projektet från en annan dator (centrala). Du kan också ge åtkomst till dina medarbetare, vilket gör att samarbete. 
+När du skapar en Azure Machine Learning-projekt med en fjärransluten Git-lagringsplats (lagringsplatsen) länk lagras metadata för projektet och ögonblicksbilder i molnet. Du kan använda länken molnet åtkomst till projektet från en annan dator (centrala). Du kan också samarbeta med gruppmedlemmar genom att ge dem åtkomst till projektet. 
 
 ## <a name="prerequisites"></a>Krav
-Installera först i Azure Machine Learning-arbetsstationen med åtkomst till ett experiment-konto. Följ den [installationsguiden](quickstart-installation.md) för mer information.
+1. Installera Maskininlärning arbetsstationen app. Se till att du har åtkomst till ett konto i Azure Machine Learning-experiment. Mer information finns i [installationsguiden](quickstart-installation.md).
 
-Andra kan komma åt [Visual Studio Team System](https://www.visualstudio.com) och skapa en lagringsplatsen för att länka ditt projekt till. Detaljerad information om Git refererar till den [med Git Repo med en Azure Machine Learning arbetsstationen projekt](using-git-ml-project.md) artikel.
+2. Åtkomst [Visual Studio Team Services](https://www.visualstudio.com) (Team Services), och sedan skapa en lagringsplatsen för att länka ditt projekt till. Mer information finns i [med en Git-lagringsplatsen med ett projekt för Machine Learning arbetsstationen](using-git-ml-project.md).
 
-## <a name="create-a-new-azure-machine-learning-project"></a>Skapa ett nytt Azure Machine Learning-projekt
-Starta Azure Machine Learning arbetsstationen och skapa ett nytt projekt (till exempel _iris_). Fyll i **Visualstudio.com URL för GIT-lagringsplatsen** textruta med en giltig URL för VSTS Git-lagringsplatsen. 
+## <a name="create-a-new-machine-learning-project"></a>Skapa ett nytt projekt i Machine Learning
+Öppna Machine Learning arbetsstationen och sedan skapa ett nytt projekt (till exempel ett projekt med namnet iris). I den **Visualstudio.com URL för GIT-lagringsplatsen** ange en giltig URL för ett Team Services Git-lagringsplatsen. 
 
 > [!IMPORTANT]
-> Om du väljer mallen tomt projekt är det OK att Git-lagringsplatsen som du redan har en _master_ grenen. Azure ML klonar bara den _master_ Förgrena lokalt och lägger till den `aml_config` mappen och andra projektfiler metadata till lokala projektmappen. Men om du väljer andra projektmall Git-lagringsplatsen får inte redan ha en _master_ branch eller visas ett felmeddelande. Alternativet är att använda `az ml project create` kommandoradsverktyget för att skapa projektet och ange en `--force` växla. Detta tar bort filer på den ursprungliga mastergrenen och ersätta dem med nya filer på den mall som du väljer.
+> Om du väljer mallen tomt projekt, kanske på Git-lagringsplats som du vill använda redan har en mastergrenen. Machine Learning klonar bara mastergrenen lokalt. Mappen aml_config och andra metadata projektfiler läggs till i den lokala projektmappen. 
+>
+> Om du väljer alla andra projektmall, Git repo *kan* redan har en mastergrenen. Om det inte finns ett fel. Alternativet är att använda den `az ml project create` kommando för att skapa projektet, med en `--force` växla. Detta tar bort filer i den ursprungliga mastergrenen och ersätter dem med nya filer på den mall som du väljer.
 
-När projektet har skapats kan du skicka några körs på alla skript i projektet. Den här åtgärden genomför projekt tillstånd till den fjärranslutna Git repo körningshistorik grenen. 
+När projektet har skapats kan du skicka några körs på alla skript som finns i projektet. Den här åtgärden genomför Projekttillståndet till den fjärranslutna Git repo körningshistorik grenen. 
 
 > [!NOTE] 
-> Endast skript körs utlösaren incheckningar körningshistorik grenen. Data Förbered dig körningen eller bärbar dator körs inte utlösa projektet ögonblicksbilder på grenen körningshistorik.
+> Endast skript körs utlösaren incheckningar körningshistorik grenen. Data Förbered dig körning och bärbara datorer kör inte utlösa projektet ögonblicksbilder i grenen körningshistorik.
 
-Måste du konfigurera Git-autentisering kan du också explicit fungerar i mastergrenen eller skapa en ny gren. 
+Om du har ställt in Git-autentisering kan du också använda i mastergrenen. Eller skapa en ny gren. 
 
-Som exempel: 
+Exempel: 
 ```
-# check current repo status
+# Check current repo status.
 $ git status
 
-# stage all changes in the current repo
+# Stage all changes in the current repo.
 $ git add -A
 
-# commit changes
+# Commit changes.
 $ git commit -m "my commit fixes this weird bug!"
 
-# push to remote repo.
+# Push to the remote repo.
 $ git push origin master
 ```
 
 ## <a name="roaming"></a>Roaming
 <a name="roaming"></a>
 
-### <a name="open-azure-machine-learning-workbench-on-second-machine"></a>Öppna Azure Machine Learning-arbetsstationen på andra datorer
-När VSTS Git-lagringsplatsen är kopplad till ditt projekt, kan du komma åt den _iris_ projekt från valfri dator där du har installerat Azure Machine Learning-arbetsstationen. 
+### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Öppna Machine Learning-arbetsstationen på en annan dator
+När Team Services Git-lagringsplatsen är kopplad till ditt projekt, når iris projektet från alla datorer med Machine Learning arbetsstationen installerad. 
 
-Om du vill komma åt iris projektet på en annan dator, måste du logga in i appen med samma autentiseringsuppgifter används när du skapar projektet. Dessutom måste du gå till samma experiment konto och arbetsytan. Den _iris_ projektet visas i alfabetisk ordning med andra projekt i arbetsytan. 
+För att komma åt iris projektet på en annan dator, måste du logga in i appen genom att använda samma autentiseringsuppgifter som du använde för att skapa projektet. Du måste också finnas i samma konto för Machine Learning-experiment och arbetsytan. Projektet iris visas i alfabetisk ordning med andra projekt i arbetsytan. 
 
-### <a name="download-project-on-second-machine"></a>Hämta projektet på den andra datorn
-När arbetsytan öppnas på andra datorn ikonen bredvid den _iris_ projektet skiljer sig från vanligt mappikon. Hämta ikonen indikerar att innehållet i projektet är i molnet och måste hämtas till den aktuella datorn. 
+### <a name="download-the-project-on-a-second-computer"></a>Hämta projektet på en annan dator
+Ikonen bredvid iris projektet skiljer sig från vanligt mappikon när arbetsytan är öppen på den andra datorn. Hämta ikonen anger att innehållet i projektet är i molnet och att projektet är redo att laddas ned till den aktuella datorn. 
 
 ![Skapa projekt](./media/roaming-and-collaboration/downloadable-project.png)
 
-Klicka på den _iris_ projektet startar en åtgärd för hämtning. Projektet är redo att användas på den andra datorn efter en kort när När nedladdningen är klar. 
+Välj iris projektet ska starta hämtningen. När hämtningen är slutförd är projektet redo att användas på den andra datorn. 
 
-På Windows är det`C:\Users\<username>\Documents\AzureML`
+Windows, projektet är placerad på C:\Users\\< användarnamn\>\Documents\AzureML.
 
-I macOS är det här:`/home/<username>/Documents/AzureML`
+MacOS, projektet är placerad på /startsida/\<användarnamn \> /Documents/AzureML.
 
-I en framtida utgåva planerar vi att utöka funktionaliteten så att du kan välja en målmapp. 
+I en framtida utgåva planerar vi att förbättra funktioner så att du kan välja en målmapp. 
 
 > [!NOTE]
-> Om du har en mapp i Azure ML-katalogen som har exakt samma namn som projektet, misslyckas hämtningen. För den tid som, måste du byta namn på den befintliga mappen för att undvika problemet.
+> Om du har en mapp i Machine Learning-katalogen som har exakt samma namn som projektet misslyckas hämtningen. Om du vill undvika det här problemet tillfälligt byta namn på den befintliga mappen.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Arbeta med det hämta projektet 
-Det nyligen hämtade projektet visar Projekttillståndet från och med den senaste körningen i projektet. En ögonblicksbild av Projekttillståndet värnar automatiskt grenen körningshistorik i VSTS Git-lagringsplatsen varje gång du skickar en körning. Vi använder den ögonblicksbild som är associerat med den senaste körs när en instans skapades av projektet på den andra datorn. 
+Det nyligen hämtade projektet visar Projekttillståndet på den senaste körningen i projektet. En ögonblicksbild av Projekttillståndet värnar automatiskt grenen körningshistorik i Team Services Git-lagringsplatsen varje gång du skickar en körning. Ögonblicksbild som är associerad med den senaste körningen används för att skapa en instans av projektet på den andra datorn. 
  
 
 ## <a name="collaboration"></a>Samarbete
-Du kan samarbeta med dina gruppmedlemmar på projekt som är kopplade till en VSTS Git-lagringsplatsen. Du kan tilldela behörigheter till användare på konto experiment, arbetsytan och projekt. Du kan utföra Azure Resource Manager-kommandon med hjälp av Azure CLI för tillfället. Du kan också använda [Azure-portalen](https://portal.azure.com). Se [efter avsnittet](#portal).    
+Du kan samarbeta med gruppmedlemmar på projekt som är länkade till ett Team Services Git-lagringsplatsen. Du kan tilldela behörigheter till användare för kontot Machine Learning-experiment, arbetsytan och projekt. För närvarande kan du utföra Azure Resource Manager-kommandon med hjälp av Azure CLI. Du kan också använda den [Azure-portalen](https://portal.azure.com). Mer information finns i [använda Azure portal för att lägga till användare](#portal).    
 
-### <a name="using-command-line-to-add-users"></a>Kommandoraden för att lägga till användare
-Kan använda ett exempel. Anta Alice är ägare till th e_Iris_ projekt och hon vill dela access med Bob. 
+### <a name="use-the-command-line-to-add-users"></a>Använda kommandoraden för att lägga till användare
+Ett exempel är Alice ägare av iris projektet. Alice vill dela åtkomst till projektet med Bob. 
 
-Alice klickar på den **filen** -menyn och väljer den **kommandotolk** menyalternativet att starta den kommandotolk som konfigurerats för att den _iris_ projekt. Alice kan sedan välja vilka administratörsnivå för hon vill ge till Bob genom att köra följande kommandon.  
+Alice väljer den **filen** -menyn och väljer den **kommandotolk** menyalternativet. Kommandotolken öppnas med iris projektet. Alice kan välja vilken åtkomstnivå hon vill ge Bob. Hon ger behörighet genom att köra följande kommandon:  
 
 ```azurecli
-# Find ARM ID of the experimnetation account
+# Find the Resource Manager ID of the Experimentation account.
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Contributor.
-# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <Experimentation account Resource Manager ID>
 
-# Find ARM ID of the workspace
+# Find the Resource Manager ID of the workspace.
 az ml workspace show --query "id"
 
 # Add Bob to the workspace as an Owner.
-# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
+# Bob now has read/write access to all projects under the workspace by inheritance. Bob can invite or remove other users.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-Efter rolltilldelning ser direkt eller genom arv Bob projektet i listan arbetsstationen. Programmet kanske måste startas om för att kunna se projektet. Bob kan sedan hämta projektet enligt beskrivningen i den [centrala avsnittet](#roaming) och samarbeta med Alice. 
+Efter rolltilldelning ser antingen direkt eller genom arv Bob projektet i listan Machine Learning-arbetsstationen. Bob kan behöva starta om programmet för att se projektet. Bob kan sedan hämta projektet enligt beskrivningen i [centrala](#roaming), och börja samarbeta med Alice. 
 
-Körningshistorik för alla användare som samarbetar med ett projekt strävar efter att samma fjärransluten Git-lagringsplatsen. När Alice utförs en körning, så se Bob kör i avsnittet körningshistoriken på projektet i appen arbetsstationen. Bob kan även återställa projektet till tillståndet för alla kör inklusive körs startas av Alice. 
+Körningshistoriken för alla användare som samarbetar med ett projekt strävar efter att samma fjärransluten Git-lagringsplatsen. När Alice utförs en körning, ser Bob kör i avsnittet körningshistoriken på projektet i appen Machine Learning-arbetsstationen. Bob kan även återställa projektet till tillståndet för alla kör, inklusive körs som Johan har startats. 
 
-Dela en fjärransluten Git-lagringsplatsen för projektet kan Alice och Bob också samarbeta på mastergrenen. Om det behövs, kan de också skapa personliga grenar och använda Git pull-förfrågningar och slår ihop för att samarbeta. 
+Genom att dela en fjärransluten Git-lagringsplatsen för projektet kan Alice och Bob också samarbeta i mastergrenen. Om det behövs, kan de också skapa personliga grenar och använda Git pull-förfrågningar och slår ihop för att samarbeta. 
 
-### <a name="using-azure-portal-to-add-users"></a>Med hjälp av Azure portal för att lägga till användare
+### <a name="use-the-azure-portal-to-add-users"></a>Använda Azure portal för att lägga till användare
 <a name="portal"></a>
 
-Azure Machine Learning-experiment konton, arbetsytorna och projekt är Azure Resource Manager-resurser. Du kan använda åtkomstkontroll länken i den [Azure-portalen](https://portal.azure.com) att tilldela roller. 
+Machine Learning-experiment konton, arbetsytorna och projekt är Azure Resource Manager-resurser. Om du vill tilldela roller, kan du använda den **åtkomstkontroll** länken i den [Azure-portalen](https://portal.azure.com). 
 
-Hitta den resursen som du vill lägga till användare från alla resurser att visa. Klicka på åtkomstkontrollen (IAM)-länk-sidan. Lägga till användare 
+Hitta den resurs som du vill lägga till användare med hjälp av den **alla resurser** vyn. Välj den **åtkomstkontroll (IAM)** länka och välj sedan **lägga till användare**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
 ## <a name="sample-collaboration-workflow"></a>Samarbete Exempelarbetsflöde
-För att illustrera samarbete flödet, låt oss gå igenom ett exempel. Contoso anställda Alice och Bob vill samarbeta med ett projekt för vetenskap av data med hjälp av Azure ML-arbetsstationen. Deras identitet tillhöra samma Contoso Azure AD-klienten.
+För att illustrera samarbete arbetsflödet ska vi gå igenom ett exempel. Contoso anställda Alice och Bob vill samarbeta med ett projekt för datavetenskap med hjälp av Machine Learning-arbetsstationen. Sina identiteter tillhöra samma klientorganisation i Contoso Azure Active Directory (AD Azure). Här följer stegen för Alice och Bob ta:
 
-1. Alice först skapar en tom Git-lagringsplatsen i VSTS projekt. Det här projektet i VSTS ska finnas i en Azure-prenumeration skapade under Contoso AAD-klient. 
+1. Alice skapar en tom Git-lagringsplatsen i ett Team Services-projekt. Projektet Team Services måste vara i en Azure-prenumeration som har skapats under Contoso Azure AD-klienten. 
 
-2. Alice skapar sedan ett experiment Azure ML-konto, en arbetsyta och ett projekt för Azure ML-arbetsstationen på sin dator. Hon tillhandahåller URL för Git-lagringsplatsen när att skapa projektet.
+2. Anna skapar ett experiment i Machine Learning-konto, en arbetsyta och ett Machine Learning arbetsstationen projekt på en dator. När hon skapar projektet hon URL för Team Services Git-lagringsplatsen.
 
-3. Alice börjar arbeta med projektet. Hon skapar vissa skript och utför några körs. För varje kör flyttas en ögonblicksbild av hela projektmappen automatiskt en körningshistorik gren i VSTS Git-lagringsplatsen som skapats av Workbench som ett genomförande.
+3. Alice börjar arbeta med projektet. Hon skapar vissa skript och utför några körs. För varje kör skickas automatiskt en ögonblicksbild av hela projektmappen som ett genomförande till en körningshistorik grenen av Team Services Git-lagringsplatsen som skapas i Machine Learning-arbetsstationen.
 
-4. Alice är nöjd med pågående arbete. Hon vill spara sitt ändringen i lokalt _master_ Förgrena och skickar den till VSTS Git-lagringsplatsen _master_ grenen. Hon startar du Kommandotolken från Azure ML-arbetsstationen för att göra det, öppna projektet, och problem följande kommandon:
+4. Alice är nöjd med pågående arbete. Hon vill genomför sina ändringar i den lokala mastergrenen och skicka dem till mastergrenen för Team Services Git-lagringsplatsen. Projektet är öppen i Machine Learning arbetsstationen hon öppnar Kommandotolkens fönster och skriver in dessa kommandon:
     
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit changes with a comment
+    # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # push the commit to the master branch of the remote Git repo in VSTS
+    # Push the commit to the master branch of the remote Git repo in Team Services.
     $ git push
     ```
 
-5. Alice lägger sedan till Bob i arbetsytan som deltagare. Hon kan göra detta från Azure-portalen eller med hjälp av `az role assignment` kommando visar ovan. Hon ger också Bob/skrivbehörighet till VSTS Git-lagringsplatsen.
+5. Alice lägger till Bob arbetsytan som deltagare. Hon kan göra detta i Azure-portalen eller genom att använda den `az role assignment` kommandot som visas tidigare. Alice ger också Bob Läs-och skrivbehörighet till Team Services Git-lagringsplatsen.
 
-6. Bob loggar nu i Azure ML-arbetsstationen på sin dator. Han kan se arbetsytan-Alice delas med honom och projektet visas under arbetsytan. 
+6. Bob loggar in på Machine Learning-arbetsstationen på sin dator. Han kan se arbetsytan Alice delas med honom. Han kan se iris projektet visas under arbetsytan. 
 
-7. Bob klickar på projektnamnet och projektet hämtas till datorn.
-    
-    a. Hämtade projektfiler är en kopia av ögonblicksbild av den senaste körningen registreras i körningshistoriken. De är inte den senaste bekräftelsen på mastergrenen.
-    
-    b. Lokala projektmappen är inställd på _master_ gren med unstaged ändringarna.
+7. Bob väljer projektets namn. Projektet hämtas till datorn.
+    * Hämtade projektfiler är en kopia av ögonblicksbild av den senaste körningen som har registrerats i körningshistoriken. De är inte den senaste bekräftelsen på mastergrenen.
+    * Lokala projektmappen har angetts till mastergrenen med unstaged ändringarna.
 
-8. Bob kan nu bläddra körs som körs av Alice och Återställ ögonblicksbild av alla tidigare körs.
+8. Bob kan bläddra som utfördes av Alice. Han kan återställa ögonblicksbilder av alla tidigare körs.
 
-9. Johan vill få de senaste ändringarna pushas av Alice och börjar arbeta på en annan gren. Så att han öppnar du Kommandotolken från Azure ML-arbetsstationen och kör följande kommandon:
+9. Johan vill få de senaste ändringarna Alice pushas och starta sedan fungerar i en annan gren. I Machine Learning arbetsstationen Johan öppnar en kommandotolk och kör följande kommandon:
 
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # get the latest commit in VSTS Git master branch and overwrite current files
+    # Get the latest commit in the Team Services Git master branch and overwrite current files.
     $ git pull --force
 
-    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
     $ git checkout -b bob
     ```
 
-10. Bob nu ändrar projektet och skicka nya körs. Ändringarna som görs på den _bob_ grenen. Och bObs körs blir också synliga för Alice.
+10. Bob ändrar projektet och skickar nya körs. Ändringarna som görs på grenen bob. Bobs körs bli synlig för Alice.
 
-11. Bob är nu redo att skicka sin ändringar i en fjärransluten Git-lagringsplatsen. För att undvika konflikter med _master_ avdelningskontor där Alice fungerar på han bestämmer sig för att skicka sitt arbete till en ny fjärrgren som också kallas _bob_.
+11. Bob är redo att skicka sina ändringar till en fjärransluten Git-lagringsplatsen. För att undvika konflikter med mastergrenen där fungerar Alice, skickar Bob sitt arbete till en ny fjärrgren som heter bob.
 
     ```sh
-    # verify that the current branch is "bob" and it has unstaged changes
+    # Verify that the current branch is "bob," and that it has unstaged changes.
     $ git status
     
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit them with a comment
+    # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # create a new branch on the remote VSTS Git repo, and push changes
+    # Create a new branch on the remote Team Services Git repo, and then push the changes.
     $ git push origin bob
     ```
 
-12. Bob sedan vet Alice om nya kall lura i sin kod och skapar en pull-begäran på fjärransluten Git-lagringsplatsen från den _bob_ förgrening till den _master_ grenen. Alice sedan inkludera pull-begäran till _master_ grenen.
+12. Om du vill berätta kall nya lura i sin kod Alice, skapar Bob en pull-begäran på fjärransluten Git-lagringsplatsen från bob gren till mastergrenen. Alice kan sedan Sammanfoga pull-begäran till mastergrenen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att använda Git med Azure ML-arbetsstationen: [med Git-lagringsplats med ett projekt för Azure Machine Learning arbetsstationen](using-git-ml-project.md)
+- Lär dig mer om [med en Git-lagringsplatsen med ett projekt för Machine Learning arbetsstationen](using-git-ml-project.md).

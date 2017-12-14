@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsöka användardefinierade C#-kod för misslyckade U-SQL-jobb
 
-U-SQL ger en modellen för utökning med C#. Det är enkelt att anropa C#-funktioner och utföra analysfunktioner som SQL-liknande deklarativ språket inte stöder i U-SQL-skript. Mer information för U-SQL-utökningsbarhet finns [U-SQL-programmering guiden](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL ger en modellen för utökning med C#. Det är enkelt att anropa C#-funktioner och utföra analysfunktioner som SQL-liknande deklarativ språket inte stöder i U-SQL-skript. Mer information för U-SQL-utökningsbarhet finns [U-SQL-programmering guiden](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 I praktiken någon kod behöva felsökning, men det är svårt att felsöka en distribuerad jobbet med anpassad kod på molnet med begränsad loggfiler. [Azure Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs) innehåller en funktion som kallas **misslyckades Vertex felsöka**, som hjälper dig att du enkelt kan felsöka fel som uppstår i den anpassade koden. Om U-SQL-jobb misslyckas tjänsten håller i feltillstånd och verktyget hjälper dig att hämta fel molnmiljö till den lokala datorn för felsökning. Lokala nedladdningen fångar hela molnmiljön, inklusive alla indata och användarkod.
 

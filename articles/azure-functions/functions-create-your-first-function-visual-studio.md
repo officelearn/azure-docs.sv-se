@@ -3,7 +3,7 @@ title: "Skapa din första funktion i Azure med Visual Studio | Microsoft Docs"
 description: "Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions Tools för Visual Studio."
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,20 +14,22 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeac4feaeea376ae5231d9c24d44d94f8132af42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
-Azure Functions kan du köra din kod i en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) miljö utan att först skapa en virtuell dator eller publicera ett webbprogram.
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/overview/serverless-computing/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp.
 
-Lär dig hur du använder 2017 för Visual Studio tools för Azure Functions för att skapa och testa en ”hello world”-funktionen lokalt i det här avsnittet. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbetsbelastningen Azure Development i Visual Studio 2017 version 15.3, eller en senare version.
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
+I det här avsnittet lär du dig hur du använder Visual Studio 2017-verktyg med Azure Functions för att skapa och testa en ”Hello World”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. De här verktygen är tillgängliga som en del av arbetsbelastningen Azure Development i Visual Studio 2017 version 15.3, eller en senare version.
 
 ![Azure Functions-kod i ett Visual Studio-projekt](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -35,7 +37,7 @@ Lär dig hur du använder 2017 för Visual Studio tools för Azure Functions fö
 
 För att slutföra den här självstudien installerar du:
 
-* [Visual Studio 2017 version 15,4](https://www.visualstudio.com/vs/) eller en senare version, inklusive den **Azure-utveckling** arbetsbelastning.
+* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) eller en senare version, inklusive arbetsbelastningen **Azure Development**.
 
     ![Installera Visual Studio 2017 med arbetsbelastningen Azure Development](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
@@ -49,15 +51,15 @@ Nu när du har skapat projektet kan du skapa din första funktion.
 
 ## <a name="create-the-function"></a>Skapa funktionen
 
-1. I **Solution Explorer** högerklickar du på projektnoden och väljer **Lägg till** > **Nytt objekt**. Välj **Azure-funktion**, ange `HttpTriggerCSharp.cs` för **namn**, och klicka på **Lägg till**.
+1. I **Solution Explorer** högerklickar du på projektnoden och väljer **Lägg till** > **Nytt objekt**. Välj **Azure Function**, ange `HttpTriggerCSharp.cs` för **Namn** och klicka på **Lägg till**.
 
-2. Välj **HttpTrigger**väljer **anonym** för **åtkomstbehörigheter**, och klicka på **OK**. Funktionen som skapas kan nås av en HTTP-begäran från alla klienter. 
+2. Välj **HttpTrigger**, välj **Anonym** för **Åtkomstbehörighet** och klicka på **OK**. Funktionen som skapas kan nås av en HTTP-begäran från alla klienter. 
 
     ![Skapa en ny Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
-    En kodfil läggs till ditt projekt som innehåller en klass som implementerar din funktionskoden. Den här koden är baserad på en mall, som tar emot ett namnvärde och ta bort eko tillbaka. Den **FunctionName** attributet anger namnet på funktionen. Den **HttpTrigger** attributet anger meddelandet som utlöser funktionen. 
+    En kodfil läggs till i ditt projekt, som innehåller en klass som implementerar funktionskoden. Den här koden är baserad på en mall, som får ett namnvärde och skickar det tillbaka som eko. Attributet **FunctionName** anger namnet på funktionen. Attributet **HttpTrigger** anger vilket meddelande som utlöser funktionen. 
 
-    ![Funktionen kodfilen](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+    ![Funktionens kodfil](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
 Nu när du har skapat en HTTP-utlöst funktion kan du testa den på en lokal dator.
 

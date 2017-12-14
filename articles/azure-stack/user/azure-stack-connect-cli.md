@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installera och konfigurera CLI för användning med Azure-stacken
 
 I den här artikeln hjälper vi dig under processen för att använda Azure-kommandoradsgränssnittet (CLI) för att hantera Azure-stacken Development Kit resurser från Linux och Mac-klientplattformar. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Exportera Azure Stack Certifikatutfärdarens rotcertifikat
-
-Om du använder CLI från en virtuell dator som körs i Azure-stacken Development Kit miljön Azure Stack-rotcertifikat redan har installerats på den virtuella datorn så att du kan hämta den direkt. Om du använder CLI från en dator utanför development kit måste du exportera Azure Stack Certifikatutfärdarens rotcertifikat från development kit och lägga till den i Python certifikatarkivet på utvecklingsdatorn (externa Linux- eller Mac-plattform). 
-
-Om du vill exportera rotcertifikatet för Azure-stacken i PEM-format, logga in development Kit och kör följande skript:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Installera CLI
 
@@ -59,7 +36,7 @@ Du bör se versionen av Azure CLI och andra beroende bibliotek som är installer
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure-stacken Certifikatutfärdarens rotcertifikat
 
-Om du vill lita på Azure-stacken Certifikatutfärdarens rotcertifikat, lägger du till dem i det befintliga certifikatet Python. Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör du kommandot bash:
+Hämta Azure Stack Certifikatutfärdarens rotcertifikat från Azure Stack-operatorn och litar på den. Om du vill lita på Azure-stacken Certifikatutfärdarens rotcertifikat, lägger du till dem i det befintliga certifikatet Python. Om du kör CLI från en Linux-dator som har skapats i Azure Stack-miljön, kör du kommandot bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Ställ in alias virtuell datorslutpunkt
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Hämta alias virtuell datorslutpunkt
 
-Innan användare kan skapa virtuella datorer med hjälp av CLI, bör molnadministratören konfigurerar en offentligt tillgänglig slutpunkt som innehåller virtuella avbildningen alias och registrera den här slutpunkten med molnet. Den `endpoint-vm-image-alias-doc` parametern i den `az cloud register` kommandot används för detta ändamål. Molnet administratörer måste ladda ned avbildningen till Azure-stacken marketplace innan de lägger till den bild alias slutpunkt.
+Innan användare kan skapa virtuella datorer med hjälp av CLI, måste de kontakta Azure Stack-operatorn och hämta virtuella datorn alias slutpunkten URI. Till exempel Azure använder du följande URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Molnadministratören bör ställa in en liknande slutpunkt för Azure-stacken med bilder som är tillgängliga i stacken för Azure marketplace. Användare behöver skicka slutpunkten URI till den `endpoint-vm-image-alias-doc` parametern till den `az cloud register` som visas i nästa avsnitt. 
    
-Till exempel Azure använder du följande URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Molnadministratören bör ställa in en liknande slutpunkt för Azure-stacken med bilder som är tillgängliga i stacken för Azure marketplace.
 
 ## <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
@@ -169,7 +145,7 @@ Använd följande steg för att ansluta till Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Logga in på Azure Stack-miljö med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljö som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Logga in på Azure Stack-miljö med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljö som en användare eller som en [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Logga in som en *användare*: du kan antingen ange användarnamn och lösenord direkt i den `az login` kommando eller autentisera med hjälp av en webbläsare. Du behöver göra det senare om ditt konto har multifaktorautentisering aktiveras.
 

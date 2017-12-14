@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Användardokumentation om Azure Stack-operator
+title: "Användardokumentation om Azure Stack-operator"
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Dokumentation om Azure Stack-operator – självstudier, API-referens'
-  description: Lär dig hur du använder Azure-stacken för att leverera Azure-tjänster från ditt datacenter. Läs och demonstrerar funktioner från en Development Kit eller integrerade system.
+  title: "Dokumentation om Azure Stack-operator – självstudier, API-referens"
+  description: "Lär dig hur du använder Azure-stacken för att leverera Azure-tjänster från ditt datacenter. Läs och demonstrerar funktioner från en Development Kit eller integrerade system."
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -14,46 +14,51 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
+  ms.openlocfilehash: 59dea633182c774bab3408f8503a6bd6f5f5d783
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du distribuerar Azure Stack Development Kit, hur du hanterar infrastrukturen för både integrerade system och development kit och hur du vill erbjuda tjänster med våra Snabbstart och självstudier.<br/><br/>Om du använder en Azure-stacken som använder tjänster eller bygger appar för Azure-stacken, se vår <a href="/azure/azure-stack/user">användardokumentation</a>.'
+  description: "Microsoft Azure Stack är en plattform för hybridmoln som du kan använda för att tillhandahålla Azure-tjänster från ditt datacenter. Lär dig hur du distribuerar Azure Stack Development Kit, hur du hanterar infrastrukturen för både integrerade system och development kit och hur du vill erbjuda tjänster med våra Snabbstart och självstudier.<br/><br/>Om du använder en Azure-stacken som använder tjänster eller bygger appar för Azure-stacken, se vår <a href=\"/azure/azure-stack/user\">användardokumentation</a>."
 sections:
-  - title: Snabbstart
+- title: Snabbstart
+  items:
+  - type: paragraph
+    text: "Ställ in maskinvaran och distribuera Azure Stack Development Kit."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Ställ in maskinvaran och distribuera Azure Stack Development Kit.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Distribuera Azure Stack Development Kit
-            href: azure-stack-deploy-overview.md
-  - title: Steg för steg-självstudier
+    - image:
+        src: https://docs.microsoft.com/media/common/i_deploy.svg
+      text: Distribuera Azure Stack Development Kit
+      href: azure-stack-deploy-overview.md
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig mer om att lägga till tjänster till din Azure Stack-distribution."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Lär dig mer om att lägga till tjänster till din Azure Stack-distribution.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Erbjuder virtuella datorer på Azure-stacken</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">Erbjuder SQL-databaser på Azure-stacken</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Erbjuder Webbappar på Azure-stacken</a>
-  - title: Kostnadsfri videoutbildning för Pluralsight
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-tenant-vm\">Erbjuder virtuella datorer på Azure-stacken</a>"
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-sql-server\">Erbjuder SQL-databaser på Azure-stacken</a>"
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-app-service\">Erbjuder Webbappar på Azure-stacken</a>"
+- title: "Kostnadsfri videoutbildning för Pluralsight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Lär dig grunderna i Azure Stack
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-  - title: Referens
+    - title: "Lär dig grunderna i Azure Stack"
+      href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>
+    - title: Kommandorad
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

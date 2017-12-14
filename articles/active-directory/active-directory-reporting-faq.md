@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting vanliga frågor och svar
 
@@ -119,5 +119,11 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 **F: hur beräknas IP-adresser i inloggningar och riskfyllda inloggningar rapporten?**
 
 **S:** IP-adresser utfärdas så att det finns ingen slutgiltiga anslutning mellan en IP-adress och där datorn med adressen finns fysiskt. Detta är komplicerade av faktorer, till exempel mobila providers och VPN-anslutningar utfärda IP-adresser från central pooler ofta mycket långt där klientenheten verkligen används. Ovanstående är, konverterar IP-adress till en fysisk plats en bästa prestanda baserat på spårningar, registerdata, omvänd sökningar och annan information. 
+
+---
+
+**F: Vad gör händelsen risk ”logga in med ytterligare risker som identifierats” obestämd?**
+
+**S:** för att ge dig en överblick över alla riskfyllda inloggning i din miljö vi visa händelsen risk ”logga in med ytterligare risker som identifierats” för inloggningar som anses vara riskfyllda på grund av identifieringar exklusiv för Azure AD Identity Protection-prenumeranter.
 
 ---

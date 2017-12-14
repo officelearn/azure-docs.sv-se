@@ -16,24 +16,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6b190c3ddc8e474175693229d2e043196eac92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure-prenumeration inaktiverad och hur jag återaktivera den?
 
-Du kanske har inaktiverats eftersom du har nått din utgiftsgräns din Azure-prenumeration, har en förfallen faktura, nått gränsen för kreditkort eller eftersom prenumerationen har avbrutits av kontoadministratören. Se vilka problem gäller dig och följer du stegen i den här artikeln för att få prenumerationen igen.
+Du kanske har inaktiverats eftersom din kredit har upphört att gälla din Azure-prenumeration, du har nått din utgiftsgräns, har en förfallen faktura, nått gränsen för kreditkort eller eftersom prenumerationen har avbrutits av kontoadministratören. Se vilka problem gäller dig och följer du stegen i den här artikeln för att få prenumerationen igen.
+
+## <a name="your-credit-is-expired"></a>Kreditkortet har upphört att gälla
+
+När du registrerar dig för ett kostnadsfritt Azure-konto kan hämta du en kostnadsfri utvärderingsversion som tillhandahåller 200 USD i Azure-krediter för 30 dagar och 12 månaders gratistjänster. I slutet av 30 dagar inaktiverar Azure din prenumeration. Din prenumeration har inaktiverats för att skydda dig från att av misstag medför kostnader för användning utöver kredit och gratistjänster som ingår i din prenumeration. Om du vill fortsätta använda Azure-tjänster, måste du [uppgradera din prenumeration till en prenumeration betala per användning](billing-upgrade-azure-subscription.md). När du har uppgraderat har din prenumeration fortfarande åtkomst till kostnadsfria tjänster i tolv månader. Du får endast debiteras för användning utöver gratistjänster och kvantiteter.
 
 ## <a name="you-reached-your-spending-limit"></a>Du har nått din utgiftsgräns
 
-När din användning tillgång månatliga mängder som ingår i din prenumeration, inaktiverar vi tjänsten under resten av den faktureringsperioden. Tjänsten är inaktiverad för att skydda dig från att av misstag medför kostnader för användning utöver det belopp som ingår i din prenumeration. Om du vill ta bort din utgiftsgräns finns [ta bort utgiftsgränsen i Kontocenter](billing-spending-limit.md#remove).
+Azure-prenumerationer med kreditkort som kostnadsfri utvärderingsversion och Visual Studio Enterprise ha utgiftsgränser på dem. Det innebär att du kan bara använda tjänster upp till den inkluderade krediten. När din användningen når utgiftsgränsen, inaktiverar Azure prenumerationen för resten av den faktureringsperioden. Din prenumeration har inaktiverats för att skydda dig från att av misstag medför kostnader för användning utöver kredit som ingår i din prenumeration. Om du vill ta bort din utgiftsgräns finns [ta bort utgiftsgränsen i Kontocenter](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Om du har en kostnadsfri utvärderingsversion och du tar bort utgiftsgränsen, konverterar prenumerationen till betala per användning i slutet av den kostnadsfria utvärderingsversionen.
+> Om du har en kostnadsfri utvärderingsversion och du tar bort utgiftsgränsen, konverterar prenumerationen till betala per användning i slutet av den kostnadsfria utvärderingsversionen. Du kan behålla din återstående kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du har också åtkomst till kostnadsfria tjänster i tolv månader.
 
 För att övervaka och hantera fakturering aktivitet för Azure finns [förhindrar oväntade kostnader med Azure fakturerings- och kostnaden management](billing-getting-started.md) och [konfigurera fakturering aviseringar för Microsoft Azure-prenumerationer](billing-set-up-alerts.md).
+
 
 ## <a name="your-bill-is-past-due"></a>Fakturan är försenad
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurera ett Linux RDMA-kluster för att köra MPI-program
 Lär dig hur du ställer in ett Linux RDMA-kluster i Azure med [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. Den här artikeln innehåller steg för att förbereda en Linux HPC-avbildning för att köra Intel MPI på ett kluster. Efter förberedelse, kan du distribuera ett kluster för virtuella datorer med hjälp av den här avbildningen och en av RDMA-kompatibla Azure VM-storlekar (för närvarande H16r H16mr, A8 eller A9). Använd klustret för att köra MPI-program som effektiv kommunicerar över ett nätverk för låg latens, hög genomströmning baserat på remote direct memory access (RDMA)-teknik.
@@ -47,7 +47,7 @@ Följande steg visar hur du använder Azure CLI för att distribuera en SUSE Lin
 * **Azure-prenumeration**: Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en prenumeration med användningsbaserad betalning eller andra köpalternativ för större kluster.
 * **Tillgänglighet för VM-storlek**: följande instans storleken är RDMA-kompatibla: H16r, H16mr, A8 och A9. Kontrollera [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner.
 * **Kärnor kvoten**: du kan behöva öka kvoten kärnor att distribuera ett kluster med beräkningsintensiva virtuella datorer. Du måste till exempel minst 128 kärnor, om du vill distribuera 8 A9 VM som visas i den här artikeln. Din prenumeration kan också begränsa antal kärnor som du kan distribuera i vissa VM storlek familjer, inklusive H-serien. Att begära en ökad kvot [öppna en supportbegäran online customer](../../../azure-supportability/how-to-create-azure-support-request.md) utan kostnad.
-* **Azure CLI**: [installera](../../../cli-install-nodejs.md) Azure CLI och [ansluta till din Azure-prenumeration](../../../xplat-cli-connect.md) från klientdatorn.
+* **Azure CLI**: [installera](../../../cli-install-nodejs.md) Azure CLI och [ansluta till din Azure-prenumeration](/cli/azure/authenticate-azure-cli) från klientdatorn.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Etablera en SLES 12 SP1 HPC-dator
 När du loggar in på Azure med Azure CLI, kör du `azure config list` att bekräfta att utdata visar Service Management-läge. Om det inte ange läget genom att köra det här kommandot:

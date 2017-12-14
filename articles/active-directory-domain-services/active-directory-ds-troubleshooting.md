@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b094ab27d9d11828b0818a6024ff9b108d6cddb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - guide för felsökning
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera Azure Active Directory (AD) Domain Services.
@@ -57,13 +57,10 @@ Kontrollera om det finns ett program med namnet 'Azure AD Domain Services Sync' 
 
 Utför följande steg för att kontrollera förekomst av programmet och ta bort den om programmet redan finns:
 
-1. Gå till **den klassiska Azure-portalen** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. Välj noden **Active Directory** i det vänstra fönstret.
-3. Välj Azure AD-klienten (katalogen) som du vill aktivera Azure AD Domain Services för.
-4. Navigera till den **program** fliken.
-5. Välj den **program som företaget äger** alternativ i listrutan.
-6. Kontrollera om ett program som kallas **Azure AD Domain Services Sync**. Om programmet redan finns fortsätter du att ta bort den.
-7. När du har tagit bort programmet, försök att aktivera Azure AD Domain Services igen.
+1. Navigera till den **program** avsnitt i Azure AD-katalogen i den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Välj **alla program** i den **visa** listrutan. Välj **alla** i den **program status** listrutan. Välj **alla** i den **programmet synlighet** listrutan.
+3. Typen **Azure AD Domain Services Sync** i sökrutan. Om programmet redan finns, klicka på den och klickar på den **ta bort** i verktygsfältet för att ta bort den.
+4. När du har tagit bort programmet, försök att aktivera Azure AD Domain Services igen.
 
 ### <a name="invalid-configuration"></a>Ogiltig konfiguration
 **Ett felmeddelande visas:**
@@ -153,7 +150,7 @@ Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar 
 
 Användarkontot förblir inaktiverad i din hanterade domän, även om du återskapa ett användarkonto med samma UPN i Azure AD-katalogen. Om du vill ta bort användarkontot från den Hantera domänen måste framtvingar ta bort det från din Azure AD-klient.
 
-Om du vill ta bort användarkontot helt från din hanterade domän, ta bort användaren permanent från Azure AD-klienten. Använd PowerShell-cmdleten Remove-MsolUser med alternativet ”-RemoveFromRecycleBin” enligt beskrivningen i den här [MSDN-artikeln](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Om du vill ta bort användarkontot helt från din hanterade domän, ta bort användaren permanent från Azure AD-klienten. Använd den `Remove-MsolUser` PowerShell-cmdlet med den `-RemoveFromRecycleBin` alternativ, enligt beskrivningen i det här [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Kontakta oss
 Kontakta produktteamet Azure Active Directory Domain Services för att [dela feedback eller support](active-directory-ds-contact-us.md).

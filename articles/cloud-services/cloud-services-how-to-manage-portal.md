@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Så här hanterar du molntjänster
-I den **molntjänster (klassisk)** område i Azure portal, du kan uppdatera en rolltjänst eller en distribution, befordra en stegvis distribution till produktion, länka resurser till din molntjänst så att du kan se resursberoenden och skala resurser tillsammans och ta bort en molnbaserad tjänst eller en distribution.
+I den **molntjänster** område i Azure portal, du kan uppdatera en rolltjänst eller en distribution, befordra en stegvis distribution till produktion, länka resurser till din molntjänst så att du kan se resursberoenden och skala den resurser tillsammans, och ta bort ett moln tjänst eller en distribution.
 
 Mer information om hur du skala Molntjänsten [här](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Observera att Gästoperativsystem uppdateringar och service återställning åtg
 **Medför en växling driftstopp för Mina program? Hur får jag hantera den?**
 
 Enligt beskrivningen i det sista avsnittet är en distribution växling vanligtvis snabbt eftersom det är bara en konfigurationsändring i Azure belastningsutjämnaren. I vissa fall kan det dock ta tio eller fler sekunder och resultera i tillfälliga anslutningsfel. Om du vill begränsa effekten för kunderna att överväga att implementera [klienten logik](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Så här: länka en resurs till en tjänst i molnet
-Azure-portalen inte länka resurser som har den aktuella klassiska Azure-portalen. Distribuera ytterligare resurser i stället till samma resursgrupp som används av Molntjänsten.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Så här: ta bort distributioner och en tjänst i molnet
 Innan du kan ta bort en molnbaserad tjänst, måste du ta bort alla befintliga distributionen.

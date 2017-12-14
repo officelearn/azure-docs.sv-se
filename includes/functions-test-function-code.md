@@ -1,4 +1,4 @@
-## <a name="test-the-function"></a>Testa funktionen
+## <a name="test"></a>Testa funktionen
 
 Använd cURL till att testa den distribuerade funktionen på en Mac- eller Linux-dator, eller Bash i Windows. Kör följande cURL-kommando och ersätt platshållaren `<app_name>` med namnet på din funktionsapp. Lägg till frågesträngen `&name=<yourname>` i webbadressen.
 

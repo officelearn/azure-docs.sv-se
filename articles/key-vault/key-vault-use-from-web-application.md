@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Använda Azure Key Vault från webbprogram
 
@@ -36,7 +36,7 @@ För att kunna slutföra den här självstudiekursen behöver du följande:
 * Ett webbprogram. Vi ska visa stegen för ett ASP.NET MVC-program som distribueras i Azure som en Webbapp.
 
 >[!IMPORTANT]
->* Det här exemplet är beroende av ett äldre sätt att manuellt etablering AAD identiteter. För närvarande finns en ny funktion i förhandsversionen kallas [hanteras Service identitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), som automatiskt kan etablera AAD identiteter. Mer information finns i följande exempel på [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) för mer information.
+>* Det här exemplet är beroende av ett äldre sätt att manuellt etablering AAD identiteter. För närvarande finns en ny funktion i förhandsversionen kallas [hanteras Service identitet (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), som automatiskt kan etablera AAD identiteter. Mer information finns i följande exempel på [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) för mer information.
 
 > [!NOTE]
 >* Det är viktigt att du har slutfört stegen i [Kom igång med Azure Key Vault](key-vault-get-started.md) för den här självstudiekursen så att du har en hemlighet och klient-ID och Klienthemlighet URI för ett webbprogram.
@@ -46,7 +46,7 @@ Webbprogram som kommer åt Nyckelvalvet är det som är registrerad i Azure Acti
 
 Den här kursen är avsedd för webbutvecklare som förstår grunderna för att skapa webbprogram på Azure. Läs mer om Azure Web Apps [översikt över Web Apps](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Lägg till Nuget-paket
+## <a id="packages"></a>Lägg till NuGet-paket
 
 Det finns två paket som ditt webbprogram måste ha installerats.
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* För närvarande är den nya funktionen Managed Service Identity (MSI) det enklaste sättet att autentisera. Mer information finns via följande länk till exemplet med [Key Vault med MSI i ett program i .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade [självstudien för MSI med App Service och Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* För närvarande är den nya funktionen Managed Service Identity (MSI) det enklaste sättet att autentisera. Mer information finns via följande länk till exemplet med [Key Vault med MSI i ett program i .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) och den relaterade [självstudien för MSI med App Service och Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Med hjälp av klient-ID och Klienthemlighet är ett annat sätt att autentisera en Azure AD-program. Och använda den i ditt webbprogram för en uppdelning av uppgifter och mer kontroll över din nyckelhantering. Men den förlitar sig på att placera Klienthemligheten i konfigurationsinställningarna, som kan vara riskabelt som som ger den hemlighet som du vill skydda i inställningarna för några. Se följande information om hur du använder en klient-ID och certifikat i stället för klient-ID och Klienthemlighet för att autentisera Azure AD-program.
 
 ## <a id="appstart"></a>Hämta hemligheten på programmet starta
@@ -147,11 +147,11 @@ Ett annat sätt att autentisera en Azure AD-program är att använda ett klient-
 För våra ändamål gör vi ett testcertifikat. Här är några av kommandon som du kan använda i en utvecklare kommandotolk för att skapa ett certifikat. Ändra katalogen till önskad cert-filer som har skapats.  Kan också använda aktuellt datum plus 1 år för start- och slutdatum för certifikatet.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Anteckna slutdatumet och lösenordet för PFX (i det här exemplet: 07/31/2016 och test123). Du behöver dem nedan.
+Anteckna slutdatumet och lösenordet för PFX (i det här exemplet: 07/31/2017 och test123). Du behöver dem nedan.
 
 Mer information om hur du skapar ett testcertifikat finns [så här: skapa dina egna testa certifikat](https://msdn.microsoft.com/library/ff699202.aspx)
 

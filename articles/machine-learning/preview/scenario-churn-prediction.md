@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea95f9e4a6e11ddac96e956bdf0f1e4255954b24
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Kunden omsättning förutsägelse med hjälp av Azure Machine Learning
 
@@ -90,14 +90,14 @@ __dokumenten__: innehåller de praktiska övningarna
 Ordningen praktiska övningar för att utföra lösningen är följande:
 1. Förberedelse av data: Huvudfil rör förberedelse av Data i datamappen är`CATelcoCustomerChurnTrainingSample.csv`
 2. Modellering och utvärdering: huvudfil som rör utformning och utvärdering i rotmappen är`CATelcoCustomerChurnModeling.py`
-3. Modellering och utvärdering i Docker: huvudfil för den här uppgiften i rotmappen är`CATelcoCustomerChurnModelingDocker.py`
+3. Modellering och utvärdering utan .dprep: huvudfil för den här uppgiften i rotmappen är`CATelcoCustomerChurnModelingWithoutDprep.py`
 4. Operationalization: Huvudsakliga filerna för deloyment är modellen (`model.pkl`) och`churn_schema_gen.py`
 
 | Ordning| Filnamn | Realted filer |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 3 | [`ModelingAndEvaluationWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Efter Labs på sekventiella sätt som beskrivs ovan.

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Sök i närheten intressant med hjälp av Azure baserad platstjänster
 
@@ -39,9 +39,9 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Följ dessa steg om du vill skapa ett nytt konto för plats-baserade tjänster.
 
-1. I det övre vänstra hörnet av den [Azure-portalen](https://portal.azure.com), klickar du på **skapar du en resurs**.
-2. I den *söka Marketplace* skriver **plats-baserade tjänster**.
-3. Från den *resultat*, klicka på den **baserat platstjänster (förhandsgranskning)**. Klicka på **skapa** som visas nedan kartan. 
+1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
+2. Skriv **location based services** i rutan *Search the Marketplace* (sök på marketplace).
+3. Klicka på **Location Based Services (förhandsversion)** i *Resultat*. Klicka på knappen **Skapa** som visas nedanför kartan. 
 4. På den **skapa plats baserat Services-konto** anger du följande värden:
     - Den *namn* för ditt nya konto. 
     - Den *prenumeration* som du vill använda för det här kontot.
@@ -50,7 +50,7 @@ Följ dessa steg om du vill skapa ett nytt konto för plats-baserade tjänster.
     - Läs den *Förhandsgranskningsvillkoren* och markera kryssrutan för att acceptera villkoren. 
     - Klicka slutligen på den **skapa** knappen.
    
-    ![Skapa kontot för plats-baserade tjänster i portalen](./media/tutorial-search-location/create-lbs-account.png)
+    ![Skapa Location Based Services-konto i portalen](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
@@ -101,12 +101,12 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
         // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -116,25 +116,24 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
 3.  Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel. 
 
     ```HTML/JavaScript
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     Det här segmentet initierar kartan kontroll-API för din prenumeration nyckel. **Atlas** är det namnområde som innehåller Azure kartan kontroll-API och relaterade visuella komponenter. **Atlas. Kartan** ger kontrollen för en visual och interaktiva webb-karta. Du kan se hur kartans ser ut som genom att öppna HTML-sidan i webbläsaren. 
 
 4. Lägg till följande JavaScript-kod till den *skriptet* block, att lägga till ett lager av Sök PIN-koder i Kartkontrollen:
 
     ```HTML/JavaScript
-            // Initialize the pin layer for search results to the map
-            var searchLayerName = "search-results";
-            map.addPins([], {
-                name: searchLayerName,
-                cluster: false,
-                icon: "pin-round-darkblue"
-            });
+    // Initialize the pin layer for search results to the map
+    var searchLayerName = "search-results";
+    map.addPins([], {
+        name: searchLayerName,
+        cluster: false,
+        icon: "pin-round-darkblue"
+    });
     ```
 
 5. Spara filen på din dator. 
@@ -148,90 +147,90 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
 
 1. Öppna den **MapSearch.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block att illustrera Search-tjänsten. 
     ```HTML/JavaScript
-            // Perform a request to the search service and create a pin on the map for each result
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var searchPins = [];
+    // Perform a request to the search service and create a pin on the map for each result
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var searchPins = [];
 
-                if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
+        if (this.readyState === 4 && this.status === 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
+            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
 
-                    searchPins = poiResults.map((poiResult) => {
-                        var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                        return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                            name: poiResult.poi.name,
-                            address: poiResult.address.freeformAddress,
-                            position: poiResult.position.lat + ", " + poiResult.position.lon
-                        });
-                    });
+            searchPins = poiResults.map((poiResult) => {
+                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
+                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                    name: poiResult.poi.name,
+                    address: poiResult.address.freeformAddress,
+                    position: poiResult.position.lat + ", " + poiResult.position.lon
+                });
+            });
 
-                    map.addPins(searchPins, {
-                        name: searchLayerName
-                    });
+            map.addPins(searchPins, {
+                name: searchLayerName
+            });
 
-                    var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-                    var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
+            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
+            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
 
-                    var swLon = Math.min.apply(null, lons);
-                    var swLat = Math.min.apply(null, lats);
-                    var neLon = Math.max.apply(null, lons);
-                    var neLat = Math.max.apply(null, lats);
+            var swLon = Math.min.apply(null, lons);
+            var swLat = Math.min.apply(null, lats);
+            var neLon = Math.max.apply(null, lons);
+            var neLat = Math.max.apply(null, lats);
 
-                    map.setCameraBounds({
-                        bounds: [swLon, swLat, neLon, neLat],
-                        padding: 50
-                    });
-                }
-            };
+            map.setCameraBounds({
+                bounds: [swLon, swLat, neLon, neLat],
+                padding: 50
+            });
+        }
+    };
     ```
     Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. För ett lyckat svar samlar det in adresser, namn, latitud och logitude information för varje plats returneras i den `searchPins` variabeln. Slutligen lägger den till den här samlingen av plats pekar på `map` kontrollen är PIN-koder. 
 
 2. Lägg till följande kod i den *skriptet* block, skicka XMLHttpRequest till Azure plats baserat tjänsterna Search-tjänsten:
 
     ```HTML/JavaScript
-            var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-            url += "&api-version=1.0";
-            url += "&query=gasoline%20station";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&lat=47.6292";
-            url += "&lon=-122.2337";
-            url += "&radius=100000"
+    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
+    url += "&api-version=1.0";
+    url += "&query=gasoline%20station";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&lat=47.6292";
+    url += "&lon=-122.2337";
+    url += "&radius=100000";
 
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ``` 
     Den här fragment använder enkel sökning API för Search-tjänsten som kallas den **Fuzzy Sök**. Den hanterar mest fuzzy av indata som hanterar valfri kombination av adress eller *POI* token. Den söker efter i närheten **bensin station**, för den angivna adressen i latitud och longitud och inom den angivna radien. Ditt konto prenumeration nyckel som anges tidigare i exempel-filen används för att göra anrop till den plats baserat tjänster. Returnerar resultatet som latitud/longitud par för att hitta platser. Du kan se Sök PIN-koder genom att öppna HTML-sidan i webbläsaren. 
 
 3. Lägg till följande rader till den *skriptet* blockera, skapa popup-fönster för punkter av intresse som returneras av söktjänsten:
 
     ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
+    // Add a popup to the map which will display some basic information about a search result on hover over a pin
+    var popup = new atlas.Popup();
+    map.addEventListener("mouseover", searchLayerName, (e) => {
+        var popupContentElement = document.createElement("div");
+        popupContentElement.style.padding = "5px";
 
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
+        var popupNameElement = document.createElement("div");
+        popupNameElement.innerText = e.features[0].properties.name;
+        popupContentElement.appendChild(popupNameElement);
 
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
+        var popupAddressElement = document.createElement("div");
+        popupAddressElement.innerText = e.features[0].properties.address;
+        popupContentElement.appendChild(popupAddressElement);
 
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
+        var popupPositionElement = document.createElement("div");
+        popupPositionElement.innerText = e.features[0].properties.position;
+        popupContentElement.appendChild(popupPositionElement);
 
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
+        popup.setPopupOptions({
+            position: e.features[0].geometry.coordinates,
+            content: popupContentElement
+        });
 
-                popup.open(map);
-            });
+        popup.open(map);
+    });
     ```
     API: et **atlas. Popup-fönster** ger information fönstret förankrade till önskad placering på kartan. Det här kodstycket anger innehåll och position för popup-meny som lägger till en händelselyssnaren till den `map` kontroll, väntar på att den _musen_ att rulla över popup-fönstret. 
 

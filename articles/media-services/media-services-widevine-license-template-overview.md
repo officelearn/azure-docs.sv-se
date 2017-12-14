@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Widevine-licens mall översikt
-## <a name="overview"></a>Översikt
-Azure Media Services kan du nu konfigurera och begära Widevine-licenser. När slutanvändaren player försöker spela upp ditt Widevine skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar licensen som skickas till klienten och kan användas för att dekryptera och spela upp det angivna innehållet.
+Azure Media Services kan du konfigurera och begära Widevine-licenser. När slutanvändaren player försöker spela upp ditt Widevine skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar licensen som skickas till klienten och kan användas för att dekryptera och spela upp det angivna innehållet.
 
 Widevine-licensbegäran formateras som ett JSON-meddelande.  
 
@@ -72,7 +71,7 @@ Widevine-licensbegäran formateras som ett JSON-meddelande.
 | session_init |JSON-strukturen finns **Session-initialisering** nedan |Valfria data skickades till licens. |
 | parse_only |Booleskt värde. True eller false |Licensbegäran parsas men ingen licens har utfärdats. Dock värden formuläret licensbegäran returneras i svaret. |
 
-## <a name="content-key-specs"></a>Specifikationer för innehållsnyckeln
+## <a name="content-key-specs"></a>Viktiga specifikationer för innehåll
 Om en befintlig princip finns finns behöver du inte ange något av värdena i innehåll nyckel-specifikationen.  Den befintliga principen som är associerade med det här innehållet används för att fastställa utdata skydd, till exempel HDCP och CGMS.  Om en befintlig princip inte är registrerad med Widevine licensservern innehållsleverantören mata in värdena i licensbegäran.   
 
 Varje content_key_specs måste anges för alla spår oavsett alternativet use_policy_overrides_exclusively. 
@@ -197,5 +196,5 @@ I följande exempel visas hur du använder .NET-API: er för att konfigurera en 
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -28,14 +28,14 @@ Den här artikeln beskrivs viktiga överväganden för distribution av en Azure 
 ## <a name="azure-file-sync-terminology"></a>Terminologi för Azure filsynkronisering
 Innan du hämtar detaljer om att planera för distribution av en Azure filsynkronisering är det viktigt att du förstår termer.
 
-### <a name="storage-sync-service"></a>Storage-synkroniseringstjänsten
+### <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
 Synkroniseringstjänsten lagring är översta Azure resurs för Azure filsynkronisering. Storage-synkroniseringstjänsten resursen är en peer-till-konto lagringsresurs och på samma sätt kan distribueras till Azure-resursgrupper. En distinkta översta resurs från resursen för storage-konto krävs eftersom synkroniseringstjänsten för lagring kan skapa synkroniseringsrelationer med flera lagringskonton via flera synkroniseringsgrupper. En prenumeration kan ha flera lagring synkroniseringstjänsten resurser har distribuerats.
 
-### <a name="sync-group"></a>Synkronisera grupp
-En synkronisering grupp definierar sync-topologin för en uppsättning filer. Slutpunkter inom en synkronisering grupp hålls synkroniserade med varandra. Om du till exempel har två distinkta grupper av filer som du vill hantera med Azure filsynkronisering, skulle du skapa två synkroniseringsgrupper och Lägg till olika slutpunkter varje Sync-grupp. Storage-synkroniseringstjänsten kan vara värd för så många synkroniseringsgrupper.  
+### <a name="sync-group"></a>Synkroniseringsgrupp
+En synkronisering grupp definierar sync-topologin för en uppsättning filer. Slutpunkter inom en synkronisering grupp hålls synkroniserade med varandra. Om du till exempel har två distinkta grupper av filer som du vill hantera med Azure filsynkronisering, skulle du skapa två synkroniseringsgrupper och Lägg till olika slutpunkter varje sync-grupp. Storage-synkroniseringstjänsten kan vara värd för så många synkroniseringsgrupper.  
 
-### <a name="registered-server"></a>Registrerad Server
-Registrerad Server-objektet representerar en förtroenderelation mellan din server (eller ett kluster) och lagring-synkroniseringstjänsten. Du kan registrera så många servrar till en instans av synkroniseringstjänsten för lagring. Dock kan en server (eller kluster) registreras med endast en synkroniseringstjänsten för lagring i taget.
+### <a name="registered-server"></a>Registrerad server
+Registrerad server-objektet representerar en förtroenderelation mellan din server (eller ett kluster) och lagring-synkroniseringstjänsten. Du kan registrera så många servrar till en instans av synkroniseringstjänsten för lagring. Dock kan en server (eller kluster) registreras med endast en synkroniseringstjänsten för lagring i taget.
 
 ### <a name="azure-file-sync-agent"></a>Azure filsynkronisering agent
 Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt för Windows Server till att synkroniseras med en Azure-filresursen. Azure filsynkronisering agenten har tre delar: 
@@ -46,16 +46,22 @@ Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt f
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Serverslutpunkt
-En Serverslutpunkt representerar en specifik plats på en registrerad Server, till exempel en mapp på en server-volym eller i roten på volymen. Flera Server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer separat för varje Server-slutpunkt. Om du lägger till en plats på servern som har en befintlig uppsättning filer som en Server-slutpunkt i en grupp för synkronisering av slås filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
+En serverslutpunkt representerar en specifik plats på en registrerad server, till exempel en mapp på en server-volym.  Obs för närvarande platsen inte kan vara roten för en volym (till exempel f:\) trots att detta kommer att stödjas i en framtida preview-uppdatering. Flera server-slutpunkter kan finnas på samma volym om deras namnområden inte överlappar (till exempel F:\sync1 och F:\sync2). Du kan konfigurera molnet lagringsnivåer principer individuellt för varje serverslutpunkt. Om du lägger till en plats på servern som har en befintlig uppsättning filer som en serverslutpunkt i en grupp för synkronisering av slås filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
+
+> [!Note]  
+> En serverslutpunkt kan finnas på systemvolymen om Windows. Molnet skiktning stöds inte på systemvolymen.
 
 ### <a name="cloud-endpoint"></a>Molnslutpunkt
-En Molnslutpunkt är en Azure-filresurs som ingår i en grupp för synkronisering. Hela Azure file share synkroniseringar och en Azure-filresursen kan vara medlem i endast en slutpunkt i molnet. En Azure-filresurs kan därför vara medlem i gruppen med endast en synkronisering. Om du lägger till en Azure-filresurs som har en befintlig uppsättning filer som en Molnslutpunkt till en grupp för synkronisering av slås de befintliga filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
+En molnslutpunkt är en Azure-filresurs som ingår i en grupp för synkronisering. Hela Azure file share synkroniseringar och en Azure-filresursen kan vara medlem i endast en molnslutpunkt. En Azure-filresurs kan därför vara medlem i gruppen med endast en synkronisering. Om du lägger till en Azure-filresurs som har en befintlig uppsättning filer som en molnslutpunkt till en grupp för synkronisering av slås de befintliga filerna samman med andra filer som redan finns på andra slutpunkter i gruppen synkronisering.
 
 > [!Important]  
-> Azure filsynkronisering har stöd för att göra ändringar i Azure-filresursen direkt. Ändringar som görs på Azure-filresursen måste dock först identifieras av en Azure-filen ändras identifiering synkroniseringsjobb. Ett jobb för identifiering av ändring initieras för en Molnslutpunkt bara en gång per dygn. Mer information finns i [Azure Files vanliga frågor och](storage-files-faq.md#afs-change-detection).
+> Azure filsynkronisering har stöd för att göra ändringar i Azure-filresursen direkt. Ändringar som görs på Azure-filresursen måste dock först identifieras av en Azure-filen ändras identifiering synkroniseringsjobb. Ett jobb för identifiering av ändring initieras för en molnslutpunkt bara en gång per dygn. Mer information finns i [Azure Files vanliga frågor och](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Lagringsnivåer för moln 
 Molnet skiktning är en valfri funktion för Azure filsynkronisering som sällan används eller komma åt filer kan nivåindelas till Azure Files. När en fil är nivåer ersätter Azure filsynkronisering Filsystemfilter (StorageSync.sys) filen lokalt med en pekare eller en referenspunkt. Referenspunkten representerar en URL till filen i Azure-filer. En skiktad har ”offline” attributet i NTFS så att program från tredje part kan identifiera nivåindelade filer. När en användare öppnar en skiktad fil, återkallar Azure filsynkronisering sömlöst fildata från Azure-filer utan att användaren behöver veta att filen inte lagras lokalt på datorn. Den här funktionen kallas även hierarkiska Storage Management (HSM).
+
+> [!Important]  
+> Molnet skiktning stöds inte för server-slutpunkter på volymer för Windows-system.
 
 ## <a name="azure-file-sync-interoperability"></a>Azure filsynkronisering samverkan 
 Det här avsnittet beskriver Azure filsynkronisering samverkan med Windows Server-funktioner och roller och lösningar från tredje part.
@@ -76,18 +82,18 @@ Framtida versioner av Windows Server läggs när de blir tillgängliga. Tidigare
 ### <a name="file-system-features"></a>Filsystem: funktioner
 | Funktion | Stöd för status | Anteckningar |
 |---------|----------------|-------|
-| Åtkomstkontrollistor (ACL) | Fullt stöd | Windows ACL: er bevaras av Azure filen synkronisering och tillämpas av Windows Server på Server-slutpunkter. Windows ACL: er (ännu inte) stöds av Azure-filer om filer kan nås direkt i molnet. |
+| Åtkomstkontrollistor (ACL) | Fullt stöd | Windows ACL: er bevaras av Azure filen synkronisering och tillämpas av Windows Server på server-slutpunkter. Windows ACL: er (ännu inte) stöds av Azure-filer om filer kan nås direkt i molnet. |
 | Hårda länkar | Hoppades över | |
 | Symboliska länkar | Hoppades över | |
-| Monteringspunkter | Delvis | Monteringspunkter kan vara roten för en slutpunkt för Server, men de hoppas över som ingår i en Server-slutpunkt-namnområdet. |
-| Vägkorsningar | Hoppades över | |
+| Monteringspunkter | Delvis | Monteringspunkter kan vara roten för en serverslutpunkt för, men de hoppas över som ingår i en serverslutpunkt-namnområdet. |
+| Vägkorsningar | Hoppades över | Till exempel Distributed File System DfrsrPrivate och DFSRoots mappar. |
 | Referenspunkter | Hoppades över | |
 | NTFS-komprimering | Fullt stöd | |
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men de synkroniseras till molnet som en fullständig fil. Ändrar filens innehåll i molnet (eller på en annan server), är filen inte längre sparse när ändringen har hämtats. |
 | Alternativa dataströmmar (ADS) | Bevaras, men inte synkroniserats | |
 
 > [!Note]  
-> NTFS-volymer stöds.
+> NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
 
 ### <a name="failover-clustering"></a>Failover-kluster
 Windows Server Failover Clustering stöds av Azure filsynkronisering för alternativet ”filserver för allmänt bruk” distribution. Redundanskluster stöds inte på ”skalbar filserver för programdata” (SOFS) eller på klusterdelade volymer (CSV).
@@ -97,6 +103,24 @@ Windows Server Failover Clustering stöds av Azure filsynkronisering för altern
 
 ### <a name="data-deduplication"></a>Datadeduplicering
 För volymer som inte har molnet skiktning aktiverade stöder Azure filsynkronisering Windows Server-Datadeduplicering är aktiverat på volymen. Vi stöder för närvarande inte samverkan mellan Azure filsynkronisering med moln skiktning aktiverad och Datadeduplicering.
+
+### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
+Azure filsynkronisering stöder interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R) från och med [Azure filsynkronisering agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+
+**DFS-namnområden (DFS-N)**: Azure filsynkronisering stöds fullt ut på DFS-N-servrar. Du kan installera filsynkronisering för Azure-agenten på en eller flera medlemmar av DFS-N att synkronisera data mellan server-slutpunkter och moln-slutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+ 
+**DFS Replication (DFS-R)**: eftersom DFS-R eller Azure filsynkronisering båda lösningarna för replikering, i de flesta fall, rekommenderar vi att ersätta DFS-R med Azure filsynkronisering. Det finns dock flera scenarier där du vill använda DFS-R och Azure filsynkronisering tillsammans:
+
+- Du migrerar från en DFS-R-distribution till en Azure-filen Sync-distribution. Mer information finns i [migrera en distribution av DFS Replication (DFS-R) till Azure filsynkronisering](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- Alla lokala servrar som behöver en kopia av filen data kan anslutas direkt till internet.
+- Grenen servrar konsolidera data på en enda navserver som du vill använda Azure File Sync.
+
+För Azure filsynkronisering och DFS-R ska fungera sida-vid-sida:
+
+1. Azure filsynkronisering molnet lagringsnivåer måste inaktiveras på volymer med DFS-R replikerade mappar.
+2. Server-slutpunkter ska inte konfigureras på mappar i DFS-R skrivskyddad-replikering.
+
+Mer information finns i [översikt över DFS Replication](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="antivirus-solutions"></a>Antivirusprogram lösningar
 Eftersom antivirus fungerar genom att skanna filer för känd skadlig kod, kan ett antivirusprogram orsaka återkallar nivåindelade filer. Eftersom nivåindelade filer har ”offline” attributet, rekommenderar vi att du samråd med programleverantören att lära dig hur du konfigurerar sitt lösning för att hoppa över läsa offlinefiler. 

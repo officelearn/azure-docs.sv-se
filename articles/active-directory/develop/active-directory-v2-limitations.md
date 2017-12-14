@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Bör jag använda v2.0-slutpunkten?
 När du skapar program som integreras med Azure Active Directory, måste du bestämma om v2.0-slutpunkten och verifieringsprotokollen uppfyller dina behov. Azure Active Directorys ursprungliga slutpunkt stöds fortfarande helt och på vissa sätt, är fler funktioner än version 2.0. Dock v2.0-slutpunkten [introducerar betydande fördelar](active-directory-v2-compare.md) för utvecklare.
@@ -110,7 +110,7 @@ V2.0-slutpunkten har inte stöd för SAML eller WS-Federation; den stöder endas
 * V2.0-slutpunkten stöder inte utfärdande roll eller grupp anspråk i ID-token.
 * Den [OAuth 2.0 resurs ägare lösenord autentiseringsuppgifter Grant](https://tools.ietf.org/html/rfc6749#section-4.3) stöds inte av v2.0-slutpunkten.
 
-Kodspråk stöder v2.0-slutpunkten inte någon form av SAML- eller WS-Federation-protokoll.
+V2.0-slutpunkten stöder dessutom inte någon form av SAML- eller WS-Federation-protokoll.
 
 För att bättre förstå omfånget för protokollet funktioner som stöds i v2.0-slutpunkten kan du läsa igenom våra [referens för OpenID Connect och OAuth 2.0-protokollet](active-directory-v2-protocols.md).
 

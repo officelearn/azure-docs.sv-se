@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Arbeta med resurser i den hanterade resursgruppen för Azure hanterade program
 
@@ -95,6 +95,5 @@ Principtilldelningens visas på portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program, se [hanteras Programöversikt](overview.md).
+* En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Exempelprojekt, se [exempelprojekten för Azure hanterade program](sample-projects.md).
-* Information om hur du publicerar hanterade program på Azure Marketplace finns [hanterade program i Marketplace](publish-marketplace-app.md).

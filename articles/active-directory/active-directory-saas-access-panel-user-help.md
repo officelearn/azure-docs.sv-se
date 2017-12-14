@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Behöver du hjälp med Mina appar portal?
 
@@ -35,7 +35,7 @@ Allmänna problem med att kontrollera:
 
 - Kontrollera att lösenordet inte har upphört att gälla eller har glömt. Kontrollera [här](active-directory-passwords-update-your-own-password.md) för mer information om hur du uppdaterar lösenordet.
 
-- Kontrollera om din kontaktinformation för autentisering är uppdaterade och inte blockerar åtkomsten. Kontrollera [här](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) för mer information om hur du konfigurerar autentisering-information.
+- Kontrollera om din kontaktinformation för autentisering är uppdaterade och inte blockerar åtkomsten. Kontrollera [här](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) för mer information om hur du konfigurerar autentisering-information.
 
 - Prova att rensa cookies i webbläsaren och försök sedan logga in igen.
 

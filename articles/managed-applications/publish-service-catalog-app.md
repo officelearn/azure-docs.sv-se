@@ -1,6 +1,6 @@
 ---
 title: "Skapa och publicera ett program för katalogen som hanteras av Azure-tjänst | Microsoft Docs"
-description: "Visar hur du skapar en Azure hanterade program som är avsedd för medlemmar i din organisation."
+description: "Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation."
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicera ett hanterat program för internt bruk
 
@@ -32,7 +32,7 @@ För den här artikeln innehåller det hanterade programmet bara ett lagringskon
 
 ## <a name="create-the-resource-template"></a>Skapa resursmall för
 
-Varje definition för hanterade program innehåller en fil med namnet **mainTemplate.json**. I det definierar du Azure-resurser för att etablera. Mallen är inte annorlunda än en vanlig Resource Manager-mall.
+Varje definition för hanterade program innehåller en fil med namnet **mainTemplate.json**. I det definierar du Azure-resurser för att etablera. Mallen skiljer sig inte från en vanlig Resource Manager-mall.
 
 Skapa en fil med namnet **mainTemplate.json**. Namnet är skiftlägeskänsligt.
 
@@ -83,7 +83,7 @@ Spara filen mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Skapa gränssnittsdefinition användare
 
-Azure-portalen använder den **createUiDefinition.json** filen för att generera användargränssnittet för användare som skapar det hanterade programmet. Du definierar hur användare ange indata för varje parameter. Du kan använda alternativ som en listrutan, textrutan, lösenord och andra indata verktyg. Information om hur du skapar en UI-definitionsfilen för ett hanterat program finns [Kom igång med CreateUiDefinition](create-uidefinition-overview.md).
+Azure-portalen använder den **createUiDefinition.json** filen för att generera användargränssnittet för användare som skapar det hanterade programmet. Du definierar hur användare ange indata för varje parameter. Du kan använda alternativ som en listrutan, textrutan, lösenord och andra indata verktyg. Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.
 
 Skapa en fil med namnet **createUiDefinition.json**. Namnet är skiftlägeskänsligt.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Skapa definition för hanterade program
+## <a name="create-the-managed-application-definition"></a>Skapa definitionen för det hanterade programmet
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Skapa ett Azure Active Directory-användargrupp eller ett program
 
@@ -176,13 +176,13 @@ Du måste objekt-ID i gruppen du använder för att hantera resurser.
 
 ### <a name="get-the-role-definition-id"></a>Hämta rolldefinitions-ID:
 
-Sedan måste roll definition-ID för den inbyggda RBAC-rollen som du vill bevilja åtkomst till användare, grupp eller programmet. Normalt använder du rollen ägare eller deltagare eller läsare. Följande kommando visar hur du hämtar Definitions-ID för rollen för rollen som ägare:
+Sedan måste roll definition-ID för den inbyggda RBAC-rollen som du vill bevilja åtkomst till användare, grupp eller programmet. Normalt använder du rollen ägare eller deltagare eller läsare. Följande kommando visar hur du hämtar rolldefinitions-ID för ägarrollen:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Skapa definition för hanterade program
+### <a name="create-the-managed-application-definition"></a>Skapa definitionen för det hanterade programmet
 
 Om du inte redan har en resursgrupp för att lagra dina definition för hanterade program ska du skapa en nu:
 
@@ -190,7 +190,7 @@ Om du inte redan har en resursgrupp för att lagra dina definition för hanterad
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Nu skapa resurs för hanterade program-definition.
+Skapa nu definitionsresursen för det hanterade programmet.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ När distributionen är klar finns det hanterade programmet i en resursgrupp med
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program, se [hanteras Programöversikt](overview.md).
+* En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Till exempel projekt, se [exempelprojekten för Azure hanterade program](sample-projects.md).
-* Information om hur du publicerar hanterade program på Azure Marketplace finns [Azure hanterade program i Marketplace](publish-marketplace-app.md).
-* Information om hur du skapar en UI-definitionsfilen för ett hanterat program finns [Kom igång med CreateUiDefinition](create-uidefinition-overview.md).
+* Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.

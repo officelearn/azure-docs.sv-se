@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -91,6 +91,8 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
     > [!NOTE]
     > Du kan bara komma åt klustrets huvudnoder via SSH från en klientdator. När du är ansluten, du kan sedan komma åt arbetsnoderna med hjälp av SSH från en headnode.
 
+Mer information finns i [portar som används av Hadoop-tjänster på HDInsight](hdinsight-hadoop-port-settings-for-services.md) dokumentet.
+
 ## <a name="file-locations"></a>Sökvägar
 
 Hadoop-relaterade filer kan hittas på klusternoder på `/usr/hdp`. Den här katalogen innehåller följande undermappar:
@@ -108,9 +110,6 @@ HDInsight använder antingen blobbar i Azure Storage eller Azure Data Lake Store
 
 * Billig långsiktig lagring
 * Åtkomst från externa tjänster, till exempel webbplatser, filen överför/hämta verktyg, SDK: er med olika språk och webbläsare
-
-> [!WARNING]
-> HDInsight stöder endast __allmänna__ Azure Storage-konton. För närvarande stöder inte den __Blob storage__ kontotyp.
 
 Ett Azure Storage-konto kan innehålla upp till 4,75 TB, även om enskilda blobbar (eller filer från ett HDInsight-perspektiv) kan du bara gå upp till 195 GB. Azure Data Lake Store kan växa dynamiskt för att rymma BILJONTALS filer med enskilda filer som är större än en petabyte. Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [Datasjölager](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ Olika klustertyper påverkas av skalning enligt följande:
 
         1. Öppna **https://CLUSTERNAME.azurehdinsight.net/stormui** i webbläsaren, där KLUSTERNAMN är namnet på Storm-kluster. Om du uppmanas ange HDInsight-kluster administratör (admin) namnet och lösenordet du angav när du skapar klustret.
         2. Välj den topologi som du inte vill att balansera och välj sedan den **balansera** knappen. Ange fördröjningen innan balansera åtgärden utförs.
+
+* **Kafka**: du bör balansera partition repliker efter skalning åtgärder. Mer information finns i [hög tillgänglighet för data med Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) dokumentet.
 
 Specifik information om att skala HDInsight-kluster, se:
 

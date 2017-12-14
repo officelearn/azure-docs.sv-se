@@ -41,21 +41,24 @@ Lär dig att:
 
 
 ## <a name="cloud-init"></a>molnet initiering
-[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
+[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`är textfiler i base64-kodade.
 
-Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan definiera du en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
+Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
 
-Vi arbetar med våra partner att hämta molnet initiering ingår och arbeta med bilder som skickas till Azure. I följande tabell beskrivs aktuella molnet init tillgängligheten på Azure-plattformen bilder:
+ Vi arbetar aktivt med våra påtecknade Linux distro partners för att molnet init aktiverat bilder som finns i Azure marketplace. Dessa avbildningar gör dina molntjänster init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och Virtuella skala uppsättningar (VMSS). I följande tabell beskrivs aktuella molnet init aktiverat bilder tillgängligheten på Azure-plattformen:
 
-| Alias | Utgivare | Erbjudande | SKU | Version |
+| Utgivare | Erbjudande | SKU | Version | redo för molnet initiering
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |senaste |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |senaste |
-| CoreOS |CoreOS |CoreOS |Stable |senaste |
+|Canonical |UbuntuServer |16.04 LTS |senaste |ja | 
+|Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
+|CoreOS |CoreOS |Stable |senaste |ja |
+|OpenLogic |CentOS |7 CI |senaste |förhandsgranskning |
+|Redhat |RHEL |7 RÅDATA CI |senaste |förhandsgranskning |
 
-Lär dig att:
+Lär dig mer information om molnet initiering på Azure:
 
-- [Anpassa en Linux VM med molnet init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Molnet init stöd för Linux virtuella datorer i Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Försök en självstudiekurs om automatisk VM-konfigurationen med hjälp av molnet init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC

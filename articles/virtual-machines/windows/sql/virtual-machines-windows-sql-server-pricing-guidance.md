@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure virtuella datorer
 
@@ -102,8 +102,11 @@ Om du vill skapa en SQL Server 2016 virtuella Azure-datorn med någon av dessa b
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 Standard-Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Berätta för oss inom 10 dagar hur många SQL Server-licenser som du ska använda i Azure. Länkar till föregående bilder har instruktioner om hur du gör detta.
+
+> [!NOTE]
+> Det går inte att ändra så att licensieringsmodellen för en SQL Server VM som betalas per minut ska använda din egen licens. I så fall måste du skapa en ny virtuell dator med BYOL och migrera dina databaser till den nya virtuella datorn. 
 
 ## <a name="avoid-unnecessary-costs"></a>Undvika onödiga kostnader
 
@@ -115,7 +118,7 @@ Licensiering kostnaden för SQL Server är direkt relaterat till antal kärnor. 
 
 Det finns nya storlekar för datorer som fungerar bra med vissa typer av SQL Server-arbetsbelastningar. Dessa datorer storlekar upprätthålla hög minne, lagring och i/o-bandbredd, men de har ett lägre antal virtualiserade kärnor. Tänk dig följande exempel:
 
-| VM-storlek | vCPUs | Minne | Maximalt antal diskar | Högsta antal i/o-genomflöde | SQL-licensieringskostnaderna | Totalkostnader (beräkning + licensing) |
+| Storlek på virtuell dator | vCPUs | Minne | Maximalt antal diskar | Högsta antal i/o-genomflöde | SQL-licensieringskostnaderna | Totalkostnader (beräkning + licensing) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51,200 IOPS eller 768 MB/s | | |
 | **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51,200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |

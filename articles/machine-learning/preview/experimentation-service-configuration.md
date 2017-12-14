@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Konfigurera Azure Machine Learning experiment Service
 
@@ -198,7 +198,7 @@ Fjärråtkomst VM ska uppfylla följande krav:
 Du kan använda följande kommando för att skapa båda beräkning mål definitionen och kör konfigurationen för fjärråtkomst Docker-baserade körningar.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 När du konfigurerar beräknings-mål, kan du använda följande kommando för att köra skriptet.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 Docker konstruktionen processen för fjärranslutna virtuella datorer är exakt detsamma som processen för lokala Docker körs så du bör få en liknande körning upplevelse.
 
 >[!TIP]
->Om du vill undvika fördröjning som introducerades av Docker-avbildning för din första gången du kör använda du följande kommando för att förbereda mål beräkning innan du kör skriptet. AZ ml experiment förbereda - c<remotedocker>
+>Om du vill undvika fördröjning som introducerades av Docker-avbildning för din första gången du kör använda du följande kommando för att förbereda mål beräkning innan du kör skriptet. AZ ml experiment förbereda - c remotedocker
 
 
 _**Översikt över fjärråtkomst vm-körning för Python-skriptet:**_
@@ -221,12 +221,12 @@ _**Översikt över fjärråtkomst vm-körning för Python-skriptet:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Köra ett skript på ett HDInsight-kluster
 HDInsight är en populär plattform för stordata stöder Apache Spark. Arbetsstationen kan experiment på stordata med HDInsight Spark-kluster. 
 
->! [OBS] HDInsight-klustret måste använda Azure Blob som primär lagring. Med Azure Data Lake lagring stöds inte ännu.
+>[Obs!] HDInsight-klustret måste använda Azure Blob som primär lagring. Användning av Azure Data Lake-lagring stöds inte ännu.
 
 Du kan skapa ett beräknings-mål och kör konfigurationen för ett HDInsight Spark-kluster med hjälp av följande kommando:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Översikt över HDInsight-baserade körning för ett PySpark-skript**_
 ## <a name="running-a-script-on-gpu"></a>Köra ett skript på GPU
 Du kan följa riktlinjerna i den här artikeln om du vill köra skript på GPU:[hur du använder GPU i Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Med hjälp av SSH-nyckel för autentisering för att skapa och använda beräknings-mål
+Azure Machine Learning arbetsstationen kan du skapa och använda beräkning mål med hjälp av SSH-nyckeln-baserad autentisering förutom användarnamn/lösenord-baserade system. Du kan använda den här funktionen när du använder remotedocker eller kluster som beräknings-mål. När du använder det här schemat arbetsstationen skapar ett offentligt/privat nyckelpar och rapporterar tillbaka den offentliga nyckeln. Du lägger till den offentliga nyckeln till ~/.ssh/authorized_keys filer för ditt användarnamn. Azure Machine Learning arbetsstationen använder sedan ssh key-baserad autentisering för åtkomst och körs på den här beräknings-målet. Eftersom den privata nyckeln för beräknings-mål har sparats i KeyStore för arbetsytan kan kan andra användare i arbetsytan använda beräknings-målet på samma sätt genom att ange användarnamnet tillhandahålls för att skapa beräknings-målet.  
+
+Du kan följa stegen nedan för att använda den här funktionen. 
+
+- Skapa en beräknings-målet med något av följande kommandon.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+eller
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Lägg till den offentliga nyckeln som genererats av Workbench till ~/.ssh/authorized_keys-filen på målet bifogade beräkning. 
+
+[!IMPORTANT] Du måste logga in på målet beräkning med samma användarnamn som du använde för att skapa beräknings-målet. 
+
+- Nu kan du förbereda och använder beräkning målet med SSH-nyckel för autentisering.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa och installera Azure Machine Learning](quickstart-installation.md)

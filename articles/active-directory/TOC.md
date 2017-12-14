@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Felsöka](active-directory-application-proxy-troubleshoot.md)
-#### Använd den klassiska portalen
-##### [Ladda ned anslutningsappar](application-proxy-enable-classic-portal.md)
-##### [Publicera appar](active-directory-application-proxy-publish.md)
-##### [Använd anslutningsappar](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Villkorlig åtkomst](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Hantera företagets appar
 #### [Tilldela användare](active-directory-coreapps-assign-user-azure-portal.md)
@@ -224,7 +219,6 @@
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
-#### [Åtkomst med självbetjäning](active-directory-self-service-application-access.md)
 #### [Åtkomst med enkel inloggning](active-directory-appssoaccess-whatis.md)
 #### [Certifikat för enkel inloggning](active-directory-sso-certs.md)
 #### [Klientrestriktioner](active-directory-tenant-restrictions.md)
@@ -286,7 +280,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### Uppgifter

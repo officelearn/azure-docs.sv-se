@@ -1,26 +1,19 @@
 ---
-title: "Distribuera behållare med Helm i Kubernetes i Azure | Microsoft Docs"
+title: "Distribuera behållare med Helm i Kubernetes på Azure"
 description: "Verktyget Helm paketering ska distribuera behållare på ett kluster med Kubernetes på AKS"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: de52c2aad0f74b59970234872dfa3e4136929915
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 002c4376c91f4a7176cc9b00a4d6ba275f87dadb
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Använda Helm med Azure Container Service (AKS)
 
@@ -57,16 +50,16 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Konfigurera Helm
 
-Den [helm init](https://docs.helm.sh/helm/#helm-init) kommandot används för att installera Helm komponenter i ett Kubernetes kluster och ge klientsidan konfigurationer. Helm är redan installerat i AKS kluster, så klientsidans konfiguration krävs. Kör följande kommando för att konfigurera Helm-klienten.
+Den [helm init](https://docs.helm.sh/helm/#helm-init) kommandot används för att installera Helm komponenter i ett Kubernetes kluster och ge klientsidan konfigurationer. Kör följande kommando för att installera Helm på AKS klustret och konfigurera Helm-klienten.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Resultat:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
+$HELM_HOME has been configured at /Users/user/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```

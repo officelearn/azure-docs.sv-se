@@ -1,27 +1,19 @@
 ---
-title: "Självstudiekurs för Azure Container Service - förbereda ACR | Microsoft Docs"
+title: "Självstudiekurs för Azure Container Service - förbereda ACR"
 description: "Självstudiekurs för Azure Container Service - förbereda ACR"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4092bfe77f09c24d9f82138bcf361da4e57a9508
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
 
@@ -62,7 +54,7 @@ I resten av den här kursen använder vi `<acrname>` som platshållare för regi
 
 ## <a name="container-registry-login"></a>Behållaren registret inloggning
 
-Använd den [az acr inloggning](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
+Använd den [az acr inloggning](https://docs.microsoft.com/cli/azure/acr#az_acr_login) kommando för att logga in till ACR-instans. Du måste ange unika namnet på behållaren registret när den skapades.
 
 ```azurecli
 az acr login --name <acrName>

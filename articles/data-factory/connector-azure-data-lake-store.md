@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 8ca11d92cd147b18b7b4fa629c0eaf84703a69ab
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Store med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -232,7 +232,7 @@ Om du vill kopiera data från Azure Data Lake Store, anger du källa i kopiering
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store som mottagare
 
-Om du vill kopiera data till Azure Blob, anger du sink i kopieringsaktiviteten till **AzureDataLakeStoreSink**. Följande egenskaper stöds i den **sink** avsnitt:
+Om du vill kopiera data till Azure Data Lake Store, anger du sink i kopieringsaktiviteten till **AzureDataLakeStoreSink**. Följande egenskaper stöds i den **sink** avsnitt:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |

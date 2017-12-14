@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Kontrollen Azure Content Delivery Network cachelagring av frågesträngar med frågesträngar
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Tre frågan sträng lägen är tillgängliga:
    
    ![CDN-profil-slutpunkter](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Under inställningar, klickar du på **Cache**.
+2. I det vänstra fönstret under inställningar klickar du på **cachelagring regler**.
    
-    ![CDN-profilen Cache-knappen](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Knappen CDN cachelagring regler](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. I den **cachelagring av frågesträngar** listan, Välj ett sträng-frågeläge och klicka sedan på **spara**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![CDN-frågesträng cachelagringsalternativ](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Eftersom det tar tid för registreringen ska spridas via CDN kanske cache sträng ändringarna inte visas omedelbart. För **Azure CDN från Akamai**-profiler, slutförs spridningen vanligtvis inom en minut. För **Azure CDN från Verizon**-profiler, slutförs spridningen vanligtvis inom 90 minuter, men i vissa fall kan det ta längre tid.

@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funktioner, inklusive användning av Azure filsynkronisering med Azure-filer. Om du inte hittar svar på din fråga kan kontakta du oss via följande kanaler (i växande ordning):
 
 1. Avsnittet kommentarer i den här artikeln.
-2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
@@ -147,6 +147,9 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Hur är *ledigt utrymme på volymen* tolkas när jag har flera server-slutpunkter på en volym?**  
+    När det finns mer än en serverslutpunkt på en volym är är effektiva volym ledigt utrymme tröskelvärdet den största ledigt utrymme på volymen anges i valfri serverslutpunkt på den volymen. Filer kommer att nivåer enligt deras användningsmönster oavsett vilken serverslutpunkt som de tillhör. Till exempel om du har två server-slutpunkter på en volym, slutpunkt 1 och Endpoint2, där slutpunkt 1 har ett tröskelvärde för ledigt utrymme av volymen 25% och Endpoint2 har ett tröskelvärde för ledigt utrymme en volym på 50% kommer ledigt utrymme tröskeln för både server-slutpunkter att 50%.
 
 * <a id="afs-files-excluded"></a>**Vilka filer och mappar undantas automatiskt av Azure filen synkronisering?**  
     Som standard omfattar Azure filsynkronisering inte följande filer:

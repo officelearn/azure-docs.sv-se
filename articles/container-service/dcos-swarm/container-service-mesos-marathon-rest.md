@@ -1,29 +1,22 @@
 ---
-title: Hantera Azure DC/OS-kluster med Marathon REST API | Microsoft Docs
+title: Hantera Azure DC/OS-kluster med Marathon REST API
 description: "Distribuera behållare till ett Azure Container Service DC/OS-kluster med Marathon REST API."
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
-ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-hantering av behållare via Marathon REST API
+
 DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar. Även om ramverk är tillgängliga för många populära arbetsbelastningar, hjälper det här dokumentet dig att börja skapa och skala distribution i behållare med Marathon REST API. 
 
 ## <a name="prerequisites"></a>Krav

@@ -1,28 +1,22 @@
 ---
-title: "Aktivera åtkomst till Azure DC/OS behållaren app | Microsoft Docs"
+title: "Aktivera åtkomst till Azure DC/OS behållaren app"
 description: "Så här aktiverar du offentlig åtkomst till DC/OS-behållare i Azure Container Service."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, behållare, Micro-tjänster, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Aktivera offentlig åtkomst till ett Azure Container Service-program
+
 Alla DC/OS-behållare i ACS [offentlig agent poolen](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) automatiskt exponerad mot internet. Som standard portarna **80**, **443**, **8080** öppnas, och (offentlig)-behållare som lyssnar på de portarna som är tillgängliga. Den här artikeln visar hur du öppnar flera portar för dina program i Azure Container Service.
 
 ## <a name="open-a-port-portal"></a>Öppna en port (portal)
@@ -43,7 +37,7 @@ Vi måste först öppna porten som vi vill.
    | Namn |Ett beskrivande namn på avsökningen. |
    | Port |Porten för att testa behållaren. |
    | Sökväg |(När i HTTP-läge) Relativa webbplats sökvägen till avsökning. HTTPS stöds inte. |
-   | intervall |Hur lång tid mellan avsökningen försök i sekunder. |
+   | Intervall |Hur lång tid mellan avsökningen försök i sekunder. |
    | Tröskelvärde för ohälsosamt värde |Antal på varandra följande avsökningen försöker innan behållaren feltillstånd. |
 6. Tillbaka på egenskaperna för agentens belastningsutjämnare, klickar du på **belastningsutjämningsregler** och sedan **Lägg till**.
    

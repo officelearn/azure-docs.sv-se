@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Felsöka Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Felsöka Azure Backup Agent
+          href: backup-azure-mars-troubleshoot.md
 - name: Referens
   items:
     - name: Azure PowerShell

@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Anslut en virtuell SQL Server-dator på Azure (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Klassisk](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ansluta till en SQL Server-dator på Azure
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet beskriver hur du ansluter till din SQL Server-instans som körs på en virtuell Azure-dator. Det täcker vissa [allmänna anslutningsproblem scenarier](#connection-scenarios) och ger [beskrivs stegen för att konfigurera SQL Server-anslutningen i en Azure VM](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+Det här avsnittet beskriver hur du ansluter till din SQL Server-instans som körs på en virtuell Azure-dator. Det täcker vissa [allmänna anslutningsproblem scenarier](#connection-scenarios) och ger [steg i portalen för att ändra inställningar för](#change). Om du behöver felsöka eller Konfigurera anslutning utanför portalen, finns det [manuell konfiguration](#manual) i slutet av det här avsnittet. 
 
 Om du i stället måste en fullständig genomgång av både etablering och anslutningen, se [etablering av en SQL Server-dator på Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -132,6 +125,23 @@ Därefter aktiverar du TCP/IP-protokollet med **SQL Server Configuration Manager
 Följande steg visar hur du skapar en valfri DNS-etikett för din virtuella Azure-datorn och ansluter sedan med SQL Server Management Studio (SSMS).
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a>Manuell konfiguration och felsökning
+
+Även om portalen innehåller alternativ för att automatiskt konfigurera anslutningen, är det bra att veta hur du konfigurerar anslutningen manuellt. Förstå kraven kan också underlätta felsökningen.
+
+I följande tabell visas kraven för att ansluta till SQL Server som körs i en Azure VM.
+
+| Krav | Beskrivning |
+|---|---|
+| [Aktivera läget för SQL Server-autentisering](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server-autentisering behövs för att fjärransluta till den virtuella datorn om du har konfigurerat Active Directory på ett virtuellt nätverk. |
+| [Skapa en SQL-inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Om du använder SQL-autentisering, måste en SQL-inloggning med ett användarnamn och lösenord som också har behörighet till måldatabasen. |
+| [Aktivera TCP/IP-protokoll](#manualTCP) | SQL Server måste tillåta anslutningar via TCP. |
+| [Aktivera brandväggsregel för SQL Server-porten](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Brandväggen på den virtuella datorn måste tillåta inkommande trafik på SQL Server-porten (standard 1433). |
+| [Skapa en grupp för nätverkssäkerhetsregeln för TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | Du måste tillåta att den virtuella datorn tar emot trafik på SQL Server-porten (standard 1433) om du vill ansluta via internet. Lokala och virtuella nätverk – endast anslutningar kräver inte detta. Det här är den enda steg som krävs i Azure-portalen. |
+
+> [!TIP]
+> Stegen i tabellen ovan är klar för dig när du konfigurerar anslutningen i portalen. Bara använda de här stegen för att bekräfta konfigurationen eller installera anslutningen manuellt för SQL Server.
 
 ## <a name="next-steps"></a>Nästa steg
 

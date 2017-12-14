@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 98e1d09cbf638032fe1b5b9dcf19332f9158d7a7
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: ec4342a6c4cfab3be890b50e761f1ed5fc148c1d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory reporting audit API-exempel
 Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
@@ -60,7 +60,7 @@ Appen Auth fungerar inte om din klient är i EU-region. Använd autentisering av
     if ($oauth.access_token -ne $null) {   
         $i=0
         $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago
+        $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=activityDate gt ' + $7daysago
 
         # loop through each query page (1 through n)
         Do{

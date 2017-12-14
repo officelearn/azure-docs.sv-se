@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 800199b3d1d91d700d26f988a4d49713028de1ce
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: b7103103201563c6878095cf31cfcdf2938a9c7f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Konfigurera komplexitetskrav för lösenord
 
 > [!NOTE]
-> **Den här funktionen är i förhandsgranskningen.**  Kontakta [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) ha din testklienten aktiverad med den här funktionen.
+> **Den här funktionen är i förhandsgranskningen.**  Kontakta [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) ha din testklienten aktiverad med den här funktionen.  Testa detta inte på klienter för produktion.
 
 Azure Active Directory B2C (Azure AD B2C) stöder ändring av komplexitetskrav för lösenord som tillhandahålls av en slutanvändare när du skapar ett konto.  Som standard använder Azure AD B2C `Strong` lösenord.  Azure AD B2C stöder även konfigurationsalternativ för att styra komplexitet för lösenord som kunder kan använda.
 
@@ -47,7 +47,7 @@ Här följer typerna av principer där lösenordskomplexitet kan konfigureras:
 1. Öppna **lösenordskomplexitet**.
 1. Ändra lösenordskomplexitet för den här principen ska **enkel**, **starka**, eller **anpassad**.
 
-### <a name="comparison-chart"></a>Adressutrymmet
+### <a name="comparison-chart"></a>Jämförelsediagram
 
 | Komplexitet | Beskrivning |
 | --- | --- |

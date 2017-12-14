@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -36,22 +36,20 @@ Azure Multi-Factor Authentication innehåller flera rapporter som kan användas 
 
 ## <a name="view-reports"></a>Visa rapporter
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Välj Active Directory till vänster.
-3. Gör något av följande två alternativ, beroende på om du använder Autentiseringsleverantörer:
-   * **Alternativ 1**: Klicka på fliken Flerfunktionsautentiseringsleverantörer. Välj din MFA-leverantör och klicka på den **hantera** längst ned.
-   * **Alternativ 2**: Välj din katalog och gå till den **konfigurera** fliken. Välj **Hantera tjänstinställningar** i avsnittet för multifaktorautentisering. Klicka på Gå till portal-länken längst ned på sidan för MFA inställningar.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Till vänster, Välj **Azure Active Directory** > **användare och grupper** > **alla användare** > **Multi-Factor Autentisering**.
+3. Under **multifaktorautentisering**väljer **tjänstinställningar**. Längst ned under **hantera avancerade inställningar och visa rapporter**väljer **gå till portalen**.
 4. Välj typ av rapport som du vill använda från i Azure Multi-Factor Authentication-hanteringsportalen på **visa en rapport** avsnitt i det vänstra navigeringsfönstret.
 
 <center>![Moln](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>PowerShell-rapportering
 
-Identifiera användare som har registrerats för MFA med hjälp av Powershell som följer.
+Identifiera användare som har registrerats för MFA med hjälp av PowerShell som följer.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identifiera användare som inte har registrerats för MFA med hjälp av Powershell som följer.
+Identifiera användare som inte har registrerats för MFA med hjälp av PowerShell som följer.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

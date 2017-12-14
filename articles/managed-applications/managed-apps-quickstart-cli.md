@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Skapa och distribuera Azure-hanterat program med Azure CLI
 
@@ -121,5 +121,4 @@ När distributionen har slutförts visas det hanterade programmet som skapats i 
 
 * En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Exempel på filer finns i [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) (Exempel på hanterade program).
-* Mer information om hur du publicerar program på Azure Marketplace finns i [Create marketplace application](publish-marketplace-app.md) (Skapa marknadsplatsprogram).
 * Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.

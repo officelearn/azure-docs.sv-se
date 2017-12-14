@@ -3,7 +3,7 @@ title: "Använda JSON-formaterad taggar för att schemalägga tillstånd för vi
 description: "Den här artikeln visar hur du använder JSON strängar i taggar för att automatisera schemaläggningen av VM-start och stopp."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure Automation-scenario: med JSON-formaterad taggar för att skapa ett schema för Virtuella Azure-start och stopp
 Kunder vill ofta schemalägga start och stopp av virtuella datorer för att minska kostnaderna för prenumerationen eller stöder affärsmässiga och tekniska krav.

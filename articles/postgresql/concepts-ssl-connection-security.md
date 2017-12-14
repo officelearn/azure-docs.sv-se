@@ -10,14 +10,14 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Konfigurera SSL-anslutning i Azure-databas för PostgreSQL
-Azure-databas för PostgreSQL föredrar ansluta ditt klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Framtvinga SSL-anslutningar mellan databasservern och ditt klientprogram hjälper dig att skydda mot attacker som ”man i mitten” genom att kryptera dataströmmen mellan servern och ditt program.
+Azure-databas för PostgreSQL föredrar ansluta ditt klientprogram till PostgreSQL-tjänsten med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
 
 Som standard konfigureras tjänsten PostgreSQL-databas för att kräva SSL-anslutning. Du kan också kan du inaktivera att kräva SSL för att ansluta till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning. 
 
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Ansluter till Azure-databas för PostgreSQL med SSL-certifikat-autentisering
 Nu när du har har avkodas certifikatet, kan du nu ansluta till databasservern på ett säkert sätt via SSL. Om du vill tillåta serververifiering certifikat måste certifikatet placeras i filen ~/.postgresql/root.crt i användarens hemkatalog. (För Microsoft Windows filen heter % APPDATA%\postgresql\root.crt.). Följande innehåller instruktioner för att ansluta till Azure-databas för PostgreSQL.
-
-> [!NOTE]
-> För närvarande finns ett känt problem om du använder ”sslmode = Kontrollera fullständig” i din anslutning till tjänsten anslutningen misslyckas med följande fel: _servercertifikat för ”&lt;region&gt;. Control.Database.Windows.NET ”(och 7 namn) inte matchar värdnamnet”&lt;servername&gt;. postgres.database.azure.com ”._
-> Om ”sslmode = Kontrollera fullständig” är krävs, Använd Namngivningskonventionen för servrar  **&lt;servername&gt;. database.windows.net** som värdnamn i anslutningssträngen. Vi planerar att ta bort den här begränsningen i framtiden. Anslutningar med andra [SSL lägen](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) ska fortsätta att använda önskade värden namngivningskonvention  **&lt;servername&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Med hjälp av kommandoradsverktyget psql
 I följande exempel visas hur för att ansluta till servern med hjälp av kommandoradsverktyget psql PostgreSQL. Använd den `root.crt` fil som har skapats och `sslmode=verify-ca` eller `sslmode=verify-full` alternativet.

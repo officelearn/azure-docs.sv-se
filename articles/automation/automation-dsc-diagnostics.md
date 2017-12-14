@@ -3,7 +3,7 @@ title: Vidarebefordra Azure Automation DSC rapporterar data till OMS Log Analyti
 description: "Den här artikeln visar hur du skickar önskad tillstånd Configuration (DSC) rapporterar data till Microsoft Operations Management Suite Log Analytics för att ge ytterligare insikter och hantering."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 8e2df8fcbd342012e5e76730a68d9c72ce3264d8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Vidarebefordra Azure Automation DSC rapporterar data till OMS logganalys
 

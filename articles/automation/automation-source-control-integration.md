@@ -3,7 +3,7 @@ title: "Datakällan kontrollen integrering i Azure Automation | Microsoft Docs"
 description: "Den här artikeln beskriver källkontrollintegrering med GitHub i Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: d8f236a012648062e703fa2c4123d139c0e115ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 Källkontrollintegrering kan du associera runbooks i ditt Automation-konto till en GitHub-källkontroll. Källkontrollen kan du enkelt samarbeta med din grupp, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontrollen du synkronisera olika filialer i källkontrollen till din utvecklings-, test- eller produktion Automation-konton, vilket gör det enkelt att befordra kod som har testats i din utvecklingsmiljö produktionsmiljön Automation-konto.
@@ -46,7 +46,7 @@ Om du redan har en GitHub-konto och en databas som du vill länka till Azure Aut
    | Välj källa |Välj källa. För närvarande endast **GitHub** stöds. |
    | Auktorisering |Klicka på den **auktorisera** för att bevilja Azure Automation-åtkomst till dina GitHub-lagringsplatsen. Om du redan är inloggad på ditt GitHub-konto i ett annat fönster som autentiseringsuppgifterna för kontot används. När tillståndet är klar visas sidan GitHub-användarnamn under **auktorisering egenskapen**. |
    | Välj databasen |Välj en GitHub-databas i listan över tillgängliga databaser. |
-   | Välj filialen |Välj en gren från listan över tillgängliga filialer. Endast den **master** grenen visas om du inte har skapat några filialer. |
+   | Välj en gren |Välj en gren från listan över tillgängliga filialer. Endast den **master** grenen visas om du inte har skapat några filialer. |
    | Runbook-sökvägen för mappen |Sökvägen till runbook anger sökvägen i GitHub-databas som du vill push och pull-koden. Det måste anges i formatet **/mappnamn/undermappsnamn**. Endast runbookar i sökvägen till runbook-mappen kommer att synkroniseras till ditt Automation-konto. Runbooks i undermappar i sökvägen till runbook-mappen kommer **inte** synkroniseras. Använd  **/**  att synkronisera alla runbooks under databasen. |
 3. Till exempel om du har en databas med namnet **PowerShellScripts** som innehåller en mapp med namnet **RootFolder så**, som innehåller en mapp med namnet **undermapp**. Du kan använda följande strängar för att synkronisera varje mappnivå:
    

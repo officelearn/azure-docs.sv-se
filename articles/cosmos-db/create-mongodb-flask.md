@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: e4d90e69edb67cf070bb54b9d60a986eb5d0e386
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Skapa en Flask-app med MongoDB-API:et
 
@@ -116,7 +116,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
-Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här github-lagringsplatsen. Följ den här [självstudien](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment) om du vill konfigurera kontinuerlig distribution med Github i Azure.
+Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här github-lagringsplatsen. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) om du vill konfigurera kontinuerlig distribution med Github i Azure.
 
 När du distribuerar till Azure bör du ta bort dina programnycklar och kontrollera att avsnittet nedan inte har kommenterats bort:
 
@@ -126,7 +126,7 @@ När du distribuerar till Azure bör du ta bort dina programnycklar och kontroll
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure#application-settings) om du vill veta mer om programinställningar i Azure Web Apps.
+Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) om du vill veta mer om programinställningar i Azure Web Apps.
 
 Om du inte vill skapa en förgrening av den här lagringsplatsen kan du även klicka på knappen nedan för att distribuera till Azure. Du bör sedan gå till Azure och konfigurera programinställningarna med dina uppgifter för Cosmos DB-kontot.
 

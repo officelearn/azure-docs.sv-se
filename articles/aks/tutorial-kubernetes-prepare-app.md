@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ef0395a9c666732ba117822f46e8d2a7540aee14
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Förbereda program för Azure-behållaren (AKS)
 
@@ -32,9 +32,9 @@ I efterföljande självstudiekurser är behållaren avbildningen har överförts
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för behållare. 
+Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som behållare, behållaravbildningar och grundläggande docker-kommandon. Om det behövs, se [Kom igång med Docker] [ docker-get-started] för en introduktion om grunderna i behållaren. 
 
-För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på någon [Mac][docker-for-mac], [Windows][docker-for-windows], eller [Linux] [ docker-for-linux] system.
 
 Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. Därför bör du använda en fullständig Docker-utvecklingsmiljö.
 
@@ -58,7 +58,7 @@ I katalogen är programmets källkod, en förskapad Docker compose fil- och en K
 
 ## <a name="create-container-images"></a>Skapa avbildningar av behållare
 
-[Docker Compose](https://docs.docker.com/compose/) kan användas för att automatisera build från behållaren avbildningar och distribution av program med flera behållare.
+[Docker Compose] [ docker-compose] kan användas för att automatisera build från behållaren avbildningar och distribution av program med flera behållare.
 
 Kör den `docker-compose.yml` filen för att skapa avbildningen behållare, ladda ned avbildningen Redis och starta programmet.
 
@@ -66,7 +66,7 @@ Kör den `docker-compose.yml` filen för att skapa avbildningen behållare, ladd
 docker-compose up -d
 ```
 
-När du är klar, kan du använda den [docker bilder](https://docs.docker.com/engine/reference/commandline/images/) kommandot för att se bilderna som har skapats.
+När du är klar, kan du använda den [docker bilder] [ docker-images] kommandot för att se bilderna som har skapats.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör den [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) kommandot för att se behållarna som körs.
+Kör den [docker ps] [ docker-ps] kommandot för att se behållarna som körs.
 
 ```console
 docker ps
@@ -131,4 +131,16 @@ I den här självstudiekursen, ett program har testats och behållare bilder ska
 Fortsätt till nästa självstudie och lär dig om att lagra behållaravbildningar i ett Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push-avbildningar med Azure Container Registry](./tutorial-kubernetes-prepare-acr.md)
+> [Push-avbildningar i Azure Container registret][aks-tutorial-prepare-acr]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-for-mac]: https://docs.docker.com/docker-for-mac/
+[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

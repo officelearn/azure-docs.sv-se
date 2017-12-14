@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos-databas med Azure Search med indexerare
 
@@ -29,7 +29,7 @@ Om du vill konfigurera en indexerare Cosmos DB, måste du ha en [Azure Search-tj
 Om du väljer för portalen, den [guiden Importera data](search-import-data-portal.md) hjälper dig att skapa dessa resurser.
 
 > [!NOTE]
-> Cosmos DB är nästa generation av DocumentDB. Även om produktnamnet ändras, är syntax samma som innan. Fortsätt att ange `documentdb` enligt anvisningarna i den här artikeln indexeraren. 
+> Azure Cosmos-DB är nästa generation av DocumentDB. Även om produktnamnet ändras, är syntax samma som innan. Fortsätt att ange `documentdb` enligt anvisningarna i den här artikeln indexeraren. 
 
 > [!TIP]
 > Du kan starta den **dataimport** guiden från Cosmos-DB-instrumentpanelen för att förenkla indexering för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
@@ -295,5 +295,5 @@ I följande exempel skapas en datakälla med en princip för mjuk borttagning:
 ## <a name="NextSteps"></a>Nästa steg
 Grattis! Du har lärt dig hur du integrerar Azure Cosmos DB med Azure Search med indexeraren för Cosmos DB.
 
-* Information om hur mer om Azure Cosmos DB finns på [Cosmos DB webbtjänstsida](https://azure.microsoft.com/services/documentdb/).
+* Information om hur mer om Azure Cosmos DB finns på [Azure DB som Cosmos-webbtjänstsida](https://azure.microsoft.com/services/cosmos-db/).
 * Information om hur mer om Azure Search finns i [service söksidan](https://azure.microsoft.com/services/search/).

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dagar Azure DB som Cosmos-tips
 
@@ -103,7 +103,7 @@ Tips 10: Lär dig att kopiera MongoDB-data till Azure Cosmos-databasen med Studi
 
 Tips 11: Skapa en hjälte spårning app med reagerar, Node.js och Azure Cosmos DB.
 
-Artikel: [skapar en MongoDB-app i reagerar och Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Artikel: [skapar en MongoDB-app i reagerar och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweet på twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![-resursen på LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Tips 12: Gå serverlösa med Azure #CosmosDB och @AzureFunctions! Fullständig d
 
 Tips 13: från noll till hjälte med @John_Papa och Azure Cosmos DB. Lär dig hur du skapar en medelvärde app från grunden
 
-Artikel: [skapar en MongoDB-app i Cosmos vinkel och Azure DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Artikel: [skapar en MongoDB-app i Cosmos vinkel och Azure DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweet på twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![-resursen på LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ Tips 19: Partition! Partitionen! Partitionen! Varför och hur i Azure #CosmosDB.
 
 Tips 20: Något bättre en bra gamla fusklappar. Azure #CosmosDB har en för. Kolla på [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Fusklappar: [Azure Cosmos-DB: DocumentDB API SQL-frågan fusklapp PDF](https://aka.ms/Nt01nl)
+Fusklappar: [Azure Cosmos-DB: fusklapp för SQL-frågan PDF](https://aka.ms/Nt01nl)
 
 [![Retweet på twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![-resursen på LinkedIn   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

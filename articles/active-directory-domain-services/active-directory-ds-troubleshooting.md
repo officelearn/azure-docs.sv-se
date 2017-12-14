@@ -4,7 +4,7 @@ description: "Felsökningsguide för Azure AD Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 5b094ab27d9d11828b0818a6024ff9b108d6cddb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - guide för felsökning
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera Azure Active Directory (AD) Domain Services.

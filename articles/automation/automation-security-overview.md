@@ -3,7 +3,7 @@ title: Introduktion till autentisering i Azure Automation | Microsoft Docs
 description: "I den här artikeln ges en översikt över säkerheten i Automation och de olika autentiseringsmetoder som är tillgängliga för Automation-konton i Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: automation security, secure automation; automation authentication
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6ff47272da2fdafa4b346d62225ecdcddac5a236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introduktion till autentisering i Azure Automation  
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.

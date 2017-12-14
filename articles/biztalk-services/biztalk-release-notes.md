@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk-tjänst
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Viktig information för Microsoft Azure BizTalk Services innehåller kända problem i den här versionen.
 
@@ -34,8 +36,8 @@ Viktig information för Microsoft Azure BizTalk Services innehåller kända prob
 * Organisationskonton stöds:  
   * **Scenariot**: du har registrerat en BizTalk Service-distribution med ett Microsoft-konto (som user@live.com). I det här scenariot kan endast Account användare hantera den BizTalk Service med hjälp av BizTalk-tjänst-portalen. Ett organisationskonto kan inte användas.  
   * **Scenariot**: du har registrerat en BizTalk Service-distribution med ett organisationskonto i ett Azure Active Directory (t.ex. user@fabrikam.com eller user@contoso.com). I det här scenariot kan endast Azure Active Directory-användare inom samma organisation hantera den BizTalk Service med hjälp av BizTalk-tjänst-portalen. Ett Microsoft-konto kan inte användas.  
-* Du registreras automatiskt i BizTalk-Services-portalen när du skapar en BizTalk Service i den klassiska Azure-portalen.
-  * **Scenariot**: du logga in på den klassiska Azure portalen, skapa en BizTalk Service och välj sedan **hantera** för första gången. När BizTalk-Services-portalen öppnas registrerar BizTalk Service automatiskt och är redo för din distribution.  
+* När du skapar en BizTalk Service kan registreras du automatiskt BizTalk-Services-portalen.
+  * **Scenariot**: du logga in på Azure, skapa en BizTalk Service och välj sedan **hantera** för första gången. När BizTalk-Services-portalen öppnas registrerar BizTalk Service automatiskt och är redo för din distribution.  
     Se [registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 augusti uppdatering

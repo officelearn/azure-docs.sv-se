@@ -4,7 +4,7 @@ description: Ett avsnitt som visar hur du inaktiverar e-Postverifiering under ko
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 433f32b8-96d2-4113-aa82-efcf42fa9827
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c0620aa626c16d5edcdc35db03fb346b3ce0f5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: Inaktivera e-Postverifiering under konsumenten registrering
 När aktiverat, kan Azure Active Directory (AD Azure) B2C en konsument registrera dig för program genom att tillhandahålla en e-postadress och skapa ett lokalt konto. Azure AD B2C garanterar giltiga e-postadresser genom att kräva att konsumenterna kan kontrollera dem under registreringen. Det förhindrar också en skadlig automatiserad process genererar falska konton för programmen.

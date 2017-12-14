@@ -1,6 +1,6 @@
 ---
-title: "Självstudiekurs om NoSQL: DocumentDB API för Azure Cosmos DB Java SDK | Microsoft Docs"
-description: "En självstudiekurs om NoSQL som skapar en onlinedatabas och Java-konsolprogram med DocumentDB-API: et för Azure Cosmos DB. Azure DocumentDB är en NoSQL-databas för JSON."
+title: "Självstudiekurs om NoSQL: SQL API för Azure Cosmos DB Java SDK | Microsoft Docs"
+description: "En självstudiekurs om NoSQL som skapar en onlinedatabas och Java-konsolprogram med SQL-API för Azure Cosmos DB. Azure SQL är en NoSQL-databas för JSON."
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>Självstudiekurs om NoSQL: skapa ett DocumentDB Java för API-konsolprogram
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: skapa ett SQL API Java-konsolprogram
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Välkommen till självstudiekursen om NoSQL för DocumentDB-API: et för Azure Cosmos DB Java SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Välkommen till självstudiekursen om NoSQL för SQL-API för Azure Cosmos DB Java SDK! När du har genomfört den här självstudiekursen har du ett konsolprogram som skapar och skickar frågor till Azure Cosmos DB-resurser.
 
 Vi går igenom:
 
@@ -73,7 +75,7 @@ Du kan komma igång genom att klona GitHub-lagringsplatsen. Gå till [Komma igå
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Katalogen innehåller en `pom.xml` för projektet och en `src` mapp som innehåller Java källa kod inklusive `Program.java` som visar hur kör enkla åtgärder på Azure Cosmos DB som skapar dokument och hämtning av data i en samling. `pom.xml` innehåller ett beroende på [DocumentDB Java SDK på Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+Katalogen innehåller en `pom.xml` för projektet och en `src` mapp som innehåller Java källa kod inklusive `Program.java` som visar hur kör enkla åtgärder på Azure Cosmos DB som skapar dokument och hämtning av data i en samling. Den `pom.xml` innehåller ett beroende på den [Cosmos Azure DB Java SDK på Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Grattis! Du har slutfört den här självstudiekursen om NoSQL och har ett funge
 * Vill du ha en självstudie om Java-webbappar? Mer information finns i [Skapa ett webbprogram i Java med Azure Cosmos DB](documentdb-java-application.md).
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
 * Kör frågor mot vår exempeldatauppsättning i [Query Playground](https://www.documentdb.com/sql/demo).
-* Mer information om programmeringsmodellen finns i avsnittet Utveckla på [dokumentationssidan för Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

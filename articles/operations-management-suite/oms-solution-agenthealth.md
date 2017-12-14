@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Agenthälsolösning i OMS
 Agenthälsolösningen i OMS hjälper dig att förstå vilka av alla agenter som rapporterar direkt till OMS-arbetsyta eller en System Center Operations Manager-hanteringsgrupp som är anslutna till OMS som inte svarar och skickra in användningsdata.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
 ## <a name="prerequisites"></a>Krav
-Innan du distribuerar den här lösningen, bekräfta att du har [Windows-agenter](../log-analytics/log-analytics-windows-agents.md) som rapporterar till OMS-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) som är integrerad med din OMS-arbetsyta.    
+Innan du distribuerar den här lösningen, bekräfta att du har [Windows-agenter](../log-analytics/log-analytics-windows-agent.md) som rapporterar till OMS-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../log-analytics/log-analytics-om-agents.md) som är integrerad med din OMS-arbetsyta.    
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i din arbetsyta och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.

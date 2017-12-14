@@ -1,3 +1,4 @@
+
 1. När den virtuella Azure-datorn har skapats och körs klickar du på symbolen för virtuella datorer på Azure Portal för att visa dina virtuella datorer.
 
 1. Klicka på de tre punkterna **...** vid den nya virtuella datorn.

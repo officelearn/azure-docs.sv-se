@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Hälsa och resurstyper kontrollerar i Azure resurshälsa
 Nedan visas en fullständig lista över alla kontroller via resurshälsa av resurstyper.
@@ -73,7 +73,7 @@ Nedan visas en fullständig lista över alla kontroller via resurshälsa av resu
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Kontroller som utförs|
 |---|
-|<ul><li>Det har förekommit någon databas eller en samling begäranden som betjänats inte på grund av ett DocumentDB-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av ett DocumentDB-tjänsten inte finns?</li></ul>|
+|<ul><li>Det har förekommit några databas eller en samling förfrågningar som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li><li>Det har förekommit alla begäranden för dokument som inte hanteras på grund av en Azure DB som Cosmos-tjänsten inte finns?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Kontroller som utförs|

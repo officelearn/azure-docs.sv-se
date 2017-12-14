@@ -4,7 +4,7 @@ description: "Ett ämne på Azure Active Directory B2C anpassade principer"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Anpassade policys
 
@@ -30,7 +30,7 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Jämföra inbyggda och anpassade principer
 
-| | Inbyggda principer | anpassade principer |
+| | Inbyggda principer | Anpassade principer |
 |-|-------------------|-----------------|
 |Målgruppsanvändare | Alla utvecklare av program med eller utan kunskaper identitet | Identity-tekniker: systemintegrerare, konsulter och interna identitet team. De är nöjd med OpenIDConnect flöden och förstå identitetsleverantörer och Anspråksbaserad autentisering |
 |Metod för principkonfiguration | Azure-portalen med ett användarvänligt gränssnitt | Redigera XML-filer och sedan ladda upp till Azure-portalen |
@@ -74,7 +74,7 @@ Ett fullständigt konfigurerbara, principer, molnbaserad Azure-plattformen som s
 Fördefinierade konfigurationsfiler som direkt beteendet för Azure AD B2C för att utföra de vanligaste används identitet uppgifter (d.v.s. användarregistrering, inloggning, återställning av lösenord) och interagera med betrodda parter vars relation också är fördefinierade i Azure AD B2C (för exempel Facebook identitetsleverantör, LinkedIn, Account, Google-konton).  I framtiden, kan inbyggda principerna också innehålla för anpassning av identitetsleverantörer som vanligtvis finns i enterprise-sfär som Azure Active Directory Premium, Active Directory/ADFS o.s.v. Salesforce-ID-providern.
 
 
-### <a name="custom-policies"></a>anpassade principer
+### <a name="custom-policies"></a>Anpassade principer
 
 Konfigurationsfiler som definierar beteendet för identitet upplevelse Framework i din Azure AD B2C-klient. En anpassad princip är tillgänglig som en eller flera XML-filer (se principfiler definitioner) som utförs av ramverket identitet upplevelse när den anropades av en förlitande part (till exempel ett program). Anpassade principer kan direkt redigeras av en identity-utvecklare att slutföra en nära obegränsat antal uppgifter. Utvecklare konfigurera anpassade principer måste definiera betrodda relationer i noggrann detaljer som ska innehålla Metadataslutpunkter, exakt anspråk exchange definitioner och konfigurera hemligheter, nycklar och certifikat som krävs av varje identitetsleverantör.
 

@@ -32,4 +32,4 @@ Högerklicka på en resurstyp och välj **Cost Entities** (Kostnadsenheter) för
 
 ![kostnadsenheter och tjänster](./media/cost-management-create-account-view-data/actual-cost-05.png)
 
-Om du vill se en video som självstudier om hur du visar ditt moln fakturering data, se [analysera ditt moln fakturering data med Azure kostnaden Management med Cloudyn](https://youtu.be/G0pvI3iLH-Y).
+Om du vill se en självstudievideo om att visa dina molnfaktureringsdata kan du se [Analyzing your cloud billing data with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Analysera molnfaktureringsdata med Azure Cost Management från Cloudyn).

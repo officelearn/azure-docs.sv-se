@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
@@ -63,7 +63,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda `npm s
 npm start
 ```
 
-Öppna en webbläsare och gå till exempelapp på `http://localhost:1337`.
+Öppna en webbläsare och navigera till exempelappen på `http://localhost:1337`.
 
 Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
@@ -141,7 +141,7 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 response.end("Hello Azure!");
 ```
 
-Genomför ändringarna i Git i lokala terminalfönster och sedan genomför kodändringarna i Azure.
+I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
 
 ```bash
 git commit -am "updated output"

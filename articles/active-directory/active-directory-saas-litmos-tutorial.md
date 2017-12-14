@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: jeedes
 ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2447cc5dbb01aa718e4418386499c6e50e9f5184
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Självstudier: Azure Active Directory-integrering med Litmos
 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Attributet avsnitt](./media/active-directory-saas-litmos-tutorial/tutorial_attribute.png)
            
-    | Attributets namn   | Attributvärdet |   
+    | Attributnamn   | Attributvärde |   
     | ---------------  | ----------------|
     | Förnamn |User.givenName |
     | Efternamn  |User.surname |

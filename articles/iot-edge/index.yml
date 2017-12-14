@@ -12,13 +12,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/08/2017
+  ms.date: 12/08/2017
   ms.author: kgremban
-  ms.openlocfilehash: 51bcd5bbf6cd388961f254c938d34df56596ed13
-  ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+  ms.openlocfilehash: 909df13481d6bc47e0b7d30eb9f1ef755df01d27
+  ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/15/2017
+  ms.lasthandoff: 12/12/2017
 abstract:
   description: "Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar."
 sections:
@@ -30,11 +30,11 @@ sections:
     style: icon48
     items:
     - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
       text: Windows
       href: /azure/iot-edge/quickstart
     - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
       text: Linux
       href: /azure/iot-edge/quickstart-linux
 - title: "Steg för steg-självstudier"
@@ -48,4 +48,5 @@ sections:
     - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulera en IoT Edge-enhet i Linux</a>
     - html: <a href="/azure/iot-edge/tutorial-csharp-module">Utveckla och distribuera en C#-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Distribuera Azure Stream Analytics som en modul</a>
+    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Distribuera Azure Machine Learning som en modul</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Distribuera Azure Functions som en modul</a>

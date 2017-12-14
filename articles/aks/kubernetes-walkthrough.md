@@ -1,6 +1,6 @@
 ---
 title: "Snabbstart - Azure Kubernetes-kluster för Linux | Microsoft Docs"
-description: "Lär dig snabbt skapa en Kubernetes kluster på Linux-behållare i AKS med Azure CLI."
+description: "Lär dig att snabbt skapa ett Kubernetes-kluster för Linux-behållare i AKS med Azure CLI."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -19,30 +19,30 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 84f542340f62194a31817a8e358d75c0d0f103ee
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett kluster i Azure Container Service (AKS)
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett Azure Container Service-kluster (AKS)
 
-I den här snabbstarten distribueras en AKS klustret med hjälp av Azure CLI. Ett program för flera behållare som består av frontwebb och ett Redis-instansen körs i klustret. När vi har gjort det kan programmet nås via Internet.
+I den här snabbstarten ska vi distribuera ett AKS-kluster med hjälp av Azure CLI. Därefter kör vi ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Denna Snabbstart förutsätter en grundläggande förståelse för begrepp Kubernetes detaljerad information om Kubernetes finns i [Kubernetes dokumentationen]( https://kubernetes.io/docs/home/).
+I den här snabbstarten förutsätter vi att du har grundläggande kunskaper om vanliga Kubernetes-begrepp. Detaljerad information om Kubernetes finns i [Kubernetes-dokumentationen]( https://kubernetes.io/docs/home/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt denna Snabbstart kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.21 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Aktivera AKS förhandsgranskning för din Azure-prenumeration
-AKS är i förhandsvisning, måste skapa nya kluster flaggan funktionen för din prenumeration. Du kan begära den här funktionen för valfritt antal prenumerationer som du vill använda. Använd den `az provider register` kommando för att registrera providern AKS:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Aktivera förhandsversionen av AKS i din Azure-prenumeration
+Så länge AKS tillhandahålls i förhandsversion måste du lägga till en funktionsflagga i prenumerationen för att få skapa nya kluster. Du kan begära den här funktionen i valfritt antal prenumerationer. Använd kommandot `az provider register` för att registrera AKS-providern:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-När du har registrerat kan är du nu redo att skapa ett Kubernetes kluster med AKS.
+Efter registreringen kan du skapa ett Kubernetes-kluster med AKS.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -69,9 +69,9 @@ Resultat:
 }
 ```
 
-## <a name="create-aks-cluster"></a>Skapa AKS kluster
+## <a name="create-aks-cluster"></a>Skapa AKS-kluster
 
-I följande exempel skapas ett kluster med namnet *myK8sCluster* med en nod.
+I följande exempel skapas ett kluster med namnet *myK8sCluster* och en enda nod.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -83,14 +83,14 @@ Efter flera minuter slutförs kommandot och returnerar JSON-formaterad informati
 
 Hantera Kubernetes-kluster med [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes kommandoradsklient.
 
-Om du använder Azure Cloud Shell kubectl redan har installerats. Kör följande kommando om du vill installera det lokalt.
+Om du använder Azure Cloud Shell är kubectl redan installerat. Kör följande kommando om du vill installera det lokalt.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Kör följande kommando för att konfigurera kubectl att ansluta till Kubernetes-kluster. I det här steget laddar vi ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
+Du konfigurerar kubectl att ansluta till ditt Kubernetes-kluster genom att köra följande kommando. I det här steget laddar vi ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka behållaravbildningar som ska köras. I det här exemplet används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet.
 
-Skapa en fil med namnet `azure-vote.yml` och kopiera in följande YAML-kod. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
+Skapa en fil med namnet `azure-vote.yml` och kopiera följande YAML-kod till den. Om du arbetar i Azure Cloud Shell, kan du skapa filen med vi eller Nano som i ett virtuellt eller fysiskt system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,7 +208,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-En gång i *externa IP-* adress har ändrats från *väntande* till en *IP-adress*, använda `CTRL-C` att stoppa kubectl titta på processen.
+När *EXTERNAL-IP*-adressen har ändrats från *pending* (väntar) till en *IP-adress* använder du `CTRL-C` för att stoppa kubectl-övervakningsprocessen.
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -227,7 +227,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Hämta koden
 
-I Snabbstart, har förskapade behållaren bilder använts för att skapa en Kubernetes-distribution. Den tillhörande programkoden, Dockerfile och Kubernetes-manifestfilen finns på GitHub.
+I den här snabbstarten har fördefinierade behållaravbildningar använts för att skapa en Kubernetes-distribution. Den tillhörande programkoden, Dockerfile och Kubernetes-manifestfilen finns på GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
@@ -235,7 +235,7 @@ I Snabbstart, har förskapade behållaren bilder använts för att skapa en Kube
 
 I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det.
 
-Om du vill veta mer om AKS och gå igenom fullständiga koden till exempel för distribution, även i fortsättningen Kubernetes klustret kursen.
+Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 
 > [!div class="nextstepaction"]
-> [Hantera en AKS-kluster](./tutorial-kubernetes-prepare-app.md)
+> [Hantera ett AKS-kluster](./tutorial-kubernetes-prepare-app.md)

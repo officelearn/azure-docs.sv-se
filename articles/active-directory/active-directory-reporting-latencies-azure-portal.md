@@ -4,7 +4,7 @@ description: "Lär dig mer om hur lång tid det tar för rapporteringshändelser
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting svarstider
 
@@ -37,13 +37,15 @@ Det finns två områden av aktiviteten reporting:
 
 I följande tabell visas latensinformation för aktivitetsrapporter.
 
-| Rapport | Minimum | Genomsnittlig | Maximalt |
-| :-- | --- | --- | --- |
-| Granskningsloggar             | 30 minuter  | 45 minuter | 1 timme     |
-| Inloggningar               | 15 minuter  | 15 minuter | 2 timmar *   |
+| Rapport | Minimum | Genomsnitt |
+| :-- | --- | --- |
+| Granskningsloggar | 30 minuter  | 1 timme  |
+| Inloggningar | 15 minuter  | 2 timmar |
 
->[!NOTE]
-> Det kan ta upp till 8 timmar för rapporteringsdata att visas för vissa aktivitetsdata om inloggningsåtgärder från äldre Office-program. 
+I vissa fall kant kan ta det:
+
+- 2 timmar för granska aktivitetsdata visas.
+- 24 timmar efter inloggningsaktivitet data visas. Detta inkluderar inloggningar aktivitetsdata från äldre office-program. 
 
 
 ## <a name="security-reports"></a>Säkerhetsrapporter
@@ -55,7 +57,7 @@ Det finns två områden av säkerhet reporting:
 
 I följande tabell visas latensinformation för säkerhetsrapporter.
 
-| Rapport | Minimum | Genomsnittlig | Maximalt |
+| Rapport | Minimum | Genomsnitt | Maximal |
 | :-- | --- | --- | --- |
 | Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
 | Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
@@ -66,13 +68,13 @@ Azure Active Directory använder anpassningsbar maskininlärningsalgoritmer och 
 
 I följande tabell visas latensinformation för riskhändelser.
 
-| Rapport | Minimum | Genomsnittlig | Maximalt |
+| Rapport | Minimum | Genomsnitt | Maximal |
 | :-- | --- | --- | --- |
 | Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
 | Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
 | Används med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
-| Omöjligt att resa till ovanliga platser |5 minuter |1 timme |8 timmar  |
-| Inloggningar från angripna enheter |2 timmar |4 timmar |8 timmar  |
+| Omöjlig resa till ej typiska platser |5 minuter |1 timme |8 timmar  |
+| Inloggningar från smittade enheter |2 timmar |4 timmar |8 timmar  |
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 
 

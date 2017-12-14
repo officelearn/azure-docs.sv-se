@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
 1.  Skapa en fil med namnet `app.js`. Om du använder Visual Studio, Välj projekt (rotmapp projekt), högerklicka och välj: `Add`  >  `New Item`  >  `JavaScript File`:

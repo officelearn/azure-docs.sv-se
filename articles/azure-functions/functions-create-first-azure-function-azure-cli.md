@@ -14,13 +14,13 @@ ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: 4356d00b2694224f52a9359cd4a57d3a70a34d18
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Skapa din första funktion med Azure CLI
 
-Det här avsnittet för Snabbstart vägleder dig igenom hur du använder Azure Functions för att skapa din första funktion. Du använder Azure CLI för att skapa en funktionsapp, vilket är den [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) infrastruktur som är värd för din funktion. Själva funktionskoden distribueras från en GitHub-exempellagringsplats.    
+I den här snabbstarten får du hjälp med att skapa din första funktion i Azure Functions. Du kan använda Azure CLI till att skapa en funktionsapp, som är den [serverfria](https://azure.microsoft.com/overview/serverless-computing/) infrastruktur som är värd för funktionen. Själva funktionskoden distribueras från en GitHub-exempellagringsplats.    
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. 
 
@@ -35,7 +35,7 @@ Innan du kör exemplet måste du ha följande:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver Azure CLI version 2.0 eller senare i det här avsnittet. Kör `az --version` att hitta den version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
@@ -46,13 +46,13 @@ Om du väljer att installera och använda CLI lokalt kräver Azure CLI version 2
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. Funktionsappen är en miljö för serverfri körning av funktionskoden. Där kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser. Skapa en funktionsapp med kommandot [az functionapp create](/cli/azure/functionapp#create). 
 
-Ersätt namnet på appen en unik funktion där du ser i följande kommando i `<app_name>` platshållare och lagringskontot namn för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Den _distribution källadress_ parametern är en exempel-lagringsplatsen i GitHub som innehåller ”Hello World” HTTP aktiveras funktionen.
+I följande kommando infogar du ett unikt funktionsappnamn istället för platshållaren `<app_name>` och lagringskontonamnet istället för `<storage_name>`. `<app_name>` används som DNS-standarddomän för funktionsappen. Därför måste namnet vara unikt bland alla appar i Azure. Parametern _deployment-source-url_ är en exempellagringsplats i GitHub som innehåller en HTTP-utlöst ”Hello World”-funktion.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --consumption-plan-location westeurope --deployment-source-url https://github.com/Azure-Samples/functions-quickstart
 ```
-Ange den _förbrukning plan plats_ parametern innebär att funktionen är värd för appen i en värd plan förbrukning. Resurser läggs till dynamiskt som krävs av dina funktioner och du betalar endast när funktioner som körs i den här planen. Mer information finns i [Välja rätt värdplan](functions-scale.md). 
+Genom att konfigurera parametern _consumption-plan-location_ anger du att funktionsappen ska använda en förbrukningsplan som värd. I det här prenumerationsavtalet läggs resurser till dynamiskt när funktionerna har behov av det och du betalar endast när funktionerna används. Mer information finns i [Välja rätt värdplan](functions-scale.md). 
 
 När funktionsappen har skapats visas information som liknar följande exempel i Azure CLI:
 

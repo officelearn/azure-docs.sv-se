@@ -4,7 +4,7 @@ description: "Lär dig hur du laddar ned, installerar och kör installationsguid
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: b6ce45fd-554d-4f4d-95d1-47996d561c9f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Standardinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.

@@ -17,15 +17,15 @@ ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Skapa din första Java-webbapp i Azure
 
-Azure [Web Apps](app-service-web-overview.md) ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du distribuerar en Java-webbapp till App Service med hjälp av [Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/).
 
-När du har slutfört den här snabbstarten, ser ditt program ut ungefär som följande bild, när du visar den i en webbläsare:
+När du har slutfört den här snabbstarten ser din app ut ungefär som på följande bild när du visar den i en webbläsare:
 
 !["Hello Azure!" exempelwebbapp](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

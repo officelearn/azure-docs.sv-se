@@ -4,7 +4,7 @@ description: "Hur du kommer igång med Azure Active Directory Reporting API"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/31/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec4342a6c4cfab3be890b50e761f1ed5fc148c1d
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b9e0fb21986b82f19d90f999f5d905fbf95d2cc9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory reporting audit API-exempel
 Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  

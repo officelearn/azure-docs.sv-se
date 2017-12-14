@@ -4,7 +4,7 @@ description: "Generera en rapport som visar alla ändringar i åtkomst till dina
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8028ab43ed02ef0c0a1374326b07f72f97d9d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c430e1206e6e97f2c7fb7d2a6ff0dd6e65ee8bbf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Skapa en access-rapport för rollbaserad åtkomstkontroll
 Varje gång någon tilldelar eller återkallar åtkomst i din prenumeration, får ändringarna loggas i Azure-händelser. Du kan skapa åtkomst ändra historik rapporter för att visa alla ändringar för de senaste 90 dagarna.

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Stöds mått med Azure-Monitor
 Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla just nu med Azure-Monitor mått pipeline.
 
 > [!NOTE]
-> Andra mått kan finnas i portalen eller med äldre API: er. Listan innehåller endast tillgängliga med konsoliderade Azure-Monitor mått pipeline mått. Fråga efter och komma åt mått med dimensioner ska du använda den [2017-05-01-preview api-version](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)
+> Andra mått kan finnas i portalen eller med äldre API: er. Listan innehåller endast tillgängliga med konsoliderade Azure-Monitor mått pipeline mått. Fråga efter och komma åt mått med dimensioner ska du använda den [2017-05-01-preview api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 >
 >
 
@@ -32,49 +32,49 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|Antal|Medel|QPU. Intervallet 0-100 för S1, 0-200 för S2 och 0-400 för S4|Inga dimensioner|
-|memory_metric|Minne|Byte|Medel|Minne. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|Inga dimensioner|
-|TotalConnectionRequests|Totalt antal begäranden|Antal|Medel|Totalt antal förfrågningar. Dessa är mottagna.|Inga dimensioner|
-|SuccessfullConnectionsPerSec|Lyckade anslutningar Per sekund|CountPerSecond|Medel|Hastighet för lyckade anslutningen slutföras.|Inga dimensioner|
-|TotalConnectionFailures|Totalt antal anslutningsfel|Antal|Medel|Totalt antal misslyckade anslutningsförsök.|Inga dimensioner|
-|CurrentUserSessions|Aktuella användarsessioner|Antal|Medel|Aktuellt antal användarsessioner som har upprättats.|Inga dimensioner|
-|QueryPoolBusyThreads|Frågan poolen upptagen trådar|Antal|Medel|Antal upptagen trådar i trådpoolen för frågan.|Inga dimensioner|
-|CommandPoolJobQueueLength|Kölängd för kommandot poolen jobb|Antal|Medel|Antal jobb i kö i trådpoolen för kommandot.|Inga dimensioner|
-|ProcessingPoolJobQueueLength|Kölängd för bearbetning poolen jobb|Antal|Medel|Antal icke-I/O-jobb i kö för bearbetningstrådpoolen.|Inga dimensioner|
-|CurrentConnections|Anslutning: Aktuella anslutningar|Antal|Medel|Aktuellt antal klientanslutningar.|Inga dimensioner|
-|CleanerCurrentPrice|Minne: Tydligare aktuella pris|Antal|Medel|Aktuella priset minne, $ byte/tidsvärdet, normaliserad till 1000.|Inga dimensioner|
-|CleanerMemoryShrinkable|Minne: Tydligare minne krympning|Byte|Medel|Mängden minne i byte, föremål rensning av bakgrunden ett rengöringsband.|Inga dimensioner|
-|CleanerMemoryNonshrinkable|Minne: Tydligare minne nonshrinkable|Byte|Medel|Mängden minne i byte som inte omfattas av rensning av bakgrunden ett rengöringsband.|Inga dimensioner|
-|MemoryUsage|Minne: Minnesanvändning|Byte|Medel|Mängden minne på server-processen som används för att beräkna tydligare minnespris. Lika med prestandaräknaren Process\PrivateBytes plus storleken på minnesmappade data, ignoreras eventuella som mappats eller som har allokerats av xVelocity i minnet analytics motorn (VertiPaq) överskrider minnesgränsen för xVelocity-motorn.|Inga dimensioner|
-|MemoryLimitHard|Minne: Minnesgränsen hårddisken|Byte|Medel|Hårda minnesgränsen, från konfigurationsfilen.|Inga dimensioner|
-|MemoryLimitHigh|Minne: Minne begränsa hög|Byte|Medel|Hög minnesgränsen, från konfigurationsfilen.|Inga dimensioner|
-|MemoryLimitLow|Minne: Minne gränsen låg|Byte|Medel|Minnesbrist gräns från konfigurationsfilen.|Inga dimensioner|
-|MemoryLimitVertiPaq|Minne: Minne gränsen VertiPaq|Byte|Medel|I minnet gräns från konfigurationsfilen.|Inga dimensioner|
-|Kvot|Minne: kvot|Byte|Medel|Aktuella minneskvoten, i byte. Minneskvoten kallas även en reservation för minne grant eller minne.|Inga dimensioner|
-|QuotaBlocked|: Minneskvoten blockeras|Antal|Medel|Aktuellt antal begäranden om kvoten som blockeras tills andra minneskvoter frigörs.|Inga dimensioner|
-|VertiPaqNonpaged|Minne: VertiPaq växlingsbart systemminne|Byte|Medel|Byte av minne låst i arbetsminnet för användning av motorn i minnet.|Inga dimensioner|
-|VertiPaqPaged|Minne: VertiPaq-växlat minne|Byte|Medel|Antal byte växlingsbart minne som används för data i minnet.|Inga dimensioner|
-|RowsReadPerSec|Bearbetning: Läsa rader per sek|CountPerSecond|Medel|Antal rader att läsa från alla relationsdatabaser.|Inga dimensioner|
-|RowsConvertedPerSec|Bearbetning: Rader konverteras per sek|CountPerSecond|Medel|Antal rader konverteras under bearbetning.|Inga dimensioner|
-|RowsWrittenPerSec|Bearbetning: Rader som skrivs per sekund|CountPerSecond|Medel|Antal rader skrivna under bearbetning.|Inga dimensioner|
-|CommandPoolBusyThreads|Trådar: Kommandot poolen upptagen trådar|Antal|Medel|Antal upptagen trådar i trådpoolen för kommandot.|Inga dimensioner|
-|CommandPoolIdleThreads|Trådar: Kommandot poolen inaktiva trådar|Antal|Medel|Antalet inaktiva trådar i trådpoolen för kommandot.|Inga dimensioner|
-|LongParsingBusyThreads|Trådar: Long parsning upptagen trådar|Antal|Medel|Antal upptagen trådar i länge tolkning trådpoolen.|Inga dimensioner|
-|LongParsingIdleThreads|Trådar: Long parsning inaktiva trådar|Antal|Medel|Antalet inaktiva trådar i länge tolkning trådpoolen.|Inga dimensioner|
-|LongParsingJobQueueLength|Trådar: Parsning länge jobbet Kölängd|Antal|Medel|Antal jobb i kö för länge tolkning trådpoolen.|Inga dimensioner|
-|ProcessingPoolBusyIOJobThreads|Trådar: Bearbetning av poolen upptagen i/o-jobbet trådar|Antal|Medel|Antal trådar som körs i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
-|ProcessingPoolBusyNonIOThreads|Trådar: Bearbetning av poolen upptagen icke-I/O-trådar|Antal|Medel|Antal trådar som icke-I/O-jobb som körs i bearbetningstrådpoolen.|Inga dimensioner|
-|ProcessingPoolIOJobQueueLength|Trådar: Bearbetning av poolen Kölängd för i/o-jobb|Antal|Medel|Antal i/o-jobb i kö för bearbetningstrådpoolen.|Inga dimensioner|
-|ProcessingPoolIdleIOJobThreads|Trådar: Bearbetning av poolen inaktiv i/o-jobbet trådar|Antal|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
-|ProcessingPoolIdleNonIOThreads|Trådar: Bearbetning av poolen inaktiv icke-I/O-trådar|Antal|Medel|Antalet inaktiva trådar i bearbetningstrådpoolen som är dedikerad till icke-I/O-jobb.|Inga dimensioner|
-|QueryPoolIdleThreads|Trådar: Frågan poolen inaktiva trådar|Antal|Medel|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
-|QueryPoolJobQueueLength|Trådar: Frågan poolen jobbet kön lengt|Antal|Medel|Antal jobb i kö i trådpoolen för frågan.|Inga dimensioner|
-|ShortParsingBusyThreads|Trådar: Kort parsning upptagen trådar|Antal|Medel|Antal upptagen trådar i kort tolkning trådpoolen.|Inga dimensioner|
-|ShortParsingIdleThreads|Trådar: Kort parsning inaktiva trådar|Antal|Medel|Antalet inaktiva trådar i kort tolkning trådpoolen.|Inga dimensioner|
-|ShortParsingJobQueueLength|Trådar: Kort parsning jobbet Kölängd|Antal|Medel|Antal jobb i kö för kort tolkning trådpoolen.|Inga dimensioner|
-|memory_thrashing_metric|Minne knattrar|Procent|Medel|Genomsnittlig minne knattrar.|Inga dimensioner|
-|mashup_engine_qpu_metric|M-motorn QPU|Antal|Medel|QPU användning av mashup-motorn processer|Inga dimensioner|
-|mashup_engine_memory_metric|M-motorn minne|Byte|Medel|Minnesanvändning för mashup-motorn processer|Inga dimensioner|
+|qpu_metric|QPU|Antal|Genomsnitt|QPU. Intervallet 0-100 för S1, 0-200 för S2 och 0-400 för S4|Inga dimensioner|
+|memory_metric|Minne|Byte|Genomsnitt|Minne. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|Inga dimensioner|
+|TotalConnectionRequests|Totalt antal begäranden|Antal|Genomsnitt|Totalt antal förfrågningar. Dessa är mottagna.|Inga dimensioner|
+|SuccessfullConnectionsPerSec|Lyckade anslutningar Per sekund|CountPerSecond|Genomsnitt|Hastighet för lyckade anslutningen slutföras.|Inga dimensioner|
+|TotalConnectionFailures|Totalt antal anslutningsfel|Antal|Genomsnitt|Totalt antal misslyckade anslutningsförsök.|Inga dimensioner|
+|CurrentUserSessions|Aktuella användarsessioner|Antal|Genomsnitt|Aktuellt antal användarsessioner som har upprättats.|Inga dimensioner|
+|QueryPoolBusyThreads|Frågan poolen upptagen trådar|Antal|Genomsnitt|Antal upptagen trådar i trådpoolen för frågan.|Inga dimensioner|
+|CommandPoolJobQueueLength|Kölängd för kommandot poolen jobb|Antal|Genomsnitt|Antal jobb i kö i trådpoolen för kommandot.|Inga dimensioner|
+|ProcessingPoolJobQueueLength|Kölängd för bearbetning poolen jobb|Antal|Genomsnitt|Antal icke-I/O-jobb i kö för bearbetningstrådpoolen.|Inga dimensioner|
+|CurrentConnections|Anslutning: Aktuella anslutningar|Antal|Genomsnitt|Aktuellt antal klientanslutningar.|Inga dimensioner|
+|CleanerCurrentPrice|Minne: Tydligare aktuella pris|Antal|Genomsnitt|Aktuella priset minne, $ byte/tidsvärdet, normaliserad till 1000.|Inga dimensioner|
+|CleanerMemoryShrinkable|Minne: Tydligare minne krympning|Byte|Genomsnitt|Mängden minne i byte, föremål rensning av bakgrunden ett rengöringsband.|Inga dimensioner|
+|CleanerMemoryNonshrinkable|Minne: Tydligare minne nonshrinkable|Byte|Genomsnitt|Mängden minne i byte som inte omfattas av rensning av bakgrunden ett rengöringsband.|Inga dimensioner|
+|MemoryUsage|Minne: Minnesanvändning|Byte|Genomsnitt|Mängden minne på server-processen som används för att beräkna tydligare minnespris. Lika med prestandaräknaren Process\PrivateBytes plus storleken på minnesmappade data, ignoreras eventuella som mappats eller som har allokerats av xVelocity i minnet analytics motorn (VertiPaq) överskrider minnesgränsen för xVelocity-motorn.|Inga dimensioner|
+|MemoryLimitHard|Minne: Minnesgränsen hårddisken|Byte|Genomsnitt|Hårda minnesgränsen, från konfigurationsfilen.|Inga dimensioner|
+|MemoryLimitHigh|Minne: Minne begränsa hög|Byte|Genomsnitt|Hög minnesgränsen, från konfigurationsfilen.|Inga dimensioner|
+|MemoryLimitLow|Minne: Minne gränsen låg|Byte|Genomsnitt|Minnesbrist gräns från konfigurationsfilen.|Inga dimensioner|
+|MemoryLimitVertiPaq|Minne: Minne gränsen VertiPaq|Byte|Genomsnitt|I minnet gräns från konfigurationsfilen.|Inga dimensioner|
+|Kvot|Minne: kvot|Byte|Genomsnitt|Aktuella minneskvoten, i byte. Minneskvoten kallas även en reservation för minne grant eller minne.|Inga dimensioner|
+|QuotaBlocked|: Minneskvoten blockeras|Antal|Genomsnitt|Aktuellt antal begäranden om kvoten som blockeras tills andra minneskvoter frigörs.|Inga dimensioner|
+|VertiPaqNonpaged|Minne: VertiPaq växlingsbart systemminne|Byte|Genomsnitt|Byte av minne låst i arbetsminnet för användning av motorn i minnet.|Inga dimensioner|
+|VertiPaqPaged|Minne: VertiPaq-växlat minne|Byte|Genomsnitt|Antal byte växlingsbart minne som används för data i minnet.|Inga dimensioner|
+|RowsReadPerSec|Bearbetning: Läsa rader per sek|CountPerSecond|Genomsnitt|Antal rader att läsa från alla relationsdatabaser.|Inga dimensioner|
+|RowsConvertedPerSec|Bearbetning: Rader konverteras per sek|CountPerSecond|Genomsnitt|Antal rader konverteras under bearbetning.|Inga dimensioner|
+|RowsWrittenPerSec|Bearbetning: Rader som skrivs per sekund|CountPerSecond|Genomsnitt|Antal rader skrivna under bearbetning.|Inga dimensioner|
+|CommandPoolBusyThreads|Trådar: Kommandot poolen upptagen trådar|Antal|Genomsnitt|Antal upptagen trådar i trådpoolen för kommandot.|Inga dimensioner|
+|CommandPoolIdleThreads|Trådar: Kommandot poolen inaktiva trådar|Antal|Genomsnitt|Antalet inaktiva trådar i trådpoolen för kommandot.|Inga dimensioner|
+|LongParsingBusyThreads|Trådar: Long parsning upptagen trådar|Antal|Genomsnitt|Antal upptagen trådar i länge tolkning trådpoolen.|Inga dimensioner|
+|LongParsingIdleThreads|Trådar: Long parsning inaktiva trådar|Antal|Genomsnitt|Antalet inaktiva trådar i länge tolkning trådpoolen.|Inga dimensioner|
+|LongParsingJobQueueLength|Trådar: Parsning länge jobbet Kölängd|Antal|Genomsnitt|Antal jobb i kö för länge tolkning trådpoolen.|Inga dimensioner|
+|ProcessingPoolBusyIOJobThreads|Trådar: Bearbetning av poolen upptagen i/o-jobbet trådar|Antal|Genomsnitt|Antal trådar som körs i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
+|ProcessingPoolBusyNonIOThreads|Trådar: Bearbetning av poolen upptagen icke-I/O-trådar|Antal|Genomsnitt|Antal trådar som icke-I/O-jobb som körs i bearbetningstrådpoolen.|Inga dimensioner|
+|ProcessingPoolIOJobQueueLength|Trådar: Bearbetning av poolen Kölängd för i/o-jobb|Antal|Genomsnitt|Antal i/o-jobb i kö för bearbetningstrådpoolen.|Inga dimensioner|
+|ProcessingPoolIdleIOJobThreads|Trådar: Bearbetning av poolen inaktiv i/o-jobbet trådar|Antal|Genomsnitt|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
+|ProcessingPoolIdleNonIOThreads|Trådar: Bearbetning av poolen inaktiv icke-I/O-trådar|Antal|Genomsnitt|Antalet inaktiva trådar i bearbetningstrådpoolen som är dedikerad till icke-I/O-jobb.|Inga dimensioner|
+|QueryPoolIdleThreads|Trådar: Frågan poolen inaktiva trådar|Antal|Genomsnitt|Antal inaktiva trådar för i/o-jobb i bearbetningstrådpoolen.|Inga dimensioner|
+|QueryPoolJobQueueLength|Trådar: Frågan poolen jobbet kön lengt|Antal|Genomsnitt|Antal jobb i kö i trådpoolen för frågan.|Inga dimensioner|
+|ShortParsingBusyThreads|Trådar: Kort parsning upptagen trådar|Antal|Genomsnitt|Antal upptagen trådar i kort tolkning trådpoolen.|Inga dimensioner|
+|ShortParsingIdleThreads|Trådar: Kort parsning inaktiva trådar|Antal|Genomsnitt|Antalet inaktiva trådar i kort tolkning trådpoolen.|Inga dimensioner|
+|ShortParsingJobQueueLength|Trådar: Kort parsning jobbet Kölängd|Antal|Genomsnitt|Antal jobb i kö för kort tolkning trådpoolen.|Inga dimensioner|
+|memory_thrashing_metric|Minne knattrar|Procent|Genomsnitt|Genomsnittlig minne knattrar.|Inga dimensioner|
+|mashup_engine_qpu_metric|M-motorn QPU|Antal|Genomsnitt|QPU användning av mashup-motorn processer|Inga dimensioner|
+|mashup_engine_memory_metric|M-motorn minne|Byte|Genomsnitt|Minnesanvändning för mashup-motorn processer|Inga dimensioner|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -85,7 +85,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |UnauthorizedRequests|Obehörig Gateway-begäranden|Antal|Totalt|Antal begäranden för obehörig gateway|Plats, värdnamn|
 |FailedRequests|Gateway för misslyckade begäranden|Antal|Totalt|Antalet fel i gateway-begäranden|Plats, värdnamn|
 |OtherRequests|Andra Gateway-begäranden|Antal|Totalt|Antal andra gateway-begäranden|Plats, värdnamn|
-|Varaktighet|Varaktighet för Gateway-förfrågningar|Millisekunder|Medel|Övergripande varaktighet för Gateway-begäranden i millisekunder|Plats, värdnamn|
+|Varaktighet|Varaktighet för Gateway-förfrågningar|Millisekunder|Genomsnitt|Övergripande varaktighet för Gateway-begäranden i millisekunder|Plats, värdnamn|
 |Kapacitet|Kapacitet (förhandsgranskning)|Procent|Maximal|Användning mått för ApiManagement service|Plats|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -297,13 +297,13 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|Processorprocentandel|Processorprocentandel|Procent|Medel|Procentandelen allokerat beräknings-enheter som för närvarande används av minst en virtuell dator.|Inga dimensioner|
+|Processorprocentandel|Processorprocentandel|Procent|Genomsnitt|Procentandelen allokerat beräknings-enheter som för närvarande används av minst en virtuell dator.|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som tagits emot på alla nätverksgränssnitt av de virtuella datorerna (inkommande trafik).|Inga dimensioner|
 |Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte ut på alla nätverksgränssnitt som de virtuella datorerna (utgående trafik).|Inga dimensioner|
-|Disk-lästa byte/sek|Diskläsning|BytesPerSecond|Medel|Genomsnittlig byte som har lästs från disken under perioden.|Inga dimensioner|
-|Disk-skrivna byte/s|Skrivning till disk|BytesPerSecond|Medel|Genomsnittligt antal byte som skrivs till disk under perioden.|Inga dimensioner|
-|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Diskläsning IOPS.|Inga dimensioner|
-|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Diskskrivning IOPS.|Inga dimensioner|
+|Disk-lästa byte/sek|Diskläsning|BytesPerSecond|Genomsnitt|Genomsnittlig byte som har lästs från disken under perioden.|Inga dimensioner|
+|Disk-skrivna byte/s|Skrivning till disk|BytesPerSecond|Genomsnitt|Genomsnittligt antal byte som skrivs till disk under perioden.|Inga dimensioner|
+|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Genomsnitt|Diskläsning IOPS.|Inga dimensioner|
+|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Genomsnitt|Diskskrivning IOPS.|Inga dimensioner|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -317,7 +317,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |ClientErrors|Klientfel|Antal|Totalt|Antal anrop med fel på klientsidan (HTTP-svarskod 4xx).|Inga dimensioner|
 |DataIn|Data in|Byte|Totalt|Storlek på inkommande data i byte.|Inga dimensioner|
 |DataOut|Data ut|Byte|Totalt|Storlek på utgående data i byte.|Inga dimensioner|
-|Svarstid|Svarstid|Millisekunder|Medel|Svarstid i millisekunder.|Inga dimensioner|
+|Svarstid|Svarstid|Millisekunder|Genomsnitt|Svarstid i millisekunder.|Inga dimensioner|
 |CharactersTranslated|Tecken som översätts|Antal|Totalt|Totalt antal tecken i inkommande begäran om text.|Inga dimensioner|
 |SpeechSessionDuration|Tal varaktighet för sessionen|Sekunder|Totalt|Total varaktighet för tal-session i sekunder.|Inga dimensioner|
 
@@ -325,43 +325,43 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|Processorprocentandel|Processorprocentandel|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
+|Processorprocentandel|Processorprocentandel|Procent|Genomsnitt|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
 |Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik)|Inga dimensioner|
 |Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Totalt antal byte som lästs från disk under övervakningsperioden|Inga dimensioner|
 |Skrivna byte på disk|Skrivna byte på disk|Byte|Totalt|Totalt antal byte som skrivs från disk under övervakningsperioden|Inga dimensioner|
-|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Lästa IOPS på disk|Inga dimensioner|
-|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
-|CPU-kredit kvar|CPU-kredit kvar|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
-|CPU-krediter som används|CPU-krediter som används|Antal|Medel|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
+|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Genomsnitt|Lästa IOPS på disk|Inga dimensioner|
+|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Genomsnitt|Skrivna IOPS på disk|Inga dimensioner|
+|CPU-kredit kvar|CPU-kredit kvar|Antal|Genomsnitt|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
+|CPU-krediter som används|CPU-krediter som används|Antal|Genomsnitt|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|Processorprocentandel|Processorprocentandel|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
+|Processorprocentandel|Processorprocentandel|Procent|Genomsnitt|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
 |Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik)|Inga dimensioner|
 |Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Totalt antal byte som lästs från disk under övervakningsperioden|Inga dimensioner|
 |Skrivna byte på disk|Skrivna byte på disk|Byte|Totalt|Totalt antal byte som skrivs från disk under övervakningsperioden|Inga dimensioner|
-|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Lästa IOPS på disk|Inga dimensioner|
-|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
-|CPU-kredit kvar|CPU-kredit kvar|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
-|CPU-krediter som används|CPU-krediter som används|Antal|Medel|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
+|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Genomsnitt|Lästa IOPS på disk|Inga dimensioner|
+|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Genomsnitt|Skrivna IOPS på disk|Inga dimensioner|
+|CPU-kredit kvar|CPU-kredit kvar|Antal|Genomsnitt|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
+|CPU-krediter som används|CPU-krediter som används|Antal|Genomsnitt|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|Processorprocentandel|Processorprocentandel|Procent|Medel|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
+|Processorprocentandel|Processorprocentandel|Procent|Genomsnitt|Procentandel tilldelade beräkningsenheter som används just nu av virtuella datorer|Inga dimensioner|
 |Nätverk in|Nätverk in|Byte|Totalt|Antal byte som mottagits i alla nätverksgränssnitt av virtuella datorer (inkommande trafik)|Inga dimensioner|
 |Nätverk ut|Nätverk ut|Byte|Totalt|Antal byte som skickats ut i alla nätverksgränssnitt av virtuella datorer (utgående trafik)|Inga dimensioner|
 |Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Totalt antal byte som lästs från disk under övervakningsperioden|Inga dimensioner|
 |Skrivna byte på disk|Skrivna byte på disk|Byte|Totalt|Totalt antal byte som skrivs från disk under övervakningsperioden|Inga dimensioner|
-|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Medel|Lästa IOPS på disk|Inga dimensioner|
-|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Medel|Skrivna IOPS på disk|Inga dimensioner|
-|CPU-kredit kvar|CPU-kredit kvar|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
-|CPU-krediter som används|CPU-krediter som används|Antal|Medel|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
+|Läsåtgärder på disk/sek|Läsåtgärder på disk/sek|CountPerSecond|Genomsnitt|Lästa IOPS på disk|Inga dimensioner|
+|Skrivåtgärder på disk/sek|Skrivåtgärder på disk/sek|CountPerSecond|Genomsnitt|Skrivna IOPS på disk|Inga dimensioner|
+|CPU-kredit kvar|CPU-kredit kvar|Antal|Genomsnitt|Totalt antal krediter som är tillgängliga för burst|Inga dimensioner|
+|CPU-krediter som används|CPU-krediter som används|Antal|Genomsnitt|Totalt antal krediter som används av den virtuella datorn|Inga dimensioner|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -423,31 +423,31 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|compute_limit|Compute-gränsen för enhet|Antal|Medel|Compute-gränsen för enhet|Inga dimensioner|
-|compute_consumption_percent|Beräkna procentandelen enhet|Procent|Medel|Beräkna procentandelen enhet|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
-|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
-|storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inga dimensioner|
-|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
-|storage_limit|Lagringsgränsen|Byte|Medel|Lagringsgränsen|Inga dimensioner|
-|active_connections|Totalt antal aktiva anslutningar|Antal|Medel|Totalt antal aktiva anslutningar|Inga dimensioner|
-|connections_failed|Totalt antal misslyckade anslutningar|Antal|Medel|Totalt antal misslyckade anslutningar|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Genomsnitt|CPU-procent|Inga dimensioner|
+|compute_limit|Compute-gränsen för enhet|Antal|Genomsnitt|Compute-gränsen för enhet|Inga dimensioner|
+|compute_consumption_percent|Beräkna procentandelen enhet|Procent|Genomsnitt|Beräkna procentandelen enhet|Inga dimensioner|
+|memory_percent|Minne|Procent|Genomsnitt|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Procent|Genomsnitt|IO-procent|Inga dimensioner|
+|storage_percent|Lagringsprocent|Procent|Genomsnitt|Lagringsprocent|Inga dimensioner|
+|storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|Inga dimensioner|
+|storage_limit|Lagringsgränsen|Byte|Genomsnitt|Lagringsgränsen|Inga dimensioner|
+|active_connections|Totalt antal aktiva anslutningar|Antal|Genomsnitt|Totalt antal aktiva anslutningar|Inga dimensioner|
+|connections_failed|Totalt antal misslyckade anslutningar|Antal|Genomsnitt|Totalt antal misslyckade anslutningar|Inga dimensioner|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|compute_limit|Compute-gränsen för enhet|Antal|Medel|Compute-gränsen för enhet|Inga dimensioner|
-|compute_consumption_percent|Beräkna procentandelen enhet|Procent|Medel|Beräkna procentandelen enhet|Inga dimensioner|
-|memory_percent|Minne|Procent|Medel|Minne|Inga dimensioner|
-|io_consumption_percent|IO-procent|Procent|Medel|IO-procent|Inga dimensioner|
-|storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inga dimensioner|
-|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
-|storage_limit|Lagringsgränsen|Byte|Medel|Lagringsgränsen|Inga dimensioner|
-|active_connections|Totalt antal aktiva anslutningar|Antal|Medel|Totalt antal aktiva anslutningar|Inga dimensioner|
-|connections_failed|Totalt antal misslyckade anslutningar|Antal|Medel|Totalt antal misslyckade anslutningar|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Genomsnitt|CPU-procent|Inga dimensioner|
+|compute_limit|Compute-gränsen för enhet|Antal|Genomsnitt|Compute-gränsen för enhet|Inga dimensioner|
+|compute_consumption_percent|Beräkna procentandelen enhet|Procent|Genomsnitt|Beräkna procentandelen enhet|Inga dimensioner|
+|memory_percent|Minne|Procent|Genomsnitt|Minne|Inga dimensioner|
+|io_consumption_percent|IO-procent|Procent|Genomsnitt|IO-procent|Inga dimensioner|
+|storage_percent|Lagringsprocent|Procent|Genomsnitt|Lagringsprocent|Inga dimensioner|
+|storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|Inga dimensioner|
+|storage_limit|Lagringsgränsen|Byte|Genomsnitt|Lagringsgränsen|Inga dimensioner|
+|active_connections|Totalt antal aktiva anslutningar|Antal|Genomsnitt|Totalt antal aktiva anslutningar|Inga dimensioner|
+|connections_failed|Totalt antal misslyckade anslutningar|Antal|Genomsnitt|Totalt antal misslyckade anslutningar|Inga dimensioner|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
@@ -466,36 +466,36 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |d2c.telemetry.egress.Invalid|Ogiltig meddelanden|Antal|Totalt|Antalet meddelanden som inte levereras på grund av inkompatibilitet med slutpunkten|Inga dimensioner|
 |d2c.telemetry.egress.fallback|Meddelanden som matchar villkoret återställningsplats|Antal|Totalt|Antal meddelanden som skrivs till fallback-slutpunkten|Inga dimensioner|
 |d2c.endpoints.egress.eventHubs|Skicka meddelanden till Event Hub-slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Event Hub-slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.eventHubs|Meddelandet svarstid för Event Hub-slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i Event Hub slutpunkt, i millisekunder|Inga dimensioner|
+|d2c.endpoints.latency.eventHubs|Meddelandet svarstid för Event Hub-slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i Event Hub slutpunkt, i millisekunder|Inga dimensioner|
 |d2c.endpoints.egress.serviceBusQueues|Skicka meddelanden till Service Bus-kö slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Service Bus-kö slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.serviceBusQueues|Meddelandet svarstid för Service Bus-kö-slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-kö, i millisekunder|Inga dimensioner|
+|d2c.endpoints.latency.serviceBusQueues|Meddelandet svarstid för Service Bus-kö-slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-kö, i millisekunder|Inga dimensioner|
 |d2c.endpoints.egress.serviceBusTopics|Skicka meddelanden till Service Bus-ämne slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till Service Bus-ämne slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.serviceBusTopics|Meddelandet svarstiden för Service Bus-ämne slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-ämne, i millisekunder|Inga dimensioner|
+|d2c.endpoints.latency.serviceBusTopics|Meddelandet svarstiden för Service Bus-ämne slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för Service Bus-ämne, i millisekunder|Inga dimensioner|
 |d2c.endpoints.egress.builtIn.events|Skicka meddelanden till inbyggd slutpunkt (meddelanden/händelser)|Antal|Totalt|Antal gånger som meddelanden som skrivits till inbyggd slutpunkt (meddelanden/händelser)|Inga dimensioner|
-|d2c.endpoints.latency.builtIn.events|Meddelandet svarstid för inbyggd slutpunkt (meddelanden/händelser)|Millisekunder|Medel|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i inbyggd slutpunkt (meddelanden/händelser), i millisekunder |Inga dimensioner|
+|d2c.endpoints.latency.builtIn.events|Meddelandet svarstid för inbyggd slutpunkt (meddelanden/händelser)|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång i inbyggd slutpunkt (meddelanden/händelser), i millisekunder |Inga dimensioner|
 |d2c.endpoints.egress.Storage|Meddelanden som har levererats till lagring slutpunkter|Antal|Totalt|Antal gånger som meddelanden som skrivits till lagring slutpunkter|Inga dimensioner|
-|d2c.endpoints.latency.Storage|Meddelandet svarstid för lagring-slutpunkter|Millisekunder|Medel|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för lagring, i millisekunder|Inga dimensioner|
+|d2c.endpoints.latency.Storage|Meddelandet svarstid för lagring-slutpunkter|Millisekunder|Genomsnitt|Genomsnittlig svarstid mellan meddelandet telemetriingång till IoT-hubb och meddelandet ingång till en slutpunkt för lagring, i millisekunder|Inga dimensioner|
 |d2c.endpoints.egress.Storage.bytes|Data skrivs till lagring|Byte|Totalt|Mängden data i byte som skrivits till lagring slutpunkter|Inga dimensioner|
 |d2c.endpoints.egress.Storage.BLOBs|BLOB skrivs till lagring|Antal|Totalt|Antal blobbar som skrivs till lagring slutpunkter|Inga dimensioner|
 |d2c.Twin.Read.Success|Lyckad dubbla läser från enheter|Antal|Totalt|Antal alla lyckade enhet initieras dubbla läser.|Inga dimensioner|
 |d2c.Twin.Read.failure|Det gick inte dubbla läsningar av enheter|Antal|Totalt|Antalet alla misslyckades enhet initieras dubbla läsningar.|Inga dimensioner|
-|d2c.Twin.Read.size|Svarsstorlek dubbla läsningar av enheter|Byte|Medel|Medel, min och max för alla lyckade enhet initieras dubbla läsningar.|Inga dimensioner|
+|d2c.Twin.Read.size|Svarsstorlek dubbla läsningar av enheter|Byte|Genomsnitt|Medel, min och max för alla lyckade enhet initieras dubbla läsningar.|Inga dimensioner|
 |d2c.Twin.Update.Success|Lyckad dubbla uppdateringar från enheter|Antal|Totalt|Antal uppdateringar för alla lyckade enhet initieras dubbla.|Inga dimensioner|
 |d2c.Twin.Update.failure|Det gick inte dubbla uppdateringar från enheter|Antal|Totalt|Antalet alla misslyckades enhet initieras dubbla uppdateringar.|Inga dimensioner|
-|d2c.Twin.Update.size|Storleken på dubbla uppdateringar från enheter|Byte|Medel|Medel, min och max storlek för alla lyckade enhet initieras dubbla uppdateringar.|Inga dimensioner|
+|d2c.Twin.Update.size|Storleken på dubbla uppdateringar från enheter|Byte|Genomsnitt|Medel, min och max storlek för alla lyckade enhet initieras dubbla uppdateringar.|Inga dimensioner|
 |c2d.methods.Success|Lyckad direkta metoden anrop|Antal|Totalt|Antal alla lyckade direkt metodanrop.|Inga dimensioner|
 |c2d.methods.failure|Det gick inte direkt metod anrop|Antal|Totalt|Det gick inte att direkt metodanrop antalet alla.|Inga dimensioner|
-|c2d.methods.requestSize|Storleken på direkta metoden anrop för begäran|Byte|Medel|Medel, min och max för alla lyckade direkta metodbegäranden.|Inga dimensioner|
-|c2d.methods.responseSize|Storlek för direkta metoden anrop|Byte|Medel|Medel, min och max för alla lyckade direkta metoden svar.|Inga dimensioner|
+|c2d.methods.requestSize|Storleken på direkta metoden anrop för begäran|Byte|Genomsnitt|Medel, min och max för alla lyckade direkta metodbegäranden.|Inga dimensioner|
+|c2d.methods.responseSize|Storlek för direkta metoden anrop|Byte|Genomsnitt|Medel, min och max för alla lyckade direkta metoden svar.|Inga dimensioner|
 |c2d.Twin.Read.Success|Lyckad dubbla läser från serverdelen|Antal|Totalt|Antal alla lyckade tillbaka-end-initierad dubbla läser.|Inga dimensioner|
 |c2d.Twin.Read.failure|Misslyckade dubbla läser från serverdelen|Antal|Totalt|Antalet alla misslyckades tillbaka-end-initierad dubbla läsningar.|Inga dimensioner|
-|c2d.Twin.Read.size|Storlek för dubbla läser från serverdelen|Byte|Medel|Medel, min och max för alla lyckade tillbaka-end-initierade dubbla läsningar.|Inga dimensioner|
+|c2d.Twin.Read.size|Storlek för dubbla läser från serverdelen|Byte|Genomsnitt|Medel, min och max för alla lyckade tillbaka-end-initierade dubbla läsningar.|Inga dimensioner|
 |c2d.Twin.Update.Success|Lyckad dubbla uppdateringar från serverdelen|Antal|Totalt|Antal uppdateringar för alla lyckade tillbaka-end-initierad dubbla.|Inga dimensioner|
 |c2d.Twin.Update.failure|Misslyckade dubbla uppdateringar från serverdelen|Antal|Totalt|Antalet alla misslyckades tillbaka-end-initierad dubbla uppdateringar.|Inga dimensioner|
-|c2d.Twin.Update.size|Storleken på dubbla uppdateringar från serverdelen|Byte|Medel|Medel, min och max storlek för alla lyckade tillbaka-end-initierad dubbla uppdateringar.|Inga dimensioner|
+|c2d.Twin.Update.size|Storleken på dubbla uppdateringar från serverdelen|Byte|Genomsnitt|Medel, min och max storlek för alla lyckade tillbaka-end-initierad dubbla uppdateringar.|Inga dimensioner|
 |twinQueries.success|Lyckad dubbla frågor|Antal|Totalt|Antal alla lyckade dubbla frågor.|Inga dimensioner|
 |twinQueries.failure|Misslyckade dubbla frågor|Antal|Totalt|Antal alla misslyckade dubbla frågor.|Inga dimensioner|
-|twinQueries.resultSize|Dubbla frågor storlek|Byte|Medel|Medel, min och max resultatet av alla lyckade dubbla frågor storlek.|Inga dimensioner|
+|twinQueries.resultSize|Dubbla frågor storlek|Byte|Genomsnitt|Medel, min och max resultatet av alla lyckade dubbla frågor storlek.|Inga dimensioner|
 |jobs.createTwinUpdateJob.success|Lyckad skapande av dubbla uppdatera jobb|Antal|Totalt|Antal alla lyckade skapandet av dubbla uppdateringsjobb.|Inga dimensioner|
 |jobs.createTwinUpdateJob.failure|Misslyckade skapande av dubbla uppdatera jobb|Antal|Totalt|Antal alla misslyckad generering av dubbla uppdateringsjobb.|Inga dimensioner|
 |jobs.createDirectMethodJob.success|Lyckad skapande av metoden anrops-jobb|Antal|Totalt|Antal alla har skapats på direkta metoden anrop jobb.|Inga dimensioner|
@@ -509,7 +509,7 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |jobs.Completed|Slutförda jobb|Antal|Totalt|Antal alla slutförda jobb.|Inga dimensioner|
 |jobs.Failed|Misslyckade jobb|Antal|Totalt|Antal alla misslyckade jobb.|Inga dimensioner|
 |d2c.telemetry.Ingress.sendThrottle|Antalet fel som bandbreddsbegränsning|Antal|Totalt|Begränsar antalet bandbreddsbegränsning felen på grund av enheten genomflöde|Inga dimensioner|
-|dailyMessageQuotaUsed|Sammanlagt antal meddelanden som används|Antal|Medel|Antal Totalt antal meddelanden som används idag. Detta är en kumulativ värde som har återställts till noll i UTC 00:00 varje dag.|Inga dimensioner|
+|dailyMessageQuotaUsed|Sammanlagt antal meddelanden som används|Antal|Genomsnitt|Antal Totalt antal meddelanden som används idag. Detta är en kumulativ värde som har återställts till noll i UTC 00:00 varje dag.|Inga dimensioner|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -519,7 +519,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |DeviceAssignments|Enheter som är tilldelade|Antal|Totalt|Antalet enheter som har tilldelats en IoT-hubb|ProvisioningServiceName IotHubName|
 |AttestationAttempts|Attesteringen försök|Antal|Totalt|Antalet enheter intyg försökte|ProvisioningServiceName, Status, protokollet|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
 |TotalRequests|Totalt antal begäranden|Antal|Antal|Antal begäranden|DatabaseAccount, samlingsnamn, DatabaseName, Region, StatusCode|
@@ -551,9 +553,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Observerade värde|Antal|Medel|Värdet som beräknats med Autoskala när den körs|MetricTriggerSource|
-|MetricThreshold|Mått tröskelvärde|Antal|Medel|Konfigurerade Autoskala tröskelvärdet när Autoskala kördes.|MetricTriggerRule|
-|ObservedCapacity|Observerade kapacitet|Antal|Medel|Kapaciteten rapporterade Autoskala när den körs.|Inga dimensioner|
+|ObservedMetricValue|Observerade värde|Antal|Genomsnitt|Värdet som beräknats med Autoskala när den körs|MetricTriggerSource|
+|MetricThreshold|Mått tröskelvärde|Antal|Genomsnitt|Konfigurerade Autoskala tröskelvärdet när Autoskala kördes.|MetricTriggerRule|
+|ObservedCapacity|Observerade kapacitet|Antal|Genomsnitt|Kapaciteten rapporterade Autoskala när den körs.|Inga dimensioner|
 |ScaleActionsInitiated|Skalningsåtgärder initieras|Antal|Totalt|Riktningen för åtgärden.|ScaleDirection|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
@@ -565,8 +567,8 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |RunsSucceeded|Lyckade körningar|Antal|Totalt|Antal lyckade arbetsflödeskörningar.|Inga dimensioner|
 |RunsFailed|Misslyckade körningar|Antal|Totalt|Antal misslyckade arbetsflödeskörningar.|Inga dimensioner|
 |RunsCancelled|Avbrutna körningar|Antal|Totalt|Antal avbrutna arbetsflödeskörningar.|Inga dimensioner|
-|RunLatency|Svarstid för körning|Sekunder|Medel|Svarstid för slutförda arbetsflödeskörningar.|Inga dimensioner|
-|RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Medel|Svarstid för lyckade arbetsflödeskörningar.|Inga dimensioner|
+|RunLatency|Svarstid för körning|Sekunder|Genomsnitt|Svarstid för slutförda arbetsflödeskörningar.|Inga dimensioner|
+|RunSuccessLatency|Svarstid för lyckad körning|Sekunder|Genomsnitt|Svarstid för lyckade arbetsflödeskörningar.|Inga dimensioner|
 |RunThrottledEvents|Kör begränsade händelser|Antal|Totalt|Antal arbetsflödesåtgärds- eller utlösarbegränsade händelser.|Inga dimensioner|
 |RunFailurePercentage|Kör felprocent|Procent|Totalt|Misslyckade arbetsflödeskörningar i procent.|Inga dimensioner|
 |ActionsStarted|Startade åtgärder |Antal|Totalt|Antal startade arbetsflödesåtgärder.|Inga dimensioner|
@@ -574,8 +576,8 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |ActionsSucceeded|Lyckade åtgärder |Antal|Totalt|Antal lyckade arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsFailed|Misslyckade åtgärder|Antal|Totalt|Antal misslyckade arbetsflödesåtgärder.|Inga dimensioner|
 |ActionsSkipped|Överhoppade åtgärder |Antal|Totalt|Antal överhoppade arbetsflödesåtgärder.|Inga dimensioner|
-|ActionLatency|Svarstid för åtgärd |Sekunder|Medel|Svarstid för slutförda arbetsflödesåtgärder.|Inga dimensioner|
-|ActionSuccessLatency|Svarstid för lyckad åtgärd |Sekunder|Medel|Svarstid för lyckade arbetsflödesåtgärder.|Inga dimensioner|
+|ActionLatency|Svarstid för åtgärd |Sekunder|Genomsnitt|Svarstid för slutförda arbetsflödesåtgärder.|Inga dimensioner|
+|ActionSuccessLatency|Svarstid för lyckad åtgärd |Sekunder|Genomsnitt|Svarstid för lyckade arbetsflödesåtgärder.|Inga dimensioner|
 |ActionThrottledEvents|Begränsade händelser för åtgärder|Antal|Totalt|Antal begränsade händelser för arbetsflödesåtgärder.|Inga dimensioner|
 |TriggersStarted|Startade utlösare |Antal|Totalt|Antal startade arbetsflödesutlösare.|Inga dimensioner|
 |TriggersCompleted|Slutförda utlösare |Antal|Totalt|Antal slutförda arbetsflödesutlösare.|Inga dimensioner|
@@ -583,9 +585,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |TriggersFailed|Misslyckade utlösare |Antal|Totalt|Antal misslyckade arbetsflödesutlösare.|Inga dimensioner|
 |TriggersSkipped|Ignorerade utlösare|Antal|Totalt|Antal överhoppade arbetsflödesutlösare.|Inga dimensioner|
 |TriggersFired|Aktiverade utlösare |Antal|Totalt|Antal utlösta arbetsflödesutlösare.|Inga dimensioner|
-|TriggerLatency|Latensutlösare |Sekunder|Medel|Svarstid för slutförda arbetsflödesutlösare.|Inga dimensioner|
-|TriggerFireLatency|Brandlatensutlösare |Sekunder|Medel|Svartstid för utlösta arbetsflödesutlösare.|Inga dimensioner|
-|TriggerSuccessLatency|Framgångslatensutlösare |Sekunder|Medel|Svartstid för lyckade arbetsflödesutlösare.|Inga dimensioner|
+|TriggerLatency|Latensutlösare |Sekunder|Genomsnitt|Svarstid för slutförda arbetsflödesutlösare.|Inga dimensioner|
+|TriggerFireLatency|Brandlatensutlösare |Sekunder|Genomsnitt|Svartstid för utlösta arbetsflödesutlösare.|Inga dimensioner|
+|TriggerSuccessLatency|Framgångslatensutlösare |Sekunder|Genomsnitt|Svartstid för lyckade arbetsflödesutlösare.|Inga dimensioner|
 |TriggerThrottledEvents|Utlösare för begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbetsflödesutlösare.|Inga dimensioner|
 |BillableActionExecutions|Fakturerbara åtgärdskörningar|Antal|Totalt|Antal körningar av arbetsflödesåtgärder som faktureras.|Inga dimensioner|
 |BillableTriggerExecutions|Fakturerbara utlösarkörningar|Antal|Totalt|Antal körningar av arbetsflödesutlösare som faktureras.|Inga dimensioner|
@@ -595,8 +597,8 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|VipAvailability|VIP-tillgänglighet|Antal|Medel|Tillgängligheten för VIP-slutpunkter, baserat på avsökning|VipAddress VipPort|
-|DipAvailability|DIP tillgänglighet|Antal|Medel|Tillgängligheten för DIP slutpunkter, baserat på avsökning|ProtocolType, DipPort, VipAddress, VipPort, DipAddress|
+|VipAvailability|VIP-tillgänglighet|Antal|Genomsnitt|Tillgängligheten för VIP-slutpunkter, baserat på avsökning|VipAddress VipPort|
+|DipAvailability|DIP tillgänglighet|Antal|Genomsnitt|Tillgängligheten för DIP slutpunkter, baserat på avsökning|ProtocolType, DipPort, VipAddress, VipPort, DipAddress|
 |ByteCount|Antal byte|Antal|Totalt|Totalt antal byte som överförs inom tidsperiod|VipAddress VipPort, riktning|
 |PacketCount|Antal|Antal|Totalt|Totalt antal paket som skickas inom tidsperiod|VipAddress VipPort, riktning|
 |SYNCount|SYN antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperiod|VipAddress VipPort, riktning|
@@ -606,28 +608,28 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|PacketsInDDoS|Inkommande paket DDoS|CountPerSecond|Medel|Inkommande paket DDoS|Inga dimensioner|
-|PacketsDroppedDDoS|Inkommande paket som tas bort DDoS|CountPerSecond|Medel|Inkommande paket som tas bort DDoS|Inga dimensioner|
-|PacketsForwardedDDoS|Inkommande paket som vidarebefordras DDoS|CountPerSecond|Medel|Inkommande paket som vidarebefordras DDoS|Inga dimensioner|
-|TCPPacketsInDDoS|Inkommande TCP-paket DDoS|CountPerSecond|Medel|Inkommande TCP-paket DDoS|Inga dimensioner|
-|TCPPacketsDroppedDDoS|Inkommande TCP-paket som tas bort DDoS|CountPerSecond|Medel|Inkommande TCP-paket som tas bort DDoS|Inga dimensioner|
-|TCPPacketsForwardedDDoS|Inkommande TCP-paket som vidarebefordras DDoS|CountPerSecond|Medel|Inkommande TCP-paket som vidarebefordras DDoS|Inga dimensioner|
-|UDPPacketsInDDoS|Inkommande UDP-paket DDoS|CountPerSecond|Medel|Inkommande UDP-paket DDoS|Inga dimensioner|
-|UDPPacketsDroppedDDoS|Inkommande UDP-paket som tas bort DDoS|CountPerSecond|Medel|Inkommande UDP-paket som tas bort DDoS|Inga dimensioner|
-|UDPPacketsForwardedDDoS|Inkommande UDP-paket som vidarebefordras DDoS|CountPerSecond|Medel|Inkommande UDP-paket som vidarebefordras DDoS|Inga dimensioner|
-|BytesInDDoS|Inkommande byte DDoS|BytesPerSecond|Medel|Inkommande byte DDoS|Inga dimensioner|
-|BytesDroppedDDoS|Inkommande byte bort DDoS|BytesPerSecond|Medel|Inkommande byte bort DDoS|Inga dimensioner|
-|BytesForwardedDDoS|Inkommande byte vidarebefordras DDoS|BytesPerSecond|Medel|Inkommande byte vidarebefordras DDoS|Inga dimensioner|
-|TCPBytesInDDoS|Inkommande TCP byte DDoS|BytesPerSecond|Medel|Inkommande TCP byte DDoS|Inga dimensioner|
-|TCPBytesDroppedDDoS|Inkommande TCP-byte bort DDoS|BytesPerSecond|Medel|Inkommande TCP-byte bort DDoS|Inga dimensioner|
-|TCPBytesForwardedDDoS|Inkommande TCP-byte vidarebefordras DDoS|BytesPerSecond|Medel|Inkommande TCP-byte vidarebefordras DDoS|Inga dimensioner|
-|UDPBytesInDDoS|Inkommande UDP byte DDoS|BytesPerSecond|Medel|Inkommande UDP byte DDoS|Inga dimensioner|
-|UDPBytesDroppedDDoS|Inkommande UDP byte bort DDoS|BytesPerSecond|Medel|Inkommande UDP byte bort DDoS|Inga dimensioner|
-|UDPBytesForwardedDDoS|Inkommande UDP byte vidarebefordras DDoS|BytesPerSecond|Medel|Inkommande UDP byte vidarebefordras DDoS|Inga dimensioner|
-|IfUnderDDoSAttack|Under DDoS attacker eller inte|Antal|Medel|Under DDoS attacker eller inte|Inga dimensioner|
-|DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-lösning|CountPerSecond|Medel|Inkommande TCP-paket för att utlösa DDoS-lösning|Inga dimensioner|
-|DDoSTriggerUDPPackets|Inkommande UDP-paket för att utlösa DDoS-lösning|CountPerSecond|Medel|Inkommande UDP-paket för att utlösa DDoS-lösning|Inga dimensioner|
-|VipAvailability|Tillgänglighet|Antal|Medel|Medeltillgänglighet IP-adress inom tidsperiod|Port|
+|PacketsInDDoS|Inkommande paket DDoS|CountPerSecond|Genomsnitt|Inkommande paket DDoS|Inga dimensioner|
+|PacketsDroppedDDoS|Inkommande paket som tas bort DDoS|CountPerSecond|Genomsnitt|Inkommande paket som tas bort DDoS|Inga dimensioner|
+|PacketsForwardedDDoS|Inkommande paket som vidarebefordras DDoS|CountPerSecond|Genomsnitt|Inkommande paket som vidarebefordras DDoS|Inga dimensioner|
+|TCPPacketsInDDoS|Inkommande TCP-paket DDoS|CountPerSecond|Genomsnitt|Inkommande TCP-paket DDoS|Inga dimensioner|
+|TCPPacketsDroppedDDoS|Inkommande TCP-paket som tas bort DDoS|CountPerSecond|Genomsnitt|Inkommande TCP-paket som tas bort DDoS|Inga dimensioner|
+|TCPPacketsForwardedDDoS|Inkommande TCP-paket som vidarebefordras DDoS|CountPerSecond|Genomsnitt|Inkommande TCP-paket som vidarebefordras DDoS|Inga dimensioner|
+|UDPPacketsInDDoS|Inkommande UDP-paket DDoS|CountPerSecond|Genomsnitt|Inkommande UDP-paket DDoS|Inga dimensioner|
+|UDPPacketsDroppedDDoS|Inkommande UDP-paket som tas bort DDoS|CountPerSecond|Genomsnitt|Inkommande UDP-paket som tas bort DDoS|Inga dimensioner|
+|UDPPacketsForwardedDDoS|Inkommande UDP-paket som vidarebefordras DDoS|CountPerSecond|Genomsnitt|Inkommande UDP-paket som vidarebefordras DDoS|Inga dimensioner|
+|BytesInDDoS|Inkommande byte DDoS|BytesPerSecond|Genomsnitt|Inkommande byte DDoS|Inga dimensioner|
+|BytesDroppedDDoS|Inkommande byte bort DDoS|BytesPerSecond|Genomsnitt|Inkommande byte bort DDoS|Inga dimensioner|
+|BytesForwardedDDoS|Inkommande byte vidarebefordras DDoS|BytesPerSecond|Genomsnitt|Inkommande byte vidarebefordras DDoS|Inga dimensioner|
+|TCPBytesInDDoS|Inkommande TCP byte DDoS|BytesPerSecond|Genomsnitt|Inkommande TCP byte DDoS|Inga dimensioner|
+|TCPBytesDroppedDDoS|Inkommande TCP-byte bort DDoS|BytesPerSecond|Genomsnitt|Inkommande TCP-byte bort DDoS|Inga dimensioner|
+|TCPBytesForwardedDDoS|Inkommande TCP-byte vidarebefordras DDoS|BytesPerSecond|Genomsnitt|Inkommande TCP-byte vidarebefordras DDoS|Inga dimensioner|
+|UDPBytesInDDoS|Inkommande UDP byte DDoS|BytesPerSecond|Genomsnitt|Inkommande UDP byte DDoS|Inga dimensioner|
+|UDPBytesDroppedDDoS|Inkommande UDP byte bort DDoS|BytesPerSecond|Genomsnitt|Inkommande UDP byte bort DDoS|Inga dimensioner|
+|UDPBytesForwardedDDoS|Inkommande UDP byte vidarebefordras DDoS|BytesPerSecond|Genomsnitt|Inkommande UDP byte vidarebefordras DDoS|Inga dimensioner|
+|IfUnderDDoSAttack|Under DDoS attacker eller inte|Antal|Genomsnitt|Under DDoS attacker eller inte|Inga dimensioner|
+|DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-lösning|CountPerSecond|Genomsnitt|Inkommande TCP-paket för att utlösa DDoS-lösning|Inga dimensioner|
+|DDoSTriggerUDPPackets|Inkommande UDP-paket för att utlösa DDoS-lösning|CountPerSecond|Genomsnitt|Inkommande UDP-paket för att utlösa DDoS-lösning|Inga dimensioner|
+|VipAvailability|Tillgänglighet|Antal|Genomsnitt|Medeltillgänglighet IP-adress inom tidsperiod|Port|
 |ByteCount|Antal byte|Antal|Totalt|Totalt antal byte som överförs inom tidsperiod|Port, riktning|
 |PacketCount|Antal|Antal|Totalt|Totalt antal paket som skickas inom tidsperiod|Port, riktning|
 |SynCount|SYN antal|Antal|Totalt|Totalt antal SYN-paket som skickas inom tidsperiod|Port, riktning|
@@ -636,20 +638,20 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|Dataflöde|Dataflöde|BytesPerSecond|Medel|Antalet byte per sekund som Application Gateway har meddelat|Inga dimensioner|
+|Dataflöde|Dataflöde|BytesPerSecond|Genomsnitt|Antalet byte per sekund som Application Gateway har meddelat|Inga dimensioner|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|TunnelAverageBandwidth|Tunnel bandbredd|BytesPerSecond|Medel|Genomsnittlig bandbredden för en tunnel i byte per sekund|ConnectionName RemoteIP|
-|TunnelPeakBandwidth|Tunnel belastning bandbredd|BytesPerSecond|Medel|Belastning bandbredden för en tunnel i byte per sekund|ConnectionName RemoteIP|
-|TunnelEgressBytes|Tunnel utgående byte|Byte|Medel|Utgående byte en tunnel i fem minuterna|ConnectionName RemoteIP|
-|TunnelIngressBytes|Tunnel ingång byte|Byte|Medel|Inkommande byte en tunnel i fem minuterna|ConnectionName RemoteIP|
-|TunnelEgressPackets|Tunnel utgående paket|Antal|Medel|Utgående antal en tunnel i fem minuterna|ConnectionName RemoteIP|
-|TunnelIngressPackets|Tunnel ingång paket|Antal|Medel|Inkommande antal en tunnel i fem minuterna|ConnectionName RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Tunnel utgång TS matchningsfel paket släpp|Antal|Medel|Släpp för utgående paket från trafik selector matchar inte en tunnel i fem minuterna|ConnectionName RemoteIP|
-|TunnelIngressPacketDropTSMismatch|Tunnel ingång TS matchningsfel paket släpp|Antal|Medel|Inkommande paket släpp från trafik selector matchar inte en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelAverageBandwidth|Tunnel bandbredd|BytesPerSecond|Genomsnitt|Genomsnittlig bandbredden för en tunnel i byte per sekund|ConnectionName RemoteIP|
+|TunnelPeakBandwidth|Tunnel belastning bandbredd|BytesPerSecond|Genomsnitt|Belastning bandbredden för en tunnel i byte per sekund|ConnectionName RemoteIP|
+|TunnelEgressBytes|Tunnel utgående byte|Byte|Genomsnitt|Utgående byte en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelIngressBytes|Tunnel ingång byte|Byte|Genomsnitt|Inkommande byte en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelEgressPackets|Tunnel utgående paket|Antal|Genomsnitt|Utgående antal en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelIngressPackets|Tunnel ingång paket|Antal|Genomsnitt|Inkommande antal en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Tunnel utgång TS matchningsfel paket släpp|Antal|Genomsnitt|Släpp för utgående paket från trafik selector matchar inte en tunnel i fem minuterna|ConnectionName RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Tunnel ingång TS matchningsfel paket släpp|Antal|Genomsnitt|Inkommande paket släpp från trafik selector matchar inte en tunnel i fem minuterna|ConnectionName RemoteIP|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -657,8 +659,8 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |---|---|---|---|---|---|
 |BytesIn är större än|BytesIn är större än|Antal|Totalt|Byte ingressing Azure|Inga dimensioner|
 |BytesOut är större än|BytesOut är större än|Antal|Totalt|Byte egressing Azure|Inga dimensioner|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS ingressing Azure per sekund|Inga dimensioner|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS egressing Azure per sekund|Inga dimensioner|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Genomsnitt|BITS ingressing Azure per sekund|Inga dimensioner|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Genomsnitt|BITS egressing Azure per sekund|Inga dimensioner|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
@@ -738,9 +740,9 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|SearchLatency|Sök svarstid|Sekunder|Medel|Sök genomsnittlig svarstid för search-tjänsten|Inga dimensioner|
-|SearchQueriesPerSecond|Sökfrågor per sekund|CountPerSecond|Medel|Sökfrågor per sekund för search-tjänsten|Inga dimensioner|
-|ThrottledSearchQueriesPercentage|Begränsade sökfrågor i procent|Procent|Medel|Procentandelen sökfrågor som har begränsats för söktjänsten|Inga dimensioner|
+|SearchLatency|Sök svarstid|Sekunder|Genomsnitt|Sök genomsnittlig svarstid för search-tjänsten|Inga dimensioner|
+|SearchQueriesPerSecond|Sökfrågor per sekund|CountPerSecond|Genomsnitt|Sökfrågor per sekund för search-tjänsten|Inga dimensioner|
+|ThrottledSearchQueriesPercentage|Begränsade sökfrågor i procent|Procent|Genomsnitt|Procentandelen sökfrågor som har begränsats för söktjänsten|Inga dimensioner|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -753,127 +755,127 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|log_write_percent|Loggen IO-procent|Procent|Medel|Loggen IO-procent|Inga dimensioner|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Genomsnitt|CPU-procent|Inga dimensioner|
+|physical_data_read_percent|Data IO-procent|Procent|Genomsnitt|Data IO-procent|Inga dimensioner|
+|log_write_percent|Loggen IO-procent|Procent|Genomsnitt|Loggen IO-procent|Inga dimensioner|
+|dtu_consumption_percent|DTU-procent|Procent|Genomsnitt|DTU-procent|Inga dimensioner|
 |lagring|Totalt antal databasens storlek|Byte|Maximal|Totalt antal databasens storlek|Inga dimensioner|
 |connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga dimensioner|
 |connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga dimensioner|
 |blocked_by_firewall|Blockeras av brandvägg|Antal|Totalt|Blockeras av brandvägg|Inga dimensioner|
 |deadlock|Deadlocks|Antal|Totalt|Deadlocks|Inga dimensioner|
 |storage_percent|Databasstorlek i procent|Procent|Maximal|Databasstorlek i procent|Inga dimensioner|
-|xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Medel|Minnesintern OLTP lagring procent|Inga dimensioner|
-|workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|Inga dimensioner|
-|sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|Inga dimensioner|
-|dtu_limit|DTU gräns|Antal|Medel|DTU gräns|Inga dimensioner|
-|dtu_used|DTU används|Antal|Medel|DTU används|Inga dimensioner|
+|xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Genomsnitt|Minnesintern OLTP lagring procent|Inga dimensioner|
+|workers_percent|Procentsatsen för arbetare|Procent|Genomsnitt|Procentsatsen för arbetare|Inga dimensioner|
+|sessions_percent|Sessioner procent|Procent|Genomsnitt|Sessioner procent|Inga dimensioner|
+|dtu_limit|DTU gräns|Antal|Genomsnitt|DTU gräns|Inga dimensioner|
+|dtu_used|DTU används|Antal|Genomsnitt|DTU används|Inga dimensioner|
 |dwu_limit|DWU gräns|Antal|Maximal|DWU gräns|Inga dimensioner|
 |dwu_consumption_percent|DWU-procent|Procent|Maximal|DWU-procent|Inga dimensioner|
 |dwu_used|DWU används|Antal|Maximal|DWU används|Inga dimensioner|
-|dw_cpu_percent|DW nivån CPU-procent|Procent|Medel|DW nivån CPU-procent|dw_logical_node_id|
-|dw_physical_data_read_percent|DW nod nivån Data IO-procent|Procent|Medel|DW nod nivån Data IO-procent|dw_logical_node_id|
+|dw_cpu_percent|DW nivån CPU-procent|Procent|Genomsnitt|DW nivån CPU-procent|dw_logical_node_id|
+|dw_physical_data_read_percent|DW nod nivån Data IO-procent|Procent|Genomsnitt|DW nod nivån Data IO-procent|dw_logical_node_id|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
-|database_cpu_percent|CPU-procent|Procent|Medel|CPU-procent|DatabaseResourceId|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|database_physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|DatabaseResourceId|
-|log_write_percent|Loggen IO-procent|Procent|Medel|Loggen IO-procent|Inga dimensioner|
-|database_log_write_percent|Loggen IO-procent|Procent|Medel|Loggen IO-procent|DatabaseResourceId|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
-|database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId|
-|storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inga dimensioner|
-|workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|Inga dimensioner|
-|database_workers_percent|Procentsatsen för arbetare|Procent|Medel|Procentsatsen för arbetare|DatabaseResourceId|
-|sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|Inga dimensioner|
-|database_sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|DatabaseResourceId|
-|eDTU_limit|eDTU gräns|Antal|Medel|eDTU gräns|Inga dimensioner|
-|storage_limit|Lagringsgränsen|Byte|Medel|Lagringsgränsen|Inga dimensioner|
-|eDTU_used|eDTU används|Antal|Medel|eDTU används|Inga dimensioner|
-|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|Inga dimensioner|
-|database_storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|DatabaseResourceId|
-|xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Medel|Minnesintern OLTP lagring procent|Inga dimensioner|
+|cpu_percent|CPU-procent|Procent|Genomsnitt|CPU-procent|Inga dimensioner|
+|database_cpu_percent|CPU-procent|Procent|Genomsnitt|CPU-procent|DatabaseResourceId|
+|physical_data_read_percent|Data IO-procent|Procent|Genomsnitt|Data IO-procent|Inga dimensioner|
+|database_physical_data_read_percent|Data IO-procent|Procent|Genomsnitt|Data IO-procent|DatabaseResourceId|
+|log_write_percent|Loggen IO-procent|Procent|Genomsnitt|Loggen IO-procent|Inga dimensioner|
+|database_log_write_percent|Loggen IO-procent|Procent|Genomsnitt|Loggen IO-procent|DatabaseResourceId|
+|dtu_consumption_percent|DTU-procent|Procent|Genomsnitt|DTU-procent|Inga dimensioner|
+|database_dtu_consumption_percent|DTU-procent|Procent|Genomsnitt|DTU-procent|DatabaseResourceId|
+|storage_percent|Lagringsprocent|Procent|Genomsnitt|Lagringsprocent|Inga dimensioner|
+|workers_percent|Procentsatsen för arbetare|Procent|Genomsnitt|Procentsatsen för arbetare|Inga dimensioner|
+|database_workers_percent|Procentsatsen för arbetare|Procent|Genomsnitt|Procentsatsen för arbetare|DatabaseResourceId|
+|sessions_percent|Sessioner procent|Procent|Genomsnitt|Sessioner procent|Inga dimensioner|
+|database_sessions_percent|Sessioner procent|Procent|Genomsnitt|Sessioner procent|DatabaseResourceId|
+|eDTU_limit|eDTU gräns|Antal|Genomsnitt|eDTU gräns|Inga dimensioner|
+|storage_limit|Lagringsgränsen|Byte|Genomsnitt|Lagringsgränsen|Inga dimensioner|
+|eDTU_used|eDTU används|Antal|Genomsnitt|eDTU används|Inga dimensioner|
+|storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|Inga dimensioner|
+|database_storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|DatabaseResourceId|
+|xtp_storage_percent|Minnesintern OLTP lagring procent|Procent|Genomsnitt|Minnesintern OLTP lagring procent|Inga dimensioner|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId ElasticPoolResourceId|
-|storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|ElasticPoolResourceId|
-|database_storage_used|Använt lagringsutrymme|Byte|Medel|Använt lagringsutrymme|DatabaseResourceId ElasticPoolResourceId|
+|dtu_consumption_percent|DTU-procent|Procent|Genomsnitt|DTU-procent|ElasticPoolResourceId|
+|database_dtu_consumption_percent|DTU-procent|Procent|Genomsnitt|DTU-procent|DatabaseResourceId ElasticPoolResourceId|
+|storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|ElasticPoolResourceId|
+|database_storage_used|Använt lagringsutrymme|Byte|Genomsnitt|Använt lagringsutrymme|DatabaseResourceId ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Konto som används för kapacitet|Inga dimensioner|
+|UsedCapacity|Använd kapacitet|Byte|Genomsnitt|Konto som används för kapacitet|Inga dimensioner|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Utgång|Utgång|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
-|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Medel|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Genomsnitt|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
+|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Genomsnitt|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
+|Tillgänglighet|Tillgänglighet|Procent|Genomsnitt|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|BlobCapacity|BLOB-kapacitet|Byte|Medel|Mängden lagringsutrymme som används av storage-konto Blob-tjänsten i byte.|BlobType|
-|BlobCount|BLOB-antal|Antal|Medel|Antal Blob storage-konto Blob-tjänsten.|BlobType|
-|ContainerCount|Antal för BLOB-behållare|Antal|Medel|Antal behållare i Blob storage-konto-tjänsten.|Inga dimensioner|
+|BlobCapacity|BLOB-kapacitet|Byte|Genomsnitt|Mängden lagringsutrymme som används av storage-konto Blob-tjänsten i byte.|BlobType|
+|BlobCount|BLOB-antal|Antal|Genomsnitt|Antal Blob storage-konto Blob-tjänsten.|BlobType|
+|ContainerCount|Antal för BLOB-behållare|Antal|Genomsnitt|Antal behållare i Blob storage-konto-tjänsten.|Inga dimensioner|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Utgång|Utgång|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
-|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Medel|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Genomsnitt|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
+|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Genomsnitt|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
+|Tillgänglighet|Tillgänglighet|Procent|Genomsnitt|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|TableCapacity|Tabell kapacitet|Byte|Medel|Mängden lagringsutrymme som används av storage-konto tabelltjänsten i byte.|Inga dimensioner|
-|TableCount|Tabellen antal|Antal|Medel|Numret på tabellen i tabelltjänsten för storage-konto.|Inga dimensioner|
-|TableEntityCount|Antal enheter för tabellen|Antal|Medel|Antal tabellentiteter i tabelltjänsten för storage-konto.|Inga dimensioner|
+|TableCapacity|Tabell kapacitet|Byte|Genomsnitt|Mängden lagringsutrymme som används av storage-konto tabelltjänsten i byte.|Inga dimensioner|
+|TableCount|Tabellen antal|Antal|Genomsnitt|Numret på tabellen i tabelltjänsten för storage-konto.|Inga dimensioner|
+|TableEntityCount|Antal enheter för tabellen|Antal|Genomsnitt|Antal tabellentiteter i tabelltjänsten för storage-konto.|Inga dimensioner|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Utgång|Utgång|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
-|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Medel|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Genomsnitt|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
+|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Genomsnitt|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
+|Tillgänglighet|Tillgänglighet|Procent|Genomsnitt|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|QueueCapacity|Kön kapacitet|Byte|Medel|Mängden lagringsutrymme som används av storage-konto kötjänsten i byte.|Inga dimensioner|
-|QueueCount|Antal i åtgärdskö|Antal|Medel|Antal kön i Kötjänsten för storage-konto.|Inga dimensioner|
-|QueueMessageCount|Antalet meddelanden för kön|Antal|Medel|Det ungefärliga antalet meddelanden i kö i Kötjänsten för storage-konto.|Inga dimensioner|
+|QueueCapacity|Kön kapacitet|Byte|Genomsnitt|Mängden lagringsutrymme som används av storage-konto kötjänsten i byte.|Inga dimensioner|
+|QueueCount|Antal i åtgärdskö|Antal|Genomsnitt|Antal kön i Kötjänsten för storage-konto.|Inga dimensioner|
+|QueueMessageCount|Antalet meddelanden för kön|Antal|Genomsnitt|Det ungefärliga antalet meddelanden i kö i Kötjänsten för storage-konto.|Inga dimensioner|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Utgång|Utgång|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
-|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Medel|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Genomsnitt|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
+|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Genomsnitt|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
+|Tillgänglighet|Tillgänglighet|Procent|Genomsnitt|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|FileCapacity|Filen kapacitet|Byte|Medel|Mängden lagringsutrymme som används av storage-konto File service i byte.|Inga dimensioner|
-|FileCount|Antal filer|Antal|Medel|Antal filer i tjänsten för File storage-konto.|Inga dimensioner|
-|FileShareCount|Filresurs|Antal|Medel|Antal delar i tjänsten för File storage-konto.|Inga dimensioner|
+|FileCapacity|Filen kapacitet|Byte|Genomsnitt|Mängden lagringsutrymme som används av storage-konto File service i byte.|Inga dimensioner|
+|FileCount|Antal filer|Antal|Genomsnitt|Antal filer i tjänsten för File storage-konto.|Inga dimensioner|
+|FileShareCount|Filresurs|Antal|Genomsnitt|Antal delar i tjänsten för File storage-konto.|Inga dimensioner|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst för eller den angivna API-åtgärden. Antalet inkluderar lyckade och misslyckade begäranden, samt begäranden som producerats av fel. Använd ResponseType dimensionen i många olika typer av svar.|ResponseType GeoType, ApiName|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingång data i byte. Antalet inkluderar ingång från en extern klient i Azure Storage, liksom ingång i Azure.|GeoType ApiName|
 |Utgång|Utgång|Byte|Totalt|Mängden utgående data i byte. Antalet inkluderar utgående trafik från en extern klient i Azure Storage, liksom utgång i Azure. Det här numret avspeglar därför inte fakturerbar utgång.|GeoType ApiName|
-|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Medel|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
-|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Medel|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
-|Tillgänglighet|Tillgänglighet|Procent|Medel|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
+|SuccessServerLatency|Lyckade Server svarstid|Millisekunder|Genomsnitt|Genomsnittlig svarstid som används av Azure Storage för att bearbeta en begäran om lyckades, i millisekunder. Det här värdet inkluderar inte Nätverksfördröjningen som anges i AverageE2ELatency.|GeoType ApiName|
+|SuccessE2ELatency|Lyckade E2E-svarstid|Millisekunder|Genomsnitt|Genomsnittlig slutpunkt till slutpunkt svarstid för slutförda förfrågningar som gjorts till en lagringstjänst för eller den angivna API-åtgärden, i millisekunder. Det här värdet inkluderar bearbetningstiden som krävs i Azure Storage läsa begäran, skicka svaret och ta emot bekräftelse i svaret.|GeoType ApiName|
+|Tillgänglighet|Tillgänglighet|Procent|Genomsnitt|Procentandelen av tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgänglighet beräknas genom att använda värdet TotalBillableRequests och dividera med antalet tillämpliga begäranden, inklusive de som producerade oväntade fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden.|GeoType ApiName|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -895,10 +897,10 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
-|MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
+|CpuPercentage|CPU-procent|Procent|Genomsnitt|CPU-procent|Instans|
+|MemoryPercentage|Minnesprocent|Procent|Genomsnitt|Minnesprocent|Instans|
 |DiskQueueLength|Diskkölängd|Antal|Totalt|Diskkölängd|Instans|
-|HttpQueueLength|Http-kölängd|Antal|Totalt|Http-kölängd|Instans|
+|HttpQueueLength|HTTP-Kölängd|Antal|Totalt|HTTP-Kölängd|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
 
@@ -910,20 +912,20 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
-|Http101|Http 101|Antal|Totalt|Http 101|Instans|
-|Http2xx|HTTP 2xx|Antal|Totalt|HTTP 2xx|Instans|
-|Http3xx|HTTP 3xx|Antal|Totalt|HTTP 3xx|Instans|
+|Http101|HTTP 101|Antal|Totalt|HTTP 101|Instans|
+|Http2xx|HTTP-2xx|Antal|Totalt|HTTP-2xx|Instans|
+|Http3xx|HTTP-3xx|Antal|Totalt|HTTP-3xx|Instans|
 |Http401|HTTP 401|Antal|Totalt|HTTP 401|Instans|
-|Http403|Http 403|Antal|Totalt|Http 403|Instans|
-|Http404|Http 404|Antal|Totalt|Http 404|Instans|
-|Http406|Http 406|Antal|Totalt|Http 406|Instans|
+|Http403|HTTP 403|Antal|Totalt|HTTP 403|Instans|
+|Http404|HTTP 404|Antal|Totalt|HTTP 404|Instans|
+|Http406|HTTP 406|Antal|Totalt|HTTP 406|Instans|
 |Http4xx|Http 4xx|Antal|Totalt|Http 4xx|Instans|
-|Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
-|AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
-|FunctionExecutionUnits|Funktionskörningsenheter|Antal|Medel|Funktionskörningsenheter|Instans|
-|FunctionExecutionCount|Funktionen Antal körningar|Antal|Medel|Funktionen Antal körningar|Instans|
+|Http5xx|HTTP-fel|Antal|Totalt|HTTP-fel|Instans|
+|MemoryWorkingSet|Arbetsminnet för minne|Byte|Genomsnitt|Arbetsminnet för minne|Instans|
+|AverageMemoryWorkingSet|Genomsnittlig minne arbetsminne|Byte|Genomsnitt|Genomsnittlig minne arbetsminne|Instans|
+|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Genomsnitt|Genomsnittlig svarstid|Instans|
+|FunctionExecutionUnits|Funktionen körning av enheter|Antal|Genomsnitt|Funktionen körning av enheter|Instans|
+|FunctionExecutionCount|Funktionen Antal körningar|Antal|Genomsnitt|Funktionen Antal körningar|Instans|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funktioner)
 
@@ -931,11 +933,11 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |---|---|---|---|---|---|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
-|Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
-|AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
-|FunctionExecutionUnits|Funktionskörningsenheter|Antal|Medel|Funktionskörningsenheter|Instans|
-|FunctionExecutionCount|Funktionen Antal körningar|Antal|Medel|Funktionen Antal körningar|Instans|
+|Http5xx|HTTP-fel|Antal|Totalt|HTTP-fel|Instans|
+|MemoryWorkingSet|Arbetsminnet för minne|Byte|Genomsnitt|Arbetsminnet för minne|Instans|
+|AverageMemoryWorkingSet|Genomsnittlig minne arbetsminne|Byte|Genomsnitt|Genomsnittlig minne arbetsminne|Instans|
+|FunctionExecutionUnits|Funktionen körning av enheter|Antal|Genomsnitt|Funktionen körning av enheter|Instans|
+|FunctionExecutionCount|Funktionen Antal körningar|Antal|Genomsnitt|Funktionen Antal körningar|Instans|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -945,20 +947,20 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
-|Http101|Http 101|Antal|Totalt|Http 101|Instans|
-|Http2xx|HTTP 2xx|Antal|Totalt|HTTP 2xx|Instans|
-|Http3xx|HTTP 3xx|Antal|Totalt|HTTP 3xx|Instans|
+|Http101|HTTP 101|Antal|Totalt|HTTP 101|Instans|
+|Http2xx|HTTP-2xx|Antal|Totalt|HTTP-2xx|Instans|
+|Http3xx|HTTP-3xx|Antal|Totalt|HTTP-3xx|Instans|
 |Http401|HTTP 401|Antal|Totalt|HTTP 401|Instans|
-|Http403|Http 403|Antal|Totalt|Http 403|Instans|
-|Http404|Http 404|Antal|Totalt|Http 404|Instans|
-|Http406|Http 406|Antal|Totalt|Http 406|Instans|
+|Http403|HTTP 403|Antal|Totalt|HTTP 403|Instans|
+|Http404|HTTP 404|Antal|Totalt|HTTP 404|Instans|
+|Http406|HTTP 406|Antal|Totalt|HTTP 406|Instans|
 |Http4xx|Http 4xx|Antal|Totalt|Http 4xx|Instans|
-|Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
-|AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
-|FunctionExecutionUnits|Funktionskörningsenheter|Antal|Medel|Funktionskörningsenheter|Instans|
-|FunctionExecutionCount|Funktionen Antal körningar|Antal|Medel|Funktionen Antal körningar|Instans|
+|Http5xx|HTTP-fel|Antal|Totalt|HTTP-fel|Instans|
+|MemoryWorkingSet|Arbetsminnet för minne|Byte|Genomsnitt|Arbetsminnet för minne|Instans|
+|AverageMemoryWorkingSet|Genomsnittlig minne arbetsminne|Byte|Genomsnitt|Genomsnittlig minne arbetsminne|Instans|
+|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Genomsnitt|Genomsnittlig svarstid|Instans|
+|FunctionExecutionUnits|Funktionen körning av enheter|Antal|Genomsnitt|Funktionen körning av enheter|Instans|
+|FunctionExecutionCount|Funktionen Antal körningar|Antal|Genomsnitt|Funktionen Antal körningar|Instans|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -967,33 +969,33 @@ Azure-Monitor finns flera sätt att interagera med statistik, inklusive diagram 
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
 |BytesReceived|Data in|Byte|Totalt|Data in|Instans|
 |BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
-|Http101|Http 101|Antal|Totalt|Http 101|Instans|
-|Http2xx|HTTP 2xx|Antal|Totalt|HTTP 2xx|Instans|
-|Http3xx|HTTP 3xx|Antal|Totalt|HTTP 3xx|Instans|
+|Http101|HTTP 101|Antal|Totalt|HTTP 101|Instans|
+|Http2xx|HTTP-2xx|Antal|Totalt|HTTP-2xx|Instans|
+|Http3xx|HTTP-3xx|Antal|Totalt|HTTP-3xx|Instans|
 |Http401|HTTP 401|Antal|Totalt|HTTP 401|Instans|
-|Http403|Http 403|Antal|Totalt|Http 403|Instans|
-|Http404|Http 404|Antal|Totalt|Http 404|Instans|
-|Http406|Http 406|Antal|Totalt|Http 406|Instans|
+|Http403|HTTP 403|Antal|Totalt|HTTP 403|Instans|
+|Http404|HTTP 404|Antal|Totalt|HTTP 404|Instans|
+|Http406|HTTP 406|Antal|Totalt|HTTP 406|Instans|
 |Http4xx|Http 4xx|Antal|Totalt|Http 4xx|Instans|
-|Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
-|CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
-|MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
+|Http5xx|HTTP-fel|Antal|Totalt|HTTP-fel|Instans|
+|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Genomsnitt|Genomsnittlig svarstid|Instans|
+|CpuPercentage|CPU-procent|Procent|Genomsnitt|CPU-procent|Instans|
+|MemoryPercentage|Minnesprocent|Procent|Genomsnitt|Minnesprocent|Instans|
 |DiskQueueLength|Diskkölängd|Antal|Totalt|Diskkölängd|Instans|
-|HttpQueueLength|Http-kölängd|Antal|Totalt|Http-kölängd|Instans|
-|ActiveRequests|Aktiva förfrågningar|Antal|Totalt|Aktiva förfrågningar|Instans|
-|TotalFrontEnds|Totalt antal klienter|Antal|Medel|Totalt antal klienter|Instans|
-|SmallAppServicePlanInstances|App Service-plan för arbeten (låg användning)|Antal|Medel|App Service-plan för arbeten (låg användning)|Instans|
-|MediumAppServicePlanInstances|App Service-plan för arbeten (medelhög användning)|Antal|Medel|App Service-plan för arbeten (medelhög användning)|Instans|
-|LargeAppServicePlanInstances|App Service-plan för arbeten (hög användning)|Antal|Medel|App Service-plan för arbeten (hög användning)|Instans|
+|HttpQueueLength|HTTP-Kölängd|Antal|Totalt|HTTP-Kölängd|Instans|
+|ActiveRequests|Aktiva begäranden|Antal|Totalt|Aktiva begäranden|Instans|
+|TotalFrontEnds|Totalt antal frontwebbservrarna|Antal|Genomsnitt|Totalt antal frontwebbservrarna|Instans|
+|SmallAppServicePlanInstances|Liten App Service-Plan arbetare|Antal|Genomsnitt|Liten App Service-Plan arbetare|Instans|
+|MediumAppServicePlanInstances|Medelhög App Service-Plan arbetare|Antal|Genomsnitt|Medelhög App Service-Plan arbetare|Instans|
+|LargeAppServicePlanInstances|Stora App Service-Plan arbetare|Antal|Genomsnitt|Stora App Service-Plan arbetare|Instans|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Mått|Mått visningsnamn|Enhet|Sammansättningstyp|Beskrivning|Mått|
 |---|---|---|---|---|---|
-|WorkersTotal|Totalt antal arbeten|Antal|Medel|Totalt antal arbeten|Instans|
-|WorkersAvailable|Tillgängliga arbeten|Antal|Medel|Tillgängliga arbeten|Instans|
-|WorkersUsed|Använda arbeten|Antal|Medel|Använda arbeten|Instans|
+|WorkersTotal|Totalt antal arbetare|Antal|Genomsnitt|Totalt antal arbetare|Instans|
+|WorkersAvailable|Tillgängliga arbetare|Antal|Genomsnitt|Tillgängliga arbetare|Instans|
+|WorkersUsed|Använda arbetare|Antal|Genomsnitt|Använda arbetare|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om mätvärden i Azure-Monitor](monitoring-overview-metrics.md)

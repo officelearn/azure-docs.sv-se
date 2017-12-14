@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell dator med snabbare nätverk
 
@@ -46,13 +46,13 @@ Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella d
 Följande begränsningar gäller när du använder den här funktionen:
 
 * **Network interface skapa:** Accelerated nätverk kan bara aktiveras för en ny nätverkskort. Det går inte att aktivera för en befintlig nätverkskort.
-* **Skapa en virtuell dator:** A nätverkskortet med snabbare nätverksfunktioner som är aktiverad kan endast kopplas till en virtuell dator när den virtuella datorn skapas. Nätverkskortet kan inte kopplas till en befintlig virtuell dator.
-* **Regioner:** virtuella Windows-datorer med snabbare nätverksfunktioner erbjuds i de flesta Azure-regioner. Linux virtuella datorer med snabbare nätverksfunktioner erbjuds i flera områden. Regioner som den här funktionen finns i expanderar. Se Azure virtuella nätverk uppdaterar blogg under den senaste informationen.   
+* **Skapa en virtuell dator:** A nätverkskortet med snabbare nätverksfunktioner som är aktiverad kan endast kopplas till en virtuell dator när den virtuella datorn skapas. Nätverkskortet kan inte kopplas till en befintlig virtuell dator. Om du lägger till den virtuella datorn i en befintlig tillgänglighetsuppsättning måste alla virtuella datorer i tillgänglighetsuppsättningen också ha snabbare nätverk som är aktiverad.
+* **Regioner:** virtuella Windows-datorer med snabbare nätverksfunktioner erbjuds i de flesta Azure-regioner. Linux virtuella datorer med snabbare nätverksfunktioner erbjuds i flera områden. Regioner funktionen är tillgänglig i expanderar. Den senaste informationen finns på [Azure virtuella nätverk uppdaterar](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogg.   
 * **Operativsystem som stöds:** Windows: Microsoft Windows Server 2012 R2 Datacenter och Windows Server 2016. Linux: Ubuntu Server 16.04 LTS med kernel 4.4.0-77 eller högre, SLES 12 SP2, RHEL 7.3 och CentOS 7.3 (publicerad av ”falsk Wave programvara”).
 * **VM-storlek:** generella och beräknings-optimerad instans storlekar med minst åtta kärnor. Mer information finns i [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM-storlekar artiklar. Uppsättningen stöds storlekar på VM-instansen kommer att expandera i framtiden.
 * **Distribution via Azure Resource Manager (ARM):** snabbare nätverk är inte tillgänglig för distribution via ASM/RDFE.
 
-Ändringar av dessa begränsningar meddelas via den [virtuella Azure-nätverk uppdaterar](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) sidan.
+Ändringar av dessa begränsningar meddelas via den [virtuella Azure-nätverk uppdaterar](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) sidan.
 
 ## <a name="create-a-windows-vm"></a>Skapa en virtuell Windows-dator
 Du kan använda Azure-portalen eller Azure [PowerShell](#windows-powershell) att skapa den virtuella datorn.
@@ -164,7 +164,7 @@ När du har skapat den virtuella datorn i Azure måste du installera snabbare n�
 9. Snabbare nätverksfunktioner har nu aktiverats för den virtuella datorn.
 
 ## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
-Du kan använda Azure-portalen eller Azure [PowerShell](#linux-powershell) att skapa en Ubuntu eller SLES VM. Det finns ett annat arbetsflöde RHEL och CentOS virtuella datorer.  Se anvisningarna nedan.
+Du kan använda Azure-portalen eller Azure [PowerShell](#linux-powershell) att skapa en Ubuntu eller SLES VM. RHEL och CentOS instruktioner finns i [RHEL och CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. Registrera dig för snabbare nätverksfunktioner för Linux preview genom att fylla i steg 1-5 i den [och skapar en Linux VM - PowerShell](#linux-powershell) i den här artikeln.  Du kan inte registrera dig för förhandsgranskning i portalen.
@@ -183,7 +183,7 @@ Du kan använda Azure-portalen eller Azure [PowerShell](#linux-powershell) att s
 2. Starta en PowerShell-session genom att klicka på Start, skriva **powershell**, klicka på **PowerShell** i sökresultatet.
 3. I PowerShell-fönstret anger du den `login-azurermaccount` kommando för att logga in med ditt Azure [konto](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Om du inte redan har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Registrera dig för snabbare nätverksfunktioner för Azure preview genom att utföra följande steg:
-    - Skicka ett e-postmeddelande till [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) med Azure prenumerations-ID och avsedd att användas. Vänta tills en e-postbekräftelse från Microsoft om prenumerationen har aktiverats.
+    - Skicka ett e-postmeddelande till [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) med Azure prenumerations-ID och avsedd att användas. Slutför inte förrän följande steg när du får ett e-postbekräftelse från Microsoft att prenumerationen har aktiverats för snabbare nätverk.
     - Ange följande kommando för att bekräfta att du är registrerad för förhandsversionen av:
     
         ```powershell
@@ -201,7 +201,7 @@ Du kan använda Azure-portalen eller Azure [PowerShell](#linux-powershell) att s
       >[!NOTE]
       >Om du har deltagit i Accelerated nätverk för virtuella Windows-datorer preview (det är inte längre nödvändigt att registrera om du vill använda Accelerated nätverk för virtuella Windows-datorer) är du inte automatiskt registrerad för Accelerated nätverk för virtuella Linux-datorer Förhandsgranska. Du måste registrera dig för Accelerated nätverk för virtuella Linux-datorer Förhandsgranska för att delta i den.
       >
-5. Kopiera följande skript ersätter Ubuntu eller SLES efter behov i webbläsaren.  Igen, Redhat och CentOS har ett annat arbetsflöde som beskrivs nedan:
+5. Kopiera följande skript ersätter Ubuntu eller SLES efter behov i webbläsaren.  Igen, Redhat och CentOS har ett annat arbetsflöde som beskrivs i [RHEL och CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ Nu variera instruktionerna beroende på den distributionsplats som du använder.
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. När skriptet har körts, den virtuella datorn startar om efter 60 sekunder pausa.
+3. Den virtuella datorn startas efter en paus på 60-sekunders när skriptet har körts.
 4. När den virtuella datorn startas om och återansluter du till den genom att följa steg 5 – 7 igen.
 5. Kör den `ifconfig` kommando och bekräfta att bond0 är nu tillgänglig och gränssnittet visas som upp. 
  
  >[!NOTE]
       >Program med snabbare nätverk måste kommunicera över den *bond0* gränssnitt inte *eth0*.  Gränssnittsnamnet ändras innan snabbare nätverksfunktioner når allmän tillgänglighet.
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+#### <a name="rhel-and-centos"></a>RHEL och CentOS
 
 Skapar en Red Hat Enterprise Linux eller CentOS 7.3 VM kräver vissa ytterligare åtgärder för att läsa in de senaste drivrutinerna som behövs för SR-IOV och drivrutinens VF (Virtual Function) för nätverkskortet. Den första fasen av instruktionerna förbereder en avbildning som kan användas för att en eller flera virtuella datorer som har de drivrutiner som redan har lästs in.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Steg ett: Förbered en Red Hat Enterprise Linux eller CentOS 7.3 basavbildning. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fas 1: Förbered en Red Hat Enterprise Linux eller CentOS 7.3 basavbildning 
 
 1.  Etablera en icke - SRIOV CentOS 7.3 VM på Azure
 
@@ -352,9 +352,9 @@ Skapar en Red Hat Enterprise Linux eller CentOS 7.3 VM kräver vissa ytterligare
 
 5.  Stoppa den virtuella datorn, från Azure-portalen och gå till Virtuella datorer ”diskar”, samla in OSDisk VHD-URI. Den här URI: N innehåller grundläggande bild VHD namn och dess storage-konto. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>Steg två: etablera nya virtuella datorer på Azure
+##### <a name="phase-2-provision-new-vms-on-azure"></a>Fas 2: Etablera nya virtuella datorer på Azure
 
-1.  Etablera nya virtuella datorer baserade med New-AzureRMVMConfig med hjälp av basavbildningen VHD i den första fasen, med AcceleratedNetworking aktiverad på vNIC:
+1.  Etablera nya virtuella datorer baserat med New-AzureRMVMConfig med basavbildningen VHD i fas 1, med AcceleratedNetworking aktiverad på vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,9 +394,9 @@ Skapar en Red Hat Enterprise Linux eller CentOS 7.3 VM kräver vissa ytterligare
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
-    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
     $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
 
@@ -430,7 +430,7 @@ Skapar en Red Hat Enterprise Linux eller CentOS 7.3 VM kräver vissa ytterligare
      -VM $VmConfig
     ```
 
-2.  När virtuella datorer Starta Kontrollera VF-enhet genom att ”lspci” och Mellanox transaktionen. Vi bör till exempel se det här objektet i lspci utdata:
+2.  När virtuella datorer Starta Kontrollera VF-enhet genom att ”lspci” och Mellanox transaktionen. Exempelvis bör du se följande text i lspci utdata:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

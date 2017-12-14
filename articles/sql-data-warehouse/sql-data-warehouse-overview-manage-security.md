@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Det finns olika sätt att ytterligare begränsa vad en användare kan göra med 
 * [Databasrollerna] [ Database roles] än db_datareader och db_datawriter kan användas för att skapa mer kraftfulla program användarkonton eller mindre kraftfulla hanteringskonton. Inbyggda fasta databasroller ger ett enkelt sätt att bevilja behörighet, men kan leda till att bevilja fler behörigheter än nödvändigt.
 * [Lagrade procedurer] [ Stored procedures] kan användas för att begränsa de åtgärder som kan göras på databasen.
 
-Att hantera databaser och logiska servrar från den klassiska Azure-portalen eller via Azure Resource Manager API styrs av portalanvändarkontots rolltilldelningar. Mer information om det här avsnittet finns [rollbaserad åtkomstkontroll i Azure Portal][Role-based access control in Azure Portal].
+Hantera databaser och logiska servrar från Azure-portalen eller med hjälp av Azure Resource Manager API styrs av din portal användarkonto rolltilldelningar. Mer information om det här avsnittet finns [rollbaserad åtkomstkontroll i Azure Portal][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Kryptering
 Azure SQL Data Warehouse Transparent Data kryptering (TDE) skyddar mot hot från skadlig aktivitet genom att utföra realtid kryptering och dekryptering av data i vila.  När du krypterar din databas, krypteras tillhörande säkerhetskopior och transaktionsloggfiler utan ändringar i dina program. TDE krypterar lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Databaskrypteringsnyckeln skyddas av en inbyggd servercertifikat i SQL-databas. Inbyggda certifikatet är unikt för varje SQL Database-server. Microsoft roteras automatiskt dessa certifikat minst var 90: e dag. Krypteringsalgoritmen som används av SQL Data Warehouse är AES-256. En allmän beskrivning av TDE finns [Transparent datakryptering][Transparent Data Encryption].

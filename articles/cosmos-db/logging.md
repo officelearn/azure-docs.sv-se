@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -30,7 +30,7 @@ Använd den här kursen och kom igång med Azure Cosmos DB loggning via Azure-po
 
 ## <a name="what-is-logged"></a>Vad är inloggad?
 
-* Alla autentiserade REST DocumentDB SQL-API-begäranden är inloggad, som innehåller misslyckade begäranden på grund av behörigheter för åtkomst, systemfel eller felaktiga begäranden. Stöd för MongoDB, diagram och tabell-API: er är inte tillgänglig.
+* Alla autentiserade REST API för SQL-begäranden är inloggad, som innehåller misslyckade begäranden på grund av behörigheter för åtkomst, systemfel eller felaktiga begäranden. Stöd för MongoDB, diagram och tabell-API: er är inte tillgänglig.
 * Åtgärder på själva databasen, som innehåller CRUD-åtgärder på alla dokument, behållare och databaser.
 * Åtgärder på nycklar, vilket innefattar att skapa, ändra eller ta bort de här nycklarna.
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.
@@ -54,13 +54,13 @@ Den här kursen behöver du följande resurser:
     * **Arkivet till ett lagringskonto**. Om du vill använda det här alternativet behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portalen finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ instruktionerna för att skapa en Resource Manager allmänna konto. Återgå sedan till den här sidan i portalen för att markera ditt lagringskonto. Det kan ta några minuter för nyskapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Dataströmmen till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och händelsen hubb att ansluta till. Om du vill skapa ett namnområde för Händelsehubbar finns [skapa ett namnområde för Händelsehubbar och en händelsehubb med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återgå sedan till den här sidan i portalen för att välja Event Hub namnområde och principen.
     * **Skicka till logganalys**.     Om du vill använda det här alternativet Använd en befintlig arbetsyta eller skapa en ny logganalys-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar loggarna i logganalys finns [visa loggar i logganalys](#view-in-loganalytics).
-    * **Logga DataPlaneRequests**. Välj det här alternativet för att logga diagnostik för DocumentDB diagrammet och tabellen API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
+    * **Logga DataPlaneRequests**. Välj det här alternativet för att logga diagnostik för SQL, diagram och tabellen API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Logga MongoRequests**. Välj det här alternativet för att logga diagnostik för MongoDB-API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
-    * **Mått begäranden**. Välj det här alternativet för att lagra utförliga data i [Azure mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
+    * **Mått begäranden**. Välj det här alternativet för att lagra utförliga data i [Azure mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
 
 3. Klicka på **Spara**.
 
-    Om du får ett felmeddelande som säger ”det gick inte att uppdatera diagnostik för \<arbetsytans namn >. Prenumerationen \<prenumerations-id > är inte registrerad för att använda microsoft.insights ”. Följ den [felsöka Azure-diagnostik](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) instruktioner för att registrera kontot, och försök sedan den här proceduren.
+    Om du får ett felmeddelande som säger ”det gick inte att uppdatera diagnostik för \<arbetsytans namn >. Prenumerationen \<prenumerations-id > är inte registrerad för att använda microsoft.insights ”. Följ den [felsöka Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) instruktioner för att registrera kontot, och försök sedan den här proceduren.
 
     Om du vill ändra hur dina diagnostikloggar sparas när som helst i framtiden, kan du återgå till den här sidan vid när som helst om du vill ändra diagnostiska logginställningar för ditt konto.
 
@@ -416,7 +416,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | ActivityId | activityId_g | Unikt GUID för den loggade åtgärden. |
 | UserAgent | userAgent_s | En sträng som anger klientanvändaragent begäran utfördes. Formatet är {användarnamn för agenten} / {version}.|
 | resourceType | ResourceType | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databas, samling, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
-| statusCode |statusCode_s | Svarsstatus för åtgärden. |
+| statuskod |statusCode_s | Svarsstatus för åtgärden. |
 | requestResourceId | Resurs-ID | Resurs-ID som rör begäran, kan peka databaseRid, collectionRid eller documentRid beroende på den åtgärd som utförs.|
 | clientIpAddress | clientIpAddress_s | Klientens IP-adress. |
 | requestCharge | requestCharge_s | Antalet RUs som används av åtgärden |

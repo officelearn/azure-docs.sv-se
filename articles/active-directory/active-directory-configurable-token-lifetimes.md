@@ -4,7 +4,7 @@ description: "Lär dig hur du ställer in livslängd för token som utfärdats a
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Konfigurerbara token livslängd i Azure Active Directory (förhandsversion)
 Du kan ange livslängden för en token som utfärdas av Azure Active Directory (AD Azure). Du kan ange token livslängd för alla program i din organisation, för ett program för flera innehavare (flera organisation) eller för en specifik tjänstens huvudnamn i din organisation.
@@ -70,7 +70,7 @@ Du kan använda en princip för att ställa in tiden efter den första sessionst
 En princip för livslängd för token är en typ av grupprincipobjekt som innehåller regler för livslängd för token. Använd egenskaperna för principen för att styra angivna token livslängd. Om ingen princip har angetts, tillämpar systemet livstid standardvärdet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Livslängd för token konfigurerbara egenskaper
-| Egenskap | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximalt |
+| Egenskap | Princip för egenskapssträng | Påverkar | Standard | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livslängd för åtkomst-Token |AccessTokenLifetime |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Uppdatera Token inaktiva Maxtid |MaxInactiveTime |Uppdatera token |14 dagar |10 minuter |90 dagar |
@@ -474,7 +474,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Tjänstens huvudnamn principer
+### <a name="service-principal-policies"></a>Huvudprinciper för tjänst
 Du kan använda följande cmdletar för tjänstens huvudnamn principer.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Lägg till AzureADServicePrincipalPolicy

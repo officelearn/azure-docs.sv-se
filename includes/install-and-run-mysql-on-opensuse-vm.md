@@ -36,11 +36,11 @@
         mysql -u root -p
    
     Ange rotlösenordet MySQL (som du har ändrat i föregående steg) och visas med en uppmaning där du kan utfärda SQL-instruktioner kan interagera med databasen.
-7. Om du vill skapa en ny MySQL-användare, kör du följande i den **mysql >** prompten:
+7. Om du vill skapa en ny MySQL-användare, kör du följande kommando vid den **mysql >** prompten:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Obs!, semikolon (;) i slutet av raderna är avgörande för slutar kommandon.
+    Obs!, semikolon (;) i slutet av raden är avgörande för avslutning av kommandot.
 8. Skapa en databas och ge den `mysqluser` användarbehörigheter, utfärda följande kommandon:
    
         CREATE DATABASE testdatabase;
@@ -57,18 +57,18 @@
         quit
 
 ## <a name="add-an-endpoint"></a>Lägga till en slutpunkt
-1. När MySQL har installerats kan behöver du konfigurera en slutpunkt för att få fjärråtkomst till MySQL. Logga in på den [klassiska Azure-portalen][AzurePortal]. Klicka på **virtuella datorer**, klicka på namnet på den nya virtuella datorn och klicka sedan på **slutpunkter**.
+1. När MySQL har installerats kan behöver du konfigurera en slutpunkt för att få fjärråtkomst till MySQL. Logga in på den [Azure-portalen][AzurePortal]. Klicka på **virtuella datorer**, klicka på namnet på den nya virtuella datorn och klicka sedan på **slutpunkter**.
 2. Klicka på **Lägg till** längst ned på sidan.
 3. Lägga till en slutpunkt med namnet ”MySQL” med protokollet **TCP**, och **offentliga** och **privata** portar inställd på ”3306”.
 4. För att fjärransluta till den virtuella datorn från datorn, skriver du:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Till exempel med hjälp av den virtuell datorn som vi skapade i den här självstudiekursen, ange följande kommando:
+    Till exempel med hjälp av den virtuella datorn som du skapade i den här självstudiekursen, ange följande kommando:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

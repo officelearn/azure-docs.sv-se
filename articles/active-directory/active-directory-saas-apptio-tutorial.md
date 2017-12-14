@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7e5692945961fb2b90f86b2aa775c13939bd8c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2948b3df7e2258b6d842f9d9d5f632e531929676
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Självstudier: Azure Active Directory-integrering med Apptio
 
@@ -123,11 +123,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
 
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | -------------- | -------------------- |    
     | Fullständigt namn       | User.DisplayName |
     | E-post           | User.Mail |
-    | Rollen           | User.assignedrole |
+    | roll           | User.assignedrole |
     
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

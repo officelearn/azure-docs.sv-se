@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df5614d8a708b49ee1368c4d7983f45d29920fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
 
-Utkastet är ett verktyg med öppen källkod som hjälper till att paketet och köra kod i ett Kubernetes kluster. Utkast är inriktad på iteration utvecklingscykeln; När koden utvecklas, men innan du genomför för versionskontroll. Med utkastet kan du snabbt distribuera ett program till Kubernetes när koden ändringar görs. Mer information om utkast finns i [utkast dokumentation på Github](https://github.com/Azure/draft/tree/master/docs).
+Utkastet är ett verktyg med öppen källkod som hjälper till att paketet och köra kod i ett Kubernetes kluster. Utkast är inriktad på iteration utvecklingscykeln; När koden utvecklas, men innan du genomför för versionskontroll. Med utkastet kan du snabbt distribuera ett program till Kubernetes när koden ändringar görs. Mer information om utkast finns i [utkast dokumentation på Github][draft-documentation].
 
 Det här dokumentet beskriver med ett Kubernetes kluster på AKS utkast.
 
 ## <a name="prerequisites"></a>Krav
 
-Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart](./kubernetes-walkthrough.md).
+Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart][aks-quickstart].
 
-Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Snabbstart] [acr-Snabbstart].
 
 ## <a name="install-helm"></a>Installera Helm
 
 Helm CLI är en klient som körs på utvecklingssystemet och gör att du kan starta, stoppa och hantera program med Helm diagram.
 
-Installera Helm CLI på en Mac med `brew`. Ytterligare installationsalternativ, se [installerar Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md).
+Installera Helm CLI på en Mac med `brew`. Ytterligare installationsalternativ, se [installerar Helm][install-helm].
 
 ```console
 brew install kubernetes-helm
@@ -54,7 +54,7 @@ Bash completion has been installed to:
 
 Utkast CLI är en klient som kör i utvecklingssystemet och tillåter att du snabbt distribuera kod i ett Kubernetes kluster.
 
-Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden](https://github.com/Azure/draft/blob/master/docs/install.md).
+Så här installerar du utkast CLI på en Mac-Använd `brew`. Ytterligare installationsalternativ finns, [utkast installera guiden][install-draft].
 
 ```console
 brew install draft
@@ -178,7 +178,7 @@ När du är klar att testa hur programmet `Control+C` att stoppa proxyanslutning
 
 ## <a name="expose-application"></a>Visa program
 
-När du testar ett program i Kubernetes, kanske du vill gör programmet tillgängligt på internet. Detta kan göras med hjälp av en Kubernetes tjänst med en typ av [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) eller en [ingång controller](https://kubernetes.io/docs/concepts/services-networking/ingress/). Det här dokumentet beskriver Kubernetes-tjänsten.
+När du testar ett program i Kubernetes, kanske du vill gör programmet tillgängligt på internet. Detta kan göras med hjälp av en Kubernetes tjänst med en typ av [LoadBalancer] [ kubernetes-service-loadbalancer] eller en [ingång controller][kubernetes-ingress]. Det här dokumentet beskriver Kubernetes-tjänsten.
 
 
 Först pack utkastet måste uppdateras för att ange att en tjänst med en typ `LoadBalancer` ska skapas. Om du vill göra det, uppdatera service-typen i den `values.yaml` filen.
@@ -302,4 +302,15 @@ Hello World, I'm Java - Draft Rocks!
 Mer information om hur du använder ett utkast till dokumentationen i utkast på GitHub.
 
 > [!div class="nextstepaction"]
-> [Utkast till dokumentationen](https://github.com/Azure/draft/tree/master/docs)
+> [Utkast till dokumentationen][draft-documentation]
+
+<!-- LINKS - external -->
+[draft-documentation]: https://github.com/Azure/draft/tree/master/docs
+[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
+[install-helm]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[kubernetes-ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
+[kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+
+<!-- LINKS - internal -->
+[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[aks-quickstart]: ./kubernetes-walkthrough.md

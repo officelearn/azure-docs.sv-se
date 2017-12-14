@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Kör en Cassandra kluster på Linux i Azure med Node.js
 
@@ -134,7 +134,7 @@ I det här steget i processen skapar vi Ubuntu avbildningen med programvara som 
 Azure behöver X509 offentlig nyckel som är PEM eller DER-kodade då etablering. Generera en offentliga/privata nyckelpar med instruktioner på hur du använda SSH med Linux på Azure. Om du planerar att använda putty.exe som en SSH-klienten på Windows eller Linux måste du konvertera PEM-kodade RSA den privata nyckeln PPK format med hjälp av puttygen.exe; instruktioner för detta finns på webbsidan som ovan.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>STEG 2: Skapa Ubuntu VM-mallen
-Logga in på den klassiska Azure-portalen för att skapa VM-mallen, och använder följande sekvens: Klicka på ny, beräkning, VIRTUELLA, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka på pilen till höger. En genomgång som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator kör Linux.
+Logga in på Azure portal för att skapa VM-mallen, och använder följande sekvens: Klicka på ny, beräkning, VIRTUELLA, från GALLERIET, UBUNTU, Ubuntu Server 14.04 LTS och klicka på pilen till höger. En genomgång som beskriver hur du skapar en Linux VM, se Skapa en virtuell dator kör Linux.
 
 Ange följande information på skärmen ”konfiguration av virtuell dator” #1:
 

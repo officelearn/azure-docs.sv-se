@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63dd283605553297a7dc8feab90c8bcbd716d5de
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här används iOS-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -546,7 +546,7 @@ Du kan använda Active Directory Authentication Library (ADAL) för att logga in
 3. Använda terminalen och kör `pod install` från katalogen som innehåller ditt projekt och sedan öppna den genererade Xcode-arbetsytan (inte projektet).
 4. Lägg till följande kod i ditt program, beroende på vilket språk som du använder. I varje, se dessa ersättningar:
 
-   * Ersätt **INSERT-UTFÄRDARE-här** med namnet på klienten som du har etablerat ditt program. Formatet som ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory på den [klassiska Azure-portalen].
+   * Ersätt **INSERT-UTFÄRDARE-här** med namnet på klienten som du har etablerat ditt program. Formatet som ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i den [Azure-portalen].
    * Ersätt **INSERT-resurs-ID-här** med klient-ID för din mobilappsserverdel. Du kan hämta klient-ID från den **Avancerat** fliken **inställningarna för Azure Active Directory** i portalen.
    * Ersätt **INSERT-klient-ID-här** med klient-ID som du kopierade från native client-program.
    * Ersätt **INSERT-OMDIRIGERINGS-URI-här** med webbplatsens */.auth/login/done* slutpunkten, med hjälp av HTTPS-schema. Det här värdet ska vara liknar *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -853,7 +853,7 @@ Du kan använda Google inloggning SDK för iOS för att logga in användare på 
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-
+[Azure-portalen]: https://portal.azure.com/
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx

@@ -4,7 +4,7 @@ description: "Skapa webbprogram med hjälp av Azure AD v2.0-implementeringen av 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du kan använda för inloggning på ett säkert sätt en användare till ett webbprogram. När du använder v2.0-slutpunkten implementering av OpenID Connect kan du lägga till inloggnings- och API-åtkomst till webbaserade appar. I den här artikeln hur vi du gör detta oberoende av språk. Vi beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda alla bibliotek för Microsoft öppen källkod.
@@ -99,7 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | Klient |Krävs |Du kan använda den `{tenant}` värde i sökvägen för begäran om att styra vem som kan logga in på programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och identifierare för innehavare. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
 | client_id |Krävs |Programmet ID som den [Programregistreringsportalen](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) tilldelats din app. |
@@ -188,7 +188,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Rekommenderas | Den URL som användaren omdirigeras till efter att logga ut. Om parametern inte är inkluderad visas användaren ett allmänt meddelande som genereras av v2.0-slutpunkten. URL: en måste matcha en omdirigerings-URI: er som registrerats för ditt program i portalen för registrering av app.  |
 

@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cfec8e9ac12d43095483696a15c0580776d3114
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7aa04faab5da9ee7dae977be3a8c040c3aed0b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integrering med Work.com
 
@@ -104,7 +104,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![SAML-baserade inloggning](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
+    ![SAML-baserad inloggning](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
 
 3. På den **Work.com domän och URL: er** avsnittet, utför följande:
 

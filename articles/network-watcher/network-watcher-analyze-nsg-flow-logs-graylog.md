@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera nätverket grupp flödet säkerhetsloggar i Azure med hjälp av Nätverksbevakaren och Graylog
 
@@ -152,8 +152,8 @@ Avsnittet filter förenklar sedan varje flöde loggfil så att varje enskild fl�
 
 Slutligen vidarebefordrar utdata varje Logstash-händelsen till Graylog-servern. Så att de passar dina specifika behöver, ändra Logstash config-filen som krävs.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > Tidigare konfigurationsfilen förutsätter att Graylog-servern har konfigurerats på den lokala loopback-IP-adressen 127.0.0.1. Om inte, se till att ändra värdparametern i utdataavsnittet till rätt IP-adress.
 
 Ytterligare instruktioner om hur du installerar Logstash finns i Logstash [dokumentationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 

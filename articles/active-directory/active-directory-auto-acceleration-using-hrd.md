@@ -4,7 +4,7 @@ description: "Beskriver vad en Azure AD-klient är och hur du hanterar Azure via
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
-ms.openlocfilehash: 11e03f9af8fe13a8f9ebd9b6d3de68697a351c77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera inloggning auto-acceleration för ett program med hjälp av en princip för identifiering av startsfär
 

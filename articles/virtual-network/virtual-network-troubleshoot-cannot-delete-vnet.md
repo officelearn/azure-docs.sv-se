@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Felsöka: Det gick inte att ta bort ett virtuellt nätverk i Azure
 
@@ -65,13 +65,7 @@ Om Active Directory Domain Service är aktiverat och anslutet till det virtuella
 
 ![Kontrollera den anslutna enheten](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Följ dessa steg om du vill inaktivera tjänsten:
-
-1. Gå till den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. I den vänstra rutan, Välj **Active Directory**.
-3. Välj en katalog i Azure Active Directory (AD Azure) som har Active Directory Domain Service aktiverat.
-4. Välj fliken **Konfigurera**.
-5. Under **domäntjänster**, ändra den **aktivera domain services för den här katalogen** att **nr**.  
+Om du vill inaktivera tjänsten finns [inaktivera Azure Active Directory Domain Services med Azure-portalen](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Kontrollera om det virtuella nätverket är ansluten till andra resurser
 

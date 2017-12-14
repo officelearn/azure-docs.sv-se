@@ -4,7 +4,7 @@ description: "Lär dig hur du definierar anpassade roller med rollbaserad åtkom
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Skapa anpassade roller för rollbaserad åtkomstkontroll
 Skapa en anpassad roll i rollbaserad åtkomstkontroll (RBAC) om ingen av de inbyggda rollerna uppfyller dina specifika behov. Anpassade roller kan skapas med [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure-kommandoradsgränssnittet](role-based-access-control-manage-access-azure-cli.md) (CLI) och [REST API](role-based-access-control-manage-access-rest.md). Du kan tilldela anpassade roller till användare, grupper och program på prenumerationen, resursgruppen och resursen omfattningar precis som inbyggda roller. Anpassade roller lagras i Azure AD-klient och kan delas mellan prenumerationer.

@@ -139,24 +139,24 @@
           items:
             - name: Översikt och förutsättningar
               href: site-recovery-deployment-planner.md
-            - name: Kör distributionshanteraren
+            - name: Kör verktyget Distributionshanteraren
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Analysera den genererade rapporten
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Analysera rapporten med den beräknade kostnaden för haveriberedskap
+            - name: Analysera kostnadsuppskattningsrapporten
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Skala ut processervrar för VMware-replikering
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Distributionshanteraren och verktyget för Hyper-V-replikering till Azure
+        - name: Verktyget Distributionshanteraren för Hyper-V-replikering till Azure
           href: null
           items:
             - name: Översikt och förutsättningar
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Kör distributionshanteraren
+            - name: Kör verktyget Distributionshanteraren
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Analysera den genererade rapporten
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Analysera rapporten med den beräknade kostnaden för haveriberedskap
+            - name: Analysera kostnadsuppskattningsrapporten
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Prestandaskalningstester för Hyper-V-replikering mellan lokala platser
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

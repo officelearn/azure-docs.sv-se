@@ -1,6 +1,6 @@
 ---
-title: Snabbstart - Azure tid serien Insights explorer | Microsoft Docs
-description: "Denna Snabbstart visar hur du kommer igång med Azure tid serien Insights explorer i webbläsaren att visualisera stora volymer av IoT-data. Rundtur viktiga funktioner i en miljö för demonstration."
+title: "Snabbstart – Azure Time Series Insights-utforskaren | Microsoft Docs"
+description: "Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i webbläsaren för att visualisera stora IoT-datavolymer. Titta på huvudfunktionerna i en demomiljö."
 services: time-series-insights
 ms.service: time-series-insights
 author: MarkMcGeeAtAquent
@@ -14,64 +14,64 @@ ms.custom: mvc
 ms.date: 11/15/2017
 ms.openlocfilehash: b1f2881da21849c3ac09b008640fc9f72dc158dd
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure tid serien insikter
-Denna Snabbstart visar hur du kommer igång med Azure tid serien Insights explorer i en miljö med ledigt demonstrationen. Du lär dig hur du använder du webbläsare för att visualisera stora volymer av IoT-data och rundtur huvudfunktionerna i Utforskaren tid serien insikter. 
+# <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
+Denna snabbstart visar hur du kommer igång med Azure Time Series Insights-utforskaren i en gratis demonstrationsmiljö. Du lär dig hur du kan använda webbläsaren för att visualisera stora volymer med IoT-data, och du får se huvudfunktionerna i Time Series Insights-utforskaren. 
 
-Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Den ger dig en global vy över dina data, så att du snabbt kan validera IoT-lösningen och undviker dyrbar avbrottstid för verksamhetskritiska enheter genom att hjälpa dig att identifiera dolda trender upptäcka avvikelser och utföra grundläggande orsaken analyser i nära realtid.  Om du skapar ett program som behöver store eller fråga tid series-data, kan du utveckla med hjälp av den tid serien insikter REST API: er.
+Azure Time Series Insights är en fullständigt hanterad tjänst för analys, lagring och visualisering som gör det enkelt att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data som hjälper dig att snabbt verifiera din IoT-lösning och undvika kostsamma avbrott på verksamhetskritiska enheter. Du får hjälp med att identifiera dolda trender, upptäcka avvikelser och utföra rotorsaksanalyser i nära realtid.  Om du skapar ett program som behöver lagra eller fråga tidsseriedata kan du utveckla med hjälp av Time Series Insights REST API:erna.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Utforska tid serien insikter explorer i en miljö för demonstration
+## <a name="explore-time-series-insights-explorer-in-a-demo-environment"></a>Utforska Time Series Insights-utforskaren i en demomiljö
 
-1. I din webbläsare, navigerar du till [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+1. Gå till [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo) i webbläsaren. 
 
-2. Om du uppmanas logga in i tid serien insikter explorer med hjälp av dina Azure-autentiseringsuppgifter. 
+2. Logga in på Time Series Insights-utforskaren med dina autentiseringsuppgifter för Azure-kontot om du uppmanas att göra det. 
  
-3. Tid serien insikter guidad sidan visas. Klicka på **nästa** ska börja guidad.
+3. Snabbvisningssidan för Time Series Insights visas. Klicka på **Nästa** för att starta snabbvisningen.
 
-   ![Klicka på nästa](media/quickstart/quickstart1.png)
+   ![Klicka på Nästa](media/quickstart/quickstart1.png)
 
-4. Den **tid markeringen panelen** visas. Använd den här panelen för att välja en tidsram för att visualisera.
+4. **Panelen för val av tid** visas. Använd den här panelen för att välja en tidsram som ska visualiseras.
 
-   ![Tid markeringen panelen](media/quickstart/quickstart2.png)
+   ![Panelen för val av tid](media/quickstart/quickstart2.png)
 
-5. Klicka och dra i region, och klicka sedan på **Sök** knappen.
+5. Klicka och dra i regionen och klicka sedan på knappen **Sök**.
  
-   ![Välj en tidsperiod](media/quickstart/quickstart3.png) 
+   ![Välj en tidsram](media/quickstart/quickstart3.png) 
 
-   Tid serien insikter visar ett diagram visualiseringen för den tidsperiod som du angav. Du kan utföra olika åtgärder i med linjediagrammet, till exempel filtrering, fästning sorterings- och stapling. 
+   Time Series Insights visar en diagramvisualisering för den tidsram du angav. Du kan utföra olika åtgärder med linjediagrammet, t.ex. filtrera, fästa, sortera och stapla. 
 
-   Återgå till den **tid markeringen panelen**, klickar du på nedpilen som visas:
+   Om du vill komma tillbaka till **panelen för val av tid** klickar du på nedåtpilen på det sätt som visas:
 
-   ![Diagrammet](media/quickstart/quickstart4.png)
+   ![Diagram](media/quickstart/quickstart4.png)
 
-6. Klicka på **Lägg till** i den **villkoren panelen** att lägga till en ny sökterm.
+6. Klicka på **Lägg till** i **panelen Villkor** för att lägga till en ny sökterm.
 
    ![Lägga till objekt](media/quickstart/quickstart5.png)
 
-7. I diagrammet du Välj en region, högerklicka på regionen och välj **utforska händelser**.
+7. I diagrammet kan du välja en region, högerklicka på regionen och välja **Utforska händelser**.
  
    ![Utforska händelser](media/quickstart/quickstart6.png)
 
-   Ett rutnät med dina rådata visas från den region du utforska:
+   Ett rutnät med dina rådata visas från den region du utforskar:
 
-   ![Rutnätsvyn](media/quickstart/quickstart7.png)
+   ![Rutnätsvy](media/quickstart/quickstart7.png)
 
-8. Redigera dina villkor om du vill ändra värdena i diagrammet och Lägg till en annan term för cross-korrelera olika typer av värden:
+8. Redigera villkoren om du vill ändra de värden som visas i diagrammet, och lägg till ytterligare villkor om du vill korskorrelera olika typer av värden:
 
-   ![Lägga till en term](media/quickstart/quickstart8.png)
+   ![Lägga till ett villkor](media/quickstart/quickstart8.png)
 
-9. Ange en filterterm som i den **filtrera serier...**  för ad hoc-serien filtrering. Snabbstart, ange **Station5** till mellan korrelera temperatur och tryck för den stationen.
+9. Ange ett filtervillkor i rutan **Filtrera serie...** om du vill använda ad hoc-seriefiltrering. För snabbstarten anger du **Station5** om du vill korskorrelera temperatur och tryck för den stationen.
  
-   ![Filtrera serier](media/quickstart/quickstart9.png)
+   ![Filtrera serie](media/quickstart/quickstart9.png)
 
-När du har Snabbstart kan experimentera du med exempeldata för data att skapa olika visuella. 
+När du har slutfört snabbstarten kan du experimentera med exempeldata för att skapa olika visualiseringar. 
 
 ### <a name="next-steps"></a>Nästa steg
-Du är redo att skapa din egen tid serien insikter miljö:
+Du är redo att skapa en egen Time Series Insights-miljö:
 > [!div class="nextstepaction"]
-> [Planera din tid serien insikter-miljön](time-series-insights-environment-planning.md)
+> [Planera Time Series Insights-miljön](time-series-insights-environment-planning.md)

@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: MongoDB API-dokumentation
 
 Den här artikeln innehåller länkar till alla Azure Cosmos DB innehåll som är specifika för MongoDB-API: et.
 
-Dessa artiklar gäller inte för DocumentDB-API, Graph API eller tabell API. 
+Dessa artiklar gäller inte för SQL-API, Graph API eller tabell API. 
 
 ## <a name="introduction-and-concepts"></a>Introduktion och begrepp
 
@@ -31,16 +31,18 @@ Dessa är måste läsa ämnen och resurser för att starta lära dig mer om Mong
 
 - [Introduktion av MongoDB-API](mongodb-introduction.md)
 - [Ansluta till ditt MongoDB-konto](connect-mongodb-account.md)
+- [Stöd för MongoDB-funktioner och syntax](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Snabbstarter
 
 Snabbstart-avsnitt är det snabbaste sättet att skapa ett fungerande program med Azure Cosmos DB. I varje Quickstart lära du dig att använda UI-baserad Azure-portalen och din favorit kodning språk för att skapa databaslösningar med Azure Cosmos DB. Klonbara web apps från GitHub område som är tillgängliga för varje Snabbstart. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + Web apps](create-mongodb-nodejs.md)
+- [Node.js Express + AngularJS + Web apps](create-mongodb-nodejs.md)
 - [.NET + azure-portalen + Web apps](create-mongodb-dotnet.md)
 - [Java + Azure-portalen + Web apps](create-mongodb-java.md)
 - [Gå + Azure-portalen + gå](create-mongodb-golang.md)
+- [Python Flask + Azure-portalen](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Självstudier
 

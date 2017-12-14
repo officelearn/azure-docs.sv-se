@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9630656a00a8a80c8ffd8fb59113dc1c8c523651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e66b89332ce120133b660b931ba56eaca2a36ae
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>Övervaka ett webbprogram med webbserverloggar
 
-I det här scenariot ska du skapa en resursgrupp, apptjänstplan, webbprogram och konfigurera webbappen för att aktivera webbserverloggar. Sedan hämtas loggfilerna för granskning.
+Det här exempelskriptet skapar en resursgrupp, en apptjänstplan och ett webbprogram och konfigurerar webbprogram för att aktivera webbserverloggar. Den hämtar sedan loggfilerna för granskning.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -44,11 +44,11 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, w
 
 | Kommando | Anteckningar |
 |---|---|
-| [Skapa AZ grupp](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
-| [Skapa AZ programtjänstplan](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. Detta påminner om en servergrupp för din Azure webbapp. |
-| [Skapa AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Skapar ett Azure-webbapp. |
-| [AZ webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_config) | Konfigurerar vilka loggar som finns kvar i en Azure-webbapp. |
-| [AZ webapp logga hämtning](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_download) | Hämtar loggarna för i en Azure-webbapp till din lokala dator. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Skapar en resursgrupp som är lagrade i alla resurser. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Skapar en App Service-plan. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Skapar ett Azure-webbapp. |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_config) | Konfigurerar vilka loggar en Azure-webbapp kvarstår. |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_download) | Hämtar loggarna för ett Azure-webbapp till din lokala dator. |
 
 ## <a name="next-steps"></a>Nästa steg
 

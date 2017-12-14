@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: b7c967550f9f89eec29288b24525b5f043615437
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 619886d129c6b9fca62376e366ce3a78d57c56c0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395809351"></a>Självstudiekurs om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/20/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Den här artikeln innehåller en heltäckande beskrivning av hur du skapar en ”att göra”-app med Azure Cosmos DB och visar hur du effektivt kan lagra och skicka frågor mot JSON-dokument med Azure Cosmos DB. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB.
 
@@ -55,7 +57,7 @@ Se till att du har följande innan du börjar följa anvisningarna i den här ar
 Alla skärmdumpar i den här artikeln har vidtagits med hjälp av Microsoft Visual Studio Community 2017. Om din dator har konfigurerats med en annan version är det möjligt att skärmbilder och alternativ inte ser riktigt likadana ut, men om du uppfyller ovanstående förutsättningar är uppfyllda ska lösningen fungera.
 
 ## <a name="_Toc395637761"></a>Steg 1: Skapa ett Azure Cosmos DB-databaskonto
-Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto för SQL (DocumentDB) för Azure Cosmos DB eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå till [skapa ett nytt ASP.NET MVC-program](#_Toc395637762).
+Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett SQL-konto för Azure Cosmos DB eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå till [skapa ett nytt ASP.NET MVC-program](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -99,7 +101,7 @@ Nu har vi i princip de ASP.NET MVC-grunder som vi behöver för lösningen och d
    
     Från resultatet installerar den **Microsoft.Azure.DocumentDB av Microsoft** paketet. Detta ska hämta och installera Azure DB som Cosmos-paketet, samt alla beroenden, till exempel Newtonsoft.Json. Klicka på **OK** i fönstret **Förhandsgranskning** och **Jag godkänner** i fönstret **Godkännande av licens** för att slutföra installationen.
    
-    ![Skärmdump av fönstret Hantera NuGet-paket, med Microsoft Azure DocumentDB klientbiblioteket markerat](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Skärmdump av fönstret hantera NuGet-paket med Microsoft Azure Cosmos DB klientbiblioteket markerat](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Du kan också installera paketen med Pakethanterarkonsolen. Om du vill göra det klickar du på menyn **Verktyg**, **NuGet-pakethanteraren** och sedan på **Pakethanterarkonsolen**. Skriv följande i prompten:
    

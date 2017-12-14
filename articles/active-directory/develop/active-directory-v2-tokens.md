@@ -4,7 +4,7 @@ description: "Typer av token och anspråk som sänds av Azure AD v2.0-slutpunkte
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 token-referens
 Azure Active Directory (AD Azure) v2.0-slutpunkten genererar flera typer av säkerhetstoken i varje [autentiseringsflödet](active-directory-v2-flows.md). Den här referensen beskriver format, säkerhet egenskaperna och innehållet i varje typ av token.
@@ -61,13 +61,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Utfärdat till |`iat` |`1452285331` |Den tid då token utfärdats representeras i epok tid. |
 | Förfallotid |`exp` |`1452289231` |Den tid då token blir ogiltig representeras i epok tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
 | Inte före |`nbf` |`1452285331` |Den tid då token börjar gälla, representeras i epok tid. Det är vanligtvis samma som den utfärdande-tid. Din app ska använda detta anspråk för att kontrollera giltigheten för livslängd för token. |
-| Version |`ver` |`2.0` |Versionen av ID-token, som definieras av Azure AD. Värdet är för v2.0-slutpunkten `2.0`. |
+| version |`ver` |`2.0` |Versionen av ID-token, som definieras av Azure AD. Värdet är för v2.0-slutpunkten `2.0`. |
 | Klient-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Ett GUID som representerar Azure AD-klient som användaren är från. För arbets- och skolkonton konton är GUID oföränderliga klient-ID på den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | Koden hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Koden hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att validera en Auktoriseringskoden är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 | Åtkomst-token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Åtkomst-token hash ingår i ID tokens endast när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att validera en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i [OpenID Connect specifikationen](http://openid.net/specs/openid-connect-core-1_0.html). |
 | temporärt ID |`nonce` |`12345` |Temporärt ID är en strategi för att minimera token replay-attacker. Appen kan ange ett temporärt ID i en auktoriseringsbegäran om med hjälp av den `nonce` Frågeparametern. Värdet du anger i begäran har genererats i token ID `nonce` anspråk som ska ändras. Din app kan kontrollera värdet mot det värde som det anges på begäran, som associerar appens session med en specifik ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen ID-token. |
 | namn |`name` |`Babe Ruth` |Anspråk namn innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unika, är det föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot denna begäran. |
-| E-post |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Den primära e-postadress som är associerade med användarkontot, om sådan finns. Värdet är föränderliga och kan ändras med tiden. Den `email` omfattning krävs för att ta emot denna begäran. |
+| e-post |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Den primära e-postadress som är associerade med användarkontot, om sådan finns. Värdet är föränderliga och kan ändras med tiden. Den `email` omfattning krävs för att ta emot denna begäran. |
 | prioriterade användarnamn |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Primära användarnamnet som representerar användaren i v2.0-slutpunkten. Det kan vara en e-postadress, telefonnummer och ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras med tiden. Eftersom det föränderliga, får du inte använda det här värdet vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot denna begäran. |
 | Ämne |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Den användare som token Assert information, till exempel användare av en app. Det här värdet är oföränderlig och kan inte tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token som används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token att Azure AD-problem, bör du använda det här värdet i ett system med allmänna tillstånd. Ämne är dock en pairwise identifierare – det är unikt för ett visst program-ID.  Därför om en användare loggar in på två olika appar som använder två olika klient-ID: N, får de apparna som två olika värden för ämne anspråket.  Detta kan eller inte vara önskvärt beroende på dina krav arkitektur och sekretess. |
 | Objekt-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Oåterkalleliga identifierare för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto.  Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren i program - två olika program som loggar in samma användare får samma värde i den `oid` anspråk.  Det innebär att den kan användas när du skapar frågor till Microsoft online services, till exempel Microsoft Graph.  Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto.  Eftersom den `oid` tillåter flera apparna att korrelera användare, den `profile` omfattning krävs för att ta emot denna begäran. Observera att om en användare finns i flera klienter kan användaren innehåller ett annat objekt-ID i varje klient - de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |

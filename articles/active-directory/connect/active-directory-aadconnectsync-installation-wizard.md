@@ -5,7 +5,7 @@ keywords: "Installationsguiden för Azure AD Connect kan du konfigurera inställ
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synkronisering: guiden Installera körs en gång
 Första gången du kör installationsguiden för Azure AD Connect vägleder den dig igenom hur du konfigurerar din installation. Om du kör installationsguiden igen erbjuder alternativ för underhåll.
@@ -62,7 +62,7 @@ Andra alternativ från den första installationen kan inte ändras och är inte 
 * Ändra anslutande metod för objekt från en annan skog.
 * Aktivera gruppbaserade filtrering.
 
-## <a name="refresh-directory-schema"></a>Uppdatera directory-schemat
+## <a name="refresh-directory-schema"></a>Uppdatera katalogschema
 Det här alternativet används om du har ändrat schemat i en av dina lokala AD DS-skogar. Du kan till exempel har installerat Exchange eller uppgraderas till en Windows Server 2012-schemat med enhetsobjekt. I det här fallet måste du instruera Azure AD Connect att läsa schemat igen från AD DS och uppdatera sin cache. Den här åtgärden återskapar också regler för synkronisering. Om du lägger till Exchange-schemat som exempel har Sync-regler för Exchange lagts till konfigurationen.
 
 När du väljer det här alternativet visas alla kataloger i konfigurationen. Du kan behålla standardinställningen och uppdatera alla skogar eller avmarkera vissa av dessa.
@@ -78,7 +78,7 @@ Alternativet visar om mellanlagring är aktiverat eller inaktiverat:
 Välj det här alternativet om du vill ändra tillståndet och markera eller avmarkera kryssrutan.  
 ![Alternativ som visas också det aktuella tillståndet för mellanlagringsläge](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Ändra användarens inloggning
+## <a name="change-user-sign-in"></a>Ändra användarinloggning
 Det här alternativet kan du ändra från synkronisering av lösenord till federation eller tvärtom. Du kan inte ändra till **konfigurerar inte**.
 
 Mer information om det här alternativet, se [användarinloggning](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).

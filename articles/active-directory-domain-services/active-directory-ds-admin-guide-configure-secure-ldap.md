@@ -4,7 +4,7 @@ description: "Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-h
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 Den här artikeln visar hur du kan aktivera säker Lightweight Directory Access Protocol (LDAPS) för din Azure AD Domain Services-hanterad domän. Säker LDAP kallas även ”Lightweight Directory Access Protocol (LDAP) över Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
@@ -39,23 +39,18 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Krav för säker LDAP-certifikat
 Hämta ett giltigt certifikat enligt följande riktlinjer innan du aktiverar säker LDAP. Det uppstår fel vid försök att aktivera säker LDAP för din hanterade domän med ett ogiltigt felaktigt certifikat.
 
-1. **Betrodda utfärdare** -certifikatet måste utfärdas av en certifikatutfärdare som betrodd av datorer som ansluter till den hanterade domänen med säker LDAP. Den här utfärdare kan vara en offentlig certifikatutfärdare som betrodd av dessa datorer.
+1. **Betrodda utfärdare** -certifikatet måste utfärdas av en certifikatutfärdare som betrodd av datorer som ansluter till den hanterade domänen med säker LDAP. Denna myndighet kan vara en offentlig certifikatutfärdare (CA) eller en Företagscertifikatutfärdare som är betrodd av dessa datorer.
 2. **Livslängd** -certifikatet måste vara giltigt för minst de kommande 3-6 månaderna. Säker LDAP-åtkomst till din hanterade domän avbryts när certifikatet upphör att gälla.
 3. **Ämnesnamn** -Subjektnamnet på certifikatet måste vara ett jokertecken för din hanterade domän. Till exempel om din domän har namnet ”contoso100.com”, certifikatets ämnesnamn måste vara ' *. contoso100.com ”. Ange DNS-namn (Alternativt ämnesnamn) till den här jokertecken-namn.
 4. **Nyckelanvändning** -certifikatet måste vara konfigurerad för följande använder - digitala signaturer och nyckelchiffrering.
 5. **Certifikat syfte** -certifikatet måste vara giltigt för serverautentisering för SSL.
-
-> [!NOTE]
-> **Företagscertifikatutfärdare:** Azure AD Domain Services stöder inte användning av säker LDAP-certifikat som utfärdats av din organisations utfärdare av företagscertifikat. Den här begränsningen beror på att tjänsten inte har förtroende för ditt företags-CA som en rotcertifikatutfärdare. 
->
->
 
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Uppgift 1 – skaffa ett certifikat för säker LDAP
 Den första aktiviteten innebär att erhålla ett certifikat som används för säker LDAP-åtkomst till den hanterade domänen. Du kan välja mellan två alternativ:
 
-* Skaffa ett certifikat från en offentlig certifikatutfärdare.
+* Skaffa ett certifikat från en offentlig Certifikatutfärdare eller en företagscertifikatutfärdare.
 * Skapa ett självsignerat certifikat.
 
 > [!NOTE]
@@ -63,7 +58,7 @@ Den första aktiviteten innebär att erhålla ett certifikat som används för s
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Alternativet (rekommenderas) – skaffa ett säkert LDAP-certifikat från en certifikatutfärdare
-Om din organisation hämtar certifikat från en offentlig certifikatutfärdare kan få säker LDAP-certifikat från den offentlig certifikatutfärdaren.
+Om din organisation hämtar certifikat från en offentlig Certifikatutfärdare kan du hämta säker LDAP-certifikatet från den offentliga Certifikatutfärdaren. Om du distribuerar en företagscertifikatutfärdare, hämta säker LDAP-certifikat från Certifikatutfärdare för företaget.
 
 > [!TIP]
 > **Använder självsignerade certifikat för hanterade domäner med '. onmicrosoft.com' domänsuffix.**

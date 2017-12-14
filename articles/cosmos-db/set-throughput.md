@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Ange dataflöde för Azure DB som Cosmos-behållare
 
@@ -57,7 +57,7 @@ I följande tabell visas genomströmning för behållare:
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>Ange genomflödet med DocumentDB-API för .NET
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Ange genomflödet med hjälp av SQL-API för .NET
 
 ```C#
 //Fetch the resource to be updated
@@ -81,7 +81,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Hur ställer jag througput med MongoDB-API**
 
-Det finns inget MongoDB-API-tillägg för att ange genomflöde. Rekommendationen är att använda DocumentDB-API som visas i [ange genomflödet med DocumentDB-API för .NET](#set-throughput-sdk).
+Det finns inget MongoDB-API-tillägg för att ange genomflöde. Rekommendationen är att använda SQL-API som visas i [ange genomflödet med hjälp av SQL-API för .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Nästa steg
 

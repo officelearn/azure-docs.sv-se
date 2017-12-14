@@ -1,24 +1,26 @@
 ---
-title: "Skapa anpassade roller för rollbaserad åtkomstkontroll och tilldela interna och externa användare i Azure | Microsoft Docs"
+title: "Skapa anpassade rollbaserad åtkomst kontroll roller och tilldela interna och externa användare i Azure | Microsoft Docs"
 description: "Tilldela anpassade RBAC-roller med hjälp av PowerShell och CLI för interna och externa användare"
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Introduktion på rollbaserad åtkomstkontroll
 
@@ -35,7 +37,7 @@ Med RBAC i Azure-miljön kräver:
 * Se till att ha följande Resursleverantörer som registrerats för användaren prenumerationen: **Microsoft.Authorization**. Läs mer om hur du registrerar resursleverantörer [Resource Manager-providers, regioner, API-versioner och scheman](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: åtkomst till Azure Active Directory) etablerats från O365 portal inte uppfyller kraven för att använda RBAC.
+> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: åtkomst till Azure Active Directory) etablerats från den Office 365 Admin center inte uppfyller kraven för att använda RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Hur kan RBAC användas
 RBAC kan tillämpas på tre olika scope i Azure. Från området högsta till lägsta som är de följande:
@@ -102,7 +104,7 @@ Som utanför organisationen, har den nya användaren inte några befintliga attr
 
 ![e-postmeddelande för inbjudan för RBAC roll](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Externa användare visas i Azure Active Directory-klient hädanefter som externa användare och det kan visas både i Azure-portalen och i den klassiska portalen.
+Externa användare visas i Azure Active Directory-klient hädanefter som externa användare och det kan visas i Azure-portalen.
 
 
 
@@ -112,14 +114,7 @@ Externa användare visas i Azure Active Directory-klient hädanefter som externa
 
 
 
-
-
-![användare bladet azure active directory klassiska Azure-portalen](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-I den **användare** vyn i båda portaler externa användare kan identifieras av:
-
-* Typen av olika ikoner i Azure-portalen
-* Olika sourcing punkten i den klassiska portalen
+I den **användare** vyn externa användare kan identifieras av typen olika ikoner i Azure-portalen.
 
 Dock bevilja **ägare** eller **deltagare** åtkomst till en extern användare i den **prenumeration** omfång, tillåter inte åtkomst till katalogen för admin-användare, såvida inte den **Global administratör** tillåter. I användar-proprieties den **användartyp** som har två gemensamma parametrar, **medlem** och **gäst** kan identifieras. En medlem är en användare som har registrerats i katalogen medan gäst är en användare som bjudits in till katalogen från en extern källa. Mer information finns i [hur till B2B-samarbete användare av Azure Active Directory-administratörer](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ Tilldela rollen inbyggda RBAC för **Virtual Machine-deltagare** innebär att an
 * Det går inte att visa alla andra typer av resurser i prenumerationen
 * Fungerar inte ändringar ur fakturering
 
-> [!NOTE]
-> RBAC som en portal endast funktion i Azure, ger det inte tillgång till den klassiska portalen.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Tilldela en inbyggd roll RBAC till en extern användare
 För ett annat scenario i det här testet kan den externa användaren ”alflanigan@gmail.com” läggs till som en **Virtual Machine-deltagare**.
 
@@ -156,9 +148,7 @@ För ett annat scenario i det här testet kan den externa användaren ”alflani
 
 ![inbyggda deltagarrollen virtuell dator](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normalt beteende för den här externa användare med den här inbyggda rollen är att se och hantera endast virtuella datorer och deras intilliggande Resource Manager endast resurser som är nödvändiga vid distribution. Avsiktligt rollerna begränsad erbjuder endast åtkomst till sina motsvarande resurser som skapats i Azure-portalen, oavsett vissa kan fortfarande vara distribuerad i den klassiska portalen (till exempel: virtuella datorer).
-
-
+Normalt beteende för den här externa användare med den här inbyggda rollen är att se och hantera endast virtuella datorer och deras intilliggande Resource Manager endast resurser som är nödvändiga vid distribution. Rollerna begränsad erbjuder endast åtkomst till sina motsvarande resurser som skapats i Azure portal avsiktligt.
 
 
 

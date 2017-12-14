@@ -4,7 +4,7 @@ description: "Beskriver hur Azure Active Directory gör det möjligt att ange de
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 6170b78f888679ab358198d940c82a00fa5e43a1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 363478cb1bb2637a8c4f9cf36505817b163df781
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätter att vara en utmaning när en app har integrerats i din organisation identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i att hantera åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-teamet. Ofta tilldelning beslutet är avsedd att vara delegerade till beslutsfattare företag, som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, t.ex. rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och regeln development brukar vara specialiserade och dyrt. Övervakning och rapportering om antingen metoden är en egen separat kostsamma och komplexa investering.

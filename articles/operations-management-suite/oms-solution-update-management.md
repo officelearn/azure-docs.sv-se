@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Uppdateringshanteringslösning i OMS
 
@@ -81,7 +81,7 @@ Vid det datum och den tid som anges i uppdateringsdistributionen kör måldatore
     > En OMS-agent för Linux som konfigurerats för att rapportera till flera OMS-arbetsytor stöds inte av den här lösningen.  
     >
 
-Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agents.md).  
+Mer information om hur du installerar OMS-agenten för Linux och hämtar den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux).  Information om hur du installerar OMS-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>Behörigheter
 För att skapa uppdateringsdistributioner måste du beviljas deltagarrollen både i ditt Automation-konto och på Log Analytics-arbetsytan.  
@@ -126,7 +126,7 @@ På en Windows-dator kan du läsa följande för att verifiera agentanslutning m
 1.  Öppna Microsoft Monitoring Agent i kontrollpanelen. På fliken **Azure Log Analytics (OMS)** visar agenten ett meddelande där det står: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite).   
 2.  Öppna Windows Event Log, gå till **Program- och tjänstloggar\Operations Manager** och sök efter händelse-ID 3000 och 5002 från källans tjänstanslutning.  Dessa händelser anger att datorn har registrerats med OMS-arbetsytan och tar emot konfigurationen.  
 
-Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agents.md#network) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md#network).
+Om agenten inte kan kommunicera med OMS-tjänsten och den är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver kan du bekräfta att brandväggen eller proxyservern har konfigurerats korrekt genom att läsa [Nätverkskonfiguration för Windows-agenten](../log-analytics/log-analytics-windows-agent.md) eller [Nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om Linux-system har konfigurerats för att kommunicera med en proxy- eller OMS-Gateway och du är i färd med att aktivera den här lösningen ska du uppdatera behörigheten *proxy.conf* för att ge gruppen omiuser läsbehörighet för filen genom att utföra följande kommandon:  

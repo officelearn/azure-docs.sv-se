@@ -4,7 +4,7 @@ description: "Hur du kommer igång med Azure Active Directory granska API"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 242fa094010694d7060b05e5892ce738d5b37a32
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory audit API-referens
 Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
@@ -158,7 +158,7 @@ datetime ska vara i UTC-format
 skiftlägeskänsligt
 
 - - -
-### <a name="activity"></a>Aktivitet
+### <a name="activity"></a>aktivitet
 **Stöd för operatörer**: eq, innehåller startsWith
 
 **Exempel**:

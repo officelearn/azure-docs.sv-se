@@ -1,7 +1,7 @@
 ---
-title: "Skapa en Ruby-App och distribuera till App Service på Linux | Microsoft Docs"
-description: "Lär dig att skapa Ruby-appar med App Service på Linux."
-keywords: "Azure apptjänst, linux, oss, ruby"
+title: Skapa en Ruby-app och distribuera till App Service on Linux | Microsoft Docs
+description: "Lär dig skapa Ruby-appar med App Service on Linux."
+keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -18,26 +18,26 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby App i App Service på Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Skapa en Ruby-app i App Service on Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här snabbstarten visar hur du skapar en grundläggande Ruby på spår programmet du sedan distribuera den till Azure som en Webbapp i Linux.
+Med [App Service on Linux](app-service-linux-intro.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du skapar en grundläggande Ruby on Rails-app och distribuerar den till Azure som en Web App on Linux.
 
-![Hello world](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Krav
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installera Ruby 2.4.1 eller högre</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installera Ruby 2.4.1 eller senare</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando för att klona exempel app lagringsplatsen till den lokala datorn i ett terminalfönster:
+Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -45,20 +45,20 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-Köra spår server för att programmet ska fungera. Ändra till den *hello world* directory, och `rails server` kommando startar servern.
+Kör rails-servern för att programmet ska fungera. Byt till kataglogen *hello-world* så startar kommandot `rails server` servern.
 
 ```bash
 cd hello-world\bin
 rails server
 ```
 
-Använd din webbläsare, navigera till `http://localhost:3000` att testa appen lokalt.
+Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen lokalt.
 
-![Hello world](./media/quickstart-ruby/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
-## <a name="modify-app-to-display-welcome-message"></a>Ändra app om du vill visa välkomstmeddelande
+## <a name="modify-app-to-display-welcome-message"></a>Visa ett välkomstmeddelande i appen
 
-Ändra programmet så att det visar ett välkomstmeddelande. Först måste du ställa en väg genom att ändra den *~/workspace/ruby-docs-hello-world/config/routes.rb* filen för att inkludera en väg med namnet `hello`.
+Gör ändringar i appen så att ett välkomstmeddelande visas. Först måste du ställa in en väg genom att ändra filen *~/workspace/ruby-docs-hello-world/config/routes.rb* så att den innehåller en väg med namnet `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -67,9 +67,9 @@ Använd din webbläsare, navigera till `http://localhost:3000` att testa appen l
   end
   ```
 
-Ändra programmets domänkontrollant så att den returnerar meddelandet som HTML till webbläsaren. 
+Ändra appens kontrollant så att den returnerar meddelandet som HTML till webbläsaren. 
 
-Öppna *~/workspace/hello-world/app/controllers/application_controller.rb* för redigering. Ändra den `ApplicationController` klass ska se ut som följande kodexempel:
+Öppna *~/workspace/hello-world/app/controllers/application_controller.rb* för redigering. Ändra klassen `ApplicationController` så att den ser ut som i följande kodexempel:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -80,49 +80,49 @@ Använd din webbläsare, navigera till `http://localhost:3000` att testa appen l
   end
   ```
 
-Appen är nu konfigurerad. Använd din webbläsare, navigera till `http://localhost:3000` bekräfta landningssida rot.
+Nu har appen konfigurerats. Navigera till `http://localhost:3000` i webbläsaren för att bekräfta rotlandningssidan.
 
-![Hello World konfigurerad](./media/quickstart-ruby/hello-world-configured.png)
+![Konfigurerad Hello World](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Skapa en Ruby webbapp på Azure
+## <a name="create-a-ruby-web-app-on-azure"></a>Skapa en Ruby-webbapp på Azure
 
-En resursgrupp måste innehålla de resurser som behövs för ditt webbprogram. Du kan skapa en resursgrupp med det [az gruppen skapa]() kommando.
+Det måste finnas en resursgrupp som innehåller de tillgångar som behövs för din webbapp. Du skapar en resursgrupp med kommandot [az group create]().
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Använd den [az programtjänstplan skapa](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) kommando för att skapa en apptjänstplan för ditt webbprogram.
+Använd kommandot [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) för att skapa en App Service-plan för din webbapp.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Därefter utfärda den [az webapp skapa](https://docs.microsoft.com/cli/azure/webapp) kommando för att skapa webbprogram som använder den nyligen skapade serviceplanen. Observera att körningen har angetts till `ruby|2.3`. Glöm inte att ersätta `<app name>` med ett unikt appnamn.
+Utfärda därefter kommandot [az webapp create](https://docs.microsoft.com/cli/azure/webapp) för att skapa webbappen som använder den nya tjänstplanen. Observera att körningen har angetts till `ruby|2.3`. Glöm inte att ersätta `<app name>` med ett unikt appnamn.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
 --runtime "ruby|2.3" --deployment-local-git
 ```
 
-Utdata från kommandot visar information om den nya webbappen och URL: en för distribution. Det bör likna följande exempel. Kopiera URL-Adressen för senare användning i den här självstudiekursen.
+Utdata från kommandot visar information om den nya webbappen och URL:en för distribution. Det bör se ut ungefär som i följande exempel. Kopiera URL:en för senare användning i den här självstudiekursen.
 
 ```bash
 https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 ```
 
-När webbappen har skapats ett **översikt** är tillgänglig för att visa. Navigera till den. Sidan följande skärmbild visas:
+När webbappen har skapats kan du visa en **översiktssida**. Navigera till den. Följande välkomstsida visas:
 
-![Välkomstskärmen sida](./media/quickstart-ruby/splash-page.png)
+![Välkomstsida](./media/quickstart-ruby/splash-page.png)
 
 
-## <a name="deploy-your-application"></a>Distribuera programmet
+## <a name="deploy-your-application"></a>Distribuera appen
 
-Kör följande kommandon för att distribuera lokala programmet till Azure-webbplatsen:
+Kör följande kommandon för att distribuera den lokala appen till din Azure-webbplats:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -131,7 +131,7 @@ git commit -m "Initial deployment commit"
 git push azure master
 ```
 
-Bekräfta att fjärråtkomst distributionsåtgärder rapporterar lyckades. Kommandona producerar utdata som liknar följande:
+Bekräfta att fjärrdistributionsåtgärderna lyckades. Kommandona producerar utdata som liknar följande:
 
 ```bash
 remote: Using sass-rails 5.0.6
@@ -147,26 +147,26 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-När distributionen är klar startar du om ditt webbprogram för att distributionen ska ske med hjälp av den [az webapp omstart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) kommandot som visas här:
+När distributionen är klar startar du om webbappen så att distributionen börjar gälla med hjälp av kommandot [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart):
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
-Gå till webbplatsen och kontrollera resultatet.
+Gå till din webbplats och kontrollera resultatet.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-![uppdaterade för webbprogram](./media/quickstart-ruby/hello-world-updated.png)
+![uppdaterad webbapp](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
-> När appen startas försöker bläddra plats resulterar i en HTTP-statuskod `Error 503 Server unavailable`. Det kan ta några minuter att starta om fullständigt.
+> Försök att bläddra på webbplatsen medan appen startas om resulterar i HTTP-statuskoden `Error 503 Server unavailable`. Det kan ett par minuter att slutföra omstarten.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure Apptjänst i Linux vanliga frågor och svar](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Vanliga frågor och svar om Azure App Service on Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testa din kod
 
 Om du vill testa ditt program i Visual Studio trycker du på **F5** köra projektet. I webbläsaren öppnas http://<span></span>localhost: {port} plats och du ser den **logga in med Microsoft** knappen. Klicka på knappen för att starta processen för inloggning.

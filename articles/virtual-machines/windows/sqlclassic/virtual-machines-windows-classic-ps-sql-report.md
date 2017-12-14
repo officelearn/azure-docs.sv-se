@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
 ## <a name="prerequisites-and-assumptions"></a>Krav och förutsättningar
 * **Azure-prenumeration**: Kontrollera antal kärnor som är tillgängliga i Azure-prenumeration. Om du skapar den rekommenderade VM-storleken för **A3**, behöver du **4** tillgängliga kärnor. Om du använder en VM-storlek för **A2**, behöver du **2** tillgängliga kärnor.
   
-  * Klicka på inställningar i det vänstra fönstret och klicka på användning i den översta menyn för att verifiera core gränsen för prenumerationen i den klassiska Azure-portalen.
+  * Klicka på inställningar i det vänstra fönstret och klicka på användning i den översta menyn för att verifiera core gränsen för din prenumeration på Azure-portalen.
   * Om du vill öka kvoten core Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/). Virtuell Storleksinformation finns i [storlekar för virtuella datorer för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Windows PowerShell-skript**: avsnittet förutsätter att du har grundläggande kunskaper om Windows PowerShell. Mer information om hur du använder Windows PowerShell finns i följande:
   
@@ -43,7 +43,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
   * [Komma igång med Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Steg 1: Etablera en virtuell Azure-dator
-1. Bläddra till den klassiska Azure-portalen.
+1. Bläddra till den Azure-portalen.
 2. Klicka på **virtuella datorer** i den vänstra rutan.
    
     ![Microsoft azure virtuella datorer](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -80,7 +80,7 @@ Det här avsnittet beskriver och vägleder dig genom distributionen och konfigur
      * **HTTPS**: de offentliga och privata portarna som standard är **443**. Av säkerhetsskäl är att ändra den privata porten och konfigurera brandväggen och rapportservern att använda den privata porten. Läs mer på slutpunkter [så ange kommunikation med en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera att om du använder en annan port än 443, ändra parametern **$HTTPsport = 443** i skriptet med HTTPS.
    * Klicka på Nästa. ![nästa](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. På den sista sidan i guiden, behåller du standardvärdet **installera den Virtuella datoragenten** valda. Stegen i det här avsnittet gör du genom att använda den Virtuella datoragenten, men om du planerar att behålla den här virtuella datorn av VM-agent och tillägg kan du förbättra han CM.  Mer information om den Virtuella datoragenten finns [VM-Agent och tillägg – del 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). En standard tillägg installerade ad kör är tillägget ”BGINFO” som visas på den Virtuella datorn, Systeminformation, till exempel intern IP-adress och ledigt diskutrymme.
-9. Klicka på Slutför. ![Okej](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Klicka på Slutför. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. Den **Status** av den virtuella datorn visas som **start (etablering)** under processen för etablering och sedan visar som **kör** när den virtuella datorn är allokerade och redo att användas.
 
 ## <a name="step-2-create-a-server-certificate"></a>Steg 2: Skapa ett servercertifikat
@@ -117,7 +117,7 @@ Ett självsignerat certifikat skapas på den virtuella datorn när den virtuella
 
 1. Om du vill lita på rot-CA på certifikatet på den lokala VM, lägga till certifikatet till den **betrodda rotcertifikatutfärdare**. Följande är en översikt över de steg som krävs. Detaljerade anvisningar om hur du litar på Certifikatutfärdaren finns [installera ett servercertifikat](https://technet.microsoft.com/library/cc740068).
    
-   1. Välj den virtuella datorn från den klassiska Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
+   1. Välj den virtuella datorn från Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
       
        ![ansluta till azure-dator](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Använd VM användarnamn, användarnamn och lösenord som du konfigurerade när du har skapat den virtuella datorn. 
       
@@ -153,7 +153,7 @@ Närmare anvisningar finns i avsnittet [ansluta till den virtuella datorn och st
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Använda skript för att konfigurera report server- och HTTP
 Utför följande steg för att använda Windows PowerShell-skript för att konfigurera rapportservern. Konfigurationen innehåller HTTP, HTTPS inte:
 
-1. Välj den virtuella datorn från den klassiska Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
+1. Välj den virtuella datorn från Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
    
     ![ansluta till azure-dator](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Använd VM användarnamn, användarnamn och lösenord som du konfigurerade när du har skapat den virtuella datorn. 
    
@@ -287,7 +287,7 @@ Utför följande steg för att använda Windows PowerShell-skript för att konfi
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Använda skript för att konfigurera report server- och HTTPS
 Utför följande steg om du vill använda Windows PowerShell för att konfigurera rapportservern. Konfigurationen innehåller HTTPS, inte HTTP.
 
-1. Välj den virtuella datorn från den klassiska Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
+1. Välj den virtuella datorn från Azure-portalen och klicka på Anslut. Beroende på din konfiguration av webbläsaren uppmanas du att spara en RDP-fil för att ansluta till den virtuella datorn.
    
     ![ansluta till azure-dator](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Använd VM användarnamn, användarnamn och lösenord som du konfigurerade när du har skapat den virtuella datorn. 
    
@@ -495,10 +495,10 @@ Resultatet innehåller följande:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Använd Konfigurationshanteraren för att konfigurera rapportservern
 Om du inte vill köra PowerShell-skript för att konfigurera rapportservern följer du stegen i det här avsnittet använda Konfigurationshanteraren för Reporting Services-enhetligt läge för att konfigurera rapportservern.
 
-1. Välj den virtuella datorn från den klassiska Azure-portalen och klicka på Anslut. Använd användarnamn och lösenord som du konfigurerade när du har skapat den virtuella datorn.
+1. Välj den virtuella datorn från Azure-portalen och klicka på Anslut. Använd användarnamn och lösenord som du konfigurerade när du har skapat den virtuella datorn.
    
     ![ansluta till azure-dator](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Kör Windows update och installera uppdateringar för den virtuella datorn. Om det krävs en omstart av den virtuella datorn måste starta om den virtuella datorn och återansluter till den virtuella datorn från den klassiska Azure-portalen.
+2. Kör Windows update och installera uppdateringar för den virtuella datorn. Om det krävs en omstart av den virtuella datorn måste starta om den virtuella datorn och återansluta till den virtuella datorn från Azure-portalen.
 3. Ange från Start-menyn på den virtuella datorn, **Reporting Services** och öppna **Reporting Services Configuration Manager**.
 4. Lämna standardvärdena för **servernamn** och **rapportserverinstansen**. Klicka på **Anslut**.
 5. I den vänstra rutan klickar du på **URL för webbtjänsten**.
@@ -546,7 +546,7 @@ Om du har konfigurerat en privat port för HTTPS än 443, ändra följande skrip
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Verifiera konfigurationen
+## <a name="verify-the-configuration"></a>Kontrollera att konfigurationen
 Öppna din webbläsare med administratörsbehörighet för att verifiera att grundläggande report server-funktioner nu fungerar, och bläddra sedan till följande rapport server ad report manager URL: er:
 
 * Bläddra till rapportserverns URL på den virtuella datorn:
@@ -593,7 +593,7 @@ I följande tabell sammanfattas några av de tillgängliga alternativ för att p
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimera kostnaderna om du inte använder den virtuella datorn
 > [!NOTE]
-> Om du vill minimera kostnader för Azure virtuella datorer som kan du stänga av den virtuella datorn från den klassiska Azure-portalen. Om du använder Windows Energialternativ inuti en virtuell dator för att stänga av den virtuella datorn kan debiteras du fortfarande samma belopp för den virtuella datorn. Du måste stänga av den virtuella datorn i den klassiska Azure-portalen för att minska kostnaderna. Kom ihåg att ta bort den virtuella datorn och associerade VHD-filer för att undvika lagringskostnader för volymer om du inte längre behöver den virtuella datorn. Mer information finns i avsnittet med vanliga frågor och svar på [prisinformation för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Om du vill minimera kostnader för Azure virtuella datorer som kan du stänga av den virtuella datorn från Azure-portalen. Om du använder Windows Energialternativ inuti en virtuell dator för att stänga av den virtuella datorn kan debiteras du fortfarande samma belopp för den virtuella datorn. Du måste stänga av den virtuella datorn i Azure-portalen för att minska kostnaderna. Kom ihåg att ta bort den virtuella datorn och associerade VHD-filer för att undvika lagringskostnader för volymer om du inte längre behöver den virtuella datorn. Mer information finns i avsnittet med vanliga frågor och svar på [prisinformation för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Mer information
 ### <a name="resources"></a>Resurser

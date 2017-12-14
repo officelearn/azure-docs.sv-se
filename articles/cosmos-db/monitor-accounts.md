@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Övervaka Azure Cosmos DB
 Du kan övervaka dina Azure DB som Cosmos-konton i den [Azure-portalen](https://portal.azure.com/). För varje Azure DB som Cosmos-konto är en fullständig uppsättning mått som kan övervakas dataflöde, lagring, tillgänglighet, svarstid och konsekvens.
@@ -69,7 +69,7 @@ Mått kan granskas på sidan konto sidan Ny mått eller i Azure-Monitor.
      ![Skärmbild av guiden Lägg till en varningsregel-sida](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Övervaka Azure Cosmos DB programmässigt
-De konto nivån tillgängliga mått i portalen, till exempel kontot lagring användnings- och Totalt antal begäranden är inte tillgängliga via DocumentDB APIs. Du kan dock hämta data om programvaruanvändning på samlingsnivå med hjälp av DocumentDB APIs. Om du vill hämta data om nivån, gör du följande:
+De konto nivån tillgängliga mått i portalen, till exempel kontot lagring användnings- och Totalt antal begäranden är inte tillgängliga via SQL-API: er. Du kan dock hämta data om programvaruanvändning på samlingsnivå med hjälp av SQL-API: er. Om du vill hämta data om nivån, gör du följande:
 
 * Använda REST-API för [utföra GET på samlingen](https://msdn.microsoft.com/library/mt489073.aspx). Informationen om kvot- och användningsdata för samlingen returneras i x-ms-resurs-quota- och x-ms--Resursanvändning i svaret.
 * Använd .NET SDK i [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) metod som returnerar en [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) som innehåller ett antal egenskaper som  **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**, med mera.

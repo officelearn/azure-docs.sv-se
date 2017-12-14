@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Windows-dator
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Den här artikeln visar hur du installerar och konfigurerar Trend Micro djup sä
 
 Klienten installeras som ett tillägg för säkerhet via den Virtuella Datoragenten. På en ny virtuell dator installerar du agenten djup säkerhet när den Virtuella Datoragenten skapas automatiskt av Azure-portalen.
 
-En befintlig virtuell dator skapas med den klassiska portalen, Azure CLI eller PowerShell kanske inte har en VM-agent. För en befintlig virtuell dator som inte har den Virtuella Datoragenten, måste du hämta och installera det först. Den här artikeln täcker båda situationer.
+En befintlig virtuell dator som skapats med hjälp av Azure-portalen, Azure CLI eller PowerShell kanske inte har en VM-agent. För en befintlig virtuell dator som inte har den Virtuella Datoragenten, måste du hämta och installera det först. Den här artikeln täcker båda situationer.
 
 Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning kan använda du den för att skydda din virtuella Azure-datorer. Om du inte är en kund ännu kan registrera du dig för en utvärderingsprenumeration. Mer information om den här lösningen finns i bloggposten Trend Micro [Microsoft Azure VM-tillägget för djup säkerhetsgrupper](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a9be43e6dd8ce2c8ba8326b06923677eb897765b
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Distribuera Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -33,7 +33,7 @@ Vi rekommenderar starkt att du läser [planera för distribution av en Azure-fil
 * Minst en stöds instans av Windows Server eller Windows Server-klustret för att synkronisera med synkronisering av Azure-filen. Mer information om vilka versioner av Windows Server finns [samverkan med Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## <a name="deploy-the-storage-sync-service"></a>Distribuera synkroniseringstjänsten för lagring 
-Synkroniseringstjänsten lagring är översta Azure resurs för Azure filsynkronisering. Om du vill distribuera en tjänst för synkronisering av lagring, gå till den [Azure-portalen](https://portal.azure.com/), klickar du på nytt och sök sedan efter Azure filsynkronisering. I sökresultaten väljer **filsynkronisering i Azure (förhandsversion)**, och välj sedan **skapa** att öppna den **distribuera lagring Sync** fliken.
+Synkroniseringstjänsten lagring är översta Azure resurs för Azure filsynkronisering. Om du vill distribuera en tjänst för synkronisering av lagring, gå till den [Azure-portalen](https://portal.azure.com/), klickar du på *ny* och sök sedan efter Azure filsynkronisering. I sökresultaten väljer **filsynkronisering i Azure (förhandsversion)**, och välj sedan **skapa** att öppna den **distribuera lagring Sync** fliken.
 
 I fönstret som öppnas anger du följande information:
 

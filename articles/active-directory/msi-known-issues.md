@@ -4,7 +4,7 @@ description: "Kända problem med hanterade tjänstidentiteten för Azure Active 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/20/2017
+ms.date: 12/12/2017
 ms.author: bryanla
-ms.openlocfilehash: 859cfbeae6701336699b4f3f7a96d6b08c599340
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 1dc4ad3dd383e8927be73bcd0a064b6c36a9bc54
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
@@ -32,7 +32,7 @@ Nej, det finns inga planer på att stöd för MSI i Azure Cloud Services.
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar MSI med Active Directory Authentication Library (ADAL) eller Microsoft Authentication Library (MSAL)?
 
-Nej, MSI inte ännu integrerat med ADAL eller MSAL.
+Nej, MSI inte ännu integrerat med ADAL eller MSAL. Mer information om att förvärva en MSI-token med hjälp av MSI REST-slutpunkt finns [hur du använder en Azure VM hanterade tjänsten identitet (MSI) för token](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Vad är Linux-distributioner som stöds?
 

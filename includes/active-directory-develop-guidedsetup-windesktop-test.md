@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testa din kod
 
 Om du vill testa ditt program i Visual Studio trycker du på **F5** köra projektet. Den **MainWindow** för ditt program visas:

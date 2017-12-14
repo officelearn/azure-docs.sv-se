@@ -4,7 +4,7 @@ description: "Lär dig att hantera användare konto-etablering för företagsapp
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera konto-etablering för företagsappar i Azure-portalen
 Den här artikeln beskriver hur du använder den [Azure-portalen](https://portal.azure.com) att hantera automatisk användar konto-etablering och avetablering för program som stöder detta, särskilt de som har lagts till i kategorin ”aktuell” för den [Azure Active Directory-programgalleriet](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Läs mer om automatisk konto användaretablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -44,7 +44,7 @@ Den **etablering** bladet börjar med en **läge** menyn som visar vilka etabler
 ## <a name="configuring-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens konto-etablering
 Att välja den **automatisk** visas en skärm som är indelat i fyra avsnitt:
 
-### <a name="admin-credentials"></a>Admin-autentiseringsuppgifter
+### <a name="admin-credentials"></a>Autentiseringsuppgifter för administratör
 Det är där autentiseringsuppgifterna som krävs för Azure AD för att ansluta till programmets Användarhantering API har angetts. Indata som krävs varierar beroende på programmet. Läs om autentiseringstyper och krav för specifika program i den [configuration självstudierna för det specifika programmet](active-directory-saas-app-provisioning.md).
 
 Att välja den **Testa anslutning** knappen kan du testa autentiseringsuppgifter genom att låta Azure AD-försök att ansluta till appen etablering app med de angivna autentiseringsuppgifterna.
@@ -71,7 +71,7 @@ Om etablering har aktiverats för första gången för ett program, aktivera tj�
 
 Att välja den **Rensa aktuell status och starta om synkroniseringen** kryssrutan och spara stoppar tjänsten etablering Dumpar cachelagrade data om vilka Azure AD-konton som hanterar, startar om tjänsterna och utför den inledande synkroniseringen igen. Det här alternativet kan administratörer att starta etableringsprocessen distribution över igen.
 
-### <a name="synchronization-details"></a>Information om synkronisering
+### <a name="synchronization-details"></a>Synkroniseringsinformation
 Det här avsnittet innehåller ytterligare information om driften av tjänsten etablering, inklusive de första och sista etablering tjänsten har körts för programmet och hur många användare och gruppobjekt som hanteras.
 
 Länkar som den **etablering aktivitetsrapport**, som innehåller en logg över alla användare och grupper som skapas, uppdateras och tas bort mellan Azure AD och målprogrammet, och den **etablering felrapporten** som ger mer detaljerade felmeddelanden för användare och gruppobjekt som inte kunde läsas, skapas, uppdateras eller tas bort. 

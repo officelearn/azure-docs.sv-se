@@ -19,7 +19,7 @@ Blob-lagringskonton exponerar **Åtkomstnivå**-attributet som kan anges vid kon
 * En nivå för **frekvent** åtkomst, vilket indikerar att objekten på lagringskontot kommer att användas oftare. På så sätt kan du lagra data med en lägre åtkomstkostnad.
 * En nivå för **lågfrekvent** åtkomst, vilket indikerar att objekten på lagringskontot kommer att användas mindre ofta. På så sätt kan du lagra data med en lägre lagringskostnad.
 
-Du kan när som helst växla mellan de olika nivåerna om användningsmönstret förändras. Observera att ytterligare kostnader kan tillkomma om du ändrar åtkomstnivå. Mer information finns i [Priser och fakturering för Blob-lagringskonton](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing).
+Du kan när som helst växla mellan de olika nivåerna om användningsmönstret förändras. Observera att ytterligare kostnader kan tillkomma om du ändrar åtkomstnivå. Mer information finns i [Priser och fakturering för Blob-lagringskonton](../articles/storage/blobs/storage-account-options.md#pricing-and-billing).
 
 Mer information om Blob-lagringskonton finns i [Azure Blob Storage: frekvent och lågfrekvent nivå](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

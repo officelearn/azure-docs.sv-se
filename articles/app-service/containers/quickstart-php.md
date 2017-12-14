@@ -1,6 +1,6 @@
 ---
-title: "Skapa en PHP-webbapp och distribuera till App Service på Linux | Microsoft Docs"
-description: "Distribuera din första PHP Hello World i App Service på Linux i minuter."
+title: Skapa en PHP-webbapp och distribuera den till App Service on Linux | Microsoft Docs
+description: "Distribuera din första Hello World-app med PHP i App Service on Linux på bara några minuter."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -17,15 +17,15 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Skapa en PHP-webbapp i App Service på Linux
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Skapa en PHP-webbapp i App Service on Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här snabbstartsguide visar hur du distribuerar en PHP-app till Azure App Service på Linux. Du skapar webbappen med inbyggda avbildningen med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i molnet Shell, och du kan använda Git för att distribuera PHP-kod till webbappen.
+Med [App Service on Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service on Linux. Du skapar webbappen med inbyggd avbildning med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-koden till webbappen.
 
-! [Sample-appen körs i Azure]] (media/quickstart-php/hello-world-in-browser.png)
+![Exempelapp som körs i Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
@@ -40,7 +40,7 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommandon för att klona exempelprogrammet till din lokala dator och gå till den katalog som innehåller exempelkoden i ett terminalfönster.
+I terminalfönstret kör du följande kommandon för att klona exempelappen till din lokala dator och navigerar till katalogen som innehåller exempelkoden.
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -55,7 +55,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda komman
 php -S localhost:8080
 ```
 
-Öppna en webbläsare och gå till exempelapp på `http://localhost:8080`.
+Öppna webbläsaren och navigera till exempelappen på `http://localhost:8080`.
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
@@ -75,7 +75,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Bläddra till webbplatsen för att se ditt nyligen skapade webbprogram med inbyggda avbildning. Ersätt  _&lt;appnamn >_ med din webbprogrammets namn.
+Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt  _&lt;appnamn >_ med namnet på din webbapp.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -118,15 +118,15 @@ Bläddra till den distribuerade appen via webbläsaren.
 http://<app_name>.azurewebsites.net
 ```
 
-PHP-exempelkod körs i en webbapp med inbyggda avbildning.
+PHP-exempelkoden körs i en webbapp med inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Grattis!** Du har distribuerat din första PHP-program till App Service på Linux.
+**Grattis!** Du har distribuerat din första PHP-app till App Service on Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-I den lokala katalogen öppnar den `index.php` filen i PHP-app och göra en mindre ändring i texten i strängen bredvid `echo`:
+Öppna filen `index.php` i PHP-appen i den lokala katalogen och gör små ändringar i texten i strängen bredvid `echo`:
 
 ```php
 echo "Hello Azure!";

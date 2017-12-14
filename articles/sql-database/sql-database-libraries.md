@@ -1,6 +1,6 @@
 ---
 title: "Anslutningsbibliotek för SQL-databas | Microsoft Docs"
-description: "Länkar för nedladdning av moduler vilket gör anslutningen till SQL Server och SQL-databas från ett stort antal klienten programmeringsspråk."
+description: "Länkar för nedladdning av moduler som gör anslutningen till SQL Server och SQL-databas från ett stort antal klienten programmeringsspråk."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Anslutningen bibliotek och ramverk för Microsoft SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Anslutningen bibliotek och ramverk för SQL Server
 
-Kolla in våra [komma igång-självstudierna](http://aka.ms/sqldev) att snabbt komma igång med programmeringsspråk, t.ex C#, Java, Node.js, PHP och Python och skapa en app som använder SQL Server på Linux- eller Windows- eller Docker på macOS.
+Kolla in våra [komma igång Självstudier](http://aka.ms/sqldev) att snabbt komma igång med programmeringsspråk, t.ex C#, Java, Node.js, PHP och Python. Skapa sedan en app med hjälp av SQL Server på Linux- eller Windows- eller Docker på macOS.
 
-Tabellen nedan visar anslutning bibliotek eller *drivrutiner* att klientprogram kan använda från olika språk för att ansluta till och använda Microsoft SQL Server körs lokalt eller i molnet, på Linux-, Windows- eller Docker och att Azure SQL Database och Azure SQL Data Warehouse. 
+Följande tabell visar anslutning bibliotek eller *drivrutiner* att klientprogram kan använda från olika språk för att ansluta till och använda SQL Server körs lokalt eller i molnet. Du kan använda dem på Linux-, Windows- eller Docker och använda dem för att ansluta till Azure SQL Database och Azure SQL Data Warehouse. 
 
 | Språk | Plattform | Ytterligare resurser | Ladda ned | Kom igång |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET för SQLServer](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Ladda ned](https://www.microsoft.com/net/download/) | [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Ladda ned](https://go.microsoft.com/fwlink/?linkid=852460) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [PHP-SQL-drivrutin för SQLServer](http://msdn.microsoft.com/library/dn865013.aspx) | Operativsystem: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
-| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQLServer](http://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
+| PHP | Windows, Linux, macOS| [PHP-SQL-drivrutin för SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operativsystem: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
+| Node.js | Windows, Linux, macOS | [Node.js-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Installera](https://msdn.microsoft.com/library/mt652094.aspx) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Python SQL-drivrutin](http://msdn.microsoft.com/library/mt652092.aspx) | Installera alternativ: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
-| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQLServer](http://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQLServer](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Ladda ned](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| Ruby | Windows, Linux, macOS | [Ruby-drivrutin för SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Installera](https://msdn.microsoft.com/library/mt711041.aspx) | [Kom igång](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Microsoft ODBC-drivrutin för SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Ladda ned](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-I tabellen nedan visas några exempel på ramverk för objektet relationella mappning (ORM) och web ramverk som klientprogram kan använda med Microsoft SQL Server körs lokalt eller i molnet, på Linux-, Windows- eller Docker och att Azure SQL Database och Azure SQL Data Warehouse. 
+I följande tabell visas exempel på ramverk Objektrelationer mappning (ORM) och web ramverk som klientprogram kan använda med SQL Server körs lokalt eller i molnet. Du kan använda ramverk på Linux-, Windows- eller Docker och använda dem för att ansluta till SQL Database och SQL Data Warehouse. 
 
 | Språk | Plattform | ORM(s) |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Viloläge ORM](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
@@ -50,7 +50,7 @@ I tabellen nedan visas några exempel på ramverk för objektet relationella map
 ||||
 
 ## <a name="related-links"></a>Relaterade länkar
-- [SQL Server-drivrutiner](http://msdn.microsoft.com/library/mt654049.aspx) för att ansluta från klientprogram
+- [SQL Server-drivrutiner](http://msdn.microsoft.com/library/mt654049.aspx) som används för att ansluta från klientprogram
 - Anslut till SQL-databasen:
     - [Ansluta till SQL Database med .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Ansluta till SQL Database med PHP](sql-database-connect-query-php.md)

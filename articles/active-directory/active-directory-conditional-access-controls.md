@@ -5,7 +5,7 @@ services: active-directory
 keywords: "villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f084ea3a9fb97a334f3dec90f2c9020a842bc27c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4cb225266a45808e5fda271e901749bf03c636e2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Kontrollerna i Azure Active Directory för villkorlig åtkomst 
 
@@ -30,11 +30,11 @@ Med [villkorlig åtkomst i Azure Active Directory (AD Azure)](active-directory-c
 
 - ”**Gör du så här**” kallas **kontroller**
 
-![Kontroll](./media/active-directory-conditional-access-controls/11.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/11.png)
 
 Kombinationen av en condition-instruktion med kontrollerna representerar en princip för villkorlig åtkomst.
 
-![Kontroll](./media/active-directory-conditional-access-controls/12.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/12.png)
 
 Varje kontroll är antingen ett krav som måste uppfyllas av personen eller system som loggar in eller en begränsning på vilka användare kan göra när du har loggat in. 
 
@@ -53,7 +53,7 @@ Med grant-kontroller kan du blockera åtkomst helt och hållet eller tillåter �
 - Alla markerade kontroller uppfylls (*och*) 
 - En vald kontroll uppfylls (*eller*)
 
-![Kontroll](./media/active-directory-conditional-access-controls/17.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -123,12 +123,12 @@ Kopiera JSON-data och klistra in den i textrutan relaterade. Du inte göra någr
 
 Alternativet för att skapa en anpassad kontroll som finns i den **hantera** avsnitt i den **villkorlig åtkomst** sidan.
 
-![Kontroll](./media/active-directory-conditional-access-controls/82.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/82.png)
 
 Klicka på **nya anpassade kontrollen**, öppnas ett blad med en textruta för JSON-data för kontrollen.  
 
 
-![Kontroll](./media/active-directory-conditional-access-controls/81.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Ta bort anpassade kontroller
@@ -152,7 +152,7 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 Sessionen kontroller Aktivera begränsad erfarenhet inom en molnappen. Sessionen kontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD App om sessionen.
 
-![Kontroll](./media/active-directory-conditional-access-controls/31.png)
+![Kontrollen](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Använd appbegränsningar tillämpas
 

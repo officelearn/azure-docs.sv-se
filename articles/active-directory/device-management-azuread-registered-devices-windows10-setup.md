@@ -4,7 +4,7 @@ description: "Lär dig hur du ställer in Azure Active Directory registrerade en
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Konfigurera Azure Active Directory registrerade Windows 10-enheter
 
@@ -88,7 +88,7 @@ Det här avsnittet ger dig stegen för att registrera din Windows 10-enhet till 
 
     ![Anslut](./media/device-management-azuread-registered-devices-windows10-setup/07.png)
 
-## <a name="verification"></a>Verifieringen
+## <a name="verification"></a>Verifiering
 
 Om du vill kontrollera om en enhet är ansluten till en Azure AD, kan du granska den **åtkomst arbetet eller skolan** dialogrutan på enheten.
 

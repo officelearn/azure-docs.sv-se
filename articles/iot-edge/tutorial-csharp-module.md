@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -219,7 +219,7 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
         
    Använd användarnamn, lösenord och inloggningsserver som du kopierade från Azure-behållaren registret när du skapade den.
 
-3. Skicka bilden till Docker-databasen. Välj **visa** > **kommandot paletten** och Sök efter den **kant: Push-gräns för IoT-modulen Docker bild** menykommandot. Ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 1.d.
+3. Skicka bilden till Docker-databasen. Välj **visa** > **kommandot paletten** och Sök efter den **kant: Push-gräns för IoT-modulen Docker bild** menykommandot. Ange avbildningens namn i textrutan popup visas överst i fönstret VS-kod. Använd samma namn för bilden som du använde i steg 4.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Lägga till registret autentiseringsuppgifter Edge runtime
 Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på datorn där du kör Edge-enhet. Dessa autentiseringsuppgifter ge runtime-åtkomst till pull-behållaren. 

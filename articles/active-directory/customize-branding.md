@@ -4,7 +4,7 @@ description: "Lär dig hur du lägger till en företagsanpassning till Azure inl
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 0855129c35c0c3d0f1814e8d29b6f3ae7d950db7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snabbstart: Lägga till företagsanpassning till din inloggningssidan i Azure AD
 För att undvika förvirring vill många företag använda ett enhetligt utseende på alla webbplatser och tjänster som de hanterar. Azure Active Directory (AD Azure) tillhandahåller den här funktionen genom att låta dig anpassa utseendet på inloggningssidan med företagets logotyp och egna färgscheman. På inloggningssidan är den sida som visas när du loggar in på Office 365 eller andra webbaserade program som använder Azure AD som identitetsprovider. Du kan interagera med den här sidan om du vill ange dina autentiseringsuppgifter.

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -29,7 +29,7 @@ Besök [översikt över priser för Azure](https://azure.microsoft.com/pricing/)
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten ovan den **standard gränsen**, [öppna en supportbegäran för online customer utan kostnad](azure-supportability/resource-manager-core-quotas-request.md). Ramen kan inte ökas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumn, och sedan resursen saknar justerbara gränser.
 >
-> Kostnadsfri utvärderingsversion prenumerationer är inte berättigad till gränsen eller kvoten ökar. Om du har en kostnadsfri utvärderingsversion, du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md).
+> [Kostnadsfri utvärderingsversion prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigad till gränsen eller kvot ökar. Om du har en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md) och [kostnadsfri utvärderingsversion på vanliga frågor om](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Gränser och Azure Resource Manager
@@ -85,6 +85,7 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
 * [StorSimple-System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
@@ -308,6 +309,9 @@ Läs mer om gränserna för en mer detaljerad nivå, till exempel storlek, fråg
 
 ### <a name="sql-database-limits"></a>Begränsar SQL-databas
 SQL-databas gränser, se [gränserna för SQL-databasen](sql-database/sql-database-resource-limits.md).
+
+### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
+SQL Data Warehouse gränser, se [gränserna för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Se även
 [Förstå Azure gränser och ökar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

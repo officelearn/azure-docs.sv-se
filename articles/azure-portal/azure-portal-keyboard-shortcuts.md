@@ -7,7 +7,7 @@ author: flanakin
 manager: lwelicki
 editor: 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure-portalen
 Den här artikeln visar kortkommandon som fungerar i Azure-portalen. Enskilda tjänster kan ha sina egna kortkommandon.
@@ -28,7 +28,7 @@ Den här artikeln visar kortkommandon som fungerar i Azure-portalen. Enskilda tj
 |Om du vill |Tryck på |
 | --- | --- |
 |Skapa en ny resurs|G + N|
-|Öppna fönstret 'Fler tjänster'|G + B|
+|Öppna panelen Fler tjänster|G + B|
 |Sök efter resurser|G +/| 
 |Sök resurs menyalternativ|CTRL +/ |
 |Flytta det markerade vänster objektet uppåt |ALT + SKIFT + UPPÅTPIL|
@@ -38,7 +38,7 @@ Den här artikeln visar kortkommandon som fungerar i Azure-portalen. Enskilda tj
 |Om du vill |Tryck på |
 | --- | --- |
 |Flytta fokus till kommandofältet |G + |
-|Växla fokus mellan översta raden och sidfältet | G +. |
+|Växla fokus mellan överst och sidorutan | G +. |
 
 ## <a name="go-to"></a>Gå till
 |Om du vill |Tryck på |

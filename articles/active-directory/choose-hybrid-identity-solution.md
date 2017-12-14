@@ -3,7 +3,7 @@ title: "Välj en Azure hybrididentitetslösning | Microsoft Docs"
 description: "Hämta en grundläggande förståelse av de tillgängliga hybrididentitetslösningar och rekommendationer att göra det bästa identity styrning beslutet för din organisation."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/5/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrididentitetslösningar
 [Microsoft Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrididentitetslösningar gör det möjligt att synkronisera lokala katalogobjekt med Azure AD när fortfarande hantera användare lokalt. Det första beslutet att fatta när du planerar att synkronisera dina lokala Windows Server Active Directory med Azure AD är om du vill använda synkroniserade identitet eller federerad identitet. Synkroniserade identiteter och eventuellt lösenordshashvärden, att användarna kan använda samma lösenord för åtkomst till både lokala och molnbaserade organisationens resurser. För mer avancerade krav för scenarier, till exempel enkel inloggning (SSO) eller lokal MFA som du behöver distribuera Active Directory Federation Services (AD FS) för att federera identiteter. 
@@ -39,10 +39,10 @@ För de flesta organisationer som bara behöver användare att logga in på Offi
 > [!TIP]
 > Lösenord lagras i lokala Windows Server Active Directory i form av ett hash-värde som representerar faktiska användarens lösenord. Ett hash-värde är ett resultat av en enkelriktad matematisk funktion (hash-algoritm). Det finns ingen metod för att återställa resultatet av en envägs funktion till oformaterad text-versionen av ett lösenord. Du kan inte använda lösenords-hash för att logga in på ditt lokala nätverk. När du väljer för att synkronisera lösenord extraherar lösenordshashvärden från lokala Active Directory Azure AD Connect och extra säkerhet bearbetning till lösenords-hash innan det synkroniseras till Azure AD. Lösenordssynkronisering kan också användas tillsammans med tillbakaskrivning av lösenord för att aktivera Självbetjäning för återställning av lösenord i Azure AD. Dessutom kan du aktivera enkel inloggning (SSO) för användare på domänanslutna datorer som är anslutna till företagsnätverket. Med enkel inloggning behöver aktiverade användare bara ange ett användarnamn för att säker åtkomst till molnresurser. 
 
-## <a name="pass-through-authentication"></a>Direkt-autentisering
+## <a name="pass-through-authentication"></a>Direktautentisering
 [Azure AD-direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) är en lösning för verifiering av enkla lösenord för Azure AD-baserade tjänster som använder din lokala Active Directory. Om säkerhet och principer för efterlevnad för din organisation inte tillåter att skicka användarnas lösenord, även i ett hashformaterats formulär och du behöver bara stöder skrivbord SSO för domänanslutna enheter, bör du utvärdera med hjälp av direktautentisering. Direkt-autentisering kräver inte en distribution i Perimeternätverket, vilket förenklar distributionsinfrastrukturen jämfört med AD FS. När användare loggar in med Azure AD, verifierar den här autentiseringsmetoden användarnas lösenord direkt mot din lokala Active Directory.
 
-![Direkt-autentisering](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
+![Direktautentisering](./media/choose-hybrid-identity-solution/pass-through-authentication.png)
 
 Det finns inget behov av en komplex nätverksinfrastruktur med direktautentisering, och du behöver inte lagra lokala lösenord i molnet. I kombination med enkel inloggning, direktautentisering ger en helt integrerad upplevelse när du loggar in till Azure AD eller andra molntjänster.
 

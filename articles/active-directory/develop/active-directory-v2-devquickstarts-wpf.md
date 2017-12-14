@@ -4,7 +4,7 @@ description: "Hur du skapar en intern app för .NET som loggar användarna in me
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Lägga till inloggning till en app för Windows-skrivbordet
 Med den v2.0-slutpunkten du kan snabbt lägga till autentisering för att dina-program med stöd för både personliga Microsoft-konton och arbets-eller skolkonton.  Det gör också att din app för säker kommunikation med en serverdel webb-api, samt [Microsoft Graph](https://graph.microsoft.io) och några av de [Office 365 Unified-API: er](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).

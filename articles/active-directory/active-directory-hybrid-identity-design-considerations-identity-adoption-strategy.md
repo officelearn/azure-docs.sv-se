@@ -4,7 +4,7 @@ description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
 I den här uppgiften definierar du införandestrategin för hybrid identity för din hybrididentitetslösning att uppfylla kraven som beskrivs i:

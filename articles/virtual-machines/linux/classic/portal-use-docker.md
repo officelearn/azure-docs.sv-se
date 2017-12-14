@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f5d6bb066f9cee0d072ddb3129867cefefe3e66f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Använd tillägget för virtuella datorer med Docker med den klassiska Azure Portal
+# <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Med Docker VM-tillägget med Azure-portalen
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]

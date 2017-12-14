@@ -4,7 +4,7 @@ description: "Hur du skapar en .NET MVC-Webbapp som anropar web services personl
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 56be906e-71de-469d-9a5c-9fc08aae4223
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Anropa ett webb-API från en .NET-webbapp
 Du kan snabbt lägga till autentisering i dina webbprogram och webb-API: er med stöd för både personliga Microsoft-konton och arbets-eller skolkonton med v2.0-slutpunkten.  Här ska vi skapa en MVC-webbapp som loggar användarna in med OpenID Connect med hjälp från Microsofts OWIN mellanprogram.  Webbprogrammet hämta OAuth 2.0-åtkomsttoken för en webb-api som skyddas av OAuth 2.0 som gör att skapa, läsa och ta bort på en viss användares ”uppgiftslistan”.

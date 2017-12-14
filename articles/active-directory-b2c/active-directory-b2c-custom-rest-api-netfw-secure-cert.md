@@ -4,7 +4,7 @@ description: "Skydda din anpassade REST API anspråk utbyte i din Azure AD B2C m
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda din RESTful-tjänst med hjälp av klientcertifikat
 I en relaterad artikel du [skapa en RESTful-tjänst](active-directory-b2c-custom-rest-api-netfw.md) som samverkar med Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Det här artikeln beskriver hur du:
 Att ställa in **Azure App Service** vill kräva klientcertifikat anger webbappen `clientCertEnabled` plats inställningen för att *SANT*. Du måste använda REST API för att utföra ändringen. Inställningen är tillgänglig via hanteringen av Azure-portalen. Att leta reda på inställningen på programmets RESTful **inställningar** menyn under **utvecklingsverktyg**väljer **Resursläsaren**.
 
 >[!NOTE]
->Se till att din Azure App Service-plan är Standard eller högre. Mer information finns i [Azure App Service-planer djupgående översikt över](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Se till att din Azure App Service-plan är Standard eller högre. Mer information finns i [Azure App Service-planer djupgående översikt över](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Använd [resursutforskaren i Azure (förhandsversion)](https://resources.azure.com) att ange den **clientCertEnabled** egenskapen *SANT*, enligt följande bild:
@@ -49,7 +49,7 @@ Använd [resursutforskaren i Azure (förhandsversion)](https://resources.azure.c
 ![Inställningen clientCertEnabled via Azure-Resursläsaren](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Mer information om hur den **clientCertEnabled** egenskapen finns [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Mer information om hur den **clientCertEnabled** egenskapen finns [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Om du vill göra det enklare att skapa REST API-anrop, du kan också använda den [ARMClient](https://github.com/projectkudu/ARMClient) verktyget.
@@ -165,7 +165,7 @@ Det klientcertifikat som Azure AD B2C skickar till RESTful-tjänst genomgår int
 Lägg till ASP.NET exempelkod som validerar egenskaper för certifikat för autentisering i det här avsnittet.
 
 > [!NOTE]
->Mer information om hur du konfigurerar Azure App Service för autentisering av klientcertifikat finns [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Mer information om hur du konfigurerar Azure App Service för autentisering av klientcertifikat finns [konfigurera TLS ömsesidig autentisering för web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 Lägg till tillämpningsinställningar web.config-filen för ditt projekt
 I Visual Studio-projektet som du skapade tidigare, lägger du till följande programinställningar för att den *web.config* fil efter den `appSettings` element:

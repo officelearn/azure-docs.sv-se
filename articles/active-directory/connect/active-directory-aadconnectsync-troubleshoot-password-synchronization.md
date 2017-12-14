@@ -4,7 +4,7 @@ description: "Den här artikeln innehåller information om hur du felsöker prob
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Felsöka Lösenordssynkronisering med Azure AD Connect-synkronisering
 Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av lösenord. Om lösenord inte synkroniseras som förväntat, kan det vara för en delmängd av användare eller för alla användare.
@@ -333,7 +333,7 @@ I statuskolumnen kan ha följande värden:
 | TargetNotExportedToDirectory |Objektet i Azure AD-anslutningsplatsen har inte ännu exporterats. |
 | MigratedCheckDetailsForMoreInfo |Loggposten skapades innan version 1.0.9125.0 och visas i det tidigare tillståndet. |
 | Fel |Tjänsten returnerade ett okänt fel. |
-| Okänd |Ett fel uppstod vid försök att bearbeta en batch med lösenordshashvärden.  |
+| Okänt |Ett fel uppstod vid försök att bearbeta en batch med lösenordshashvärden.  |
 | MissingAttribute |Specifika attribut (till exempel Kerberos-hash) krävs av Azure AD Domain Services är inte tillgängliga. |
 | RetryRequestedByTarget |Specifika attribut (till exempel Kerberos-hash) krävs av Azure AD Domain Services var inte tillgängliga tidigare. Det görs ett försök att synkronisera om användarens lösenords-hash. |
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9eba0de054b06233f2de7fb375010b4b40c6937f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Skala program i Azure Container Service (AKS)
 
@@ -32,7 +32,7 @@ Programmet Azure rösten uppdateras i efterföljande självstudiekurser och Oper
 
 I föregående självstudier, ett program som har paketerats i en behållare avbildning, avbildningen har överförts till registret för Azure-behållaren och ett Kubernetes kluster skapas. Programmet körs sedan Kubernetes klustret.
 
-Om du inte har gjort dessa steg och vill följa med, gå tillbaka till den [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
+Om du inte har gjort dessa steg och vill följa med, gå tillbaka till den [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
 ## <a name="scale-aks-nodes"></a>Skala AKS noder
 
@@ -64,7 +64,7 @@ Utdatan liknar följande:
 
 ## <a name="manually-scale-pods"></a>Skala skida manuellt
 
-Därmed distribuerats långt Azure rösten frontend och Redis-instans har, var och en med en enskild replik. Du kan kontrollera genom att köra den [kubectl hämta](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) kommando.
+Därmed distribuerats långt Azure rösten frontend och Redis-instans har, var och en med en enskild replik. Du kan kontrollera genom att köra den [kubectl hämta] [ kubectl-get] kommando.
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Manuellt ändra antalet skida i den `azure-vote-front` distribution med den [kubectl skala](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) kommando. Det här exemplet ökar antalet till 5.
+Manuellt ändra antalet skida i den `azure-vote-front` distribution med den [kubectl skala] [ kubectl-scale] kommando. Det här exemplet ökar antalet till 5.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Kör [kubectl hämta skida](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) att verifiera att Kubernetes skapar skida. När en minut eller så kan kör ytterligare skida:
+Kör [kubectl hämta skida] [ kubectl-get] att verifiera att Kubernetes skapar skida. När en minut eller så kan kör ytterligare skida:
 
 ```azurecli
 kubectl get pods
@@ -104,7 +104,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Autoskala skida
 
-Har stöd för Kubernetes [vågräta baljor autoskalning](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) för att justera antalet skida i en distribution beroende på CPU-användning eller annan välja mått.
+Har stöd för Kubernetes [vågräta baljor autoskalning] [ kubernetes-hpa] för att justera antalet skida i en distribution beroende på CPU-användning eller annan välja mått.
 
 Om du vill använda autoscaler ha din skida CPU-begäranden och gränser har definierats. I den `azure-vote-front` distribution, behållaren frontend begäranden 0,25 processor, med högst 0,5 CPU. Det ser ut som inställningarna:
 
@@ -116,7 +116,7 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används den [kubectl Autoskala](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) kommandot Autoskala antalet skida i den `azure-vote-front` distribution. Om processoranvändningen överskrider 50%, ökar autoscaler här skida högst 10.
+I följande exempel används den [kubectl Autoskala] [ kubectl-autoscale] kommandot Autoskala antalet skida i den `azure-vote-front` distribution. Om processoranvändningen överskrider 50%, ökar autoscaler här skida högst 10.
 
 
 ```azurecli
@@ -150,4 +150,14 @@ I den här kursen används olika skalning funktioner i Kubernetes klustret. Uppg
 Gå vidare till nästa kurs att lära dig om att uppdatera programmet i Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Uppdatera ett program i Kubernetes](./tutorial-kubernetes-app-update.md)
+> [Uppdatera ett program i Kubernetes][aks-tutorial-update-app]
+
+<!-- LINKS - external -->
+[kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md

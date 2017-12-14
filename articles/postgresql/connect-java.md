@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d763d30633e9d808501620c7247ed73567d3f62
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database för PostgreSQL: Använda Java för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Stegen i den här artikeln förutsätter att du är bekant med att utveckla med Java och har arbetat med Azure-databas för PostgreSQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -40,7 +40,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se inloggningsnamnet för serveradministratören. Om det behövs kan du återställa lösenordet.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data i databasen med en funktion med en **infoga** SQL-instruktionen. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), och [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) är används för att ansluta till databasen, ta bort och skapa tabellen. Objektet [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) körs för varje uppsättning parametrar. 
+Använd följande kod för att ansluta och läsa in data i databasen med hjälp av en funktion med SQL-instruktionen **INSERT**. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) och [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) används för att ansluta till databasen, ta bort och skapa tabellen. Objektet [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) körs för varje uppsättning parametrar. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 
@@ -140,7 +140,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att läsa in data med en **SELECT**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), och [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) används för att ansluta till databasen, skapa och köra select-instruktionen. Resultaten bearbetas med ett [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html)-objekt. 
+Använd följande kod för att läsa in data med en **SELECT**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) och [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) används för att ansluta till databasen, skapa och köra vald instruktion. Resultaten bearbetas med ett [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html)-objekt. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 
@@ -227,7 +227,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ändra data med en **UPDATE**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), och [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) används för att ansluta till databasen, förbereda och kör update-instruktion. 
+Använd följande kod för att ändra data med en **UPDATE**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) och [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) används för att ansluta till databasen, förbereda och köra uppdateringsinstruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 
@@ -307,7 +307,7 @@ public class UpdateTable {
 }
 ```
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ta bort data med en **DELETE**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html), och [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) används för att ansluta till databasen, förbereda och köra delete-instruktion. 
+Använd följande kod för att ta bort data med en **DELETE**-SQL-instruktion. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) och [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) används för att ansluta till databasen, förbereda och köra borttagningsinstruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 

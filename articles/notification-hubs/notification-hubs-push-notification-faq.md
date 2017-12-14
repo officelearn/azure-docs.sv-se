@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 ## <a name="general"></a>Allmänt
@@ -124,7 +124,7 @@ På grund av uppbyggnad push-meddelanden (de levereras med en extern, plattforms
 #### <a name="pns-credentials"></a>PNS-autentiseringsuppgifter
 När en mobil app har registrerats med en plattform developer-portalen (till exempel Apple eller Google), skickas ett app-ID och säkerhetstoken. Serverdelen app ger dessa token till plattformens PNS så att push-meddelanden kan skickas till enheter. Säkerhetstoken kan vara i form av certifikat (till exempel Apple iOS eller Windows Phone) eller säkerhetsnycklar (till exempel Google Android eller Windows). De måste konfigureras i meddelandehubbar. Konfigurationen görs vanligtvis på meddelandehubben nivå, men kan även utföras på namnområdesnivån i ett scenario med flera innehavare.
 
-#### <a name="namespaces"></a>namnområden
+#### <a name="namespaces"></a>Namnområden
 Namnområden kan användas för distribution av gruppering. De kan också användas för att representera alla meddelandehubbar för alla klienter i samma app i ett scenario med flera innehavare.
 
 #### <a name="geo-distribution"></a>GEO-distribution
@@ -179,14 +179,14 @@ Om du inte har en serverdel när appen startar på målenheterna kan utföra de 
 Det blir en tidsperiod när enheter med oöppnad appar inte ta emot meddelanden.
 
 ### <a name="is-there-audit-log-capability"></a>Granska loggen kapaciteten finns?
-Alla Meddelandehubbar hanteringsåtgärder gå till åtgärden loggarna, vilket visas i den [klassiska Azure-portalen].
+Alla Meddelandehubbar hanteringsåtgärder gå till åtgärden loggarna, vilket visas i den [Azure-portalen].
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Vilka funktioner för felsökning är tillgängliga?
 Azure Notification Hub innehåller flera funktioner för felsökning, särskilt för det vanligaste scenariot för utelämnade aviseringar. Mer information finns i [Meddelandehubbar felsökning] vitboken.
 
 ### <a name="what-telemetry-features-are-available"></a>Vilka telemetri funktioner är tillgängliga?
-Azure Notification Hubs kan visa telemetridata i den [klassiska Azure-portalen]. Information om mätvärdena som är tillgängliga på den [Notification Hubs mått] sidan.
+Azure Notification Hubs kan visa telemetridata i den [Azure-portalen]. Information om mätvärdena som är tillgängliga på den [Notification Hubs mått] sidan.
 
 > [!NOTE]
 > Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa pns-systemet (till exempel APNS för Apple) eller GCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Pns-systemet visar vanligtvis inte leverans mått till tredje part.  
@@ -195,7 +195,7 @@ Azure Notification Hubs kan visa telemetridata i den [klassiska Azure-portalen].
 
 Vi ger också möjlighet att exportera telemetridata programmässigt (i standardnivån). Mer information finns i [Notification Hubs mått exempel].
 
-[klassiska Azure-portalen]: https://manage.windowsazure.com
+[Azure-portalen]: https://portal.azure.com
 [Notification Hub-priser]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Fallstudie: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Vi ger också möjlighet att exportera telemetridata programmässigt (i standard
 [Notification Hubs mått]: https://msdn.microsoft.com/library/dn458822.aspx
 [Notification Hubs mått exempel]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [registreringar Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobilappar]: https://azure.microsoft.com/services/app-service/mobile/
 [priser för Apptjänst]: https://azure.microsoft.com/pricing/details/app-service/

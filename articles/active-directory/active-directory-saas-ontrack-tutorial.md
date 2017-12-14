@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d2cafba2-3b4a-4471-ba34-80f6a96ff2b9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: e1262e276a87bc9a4b6d43de2bf6b3f7d8882213
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 9df3932fe7e68fff422dc4eca370ac1354fb2db0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Självstudier: Azure Active Directory-integrering med OnTrack
 
@@ -130,7 +130,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i den föregående bilden och utför följande steg:
     
-    | Attributets namn | Attributvärdet |
+    | Attributnamn | Attributvärde |
     | -------------- | ----------------|    
     | Användarrollen      | ”42F432” |
     | Hyperion-kod  | "12345" |

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
 
 Unika nycklar ger utvecklare möjlighet att lägga till ett lager för data i sin databas. Genom att skapa en unik nyckel princip när en behållare har skapats kan du se till att en eller flera värden för varje unikt [partitionsnyckel](partition-data.md). När en behållare har skapats med en unik nyckel princip förhindrar skapande av alla nya eller uppdaterade objekt med värden att duplicerade värden som anges av begränsningen för unik nyckel.   
 
 > [!NOTE]
-> Unika nycklar som stöds av de senaste versionerna av den [.NET](documentdb-sdk-dotnet.md) och [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB SQL-SDK och [MongoDB API](mongodb-feature-support.md#unique-indexes). Tabell-API och Graph API stöder inte unika nycklar just nu. 
+> Unika nycklar som stöds av de senaste versionerna av den [.NET](documentdb-sdk-dotnet.md) och [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDK och [MongoDB API](mongodb-feature-support.md#unique-indexes). Tabell-API och Graph API stöder inte unika nycklar just nu. 
 > 
 >
 
@@ -54,7 +54,7 @@ Unika nycklar måste anges när behållaren har skapats och den unika nyckeln ä
 
 Befintlig behållare kan inte uppdateras för att använda unika nycklar.
 
-När du har skapat en behållare med en unik nyckel princip kan inte principen ändras om du återskapa behållaren. Om du har befintliga data som du vill implementera unika nycklar på Skapa nya behållare och sedan använda Migreringsverktyget lämpliga uppgifter för att flytta data till den nya behållaren. DocumentDB SQL-behållare, Använd den [Datamigreringsverktyg](import-data.md). MongoDB-behållare, Använd [mongoimport.exe eller mongorestore.exe](mongodb-migrate.md).
+När du har skapat en behållare med en unik nyckel princip kan inte principen ändras om du återskapa behållaren. Om du har befintliga data som du vill implementera unika nycklar på Skapa nya behållare och sedan använda Migreringsverktyget lämpliga uppgifter för att flytta data till den nya behållaren. SQL-behållare, Använd den [Datamigreringsverktyg](import-data.md). MongoDB-behållare, Använd [mongoimport.exe eller mongorestore.exe](mongodb-migrate.md).
 
 Högst 16 sökväg värden (till exempel /firstName, /lastName, /address/zipCode osv.) kan ingå i varje unik nyckel. 
 
@@ -64,9 +64,9 @@ Begära enhet avgifter för att skapa, uppdatera, och ta bort ett objekt är nå
 
 Sparse unika nycklar stöds inte. Om det saknas värden för vissa unika sökvägar, behandlas de som ett särskilt null-värde som ingår i unikhetsbegränsningen.
 
-## <a name="documentdb-sql-api-sample"></a>DocumentDB SQL-API-exempel
+## <a name="sql-api-sample"></a>SQL-API-exemplet
 
-Följande kodexempel visar hur du skapar en ny DocumentDB SQL-behållare med två unika viktiga begränsningar. Det första villkoret är förnamn, efternamn, e-begränsningen som beskrivs i det tidigare exemplet. Det andra villkoret är användare adress/postnummer. En JSON-fil som använder sökvägarna i denna unika nycklar princip följer kodexemplet. 
+Följande kodexempel visar hur du skapar en ny SQL-behållare med två unika viktiga begränsningar. Det första villkoret är förnamn, efternamn, e-begränsningen som beskrivs i det tidigare exemplet. Det andra villkoret är användare adress/postnummer. En JSON-fil som använder sökvägarna i denna unika nycklar princip följer kodexemplet. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

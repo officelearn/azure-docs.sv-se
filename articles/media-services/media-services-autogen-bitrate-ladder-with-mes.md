@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Azure Media Encoder Standard för att generera en bithastighet stege automatiskt
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet visar hur du använder Media Encoder Standard (MES) för att automatiskt skapa en bithastighet stege (bithastighet upplösning par) baserat på inkommande upplösning och bithastighet. Den automatisk genererade förinställningen kan inte överstiga inkommande upplösning och bithastighet. Till exempel om indata är 720p på 3 Mbit/s, utdata kommer förblir 720p i bästa och startar priser som är lägre än 3 Mbit/s.
+Den här artikeln visar hur du använder Media Encoder Standard (MES) för att automatiskt skapa en bithastighet stege (bithastighet upplösning par) baserat på inkommande upplösning och bithastighet. Den automatisk genererade förinställningen kan inte överstiga inkommande upplösning och bithastighet. Till exempel om indata är 720p med 3 Mbit/s, utdata förblir 720p i bästa och startar priser som är lägre än 3 Mbit/s.
 
 ### <a name="encoding-for-streaming-only"></a>Kodning för strömning endast
 
-Om din avsikt är att koda videon källa endast för strömning, du ska använda för ”anpassningsbar strömning” förinställningen när du skapar en kodning aktivitet. När du använder den **anpassningsbar strömning** förinställts MES kodaren kommer Intelligent cap stege en bithastighet. Men kommer du inte att styra kodningen kostnader, eftersom tjänsten bestämmer hur många lager om du vill använda och med vilken upplösning. Du kan se ett exempel på utdata-lager som produceras av MES på grund av encoding med den **anpassningsbar strömning** förinställningen i slutet av det här avsnittet. Är inte av överlagrad utdata tillgång innehåller MP4-filer där ljud och video.
+Om din avsikt är att koda videon källa endast för strömning, bör du använda ”anpassningsbar strömning” förinställningen när du skapar en kodning aktivitet. När du använder den **anpassningsbar strömning** förinställts MES kodaren kommer Intelligent cap stege en bithastighet. Men kommer du inte att styra kodningen kostnader, eftersom tjänsten bestämmer hur många lager om du vill använda och med vilken upplösning. Du kan se ett exempel på utdata-lager som produceras av MES på grund av encoding med den **anpassningsbar strömning** förinställningen i slutet av den här artikeln. Är inte överlagrad utdata tillgång innehåller MP4-filer där ljud och video.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Kodning för strömning och progressiv hämtning
 
-Om din avsikt är att koda videon källa för strömning samt att skapa MP4-filer för progressiv nedladdning, använder du bör den ”innehåll anpassningsbar flera bithastighet MP4” förinställningen när du skapar en kodning aktivitet. När du använder den **innehåll anpassningsbar flera bithastighet MP4** förinställts MES kodaren gäller samma kodning logik som ovan, men nu utdatatillgången innehåller MP4-filer där ljud och video är överlagrat. Du kan använda någon av dessa MP4-filer (till exempel högsta bithastighet version) som en fil för progressiv nedladdning.
+Om din avsikt är att koda videon källa för strömning samt att skapa MP4-filer för progressiv nedladdning, bör du använda den ”innehåll anpassningsbar flera bithastighet MP4” förinställningen när du skapar en kodning aktivitet. När du använder den **innehåll anpassningsbar flera bithastighet MP4** förinställts MES kodaren gäller samma kodning logik som ovan, men nu utdatatillgången innehåller MP4-filer där ljud och video överlagrat. Du kan använda någon av dessa MP4-filer (till exempel högsta bithastighet version) som en fil för progressiv nedladdning.
 
 ## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
 
@@ -51,28 +50,37 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 #### <a name="example"></a>Exempel
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Utdata
 

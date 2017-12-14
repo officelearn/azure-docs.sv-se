@@ -3,23 +3,23 @@ title: "Skapa en virtuell Linux-dator med hjälp av Azure CLI i Azure-stacken | 
 description: Skapa en virtuell Linux-dator med CLI i Azure-stacken.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: de2ff697c083493b43ab0d1b5bcde532c28684e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea0bc72c03c7c51f79b838493eb2f6d3efe4f8f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Skapa en virtuell Linux-dator med hjälp av Azure CLI i Azure-stacken
 
@@ -106,5 +106,5 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har distribuerat en enkel virtuell Linux-dator i den här snabbstartsguide. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
+Du har distribuerat en enkel virtuell Linux-dator i den här snabbstarten. Om du vill veta mer om Azure-stacken virtuella datorer kan fortsätta att [överväganden för virtuella datorer i Azure-stacken](azure-stack-vm-considerations.md).
 

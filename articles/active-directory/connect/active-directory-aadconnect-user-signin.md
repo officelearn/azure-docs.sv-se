@@ -4,7 +4,7 @@ description: "Azure AD Connect användaren logga in för anpassade inställninga
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect användaren inloggningsalternativ
 Azure Active Directory (AD Azure) Connect kan användarna att logga in på både till molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitetsmodellen som hjälper dig att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -56,7 +56,7 @@ Dessutom kan du aktivera [sömlös SSO](active-directory-aadconnect-sso.md) för
 
 Mer information finns i [synkronisering av lösenords-hash](active-directory-aadconnectsync-implement-password-synchronization.md) artikel.
 
-### <a name="pass-through-authentication"></a>Direkt-autentisering
+### <a name="pass-through-authentication"></a>Direktautentisering
 Med direktautentisering verifieras användarens lösenord mot den lokala Active Directory-domänkontrollanten. Lösenordet behöver inte finnas i Azure AD i någon form. Detta ger lokala principer, till exempel inloggning timme begränsningar som ska utvärderas vid autentisering till molnet services.
 
 Direkt-autentisering använder en enkel agent på en Windows Server 2012 R2-domänansluten dator i den lokala miljön. Den här agenten lyssnar efter begäranden för verifiering av lösenord. Det kräver inte någon ingående portar vara öppna till Internet.
@@ -161,7 +161,7 @@ Om du har valt alternativet för användare **Federation med AD FS**, du måste 
 ## <a name="changing-the-user-sign-in-method"></a>Ändra metoden för användaren
 Du kan ändra metoden för användare från federationstjänsten, synkronisering av lösenords-hash eller direktautentisering med hjälp av de uppgifter som är tillgängliga i Azure AD Connect efter den inledande konfigurationen av Azure AD Connect med hjälp av guiden. Kör Azure AD Connect-guiden igen och visas en lista över aktiviteter som du kan utföra. Välj **ändra användarens inloggning** från listan över aktiviteter.
 
-![Ändra användarens inloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Ändra användarinloggning](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 På nästa sida uppmanas du att ange autentiseringsuppgifter för Azure AD.
 

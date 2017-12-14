@@ -3,7 +3,7 @@ title: "Hantera DNS-poster i Azure DNS använder Azure CLI 2.0 | Microsoft Docs"
 description: "Hantera DNS-postuppsättningar och på Azure DNS-poster när värd för din domän på Azure DNS. Alla CLI 2.0-kommandon för åtgärder på uppsättningar av poster och poster."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Hantera DNS-poster och postuppsättningar i Azure DNS använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Den här artikeln visar hur du hanterar DNS-posterna för DNS-zonen med hjälp av plattformsoberoende Azure-kommandoradsgränssnittet (CLI) 2.0, som är tillgänglig för Windows, Mac och Linux. Du kan också hantera DNS-posterna med [Azure PowerShell](dns-operations-recordsets.md) eller [Azure-portalen](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>CLI-versioner för att slutföra uppgiften
-
-Du kan slutföra uppgiften med någon av följande CLI-versioner:
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md) – vår CLI för distributionsmodellerna klassisk och resurshantering.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md) – vår nästa generations CLI för distributionsmodellen resurshantering.
 
 Exemplen i den här artikeln förutsätter att du redan har [installerat Azure CLI 2.0 loggat in, och skapa en DNS-zon](dns-operations-dnszones-cli.md).
 

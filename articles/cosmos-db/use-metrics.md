@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Övervakning och felsökning med mått i Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Om du vill spara index plats kan du justera de [indexering princip](./indexing-p
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Felsökning av orsaken frågorna körs långsamt
 
-I DocumentDB API-SDK innehåller Azure Cosmos DB statistik för körning av frågan. 
+I SDK: erna för SQL API ger Azure Cosmos DB statistik för körning av frågan. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data vetenskap virtuella data införandet verktyg
 
@@ -62,11 +62,11 @@ Här följer vissa data movement verktyg som vi har samlat på DSVM.
 | Relaterade verktyg på DSVM      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: DocumentDB API datamigreringsverktyget
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB datamigreringsverktyget
 
 |    |           |
 | ------------- | ------------- |
-| Vad är det?   | Verktyg för att importera data från olika källor, inklusive JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och Azure Cosmos DB DocumentDB API samlingar i Azure Cosmos DB eller Azure DocumentDB.      |
+| Vad är det?   | Verktyg för att importera data från olika källor, inklusive JSON-filer, CSV-filer, SQL, MongoDB, Azure Table storage, Amazon DynamoDB och Azure SQL DB-API Cosmos-samlingar i Azure Cosmos DB.      |
 | Stöds DSVM versioner      | Windows      |
 | Vanliga användningsområden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure-tabellagring till CosmosDB eller importera data från en SQL Server-databas till CosmosDB.     |
 |  Hur du använder / kör den?    |   För att använda kommandoraden version, öppna en kommandotolk, Skriv `dt`. Att använda GUI-verktyg, öppna Kommandotolken, Skriv `dtui`.    |

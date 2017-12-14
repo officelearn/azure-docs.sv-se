@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Distributionskrav för Azure Stack
 
@@ -121,62 +121,6 @@ Kontrollera att det finns en DHCP-server i nätverket som nätverkskortet anslut
 
 ### <a name="internet-access"></a>Internet-åtkomst
 Azure-stacken kräver åtkomst till Internet, antingen direkt eller via en transparent proxy. Azure-stacken stöder inte konfigurationen av en webbproxy för Internet-åtkomst. Både värd-IP och nya IP-Adressen som tilldelats MAS-BGPNAT01 (med DHCP eller statiska IP-) måste kunna få åtkomst till Internet. Portarna 80 och 443 används under graph.windows.net och login.microsoftonline.com domäner.
-
-## <a name="telemetry"></a>Telemetri
-
-Telemetri hjälper oss att formar framtida versioner av Azure-stacken. Det gör oss snabbt svara på feedback, innehåller nya funktioner och förbättra kvaliteten. Microsoft Azure-stacken innehåller Windows Server 2016 och SQL Server 2014. Ingen av dessa produkter har ändrats från standardinställningarna och båda beskrivs av sekretesspolicyn för Microsoft Enterprise. Azure stacken innehåller också programvara med öppen källkod som inte har ändrats för att skicka telemetri till Microsoft. Här följer några exempel på Azure-stacken telemetridata:
-
-- information om distribution
-- När en avisering öppnas och stängs
-- antalet nätverksresurser
-
-För att stödja telemetri dataflöde, öppnas port 443 (HTTPS) i nätverket. Klientslutpunkten är https://vortex-win.data.microsoft.com.
-
-Om du inte vill ange telemetri för Azure-stacken kan inaktivera du den på development kit värden och infrastruktur för virtuella datorer som beskrivs nedan.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Inaktivera telemetri för development kit värden (valfritt)
-
->[!NOTE]
-Om du vill inaktivera telemetri för development kit värden måste du göra det innan du kör skriptet för distribution.
-
-Innan du [kör skriptet asdk installer.ps1]() för att distribuera development kit värden, starta i CloudBuilder.vhdx och kör följande skript i ett upphöjt PowerShell-fönster:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Ange **AllowTelemetry** till 0 inaktiveras telemetri för både Windows- och Azure Stack-distribution. Endast kritiska säkerhetshändelser från operativsystemet skickas. Inställningen styr Windows telemetri över alla värdar och infrastruktur för virtuella datorer och används igen till nya noder/virtuella datorer när skalbar åtgärder vidtas.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Inaktivera telemetri för infrastruktur för virtuella datorer (valfritt)
-
-När distributionen är klar kör du följande skript i ett upphöjt PowerShell-fönster (som AzureStack\AzureStackAdmin användare) på värden development kit:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Om du vill konfigurera SQL Server-telemetri finns [hur du konfigurerar SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Användningsrapportering
-
-Via registrering, Azure Stack även är konfigurerat med vanlig användningsinformation till Azure. Användningsrapport styrs oberoende från telemetri. Du kan inaktivera användning reporting när [registrera](azure-stack-register.md) med hjälp av skript på Github. Anger den **$reportUsage** parameter till **$false**.
-
-Användningsdata är formaterad enligt anvisningarna i den [rapporten Azure Stack användningsdata till Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure-stacken Development Kit användare är faktiskt inte debiteras. Den här funktionen ingår i development kit så att du kan testa hur användningsrapportering fungerar. 
 
 
 ## <a name="next-steps"></a>Nästa steg

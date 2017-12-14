@@ -4,7 +4,7 @@ description: "Vägleder dig igenom hur du gör en ändring i konfigurationen i A
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: hur du gör en ändring i standardkonfigurationen
 Syftet med det här avsnittet är leder dig igenom hur du gör ändringar i standardkonfigurationen i Azure AD Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra några enkla förändringar i din egen konfiguration baserat på dina egna regler.
@@ -283,7 +283,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som ska flödas f
 
 5. Gå till den **Scoping filter** fliken och Lägg till en **målgrupp filter grupp med följande sats**:
  
-    | Attribut | Operatorn | Värde |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
     | administratörsbeskrivning | NOTSTARTWITH | Användaren\_ | 
  
@@ -322,7 +322,7 @@ Utgående synkroniseringsregel tillåter attributvärdet som ska flödas från M
 
 5. Gå till den **Scoping filter** fliken och Lägg till en **målgrupp filter grupp med två klausuler**:
  
-    | Attribut | Operatorn | Värde |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | LIKA MED | Användare |
     | cloudMastered | NOTEQUAL | True |

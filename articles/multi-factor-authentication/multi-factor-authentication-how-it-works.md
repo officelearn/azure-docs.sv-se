@@ -4,7 +4,7 @@ description: "Azures Multi-Factor Authentication bidrar till att skydda åtkomst
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: d14db902-9afe-4fca-b3a5-4bd54b3d8ec5
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/20/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1f3495b038171edd713678aef49be9401ab458dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0791ec4c3bf4a69e2a93b8f3dd1dcf9b649f4cff
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Hur Azure Multi-Factor Authentication fungerar
 Säkerheten för tvåstegsverifiering ligger i dess överlappande tillvägagångssättet. Att kompromettera flera autentiseringsfaktorer presenterar en betydande utmaning för angripare. Även om någon lyckas att ta reda på användarens lösenord, är så oanvändbar utan också tillgång till betrodda enheten. 

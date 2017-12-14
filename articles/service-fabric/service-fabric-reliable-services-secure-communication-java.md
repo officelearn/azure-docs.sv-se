@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e2f36b3de1dd04c1a3f36ae308af164d10654ea
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Hjälp för säker kommunikation för tjänster i Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Vi ska använda en befintlig [exempel](service-fabric-reliable-services-communic
 
     Kontrollera att det certifikat som du vill använda för att skydda din kommunikation är installerad på alla noder i klustret. Det finns två sätt att du kan ange inställningar för lyssnare och säkerhetsreferenser:
 
-   1. Ge dem med hjälp av en [konfigurationspaketet](service-fabric-application-model.md):
+   1. Ge dem med hjälp av en [konfigurationspaketet](service-fabric-application-and-service-manifests.md):
 
        Lägg till en `TransportSettings` -avsnittet i settings.xml.
 

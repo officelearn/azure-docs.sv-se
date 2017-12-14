@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Självstudier: Azure Active Directory-integrering med Benefitsolver
 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
-    | Attributets namn| Attributvärdet|
+    | Attributnamn| Attributvärde|
     |---------------|----------------|
     | ClientID | Du måste hämta det här värdet från din [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|
     | ClientKey | Du måste hämta det här värdet från din [Benefitsolver klienten supportteamet](https://www.businessolver.com/contact).|

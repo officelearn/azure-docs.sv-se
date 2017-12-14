@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Skapa en virtuell Linux-dator med PowerShell
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstartsguide information med hjälp av Azure PowerShell-modulen för att distribuera en virtuell dator som kör Ubuntu server. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur man använder Azure PowerShell-modulen för att distribuera en virtuell dator som kör Ubuntu-servern. När servern har distribuerats skapas en SSH-anslutning och en NGINX-webbserver installeras.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -139,7 +139,7 @@ När du får en uppmaning är *azureuser* användarnamnet för inloggningen. Om 
 
 ## <a name="install-nginx"></a>Installera NGINX
 
-Använd följande kommandon för att uppdatera paketet källor och installera det senaste NGINX-paketet. 
+Använd följande kommandon för att uppdatera paketkällor och installera det senaste NGINX-paketet. 
 
 ```bash 
 # update package source

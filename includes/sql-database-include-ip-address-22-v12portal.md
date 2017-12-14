@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) på http://portal.azure.com/.
-2. Klicka i den vänstra banderollen **Bläddra bland alla**. Den **Bläddra** bladet visas.
-3. Bläddra och klicka på **SQL-servrar**. Den **SQL-servrar** bladet visas.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+
+2. Välj i listan till vänster **Bläddra**. 
+
+3. Bläddra och välj **SQL-servrar**. 
    
     ![Hitta din Azure SQL Database-server i portalen][b21-FindServerInPortal]
-4. Klicka på Minimera-kontrollen på den tidigare för enkelhetens skull **Bläddra** bladet.
+4. Av praktiska skäl kan minimera den **Bläddra** bladet.
+
 5. Börja skriva namnet på servern i filter-textrutan. Raden visas.
-6. Klicka på raden för servern. Ett blad för servern visas.
-7. Klicka på din server-bladet **inställningar**. Den **inställningar** bladet visas.
-8. Klicka på **brandväggen**. Den **brandväggsinställningar** bladet visas.
+
+6. Välj raden för servern. Ett blad för servern visas.
+
+7. På din server-bladet välj **inställningar**. 
+
+8. Välj **brandväggen**. 
    
-    ![Klicka på Inställningar > brandväggen][b31-SettingsFirewallNavig]
-9. Klicka på **Lägg till klient IP**. Skriv ett namn för din nya regel i den första textrutan.
+    ![Välj Inställningar > brandväggen][b31-SettingsFirewallNavig]
+9. Välj **Lägg till klient IP**. Ange ett namn för din nya regel i den första textrutan.
+
 10. Ange de lägsta och högsta IP-adressvärdena för intervallet som du vill aktivera.
     
-    * Det kan vara praktiskt att ha lågt värde för end med **.0** och hög med **.255**.
+    * Det kan vara praktiskt att ha lågt värde för end med **.0** och högt värde avslutas med **.255**.
     
     ![Lägg till ett IP-adressintervall för att tillåta][b41-AddRange]
-11. Klicka på **Spara**.
+11. Välj **Spara**.
 
 <!-- Image references. -->
 

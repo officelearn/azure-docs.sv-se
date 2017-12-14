@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuera ett kluster i Azure Container Service (AKS)
 
@@ -28,7 +28,7 @@ I efterföljande självstudiekurser Azure rösten programmet distribueras till k
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudiekurser en behållare avbildning skapades och överförs till en Azure-behållare registret-instans. Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder](./tutorial-kubernetes-prepare-app.md).
+I tidigare självstudiekurser en behållare avbildning skapades och överförs till en Azure-behållare registret-instans. Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Aktivera AKS förhandsgranskning för din Azure-prenumeration
 AKS är i förhandsvisning, måste skapa nya kluster flaggan funktionen för din prenumeration. Du kan begära den här funktionen för valfritt antal prenumerationer som du vill använda. Använd den `az provider register` kommando för att registrera providern AKS:
@@ -41,7 +41,7 @@ När du har registrerat kan är du nu redo att skapa ett Kubernetes kluster med 
 
 ## <a name="create-kubernetes-cluster"></a>Skapa Kubernetes-kluster
 
-I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrupp med namnet `myResourceGroup`. Den här resursgruppen har skapats i den [tidigare kursen](./tutorial-kubernetes-prepare-acr.md).
+I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrupp med namnet `myResourceGroup`. Den här resursgruppen har skapats i den [tidigare kursen][aks-tutorial-prepare-acr].
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -51,7 +51,7 @@ Distributionen är klar efter flera minuter, och returnerar json-formaterad info
 
 ## <a name="install-the-kubectl-cli"></a>Installera kubectl CLI
 
-Om du vill ansluta till klustret Kubernetes från din klientdator [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes för klienten.
+Om du vill ansluta till klustret Kubernetes från din klientdator [kubectl][kubectl], Kubernetes för klienten.
 
 Om du använder Azure CloudShell är kubectl redan installerat. Om du vill installera det lokalt, kör du följande kommando:
 
@@ -67,7 +67,7 @@ Om du vill konfigurera kubectl att ansluta till klustret Kubernetes, kör du fö
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-För att verifiera anslutningen till klustret kör den [kubectl hämta noder](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) kommando.
+För att verifiera anslutningen till klustret kör den [kubectl hämta noder] [ kubectl-get] kommando.
 
 ```azurecli
 kubectl get nodes
@@ -94,4 +94,13 @@ Ett Kubernetes kluster har distribuerats i AKS i den här självstudiekursen. F�
 Gå vidare till nästa kurs vill veta mer om programmet körs i klustret.
 
 > [!div class="nextstepaction"]
-> [Distribuera program i Kubernetes](./tutorial-kubernetes-deploy-application.md)
+> [Distribuera program i Kubernetes][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

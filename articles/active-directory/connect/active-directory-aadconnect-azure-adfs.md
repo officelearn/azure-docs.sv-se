@@ -5,7 +5,7 @@ keywords: distribuera AD FS i azure, distribuera azure adfs, azure adfs, azure a
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuera Active Directory Federation Services i Azure
 AD FS tillhandahåller förenklad, säker identitetsfederation och funktioner för enkel inloggning (SSO). Federation med Azure AD eller O365 gör att användarna kan autentiseras med lokala autentiseringsuppgifter och få åtkomst till alla resurser i molnet. Därför är det viktigt att du har en AD FS-infrastruktur med hög tillgänglighet för att säkerställa åtkomsten till resurser både lokalt och i molnet. Genom att distribuera AD FS i Azure kan du uppnå den höga tillgänglighet som krävs med minimalt arbete.

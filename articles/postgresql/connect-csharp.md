@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 9dc187b17471abe67abc49674b70889c1aca840e
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/15/2017
 ---
@@ -26,9 +26,9 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa DB – CLI](quickstart-create-server-database-azure-cli.md)
 
 Du måste också:
-- Installera den [.NET Framework](https://www.microsoft.com/net/download). Följ stegen i den länkade artikeln för att installera .NET specifikt för din plattform (Windows, Ubuntu, Linux eller Mac OS). 
+- Installera [.NET Framework](https://www.microsoft.com/net/download). Följ stegen i den länkade artikeln för att installera .NET specifikt för din plattform (Windows, Ubuntu, Linux eller Mac OS). 
 - Installera [Visual Studio](https://www.visualstudio.com/downloads/) eller Visual Studio Code för att skriva och redigera kod.
-- Lägg till en referens till den [Npgsql](https://www.nuget.org/packages/Npgsql/) Nuget-paketet.
+- Lägg till en referens till Nuget-paketet [Npgsql](https://www.nuget.org/packages/Npgsql/).
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -38,10 +38,10 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 3. Klicka på servernamnet **mypgserver-20170401**.
 4. Välj serverns **översikt**-sida. Anteckna **servernamn** och **inloggningsnamnet för serveradministratören**.
  ![Azure Database för PostgreSQL – inloggning för serveradministratör](./media/connect-csharp/1-connection-string.png)
-5. Om du glömmer bort inloggningsinformationen servern navigerar du till den **översikt** sidan kan du visa den **serverinloggningsnamnet för admin** och, om så behövs, återställa lösenordet.
+5. Om du glömmer inloggningsinformationen för servern öppnar du sidan **Översikt** för att se **Inloggningsnamn för serveradministratören**. Om det behövs kan du återställa lösenordet.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder NpgsqlCommand klass med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) att upprätta en anslutning till PostgreSQL-databas. Koden använder metoden [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger du egenskapen CommandText och anropar den [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) metod för att köra kommandon för databasen. 
+Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen. Sedan använder koden metoden [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databaskommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -118,7 +118,7 @@ namespace Driver
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL. Koden använder metoderna [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) och [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) att köra kommandon för databasen. Därefter används [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) att gå vidare till posten i resultaten. Slutligen används [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) och [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) att parsa värdena i posten.
+Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion. Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL. Sedan används metoderna [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) och [ExecuteReader()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) för att köra databaskommandona. Metoden [Read()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) används sedan för att gå vidare till posterna i resultaten. Koden använder slutligen [GetInt32()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) och [GetString()](http://www.npgsql.org/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) för att parsa värdena i posten.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -188,7 +188,7 @@ namespace Driver
 
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och uppdatera data med hjälp av en **uppdatera** SQL-instruktionen. Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL. Därefter används metoden [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar den [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) metod för att köra kommandon för databasen.
+Använd följande kod för att ansluta och uppdatera data med SQL-instruktionen **UPDATE**. Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL. Sedan använder koden metoden [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databaskommandona.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 
@@ -252,9 +252,9 @@ namespace Driver
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och ta bort data med hjälp av en **ta bort** SQL-instruktionen. 
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. 
 
-Koden använder NpgsqlCommand klass med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) att upprätta en anslutning till PostgreSQL-databas. Sedan används den [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) metoden, egenskapen CommandText och anropar metoden [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) att köra kommandon för databasen.
+Koden använder klassen NpgsqlCommand med metoden [Open()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen. Sedan använder koden metoden [CreateCommand()](http://www.npgsql.org/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](http://www.npgsql.org/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databaskommandona.
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 

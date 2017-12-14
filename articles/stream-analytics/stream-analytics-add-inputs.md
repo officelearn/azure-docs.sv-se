@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Lägg till en strömmande data indata eller referens data till ett Stream Analytics-jobb
 Lär dig mer om att koppla samman en datakälla till Stream Analytics-jobbet som strömmande data i indata från Händelsehubbar eller referens data från Blob storage.
@@ -38,7 +38,7 @@ Lägga till indata till Stream Analytics-jobbet:
 
 1. I Azure portal klickar du på **indata** och klicka sedan på **lägga till indata** i Stream Analytics-jobbet.
    
-    ![Klassiska Azure-portalen – lägga till indata.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure portal – lägga till indata.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     I Azure portal klickar du på den **indata** panelen i Stream Analytics-jobbet.  
    
@@ -61,7 +61,7 @@ Lägga till indata till Stream Analytics-jobbet:
 5. Ange inställningar för serialisering för indata:
    
    * Om du vill kontrollera att dina frågor fungerar som förväntat, ange den **händelse serialiseringsformat** för inkommande data.  Stöds serialisering format är JSON-, CSV- och Avro.
-   * Kontrollera den **kodning** för data.  UTF-8 är det enda kodformat som stöds för närvarande.
+   * Kontrollera den **kodning** för data.  UTF-8 är kodformat som endast stöds för tillfället.
      
      ![Inställningar för serialisering av data för indata](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      

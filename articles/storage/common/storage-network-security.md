@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsgranskning)
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
@@ -110,7 +110,7 @@ När du planerar för katastrofåterställning under ett regionalt strömavbrott
 > Slutpunkter gäller inte för trafik utanför det virtuella nätverket och avsedda region-par.  Nätverksregler som beviljar åtkomst från virtuella nätverk till Storage-konton kan endast användas för virtuella nätverk i den primära regionen för ett lagringskonto eller avsedda parad region.
 >
 
-### <a name="required-permissions"></a>Behörigheter som krävs
+### <a name="required-permissions"></a>Nödvändiga behörigheter
 För att kunna tillämpa en regel för virtuellt nätverk till ett lagringskonto, måste användaren ha behörighet att *delta Service till ett undernät* för de undernätverk som läggs till.  Den här behörigheten ingår i den *Storage-konto deltagare* inbyggd roll och du kan lägga till anpassade rolldefinitioner.
 
 Storage-konto och de virtuella nätverken åtkomst **kan** vara för olika prenumerationer, men dessa prenumerationer måste vara en del av samma Azure Active Directory-klienten.
@@ -293,13 +293,12 @@ När ”betrodda Microsoft Services” undantaget aktiveras har följande tjäns
 
 |Tjänst|Providernamn för resurs|Syfte|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Anpassad bild skapas och artefakt installation.  [Läs mer](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Aktivera publicering för Blob Storage-händelse.  [Läs mer](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
-|Azure Event Hubs|Microsoft.EventHub|Arkivering av data med Event Hubs avbilda.  [Lär dig mer](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Klusteretablering och installation.  [Läs mer](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Azure-nätverk|Microsoft.Networking|Lagra och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Dataimport och export.  [Läs mer](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
-|Azure Backup|Microsoft.RecoveryServices|Säkerhetskopiering och återställning av ohanterade diskar.  [Läs mer](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Anpassad bild skapas och artefakt installation.  [Läs mer](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Aktivera publicering för Blob Storage-händelse.  [Läs mer](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure Event Hubs|Microsoft.EventHub|Arkivering av data med Event Hubs avbilda.  [Lär dig mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
+|Azure HDInsight|Microsoft.HDInsight|Klusteretablering och installation.  [Läs mer](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Azure-nätverk|Microsoft.Networking|Lagra och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure Backup|Microsoft.RecoveryServices|Säkerhetskopiering och återställning av ohanterade diskar.  [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Storage analytics dataåtkomst

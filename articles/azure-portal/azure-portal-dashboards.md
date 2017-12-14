@@ -7,18 +7,18 @@ author: sewatson
 manager: timlt
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
 Du kan skapa flera instrumentpaneler och dela dem med andra användare har åtkomst till dina Azure-prenumerationer.  Den här artikeln går igenom grunderna i att skapa, redigera, publicera och hantera åtkomst till instrumentpaneler.

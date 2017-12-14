@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisera distribution av virtuella Azure-datorer med Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef är ett bra verktyg för att leverera automation och önskade tillstånd konfigurationer.
 
-Med vår senaste moln-api-versionen tillhandahåller Chef sömlös integrering med Azure, ger dig möjlighet att tillhandahålla och distribuera konfigureringstillstånd via ett enda kommando.
+Molnet api med senast versionen, Chef ger sömlös integrering med Azure, ger dig möjlighet att tillhandahålla och distribuera konfigureringstillstånd via ett enda kommando.
 
-I den här artikeln kommer jag visar hur du konfigurerar miljön Chef att etablera virtuella Azure-datorer och beskriver hur du skapar en princip eller ”CookBook” och sedan distribuera den här cookbook till en virtuell Azure-dator.
+I den här artikeln kan du ställa in din Chef miljö för att etablera Azure virtuella datorer och går igenom hur du skapar en princip eller ”CookBook” och sedan distribuera den här cookbook till en virtuell Azure-dator.
 
 Vi börjar!
 
 ## <a name="chef-basics"></a>Chef grunderna
-Innan du börjar rekommenderar jag du granska de grundläggande principerna för Chef. Det är bra material <a href="http://www.chef.io/chef" target="_blank">här</a> och jag rekommenderar att du har en snabb läsning innan du utför den här genomgången. Jag kommer dock Sammanfattningsvis grunderna innan vi börjar.
+Innan du börjar [granska grundläggande begrepp för Chef](http://www.chef.io/chef). 
 
 Följande diagram visar den övergripande Chef-arkitekturen.
 
@@ -41,25 +41,24 @@ Följande diagram visar den övergripande Chef-arkitekturen.
 
 Chef har tre huvudkomponenter arkitektur: Chef servern, Chef klienten (nod) och Chef-arbetsstation.
 
-Chef-servern är vår hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning. Vi kommer att använda en värdbaserad lösning.
+Chef-servern är hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning. Vi kommer att använda en värdbaserad lösning.
 
 Chef-klienten (nod) är den agent som placeras på de servrar som du hanterar.
 
-Chef arbetsstationen är vår arbetsstation där vi skapar våra principer och köra vår management-kommandon. Vi kör den **kniv** från Chef arbetsstationen för att hantera vår infrastruktur.
+Chef arbetsstationen är arbetsstation där vi skapa principer och köra kommandon för hantering. Vi kör den **kniv** från Chef arbetsstationen för att hantera infrastrukturen.
 
-Det finns också begreppet ”Cookbooks” och ”recept”. Det här är ett effektivt sätt principer vi definiera och gäller för våra servrar.
+Det finns också begreppet ”Cookbooks” och ”recept”. Dessa är effektivt principer vi definiera och gäller för servrar.
 
 ## <a name="preparing-the-workstation"></a>Förbereder arbetsstationen
-Först gör Förbered dig arbetsstationen. Jag använder en standard Windows-arbetsstation. Vi behöver skapa en katalog för lagring av våra konfigurationsfiler och cookbooks.
+Först gör Förbered dig arbetsstationen. Jag använder en standard Windows-arbetsstation. Vi behöver skapa en katalog för att lagra konfigurationsfiler och cookbooks.
 
 Först skapa en katalog med namnet C:\chef.
 
 Skapa sedan den andra katalogen c:\chef\cookbooks.
 
-Vi behöver nu hämta vårt Azure inställningsfilen så Chef kan kommunicera med våra Azure-prenumeration.
+Vi behöver nu ladda ned filen Azure så Chef kan kommunicera med Azure-prenumeration.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
-Hämtar dina publiceringsinställningar med hjälp av PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) kommando. 
+Hämtar dina publiceringsinställningar med hjälp av PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) kommando. 
 
 Spara filen med publicera i C:\chef.
 
@@ -147,13 +146,13 @@ Om allt är korrekt konfigurerad, visas en lista över tillgängliga Azure avbil
 Grattis! Arbetsstationen ställs in!
 
 ## <a name="creating-a-cookbook"></a>Skapa en Cookbook
-En Cookbook används av Chef för att definiera en uppsättning kommandon som du vill köra på en hanterad klient. Det är enkelt att skapa en Cookbook och vi använder den **chef generera cookbook** kommando för att generera våra Cookbook mallen. Jag kommer att ringa upp webbservern Cookbook som jag vill att en princip som automatiskt distribuerar IIS.
+En Cookbook används av Chef för att definiera en uppsättning kommandon som du vill köra på en hanterad klient. Det är enkelt att skapa en Cookbook och vi använder den **chef generera cookbook** kommando för att generera Cookbook mallen. Jag kommer att ringa upp webbservern Cookbook som jag vill att en princip som automatiskt distribuerar IIS.
 
 Kör följande kommando under katalogen C:\Chef.
 
     chef generate cookbook webserver
 
-Detta genererar en uppsättning filer i katalogen C:\Chef\cookbooks\webserver. Vi nu måste du definiera en uppsättning kommandon som vi vill gärna Chef klient ska köras på vår hanterade virtuella datorn.
+Detta genererar en uppsättning filer i katalogen C:\Chef\cookbooks\webserver. Vi nu måste du definiera en uppsättning kommandon som vi vill gärna Chef klienten ska köras på den hantera virtuella datorn.
 
 Kommandon som lagras i filen default.rb. I den här filen ska jag definierar en uppsättning kommandon som installerar IIS, startar IIS och kopierar en mallfil till Wwwroot-mappen.
 
@@ -176,7 +175,7 @@ Kommandon som lagras i filen default.rb. I den här filen ska jag definierar en 
 Spara filen när du är klar.
 
 ## <a name="creating-a-template"></a>Skapa en mall
-Som vi nämnt tidigare behöver vi skapa en mallfil som ska användas som sidan med våra default.html.
+Som vi nämnt tidigare behöver vi Generera en mallfil som ska användas som default.html sida.
 
 Kör följande kommando för att skapa mallen.
 
@@ -185,14 +184,14 @@ Kör följande kommando för att skapa mallen.
 Navigera till filen C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Redigera filen genom att lägga till vissa enkel ”Hello World” HTML-kod och spara sedan filen.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Överför Cookbook till servern Chef
-I det här steget är vi tar en kopia av Cookbook som vi har skapat på våra lokala dator och överföra den till Chef Hosted Server. När du har överfört Cookbook visas under den **princip** fliken.
+I det här steget är vi tar en kopia av Cookbook som vi har skapat på den lokala datorn och överför den till Chef Hosted Server. När du har överfört Cookbook visas under den **princip** fliken.
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Distribuera en virtuell dator med kniv Azure
-Vi kommer nu distribuera en virtuell Azure-dator och tillämpa ”webbserver”-Cookbook som installerar våra IIS web service och standard webbsida.
+Vi kommer nu distribuera en virtuell Azure-dator och tillämpa ”webbserver”-Cookbook som installerar IIS web service och standard webbsidan.
 
 För att kunna göra detta måste använda den **kniv azure-servern skapa** kommando.
 

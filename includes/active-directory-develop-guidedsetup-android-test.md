@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testa din kod
 
 1. Distribuera din kod till din emulatorn.

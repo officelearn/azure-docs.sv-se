@@ -4,7 +4,7 @@ description: "Den här artikeln visar hur du skapar en Android-app som använder
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: d00947c3-dcaa-4cb3-8c2e-d94e0746d8b2
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac40d5a4838ac23d2613f1e2380fed3d28e31d7a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Logga in med ett Android-program
 
@@ -120,7 +120,7 @@ AuthorizationServiceConfiguration config =
 // perform the auth request...
 ```
 
-### <a name="authorizing"></a>Auktorisera
+### <a name="authorizing"></a>Auktoriserar
 
 När du konfigurerar eller hämtar en auktorisering tjänstkonfiguration, kan en begäran om godkännande konstrueras. För att skapa begäran, behöver du följande information:
 

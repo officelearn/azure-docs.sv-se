@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Använda Powerbi med SQL Data Warehouse
 Som med Azure SQL Database tillåter SQL Data Warehouse Direct Connect användare att utnyttja kraftfulla logiska pushdown tillsammans med analytiska funktionerna i Power BI.  Med Direct Connect skickas frågor tillbaka till din Azure SQL Data Warehouse i realtid att utforska data.  Detta kan kombineras med skalan för SQL Data Warehouse, kan användare skapa dynamiska rapporter i minuter mot terabyte data.  Dessutom tillåter introduktionen av funktionen Öppna i Power BI-knappen användare att ansluta Power BI direkt till deras SQL Data Warehouse utan att samla in information från andra delar av Azure.
@@ -39,7 +39,7 @@ Dessa begränsningar och anteckningar kan ändras när vi fortsätta att förbä
 ## <a name="using-the-open-in-power-bi-button"></a>Med knappen ”Öppna i Power BI-
 Det enklaste sättet att flytta mellan din SQL Data Warehouse och Power BI är öppna i Power BI-knappen. Den här knappen kan du sömlöst börjar skapa nya instrumentpaneler i Power BI.  
 
-1. Du kommer igång går du till din SQL Data Warehouse-instans i den klassiska Azure-portalen.
+1. Du kommer igång går du till din SQL Data Warehouse-instans i Azure-portalen.
 2. Klicka på knappen Öppna i Power BI.
 3. Om vi kan inte logga in dig direkt, eller om du inte har en Power BI-konto behöver du logga in.  
 4. Du kommer till sidan SQL Data Warehouse-anslutning med information från ditt SQL Data Warehouse ifylld.

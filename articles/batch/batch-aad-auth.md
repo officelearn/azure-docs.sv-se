@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera Batch tjänstelösningar med Active Directory
 
@@ -314,9 +314,11 @@ public static async Task PerformBatchOperations()
 
 Mer information om Azure AD finns i [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/). Djupgående exempel som visar hur du använder ADAL finns i den [Azure kodexempel](https://azure.microsoft.com/resources/samples/?service=active-directory) bibliotek.
 
-Läs mer om tjänstens huvudnamn i [program och tjänstens huvudnamn objekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Om du vill skapa ett huvudnamn för tjänsten med hjälp av Azure portal finns [använda portalen för att skapa Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](../resource-group-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI. 
+Läs mer om tjänstens huvudnamn i [program och tjänstens huvudnamn objekt i Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Om du vill skapa ett huvudnamn för tjänsten med hjälp av Azure portal finns [använda portalen för att skapa Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](../resource-group-create-service-principal-portal.md). Du kan också skapa ett huvudnamn för tjänsten med PowerShell eller Azure CLI.
 
-För att autentisera Batch-hantering av program med Azure AD finns [autentiserar Batch hanteringslösningar med Active Directory](batch-aad-auth-management.md). 
+För att autentisera Batch-hantering av program med Azure AD finns [autentiserar Batch hanteringslösningar med Active Directory](batch-aad-auth-management.md).
+
+En Python-exempel på hur du skapar en Batch-klient som autentiseras med en Azure AD-token finns i [Azure Active Directory Authentication](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) exempel i Azure SDK för Python-dokumentationen.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Vad är Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

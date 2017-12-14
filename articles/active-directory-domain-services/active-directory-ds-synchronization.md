@@ -4,7 +4,7 @@ description: "Förstå synkronisering i en Azure Active Directory Domain Service
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synkronisering i en Azure AD Domain Services-hanterad domän
 Följande diagram illustrerar hur synkroniseringen fungerar i Azure AD Domain Services hanterade domäner.
@@ -98,7 +98,7 @@ I följande tabell visas hur vissa attribut för användare som är synkronisera
 | StreetAddress |StreetAddress |
 | Efternamn |SN |
 | telephoneNumber |telephoneNumber |
-| UserPrincipalName |UserPrincipalName |
+| userPrincipalName |userPrincipalName |
 
 ### <a name="attribute-mapping-for-groups"></a>Attributmappning för grupper
 I följande tabell visas hur specifika attribut för en grupp objekt i Azure AD-klient som synkroniseras till motsvarande attribut i din hanterade domän.

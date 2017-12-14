@@ -1,6 +1,6 @@
 ---
 title: "Konfigurera slutpunkter på en klassisk Linux VM | Microsoft Docs"
-description: "Lär dig att konfigurera slutpunkter för en Linux-VM i den klassiska Azure-portalen för att tillåta kommunikation med en virtuell Linux-dator i Azure"
+description: "Lär dig att konfigurera slutpunkter för en Linux-VM i Azure-portalen för att tillåta kommunikation med en virtuell Linux-dator i Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: ec95f2eb1dfee728192dee325110728a7d079c67
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Hur du ställer in slutpunkter på en Linux klassiska virtuell dator i Azure
 Alla Linux virtuella datorer som du skapar i Azure med hjälp av den klassiska distributionsmodellen kan automatiskt kommunicera via en kanal för privat nätverk med andra virtuella datorer i samma molntjänst eller virtuella nätverk. Datorer på Internet eller andra virtuella nätverk måste dock slutpunkter för att dirigera inkommande nätverkstrafik till en virtuell dator. Den här artikeln är också tillgängligt för [virtuella Windows-datorer](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

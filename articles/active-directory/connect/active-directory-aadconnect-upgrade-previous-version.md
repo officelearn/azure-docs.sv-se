@@ -4,7 +4,7 @@ description: "Beskriver olika metoder för att uppgradera till den senaste versi
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste versionen
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera installationen av Azure Active Directory (AD Azure) Anslut till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [svänga migrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.
@@ -48,7 +48,7 @@ Om du har gjort ändringar i out-of-box Synkroniseringsregler, är sedan dessa r
 
 Under uppgradering på plats, kanske ändringar som kräver specifika synkronisering aktiviteter (inklusive fullständig Import steg och fullständig synkronisering) som ska utföras efter uppgraderingen har slutförts. Om du vill skjuta upp dessa aktiviteter finns i avsnittet [så att skjuta upp fullständig synkronisering efter uppgraderingen](#how-to-defer-full-synchronization-after-upgrade).
 
-Om du använder Azure AD Connect med icke-standard-anslutningen (till exempel allmän LDAP Connector och allmänna SQL Connector), måste du uppdatera motsvarande kopplingskonfigurationen i den [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) efter uppgradering på plats. Information om hur du uppdaterar kopplingens konfiguration finns i artikeln avsnittet [Connector versionshistorik - felsökning](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Om du inte uppdaterar konfigurationen, fungerar importera och exportera köra steg inte korrekt för anslutningen. Du får följande fel i programmets händelselogg med meddelande *”Sammansättningsversionen i AAD-kopplingskonfiguration (” X.X.XXX. X ”) är tidigare än den faktiska versionen (” X.X.XXX. X ”) för” C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ”.*
+Om du använder Azure AD Connect med icke-standard-anslutningen (till exempel allmän LDAP Connector och allmänna SQL Connector), måste du uppdatera motsvarande kopplingskonfigurationen i den [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) efter uppgradering på plats. Information om hur du uppdaterar kopplingens konfiguration finns i artikeln avsnittet [Connector versionshistorik - felsökning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Om du inte uppdaterar konfigurationen, fungerar importera och exportera köra steg inte korrekt för anslutningen. Du får följande fel i programmets händelselogg med meddelande *”Sammansättningsversionen i AAD-kopplingskonfiguration (” X.X.XXX. X ”) är tidigare än den faktiska versionen (” X.X.XXX. X ”) för” C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll ”.*
 
 ## <a name="swing-migration"></a>Swingmigrering
 Om du har en komplex distribution eller många objekt, kan det vara opraktiska att göra en uppgradering på plats på live-systemet. Den här processen kan ta flera dagar--för vissa kunder och under denna tid kan ingen deltaändringar bearbetas. Du kan också använda den här metoden när du planerar du gör betydande ändringar i konfigurationen och du vill testa dem innan de är vidare till molnet.

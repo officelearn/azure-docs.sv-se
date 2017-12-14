@@ -4,7 +4,7 @@ description: "Den här sidan om Azure AD Connect Health innehåller information 
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
 Följande dokumentation är specifik för övervakning av Azure AD Connect (Sync) med Azure AD Connect Health.  Information om övervakning av AD FS med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD FS](active-directory-aadconnect-health-adfs.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](active-directory-aadconnect-health-adds.md).

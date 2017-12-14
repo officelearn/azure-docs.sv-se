@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrera System Center Configuration Manager med OMS-uppdateringshantering
 
@@ -41,7 +41,7 @@ Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration
 
 Utför följande steg om du kommer att fortsätta att hantera distributioner från Configuration Manager.  OMS ansluts till Configuration Manager för att tillämpa uppdateringar för klientdatorer som är anslutna till din Log Analytics-arbetsyta. Uppdateringsinnehållet är tillgängligt från cachelagringen från klientdatorn som om distributionen hanterades av Configuration Manager.  
 
-1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Beteendet hanteras av OMS-lösningen för uppdateringshantering som skapar en schemalagd uppdateringsdistribution i nästa steg.  
+1. Skapa en programuppdateringsdistribution från den översta nivån i Configuration Manager-hierarkin med metoden som beskrivs i informationen om att [distribuera programuppdateringar](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  Den enda inställning som måste vara konfigurerad annorlunda än en standarddistribution är alternativet **Installera inte programuppdateringar** för att kontrollera distributionspaketets hämtningsbeteende. Beteendet hanteras av OMS-lösningen för uppdateringshantering som skapar en schemalagd uppdateringsdistribution i nästa steg.  
 
 1. I OMS-portalen öppnar du instrumentpanelen Uppdateringshantering.  Skapa en ny distribution genom att följa stegen i [Skapa en uppdateringsdistribution](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) och välja lämplig Configuration Manager-samling som representeras som en OMS-datorgrupp från listrutan.  Tänk på följande viktiga punkter:
     1. Om ett underhållsfönster har definierats för den valda enhetssamlingen i Configuration Manager kan medlemmar av samlingen kontrollera den istället för inställningen **Varaktighet** som är angiven i den schemalagda distributionen i OMS.

@@ -14,29 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 7d4532daf5e4b8f45de94bbec230633978814a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9edd7261ca62f505ffb4854e3132fae916768f67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Administration och utveckling uppgiftslista i BizTalk-tjänst
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="getting-started"></a>Komma igång
 När du arbetar med Microsoft Azure BizTalk-tjänster, finns det flera lokala och molnbaserade komponenter att tänka på. Överväg följande processflöde för att komma igång:  
 
 | Steg | Vem är ansvarig | Aktivitet | Relaterade länkar |
 | --- | --- | --- | --- |
-| 1. |Administratör |Skapa Microsoft Azure-prenumeration med hjälp av ett Microsoft-konto eller ett organisationskonto |[Klassisk Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=213885) |
-| 2. |Administratör |Skapa eller etablera en BizTalk Service. |[Skapa en BizTalk Service med klassiska Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=302280) |
+| 1. |Administratör |Skapa Microsoft Azure-prenumeration med hjälp av ett Microsoft-konto eller ett organisationskonto |[Azure Portal](https://portal.azure.com) |
+| 2. |Administratör |Skapa eller etablera en BizTalk Service. |[Skapa en BizTalk-tjänst](https://msdn.microsoft.com/library/azure/dn232347.aspx) |
 | 3. |Administratör |Registrerar du eller ditt företag BizTalk-distribution |[Registrera och uppdatera en BizTalk-tjänst-distribution på BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/hh689837.aspx) |
 | 4. |Administratör |Gäller om programmet använder BizTalk-tjänst för nätverkskort för att ansluta till ett lokalt branschspecifika (LOB)-system eller använder en kö eller avsnittet mål.  Skapa Azure Service Bus-Namespace. Ge det här namnområdet, Service Bus Utfärdarens namn och Service Bus utfärdaren Key värden till utvecklaren. |[Så här: skapa eller ändra en Service Bus-tjänsten Namespace](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) och [hämta Utfärdarens namn och utfärdaren nyckel](biztalk-issuer-name-issuer-key.md) |
 | 5. |Developer |Installera SDK och skapa BizTalk Service-projekt i Visual Studio. |[Installera Azure BizTalk Services SDK](https://msdn.microsoft.com/library/azure/hh689760.aspx) och [skapa omfattande Messaging slutpunkter i Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Developer |Distribuera din BizTalk Service-projekt som BizTalk Service finns i Azure. |[Distribuera och uppdatera BizTalk-Services-projekt](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Administratör |Gäller om du använder EDI.  Du kan lägga till partner och skapa avtal för Microsoft Azure BizTalk-Services-portalen. När du skapar ett avtal kan du lägga till bridge och/eller transformeringar som skapats av utvecklare avtal inställningar. |[Konfigurera EDI-, AS2- och EDIFACT på BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Administratör |Med den klassiska Azure-portalen kan övervaka hälsotillståndet för din BizTalk Service, inklusive prestandamått. |[BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Administratör |Med hjälp av [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), övervaka hälsotillståndet hos din BizTalk Service, inklusive prestandamått. |[BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Administratör |Med Microsoft Azure BizTalk-Services-portalen kan hantera artefakter som används av BizTalk-tjänst och spåra meddelanden när de bearbetas av brygga-filer. |[Med BizTalk-Services-portalen](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Administratör |Skapa en säkerhetskopieringsplan för att säkerhetskopiera BizTalk Service. |[Kontinuitet för företag och katastrofåterställning i BizTalk-tjänst](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 

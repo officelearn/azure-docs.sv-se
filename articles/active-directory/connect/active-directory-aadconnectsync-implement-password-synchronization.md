@@ -4,7 +4,7 @@ description: "Innehåller information om hur Lösenordssynkronisering fungerar o
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2017
 ms.author: billmath
-ms.openlocfilehash: 048dfa812a5388b2fc47bafd2fae5d6e96414712
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 0dbd3bbb9a45b206d9c89a1083b62852c1b2285a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Implementera Lösenordssynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information som du behöver att synkronisera användarlösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.

@@ -15,17 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introduktion till Spark i HDInsight
 
 Den här artikeln ger en introduktion till Spark i HDInsight. <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> är ett ramverk för parallellbearbetning med öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordataanalys. Spark-kluster i HDInsight är kompatibelt med Azure Storage (WASB) samt Azure Data Lake Store. Därför kan dina befintliga data som lagras i Azure enkelt bearbetas via Spark-kluster.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 När du skapar ett Spark-kluster i HDInsight skapas Azure-beräkningsresurser med Spark installerat och konfigurerat. Det tar bara ungefär tio minuter att skapa ett Spark-kluster i HDInsight. De data som ska bearbetas lagras i Azure Storage eller Azure Data Lake Store. Se [Använda Azure Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 

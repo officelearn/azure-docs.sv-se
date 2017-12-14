@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9d0db50e5dcf6af97e15019c11fdeafb209de639
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell-exempel
 
@@ -29,6 +29,7 @@ Följande tabell innehåller länkar till exempel på PowerShell-skript som skap
 | | |
 |---|---|
 |**Skapa virtuella datorer**||
+| [Snabbt skapa en virtuell dator](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en resursgrupp, virtuell dator och alla relaterade resurser med minsta möjliga anvisningarna.|
 | [Skapa en helt konfigurerade virtuell dator](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en resursgrupp, virtuell dator och alla relaterade resurser.|
 | [Skapa virtuella datorer med hög tillgänglighet](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar flera virtuella datorer i en hög tillgänglighet och konfiguration för Utjämning av nätverksbelastning.|
 | [Skapa en virtuell dator och kör konfigurationsskript](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en virtuell dator och använder tillägget Azure anpassat skript för att installera IIS. |

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB Java API, SDK & resurser | Microsoft Docs'
-description: "Lär dig mer om Java API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos DB DocumentDB Java SDK."
+title: 'Azure Cosmos DB: SQL Java API, SDK & resurser | Microsoft Docs'
+description: "Lär dig mer om SQL Java API och SDK inklusive frisläppningsdatum, tillbakadragning datum och ändringar mellan varje version av Azure Cosmos SQL DB Java SDK."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c0d3bdfb607d2bbea669d2b0a76f610d42f31b33
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK viktig information och resurser
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET ändra Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/16/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -173,7 +175,7 @@ Nya funktioner och funktionalitet och optimeringar bara lägga till den aktuella
 Alla förfrågningar till Cosmos-databasen med en pensionerad SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner av DocumentDB SDK för Java före version **1.0.0** ska tas bort på **29 februari 2016**.
+> Alla versioner av SQL-SDK för Java före version **1.0.0** har dragits tillbaka på **29 februari 2016**.
 > 
 > 
 

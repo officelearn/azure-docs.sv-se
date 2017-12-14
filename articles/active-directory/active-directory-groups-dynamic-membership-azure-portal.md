@@ -4,23 +4,23 @@ description: "Så att skapa avancerade regler för dynamisk gruppmedlemskap inkl
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Skapa attributbaserade regler för dynamiska gruppmedlemskap i Azure Active Directory
 Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dynamiskt medlemskap för grupper i Azure Active Directory (AD Azure). Den här artikeln beskrivs de attribut och syntax för att skapa regler för dynamiskt medlemskap för användare eller enheter.
@@ -28,13 +28,13 @@ Du kan skapa avancerade regler för att aktivera avancerade attributbaserad dyna
 När alla attribut för en användare eller enhet ändrar utvärderar systemet alla dynamisk gruppregler i en katalog att se om ändringen skulle leda till valfri grupp lägger till eller tar bort. Om en användare eller enhet uppfyller en regel för en grupp, läggs de som medlem i gruppen. Om de inte längre uppfyller regeln tas bort.
 
 > [!NOTE]
-> - Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
+> Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
 >
-> - Den här funktionen kräver en Azure AD Premium P1-licens för varje användare som ingår i minst en dynamisk grupp. Det är inte obligatoriskt att faktiskt tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du behöver det minsta antalet licenser i klienten att täcka alla användare. Exempel: Om du har 1 000 unika användare totalt i alla dynamiska grupper i din klient, måste du ha minst 1 000 licenser för Azure AD Premium P1 eller ovan, att uppfylla kravet på licens.
+> Den här funktionen kräver en Azure AD Premium P1-licens för varje användare som ingår i minst en dynamisk grupp. Det är inte obligatoriskt att faktiskt tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du behöver det minsta antalet licenser i klienten att täcka alla användare. Exempel: Om du har 1 000 unika användare totalt i alla dynamiska grupper i din klient, måste du ha minst 1 000 licenser för Azure AD Premium P1 eller ovan, att uppfylla kravet på licens.
 >
-> - Du kan skapa en dynamisk grupp för enheter eller användare, men du kan inte skapa en regel som innehåller både användare och enhetsobjekt.
-
-> - För tillfället går inte att skapa en enhetsgrupp baserat på det ägande användarens attribut. Medlemskapsregler för enheten kan bara referera omedelbar attribut för enhetsobjekt i katalogen.
+> Du kan skapa en dynamisk grupp för enheter eller användare, men du kan inte skapa en regel som innehåller både användare och enhetsobjekt.
+> 
+> För tillfället går inte att skapa en enhetsgrupp baserat på det ägande användarattribut. Medlemskapsregler för enheten kan bara referera omedelbar attribut för enhetsobjekt i katalogen.
 
 ## <a name="to-create-an-advanced-rule"></a>Skapa en avancerad regel
 1. Logga in på den [administrationscentret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör eller en användare kontoadministratör.
@@ -45,7 +45,7 @@ När alla attribut för en användare eller enhet ändrar utvärderar systemet a
 
 4. På den **grupp** bladet, ange ett namn och beskrivning för den nya gruppen. Välj en **medlemskapstypen** antingen **dynamiska användaren** eller **dynamisk enhet**, beroende på om du vill skapa en regel för användare eller enheter, och välj sedan **Lägg till dynamiska frågan**. Du kan använda verktyget regeln för att skapa en enkel regel eller skapa en avancerad regel själv. Den här artikeln innehåller mer information om tillgängliga attribut för användare och enhet samt exempel på avancerade regler.
 
-   ![Lägg till regel för dynamiskt medlemskap](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+   ![Lägg till dynamisk medlemsregel](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
 
 5. När du skapar regeln markerar **Lägg till frågan** längst ned på bladet.
 6. Välj **skapa** på den **grupp** bladet för att skapa gruppen.
@@ -182,7 +182,7 @@ Tillåtna operatörer
 | Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”värde”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”värde”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation - eq ”USA”) |
-| UserPrincipalName |Ett värde |(user.userPrincipalName - eq ”alias@domain”) |
+| userPrincipalName |Ett värde |(user.userPrincipalName - eq ”alias@domain”) |
 | UserType |medlemmen gäst *null* |(user.userType - eq ”medlem”) |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
@@ -293,7 +293,7 @@ Du kan också skapa en regel som väljer enhetsobjekten för medlemskap i en gru
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Ändra dynamiskt medlemskap till statisk, och vice versa
 Det är möjligt att ändra hur hanteras medlemskap i en grupp. Detta är användbart när du vill behålla samma namn och ID i systemet, så att alla befintliga referenser i gruppen är fortfarande giltiga. Skapa en ny grupp krävs uppdaterar du dessa referenser.
 
-Vi håller på att uppdatera Azure-portalen för att stödja den här funktionen. Under tiden kan du använda den [klassiska Azure-portalen](https://manage.windowsazure.com) (Följ instruktionerna [här](active-directory-groups-dynamic-membership-azure-portal.md)) eller använda PowerShell-cmdlets som visas nedan.
+Vi håller på att uppdatera Azure-portalen för att stödja den här funktionen. Under tiden kan du använda PowerShell-cmdlets som visas nedan.
 
 > [!WARNING]
 > När du ändrar en befintlig statisk grupp till en dynamisk grupp alla befintliga medlemmar tas bort från gruppen och sedan bearbetas medlemskapsregeln för att lägga till nya medlemmar. Om gruppen används för att styra åtkomsten till appar eller resurser, kan de ursprungliga medlemmarna förlora åtkomsten tills medlemskapsregeln bearbetats helt.
@@ -303,7 +303,7 @@ Vi håller på att uppdatera Azure-portalen för att stödja den här funktionen
 **Använda PowerShell för att ändra medlemskapshantering på en grupp**
 
 > [!NOTE]
-> Ändra egenskaper för dynamisk grupp behöver du använda cmdlet: ar från **förhandsversionen av** [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Du kan installera preview från [här](https://www.powershellgallery.com/packages/AzureADPreview).
+> Ändra egenskaper för dynamisk grupp behöver du använda cmdlet: ar från **förhandsversionen av** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Du kan installera preview från [här](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Här är ett exempel på funktioner som växla medlemskapshantering på en befintlig grupp. Tänk noggrant att ändra egenskapen GroupTypes och bevara alla värden som kan finnas där, korrekt orelaterade till dynamiskt medlemskap.
 

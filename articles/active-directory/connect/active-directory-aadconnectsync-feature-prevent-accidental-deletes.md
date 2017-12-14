@@ -4,7 +4,7 @@ description: "Det här avsnittet beskriver funktionen förhindra oavsiktliga bor
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar
 Det här avsnittet beskriver funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
@@ -32,7 +32,7 @@ Vanliga scenarier när du ser många borttagningar inkluderar:
 * Alla objekt i en Organisationsenhet tas bort.
 * En Organisationsenhet byter namn så att alla objekt i den anses vara utanför omfånget för synkronisering.
 
-Standardvärdet för 500 objekt kan ändras med PowerShell med hjälp av `Enable-ADSyncExportDeletionThreshold`. Du bör konfigurera det här värdet efter storleken på din organisation. Eftersom sync scheduler körs var 30: e minut, är värdet för antal borttagningar visas inom 30 minuter.
+Standardvärdet för 500 objekt kan ändras med PowerShell med hjälp av `Enable-ADSyncExportDeletionThreshold`, som ingår i modulen AD Sync med Azure Active Directory Connect. Du bör konfigurera det här värdet efter storleken på din organisation. Eftersom sync scheduler körs var 30: e minut, är värdet för antal borttagningar visas inom 30 minuter.
 
 Om det finns för många borttagningar mellanlagrad för att exporteras till Azure AD kan sedan exportera stoppar och du får ett e-postmeddelande så här:
 

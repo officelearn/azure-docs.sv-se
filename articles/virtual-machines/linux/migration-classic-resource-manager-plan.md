@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassiska till Azure Resource Manager
 Azure Resource Manager erbjuder en mängd fantastiska funktioner, är det viktigt att du har planerat din migrering resa att göra det för att gå smidigt. Utgifter tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter. 
@@ -96,7 +96,7 @@ Följande har problem som identifieras i många av större migreringar. Detta ä
 - **VM-tillägg** -tillägg för virtuell dator är potentiellt en av de största förbi vägspärrar att migrera virtuella datorer som körs. Reparation av VM-tillägg höjningen 1 – 2 dagar kan ta så planera på lämpligt sätt.  Ett aktivt Azure-agenten behövs för att rapportera status för VM-tillägg för virtuella datorer som körs. Om statusen kommer tillbaka som felaktigt för en VM som körs, stoppas detta migrering. Själva agenten behöver inte vara i fungerande skick vill aktivera migrering, men om tillägg finns på den virtuella datorn, sedan både en fungerande agent och utgående internet-anslutning (med DNS) krävs för migrering för att gå vidare.
   - Om anslutningen till en DNS-server går förlorad under migreringen, alla VM-tillägg utom BGInfo v1. \* måste först tas bort från varje VM innan migreringen förbereder och nytt läggs till i efterhand tillbaka till den virtuella datorn efter migreringen för Azure Resource Manager.  **Detta är endast för virtuella datorer som körs.**  Om de virtuella datorerna har stoppats frigjorts, behöver inte VM-tillägg som ska tas bort. **Obs:** många tillägg som Azure-diagnostik och security center övervakning kan installera sig igen efter migreringen så att de är inte ett problem.
   - Kontrollera dessutom Nätverkssäkerhetsgrupper inte är att begränsa utgående Internetåtkomst. Detta kan inträffa för vissa konfigurationer för Nätverkssäkerhetsgrupper. Utgående Internetåtkomst (och DNS) krävs för VM-tillägg som ska migreras till Azure Resource Manager. 
-  - Det finns två versioner av BGInfo-tillägget: v1 och v2.  Om den virtuella datorn har skapats med den klassiska portalen eller PowerShell, har den virtuella datorn sannolikt v1-tillägget på den. Det här tillägget behöver inte tas bort och kommer att hoppas över (inte migrerade) av migreringen API. Men om den klassiska virtuella datorn har skapats med den nya Azure-portalen, troligen har JSON-baserade version 2 av BGInfo som kan migreras till Azure Resource Manager som agenten fungerar och har utgående Internetåtkomst (och DNS). 
+  - Det finns två versioner av BGInfo-tillägget: v1 och v2.  Om den virtuella datorn har skapats med Azure-portalen eller PowerShell, har den virtuella datorn sannolikt v1-tillägget på den. Det här tillägget behöver inte tas bort och kommer att hoppas över (inte migrerade) av migreringen API. Men om den klassiska virtuella datorn har skapats med den nya Azure-portalen, troligen har JSON-baserade version 2 av BGInfo som kan migreras till Azure Resource Manager som agenten fungerar och har utgående Internetåtkomst (och DNS). 
   - **Reparation alternativ 1**. Om du vet att dina virtuella datorer inte har utgående Internetåtkomst, en fungerande DNS-tjänsten och arbetar Azure-agenter på virtuella datorer, avinstallera alla VM-tillägg som en del av migreringen innan Förbered kan du sedan installera om VM-tillägg efter migreringen. 
   - **Reparation alternativ 2**. Om VM-tillägg är för stort för en överskrida ett annat alternativ är att avstängning/frigöra alla virtuella datorer innan migreringen. Migrera frigjord virtuella datorer och sedan starta om dem på Azure Resource Manager-sida. Här fördelen är att VM-tillägg ska migreras. Nackdelen är att alla externa virtuella IP-adresser kommer att försvinna (det kan vara en icke-starter), och naturligtvis de virtuella datorerna kommer avslutas orsakar en mycket större inverkan på fungerande program.
 
@@ -114,7 +114,7 @@ Följande har problem som identifieras i många av större migreringar. Detta ä
     >
 
     - Nätverksgränssnitt
-    - Belastningsutjämnare
+    - Belastningsutjämning
     - Offentliga IP-adresser
     - Statiska offentliga IP-adresser
     - Kärnor

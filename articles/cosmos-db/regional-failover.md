@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatisk regional växling vid fel för kontinuitet i Azure Cosmos DB
 Azure Cosmos-DB förenklar globala fördelning av data genom att erbjuda fullständigt hanterade [flera regioner databasen konton](distribute-data-globally.md) som ger tydliga kompromisser mellan konsekvens, tillgänglighet och prestanda, alla med motsvarande garanterar. Cosmos DB konton ger hög tillgänglighet, siffra ms latens [väldefinierade konsekvensnivåer](consistency-levels.md), transparent regional växling vid fel med flera API: er och möjligheten att skala Elastiskt genomflöde och lagring på globalt. 
@@ -46,7 +46,7 @@ Följande utdrag visar hur du initierar ett program i flera regioner. Här kan A
 * Konfigurerad med `West US` som första önskad region för låg fördröjning läser
 * Konfigurerad med `North Europe` som andra önskad region (för hög tillgänglighet under regionala fel)
 
-Den här konfigurationen ser ut följande kodavsnitt i DocumentDB-API:
+Den här konfigurationen ser ut följande kodavsnitt i SQL-API:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ Den här artikeln har granskat hur manuell och automatisk redundans arbete i Cos
 ## <a id="NextSteps"></a>Nästa steg
 * Lär dig mer om hur Cosmos DB stöder [global distributionsplatsen](distribute-data-globally.md)
 * Lär dig mer om [global konsekvens med Azure Cosmos DB](consistency-levels.md)
-* Utveckla med flera områden med Azure Cosmos DB [DocumentDB-API](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Lär dig hur du skapar [flera regioner writer arkitekturer](multi-region-writers.md) med Azure DocumentDB
+* Utveckla med flera områden med Azure Cosmos DB [SQL API](tutorial-global-distribution-documentdb.md)
+* Lär dig hur du skapar [flera regioner writer arkitekturer](multi-region-writers.md) med Azure Cosmos DB
 

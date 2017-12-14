@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03000679ef7fc36842b1f55d4d98131dfe400c87
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Flera master replikerad globalt databasarkitekturer med Azure Cosmos DB
 Azure Cosmos-DB stöder NYCKELFÄRDIGT [globala replikering](distribute-data-globally.md), där du kan distribuera data till flera regioner med låg latens åtkomst var som helst i arbetsbelastningen. Den här modellen används ofta för utgivaren/konsumenten arbetsbelastningar där det finns en skrivare i en geografisk region och globalt distribuerade läsare i andra (skrivskyddad) regioner. 
@@ -318,6 +318,6 @@ I den här artikeln beskrivs hur du kan använda global flera regioner läsa skr
 * Lär dig mer om hur Azure Cosmos DB stöder [global distributionsplatsen](distribute-data-globally.md)
 * Lär dig mer om [automatisk och manuell växling vid fel i Azure Cosmos DB](regional-failover.md)
 * Lär dig mer om [global konsekvens med Azure Cosmos DB](consistency-levels.md)
-* Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - API för DocumentDB](tutorial-global-distribution-documentdb.md)
+* Utveckla med flera regioner med hjälp av den [Azure Cosmos DB - SQL-API](tutorial-global-distribution-documentdb.md)
 * Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
 * Utveckla med flera regioner med hjälp av den [Azure DB Cosmos - tabellen API](tutorial-global-distribution-table.md)

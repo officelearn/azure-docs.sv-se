@@ -3,22 +3,22 @@ title: "Hantera Key Vault i Azure-stacken med hjälp av PowerShell | Microsoft D
 description: "Lär dig att hantera Key Vault i Azure-stacken med hjälp av PowerShell"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
-ms.author: sngun
-ms.openlocfilehash: e920ee20268f5f43592e5a27fe82dcf27cb85af1
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.author: mabrigg
+ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Hantera Key Vault i Azure-stacken med hjälp av PowerShell
 
@@ -39,7 +39,7 @@ Innan du kan utfärda några åtgärder mot ett nyckelvalv som du behöver kontr
 ```PowerShell
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
-**Utdata**
+**Resultat**
 
 Om din prenumeration är aktiverad för valvet åtgärder visar utdata ”RegistrationState” är lika med ”registrerad” för alla typer av resurser i en nyckelvalvet.
 
@@ -51,7 +51,7 @@ Om valvet operations inte är aktiverade, kan du anropa följande kommando för 
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
-**Utdata**
+**Resultat**
 
 Om registreringen lyckas returneras följande utdata:
 
@@ -66,7 +66,7 @@ New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 ```
 
-**Utdata**
+**Resultat**
 
 ![Ny resursgrupp](media/azure-stack-kv-manage-powershell/image3.png)
 
@@ -77,7 +77,7 @@ Kör följande kommando för att skapa ett nyckelvalv:
 ```PowerShell
 New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -Location local -verbose
 ```
-**Utdata**
+**Resultat**
 
 ![Nytt nyckelvalv](media/azure-stack-kv-manage-powershell/image4.png)
 
@@ -107,7 +107,7 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 ```
 Den **mål** används för att ange att nyckeln är programvara som skyddas. När nyckeln har skapats kommando information om nyckeln.
 
-**Utdata**
+**Resultat**
 
 ![Ny nyckel](media/azure-stack-kv-manage-powershell/image5.png)
 
@@ -133,7 +133,7 @@ $secretvalue = ConvertTo-SecureString “User@123” -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01” -SecretValue $secretvalue
 ```
 
-**Utdata**
+**Resultat**
 
 ![Skapa en hemlighet](media/azure-stack-kv-manage-powershell/image6.png)
 

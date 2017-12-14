@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Hantera antalet och tillgängligheten av beräkningsnoder i ett HPC Pack-kluster i Azure
 Om du har skapat ett HPC Pack 2012 R2-kluster i virtuella Azure-datorer kan du kanske sätt enkelt lägga till, ta bort, starta (tillhandahålla) eller stoppa (avetablering) vissa compute-nod virtuella datorer i klustret. Om du vill utföra dessa uppgifter, kör du Azure PowerShell-skript som är installerade på huvudnoden VM. Dessa skript hjälpa dig att styra antalet och tillgängligheten för din HPC Pack klusterresurser så du kan styra kostnader.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parametrar
 * **ServiceName**: namnet på den molntjänst som nya compute-nod virtuella datorer läggs till.
-* **Avbildning**: Azure VM avbildningens namn, som kan hämtas via den klassiska Azure-portalen eller Azure PowerShell-cmdleten **Get-AzureVMImage**. Bilden måste uppfylla följande krav:
+* **Avbildning**: Azure VM avbildningens namn, som kan hämtas via Azure-portalen eller Azure PowerShell-cmdleten **Get-AzureVMImage**. Bilden måste uppfylla följande krav:
   
   1. Ett Windows-operativsystem installeras.
   2. HPC Pack måste vara installerad i rollen compute-nod.

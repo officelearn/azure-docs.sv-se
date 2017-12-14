@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
@@ -47,7 +47,7 @@ Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-k
         
         * Välj alternativet för att **dataströmmen till en händelsehubb** dataströmmen logga data till en Azure-Händelsehubb. Du kommer troligen använda det här alternativet om du har en bearbetningen nedströms rörledning för att analysera inkommande loggar i realtid. Om du väljer det här alternativet måste du ange detaljer för Azure-Händelsehubb som du vill använda.
 
-        * Välj alternativet för att **skicka till logganalys** att använda Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Operations Management Suite-arbetsyta som du skulle använda utför logganalysen.
+        * Välj alternativet för att **skicka till logganalys** att använda Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Operations Management Suite-arbetsyta som du skulle använda utför logganalysen. Se [vy eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys.
      
    * Ange om du vill hämta granskningsloggar eller begäran loggar eller båda.
    * Ange antalet dagar som data måste behållas. Kvarhållning gäller endast om du använder Azure storage-konto för att arkivera loggdata.
@@ -122,7 +122,7 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
 | resultType |Sträng |Status för åtgärden, till exempel 200. |
 | callerIpAddress |Sträng |IP-adressen för den klient som begäran |
-| correlationId |Sträng |Id för den logg som kan används för att gruppera en uppsättning relaterade loggposter |
+| correlationId |Sträng |ID för den logg som kan används för att gruppera en uppsättning relaterade loggposter |
 | identity |Objekt |Den identitet som skapar loggen |
 | properties |JSON |Mer information finns nedan |
 
@@ -132,7 +132,7 @@ Här är ett exempel i JSON-formaterad begäran-loggen. Varje blobb har en rotob
 | HttpMethod |Sträng |HTTP-metoden används för åtgärden. Till exempel få. |
 | Sökväg |Sträng |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Den maximala längden för HTTP-begäran |
-| ClientRequestId |Sträng |Det Id som unikt identifierar den här begäran |
+| ClientRequestId |Sträng |Det ID som unikt identifierar den här begäran |
 | StartTime |Sträng |Den tidpunkt då servern tog emot begäran |
 | Sluttid |Sträng |Den tid då servern skickade ett svar |
 
@@ -167,7 +167,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | category |Sträng |Log-kategori. Till exempel **Audit**. |
 | operationName |Sträng |Namnet på åtgärden som är inloggad. Till exempel getfilestatus. |
 | resultType |Sträng |Status för åtgärden, till exempel 200. |
-| correlationId |Sträng |Id för den logg som kan används för att gruppera en uppsättning relaterade loggposter |
+| correlationId |Sträng |ID för den logg som kan används för att gruppera en uppsättning relaterade loggposter |
 | identity |Objekt |Den identitet som skapar loggen |
 | properties |JSON |Mer information finns nedan |
 
@@ -177,6 +177,15 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för att bearbeta loggdata
+När du skickar loggar från Azure Data Lake Store till Azure-Monitor (se [vyn eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys), följande fråga returnerar en tabell som innehåller en lista över användare Visa namn, tiden för händelser och antalet händelser för tid för händelsen tillsammans med ett visual diagram. Enkelt kan ändras om du vill visa GUID för användare eller andra attribut:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store ger ett exempel att bearbeta och analysera loggdata. Du kan hitta exempel på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Se även

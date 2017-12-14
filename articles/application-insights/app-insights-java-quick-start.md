@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Börja övervaka din Java-webbapp
 
@@ -30,7 +30,7 @@ För att slutföra den här snabbstarten behöver du:
 - Installera [Kostnadsfria Eclipse IDE för Java EE-utvecklare](http://www.eclipse.org/downloads/). Den här snabbstarten använder Eclipse Oxygen (4.7)
 - Du behöver en Azure-prenumeration och ett befintligt dynamiskt Java-webbprojekt
  
-Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten Skapa en Java-webapp](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+Om du inte har ett dynamiskt Java-webbprojekt kan du skapa ett med [snabbstarten Skapa en Java-webapp](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -138,4 +138,4 @@ Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

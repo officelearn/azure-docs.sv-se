@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver enkel inloggning på SAML-protokoll i 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Enkel inloggning SAML-protokoll
 Den här artikeln beskriver SAML 2.0 autentiseringsbegäranden och svar som har stöd för Azure Active Directory (Azure AD) för enkel inloggning.
@@ -47,15 +47,15 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID |Krävs |Azure AD använder det här attributet för att fylla i `InResponseTo` attribut för returnerade svaret. ID: T kan inte börja med ett tal, så en gemensam strategi är att lägga en sträng som ”id” till den sträng som innehåller ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
 | Version |Krävs |Detta bör vara **2.0**. |
 | IssueInstant |Krävs |Detta är ett DateTime-sträng med ett värde för UTC och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av samma typ, men inte utvärdera eller använda värdet. |
-| AssertionConsumerServiceUrl |Valfria |Om det måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
-| ForceAuthn |Valfria | Detta är ett booleskt värde. Om värdet är true, betyder det att användaren tvingas att autentisera igen, även om de har en ogiltig session med Azure AD. |
-| IsPassive |Valfria |Detta är ett booleskt värde som anger om Azure AD som ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om sådan finns. Om detta är sant, försöker Azure AD autentiserar användaren med sessions-cookie. |
+| AssertionConsumerServiceUrl |valfri |Om det måste matcha den `RedirectUri` av Molntjänsten i Azure AD. |
+| ForceAuthn |valfri | Detta är ett booleskt värde. Om värdet är true, betyder det att användaren tvingas att autentisera igen, även om de har en ogiltig session med Azure AD. |
+| IsPassive |valfri |Detta är ett booleskt värde som anger om Azure AD som ska autentisera användaren tyst, utan användarinteraktion, med hjälp av sessions-cookie om sådan finns. Om detta är sant, försöker Azure AD autentiserar användaren med sessions-cookie. |
 
 Alla andra `AuthnRequest` attribut, t.ex. ditt medgivande, mål, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex och ProviderName är **ignoreras**.
 
 Azure AD dessutom ignoreras den `Conditions` element i `AuthnRequest`.
 
-### <a name="issuer"></a>Utfärdaren
+### <a name="issuer"></a>Utfärdare
 Den `Issuer` element i en `AuthnRequest` måste exakt matcha en av de **ServicePrincipalNames** i Molntjänsten i Azure AD. Normalt är inställningen i **App-ID URI** som anges under programmet registreringen.
 
 Ett exempel SAML utdrag som innehåller den `Issuer` element ser ut så här:
@@ -148,7 +148,7 @@ Den `Response` elementet innehåller resultatet av begäran om godkännande. Azu
 * `Destination`: När inloggning har slutförts, detta är inställt på den `RedirectUri` service provider (Molntjänsten).
 * `InResponseTo`: Detta är inställt på den `ID` attribut för den `AuthnRequest` element som initierade svaret.
 
-### <a name="issuer"></a>Utfärdaren
+### <a name="issuer"></a>Utfärdare
 Azure AD anger den `Issuer` elementet så att `https://login.microsoftonline.com/<TenantIDGUID>/` där <TenantIDGUID> är klient-ID för Azure AD-klient.
 
 Ett exempelsvar med utfärdaren element kan se ut så här:
@@ -180,7 +180,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ### <a name="assertion"></a>kontrollen
 Förutom den `ID`, `IssueInstant` och `Version`, Azure AD anger följande element i den `Assertion` element i svaret.
 
-#### <a name="issuer"></a>Utfärdaren
+#### <a name="issuer"></a>Utfärdare
 Detta är inställt på `https://sts.windows.net/<TenantIDGUID>/`där <TenantIDGUID> är klient-ID för Azure AD-klient.
 
 ```

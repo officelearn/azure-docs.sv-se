@@ -3,7 +3,7 @@ title: "Vad är Azure Automation? | Microsoft Docs"
 description: "Lär dig vilket värde Azure Automation tillför och få svar på vanliga frågor så att du snabbt kan komma igång med runbooks och Azure Automation DSC."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "vad är automation, azure automation, azure automation-exempel"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Översikt över Azure Automation
 Microsoft Azure Automation gör det möjligt för användare att automatisera manuella, tidskrävande, felbenägna och ofta återkommande uppgifter som är vanliga i molnet och företagsmiljöer. Det sparar tid och ökar tillförlitligheten i vanliga administrativa uppgifter och schemalägger dem även så att de kan utföras automatiskt med jämna mellanrum. Du kan automatisera processer med hjälp av runbooks eller automatisera konfigurationshantering med Desired State Configuration. Den här artikeln innehåller en kort översikt över Azure Automation och ger svar på några vanliga frågor. Du kan referera till andra artiklar i det här biblioteket om du vill ha mer detaljerad information om de olika avsnitten.

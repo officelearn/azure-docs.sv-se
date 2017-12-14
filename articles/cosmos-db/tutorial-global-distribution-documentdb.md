@@ -1,12 +1,11 @@
 ---
-title: "Azure DB Cosmos global distributionsplatsen självstudier för DocumentDB API | Microsoft Docs"
-description: "Lär dig hur du ställer in Azure Cosmos DB global distributionsplatsen med hjälp av DocumentDB-API."
+title: "Azure DB Cosmos global distributionsplatsen självstudier för SQL-API | Microsoft Docs"
+description: "Lär dig hur du ställer in Azure Cosmos DB global distributionsplatsen med hjälp av SQL-API."
 services: cosmos-db
-keywords: Global distributionsplatsen, documentdb
+keywords: Global distributionsplatsen
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,33 +13,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4ccf60cdc25ffc2a0058fbcbd6285e3e8208c664
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av DocumentDB-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av SQL-API
 
-I den här artikeln visar vi hur du använder Azure-portalen för att konfigurera Azure Cosmos DB global distributionsplatsen och ansluter sedan med hjälp av DocumentDB-API.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+I den här artikeln visar vi hur du använder Azure-portalen för att konfigurera Azure Cosmos DB global distributionsplatsen och ansluter sedan med hjälp av SQL-API.
 
 Den här artikeln omfattar följande aktiviteter: 
 
 > [!div class="checklist"]
 > * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med hjälp av den [DocumentDB APIs](documentdb-introduction.md)
+> * Konfigurera distributionslistor med hjälp av den [SQL-API: er](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Ansluter till en önskad region med DocumentDB-API
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ansluter till en önskad region med hjälp av SQL-API
 
-För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ställa in principen. Baserat på konfigurationen av Azure DB som Cosmos-kontot, aktuella regional tillgänglighet och inställningar listan som anges, kommer den mest optimala slutpunkten väljas av DocumentDB SDK, för att utföra skrivåtgärder och läsåtgärder.
+För att kunna dra nytta av [global distributionsplatsen](distribute-data-globally.md), klientprogram kan ange beställda inställningar listan över regioner som används för att utföra åtgärder för dokumentet. Detta kan göras genom att ställa in principen. Baserat på konfigurationen av Azure DB som Cosmos-kontot, aktuella regional tillgänglighet och inställningar listan som anges, väljs den mest optimala slutpunkten av SQL-SDK för att utföra skrivåtgärder och läsåtgärder.
 
-Den här inställningen listan har angetts när du initierar en anslutning med DocumentDB-SDK. SDK: erna acceptera en valfri parameter ”PreferredLocations” som en sorterad lista över Azure-regioner.
+Den här inställningen listan anges när initierar en anslutning med SQL-SDK: er. SDK: erna acceptera en valfri parameter ”PreferredLocations” som en sorterad lista över Azure-regioner.
 
 SDK skickar automatiskt alla skrivningar till aktuellt skriva region.
 
@@ -169,7 +170,7 @@ I den här självstudiekursen kommer du har gjort följande:
 
 > [!div class="checklist"]
 > * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera globala distribution via DocumentDB APIs
+> * Konfigurera distributionslistor med SQL-API: er
 
 Du kan nu fortsätta till nästa kurs att lära dig hur du utvecklar lokalt med hjälp av lokala Azure DB som Cosmos-emulatorn.
 

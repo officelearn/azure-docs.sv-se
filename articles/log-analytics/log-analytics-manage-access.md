@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>Hantera arbetsytor
 
@@ -51,7 +51,7 @@ Baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 * Du är en leverantör av hanterade tjänster och behöver se till att logganalysdata för varje kund du hanterar är isolerade från andra kunders data.
 * Du hanterar flera kunder och vill att varje kund/avdelning/affärsgrupp ska se sina egna data, men inte data för några andra.
 
-När du använder agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agents.md).
+När du använder agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](log-analytics-windows-agent.md).
 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Microsoft Monitoring Agent på datorn kan dock konfigureras att rapportera till både Operations Manager och en annan Log Analytics-arbetsyta.  
 

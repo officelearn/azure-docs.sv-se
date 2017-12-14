@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -101,6 +101,9 @@ Att avgöra om din användarroll konto har behörigheterna som krävs:
 4. I den **Resursprovidern** väljer **Microsoft Authorization**. 
     * **Rolltilldelningen** ska ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** ska ha **Läs** och **skriva** behörigheter.
+
+<a id="server-endpoint-createjobfailed"></a>**Server-slutpunkten har skapats misslyckas med felet: ”MgmtServerJobFailed” (felkod:-2134375898)**                                                                                                                           
+Det här problemet uppstår om slutpunktsökväg server finns i systemvolymen och moln skiktning är aktiverad. Molnet skiktning stöds inte på systemvolymen. Inaktivera molnet skiktning när du skapar Serverslutpunkten om du vill skapa en serverslutpunkt för på systemvolymen.
 
 <a id="server-endpoint-deletejobexpired"></a>**Borttagning av slutpunkten misslyckas med felet: ”MgmtServerJobExpired”**                
 Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern på portalen som tar bort server-slutpunkter. Om du vill ta bort server-slutpunkter, följer du stegen som beskrivs i [Avregistrerar en server med Azure filsynkronisering](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

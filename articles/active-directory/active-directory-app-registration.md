@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du använder Azure-portalen för a
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrera ditt program med Azure Active Directory-klient
 
@@ -45,7 +45,7 @@ Du kan enkelt ändra ett befintligt program inställningar med hjälp av Azure-p
   * Den **egenskaper** sida kan du ändra den allmänna informationen för programmet. Detta inkluderar programmets namn, URL för inloggning och logga ut URL-Adressen.
   * Den **Reply URL: er** sidan kan du lägga till en reply-URL som är där Azure AD skickar token svar.
   * Den **ägare** sidan kan du lägga till ägare.
-  * Den **behörigheter** sidan kan du konfigurera behörigheter för appen. Klicka till exempel för att komma åt Microsoft Graph API **Lägg till** och välj **Microsoft Graph** i API-selector Välj behörigheten som krävs, till exempel **läsa katalogdata**.
+  * Den **nödvändiga behörigheter** sidan kan du konfigurera behörigheter för appen. Klicka till exempel för att komma åt Microsoft Graph API **Lägg till** och välj **Microsoft Graph** i API-selector Välj behörigheten som krävs, till exempel **läsa katalogdata**.
   * Den **nycklar** sidan kan du lägga till programmet hemligheter. Hemligheten som visas endast när omedelbart efter att skapa, så se till att kopiera den för ytterligare användning.
 
 ## <a name="use-the-inline-manifest-editor"></a>Använda redigeraren infogade manifest

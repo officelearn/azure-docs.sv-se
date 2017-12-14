@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d15931a5d430252bbd9ae342e1f8fde1a539355b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78d64f38edb07b9eeffbe444e8bf98845e2df8f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudier: Azure Active Directory-integrering med TargetProcess
 
@@ -101,7 +101,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![SAML-baserade inloggning](./media/active-directory-saas-target-process-tutorial/tutorial_target-process_samlbase.png)
+    ![SAML-baserad inloggning](./media/active-directory-saas-target-process-tutorial/tutorial_target-process_samlbase.png)
 
 3. På den **TargetProcess domän och URL: er** avsnittet, utför följande steg:
 

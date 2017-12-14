@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Konfigurera elastisk fråga med SQL Data Warehouse
 
@@ -39,9 +39,9 @@ Innan du påbörjar självstudiekursen måste du ha följande krav:
 
 2. Skapa en inloggning och användaren som representerar SQL-databasen till data warehouse-anslutning.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Med hjälp av SSMS eller en annan fråga klienten, öppna en ny fråga för den **SQL data warehouse-instans** på din logiska server.
 
@@ -75,14 +75,14 @@ Innan du påbörjar självstudiekursen måste du ha följande krav:
 
 9. Skapa en extern datakälla som pekar till data warehouse-instans.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Du kan nu skapa externa tabeller som refererar till den externa datakällan. Frågor med dessa tabeller skickas till data warehouse-instans som ska bearbetas och skickas tillbaka till databasinstansen.
 

@@ -116,6 +116,8 @@
       items:
         - name: Riktlinjer för infrastruktur
           href: infrastructure-example.md
+        - name: vCPU-kvoter
+          href: quotas.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'

@@ -1,15 +1,33 @@
 # Översikt
-## [Virtuell Windows SQL Server-dator](virtual-machines-windows-sql-server-iaas-overview.md) 
-## [Prissättning](virtual-machines-windows-sql-server-pricing-guidance.md)
-## [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md)
+## [Om virtuella Windows SQL Server-datorer](virtual-machines-windows-sql-server-iaas-overview.md) 
  
-# Kom igång
-## [Etablera en virtuell dator i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md)
-## [Etablera en virtuell dator med Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
-## [Anslut till en VM](virtual-machines-windows-sql-connect.md)
-## [Migrera en SQL Server-databas](virtual-machines-windows-migrate-sql.md)
+# Snabbstarter
+## [Skapa en virtuell SQL-dator – portalen](quickstart-sql-vm-create-portal.md)
+## [Skapa en virtuell SQL-dator – PowerShell](quickstart-sql-vm-create-powershell.md)
 
-# Gör så här för att
+# Koncept
+## Bästa praxis
+### [Metodtips för prestanda](virtual-machines-windows-sql-performance.md)
+### [Säkerhetsöverväganden](virtual-machines-windows-sql-security.md)
+### [Programmönster](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## Hantering
+### [Anslut till en VM](virtual-machines-windows-sql-connect.md)
+### [Konfigurera lagring](virtual-machines-windows-sql-server-storage-configuration.md)
+### Automatisera hanteringsuppgifter
+#### [Använd SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md)
+#### [Automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md)
+#### [Konfigurera Azure Key Vault-integrering](virtual-machines-windows-ps-sql-keyvault.md)
+## Säkerhetskopiering och återställning
+### [Säkerhetskopiering och återställning](virtual-machines-windows-sql-backup-recovery.md)
+### [Automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup.md)
+### [Använda Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+
+# Instruktionsguider
+## Skapa en virtuell SQL-dator
+### [Använda portalen](virtual-machines-windows-portal-sql-server-provision.md)
+### [Använda Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+## Migrera
+### [Migrera en SQL Server-databas](virtual-machines-windows-migrate-sql.md)
 ## Konfigurera hög tillgänglighet
 ### [Alternativ för hög tillgänglighet](virtual-machines-windows-sql-high-availability-dr.md) 
 ### [Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-overview.md)
@@ -22,32 +40,20 @@
 ### Redundansklusterinstans
 #### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
-## Hantera
-### [Använd SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md)
-### [Automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md)
-### [Konfigurera Azure Key Vault-integrering](virtual-machines-windows-ps-sql-keyvault.md)
-### [Säkerhetsöverväganden](virtual-machines-windows-sql-security.md)
-## Säkerhetskopiering och återställning
-### [Säkerhetskopiering och återställning](virtual-machines-windows-sql-backup-recovery.md)
-### [Automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup.md)
-### [Använd Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
-## [Metodtips för prestanda](virtual-machines-windows-sql-performance.md)
-## [Konfigurera lagring](virtual-machines-windows-sql-server-storage-configuration.md)
-## [Programmönster](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-
 # Referens
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
-## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [SQL Server-drivrutiner](https://msdn.microsoft.com/library/mt654049.aspx)
+## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
+## [SQL Server-drivrutiner](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](/rest/api/)
 
 # Resurser
+## [Vanliga frågor och svar](virtual-machines-windows-sql-server-iaas-faq.md)
+## [Prissättning](virtual-machines-windows-sql-server-pricing-guidance.md)
+## [PaaS eller IaaS?](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
+## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+## [SQL Server-verktyg](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=compute)
 ## [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
-## [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
-## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-## [SQL Server-verktyg](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
-

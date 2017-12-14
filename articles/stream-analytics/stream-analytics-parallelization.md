@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Utnyttja frågan parallellisering i Azure Stream Analytics
 Den här artikeln visar hur du dra nytta av parallellisering i Azure Stream Analytics. Du lär dig att skala Stream Analytics-jobb genom att konfigurera inkommande partitioner och justera frågedefinitionen analytics.
@@ -39,12 +39,12 @@ Alla Azure Stream Analytics-indata kan dra nytta av partitionering:
 -   IoT-hubb (måste uttryckligen ange Partitionsnyckeln)
 -   Blob Storage
 
-### <a name="outputs"></a>utdata
+### <a name="outputs"></a>Utdata
 
 När du arbetar med Stream Analytics kan du dra nytta av partitionering i utdata:
 -   Lagring av Azure Data Lake
 -   Azure Functions
--   Azure-tabellen
+-   Azure-tabell
 -   Blob Storage
 -   CosmosDB (måste uttryckligen ange Partitionsnyckeln)
 -   EventHub (måste uttryckligen ange Partitionsnyckeln)
@@ -241,7 +241,6 @@ För ytterligare hjälp försök vår [Azure Stream Analytics-forum](https://soc
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

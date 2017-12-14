@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 9334cf6dad16c4c4a36adbd278f52c255a5b2823
-  ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
+  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/25/2017
+  ms.lasthandoff: 12/11/2017
 abstract:
   description: "Använd Terraform för att på ett tillförlitligt sätt tilldela versionsnummer och skapa infrastruktur på Azure. Lär dig hur du skapar resurser, använder Azure Terraform-moduler och underhåller din infrastruktur med kod med våra snabbstarter och självstudier."
   aside:
@@ -52,6 +52,7 @@ sections:
     - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Skapa ett belastningsutjämnat VM-kluster med Azure Terraform-moduler</a>."
     - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">Skapa ett belastningsutjämnat VM-kluster i Azure Cloud Shell</a>."
     - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">Konfigurera en VM-skalningsuppsättning med nätverk och lagring.</a>"
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl\">Etablera en VM-skalningsuppsättning från en anpassad Packer-avbildning.</a>"
 - title: Exempel
   items:
   - type: paragraph

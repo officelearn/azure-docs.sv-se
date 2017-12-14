@@ -5,7 +5,7 @@ keywords: introduction to Azure AD, apps, what is Azure AD Connect, install acti
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 25897cc4-7687-49b6-b0d5-71f51302b6b1
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Appar, behörigheter och godkännande i Azure Active Directory
 I Azure Active Directory kan du lägga till program i din katalog.  Programmen kan variera beroende på typen av program.  Om du vill visa program på den klassiska portalen markerar du en katalog och väljer program.

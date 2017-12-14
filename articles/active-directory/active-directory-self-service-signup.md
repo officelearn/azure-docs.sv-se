@@ -4,7 +4,7 @@ description: "Använd självbetjäningsregistrering i en Azure Active Directory 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 762627a1d743922d680d90d1065ae80fbd3f4420
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 Den här artikeln förklarar självbetjäningsregistrering och hur du stöd i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, se [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).

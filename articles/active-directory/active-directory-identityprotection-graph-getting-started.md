@@ -1,35 +1,34 @@
 ---
 title: "Kom igång med Azure Active Directory Identity Protection och Microsoft Graph | Microsoft Docs"
-description: "Innehåller en introduktion till frågan Microsoft Graph en lista över riskhändelser och tillhörande information från Azure Active Directory."
+description: "Lär dig hur man frågar Microsoft Graph en lista över riskhändelser och tillhörande information från Azure Active Directory."
 services: active-directory
 keywords: "Azure active directory identitetsskydd, risk händelse, säkerhetsproblem, säkerhetsprinciper, Microsoft Graph"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 568cad4e394dfedddce1bfce66ddf627947d7568
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: fafad74f46baaf56a8220dab05028781b2f2258e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 Microsoft Graph är Microsoft unified API-slutpunkt och hem för [Azure Active Directory Identity Protection](active-directory-identityprotection.md) API: er. Det första API **identityRiskEvents**, kan du fråga Microsoft Graph en lista över [riskerar händelser](active-directory-identityprotection-risk-events-types.md) och tillhörande information. Den här artikeln hjälper dig att komma igång frågar detta API. En detaljerad introduktion, fullständig dokumentation och åtkomst till diagrammet Explorer finns på [Microsoft Graph plats](https://graph.microsoft.io/).
 
-> [!IMPORTANT]
-> Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via den klassiska Azure-portalen som nämns i den här artikeln.
 
-Det finns tre steg för att komma åt identitetsskydd data via Microsoft Graph:
+Det finns fyra steg för att komma åt identitetsskydd data via Microsoft Graph:
 
-1. Lägg till ett program med en klienthemlighet. 
+1. Hämta ditt domännamn.
+2. Skapa en ny appregistrering. 
 2. Använd den här hemligheten och några andra typer av information för att autentisera till Microsoft Graph, där du får en token för autentisering. 
 3. Använda denna token för att göra förfrågningar till API-slutpunkten och komma identitetsskydd data.
 
@@ -38,100 +37,130 @@ Innan du börjar behöver du:
 * Administratörsbehörighet för att skapa programmet i Azure AD
 * Namnet på din klient domän (till exempel contoso.onmicrosoft.com)
 
-## <a name="add-an-application-with-a-client-secret"></a>Lägg till ett program med en klienthemlighet
-1. [Logga in](https://manage.windowsazure.com) till din Azure klassiska portal som administratör. 
-2. I det vänstra navigeringsfönstret, klicka på **Active Directory**. 
+
+## <a name="retrieve-your-domain-name"></a>Hämta ditt domännamn 
+
+1. [Logga in](https://portal.azure.com) till din Azure portal som administratör. 
+
+2. I det vänstra navigeringsfönstret klickar du på **Active Directory**. 
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_01.png)
-3. Från den **Directory** listan, Välj den katalog som du vill aktivera katalogintegrering.
-4. Klicka på menyn högst upp **program**.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/41.png)
+
+
+3. I den **hantera** klickar du på **egenskaper**.
+
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/42.png)
+
+4. Kopiera ditt domännamn.
+
+
+## <a name="create-a-new-app-registration"></a>Skapa en ny appregistrering
+
+1. På den **Active Directory** sidan den **hantera** klickar du på **App registreringar**.
+
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/42.png)
+
+
+2. Klicka på menyn högst upp **nya appregistrering**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_02.png)
-5. Klicka på **Lägg till** längst ned på sidan.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/43.png)
+
+3. På den **skapa** utför följande steg:
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_03.png)
-6. På den **vad vill du göra** dialogrutan klickar du på **Lägg till ett program som min organisation utvecklar**.
-   
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_04.png)
-7. På den **berätta om tillämpningsprogrammet** dialogrutan, utför följande steg:
-   
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_05.png)
-   
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/44.png)
+
     a. I den **namn** textruta, ange ett namn för ditt program (t.ex.: AADIP Risk händelse API-program).
    
     b. Som **typen**väljer **webbprogram och / eller webb-API**.
    
-    c. Klicka på **Nästa**.
-8. På den **appegenskaper** dialogrutan, utför följande steg:
-   
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)
-   
-    a. I den **inloggnings-URL** textruta typen `http://localhost`.
-   
-    b. I den **App-ID URI** textruta typen `http://localhost`.
-   
-    c. Klicka på **Complete** (Slutför).
+    c. I den **inloggnings-URL** textruta typen `http://localhost`.
 
-Kan nu konfigurera ditt program.
+    d. Klicka på **Skapa**.
 
-![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_07.png)
+4. Öppna den **inställningar** i listan med program klickar du på din nya appregistrering. 
+
+5. Kopiera den **program-ID**.
+
 
 ## <a name="grant-your-application-permission-to-use-the-api"></a>Ge ditt program behörighet att använda API: et
-1. På ditt program i menyn överst, klickar du på **konfigurera**. 
+
+1. På den **inställningar** klickar du på **nödvändiga behörigheter**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
-2. I den **behörigheter för andra program** klickar du på **lägga till program**.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/15.png)
+
+2. På den **nödvändiga behörigheter** i verktygsfältet högst upp på sidan klickar du på **Lägg till**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_09.png)
-3. På den **behörigheter för andra program** dialogrutan, utför följande steg:
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/16.png)
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_10.png)
+3. På den **lägga till API-åtkomst** klickar du på **väljer en API**.
    
-    a. Välj **Microsoft Graph**.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/17.png)
+
+4. På den **väljer en API** väljer **Microsoft Graph**, och klicka sedan på **Välj**.
    
-    b. Klicka på **Complete** (Slutför).
-4. Klicka på **behörigheter för program: 0**, och välj sedan **läsa alla risker händelse identitetsinformation**.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/18.png)
+
+5. På den **lägga till API-åtkomst** klickar du på **Välj behörigheter**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_11.png)
-5. Klicka på **Spara** längst ned på sidan.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/19.png)
+
+6. På den **Aktivera åtkomst** klickar du på **läsa alla identitetsinformation risk**, och klicka sedan på **Välj**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/20.png)
+
+7. På den **lägga till API-åtkomst** klickar du på **klar**.
+   
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/21.png)
+
+8. På den **nödvändiga behörigheter** klickar du på **bevilja med**, och klicka sedan på **Ja**.
+   
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/22.png)
+
+
 
 ## <a name="get-an-access-key"></a>Hämta en åtkomstnyckel
-1. På sidan för ditt program i den **nycklar** väljer 1 år som varaktighet.
+
+1. På den **inställningar** klickar du på **nycklar**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_13.png)
-2. Klicka på **Spara** längst ned på sidan.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/23.png)
+
+2. På den **nycklar** utför följande steg:
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_12.png)
-3. Kopiera värdet för den nya nyckeln i avsnittet nycklar och klistra in den i en säker plats.
+    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/24.png)
+
+    a. I den **nyckeln beskrivning** textruta skriver du en beskrivning (till exempel *AADIP Risk händelse*).
+    
+    b. Som **varaktighet**väljer **i 1 års**.
+
+    c. Klicka på **Spara**.
    
-    ![Skapa ett program](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_14.png)
+    d. Kopiera värdet för nyckeln och klistra in den i en säker plats.   
    
    > [!NOTE]
    > Om du tappar bort den här nyckeln kan behöver du gå tillbaka till det här avsnittet och skapa en ny nyckel. Behåll den här nyckeln en hemlighet: alla som har åtkomst till data.
    > 
    > 
-4. I den **egenskaper** avsnittet, kopiera den **klient-ID**, och klistra in den i en säker plats. 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Autentisera till Microsoft Graph och frågor identitet Risk händelser API
 Du bör nu ha:
 
-* Klient-ID som du kopierade ovan
-* Den nyckel som du kopierade ovan
-* Namnet på domänen för din klient
+- Namnet på domänen för din klient
+
+- Klient-ID 
+
+- Nyckeln 
+
 
 Skicka en post-begäran till för att autentisera, `https://login.microsoft.com` med följande parametrar i brödtext:
 
-* grant_type ”:**client_credentials**”
-* resurs ”:**https://graph.microsoft.com**”
-* client_id:<your client ID>
-* client_secret:<your key>
+- grant_type ”:**client_credentials**”
 
-> [!NOTE]
-> Du måste ange värden för den **client_id** och **client_secret** parameter.
-> 
-> 
+-  resurs ”:**https://graph.microsoft.com**”
+
+- client_id: \<klient-ID\>
+
+- client_secret: \<din nyckel\>
+
 
 Om det lyckas, returneras en autentiseringstoken.  
 För att anropa API: et, skapar du en rubrik med följande parameter:
@@ -143,10 +172,10 @@ När autentisering, hittar du tokentypen och åtkomst-token i den returnerade to
 
 Skicka detta huvud som en begäran till följande API-URL:`https://graph.microsoft.com/beta/identityRiskEvents`
 
-Svaret, är om det lyckas, en samling av riskhändelser identitet och associerade data i OData JSON-format, som kan parsas och hanteras som passar behoven.
+Svaret, är om det lyckas, en samling av riskhändelser identitet och associerade data i OData JSON-format, som kan parsas och hanteras som du vill.
 
-Här är exempelkod för autentisering och anropa API: et med hjälp av Powershell.  
-Lägg till en klient-ID nyckeln och domän för innehavare.
+Här är exempelkod för autentisering och anropa API: et med hjälp av PowerShell.  
+Lägg till klient-ID, den hemliga nyckeln och klient-domän.
 
     $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
     $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
@@ -178,15 +207,21 @@ Lägg till en klient-ID nyckeln och domän för innehavare.
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 Grattis, du skapat din första anropet till Microsoft Graph!  
 Nu kan du fråga identitet riskhändelser och använda data men det är lämpligt.
 
 Om du vill veta mer om Microsoft Graph och hur du skapar program med hjälp av Graph API kan ta en titt på [dokumentationen](https://graph.microsoft.io/docs) och mycket mer på den [Microsoft Graph plats](https://graph.microsoft.io/). Kontrollera också att skapa ett bokmärke i [Azure AD Identity Protection API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) sida som visar en lista över Identity Protection API: er finns i diagrammet. När vi lägger till nya sätt att arbeta med Identity Protection via API ser dem på sidan.
 
-## <a name="additional-resources"></a>Ytterligare resurser
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-* [Typer av riskhändelser som identifieras av Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
-* [Microsoft Graph](https://graph.microsoft.io/)
-* [Översikt över Microsoft Graph](https://graph.microsoft.io/docs)
-* [Azure AD Identity Protection Service rot](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+Mer information finns i:
+
+-  [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+-  [Typer av riskhändelser som identifieras av Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
+
+- [Microsoft Graph](https://graph.microsoft.io/)
+
+- [Översikt över Microsoft Graph](https://graph.microsoft.io/docs)
+
+- [Azure AD Identity Protection Service rot](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 

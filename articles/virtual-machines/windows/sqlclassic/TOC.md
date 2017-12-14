@@ -12,7 +12,7 @@
 # Gör så här för att
 ## Konfigurera hög tillgänglighet
 ### [Alternativ för hög tillgänglighet](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Konfigurera AlwaysOn-tillgänglighetsgrupp i den klassiska portalen](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Konfigurera en AlwaysOn-tillgänglighetsgrupp på portalen](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Konfigurera AlwaysOn-tillgänglighetsgrupp med PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Konfigurera en intern lyssnare för en tillgänglighetsgrupp](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Konfigurera en extern lyssnare för en tillgänglighetsgrupp](virtual-machines-windows-classic-ps-sql-ext-listener.md)

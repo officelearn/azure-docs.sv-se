@@ -3,50 +3,86 @@ documentType: LandingData
 title: Azure Storage-dokumentation
 metadata:
   title: "Dokumentation om Azure Storage – Självstudier, API-referens | Microsoft Docs"
-  description: "Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage."
+  description: "Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage."
   services: storage
-  author: czeumault
-  manager: carolz
+  author: tamram
+  manager: jeconnoc
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/20/2017
-  ms.author: carolz
-  ms.openlocfilehash: b3413ad99086970357e1c2ac426150cedd0f8064
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.date: 12/08/2017
+  ms.author: tamram
+  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
+  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 12/13/2017
 abstract:
   description: "Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage.  Lär dig att utnyttja Azure Storage i dina program med våra snabbstarter och självstudier."
 sections:
 - title: "Snabbstarter på 5 minuter"
   items:
   - type: paragraph
-    text: "Skapa ett unikt namnområde där du kan lagra och få åtkomst till dina Azure Storage-dataobjekt."
-  - type: list
-    style: icon48
-    items:
+    text: "Lär dig att arbeta med Azure Storage med hjälp av dessa snabbstarter."
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Azure PowerShell
-      href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
+        src: media/index/logo_powershell.svg
+        text: PowerShell
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/storage/common/storage-quickstart-create-storage-account-cli
+        src: media/index/cli.svg
+        text: Azure CLI
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: Skapa lagringskonto
+      values:
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Blob-snabbstarter
+      values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
+      - href: /azure/storage/blobs/storage-quickstart-blobs-cli
+      - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /azure/storage/blobs/storage-quickstart-blobs-java
+      - href: /azure/storage/blobs/storage-quickstart-blobs-python
+      - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
 - title: "Stegvisa självstudier"
   items:
   - type: paragraph
     text: "Lär dig att överföra och bearbeta bilddata i molnet."
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: "<a href=\"/azure/storage/blobs/storage-upload-process-images\">Ladda upp och hämta avbildningsdata i molnet</a>"
     - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json\">Utlösa Azure Functions för att bearbeta blobar</a>"
     - html: <a href="/azure/storage/blobs/storage-secure-access-application">Skydda programdata</a>
     - html: "<a href=\"/azure/storage/blobs/storage-monitor-troubleshoot-storage-application\">Övervaka och felsöka lagring</a>"
+  - type: paragraph
+    text: "Lär dig att utforma ditt program för hög tillgänglighet i Azure Storage."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-create-geo-redundant-storage\">Skapa hög tillgänglighet för dina programdata</a>"
+    - html: "<a href=\"/azure/storage/blobs/storage-simulate-failure-ragrs-account-app\">Simulera ett fel vid läsåtkomst till redundant lagring</a>"
+  - type: paragraph
+    text: "Lär dig hur du söker efter ostrukturerade data i Azure Storage."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-unstructured-search\">Söka efter ostrukturerade data i molnlagring</a>"
 - title: Exempel
   items:
   - type: paragraph
@@ -55,6 +91,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: ".NET &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet\">blobar</a> | <a     href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet\">filer</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet\">köer</a>"
+    - html: "Java &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java\">blobar</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java\">filer</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java\">köer</a>"
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
 - title: "Kostnadsfri videoutbildning för Pluralsight"
@@ -84,4 +122,4 @@ sections:
     - title: "Språk"
       html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/storageservices/azure-storage-services-rest-api-reference\">Blobar, köer, tabeller och filer</a></p><p><a href=\"/rest/api/storagerp\">Resursprovider</a></p><p><a href=\"/rest/api/storageimportexport\">Import/export</a></p><p><a href=\"/rest/api/storageservices\">REST API för lagringsdata</a></p>"
+      html: "<p><a href=\"/rest/api/storageservices\">Blobar, köer, tabeller och filer</a></p><p><a href=\"/rest/api/storagerp\">Resursprovider</a></p><p><a href=\"/rest/api/storageimportexport\">Import/export</a></p>"

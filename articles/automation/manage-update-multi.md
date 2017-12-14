@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -84,7 +84,7 @@ Uppdateringshantering har aktiverats för den virtuella datorn.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för virtuella datorer som inte använder Azure och datorer
 
-Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
+Instruktioner om hur du aktiverar uppdateringshantering för virtuella datorer som inte använder Azure Windows och datorer finns i [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md) (Anslut Windows-datorer till Log Analytics-tjänsten i Azure).
 
 Instruktioner om hur du aktiverar uppdateringshantering för virtuella Linux-datorer och datorer som inte använder Azure finns i [Connect your Linux Computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Anslut dina Linux-datorer till Log Analytics).
 

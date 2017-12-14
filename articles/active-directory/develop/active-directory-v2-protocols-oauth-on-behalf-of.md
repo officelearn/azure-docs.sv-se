@@ -4,7 +4,7 @@ description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c03c6cb78fd020b7574a8cd9f924b513bacaf10
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 och flödet för OAuth 2.0 On-Behalf-Of
 OAuth 2.0-On-Behalf-Of flöde fungerar användningsfall där ett program anropar ett service/webb-API, som i sin tur behöver anropa en annan tjänst/webb-API. Tanken är att sprida delegerad användarens identitet och behörigheter via alla begäranden har gjorts. För tjänsten mellannivå så att autentiserade begäranden till den underordnade tjänsten behöver skydda en åtkomst-token från Azure Active Directory (Azure AD) för användarens räkning.

@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testa fråga Microsoft Graph API från iOS-program
 
 Om du vill köra koden i simulatorn trycker du på **kommandot** + **R**.

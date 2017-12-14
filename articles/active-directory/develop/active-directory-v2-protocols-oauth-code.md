@@ -4,7 +4,7 @@ description: "Skapa webbprogram med hjälp av Azure AD-implementeringen av OAuth
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 06d5000e30850156781496c32ac549ecc0772f46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokoll - OAuth 2.0-Auktoriseringskodflödet
 OAuth 2.0 auktorisering kod bevilja kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel web API: er.  App model v2.0 implementering av OAuth 2.0 kan, du använda API tillgång till dina appar och program och logga in.  Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -66,9 +66,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Omfång |Krävs |En blankstegsavgränsad lista över [scope](active-directory-v2-scopes.md) som du vill att användaren godkänner du. |
 | response_mode |Rekommenderas |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app.  Kan vara `query` eller `form_post`. |
 | state |Rekommenderas |Ett värde som ingår i denna begäran kommer också att returneras i token svaret.  Det kan vara en sträng med innehåll som du vill.  Ett slumpmässigt genererat unikt värde används vanligtvis för [förhindra attacker med förfalskning av begäran](http://tools.ietf.org/html/rfc6749#section-10.12).  Tillståndet används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, exempelvis sidan eller de befann sig i vyn. |
-| kommandotolk |Valfria |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent`dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
-| login_hint |Valfria |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
-| domain_hint |Valfria |Kan vara något av `consumers` eller `organizations`.  Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` från en tidigare inloggning.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
+| kommandotolk |valfri |Anger vilken typ av användarinteraktion som krävs.  De enda giltiga värdena just nu är ”inloggning” none, och 'godkännande'.  `prompt=login`Tvingar användaren att ange sina autentiseringsuppgifter på begäran, giltigt att negera enkel inloggning på.  `prompt=none`är motsatsen - säkerställer att användaren inte visas med en interaktiv prompt som helst.  Om begäran inte kan slutföras utan meddelanden via enkel inloggning på returneras ett fel v2.0-slutpunkten.  `prompt=consent`dialogrutan OAuth-medgivande utlöses när användaren loggar in, be användaren att tilldela behörigheter till appen. |
+| login_hint |valfri |Kan användas till att fylla före adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sitt lösenord i förväg.  Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare inloggning med hjälp av den `preferred_username` anspråk. |
+| domain_hint |valfri |Kan vara något av `consumers` eller `organizations`.  Om den hoppar över e-postbaserad identifieringsprocessen användaren som passerar på v2.0 inloggningssidan, vilket leder till en något mer effektiv användarupplevelse.  Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` från en tidigare inloggning.  Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad`, bör du använda `domain_hint=consumers`.  Annars använder `domain_hint=organizations`. |
 
 Nu ombeds användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.  V2.0-slutpunkten säkerställer också att användaren har godkänt för de behörigheter som anges i den `scope` Frågeparametern.  Om användaren inte har godkänt till någon av dessa behörigheter, uppmanas användaren att godkänna behörigheterna som krävs.  Information om [behörigheter, medgivande och flera innehavare appar finns här](active-directory-v2-scopes.md).
 

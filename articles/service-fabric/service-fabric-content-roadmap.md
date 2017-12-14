@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Därför vill du lär dig mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har en stor ytan emellertid och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp programmeringsmodeller, program livscykel, testa, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande lista för innehåll, men länkar till översikt och komma igång artiklar för varje del av Service Fabric. 
@@ -103,7 +103,7 @@ En [gäst körbara](service-fabric-deploy-existing-app.md) är en befintlig, val
 ## <a name="application-lifecycle"></a>Programlivscykel
 Som med andra plattformar, ett program på Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric har förstklassigt stöd för fullständiga programmet livscykeln för molnprogram, från utveckling till distribution, dagliga hantering och underhåll för inaktivering av eventuell. Tjänstmodellen gör det möjligt för flera olika roller separat delta i programmet livscykel. [Service Fabric application livscykel](service-fabric-application-lifecycle.md) ger en översikt över de API: er och hur de används av olika roller i faserna i livscykeln för Service Fabric-programmet. 
 
-Hela applivscykeln kan hanteras med [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [C#-API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric._application_management_client), och [REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integration/kontinuerlig distribution pipelines med hjälp av verktyg som [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Hela applivscykeln kan hanteras med [PowerShell-cmdlets](/powershell/module/ServiceFabric/), [CLI-kommandona](service-fabric-sfctl.md), [C#-API: er](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API: er](/java/api/system.fabric._application_management_client), och [ REST API: er](/rest/api/servicefabric/). Du kan också ställa in kontinuerlig integration/kontinuerlig distribution pipelines med hjälp av verktyg som [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) eller [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Följande Microsoft Virtual Academy videon beskriver hur du hanterar livscykeln för programmet:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -184,12 +184,31 @@ Out of box rapport Service Fabric-komponenter hälsotillstånd för alla entitet
 
 Service Fabric finns flera sätt att [visa hälsorapporter](service-fabric-view-entities-aggregated-health.md) samman i health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) eller andra visualiseringsverktyg för.
-* Hälsoförfrågningar (via [PowerShell](/powershell/module/ServiceFabric/), [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) och [Java FabricClient APIs](/java/api/system.fabric._health_client), eller [REST API: er](/rest/api/servicefabric)).
-* Allmänna frågor som returnerar en lista över enheter som har hälsa som någon av egenskaperna (via PowerShell, API eller REST).
+* Hälsoförfrågningar (via [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) och [Java FabricClient APIs](/java/api/system.fabric._health_client), eller [REST API: er](/rest/api/servicefabric)).
+* Allmänna frågor som returnerar en lista över enheter som har hälsa som någon av egenskaperna (via PowerShell, CLI, API: er eller REST).
 
 Följande Microsoft Virtual Academy videon beskrivs Service Fabric-hälsomodell och hur de används:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
+[Övervaknings- och diagnostikfunktionerna](service-fabric-diagnostics-overview.md) är viktigt att utveckla, testa och distribuera program och tjänster i en miljö. Service Fabric-lösningar som fungerar bäst när du planerar och implementerar övervakning och diagnostik för att kontrollera program och tjänster fungerar som förväntat i en miljö för lokal utveckling eller i produktion.
+
+De huvudsakliga målen med övervakning och diagnostik är att:
+
+- Identifiera och diagnostisera problem med maskinvara och infrastruktur
+- Identifiera problem med programvara och app, minska avbrottstiden för tjänsten
+- Förstå resource förbrukning och hjälper dig att enheten operations beslut
+- Optimera prestanda för program, tjänster och infrastruktur
+- Generera affärsinsikter och identifiera förbättringsområden
+ 
+Det totala arbetsflödet för övervakning och diagnostik består av tre steg:
+
+1. Händelsegenerering: Detta innefattar händelser (loggar, spårningar, anpassade händelser) i infrastrukturen (kluster), plattform och program / service nivå
+2. Händelsen aggregering: genererade händelser behöver samlas in och sammanställs innan de kan visas
+3. Analys: händelser måste vara visualiserade och tillgänglig i vissa format för analys och visa efter behov
+
+Flera produkter är tillgängliga som omfattar följande tre områden och du kan välja olika tekniker för varje. Mer information finns [övervaknings- och diagnostikfunktionerna för Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du skapar ett [kluster i Azure](service-fabric-cluster-creation-via-portal.md) eller ett [fristående kluster i Windows](service-fabric-cluster-creation-for-windows-server.md).

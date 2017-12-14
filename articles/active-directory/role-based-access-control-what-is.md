@@ -4,7 +4,7 @@ description: "Kom igång med åtkomsthantering med rollbaserad åtkomstkontroll 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Kom igång med rollbaserad åtkomstkontroll i Azure-portalen
 Säkerhet indatavärdena företag bör tänka på att ge anställda behörigheterna exakt som de behöver. För många behörigheter kan exponera ett konto för attacker. För få behörigheter innebär att anställda kan få arbetet gjort effektivt. Azure rollbaserad åtkomstkontroll (RBAC) kan du lösa det här problemet genom att erbjuda detaljerad åtkomsthantering för Azure.

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Artiklar om DocumentDB API | Microsoft Docs'
-description: "En lista över alla artiklar som är specifika för att skapa dokumentdatabaser med DocumentDB-API: et i Azure Cosmos DB."
+title: 'Azure Cosmos DB: Artiklar om SQL API | Microsoft Docs'
+description: "En lista över alla artiklar som är specifika för att skapa dokumentdatabaser med SQL-API i Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API-dokumentation
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL-API-dokumentationen
 
-Den här artikeln innehåller länkar till alla Azure Cosmos DB innehåll som är specifika för DocumentDB-API: et.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Den här artikeln innehåller länkar till alla Azure Cosmos DB innehåll som är specifika för SQL-API: et.
 
 Dessa artiklar gäller inte för Graph API, tabell-API eller MongoDB-API. 
 
 ## <a name="introduction-and-concepts"></a>Introduktion och begrepp
 
-Dessa är måste läsa ämnen och resurser för att starta lära dig mer om DocumentDB-API: et för Azure Cosmos DB.
+Dessa är måste läsa ämnen och resurser för att starta lära dig mer om SQL-API för Azure Cosmos DB.
 
-- [Introduktion av DocumentDB-API](documentdb-introduction.md)
+- [Introduktion av SQL-API](documentdb-introduction.md)
 - [Resursen databasmodellen](documentdb-resources.md)
 - Webbplats: [Query playground](https://www.documentdb.com/sql/demo)
 - Cheat blad: [SQL-grammatik](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ Azure Cosmos-DB tillhandahåller ett antal SDK: er för att aktivera klientsidan
 
 ## <a name="samples"></a>Exempel
 
-Dessa exempelsidor innehåller länkar till API: er och exempelkod refererar till innehåll för de vanligaste uppgifterna i DocumentDB-API.
+Dessa exempelsidor innehåller länkar till API: er och exempelkod refererar till innehåll för de vanligaste uppgifterna i SQL-API.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

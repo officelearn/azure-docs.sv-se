@@ -3,7 +3,7 @@ title: "Förstå Azure Identity | Microsoft Docs"
 description: "Hämta en grundläggande förståelse för Microsoft Azure identitet lösning villkoren, begrepp och rekommendationer att göra det bästa identity styrning beslutet för din organisation."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Förstå identitetslösningar i Azure
 Microsoft Azure Active Directory (AD Azure) är ett identitets- och molnet hanteringslösning som tillhandahåller katalogtjänster, identitet styrning och hantering av åtkomst. Azure AD snabbt [aktiverar enkel inloggning (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) till 1 000 är förintegrerade kommersiella och anpassade appar i den [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Många av de här apparna som du förmodligen redan använder till exempel Office 365, Salesforce.com, rutan, ServiceNow och Workday.

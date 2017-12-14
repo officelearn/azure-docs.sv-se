@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jeedes
-ms.openlocfilehash: c2b7638e99fa46ff41a7f2202bdf0e7a2b017c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c0cd547a9a33ee83883058623e4905ea0af4031
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Självstudier: Azure Active Directory-integrering med svart tavla Läs
 
@@ -124,7 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. I den **användarattribut** avsnittet på **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg. Vi har mappats Userprincipalname som det unika användarattribut här men du kan mappa till lämpligt värde som särskiljer unikt användare i organisationen och som mappar till svart tavla Läs användarnamnfältet.
            
-    | Attributets namn | Attributvärdet |   
+    | Attributnamn | Attributvärde |   
     | ---------------| ----------------|
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |User.userPrincipalName |
 

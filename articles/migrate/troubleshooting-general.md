@@ -1,31 +1,33 @@
 ---
 title: "Felsökning av problem med Azure migrera | Microsoft Docs"
 description: "En översikt över kända problem i tjänsten Azure migrera och felsökningstips för vanliga fel."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="troubleshoot-azure-migrate"></a>Felsöka Azure migrera
+# <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Felsök vanliga fel
 
 [Azure migrera](migrate-overview.md) utvärderar lokala arbetsbelastningar för migrering till Azure. Använd den här artikeln för att felsöka problem när du distribuerar och använder Azure migrera.
 
+
+**Insamlaren kan inte ansluta till internet**
+
+Detta kan inträffa när den datorn som du använder är bakom en proxyserver. Kontrollera att du anger autentiseringsuppgifterna om proxyn måste en.
+Om du använder alla URL-baserade brandväggen proxy för att styra utgående anslutning, att kontrollera listan över godkända följande obligatoriska URL: er:
+
+**URL: EN** | **Syfte**  
+--- | ---
+*. portal.azure.com | Krävs för att kontrollera anslutningen till Azure-tjänsten och validera tidssynkronisering utfärdar.
+*. oneget.org | Krävs för baserad att ladda ned powershell vCenter PowerCLI modul.
 
 **Insamlaren kan inte ansluta till projektet med projekt-ID och nyckel I kopieras från portalen.**
 

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 938ef529ab3a5ae53b9e6e9c7b099d6516ff8f75
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e202899b697872227da4d7bea54406f99089000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Självstudier: Konfigurera GitHub för automatisk Användaretablering
 

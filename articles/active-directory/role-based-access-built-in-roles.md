@@ -4,7 +4,7 @@ description: "Det här avsnittet beskriver den inbyggda i roller för rollbasera
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -55,7 +55,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [Data Factory deltagare](#data-factory-contributor) |Kan skapa och hantera datafabriker och underordnade resurser i dem. |
 | [DevTest Labs användare](#devtest-labs-user) |Kan visa allt och ansluta, starta, -omstart och -avstängning virtuella datorer |
 | [DNS-zonen deltagare](#dns-zone-contributor) |Kan hantera DNS-zoner och poster |
-| [Azure Cosmos DB konto deltagare](#documentdb-account-contributor) |Kan hantera Azure DB som Cosmos-konton |
+| [DocumentDB-konto deltagare](#documentdb-account-contributor) |Kan hantera Azure DB som Cosmos-konton |
 | [Intelligenta System-kontot deltagare](#intelligent-systems-account-contributor) |Kan hantera intelligenta system konton |
 | Logik App deltagare | Kan hantera alla aspekter av en Logikapp, men inte skapa en ny. |
 | Logik App Operator |Kan starta och stoppa arbetsflöden som definierats inom en Logikapp. |
@@ -88,7 +88,7 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 ## <a name="role-permissions"></a>Rollbehörigheter
 I följande tabeller beskrivs de specifika behörigheter som tilldelats varje roll. Detta kan inkludera **åtgärder**, som ger behörigheter och **NotActions**, som begränsar dem.
 
-### <a name="api-management-service-contributor"></a>API Management-tjänsten deltagare
+### <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
 Kan hantera API Management-tjänster
 
 | **Åtgärder** |  |
@@ -135,7 +135,7 @@ Kan hantera API Management-tjänster
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs roller och rolltilldelningar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="application-insights-component-contributor"></a>Application Insights Component Contributor
+### <a name="application-insights-component-contributor"></a>Application Insights-komponentdeltagare
 Kan hantera Application Insights-komponenter
 
 | **Åtgärder** |  |
@@ -312,7 +312,7 @@ Kan hantera allt utom åtkomst
 | Microsoft.Authorization/*/Delete |Det går inte att ta bort roller och rolltilldelningar |
 | Microsoft.Authorization/*/Write |Det går inte att skapa roller och rolltilldelningar |
 
-### <a name="data-factory-contributor"></a>Data Factory deltagare
+### <a name="data-factory-contributor"></a>Data Factory-deltagare
 Skapa och hantera datafabriker och underordnade resurser i dem.
 
 | **Åtgärder** |  |
@@ -325,7 +325,7 @@ Skapa och hantera datafabriker och underordnade resurser i dem.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="devtest-labs-user"></a>DevTest Labs användare
+### <a name="devtest-labs-user"></a>DevTest Labs-användare
 Kan visa allt och ansluta, starta, -omstart och -avstängning virtuella datorer
 
 | **Åtgärder** |  |
@@ -371,20 +371,20 @@ Hantera DNS-zoner och poster.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/\* |Skapa och hantera supportärenden |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB konto deltagare
-Kan hantera Azure DB som Cosmos-konton
+### <a name="documentdb-account-contributor"></a>DocumentDB-kontodeltagare
+Hantera Azure DB som Cosmos-konton. Azure Cosmos-DB är kallades DocumentDB.
 
 | **Åtgärder** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Läs roller och rollen tilldelningar |
-| Microsoft.DocumentDb/databaseAccounts/* |Skapa och hantera DocumentDB-konton |
+| Microsoft.DocumentDb/databaseAccounts/* |Skapa och hantera Azure DB som Cosmos-konton |
 | Microsoft.Insights/alertRules/* |Skapa och hantera aviseringsregler |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Läs hälsotillståndet för resurser |
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="intelligent-systems-account-contributor"></a>Intelligenta System-kontot deltagare
+### <a name="intelligent-systems-account-contributor"></a>Intelligent Systems-kontodeltagare
 Kan hantera intelligenta system konton
 
 | **Åtgärder** |  |
@@ -427,7 +427,7 @@ Kan läsa alla övervakningsdata och redigera inställningarna för övervakning
 | Microsoft.OperationalInsights/workspaces/sharedKeys/action |Lista nycklar för logganalys-arbetsytan. |
 | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Läs/Skriv/ta bort logganalys insight lagringskonfigurationer. |
 
-### <a name="network-contributor"></a>Network-deltagare
+### <a name="network-contributor"></a>Nätverksdeltagare
 Kan hantera alla nätverksresurser
 
 | **Åtgärder** |  |
@@ -467,7 +467,7 @@ Kan visa allt, men det går inte att göra ändringar
 | --- | --- |
 | * / läsa |Läsa resurser av alla typer utom hemligheter. |
 
-### <a name="redis-cache-contributor"></a>Redis-Cache deltagare
+### <a name="redis-cache-contributor"></a>Redis Cache-deltagare
 Kan hantera Redis-cache
 
 | **Åtgärder** |  |
@@ -480,7 +480,7 @@ Kan hantera Redis-cache
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="scheduler-job-collections-contributor"></a>Schemaläggaren jobbet samlingar deltagare
+### <a name="scheduler-job-collections-contributor"></a>Scheduler-jobbsamlingsdeltagare
 Kan hantera Scheduler-jobbsamlingar
 
 | **Åtgärder** |  |
@@ -493,7 +493,7 @@ Kan hantera Scheduler-jobbsamlingar
 | Microsoft.Scheduler/jobcollections/* |Skapa och hantera jobbsamlingar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="search-service-contributor"></a>Sök Service deltagare
+### <a name="search-service-contributor"></a>Söktjänstdeltagare
 Kan hantera Search-tjänster
 
 | **Åtgärder** |  |
@@ -506,7 +506,7 @@ Kan hantera Search-tjänster
 | Microsoft.Search/searchServices/* |Skapa och hantera search-tjänster |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="security-manager"></a>Säkerhetshantering
+### <a name="security-manager"></a>Säkerhetshanteraren
 Kan hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer
 
 | **Åtgärder** |  |
@@ -671,7 +671,7 @@ Kan hantera SQL-databaser, men inte deras säkerhetsrelaterade principer
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Det går inte att redigera avisering säkerhetsprinciper |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Det går inte att redigera säkerhet mått |
 
-### <a name="sql-security-manager"></a>SQL-säkerhetsansvarig
+### <a name="sql-security-manager"></a>SQL-säkerhetshanteraren
 Kan hantera de säkerhetsrelaterade principerna för SQL-servrar och databaser
 
 | **Åtgärder** |  |
@@ -724,7 +724,7 @@ Kan hantera SQL-servrar och databaser, men inte deras säkerhetsrelaterade princ
 | Microsoft.Sql/servers/databases/securityMetrics/* |Det går inte att redigera SQL server-databasen säkerhet mått |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Det går inte att redigera avisering principer för SQL server-säkerhet |
 
-### <a name="classic-storage-account-contributor"></a>Klassiska Storage-konto deltagare
+### <a name="classic-storage-account-contributor"></a>Klassisk lagringskontodeltagare
 Kan hantera klassiska lagringskonton
 
 | **Åtgärder** |  |
@@ -737,7 +737,7 @@ Kan hantera klassiska lagringskonton
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="storage-account-contributor"></a>Storage-konto deltagare
+### <a name="storage-account-contributor"></a>Lagringskontodeltagare
 Kan hantera storage-konton, men inte åtkomst till dem.
 
 | **Åtgärder** |  |
@@ -769,7 +769,7 @@ Kan hantera användarnas åtkomst till Azure-resurser
 | Microsoft.Authorization/* |Hantera auktorisering |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="classic-virtual-machine-contributor"></a>Klassiska Virtual Machine-deltagare
+### <a name="classic-virtual-machine-contributor"></a>Klassisk virtuell datordeltagare
 Kan hantera klassiska virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna
 
 | **Åtgärder** |  |
@@ -792,7 +792,7 @@ Kan hantera klassiska virtuella datorer, men inte den virtuella nätverks- eller
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="virtual-machine-contributor"></a>Virtual Machine-deltagare
+### <a name="virtual-machine-contributor"></a>Virtuell datordeltagare
 Kan hantera virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna
 
 | **Åtgärder** |  |
@@ -823,7 +823,7 @@ Kan hantera virtuella datorer, men inte den virtuella nätverks- eller konto som
 | Microsoft.Storage/storageAccounts/read |Läs storage-konton |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="classic-network-contributor"></a>Klassiska Network-deltagare
+### <a name="classic-network-contributor"></a>Klassisk nätverksdeltagare
 Kan hantera klassiska virtuella nätverk och reserverade IP-adresser
 
 | **Åtgärder** |  |
@@ -836,7 +836,7 @@ Kan hantera klassiska virtuella nätverk och reserverade IP-adresser
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="web-plan-contributor"></a>Web Plan deltagare
+### <a name="web-plan-contributor"></a>Webbplan-deltagare
 Kan hantera web planer
 
 | **Åtgärder** |  |
@@ -849,7 +849,7 @@ Kan hantera web planer
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 | Microsoft.Web/serverFarms/* |Skapa och hantera servergrupper |
 
-### <a name="website-contributor"></a>Webbplatsen deltagare
+### <a name="website-contributor"></a>Webbplatsdeltagare
 Kan hantera webbplatser, men inte alla web-planer som de är anslutna
 
 | **Åtgärder** |  |

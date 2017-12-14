@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d6e8f123dd04b98df10b5a941396d7140bcc023
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Använda länkade mallar när du distribuerar Azure-resurser
 
@@ -478,59 +478,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Exempel mallar
 
-### <a name="hello-world-from-linked-template"></a>Hello World från länkade mall
+I följande exempel visas vanliga användningsområden för länkade mallar.
 
-Att distribuera den [överordnade mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) och [länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json), med hjälp av PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-Eller Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>Belastningsutjämnare med den offentliga IP-adressen i länkade mall
-
-Att distribuera den [överordnade mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) och [länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json), med hjälp av PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-Eller Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-### <a name="multiple-public-ip-addresses-in-linked-template"></a>Flera offentliga IP-adresser i länkade mall
-
-Att distribuera den [överordnade mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) och [länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json), med hjälp av PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
-
-Eller Azure CLI:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
+|Huvudmall  |Länkad mall |Beskrivning  |
+|---------|---------| ---------|
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från länkade mallen. |
+|[Belastningsutjämnare med den offentliga IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adress från länkade mallen och anger värdet i belastningsutjämnaren. |
+|[Flera IP-adresser](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Skapar flera offentliga IP-adresser i länkade mallen.  |
 
 ## <a name="next-steps"></a>Nästa steg
 

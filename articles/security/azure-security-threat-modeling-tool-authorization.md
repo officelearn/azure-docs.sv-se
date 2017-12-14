@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhet ram: Auktorisering | Åtgärder 
 | Produkter eller tjänster | Artikel |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Databas** | <ul><li>[Se till att minst Privilegierade konton som används för att ansluta till databasservern](#privileged-server)</li><li>[Implementera raden nivå säkerhet RLS att hindra klienter från att komma åt varandras data](#rls-tenants)</li><li>[Rollen sysadmin får endast ha giltiga nödvändiga användare](#sysadmin-users)</li></ul> |
 | **Gateway för IoT-moln** | <ul><li>[Ansluta till Gateway moln som använder lägsta behörighet token](#cloud-least-privileged)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Använda en skicka-behörigheter endast SAS-nyckel för att skapa enhetstoken](#sendonly-sas)</li><li>[Använd inte åtkomsttoken som ger direktåtkomst till Händelsehubben](#access-tokens-hub)</li><li>[Ansluta till en Händelsehubb med hjälp av SAS-nycklar som har den lägsta behörigheten som krävs](#sas-minimum-permissions)</li></ul> |
-| **Azure dokumentet DB** | <ul><li>[Använd resource token för att ansluta till DocumentDB när det är möjligt](#resource-docdb)</li></ul> |
+| **Azure dokumentet DB** | <ul><li>[Använd resource token för att ansluta till Azure Cosmos DB när det är möjligt](#resource-docdb)</li></ul> |
 | **Azure Förtroendegräns** | <ul><li>[Aktivera detaljerad åtkomsthantering för Azure-prenumeration med RBAC](#grained-rbac)</li></ul> |
 | **Service Fabric-Förtroendegräns** | <ul><li>[Begränsa åtkomsten för klientens till klusteråtgärder med RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Utföra security modellering och använder fältet Level Security behov](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Observera att RLS som en out box databasfunktion gäller bara för SQL Server fr
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Saknas  |
 | **Referenser**              | Saknas  |
-| **Steg** | En resurs-token är kopplad till en resurs för DocumentDB-behörighet och samlar in relationen mellan användaren av en databas och behörigheten att användaren har för en specifik DocumentDB programresurs (t.ex. samling och dokument). Använd alltid en token för resursen åt av DocumentDB om klienten inte är betrott med hantering av master eller skrivskyddad nycklar – som ett program för slutanvändare som en mobil- eller datorprogram klient. Använd huvudnyckeln eller skrivskyddade nycklar från backend-program som kan lagra dessa nycklar på ett säkert sätt.|
+| **Steg** | En resurs-token är associerad med en Azure Cosmos DB behörighet resurs och samlar in relationen mellan användaren av en databas och behörigheten att användaren har för en viss Azure Cosmos DB programmet resurs (t.ex. samling och dokument). Använd alltid en resurs-token kan komma åt Azure Cosmos DB om klienten inte är betrott med hantering av master eller skrivskyddad nycklar – som ett program för slutanvändare som en mobil- eller datorprogram klient. Använd huvudnyckeln eller skrivskyddade nycklar från backend-program som kan lagra dessa nycklar på ett säkert sätt.|
 
 ## <a id="grained-rbac"></a>Aktivera detaljerad åtkomsthantering för Azure-prenumeration med RBAC
 

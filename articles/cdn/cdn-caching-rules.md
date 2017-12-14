@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: f0d33f7671cad7e5c5ef9c2320fcca19b4c89b24
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Kontrollen Azure Content Delivery Network cachelagring av frågesträngar med cachelagring regler
 
@@ -47,6 +47,7 @@ Hur du ställer in CDN cachelagring regler:
 1. Skapa en global cachelagring regel enligt följande:
    1. Under **Global cachelagring regler**, ange **cachelagring av frågesträngar** till **Ignorera frågesträngar**.
    2. Ange **cachelagring av frågesträngar** till **om saknas**.
+       
    3. För **cachelagra giltighetstiden**, skriver du 10 i den **dagar** fältet.
 
        Den globala cacheregeln påverkar alla förfrågningar till slutpunkten. Den här regeln godkänner ursprung cache-direktiv sidhuvud, om de finns (`Cache-Control` eller `Expires`), annars, om de inte har angetts, anger cachen på 10 dagar. 

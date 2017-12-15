@@ -64,8 +64,8 @@
 ## Lagra data
 ### [Blobbar](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Filresurser](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Nyckel/värde-par](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON-dokument](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Nyckel/värde-par](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON-dokument](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relationstabeller](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Meddelandeköer](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 

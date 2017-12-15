@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Hantera lagringsresurser
           href: azure-stack-manage-storage-accounts.md
+        - name: Hantera lagringskapacitet
+          href: azure-stack-manage-storage-shares.md
         - name: Hantera virtuella Windows Azure Pack-datorer
           href: azure-stack-manage-windows-azure-pack.md
         - name: Ersätta maskinvara

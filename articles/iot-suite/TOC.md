@@ -71,6 +71,7 @@
 ### [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 ### [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
 ### [Använda OPC-utgivaren för ansluten fabrik](iot-suite-connected-factory-publisher.md)
+### [Konfigurera ansluten fabrik](iot-suite-connected-factory-configure.md)
 ## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
 
 # Referens

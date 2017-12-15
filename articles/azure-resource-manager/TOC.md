@@ -15,12 +15,11 @@
 #### [Parametrar](resource-manager-templates-parameters.md)
 #### [Variabler](resource-manager-templates-variables.md)
 #### [Resurser](resource-manager-templates-resources.md)
-### [Metodtips för mallar](resource-manager-template-best-practices.md)
+#### [Utdata](resource-manager-templates-outputs.md)
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
-### [Uppdatera resurs](resource-manager-update.md)
-### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
+### [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 
 
@@ -45,7 +44,7 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure Portal](resource-group-portal.md)
-### [REST-API](resource-manager-rest-api.md)
+### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
 ### [Ordna prenumerationer med hanteringsgrupper](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

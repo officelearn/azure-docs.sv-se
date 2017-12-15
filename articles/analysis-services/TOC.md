@@ -21,6 +21,7 @@
 ## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
 ## [Konfigurera utskalning](analysis-services-scale-out.md)
+## [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
 ## [Anslut till Excel](analysis-services-connect-excel.md)
 ## [Anslut med Power BI](analysis-services-connect-pbi.md)
 ## [Skapa en ODC-fil](analysis-services-odc.md)

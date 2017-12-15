@@ -265,6 +265,7 @@
 #### [Tilldela administratörsroller](active-directory-users-assign-role-azure-portal.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
+### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)

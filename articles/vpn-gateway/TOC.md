@@ -75,6 +75,7 @@
 ## Konfigurera VPN-enheter från tredje part
 ### [Översikt och Azure-konfiguration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exempel: Cisco ASA-enhet (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Migrering från klassisk till Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## Felsöka
 ### [Validera VPN-dataflöde till VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Community-föreslaget VPN eller brandväggsinställningar för enhet](vpn-gateway-third-party-settings.md)

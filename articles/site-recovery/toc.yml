@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Hantera vCenter-servrar
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Hantera flera innehavare med CSP
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Ta bort servrar och inaktivera skydd
           href: site-recovery-manage-registration-and-protection.md
         - name: Ta bort ett valv

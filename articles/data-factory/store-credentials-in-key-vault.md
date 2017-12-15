@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Spara autentiseringsuppgifter i Azure Key Vault
 
-Du kan lagra autentiseringsuppgifter för datalager i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna vid körning av en aktivitet som använder datalagret. För närvarande endast [Dynamics connector](connector-dynamics-crm-office-365.md) och [Salesforce-anslutningsprogrammet](connector-salesforce.md) stöder den här funktionen.
+Du kan lagra autentiseringsuppgifter för datalager i en [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory hämtar autentiseringsuppgifterna vid körning av en aktivitet som använder datalagret.
+
+För närvarande [Dynamics connector](connector-dynamics-crm-office-365.md), [Salesforce-anslutningsprogrammet](connector-salesforce.md) och några nya aktivera stöd för kopplingar den här funktionen. Förvänta dig mer kommer senare. Du kan kontrollera varje koppling avsnitt på detaljer. För de hemliga fält som stöder den här funktionen kan du visas ett meddelande i den beskrivning som säger ”*kan du markera det här fältet som en SecureString och lagra den på ett säkert sätt i ADF, eller lagra lösenord i Azure Key Vault kan kopiera aktivitet pull därifrån När du utför kopiering av data - mer information från Store autentiseringsuppgifter i Nyckelvalvet.* "
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [dokumentationen för Data Factory version1](v1/data-factory-introduction.md).

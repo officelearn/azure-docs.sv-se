@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Skapa en Node.js och MongoDB-webbapp i Azure
+
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service i Windows. Du distribuerar till App Service på _Linux_, se [skapa en Node.js och MongoDB-webbapp i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 Azure Web Apps ger en mycket skalbar, automatisk uppdatering värdtjänst. Den här kursen visar hur du skapar en Node.js-webbapp i Azure och ansluta den till en MongoDB-databas. När du är klar har du en medelvärde program (MongoDB, snabb, AngularJS och Node.js) som körs i [Azure App Service](app-service-web-overview.md). För enkelhetens skull exempelprogrammet använder den [MEAN.js webbramverk](http://meanjs.org/).
 
@@ -127,7 +131,7 @@ Den här kursen används för MongoDB, [Azure Cosmos DB](/azure/documentdb/). Co
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos-DB-konto
 
-Molnet Shell, skapa ett Cosmos-DB-konto med den [az cosmosdb skapa](/cli/azure/cosmosdb#create) kommando.
+Molnet Shell, skapa ett Cosmos-DB-konto med den [az cosmosdb skapa](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) kommando.
 
 I följande kommando i stället använda ett unikt Cosmos-databasnamn för den  *\<cosmosdb_name >* platshållare. Det här namnet används som en del av Cosmos-DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos-DB-konton i Azure. Namnet måste innehålla endast små bokstäver, siffror och bindestreck (-) och måste vara mellan 3 och 50 tecken.
 
@@ -161,7 +165,7 @@ I det här steget kan ansluta du MEAN.js exempelprogrammet till Cosmos-DB-databa
 
 ### <a name="retrieve-the-database-key"></a>Hämta databasens nyckel
 
-För att ansluta till databasen Cosmos DB, måste databasnyckeln för. I gränssnittet molnet använder den [az cosmosdb lista nycklar](/cli/azure/cosmosdb#list-keys) kommando för att hämta den primära nyckeln.
+För att ansluta till databasen Cosmos DB, måste databasnyckeln för. I gränssnittet molnet använder den [az cosmosdb lista nycklar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) kommando för att hämta den primära nyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -257,7 +261,7 @@ I det här steget kan distribuera du MongoDB-anslutna Node.js-programmet till Az
 
 Som standard sparas projektet MEAN.js _config/env/local-production.js_ utanför Git-lagringsplats. Så för din Azure-webbapp använder du appinställningar för att definiera anslutningssträngen MongoDB.
 
-Ange app-inställningar i [az webapp config appsettings uppdatera](/cli/azure/webapp/config/appsettings#update) i molnet Shell. 
+Ange app-inställningar i [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i molnet Shell. 
 
 I följande exempel konfigureras en `MONGODB_URI` appinställningen i ditt Azure webbapp. Ersätt den  *\<appnamn >*,  *\<cosmosdb_name >*, och  *\<primary_master_key >* platshållare.
 
@@ -461,7 +465,7 @@ Om du lagt till alla artiklar tidigare kan kan du fortfarande se dem. Befintliga
 
 Du kan hämta loggarna för konsolen skickas till terminalen när Node.js-programmet körs i Azure App Service. På så sätt kan du få samma diagnostiska meddelanden för att felsöka programfel.
 
-Starta loggen strömning med den [az webapp loggen pilslut](/cli/azure/webapp/log#tail) i molnet Shell.
+Starta loggen strömning med den [az webapp loggen pilslut](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) i molnet Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 9838f0810f4827df3eb4f9407d4d4fbc1ad0ff4d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Distribuera din app till Azure App Service med en ZIP-fil
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder en ZIP-fil för att distribuera ditt we
 
 Den här ZIP-filen distributionen använder samma Kudu-tjänst som stänger kontinuerlig integration-baserade distributioner. Kudu stöder följande funktioner för distribution av ZIP-filen: 
 
-- Borttagning av filer som kan komma från en tidigare distribution.
+- Borttagning av filer som kvar från en tidigare distribution.
 - Alternativet för att aktivera build processen, som innehåller paketet återställning.
 - [Distributionsanpassning](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), inklusive skriptkörning för distribution.  
 - Distributionsloggar. 

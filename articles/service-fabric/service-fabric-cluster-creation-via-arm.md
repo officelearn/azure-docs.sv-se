@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl är standardslutpunkten som Azure AD tillbaka till använ
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [klassiska Azure-portalen][azure-classic-portal], bör du se två nya poster:
+Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
 
    * *Klusternamn*\_kluster
    * *Klusternamn*\_klienten
@@ -615,7 +615,7 @@ Om du stöter på problem och få kryptiskt meddelanden, Använd ”-Debug” so
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Tilldela användare till roller
-När du har skapat de program som ska representera klustret tilldelar användarna till de roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela roller med hjälp av den [klassiska Azure-portalen][azure-classic-portal].
+När du har skapat de program som ska representera klustret tilldelar användarna till de roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela roller med hjälp av den [Azure-portalen][azure-portal].
 
 1. Gå till din klient i Azure-portalen och väljer sedan **program**.
 2. Välj webbprogram som har ett namn som `myTestCluster_Cluster`.
@@ -693,7 +693,7 @@ Du har nu en säker kluster med Azure Active Directory med management-autentiser
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

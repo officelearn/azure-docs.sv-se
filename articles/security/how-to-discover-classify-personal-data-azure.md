@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Identifiera, identifiera och klassificera personliga data i Microsoft Azure
 
@@ -183,9 +183,9 @@ blogginlägg. Och Läs mer länkarna nedan för mer om Azure Information Protect
 
 Börja med grunderna, finns det [Azure CosmosD DB: hur man frågan med hjälp av SQL](../cosmos-db/tutorial-query-documentdb.md) kursen. Självstudierna innehåller ett exempel på dokument och två exempel SQL-frågor och resultat.
 
-Mer detaljerad vägledning om hur du skapar SQL-frågor finns [SQL-frågor för Cosmos-dokumentet på Azure DB DB API: et.](../cosmos-db/documentdb-sql-query.md)
+Mer detaljerad vägledning om hur du skapar SQL-frågor finns [SQL-frågor för Cosmos-dokumentet på Azure DB DB API: et.](../cosmos-db/sql-api-sql-query.md)
 
-Om du inte har använt Azure Cosmos DB och vill veta hur du skapar en databas, lägga till en samling och lägga till data, finns det [Azure Cosmos DB: skapa en SQL-API-webbapp](../cosmos-db/create-documentdb-dotnet.md) Snabbstartsguide. Om du vill göra detta i ett annat språk än .NET, till exempel Java eller Python, Välj ditt språk när du kommer till platsen.
+Om du inte har använt Azure Cosmos DB och vill veta hur du skapar en databas, lägga till en samling och lägga till data, finns det [Azure Cosmos DB: skapa en SQL-API-webbapp](../cosmos-db/create-sql-api-dotnet.md) Snabbstartsguide. Om du vill göra detta i ett annat språk än .NET, till exempel Java eller Python, Välj ditt språk när du kommer till platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 

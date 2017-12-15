@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -129,7 +129,7 @@ Oavsett vilken funktion för affärskontinuitet du använder, måste du:
 Om du inte framställer korrekt, att dina program online efter en växling vid fel eller en databasåterställning tar extra tid och kan också kräva felsökning i taget stress - en felaktig kombination.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Växla över till en sekundär geo-replikerade-databas
-Om du använder aktiv geo-replikering och automatisk redundans grupper (i förhandsversion) som återställningsmekanism för kan du konfigurera en princip för automatisk redundans eller använda [manuell växling](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Efter växling vid fel gör att sekundärt att bli den nya primärt och är redo att registrera nya transaktioner och besvara frågor – med minimal dataförlust för de data som inte har replikerats. Information om hur du utformar failover-processen finns [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Om du använder aktiv geo-replikering och automatisk redundans grupper (i förhandsversion) som återställningsmekanism för kan du konfigurera en princip för automatisk redundans eller använda [manuell växling](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Efter växling vid fel gör att sekundärt att bli den nya primärt och är redo att registrera nya transaktioner och besvara frågor – med minimal dataförlust för de data som inte har replikerats. Information om hur du utformar failover-processen finns [utforma ett program för katastrofåterställning i molnet](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > När Datacenter är tillbaka online återansluta till den nya primärt gamla primärfärgerna automatiskt och blir sekundära databaser. Om du behöver flytta primära tillbaka till den ursprungliga regionen du kan starta en planerad redundans manuellt (återställning). 

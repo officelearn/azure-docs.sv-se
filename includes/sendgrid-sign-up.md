@@ -1,7 +1,7 @@
 Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnadsfria e-postmeddelandena varje månad får du åtkomst till avancerade rapporter och analyser samt [alla API:er][all APIs] (bland annat webb, SMTP, händelser och parsning). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Registrera ett SendGrid-konto
-1. Logga in på [Azure-hanteringsportalen][Azure Management Portal].
+1. Logga in på den [Azure-portalen][Azure portal].
 2. Klicka på **Nytt** i den vänstra menyn.
 
     ![command-bar-new][command-bar-new]
@@ -82,7 +82,7 @@ Om du vill hantera inställningarna för e-postleverans så klickar du på knapp
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

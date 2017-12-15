@@ -7,12 +7,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.date: 12/13/2017
+ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
 
@@ -67,7 +67,7 @@ Följande instruktionerna leder dig igenom processen för att konfigurera körni
         - ”Installera Azure Python SDK”
     - Klient-ID-post, secret och klient-ID för Azure Active Directory-program kommer du att skapa. Dessa autentiseringsuppgifter används senare i den här kursen.
     - När detta skrivs Azure Machine Learning arbetsstationen och Azure Batch AI kan du använda separata fildelar av Azure CLI 2.0. För tydlighetens skull kallar vi i arbetsstationen version av CLI som ”en CLI som startas från Azure Machine Learning arbetsstationen” och allmänna-versionen (som innehåller Batch AI) ”Azure CLI 2.0”.
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)en kostnadsfria verktyg för att koordinera filöverföring mellan Azure storage-konton
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)en kostnadsfria verktyg för att koordinera filöverföring mellan Azure storage-konton
     - Kontrollera att mappen som innehåller den körbara filen AzCopy finns på systemets PATH-miljövariabeln. (Instruktioner för att ändra miljövariabler finns [här](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - En SSH-klienten. Vi rekommenderar [PuTTY](http://www.putty.org/).
 
@@ -157,14 +157,14 @@ Nu kan vi skapa storage-konto att värdar projektfiler som måste kunna nås av 
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Förvänta dig filöverföring ta upp till 20 minuter. Medan du väntar kan du fortsätta till följande avsnitt: du kan behöva öppna en annan kommandoradsgränssnittet via arbetsstationen och definiera om det tillfälliga variabler.
+    Förvänta dig filöverföring ta ungefär en timme. Medan du väntar kan du fortsätta till följande avsnitt: du kan behöva öppna en annan kommandoradsgränssnittet via arbetsstationen och definiera om det tillfälliga variabler.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Skapa HDInsight Spark-kluster
 
 Vår metod som rekommenderas för att skapa ett HDInsight-kluster använder HDInsight Spark-kluster resource manager-mallen finns i undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet.
 
 1. Mallen HDInsight Spark-klustret är i ”template.json” filen undermappen ”Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning” i det här projektet. Som standard skapar mallen ett Spark-kluster med 40 arbetsnoderna. Om du måste justera numret öppna mallen i valfri textredigerare och Ersätt alla förekomster av ”40” med worker nodnumret på ditt val.
-    - Minnet är slut fel kan inträffa om antalet arbetarnoder som du väljer är liten. För att bekämpa minnesfel, kan du köra skript utbildning och operationalization för en delmängd med tillgängliga data som beskrivs senare i det här dokumentet.
+    - Minnet är slut fel kan inträffa senare om antalet arbetarnoder som du väljer är mindre. För att bekämpa minnesfel, kan du köra skript utbildning och operationalization för en delmängd med tillgängliga data som beskrivs senare i det här dokumentet.
 2. Välj ett unikt namn och lösenord för till HDInsight-kluster och skriva dem där det anges i följande kommando: skapa klustret genom att utfärda kommandon:
 
     ```
@@ -248,12 +248,10 @@ Om du vill kan du bekräfta att dataöverföringen har fortsatte som planerat ge
 
 #### <a name="create-a-batch-ai-cluster"></a>Skapa en Batch AI-kluster
 
-1. Skapa klustret genom att köra följande kommandon:
+1. Skapa klustret genom att följande kommando:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Använd följande kommando för att kontrollera Etableringsstatus för klustret:
@@ -304,7 +302,7 @@ När HDInsight-klustret har skapats, registrerar du klustret som beräkning mål
 1.  Kör du följande kommando från Azure Machine Learning kommandoradsgränssnittet:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Detta kommando lägger till två filer, `myhdi.runconfig` och `myhdi.compute`, i ditt projekt `aml_config` mapp.

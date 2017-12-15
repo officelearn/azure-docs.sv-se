@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sakernas Internet security från grunden
 Sakernas Internet (IoT) utgör unika säkerhet, sekretess och kompatibilitet utmaningar för företag över hela världen. Till skillnad från traditionella cyber teknik där problemen omfångsfasen handlar om programvara och hur den har implementerats gäller IoT vad som händer när cyber och fysiska arbetslivet Konvergera. Skydda IoT-lösningar kräver att säkerställa säker etablering av enheter, säker anslutning mellan dessa enheter och molnet och säkert dataskydd i molnet under bearbetning och lagring. Arbeta mot dessa funktioner är dock begränsad resurs enheter, geografisk fördelning av distributioner och ett stort antal enheter i en lösning.
@@ -84,7 +84,7 @@ Azure IoT Suite hjälper att säkra data för från krypterad kommunikation till
 
 När data finns i molnet, kan de bearbetas och lagras i alla användardefinierade arbetsflöden. Åtkomst till varje del av informationen som kontrolleras med Azure Active Directory, beroende på lagringstjänsten som används.
 
-Alla nycklar som används av IoT-infrastruktur lagras i molnet i säker lagring med möjlighet att rulla över om nycklar måste vara etablerade igen. Data kan lagras i [Azure Cosmos DB](../documentdb/documentdb-introduction.md) eller i [SQL-databaser](../sql-database/sql-database-faq.md), aktivera definitionen av säkerhetsnivån som önskas. Azure tillhandahåller också ett sätt att övervaka och granska all åtkomst till dina data att varna dig om eventuella intrång eller obehörig åtkomst.
+Alla nycklar som används av IoT-infrastruktur lagras i molnet i säker lagring med möjlighet att rulla över om nycklar måste vara etablerade igen. Data kan lagras i [Azure Cosmos DB](../cosmos-db/introduction.md) eller i [SQL-databaser](../sql-database/sql-database-faq.md), aktivera definitionen av säkerhetsnivån som önskas. Azure tillhandahåller också ett sätt att övervaka och granska all åtkomst till dina data att varna dig om eventuella intrång eller obehörig åtkomst.
 
 ## <a name="conclusion"></a>Slutsats
 Sakernas Internet börjar med dina saker – de saker som betyder mest för företag. IoT kan leverera häpnadsväckande värdet till ett företag genom att minska kostnaderna, öka intäkter och omvandla företag. Lyckats transformationen beror till stor del på att välja rätt IoT programvara och service provider. Det innebär att hitta en provider som inte bara catalyzes transformationen genom att förstå behov och krav, men ger också tjänster och program som skapats med säkerhet, sekretess, genomskinlighet och kompatibilitet som större designöverväganden. Microsoft har omfattande erfarenhet av att utveckla och distribuera säkra program och tjänster och fortsätter att vara ledande i den här nya ålder Sakernas Internet. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Mål Azure Cosmos DB för JSON-utdata från Stream Analytics
 Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) att aktivera arkivering och låg latens datafrågor på Ostrukturerade JSON-data för JSON-utdata. Det här dokumentet beskrivs några metoder för att implementera den här konfigurationen.
@@ -48,7 +48,7 @@ Cosmos DB [partitionerade samlingar](../cosmos-db/partition-data.md) är den rek
 
 För enkel Cosmos DB samlingar kan Stream Analytics du fortfarande partitionera data baserat på både den frågemönster och prestanda för programmet. Varje samling kan innehålla upp till 10GB data (max) och det finns för närvarande inget sätt att skala upp (eller dataspill) en samling. För att skala ut Stream Analytics gör att du kan skriva till flera samlingar med ett givet prefix (se användningsinformation nedan). Stream Analytics använder det konsekvent [hash-Partition matcharen](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) strategi baserat på användaren som PartitionKey kolumnen partitionera dess utdata-poster. Antal samlingar med det angivna prefixet vid strömning jobbets starttid används som utdata antalet partitioner, som jobbet skriver till parallellt (Cosmos DB samlingar = utdata partitioner). För en enda samling med lazy indexering detta endast infogar, om 0,4 som kan förväntas MB/s genomströmning för skrivning. Med hjälp av flera samlingar kan du uppnå högre genomflöde och bättre kapacitet.
 
-Om du vill öka antalet partitioner i framtiden, kan du behöva stoppa jobbet, där data från din befintliga samlingar till nya samlingar och starta sedan om Stream Analytics-jobbet. Mer information om att använda PartitionResolver och nytt partitionering tillsammans med exempelkod inkluderas i en e-post. Artikeln [partitionering och skalning i Cosmos DB](../documentdb/documentdb-partition-data.md) innehåller även information om detta.
+Om du vill öka antalet partitioner i framtiden, kan du behöva stoppa jobbet, där data från din befintliga samlingar till nya samlingar och starta sedan om Stream Analytics-jobbet. Mer information om att använda PartitionResolver och nytt partitionering tillsammans med exempelkod inkluderas i en e-post. Artikeln [partitionering och skalning i Cosmos DB](../cosmos-db/sql-api-partition-data.md) innehåller även information om detta.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Cosmos DB inställningar för JSON-utdata
 Skapa Cosmos DB som utdata i Stream Analytics genererar en fråga om information som visas nedan. Det här avsnittet innehåller en förklaring av egenskaper för definition.

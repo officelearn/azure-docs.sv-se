@@ -6,7 +6,7 @@
 2. Ange önskad DNS-namn och markera sedan **spara**.
    
    ![Ange en etikett för DNS-namn för din offentliga IP-resurs](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. Om du vill återgå till bladet VM översikt, Stäng av *offentliga IP-adressen* bladet. Kontrollera att den *DNS-namnet* nu visas.
    

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79ead157dc7509f035c491f9a4c4290eb4d70334
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och logganalys
 Den [Azure Application Insights](app-insights-overview.md) tjänsten använder ett antal IP-adresser. Du kanske behöver dessa adresser om den app som du övervakar finns bakom en brandvägg.
@@ -30,7 +30,7 @@ Den [Azure Application Insights](app-insights-overview.md) tjänsten använder e
 ## <a name="outgoing-ports"></a>Utgående portar
 Du måste öppna vissa utgående portar i brandväggen för din server att tillåta Application Insights SDK och/eller statusövervakaren att skicka data till portalen:
 
-| Syfte | URL: EN | IP-adress | Portar |
+| Syfte | Webbadress | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Telemetri |DC.Services.visualstudio.com<br/>DC.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Direktsänd dataström mått |rt.Services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
@@ -39,7 +39,7 @@ Du måste öppna vissa utgående portar i brandväggen för din server att till�
 ## <a name="status-monitor"></a>Statusövervakaren
 Status Monitor-konfiguration – behövs bara när du gör ändringar.
 
-| Syfte | URL: EN | IP-adress | Portar |
+| Syfte | Webbadress | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Konfiguration |`management.core.windows.net` | |`443` |
 | Konfiguration |`management.azure.com` | |`443` |
@@ -51,7 +51,7 @@ Status Monitor-konfiguration – behövs bara när du gör ändringar.
 | Installation |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
-| Syfte | URL: EN | IP-adress | Portar |
+| Syfte | Webbadress | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Kraschdata |Gate.hockeyapp.NET |104.45.136.42 |80, 443 |
 
@@ -76,6 +76,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -83,6 +87,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153
@@ -205,21 +213,21 @@ US : VA-Ashburn
 ```  
 
 ## <a name="application-insights-api"></a>Application Insights API
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.IO<br/>api3.applicationinsights.IO<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API-dokumentation |dev.applicationinsights.IO<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.IO<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Internt API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamisk|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics-API
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | API |API.loganalytics.IO<br/>*. api.loganalytics.io |dynamisk |80,443 |
 | API-dokumentation |dev.loganalytics.IO<br/>docs.loganalytics.IO<br/>www.loganalytics.IO |dynamisk |80,443 |
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Analytics-portalen | Analytics.applicationinsights.IO | dynamisk | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamisk | 80,443 |
@@ -229,7 +237,7 @@ Obs! *. applicationinsights.io domän som ägs av Application Insights-teamet.
 
 ## <a name="log-analytics-portal"></a>Log Analytics-portalen
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Portalen | Portal.loganalytics.IO | dynamisk | 80,443 |
 | CDN | applicationanalytics.azureedge.NET | dynamisk | 80,443 |
@@ -238,21 +246,21 @@ Obs! *. loganalytics.io domän som ägs av logganalys-teamet.
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure-Portaltillägg
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Application Insights Extension | stamp2.App.insightsportal.visualstudio.com | dynamisk | 80,443 |
 | Application Insights Extension CDN | insightsportal-prod2-cdn.aisvc.visualstudio.com<br/>insightsportal-prod2-asiae-cdn.aisvc.visualstudio.com<br/>insightsportal-cdn-aimon.applicationinsights.io | dynamisk | 80,443 |
 
 ## <a name="application-insights-sdks"></a>Application Insights SDK
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.VO.msecnd.NET | dynamisk | 80,443 |
 | Application Insights Java SDK | aijavasdk.BLOB.Core.Windows.NET | dynamisk | 80,443 |
 
 ## <a name="profiler"></a>Profilerare
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Agent | Agent.azureserviceprofiler.NET<br/>*. agent.azureserviceprofiler.net | dynamisk | 443
 | Portalen | gateway.azureserviceprofiler.NET | dynamisk | 443
@@ -260,7 +268,7 @@ Obs! *. loganalytics.io domän som ägs av logganalys-teamet.
 
 ## <a name="snapshot-debugger"></a>Felsökning av ögonblicksbild
 
-| Syfte | URI: N | IP-adress | Portar |
+| Syfte | URI | IP-adress | Portar |
 | --- | --- | --- | --- |
 | Agent | ppe.azureserviceprofiler.NET<br/>*. ppe.azureserviceprofiler.net | dynamisk | 443
 | Portalen | ppe.gateway.azureserviceprofiler.NET | dynamisk | 443

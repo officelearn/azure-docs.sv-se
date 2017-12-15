@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -108,7 +108,7 @@ De flesta program måste lagra data, så Överväg att en eller flera av följan
 -   **Azure Cosmos-DB**: en global och flera olika modeller databastjänst som du kan anpassa Elastiskt dataflöden och lagringsutrymmen till alla geografiska områden med en omfattande SLA. 
     >**När du ska använda:** när programmet måste dokumentet, tabell eller diagram databaser, inklusive MongoDB-databaser med flera väldefinierade konsekvenskontroll modeller. 
 
-    >**Kom igång**: [skapa en webbapp i Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Om du utvecklar en MongoDB [bygga en MongoDB-webbapp med Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Kom igång**: [skapa en webbapp i Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Om du utvecklar en MongoDB [bygga en MongoDB-webbapp med Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: erbjuder beständig, högtillgänglig lagring för blobbar, köer, filer och andra typer av icke-relationella data. Lagring utgör lagringsgrunden för virtuella datorer.
 

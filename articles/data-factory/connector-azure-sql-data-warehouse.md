@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -296,7 +296,6 @@ Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factor
 
 3. Det finns inga `skipHeaderLineCount` inställningen **BlobSource** eller **AzureDataLakeStore** för aktiviteten kopiera i pipelinen.
 4. Det finns inga `sliceIdentifierColumnName` inställningen **SqlDWSink** för aktiviteten kopiera i pipelinen. (PolyBase garanterar att alla data har uppdaterats eller ingenting uppdateras i en enda körning. Att uppnå **repeterbarhet**, du kan använda `sqlWriterCleanupScript`).
-5. Det finns ingen `columnMapping` som används i den associerade i kopian aktivitet.
 
 ```json
 "activities":[
@@ -423,7 +422,7 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
-| datum |DateTime |
+| Datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |

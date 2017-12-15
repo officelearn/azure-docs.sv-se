@@ -29,7 +29,7 @@
 
 <sup>1</sup>appar och lagringskvoter är per App Service-plan om inte annat anges.  
 <sup>2</sup>det faktiska antalet appar som du kan vara värd för på dessa datorer beroende aktivitet appar, storleken på datorinstanserna och motsvarande resursutnyttjandet.  
-<sup>3</sup>dedikerade instanser kan vara av olika storlekar. Se [priser för Apptjänst](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) för mer information.  
+<sup>3</sup>dedikerade instanser kan vara av olika storlekar. Se [priser för Apptjänst](https://azure.microsoft.com/pricing/details/app-service/) för mer information.  
 <sup>4</sup>premiumnivån kan upp till 50 beräknar instanser (beroende på tillgänglighet) och 500 GB diskutrymme när du använder Apptjänstmiljöer och 20 compute-instanser och 250 GB lagring på annat sätt.  
 <sup>5</sup>lagringsgränsen är den totala storleken för innehåll över alla appar i samma App Service-plan. Flera lagringsalternativ finns i [Apptjänstmiljö](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>resurserna är begränsad av fysiska resurser för dedikerade instanser (instansstorleken och antalet instanser).  

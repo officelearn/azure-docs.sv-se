@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ta bort prestandanivåer S1, S2 och S3
 
@@ -95,7 +95,7 @@ Om du har 10 S1 samlingar, 1 GB lagringsutrymme i region oss Öst och du migrera
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Vad händer om jag behöver fler än 10 GB lagringsutrymme?
 
-Om du har en samling med en S1, S2 och S3 prestandanivå eller ha en enda partition samling, 10 GB tillgängligt lagringsutrymme som alla har kan du använda Cosmos-Migreringsverktyget DB Data för att migrera dina data till en partitionerad samling med praktiskt taget obegränsade lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](documentdb-partition-data.md). 
+Om du har en samling med en S1, S2 och S3 prestandanivå eller ha en enda partition samling, 10 GB tillgängligt lagringsutrymme som alla har kan du använda Cosmos-Migreringsverktyget DB Data för att migrera dina data till en partitionerad samling med praktiskt taget obegränsade lagring. Information om fördelarna med en partitionerad samling finns [partitionering och skalning i Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,7 +134,7 @@ Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssaml
 
 4. Klicka på **spara** att spara ändringarna.
 
-    Om du anser att du behöver mer genomströmning (större än 10 000 RU/s) eller mer lagringsutrymme (större än 10 GB) kan du skapa en partitionerad samling. Om du vill migrera en enskild partition samling till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](documentdb-partition-data.md#migrating-from-single-partition).
+    Om du anser att du behöver mer genomströmning (större än 10 000 RU/s) eller mer lagringsutrymme (större än 10 GB) kan du skapa en partitionerad samling. Om du vill migrera en enskild partition samling till en partitionerad samling finns [migrera från en enskild partition till partitionerade samlingar](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Ändra från S1, S2 och S3 till Standard kan det ta upp till två minuter.
@@ -143,7 +143,7 @@ Du kan migrera från prestandanivåer S1, S2 och S3 till enskilda partitionssaml
 
 **Att migrera till enskilda partitionssamlingar med .NET SDK**
 
-Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [SQL .NET API](documentdb-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
+Ett annat alternativ för att ändra din samlingar prestandanivåer är via Azure Cosmos DB SDK. Det här avsnittet beskriver bara ändra prestanda för en samling nivå med hjälp av den [SQL .NET API](sql-api-sdk-dotnet.md), men processen är liknande för våra andra SDK: er.
 
 Här är ett kodfragment för att ändra samlingen genomströmning till 5 000 frågeenheter per sekund:
     
@@ -177,6 +177,6 @@ EA-kunder kommer att pris skyddade till slutet av avtalets aktuella.
 ## <a name="next-steps"></a>Nästa steg
 Mer information om priser och hantera data med Azure Cosmos DB utforska dessa resurser:
 
-1.  [Partitionering data i Cosmos DB](documentdb-partition-data.md). Förstå skillnaden mellan enskild partition behållare och partitionerade behållare samt tips om hur du implementerar en partitioneringsstrategi att sömlöst skala.
+1.  [Partitionering data i Cosmos DB](sql-api-partition-data.md). Förstå skillnaden mellan enskild partition behållare och partitionerade behållare samt tips om hur du implementerar en partitioneringsstrategi att sömlöst skala.
 2.  [Priser för cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Läs mer om kostnaden för etablering genomflöde och använda lagring.
 3.  [Enheter för programbegäran](request-units.md). Förstå förbrukningen av genomströmning för olika åtgärdstyper, till exempel läsa, skriva frågan.

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos-DB som en nyckel/värde-lagring – kostnaden översikt
 
-Azure Cosmos DB är en global och flera olika modeller databastjänst för att skapa hög tillgänglighet, storskaliga program enkelt. Som standard indexerar Azure Cosmos DB automatiskt alla data som den en effektivt. Detta gör att snabb och konsekvent [SQL](documentdb-sql-query.md) (och [JavaScript](programming.md)) frågor för alla typer av data. 
+Azure Cosmos DB är en global och flera olika modeller databastjänst för att skapa hög tillgänglighet, storskaliga program enkelt. Som standard indexerar Azure Cosmos DB automatiskt alla data som den en effektivt. Detta gör att snabb och konsekvent [SQL](sql-api-sql-query.md) (och [JavaScript](programming.md)) frågor för alla typer av data. 
 
 Den här artikeln beskriver kostnaden för Azure Cosmos DB för att enkelt skriva och läsåtgärder när den används som en nyckel/värde-arkivet. Skriva operations inkluderar infogningar, ersätter, borttagningar och upserts av dokument. Förutom att garantera en 99,99% läsa tillgänglighets-SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% tillgänglighet för alla flera regioner databasen konton Azure Cosmos DB erbjudanden garanteras < 10 ms latens för läser och < 15 ms latens för (indexerade) skriver respektive vid 99th percentilen. 
 

@@ -1,12 +1,12 @@
-I Cloud Shell skapar du en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create). 
+I Cloud Shell skapar du en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
-I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9`, och `-`). Körningen har angetts till `dotnetcore|1.1`. Om du vill se alla stöds körningar kör [az webapp lista-körningar](/cli/azure/webapp#az_webapp_list_runtimes). 
+Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `dotnetcore|1.1`. Om du vill se alla körningar som stöds kör du [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
 ```
 
-När webbappen har skapats visas Azure CLI utdata liknar följande exempel:
+När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -27,5 +27,5 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 Du har skapat ett tomt webbprogram i en Linux-behållare med git-distribution som är aktiverad.
 
 > [!NOTE]
-> URL för Git-fjärråtkomstprincipen visas i den `deploymentLocalGitUrl` egenskap med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL: en som du behöver senare.
+> URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >

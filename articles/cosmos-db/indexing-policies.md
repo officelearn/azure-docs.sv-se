@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
@@ -183,7 +183,7 @@ Här följer stöds index typer och exempel på frågor som de kan användas fö
 | Typ av index | Beskrivning/användningsfall                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hash       | Hash-över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Hash över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var taggen = 5                                                                                                                       |
-| Intervall      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
+| intervallet      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
 | Spatial     | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>VAR ST_DISTANCE (c.prop, {”typ”: ”plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj från samlingen c där ST_WITHIN(c.prop, {"type": "Polygon",...})--med indexering punkter aktiverad<br><br>Välj från samlingen c där ST_WITHIN({"type": "Point",...}, c.prop)--med indexering på polygoner aktiverad              |
 
 Som standard returneras ett fel för frågor med intervallet operatorer som > = om det finns inga intervall index (för alla precision) för att signalera att en genomsökning kan vara nödvändigt att hantera frågan. Intervallet frågor kan utföras utan ett intervall index med x-ms-documentdb-enable-genomsökning huvudet i REST-API eller alternativet EnableScanInQuery som med .NET SDK. Om det finns andra filter i frågan att Azure Cosmos DB kan använda indexet för att filtrera mot sedan inga fel returneras.
@@ -229,7 +229,7 @@ Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument. 
 
 Du kan fortfarande selektivt lägga till endast vissa dokument med automatisk indexering avstängd, i indexet. Däremot kan du lämna automatisk indexering på och selektivt välja att utesluta endast vissa dokument. Indexering på/av konfigurationer är användbara när du har bara en del av dokument som behöver efterfrågas.
 
-Till exempel i följande exempel visas hur du lägger till ett dokument som uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
+Till exempel i följande exempel visas hur du lägger till ett dokument som uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ Följ länkarna nedan för index princip för hantering av prover och vill veta 
 
 1. [SQL API .NET indexhantering kodexempel](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Åtgärder för insamling av SQL API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Fråga med SQL](documentdb-sql-query.md)
+3. [Fråga med SQL](sql-api-sql-query.md)
 

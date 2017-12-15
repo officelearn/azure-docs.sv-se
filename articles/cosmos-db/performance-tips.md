@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1f56e7ae96388ff1135017e07771138ebfc5ac33
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Prestandatips för Azure Cosmos DB
 
@@ -88,7 +88,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 ## <a name="sdk-usage"></a>SDK-användning
 1. **Installera den senaste SDK**
 
-    DB-SDK Cosmos är ständigt bättre för att tillhandahålla bästa prestanda. Finns det [Cosmos DB SDK](documentdb-sdk-dotnet.md) sidor för att avgöra den senaste SDK och granska förbättringar.
+    DB-SDK Cosmos är ständigt bättre för att tillhandahålla bästa prestanda. Finns det [Cosmos DB SDK](sql-api-sdk-dotnet.md) sidor för att avgöra den senaste SDK och granska förbättringar.
 2. **Använd klienten en singleton-Cosmos-DB för livslängden för ditt program**
 
     Observera att varje DocumentClient-instans är trådsäker och utför effektiv hantering och cachelagring av adresser när direkt läge. Om du vill tillåta effektiv hantering och bättre prestanda med DocumentClient, rekommenderas att använda en enda instans av DocumentClient per AppDomain för livslängden för programmet.
@@ -99,7 +99,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     Cosmos DB begäranden som görs via HTTPS/RESTEN när du använder Gateway-läge och genomgår Standardgränsen för anslutning per värdnamn eller IP-adress. Du kan behöva ange MaxConnections till ett högre värde (100-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Cosmos DB. I .NET SDK 1.8.0 och senare standardvärdet för [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) är 50 och du kan ange om du vill ändra värdet på [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) till ett högre värde.   
 4. **Justera parallella frågor för partitionerade samlingar**
 
-     SQL .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra hur många tidigare hämtade resultat.
+     SQL .NET SDK version 1.9.0 och högre support parallella frågor, vilket gör det möjligt att fråga en partitionerad samling parallellt (se [arbeta med SDK: erna](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) och den relaterade [kodexempel](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) för mer information). Parallella frågor är utformade för att förbättra svarstid och genomströmning över sin seriella motsvarighet. Parallella frågor ange två parametrar som användare kan justera för anpassade efter deras krav, (a) MaxDegreeOfParallelism: att kontrollera det maximala antalet partitioner sedan kan efterfrågas parallellt och (b) MaxBufferedItemCount: att styra hur många tidigare hämtade resultat.
 
     (a) ***justera MaxDegreeOfParallelism\:***  parallell frågan fungerar genom att fråga flera partitioner parallellt. Dock hämtas data från en enskild partitionerade samla in seriellt med avseende på frågan. Så har om MaxDegreeOfParallelism till antalet partitioner högsta risken för att uppnå de flesta performant frågan, förutsatt att alla andra system villkoren förblir oförändrade. Om du inte vet antalet partitioner, du kan ange MaxDegreeOfParallelism till ett stort antal och minsta (antal partitioner, tillhandahålls användarindata) som MaxDegreeOfParallelism väljs automatiskt.
 
@@ -113,7 +113,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
     Minska frekvensen för skräpinsamling kan hjälpa i vissa fall. Ange i .NET, [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) till true.
 6. **Implementera backoff med RetryAfter intervall**
 
-    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Stöd för återförsök Grupprincip ingår i Version 1.8.0 och senare av SQL [.NET](documentdb-sdk-dotnet.md) och [Java](documentdb-sdk-java.md), version 1.9.0 och högre av de [Node.js](documentdb-sdk-node.md) och [Python](documentdb-sdk-python.md), och alla versioner av stöds i [.NET Core](documentdb-sdk-dotnet-core.md) SDK: er. Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Stöd för återförsök Grupprincip ingår i Version 1.8.0 och senare av SQL [.NET](sql-api-sdk-dotnet.md) och [Java](sql-api-sdk-java.md), version 1.9.0 och högre av de [Node.js](sql-api-sdk-node.md) och [Python](sql-api-sdk-python.md), och alla versioner av stöds i [.NET Core](sql-api-sdk-dotnet-core.md) SDK: er. Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Skala upp din klient arbetsbelastning**
 
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på processor eller användning. Om du når den här punkten kan fortsätta du att push-Cosmos-DB kontot ytterligare genom att skala ut ditt klientprogram på flera servrar.

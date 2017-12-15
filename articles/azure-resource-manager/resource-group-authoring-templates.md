@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå struktur och syntaxen för Azure Resource Manager-mallar
 Den här artikeln beskriver strukturen i en Azure Resource Manager-mall. Det innehåller olika avsnitt i en mall och egenskaper som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. En stegvis självstudiekurs om hur du skapar en mall finns i [skapa din första Azure Resource Manager-mallen](resource-manager-create-first-template.md).
@@ -139,18 +139,16 @@ Varje element innehåller egenskaper som du kan ange. I följande exempel inneh�
 
 Den här artikeln beskriver avsnitt i mallen i detalj.
 
-## <a name="expressions-and-functions"></a>Uttryck och funktioner
+## <a name="syntax"></a>Syntax
 Den grundläggande syntaxen i mallen är JSON. Dock utöka uttryck och funktioner i JSON-värden som är tillgängliga i mallen.  Uttryck skrivs i JSON-stränglitteraler vars första och sista tecknen är hakparenteserna: `[` och `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Medan skrivs som en teckensträng kan resultat av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris eller ett heltal, beroende på det faktiska uttrycket.  Att ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
 
 Normalt använder du uttryck med funktioner för att utföra åtgärder för att konfigurera distributionen. Precis som i JavaScript-funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du kan referera egenskaper genom att använda operatorerna punkt och [index].
 
-I följande exempel visas hur du använder flera funktioner vid värden:
+I följande exempel visas hur du använder flera funktioner när man skapar ett-värde:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -209,35 +207,16 @@ Mer information finns i [resurser avsnitt i Azure Resource Manager-mallar](resou
 ## <a name="outputs"></a>Utdata
 I avsnittet utdata anger du värden som returneras från distributionen. Du kan till exempel returnera URI: N för att komma åt en resurs som är distribuerad.
 
-I följande exempel visar strukturen för en definition av utdata:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Elementnamn | Krävs | Beskrivning |
-|:--- |:--- |:--- |
-| outputName |Ja |Namnet på värdet. Måste vara en giltig JavaScript-identifierare. |
-| typ |Ja |Typ av utdatavärde. Utdatavärden stöd för samma datatyper som mall indataparametrar. |
-| värde |Ja |Mallspråksuttrycket som utvärderas och returneras som utdata. |
-
-I följande exempel visar ett värde som returneras i avsnittet utdata.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-Mer information om hur du arbetar med utdata finns [dela tillstånd i Azure Resource Manager-mallar](best-practices-resource-manager-state.md).
+Mer information finns i [matar ut Azure Resource Manager-mallar](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Mallen gränser
 

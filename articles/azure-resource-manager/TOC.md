@@ -19,11 +19,7 @@
 ### [Länk till andra mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
-### [Ange en plats](resource-manager-template-location.md)
-### [Tilldela taggar](resource-manager-template-tags.md)
-### [Ange underordnat resursnamn och typ](resource-manager-template-child-resource.md)
 ### [Uppdatera resurs](resource-manager-update.md)
-### [Använda objekt för parametrar](resource-manager-objects-as-parameters.md)
 ### [Dela tillstånd mellan länkade mallar](best-practices-resource-manager-state.md)
 ### [Mönster för att utforma mallar](best-practices-resource-manager-design-templates.md)
 

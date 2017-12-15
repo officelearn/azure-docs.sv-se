@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -47,7 +47,11 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     a. Logga in på den fysiska värden på Azure Stack Development Kit (ASDK)-installationer.
 
-    b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
+    b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten. 
+    
+    >[!NOTE]
+    > System där skriptet körs *måste* vara en Windows 10 eller Windows Server 2016 system med den senaste versionen av .NET-körningsmiljön installerad. Annars misslyckas installationen. ASDK värden uppfyller kriterierna.
+
 
 3. Hämta SQL resursprovidern binära och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
 
@@ -56,16 +60,19 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     | Azure-stacken Build | SQL RP installer |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP version 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
-    Om du måste ange ditt eget certifikat, måste följande certifikat:
+    Om du måste ange ditt eget certifikat, måste en PFX-fil placeras i den **DependencyFilesLocalPath** (se nedan) enligt följande:
 
-    Ett jokerteckencertifikat för \*.dbadapter.\< region\>.\< externa fqdn\>. Det här certifikatet måste vara betrott, utfärdats som av en certifikatutfärdare. Det vill säga måste förtroendekedja för finnas utan mellanliggande certifikat. En enda platscertifikat kan användas med explicit VM namn [sqladapter] används under installationen.
+    - Antingen ett jokerteckencertifikat för \*.dbadapter.\< region\>.\< externa fqdn\> eller en enda platscertifikat med ett eget namn för sqladapter.dbadapter.\< region\>.\< externa fqdn\>
+    - Det här certifikatet måste vara betrott, utfärdats som av en certifikatutfärdare. Det vill säga måste förtroendekedja för finnas utan mellanliggande certifikat.
+    - En enda certifikatfil finns i DependencyFilesLocalPath.
+    - Filnamnet får inte innehålla specialtecken.
 
 
 5. Öppna en **nya** utökade (administratör) PowerShell-konsolen och ändra till katalogen där du extraherade filerna. Använd ett nytt fönster för att undvika problem som kan uppstå i felaktigt PowerShell-moduler som redan har lästs in i systemet.

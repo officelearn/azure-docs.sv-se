@@ -4,7 +4,7 @@ description: "Lära sig använda molnet init och Key Vault till customze virtuel
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Så här anpassar du en virtuell Linux-dator vid den första starten
 I en tidigare kursen du lärt dig hur du vill SSH till en virtuell dator (VM) och manuellt installera NGINX. Om du vill skapa virtuella datorer på ett snabbt och konsekvent sätt önskade vanligtvis någon form av automatisering. Ett vanligt sätt att anpassa en VM på första start är att använda [moln init](https://cloudinit.readthedocs.io). I den här självstudiekursen får du lära du dig att:
@@ -39,7 +39,7 @@ Om du väljer att installera och använda CLI lokalt kursen krävs att du använ
 
 
 
-## <a name="cloud-init-overview"></a>Översikt över molntjänster initiering
+## <a name="cloud-init-overview"></a>Översikt över Cloud-init
 [Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
 
 Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
@@ -51,6 +51,8 @@ Vi arbetar med våra partner att hämta molnet initiering ingår och arbeta med 
 | UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |senaste |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |senaste |
 | CoreOS |CoreOS |CoreOS |Stable |senaste |
+| | OpenLogic | CentOS | 7 CI | senaste |
+| | Redhat | RHEL | 7 RÅDATA CI | senaste
 
 
 ## <a name="create-cloud-init-config-file"></a>Skapa moln init-konfigurationsfil

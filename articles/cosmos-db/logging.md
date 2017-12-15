@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -38,7 +38,7 @@ Använd den här kursen och kom igång med Azure Cosmos DB loggning via Azure-po
 ## <a name="prerequisites"></a>Krav
 Den här kursen behöver du följande resurser:
 
-* En befintlig Azure Cosmos DB kontot, databas och behållare. Anvisningar om hur du skapar de här resurserna finns [skapa ett databaskonto i Azure Portal](create-documentdb-dotnet.md#create-a-database-account), [CLI prover](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
+* En befintlig Azure Cosmos DB kontot, databas och behållare. Anvisningar om hur du skapar de här resurserna finns [skapa ett databaskonto i Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [CLI prover](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Aktivera loggning i Azure-portalen

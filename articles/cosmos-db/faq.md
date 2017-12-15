@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -111,12 +111,12 @@ Kom ihåg att Azure Cosmos DB respekterar statliga och offentliga moln när du s
 ## <a name="develop-against-the-sql-api"></a>Utveckla mot SQL-API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hur börjar jag utveckla mot SQL-API?
-Du måste först registrera dig för en Azure-prenumeration. När du registrerar dig för en Azure-prenumeration kan du lägga till en SQL-API-behållare till din Azure-prenumeration. Anvisningar för att lägga till ett konto i Azure Cosmos DB finns [skapa ett databaskonto Azure Cosmos DB](create-documentdb-dotnet.md#create-account). 
+Du måste först registrera dig för en Azure-prenumeration. När du registrerar dig för en Azure-prenumeration kan du lägga till en SQL-API-behållare till din Azure-prenumeration. Anvisningar för att lägga till ett konto i Azure Cosmos DB finns [skapa ett databaskonto Azure Cosmos DB](create-sql-api-dotnet.md#create-account). 
 
-[SDK:er](documentdb-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java. Utvecklare kan också använda den [RESTful http-API: er](/rest/api/documentdb/) att interagera med Azure Cosmos DB resurser från olika plattformar och språk.
+[SDK:er](sql-api-sdk-dotnet.md) är tillgängliga för .NET, Python, Node.js, JavaScript och Java. Utvecklare kan också använda den [RESTful http-API: er](/rest/api/documentdb/) att interagera med Azure Cosmos DB resurser från olika plattformar och språk.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Kan jag använda vissa färdiga prov för att komma igång?
-Exempel för SQL-API [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), och [Python](documentdb-python-samples.md) SDK finns på GitHub.
+Exempel för SQL-API [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), och [Python](sql-api-python-samples.md) SDK finns på GitHub.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>API för SQL-databas som har stöd för schemafria data?
@@ -131,16 +131,16 @@ En samling är en grupp av dokument och deras associerade JavaScript-programlogi
 Samlingar är också faktureringsenheterna för Azure Cosmos DB. Varje samling faktureras timvis baserat på etablerat dataflöde och använt lagringsutrymme. Mer information finns i [priser för Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Hur skapar jag en databas?
-Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [lägger till en samling](create-documentdb-dotnet.md#create-collection), med en av de [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md), eller [REST API: er](/rest/api/documentdb/). 
+Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [lägger till en samling](create-sql-api-dotnet.md#create-collection), med en av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hur ställer jag in användare och behörigheter?
-Du kan skapa användare och behörigheter genom att använda en av de [Cosmos DB API SDK](documentdb-sdk-dotnet.md) eller [REST API: er](/rest/api/documentdb/).  
+Du kan skapa användare och behörigheter genom att använda en av de [Cosmos DB API SDK](sql-api-sdk-dotnet.md) eller [REST API: er](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>Stöder SQL-API SQL?
 SQL-frågespråket stöds av SQL-API-konton är en förbättrad underuppsättning av de frågefunktioner som stöds av SQL Server. Azure Cosmos-Databasens SQL-frågespråket ger omfattande hierarkiska och relationella operatorer och kan utvidgas via JavaScript-baserade, användardefinierade funktioner (UDF). JSON-grammatik gör det möjligt för att modellera JSON-dokument som träd med märkt noder som används av både Azure Cosmos DB tekniker för automatisk indexering och SQL-frågedialekt av Azure Cosmos DB. Information om hur du använder SQL-grammatik finns i [SQL-frågan] [ query] artikel.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Stöder SQL-API SQL aggregeringsfunktioner?
-SQL-API: et stöder låg latens aggregering skaländras via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktionerna](documentdb-sql-query.md#Aggregates).
+SQL-API: et stöder låg latens aggregering skaländras via mängdfunktioner `COUNT`, `MIN`, `MAX`, `AVG`, och `SUM` via SQL-grammatik. Mer information finns i [mängdfunktionerna](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller till SQL API samtidighet?
 SQL-API: et stöder optimistisk samtidighetskontroll (OCC) via HTTP-entitetstaggar eller ETags. Varje SQL API-resurs har en ETag och ETag är inställd på servern varje gång ett dokument har uppdaterats. ETag-sidhuvud och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-sidhuvudet så att servern för att avgöra om en resurs ska uppdateras. Värdet för If-Match är ETag-värde som ska kontrolleras mot. Om ETag-värde matchar serverns ETag-värde, uppdateras resursen. Om en ETag är inte längre aktuell, avvisar servern igen med ett ”HTTP 412 Förutsättningsfel” svarskoden. Klienten hämtar sedan nytt resurs för att få det aktuella ETag-värdet för resursen. ETags kan dessutom användas med If-None-Match-sidhuvudet för att avgöra om nytt hämta av en resurs som behövs.
@@ -292,7 +292,7 @@ Ja, samma API stöds.
 Nej, kan du skapa och använda befintliga Azure Table storage tillgångar utan avbrott av något slag. Om du inte använder tabell-API, kan inte du omfattas av automatisk indexet, ytterligare konsekvenskontroll alternativet eller distributionslistor. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Hur lägger jag till replikering av data i tabellen API över flera regioner Azure?
-Du kan använda Azure DB som Cosmos-portalen [globala replikeringsinställningarna](tutorial-global-distribution-documentdb.md#portal) du lägger till regioner som är lämpliga för ditt program. För att utveckla ett globalt distribuerat program bör du också lägga till programmet PreferredLocation uppgifterna till den lokala regionen för att tillhandahålla låg latens som skrivskyddade. 
+Du kan använda Azure DB som Cosmos-portalen [globala replikeringsinställningarna](tutorial-global-distribution-sql-api.md#portal) du lägger till regioner som är lämpliga för ditt program. För att utveckla ett globalt distribuerat program bör du också lägga till programmet PreferredLocation uppgifterna till den lokala regionen för att tillhandahålla låg latens som skrivskyddade. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Hur ändrar jag primära write-region för kontot i tabell-API
 Du kan använda fönstret Azure Cosmos DB globala replikering portal för att lägga till en region och sedan växla över till den nödvändiga regionen. Instruktioner finns i [utveckling med flera regioner Azure Cosmos DB konton](regional-failover.md). 
@@ -368,7 +368,7 @@ Från .NET SDK lämnas den i filen app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos-DB en plattform som verkar ha många funktioner, t.ex sortera, aggregeringar, hierarkin och andra funktioner. Du lägger till dessa funktioner tabell-API: et? 
-Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos-DB också stöd för sortering, aggregeringar, geospatiala frågan, hierarki och en mängd olika inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](documentdb-sql-query.md).
+Tabell-API ger samma fråga funktioner som Azure Table storage. Azure Cosmos-DB också stöd för sortering, aggregeringar, geospatiala frågan, hierarki och en mängd olika inbyggda funktioner. Vi ger ytterligare funktioner i tabellen API i en framtida tjänstuppdatering. Mer information finns i [SQL-frågor](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När bör jag ändra TableThroughput för tabell-API
 Du bör ändra TableThroughput när någon av följande villkor gäller:
@@ -540,4 +540,4 @@ Apache Cassandra API ger samma CQL funktioner som Apache Cassandra. Vi planerar 
 Ge feedback via [uservoice-feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

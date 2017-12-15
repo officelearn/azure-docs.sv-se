@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 65e004c4edad4628a998a4d6365da83151c77344
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -32,6 +32,10 @@ Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](..\cosmos-db\s
 Azure Cosmos DB utlösaren använder den [Azure Cosmos DB ändra Feed](../cosmos-db/change-feed.md) att lyssna efter ändringar i partitioner. Utlösaren kräver en andra samling som används för att lagra _lån_ över partitionerna.
 
 Både den samling som övervakas och den samling som innehåller lån måste vara tillgänglig för utlösaren ska fungera.
+
+ >[!IMPORTANT]
+ > Om flera funktioner har konfigurerats för att använda en Cosmos-DB-utlösare för samma samling, använder var och en av funktionerna som för närvarande en dedikerad lease-samling. Annars utlöses endast en av funktionerna. 
+
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 
@@ -46,18 +50,23 @@ Finns i det språkspecifika:
 Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som utlöser från en viss databas och samling.
 
 ```cs
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents,
-    TraceWriter log)
-{
-        log.Info("Documents modified " + documents.Count);
-        log.Info("First document Id " + documents[0].Id);
-}
+    using System.Collections.Generic;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+
+    [FunctionName("DocumentUpdates")]
+    public static void Run(
+        [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+    IReadOnlyList<Document> documents,
+        TraceWriter log)
+    {
+            log.Info("Documents modified " + documents.Count);
+            log.Info("First document Id " + documents[0].Id);
+    }
 ```
 
-### <a name="trigger---c-script"></a>Utlösaren - C#-skript
+### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
 I följande exempel visas en Cosmos-DB-utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB poster har ändrats.
 
@@ -65,14 +74,14 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "type": "cosmosDBTrigger",
-  "name": "documents",
-  "direction": "in",
-  "leaseCollectionName": "leases",
-  "connectionStringSetting": "<connection-app-setting>",
-  "databaseName": "Tasks",
-  "collectionName": "Items",
-  "createLeaseCollectionIfNotExists": true
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
 }
 ```
 
@@ -80,17 +89,20 @@ Här är skriptkod C#:
  
 ```cs 
     #r "Microsoft.Azure.Documents.Client"
+    
+    using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    using System;
+    
+
     public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
     {
-        log.Verbose("Documents modified " + documents.Count);
-        log.Verbose("First document Id " + documents[0].Id);
+      log.Verbose("Documents modified " + documents.Count);
+      log.Verbose("First document Id " + documents[0].Id);
     }
 ```
 
-### <a name="trigger---javascript"></a>Utlösaren - JavaScript
+### <a name="trigger---javascript-example"></a>Utlösaren - JavaScript-exempel
 
 I följande exempel visas en Cosmos-DB-utlösare bindning i en *function.json* fil och en [JavaScript-funktionen](functions-reference-node.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB poster har ändrats.
 
@@ -98,14 +110,14 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "type": "cosmosDBTrigger",
-  "name": "documents",
-  "direction": "in",
-  "leaseCollectionName": "leases",
-  "connectionStringSetting": "<connection-app-setting>",
-  "databaseName": "Tasks",
-  "collectionName": "Items",
-  "createLeaseCollectionIfNotExists": true
+    "type": "cosmosDBTrigger",
+    "name": "documents",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
 }
 ```
 
@@ -113,9 +125,9 @@ Här är JavaScript-kod:
 
 ```javascript
     module.exports = function (context, documents) {
-        context.log('First document Id modified : ', documents[0].id);
+      context.log('First document Id modified : ', documents[0].id);
 
-        context.done();
+      context.done();
     }
 ```
 
@@ -126,14 +138,14 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd de
 Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utlösaren - konfiguration](#trigger---configuration). Här är en `CosmosDBTrigger` attributet exempel i en signatur:
 
 ```csharp
-[FunctionName("DocumentUpdates")]
-public static void Run(
-    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
-IReadOnlyList<Document> documents,
-    TraceWriter log)
-{
-    ...
-}
+    [FunctionName("DocumentUpdates")]
+    public static void Run(
+        [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+    IReadOnlyList<Document> documents,
+        TraceWriter log)
+    {
+        ...
+    }
 ```
 
 En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
@@ -150,11 +162,11 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller den anslutningssträng som används för att ansluta till Azure DB som Cosmos-kontot som övervakas. |
 |**databaseName**|**DatabaseName**  | Namnet på Azure DB som Cosmos-databasen med den samling som övervakas. |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på samlingen som övervakas. |
-| **leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lease-samling. När inte har angetts i `connectionStringSetting` värdet används. Den här parametern anges automatiskt när bindning skapas i portalen. |
-| **leaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller den samling som används för att lagra lån. Om inte värdet, för den `databaseName` inställningen används. Den här parametern anges automatiskt när bindning skapas i portalen. |
-| **leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. Om värdet inte, `leases` används. |
-| **createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Valfritt) Om värdet är `true`, samlingen lån skapas automatiskt när den inte redan finns. Standardvärdet är `false`. |
-| **leaseCollectionThroughput**| | (Valfritt) Definierar mängden begära enheter tilldelas när samlingen lån skapas. Den här inställningen är endast användas när `createLeaseCollectionIfNotExists` är inställd på `true`. Den här parametern anges automatiskt när bindning har skapats med hjälp av portalen.
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lease-samling. När inte har angetts i `connectionStringSetting` värdet används. Den här parametern anges automatiskt när bindning skapas i portalen. |
+|**leaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller den samling som används för att lagra lån. Om inte värdet, för den `databaseName` inställningen används. Den här parametern anges automatiskt när bindning skapas i portalen. |
+|**leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. Om värdet inte, `leases` används. |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Valfritt) Om värdet är `true`, samlingen lån skapas automatiskt när den inte redan finns. Standardvärdet är `false`. |
+|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Valfritt) Definierar mängden begära enheter tilldelas när samlingen lån skapas. Den här inställningen är endast användas när `createLeaseCollectionIfNotExists` är inställd på `true`. Den här parametern anges automatiskt när bindning har skapats med hjälp av portalen.
 | |**LeaseOptions** | Konfigurera alternativ genom att ange egenskaper i en instans av den [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klass.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -196,7 +208,6 @@ Cosmos-DB bindningen använder `Id` och `Maker` från kön meddelandet dokumente
 ```cs
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
 
     namespace CosmosDB
     {
@@ -222,13 +233,14 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "inputDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger}",
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "in"
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger}",
+    "partitionKey": "{partition key value}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
 }
 ```
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
@@ -236,11 +248,13 @@ Den [configuration](#input---configuration) förklaras de här egenskaperna.
 Här är skriptkod C#:
 
 ```cs
-// Change input document contents using DocumentDB API input binding 
-public static void Run(string myQueueItem, dynamic inputDocument)
-{   
-  inputDocument.text = "This has changed.";
-}
+    using System;
+
+    // Change input document contents using DocumentDB API input binding 
+    public static void Run(string myQueueItem, dynamic inputDocument)
+    {   
+      inputDocument.text = "This has changed.";
+    }
 ```
 
 <a name="infsharp"></a>
@@ -253,13 +267,13 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "inputDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger}",
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "in"
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
 }
 ```
 
@@ -268,24 +282,24 @@ Den [configuration](#input---configuration) förklaras de här egenskaperna.
 Här är F #-kod:
 
 ```fsharp
-(* Change input document contents using DocumentDB API input binding *)
-open FSharp.Interop.Dynamic
-let Run(myQueueItem: string, inputDocument: obj) =
-  inputDocument?text <- "This has changed."
+    (* Change input document contents using DocumentDB API input binding *)
+    open FSharp.Interop.Dynamic
+    let Run(myQueueItem: string, inputDocument: obj) =
+    inputDocument?text <- "This has changed."
 ```
 
 Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.Dynamic` och `Dynamitey` NuGet beroenden:
 
 ```json
 {
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
+    "frameworks": {
+        "net46": {
+            "dependencies": {
+                "Dynamitey": "1.0.2",
+                "FSharp.Interop.Dynamic": "3.0.0"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -299,13 +313,14 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "inputDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "id" : "{queueTrigger}",
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "in"
+    "name": "inputDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger_payload_property}",
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "in"
 }
 ```
 Den [configuration](#input---configuration) förklaras de här egenskaperna.
@@ -313,12 +328,12 @@ Den [configuration](#input---configuration) förklaras de här egenskaperna.
 Här är JavaScript-kod:
 
 ```javascript
-// Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
-module.exports = function (context) {   
-  context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-  context.bindings.inputDocumentOut.text = "This was updated!";
-  context.done();
-};
+    // Change input document contents using DocumentDB API input binding, using context.bindings.inputDocumentOut
+    module.exports = function (context) {   
+    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+    context.bindings.inputDocumentOut.text = "This was updated!";
+    context.done();
+    };
 ```
 
 ## <a name="input---example-2"></a>Indata - exempel 2
@@ -331,16 +346,22 @@ Finns i det språkspecifika som läser flera dokument:
 
 ### <a name="input---c-example-2"></a>Indata - C#-exempel 2
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som kör en SQL-fråga.
+Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som kör en SQL-fråga. Att använda den `SqlQuery` parameter, måste du installera den senaste betaversionen av `Microsoft.Azure.WebJobs.Extensions.DocumentDB` NuGet-paketet.
 
 ```csharp
-[FunctionName("CosmosDBSample")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
-    [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", sqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
-{
-    return req.CreateResponse(HttpStatusCode.OK, documents);
-}
+    using System.Net;
+    using System.Net.Http;
+    using System.Collections.Generic;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.Http;
+
+    [FunctionName("CosmosDBSample")]
+    public static HttpResponseMessage Run(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestMessage req,
+        [DocumentDB("test", "test", ConnectionStringSetting = "CosmosDB", SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")] IEnumerable<object> documents)
+    {
+        return req.CreateResponse(HttpStatusCode.OK, documents);
+    }
 ```
 
 ### <a name="input---c-script-example-2"></a>Indata - C# skript exempel 2
@@ -351,7 +372,7 @@ Utlösaren kö innehåller en parameter `departmentId`. Ett kömeddelande för `
 
 Här är de bindande data den *function.json* fil:
 
-```
+```json
 {
     "name": "documents",
     "type": "documentdb",
@@ -368,18 +389,18 @@ Den [configuration](#input---configuration) förklaras de här egenskaperna.
 Här är skriptkod C#:
 
 ```csharp
-public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
-{   
-    foreach (var doc in documents)
-    {
-        // operate on each document
-    }    
-}
+    public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
+    {   
+        foreach (var doc in documents)
+        {
+            // operate on each document
+        }    
+    }
 
-public class QueuePayload
-{
-    public string departmentId { get; set; }
-}
+    public class QueuePayload
+    {
+        public string departmentId { get; set; }
+    }
 ```
 
 ### <a name="input---javascript-example-2"></a>Indata - JavaScript-exempel 2
@@ -390,7 +411,7 @@ Utlösaren kö innehåller en parameter `departmentId`. Ett kömeddelande för `
 
 Här är de bindande data den *function.json* fil:
 
-```
+```json
 {
     "name": "documents",
     "type": "documentdb",
@@ -407,14 +428,14 @@ Den [configuration](#input---configuration) förklaras de här egenskaperna.
 Här är JavaScript-kod:
 
 ```javascript
-module.exports = function (context, input) {    
-    var documents = context.bindings.documents;
-    for (var i = 0; i < documents.length; i++) {
-        var document = documents[i];
-        // operate on each document
-    }       
-    context.done();
-};
+    module.exports = function (context, input) {    
+        var documents = context.bindings.documents;
+        for (var i = 0; i < documents.length; i++) {
+            var document = documents[i];
+            // operate on each document
+        }       
+        context.done();
+    };
 ```
 
 ## <a name="input---attributes"></a>Indata - attribut
@@ -437,7 +458,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**ID**    | **ID** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
 |**anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
-||**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
+|**partitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -455,23 +476,26 @@ DocumentDB-API-utdata bindning kan skriva du ett nytt dokument till en Azure Cos
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
+* [Förkompilerade C#](#output---c-example)
+* [C#-skript](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
 Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som lägger till ett dokument till en databas med hjälp av informationen i meddelandet från kön lagring.
 
 ```cs
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    document = new { Text = myQueueItem, id = Guid.NewGuid() };
-}
+    using System;
+    using Microsoft.Azure.WebJobs;
+
+    [FunctionName("QueueToDocDB")]        
+    public static void Run(
+        [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    {
+        document = new { Text = myQueueItem, id = Guid.NewGuid() };
+    }
 ```
 
 ### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
@@ -480,9 +504,9 @@ I följande exempel visas en DocumentDB bindning i en *function.json* fil och en
 
 ```json
 {
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -490,10 +514,10 @@ Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 
 ```json
 {
-  "id": "John Henry-123456",
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -501,13 +525,13 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "employeeDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "createIfNotExists": true,
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "out"
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
 }
 ```
 
@@ -516,25 +540,24 @@ Den [configuration](#output---configuration) förklaras de här egenskaperna.
 Här är skriptkod C#:
 
 ```cs
-#r "Newtonsoft.Json"
+    #r "Newtonsoft.Json"
 
-using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+    using Microsoft.Azure.WebJobs.Host;
+    using Newtonsoft.Json.Linq;
 
-public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
-{
-  log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    {
+      log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-  dynamic employee = JObject.Parse(myQueueItem);
+      dynamic employee = JObject.Parse(myQueueItem);
 
-  employeeDocument = new {
-    id = employee.name + "-" + employee.employeeId,
-    name = employee.name,
-    employeeId = employee.employeeId,
-    address = employee.address
-  };
-}
+      employeeDocument = new {
+        id = employee.name + "-" + employee.employeeId,
+        name = employee.name,
+        employeeId = employee.employeeId,
+        address = employee.address
+      };
+    }
 ```
 
 Om du vill skapa flera dokument som du kan binda till `ICollector<T>` eller `IAsyncCollector<T>` där `T` är en av typerna som stöds.
@@ -545,9 +568,9 @@ I följande exempel visas en DocumentDB bindning i en *function.json* fil och en
 
 ```json
 {
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -555,10 +578,10 @@ Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 
 ```json
 {
-  "id": "John Henry-123456",
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -566,13 +589,13 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "employeeDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "createIfNotExists": true,
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "out"
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
 }
 ```
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
@@ -580,38 +603,38 @@ Den [configuration](#output---configuration) förklaras de här egenskaperna.
 Här är F #-kod:
 
 ```fsharp
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
+    open FSharp.Interop.Dynamic
+    open Newtonsoft.Json
 
-type Employee = {
-  id: string
-  name: string
-  employeeId: string
-  address: string
-}
+    type Employee = {
+      id: string
+      name: string
+      employeeId: string
+      address: string
+    }
 
-let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-  log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-  let employee = JObject.Parse(myQueueItem)
-  employeeDocument <-
-    { id = sprintf "%s-%s" employee?name employee?employeeId
-      name = employee?name
-      employeeId = employee?employeeId
-      address = employee?address }
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+      let employee = JObject.Parse(myQueueItem)
+      employeeDocument <-
+        { id = sprintf "%s-%s" employee?name employee?employeeId
+          name = employee?name
+          employeeId = employee?employeeId
+          address = employee?address }
 ```
 
 Det här exemplet kräver en `project.json` -fil som anger den `FSharp.Interop.Dynamic` och `Dynamitey` NuGet beroenden:
 
 ```json
 {
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
+    "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Dynamitey": "1.0.2",
+            "FSharp.Interop.Dynamic": "3.0.0"
+           }
+        }
     }
-  }
 }
 ```
 
@@ -623,9 +646,9 @@ I följande exempel visas en DocumentDB bindning i en *function.json* fil och en
 
 ```json
 {
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -633,10 +656,10 @@ Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 
 ```json
 {
-  "id": "John Henry-123456",
-  "name": "John Henry",
-  "employeeId": "123456",
-  "address": "A town nearby"
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
 }
 ```
 
@@ -644,13 +667,13 @@ Här är de bindande data den *function.json* fil:
 
 ```json
 {
-  "name": "employeeDocument",
-  "type": "documentDB",
-  "databaseName": "MyDatabase",
-  "collectionName": "MyCollection",
-  "createIfNotExists": true,
-  "connection": "MyAccount_COSMOSDB",     
-  "direction": "out"
+    "name": "employeeDocument",
+    "type": "documentDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connection": "MyAccount_COSMOSDB",     
+    "direction": "out"
 }
 ```
 
@@ -659,17 +682,17 @@ Den [configuration](#output---configuration) förklaras de här egenskaperna.
 Här är JavaScript-kod:
 
 ```javascript
-module.exports = function (context) {
+    module.exports = function (context) {
 
-  context.bindings.employeeDocument = JSON.stringify({ 
-    id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
-    name: context.bindings.myQueueItem.name,
-    employeeId: context.bindings.myQueueItem.employeeId,
-    address: context.bindings.myQueueItem.address
-  });
+      context.bindings.employeeDocument = JSON.stringify({ 
+        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+        name: context.bindings.myQueueItem.name,
+        employeeId: context.bindings.myQueueItem.employeeId,
+        address: context.bindings.myQueueItem.address
+      });
 
-  context.done();
-};
+      context.done();
+    };
 ```
 
 ## <a name="output---attributes"></a>Utdata - attribut
@@ -679,13 +702,13 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd de
 Attributets konstruktorn har databasnamnet och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata - konfiguration](#output---configuration). Här är en `DocumentDB` attributet exempel i en signatur:
 
 ```csharp
-[FunctionName("QueueToDocDB")]        
-public static void Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
-    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
-{
-    ...
-}
+    [FunctionName("QueueToDocDB")]        
+    public static void Run(
+        [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+        [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    {
+        ...
+    }
 ```
 
 En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
@@ -702,8 +725,8 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**databaseName** | **DatabaseName**|Den databas som innehåller den samling där dokumentet har skapats.     |
 |**Samlingsnamn** |**Samlingsnamn**  | Namnet på den samling där dokumentet har skapats. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när det inte finns. Standardvärdet är *FALSKT* eftersom skapas nya samlingar med reserverat dataflöde, vilket har kostnad effekter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |
-||**PartitionKey** |När `CreateIfNotExists` är true, definierar partition Nyckelsökväg för samlingen som har skapats.|
-||**CollectionThroughput**| När `CreateIfNotExists` är true, definierar den [genomströmning](../cosmos-db/set-throughput.md) för samlingen som har skapats.|
+|**partitionKey**|**PartitionKey** |När `CreateIfNotExists` är true, definierar partition Nyckelsökväg för samlingen som har skapats.|
+|**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är true, definierar den [genomströmning](../cosmos-db/set-throughput.md) för samlingen som har skapats.|
 |**anslutning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

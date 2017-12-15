@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 Azure Cosmos-DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](http://www.json.org) datamodellen. Alla Azure Cosmos DB resurser inklusive databaser, samlingar, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för att bärbara JSON (och Azure Cosmos DB) stöder bara en liten uppsättning grundläggande typer: sträng, Number, Boolean, matris, objekt och Null. JSON är flexibel och kan utvecklare och ramverk att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
@@ -26,7 +26,7 @@ Azure Cosmos-DB ger schemaflexibilitet och omfattande indexering via ett ursprun
 Utöver de grundläggande typerna många program behöver den [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) typ som representerar datum och tidsstämplar. Den här artikeln beskriver hur utvecklare kan lagra, hämta och fråga datum i Azure Cosmos-databasen med .NET SDK.
 
 ## <a name="storing-datetimes"></a>Lagra datum och tid
-Som standard den [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) Serialiserar DateTime-värden som [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strängar. De flesta program kan använda standard strängrepresentation för datum/tid av följande skäl:
+Som standard den [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) Serialiserar DateTime-värden som [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strängar. De flesta program kan använda standard strängrepresentation för datum/tid av följande skäl:
 
 * Strängar kan jämföras och DateTime-värden relativa ordning bevaras när de omvandlas till strängar. 
 * Den här metoden kräver inte någon anpassad kod eller ett attribut för JSON-konvertering.
@@ -83,11 +83,11 @@ SQL .NET SDK har automatiskt stöd för hämtning av data som lagras i Azure Cos
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Du kan lära dig mer om Azure Cosmos DB SQL-frågespråket och LINQ-providern på [frågar Cosmos DB](documentdb-sql-query.md).
+Du kan lära dig mer om Azure Cosmos DB SQL-frågespråket och LINQ-providern på [frågar Cosmos DB](sql-api-sql-query.md).
 
 I den här artikeln vi har tittat på hur du lagrar, index- och fråga datum och tid i Azure Cosmos-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 * Hämta och kör den [kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Lär dig mer om [SQL-frågor](documentdb-sql-query.md)
+* Lär dig mer om [SQL-frågor](sql-api-sql-query.md)
 * Lär dig mer om [Azure Cosmos DB indexering principer](indexing-policies.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | AllocationFailed | Det kluster eller den region har inte resurser som är tillgänglig eller har inte stöd för den begärda VM-storleken. Försöka senare eller be en annan VM-storlek. | [Problem med etablering och fördelningen för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) och [problem med etablering och fördelningen för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto hör till rollen och dess behörighet för omfånget för distributionen. | [Rollbaserad åtkomstkontroll i Azure](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-template-location.md) |
+| BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |
 | Konflikt | Du begär en åtgärd som inte tillåts i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på diskar endast när du skapar en virtuell dator eller när den virtuella datorn har frigjorts. | |
 | DeploymentActive | Vänta tills samtidiga distributionen till den här resursgruppen ska slutföras. | |
 | DnsRecordInUse | DNS-postnamn måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
@@ -51,7 +51,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | InvalidTemplate | Kontrollera din mallens syntax för fel. | [Lös ogiltig mall](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Kontrollera om ditt konto tillhör samma klient som du distribuerar till resursgruppen. | |
 | LinkedInvalidPropertyId | Resurs-ID för en resurs matchar inte korrekt. Kontrollera att du anger alla nödvändiga värden för resurs-ID, inklusive prenumerations-ID, resursgruppens namn, resurstyp, överordnade resurs (om det behövs) och resursnamnet. | |
-| LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-manager-template-location.md) |
+| LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Kontrollera status för resource provider för registrering och platser som stöds. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrera prenumerationen med resursprovidern. | [Lös registrering](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kontrollera registreringsstatus i resource provider. | [Lös registrering](resource-manager-register-provider-errors.md) |

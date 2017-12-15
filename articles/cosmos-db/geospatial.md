@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Arbeta med geospatial och GeoJSON platsdata i Azure Cosmos DB
 Den här artikeln ger en introduktion till funktionen geospatiala i [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). När du har läst detta, kommer du att kunna besvara följande frågor:
@@ -155,7 +155,7 @@ Om du inte har nödvändig information för latitud och longitud, men har fysisk
 Nu när vi har valt en titt på hur du infogar geospatiala data ska vi titta på hur man frågar dessa data med Azure Cosmos-databasen med SQL och LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Spatial inbyggda SQL-funktioner
-Azure Cosmos-DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatial frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns [frågan Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos-DB stöder följande öppna geospatiala Consortium (OGC) inbyggda funktioner för geospatial frågor. Mer information om en fullständig uppsättning med inbyggda funktioner i SQL-språket finns [frågan Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -396,6 +396,6 @@ Nolearned som du har fått kännedom om hur du kommer igång med geospatial stö
 
 * Börja koda med den [geospatiala .NET kodexempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Hämta händerna med geospatial fråga på den [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
-* Lär dig mer om [Azure Cosmos DB-fråga](documentdb-sql-query.md)
+* Lär dig mer om [Azure Cosmos DB-fråga](sql-api-sql-query.md)
 * Lär dig mer om [Azure Cosmos DB indexering principer](indexing-policies.md)
 

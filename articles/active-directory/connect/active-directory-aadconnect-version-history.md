@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 där 
 
-$ObjectDN = Active Directory-konto som behörigheter behöver höjas.
-$Credential = autentiseringsuppgifter som används för att autentisera klienten när kommunicerar med Active Directory. Detta är normalt de autentiseringsuppgifter som företagsadministratör används för att skapa kontot vars behörigheter krävs tätare.
+**$ObjectDN** = Active Directory-konto som behörigheter behöver höjas.
+
+**$Credential** = autentiseringsuppgifter för administratör som har den behörighet som krävs för att begränsa behörigheten för $ObjectDN-kontot. Detta är vanligtvis administratören Enterprise eller domän. Använd det fullständigt kvalificerade domännamnet för administratörskontot för att undvika konto sökning fel. Exempel: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Användarnamnet ska ha formatet domän\användarnamn.  
+>$credential. Användarnamnet ska ha formatet FQDN\username. Exempel: contoso.com\admin 
 
 ##### <a name="example"></a>Exempel:
 

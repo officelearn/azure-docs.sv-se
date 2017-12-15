@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur lösningen anslutna factory visar data från dina OPC UA-servrar
 
@@ -72,92 +72,7 @@ Du kan använda konfigurationsfilen till:
 - Redigera den befintliga simulerade fabriker och produktion rader stationer.
 - Mappa data från verkliga OPC UA-servrar som du ansluter till lösningen.
 
-Använd följande kommando i git för att klona en kopia av anslutna fabriken Visual Studio-lösning:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-Filen **ContosoTopologyDescription.json** definierar mappningen från OPC UA server dataobjekt till vyerna i instrumentpanelen för anslutna factory-lösning. Du hittar den här konfigurationsfilen i den **Contoso\Topology** mapp i den **WebApp** projekt i Visual Studio-lösning.
-
-Innehållet i JSON-filen har ordnats som en hierarki av fabriken, produktionen och station noder. Den här hierarkin definierar navigeringshierarkin i instrumentpanelen för anslutna fabriken. Värdena på varje nod i hierarkin avgör vilken information som visas i instrumentpanelen. JSON-filen innehåller till exempel följande värden för München fabriken:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-Namn, beskrivning och plats visas på den här vyn i instrumentpanelen:
-
-![München data på instrumentpanelen][img-munich]
-
-Varje fabriken, produktionen och station har ett image-egenskapen. Du hittar dessa JPEG-filer i den **Content\img** mapp i den **WebApp** projekt. Dessa bildfiler visas i instrumentpanelen för anslutna fabriken.
-
-Varje station innehåller flera detaljerade egenskaper som definierar mappningen från OPC UA dataobjekt. De här egenskaperna beskrivs i följande avsnitt:
-
-### <a name="opcuri"></a>OpcUri
-
-Den **OpcUri** värdet är OPC UA programmet URI: N som unikt identifierar OPC UA-servern. Till exempel den **OpcUri** för sammansättningen station på produktion rad 1 i München ser ut som följande: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-Du kan visa URI: er med anslutna OPC UA-servrar i instrumentpanelen för lösningen:
-
-![Visa OPC UA server URI: er][img-server-uris]
-
-### <a name="simulation"></a>Simulering
-
-Informationen i den **simuleringen** nod är specifik för OPC UA simuleringen som körs i OPC UA-servrar som tillhandahålls som standard. Den används inte för en verklig OPC UA-server.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 och Kpi2
-
-Dessa noder beskrivs hur data från stationen som bidrar till de två KPI-värdena i instrumentpanelen. Dessa KPI-värden stöds i en standarddistribution, enheter per timme och kWh per timme. Lösningen beräknas KPI vales på en station nivå och sammanställer dem i produktionen och factory nivåer.
-
-Varje KPI har en lägsta, högsta och målvärdet. Varje KPI-värdet kan också definiera aviseringsåtgärder för anslutna factory-lösningen att utföra. Följande utdrag visar KPI-definitioner för sammansättningen station produktion rad 1 i München:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-Följande skärmbild visar KPI-data i instrumentpanelen.
-
-![KPI-information på instrumentpanelen][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-Den **OpcNodes** noder identifiera publicerade dataobjekt från OPC UA-servern och ange hur att bearbeta dessa data.
-
-Den **NodeId** värdet identifierar specifika OPC UA NodeID från OPC UA-servern. Den första noden i sammansättningen station för produktion rad 1 i München har värdet **ns = 2, i = 385**. En **NodeId** värdet anger dataobjektet att läsa från OPC UA-server och **SymbolicName** ger ett användarvänligt namn på instrumentpanelen för dessa data.
-
-Andra värden som är kopplade till varje nod sammanfattas i följande tabell:
-
-| Värde | Beskrivning |
-| ----- | ----------- |
-| Relevans  | Värdet för KPI-Indikatorn och OEE informationen bidrar till. |
-| OpCode     | Hur informationen sammanställs. |
-| Enheter      | Enheterna som används i instrumentpanelen.  |
-| Synlig    | Om du vill visa det här värdet i instrumentpanelen. Vissa värden beräkningar men visas inte.  |
-| Maximal    | Det maximala värdet som utlöser en avisering i instrumentpanelen. |
-| MaximumAlertActions | En åtgärd som svar på en avisering. Till exempel skicka ett kommando till en station. |
-| ConstValue | Ett konstantvärde som används i en beräkning. |
+Mer information om mappning och datainsamling för att uppfylla dina specifika krav finns [hur du konfigurerar anslutna fabriken förkonfigurerade lösningen ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Distribuera ändringarna
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 8aa29dfb46a1aafb9e7b713456e1006af423a2b2
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>OMS tillägg för virtuell dator för Linux
 
@@ -93,7 +93,7 @@ Följande JSON visar schemat för tillägget OMS-Agent. Tillägget kräver arbet
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver post distributionskonfiguration, till exempel onboarding till OMS. En Resource Manager-mall som innehåller OMS-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-JSON-konfiguration för ett tillägg för virtuell dator kan kapslas i den virtuella datorresursen eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet av resursens namn och typen. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+JSON-konfiguration för ett tillägg för virtuell dator kan kapslas i den virtuella datorresursen eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet av resursens namn och typen. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
 I följande exempel förutsätter OMS-tillägget är kapslad i den virtuella datorresursen. När kapsla resursen tillägget JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
@@ -182,7 +182,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 10 | VM är redan ansluten till en OMS-arbetsyta | Ange stopOnMultipleConnections till false i inställningar för offentliga för att ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägg, eller ta bort den här egenskapen. Den här virtuella datorn hämtar debiteras när för varje arbetsyta som den är ansluten till. |
 | 11 | Ogiltig konfiguration för tillägget | Följ föregående exempel om du vill ange värden för alla krävs för distributionen. |
 | 12 | Dpkg package manager är låst | Kontrollera att alla dpkg uppdateringsåtgärder på datorn är klar och försök igen. |
-| 20 | Aktivera kallas för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
+| 20 | Aktivera kallas för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
 | 55 | Det går inte att ansluta till tjänsten Microsoft Operations Management Suite | Kontrollera att systemet antingen har Internetåtkomst eller att en giltig HTTP-proxy har tillhandahållits. Dessutom kan kontrollera är korrekt arbetsyte-ID. |
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI
 
@@ -117,7 +117,7 @@ Visa alla avbildningar av namnet i tabellformat.
 
 ```azurecli-interactive 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 Ta bort en bild. Det här exemplet tar bort det bild med namnet *myOldImage* från den *myResourceGroup*.

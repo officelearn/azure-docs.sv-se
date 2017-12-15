@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Sökning aktivitet i Azure Data Factory
 Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter. 
@@ -61,7 +61,7 @@ Följande datakällor stöds för närvarande för sökning:
 Namn | Beskrivning | Typ | Krävs
 ---- | ----------- | ---- | --------
 DataSet | Dataset-attributet är att tillhandahålla dataset-referens för sökningen. För närvarande är stöds dataset-typer:<ul><li>`AzureBlobDataset`för [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) som källa</li><li>`FileShareDataset`för [filsystemet](connector-file-system.md#dataset-properties) som källa</li><li>`AzureSqlTableDataset`för [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) eller [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) som källa</li><li>`SqlServerTable`för [SQL Server](connector-sql-server.md#dataset-properties) som källa</li><li>`AzureTableDataset`för [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) som källa</li> | Nyckel/värde-par | Ja
-källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten. Lär dig mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-avsnitt. | Nyckel/värde-par | Ja
+källa | Egenskaper för DataSet-specifik datakälla, samma som kopieringskälla för aktiviteten. Lär dig mer information i avsnittet ”Kopiera Aktivitetsegenskaper” i varje motsvarande connector-artikel. | Nyckel/värde-par | Ja
 firstRowOnly | Ange om du vill returnera endast den första raden eller alla rader. | Booleskt värde | Nej. Standardvärdet är `ture`.
 
 ## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Använda sökning aktivitet resultatet i efterföljande aktivitet
@@ -80,7 +80,7 @@ Sökning resultatet returneras den `output` avsnitt i aktiviteten kör resultat.
 }
 ```
 
-**När `firstRowOnly` är inställd på `false`** , foramt för utdata är som följer. En `count` fältet anger hur många poster returneras och detaljerad värden finns under en fast `value` matris. I så fall aktiviteten sökning vanligtvis följt av en [Foreach-aktiviteten](control-flow-for-each-activity.md), du kan skicka den `value` matris ForEach-aktiviteten `items` med hjälp av mönstret för `@activity('MyLookupActivity').output.value`.
+**När `firstRowOnly` är inställd på `false`** , utdataformatet är följande. En `count` fältet anger hur många poster returneras och detaljerad värden finns under en fast `value` matris. I så fall aktiviteten sökning vanligtvis följt av en [Foreach-aktiviteten](control-flow-for-each-activity.md), du kan skicka den `value` matris ForEach-aktiviteten `items` med hjälp av mönstret för `@activity('MyLookupActivity').output.value`. Åtkomst-element i den `value`, använder du följande syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Här är ett exempel:`@{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -101,7 +101,7 @@ Sökning resultatet returneras den `output` avsnitt i aktiviteten kör resultat.
 ## <a name="example"></a>Exempel
 I det här exemplet kopierar kopieringsaktiviteten data från en SQLtabell i Azure SQL-databas till Azure Blob Storage. Namnet på SQL-tabell lagras i en JSON-fil i Blob Storage. Aktiviteten sökning letar upp tabellnamnet vid körning. Den här metoden möjliggör JSON som ska ändras dynamiskt utan att omdistribuera pipelines/datauppsättningar. 
 
-Det här exemplet demostrates letar du upp den första raden. Leta upp alla rader och kedja med ForEach-aktiviteten finns [Tutorial – kopieringsdata gruppvis](tutorial-bulk-copy.md) exempel.
+Det här exemplet visar slå upp första raden. Leta upp alla rader och kedja med ForEach-aktiviteten finns [Tutorial – kopieringsdata gruppvis](tutorial-bulk-copy.md) exempel.
 
 ### <a name="pipeline"></a>Pipeline
 Den här pipelinen innehåller två aktiviteter: **Leta upp** och **kopiera**. 

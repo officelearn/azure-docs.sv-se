@@ -1,5 +1,5 @@
 ---
-title: Skapa en PHP- och MySQL-webbapp i Azure | Microsoft Docs
+title: "Skapa en PHP- och MySQL-webbapp i Azure App Service på Linux | Microsoft Docs"
 description: "Lär dig hur du hämtar en PHP-app som arbetar i Azure, med anslutning till en MySQL-databas i Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,15 +12,19 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service på Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här kursen visar hur du skapar ett PHP-webbprogram och ansluta till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) app som körs i Apptjänsten på Linux.
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service på Linux. Du distribuerar till App Service på _Windows_, se [skapa en PHP- och MySQL-webbapp i Azure](../app-service-web-tutorial-php-mysql.md).
+>
+
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här kursen visar hur du skapar ett PHP-webbprogram och ansluta till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) app som körs i Apptjänsten på Linux.
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -155,7 +159,7 @@ I det här steget skapar du en MySQL-databas i [Azure-databas för MySQL (förha
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server#az_mysql_server_create) kommando.
+Skapa en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) kommando.
 
 Ersätt namnet på MySQL-servern där du ser i följande kommando i  _&lt;mysql_server_name >_ platshållare (giltiga tecken är `a-z`, `0-9`, och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`), den måste vara globalt unika.
 
@@ -180,7 +184,7 @@ När MySQL-servern har skapats visas Azure CLI information liknar följande exem
 
 ### <a name="configure-server-firewall"></a>Konfigurera server-brandväggen
 
-Skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) kommando.
+Skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) kommando.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -331,7 +335,7 @@ I det här steget kan distribuera du MySQL-anslutna PHP-program till Azure App S
 
 ### <a name="configure-database-settings"></a>Konfigurera databasinställningar för
 
-I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando.
+I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando.
 
 Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, och `DB_PASSWORD`. Ersätt platshållarna  _&lt;appname >_ och  _&lt;mysql_server_name >_.
 
@@ -363,7 +367,7 @@ Använd `php artisan` att generera en ny nyckel för program utan att spara den 
 php artisan key:generate --show
 ```
 
-Ange nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
+Ange nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -375,7 +379,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Ange den virtuella sökvägen för webbprogrammet. Det här steget är nödvändigt eftersom den [Laravel programmet livscykel](https://laravel.com/docs/5.4/lifecycle) börjar i den _offentliga_ katalog i stället för i tillämpningsprogrammets rotkatalog. Andra PHP-ramverk vars livscykel startar i rotkatalogen kan arbeta utan manuell konfiguration av den virtuella sökvägen.
 
-Ange sökvägen till virtuella programmet med hjälp av den [az resurs uppdaterades](/cli/azure/resource#az_resource_update) kommando. Ersätt den  _&lt;appname >_ platshållare.
+Ange sökvägen till virtuella programmet med hjälp av den [az resurs uppdaterades](/cli/azure/resource?view=azure-cli-latest#az_resource_update) kommando. Ersätt den  _&lt;appname >_ platshållare.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

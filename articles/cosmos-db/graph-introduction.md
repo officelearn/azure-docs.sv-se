@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -113,7 +113,7 @@ I följande tabell visas populära Gremlin drivrutiner som du kan använda mot A
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin JavaScript på Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsolen](https://tinkerpop.apache.org/downloads.html) |[TinkerPop dokument](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos-DB tillhandahåller också ett .NET-bibliotek som har Gremlin tilläggsmetoder ovanpå det [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) via NuGet. Det här biblioteket innehåller en Gremlin ”pågående”-server som du kan använda för att ansluta direkt till datapartitioner.
+Azure Cosmos-DB tillhandahåller också ett .NET-bibliotek som har Gremlin tilläggsmetoder ovanpå det [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) via NuGet. Det här biblioteket innehåller en Gremlin ”pågående”-server som du kan använda för att ansluta direkt till datapartitioner.
 
 | Ladda ned | Dokumentation |
 | --- | --- |

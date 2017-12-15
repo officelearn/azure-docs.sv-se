@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ee6a91a22d84ba938423c04edc6f8be795b46ebb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Ställ in kluster i HDInsight Hadoop, Spark, Kafka och mycket mer
 
@@ -98,6 +98,10 @@ Mer information finns i [standard nod konfiguration och virtuella storlekar för
 
 ### <a name="hdinsight-version"></a>HDInsight-version
 Välj versionen av HDInsight för det här klustret. Mer information finns i [stöds HDInsight-versioner](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+### <a name="enterprise-security-package"></a>Enterprise-säkerhetspaketet
+
+Hadoop, Spark och interaktiva frågor klustertyper du vill aktivera den **Enterprise säkerhetspaketet**. Det här paketet ger möjlighet att ha en säkrare konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [Enterprise säkerhetspaketet i Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Klustrets inloggningsnamn och SSH-användarnamn
 Du kan konfigurera två användarkonton när klustret skapas med HDInsight-kluster:

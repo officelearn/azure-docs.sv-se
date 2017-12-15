@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du använder Lagringsutforskaren för 
 
 ## <a name="prerequisites"></a>Krav
 
-Ett Azure DB som Cosmos-konto för SQL API eller MongoDB-API. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: skapa en SQL-API-webbprogram med .NET och Azure portal](create-documentdb-dotnet.md).
+Ett Azure DB som Cosmos-konto för SQL API eller MongoDB-API. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: skapa en SQL-API-webbprogram med .NET och Azure portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installation
 
@@ -137,7 +137,7 @@ Om du vill skapa ett nytt dokument öppna **dokument** i det vänstra fönstret 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 Klicka på den **ta bort** för att ta bort det valda dokumentet.
 #### <a name="query-for-documents"></a>Frågan för dokument
-Redigera dokumentfilter genom att ange en [SQL-frågan](documentdb-sql-query.md) och klicka sedan på **tillämpa**.
+Redigera dokumentfilter genom att ange en [SQL-frågan](sql-api-sql-query.md) och klicka sedan på **tillämpa**.
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

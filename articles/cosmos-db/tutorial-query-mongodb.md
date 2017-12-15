@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: bdb68c4e68f6868c596d8e8410b94223cc5e535a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Hur man frågan med API för MongoDB?
 
@@ -312,5 +312,5 @@ I den här självstudiekursen kommer du har gjort följande:
 Du kan nu fortsätta till nästa kurs att lära dig hur du distribuerar dina data globalt.
 
 > [!div class="nextstepaction"]
-> [Distribuera dina data globalt](tutorial-global-distribution-documentdb.md)
+> [Distribuera dina data globalt](tutorial-global-distribution-sql-api.md)
 

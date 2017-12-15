@@ -12,28 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: juluk
-ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure-molnet Shell
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
 Den ger dig möjlighet att välja shell-upplevelse som bäst passar arbetet.
 Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
 
-Starta via Azure-portalen från ikonen molnet Shell:
+Försök från shell.azure.com med den här knappen.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Starta Azure-molnet Shell")](https://shell.azure.com)
+
+Försök från Azure-portalen med hjälp av molnet Shell-ikonen.
 
 ![Starta företagsportal](media/overview/portal-launch-icon.png)
-
-Använda Bash eller PowerShell shell selector listrutan:
-
-![Bash i molnet Shell](media/overview/overview-bash-pic.png)
-
-![PowerShell i molnet Shell (förhandsgranskning)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Funktioner
 ### <a name="browser-based-shell-experience"></a>Shell-webbläsarbaserad upplevelse
@@ -41,23 +39,29 @@ Molnet Shell ger åtkomst till ett webbaserat kommandoradsverktyget erfarenheter
 Utnyttjar molnet Shell ska fungera gå fritt från en lokal dator på ett sätt endast molnet kan ge.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Valet av prioriterade shell-upplevelse
-Med Azure Cloud Shell kan du välja den skalupplevelse som passar bäst för ditt sätt att arbeta.
-Linux-användare kan välja Bash molnet Shell, medan Windows-användare kan välja PowerShell i molnet Shell (förhandsversion).
+Linux-användare kan använda Bash molnet Shell, medan Windows-användare kan använda PowerShell i molnet Shell (förhandsgranskning) shell listrutan.
+
+![Bash i molnet Shell](media/overview/overview-bash-pic.png)
+
+![PowerShell i molnet Shell (förhandsgranskning)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Autentiserad och konfigurerat Azure arbetsstation
-Molnet Shell kommer hanteras av Microsoft så att den har förinstallerats med populära kommandoradsverktyg och språkstöd så att du kan arbeta snabbare. Dessutom autentiserar moln-gränssnittet på ett säkert sätt automatiskt för omedelbar åtkomst till resurser via Azure CLI 2.0 eller Azure PowerShell-cmdlets.
+Molnet Shell hanteras av Microsoft så att den innehåller populära kommandoradsverktyg och språkstöd. Molnet Shell autentiserar också säkert automatiskt för omedelbar åtkomst till resurser via Azure CLI 2.0 eller Azure PowerShell-cmdlets.
 
 Visa fullständig verktygsuppsättning listan för den [Bash upplevelse](features.md#tools) och [PowerShell (förhandsgranskning)-upplevelse.](features-powershell.md#tools)
 
 ### <a name="multiple-access-points"></a>Flera åtkomstpunkter
-Förutom molnet skal som är tillgängliga från Azure-portalen, kan den också komma åt från:
+Moln-gränssnittet är ett flexibelt verktyg som kan användas från:
+* [Portal.Azure.com](https://portal.azure.com)
+* [Shell.Azure.com](https://shell.azure.com)
 * [Azure CLI 2.0 ”försök”-dokumentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Azure mobilappar](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Visual Studio Code-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Tillägget för VS kod Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure File storage
-Molnet Shell datorer är tillfälliga och därför kräver en resurs för Azure-filer som ska monteras som `clouddrive` att bevara $Home-katalogen.
-Första startas för molnet Shell uppmanas du för att skapa en resursgrupp, dela storage-konto och en Azure-fil för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda Azure filresurs kan mappas och kommer att användas av både Bash och PowerShell i molnet Shell (förhandsversion).
+Molnet Shell datorer är tillfälliga och kräver en resurs för Azure-filer som ska monteras som `clouddrive` att spara dina filer.
+
+Första startas för molnet Shell uppmanas du för att skapa en resurs dela grupp, storage-konto och Azure-filer för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och kommer att användas av både Bash och PowerShell i molnet Shell (förhandsversion).
 
 #### <a name="create-new-storage"></a>Skapa nya lagringsenheter
 ![](media/overview/basic-storage.png)
@@ -77,7 +81,9 @@ Tre resurser kommer att skapas för din räkning:
 
 Ett avancerat alternativ har angetts för att associera befintliga resurser till molnet Shell.
 Klicka på ”Visa avancerade inställningar” i Kommandotolken lagring installationen att visa ytterligare alternativ.
-Nedrullningsbara listorna filtreras för molntjänster Shell regionen och lokalt/globalt-redundant storage-konton.
+
+> [!Note]
+> Nedrullningsbara listorna filtreras för före molnet Shell regionen och LRS/GRS storage-konton.
 
 [Lär dig om molnet Shell lagring, uppdatera Azure-filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
 
@@ -87,16 +93,10 @@ Nedrullningsbara listorna filtreras för molntjänster Shell regionen och lokalt
 * Molnet Shell kräver en Azure-filresurs som ska monteras
 * Molnet Shell använder samma Azure-filresursen för både Bash och PowerShell
 * Molnet Shell tilldelas en dator per konto
+* Bash kvarstår $Home med hjälp av en 5 GB-avbildning som lagras i filresursen
 * Behörigheter har angetts som en vanlig Linux-användare i Bash
 
 Mer information om funktioner i [Bash i molnet Shell](features.md) och [PowerShell i molnet Shell (förhandsgranskning)](features-powershell.md).
-
-## <a name="examples"></a>Exempel
-* Använda skript för att automatisera hanteringsuppgifter för Azure
-* Hantera Azure-resurser via Azure-portalen och Azure kommandoradsverktyg samtidigt
-* Testkör Azure CLI 2.0 eller Azure PowerShell-cmdlets
-
-Prova att använda de här exemplen i Snabbstart för [Bash i molnet Shell](quickstart.md) och [PowerShell i molnet Shell (förhandsgranskning)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Prissättning
 Den dator som är värd molnet Shell är ledigt, med ett krav för en monterad resurs i Azure-filer. Vanliga lagringskostnader gäller.

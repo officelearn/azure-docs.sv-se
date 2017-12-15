@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Flytta data till och från Azure Cosmos-databasen med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ Azure Cosmos-DB är en NoSQL store för JSON-dokument, där kapslade strukturer 
 2. **Fråga:** hur redan har ett nytt försök till en kopia till Azure Cosmos DB behandlar kopieras poster?
 
     **Svar:** om poster har ett ”ID”-fält och kopieringen görs ett försök att infoga en post med samma ID, kopieringen genererar ett fel.  
-3. **Fråga:** stöder Data Factory [intervall eller hash-baserad Datapartitionering](../../cosmos-db/documentdb-partition-data.md)?
+3. **Fråga:** stöder Data Factory [intervall eller hash-baserad Datapartitionering](../../cosmos-db/sql-api-partition-data.md)?
 
     **Svar:** Nej.
 4. **Fråga:** kan jag ange mer än en Azure DB som Cosmos-samlingen för en tabell?

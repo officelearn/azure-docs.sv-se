@@ -13,9 +13,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 468a6bc77b354f2e0fbe981c3d4a5691eac4ec4d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/14/2017
 ---
@@ -140,7 +140,7 @@ Du kan använda ett allmänt namn som är hårdkodat i mallen för resurstyper s
 }
 ```
 
-## <a name="resource-location"></a>Resursplats
+## <a name="location"></a>Plats
 När du distribuerar en mall måste du ange en plats för varje resurs. Olika typer stöds i olika platser. Använda Azure PowerShell eller Azure CLI om du vill se en lista över platser som är tillgängliga för din prenumeration för en viss resurstyp. 
 
 I följande exempel använder PowerShell för att hämta platser för den `Microsoft.Web\sites` resurstyp:

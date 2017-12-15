@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
-ms.author: corywink
-ms.openlocfilehash: d4cb452b34ddefc70dc1adcff0e5fead072aa16a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.date: 12/12/2017
+ms.author: dobett
+ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Vanliga frågor och svar för IoT Suite anslutna factory förkonfigurerade lösningen
 
@@ -42,7 +42,7 @@ OPC enhetlig arkitektur (UA), utgivet 2008, är en plattformsoberoende, tjänsto
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Varför Microsoft välja OPC UA för anslutna factory förkonfigurerade lösningen?
 
-Microsoft har valt OPC UA eftersom det är en öppen plattform för icke-generiska, oberoende branschen identifieras och beprövade standard. Det är ett krav för att säkerställa samverkan mellan en bred uppsättning tillverkningsprocesser och utrustning Industrie 4.0 (RAMI4.0) referens arkitektur lösningar. Microsoft ser begäran från våra kunder att skapa Industrie 4.0 lösningar. Stöd för OPC UA hjälper dig att minska barriären för kunder att nå sina mål och ger omedelbar affärsvärde dem.
+Microsoft har valt OPC UA eftersom det är en öppen plattform för icke-generiska, oberoende branschen identifieras och beprövade standard. Det är ett krav för att säkerställa samverkan mellan en bred uppsättning tillverkningsprocesser och utrustning Industrie 4.0 (RAMI4.0) referens arkitektur lösningar. Microsoft ser begäran från sina kunder att skapa Industrie 4.0 lösningar. Stöd för OPC UA hjälper dig att minska barriären för kunder att nå sina mål och ger omedelbar affärsvärde dem.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Hur lägger jag till en offentlig IP-adress i simuleringen VM?
 
@@ -143,6 +143,64 @@ Granska de data som skickas av en enhet som utgivare:
 * Publisher.Seattle.corp.contoso
 
 Om du ser inga data skickas till IoT-hubben är ett problem med simuleringen. Som ett första steg analys bör du analysera loggfiler simuleringen komponenter. Se [hur kan jag loggdata från simuleringen komponenterna?](#how-can-i-get-log-data-from-the-simulation-components) Försök sedan att stoppa och starta simuleringen och om det finns fortfarande inga data skickas, uppdatera simuleringen helt. Se [hur uppdaterar jag simuleringen i den virtuella datorn?](#how-do-i-update-the-simulation-in-the-vm)
+
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar en interaktiv karta i min anslutna factory-lösning?
+
+Om du vill aktivera en interaktiv karta i din lösning för anslutna fabriken, måste du ha en befintlig Bing Maps API för Enterprise-plan. Om du har en Bing Maps API för företagsplan när du distribuerar anslutna factory-lösning från www.azureiotsuite.com aktiveras automatiskt interaktiv karta för dig.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps API för företag-konto?
+
+Du kan få ett kostnadsfritt *interna transaktioner nivå 1 Bing Maps för Enterprise* plan. Men du kan bara lägga till två energischeman till en Azure-prenumeration. Om du inte har en Bing Maps API för företag-konto kan du skapa en i Azure-portalen genom att klicka på **+ skapa en resurs för**. Sök sedan efter **Bing Maps API för företag** och följ anvisningarna för att skapa den.
+
+![Bing-nyckel](media/iot-suite-faq-cf/bing.png)
+
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Skaffa Bing Maps API för Enterprise QueryKey
+
+När du har skapat din Bing Maps API för företagsplan, lägga till en Bing Maps för företagsresurs i resursgruppen för lösningen anslutna factory i Azure-portalen.
+
+1. Navigera till den resursgrupp som innehåller dina Bing Maps API för företagsplan i Azure-portalen.
+
+1. Klicka på **alla inställningar**, sedan **nyckelhantering**.
+
+1. Det finns två nycklar: **MasterKey** och **QueryKey**. Kopiera den **QueryKey** värde.
+
+1. Den nyckel som hämtas av den `build.ps1` skript kan du ange miljövariabeln `$env:MapApiQueryKey` i PowerShell-miljö för att den **QueryKey** av planen. Build-skriptet sedan automatiskt lägger till värdet inställningarna för App Service.
+
+1. Kör en lokal eller moln distribution med den `build.ps1` skript.
+
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Hur aktiverar interaktiv karta när du felsöker lokalt?
+
+Ange värdet för inställningen för att aktivera interaktiv karta när du felsöker lokalt, `MapApiQueryKey` i filer `local.user.config` och `<yourdeploymentname>.user.config` i roten för din distribution till värdet för den **QueryKey** du kopierade tidigare.
+
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Hur använder jag en annan bild på startsidan för min instrumentpanel
+
+Om du vill ändra statiska bilden visas i/o startsidan på instrumentpanelen ersätter bilden `WebApp\Content\img\world.jpg`. Sedan återskapa och distribuera WebApp.
+
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hur använder icke OPC UA enheter med anslutna factory?
+
+Skicka telemetridata från icke OPC UA enheter till anslutna factory:
+
+1. [Konfigurera en ny station i topologin anslutna factory](iot-suite-connected-factory-configure.md) i den `ContosoTopologyDescription.json` filen.
+
+1. Mata in telemetridata i anslutna factory kompatibel JSON-format:
+
+    ```json
+    [
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
+    ]
+    ```
+
+1. Formatet för `<timestamp>` är:`2017-12-08T19:24:51.886753Z`
+
+1. Starta om anslutna fabriken App Service.
 
 ### <a name="next-steps"></a>Nästa steg
 

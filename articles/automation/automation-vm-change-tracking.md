@@ -3,7 +3,7 @@ title: "Spåra ändringar i dina virtuella Azure-datorer | Microsoft Docs"
 description: "Använd ändringsspårning för att spåra ändringar i filer och registerposter på virtuella datorer."
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 5c6e8390ec8533fc7ab281c212e47a6982b30f1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="track-changes-in-your-azure-virtual-machines"></a>Spåra ändringar i dina virtuella Azure-datorer
 

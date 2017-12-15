@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
+
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service i Windows. Du distribuerar till App Service på _Linux_, se [skapa en PHP- och MySQL-webbapp i Azure App Service på Linux](./containers/tutorial-php-mysql-app.md).
+>
 
 Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här kursen visar hur du skapar en PHP-webbapp i Azure och ansluta till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) app som körs på Azure App Service Web Apps.
 
@@ -158,7 +162,7 @@ I det här steget skapar du en MySQL-databas i [Azure-databas för MySQL (förha
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Molnet Shell, skapar du en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server#create) kommando.
+Molnet Shell, skapar du en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) kommando.
 
 Ersätt namnet på MySQL-servern där du ser i följande kommando i  _&lt;mysql_server_name >_ platshållare (giltiga tecken är `a-z`, `0-9`, och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`), den måste vara globalt unika.
 
@@ -188,7 +192,7 @@ När MySQL-servern har skapats visas Azure CLI information liknar följande exem
 
 ### <a name="configure-server-firewall"></a>Konfigurera server-brandväggen
 
-Molnet Shell, skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule#create) kommando.
+Molnet Shell, skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) kommando.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -341,7 +345,7 @@ I det här steget kan distribuera du MySQL-anslutna PHP-program till Azure App S
 
 Du kan ansluta till din Azure MySQL-databas med miljövariabler i App Service som pekas tidigare.
 
-I gränssnittet moln som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings#set) kommando.
+I gränssnittet moln som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando.
 
 Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, och `DB_PASSWORD`. Ersätt platshållarna  _&lt;appname >_ och  _&lt;mysql_server_name >_.
 
@@ -372,7 +376,7 @@ I det lokala terminalfönstret använda `php artisan` att generera en ny nyckel 
 php artisan key:generate --show
 ```
 
-I molnet-gränssnittet in nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings#set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
+I molnet-gränssnittet in nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -587,7 +591,7 @@ Om du har lagt till alla uppgifter som finns kvar i databasen. Uppdateringar til
 
 Du kan hämta loggarna för konsolen skickas till terminalen när PHP-program körs i Azure App Service. På så sätt kan du få samma diagnostiska meddelanden för att felsöka programfel.
 
-Starta loggen strömning med den [az webapp loggen pilslut](/cli/azure/webapp/log#tail) i molnet Shell.
+Starta loggen strömning med den [az webapp loggen pilslut](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) i molnet Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

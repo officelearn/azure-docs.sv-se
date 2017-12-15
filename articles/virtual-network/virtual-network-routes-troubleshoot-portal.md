@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Felsöka flöden med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Samma steg kan användas för att fastställa inkommande och utgående anslutnin
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Visa effektiva flöden för en virtuell dator
 Om du vill se sammanställd vägar som tillämpas på en virtuell dator, gör du följande:
 
-1. Logga in på Azure-portalen på https://portal.azure.com.
+1. Logga in på Azure-portalen på https://portal.azure.com. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klicka på **fler tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad.

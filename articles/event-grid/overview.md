@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>En introduktion till Azure händelse rutnätet
 
@@ -20,9 +20,18 @@ Azure händelse rutnätet kan du enkelt kan skapa program med händelsebaserat a
 
 Du kan använda filter för att vidarebefordra specifika händelser till olika slutpunkter samtidigt till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt. Händelsen rutnätet har också inbyggt stöd för anpassade och tredjeparts-händelser.
 
-I förhandsversionen har Event Grid stöd för platserna **westus2** och **westcentralus**. Kommer att läggas till andra regioner.
+Händelsen rutnätet stöder för närvarande följande områden:
 
-Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md).
+* Centrala USA
+*   Östra USA
+*   Östra USA 2
+*   Västra centrala USA
+*   Västra USA
+*   Västra USA 2
+
+Kommer att läggas till andra regioner.
+
+Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om du vill komma igång med händelsen rutnätet finns [skapa och flöde anpassade händelser med Azure händelse rutnätet](custom-event-quickstart.md). Följande bild visar hur händelsen rutnätet ansluter utgivare och hanterare, men ger inte en omfattande lista över vilka alternativ som stöds.
 
 ![Händelsen rutnätet funktionella modellen](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Den här artikeln innehåller en översikt över Azure händelse rutnätet. Om d
 
 För närvarande har följande Azure-tjänster inbyggda utgivarens support för händelsen rutnät:
 
-* Resursgrupper (hanteringsåtgärder)
 * Azure-prenumerationer (hanteringsåtgärder)
-* Händelsehubbar
-* Lagringsblob
 * Anpassade avsnitt
+* Händelsehubbar
+* Resursgrupper (hanteringsåtgärder)
+* Lagringsblob
 
 Andra Azure-tjänster kommer att adderas i år.
 
@@ -42,11 +51,12 @@ Andra Azure-tjänster kommer att adderas i år.
 
 Följande Azure-tjänster har för närvarande stöd för inbyggda hanterare för händelsen rutnätet: 
 
-* Azure Functions
-* Logic Apps
 * Azure Automation
-* WebHooks
+* Azure Functions
+* Händelsehubbar
+* Logic Apps
 * Microsoft-flöde
+* WebHooks
 
 Andra Azure-tjänster kommer att adderas i år.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Gå sociala med Azure Cosmos DB
 Bor i ett massivt sammankopplade society innebär att på någon punkt i livslängd du blir en del av en **sociala nätverk**. Vi använder sociala nätverk för att hålla kontakten med vänner, kolleger, familj, och ibland att dela vår passion med personer med gemensamma intressen.
@@ -103,7 +103,7 @@ Att skapa flöden är bara en fråga om hur du skapar dokument som kan innehåll
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Vi kan ha en ”senaste” dataström med listan sorteras efter skapandedatum, en ”senaste” ström med dessa poster med gillar mer under de senaste 24 timmarna, vi kan även genomföra en anpassad dataström för varje användare baserat på logik som blandare och intressen och det fortfarande skulle vara en lista över poster. Det handlar om hur du skapar de här listorna, men läsning prestanda förblir röra sig obehindrat. När vi skaffar en av dessa listor kan vi utfärda en enskild fråga till Cosmos-databas med hjälp av den [i operatorn](documentdb-sql-query.md#WhereClause) att hämta sidor i inlägg i taget.
+Vi kan ha en ”senaste” dataström med listan sorteras efter skapandedatum, en ”senaste” ström med dessa poster med gillar mer under de senaste 24 timmarna, vi kan även genomföra en anpassad dataström för varje användare baserat på logik som blandare och intressen och det fortfarande skulle vara en lista över poster. Det handlar om hur du skapar de här listorna, men läsning prestanda förblir röra sig obehindrat. När vi skaffar en av dessa listor kan vi utfärda en enskild fråga till Cosmos-databas med hjälp av den [i operatorn](sql-api-sql-query.md#WhereClause) att hämta sidor i inlägg i taget.
 
 Feed strömmar kan byggas med [Azure App Services](https://azure.microsoft.com/services/app-service/) background processer: [Webjobs](../app-service/web-sites-create-web-jobs.md). När en post har skapats behandling i bakgrunden kan aktiveras med hjälp av [Azure Storage](https://azure.microsoft.com/services/storage/) [köer](../storage/queues/storage-dotnet-how-to-use-queues.md) och Webjobs aktiveras med hjälp av den [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementera post spridning i dataströmmar baserat på egna anpassade logik. 
 
@@ -237,7 +237,7 @@ Vad händer om saker får bättre och användare från en annan region, land ell
 
 Men vänta... du inser snart sina erfarenheter din plattform inte är den optimala; de är så långt från din operativa region att svarstiden är förskräckliga ut och du givetvis inte vill att de ska avslutas. Om bara det uppstod ett enkelt sätt att **utöka räckhåll globala**... men det finns!
 
-Cosmos DB kan du [replikeras dina data globalt](../cosmos-db/tutorial-global-distribution-documentdb.md) och transparent med ett par klick och automatiskt välja bland tillgängliga regioner från din [klientkod](../cosmos-db/tutorial-global-distribution-documentdb.md). Det innebär också att du har [flera redundans regioner](regional-failover.md). 
+Cosmos DB kan du [replikeras dina data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med ett par klick och automatiskt välja bland tillgängliga regioner från din [klientkod](../cosmos-db/tutorial-global-distribution-sql-api.md). Det innebär också att du har [flera redundans regioner](regional-failover.md). 
 
 När du replikerar data globalt, måste du se till att klienterna kan dra nytta av den. Om du använder en klientdel web eller öppnar API: er från mobila klienter, kan du distribuera [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) och klona din Azure Apptjänst på alla önskade regioner, med en prestanda-konfiguration för att stödja dina utökade globala täckning. När klienterna har åtkomst till din klientdel eller API: er, kommer att dirigeras till den närmaste App Service som i sin tur ska ansluta till den lokala Cosmos-DB-repliken.
 

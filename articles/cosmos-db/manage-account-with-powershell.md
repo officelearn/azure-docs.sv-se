@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Skapa ett Azure DB som Cosmos-konto med hjälp av PowerShell
 
-Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av dina Azure Cosmos DB databasen konton med hjälp av Azure Powershell. Den inkluderar också kommandon för att hantera nycklar och prioriteringar för växling vid fel i [flera regioner databasen konton][scaling-globally]. Uppdatera ditt konto kan du ändra konsekvenskontroll principer och Lägg till/ta bort regioner. Plattformsoberoende hantering av Azure DB som Cosmos-konto, kan använda antingen [Azure CLI](cli-samples.md), [Resource Provider REST API][rp-rest-api], eller [Azure-portalen ](create-documentdb-dotnet.md#create-account).
+Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av dina Azure Cosmos DB databasen konton med hjälp av Azure Powershell. Den inkluderar också kommandon för att hantera nycklar och prioriteringar för växling vid fel i [flera regioner databasen konton][scaling-globally]. Uppdatera ditt konto kan du ändra konsekvenskontroll principer och Lägg till/ta bort regioner. Plattformsoberoende hantering av Azure DB som Cosmos-konto, kan använda antingen [Azure CLI](cli-samples.md), [Resource Provider REST API][rp-rest-api], eller [Azure-portalen ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -194,8 +194,7 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill ansluta med hjälp av .NET finns [ansluter och frågar med .NET](create-documentdb-dotnet.md).
-* Om du vill ansluta med .NET Core, se [Anslut och fråga med .NET Core](create-documentdb-dotnet-core.md).
+* Om du vill ansluta med hjälp av .NET finns [ansluter och frågar med .NET](create-sql-api-dotnet.md).
 * Om du vill ansluta med Node.js, se [ansluter och frågar med Node.js och en MongoDB-app](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

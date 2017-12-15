@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrik-baserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -73,6 +73,10 @@ Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av st
 4. Välj **lokalt program**.
 5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningarna:
    - **Intern URL**: normalt du ange en URL som tar dig till inloggningssidan för appens när du är på företagsnätverket. I det här scenariot måste kopplingen behandla PingAccess-proxy som sidan främre i appen. Använd följande format: `https://<host name of your PA server>:<port>`. Porten är 3000 som standard, men du kan konfigurera i PingAccess.
+
+    > [!WARNING]
+    > Intern URL måste använda https för den här typen av enkel inloggning och kan inte använda http.
+
    - **Förautentiseringsmetoden**: Azure Active Directory
    - **Översätta URL: en i sidhuvuden**: Nej
 
@@ -135,7 +139,7 @@ Följ dessa steg om du vill publicera en app. En mer detaljerad genomgång av st
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Valfritt: uppdatera GraphAPI att skicka anpassade fält
 
-En lista över säkerhetstoken som Azure AD skickar för autentisering, se [Azure AD tokenreferens](./develop/active-directory-token-and-claims.md). Om du behöver ett anpassat anspråk som skickar andra token kan använda GraphAPI för att ange fältet app *acceptMappedClaims* till **SANT**. Du kan bara använda Azure AD Graph Explorer för att göra den här konfigurationen. 
+En lista över säkerhetstoken som Azure AD skickar för autentisering, se [Azure AD tokenreferens](./develop/active-directory-token-and-claims.md). Om du behöver ett anpassat anspråk som skickar andra token kan använda diagrammet Utforskaren eller manifestet för programmet i Azure Portal för att ange fältet app *acceptMappedClaims* till **SANT**.    
 
 Det här exemplet använder diagram Explorer:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Det här exemplet används den [Azure-portalen](https://portal.azure.com) till udpate den *acceptedMappedClaims* fält:
+1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör.
+2. Välj **Azure Active Directory** > **App registreringar**.
+3. Markera programmet > **Manifest**.
+4. Välj **redigera**, söka efter den *acceptedMappedClaims* fältet och ändra värdet till **SANT**.
+![App-manifest](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Välj **Spara**.
 
 >[!NOTE]
 >Du måste ha en anpassad princip definieras och tilldelas programmet om du vill använda ett anpassat anspråk.  Den här principen ska innehålla alla obligatoriska anpassade attribut.

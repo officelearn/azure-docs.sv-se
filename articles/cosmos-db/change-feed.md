@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Arbeta med ändringen feeds stöd i Azure Cosmos DB
 
@@ -90,11 +90,11 @@ Utlösare kan skapas i Azure Functions-portalen i Azure DB som Cosmos-portalen e
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Med SDK
 
-Den [SQL SDK](documentdb-sdk-dotnet.md) för Azure Cosmos DB kan du alla kan läsa och hantera en ändring feed. Men med bra power kommer många ansvarsområden för. Om du vill hantera kontrollpunkter, hantera dokument sekvensnummer och detaljerad kontroll över partitionsnycklar kan med SDK vara rätt metod.
+Den [SQL SDK](sql-api-sdk-dotnet.md) för Azure Cosmos DB kan du alla kan läsa och hantera en ändring feed. Men med bra power kommer många ansvarsområden för. Om du vill hantera kontrollpunkter, hantera dokument sekvensnummer och detaljerad kontroll över partitionsnycklar kan med SDK vara rätt metod.
 
 Det här avsnittet går igenom hur du använder SQL-SDK ska fungera med en feed.
 
-1. Börja med att läsa följande resurser från appconfig. Instruktioner om hur du hämtar nyckeln slutpunkt och auktorisering finns i [uppdatera anslutningssträngen](create-documentdb-dotnet.md#update-your-connection-string).
+1. Börja med att läsa följande resurser från appconfig. Instruktioner om hur du hämtar nyckeln slutpunkt och auktorisering finns i [uppdatera anslutningssträngen](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Så hindrar kontrollpunkt matrisen bara LSN för varje partition. Men om du inte
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Använda ändra Feed Processor-bibliotek 
 
-Den [Azure Cosmos DB ändra Feed Processor biblioteket](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) kan hjälpa dig att enkelt distribuera händelsebearbetning mellan flera användare. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
+Den [Azure Cosmos DB ändra Feed Processor biblioteket](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kan hjälpa dig att enkelt distribuera händelsebearbetning mellan flera användare. Det här biblioteket förenklar läsning ändringar i partitioner och flera trådar som arbetar parallellt.
 
 Den största fördelen av ändra Feed Processor-biblioteket är att du inte behöver hantera varje partition och fortsättningstoken och du behöver inte söka varje samling manuellt.
 
@@ -276,11 +276,11 @@ Mer information om hur du använder Azure Cosmos DB med Azure Functions finns [A
 
 Mer information om hur du använder biblioteket ändra Feed Processor använder du följande resurser:
 
-* [Informationssidan](documentdb-sdk-dotnet-changefeed.md) 
+* [Informationssidan](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Exempelkod som visar steg 1 – 6 ovan](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Ytterligare exempel på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Mer information om hur du använder ändringen feed via SDK använder du följande resurser:
 
-* [Informationssidan om SDK](documentdb-sdk-dotnet.md)
+* [Informationssidan om SDK](sql-api-sdk-dotnet.md)

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-säkerhetsguiden
 ## <a name="overview"></a>Översikt
@@ -295,7 +295,7 @@ Det här är en inställning som gäller för hela lagringskontot. Du kan aktive
 
 Just nu hanteras de nycklar som används för kryptering av Microsoft. Vi skapar nycklarna som ursprungligen och hantera säker lagring av nycklar som vanlig rotationen som definieras av intern Microsoft-princip. Du kommer i framtiden, få möjlighet att hantera egna krypteringsnycklar och ange en migrering från Microsoft-hanterad nycklar till kundhanterad nycklar.
 
-Den här funktionen är tillgänglig för Standard- och Premium-lagring konton som skapats med hjälp av Resource Manager-distributionsmodellen. SSE gäller endast för blockblobbar, sidblobbar, och tilläggsblobar. Andra typer av data, inklusive tabeller, köer och filer, krypteras inte.
+Den här funktionen är tillgänglig för Standard- och Premium-lagring konton som skapats med hjälp av Resource Manager-distributionsmodellen. SSE gäller för alla typer av data: blockblobbar, sidblobbar och tilläggsblobbar, tabeller, köer och filer.
 
 Data krypteras endast när SSE är aktiverat och data skrivs till Blob Storage. Aktivera eller inaktivera SSE påverkar inte befintliga data. Med andra ord, när du aktiverar den här kryptering kommer det inte gå tillbaka och kryptera data som finns redan. inte heller att dekryptera data som redan finns när du inaktiverar SSE.
 
@@ -380,7 +380,7 @@ Kryptering på klientsidan är mer belastningen på klienten och du behöver kon
 #### <a name="storage-service-encryption-sse"></a>Storage Service-kryptering (SSE)
 SSE hanteras av Azure Storage. Med hjälp av SSE ger inte för att skydda data under överföring, men den krypterar data som skrivs till Azure Storage. Det finns ingen inverkan på prestanda när du använder den här funktionen.
 
-Du kan endast kryptera blockblobbar, tilläggsblobbar och sidblobbar med hjälp av SSE. Om du behöver kryptera tabelldata eller kön data bör du använda kryptering på klientsidan.
+Du kan kryptera alla typer av data för storage-konto med hjälp av SSE (blockblobbar, Lägg till blobbar, sidblobar, tabelldata, kö-data och filer).
 
 Om du har ett arkiv eller bibliotek av VHD-filer som du använder som grund för att skapa nya virtuella datorer kan du skapa ett nytt lagringskonto, aktivera SSE och sedan överföra VHD-filerna till det kontot. Dessa VHD-filer krypteras av Azure Storage.
 

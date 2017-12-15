@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Skapa en Java och MySQL-webbapp i Azure
+
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service i Windows. Du distribuerar till App Service på _Linux_, se [distribuera en behållare källan Start-app till Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+>
 
 Den här kursen visar hur du skapar en Java-webbapp i Azure och ansluta till en MySQL-databas. När du är klar har du en [Vårversionen Start](https://projects.spring.io/spring-boot/) program som lagrar data i [Azure-databas för MySQL](https://docs.microsoft.com/azure/mysql/overview) körs på [Azure App Service Web Apps](app-service-web-overview.md).
 

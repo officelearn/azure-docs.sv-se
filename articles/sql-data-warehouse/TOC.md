@@ -26,7 +26,6 @@
 
 ## Migrera till SQL Data Warehouse
 ### [Översikt](sql-data-warehouse-overview-migrate.md)
-### [Migreringsverktyg](sql-data-warehouse-migrate-migration-utility.md)
 ### [Migrera schema](sql-data-warehouse-migrate-schema.md)
 ### [Migrera kod](sql-data-warehouse-migrate-code.md)
 ### [Migrera data](sql-data-warehouse-migrate-data.md)

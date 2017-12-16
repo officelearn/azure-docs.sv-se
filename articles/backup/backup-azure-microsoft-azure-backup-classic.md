@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: db19729f652430c80ad0a7af1b630c1c5a1561d3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 3f22ad12c966f0e8d5a77c2060711d32dfddbc94
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -164,11 +164,11 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiering till Azure | Säkerhetskopiering till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåtna |Tillåtna |Tillåtna |Tillåtna |
-| Ansluten |Upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
+| Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
+| Ansluten |Upphört |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
-| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Tillåtna |Tillåtna |
-| Förlorade anslutningen > 15 dagar |Upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
+| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorade anslutningen > 15 dagar |Upphört |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från anslutningsproblem

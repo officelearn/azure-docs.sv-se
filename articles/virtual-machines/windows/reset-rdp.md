@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/06/2017
 ms.author: genli
-ms.openlocfilehash: 7690dd6d830b104e6f4c20affbfcc2384abe5eab
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: b5c6c6e06f6e4173730e6b030b86f443c58aa0f0
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>Så här återställer du tjänsten Remote Desktop eller dess inloggningslösenord i en Windows VM
-Om du inte kan ansluta till en Windows-dator (VM), kan du återställa det lokala administratörslösenordet eller Återställ konfigurationen för tjänsten Remote Desktop. Du kan använda Azure-portalen eller tillägget för virtuell dator åtkomst i Azure PowerShell för att återställa lösenordet. Om du använder PowerShell, se till att du har den [senaste PowerShell-modulen installerad och konfigurerad](/powershell/azure/overview) och är inloggad på Azure-prenumerationen. Du kan också [utför de här stegen för virtuella datorer som skapats med den klassiska distributionsmodellen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/classic/reset-rdp).
+Om du inte kan ansluta till en Windows-dator (VM), kan du återställa det lokala administratörslösenordet eller återställa konfigurationen av Remote Desktop-tjänsten (stöds inte på Windows-domänkontrollanter). Du kan använda Azure-portalen eller tillägget för virtuell dator åtkomst i Azure PowerShell för att återställa lösenordet. Om du använder PowerShell, se till att du har den [senaste PowerShell-modulen installerad och konfigurerad](/powershell/azure/overview) och är inloggad på Azure-prenumerationen. Du kan också [utför de här stegen för virtuella datorer som skapats med den klassiska distributionsmodellen](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>Olika sätt att återställa konfigurationen eller autentiseringsuppgifter
 Du kan återställa Remote Desktop services och autentiseringsuppgifter på några olika sätt, beroende på dina behov:
@@ -63,7 +63,8 @@ $cred=Get-Credential
 ```
 
 > [!NOTE] 
-> Om du anger ett annat namn än det aktuella lokala administratörskontot på den virtuella datorn VMAccess-tillägget byter namn på det lokala administratörskontot, tilldelar det angivna lösenordet för kontot och utfärdar en händelse för fjärrskrivbord utloggning. Om det lokala administratörskontot på den virtuella datorn inaktiveras, kan den VMAccess-tillägget.
+> Om du anger ett annat namn än det aktuella lokala administratörskontot på den virtuella datorn VMAccess-tillägget Lägg till ett lokalt administratörskonto med det namnet, och tilldela det angivna lösenordet för kontot. Om det lokala administratörskontot på den virtuella datorn finns det att återställa lösenordet och om kontot är inaktiverat VMAccess-tillägget aktiverar det.
+
 
 I följande exempel uppdateras den virtuella datorn med namnet `myVM` i resursgrupp med namnet `myResourceGroup` till de angivna autentiseringsuppgifterna.
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Översikt över tabeller i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Statistik är ett mycket viktigt att få bästa möjliga prestanda utanför ditt
 Temporära tabeller är tabeller som endast finns under din inloggning och inte kan ses av andra användare.  Temporära tabeller kan vara ett bra sätt att förhindra att andra ser tillfälliga resultat och också minska behovet av att rensa.  Eftersom temporära tabeller kan du också använda lokal lagring, ger de snabbare prestanda för vissa åtgärder.  Finns det [tillfällig tabell] [ Temporary] artiklar för mer information om temporära tabeller.
 
 ## <a name="external-tables"></a>Externa tabeller
-Externa tabeller, även kallat Polybase tabeller är tabeller som kan efterfrågas från SQL Data Warehouse men punkt till externa data från SQL Data Warehouse.  Du kan till exempel skapa en extern tabell som pekar till filer på Azure Blob Storage.  Mer information om hur du skapar och fråga en extern tabell, se [Läs in data med Polybase][Load data with Polybase].  
+Externa tabeller, även kallat Polybase tabeller är tabeller som kan efterfrågas från SQL Data Warehouse men punkt till externa data från SQL Data Warehouse.  Du kan till exempel skapa en extern tabell som pekar till filer i Azure Blob Storage eller Azure Data Lake Store.  Mer information om hur du skapar och fråga en extern tabell, se [Läs in data med Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Funktioner som inte stöds tabell
 SQL Data Warehouse innehåller många av samma tabell funktionerna som erbjuds av andra databaser, finns men det vissa funktioner som ännu inte stöds.  Nedan visas en lista över några av de funktionerna i tabellen som ännu inte stöds.

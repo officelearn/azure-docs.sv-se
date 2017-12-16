@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/15/2017
+ms.date: 12/14/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Läs in data från Azure Data Lake Store till SQL Data Warehouse
-Det här dokumentet får du alla steg som du behöver läsa in dina egna data från Azure Data Lake Store (ADLS) i SQL Data Warehouse med PolyBase.
+Det här dokumentet får du alla steg som du behöver läsa in data från Azure Data Lake Store (ADLS) i SQL Data Warehouse med PolyBase.
 När du ska kunna köra ad hoc-frågor över data som lagras i ADLS med hjälp av externa tabeller som bästa praxis rekommenderar vi att importera data till SQL Data Warehouse.
 
 I den här kursen får du lära dig hur du:
@@ -42,21 +42,15 @@ Om du vill köra den här kursen behöver du:
 
 * SQL Server Management Studio eller SQL Server Data Tools för att hämta SSMS och ansluta finns [fråga SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Ett Azure SQL Data Warehouse, skapa en Följ: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Ett Azure SQL Data Warehouse, skapa en Följ: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision _
 
-* Ett Azure Data Lake Store, med eller utan kryptering aktiverat. Så här skapar du en Följ: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-
-
-
-## <a name="configure-the-data-source"></a>Konfigurera datakällan
-PolyBase använder externa T-SQL-objekt för att ange plats och attribut för externa data. Externa objekt lagras i SQL Data Warehouse och referensdata th lagras externt.
+* Ett Azure Data Lake Store, skapa en Följ: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Skapa en autentiseringsuppgift
 För att komma åt din Azure Data Lake Store, behöver du skapa en huvudnyckel för databasen om du vill kryptera dina autentiseringsuppgifter hemlighet som används i nästa steg.
 Sedan kan du skapa en Databasbegränsade autentiseringsuppgift som lagrar huvudnamn autentiseringsuppgifterna för tjänsten i AAD. Observera att credential-syntax är olika för de som har använt PolyBase för att ansluta till Windows Azure Storage-Blobbar.
-Om du vill ansluta till Azure Data Lake Store, måste du **första** skapa ett Azure Active Directory-program, skapa en snabbtangent och ge programmet åtkomst till Azure Data Lake-resursen. Anvisningar för att utföra de här stegen finns [här](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Om du vill ansluta till Azure Data Lake Store, måste du **första** skapa ett Azure Active Directory-program, skapa en snabbtangent och ge programmet åtkomst till Azure Data Lake-resursen. Anvisningar för att utföra de här stegen finns [här](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -88,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Skapa den externa datakällan
-Använd den här [Skapa extern DATAKÄLLA] [ CREATE EXTERNAL DATA SOURCE] kommando för att lagra placeringen av data och vilken typ av data. Hitta ADL URI i Azure portal, gå till din Azure Data Lake Store och titta sedan på panelen Essentials.
+Använd den här [Skapa extern DATAKÄLLA] [ CREATE EXTERNAL DATA SOURCE] kommando för att lagra platsen för data. Hitta ADL URI i Azure portal, gå till din Azure Data Lake Store och titta sedan på panelen Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -104,11 +98,8 @@ WITH (
 );
 ```
 
-
-
 ## <a name="configure-data-format"></a>Konfigurera dataformat
 Du måste ange det externa filformatet om du vill importera data från ADLS. Det här kommandot har format-specifika alternativ för att beskriva dina data.
-Nedan visas ett exempel på ett vanligt förekommande format som är en pipe-avgränsad textfil.
 Titta på vår T-SQL-dokumentation för en fullständig lista över [skapa externt FILFORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
@@ -116,7 +107,7 @@ Titta på vår T-SQL-dokumentation för en fullständig lista över [skapa exter
 -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
 -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
 -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
--- Use_Type_Default: Store all Missing values as NULL
+-- Use_Type_Default: Store missing values as default for datatype.
 
 CREATE EXTERNAL FILE FORMAT TextFileFormat
 WITH
@@ -130,7 +121,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>Skapa externa tabeller
-Nu när du har angett käll- och dataformatet, är du redo att skapa externa tabeller. Externa tabeller är hur du interagerar med externa data. PolyBase använder rekursiv directory traversal för att läsa alla filer i alla underkataloger i katalogen som anges i platsparametern. I följande exempel visas också hur du skapar objektet. Du måste anpassa instruktionen att arbeta med data som du har i ADLS.
+Nu när du har angett käll- och dataformatet, är du redo att skapa externa tabeller. Externa tabeller är hur du interagerar med externa data. Platsparametern kan ange en fil eller katalog. Om det anger en katalog, laddas alla filer i katalogen.
 
 ```sql
 -- D: Create an External Table
@@ -161,18 +152,15 @@ WITH
 ## <a name="external-table-considerations"></a>Överväganden för extern tabell
 Är enkelt att skapa en extern tabell, men det finns några olika delarna som behöver tas upp.
 
-Läser in data med PolyBase typkontroll strikt. Detta innebär att varje rad med data som inhämtas måste uppfylla tabellschemadefinitionen.
-Om en viss rad inte matchar schemadefinitionen, avvisas raden från belastningen.
+Externa tabeller har strikt typkontroll. Detta innebär att varje rad med data som inhämtas måste uppfylla tabellschemadefinitionen.
+Om en rad inte matchar schemadefinitionen avvisas raden från belastningen.
 
-Alternativen REJECT_TYPE och REJECT_VALUE kan du definiera hur många rader eller vilken procentandel av data måste finnas i den slutliga tabellen.
-Om värdet avvisa uppnås under belastning misslyckas belastningen. Den vanligaste orsaken Avvisade rader stämmer inte schemat definition.
-Till exempel om en kolumn anges felaktigt schemat för int när data i filen är en sträng varje rad inte laddas.
+Alternativen REJECT_TYPE och REJECT_VALUE kan du definiera hur många rader eller vilken procentandel av data måste finnas i den slutliga tabellen. Om värdet avvisa uppnås under belastning misslyckas belastningen. Den vanligaste orsaken Avvisade rader stämmer inte schemat definition. Till exempel om en kolumn anges felaktigt schemat för int när data i filen är en sträng varje rad inte laddas.
 
-Platsen anger den översta katalogen som du vill läsa data från.
-I det här fallet om det fanns skulle underkataloger på /DimProduct/ PolyBase importera alla data i underkataloger. Azure Data Lake store använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Detta innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som anges i platsparametern och underordnade slutliga katalogen och filerna. Detta gör att PolyBase för att autentisera och läsa in läsa data. 
+ Azure Data Lake store använder rollbaserad åtkomstkontroll (RBAC) för att styra åtkomsten till data. Detta innebär att tjänstens huvudnamn måste ha läsbehörighet till kataloger som anges i platsparametern och underordnade slutliga katalogen och filerna. Detta gör att PolyBase för att autentisera och läsa in läsa data. 
 
 ## <a name="load-the-data"></a>Läs in data
-Att läsa in data från Azure Data Lake Store användning av [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instruktionen. Läser in med CTAS använder strikt typkontroll extern tabell som du har skapat.
+Att läsa in data från Azure Data Lake Store användning av [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instruktionen. 
 
 CTAS skapar en ny tabell och fylls med resultatet av en select-instruktion. CTAS definierar den nya tabellen om du vill ha samma kolumner och datatyper som resultat av select-satsen. Om du väljer alla kolumner från en extern tabell är en replik för kolumner och datatyperna i den externa tabellen i den nya tabellen.
 

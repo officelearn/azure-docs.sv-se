@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 58ca4ea85b6097f7210a21db45791bb43b0e99ea
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>Ställ in GPU drivrutiner för N-serien virtuella datorer som kör Windows Server
 Om du vill dra nytta av GPU-funktionerna i Azure N-serien virtuella datorer som kör Windows Server 2016 eller Windows Server 2012 R2, installera stöds grafik drivrutinerna. Den här artikeln innehåller drivrutinen konfigurationsstegen när du distribuerar en virtuell dator i N-serien. Inställningsinformation för drivrutinen är också tillgängligt för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -54,12 +54,12 @@ Om du vill fråga Enhetsstatus GPU kör den [nvidia smi](https://developer.nvidi
 
 ![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi.png)  
 
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA-nätverk för virtuella datorer NC24r
+## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktiveras på NC24r virtuella datorer som distribueras i samma tillgänglighetsuppsättning. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows nätverk som gör att RDMA-anslutning. Om du vill lägga till tillägg för virtuell dator till en NC24r VM, använda [Azure PowerShell](/powershell/azure/overview) cmdlets för Azure Resource Manager.
+RDMA-nätverksanslutning kan aktiveras RDMA aktiverade N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning. Tillägget HpcVmDrivers måste läggas till installation av enhetsdrivrutiner för Windows nätverk som gör att RDMA-anslutning. Om du vill lägga till tillägg för virtuell dator till en RDMA-aktiverade N-serien VM, använda [Azure PowerShell](/powershell/azure/overview) cmdlets för Azure Resource Manager.
 
 > [!NOTE]
-> Endast Windows Server 2012 R2 stöder för närvarande, nätverkets RDMA på NC24r virtuella datorer.
+> Endast Windows Server 2012 R2 stöder för närvarande, nätverkets RDMA på N-serien virtuella datorer.
 > 
 
 Om du vill installera den senaste versionen 1.1 HpcVMDrivers tillägg på en befintlig RDMA-kompatibla virtuell dator med namnet myVM i regionen USA, västra:
@@ -73,10 +73,6 @@ RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för progr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om NVIDIA GPU-kort på virtuella datorer N-serien finns i:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (för Azure NC virtuella datorer)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (för Azure NV virtuella datorer)
-
-* Utvecklare som bygger GPU-snabbare program för NVIDIA Tesla GPU kan också hämta och installera CUDA Toolkit 8 för [Windows Server 2016](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_win10-exe) eller [Windows Server 2012 R2](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_windows-exe). Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Utvecklare som bygger GPU-snabbare program för NVIDIA Tesla GPU kan också hämta och installera den [CUDA Toolkit 9.1](https://developer.nvidia.com/cuda-downloads). Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

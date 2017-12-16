@@ -4,7 +4,7 @@ description: "Skapa lagring, en Linux VM, ett virtuellt nätverk och undernät, 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda ett enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga stödfiler resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och regler för nätverkssäkerhetsgrupper skapas automatiskt. Mer kontroll över din miljö i produktionen använder, du kan skapa dessa resurser i förväg och sedan lägga till dina virtuella datorer till dem. Den här artikeln hjälper dig att skapa en virtuell dator och varje stödjande resurs i taget.
@@ -102,7 +102,7 @@ Utdata visar undernätet logiskt skapas i det virtuella nätverket:
 
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-Nu skapar vi en offentlig IP-adress med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#create). Den här offentliga IP-adressen kan du ansluta till dina virtuella datorer från Internet. Eftersom standardadressen är dynamisk kan vi också skapa en namngiven DNS-post med den `--domain-name-label` alternativet. I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet på *mypublicdns*. Eftersom DNS-namnet måste vara unikt, ange ditt eget unikt DNS-namn:
+Nu skapar vi en offentlig IP-adress med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#create). Den här offentliga IP-adressen kan du ansluta till dina virtuella datorer från Internet. Eftersom standardadressen är dynamiska, skapa en namngiven DNS-post med den `--domain-name-label` parameter. I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet på *mypublicdns*. Eftersom DNS-namnet måste vara unikt, ange ditt eget unikt DNS-namn:
 
 ```azurecli
 az network public-ip create \
@@ -140,8 +140,8 @@ Resultat:
 ```
 
 
-## <a name="create-a-network-security-group"></a>Skapa en säkerhetsgrupp för nätverk
-Skapa en säkerhetsgrupp för nätverk för att styra flödet av trafik till och från dina virtuella datorer. En nätverkssäkerhetsgrupp kan tillämpas på ett nätverkskort eller ett undernät. I följande exempel används [az nätverket nsg skapa](/cli/azure/network/nsg#create) om du vill skapa en säkerhetsgrupp för nätverk med namnet *myNetworkSecurityGroup*:
+## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
+För att styra flödet av trafik till och från dina virtuella datorer måste använda du en nätverkssäkerhetsgrupp till ett virtuellt nätverkskort eller undernät. I följande exempel används [az nätverket nsg skapa](/cli/azure/network/nsg#create) om du vill skapa en säkerhetsgrupp för nätverk med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Du kan definiera regler som tillåter eller nekar viss trafik. För att tillåta inkommande anslutningar på port 22 (till stöd för SSH), skapa en inkommande regel för nätverkssäkerhetsgruppen med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleSSH*:
+Du kan definiera regler som tillåter eller nekar viss trafik. För att tillåta inkommande anslutningar på port 22 (för att aktivera åtkomst för SSH) skapar du en inkommande regel med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Lägg till grupp ett annat nätverkssäkerhetsregeln för att tillåta inkommande anslutningar på port 80 (för att stödja webbtrafik). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleHTTP*:
+Lägg till grupp ett annat nätverkssäkerhetsregeln för att tillåta inkommande anslutningar på port 80 (för webbtrafik). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -332,7 +332,7 @@ Resultat:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Skapa ett virtuellt nätverkskort
-Virtuella nätverkskort (NIC) är tillgängliga via programmering eftersom du kan använda regler för deras användning. Du kan också ha fler än en. I följande [az nätverket nic skapa](/cli/azure/network/nic#create) kommando du skapar ett nätverkskort med namnet *myNic* och koppla den till nätverkssäkerhetsgruppen. Den offentliga IP-adressen *myPublicIP* är även associerat med det virtuella nätverkskortet.
+Virtuella nätverkskort (NIC) är tillgängliga via programmering eftersom du kan använda regler för deras användning. Beroende på den [VM-storlek](sizes.md), kan du koppla flera virtuella nätverkskort till en virtuell dator. I följande [az nätverket nic skapa](/cli/azure/network/nic#create) kommando du skapar ett nätverkskort med namnet *myNic* och koppla den till din säkerhetsgrupp för nätverk. Den offentliga IP-adressen *myPublicIP* är även associerat med det virtuella nätverkskortet.
 
 ```azurecli
 az network nic create \
@@ -476,12 +476,12 @@ Feldomäner för utdata anteckningar och uppdatera domäner:
 ```
 
 
-## <a name="create-the-linux-vms"></a>Skapa de virtuella Linux-datorerna
-Du har skapat nätverksresurser för att stödja Internet-tillgängliga virtuella datorer. Nu skapa en virtuell dator och skydda den med en SSH-nyckel. I det här fallet är det dags att skapa en Ubuntu VM baserat på senaste LTS. Du kan hitta ytterligare bilder med [az vm bildlista](/cli/azure/vm/image#list), enligt beskrivningen i [söker Azure VM-bilder](cli-ps-findimage.md).
+## <a name="create-a-vm"></a>Skapa en virtuell dator
+Du har skapat nätverksresurser för att stödja Internet-tillgängliga virtuella datorer. Nu skapa en virtuell dator och skydda den med en SSH-nyckel. I det här exemplet ska vi skapa en Ubuntu VM baserat på senaste LTS. Du kan hitta ytterligare bilder med [az vm bildlista](/cli/azure/vm/image#list), enligt beskrivningen i [söker Azure VM-bilder](cli-ps-findimage.md).
 
-Vi kan även ange en SSH-nyckel ska användas för autentisering. Om du inte har en offentlig nyckel SSH kan du [skapa dem](mac-create-ssh-keys.md) eller använda den `--generate-ssh-keys` parameter till skapa dem åt dig. Om du redan ett nyckelpar, den här parametern används befintliga nycklar i `~/.ssh`.
+Ange en SSH-nyckel ska användas för autentisering. Om du inte har en offentlig nyckel SSH kan du [skapa dem](mac-create-ssh-keys.md) eller använda den `--generate-ssh-keys` parameter till skapa dem åt dig. Om du redan har ett nyckelpar, den här parametern används befintliga nycklar i `~/.ssh`.
 
-Skapa den virtuella datorn genom att våra resurser och information tillsammans med den [az vm skapa](/cli/azure/vm#create) kommando. I följande exempel skapas en virtuell dator med namnet *myVM*:
+Skapa den virtuella datorn genom att alla resurser och information om tillsammans med den [az vm skapa](/cli/azure/vm#create) kommando. I följande exempel skapas en virtuell dator med namnet *myVM*:
 
 ```azurecli
 az vm create \
@@ -521,7 +521,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

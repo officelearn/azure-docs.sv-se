@@ -4,7 +4,7 @@ description: "Lär dig att skydda NGINX-webbserver med SSL-certifikat på en Lin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Skydda en webbserver med SSL-certifikat på en virtuell Linux-dator i Azure
 Ett certifikat senare SSL (Secure Sockets) kan användas för kryptering av webbtrafik säker webbserver. Dessa SSL-certifikat kan lagras i Azure Key Vault och tillåta säker distribution av certifikat till Linux virtuella datorer (VM) i Azure. I den här självstudiekursen får du lära du dig att:
@@ -33,7 +33,7 @@ Ett certifikat senare SSL (Secure Sockets) kan användas för kryptering av webb
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Översikt
@@ -49,7 +49,7 @@ Innan du kan skapa ett Nyckelvalv och certifikat, skapa en resursgrupp med [az g
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Skapa sedan ett Nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera den för användning när du distribuerar en virtuell dator. Varje Key Vault kräver ett unikt namn och bör vara alla gemen. Ersätt  *<mykeyvault>*  i följande exempel med dina egna unika Key Vault-namn:
+Skapa sedan ett Nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera den för användning när du distribuerar en virtuell dator. Varje Key Vault kräver ett unikt namn och bör vara alla gemen. Ersätt * <mykeyvault> * i följande exempel med dina egna unika Key Vault-namn:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -83,7 +83,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Skapa en moln-init-config om du vill skydda NGINX
 [Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
 
-När du skapar en virtuell dator, certifikat och nycklar lagras i den skyddade */var/lib/waagent/* directory. Använda molntjänster init för att automatisera lägger till certifikatet till den virtuella datorn och konfigurera webbservern. I det här exemplet vi installera och konfigurera webbservern NGINX. Du kan använda samma process för att installera och konfigurera Apache. 
+När du skapar en virtuell dator, certifikat och nycklar lagras i den skyddade */var/lib/waagent/* directory. Använda molntjänster init för att automatisera lägger till certifikatet till den virtuella datorn och konfigurera webbservern. I det här exemplet, installera och konfigurera webbservern NGINX. Du kan använda samma process för att installera och konfigurera Apache. 
 
 Skapa en fil med namnet *moln-init-webb-server.txt* och klistra in följande konfiguration:
 
@@ -136,7 +136,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testa det säkra webbprogrammet
-Nu kan du öppna en webbläsare och ange *https://<publicIpAddress>*  i adressfältet. Ange dina egna offentliga IP-adress från den virtuella datorn skapa processen. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat:
+Nu kan du öppna en webbläsare och ange *https://<publicIpAddress> * i adressfältet. Ange dina egna offentliga IP-adress från den virtuella datorn skapa processen. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat:
 
 ![Acceptera web Säkerhetsvarning för webbläsare](./media/tutorial-secure-web-server/browser-warning.png)
 

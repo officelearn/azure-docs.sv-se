@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 399bad6f00b61d582fdb077f33000b6c55cf8904
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Hantera instanser i varaktiga funktioner (Azure-funktioner)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/30/2017
 
 Den [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) -metoden i den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) startar en ny instans av en orchestrator-funktion. Instanser av den här klassen kan erhållas med hjälp av den `orchestrationClient` bindning. Internt, den här metoden enqueues meddelandet i kön kontroll som utlöser start för en funktion med det angivna namnet som använder den `orchestrationTrigger` utlösa bindning.
 
-Parametrarna är följande:
+Parametrarna för [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) är följande:
 
 * **Namnet**: namnet på orchestrator-funktionen om du vill schemalägga.
 * **Inkommande**: JSON-serialiserbara data som ska skickas som indata till orchestrator-funktionen.
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Instans-frågan är för närvarande stöds endast för C#-funktioner.
+> Instans-frågan är för närvarande stöds endast för C# orchestrator-funktioner.
 
 ## <a name="terminating-instances"></a>Avslutande instanser
 
@@ -115,11 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Instansen avslutning är för närvarande stöds endast för C#-funktioner.
+> Instansen avslutning är för närvarande stöds endast för C# orchestrator-funktioner.
 
 ## <a name="sending-events-to-instances"></a>Skickar händelser till instanser
 
-Händelsemeddelanden kan skickas till kör instanser som använder den [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Instanser som kan hantera dessa händelser är de som väntar på ett anrop till [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). Den angivna informationen är:
+Händelsemeddelanden kan skickas till kör instanser som använder den [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) metod för den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klass. Instanser som kan hantera dessa händelser är de som väntar på ett anrop till [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+
+Parametrarna för [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) är följande:
 
 * **InstanceId**: unikt ID för instansen.
 * **EventName**: namnet på händelsen att skicka.
@@ -139,7 +141,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Höja händelser stöds för närvarande endast för C#-funktioner.
+> Höja händelser stöds för närvarande endast för C# orchestrator-funktioner.
 
 > [!WARNING]
 > Om det finns ingen orchestration-instans med det angivna *instans-ID* eller om instansen inte väntar på den angivna *händelsenamnet*, händelsemeddelandet ignoreras. Mer information om det här problemet finns på [GitHub problemet](https://github.com/Azure/azure-functions-durable-extension/issues/29).

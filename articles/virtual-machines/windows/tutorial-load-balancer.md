@@ -4,7 +4,7 @@ description: "Lär dig hur du skapar ett program med hög tillgänglighet och s�
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Hur du läser in balansera Windows-datorer i Azure för att skapa ett program med hög tillgänglighet
 Belastningsutjämning ger högre tillgänglighet genom att sprida inkommande begäranden över flera virtuella datorer. I kursen får du lära dig om de olika komponenterna i Azure belastningsutjämnare som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Skapa en belastningsutjämnare
-Skapa en IP-adress för klientdel med [ny AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). I följande exempel skapas en IP-adress för klientdel som heter *myFrontEndPool*: 
+Skapa en klientdel IP-adresspool med [ny AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). I följande exempel skapas en klientdel IP-pool med namnet *myFrontEndPool* och kopplar den *myPublicIP* adress: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Skapa en backend-adresspool med [ny AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). I följande exempel skapas en backend-adresspool med namnet *myBackEndPool*:
+Skapa en backend-adresspool med [ny AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Virtuella datorer ansluta till den här serverdelspoolen i stegen. I följande exempel skapas en backend-adresspool med namnet *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Nu ska du skapa belastningsutjämnaren med [ny AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). I följande exempel skapas en belastningsutjämnare med namnet *myLoadBalancer* med hjälp av den *myPublicIP* adress:
+Nu ska du skapa belastningsutjämnaren med [ny AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). I följande exempel skapas en belastningsutjämnare med namnet *myLoadBalancer* använder IP-adresspooler frontend och backend skapade i föregående steg:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Om du vill att belastningsutjämnaren ska övervaka status för din app kan du a
 
 I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökningen, måste du skapa sidan för kontroll av hälsotillstånd som *healthcheck.aspx*. Avsökningen måste returnera ett **HTTP 200 OK** svar att behålla värden i rotation belastningsutjämnaren.
 
-Om du vill skapa en TCP-hälsoavsökningen du använder [Lägg till AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökningen med namnet *myHealthProbe* som övervakar varje virtuell dator:
+Om du vill skapa en TCP-hälsoavsökningen du använder [Lägg till AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökningen med namnet *myHealthProbe* som övervakar varje virtuell dator på *TCP* port *80*:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Uppdaterar belastningsutjämnaren med [Set AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Om du vill använda hälsoavsökningen uppdaterar belastningsutjämnaren med [Set AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Skapa en regel för belastningsutjämnare
 En regel för belastningsutjämnare används för att definiera hur trafiken distribueras till de virtuella datorerna. Du kan definiera frontend IP-konfiguration för inkommande trafik och backend-IP-adresspool för att ta emot trafik, tillsammans med nödvändig käll- och port. Om du vill kontrollera endast felfri virtuella datorer ta emot trafik kan definiera du också hälsoavsökningen att använda.
 
-Skapa en regel för belastningsutjämnare med [Lägg till AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en regel för belastningsutjämnare med namnet *myLoadBalancerRule* och balanserar trafik på port *80*:
+Skapa en regel för belastningsutjämnare med [Lägg till AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en regel för belastningsutjämnare med namnet *myLoadBalancerRule* och balanserar trafik på *TCP* port *80*:
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe

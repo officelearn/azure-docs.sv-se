@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: e9ae19f4bca6cc972fea4a215482604bb28c26b1
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ac0de4e4582e5071d96ded3c9f08c0c9b05ae3f3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Storlekar för virtuella Windows-datorer i Azure
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver tillgängliga storlekar och alternativ för Azure vi
 | [Beräkningsoptimerad](sizes-compute.md)        | Fsv2, Fs, F             | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
 | [Minnesoptimerad](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Förhållandet mellan hög minne till CPU. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](../virtual-machines-windows-sizes-storage.md)        | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
-| [GPU](sizes-gpu.md)            | NV NC            | Särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video. Tillgängligt med en eller flera GPU-kort.       |
+| [GPU](sizes-gpu.md)            | NV NC, NCv2, ND            | Särskilda virtuella datorer som mål för tunga grafisk återgivning och redigering av video. Tillgängligt med en eller flera GPU-kort.       |
 | [Databehandling med höga prestanda](sizes-hpc.md) | H, A8-11          | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). 
 
 <br> 

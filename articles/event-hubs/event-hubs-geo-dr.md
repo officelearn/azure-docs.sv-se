@@ -3,7 +3,7 @@ title: "Azure Event Hubs geo-katastrofåterställning | Microsoft Docs"
 description: "Hur du använder geografiska regioner för redundans och utföra katastrofåterställning i Azure Event Hubs"
 services: event-hubs
 documentationcenter: 
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.service: event-hubs
@@ -11,103 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 94c2782b3166fbc65ae755291a82a2a14556b96f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery-preview"></a>Azure Event Hubs geo-återställning (förhandsgranskning)
+# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs Geo-katastrofåterställning
 
-När regionala Datacenter eventuellt driftstopp, är det viktigt för databearbetning fortsätta att arbeta i en annan region eller datacenter. Därför *geo-återställning* och *georeplikering* är viktiga funktioner för företag. Händelsehubbar i Azure stöder både geo-återställning och geo-replikering på namnområdesnivån. 
+När hela Azure-regioner eller Datacenter (om inget [tillgänglighet zoner](../availability-zones/az-overview.md) används) eventuellt driftstopp, det är viktigt för databearbetning fortsätta att arbeta i en annan region eller datacenter. Därför *Geo-återställning* och *georeplikering* är viktiga funktioner för företag. Händelsehubbar i Azure stöder både geo-återställning och geo-replikering på namnområdesnivån. 
 
-Geo-disaster recovery-funktionen av Händelsehubbar i Azure är en lösning för katastrofåterställning. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofåterställning scenarier och inte tillfälligt eller tillfälliga avbrott.
+Funktionen Geo disaster recovery finns globalt för Event Hubs Standard-SKU.
 
-En detaljerad beskrivning av katastrofåterställning i Microsoft Azure finns [i den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
+## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
-## <a name="terminology"></a>Terminologi
+Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. En *avbrott* är tillfällig frånvaro av Händelsehubbar i Azure och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är åtgärdat blir Händelsehubbar tillgänglig igen. Normalt orsakar avbrott inte meddelanden eller andra data förlorade. Ett exempel på sådana avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott är endast kort anslutning förluster på grund av problem med övergående eller nätverket. 
 
-**Länkning av**: namnområdet primära kallas *active* och tar emot meddelanden. Namnområdet för växling vid fel är *passiva* och tar inte emot meddelanden. Metadata mellan de båda är synkroniserade, så att både sömlöst kan godkänna meddelanden utan några program kodändringar. Upprätta katastrofberedskapskonfigurationen mellan den aktiva och passiva region kallas *länkning* regionerna.
+En *katastrofåterställning* definieras som permanenta eller långsiktig förlust av en Händelsehubbar kluster, Azure-region eller datacenter. Region eller datacenter kan eller kan inte bli tillgänglig igen eller kan vara avstängd för timmar eller dagar. Exempel på sådana katastrofer är brand, överbelasta eller jordbävning. En katastrof som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas ingen dataförlust och meddelanden som kan återställas när Datacenter är säkerhetskopiera.
 
-**Alias**: ett namn för någon haveriberedskapskonfiguration som du skapat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använda anslutningssträng med detta alias för att ansluta till ett namnområde.
+Geo-disaster recovery-funktionen av Händelsehubbar i Azure är en lösning för katastrofåterställning. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofåterställning scenarier och inte tillfälligt eller tillfälliga avbrott. En detaljerad beskrivning av katastrofåterställning i Microsoft Azure finns [i den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-**Metadata**: refererar till event hub-namn, konsumentgrupper, partitioner, enheter, enheter och egenskaper som är associerade med namnområde.
+## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
 
-## <a name="enable-geo-disaster-recovery"></a>Aktivera geo-katastrofåterställning
+Funktionen disaster recovery implementerar metadata katastrofåterställning och bygger på primära och sekundära disaster recovery-namnområden. Observera att Geo disaster recovery-funktionen är tillgänglig för den [Standard SKU](https://azure.microsoft.com/pricing/details/event-hubs/) endast. Du behöver inte göra ändringar anslutning sträng som anslutningen görs via ett alias.
 
-Du aktiverar Händelsehubbar geo-återställning i steg 3: 
+Följande villkor används i den här artikeln:
 
-1. Skapa ett geo-par, som skapar en alias-anslutningssträng och erbjuder live metadata replikering. 
-2. Uppdatera de befintliga klienten anslutningssträngarna till det alias som skapades i steg 1.
-3. Påbörja redundans: geo-kopplingen har brutits och aliaset som pekar på sekundär namnområdet som det nya primära namnområdet.
+-  *Alias*: namn för någon haveriberedskapskonfiguration som du skapat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använda anslutningssträng med detta alias för att ansluta till ett namnområde. 
 
-Följande bild visar arbetsflödet:
+-  *Primära och sekundära namnområdet*: de namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara en befintlig eller ny namnområde). Sekundär namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan de båda är synkroniserade, så att både sömlöst kan godkänna meddelanden utan någon kod eller ett anslutningsfel sträng ändringar i programmet. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
-![GEO-länkning flöde][1] 
+-  *Metadata*: entiteter, till exempel händelsehubbar och konsumentgrupper; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast enheter och deras inställningar replikeras automatiskt. Meddelanden och händelser replikeras inte. 
 
-### <a name="step-1-create-a-geo-pairing"></a>Steg 1: skapa en geo-länkning
+-  *Redundans*: att aktivera sekundär namnområdet.
 
-För att skapa ett par mellan två regioner, behöver du ett namnområde för primära och sekundära namnområdet. Sedan kan du skapa ett alias för att skapa geo-par. När namnområden som har parats ihop med ett alias, replikeras metadata med jämna mellanrum i båda namnområden. 
+## <a name="setup-and-failover-flow"></a>Installationen och växling vid fel
 
-Följande kod visar hur du gör detta:
+Följande avsnitt är en översikt över failover-processen och förklarar hur du ställer in inledande växling vid fel. 
 
-```csharp
-ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
-                                    config.PrimaryResourceGroupName,
-                                    config.PrimaryNamespace,
-                                    config.Alias,
-                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
-```
+![1][]
 
-### <a name="step-2-update-existing-client-connection-strings"></a>Steg 2: Uppdatera befintlig klient-anslutningssträngar
+### <a name="setup"></a>Konfiguration
 
-När geo-kopplingen är klar, måste anslutningssträngar som pekar på den primära namnområden uppdateras för att peka mot anslutningssträngen alias. Hämta anslutningssträngar som visas i följande exempel:
+Du först skapa eller använda en befintlig primär namnrymd och ett nytt sekundära namnområde och sedan koppla två. Länkning av den här får du ett alias som du kan använda för att ansluta. Eftersom du använder ett alias, behöver du inte ändra anslutningssträngar. Endast nya namnområden kan läggas till redundans para ihop. Slutligen bör du lägga till vissa övervakning för att identifiera om det krävs en växling vid fel. I de flesta fall tjänsten är en del av ett stort ekosystem, vilket automatisk redundans är sällan möjliga som ofta växling vid fel måste utföras synkroniserad med återstående undersystemet eller infrastruktur.
 
-```csharp
-var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-```
+### <a name="example"></a>Exempel
 
-### <a name="step-3-initiate-a-failover"></a>Steg 3: påbörja en växling
+Överväga en lösning för platsen för försäljning (POS) som skickar meddelanden eller händelser i ett exempel på det här scenariot. Händelsehubbar skickar händelser till vissa mappning eller formatera om lösning som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. Alla dessa system kan då finnas i samma Azure-region. Beslut om när och vilken del att växla över beror på dataflödet i din infrastruktur. 
 
-Om en olycka inträffar, eller om du vill påbörja en växling till det sekundära namnområdet, metadata och data börjar flöda till sekundär namnområde. Eftersom program som använder alias anslutningssträngar, krävs ingen ytterligare åtgärd, när de startar automatiskt läsa från och skriva till händelsehubbar i sekundära namnområdet. 
+Du kan automatisera redundans med övervakningssystem, eller med specialbyggt övervakar lösningar. Sådana automation tar dock extra planerings- och arbetet, vilket ligger utanför omfånget för den här artikeln.
 
-Följande kod visar hur du utlöser växling vid fel:
+### <a name="failover-flow"></a>Redundansflöde
 
-```csharp
-await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
-                                                   config.SecondaryNamespace, config.Alias);
-```
+Om du påbörja redundans krävs två steg:
 
-När redundansväxlingen är klar och du behöver data som finns i namnområdet primära, om du vill extrahera data måste du använda en explicit anslutningssträngen till event hubs i primära namnområdet.
+1. Om en annan avbrott inträffar som du vill kunna redundansväxla igen. Därför måste ställa in en annan passiva namnrymd och uppdatera kopplingen. 
 
-### <a name="other-operations-optional"></a>Andra åtgärder (valfritt)
+2. Hämta meddelanden från tidigare primära namnområde när den är tillgänglig igen. Använd namnutrymmet för regelbundna meddelanden utanför inställningarna geo-återställning efter det, eller ta bort det gamla primära namnområdet.
 
-Du kan också dela geo-länkning eller ta bort ett alias som visas i följande kod. Observera att om du vill ta bort en alias-anslutningssträng måste du först bryta geo-paring:
+> [!NOTE]
+> Endast misslyckas vidarebefordra semantik stöds. I det här scenariot växla över och sedan koppla igen med ett nytt namnområde. Det går inte att återställas. till exempel i en SQL-kluster. 
 
-```csharp
-// Break pairing
-await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, config.Alias);
+![2][]
 
-// Delete alias connection string
-// Before the alias is deleted, pairing must be broken
-await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
-                                                 config.PrimaryNamespace, config.Alias);
-```
+## <a name="management"></a>Hantering
 
-## <a name="considerations-for-public-preview"></a>Överväganden för public preview
+Om du har gjort ett misstag; till exempel du paras ihop fel regioner under den första konfigurationen, du kan dela länkar de två namnområdena när som helst. Om du vill använda parad namnområden som regelbundet namnområden tar du bort den.
 
-Observera följande viktiga aspekter för den här versionen:
+## <a name="samples"></a>Exempel
 
-1. Geo-katastrofåterställning är endast tillgänglig i norra centrala USA och södra centrala USA regioner. 
-2. Funktionen stöds bara för nyskapade namnområden.
-3. Endast metadata replikering har aktiverats i förhandsversionen. Faktiska data replikeras inte.
-4. Med den här förhandsversionen finns utan kostnader för att aktivera funktionen. Dock kommer både primär och sekundär namnområden avgifter för enheterna som reserverat dataflöde.
+Den [på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) visar hur du ställer in och initiera redundans. Det här exemplet visar följande:
+
+- Inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Händelsehubbar. 
+- Steg som krävs för att köra exempelkoden. 
+- Skicka och ta emot från det aktuella primära namnområdet. 
+
+## <a name="considerations"></a>Överväganden
+
+Observera följande viktiga aspekter att tänka på med den här versionen:
+
+1. Du bör också övervägas tid faktorn under växling vid fel planeringen. Till exempel om du förlorar anslutningen längre än 15 till 20 minuter kan du välja att påbörja redundans. 
+ 
+2. Det faktum att inga data replikeras innebär att för tillfället aktiva sessioner inte replikeras. Dessutom kanske dubblettidentifiering och schemalagda meddelanden inte fungerar. Nya sessioner, schemalagda meddelanden och nya dubbletter fungerar. 
+
+3. Misslyckande en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
+
+4. Synkronisera enheter kan ta lite tid, ungefär 50 – 100 entiteter per minut.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -120,5 +111,5 @@ Besök följande länkar för mer utförlig information om Event Hubs:
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
-
+[1]: ./media/event-hubs-geo-dr/geo1.png
+[2]: ./media/event-hubs-geo-dr/geo2.png

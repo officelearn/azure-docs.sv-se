@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Hantera resurser för en enskild databas i Azure SQL Database
 
@@ -35,6 +35,10 @@ Om du vill ange eller ändra tjänstnivå, prestanda eller lagringsutrymmet för
 
 ![Konfigurera tjänstnivå och prestandanivå servicenivå](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Klicka på **översikt** att övervaka och/eller avbryta en pågående åtgärd.
+
+![Avbryt åtgärden](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Granska [aktuella begränsningar av P11 och P15 databaser med 4 TB maximal storlek](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) när du väljer en P11 eller P15 tjänstnivå.
 >
@@ -48,6 +52,8 @@ Om du vill ange eller ändra Azure SQL-databaser Använd servicenivåer och pres
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en databas |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till en elastisk pool. Till exempel använda den **MaxSizeBytes** egenskapen anges den maximala storleken för en databas.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Hämtar status för databasåtgärder. |
+|[Stoppa AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Avbryter asynkron update-åtgärden i databasen.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Att ange eller ändra Azure SQL-databaser servicenivåer och prestandanivåer la
 |[AZ sql server-brandväggsregel visa](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Visar information om en brandväggsregel|
 |[uppdatering av AZ sql server-brandväggsregel](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uppdaterar en brandväggsregel|
 |[ta bort AZ sql server-brandväggsregel](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Tar bort en brandväggsregel|
-
+|[AZ sql db op lista](/cli/azure/sql/db/op?#az_sql_db_op_list)|Hämtar en lista över åtgärder som utförs på databasen.|
+|[AZ sql db op Avbryt](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Avbryter den asynkrona åtgärden i databasen.|
 
 > [!TIP]
 > Ett Azure CLI exempelskript som kan skalas en enskild Azure SQL-databas till en annan prestandanivå efter frågar informationen storleken på databasen, se [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Om du vill ange eller ändra Azure SQL-databaser servicenivåer och prestandaniv
 |[Databaser - listan efter rekommenderad elastisk Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returnerar en lista över databaser i en recommented elastisk pool.|
 |[Databaser – lista av servern](/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
 |[Databaser - uppdatering](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
+|[Operations - lista](/rest/api/sql/Operations/List)|Visar alla tillgängliga SQL Rest API-åtgärder.|
 
 
 

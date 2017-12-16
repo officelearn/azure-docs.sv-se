@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuera och övervaka IoT kant moduler i skala - förhandsgranskning
 
@@ -40,7 +40,7 @@ Mer information om enheten twins och taggar finns [förstå och använda enheten
 
 ## <a name="create-a-deployment"></a>Skapa en distribution
 
-1. Logga in på den [Azure-portalen] [ lnk-portal] och navigera till din IoT-hubb. 
+1. I den [Azure-portalen][lnk-portal], gå till din IoT-hubb. 
 1. Välj **IoT kant (förhandsgranskning)**.
 1. Välj **Lägg till IoT kant distribution**.
 
@@ -61,26 +61,25 @@ Om du skapar en distribution med några moduler, tar bort några befintliga modu
 >[!NOTE]
 >Azure Machine Learning och Azure Functions stöder inte automatisk Azure tjänstdistributionen ännu. Använd anpassad modul distributionen manuellt lägga till dessa tjänster för din distribution. 
 
-Om du vill lägga till en modul från en Azure-tjänsten så här:
-1. Välj **lägga till Azure service IoT kant-modulen**.
+Följ dessa steg om du vill lägga till en modul från Azure Stream Analytics:
+1. Välj **importera Azure Stream Analytics IoT kant modulen**.
 1. Använd nedrullningsbara menyerna för att välja de Azure-tjänst-instanser som du vill distribuera.
-1. Välj **spara** att lägga till modulerna i distributionen. 
+1. Välj **spara** modulen ska läggas till i distributionen. 
 
 Lägga till egen kod som en modul, eller att manuellt lägga till en Azure-tjänst-modul, gör du följande:
-1. Välj **Lägg till anpassad IoT kant modul**.
+1. Välj **lägga till kant för IoT-modulen**.
 1. Ge din modulen en **namn**.
-1. För den **bild** anger Docker behållare bilden för den här modulen: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Använd de nedrullningsbara menyerna under **OS** och **arkitektur** att identifiera egenskaper för dockerbehållare som representerar denna modul. 
-1. Ange vilken **skapa alternativ** som ska skickas till behållaren. Mer information finns i [docker skapa][lnk-docker-create].
+1. För den **avbildningen URI** anger Docker behållare bilden för. 
+1. Ange vilken **behållare skapa alternativ** som ska skickas till behållaren. Mer information finns i [docker skapa][lnk-docker-create].
 1. Använd den nedrullningsbara menyn för att välja en **starta om principen**. Välj bland följande alternativ: 
    * **Alltid** -modulen alltid startar om den stänger av någon anledning.
    * **Aldrig** -modulen startar aldrig om den stänger av någon anledning.
    * **På misslyckades** -modulen startar om den kraschar, men inte om det avslutas korrekt. 
    * **På ohälsosamt** -modulen startas om om den kraschar eller returnerar ett feltillstånd status. Den kan varje modul att implementera funktionen hälsa status. 
-1. Använd den nedrullningsbara menyn för att välja startade **Status** för modulen. Välj bland följande alternativ:
+1. Använd den nedrullningsbara menyn för att välja den **önskad Status** för modulen. Välj bland följande alternativ:
    * **Kör** -detta är standardalternativet. Modulen ska börja köras omedelbart efter att ha distribuerats.
    * **Stoppats** -modulen efter att ha distribuerats kan vara inaktiv tills du uppmanas för att starta av dig eller en annan modul.
-1. Välj **redigera modulen dubbla** om du vill lägga till taggar eller önskade egenskaper i modulen. 
+1. Välj **aktivera** om du vill lägga till några taggar eller önskade egenskaper i modulen dubbla. 
 1. Välj **spara** modulen ska läggas till i distributionen. 
 
 När du har alla moduler för en distribution som konfigurerats Välj **nästa** gå vidare till steg tre.
@@ -172,7 +171,7 @@ När du tar bort en distribution kan ta några enheter på deras nästa högsta 
 Lär dig mer om [distribuerar moduler till gränsenheterna][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

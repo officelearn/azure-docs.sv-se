@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -98,7 +98,7 @@ Om du vill konfigurera en statisk IP-adress, måste du skapa en reserverad IP. D
 Se [tjänstspecifika begränsar](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Varför visas enheten på min molntjänst för virtuell dator mycket lite ledigt diskutrymme?
-Detta är förväntat och den bör inte orsaka eventuella problem i tillämpningsprogrammet. Journalnivåer är aktiverat för % uproot % enheten i Azure PaaS virtuella datorer, vilket i praktiken innebär att dubbla mängden utrymme som filer tar normalt upp. Men det finns flera saker du bör känna till som i stort sett göra detta till ett icke-problem.
+Detta är förväntat och den bör inte orsaka eventuella problem i tillämpningsprogrammet. Journalnivåer är aktiverat på % approot % enheten i Azure PaaS virtuella datorer, vilket i praktiken innebär att dubbla mängden utrymme som filer tar normalt upp. Men det finns flera saker du bör känna till som i stort sett göra detta till ett icke-problem.
 
 Storlek % approot % enhet beräknas som < storleken på .cspkg + max journalstorleken > + en marginal ledigt utrymme eller 1,5 GB, beroende på vilket som är större. Storleken på den virtuella datorn påverkar inte den här beräkningen. (VM-storlek påverkar endast storleken på den tillfälliga C:-enheten.) 
 

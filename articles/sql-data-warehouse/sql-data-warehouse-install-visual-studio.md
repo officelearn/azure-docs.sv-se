@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 03/30/2017
-ms.author: anvang;barbkess
-ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: kevin;barbkess
+ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Installera Visual Studio och SSDT för SQL Data Warehouse
 För att utveckla program för SQL Data Warehouse, rekommenderar vi använder den senaste versionen av Visual Studio med den senaste versionen av SQL Server Data Tools (SSDT).  Visual Studio 2013, uppdatering 5 med SSDT, stöds också för bakåtkompatibilitet.  
@@ -27,7 +27,7 @@ För att utveckla program för SQL Data Warehouse, rekommenderar vi använder de
 Visual Studio med SSDT låter dig använda SQL Server Object Explorer för att visuellt utforska tabeller, vyer, lagrade procedurer och många fler objekt i ditt SQL Data Warehouse och köra frågor.
 
 > [!NOTE]
-> SQL Data Warehouse stöder ännu inte Visual Studio Database Projects.  Den funktionen kommer läggas till i framtida versioner.
+> SQL Data Warehouse stöder ännu inte Visual Studio Database Projects.  Den funktionen kommer läggas till i framtida versioner. För att ta emot periodiska uppdateringar på den här funktionen rösta på [UserVoice].
 > 
 > 
 
@@ -59,3 +59,4 @@ Nu när du har den senaste versionen av SSDT, är du redo att [ansluta] [ connec
 [Hämta Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
+[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

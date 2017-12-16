@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
@@ -177,7 +177,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för att bearbeta loggdata
-När du skickar loggar från Azure Data Lake Store till Azure-Monitor (se [vyn eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys), följande fråga returnerar en tabell som innehåller en lista över användare Visa namn, tiden för händelser och antalet händelser för tid för händelsen tillsammans med ett visual diagram. Enkelt kan ändras om du vill visa GUID för användare eller andra attribut:
+När du skickar loggar från Azure Data Lake Store till Azure logganalys (finns [visa och analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys), följande fråga returnerar en tabell som innehåller en lista över användare Visa namn, tiden för händelser och antalet händelser för tid för händelsen tillsammans med ett visual diagram. Enkelt kan ändras om du vill visa GUID för användare eller andra attribut:
 
 ```
 search *

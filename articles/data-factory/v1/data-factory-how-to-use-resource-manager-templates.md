@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
@@ -231,7 +231,7 @@ Referera till [definierar pipelines](data-factory-create-pipelines.md#pipeline-j
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parameterisera Data Factory-mall
-Metodtips för Parameterisera finns [bästa praxis för att skapa mallar för Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md#parameters) artikel. I allmänhet ska parametrar minimeras, särskilt om variabler kan användas i stället. Ange bara parametrar i följande scenarier:
+Metodtips för Parameterisera finns [bästa praxis för att skapa mallar för Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). I allmänhet ska parametrar minimeras, särskilt om variabler kan användas i stället. Ange bara parametrar i följande scenarier:
 
 * Inställningarna varierar beroende på miljö (exempel: utveckling, test och produktion)
 * Hemligheter (till exempel lösenord)

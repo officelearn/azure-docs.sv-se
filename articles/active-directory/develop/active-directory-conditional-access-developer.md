@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: a348647becbb9119cc649e366f34c4c37f2bea43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -110,7 +110,7 @@ Utmaningen för anspråk finns i den ```WWW-Authenticate``` rubriken, som kan pa
 
 Den ```WWW-Authenticate``` sidhuvud har en unik struktur och är inte trivial att parsa för att extrahera värden.  Här är en kort metod för att hjälpa.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +138,7 @@ Den ```WWW-Authenticate``` sidhuvud har en unik struktur och är inte trivial at
             }
             return null; 
         }
-    ```
+```
 
 Kodexempel som visar hur du hanterar utmaningen anspråk finns i den [On-behalf-of kodexemplet](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) för ADAL .NET.
 

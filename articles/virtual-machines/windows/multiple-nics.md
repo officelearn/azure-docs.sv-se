@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer (VM) i Azure kan ha flera virtuella nätverkskort (NIC) kopplad. Ett vanligt scenario är att ha olika undernät för frontend och backend-anslutning eller ett nätverk som är dedikerad för en lösning för övervakning eller säkerhetskopiering. Den här artikeln beskrivs hur du skapar en virtuell dator som har flera nätverkskort som är kopplade till den. Du också lära dig hur du lägger till eller ta bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) stöder olika antal nätverkskort, så därför storlek den virtuella datorn.
@@ -232,6 +232,60 @@ Du kan också använda `copyIndex()` att lägga till ett tal till ett resursnamn
 ```
 
 Du kan läsa en komplett exempel på [skapa flera nätverkskort med Resource Manager-mallar](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurera gästoperativsystemet för flera nätverkskort
+
+Azure tilldelar en standard-gateway till det första (primära) nätverksgränssnittet kopplade till den virtuella datorn. Azure tilldelar inte en standardgateway till ytterligare (sekundära) nätverksgränssnitt som är kopplade till en virtuell dator. Du kan därför som standard inte kommunicera med resurser utanför det undernät som är ett sekundärt nätverksgränssnitt befinner sig i. Sekundära nätverksgränssnitt kan dock kommunicera med resurser utanför deras undernät, även om stegen för att aktivera kommunikation är olika för olika operativsystem.
+
+1. Kör från en kommandotolk i `route print` kommando som returnerar utdata som liknar följande utdata för en virtuell dator med två anslutna nätverksgränssnitten:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    I det här exemplet **Microsoft Hyper-V Network Adapter #4** (gränssnitt 7) är sekundärt nätverksgränssnitt som inte har en standard-gateway som har tilldelats.
+
+2. Kör från en kommandotolk i `ipconfig` kommandot för att se vilken IP-adress har tilldelats det sekundära nätverksgränssnittet. I det här exemplet tilldelas 192.168.2.4 gränssnittet 7. Ingen standard gateway-adress returneras för det sekundära nätverksgränssnittet.
+
+3. Kör följande kommando för att vidarebefordra all trafik för adresser utanför undernätet i sekundära nätverksgränssnitt och gateway för undernätet:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    Gateway-adressen för undernätet är den första IP-adress (som slutar i.1) i adressintervall som definierats för undernätet. Om du inte vill att vidarebefordra all trafik utanför undernätet, kan du lägga till enskilda vägar till specifika mål i stället. Om du vill dirigera trafik från det sekundära nätverksgränssnittet till 192.168.3.0 till exempel nätverk, du anger kommandot:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. För att bekräfta lyckade kommunikation med en resurs på 192.168.3.0 nätverk, exempelvis ange följande kommando för att pinga 192.168.3.4 gränssnittet 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Du kan behöva öppna ICMP via Windows-brandväggen på den enhet som du pinga med följande kommando:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. För att bekräfta tillagda vägen är i routningstabellen, ange den `route print` kommando som returnerar utdata som liknar följande:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    Vägen som visas i listan med *192.168.1.1* under **Gateway**, är det flöde som är det som standard för det primära nätverksgränssnittet. Vägen med *192.168.2.1* under **Gateway**, är flödet som du har lagt till.
 
 ## <a name="next-steps"></a>Nästa steg
 Granska [Windows VM-storlekar](sizes.md) när du försöker skapa en virtuell dator som har flera nätverkskort. Ta hänsyn till det maximala antalet nätverkskort som har stöd för varje VM-storlek. 

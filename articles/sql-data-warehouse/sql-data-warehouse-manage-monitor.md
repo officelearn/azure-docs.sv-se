@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (av DMV: er) för att övervaka din arbetsbelastning och undersöka Frågekörningen i Azure SQL Data Warehouse.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Om frågan är aktivt väntar på resurser från en annan fråga, så kommer att vara i tillståndet **AcquireResources**.  Om frågan har alla nödvändiga resurser och tillståndet kommer att **beviljas**.
 
 ## <a name="monitor-tempdb"></a>Övervakaren tempdb
-Hög tempdb-användning kan vara orsaken för långsam prestanda och ut ur minnesproblem. Kontrollera först att du har data skeva eller dålig rowgroups och vidta lämpliga åtgärder. Överväg att skala ditt informationslager om du hittar tempdb når gränsen vid körning av fråga. Nedan beskrivs hur du identifierar tempdb-användning per fråga på varje nod. 
+Hög tempdb-användning kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar tempdb når gränsen vid körning av fråga. Nedan beskrivs hur du identifierar tempdb-användning per fråga på varje nod. 
 
 Skapa följande vy om du vill associera lämpliga nod-id för sys.dm_pdw_sql_requests. Detta kan du dra nytta av andra direkt av DMV: er och koppla de tabellerna med sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Övervaka minne
 
-Minne kan vara orsaken för långsam prestanda och ut ur minnesproblem. Kontrollera först att du har data skeva eller dålig rowgroups och vidta lämpliga åtgärder. Överväg att skala ditt informationslager om du hittar minnesanvändning för SQL Server når gränsen vid körning av fråga.
+Minne kan vara orsaken för långsam prestanda och ut ur minnesproblem. Överväg att skala ditt informationslager om du hittar minnesanvändning för SQL Server når gränsen vid körning av fråga.
 
 Följande fråga returnerar SQL Server och minnesbelastning per nod:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Övervaka transaktion loggfilens storlek
-Följande fråga returnerar storleken på transaktionsloggen på varje distributionsplats. Kontrollera om du har data skeva eller dålig rowgroups och vidta lämpliga åtgärder. Om en av filerna når 160GB, bör du skala upp din instans eller begränsa storleken på din transaktion. 
+Följande fråga returnerar storleken på transaktionsloggen på varje distributionsplats. Om en av filerna når 160GB, bör du skala upp din instans eller begränsa storleken på din transaktion. 
 ```sql
 -- Transaction log size
 SELECT

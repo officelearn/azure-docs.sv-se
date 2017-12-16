@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 
@@ -117,6 +117,7 @@ Om du har problem att ansluta till den hanterade domänen med säker LDAP, utfö
 * Kontrollera att LDAP-klient (till exempel ldp.exe) ansluter till den säkra LDAP-slutpunkten med hjälp av ett DNS-namn inte IP-adress.
 * Kontrollera DNS-namnet för LDAP-klient ansluter till den offentliga IP-adressen matchar för säkra LDAP på den hanterade domänen.
 * Verifiera det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i ett ämne eller Alternativt ämnesnamn attributet.
+* Om du ansluter via säker LDAP via internet, kontrollera NSG-inställningarna för det virtuella nätverket kan trafik till port 636 från internet.
 
 Om du fortfarande har problem att ansluta till den hanterade domänen med säker LDAP [kontakta produktteamet](active-directory-ds-contact-us.md) för hjälp. Ange följande information för att diagnosticera problemet bättre:
 * En skärmbild av ldp.exe anslutning och misslyckas.

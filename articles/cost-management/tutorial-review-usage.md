@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>Granska användning och kostnader
 
@@ -29,7 +29,7 @@ Azure kostnaden hanteringen av Cloudyn visas användning och kostnader så att d
 
 ## <a name="open-the-cloudyn-portal"></a>Öppna Cloudyn-portalen
 
-Du kan granska alla användning och kostnader i Cloudyn-portalen. Öppna Cloudyn portalen från Azure-portalen eller navigera till https://app.cloudyn.com och logga in.
+Du kan granska alla användning och kostnader i Cloudyn-portalen. Öppna Cloudyn portalen från Azure-portalen eller navigera till https://azure.cloudyn.com och logga in.
 
 ## <a name="track-usage-and-cost-trends"></a>Spåra användning och kostnader trender
 

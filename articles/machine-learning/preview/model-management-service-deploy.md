@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: aef74d3968f90a4e8a8f84660d92d6f8a38795c7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuera en Maskininlärningsmodell som en webbtjänst
 
@@ -86,9 +86,9 @@ Filen måste innehålla två funktioner: init och köra.
 
 Lägg till följande kod högst upp i filen score.py att aktivera data samling funktioner som hjälper till att samla in indata- och förutsägelse modelldata
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Kontrollera [modell datainsamling](how-to-use-model-data-collection.md) mer information om hur du använder den här funktionen.
 

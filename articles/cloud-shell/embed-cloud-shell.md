@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: af5e5b536ced96680b65e2463c9dea159a26ca7b
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="embed-azure-cloud-shell"></a>Bädda in Azure-molnet Shell
 

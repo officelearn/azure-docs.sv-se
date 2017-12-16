@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk;markgal;
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3d3de79c7f2465791ec68f850df2fc6317880f9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8dcefacd700f3b475eb477f80201659a2bea802
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Hantera vanliga Azure Backup-jobb och aviseringar för utlösaren i den klassiska portalen
 > [!div class="op_single_selector"]

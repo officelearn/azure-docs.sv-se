@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introduktion till Microsoft Azure
 Microsoft Azure är Microsofts programplattform för det offentliga molnet.  Syftet med den här artikeln är att ge dig en grund för att förstå grunderna i Azure, även om du inte känner till något om cloud computing.
@@ -534,6 +534,6 @@ Skillnaden mellan dem är att Marketplace ligger utanför Azure-hanteringsportal
 SendGrid är ett program i Azure Store där du kan skicka e-post. Den erbjuder ytterligare funktioner som tillförlitliga leverans och statistik.  Du kan köpa programmet och relaterade tjänster i stället försök att skapa denna infrastruktur själv.  
 
 ## <a name="getting-started"></a>Komma igång
-Nu när du har den stora bilden är nästa steg att skriva ditt första Azure-program. Välj önskat språk och [hämta lämplig SDK](/downloads/), och gå för den. Cloud computing är den nya standarden--Kom igång nu.
+Nu när du har den stora bilden är nästa steg att skriva ditt första Azure-program. Välj önskat språk och [hämta lämplig SDK](https://azure.microsoft.com/en-us/downloads/), och gå för den. Cloud computing är den nya standarden--Kom igång nu.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

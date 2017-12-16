@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Kopiera data till och från Data Lake Store med hjälp av Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Om du vill använda huvudnamn autentiseringen av tjänsten registrera en entitet
 
 > [!IMPORTANT]
 > Kontrollera att du ger service principal rätt behörighet i Azure Data Lake Store:
->- Om du vill använda Data Lake Store som källa bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll.
->- Om du vill använda Data Lake Store som mottagare, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen [ange executionLocation](data-factory-data-movement-activities.md#global) med platsen för din Data Lake Store i en Kopieringsaktivitet.
->- Om du använder guiden Kopiera för att skapa pipelines, ger minst **Reader** roll i kontot åtkomstkontroll (IAM). Dessutom ger minst **Läs + Execute** behörighet till din Data Lake Store-rot (”/”) och dess underordnade. Annars kan meddelandet ”autentiseringsuppgifterna är ogiltiga”.
+>- **Att använda Data Lake Store som datakälla**, bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll.
+>- **Att använda Data Lake Store som mottagare**, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen [ange executionLocation](data-factory-data-movement-activities.md#global) med platsen för din Data Lake Store i en Kopieringsaktivitet.
+>- Om du **använder guiden Kopiera för att redigera pipelines**, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Dessutom ger minst **Läs + Execute** behörighet till din Data Lake Store-rot (”/”) och dess underordnade. Annars kan meddelandet ”autentiseringsuppgifterna är ogiltiga”.
 
 Använd service principal autentisering genom att ange följande egenskaper:
 
@@ -126,9 +126,9 @@ Du kan också använda användarautentisering för autentiseringsuppgifter för 
 
 > [!IMPORTANT]
 > Kontrollera att du bevilja användaren rätt behörighet i Azure Data Lake Store:
->- Om du vill använda Data Lake Store som källa bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll.
->- Om du vill använda Data Lake Store som mottagare, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen [ange executionLocation](data-factory-data-movement-activities.md#global) med platsen för din Data Lake Store i en Kopieringsaktivitet.
->- Om du använder guiden Kopiera för att skapa pipelines, ger minst **Reader** roll i kontot åtkomstkontroll (IAM). Dessutom ger minst **Läs + Execute** behörighet till din Data Lake Store-rot (”/”) och dess underordnade. Annars kan meddelandet ”autentiseringsuppgifterna är ogiltiga”.
+>- **Att använda Data Lake Store som datakälla**, bevilja minst **Läs + Execute** data behörighet att visa och kopiera innehållet i en mapp eller **Läs** tillstånd att kopiera en fil. Inga krav på administratörsnivå kontroll.
+>- **Att använda Data Lake Store som mottagare**, bevilja minst **skriva + köra** data behörighet att skapa underordnade objekt i mappen. Och om du använder Azure IR för att ge kopia (både källa och mottagare är i molnet), för att låta Data Factory identifiera Data Lake Store region, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Om du vill undvika den här IAM-rollen [ange executionLocation](data-factory-data-movement-activities.md#global) med platsen för din Data Lake Store i en Kopieringsaktivitet.
+>- Om du **använder guiden Kopiera för att redigera pipelines**, bevilja minst **Reader** roll i kontot åtkomstkontroll (IAM). Dessutom ger minst **Läs + Execute** behörighet till din Data Lake Store-rot (”/”) och dess underordnade. Annars kan meddelandet ”autentiseringsuppgifterna är ogiltiga”.
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Mer information om Data Factory-klasser som används i koden finns i [AzureDataLakeStoreLinkedService klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), och [AuthorizationSessionGetResponse klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) avsnitt. Lägg till en referens till version `2.9.10826.1824` av `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` för den `WindowsFormsWebAuthenticationDialog` klass som används i koden.
+
+## <a name="troubleshooting-tips"></a>Felsökningstips
+
+**Symptom:** vid kopiering av data **till** Azure Data Lake Store, om din kopieringsaktiviteten misslyckas med följande fel:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Orsak:** finns 2 möjliga orsaker:
+
+1. Den `resourceGroupName` och/eller `subscriptionId` anges i Azure Data Lake Store länkade tjänsten är felaktig.
+2. Användaren eller tjänstens huvudnamn har inte behörigheten som krävs.
+
+**Lösning:**
+
+1. Kontrollera att den `subscriptionId` och `resourceGroupName` du anger i den länkade tjänsten `typeProperties` verkligen är de som ditt data lake-konto som tillhör.
+
+2. Kontrollera att du har gett minst ”**Reader**” roll till användaren eller tjänstens huvudnamn på data lake-konto. Här är att göra det:
+
+    1. Gå till Azure Portal -> ditt Data Lake Store-konto
+    2. Klicka på ”Access Control (IAM)” i bladet Data Lake Store
+    3. Klicka på ”Lägg till” i bladet för ”åtkomst kontroll (IAM)”
+    4. Ange ”roll” som ”läsare” och Välj användaren eller huvudnamn för tjänsten som du använder för att bevilja åtkomst
+
+3. Om du inte vill ge rollen ”Läsare” för användare eller tjänstens huvudnamn alernative är att [uttryckligen ange en plats för körning av](data-factory-data-movement-activities.md#global) i Kopiera activitywith platsen för din Data Lake Store. Exempel:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 Om du vill ange en datamängd som representerar indata i ett Data Lake Store som du anger den **typen** -egenskapen för datamängden som **AzureDataLakeStore**. Ange den **linkedServiceName** länkad egenskap på dataset till namnet på Data Lake Store-tjänsten. En fullständig lista över JSON-avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt i en dataset i JSON, t.ex **struktur**, **tillgänglighet**, och **princip**, är liknande för alla typer av datauppsättningen (Azure SQL-databasen, Azure blob och Azure-tabellen, till exempel). Den **typeProperties** avsnitt är olika för varje typ av dataset och ger information, till exempel plats och formatet på data i datalagret. 

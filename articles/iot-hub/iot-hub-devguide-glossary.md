@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
@@ -161,48 +161,7 @@ Den [identitetsregistret](iot-hub-devguide-identity-registry.md) är den inbyggd
 ## <a name="interactive-message"></a>Interaktiva meddelande
 En interaktiv meddelandet är ett [moln till enhet](#cloud-to-device) meddelanden som utlöser en omedelbar åtgärd i lösningens serverdel. Exempelvis kan en enhet skickar ett larm om fel som automatiskt ska loggas en CRM-systemet.
 
-## <a name="iot-edge"></a>IoT Edge
-Azure IoT-Edge gör det möjligt för moln-driven distribution av Azure-tjänster och lösningen-specifik kod till lokala enheter. IoT-gränsenheterna kan aggregera data från andra enheter att utföra datoranvändning och analytics innan data skickas till molnet. Mer information finns [Azure IoT kant](https://docs.microsoft.com/en-us/azure/iot-edge/).
-
-## <a name="iot-edge-agent"></a>IoT-Edge-agent
-Del av körningsmiljön IoT kant ansvarar för att distribuera och övervaka moduler.
-
-## <a name="iot-edge-device"></a>IoT Edge-enhet
-IoT-gränsenheterna har IoT kanten runtime installerad och har flaggats som ”IoT gränsenheten” i information om enheten. Lär dig hur du [distribuera Azure IoT kanten på en simulerad enhet i Linux - Förhandsgranska](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
-
-## <a name="iot-edge-deployment"></a>IoT-Edge-distribution
-En IoT-Edge distribution konfigurerar en uppsättning IoT-gränsenheterna och köra en uppsättning IoT kant moduler mål. Varje distribution säkerställer kontinuerligt att alla enheter som matchar dess målvillkoren kör den angivna uppsättningen moduler, även när nya enheter skapas eller ändras för att matcha målvillkoren. Varje IoT-enhet får bara högsta prioritet distributionen vars mål skick uppfyller. Lär dig mer om [IoT kant distribution](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
-
-## <a name="iot-edge-deployment-manifest"></a>Distributionsmanifestet IoT kant
-Json-dokument som innehåller information som ska kopieras i en eller flera IoT kant enheternas modulen twin(s) att distribuera en uppsättning moduler, vägar och associerade modulen önskade egenskaper.
-
-## <a name="iot-edge-gateway-device"></a>IoT-Edge gateway-enhet
-En IoT insticksenhet med underordnade enhet. Underordnade enheten kan vara IoT kant eller inte IoT-enhet.
-
-## <a name="iot-edge-hub"></a>Gräns för IoT-hubb
-En del av körningsmiljön IoT kant ansvarar för modulen modulen kommunikation överordnade (mot IoT-hubb) och underordnade (bort från IoT-hubb) kommunikation. 
-
-## <a name="iot-edge-leaf-device"></a>Gränsenheten lägsta IoT
-En IoT insticksenhet med några underordnade enhet. 
-
-## <a name="iot-edge-module"></a>IoT-Edge-modul
-En IoT-Edge-modul är en dockerbehållare som du kan distribuera till enheter som IoT. Den utför en viss uppgift, till exempel vill föra in ett meddelande från en enhet, omvandla ett meddelande eller skicka ett meddelande till en IoT-hubb. Den kommunicerar med andra moduler och skickar data till IoT kant-körningsmiljön. [Förstå de krav och verktyg för att utveckla IoT kant moduler](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
-
-## <a name="iot-edge-module-identity"></a>IoT-Edge modulen identitet
-En post i IoT-hubb modulen identitetsregistret med autentiseringsuppgifterna som används av en modul för att autentisera med en kant nav eller IoT-hubb förekomst och säkerhet.
-
-## <a name="iot-edge-module-image"></a>IoT-Edge modulen bild
-Docker-bild som används av IoT kant-körning för att skapa modulen instanser.
-
-## <a name="iot-edge-module-twin"></a>IoT-Edge modulen dubbla
-Json-dokument beständig i IoT-hubb som lagrar statusinformation för en modulinstans. 
-
-## <a name="iot-edge-runtime"></a>IoT Edge-körning
-IoT-Edge runtime innehåller allt som Microsoft distribuerar för att installeras på en IoT-enhet. Det med kant-agent, Edge hubb och Edge CTL-verktyget.
-
-## <a name="iot-edge-set-modules-to-a-single-device"></a>IoT-Edge ange moduler på en enhet
-En åtgärd som att kopiera innehållet i ett manifest för IoT kanten på en enhet som modulen dubbla. Underliggande API är generisk gäller konfiguration, som bara tar ett manifest för IoT kant som indata.
-S
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
 IoT-Hubbnamnrymd är en helt hanterad Azure-tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljoner enheter och en lösning tillbaka sluta. Mer information finns i [vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Med hjälp av din [Azure-prenumeration](#subscription), kan du skapa IoT-hubbar för att hantera din IoT messaging arbetsbelastningar.
@@ -239,9 +198,6 @@ En fysisk enhet är en verklig enhet, till exempel en hallon Pi som ansluter til
 
 ## <a name="primary-and-secondary-keys"></a>Primära och sekundära nycklarna
 När du ansluter till en enhet riktade eller service-riktade slutpunkt på en IoT-hubb din [anslutningssträngen](#connection-string) innehåller nyckel för att ge dig åtkomst. När du lägger till en enhet för att den [identitetsregistret](#identity-registry) eller Lägg till en [delad åtkomstprincip](#shared-access-policy) till din hubb tjänsten skapar en primär och en sekundär nyckel. Med två nycklar kan du samla från en nyckel till en annan när du uppdaterar en nyckel utan att förlora åtkomsten till IoT-hubben.
-
-## <a name="priority"></a>Prioritet
-När två IoT kant-distributioner riktade till samma enhet, används i distributionen med högre prioritet. Om båda distributionerna har samma prioritet, tillämpas distributionen med senare skapandedatum. Lär dig mer om [prioritet](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Protocol-gateway
 En protocol-gateway distribueras vanligtvis i molnet och tillhandahåller protokollet översättning för enheter som ansluter till [IoT-hubb](#iot-hub). Mer information finns i [vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -287,9 +243,6 @@ I samband med en [enheten dubbla](iot-hub-devguide-device-twins.md), Systemegens
 
 ## <a name="tags"></a>Taggar
 I samband med en [enheten dubbla](iot-hub-devguide-device-twins.md), taggar är enhetens metadata lagras och hämtas av lösningens serverdel i form av ett JSON-dokument. Taggar visas inte för appar på en enhet.
-
-## <a name="target-condition"></a>Målvillkoren
-I en IoT-Edge-distribution är målvillkoren booleskt villkor på enheten twins taggar om du vill markera målenheterna som för distributionen, t.ex ”. tag.environment = prod”. Målvillkoren utvärderas alltid att inkludera nya enheter som uppfyller kraven eller ta bort enheter som inte längre. Lär dig mer om [mål villkor](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetri
 Enheter samla in telemetridata, till exempel vindhastighet eller temperatur, och använda [datapunkt meddelanden](#data-point-messages) skicka telemetrin till en IoT-hubb.

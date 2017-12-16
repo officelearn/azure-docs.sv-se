@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
+
+## <a name="november-guest-os"></a>November gäst-OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 17 10 | [4048953] |Windows 10-uppdateringar |5.13 |14 november 2017 |
+| Rel 17 10 | [4048960], [4048962], [4048961] |Windows-säkerhet |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17 10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
+| Saknas | [4041681] |Insamling av oktober icke-säkerhet |2.67 |Den 10 oktober 2017 |
+| Saknas | [4041690] |Insamling av oktober icke-säkerhet |3.55 |Den 10 oktober 2017 |
+| Saknas | [4041693] |Insamling av oktober icke-säkerhet |4.48 |Den 10 oktober 2017 |
+| Saknas | [3191565] |Uppdatering för Windows Management Framework 5.1  |3.55 |Den 12 september 2017 |
+| Saknas | [3191564] |Uppdatering för Windows Management Framework 5.1  |4.48 |Den 12 september 2017 |
 
 ## <a name="october-guest-os"></a>Oktober gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
@@ -548,6 +561,19 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Saknas |[3007054] |PIN-kodsskyddade utskrifter alternativet alltid visas när du skriver ut ett dokument i Windows Store-programmet i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Saknas |[2999802] |Heldragen linje i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Saknas |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

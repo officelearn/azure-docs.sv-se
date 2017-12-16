@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnosverktyg
 
@@ -29,11 +29,11 @@ Vår diagnosverktyg säkerställer mekanism för logg-samling är enkelt och eff
  
 ## <a name="trace-collector"></a>Spåra insamlaren
  
-Spåra insamlaren är aktiverad som standard och körs kontinuerligt i bakgrunden för att samla in alla ETW Event Tracing for Windows ()-loggar från Azure-stacken Komponenttjänster. ETW-loggfilerna lagras i en gemensam lokal resurs med en övre gräns ålder fem dagar. När den här gränsen har nåtts, raderas de äldsta filerna när nya skapas. Den standard maximala tillåtna storleken för varje fil är 200MB. En storlek kontroll inträffar regelbundet (varannan minut) och om den aktuella filen är > = 200 MB sparas så skapas en ny fil. Det finns också en 8GB gräns på den totala filstorleken genereras per händelsesessionen. 
+Spåra insamlaren är aktiverad som standard och körs kontinuerligt i bakgrunden för att samla in alla ETW Event Tracing for Windows ()-loggar från Azure-stacken Komponenttjänster. ETW-loggfilerna lagras i en gemensam lokal resurs med en övre gräns ålder fem dagar. När den här gränsen har nåtts, raderas de äldsta filerna när nya skapas. Den standard maximala tillåtna storleken för varje fil är 200 MB. En storlek kontrollen görs varannan minut, och om den aktuella filen är > = 200 MB sparas så skapas en ny fil. Det finns också en 8 GB gräns på den totala filstorleken genereras per händelsesessionen. 
 
 ## <a name="log-collection-tool"></a>Loggen samling verktyget
  
-PowerShell-cmdleten **Get-AzureStackLog** kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om vår tekniska support måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
+PowerShell-cmdleten **Get-AzureStackLog** kan användas för att samla in loggar från alla komponenter i en Azure-Stack-miljö. Det sparar dem i zip-filer i en användardefinierad plats. Om den tekniska supportteamet för Azure-stacken måste loggarna för att felsöka ett problem, de kan bli ombedd att köra det här verktyget.
 
 > [!CAUTION]
 > Loggfilerna kan innehålla personligt identifierbar information (PII). Ta hänsyn innan du publicerar offentligt alla loggfiler.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Samla in loggar med ett grafiskt användargränssnitt
-Du kan utnyttja tillgängliga öppen källkod Azure Stack verktyg som finns i huvudsakliga Azure Stack verktyg GitHub-lagret på http://aka.ms/AzureStackTools i stället för att tillhandahålla de obligatoriska parametrarna för cmdleten Get-AzureStackLog att hämta Azure Stack-loggar.
+Du kan utnyttja de tillgängliga öppna källkod Azure Stack verktyg som finns i den huvudsakliga Azure Stack verktyg GitHub verktyg lagringsplatsen på http://aka.ms/AzureStackTools i stället för att tillhandahålla de obligatoriska parametrarna för cmdleten Get-AzureStackLog att hämta Azure Stack-loggar.
 
-Den **ERCS_AzureStackLogs.ps1** PowerShell-skriptet lagras i databasen för GitHub-verktyg och uppdateras regelbundet. Starta från en administrativ PowerShell-session skriptet ansluter till Privilegierade slutpunkten och kör Get-AzureStackLog med angivna parametrar. Om inga parametrar har angetts som standard skriptet för att fråga efter parametrar via ett grafiskt användargränssnitt.
+Den **ERCS_AzureStackLogs.ps1** PowerShell-skriptet lagras i databasen för GitHub-verktyg och uppdateras regelbundet. För att säkerställa att du har den senaste versionen, bör du hämta den direkt från http://aka.ms/ERCS. Starta från en administrativ PowerShell-session skriptet ansluter till Privilegierade slutpunkten och kör Get-AzureStackLog med angivna parametrar. Om inga parametrar har angetts standardvärden skriptet för att fråga efter parametrar via ett grafiskt användargränssnitt.
 
-Läs mer om ERCS_AzureStackLogs.ps1 PowerShell-skript du kan titta på [en kort video](https://www.youtube.com/watch?v=Utt7pLsXEBc) eller visa skriptets [Readme-filen](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) finns i Azure-stacken verktyg GitHub-lagringsplatsen. 
+Om du vill veta mer om ERCS_AzureStackLogs.ps1 PowerShell-skriptet kan du titta på [en kort video](https://www.youtube.com/watch?v=Utt7pLsXEBc) eller visa skriptets [Readme-filen](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) finns i Azure-stacken verktyg GitHub-lagringsplatsen. 
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 

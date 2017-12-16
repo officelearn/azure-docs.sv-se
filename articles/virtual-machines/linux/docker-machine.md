@@ -4,7 +4,7 @@ description: "Beskriver hur du kan använda Docker-dator för att skapa Docker-v
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/19/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: efd0b60079017e476b54acfc65ffe8f35ffe4933
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Använda Docker-datorn för att skapa värdar i Azure
 Den här artikeln beskriver hur du använder [Docker datorn](https://docs.docker.com/machine/) att skapa värdar i Azure. Den `docker-machine` kommando skapar en Linux-dator (VM) i Azure och sedan installerar Docker. Du kan sedan hantera Docker-värdar i Azure med hjälp av samma lokala verktyg och arbetsflöden. Om du vill använda docker-dator i Windows 10, måste du använda Linux bash.
@@ -49,19 +49,19 @@ Utdata liknar följande exempel:
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
-(myvmdocker) Completed machine pre-create checks.
+(myvm) Completed machine pre-create checks.
 Creating machine...
-(myvmdocker) Querying existing resource group.  name="docker-machine"
-(myvmdocker) Creating resource group.  name="docker-machine" location="westus"
-(myvmdocker) Configuring availability set.  name="docker-machine"
-(myvmdocker) Configuring network security group.  name="myvmdocker-firewall" location="westus"
-(myvmdocker) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
-(myvmdocker) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
-(myvmdocker) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
-(myvmdocker) Creating public IP address.  name="myvmdocker-ip" static=false
-(myvmdocker) Creating network interface.  name="myvmdocker-nic"
-(myvmdocker) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
-(myvmdocker) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvmdocker"
+(myvm) Querying existing resource group.  name="docker-machine"
+(myvm) Creating resource group.  name="docker-machine" location="westus"
+(myvm) Configuring availability set.  name="docker-machine"
+(myvm) Configuring network security group.  name="myvm-firewall" location="westus"
+(myvm) Querying if virtual network already exists.  rg="docker-machine" location="westus" name="docker-machine-vnet"
+(myvm) Creating virtual network.  name="docker-machine-vnet" rg="docker-machine" location="westus"
+(myvm) Configuring subnet.  name="docker-machine" vnet="docker-machine-vnet" cidr="192.168.0.0/16"
+(myvm) Creating public IP address.  name="myvm-ip" static=false
+(myvm) Creating network interface.  name="myvm-nic"
+(myvm) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="westus"
+(myvm) Creating virtual machine.  location="westus" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvm
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...
@@ -73,14 +73,14 @@ Copying certs to the remote machine...
 Setting Docker configuration on the remote daemon...
 Checking connection to Docker...
 Docker is up and running!
-To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvmdocker
+To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
 ## <a name="configure-your-docker-shell"></a>Konfigurera Docker-gränssnittet
 Definiera rätt anslutningsinställningar för att ansluta till Docker-värden i Azure. Som anges i slutet av utdata visa anslutningsinformationen för Docker-värden på följande sätt: 
 
 ```bash
-docker-machine env myvmdocker
+docker-machine env myvm
 ```
 
 Utdata ser ut ungefär så här:
@@ -91,10 +91,10 @@ export DOCKER_HOST="tcp://40.68.254.142:2376"
 export DOCKER_CERT_PATH="/Users/user/.docker/machine/machines/machine"
 export DOCKER_MACHINE_NAME="machine"
 # Run this command to configure your shell:
-# eval $(docker-machine env myvmdocker)
+# eval $(docker-machine env myvm)
 ```
 
-Anslutningen ska definieras inställningar som du kan antingen köra kommandot föreslagna configuration (`eval $(docker-machine env myvmdocker)`), eller att du anger miljövariabler manuellt. 
+Om du vill definiera anslutningsinställningar för, kan du köra kommandot föreslagna configuration (`eval $(docker-machine env myvm)`), eller att du anger miljövariabler manuellt. 
 
 ## <a name="run-a-container"></a>Kör en behållare
 Du vill se en behållare i åtgärden, kan köra en grundläggande NGINX-webbserver. Skapa en behållare med `docker run` och exponera port 80 för Internet-trafik på följande sätt:
@@ -128,7 +128,7 @@ Hämta den offentliga IP-adressen för Docker-värd på följande sätt:
 
 
 ```bash
-docker-machine ip myvmdocker
+docker-machine ip myvm
 ```
 
 Om du vill visa behållaren i åtgärden, öppna en webbläsare och ange den offentliga IP-adressen som anges i utdata från kommandot ovan:

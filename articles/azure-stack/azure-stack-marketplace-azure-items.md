@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ Du rekommenderas att ladda ned dessa när det finns uppdateringar för VM-tillä
 
 |  | Objektnamnet | Beskrivning | Utgivare | OS-typ |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-tillägg](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objektet - detta är obligatoriskt.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Tillägget för anpassat skript](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Hämta uppdateringen till den i box-versionen av anpassade skript tillägget för Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC-tillägg](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Hämta uppdateringen till rutan i version av PowerShell DSC-tillägg.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Tillägg för Microsoft-program mot skadlig kod](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware för Azure är en enskild agent lösning för program och klient-miljöer är avsedd att köras i bakgrunden utan mänsklig inblandning. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker-tillägget för Linux virtuella datorer. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL IaaS-tillägg](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Hämta det här tillägget för att distribuera SQL Server på Windows Marketplace-objektet - detta är obligatoriskt.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Acronis säkerhetskopiering tillägget för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Acronis säkerhetskopiering tillägget för Microsoft Azure är en del av Acronis säkerhetskopiering produktfamiljen data protection. | Acronis internationella GmbH. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Trend Micro djup Security tillägget för Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Djupgående säkerhet Agent för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro djup Security tillägget för Windows. | Trend Micro | Windows |
 

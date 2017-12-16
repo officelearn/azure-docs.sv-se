@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 63e6b21dad4f58dbaa1df58e8eb1d6e3f6b7f762
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -49,8 +49,7 @@ När du ändrar servicenivån och/eller prestandanivån för en databas skapas e
 Hur lång tid processen att skala upp tar beror på databasens storlek och tjänstnivå före och efter ändringen. Till exempel bör en 250 GB-databas som ändras till, från eller inom en Standard-tjänstnivå slutföras inom sex timmar. Skala upp bör slutföras inom tre timmar för en databas med samma storlek som ändrar prestandanivåer inom premiumnivån.
 
 > [!TIP]
-> Du kan använda följande fråga för att kontrollera statusen för en pågående SQL-databas skalning åtgärden: ```select * from sys.dm_operation_status```.
->
+> Om du vill övervaka i felfri drift, se: [hantera åtgärder med hjälp av REST-API SQL](/rest/api/sql/Operations/List), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) och [stoppa AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * Om du uppgraderar till en högre nivå eller prestanda servicenivå ökar den maximala databasstorleken inte om du inte uttryckligen anger en större (maxsize).
 * Databasutrymme används måste vara mindre än den största tillåtna storleken för mål-tjänstnivå och prestandanivå servicenivån för att nedgradera en databas. 

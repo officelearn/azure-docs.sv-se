@@ -14,13 +14,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: janeng
-ms.openlocfilehash: 5913c8ec1b62fc38161e553dc2364c793951e047
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Använd CLI för att övervaka och skala en enskild SQL-databas
 
@@ -35,6 +35,9 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 ## <a name="sample-script"></a>Exempelskript
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
+
+> [!TIP]
+> Använd [az sql db op listan](/cli/azure/sql/db/op?#az_sql_db_op_list) att hämta en lista över åtgärder som utförs på databasen och Använd [az sql db op Avbryt](/cli/azure/sql/db/op#az_sql_db_op_cancel) att avbryta en update-åtgärden i databasen.
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 

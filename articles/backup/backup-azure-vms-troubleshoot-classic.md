@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
-ms.author: trinadhk;markgal;
-ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 658a4576c5fd664ce33737a1fcf9deafccd4c8b0
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.lasthandoff: 10/11/2017
 Du kan felsöka fel påträffades när med Azure Backup med information som visas i tabellen nedan.
 
 ## <a name="discovery"></a>Identifiering
-| Säkerhetskopieringen | information om fel | Lösning |
+| Säkerhetskopieringen | Felinformation | Lösning |
 | --- | --- | --- |
 | Identifiering |Det gick inte att identifiera nya objekt – Microsoft Azure Backup påträffade och internt fel. Vänta några minuter och försök sedan igen. |Försök identifieringsprocessen efter 15 minuter. |
 | Identifiering |Det gick inte att identifiera nya objekt – identifiering av en annan åtgärd pågår redan. Vänta tills den aktuella Discovery-åtgärden har slutförts. |Ingen |
 
 ## <a name="register"></a>Registrera dig
-| Säkerhetskopieringen | information om fel | Lösning |
+| Säkerhetskopieringen | Felinformation | Lösning |
 | --- | --- | --- |
 | Registrera dig |Antalet datadiskar som är kopplade till den virtuella datorn överskrider gränsen som stöds – ange koppla vissa datadiskar på den virtuella datorn och försök igen. Azure backup stöder upp till 16 datadiskar som är kopplad till en virtuell Azure-dator för säkerhetskopiering |Ingen |
 | Registrera dig |Microsoft Azure Backup påträffade ett internt fel - Vänta några minuter och försök sedan igen. Kontakta Microsoft-supporten om problemet kvarstår. |Du kan få detta fel på grund av följande stöds inte konfigurationen för den virtuella datorn på Premium LRS. <br> Premium-lagring virtuella datorer kan säkerhetskopieras med recovery services-valvet. [Läs mer](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
@@ -46,7 +46,7 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 | Registrera dig |Virtuella datorns agent är inte installerat på den virtuella datorn – installera den nödvändiga krav VM-agenten och gör om åtgärden. |[Läs mer](#vm-agent) om VM agentinstallation och hur du verifierar installationen av virtuell dator. |
 
 ## <a name="backup"></a>Säkerhetskopiering
-| Säkerhetskopieringen | information om fel | Lösning |
+| Säkerhetskopieringen | Felinformation | Lösning |
 | --- | --- | --- |
 | Säkerhetskopiering |Det gick inte att kommunicera med den virtuella datoragenten för ögonblicksbildsstatus. Ögonblicksbild tidsgränsen VM nåddes. -Finns i felsökningsguiden för hur du löser problemet. |Det här felet returneras om det uppstår ett problem med den Virtuella Datoragenten eller nätverksåtkomst till Azure-infrastrukturen är blockerad på något sätt. Lär dig mer om [felsökning in VM ögonblicksbild problem](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Om den Virtuella datoragenten inte orsakar problem, och starta sedan om den virtuella datorn. Ett felaktigt tillstånd för virtuell dator kan ibland orsaka problem och starta om den virtuella datorn återgår den här ”dåligt tillstånd” |
 | Säkerhetskopiering |Det gick inte att säkerhetskopiera med ett internt fel - försök igen om några minuter. Kontakta Microsoft Support om problemet kvarstår |Kontrollera om det finns ett övergående problem med att komma åt VM-lagring. Kontrollera [Azure Status](https://azure.microsoft.com/en-us/status/) att se om det finns några pågående problem relaterade till beräkning / / lagringsnätverk i region. Gör säkerhetskopiering efter problemet minskas. |
@@ -60,7 +60,7 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 | Säkerhetskopiering |Virtuella datorns agent är inte installerat på den virtuella datorn – installera den nödvändiga krav VM-agenten och gör om åtgärden. |[Läs mer](#vm-agent) om VM agentinstallation och hur du verifierar installationen av virtuell dator. |
 
 ## <a name="jobs"></a>Jobb
-| Åtgärd | information om fel | Lösning |
+| Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 | Avbryta jobb |Annullering stöds inte för den här jobbtypen - vänta tills jobbet har slutförts. |Ingen |
 | Avbryta jobb |Jobbet är inte i tillståndet cancelable - vänta tills jobbet har slutförts. <br>ELLER<br> Det valda jobbet är inte i tillståndet cancelable - vänta tills jobbet ska slutföras. |Med största sannolikhet slutförs nästan jobbet. Vänta tills jobbet har slutförts |
@@ -68,7 +68,7 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 | Avbryta jobb |Det gick inte att avbryta jobbet - vänta tills jobbet har slutförts. |Ingen |
 
 ## <a name="restore"></a>Återställ
-| Åtgärd | information om fel | Lösning |
+| Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 | Återställ |Det gick inte att återställa med molnet internt fel |<ol><li>Molntjänst som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera <br>$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Om adressen konfigurerad, innebär det att DNS-inställningarna har konfigurerats.<br> <li>Molntjänst som du försöker återställa har konfigurerats med ReservedIP och befintliga virtuella datorer i Molntjänsten har stoppats.<br>Du kan kontrollera en molnbaserad tjänst har reserverade IP-Adressen med hjälp av följande powershell-cmdlets:<br>$deployment = get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst. <br>-Virtuella datorer under konfigurationen av belastningsutjämnaren (interna och externa)<br>-Virtuella datorer med flera reserverade IP:<br>-Virtuella datorer med flera nätverkskort<br>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) för virtuella datorer med särskilda nätverkskonfigurationer</ol> |
 | Återställ |Det valda DNS-namnet är upptaget – ange ett annat DNS-namn och försök igen. |DNS-namnet här refererar till molntjänstnamnet (vanligtvis slutar med. cloudapp.net). Detta måste vara unika. Om du får det här felet måste du välja ett annat VM-namn under återställningen. <br><br> Det här felet visas endast på användare i Azure-portalen. Återställningsåtgärden via PowerShell lyckas eftersom det endast återställer diskarna och inte skapa den virtuella datorn. Felet kommer riktas när den virtuella datorn skapas av du uttryckligen när disken återställningsåtgärden. |
@@ -82,7 +82,7 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 | Återställ |Valda undernätet finns inte - Välj ett undernät som finns |Ingen |
 
 ## <a name="policy"></a>Princip
-| Åtgärd | information om fel | Lösning |
+| Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
 | Skapa princip |Det gick inte att skapa principen - minska kvarhållningsalternativen att fortsätta med principkonfiguration. |Ingen |
 

@@ -1,6 +1,6 @@
 ---
-title: "Säkerhet trimning i Azure Search med Azure Active Directory | Microsoft Docs"
-description: "Implementera trimning på säkerhet med Azure Search filter och Azure Active Directory."
+title: "Säkerhetsfilter för Azure Search resultat med hjälp av Active Directory identiteter trimning | Microsoft Docs"
+description: "Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och identiteter i Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Säkerhet trimning i Azure Search med Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att reducera Azure sökresultat med hjälp av Active Directory identiteter
 
-Den här artikeln visar hur du använder Azure Active Directory (AAD) tillsammans med Azure Search för att begränsa åtkomsten för dokument baserat på användarens gruppmedlemskap.
+Den här artikeln visar hur du använder Azure Active Directory (AAD) säkerhet identiteter tillsammans med filter i Azure Search för att rensa sökresultat baserat på användarens gruppmedlemskap.
 
 Den här artikeln omfattar följande aktiviteter:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ I den här genomgången du lärt dig tekniker för att filtrera dokument i Azure
 
 ## <a name="see-also"></a>Se även
 
-+ [Säkerhet trimning med Azure Search](search-security-trimming-for-azure-search.md)
++ [Identity-baserad åtkomstkontroll med Azure Search filter](search-security-trimming-for-azure-search.md)
 + [Filter i Azure Search](search-filters.md)
++ [Data säkerhet och åtkomstkontroll i Azure-sökningar](search-security-overview.md)

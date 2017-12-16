@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Energi begäran tidsserier prognoser
 
@@ -56,13 +56,11 @@ Det här scenariot beskrivs konstruktion av machine learning energiförbrukning 
 - En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 - En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](./quickstart-installation.md) att installera programmet och skapa en arbetsyta.
 - Det här exemplet förutsätter att du använder Azure ML-arbetsstationen på Windows 10 med [Docker-motorn](https://www.docker.com/) har installerats lokalt. Om du använder macOS är instruktionerna i stort sett desamma.
-- Azure Machine Learning Operationalization som installerats med en lokal distributionsmiljö ställer in och ett konto för hantering av modellen skapats enligt beskrivningen i det här [guiden](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization som installerats med en lokal distributionsmiljö ställer in och ett konto för hantering av modellen skapats enligt beskrivningen i det här [guiden](./model-management-configuration.md).
 - Det här exemplet kräver att du uppdaterar Pandas installationen till version 0.20.3 eller senare och installera matplotlib. Klicka på *öppnar du kommandotolken* från den *filen* -menyn i arbetsstationen och kör följande kommandon för att installera dessa beroenden:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
@@ -77,7 +75,7 @@ Skapa ett nytt projekt med det här exemplet som mall:
 
 ## <a name="data-description"></a>Beskrivning av data
 
-Det finns två datamängder: `nyc_demand.csv` och `nyc_weather.csv`:
+Två datauppsättningar som tillhandahålls med det här exemplet och hämtas med hjälp av den `1-data-preparation.ipynb` anteckningsboken: `nyc_demand.csv` och `nyc_weather.csv`.
 
 **nyc_demand.csv** innehåller varje timme energi begäran värden för New York City år 2012 2017. Data har följande enkel struktur:
 

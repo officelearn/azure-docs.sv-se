@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrollpunkter och replay i varaktiga funktioner (Azure-funktioner)
 
@@ -63,10 +63,10 @@ Orchestrator-funktionen är gratis ska tas bort från minnet tills det finns mer
 
 När åtgärden har slutförts ser något som liknar följande i Azure Table Storage (förkortat för illustration) i historiken för funktionen som visades tidigare:
 
-| PartitionKey (InstanceId)                     | Händelsetyp             | tidsstämpel               | Indata | Namn             | Resultat                                                    | Status | 
+| PartitionKey (InstanceId)                     | Händelsetyp             | Tidsstämpel               | Indata | Namn             | Resultat                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -90,7 +90,7 @@ Några anmärkningar på kolumnvärdena:
     * **TaskScheduled**: funktionen för en aktivitet har schemalagts. Namnet på funktionen aktiviteten hämtas i den `Name` kolumn.
     * **TaskCompleted**: en aktivitet funktionen slutfördes. Resultatet av funktionen är i den `Result` kolumn.
     * **TimerCreated**: en beständig timer har skapats. Den `FireAt` kolumnen innehåller schemalagda UTC-tid då timern upphör att gälla.
-    * **TimerFired**: en beständig timer har upphört att gälla.
+    * **TimerFired**: utlöses av en beständig timer.
     * **Händelse aktiverad**: en extern händelse skickades till orchestration-instans. Den `Name` kolumnen samlar in namnet på händelsen och `Input` kolumnen fångar nyttolasten för händelsen.
     * **OrchestratorCompleted**: funktionen orchestrator inväntas.
     * **ContinueAsNew**: funktionen orchestrator slutförts och startas om sig själv med nya tillstånd. Den `Result` kolumn innehåller det värde som används som indata i instansen startas om.
@@ -98,7 +98,7 @@ Några anmärkningar på kolumnvärdena:
 * **Tidsstämpel**: I UTC-tidsstämpel för den tidigare händelsen.
 * **Namnet**: namnet på den funktion som anropades.
 * **Inkommande**: JSON-formaterade indata för funktionen.
-* **Utdata**: resultatet av funktionen; som är dess returvärde.
+* **Resultatet**: resultatet av funktionen; som är dess returvärde.
 
 > [!WARNING]
 > Det är praktiskt som felsökningsverktyg, inte ta eventuella beroenden i den här tabellen. Den kan ändras när tillägget varaktiga funktioner utvecklas.

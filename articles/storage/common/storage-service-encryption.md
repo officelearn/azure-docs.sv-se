@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-tjänstens kryptering av vilande data
 Azure Storage Service kryptering (SSE) för Data i vila hjälper dig att skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Med den här funktionen Azure Storage krypterar dina data innan beständighet till lagring och automatiskt dekrypterar före hämtning. Kryptering, dekryptering och hantering av nycklar är helt transparent för användarna.
@@ -159,7 +159,7 @@ S: inte vid detta tillfälle. nycklarna är fullständigt hanteras av Microsoft.
 
 **F: är SSE aktiverad som standard när jag skapar ett nytt lagringskonto?**
 
-S: SSE är inte aktiverad som standard. Du kan använda Azure-portalen för att aktivera den. Du kan också programmässigt aktivera den här funktionen med Storage Resource Provider REST API.
+S: Azure Storage-teamet håller på att aktivera kryptering som standard med hjälp av Microsoft-hanterade nycklar för alla data som skrivs till Azure Storage (Blob, fil-, tabell- och kön lagring) och för alla lagringskonton (Azure Resource Manager och klassisk lagring konton), både nya och befintliga.
 
 **F: hur skiljer detta sig från Azure Disk Encryption?**
 

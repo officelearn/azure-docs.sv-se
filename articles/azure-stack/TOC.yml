@@ -4,6 +4,16 @@
   items:
     - name: Vad är Azure Stack?
       href: azure-stack-poc.md
+    - name: Viktig information
+      items:
+        - name: Development kit viktig information
+          href: azure-stack-asdk-release-notes.md
+        - name: Integrerat system viktig information
+          items:
+            - name: 1711 uppdatering
+              href: azure-stack-update-1711.md
+            - name: 1710 uppdatering
+              href: azure-stack-update-1710.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
-    - name: Viktig information
-      items:
-        - name: Development kit viktig information
-          href: azure-stack-asdk-release-notes.md
-        - name: Integrerat system viktig information
-          items:
-            - name: 1711 uppdatering
-              href: azure-stack-update-1711.md
-            - name: 1710 uppdatering
-              href: azure-stack-update-1710.md
     - name: Huvudfunktioner och koncept
       href: azure-stack-key-features.md
     - name: Development kit arkitektur

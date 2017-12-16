@@ -32,6 +32,8 @@
       href: how-to-deploy-monitor.md
     - name: Etablera en IoT Core-enhet
       href: how-to-install-iot-core.md
+    - name: Felsöka
+      href: troubleshoot.md
 - name: Koncept
   items:
     - name: IoT Edge-moduler

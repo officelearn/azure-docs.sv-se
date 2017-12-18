@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -42,6 +42,8 @@ Du kan se följande information i verktyget:
 * Beräknad nätverksbandbredd som krävs för deltareplikering
 * Dataflödet som Site Recovery kan få från lokala datorer till Azure
 * Antalet virtuella datorer att bearbeta per batch sett till den uppskattade bandbredd som krävs för att slutföra den inledande replikeringen inom viss tid
+* Möjligt återställningspunktmål för en viss bandbredd
+* Påverkan på det önskade återställningspunktmålet vid lägre brandbredder.
 
 **Krav på infrastruktur för Azure**
 
@@ -55,9 +57,9 @@ Du kan se följande information i verktyget:
 **Krav på lokal infrastruktur**
 * Antalet konfigurationsservrar och processervrar som måste distribueras lokalt
 
-**Beräknad DR-kostnad för Azure** 
-* Uppskattad total DR-kostnad för Azure: databearbetning, lagring, nätverk och Azure Site Recovery-licenskostnader
-* Detaljerad analys av faktiska kostnader per virtuell dator
+**Beräknad kostnad för haveriberedskap till Azure**
+* Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Azure Site Recovery-licenskostnader
+* Detaljerad analys av kostnader per virtuell dator
 
 
 >[!IMPORTANT]
@@ -65,16 +67,16 @@ Du kan se följande information i verktyget:
 >Eftersom användningen troligtvis ökar med tiden utförs alla föregående verktygsberäkningar med förutsättningen att en 30-procentig tillväxtfaktor för arbetsbelastningen egenskaper och ett 95-procentigt percentilvärde används för alla profileringsmått (skrivbar IOPS, omsättning och så vidare). Båda parametrarna (tillväxtfaktorn och percentilberäkningen) kan konfigureras. Om du vill veta mer om tillväxtfaktor, se avsnittet ”Överväganden för tillväxtfaktorer”. Mer information om percentilvärdet finns i avsnittet ”Percentilvärdet som används för beräkningen”.
 >
 
-## <a name="support-matrix"></a>Supportmatris
+## <a name="support-matrix"></a>Stödmatris
 
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
 Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
 Version som stöds | vCenter 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
 Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
-Antalet servrar som kan profileras per körningsinstans av distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan vara profil samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan vara profil samtidigt)| Ej tillämpligt
+Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
-* Verktyget är främst för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats. Det kan endast användas för att förstå rekommendationer från källan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-server som agerar som en källa samt inledande siffror för replikering och batchbearbetning och batch-definitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
+* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
 ## <a name="prerequisites"></a>Krav
 Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell:

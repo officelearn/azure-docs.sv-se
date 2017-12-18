@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://
 ## <a name="supports-the-latest-client-tools"></a>Stöder de senaste klientverktygen
 ![Datavisualiseringar](./media/analysis-services-overview/aas-overview-clients.png)
 
-Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel och verktyg från tredje part ger användarna interaktiva och högvisuella insikter om dina modelldata.
+Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, SQL Server 2017 Reporting Services och verktyg från tredje part stöds och ger användarna interaktiva och högvisuella insikter om dina modelldata. 
 
 Klienterna använder [klientbibliotek](analysis-services-data-providers.md) av typen MSOLAP, AMO eller ADOMD för att ansluta till Analysis Services-servrar. Microsoft-klientprogram som Power BI Desktop och Excel installerar samtliga tre klientbibliotek. Men tänk på att, beroende på version eller hur ofta den uppdateras, kanske klientbiblioteken inte har de senaste versioner som krävs av Azure Analysis Services. Detsamma gäller för anpassade program eller andra gränssnitt som AsCmd, TOM, ADOMD.NET. Dessa program kräver vanligtvis att biblioteken installeras manuellt som en del av ett paket.
 

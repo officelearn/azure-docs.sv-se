@@ -3,21 +3,21 @@ title: "Så här använder du innehållspaketet för Azure Active Directory Powe
 description: "Lär dig hur du använder innehållspaketet för Azure Active Directory Power BI"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Så här använder du innehållspaketet för Azure Active Directory Power BI
 
@@ -46,7 +46,7 @@ Det här avsnittet innehåller stegvisa instruktioner för hur du installerar oc
 5.  När du uppmanas anger du ditt klient-ID för Azure AD och klickar sedan på **Nästa**.
 
     > [!TIP] 
-    > Ett snabbt sätt att hämta klient-ID för din Office 365-/Azure AD-klient är att logga in på Azure AD-portalen, öka detaljnivån i katalogen och kopiera ID:t från följande URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Du kan snabbt hämta klient-ID:t för din Office 365/Azure AD-klient genom att logga in på Azure AD-portalen, bläddra till katalogen och kopiera **Katalog-ID** på sidan [**Egenskaper**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Innehållspaketet för Azure Active Directory Power BI](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/02/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 36fa884b451d41ed7443312cc21b49b0b720a954
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -93,7 +93,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 ### <a name="networking"></a>Nätverk
 * [Översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Skapa ett fullständigt domännamn i Azure Portal](../portal-create-fqdn.md)
+* [Skapa ett fullständigt domännamn i Azure-portalen](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [Dokumentation om SQL Server](https://docs.microsoft.com/sql/index)
@@ -103,7 +103,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 
 Kom igång med SQL Server på Azure Virtual Machines:
 
-* [Skapa en virtuell SQL Server-dator på Azure Portal](virtual-machines-windows-portal-sql-server-provision.md)
+* [Skapa en virtuell SQL Server-dator på Azure Portal](quickstart-sql-vm-create-portal.md)
 
 Få svar på vanliga frågor om virtuella SQL-datorer:
 

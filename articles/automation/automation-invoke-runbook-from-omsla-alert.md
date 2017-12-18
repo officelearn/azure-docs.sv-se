@@ -3,7 +3,7 @@ title: "Anropa en Azure Automation Runbook från en Log Analytics-avisering |Mic
 description: "Den här artikeln innehåller en översikt över hur du anropar en Automation-runbook från en Microsoft OMS-avisering i Log Analytics."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Anropa en Azure Automation-runbook från en OMS Log Analytics-avisering
 
@@ -43,7 +43,7 @@ Om du har erbjudandet Automatisering och kontroll installerat och konfigurerat i
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Egenskaper för en runbook (för båda alternativen)
 
-De båda metoderna för att anropa runbook-flödet från Log Analytics-aviseringen har egenskaper som du måste förstå innan du konfigurerar dina aviseringsregler.
+De båda metoderna för att anropa runbook-flödet från Log Analytics-aviseringen har egenskaper som du måste förstå innan du konfigurerar dina aviseringsregler. Aviseringsdata är i json-format i en enskild egenskap med namnet **SearchResult**. Det här formatet är till för runbook- och webhook-åtgärder med en standardnyttolast. För webhook-åtgärder med anpassade nyttolaster som inkluderar **IncludeSearchResults:True** i **RequestBody** är egenskapen **SearchResults**.
 
 * Du måste ha en runbook-indataparameter med namnet **WebhookData** som är **objekttypen**. Det kan vara obligatoriskt eller valfritt. Aviseringen skickar sökresultaten till runbooken med denna indataparameter.
 
@@ -61,6 +61,7 @@ De båda metoderna för att anropa runbook-flödet från Log Analytics-avisering
     ```
 
     *$SearchResult* är en matris med objekt, och varje objekt innehåller fälten med värden från ett sökresultat
+
 
 ## <a name="example-walkthrough"></a>Exempelgenomgång
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 När tjänsten stoppas identifierar aviseringsregeln i Log Analytics en matchning och utlöser runbooken och skickar aviseringssammanhanget till runbook. Runbook vidtar åtgärder för att kontrollera att tjänsten har stoppats, och om så är fallet försöka starta om tjänsten och kontrollera att den startade korrekt och matar ut resultaten.     
 
 Om ditt Automation-konto inte är länkat till OMS-arbetsytan kan du konfigurera aviseringsregeln med en webhook-åtgärd för att utlösa runbook och konfigurera runbooken så att den konverterar den JSON-formaterade strängen och filtrerar på \*.SearchResult\* enligt de riktlinjer som beskrivs ovan.    
+
+>[!NOTE]
+> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](../log-analytics/log-analytics-log-search-upgrade.md) har webhook-nyttolasten ändrats.  Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Nästa steg
 

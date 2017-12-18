@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
@@ -37,6 +37,10 @@ De flesta kunder genomför följande steg för att säkerställa en smidig distr
 9. Fastställ när du vill framtvinga registrering. Du kan välja att framtvinga registrering när som helst. Du kan också kräva att användarna bekräftar sin autentiseringsinformation igen efter en viss tidsperiod.
 10. Använd rapporteringsfunktionen. Med tiden kan du granska användarnas registrering och användning med hjälp av [rapporteringsfunktionen i Azure AD](active-directory-passwords-reporting.md).
 11. Aktivera lösenordsåterställning. När du är redo kan du aktivera återställning av lösenord för alla användare genom att ställa in **Återställning av lösenord via självbetjäning har aktiverats** på **Alla**. 
+
+   > [!NOTE]
+   > Befintliga autentiseringsdata som en användare har registrerat som en del i en testgrupp blir inte ogiltiga om det här alternativet ändras från en vald grupp till Alla. Användare som har konfigurerats och har giltiga autentiseringsdata registrerade kommer fortfarande fungera.
+
 12. [Aktivera lösenordsåterställning på inloggningsskärmen för Windows 10-användare](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Många kunder tycker att det enklaste sättet att få användarna att använda S
 
 Många kunder väljer att själva agera värd för webbsidan och skapa en DNS-rot, till exempel https://passwords.contoso.com. De fyller den här sidan med länkar till följande information:
 
-* [Portal för Azure AD-lösenordsåterställning](https://aka.ms/sspr)
-* [Registreringsportal för Azure AD-lösenordsåterställning](http://aka.ms/ssprsetup)
-* [Portal för Azure AD-lösenordsändring](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portal för Azure AD-lösenordsåterställning – https://aka.ms/sspr](https://aka.ms/sspr)
+* [Registreringsportal för Azure AD-lösenordsåterställning – http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal för ändring av Azure AD-lösenord – https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Annan information som är specifik för organisationen
 
 De kan då skicka ut e-post eller flygblad med en egen URL som är lätt att komma ihåg, och dit användarna kan vända sig när de behöver använda tjänsterna. Vi har skapat en [exempelsida för lösenordsåterställning](https://github.com/ajamess/password-reset-page) som du kan använda och anpassa efter din organisations behov.

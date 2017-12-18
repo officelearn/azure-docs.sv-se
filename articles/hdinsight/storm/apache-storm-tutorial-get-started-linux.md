@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
@@ -47,7 +47,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
     ![Skapa ett HDInsight-kluster](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. Ange följande information i bladet **Grundläggande inställningar**:
+2. Ange följande information i avsnittet **Grundläggande inställningar**:
 
     * **Klusternamn**: Namnet på HDInsight-klustret.
     * **Prenumeration**: Välj den prenumeration som du vill använda.
@@ -58,7 +58,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
    ![Välj en prenumeration](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Välj **Klustertyp** och ange följande värden på bladet **Klusterkonfiguration**:
+3. Välj **Klustertyp** och ange följande värden i avsnittet **Klusterkonfiguration**:
 
     * **Typ av kluster**: Storm
 
@@ -74,11 +74,11 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
 4. När du har valt klustertypen anger du klustertypen med hjälp av knappen __Välj__. Använd sedan knappen __Nästa__ och slutföra den grundläggande konfigurationen.
 
-5. Gå till bladet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält på det här bladet på standardvärden för stegen i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
+5. Gå till avsnittet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält i det här avsnittet på standardvärden för anvisningarna i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__.
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. Gå till bladet **Sammanfattning** och granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på __Skapa__.
+6. Gå till avsnittet **Sammanfattning** och granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Till sist skapar du klustret genom att klicka på __Skapa__.
 
     ![Sammanfattning av klusterkonfiguration](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -103,10 +103,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > I tidigare versioner av HDInsight är topologins klassnamn `storm.starter.WordCountTopology` i stället för `org.apache.storm.starter.WordCountTopology`.
-
-    Det här kommandot startar exempeltopologin för WordCount (ordräkning) på klustret, med ett eget namn för 'wordcount'. Den genererar meningar slumpmässigt och räknar antal förekomster av varje ord i meningarna.
+    Det här kommandot startar exempeltopologin för WordCount (ordräkning) på klustret. Den här topologin genererar meningar slumpmässigt och räknar hur många gånger ord används. Topologins egna namn är `wordcount`.
 
     > [!NOTE]
     > När du skickar in dina egna topologier till klustret måste du först kopiera jar-filen som innehåller klustret innan du använder kommandot `storm`. Använd `scp`-kommandot för att kopiera filen. Till exempel, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 I den här självstudien för Apache Storm har du lärt dig grunderna för att arbeta med Storm på HDInsight. Härnäst får du lära dig att [Utveckla Java-baserade topologier med Maven](apache-storm-develop-java-topology.md).
 
-Om du redan är bekant med att utveckla Java-baserad topologier och vill distribuera en befintlig topologi till HDInsight kan du läsa [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology-linux.md).
+Om du redan är bekant med att utveckla Java-baserade topologier kan du läsa dokumentet [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
 Om du är en .NET-utvecklare kan du skapa C#- eller C#/Java-hybridtopologier med Visual Studio. Mer information finns i [Utveckla C#-topologier för Apache Storm på HDInsight med Hadoop-verktyg för Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 

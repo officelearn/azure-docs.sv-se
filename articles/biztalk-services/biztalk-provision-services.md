@@ -14,102 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
 > Om du vill logga in på Azure-portalen behöver du ett Azure-konto och en Azure-prenumeration. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Se [Kostnadsfri utvärderingsversion av Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Skapa en BizTalk-tjänst
-Beroende på vilken utgåva du har är det inte säkert att alla BizTalk Services-inställningar finns tillgängliga.
 
-1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. I den nedre navigeringsrutan väljer du **NYTT**:  
-   ![Klicka på knappen Nytt][NEWButton]
-3. Välj **APPTJÄNSTER** > **BIZTALK-TJÄNST** > **SKAPA ANPASSAD**:  
-   ![Välj BizTalk-tjänst och välj Skapa anpassad][NewBizTalkService]
-4. Ange BizTalk-tjänstinställningarna:
-   
-    <table border="1">
-    <tr>
-    <td><strong>BizTalk-tjänstens namn</strong></td>
-    <td>Du kan ange ett namn, men var specifik. Några exempel är:<br/><br/>
-    <em>mycompany</em>.biztalk.windows.net<br/>
-    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-    <em>myapplication</em>.biztalk.windows.net<br/><br/>”.biztalk.windows.net” läggs automatiskt till det namn som du anger. Detta skapar en URL som används för att komma åt din BizTalk-tjänst, som t.ex. <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
-    </td>
-    </tr>
-    <tr>
-    <td><strong>Utgåva</strong></td>
-    <td>Om du är i testnings-/utvecklingsfasen väljer du <strong>Developer</strong>. Om du är i produktionsfasen använder du <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Diagram över utgåvor</a> för att se om <strong>Premium</strong>, <strong>Standard</strong> eller <strong>Basic</strong> är det rätta valet för ditt affärsscenario.
-    </td>
-    </tr>
-    <tr>
-    <td><strong>Region</strong></td>
-    <td>Välj ett geografiskt område som värd för din BizTalk-tjänst.</td>
-    </tr>
-    <tr>
-    <td><strong>Domänens URL</strong></td>
-    <td><strong>Valfritt</strong>. Domän-URL:en är som standard <em>YourBizTalkServiceName</em>.biztalk.windows.net. Du kan även ange en anpassad domän. Om din domän till exempel är <em>contoso</em> kan du ange: <br/><br/>
-    <em>MyCompany</em>.contoso.com<br/>
-    <em>MyCompanyMyApplication</em>.contoso.com<br/>
-    <em>MyApplication</em>.contoso.com<br/>
-    <em>YourBizTalkServiceName</em>.contoso.com<br/>
-    </td>
-    </tr>
-    </table>
-Välj pilen NÄSTA.
-5. Ange inställningar för lagring och databas:  <table border="1">
-    <tr>
-    <td><strong>Övervaka/arkivera lagringskontot</strong></td>
-    <td>Välj ett befintligt lagringskonto eller skapa ett nytt lagringskonto. <br/><br/>Om du skapar ett nytt lagringskonto anger du <strong>lagringskontonamnet</strong>.</td>
-    </tr>
-    <tr>
-    <td><strong>Spårning av databasen</strong></td>
-    <td>Om du använder en befintlig Azure SQL Database kan den inte användas av en annan BizTalk-tjänst. Du måste ha det inloggningsnamn och lösenord som angavs när Azure SQL Database-servern skapades.<br/><br/><strong>Tips</strong> Skapa spårning av databasen och övervakning/arkivering av lagringskontot i samma region som BizTalk-tjänsten.</td>
-    </tr>
-    </table>
-Välj pilen NÄSTA.
-6. Ange inställningar för databasen:  <table border="1">
-    <tr>
-    <td><strong>Namn</strong></td>
-    <td>Tillgängligt om <strong>Skapa en ny SQL Database-instans</strong> valdes i den föregående skärmbilden.
-    <br/><br/>
-Ange ett namn för SQL Database som ska användas av din BizTalk-tjänst.</td>
-    </tr>
-    <tr>
-    <td><strong>Server</strong></td>
-    <td>Tillgängligt om <strong>Skapa en ny SQL Database-instans</strong> valdes i den föregående skärmbilden.
-    <br/><br/>
-Välj en befintlig SQL Database-server eller skapa en ny SQL Database-server.</td>
-    </tr>
-    <tr>
-    <td><strong>Serverns inloggningsnamn</strong></td>
-    <td>Ange användarnamnet för inloggningen.</td>
-    </tr>
-    <tr>
-    <td><strong>Lösenord för serverinloggning</strong></td>
-    <td>Ange inloggningslösenordet.</td>
-    </tr>
-    <tr>
-    <td><strong>Region</strong></td>
-    <td>Tillgängligt om <strong>Skapa en ny SQL Database-instans</strong> har valts. Välj den geografiska region som är värd för din SQL Database.</td>
-    </tr>
-    </table>
-
-Klicka på bockmarkeringen för att slutföra guiden. Förloppsikonen visas:  
-![Förloppsikonen visar när du är klar][ProgressComplete]
-
-När du är klar har Azure BizTalk-tjänsten skapats och är redo för dina program. Standardinställningarna är tillräckliga. Om du vill ändra standardinställningarna väljer du **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänst. Ytterligare inställningar visas på [flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md) överst.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Det finns vissa åtgärder som inte går att slutföra beroende på status för BizTalk-tjänsten. En lista över dessa åtgärder finns i [Statusdiagram för BizTalk Services](biztalk-service-state-chart.md).
 
@@ -119,27 +42,16 @@ Det finns vissa åtgärder som inte går att slutföra beroende på status för 
 * [Hämta namnområdet Access Control](#ACS)
 
 #### <a name="InstallCert"></a>Installera certifikatet på en lokal dator
-Som en del av etableringen av BizTalk-tjänsten skapas ett självsignerat certifikat som associeras med prenumerationen på BizTalk-tjänsten. Du måste hämta certifikatet och installera det på de datorer som du antingen distribuerar BizTalk-tjänstprogram eller skickar meddelanden till en BizTalk-tjänstslutpunkt ifrån.
 
-1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänstprenumeration.
-3. Välj fliken **Instrumentpanel**.
-4. Välj **Hämta SSL-certifikat**:  
-   ![Ändra SSL-certifikat][QuickGlance]
-5. Dubbelklicka på certifikatet och använd guiden för att installera det. Kontrollera att du installerar certifikatet under arkivet **Betrodda rotcertifikatutfärdare**.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 #### <a name="AddCert"></a>Lägg till ett produktionsklart certifikat
-Det självsignerade certifikat som skapas automatiskt när du skapar BizTalk Services är endast avsett att användas i utvecklingsmiljöer. I produktionsscenarier ersätter du det med ett produktionsklart certifikat.
 
-1. På fliken **Instrumentpanel** väljer du **Uppdatera SSL-certifikat**.
-2. Bläddra till ditt privata SSL-certifikat (*CertificateName*.pfx) som innehåller namnet på din BizTalk-tjänst, ange lösenordet och klicka sedan på bockmarkeringen.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 #### <a name="ACS"></a>Hämta namnområdet Access Control
-1. Logga in på [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Välj **BIZTALK SERVICES** i den vänstra navigeringsrutan och sedan din BizTalk-tjänst.
-3. I aktivitetsfältet väljer du **Anslutningsinformation**:  
-   ![Välj Anslutningsinformation][ACSConnectInfo]
-4. Kopiera Access Control-värdena.
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 När du distribuerar ett BizTalk-tjänstprojekt från Visual Studio anger du detta Access Control-namnområde. Access Control-namnområdet skapas automatiskt för din BizTalk-tjänst.
 
@@ -167,11 +79,11 @@ Dessa krav gäller inte för Free-utgåvan.
 </tr>
 <tr>
 <td>Azure-prenumeration</td>
-<td>Prenumerationen styr vem som kan logga in på Azure-portalen. Kontoinnehavaren skapar prenumerationen i <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-prenumerationer</a>.
+<td>Prenumerationen styr vem som kan logga in på Azure. Kontoinnehavaren skapar prenumerationen i <a HREF="https://account.windowsazure.com/Subscriptions"> Azure-prenumerationer</a>.
 <br/><br/>
-Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure-portalen och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
+Azure-kontot kan ha flera prenumerationer och kan hanteras av vem som helst som är behörig. Till exempel kan din Azure-kontoinnehavare skapa en prenumeration med namnet <em>BizTalkServiceSubscription</em> och ge BizTalk-administratörerna i företaget (till exempel ContosoBTSAdmins@live.com) åtkomst till prenumerationen. I det här scenariot loggar BizTalk-administratörerna in på Azure och har fullständiga administratörsbehörigheter till alla värdtjänster i prenumerationen, inklusive Azure BizTalk Services. BizTalk-administratörerna är inte Azure-kontoinnehavare och har därför inte tillgång till någon faktureringsinformation.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure-portalen</a> innehåller mer information.
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Hantera prenumerationer och lagringskonton i Azure</a> innehåller mer information.
 </td>
 </tr>
 <tr>
@@ -200,7 +112,7 @@ SQL Database-skalan konfigureras automatiskt. Vanligtvis räcker standardskalan 
 <td>Ger åtkomst till tabeller, blobbar och köer som används av din BizTalk-tjänst för att spara följande:
 
 <ul>
-<li>Loggfiler som övervakar BizTalk-tjänsten. Övervakningens utdata visas även på fliken **Övervakning** i Azure-portalen.</li>
+<li>Loggfiler som övervakar BizTalk-tjänsten. </li>
 <li>När du skapar ett X12- eller AS2-avtal mellan partners kan du aktivera arkiveringsfunktionen för att lagra meddelandeegenskaper. Informationen sparas i lagringskontot.</li>
 </ul>
 <br/>

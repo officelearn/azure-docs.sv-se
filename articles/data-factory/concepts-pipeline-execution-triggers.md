@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Se [Snabbstart: skapa en datafabrik med hjälp av .NET](quickstart-create-data-f
 ## <a name="triggers"></a>Utlösare
 Utlösare är det andra sättet att utföra en pipeline-körning. Utlösare representerar en bearbetningsenhet som avgör när en pipeline-körning måste startas. För närvarande stöder Data Factory en utlösare som anropar en pipeline enligt ett klocktidsschema (wall-clock). Den kallas **Scheduler-utlösare**. För närvarande stöder inte Data Factory händelsebaserade utlösare, som en utlösare för en pipeline-körning av händelsen för en filankomst.
 
-Pipelines och utlösare har ett n-m-förhållande. Flera utlösare kan starta en enda pipeline och samma utlösare kan starta flera pipelines. I följande JSON-definition för en utlösare refererar **pipelines**-egenskapen till en lista med pipelines som utlöses av en vissa utlösare, och värden för pipeline-parametrar.
+Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en enskild pipeline och en enskild utlösare kan starta flera pipeliner. I följande JSON-definition för en utlösare refererar **pipelines**-egenskapen till en lista med pipelines som utlöses av en vissa utlösare, och värden för pipeline-parametrar.
 
 ### <a name="basic-trigger-definition"></a>Grundläggande utlösardefinition: 
 ```json
@@ -165,7 +165,7 @@ Scheduler-utlösaren kör pipelines enligt ett klocktidsschema (wall-clock). Den
 ### <a name="scheduler-trigger-json-definition"></a>JSON-definition för Scheduler-utlösaren
 När du skapar en Scheduler-utlösare kan du ange schemaläggning och upprepning med JSON enligt exemplet i det här avsnitt. 
 
-Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pipelinereferens i utlösardefinitionen. Pipelines och utlösare har ett n-m-förhållande. Flera utlösare kan starta en pipeline. Samma utlösare kan starta flera pipelines.
+Om du vill att Scheduler-utlösaren startar en pipelinekörning tar du med en pipelinereferens i utlösardefinitionen. Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner.
 
 ```json
 {

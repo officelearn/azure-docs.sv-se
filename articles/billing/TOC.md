@@ -27,17 +27,17 @@
 ### [Förstå användningen av reserverade instanser för Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Hantera prenumerationer
+### [Hitta prenumeration eller hanteringsgrupp](billing-enterprise-mgmt-grp-find.md)
 ### [Hantera administratörsroller](billing-add-change-azure-subscription-administrator.md)
 ### [Överföra äganderätten till prenumerationen](billing-subscription-transfer.md)
 ### [Återaktivera en inaktiverad prenumeration](billing-subscription-become-disable.md)
 ### [Uppgradera från en kostnadsfri prenumeration](billing-upgrade-azure-subscription.md)
 ### [Byt prenumerationserbjudande](billing-how-to-switch-azure-offer.md)
+### [Länka Azure AD-klient](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Avbryta prenumerationen](billing-how-to-cancel-azure-subscription.md)
-### [Hitta prenumeration eller hanteringsgrupp](billing-enterprise-mgmt-grp-find.md)
 ## Hantera kontot
 ### [Redigera profil](billing-how-to-change-azure-account-profile.md)
 ### [Uppdatera betalningsinformation](billing-how-to-change-credit-card.md)
-### [Länka Office 365-klientorganisation](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Betala för prenumerationer med faktura](billing-how-to-pay-by-invoice.md)
 ## [Hantera reserverade VM-instanser](billing-manage-reserved-vm-instance.md)
 ## Felsöka

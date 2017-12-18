@@ -33,7 +33,11 @@
 ### [Tjänstbegränsningar](search-limits-quotas-capacity.md)
 ### [Tjänstskalbarhet](search-capacity-planning.md)
 ### [Utforma mönster för flera innehavare](search-modeling-multitenant-saas-applications.md)
-## Utveckla
+## Säkerhet
+### [Data- och driftsäkerhet](search-security-overview.md)
+### [Skydda med identitetsfilter](search-security-trimming-for-azure-search.md)
+### [Skydda med Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Utveckling
 ### [API-versioner](search-api-versions.md)
 ### [Utveckla i Node.js](search-get-started-nodejs.md)
 ### [Utveckla i Java](search-get-started-java.md)
@@ -42,13 +46,6 @@
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)
 ### [Hantera samtidiga uppdateringar](search-howto-concurrency.md)
 ### [Kodexempel](https://azure.microsoft.com/resources/samples/?service=search)
-## Hantera
-### Administrera Azure Search
-#### [Azure Portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Övervaka användning och statistik](search-monitor-usage.md)
-### [Söktrafikanalys](search-traffic-analytics.md)
-### [Prestanda och optimering](search-performance-optimization.md)
 ## Läsa in data
 ### [Översikt över indexeraren](search-indexer-overview.md)
 ### [Azure Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Översikt](search-filters.md)
 #### [Facet-filter](search-filters-facets.md)
 #### [Språkfilter](search-filters-language.md)
-#### [Säkerhetsfilter (generiska)](search-security-trimming-for-azure-search.md)
-#### [Säkerhetsfilter (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Referens för uttryckssyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Växla resultat](search-pagination-page-layout.md)
 ### [Resultat](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Aspektbaserad navigering](search-faceted-navigation.md)
 ### [Förhandsversion av synonymer](search-synonyms.md)
 ### [moreLikeThis-förhandsversion](search-more-like-this.md)
+## Administration och analys
+### [Hantera med Azure Portal](search-manage.md)
+### [Hantera med PowerShell](search-manage-powershell.md)
+### [Övervaka användning och statistik](search-monitor-usage.md)
+### [Söktrafikanalys](search-traffic-analytics.md)
+### [Prestanda och optimering](search-performance-optimization.md)
 
 # Referens
 

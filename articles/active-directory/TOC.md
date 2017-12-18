@@ -58,6 +58,7 @@
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamiska grupper och B2B-användare](active-directory-b2b-dynamic-groups.md)
 #### [Granskning och rapporter](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B för hybridorganisationer](active-directory-b2b-hybrid-organizations.md)
 #### [Extern delning av B2B och Office 365](active-directory-b2b-o365-external-user.md)
 #### [B2B-licensiering](active-directory-b2b-licensing.md)
 #### [Aktuella begränsningar](active-directory-b2b-current-limitations.md)

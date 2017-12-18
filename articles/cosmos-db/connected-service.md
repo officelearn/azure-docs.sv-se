@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (förhandsversion)
 
@@ -119,8 +119,8 @@ I det här dokumentet har du lärt dig följande:
 
 När du nu har fått igång Connected Services med ditt Azure Cosmos DB-konto fortsätter du till någon av självstudiekurserna för att börja utveckla din lösning:
 
-* [Utveckla med DocumentDB API i .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: Självstudiekurs för att komma igång med DocumentDB-API:et](documentdb-get-started.md).
+* [Utveckla med SQL API i .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: Självstudiekurs för att komma igång med API för SQL](documentdb-get-started.md).
 * Vill du testa skalning och prestanda med Azure Cosmos DB? Mer information finns i avsnittet om hur du [testar prestanda och skalning med Azure Cosmos DB](performance-testing.md).
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
 

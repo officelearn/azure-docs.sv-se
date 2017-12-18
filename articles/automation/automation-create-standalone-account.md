@@ -3,7 +3,7 @@ title: "Skapa ett fristående Azure Automation-konto | Microsoft Docs"
 description: "Självstudie som steg för steg beskriver hur du skapar, testar och använder autentisering med säkerhetsobjekt i Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 I det här avsnittet beskrivs hur du skapar ett Automation-konto på Azure Portal om du vill utvärdera och lära dig mer om Azure Automation utan de ytterligare hanteringslösningarna eller integreringen med OMS Log Analytics för avancerad övervakning av runbook-jobb.  Du kan när som helst lägga till de här hanteringslösningarna eller integrera med Log Analytics senare.  Med Automation-kontot kan du autentisera runbookflöden som hanterar resurser i Azure Resource Manager eller klassiska Azure.

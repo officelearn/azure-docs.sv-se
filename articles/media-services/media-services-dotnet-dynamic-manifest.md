@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Skapa filter med Azure Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Från och med 2.11 kan Media Services du definiera filter för dina tillgångar. Dessa filter är server sida regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället alla återgivningar som är kopplade till tillgången). Den här filtreringen dina tillgångar uppnås genom **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
+Från och med 2.17 kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som tillåter kunderna välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtreringen dina tillgångar uppnås genom **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
 
 Mer detaljerad information som rör filter och dynamiska Manifest finns [dynamiska visar en översikt över](media-services-dynamic-manifest-overview.md).
 
-Det här avsnittet visar hur du använder Media Services .NET SDK för att skapa, uppdatera och ta bort filter. 
+Den här artikeln visar hur du använder Media Services .NET SDK för att skapa, uppdatera och ta bort filter. 
 
-Observera att om du uppdaterar ett filter kan det ta upp till 2 minuter för strömmande slutpunkten för att uppdatera reglerna. Om innehållet behandlades med filtret (och cachelagras i proxyservrar och CDN cacheminnen), kan uppdatera det här filtret resultera i player-fel. Det rekommenderas att rensa cachen när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du använda ett annat filter. 
+Observera att om du uppdaterar ett filter kan det ta upp till två minuter för strömmande slutpunkten för att uppdatera reglerna. Om innehållet behandlades med filtret (och cachelagras i proxyservrar och CDN cacheminnen), kan uppdatera det här filtret resultera i player-fel. Rensa cachen alltid när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du använda ett annat filter. 
 
 ## <a name="types-used-to-create-filters"></a>Typer som används för att skapa filter
 Följande typer används när du skapar filter: 

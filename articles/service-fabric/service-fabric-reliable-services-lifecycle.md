@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Tillförlitliga tjänstöversikt livscykel
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Service Fabric ändringar av en tillståndskänslig tjänst för en mängd olika
 
 Tjänster som inte hanterar annullering korrekt kan få problem med flera. Dessa åtgärder är långsam eftersom Service Fabric väntar tjänster ska avslutas. Slutligen kan detta leda till misslyckade uppgraderingar tiden och återställa. Ta hänsyn till annullering token kan också medföra imbalanced kluster. Kluster bli Obalanserat eftersom noder hämta hot men kan inte vara genomförs tjänsterna eftersom det tar för lång tid att flytta dem någon annanstans. 
 
-Eftersom tjänsterna är tillståndskänslig, det är också troligt att de använder den [tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md). När en primär degraderas i Service Fabric är en av de första sakerna som händer skrivåtkomst till tillståndet för underliggande återkallas. Detta leder till en annan uppsättning problem som kan påverka service lifecycle. Samlingar returnerade undantag baserat på tiden och om repliken flyttas eller stängs av. Sådana undantag ska hanteras på rätt sätt. Undantag från Service Fabric är indelade i permanent [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) och tillfälligt [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorier. Permanent undantag ska loggas och utlöstes vid tillfälliga undantag kan göras baserat på vissa logik.
+Eftersom tjänsterna är tillståndskänslig, det är också troligt att de använder den [tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md). När en primär degraderas i Service Fabric är en av de första sakerna som händer skrivåtkomst till tillståndet för underliggande återkallas. Detta leder till en annan uppsättning problem som kan påverka service lifecycle. Samlingar returnerade undantag baserat på tiden och om repliken flyttas eller stängs av. Sådana undantag ska hanteras på rätt sätt. Undantag från Service Fabric är indelade i permanent [(`FabricException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) och tillfälligt [(`FabricTransientException`)](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet) kategorier. Permanent undantag ska loggas och utlöstes vid tillfälliga undantag kan göras baserat på vissa logik.
 
 Hantering av undantag som härrör från användning av den `ReliableCollections` tillsammans med tjänsten Livscykelhändelser är en viktig del av testa och validera en tillförlitlig tjänst. Vi rekommenderar att du alltid köra tjänsten under belastning under uppgraderingar och [chaos testning](service-fabric-controlled-chaos.md) innan du distribuerar till produktionen. De grundläggande stegen för att säkerställa att din tjänst har implementerats korrekt och hanterar Livscykelhändelser på rätt sätt.
 

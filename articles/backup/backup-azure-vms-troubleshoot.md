@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](
 - Se till att alla data har kopierats och ta bort diskarna som är större än 1TB
 - Starta säkerhetskopieringen.
 
-| information om fel | Lösning |
+| Felinformation | Lösning |
 | --- | --- |
 | Det gick inte att utföra åtgärden eftersom den virtuella datorn inte finns längre. -Stoppa skydd av virtuell dator utan att ta bort säkerhetskopierade data. Mer information på http://go.microsoft.com/fwlink/?LinkId=808124 |Detta händer när den primära virtuella datorn tas bort, men säkerhetskopieringsprincipen fortsätter söker en virtuell dator för att säkerhetskopiera. Åtgärda det här felet: <ol><li> Skapa den virtuella datorn med samma namn och samma resursgruppens namn [cloud service name]<br>(ELLER)</li><li> Sluta skydda virtuella datorer med eller utan att ta bort säkerhetskopierade data. [Mer information](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Ögonblicksbild misslyckades på grund av ingen nätverksanslutning på den virtuella datorn – se till att virtuella datorn har åtkomst till nätverket. För ögonblicksbilden ska lyckas, antingen godkända Azure-datacenter IP-adressintervall eller konfigurera en proxyserver för nätverksåtkomst. Mer information finns i http://go.microsoft.com/fwlink/?LinkId=800034. Om du redan använder proxyserver, kontrollera att proxyserverinställningarna har konfigurerats korrekt | Det här felet returneras när du neka utgående internet-anslutning på den virtuella datorn. Internetanslutning krävs för snapshot-tillägg för virtuell dator att ta en ögonblicksbild av underliggande diskar för den virtuella datorn. [Lär dig mer](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) på hur du löser ögonblicksbild fel på grund av blockerade nätverksåtkomst. |
@@ -69,14 +69,14 @@ För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](
 | Verifieringen misslyckades eftersom den virtuella datorn är krypterad med BEK enbart. Säkerhetskopieringar kan bara aktiveras för virtuella datorer som har krypterats med både BEK och KEK. |Virtuell dator ska krypteras med både BitLocker-krypteringsnyckeln och nyckeln för kryptering. Efter att ska säkerhetskopieringen aktiveras. |
 | Azure Backup-tjänsten har inte tillräcklig behörighet för att Key Vault för säkerhetskopiering av krypterade virtuella datorer. |Säkerhetskopieringstjänsten ska tillhandahållas behörigheterna i PowerShell med hjälp av anvisningarna i **Aktivera säkerhetskopiering** avsnitt i [PowerShell dokumentationen](backup-azure-vms-automation.md). |
 |Installation av ögonblicksbild misslyckades med felet tillägg – COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator | Försök att starta windows-tjänst ”COM + System-program” (från en upphöjd kommandotolk - _net start COMSysApp_). <br>Följ nedanstående steg om det misslyckas under start:<ol><li> Kontrollera att inloggningskontot för tjänsten ”Distributed Transaction Coordinator” är ”Nätverkstjänst”. Om det inte ändra den till ”nätverkstjänst”, starta om tjänsten och försök att starta tjänsten ”COM + System-program” ”.<li>Om det fortfarande inte att starta, avinstallera och installera tjänsten ”Distributed Transaction Coordinator” genom att följa nedanstående steg:<br> -Stoppa MSDTC-tjänsten<br> -Öppna en kommandotolk (cmd) <br> -Köra kommandot ”msdtc-avinstallera” <br> -Köra kommandot ”msdtc-installera” <br> -Börja MSDTC-tjänsten<li>Starta windows-tjänst ”COM + System-program” och när den startas startar Säkerhetskopiering från portalen.</ol> |
-|  Snapshot-åtgärden misslyckades på grund av COM +-fel | Den rekommenderade åtgärden är att starta om windows-tjänst ”COM + System-program” (från en upphöjd kommandotolk - _net start COMSysApp_). Om problemet kvarstår startar du om den virtuella datorn. Om det inte hjälper att starta om den virtuella datorn försöker [tar bort tillägget VMSnapshot](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) och att säkerhetskopiera manuellt. |
+|  Snapshot-åtgärden misslyckades på grund av COM +-fel | Den rekommenderade åtgärden är att starta om windows-tjänst ”COM + System-program” (från en upphöjd kommandotolk - _net start COMSysApp_). Om problemet kvarstår startar du om den virtuella datorn. Om det inte hjälper att starta om den virtuella datorn försöker [tar bort tillägget VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) och att säkerhetskopiera manuellt. |
 | Det gick inte att låsa en eller flera-monteringspunkter på den virtuella datorn att vidta en programkonsekvent ögonblicksbild för filsystemet | Använd följande steg: <ol><li>Kontrollera tillståndet för filsystemet för alla monterade enheter med hjälp av _'tune2fs'_ kommando.<br> Exempel: tune2fs -l/dev/sdb1 \| GREP ”Filesystem tillstånd” <li>Demontera enheter för vilka filesystem tillstånd inte är ren med _'umount'_ kommando <li> Kör FileSystemConsistency finns på dessa enheter med hjälp av _'fsck'_ kommando <li> Montera enheterna igen och försök säkerhetskopiering.</ol> |
 | Snapshot-åtgärden misslyckades på grund av fel i att skapa säkra nätverk kommunikationskanalen | <ol><Li> Öppna Registereditorn genom att köra regedit.exe en förhöjd behörighet. <li> Identifiera alla versioner av. NetFramework finns i systemet. De finns under hierarkin för registernyckeln ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft” <li> För varje. NetFramework finns i registernyckeln, Lägg till följande nyckel: <br> ”SchUseStrongCrypto” = DWORD: 00000001 </ol>|
 | Snapshot-åtgärden misslyckades på grund av fel i installationen av Visual C++ Redistributable för Visual Studio 2012 | Navigera till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2012_x64. Kontrollera att värdet för registernyckeln för att tillåta installationen av den här tjänsten anges till rätt värde dvs. värdet för registernyckeln _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ är inställd på 3 och 4 inte. Om du fortfarande inför problem med installation, starta om installationen genom att köra _MSIEXEC /UNREGISTER_ följt av _MSIEXEC /REGISTER_ från en upphöjd kommandotolk.  |
 
 
 ## <a name="jobs"></a>Jobb
-| information om fel | Lösning |
+| Felinformation | Lösning |
 | --- | --- |
 | Annullering stöds inte för den här jobbtypen - vänta tills jobbet har slutförts. |Ingen |
 | Jobbet är inte i tillståndet cancelable - vänta tills jobbet har slutförts. <br>ELLER<br> Det valda jobbet är inte i tillståndet cancelable - vänta tills jobbet ska slutföras. |Med största sannolikhet slutförs nästan jobbet. Vänta tills jobbet har slutförts.|
@@ -84,7 +84,7 @@ För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](
 | Det gick inte att avbryta jobbet - vänta tills jobbet har slutförts. |Ingen |
 
 ## <a name="restore"></a>Återställ
-| information om fel | Lösning |
+| Felinformation | Lösning |
 | --- | --- |
 | Det gick inte att återställa med molnet internt fel |<ol><li>Molntjänst som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera <br>$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Om adressen konfigurerad, innebär det att DNS-inställningarna har konfigurerats.<br> <li>Molntjänst som du försöker återställa har konfigurerats med ReservedIP och befintliga virtuella datorer i Molntjänsten har stoppats.<br>Du kan kontrollera en molnbaserad tjänst har reserverade IP-Adressen med hjälp av följande powershell-cmdlets:<br>$deployment = get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst. <br>-Virtuella datorer under konfigurationen av belastningsutjämnaren (interna och externa)<br>-Virtuella datorer med flera reserverade IP:<br>-Virtuella datorer med flera nätverkskort<br>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet är upptaget – ange ett annat DNS-namn och försök igen. |DNS-namnet här refererar till molntjänstnamnet (vanligtvis slutar med. cloudapp.net). Detta måste vara unika. Om du får det här felet måste du välja ett annat VM-namn under återställningen. <br><br> Det här felet visas endast på användare i Azure-portalen. Återställningsåtgärden via PowerShell lyckas eftersom det endast återställer diskarna och inte skapa den virtuella datorn. Felet kommer riktas när den virtuella datorn skapas av du uttryckligen när disken återställningsåtgärden. |

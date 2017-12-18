@@ -3,7 +3,7 @@ title: "Komma igång med Azure Automation | Microsoft Docs"
 description: "Den här artikeln ger en översikt över Azure Automation-tjänsten och beskriver design, implementeringsdetaljer och förberedelser inför distribution från Azure Marketplace."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Komma igång med Azure Automation
 
@@ -112,7 +112,7 @@ Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö
 I avsnittet **How to\Authentication and Security** (Anvisningar\Autentisering och säkerhet) finns artiklar som innehåller en översikt och implementeringssteg för att konfigurera autentisering för dessa miljöer, antingen med ett befintligt eller ett nytt konto som du anger för den aktuella miljön.  I [Uppdatera ett Automation-konto](automation-create-runas-account.md) beskrivs hur du uppdaterar ditt befintliga Automation-konto med Kör som-konton från portalen eller med PowerShell, om inte kontot ursprungligen konfigurerades med ett Kör som-konto eller ett klassiskt Kör som-konto. Om du vill skapa ett Kör som- och ett klassiskt Kör som-konto med ett certifikat utfärdat av din utfärdare av företagscertifikat (CA) kan du läsa om att skapa kontona med den här konfigurationen i den här artikeln.     
  
 ## <a name="network-planning"></a>Planera för nätverk
-För att Hybrid Runbook Worker ska kunna ansluta till och registreras med Microsoft Operations Management Suite (OMS) måste den ha åtkomst till portnumret och URL:en som anges nedan.  Detta gäller utöver de [portar och URL:er som krävs för att Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) ska kunna ansluta till OMS. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet måste du konfigurera brandväggen att tillåta åtkomst.
+För att Hybrid Runbook Worker ska kunna ansluta till och registreras med Microsoft Operations Management Suite (OMS) måste den ha åtkomst till portnumret och URL:en som anges nedan.  Detta gäller utöver de [portar och URL:er som krävs för att Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) ska kunna ansluta till OMS. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet måste du konfigurera brandväggen att tillåta åtkomst.
 
 Nedan anges porten och de URL:er som krävs för att Hybrid Runbook Worker ska kunna kommunicera med Automation.
 

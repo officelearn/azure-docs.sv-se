@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Den här artikeln innehåller en introduktion till Microsoft Azure Backup för a
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) säkerhetskopierar filer och programdata. Mer information om arbetsbelastningar som stöds finns [här](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Data som säkerhetskopieras så att DPM kan lagras på band på disk, eller säkerhetskopiera till Azure med Microsoft Azure Backup. DPM samverkar med Azure Backup på följande sätt:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) säkerhetskopierar filer och programdata. Mer information om arbetsbelastningar som stöds finns [här](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Data som säkerhetskopieras så att DPM kan lagras på band på disk, eller säkerhetskopiera till Azure med Microsoft Azure Backup. DPM samverkar med Azure Backup på följande sätt:
 
 * **DPM distribueras som en fysisk server eller lokal virtuell dator** – om DPM distribueras som en fysisk server eller en lokal Hyper-V virtuell dator som du kan säkerhetskopiera data till ett Recovery Services-valv förutom disk och band säkerhetskopiering.
 * **DPM distribueras som en virtuell Azure-dator** – från System Center 2012 R2 med uppdatering 3 kan DPM distribueras som en virtuell Azure-dator. Om DPM distribueras som en virtuell Azure-dator kan du säkerhetskopiera data till Azure-diskar kopplade till den virtuella DPM Azure-datorn eller du omfördela lagring av data genom att säkerhetskopiera upp till Recovery Services-valvet.
@@ -66,7 +66,7 @@ Här följer några viktiga definitioner för säkerhetskopiering till Azure fö
 
 1. **Valvet autentiseringsuppgifter** – Valvautentiseringsuppgifter som behövs för att autentisera datorn för att skicka säkerhetskopierade data till ett identifierade valv i Azure Backup-tjänsten. Det kan hämtas från valvet och är giltig för 48hrs.
 2. **Lösenfrasen** – lösenfras som används för att kryptera säkerhetskopiorna till molnet. Spara filen på en säker plats när den behövs under en återställning.
-3. **Säkerhet PIN-kod** – om du har aktiverat den [säkerhetsinställningar](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) av valvet, säkerhet PIN-kod krävs för att utföra kritiska säkerhetskopieringsåtgärder. Den här multifaktorautentisering lägger till ytterligare en säkerhetsnivå. 
+3. **Säkerhet PIN-kod** – om du har aktiverat den [säkerhetsinställningar](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) av valvet, säkerhet PIN-kod krävs för att utföra kritiska säkerhetskopieringsåtgärder. Den här multifaktorautentisering lägger till ytterligare en säkerhetsnivå. 
 4. **Återställningsmappen** – det är frasen som säkerhetskopior från molnet hämtas tillfälligt till under molnet återställningar. Storleken ska ungefär vara lika med storleken på de säkerhetskopiera objekten som du vill återställa parallellt.
 
 

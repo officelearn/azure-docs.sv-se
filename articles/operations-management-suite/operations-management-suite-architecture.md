@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>OMS-arkitekturen
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) är en samling molnbaserade tjänster för hantering av dina lokala och molnbaserade miljöer.  I den här artikeln beskrivs de olika lokala och molnbaserade komponenterna i OMS och deras övergripande molntjänstarkitektur.  Mer information finns i dokumentationen för respektive tjänst.
@@ -26,8 +26,8 @@ ms.lasthandoff: 10/11/2017
 ## <a name="log-analytics"></a>Log Analytics
 Alla data som samlas in av [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) lagras i OMS-databasen som ligger i Azure.  Anslutna källor genererar data som samlas in till OMS-databasen.  Det finns för närvarande tre typer av anslutna datakällor som stöds.
 
-* En agent som installeras på en [Windows](../log-analytics/log-analytics-windows-agents.md)- eller [Linux](../log-analytics/log-analytics-linux-agents.md)-dator som är ansluten direkt till OMS.
-* En SCOM-hanteringsgrupp (System Center Operations Manager) [som ansluts till Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM-agenter fortsätter att kommunicera med hanteringsservrar som vidarebefordrar händelse- och prestandadata till Log Analytics.
+* En agent som installeras på en [Windows](../log-analytics/log-analytics-windows-agent.md)- eller [Linux](../log-analytics/log-analytics-linux-agents.md)-dator som är ansluten direkt till OMS.
+* En SCOM-hanteringsgrupp (System Center Operations Manager) [som ansluts till Log Analytics](../log-analytics/log-analytics-om-agents.md) .  SCOM-agenter fortsätter att kommunicera med hanteringsservrar, som vidarebefordrar händelse- och prestandadata till Log Analytics.
 * Ett [Azure-lagringskontot](../log-analytics/log-analytics-azure-storage.md) som samlar in [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)-data från en arbetsroll, webbroll eller virtuell dator i Azure.
 
 Datakällor definierar vilka data som Log Analytics samlar in från anslutna källor, inklusive händelseloggar och prestandaräknare.  Lösningar utökar funktionerna i OMS och kan enkelt läggas till på din arbetsyta från [OMS-lösningsgalleriet](../log-analytics/log-analytics-add-solutions.md).  Vissa lösningar kan kräva en direktanslutning till Log Analytics från SCOM-agenter medan andra kan kräva att en ytterligare agent installeras.

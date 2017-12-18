@@ -15,45 +15,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
-ms.openlocfilehash: c978a9ba97ecb9b8facaf32cbefbdd06cab8df67
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
 [Apache Storm](http://storm.apache.org/) är ett distribuerat, feltolerant beräkningssystem med öppen källkod. Du kan använda Storm för att bearbeta dataströmmar i realtid med Hadoop. Storm-lösningar kan även ge garanterad bearbetning av data med möjlighet att på nytt spela upp data som inte bearbetades första gången.
 
-Storm i HDInsight har följande två viktiga fördelar:
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* Fungerar som en hanterad tjänst med ett SLA med 99,9 procent drifttid.
+## <a name="why-use-storm-on-hdinsight"></a>Varför använda Storm på HDInsight?
+
+Storm på HDInsight har följande funktioner:
+
+* __99 % serviceavtal (SLA) för Storm-drifttid__: Mer information finns i dokumentet [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) (SLA-information för HDInsight).
 
 * Stöder enkel anpassning genom skriptkörning mot ett Storm-kluster när det skapas eller i efterhand. Mer information finns i [Customize HDInsight clusters using script action](../hdinsight-hadoop-customize-cluster-linux.md) (Anpassa HDInsight-kluster med skriptåtgärder).
 
-* Använder olika språk. Du kan skriva Storm-komponenter på valfritt språk, till exempel Java, C# och Python.
+* **Skapa lösningar på flera språk**: Du kan skriva Storm-komponenter på valfritt språk, till exempel Java, C# och Python.
 
     * Integrerar Visual Studio med HDInsight för utveckling, hantering och övervakning av C#-topologier. Mer information finns i [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md) (Utveckla Storm-topologier i C# med HDInsight Tools för Visual Studio).
 
     * Stöder Java-gränssnittet Trident. Du kan skapa Storm-topologier som stöder engångsbearbetning av meddelanden, transaktionell datalagringsbeständighet och en uppsättning vanliga Stream Analytics-åtgärder.
 
-*  Enkelt skala upp eller ned Storm-kluster. Du kan lägga till eller ta bort arbetsnoder utan att påverka Storm-topologier som körs.
+* **Dynamisk skalning**: Du kan lägga till eller ta bort arbetsnoder utan att det påverkar de Storm-topologier som körs.
 
-* Integrera med följande Azure-tjänster:
+    > [!NOTE]
+    > Du måste inaktivera och återaktivera topologier som körs för att kunna utnyttja de nya noderna som läggs till genom skalningsåtgärder.
 
-    * Azure Event Hubs
+* **Skapa strömmande pipelines med flera Azure-tjänster**: Storm i HDInsight integreras med andra Azure-tjänster, till exempel Event Hubs, SQL Database, Azure Storage och Azure Data Lake Store.
 
-    * Azure Virtual Network
-
-    * Azure SQL Database
-
-    * Azure Storage
-
-    * Azure Cosmos DB
-
-* Kombinera säkert funktionerna i flera HDInsight-kluster med hjälp av Virtual Network. Du kan skapa analytiska pipelines med Storm, Kafka, Spark, HBase- eller Hadoop-kluster.
+    Ett exempel på en lösning som integreras med Azure-tjänster finns i [Process events from Event Hubs with Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Bearbeta händelser från Event Hubs med Storm i HDInsight).
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,6 +65,16 @@ Storm kör topologier i stället för de MapReduce-jobb som du kanske känner ti
 * Kanalkomponenter överför data till en topologi. De sänder en eller flera strömmar till topologin.
 
 * Bultkomponenter förbrukar strömmar som sänts ut från kanaler eller andra bultar. Bultar kan eventuellt sända strömmar till topologin. Bultar ansvarar för att skriva data till extern lagring, till exempel HDFS, Kafka eller HBase.
+
+## <a name="reliability"></a>Tillförlitlighet
+
+Apache Storm ser till att varje inkommande meddelande alltid bearbetas helt, även om dataanalysen är utspridd över hundratals noder.
+
+Nimbus-noden tillhandahåller funktioner liknande dem i Hadoop JobTracker och tilldelar uppgifter till andra noder i ett kluster genom Zookeeper. Zookeeper-noder samordnar kluster och underlättar kommunikationen mellan Nimbus och övervakarprocessen på arbetsnoderna. Om en nod för bearbetning kraschar informeras Nimbus-noden och uppgiften och tillhörande data tilldelas till en annan nod.
+
+Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm på HDInsight kör två Nimbus-noder. Om den primära noden kraschar växlar Storm-klustret till den sekundära noden medan den primära noden återställs. Följande diagram illustrerar konfigurationen av uppgiftsflödet för Storm i HDInsight:
+
+![Diagram över nimbus och zookeeper och övervakaren](./media/apache-storm-overview/nimbus.png)
 
 ## <a name="ease-of-creation"></a>Enkelt att skapa
 
@@ -100,23 +107,6 @@ Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer informat
     * [Process events from Azure Event Hubs with Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md) (Bearbeta händelser från Azure Event Hubs med Storm i HDInsight (C#))
 
 * __SQL Database__, __Cosmos DB__, __Event Hubs__ och __HBase__: Mallexempel ingår i Data Lake Tools för Visual Studio. Mer information finns i [Develop a C# topology for Storm on HDInsight](apache-storm-develop-csharp-visual-studio-topology.md) (Utveckla en C#-topologi för Storm i HDInsight).
-
-## <a name="reliability"></a>Tillförlitlighet
-
-Apache Storm ser till att varje inkommande meddelande alltid bearbetas helt, även om dataanalysen är utspridd över hundratals noder.
-
-Nimbus-noden tillhandahåller funktioner liknande dem i Hadoop JobTracker och tilldelar uppgifter till andra noder i ett kluster genom Zookeeper. Zookeeper-noder samordnar kluster och underlättar kommunikationen mellan Nimbus och övervakarprocessen på arbetsnoderna. Om en nod för bearbetning kraschar informeras Nimbus-noden och uppgiften och tillhörande data tilldelas till en annan nod.
-
-Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm på HDInsight kör två Nimbus-noder. Om den primära noden kraschar växlar Storm-klustret till den sekundära noden medan den primära noden återställs. Följande diagram illustrerar konfigurationen av uppgiftsflödet för Storm i HDInsight:
-
-![Diagram över nimbus och zookeeper och övervakaren](./media/apache-storm-overview/nimbus.png)
-
-## <a name="scale"></a>Skala
-
-HDInsight-kluster kan skalas dynamiskt genom att lägga till eller ta bort arbetsnoder. Den här åtgärden kan utföras medan data bearbetas.
-
-> [!IMPORTANT]
-> Om du vill utnyttja de nya noder som har lagts till via skalning behöver du ombalansera de Storm-topologier som startats innan klusterstorleken ökades.
 
 ## <a name="support"></a>Support
 

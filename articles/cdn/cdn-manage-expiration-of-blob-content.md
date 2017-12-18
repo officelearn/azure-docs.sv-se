@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Du kan också styra inställningar för cachelagring i Azure Portal genom att an
 > 
 > Mer information om hur Azure CDN fungerar för att påskynda åtkomst till blobbar och andra filer finns [översikt över Azure innehållsleveransnätverk](cdn-overview.md).
 > 
-> Mer information om Azure Blob storage finns [introduktion till Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Mer information om Azure Blob storage finns [introduktion till Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Inställningen Cache-Control-huvuden med hjälp av Azure PowerShell
@@ -113,7 +113,7 @@ Uppdatera den *CacheControl* -egenskapen för en blob med Azure Lagringsutforska
 ![Azure Lagringsutforskaren egenskaper](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure-kommandoradsgränssnittet
-Med den [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), kan du hantera Azure blob-resurser från kommandoraden. Att ställa in cache-control-huvudet när du överför en blob med Azure CLI i *cacheControl* egenskapen med hjälp av den `-p` växla. I följande exempel visas hur du ställer in TTL-värdet till 1 timme (3600 sekunder):
+Med den [Azure-kommandoradsgränssnittet](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), kan du hantera Azure blob-resurser från kommandoraden. Att ställa in cache-control-huvudet när du överför en blob med Azure CLI i *cacheControl* egenskapen med hjälp av den `-p` växla. I följande exempel visas hur du ställer in TTL-värdet till 1 timme (3600 sekunder):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt

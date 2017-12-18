@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 
 När du använder Media Services med .NET ska du använda klassen **CloudMediaContext** för de flesta Media Services-programmeringsuppgifter. Det gäller till exempel att ansluta till Media Services-kontot, skapa, uppdatera, komma åt och ta bort följande objekt: tillgångar, tillgångsfiler, jobb, åtkomstprinciper, positionerare o.s.v.
 
-Skriv över den programklass som är standard med följande kod. Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information finns i avsnittet om hur du [ansluter till Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
+Skriv över standardprogramklassen med följande kod: Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information finns i avsnittet om hur du [ansluter till Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 Se till att uppdatera filnamnet och sökvägen till där du har din mediefil.
 
 Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnittet.
 
 > [!NOTE]
-> Kompileringsfel visas tills du har lagt till definitioner för alla funktioner.
+> Kompileringsfel kommer att uppstå tills du lägger till definitioner för alla funktioner som definieras längre ned i den här artikeln.
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Skapa en ny tillgång och ladda upp en videofil
 
@@ -145,7 +153,7 @@ I Media Services överför du (eller för in) dina digitala filer till en tillg�
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
 
-**CreateFromFile**-metoden tar **AssetCreationOptions** , vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
+**CreateFromFile**-metoden tar **AssetCreationOptions, vilket gör att du kan ange något av följande alternativ för att skapa tillgångar:
 
 * **Ingen** – Ingen kryptering används. Detta är standardvärdet. Observera att när du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagringsutrymmet.
   Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
@@ -228,7 +236,7 @@ Om du vill strömma eller hämta en tillgång behöver du först ”publicera”
 
 ### <a name="some-details-about-url-formats"></a>Information om URL-format
 
-När du har skapat positionerna kan du skapa de URL:er som skulle användas för att strömma eller hämta dina filer. Exemplen i den här handledningen kommer att ge URL:er som du kan klistra in i rätt webbläsare. Det här avsnittet ger bara korta exempel på hur olika format ser ut.
+När du har skapat positionerna kan du skapa de URL:er som skulle användas för att strömma eller hämta dina filer. Exemplen i den här handledningen skapar URL:er som du kan klistra in i rätt webbläsare. Det här avsnittet ger bara korta exempel på hur olika format ser ut.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>En strömmande URL för MPEG DASH har följande format:
 

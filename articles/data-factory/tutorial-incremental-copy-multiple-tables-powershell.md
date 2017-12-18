@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5472c41af9b0c524b931ed3e6b149270e17a633a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>Läs in data stegvist från flera tabeller i SQL Server till Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -44,7 +44,7 @@ I den här självstudiekursen får du göra följande:
 Här är några viktiga steg för att skapa den här lösningen: 
 
 1. **Markera vattenstämpelkolumnen**.
-    Markera en kolumn för varje tabell i källdatalagret som går att använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time eller ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
+    Markera en kolumn för varje tabell i källdatalagret som går att använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
     I den här självstudien lagrar du storleksgränsen i en Azure SQL-databas.
 3. **Skapa en pipeline med följande aktiviteter:** 
@@ -63,7 +63,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en lokal SQL Server-databas som **källdatalager** i den här självstudien. 
-* **Azure SQL Database**. Du använder en Azure SQL-databas som **måldatalager**. Om du inte har någon Azure SQL-databas kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
+* **Azure SQL Database**. Du använder en Azure SQL-databas som **måldatalager**. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
@@ -215,7 +215,8 @@ END
 
 ```
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
@@ -375,7 +376,7 @@ I det här steget länkar du din lokala SQL Server till datafabriken.
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du datamängder för att representera datakälla, datamål och plats för att lagra högvattenmärket.
+I det här steget skapar du databaser för att representera datakälla, datamål. och plats för att lagra högvattenmärket.
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
 
@@ -654,7 +655,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. **ForEach-aktiv
     Parameters        : {[tableList, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
    ```
  
-## <a name="run-the-pipeline"></a>Kör pipelinen
+## <a name="run-the-pipeline"></a>Köra en pipeline
 
 1. Skapa en parameterfil med namnet **Parameters.json** i samma mapp med följande innehåll:
 
@@ -683,7 +684,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. **ForEach-aktiv
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
-## <a name="monitor-the-pipeline"></a>Övervaka pipelinen
+## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Klicka på **Fler tjänster**, sök med nyckelordet `data factories` och välj **Datafabriker**. 
@@ -698,12 +699,12 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. **ForEach-aktiv
 5. Programmet **Data Integration** öppnas i en separat flik. Du kan se alla **pipelinekörningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**. 
 
     ![Pipelinekörningar](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
-6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida, som visar alla **aktivitetskörningar** för pipelinen. 
+6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
 
     ![Aktivitetskörningar](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 7. Om du vill växla tillbaka till vyn **Pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
 
-## <a name="review-the-results"></a>Granska resultatet
+## <a name="review-the-results"></a>Granska resultaten
 Kör följande frågor mot Azure SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna. 
 
 **Fråga** 
@@ -866,6 +867,6 @@ I den här självstudien har du fått:
 Fortsätt till följande självstudie och lär dig att transformera data med ett Spark-kluster på Azure:
 
 > [!div class="nextstepaction"]
->[Läs in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsteknik](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Läs in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsteknik](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

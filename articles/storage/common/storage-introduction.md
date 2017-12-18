@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
-Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Microsoft tar hand om underhåll och hanterar kritiska problem åt dig. 
+Microsoft Azure Storage är en Microsoft-hanterad molntjänst som tillhandahåller lagring som är mycket tillgänglig, säker, beständig, skalbar och redundant. Microsoft tar hand om underhåll och hanterar kritiska problem åt dig.
 
 Azure Storage består av tre datatjänster: Blob Storage, File Storage och Queue Storage. Blob Storage stöder både standard- och premiumlagring. För premiumlagring används endast SSD för snabbaste möjliga prestanda. En annan funktion är lågfrekvent lagring, som gör att du kan lagra stora mängder data som sällan används till en lägre kostnad.
 
@@ -31,9 +31,9 @@ I den här artikeln får du veta mer om följande:
 * typerna av lagringskonton
 * åtkomst till dina blobar, köer och filer
 * kryptering
-* replikering 
+* replikering
 * överföring av data till och från lagring
-* de många lagringsklientbiblioteken som finns tillgängliga. 
+* de många lagringsklientbiblioteken som finns tillgängliga.
 
 Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av följande snabbstartsguider:
 * [Skapa ett lagringskonto med PowerShell](storage-quickstart-create-storage-account-powershell.md)
@@ -41,28 +41,28 @@ Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av
 
 ## <a name="introducing-the-azure-storage-services"></a>Introduktion till Azure Storage-tjänsterna
 
-Om du vill använda någon av de tjänster som tillhandahålls av Azure Storage – Blob Storage, File Storage och Queue Storage – skapar du först ett lagringskonto och sedan kan du överföra data till/från en specifik tjänst i det lagringskontot. 
+Om du vill använda någon av de tjänster som tillhandahålls av Azure Storage – Blob Storage, File Storage och Queue Storage – skapar du först ett lagringskonto och sedan kan du överföra data till/från en specifik tjänst i det lagringskontot.
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Blobbar är i princip filer som de du lagrar på en dator (eller surfplatta, mobil enhet och så vidare). De kan vara bilder, Microsoft Excel-filer, HTML-filer, virtuella hårddiskar (VHD), stordata, till exempel loggar, databassäkerhetskopior – nästan allt. Blobbar lagras i behållare som liknar mappar. 
+Blobbar är i princip filer som de du lagrar på en dator (eller surfplatta, mobil enhet och så vidare). De kan vara bilder, Microsoft Excel-filer, HTML-filer, virtuella hårddiskar (VHD), stordata, till exempel loggar, databassäkerhetskopior – nästan allt. Blobbar lagras i behållare som liknar mappar.
 
-När du lagrar filer i Blob Storage kan du komma åt dem var som helst i världen med hjälp av URL:er, REST-gränssnittet eller något av Azure SDK-lagringsklientbiblioteken. Det finns lagringsklientbibliotek för flera språk, bland annat Node.js, Java, PHP, Ruby, Python och .NET. 
+När du lagrar filer i Blob Storage kan du komma åt dem var som helst i världen med hjälp av URL:er, REST-gränssnittet eller något av Azure SDK-lagringsklientbiblioteken. Det finns lagringsklientbibliotek för flera språk, bland annat Node.js, Java, PHP, Ruby, Python och .NET.
 
 Det finns tre typer av blobbar – blockblobbar, sidblobbar (används för VHD-filer) och tilläggsblobbar.
 
-* Blockblobbar används för att lagra vanliga filer upp till ungefär 4,7 TB. 
+* Blockblobbar används för att lagra vanliga filer upp till ungefär 4,7 TB.
 * Sidblobbar används för att lagra filer med slumpmässig åtkomst upp till 8 TB. De används för VHD-filerna som stöder virtuella datorer.
 * Tilläggsblobbar består av block precis som blockblobbarna, men är optimerade för tilläggsåtgärder. De används till exempel för att logga information till samma blob från flera virtuella datorer.
 
 För mycket stora datamängder där nätverksbegränsningar gör det orealistiskt att överföra eller hämta data till Blob Storage via kabel kan du skicka en uppsättning hårddiskar till Microsoft för att importera eller exportera data direkt från datacentret. Mer information finns i [Använda tjänsten Microsoft Azure Import/Export för att överföra data till Blob Storage](../storage-import-export-service.md).
 
 ## <a name="azure-files"></a>Azure Files
-Med [Azure Files](../files/storage-files-introduction.md) kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring. 
+Med [Azure Files](../files/storage-files-introduction.md) kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring.
 
-En sak som skiljer Azure Files från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod. 
+En sak som skiljer Azure Files från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod.
 
-Filresurser kan användas för många vanliga scenarier: 
+Filresurser kan användas för många vanliga scenarier:
 
 * Många lokala program använder filresurser. Den här funktionen gör det enklare att migrera program som delar data till Azure. Om du monterar filresursen med samma enhetsbeteckning som det lokala programmet använder, bör den del av programmet som använder filresursen fungera med minimala, om några, ändringar.
 
@@ -74,7 +74,7 @@ För närvarande stöds inte Active Directory-baserad autentisering och åtkomst
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Azure-kötjänsten används för att lagra och hämta meddelanden. Kömeddelanden kan vara upp till 64 kB och en kö kan innehålla miljontals meddelanden. Köer används vanligtvis för att lagra listor med meddelanden som ska bearbetas asynkront. 
+Azure-kötjänsten används för att lagra och hämta meddelanden. Kömeddelanden kan vara upp till 64 kB och en kö kan innehålla miljontals meddelanden. Köer används vanligtvis för att lagra listor med meddelanden som ska bearbetas asynkront.
 
 Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill skapa miniatyrer för varje bild. Du kan låta kunden vänta på att du skapar miniatyrerna medan bilderna laddas upp. Ett alternativ är att använda en kö. När kunden är klar med uppladdningen skrivs ett meddelande till kön. Sedan hämtar en Azure-funktion meddelandet från kön och skapar miniatyrerna. Alla delar av bearbetningen kan skalas separat, vilket ger dig större kontroll när du anpassar den för din användning.
 
@@ -86,7 +86,7 @@ Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen 
 
 Azure Storage omfattar även hanterade och ohanterade diskfunktioner som används av virtuella datorer. Mer information om dessa funktioner finns i [Compute Services-dokumentationen](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-## <a name="types-of-storage-accounts"></a>Typer av lagringskonton 
+## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
 I den här tabellen visas de olika typerna av lagringskonton och vilka objekt som kan användas med var och en.
 
@@ -97,9 +97,9 @@ I den här tabellen visas de olika typerna av lagringskonton och vilka objekt so
 
 ### <a name="general-purpose-storage-accounts"></a>Allmänna lagringskonton
 
-Det finns två typer av allmänna lagringskonton. 
+Det finns två typer av allmänna lagringskonton.
 
-#### <a name="standard-storage"></a>Standard Storage 
+#### <a name="standard-storage"></a>Standard Storage
 
 De vanligaste lagringskontona är standardlagringskonton, som kan användas för alla typer av data. För standardlagringskonton används magnetiska media för att lagra data.
 
@@ -109,39 +109,39 @@ Premium Storage ger högpresterande lagring för sidblobbar, som främst använd
 
 ### <a name="blob-storage-accounts"></a>Blob Storage-konton
 
-Blob Storage-kontot är ett specialanpassat lagringskonto som används för att lagra blockblobbar och tilläggsblobbar. Du kan inte lagra sidblobbar i dessa konton, och därför kan du inte lagra VHD-filer. Med dessa konton kan du ange en frekvent eller lågfrekvent åtkomstnivå – nivån kan ändras när som helst. 
+Blob Storage-kontot är ett specialanpassat lagringskonto som används för att lagra blockblobbar och tilläggsblobbar. Du kan inte lagra sidblobbar i dessa konton, och därför kan du inte lagra VHD-filer. Med dessa konton kan du ange en frekvent eller lågfrekvent åtkomstnivå – nivån kan ändras när som helst.
 
 Frekvent åtkomstnivå används för filer som används ofta – du betalar en högre kostnad för lagring, men kostnaden för åtkomst till blobbarna är mycket lägre. För blobbar som lagras i lågfrekvent åtkomstnivå betalar du en högre kostnad för åtkomst till blobbarna, men kostnaden för lagring är mycket lägre.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Åtkomst till dina blobbar, filer och köer
 
-Varje lagringskonto har två autentiseringsnycklar, och båda kan användas för alla åtgärder. Det finns två nycklar så att du kan växla nycklar ibland för att förbättra säkerheten. Det är mycket viktigt att dessa nycklar skyddas, eftersom tillgång till dem tillsammans med kontonamnet ger obegränsad tillgång till alla data i lagringskontot. 
+Varje lagringskonto har två autentiseringsnycklar, och båda kan användas för alla åtgärder. Det finns två nycklar så att du kan växla nycklar ibland för att förbättra säkerheten. Det är mycket viktigt att dessa nycklar skyddas, eftersom tillgång till dem tillsammans med kontonamnet ger obegränsad tillgång till alla data i lagringskontot.
 
 Det här avsnittet tar upp två sätt att skydda lagringskontot och dess data. Detaljerad information om hur du skyddar ditt lagringskonto och dina data finns i [säkerhetsguiden för Azure Storage](storage-security-guide.md).
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Skydda åtkomst till lagringskonton med hjälp av Azure AD
 
-Ett sätt att skydda åtkomst till dina lagringsdata är genom att kontrollera åtkomst till lagringskontonycklarna. Med rollbaserad åtkomstkontroll (RBAC) i Resource Manager kan du tilldela roller till användare, grupper eller program. Rollerna är knutna till en specifik uppsättning åtgärder som är tillåtna eller otillåtna. Om du använder RBAC för att bevilja åtkomst till ett lagringskonto hanteras endast hanteringsåtgärderna för det lagringskontot, till exempel ändring av åtkomstnivå. Du kan inte använda RBAC för att bevilja åtkomst till dataobjekt, till exempel en specifik behållare eller filresurs. Du kan dock använda RBAC för att bevilja åtkomst till lagringskontonycklarna, som sedan kan användas för att läsa dataobjekten. 
+Ett sätt att skydda åtkomst till dina lagringsdata är genom att kontrollera åtkomst till lagringskontonycklarna. Med rollbaserad åtkomstkontroll (RBAC) i Resource Manager kan du tilldela roller till användare, grupper eller program. Rollerna är knutna till en specifik uppsättning åtgärder som är tillåtna eller otillåtna. Om du använder RBAC för att bevilja åtkomst till ett lagringskonto hanteras endast hanteringsåtgärderna för det lagringskontot, till exempel ändring av åtkomstnivå. Du kan inte använda RBAC för att bevilja åtkomst till dataobjekt, till exempel en specifik behållare eller filresurs. Du kan dock använda RBAC för att bevilja åtkomst till lagringskontonycklarna, som sedan kan användas för att läsa dataobjekten.
 
-### <a name="securing-access-using-shared-access-signatures"></a>Skydda åtkomst med hjälp av signaturer för delad åtkomst 
+### <a name="securing-access-using-shared-access-signatures"></a>Skydda åtkomst med hjälp av signaturer för delad åtkomst
 
 Du kan använda signaturer för delad åtkomst och lagrade åtkomstprinciper för att skydda dina dataobjekt. En signatur för delad åtkomst (SAS) är en sträng som innehåller en säkerhetstoken som kan kopplas till URI:n för en tillgång som gör att du kan delegera åtkomst till specifika lagringsobjekt och ange begränsningar, till exempel behörigheter och datum/tid-intervallet för åtkomst. Den här funktionen har omfattande möjligheter. Detaljerad information finns i [Använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 ### <a name="public-access-to-blobs"></a>Offentlig åtkomst till blobbar
 
-Med Blob Service kan du tillhandahålla offentlig åtkomst till en behållare och dess blobbar, eller en specifik blob. När du anger att en behållare eller blobb är offentlig kan alla läsa den anonymt; ingen autentisering krävs. Ett exempel på när du kan göra det är när du har en webbplats med bilder, video eller dokument från Blob Storage. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md). 
+Med Blob Service kan du tillhandahålla offentlig åtkomst till en behållare och dess blobbar, eller en specifik blob. När du anger att en behållare eller blobb är offentlig kan alla läsa den anonymt; ingen autentisering krävs. Ett exempel på när du kan göra det är när du har en webbplats med bilder, video eller dokument från Blob Storage. Mer information finns i [Hantera anonym läsbehörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Kryptering
 
-Det finns några grundläggande typer av kryptering för Storage-tjänsterna. 
+Det finns några grundläggande typer av kryptering för Storage-tjänsterna.
 
-### <a name="encryption-at-rest"></a>Vilande kryptering 
+### <a name="encryption-at-rest"></a>Vilande kryptering
 
-Du kan aktivera SSE (Storage Service Encryption) för Files-tjänsten (förhandsversion) eller Blob Service för ett Azure-lagringskonto. Om det aktiveras krypteras alla data som skrivs till den specifika tjänsten innan de skrivs. När du läser dessa data dekrypteras de innan de returneras. 
+Du kan aktivera SSE (Storage Service Encryption) för Files-tjänsten (förhandsversion) eller Blob Service för ett Azure-lagringskonto. Om det aktiveras krypteras alla data som skrivs till den specifika tjänsten innan de skrivs. När du läser dessa data dekrypteras de innan de returneras.
 
 ### <a name="client-side-encryption"></a>Kryptering av klientsidan
 
-Lagringsklientbiblioteken har metoder som du kan anropa för att programmässigt kryptera data innan de skickas via kabeln från klienten till Azure. De lagras krypterade, vilket innebär att de också är krypterade i vila. När du läser data dekrypteras informationen när du har fått den. 
+Lagringsklientbiblioteken har metoder som du kan anropa för att programmässigt kryptera data innan de skickas via kabeln från klienten till Azure. De lagras krypterade, vilket innebär att de också är krypterade i vila. När du läser data dekrypteras informationen när du har fått den.
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Kryptering under överföring med Azure-filresurser
 
@@ -151,27 +151,27 @@ Mer information om hur du skyddar ditt lagringskonto och kryptering finns i [sä
 
 ## <a name="replication"></a>Replikering
 
-För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats. 
+För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats.
 
-Alla lagringskonton har **lokalt redundant lagring (LRS)**. Det innebär att tre kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar sparas i en kopia uppdateras de andra två kopiorna. Det innebär att de tre replikerna alltid är synkroniserade. Dessutom finns de tre kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras. 
+Alla lagringskonton har **lokalt redundant lagring (LRS)** som är utformat för att tillhandahålla minst 99,999999999 % (elva nior) objektshållbarhet under ett givet år. Det innebär att flera kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar har genomförts uppdateras alla kopior innan information om att åtgärden lyckats returneras. Det innebär att alla kopior alltid är synkroniserade. Dessutom finns kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras.
 
 **Lokalt redundant lagring (LRS)**
 
-Som det står ovan har du med LRS tre kopior av dina data i ett enda datacenter. Det hanterar problemet med att data blir otillgängliga om en lagringsnod råkar ut för ett fel eller kopplas från för att uppdateras, men inte om ett helt datacenter skulle bli otillgängligt.
+Som redan nämnts ovan innebär LRS att du får flera kopior av dina data i ett enda datacenter. Det hanterar problemet med att data blir otillgängliga om en lagringsnod råkar ut för ett fel eller kopplas från för att uppdateras, men inte om ett helt datacenter skulle bli otillgängligt.
 
 **Zonredundant lagring (ZRS)**
 
-Med zonredundant lagring (ZRS) lagras de tre lokala kopiorna av dina data samt en annan uppsättning av tre kopior av dina data. Den andra uppsättningen av tre kopior replikeras asynkront mellan datacenter i en eller två regioner. Observera att ZRS endast är tillgängligt för blockblobbar i allmänna lagringskonton. Och när du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom.
+Zonredundant lagring (ZRS) är utformat för att ge minst 99,9999999999 % (tolv nior) objektshållbarhet under ett givet år genom att både lokala kopior och en separat uppsättning kopior av dina data sparas. Den andra uppsättningen med kopior replikeras asynkront mellan datacenter i en eller två regioner. Observera att ZRS endast är tillgängligt för blockblobbar i allmänna lagringskonton. Och när du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom.
 
-ZRS-konton ger högre hållbarhet än LRS, men ZRS-konton har inte mått- eller loggningsfunktioner. 
+ZRS-konton ger högre hållbarhet än LRS, men ZRS-konton har inte mått- eller loggningsfunktioner.
 
 **Geo-redundant lagring (GRS)**
 
-Med geo-redundant lagring (GRS) lagras de tre lokala kopiorna av dina data i en primär region och en annan uppsättning av tre kopior av dina data i en sekundär region hundratals kilometer från den primära regionen. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen. 
+Geo-redundant lagring (GRS) är utformat för att ge 99,99999999999999 % (16 nior) objektshållbarhet under ett givet år genom att lokala kopior av dina data lagras i en primär region, samtidigt som en annan uppsättning kopior lagras i en sekundär region hundratals mil från den primära regionen. Om det uppstår ett fel i den primära regionen kommer Azure Storage att redundansväxla till den sekundära regionen.
 
-**Geo-redundant lagring med läsbehörighet (RA-GRS)** 
+**Geo-redundant lagring med läsbehörighet (RA-GRS)**
 
-Geo-redundant lagring med läsbehörighet är precis som GRS förutom att du får läsbehörighet till data på den sekundära platsen. Om det primära datacentret tillfälligt blir otillgängligt kan du fortsätta att läsa data från den sekundära platsen. Det kan vara mycket användbart. Du kan till exempel ha en webbapp som ändrar till skrivskyddat läge och pekar på den sekundära kopian, vilket ger viss åtkomst även om uppdateringar inte är tillgängliga. 
+Geo-redundant lagring med läsbehörighet är precis som GRS förutom att du får läsbehörighet till data på den sekundära platsen. Om det primära datacentret tillfälligt blir otillgängligt kan du fortsätta att läsa data från den sekundära platsen. Det kan vara mycket användbart. Du kan till exempel ha en webbapp som ändrar till skrivskyddat läge och pekar på den sekundära kopian, vilket ger viss åtkomst även om uppdateringar inte är tillgängliga.
 
 > [!IMPORTANT]
 > Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats, såvida du inte valde ZRS när du skapade kontot. Observera dock att det kan utgå ytterligare engångskostnader för dataöverföring om du växlar från LRS till GRS eller RA-GRS.

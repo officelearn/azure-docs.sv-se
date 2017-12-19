@@ -6,11 +6,11 @@
       href: overview.md
 - name: Snabbstarter
   items:
-    - name: Skapa hanterat program med Azure CLI
+    - name: Skapa hanterat program
       href: managed-apps-quickstart-cli.md
 - name: Självstudier
   items:
-    - name: Skapa tjänstkatalogprogram
+    - name: Skapa hanterade programfiler
       href: publish-service-catalog-app.md
 - name: Exempel
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Uppdatera hanterade resurser
       href: update-managed-resources.md
-    - name: Publicera tjänstkatalogapp – portalen
+    - name: Använda portalen för att publicera
       href: publish-portal.md
 - name: Referens
   items:

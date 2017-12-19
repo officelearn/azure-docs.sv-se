@@ -54,6 +54,8 @@
 #### [Efterlevnad – UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Översikt](uk-official-three-tier-applications-overview.md)
 ##### [Översikt över principer](uk-official-three-tier-applications-principles-overview.md)
+#### [Efterlevnad – ekonomiska tjänster](financial-services-regulated-workloads.md)
+##### [Ekonomiska tjänster för reglerade arbetsbelastningar](financial-services-regulated-workloads.md)
 
 # Kom igång
 ## [Komma igång med Azure Security](../azure-security-getting-started.md)

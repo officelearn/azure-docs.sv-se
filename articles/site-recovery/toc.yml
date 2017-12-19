@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: Automatisera
       items:
+        - name: Replikera virtuella VMware-datorer till Azure med PowerShell
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: Konfigurera Hyper-V-replikering till Azure (utan VMM) med PowerShell
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: Konfigurera Hyper-V-replikering till Azure (med VMM) med PowerShell
@@ -262,7 +264,7 @@
 - name: Referens
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Klassisk Azure PowerShell
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST

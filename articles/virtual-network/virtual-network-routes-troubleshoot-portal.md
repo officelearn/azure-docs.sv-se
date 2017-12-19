@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Felsöka flöden med hjälp av Azure Portal
 > [!div class="op_single_selector"]

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: shengc
 ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad Azu
 
 Se [används Machine Learning aktiviteter](transform-data-using-machine-learning.md) mer information om dessa Machine Learning-aktiviteter. 
 
-## <a name="stored-procedure-activity"></a>Aktiviteten lagrad procedur
+## <a name="stored-procedure-activity"></a>Lagrad proceduraktivitet
 Du kan använda aktiviteten lagrad procedur för SQL Server i en Data Factory-pipelinen för att anropa en lagrad procedur i någon av följande datalager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server-databas i ditt företag eller en Azure VM. Se [lagrade proceduraktiviteten](transform-data-using-stored-procedure.md) artikeln för information.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-aktivitet för Data Lake Analytics

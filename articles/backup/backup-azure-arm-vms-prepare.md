@@ -15,27 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
-> [!div class="op_single_selector"]
-> * [Resource Manager-modellen](backup-azure-arm-vms-prepare.md)
-> * [Klassiska modellen](backup-azure-vms-prepare.md)
->
->
 
 Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Resource Manager-distribuerad virtuell dator (VM). Stegen visas i procedurer använder Azure-portalen.  
 
 Azure Backup-tjänsten har två typer av valv (säkerhetskopiera valv och recovery services-valv) för att skydda dina virtuella datorer. Ett säkerhetskopieringsvalv skyddar virtuella datorer som distribueras med hjälp av den klassiska distributionsmodellen. Recovery services-ventilen skyddar **både distribuerade klassiska eller Resource Manager distribuerade virtuella datorer**. För att skydda en Resource Manager-distribuerad virtuell dator måste du använda en Recovery Services-valvet.
 
 > [!NOTE]
-> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). Se [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-vms-prepare.md) mer information om hur du arbetar med klassisk distribution modellen virtuella datorer.
->
->
+> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Innan du kan skydda eller säkerhetskopiera en Resource Manager-distribuerad virtuell dator (VM), se till att dessa krav finns:
 
@@ -45,7 +38,7 @@ Innan du kan skydda eller säkerhetskopiera en Resource Manager-distribuerad vir
 * Kontrollera nätverksanslutningen
 * Virtuella Linux-datorer, om du vill anpassa säkerhetskopiering miljön för program som konsekvent säkerhetskopiering finns Följ den [steg för att konfigurera inför ögonblicksbilden och efter ögonblickbild skript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Om du känner till dessa villkor redan finns i din miljö och sedan fortsätta till den [säkerhetskopiera virtuella datorer artikeln](backup-azure-vms.md). Om du behöver konfigurera eller kontrollera någon av dessa förutsättningar leder dig igenom stegen för att förbereda den nödvändiga i den här artikeln.
+Om du känner till dessa villkor redan finns i din miljö och sedan fortsätta till den [säkerhetskopiera virtuella datorer artikeln](backup-azure-arm-vms.md). Om du behöver konfigurera eller kontrollera någon av dessa förutsättningar leder dig igenom stegen för att förbereda den nödvändiga i den här artikeln.
 
 ##<a name="supported-operating-system-for-backup"></a>Operativsystem som stöds för säkerhetskopiering
  * **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med undantag för Core OS Linux. _Andra Bring-Your-äger-Linux-distributioner också fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns. Vi inte stödja dessa distributioner för säkerhetskopiering._
@@ -58,7 +51,7 @@ Innan du förbereder din miljö kan du förstå begränsningar.
 * Säkerhetskopiering av virtuella datorer med data storlekar för diskar som är större än 1 023 GB stöds inte.
 
 > [!NOTE]
-> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB ohanterad diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Det finns en privat förhandsgranskning som stöder säkerhetskopiering av virtuella datorer med > 1 TB ohanterade diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,8 +62,9 @@ Innan du förbereder din miljö kan du förstå begränsningar.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Region mellan säkerhetskopiering och återställning stöds inte.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden i Azure (se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds). Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
-* Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer om [återställa en multi-DC-domänkontrollant](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapades med arbetsflödet för återställning i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer om [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapades med arbetsflödet för återställning i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Virtuella datorer under konfigurationen av belastningsutjämnaren (interna och externa)
   * Virtuella datorer med flera reserverade IP-adresser
   * Virtuella datorer med flera nätverkskort
@@ -232,8 +226,6 @@ Exempel bilden nedan visar de tre konfigurationssteg som krävs för att använd
 * Proxy VM tillåter inkommande trafik från virtuella datorer i det virtuella nätverket.
 * Den Nätverkssäkerhetsgrupp (NSG) med namnet NSF låsning måste en säkerhet regeln möjliggör utgående Internet-trafik från VM-Proxy.
 
-![NSG: N med HTTP-proxy deployment diagram](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 Följ dessa steg om du vill använda en HTTP-proxy kommunikation till det offentliga Internet:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Steg 1. Konfigurera utgående nätverksanslutningar
@@ -285,16 +277,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Steg 2. Tillåt inkommande anslutningar på proxyservern:
 1. Öppna Windows-brandväggen på proxyservern. Det enklaste sättet att komma åt brandväggen är att söka efter Windows-brandväggen med avancerad säkerhet.
-
-    ![Öppna brandväggen](./media/backup-azure-vms-prepare/firewall-01.png)
 2. I dialogrutan Windows-brandväggen högerklickar du på **regler för inkommande trafik** och på **ny regel...** .
-
-    ![Skapa en ny regel](./media/backup-azure-vms-prepare/firewall-02.png)
 3. I den **ny inkommande regel för**, Välj den **anpassad** för den **regeltyp** och klicka på **nästa**.
 4. På sidan för att välja den **programmet**, Välj **alla program** och på **nästa**.
 5. På den **protokoll och portar** , anger du följande information och klickar på **nästa**:
-
-    ![Skapa en ny regel](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * för *protokolltyp* Välj *TCP*
    * för *lokal port* Välj *specifika portar*, i fältet nedan anger du den ```<Proxy Port>``` som har konfigurerats.
@@ -323,6 +309,6 @@ Om du har frågor eller om du saknar en funktion är du välkommen att [lämna f
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har förberett din miljö för att säkerhetskopiera den virtuella datorn, är nästa logiska steg att skapa en säkerhetskopia. Planering artikeln innehåller mer detaljerad information om hur du säkerhetskopierar virtuella datorer.
 
-* [Säkerhetskopiera virtuella datorer](backup-azure-vms.md)
+* [Säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md)
 * [Planera infrastrukturen för säkerhetskopiering VM](backup-azure-vms-introduction.md)
 * [Hantera säkerhetskopiering för virtuella datorer](backup-azure-manage-vms.md)

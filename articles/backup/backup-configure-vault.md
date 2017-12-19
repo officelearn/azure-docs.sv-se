@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 3e3ea323e00d64e6848850c22073f5948dd0b7e2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 947b985fe242c026e94d78664fa41f666334392a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
-> [!div class="op_single_selector"]
-> * [Azure Portal](backup-configure-vault.md)
-> * [Klassisk portal](backup-configure-vault-classic.md)
->
->
-
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klient) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]

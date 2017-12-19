@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
 ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Hantera förfallodatum för Azure Blob-lagring i Azure Content Delivery Network
 > [!div class="op_single_selector"]

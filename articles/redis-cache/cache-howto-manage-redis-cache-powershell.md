@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis-Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -81,8 +81,8 @@ eller
 
 Använd någon av följande platser för att skapa en cache i Azure Government-molnet.
 
-* USA: s regering Virginia
-* USA: s regering Iowa
+* USGov Virginia
+* USGov Iowa
 
 Läs mer om Azure Government-molnet [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) och [Utvecklarhandbok för Microsoft Azure Government](../azure-government-developer-guide.md).
 

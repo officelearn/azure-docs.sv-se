@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
 ms.openlocfilehash: 42cdb21276886c9b728a2bf23ece946fa025a87d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL-API
 > [!div class="op_single_selector"]

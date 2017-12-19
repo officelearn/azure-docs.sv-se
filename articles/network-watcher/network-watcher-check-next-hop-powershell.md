@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Ta reda på vilka nästa hopptyp är med nästa hopp-funktionen i Azure Nätverksbevakaren med hjälp av PowerShell
 
@@ -77,7 +77,7 @@ Nu vi kallar det `Get-AzureRmNetworkWatcherNextHop` cmdlet. Vi skickar cmdlet N�
 Get-AzureRmNetworkWatcherNextHop -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id -SourceIPAddress $nics[0].IpConfigurations[0].PrivateIpAddress  -DestinationIPAddress 10.0.2.4 
 ```
 
-## <a name="review-results"></a>Granska resultaten
+## <a name="review-results"></a>Granska resultatet
 
 När du är färdig tillhandahålls resultaten. Nästa hopp IP-adress returneras samt typ av resurs som det är. I det här scenariot är det offentliga IP-adressen för den virtuella nätverksgatewayen.
 

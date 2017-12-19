@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (Klassisk distribution)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Det här avsnittet beskriver hur du ansluter till din SQL Server-instans som kö
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder Hanteraren för virtuella datorer, se [Anslut till en SQL Server-dator på Azure med hjälp av hanteraren för filserverresurser](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>-Scenarier
-Hur en klient ansluter till SQL Server som körs på en virtuell dator varierar beroende på platsen för klienten och datorn/nätverkskonfiguration. Dessa scenarier är:
+Hur en klient ansluter till SQL Server som körs på en virtuell dator varierar beroende på platsen för klienten och datorn/nätverkskonfiguration. Några vanliga scenarier:
 
 * [Ansluta till SQL Server i samma molntjänst](#connect-to-sql-server-in-the-same-cloud-service)
 * [Ansluta till SQL Server via internet](#connect-to-sql-server-over-the-internet)

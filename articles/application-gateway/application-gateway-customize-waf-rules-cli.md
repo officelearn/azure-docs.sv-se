@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
 ms.openlocfilehash: 3051f71f269e409b76e6a19fdcd2feae2a04b8fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Anpassa web application brandväggsregler via Azure CLI 2.0
 

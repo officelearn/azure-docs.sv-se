@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Hantera statistik på tabellerna i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -421,7 +421,7 @@ AND     st.[user_created] = 1
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() exempel
 DBCC SHOW_STATISTICS() visar de data som lagras i ett statistik-objekt. Dessa data finns i tre delar.
 
-1. Sidhuvud
+1. Rubrik
 2. Densitet Vector
 3. Histogram
 

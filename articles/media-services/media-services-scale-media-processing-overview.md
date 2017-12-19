@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: 1009d8b87cb3a131909f3ae9ee231f9ebb408c04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Skalning bearbetning av Media: översikt
 Den här sidan ger en översikt över hur och varför ska man skala media bearbetning. 
@@ -64,7 +64,10 @@ Uppnå skalning media bearbetning aktiviteten med någon av dessa tekniker:
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
-> 
+
+> [!NOTE]
+> Om du vill hämta den senaste versionen av Java SDK och börja utveckla med Java Se [komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure paketet i den [Packagist databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

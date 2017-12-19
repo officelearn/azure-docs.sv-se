@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
-> [!div class="op_single_selector"]
-> * [Återställa virtuella datorer i den klassiska portalen](backup-azure-restore-vms.md)
-> * [Återställa virtuella datorer i Azure-portalen](backup-azure-arm-restore-vms.md)
->
->
-
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
 
 * Skapa en ny virtuell dator, som är en tidpunkt i representation av säkerhetskopierade-VM.

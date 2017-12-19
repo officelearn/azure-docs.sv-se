@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: fefeae4e816994d3ee69d6ac1c1cbe6cf8bbd06e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="view-network-watcher-topology-with-rest-api"></a>Visa Nätverksbevakaren topologi med REST API
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > - [PowerShell](network-watcher-topology-powershell.md)
 > - [CLI 1.0](network-watcher-topology-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-topology-cli.md)
-> - [REST API](network-watcher-topology-rest.md)
+> - [REST-API](network-watcher-topology-rest.md)
 
 Funktionen topologi i Nätverksbevakaren ger en bild av nätverksresurser i en prenumeration. I portalen visas den här visualiseringen för dig automatiskt. Informationen bakom vyn topologi i portalen kan hämtas via PowerShell.
 Den här funktionen gör topologiinformationen mer flexibla data kan användas av andra verktyg för att bygga ut visualiseringen.

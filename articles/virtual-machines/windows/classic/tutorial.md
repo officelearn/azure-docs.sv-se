@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: 0a80599df07767cd6a117157fc699315cce7ad23
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Skapa en virtuell dator som kör Windows i Azure-portalen
 > [!div class="op_single_selector"]

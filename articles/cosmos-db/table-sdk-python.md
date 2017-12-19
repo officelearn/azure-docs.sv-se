@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
 ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabell API SDK för Python: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/20/2017
 |**Aktuella plattform som stöds**|[Python 2.7](https://www.python.org/downloads/) eller [Python 3.3, 3.4, 3.5 eller 3,6] (https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> Om du har skapat ett tabell-API-konto under förhandsgranskningen kan du skapa en [ny tabell-API-kontot](create-table-dotnet.md#create-a-database-account) att arbeta med den allmänt tillgängliga API SDK-verktyg för tabellen.
+> Om du skapade ett tabell-API-konto under förhandsversionen ska du skapa ett [nytt tabell-API-konto](create-table-dotnet.md#create-a-database-account) som fungerar med de allmänt tillgängliga SDK:erna för API-tabellen.
 >
 
 ## <a name="release-notes"></a>Viktig information

@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup-Server (klassisk)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (klassisk)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -113,7 +111,7 @@ Valvautentiseringen används endast under registreringsarbetsflödet. Det är an
 Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure Backup-tjänsten inte känner till den privata nyckeln för certifikatet och den privata nyckeln beständig inte i portalen eller tjänsten. Använd följande steg för att hämta valvautentiseringsfilen till en lokal dator.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Öppna Recovery Services-valv som du vill registrera DPM-datorn.
+2. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
 3. Inställningsbladet öppnas som standard. Om den är stängd klickar du på **inställningar** på valvet instrumentpanelen för att öppna inställningsbladet. I inställningar-bladet klickar du på **egenskaper**.
 
     ![Öppna bladet för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ Portalen kommer att generera en valvautentiseringen med hjälp av en kombination
 ### <a name="3-install-backup-agent"></a>3. Installera säkerhetskopieringsagenten
 När du har skapat Azure Backup-valvet, ska en agent installeras på var och en av dina Windows-datorer (Windows Server, Windows-klient, System Center Data Protection Manager-server eller Azure Backup Server-dator) som möjliggör säkerhetskopiering av data och program till Azure .
 
-1. Öppna Recovery Services-valv som du vill registrera DPM-datorn.
+1. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
 2. Inställningsbladet öppnas som standard. Om den är stängd klickar du på **inställningar** att öppna inställningsbladet. I inställningar-bladet klickar du på **egenskaper**.
 
     ![Öppna bladet för valvet](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ När du har skapat Azure Backup-valvet, ska en agent installeras på var och en 
 
     ![Ladda ned](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   När agenten har hämtats, dubbelklicka på MARSAgentInstaller.exe om du vill starta installationen av Azure Backup-agenten. Välj installationsmappen och tillfälliga mapp som krävs för agenten. Cacheplats som anges måste ha ledigt utrymme som är minst 5% av säkerhetskopierade data.
+   När agenten har hämtats kan köra MARSAgentInstaller.exe om du vill starta installationen av Azure Backup-agenten. Välj installationsmappen och tillfälliga mapp som krävs för agenten. Cacheplats som anges måste ha ledigt utrymme som är minst 5% av säkerhetskopierade data.
 4. Om du använder en proxyserver för att ansluta till internet, i den **proxykonfiguration** anger information för proxy-server. Om du använder en autentiserad proxyserver måste du ange användarinformation namn och lösenord i den här skärmen.
 5. Azure Backup-agenten installerar .NET Framework 4.5 och Windows PowerShell (om det inte är tillgänglig) om du vill slutföra installationen.
 6. När agenten har installerats **Stäng** fönstret.

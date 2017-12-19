@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: maquaran
 ms.openlocfilehash: 7aa58b9a0fe4ca9e162722d277a951f8ac25013a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET ändra Feed Processor SDK: Hämta och viktig information
 > [!div class="op_single_selector"]

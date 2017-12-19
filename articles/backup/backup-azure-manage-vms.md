@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
-> [!div class="op_single_selector"]
-> * [Hantera Virtuella Azure-säkerhetskopiering](backup-azure-manage-vms.md)
-> * [Hantera klassiska VM-säkerhetskopieringar](backup-azure-manage-vms-classic.md)
->
->
 
 Den här artikeln innehåller information om hur du hanterar Virtuella säkerhetskopieringar och förklarar aviseringar om säkerhetskopiering informationen i portalens instrumentpanel. Riktlinjerna i den här artikeln gäller för virtuella datorer med Recovery Services-valv. Den här artikeln täcker inte skapandet av virtuella datorer och inte heller har förklarar hur du skyddar virtuella datorer. En introduktion om hur du skyddar Azure Resource Manager distribuerade virtuella datorer i Azure med ett Recovery Services-valv finns [förhandstitt: Säkerhetskopiera virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
 
@@ -224,4 +219,4 @@ Ta bort säkerhetskopieringsdata på en virtuell dator med den *säkerhetskopier
     Ett meddelande får du reda på den säkerhetskopiera informationen har tagits bort.
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du skapar en virtuell dator från en återställningspunkt igen kolla [återställa virtuella Azure-datorer](backup-azure-restore-vms.md). Om du behöver information om hur du skyddar virtuella datorer, se [förhandstitt: Säkerhetskopiera virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Information om övervakning av händelser finns [övervakar aviseringar för virtuell dator i Azure-säkerhetskopieringar](backup-azure-monitor-vms.md).
+Information om hur du skapar en virtuell dator från en återställningspunkt igen kolla [återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md). Om du behöver information om hur du skyddar virtuella datorer, se [förhandstitt: Säkerhetskopiera virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Information om övervakning av händelser finns [övervakar aviseringar för virtuell dator i Azure-säkerhetskopieringar](backup-azure-monitor-vms.md).

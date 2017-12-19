@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ Kretsägaren skapar tillstånd. Detta resulterar i att skapa auktoriseringsnycke
 
 1. I ExpressRoute-bladet klickar du på **tillstånd** och skriv sedan ett **namn** för auktorisering och klickar på **spara**.
 
-    ![Tillstånd](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+    ![Auktoriseringar](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. När konfigurationen har sparats kan du kopiera den **resurs-ID** och **Auktoriseringsnyckeln**.
 

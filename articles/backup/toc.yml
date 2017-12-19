@@ -59,8 +59,6 @@
           items:
             - name: Förbereda Azure Backup Server-arbetsbelastningar i Azure Portal
               href: backup-azure-microsoft-azure-backup.md
-            - name: Förbereda Azure Backup Server-arbetsbelastningar i den klassiska portalen
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Lägga till lagringsutrymme på Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Uppgradera Azure Backup Server till v.2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Programkonsekventa säkerhetskopior av virtuella Linux-datorer
               href: backup-azure-linux-app-consistent.md
-            - name: Förbereda virtuella Azure-datorer
-              href: backup-azure-vms-prepare.md
         - name: Planera din miljö
           items:
             - name: Planera säkerhetskopiering av VM-infrastrukturen
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Säkerhetskopiera krypterade virtuella datorer
               href: backup-azure-vms-encryption.md
-            - name: Säkerhetskopiera virtuella Azure-datorer
-              href: backup-azure-vms.md
         - name: Hantera och övervaka virtuella datorer
           items:
             - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal
               href: backup-azure-manage-vms.md
             - name: Övervaka aviseringar om virtuella Azure-säkerhetskopieringar i Azure Portal
               href: backup-azure-monitor-vms.md
-            - name: Hantera och övervaka virtuella Azure-säkerhetskopior i den klassiska portalen
-              href: backup-azure-manage-vms-classic.md
         - name: Återställa data från virtuella datorer
           items:
             - name: Återställa filer från säkerhetskopierade virtuella Azure-datorer
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Återställa krypterade virtuella datorer
               href: backup-azure-vms-encryption.md
-            - name: Återställa virtuella datorer i Azure
-              href: backup-azure-restore-vms.md
             - name: Återställa nyckel och hemlighet för Key Vault för krypterade virtuella datorer
               href: backup-azure-restore-key-secret.md
     - name: Konfigurera Azure Backup-rapporter
@@ -135,8 +125,6 @@
       items:
         - name: Förbereda DPM-arbetsbelastningar i Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: Förbereda DPM-arbetsbelastningar i den klassiska portalen
-          href: backup-azure-dpm-introduction-classic.md
         - name: Använda System Center DPM för att säkerhetskopiera Exchange-server
           href: backup-azure-backup-exchange-server.md
         - name: Återställa data till en annan DPM-server
@@ -149,16 +137,10 @@
       items:
         - name: Virtuella Azure-datorer i Azure Portal
           href: backup-azure-vms-automation.md
-        - name: Virtuella Azure-datorer i den klassiska portalen
-          href: backup-azure-vms-classic-automation.md
         - name: DPM i Azure Portal
           href: backup-dpm-automation.md
-        - name: DPM i den klassiska portalen
-          href: backup-dpm-automation-classic.md
         - name: Windows Server i Azure Portal
           href: backup-client-automation.md
-        - name: Windows Server i den klassiska portalen
-          href: backup-client-automation-classic.md
     - name: Azure SQL Database
       items:
         - name: Konfigurera långsiktig kvarhållning av säkerhetskopior
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Övervaka och hantera Recovery Services-valv
           href: backup-azure-manage-windows-server.md
-        - name: Säkerhetskopiera och återställa med den klassiska portalen
-          items:
-            - name: Windows Server med den klassiska distributionsmodellen
-              href: backup-configure-vault-classic.md
-            - name: Hantera säkerhetskopieringsvalv och servrar med hjälp av den klassiska distributionsmodellen
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Återställa filer till en Windows-server med hjälp av den klassiska distributionsmodellen
-              href: backup-azure-restore-windows-server-classic.md
     - name: Recovery Services-valv
       items:
         - name: Översikt över Recovery Services-valv
@@ -201,8 +175,6 @@
       items:
         - name: Problem med virtuella Azure-säkerhetskopieringar i Azure Portal
           href: backup-azure-vms-troubleshoot.md
-        - name: Problem med virtuella Azure-säkerhetskopieringar i den klassiska portalen
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Fel vid säkerhetskopiering av virtuell Azure-dator: Det gick inte att kommunicera med VM-agenten för ögonblicksbildstatus – Tidsgränsen uppnåddes för underåtgärden för ögonblicksbilds-VM'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Långsam säkerhetskopiering av filer och mappar i Azure Backup

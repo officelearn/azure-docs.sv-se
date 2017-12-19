@@ -72,10 +72,10 @@
   items:
     - name: Planera och designa
       items:
+        - name: Alternativ för lagringskontot
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikering
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Alternativ för lagringskontot
-          href: storage-account-options.md
         - name: 'Nivåerna Frekvent, Lågfrekvent och Arkiv'
           href: storage-blob-storage-tiers.md
         - name: Reagerar på händelser

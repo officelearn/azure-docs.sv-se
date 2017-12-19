@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 > [!div class="op_single_selector"]

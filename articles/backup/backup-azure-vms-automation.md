@@ -15,18 +15,13 @@ ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Klassisk](backup-azure-vms-classic-automation.md)
->
->
 
 Den här artikeln visar hur du använder Azure PowerShell-cmdlets för att säkerhetskopiera och återställa en Azure virtuell dator (VM) från en Recovery Services-valvet. Används för att skydda data och tillgångar i både Azure Backup och Azure Site Recovery services Recovery Services-valvet eftersom det är en Azure Resource Manager-resurs. Du kan använda en Recovery Services-valvet för att skydda Azure Service Manager-distribuerade virtuella datorer och Azure Resource Manager distribuerade virtuella datorer.
 

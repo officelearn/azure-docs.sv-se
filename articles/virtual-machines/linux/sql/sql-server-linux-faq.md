@@ -16,7 +16,7 @@ ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor och svar för SQL Server på Linux Azure Virtual Machines
 

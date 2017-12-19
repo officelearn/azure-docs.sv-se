@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
 ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]

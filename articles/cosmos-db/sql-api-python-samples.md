@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
 ms.openlocfilehash: 7f6300b5105b6b54cc27cde4cb95234d7dbf6a98
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
 > [!div class="op_single_selector"]

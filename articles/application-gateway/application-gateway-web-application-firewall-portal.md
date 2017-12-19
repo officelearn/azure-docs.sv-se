@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med hjälp av portalen
 
@@ -95,7 +95,7 @@ Det här scenariot kommer:
    | **Inställning** | **Värde** | **Detaljer**
    |---|---|---|
    |**Namn**|AdatumAppGateway|Namnet på programgatewayen.|
-   |**Nivå**|BRANDVÄGG|Tillgängliga värden är Standard och Brandvägg. Mer information om en Brandvägg finns [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md).|
+   |**Nivå**|WAF|Tillgängliga värden är Standard och Brandvägg. Mer information om en Brandvägg finns [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md).|
    |**SKU-storleken**|Medel|Standardnivån alternativ är **små**, **medel**, och **stor**. Brandvägg nivå alternativ är **medel** och **stor** endast.|
    |**Instansantal**|2|Antal instanser av programgatewayen för hög tillgänglighet. Använd antalet instanser av 1 endast för testning.|
    |**Prenumeration**|[Din prenumeration]|Välj en prenumeration för att skapa programgatewayen.|

@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
-> [!div class="op_single_selector"]
-> * [Recovery services-valvet](backup-azure-vms-troubleshoot.md)
-> * [Säkerhetskopieringsvalvet](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Du kan felsöka fel påträffades när med Azure Backup med information som visas i tabellen nedan.
 
 ## <a name="backup"></a>Säkerhetskopiering
@@ -34,15 +28,15 @@ Du kan felsöka fel påträffades när med Azure Backup med information som visa
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fel: Den angivna diskkonfigurationen stöds inte
 
 > [!NOTE]
-> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB ohanterad diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Det finns en privat förhandsgranskning som stöder säkerhetskopiering av virtuella datorer med > 1 TB ohanterade diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Om du har diskar som är större än 1 TB [bifoga nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB <br>
-- Kopiera sedan data från disk som är större än 1TB i nyskapade diskarna på mindre än 1 TB. <br>
-- Se till att alla data har kopierats och ta bort diskarna som är större än 1TB
-- Starta säkerhetskopieringen.
+- Om du har diskar som är större än 1 TB [kopplar du nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB <br>
+- Kopiera sedan data från disken som är större än 1 TB till nyligen skapade diskar som är mindre än 1 TB. <br>
+- Se till att alla data har kopierats och ta bort de diskar som är större än 1 TB
+- Påbörja säkerhetskopieringen.
 
 | Felinformation | Lösning |
 | --- | --- |
@@ -137,7 +131,7 @@ Hur du kontrollerar agentversionen VM på virtuella Windows-datorer:
 Säkerhetskopiering är beroende av utfärdande ögonblicksbild kommandon för underliggande lagringsutrymmet. Att ha åtkomst till lagring eller fördröjningar i en ögonblicksbild för körning av aktiviteten inte kan orsaka säkerhetskopieringsjobb misslyckas. Följande kan orsaka ögonblicksbild aktivitet, fel.
 
 1. Nätverksåtkomst till lagring blockeras med hjälp av NSG<br>
-    Lär dig mer om hur du [aktivera nätverksåtkomst](backup-azure-vms-prepare.md#network-connectivity) lagring med hjälp av antingen Vitlistning av IP-adresser eller via en proxyserver.
+    Lär dig mer om hur du [aktivera nätverksåtkomst](backup-azure-arm-vms-prepare.md#network-connectivity) lagring med hjälp av antingen Vitlistning av IP-adresser eller via en proxyserver.
 2. Virtuella datorer med Sql Server säkerhetskopiering har konfigurerats kan orsaka ögonblicksbild uppgiften fördröjning <br>
    Standard VM säkerhetskopieringsproblem VSS fullständig säkerhetskopiering på virtuella Windows-datorer. Detta kan orsaka försening ögonblicksbild körning på virtuella datorer som kör Sql-servrar och om säkerhetskopiering av Sql Server är konfigurerad. Ange följande registernyckel om det uppstår fel vid säkerhetskopiering på grund av problem med ögonblicksbilder.
 
@@ -169,7 +163,7 @@ När namnmatchningen utförs korrekt måste åtkomst till Azure IP-adresser ocks
    * Avblockera en IP-adresser med hjälp av den [ny NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Kör denna cmdlet i Azure-dator i ett upphöjt PowerShell-fönster (Kör som administratör).
    * Lägg till regler NSG: N (om du har en plats) för att tillåta åtkomst till IP-adresser.
 2. Skapa en sökväg för HTTP-trafik
-   * Om du har några nätverksbegränsning på plats (en Nätverkssäkerhetsgrupp, till exempel) att distribuera en HTTP-proxyserver för att dirigera trafiken. Steg för att distribuera en HTTP-proxyserver kan hitta [här](backup-azure-vms-prepare.md#network-connectivity).
+   * Om du har några nätverksbegränsning på plats (en Nätverkssäkerhetsgrupp, till exempel) att distribuera en HTTP-proxyserver för att dirigera trafiken. Steg för att distribuera en HTTP-proxyserver kan hitta [här](backup-azure-arm-vms-prepare.md#network-connectivity).
    * Lägg till regler NSG: N (om du har en plats) för att tillåta åtkomst till INTERNET från HTTP-Proxy.
 
 > [!NOTE]

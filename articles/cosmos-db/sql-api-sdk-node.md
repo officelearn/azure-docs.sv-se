@@ -16,10 +16,10 @@ ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]

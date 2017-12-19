@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replikera virtuella Hyper-V-datorer i VMM-moln till Azure med PowerShell och Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Kontrollera att du har dessa krav är uppfyllda:
 
 ### <a name="hyper-v-prerequisites"></a>Hyper-V-krav
 * De Hyper-V-värdservrarna måste köra minst **Windows Server 2012** med Hyper-V-rollen eller **Microsoft Hyper-V Server 2012** och har installerat de senaste uppdateringarna.
-* Om du kör Hyper-V i ett kluster bör du vara medveten om att klusterutjämning inte skapas automatiskt om du har ett statiskt IP-adressbaserat kluster. Du måste konfigurera klusterutjämningen manuellt. för
+* Om du kör Hyper-V i ett kluster bör du vara medveten om att klusterutjämning inte skapas automatiskt om du har ett statiskt IP-adressbaserat kluster. Du måste konfigurera klusterutjämningen manuellt. För
 * Instruktioner finns i [hur du konfigurerar Hyper-V Replica Broker](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Alla Hyper-V-värdserver eller kluster som du vill hantera skydd måste ingå i ett VMM-moln.
 

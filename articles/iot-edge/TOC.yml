@@ -32,6 +32,12 @@
       href: how-to-deploy-monitor.md
     - name: Etablera en IoT Core-enhet
       href: how-to-install-iot-core.md
+    - name: Använda VS-kod för att utveckla IoT Edge-lösningar
+      items:
+        - name: 'Utveckla och distribuera en C#-modul'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'Felsöka C#-modulen'
+          href: how-to-vscode-debug-csharp-module.md
     - name: Felsöka
       href: troubleshoot.md
 - name: Koncept

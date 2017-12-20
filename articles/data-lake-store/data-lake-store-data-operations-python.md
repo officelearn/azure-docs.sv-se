@@ -14,16 +14,16 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 3540e58a58f20842979212ba41f11ce2908941f5
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Filsystemsåtgärder på Azure Data Lake Store med hjälp av REST API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST-API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 

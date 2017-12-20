@@ -32,6 +32,7 @@
 ### [Aktivera en licensierad avbildning](devtest-lab-enable-licensed-images.md)
 ### [Lägg till taggar till ett labb](devtest-lab-add-tag.md)
 ### [Publicera ett meddelande i ett labb](devtest-lab-announcements.md)
+### [Lägg till supportinformation till ett labb](devtest-lab-internal-support-message.md)
 
 ## [Välj anpassad avbildning eller formel](devtest-lab-comparing-vm-base-image-types.md)
 

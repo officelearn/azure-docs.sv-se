@@ -32,7 +32,7 @@
 
 ## Läsa in och flytta data
 ### [Översikt](design-elt-data-loading.md)
-### [Riktlinjer](guidance-for-loading-data.md)
+### [Bästa praxis](guidance-for-loading-data.md)
 
 
 ## Integrera

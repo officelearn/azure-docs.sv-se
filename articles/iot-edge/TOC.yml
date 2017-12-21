@@ -38,6 +38,10 @@
           href: how-to-vscode-develop-csharp-module.md
         - name: 'Felsöka C#-modulen'
           href: how-to-vscode-debug-csharp-module.md
+        - name: Utveckla och distribuera Azure Functions
+          href: how-to-vscode-develop-azure-function.md
+        - name: Felsöka Azure Functions
+          href: how-to-vscode-debug-azure-function.md
     - name: Felsöka
       href: troubleshoot.md
 - name: Koncept

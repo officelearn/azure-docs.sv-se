@@ -13,18 +13,21 @@
 ## [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
 
 # Så här gör du 
-## [Hantera en server](analysis-services-manage.md)
-## [Hantera databasanvändare](analysis-services-database-users.md)
-## [Hantera serveradministratörer](analysis-services-server-admins.md)
-## [Övervaka servermått](analysis-services-monitor.md)
 ## [Installera och konfigurera lokal datagateway](analysis-services-gateway-install.md)
-## [Hämta klientbibliotek](analysis-services-data-providers.md)
 ## [Säkerhetskopiering och återställning](analysis-services-backup.md)
+## [Uppdatera med REST API](analysis-services-async-refresh.md)
 ## [Konfigurera utskalning](analysis-services-scale-out.md)
-## [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
-## [Anslut till Excel](analysis-services-connect-excel.md)
-## [Anslut med Power BI](analysis-services-connect-pbi.md)
-## [Skapa en ODC-fil](analysis-services-odc.md)
+## Serverhantering
+### [Konfigurera ett servernamnalias](analysis-services-server-alias.md)
+### [Hantera en server](analysis-services-manage.md)
+### [Hantera databasanvändare](analysis-services-database-users.md)
+### [Hantera serveradministratörer](analysis-services-server-admins.md)
+### [Övervaka servermått](analysis-services-monitor.md)
+## Anslut
+### [Hämta klientbibliotek](analysis-services-data-providers.md)
+### [Anslut till Excel](analysis-services-connect-excel.md)
+### [Anslut med Power BI](analysis-services-connect-pbi.md)
+### [Skapa en ODC-fil](analysis-services-odc.md)
 ## Självstudier
 ### [Självstudiekurs för Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lektion 1: Skapa ett nytt projekt för tabellmodeller](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

@@ -17,6 +17,7 @@
 ### [Stream Analytics på IoT Edge (förhandsversion)](stream-analytics-edge.md)
 ### [Avvikelseidentifiering i Azure-användningsguiden (förhandsgranskning)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Handelssimulering med hög frekvens med Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Azure Functions med Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Skapa jobb
 ### [Skapa indata](stream-analytics-define-inputs.md)

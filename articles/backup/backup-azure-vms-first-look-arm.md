@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Den här självstudiekursen beskriver steg för steg hur du skapar ett Recovery 
 
 Mer information om hur du skyddar virtuella datorer med Premium Storage finns i artikeln [Säkerhetskopiera och återställa virtuella datorer i Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Mer information om stöd för hanterade virtuella datordiskar finns i [Säkerhetskopiering och återställning av virtuella datorer på hanterade diskar](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Mer information om ramverket för förskript och efterskrift för säkerhetskopiering av virtuella Linux-datorer finns i [Programkonsekvent säkerhetskopiering av virtuella Linux-datorer med förskript och efterskript] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent) (på engelska).
 
-Mer information om vad du kan säkerhetskopiera finns [här](backup-azure-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Mer information om vad du kan säkerhetskopiera finns [här](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 > [!NOTE]
 > I den här självstudiekursen förutsätter vi att du redan har en virtuell dator i din Azure-prenumeration och att du har utfört nödvändiga åtgärder för att ge säkerhetskopieringstjänsten åtkomst till den virtuella datorn.
@@ -70,7 +70,7 @@ Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet f�
   ![Listan över virtuella datorer i prenumerationen visas.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
   När du väljer den virtuella datorn flyttas listan över virtuella datorer till vänster och bladet för hantering av virtuella datorer och instrumentpanelen för virtuella datorer öppnas. </br>
- ![Bladet för hantering av virtuell dator](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+ ![VM-hanteringsbladet](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
 
 4. Klicka på **Säkerhetskopiering** i avsnittet **Inställningar** på bladet VM-hantering. </br>
 

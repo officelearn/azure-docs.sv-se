@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
 
@@ -37,7 +37,7 @@ Det finns flera skäl att välja att ha sin data i Azure. Om du utvecklar eller 
 
 SQL Server som kör på Azure VM:ar är ett alternativ för att lagra din relationsdata i Azure. Du kan även välja att använda Azure SQL Database-tjänsten. Mer information om att välja mellan SQL Server på virtuella datorer och Azure SQL Database finns i [Välj ett molnbaserat SQL Server-alternativ: Azure SQL (PaaS) Database eller SQL Server på virtuella Azure-datorer (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Skapa en ny virtuell SQL-dator
+## <a id="create"></a>Skapa en ny virtuell SQL-dator
 
 Du hittar stegvisa anvisningar för hur du skapar en ny virtuell SQL-dator i självstudien [Etablera en virtuell Linux SQL Server-dator i Azure](provision-sql-server-linux-virtual-machine.md).
 

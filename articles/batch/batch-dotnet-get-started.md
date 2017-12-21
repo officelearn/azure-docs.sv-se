@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Börja utveckla lösningar med Batch-klientbibliotek för .NET
 
@@ -78,7 +78,7 @@ Följande diagram illustrerar de viktigaste åtgärderna som utförs av klientpr
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Varje aktivitet hämtar sina indata från Azure Storage och börjar sedan köra.<br/>
 [**Steg 6.**](#step-6-monitor-tasks) Övervaka aktiviteter.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Allt eftersom aktiviteterna slutförs överför de sina utdata till Azure Storage.<br/>
-[**Step 7.**](#step-7-download-task-output) Hämta aktiviteternas utdata från Storage.
+[**Steg 7.**](#step-7-download-task-output) Hämta aktiviteternas utdata från Storage.
 
 Som vi redan nämnt utförs inte exakt dessa steg i alla Batch-lösningar, och många lösningar omfattar många fler steg, men *DotNetTutorial*-exempelprogrammet demonstrerar vanliga processer som återfinns i många Batch-lösningar.
 

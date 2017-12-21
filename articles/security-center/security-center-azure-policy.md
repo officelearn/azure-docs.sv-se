@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrera Security Center-säkerhetsprinciper med Azure Policy
 Den här artikeln hjälper dig att konfigurera Azure Security Center-säkerhetsprinciper som tillhandahålls av Azure Policy. 
@@ -30,7 +30,7 @@ Security Center skapar automatiskt en standardsäkerhetsprincip för var och en 
 * Övervaka principefterlevnad.
 
 > [!NOTE]
-> Azure Policy finns i en begränsad förhandsversion. Gå till [Registrera dig för Azure Policy](https://aka.ms/getpolicy) för att ansluta dig. Om du vill ha mer information om Azure Policy kan du läsa [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy) (Skapa och hantera principer för att genomdriva efterlevnad).
+> Azure Policy finns i en begränsad förhandsversion. Gå till [Registrera dig för Azure Policy](https://aka.ms/getpolicy) för att ansluta dig. Om du vill ha mer information om Azure Policy kan du läsa [Create and manage policies to enforce compliance](http://docs.microsoft.com/azure/azure-policy/create-manage-policy) (Skapa och hantera principer för att genomdriva efterlevnad).
 
 ## <a name="edit-security-policies"></a>Redigera säkerhetsprinciper
 Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenumerationer i Security Center. Om du vill ändra en säkerhetsprincip måste du vara ägare, deltagare eller säkerhetsadministratör för prenumerationen eller hanteringsgruppen som innehåller den. Gör följande för att se dina säkerhetsprinciper i Security Center:
@@ -39,14 +39,14 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 
 2. Välj **Säkerhetsprincip** under **Allmänt** på instrumentpanelen i **Security Center**.
 
-    ![Fönstret för principhantering](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Fönstret för principhantering](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Markera den prenumeration som du vill aktivera en säkerhetsprincip för.  
 
 4. I avsnittet **Principkomponenter** väljer du **Säkerhetsprincip**.  
     Fönstret **Grundläggande** öppnas.
 
-    ![Principkomponenter](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Principkomponenter](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Välj **Ta bort** under **Principer och parametrar** bredvid definitionen som du vill ta bort för att ta bort en principdefinition.
 
@@ -57,12 +57,12 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 
     * Välj plustecken (+) bredvid definitionen för att lägga till en principdefinition.
 
-    ![Tillgängliga principdefinitioner](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Tillgängliga principdefinitioner](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Markera principen för att få en detaljerad förklaring om den.  
     Fönstret **Förhandsvisning** för definitionen öppnas. Den visar en beskrivning av definitionen och en länk till JSON-koden som innehåller strukturen för [principdefinitionen](../azure-policy/policy-definition.md).
 
-    ![Fönstret Förhandsvisning för definitionen](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Fönstret Förhandsvisning för definitionen](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. När du är färdig med redigeringarna väljer du **Spara**.
 

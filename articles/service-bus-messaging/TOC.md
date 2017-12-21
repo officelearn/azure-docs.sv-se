@@ -26,6 +26,8 @@
 
 # Gör så här för att
 ## Planera och designa
+### [Hanterad tjänstidentitet (förhandsgranskning)](service-bus-managed-service-identity.md)
+### [Rollbaserad åtkomstkontroll (förhandsgranskning)](service-bus-role-based-access-control.md)
 ### [Premium-meddelandetjänster](service-bus-premium-messaging.md)
 ### [Jämför Azure-köer och Service Bus-köer](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimera prestanda](service-bus-performance-improvements.md)

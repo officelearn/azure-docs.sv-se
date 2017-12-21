@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Dokumentation om Azure Policy
+metadata:
+  title: "Dokumentation om Azure Policy – självstudier, API-referens | Microsoft Docs"
+  description: "Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och åtgärder för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal. Lär dig hur du skapar, tilldelar och hanterar principdefinitioner med våra snabbstarter, vägledningar och exempel."
+  services: azure-policy
+  author: czeumault
+  manager: carolz
+  ms.service: azure-policy
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: carolz
+  ms.openlocfilehash: b5945fe76973aba267b529078466c7a97e5e6421
+  ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 12/20/2017
+abstract:
+  description: "Med Azure Policy kan du hantera och förebygga IT-problem med principdefinitioner som framtvingar regler och åtgärder för dina resurser. Med Azure Policy blir resurserna kompatibla med företagets standarder och serviceavtal. Lär dig hur du skapar, tilldelar och hanterar principdefinitioner med våra snabbstarter, vägledningar och exempel."
+sections:
+- title: "Snabbstarter på 5 minuter"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/azure-policy/assign-policy-definition
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/azure-policy/assign-policy-definition-ps
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+      text: Azure CLI
+      href: /azure/azure-policy/assign-policy-definition-cli
+- title: "Steg för steg-självstudier"
+  items:
+  - type: paragraph
+    text: "Lär dig hur du skapar, tilldelar och hanterar principdefinitioner i Azure."
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-policy/create-manage-policy">Skapa och hantera Azure Policy</a>
+- title: Exempel
+  items:
+  - type: paragraph
+    text: "Använd följande JSON-exempel för att skapa principdefinitioner i Azure."
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Kommandorad
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">Azure CLI</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

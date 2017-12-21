@@ -36,7 +36,11 @@
 - name: Instruktionsguider
   items:
     - name: Hantera enhetsregistreringar
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Hantera enhetsregistreringar med Azure Portal
+          href: how-to-manage-enrollments.md
+        - name: 'Hantera enhetsregistreringar med tjänst-SDK:er'
+          href: how-to-manage-enrollments-sdks.md
     - name: Använda HSM med SDK
       href: use-hsm-with-sdk.md
     - name: Styra åtkomsten till etableringstjänsten

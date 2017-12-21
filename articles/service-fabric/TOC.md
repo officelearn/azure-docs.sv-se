@@ -34,8 +34,6 @@
 ### [3- Uppgradera körningstiden för kluster](service-fabric-tutorial-upgrade-cluster.md)
 ### [4- Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-
-
 # Exempel
 ## [Kodexempel](https://azure.microsoft.com/resources/samples/?service=service-fabric)
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
@@ -49,66 +47,61 @@
 ## [Arkitektur](service-fabric-architecture.md)
 ## [Terminologi](service-fabric-technical-overview.md)
 
-## Skapa program och tjänster
-### [Programmeringsmodeller som stöds](service-fabric-choose-framework.md)
-#### [Behållare](service-fabric-containers-overview.md)
-##### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
-##### [Resurs-styrning](service-fabric-resource-governance.md)
-#### [Reliable Services](service-fabric-reliable-services-introduction.md)
-##### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
-##### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
-##### [Riktlinjer och rekommendationer för Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
-##### [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
-##### [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Internt i Reliable State Manager och Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
-##### [Avancerad användning](service-fabric-reliable-services-advanced-usage.md)
+## [Programmeringsmodeller som stöds](service-fabric-choose-framework.md)
+### [Behållare](service-fabric-containers-overview.md)
+#### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
+#### [Resurs-styrning](service-fabric-resource-governance.md)
+### [Reliable Services](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services-livscykel – C#](service-fabric-reliable-services-lifecycle.md)
+#### [Reliable Services-livscykel – Java](service-fabric-reliable-services-lifecycle-java.md)
+#### [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
+#### [Riktlinjer och rekommendationer för Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
+#### [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
+#### [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+#### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
+#### [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
+#### [Internt i Reliable State Manager och Reliable Collection](service-fabric-reliable-services-reliable-collections-internals.md)
+#### [Avancerad användning](service-fabric-reliable-services-advanced-usage.md)
 
-#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-##### [Arkitektur](service-fabric-reliable-actors-platform.md)
-##### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
-##### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
-##### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
-##### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
-##### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+#### [Arkitektur](service-fabric-reliable-actors-platform.md)
+#### [Livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
+#### [Tillståndshantering](service-fabric-reliable-actors-state-management.md)
+#### [Polymorfism](service-fabric-reliable-actors-polymorphism.md)
+#### [Återinträde](service-fabric-reliable-actors-reentrancy.md)
+#### [Typserialisering](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
+## Program och tjänster
 ### [Programmodell](service-fabric-application-model.md)
 ### [Program- och tjänstmanifest](service-fabric-application-and-service-manifests.md)
 ### [Värdmodell](service-fabric-hosting-model.md)
 
-### Tjänster
-#### [Tjänstresurser](service-fabric-service-manifest-resources.md)
-#### [Tjänsttillstånd](service-fabric-concepts-state.md)
-#### [Tjänstpartitionering](service-fabric-concepts-partitioning.md)
-#### [Tillgänglighet för tjänster](service-fabric-availability-services.md)
-#### [Livscykel för replik och instans](service-fabric-concepts-replica-lifecycle.md)
-#### [Omkonfiguration](service-fabric-concepts-reconfiguration.md)
-#### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
-##### [DNS-tjänst](service-fabric-dnsservice.md)
-##### [Omvänd proxy](service-fabric-reverseproxy.md)
-##### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
-##### [Diagnostik för omvänd proxy](service-fabric-reverse-proxy-diagnostics.md)
+### [Tjänsttillstånd](service-fabric-concepts-state.md)
+### [Tjänstpartitionering](service-fabric-concepts-partitioning.md)
 ### [Skalbarhet för program](service-fabric-concepts-scalability.md)
-### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
+### [Tillgänglighet för tjänster](service-fabric-availability-services.md)
+### [Livscykel för replik och instans](service-fabric-concepts-replica-lifecycle.md)
+### [Omkonfiguration](service-fabric-concepts-reconfiguration.md)
 
-### [Planera programkapacitet](service-fabric-capacity-planning.md)
+### [Tjänstkommunikation](service-fabric-connect-and-communicate-with-services.md)
+#### [DNS-tjänst](service-fabric-dnsservice.md)
+#### [Omvänd proxy](service-fabric-reverseproxy.md)
+#### [Konfigurera omvänd proxy för säker kommunikation](service-fabric-reverseproxy-configure-secure-communication.md)
+#### [Diagnostik för omvänd proxy](service-fabric-reverse-proxy-diagnostics.md)
+#### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-## [Hantera program](service-fabric-application-lifecycle.md)
-### [Programuppgradering](service-fabric-application-upgrade.md)
-#### [Konfiguration](service-fabric-visualstudio-configure-upgrade.md)
-#### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
-#### [Dataserialisering i programuppgraderingar](service-fabric-application-upgrade-data-serialization.md)
-#### [Programuppgraderingar: avancerade ämnen](service-fabric-application-upgrade-advanced.md)
-### [Översikt över felanalyser](service-fabric-testability-overview.md)
-### [ImageStoreConnectionString-inställningen](service-fabric-image-store-connection-string.md)
+### [Programlivscykel](service-fabric-application-lifecycle.md)
+#### [Programuppgradering](service-fabric-application-upgrade.md)
+##### [Konfiguration](service-fabric-visualstudio-configure-upgrade.md)
+##### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
+##### [Dataserialisering i programuppgraderingar](service-fabric-application-upgrade-data-serialization.md)
+##### [Programuppgraderingar: avancerade ämnen](service-fabric-application-upgrade-advanced.md)
+#### [Testa appar med felanalys](service-fabric-testability-overview.md)
+#### [ImageStoreConnectionString-inställningen](service-fabric-image-store-connection-string.md)
 
-## [Skapa och hantera kluster](service-fabric-deploy-anywhere.md)
-### Planera och förbereda
-#### [Kapacitetsplanering](service-fabric-cluster-capacity.md)
-#### [Haveriberedskap](service-fabric-disaster-recovery.md)
-### [Beskriva ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Tjänstresurser](service-fabric-service-manifest-resources.md)
+
+## [Kluster](service-fabric-deploy-anywhere.md)
 ### [Klustersäkerhet](service-fabric-cluster-security.md)
 ### [Funktionsskillnader mellan Linux och Windows](service-fabric-linux-windows-differences.md)
 ### Kluster i Azure
@@ -128,7 +121,7 @@
 #### [Begränsning](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Tjänstflöde](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## Övervaka och diagnostisera
+## Övervakning och diagnostik
 ### [Övervaka och diagnostisera program](service-fabric-diagnostics-overview.md)
 ### Generera händelser
 #### [Generera händelser på plattformsnivå](service-fabric-diagnostics-event-generation-infra.md)
@@ -154,7 +147,7 @@
 #### [Analysera händelser med OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Felsök ditt lokala kluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
-## [Integrera med API Management](service-fabric-api-management-overview.md)
+## [Integrering med API Management](service-fabric-api-management-overview.md)
 
 # Instruktionsguider
 ## Ställ in din utvecklingsmiljö
@@ -163,15 +156,30 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 ### [Konfigurera Service Fabric CLI](service-fabric-cli.md)
 
+## Planera och förbereda
+### [Planera klusterkapacitet](service-fabric-cluster-capacity.md)
+### [Planera för distribution av fristående kluster](service-fabric-cluster-standalone-deployment-preparation.md)
+### [Förbereda för haveriberedskap](service-fabric-disaster-recovery.md)
+### [Planera programkapacitet](service-fabric-capacity-planning.md)
+
+## Skapa det första...
+### [C#-programmet i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+### [Windows-behållarprogrammet](service-fabric-get-started-containers.md)
+### [Linux-behållarprogrammet](service-fabric-get-started-containers-linux.md)
+### [C# Reliable Services-programmet på Windows](service-fabric-reliable-services-quick-start.md)
+### [Java Reliable Services-programmet på Linux](service-fabric-reliable-services-quick-start-java.md)
+### [C# Reliable Services-programmet på Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+### [C# Reliable Actors-programmet på Windows](service-fabric-reliable-actors-get-started.md)
+### [Java Reliable Actors-programmet på Linux](service-fabric-create-your-first-linux-application-with-java.md)
+### [Körbara gästprogrammet på Windows](quickstart-guest-app.md)
+### [Fristående klustret](service-fabric-get-started-standalone-cluster.md)
+
 ## Skapa ett program
-### [Skapa din första C#-app i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+
 ### Skapa en körbar gästtjänst
-#### [Vara värd för ett Node.js-program i Windows](quickstart-guest-app.md)
 #### [Distribuera en körbar gäst](service-fabric-deploy-existing-app.md)
 #### [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
 ### Skapa en behållartjänst
-#### [Skapa ett program för Windows-behållare](service-fabric-get-started-containers.md)
-#### [Skapa ett program för Linux-behållare](service-fabric-get-started-containers-linux.md)
 #### [Behållarsäkerhet](service-fabric-securing-containers.md)
 #### [Docker Compose (förhandsversion)](service-fabric-docker-compose.md)
 #### [Resursstyrning för behållare och tjänster](service-fabric-resource-governance.md)
@@ -185,10 +193,6 @@
 ##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
 
-#### Kom igång
-##### [C# i Windows](service-fabric-reliable-services-quick-start.md)
-##### [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
-##### [Skapa C#-program på Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 #### Kommunicera med tjänster
 ##### [Kommunicera med Reliable Services](service-fabric-reliable-services-communication.md)
 
@@ -203,9 +207,6 @@
 #### [Säkerhetskopiering och återställning](service-fabric-reliable-services-backup-restore.md)
 
 ### Skapa en Reliable Actors-tjänst
-#### Kom igång
-##### [C# i Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java-aktör i Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Skicka aviseringar](service-fabric-reliable-actors-events.md)
 #### [Ställ in timrar och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
 #### [Konfigurera KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
@@ -285,9 +286,7 @@
 #### [Ta bort](service-fabric-cluster-delete.md)
 
 ### Fristående kluster
-#### [Planera och förbereda för distributionen](service-fabric-cluster-standalone-deployment-preparation.md)
 #### Skapa
-##### [Skapa ditt första fristående kluster](service-fabric-get-started-standalone-cluster.md)
 ##### [Skapa lokalt](service-fabric-cluster-creation-for-windows-server.md)
 ##### [Skydda med hjälp av certifikat](service-fabric-windows-cluster-x509-security.md)  
 ##### [Skydda med hjälp av Windows-säkerhet](service-fabric-windows-cluster-windows-security.md)

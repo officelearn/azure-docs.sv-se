@@ -18,7 +18,8 @@
 ### [Styrning i Azure](../governance-in-azure.md)
 ### [Datakryptering i vila](../azure-security-encryption-atrest.md)
 ### Arkitekturritningar
-#### [Efterlevnad – PCI DSS](payment-processing-blueprint.md)
+#### Efterlevnad – PCI DSS
+##### [Betalningsbearbetning för PCI DSS-kompatibla miljöer](payment-processing-blueprint.md)
 ##### [Översikt över krav](pci-dss-requirements-overview.md)
 ##### [Krav 1 – brandväggar](pci-dss-requirement-1-firewall.md)
 ##### [Krav 2 – lösenord](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Krav 10 – övervakning](pci-dss-requirement-10-monitoring.md)
 ##### [Krav 11 – testning](pci-dss-requirement-11-testing.md)
 ##### [Krav 12 – princip](pci-dss-requirement-12-policy.md)
-#### [Efterlevnad – FedRAMP ](fedramp.md)
+#### Efterlevnad – FedRAMP
+##### [Webbprogram för FedRAMP](fedramp.md)
 ##### [Översikt över säkerhetskontroller](fedramp-controls-overview.md)
 ##### [Åtkomstkontroll](fedramp-access-controls.md)
 ##### [Granskning och ansvar](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [System- och kommunikationsskydd](fedramp-system-communications-protection-controls.md)
 ##### [System och informationsintegritet](fedramp-system-information-integrity-controls.md)
 ##### [System- och tjänstförvärv](fedramp-system-services-acquisition-controls.md)
-#### [Efterlevnad – UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Efterlevnad – UK-OFFICIAL
+##### [Webbprogram med tre nivåer för UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Översikt](uk-official-three-tier-applications-overview.md)
 ##### [Översikt över principer](uk-official-three-tier-applications-principles-overview.md)
-#### [Efterlevnad – ekonomiska tjänster](financial-services-regulated-workloads.md)
+#### Efterlevnad – Ekonomiska tjänster
 ##### [Ekonomiska tjänster för reglerade arbetsbelastningar](financial-services-regulated-workloads.md)
 
 # Kom igång

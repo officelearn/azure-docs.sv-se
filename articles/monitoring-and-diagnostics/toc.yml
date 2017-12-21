@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Använda automatisk skalning
       items:
+        - name: Förstå inställningarna för automatisk skalning
+          href: monitoring-understanding-autoscale-settings.md
         - name: Bästa praxis
           href: insights-autoscale-best-practices.md
         - name: Vanliga mått

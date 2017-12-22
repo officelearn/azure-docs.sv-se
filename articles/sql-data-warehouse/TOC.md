@@ -1,6 +1,7 @@
 # Översikt
 
 ## [Om SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Översiktsblad](cheat-sheet.md)
 
 # Snabbstarter
 

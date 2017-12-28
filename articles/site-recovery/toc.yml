@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Konfigurera IP-adresser för åtkomst till en sekundär webbplats efter redundansväxling
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Hantering av nätverksgränssnitt för lokala till Azure-scenarier
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Haveriberedskap
       items:
         - name: Virtuella Hyper-V-datorer till Azure

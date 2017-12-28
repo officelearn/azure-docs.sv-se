@@ -37,10 +37,14 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
 - name: Självstudier
   items:
     - name: 1 – Konfigurera molnresurser
@@ -67,6 +71,8 @@
           href: how-to-manage-enrollments.md
         - name: 'Hantera enhetsregistreringar med tjänst-SDK:er'
           href: how-to-manage-enrollments-sdks.md
+    - name: Återkalla enhetsåtkomst
+      href: how-to-revoke-device-access-portal.md
     - name: Använda HSM med SDK
       href: use-hsm-with-sdk.md
     - name: Styra åtkomsten till etableringstjänsten

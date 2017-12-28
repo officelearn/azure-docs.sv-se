@@ -1,0 +1,31 @@
+- name: Hanterad tjänstidentitet (användartilldelad)
+  href: msi-overview.md
+  items:
+    - name: Konfigurera MSI för en virtuell Azure-dator
+      items:
+        - name: Använda Azure CLI
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Använda Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Ge en MSI åtkomst till Resource Manager
+      items:
+        - name: Använda Azure CLI
+          href: msi-howto-assign-access-cli.md
+    - name: Så här använder du en virtuell MSI-dator
+      items:
+        - name: Hämta en åtkomsttoken
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Logga in på Azure CLI
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: 'Använda med Azure-SDK:er'
+          href: msi-how-to-use-vm-msi-sdk.md
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Resource Manager
+      items:
+        - name: Från en virtuell Linux-dator
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Använd en virtuell MSI-dator för att få åtkomst till Azure Storage
+      items:
+        - name: Från en virtuell Linux-dator med åtkomstnyckel
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Vanliga frågor och kända problem
+      href: msi-known-issues.md

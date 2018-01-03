@@ -36,7 +36,7 @@ Under migreringen omformas resurserna från klassiskt läge till Resource Manage
 
 <a name="vault">Klassiska</a> VM återställningspunkter i ett säkerhetskopieringsvalv inte automatiskt migrera till ett Recovery Services-valv när du flyttar den virtuella datorn från klassisk till Resource Manager-läget. Överför dina VM-säkerhetskopior genom att följa dessa anvisningar:
 
-1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
+1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
 2. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
 3. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
 4. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Detaljerad information om hur du säkerhetskopierar en virtuell dator till ett Recovery Services-valv finns i artikeln [Skydda virtuella datorer i Azure med ett Recovery Services-valv](../articles/backup/backup-azure-vms-first-look-arm.md).

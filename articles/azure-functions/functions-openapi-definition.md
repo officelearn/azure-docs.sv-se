@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Skapa en OpenAPI definition för en funktion
 REST API: er beskrivs ofta med hjälp av en OpenAPI definition (tidigare känt som en [Swagger](http://swagger.io/) filen). Den här definitionen innehåller information om vilka åtgärder är tillgängliga i en API och hur data för begäran och svar för API: et strukturerad.
@@ -125,9 +125,9 @@ Nu är du redo att generera OpenAPI definition. Den här definitionen kan använ
 
     1. På den **integrera** för den nya funktionen i HTTP-utlösare, ändra **tillåten HTTP-metoderna** till **valt metoder**
 
-    1. I **valda HTTP-metoderna**, avmarkera alla alternativ utom **efter**.
+    1. I **valda HTTP-metoderna**, avmarkera alla alternativ utom **POST**, klicka på **spara**.
 
-        ![Den valda http-metoder](media/functions-openapi-definition/selected-http-methods.png)
+        ![Utvalda HTTP-metoder](media/functions-openapi-definition/selected-http-methods.png)
         
 1. Klicka på din app funktionsnamn (som **funktionen demo energi**) > **plattformsfunktioner** > **API-definition**.
 
@@ -135,13 +135,13 @@ Nu är du redo att generera OpenAPI definition. Den här definitionen kan använ
 
 1. På den **API-definition** klickar du på **funktionen**.
 
-    ![Källan för API-definition](media/functions-openapi-definition/api-definition-source.png)
+    ![API-definitionskälla](media/functions-openapi-definition/api-definition-source.png)
 
     Det här steget gör det möjligt för en uppsättning OpenAPI alternativ för funktionen appen, inklusive en slutpunkt som värd för en OpenAPI-fil från din funktionsapp domän, en infogad kopia av den [OpenAPI Editor](http://editor.swagger.io), och en API-definition mallen generator.
 
 1. Klicka på **generera API-definition mallen** > **spara**.
 
-    ![Skapa mall för API-definition](media/functions-openapi-definition/generate-template.png)
+    ![Generera API-definitionsmall](media/functions-openapi-definition/generate-template.png)
 
     Azure söker igenom appen funktionen för HTTP-utlösaren funktioner och använder informationen i functions.json för att generera en OpenAPI definition. Här är definitionen som genereras:
 
@@ -272,7 +272,7 @@ Innan du använder API-definitionen är en bra idé att testa i Användargränss
 
 1. Gå tillbaka till API-definition: **funktionen demo energi** > **plattformsfunktioner** > **API-definition**.
 
-1. I den högra rutan, klickar du på **ändra autentisering**, ange API-nyckeln som du kopierade och klicka på **autentisera**.
+1. I den högra rutan, klickar du på **autentisera**, ange API-nyckeln som du kopierade och klicka på **autentisera**.
 
     ![Autentisera med API-nyckel](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ Innan du använder API-definitionen är en bra idé att testa i Användargränss
 
     Observera hur Användargränssnittet använder beskrivningar av API-definition.
 
-1. Klicka på **skicka en begäran om**, klicka på den **ganska** fliken för att se utdata.
+1. Klicka på **skicka begäran**, klicka på den **ganska** fliken för att se utdata.
 
     ![Skicka en begäran](media/functions-openapi-definition/send-request.png)
 

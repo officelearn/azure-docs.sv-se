@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -41,7 +42,7 @@ Prognoser arbetsbelastningen på servrar är en vanliga affärsbehov för teknik
 I det här scenariot fokuserar på arbetsbelastningen förutsägelsen för varje dator (eller server). I synnerhet använda sessionsdata på varje server för att förutsäga arbetsbelastningsklass för servern i framtiden. Du klassificera belastningen på varje server i låg, medium och hög klasser med hjälp av slumpmässiga skog Klassificeraren i [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Maskininlärning tekniker och arbetsflöden i det här exemplet kan enkelt utökas till andra liknande problem. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
@@ -75,7 +76,7 @@ DSVM IP-adress | xxx|
  Fältnamn| Värde |  
  |------------|------|
  Lagringskontonamn| xxx|
- Snabbtangent  | xxx|
+ Åtkomstnyckel  | xxx|
 
 
 Ubuntu DSVM och Azure HDInsight-klustret skapas i listan över nödvändiga är mål för beräkning. Beräkna mål är beräkningsresursen i samband med Machine Learning-arbetsstationen, vilket kan skilja sig från den dator där arbetsstationen körs.   

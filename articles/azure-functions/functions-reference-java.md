@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Java-kommentarer ingår i den `azure-functions-java-core` paketet binda indata o
 
 Bindning | Anteckningen
 ---|---
-CosmosDB | Saknas
+CosmosDB | Gäller inte
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | Saknas
-Notification Hubs | Saknas
+Mobile Apps | Gäller inte
+Notification Hubs | Gäller inte
 Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Lagringskö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabell för lagring | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Saknas
+Twilio | Gäller inte
 
 Utlösaren indata och utdata kan också definieras i den [function.json](/azure/azure-functions/functions-reference#function-code) för ditt program.
 

@@ -12,25 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Översikt över Event Hubs .NET Standard-API
+
 Den här artikeln sammanfattas några av nyckeln Event Hubs .NET Standard klientens API: er. Det finns två klientbibliotek för .NET Standard:
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
-  *  Det här biblioteket innehåller alla basic runtime-åtgärder.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
-  * Det här biblioteket lägger till ytterligare funktioner som gör det möjligt att hålla reda på bearbetade händelser och är det enklaste sättet att läsa från en händelsehubb.
+
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): innehåller alla basic runtime-åtgärder.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): lägger till ytterligare funktioner som gör det möjligt att hålla reda på bearbetade händelser och är det enklaste sättet att läsa från en händelsehubb.
 
 ## <a name="event-hubs-client"></a>Event Hubs klienten
+
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) är det primära objekt som du använder för att skicka händelser, skapa mottagare och för att hämta information om körning. Den här klienten är kopplad till en viss händelsehubb och skapar en ny anslutning till slutpunkten för Händelsehubbar.
 
 ### <a name="create-an-event-hubs-client"></a>Skapa en händelsehubbklient
+
 En [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) objektet har skapats från en anslutningssträng. Det enklaste sättet att skapa en instans av en ny klient visas i följande exempel:
 
 ```csharp
@@ -49,6 +51,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>Skicka händelser
+
 Om du vill skicka händelser till en händelsehubb, använder den [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) klass. Innehållet måste vara en `byte` matris, eller en `byte` matris segment.
 
 ```csharp
@@ -61,17 +64,19 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>Ta emot händelser
-Det rekommenderade sättet att ta emot händelser från Event Hubs använder den [värd för händelsebearbetning](#event-processor-host-apis), som ger funktioner för att automatiskt hålla reda på förskjutningen och partitionsinformation. Det finns dock vissa situationer där kan du vill använda Händelsehubbar Kärnbibliotek flexibilitet för att ta emot händelser.
+
+Det rekommenderade sättet att ta emot händelser från Event Hubs använder den [värd för händelsebearbetning](#event-processor-host-apis), som innehåller funktioner för att automatiskt hålla reda på förskjutningen och partition-information för hubben. Det finns dock vissa situationer där kan du vill använda Händelsehubbar Kärnbibliotek flexibilitet för att ta emot händelser.
 
 #### <a name="create-a-receiver"></a>Skapa en mottagare
-Mottagare är knutna till specifika partitioner så för att kunna ta emot alla händelser i en händelsehubb, behöver du skapa flera instanser. Generellt sett är det en bra idé att hämta partitionsinformation om genom att programmera, i stället för att hårdkoda partitions-ID: n. Du kan använda för att göra det, den [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) metod.
+
+Mottagare är knutna till specifika partitioner så för att kunna ta emot alla händelser i en händelsehubb, måste du skapa flera instanser. Det är en bra idé att hämta partitionsinformation om genom att programmera, i stället för att hårdkoda partitions-ID: N. Du kan använda för att göra det, den [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) metod.
 
 ```csharp
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
 var runTimeInformation = await eventHubClient.GetRuntimeInformationAsync();
-// Loop over the resulting partition ids
+// Loop over the resulting partition IDs
 foreach (var partitionId in runTimeInformation.PartitionIds)
 {
     // Create the receiver
@@ -81,7 +86,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Du måste ange rätt startpunkten eftersom händelser tas aldrig bort från en händelsehubb (och bara gälla). I följande exempel visas möjliga kombinationer.
+Du måste ange rätt startpunkten eftersom händelser tas aldrig bort från en händelsehubb (och bara gälla). I följande exempel visas möjliga kombinationer:
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -97,6 +102,7 @@ var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGr
 ```
 
 #### <a name="consume-an-event"></a>Använda en händelse
+
 ```csharp
 // Receive a maximum of 100 messages in this call to ReceiveAsync
 var ehEvents = await receiver.ReceiveAsync(100);
@@ -116,6 +122,7 @@ if (ehEvents != null)
 ```
 
 ## <a name="event-processor-host-apis"></a>Händelsen Processor värden API: er
+
 Dessa API: er ger återhämtning i arbetsprocesser som kan bli otillgängliga, genom att distribuera partitioner över tillgängliga arbetare.
 
 ```csharp
@@ -137,7 +144,7 @@ var eventProcessorHost = new EventProcessorHost(
 // Start/register an EventProcessorHost
 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// Disposes of the Event Processor Host
+// Disposes the Event Processor Host
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 

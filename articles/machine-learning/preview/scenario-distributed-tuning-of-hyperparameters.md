@@ -4,15 +4,17 @@ description: "Det här scenariot visas hur du gör distribuerade finjustering av
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuerad justering av justeringsmodeller med hjälp av Azure Machine Learning arbetsstationen
 
@@ -26,30 +28,32 @@ Följande är en länk till den offentliga GitHub-lagringsplatsen:
 ## <a name="use-case-overview"></a>Använd case-översikt
 
 Många maskininlärningsalgoritmer har en eller flera rattar kallas justeringsmodeller. Dessa rattar Tillåt finjustering av algoritmer för att optimera prestanda över framtida data som mäts enligt användardefinierade mått (till exempel Precision, AUC, RMSE). Data forskare måste ange värden för justeringsmodeller när du skapar en modell över träningsdata och innan du ser framtida testdata. Hur baserat på kända utbildning data kan vi ställa in värdena för justeringsmodeller så att modellen har goda prestanda över okänd testdata? 
-
+    
 En populär teknik för att finjustera justeringsmodeller är en *rutnätet Sök* kombineras med *korsvalidering*. Korsvalidering är en teknik som utvärderar hur väl en modell med en träningsmängden beräknar över test. Med den här tekniken kan vi dela först datauppsättningen i K vikningar och träna algoritmen K gånger på ett sätt för resursallokering. Vi kan göra detta på alla men en av vikningar som kallas ”vikning hålls out”. Vi beräkna medelvärdet av mätvärden för K modeller K lagras utanför vikningar. Den här medelvärdet kallas *cross-validerade prestanda uppskattning*, är beroende av värdena för justeringsmodeller som används när du skapar K modeller. När inställningen för justeringsmodeller, söka vi igenom utrymme för kandidat hyperparameter värden för att hitta de som optimerar prestanda för korsvalidering beräkna. Rutnätet search är en vanlig metod för sökning. I rutnätet sökningen är utrymme för värden som kandidat i flera justeringsmodeller kryssprodukten av mängder av kandidat värden för enskilda justeringsmodeller. 
 
 Rutnätet sökning med korsvalidering kan ta lång tid. Om en algoritm har fem justeringsmodeller varje med fem kandidat värden kan använda vi K = 5 gånger. Vi Slutför en rutnätet sökning efter utbildning 5<sup>6</sup>= 15625 modeller. Lyckligtvis rutnätet Sök med hjälp av korsvalidering är en embarrassingly parallella process och alla modeller kan exempelvis tränas parallellt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 * En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [installera och skapa Quickstart](./quickstart-installation.md) att installera arbetsstationen och skapa konton.
 * Det här scenariot förutsätter att du använder Azure ML-arbetsstationen på Windows 10 eller MacOS med Docker-motorn har installerats lokalt. 
-* Om du vill köra ett scenario med en fjärransluten dockerbehållare etablera Ubuntu Data vetenskap virtuell dator (DSVM) genom att följa den [instruktioner](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 28 Gb minne. D4 instanser av virtuella datorer har denna kapacitet. 
-* Om du vill köra det här scenariot med ett Spark-kluster genom att etablera Azure HDInsight-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Vi rekommenderar att du har ett kluster med minst 
-- sex arbetsnoder
-- åtta kärnor
-- 28 Gb minne i huvud- och arbetsroller noder. D4 instanser av virtuella datorer har denna kapacitet. Vi rekommenderar att ändra följande parametrar för att maximera prestandan i klustret.
-- Spark.Executor.instances
-- Spark.Executor.cores
-- Spark.Executor.Memory 
+* Om du vill köra ett scenario med en fjärransluten dockerbehållare etablera Ubuntu Data vetenskap virtuell dator (DSVM) genom att följa den [instruktioner](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 28 Gb minne. D4 instanser av virtuella datorer har denna kapacitet. 
+* Om du vill köra det här scenariot med ett Spark-kluster genom att etablera Azure HDInsight-kluster genom att följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Vi rekommenderar att du har ett kluster med minst:
+    - sex arbetsnoder
+    - åtta kärnor
+    - 28 Gb minne i huvud- och arbetsroller noder. D4 instanser av virtuella datorer har denna kapacitet.       
+    - Vi rekommenderar att ändra följande parametrar för att maximera prestandan i klustret:
+        - Spark.Executor.instances
+        - Spark.Executor.cores
+        - Spark.Executor.Memory 
 
-Du kan följa dessa [instruktioner](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) och redigera definitioner i ”anpassade spark standardvärden”.
+Du kan följa dessa [instruktioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) och redigera definitioner i ”anpassade spark standardvärden”.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Skapa ett Azure storage-konto som används för att lagra dataset. Följ den [instruktioner](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto.
+* Skapa ett Azure storage-konto som används för att lagra dataset. Följ den [instruktioner](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) att skapa ett lagringskonto.
 
 ## <a name="data-description"></a>Beskrivning av data
 
@@ -314,7 +318,7 @@ Det här kommandot har slutförts i 1 timme-6 minuter när 6 arbetarnoder med 28
 
 Följande diagram visar det totala arbetsflödet: ![arkitektur](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
-## <a name="conclusion"></a>Slutsats 
+## <a name="conclusion"></a>Sammanfattning 
 
 I det här scenariot visade vi hur du använder Azure Machine Learning-arbetsstationen för att utföra finjustering av justeringsmodeller i fjärranslutna virtuella datorer och Spark-kluster. Vi såg att Azure Machine Learning arbetsstationen innehåller verktyg för enkel konfiguration av körningen miljöer. Det gör också enkelt växla mellan dem. 
 

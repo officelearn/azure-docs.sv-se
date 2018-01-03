@@ -22,6 +22,7 @@ Anslut och logga in på en virtuell dator som du skapade med flera privata IP-ad
     * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
 
 6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
+7. Konfigurera Windows för att använda privata IP-adressen för primär IP-konfigurationen i Azure som den primära IP-adressen för Windows. Se [Nej Internetåtkomst från Windows Azure VM som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) mer information. 
 
 
 ### <a name="validation-windows"></a>Validering (Windows)

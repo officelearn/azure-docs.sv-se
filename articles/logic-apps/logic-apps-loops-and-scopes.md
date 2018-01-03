@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps-slingor, -omfattningar och Debatching
   
@@ -26,9 +26,9 @@ Logic Apps innehåller ett antal sätt att arbeta med matriser, samlingar, batch
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach-loop och matriser
   
-Logic Apps kan du slinga över en uppsättning data och utföra en åtgärd för varje objekt.  Det är möjligt via den `foreach` åtgärd.  Du kan ange i designer för att lägga till en för varje loop.  När du har valt den matris som du vill iterera över, kan du börja lägga till åtgärder.  Du kan lägga till flera åtgärder per foreach-loop.  En gång inom loopen kan du ange vad som ska hända vid varje värde i matrisen.
+Logic Apps kan du slinga över en uppsättning data och utföra en åtgärd för varje objekt.  Loopa över en samling är möjligt via den `foreach` åtgärd.  I designer kan du lägga till en för varje loop.  När du har valt den matris som du vill iterera över, kan du börja lägga till åtgärder.  Du kan lägga till flera åtgärder per foreach-loop.  En gång inom loopen, kan du ange vad som ska hända vid varje värde i matrisen.
 
-Om du använder vyn kod, kan du ange en för varje loop som nedan.  Detta är ett exempel på en för varje loop som skickar ett e-postmeddelande för varje e-postadress som innehåller ”microsoft.com”:
+  Det här exemplet skickar ett e-postmeddelande för varje e-postadress som innehåller ”microsoft.com”. Om du använder vyn kod, kan du ange en för varje loop som i följande exempel:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Om du använder vyn kod, kan du ange en för varje loop som nedan.  Detta är et
 }
 ```
   
-  En `foreach` åtgärd kan iterera över matriser upp till 5 000 rader.  Varje iteration körs parallellt som standard.  
+  En `foreach` åtgärd kan iterera över matriser med tusentals entiteter.  Iterationer köra parallellt som standard.  Se [gränser och konfiguration](logic-apps-limits-and-config.md) information om gränser för matrisen och samtidighet.
 
 ### <a name="sequential-foreach-loops"></a>Sekventiella ForEach slingor
 
@@ -83,13 +83,15 @@ Så här aktiverar du en foreach-slinga för att köra, den `Sequential` åtgär
   
 ## <a name="until-loop"></a>Tills loop
   
-  Du kan utföra en åtgärd eller en serie åtgärder förrän ett villkor uppfylls.  Det vanligaste scenariot för den här anropar en slutpunkt förrän du får svar som du letar efter.  Du kan ange i designer för att lägga till en tills loop.  När du lägger till åtgärder i den här slingan, du kan ange villkoret för avslutning, samt slingan gränser.  Det finns en minuts fördröjning mellan loop cykler.
+  Du kan utföra en åtgärd eller en serie åtgärder förrän ett villkor uppfylls.  Det vanligaste scenariot för att använda en tills loop anropar en slutpunkt förrän du får svar som du letar efter.  Du kan ange i designer för att lägga till en tills loop.  När du lägger till åtgärder i den här slingan, du kan ange villkoret för avslutning, samt slingan gränser.
   
-  Om du använder vyn kod, kan du ange en tills loop som nedan.  Detta är ett exempel på en HTTP-slutpunkt anropas förrän svarstexten har värdet ”slutförd”.  Slutförs när antingen 
+  Det här exemplet anropar en HTTP-slutpunkt tills svarstexten har värdet ”slutförd”.  Den är klar när antingen: 
   
   * HTTP-svar som har statusen ”Slutförd”
-  * Det har försökt för 1 timme
+  * Det har försökt under en timme
   * Det har körts i en slinga 100 gånger
+  
+  Om du använder vyn kod, kan du ange en tills loop som i följande exempel:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Så här aktiverar du en foreach-slinga för att köra, den `Sequential` åtgär
   
 ## <a name="spliton-and-debatching"></a>SplitOn och debatching
 
-En utlösare kan ibland visas en matris med objekt som du vill debatch och starta ett arbetsflöde per artikel.  Detta kan utföras via den `spliton` kommando.  Som standard om utlösaren-swagger anger en nyttolast som är en matris, en `spliton` kommer att läggas till och starta en körning per artikel.  SplitOn kan bara läggas till en utlösare.  Detta kan manuellt konfigurerade eller åsidosätts i definition kodvy.  För närvarande SplitOn kan debatch matriser upp till 5 000 objekt.  Du kan inte ha en `spliton` och även implementera synkron svar-mönster.  Alla arbetsflöden som har en `response` åtgärd förutom `spliton` körs asynkront och skicka en omedelbar `202 Accepted` svar.  
+En utlösare kan ibland visas en matris med objekt som du vill debatch och starta ett arbetsflöde per artikel.  Den här debatching kan utföras via den `spliton` kommando.  Som standard om utlösaren-swagger anger en nyttolast som är en matris, en `spliton` har lagts till. Den `spliton` kommando startar en körning per objekt i matrisen.  SplitOn kan bara läggas till en utlösare som kan vara manuellt konfigurerade eller åsidosätts. Du kan inte ha en `spliton` och även implementera synkron svar-mönster.  Alla arbetsflöden som har en `response` åtgärd förutom `spliton` körs asynkront och skickar en omedelbar `202 Accepted` svar.  
 
-SplitOn kan anges i vyn kod som i följande exempel.  Detta tar emot en matris med objekt och debatches på varje rad.
+  Det här exemplet tar emot en matris med objekt och debatches på varje rad. SplitOn kan anges i vyn kod som i följande exempel:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn kan anges i vyn kod som i följande exempel.  Detta tar emot en matris m
 
 ## <a name="scopes"></a>Scope
 
-Det är möjligt att gruppera en serie åtgärder tillsammans med en omfattning.  Detta är särskilt användbart för att implementera undantagshantering.  I Designern kan du lägga till ett nytt scope och börja lägga till alla åtgärder i den.  Du kan definiera scope i kodvy som liknar följande:
+Det är möjligt att gruppera en serie åtgärder tillsammans med en omfattning.  Scope är användbara för att implementera undantagshantering.  I Designern kan du lägga till ett nytt scope och börja lägga till alla åtgärder i den.  Du kan definiera scope i kodvy som i följande exempel:
 
 
 ```

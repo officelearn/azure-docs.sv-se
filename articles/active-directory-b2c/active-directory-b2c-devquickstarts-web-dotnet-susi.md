@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 067b9fcada0c641f836e98559a0166b52a2ec37d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7a10ab2e523a98bd8762e209d0f4a13b12ef187
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Skapa en ASP.NET-webbapp med Azure Active Directory B2C profil för registrering, inloggning, redigera och återställning av lösenord
 
@@ -29,7 +29,7 @@ I den här självstudiekursen lär du dig att:
 > * Registrera ditt webbprogram i din Azure AD B2C-katalog
 > * Skapa en användare sign-upp/inloggning, Redigera profil och principen för lösenordsåterställning för ditt webbprogram
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Din B2C-klient måste du ansluta till ett Azure-konto. Du kan skapa ett kostnadsfritt Azure-konto [här](https://azure.microsoft.com/en-us/).
 - Du behöver [Microsoft Visual Studio](https://www.visualstudio.com/) eller ett liknande program att visa och ändra exempelkoden.
@@ -49,8 +49,6 @@ Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En k
 Därefter måste du skapa och registrera app i B2C-katalogen. Detta ger information som behöver för att kommunicera säkert med din app i Azure AD B2C. 
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 När du är klar har du både en API och det ursprungliga programmet i inställningarna för programmet.
 

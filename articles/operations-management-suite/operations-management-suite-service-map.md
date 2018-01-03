@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Använd Tjänstkarta lösningen i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
@@ -49,7 +49,7 @@ Tjänstkarta agenter samla in information om alla TCP-anslutna processer på ser
 
 ![Tjänsten: översikt](media/oms-service-map/service-map-overview.png)
 
-Datorer kan expanderas i kartan för att visa processer som körs med aktiva nätverksanslutningar under det valda tidsintervallet. När en fjärrdator med en Tjänstkarta-agent har expanderats för att visa information om visas de processer som kommunicerar med fokus datorn. Antal utan Agent frontend datorer som ansluter till fokus dator visas på vänster sida av de processer som de ansluter till. Om fokus datorn gör en anslutning till en backend-dator som har ingen agent kan med backend-server i en Port servergrupp, tillsammans med andra anslutningar till samma portnummer.
+Datorer kan utökas i kartan för att visa körs bearbeta grupper och processer med aktiva nätverksanslutningar under det valda tidsintervallet. När en fjärrdator med en Tjänstkarta-agent har expanderats för att visa information om visas de processer som kommunicerar med fokus datorn. Antal utan Agent frontend datorer som ansluter till fokus dator visas på vänster sida av de processer som de ansluter till. Om fokus datorn gör en anslutning till en backend-dator som har ingen agent kan med backend-server i en Port servergrupp, tillsammans med andra anslutningar till samma portnummer.
 
 Som standard visar Tjänstkarta maps de senaste 30 minuterna av beroendeinformation. Du kan fråga för historiska tidsintervall för upp till en timme att visa hur beroenden slås tidigare (till exempel vid en incident eller innan en ändring inträffat) med hjälp av kontroller längst upp till vänster. Tjänstkarta data lagras i 30 dagar i betald arbetsytor och 7 dagar i kostnadsfria arbetsytor.
 
@@ -59,6 +59,9 @@ Längst ned på varje server i kartan kan vara en lista över status Aktivitetsi
 Beroende på allvarlighetsgrad för status-Aktivitetsikoner datorn nod kantlinjer vara färgade röd (kritisk), gult (varning) eller blå (information). Färgen som representerar de svåraste status för alla status-Aktivitetsikoner. En grå kantlinje anger en nod som har inga indikatorer.
 
 ![Status Aktivitetsikoner](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Processgrupper
+Processgrupper kombinera processer som är associerade med en gemensam produkt eller tjänst i en processgrupp.  När en datornod expanderas visas fristående processer tillsammans med processgrupper.  Om alla inkommande och utgående anslutningar till en process i en processgrupp har misslyckats sedan anslutningen visas som misslyckades för gruppen hela processen.
 
 ## <a name="machine-groups"></a>Datorgrupper
 Datorgrupper kan du se maps uppbyggd kring en uppsättning servrar, inte bara en så att du kan se alla medlemmar i ett flera nivåer program eller server-kluster i en karta.
@@ -191,7 +194,7 @@ Skapa en aviseringsregel som utlöses för en specifik dator om du vill aktivera
 - Innehåller en instruktion i gruppen per dator (till exempel **datorn intervall 1 minut**).
 - Välj att varna baserat på mått mått.
 
-![Konfiguration av varning](media/oms-service-map/alert-configuration.png)
+![Aviseringskonfiguration](media/oms-service-map/alert-configuration.png)
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite logga händelser integrering
@@ -360,7 +363,7 @@ Typ = ServiceMapProcess_CL ExecutableName_s = curl | Distinkta ProductVersion_s
 Typ = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinkta ComputerName_s
 
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Alla server, process och beroende data i Tjänstkartan är tillgängliga via den [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/).
 
 

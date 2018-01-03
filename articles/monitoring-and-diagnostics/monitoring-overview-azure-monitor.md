@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Översikt över Azure Övervakare
 Den här artikeln innehåller en översikt över Azure-Monitor-tjänsten i Microsoft Azure. Det beskriver vad Azure-Monitor finns och innehåller länkar till ytterligare information om hur du använder Azure-Monitor.  Om du föredrar en videointroduktion finns i nästa steg länkarna längst ned i den här artikeln. 
@@ -43,7 +43,7 @@ Sidan är en startpunkt för navigering, inklusive-boarding. Det visar granskat 
 
 När du öppnar sidan kan välja du bland de prenumerationer som du har läsbehörighet till. Du kan se för en vald prenumeration:
 
-- **Utlöst aviseringar och avisering källor** – den här tabellen visar sammanfattning inventeringar, varning källor och hur många gånger aviseringar som aktiveras för den valda varaktigheten. Det gäller både mått och aktivitet loggen aviseringar.
+- **Utlöst aviseringar och avisering källor** – den här tabellen visar sammanfattning inventeringar, varning källor och hur många gånger aviseringar som aktiveras för den valda varaktigheten. Det gäller både mått och aktivitet loggen aviseringar. *< redigera: aviseringar (förhandsversion) med en enhetlig miljö som visas för alla aviseringar - händelser, mått och loggar >*
 - **Aktiviteten logga fel** – om någon av dina Azure-resurser logghändelser med fel-samma allvarlighetsgrad som du kan visa ett övergripande antal och klicka vidare till sidan aktivitet loggen att undersöka varje händelse.
 - **Tjänstens hälsa för Azure** -du kan se en uppräkning av tjänstens hälsa för problem med tjänsters planerade underhållshändelser och hälsa rekommendationerna. Tjänstens hälsa för Azure ger personlig information när problem i Azure-infrastrukturen påverka dina tjänster.  Se [Azure tjänstens hälsa](../service-health/service-health-overview.md) för mer information.  
 - **Application Insights** -finns KPI: er för varje AppInsights resurs i den aktuella prenumerationen. KPI: er som är optimerade för programmet för serversidan övervakning över ASP.NET-webbprogram, Java, Node och allmänna programtyper. KPI: er inkluderar mått för förfrågningar, varaktighet för svar, fel och tillgänglighet i procent. 
@@ -56,8 +56,9 @@ Om du inte har publicerat till logganalys eller Application Insights, eller om d
 
 ![Modellen för övervakning och diagnostik för icke-beräkningsresurser](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
+
 Här beräknings-tjänster omfattar 
-- Molntjänster 
+- Cloud Services 
 - Virtuella datorer 
 - Skaluppsättningar för den virtuella datorn 
 - Service Fabric
@@ -141,7 +142,10 @@ Några visualiseringen metoderna är:
 
 
 ### <a name="automate"></a>Automatisera
-Du kan använda övervakningsdata till utlösaren aviseringar eller med hela processer. Exempel:
+> [!NOTE]
+> Som en del av en pågående utvecklingen av aviseringar i Microsoft Azure, som nu en enhetlig miljö för aviseringar förhandsgranskas. Mer information om [Azure aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
+
+Du kan använda övervakningsdata till utlösaren aviseringar eller med hela processer i den Azure-aviseringar som standard. Exempel:
 
 * Användningsdata Autoskala compute-instanser uppåt eller nedåt utifrån belastningen för programmet.
 * Skicka e-postmeddelanden när ett mått korsar ett förutbestämt tröskelvärde.
@@ -151,7 +155,7 @@ Du kan använda övervakningsdata till utlösaren aviseringar eller med hela pro
 ## <a name="methods-of-accessing-azure-monitor"></a>Metoder för att komma åt Azure-Monitor
 I allmänhet kan du ändra dataspårning, Routning och hämtning med någon av följande metoder. Inte alla metoder är tillgängliga för alla åtgärder eller -datatyper.
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure-portalen](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Plattformsoberoende kommandoradsgränssnittet (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis-Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Det här avsnittet visar du hur för att utföra vanliga aktiviteter som skapa, 
 
 Läs mer om den klassiska distributionsmodellen [Azure Resource Manager och klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du redan har installerat Azure PowerShell, måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrollera versionen av Azure PowerShell som du har installerat med det här kommandot på Azure PowerShell-Kommandotolken.
 
     Get-Module azure | format-table version

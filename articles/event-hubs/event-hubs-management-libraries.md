@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotek för Event Hubs
 
-Bibliotek för Händelsehubbar kan dynamiskt etablera Händelsehubbar namnområden och enheter. Detta gör komplexa distributioner och meddelandescenarier, så att du kan bestämma vilka enheter att etablera programmässigt. Dessa bibliotek är tillgängliga för .NET.
+Bibliotek för Händelsehubbar kan dynamiskt etablera Händelsehubbar namnområden och enheter. Den här dynamiska strukturen gör komplexa distributioner och meddelandescenarier, så att du kan bestämma vilka enheter att etablera programmässigt. Dessa bibliotek är tillgängliga för .NET.
 
 ## <a name="supported-functionality"></a>Funktioner som stöds
 
@@ -30,7 +30,7 @@ Bibliotek för Händelsehubbar kan dynamiskt etablera Händelsehubbar namnområd
 * Skapa en Event Hubs, uppdatering, borttagning
 * Skapa en konsumentgrupp-, update-, borttagning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill komma igång med Händelsehubbar hantering av bibliotek, måste du autentisera med Azure Active Directory (AAD). AAD kräver att du autentisera som ett huvudnamn för tjänsten som ger åtkomst till resurserna i Azure. Information om hur du skapar en tjänst UPN finns i något av dessa artiklar:  
 

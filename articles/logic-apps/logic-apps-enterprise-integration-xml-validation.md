@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>Validera XML för företagsintegration
 
@@ -30,29 +30,29 @@ Ofta i B2B-scenarier måste partners i ett avtal se till att de meddelanden som 
 
 2. Lägg till en **begäran - när en HTTP-begäran tas emot** utlösaren till din logikapp.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Att lägga till den **XML-verifiering** åtgärd, Välj **lägga till en åtgärd**.
 
 4. Om du vill filtrera alla åtgärder som du vill ange *xml* i sökrutan. Välj **XML-verifiering**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Välj för att ange XML-innehåll som du vill validera **innehåll**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Välj body-tagg som det innehåll som du vill validera.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. Ange schemat som du vill använda för att validera den tidigare *innehåll* indata, Välj **SCHEMANAMNET**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Spara ditt arbete  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Du är nu klar med att konfigurera validering-anslutningen. I ett verkligt program kanske du vill lagra validerade data i en line-of-business (LOB)-app som SalesForce. Lägg till en åtgärd för att skicka verifierade utdata till Salesforce.
 

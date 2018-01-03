@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a1e12dbb5e32f62266ee6a3cdca9e781569e58c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 9bcdd539c199086e0f48c1172853ff00cc1617f8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-user-guide"></a>Data användarhandboken för förberedelser 
 Azure Machine Learning Data förberedelser upplevelsen ger mycket omfattande funktioner. Den här artikeln dokumenteras djupaste delarna i miljön.
@@ -55,7 +55,7 @@ Flera exempel kan skapas och lagras för varje fil för datakällor. Bara ett ex
 
 Det finns ett antal prover strategier som kan användas, var och en med olika parametrar som kan konfigureras.
 
-#### <a name="top"></a>Upp
+#### <a name="top"></a>Överst
 Den här strategin kan tillämpas på lokala eller fjärranslutna filer. Det tar de första N raderna (anges av antal) i datakällan.
 
 #### <a name="random-n"></a>Slumpmässiga N 

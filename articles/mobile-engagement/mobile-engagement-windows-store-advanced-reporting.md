@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Avancerade rapportering med Windows Universal-appar Engagement SDK
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Det här avsnittet beskrivs ytterligare rapporteringsscenarier i ditt universella Windows-program. Dessa scenarier innehåller alternativ som du kan välja att tillämpa på appen som skapats i den [komma igång](mobile-engagement-windows-store-dotnet-get-started.md) kursen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Innan du påbörjar de här självstudierna måste du först slutföra den [komma igång](mobile-engagement-windows-store-dotnet-get-started.md) självstudier, vilket är avsiktligt direkt och enkel. Den här kursen ingår ytterligare alternativ som du kan välja bland.

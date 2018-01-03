@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Strukturen projekt med mallen Team datavetenskap Process
 
 Det här dokumentet innehåller instruktioner om hur du skapar datavetenskap projekt i Azure Machine Learning med Team Data vetenskap processen (TDSP) mallar. Dessa mallar att strukturen projekt för samarbete och reproducerbara. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>Vad är Team av vetenskapliga data?
+## <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 TDSP är en flexibel och iterativ, datavetenskap process för att köra och leverera lösningar för avancerad analys. Den har utformats för att förbättra samarbete och effektiviteten för datavetenskap team i företag. Den stöder dessa mål med fyra viktiga komponenter:
 
    * En standard [datavetenskap livscykel](../team-data-science-process/lifecycle.md) definition.
@@ -67,11 +68,11 @@ Om du vill skapa ett nytt projekt, öppna Azure Machine Learning. Under **projek
 ### <a name="create-a-new-tdsp-structured-project"></a>Skapa ett nytt projekt TDSP strukturerad
    1. Ange parametrar och information i motsvarande ruta eller en lista:
 
-      - Projektets namn
+      - Projektnamn
       - Projektkatalogen
-      - Projektbeskrivning av
+      - Projektbeskrivning
       - En tom sökväg för Git-lagringsplats
-      - Arbetsytans namn
+      - Namn på arbetsyta
 
    2. I den **Sök** ange **TDSP**. 
    3. När den **struktur för ett projekt med TDSP** alternativ visas, väljer du mallen. 

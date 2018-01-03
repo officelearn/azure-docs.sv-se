@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med din IoT-hubb med MQTT-protokollet
 
@@ -62,6 +62,9 @@ Om en enhet inte kan använda enheten SDK: er, kan den fortfarande ansluta till 
 
     Om namnet på din IoT-hubb är till exempel **contoso.azure devices.net** och om namnet på din enhet är **MyDevice01**, hela **användarnamn** fältet ska innehålla `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * För den **lösenord** , ska du använda en SAS-token. Formatet på SAS-token är desamma som för HTTPS- och AMQP protokoll:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+
+    >[!NOTE]
+    >SAS-token lösenord krävs inte om du använder autentisering för X.509-certifikat. Mer information finns i [Konfigurera X.509 säkerheten i din Azure IoT-hubb][lnk-x509]
 
     Mer information om hur du skapar SAS-token i avsnittet enhet av [med IoT-hubb säkerhetstoken][lnk-sas-tokens].
 
@@ -137,7 +140,7 @@ Mer information finns i [Messaging Utvecklingsguide][lnk-messaging].
 
 ### <a name="receiving-cloud-to-device-messages"></a>Ta emot meddelanden moln till enhet
 
-Om du vill ta emot meddelanden från IoT-hubb en enhet ska prenumerera med `devices/{device_id}/messages/devicebound/#` som en **avsnittet Filter**. Flera nivåer med jokertecken  **#**  i avsnittet Filter används bara för att tillåta att enheten tar emot ytterligare egenskaper i avsnittsnamn. IoT-hubb tillåter inte användning av den  **#**  eller **?** jokertecken för filtrering av underordnade ämnen. Eftersom IoT-hubb som inte är förhandlare generella pub-sub meddelanden stöder endast dokumenterade avsnittsnamn och avsnittet filter.
+Om du vill ta emot meddelanden från IoT-hubb en enhet ska prenumerera med `devices/{device_id}/messages/devicebound/#` som en **avsnittet Filter**. Flera nivåer med jokertecken `#` i avsnittet Filter används bara för att tillåta att enheten tar emot ytterligare egenskaper i avsnittsnamn. IoT-hubb tillåter inte användning av den `#` eller `?` jokertecken för filtrering av underordnade ämnen. Eftersom IoT-hubb som inte är förhandlare generella pub-sub meddelanden stöder endast dokumenterade avsnittsnamn och avsnittet filter.
 
 Enheten inte ta emot meddelanden från IoT-hubb förrän den har prenumererar på sin enhetsspecifika slutpunkt, representeras av den `devices/{device_id}/messages/devicebound/#` avsnittet filter. Efter lyckad prenumeration har upprättats, startar enheten får endast moln till enhet-meddelanden som skickas till den efter tiden för prenumerationen. Om enheten ansluter med **CleanSession** -flaggan inställd på **0**, prenumerationen är beständig mellan olika sessioner. I det här fallet nästa gång den ansluts med **CleanSession 0** enheten tar emot utestående meddelanden som har skickats till den när den har kopplats från. Om enheten använder **CleanSession** -flaggan inställd på **1** men det inte tar emot meddelanden från IoT-hubb tills den prenumererar på sin enhet-slutpunkt.
 
@@ -147,9 +150,9 @@ När en enhetsapp prenumererar på ett ämne med **QoS 2**, IoT-hubb ger maximal
 
 ### <a name="retrieving-a-device-twins-properties"></a>När en enhet dubbla egenskaper
 
-Först måste en enhet som prenumererar på `$iothub/twin/res/#`, för att ta emot svar för den åtgärden. Sedan skickar den ett tomt meddelande till avsnittet `$iothub/twin/GET/?$rid={request id}`, med ett värde som fylls för **id för förfrågan**. Tjänsten skickar sedan ett svarsmeddelande som innehåller dubbla enhetsdata om avsnittet `$iothub/twin/res/{status}/?$rid={request id}`, använder samma **id för förfrågan** som begäran.
+Först måste en enhet som prenumererar på `$iothub/twin/res/#`, för att ta emot svar för den åtgärden. Sedan skickar den ett tomt meddelande till avsnittet `$iothub/twin/GET/?$rid={request id}`, med ett värde som fylls för **begärande-ID**. Tjänsten skickar sedan ett svarsmeddelande som innehåller dubbla enhetsdata om avsnittet `$iothub/twin/res/{status}/?$rid={request id}`, använder samma **begärande-ID** som begäran.
 
-Id för förfrågan kan vara ett giltigt värde för ett meddelande egenskapsvärde enligt [IoT-hubb messaging Utvecklingsguide][lnk-messaging], och status har verifierats som ett heltal.
+ID för förfrågan kan vara ett giltigt värde för ett meddelande egenskapsvärde enligt [IoT-hubb messaging Utvecklingsguide][lnk-messaging], och status har verifierats som ett heltal.
 Svarstexten innehåller egenskapsavsnittet för enhet dubbla:
 
 Innehållet i registerposten identitet är begränsad till medlemmen ”egenskaper” till exempel:
@@ -184,9 +187,9 @@ Följande anvisningar beskriver hur en enhet uppdaterar rapporterade egenskaper 
 
 1. En enhet måste först prenumerera på den `$iothub/twin/res/#` avsnittet för att ta emot den åtgärden svar från IoT-hubb.
 
-1. En enhet skickar ett meddelande som innehåller enheten dubbla uppdateringen till den `$iothub/twin/PATCH/properties/reported/?$rid={request id}` avsnittet. Detta meddelande innehåller en **id för förfrågan** värde.
+1. En enhet skickar ett meddelande som innehåller enheten dubbla uppdateringen till den `$iothub/twin/PATCH/properties/reported/?$rid={request id}` avsnittet. Detta meddelande innehåller en **begärande-ID** värde.
 
-1. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för rapporterade egenskapssamlingen om avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Den här svarsmeddelande använder samma **id för förfrågan** som begäran.
+1. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för rapporterade egenskapssamlingen om avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Den här svarsmeddelande använder samma **begärande-ID** som begäran.
 
 Meddelandetexten begäran innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper (ingen egenskap eller metadata inte kan ändras).
 Varje medlem i JSON-dokumentet uppdateras eller lägga till motsvarande medlem i den enheten dubbla dokumentet. En medlem som har angetts till `null`, tar du bort medlemmen från som innehåller objektet. Exempel:
@@ -228,7 +231,7 @@ Mer information finns i [utvecklarhandboken för enheten twins][lnk-devguide-twi
 
 Först måste en enhet har du prenumererar på `$iothub/methods/POST/#`. IoT-hubb skickar metodbegäranden till avsnittet `$iothub/methods/POST/{method name}/?$rid={request id}`, med en giltig JSON eller en brödtext.
 
-För att svara, enheten skickar ett meddelande med en giltig JSON eller brödtext till avsnittet `$iothub/methods/res/{status}/?$rid={request id}`, där **id för förfrågan** måste matcha det i meddelandet med begäran och **status** måste vara ett heltal.
+För att svara, enheten skickar ett meddelande med en giltig JSON eller brödtext till avsnittet `$iothub/methods/res/{status}/?$rid={request id}`, där **begärande-ID** måste matcha det i meddelandet med begäran och **status** måste vara ett heltal.
 
 Mer information finns i [direkt metod Utvecklarhandbok][lnk-methods].
 
@@ -250,7 +253,7 @@ Mer information om hur du planerar distributionen av IoT-hubb finns:
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -270,6 +273,7 @@ Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

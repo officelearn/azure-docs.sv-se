@@ -1,12 +1,11 @@
 ---
-title: "Vanliga frågor (FAQ) - Azure AD B2C | Microsoft Docs"
+title: "Vanliga frågor och svar – Azure Active Directory B2C"
 description: "Vanliga frågor och svar om Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -64,9 +63,9 @@ Du kan använda den [funktionen för företagsanpassning](../active-directory/cu
 
     ![Skärmbild av en anpassad e-postmeddelandet](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-E-signaturen innehåller B2C-klientens namn som du angav när du först skapade B2C-klient. Du kan ändra namnet använder dessa instruktioner:
+E-signatur som innehåller namnet på Azure AD B2C-klient som du angav när du först skapade Azure AD B2C-klient. Du kan ändra namnet använder dessa instruktioner:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som Global administratör.
 1. Öppna den **Azure Active Directory** bladet.
 1. Klicka på den **egenskaper** fliken.
 1. Ändra den **namn** fältet.
@@ -113,15 +112,15 @@ Följ dessa steg för att ta bort din Azure AD B2C-klient:
 
 1. Följ dessa steg för att [navigera till Azure AD B2C inställningar](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) på Azure-portalen.
 1. Navigera till den **program**, **identitetsleverantörer**, och **alla principer** och ta bort alla poster i var och en av dem.
-1. Nu logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com/) som administratör för prenumerationen. (Använda samma arbets- eller skolkonto eller samma Microsoft-konto som du använde för att registrera dig för Azure.)
-1. Gå till Active Directory-tillägget till vänster och klicka på din B2C-klient.
-1. Klicka på den **användare** fliken.
-1. Markera varje användare i sin tur (exkludera du för närvarande är inloggad som administratör för prenumeration användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
-1. Klicka på den **program** fliken.
-1. Välj **program som företaget äger** i den **visa** listrutan och klicka på bock.
-1. Ett program kallas **b2c-tillägg-app**. Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
-1. Navigera till Active Directory-tillägget igen och välj din B2C-klient.
-1. Klicka på **ta bort** längst ned på sidan. Följ instruktionerna på skärmen för att slutföra processen.
+1. Nu logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. (Använda samma arbets- eller skolkonto eller samma Microsoft-konto som du använde för att registrera dig för Azure.)
+1. Växla till Azure AD B2C-klient som du vill ta bort.
+2. Gå till menyn Active Directory till vänster.
+3. Välj **användare och grupper**.
+4. Markera varje användare i sin tur (exkludera du för närvarande är inloggad som administratör för prenumeration användaren). Klicka på **ta bort** längst ned på sidan och klicka på **Ja** när du tillfrågas.
+5. Klicka på den **App registreringar**.
+6. Välj program kallat **b2c-tillägg-app**. Klicka på **ta bort** och på **Ja** när du tillfrågas.
+7. Välj **översikt**.
+8. Klicka på **ta bort katalogen**. Följ instruktionerna på skärmen för att slutföra processen.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Kan jag få Azure AD B2C som en del av Enterprise Mobility Suite?
 Nej, Azure AD B2C är en betala per användning i Azure-tjänsten och är inte en del av Enterprise Mobility Suite.

@@ -7,6 +7,7 @@ author: miprasad
 manager: kristin.tolle
 editor: miprasad
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: ea95f9e4a6e11ddac96e956bdf0f1e4255954b24
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Kunden omsättning förutsägelse med hjälp av Azure Machine Learning
 
@@ -54,7 +55,7 @@ Några av de faktorer som bidrar till telecom kunden omsättning är:
 
 I den här lösningen använder vi en konkret exempel för att skapa en prediktiv kund omsättning modellen för telecom företag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns)
 
@@ -102,5 +103,5 @@ Ordningen praktiska övningar för att utföra lösningen är följande:
 
 Efter Labs på sekventiella sätt som beskrivs ovan.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Detta händer på scenariot visas hur du utför omsättning förutsägelse med hjälp av Azure Machine Learning-arbetsstationen. Vi kan först utföras Datarensning för att hantera mycket brus och heterogena data, följt av funktionen tekniker med hjälp av verktyg för förberedelse av Data. Vi sedan används maskininlärning för öppen källkod verktyg för att skapa och utvärdera en modell för klassificering och sedan används lokala dockerbehållare för att distribuera modellen gör den redo för produktion.

@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Q & en matchande med hjälp av Azure Machine Learning-arbetsstationen
 Svara på Öppna avslutades frågor är svår och kräver ofta manuellt arbete från ämnesexperter (SME). Om du vill minska kraven på interna små och medelstora företag skapa företag ofta en lista över vanliga frågor och svar (FAQ) för att hjälpa användare. Det här exemplet visar olika effektiva machine learning metoder för att matcha öppna avslutades frågor till ett befintligt vanliga frågor och svar fråga/svar-par. Det här exemplet visar ett enkelt utvecklingsprocessen för att skapa en sådan lösning med hjälp av Azure Machine Learning-arbetsstationen. 
@@ -38,7 +39,7 @@ Viktiga steg som krävs för att leverera den här lösningen är följande:
 4. Träna modeller för klassificering av text och utvärdera modellen prestanda.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
@@ -83,12 +84,12 @@ Dataschemat och länkar för direkta hämtning av de tre datauppsättningarna fi
 | ----------|------------|------------|--------
 | [frågor](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Sträng | Unik fråge-ID (primärnyckel)
 |  | AnswerId | Sträng | Unik svar-ID per fråga
-|  | Text0 | Sträng | Rådata textdata inklusive frågans rubrik och text
-|  | CreationDate | tidsstämpel | Tidsstämpel när frågan har ombetts
+|  | text0 | Sträng | Rådata textdata inklusive frågans rubrik och text
+|  | CreationDate | Tidsstämpel | Tidsstämpel när frågan har ombetts
 | [dubbla](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Sträng | Duplicering unikt ID (primärnyckel)
 |  | AnswerId | Sträng | Svaret-ID som är associerade med dupliceringen
-|  | Text0 | Sträng | Rådata textdata, inklusive dupliceringen rubrik och text
-|  | CreationDate | tidsstämpel | Tidsstämpel när dupliceringen har ombetts
+|  | text0 | Sträng | Rådata textdata, inklusive dupliceringen rubrik och text
+|  | CreationDate | Tidsstämpel | Tidsstämpel när dupliceringen har ombetts
 | [svar](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Sträng | Unik svar-ID (primärnyckel)
 |  | text0 | Sträng | Rådata textdata i svaret
 
@@ -144,7 +145,7 @@ Två olika utvärdering mått för att bedöma prestanda.
 Utvärderingen visas i `Part_3_Model_Training_and_Evaluation.ipynb`.
 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Det här exemplet visar hur du använder välkänd text analytics tekniker, till exempel frasen learning och text klassificering, som ger en robust modell. Den visar även hur Azure Machine Learning arbetsstationen kan hjälpa med interaktiv lösning utveckling och spåra modellen prestanda. 
 

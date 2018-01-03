@@ -12,23 +12,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Översikt över Event Hubs .NET Framework-API
+
 Den här artikeln sammanfattas några av nyckeln Event Hubs .NET Framework-klientens API: er. Det finns två kategorier: hantering och API: er för körning. API: er för körning består av alla åtgärder som behövs för att skicka och ta emot ett meddelande. Hanteringsåtgärder kan du hantera ett Händelsehubbar enhetstillstånd genom att skapa, uppdatera och ta bort enheter.
 
-Övervakningsscenarier omfattar både hantering och körning. Detaljerad dokumentation om .NET-API: er, finns det [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) och [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) referenser.
+[Övervakningsscenarier](event-hubs-metrics-azure-monitor.md) omfattar både hantering och körning. Detaljerad dokumentation om .NET-API: er, finns det [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) och [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) referenser.
 
 ## <a name="management-apis"></a>Management-API: er
+
 Om du vill utföra följande hanteringsåtgärder för, måste du ha **hantera** behörigheter på namnområdet Händelsehubbar:
 
 ### <a name="create"></a>Skapa
+
 ```csharp
 // Create the event hub
 var ehd = new EventHubDescription(eventHubName);
@@ -37,6 +40,7 @@ await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
 ### <a name="update"></a>Uppdatering
+
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
@@ -49,18 +53,21 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
 ### <a name="delete"></a>Ta bort
+
 ```csharp
-await namespaceManager.DeleteEventHubAsync("Event Hub name");
+await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>API: er för körning
 ### <a name="create-publisher"></a>Skapa utgivare
+
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-var eventHubClient = EventHubClient.Create("Event Hub name");
+var eventHubClient = EventHubClient.Create("event hub name");
 ```
 
 ### <a name="publish-message"></a>Publicera meddelande
+
 ```csharp
 // Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
@@ -79,6 +86,7 @@ await client.SendAsync(data);
 ```
 
 ### <a name="create-consumer"></a>Skapa konsument
+
 ```csharp
 // Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
@@ -97,6 +105,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 ```
 
 ### <a name="consume-message"></a>Använda meddelande
+
 ```csharp
 var message = await consumer.ReceiveAsync();
 
@@ -109,6 +118,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Händelsen Processor värden API: er
+
 Dessa API: er ger återhämtning i arbetsprocesser som kan bli otillgängliga, genom att distribuera partitioner över tillgängliga arbetare.
 
 ```csharp

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-baserad API till PowerApps och Microsoft-flöde
 
@@ -95,21 +95,25 @@ Att slutföra exporten i **manuell** läge, gör du följande:
 
     Det här exemplet visar nyckelsäkerhet API-definitionen som ingick i OpenAPI-definition.
 
-Nu när du har exporterat API-definitionen kan importera du den för att skapa en anpassad koppling i PowerApps och Microsoft Flow. I följande exempel används PowerApps, men anpassade kopplingar delas mellan de två tjänsterna, så du behöver bara importera definition en gång.
+Nu när du har exporterat API-definitionen kan importera du den för att skapa en anpassad koppling i PowerApps och Microsoft Flow. Anpassade kopplingar delas mellan de två tjänsterna, så du behöver bara importera definition en gång.
 
 Följ dessa steg om du vill importera API-definition i PowerApps och Microsoft Flow:
 
-1. Logga in på [web.powerapps.com](https://web.powerapps.com) eller [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Gå till [powerapps.com](https://web.powerapps.com) eller [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Klicka på den **inställningar** knappen (kugghjulsikonen) längst upp till höger på sidan och välj **anpassade kopplingar**.
+2. Klicka på ikonen växel i det övre högra hörnet och sedan på **anpassade kopplingar**.
 
-    ![anpassade kopplingar](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Växeln-ikonen i tjänsten](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Klicka på **Skapa anpassad koppling**.
+3. Klicka på **Skapa anpassad koppling**, klicka på **importera en definition av OpenAPI**.
 
-4. På den **allmänna** fliken, ange ett namn för din API och sedan ladda upp OpenAPI definition eller klistra in i metadata-URL. Klicka på **överför**, sedan **fortsätta**.
+   ![Skapa anpassad koppling](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Fliken Allmänt](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Ange ett namn för anpassad koppling och sedan navigera till OpenAPI definitionen som du exporterade och klickar på **Fortsätt**.
+
+   ![Överför OpenAPI definition](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. På den **allmänna** kan du granska informationen som kommer från OpenAPI-definition.
 
 5. På den **säkerhet** om du uppmanas att ange information om autentisering, anger du värden som är lämpliga för autentiseringstyp. Klicka på **fortsätta**.
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distribution med Azure Resource Manager
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver vissa vanliga Azure distributionsfel du kan stöta p
 | Konflikt | Du begär en åtgärd som inte tillåts i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på diskar endast när du skapar en virtuell dator eller när den virtuella datorn har frigjorts. | |
 | DeploymentActive | Vänta tills samtidiga distributionen till den här resursgruppen ska slutföras. | |
 | DnsRecordInUse | DNS-postnamn måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
-| ImageNotFound | Kontrollera inställningarna för VM-avbildning. | [Felsöka Linux bilder](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) och [felsöka Windows-avbildningar](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Kontrollera inställningarna för VM-avbildning. |  |
 | InUseSubnetCannotBeDeleted | Det här felet kan uppstå när du försöker uppdatera en resurs, men begäran har bearbetats genom att ta bort och skapa resursen. Se till att ange alla värden som är oförändrade. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för den lämpliga innehavaren. Du kan bara hämta token från den klient som kontot tillhör. | |
 | InvalidContentLink | Du har troligen försökt att länka till en kapslad mall som inte är tillgänglig. Kontrollera den URI som du angav för den kapslade mallen. Om mallen finns i ett lagringskonto, kontrollera att URI: N är tillgänglig. Du kan behöva passera en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |

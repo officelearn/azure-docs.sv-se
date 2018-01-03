@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: b6eeb972e759ece85ded4749320ac2c1654a7c92
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-check-job-progress"></a>Så här: följa jobbförloppet
 > [!div class="op_single_selector"]
@@ -73,6 +73,6 @@ Svar:
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Media Services operations REST API-översikt](media-services-rest-how-to-use.md)

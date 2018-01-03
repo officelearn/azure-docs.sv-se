@@ -8,16 +8,16 @@ manager: timlt
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 808a6c3ea4cb26dbb91752d13e2118d081b10668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en Linux VM genom att koppla OS-disken till en VM som använder Azure portal för återställning
 Om Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utför felsökning på den virtuella hårddisken sig själv. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar att den virtuella datorn kan starta korrekt. Den här artikeln beskriver hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och återskapa den ursprungliga virtuella datorn.

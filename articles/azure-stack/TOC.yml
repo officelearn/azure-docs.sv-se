@@ -27,7 +27,7 @@
       href: azure-stack-tutorial-sql-server.md
     - name: Web Apps-erbjudande
       href: azure-stack-tutorial-app-service.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera överväganden
       href: azure-stack-planning-considerations.md
@@ -43,7 +43,7 @@
   items:
     - name: Distribuera
       items:
-        - name: Krav
+        - name: Förutsättningar
           href: azure-stack-deploy.md
         - name: Telemetri
           href: azure-stack-telemetry.md
@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Ersätt komponent
               href: azure-stack-replace-component.md
+        - name: Säkerhetskopiera Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Aktivera säkerhetskopiering för Azure-Stack från administrationskonsolen
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Aktivera säkerhetskopiering för Azure-stacken med PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Säkerhetskopiera Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Återställa från oåterkallelig dataförlust
+              href: azure-stack-backup-recover-data.md
+            - name: Metodtips för säkerhetskopiering
+              href: azure-stack-backup-best-practices.md
+            - name: Referens för säkerhetskopiering
+              href: azure-stack-backup-reference.md
     - name: 'Säkerhet, efterlevnad och identitet'
       items:
         - name: Säkerhetsöversikt
@@ -195,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Använd verktyget marketplace publishing
               href: azure-stack-marketplace-publisher.md
+            - name: Gästoperativsystem stöds för Azure-Stack
+              href: azure-stack-supported-os.md
             - name: Lägg till en anpassad avbildning av virtuell dator
               href: azure-stack-add-vm-image.md
             - name: Lägg till skalningsuppsättningar för virtuell dator

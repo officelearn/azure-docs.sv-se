@@ -1,24 +1,24 @@
 ---
-title: "Hämta en token med en iOS-App - Azure AD B2C | Microsoft Docs"
+title: "Med hjälp av AppAuth i ett program för iOS - Azure Active Directory B2C"
 description: "Den här artikeln visar hur du skapar en iOS-app som använder AppAuth med Azure Active Directory B2C hanterar användaridentiteter och autentiserar användare."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
+author: PatAltimore
 manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: cc26d4d2209564fc5c994c2bc73f6a572fe87d28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -41,9 +41,7 @@ Därefter måste du skapa en app i B2C-katalogen. App-registreringen ger Azure A
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver detta GUID senare.
 * Konfigurera en **omdirigerings-URI** med ett anpassat schema (till exempel com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Du behöver den här URI senare.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
-## <a name="create-your-policies"></a>Skapa dina principer
+## <a name="create-your-policies"></a>Skapa principer
 I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Den här appen innehåller en identity-upplevelse: en kombinerad inloggning och registrering. Skapa den här principen enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar principen:
 
 * Under **registreringsattribut**, väljer du attributet **visningsnamn**.  Du kan välja samt andra attribut.
@@ -131,8 +129,8 @@ Om du vill konfigurera ditt program för att hantera omdirigering till URI: N me
 * Klicka på pilen till vänster om ' objektet 0' om du vill öppna i trädet.
 * Byt namn på första elementet under objektet 0 till URL-scheman.
 * Klicka på pilen till vänster om URL: en scheman öppna trädet.
-* I kolumnen 'Value' är ett tomt fält till vänster om 'Objektet 0' under URL-scheman.  Ange värdet till programmets unika systemet.  Värdet måste matcha det schema som används i RedirectUrl anges när du skapar OIDAuthorizationRequest-objekt.  I vårt exempel använde vi schemat 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* I kolumnen 'Value' är ett tomt fält till vänster om 'Objektet 0' under URL-scheman.  Ange värdet till programmets unika systemet.  Värdet måste matcha det schema som används i RedirectUrl anges när du skapar OIDAuthorizationRequest-objekt.  I det här exemplet används schemat 'com.onmicrosoft.fabrikamb2c.exampleapp'.
 
-Referera till den [AppAuth guide](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du behöver att snabbt komma igång med en fungerande app kan ta en titt [exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
+Referera till den [AppAuth guide](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du behöver att snabbt komma igång med en fungerande app kan ta en titt [provet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
 
-Vi är alltid öppna för feedback och förslag! Om du har problem med det här avsnittet eller rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För funktionsbegäranden, lägga till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för feedback och förslag! Om du har problem med den här artikeln eller rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För funktionsbegäranden, lägga till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

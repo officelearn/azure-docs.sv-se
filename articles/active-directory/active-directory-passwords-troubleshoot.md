@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 73c8ea046a5bdbeaca1b3f357fc41f0a6938db1e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb04ca30d43a8cf8af2b1dbc00330ba7924bb5b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsökning av lösenordsåterställning via självbetjäning
 
@@ -165,7 +165,18 @@ Om du vill återställa tjänsten på det snabbaste sättet rekommenderar vi i a
 
 ### <a name="confirm-network-connectivity"></a>Kontrollera nätverksanslutningen
 
-De vanligaste felpunkt är brandväggen och eller proxy portar och timeout för inaktivitet är felaktigt konfigurerade. Mer information finns i anslutningen förutsättningar i den [krav för Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artikel.
+De vanligaste felpunkt är brandväggen och eller proxy portar och timeout för inaktivitet är felaktigt konfigurerade. 
+
+För Azure AD Connect version 1.1.443.0 och senare, du behöver utgående HTTPS åtkomst till följande:
+
+   - passwordreset.microsoftonline.com
+   - servicebus.Windows.NET
+
+För mer detaljerad refererar till den uppdaterade listan med [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) uppdateras varje onsdag och införs följande måndag.
+
+Mer information finns i anslutningen förutsättningar i den [krav för Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) artikel.
+
+
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Starta om tjänsten Azure AD Connect Sync
 

@@ -7,6 +7,7 @@ author: miprasad
 manager: kristin.tolle
 editor: miprasad
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
-ms.openlocfilehash: 4a0985cd993c53dcf75d3b29e57598e72908163b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Sentiment analys med djup Learning med Azure Machine Learning
 
@@ -38,7 +39,7 @@ Nedbrytning av data och den ökande mängden av mobila enheter har skapat många
 
 Om du vill hämta värdet från sentiment analys har företag möjlighet att min stora datalager Ostrukturerade sociala för tillämplig insikter. I det här exemplet ska vi utvecklar djup learning-modeller för att utföra sentiment analys av film granskningar med AMLWorkbench
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 
@@ -70,6 +71,6 @@ Ordningen praktiska övningar för att utföra lösningen är följande:
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Sammanfattningsvis den här lösningen ger en introduktion till djupgående utbildning för att utföra analyser av sentiment med Azure Machine Learning-arbetsstationen. Vi operationalisera HDF5 modeller.

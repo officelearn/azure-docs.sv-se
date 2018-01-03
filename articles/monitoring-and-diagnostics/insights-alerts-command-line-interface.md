@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Skapa mått aviseringar i Azure-Monitor för Azure-tjänster - plattformar CLI
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Du kan konfigurera en mått avisering när den utlöser gör du följande:
 
 Du kan konfigurera och få information om mått Varningsregler med
 
-* [Azure Portal](insights-alerts-portal.md)
+* [Azure-portalen](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [kommandoradsgränssnittet (CLI)](insights-alerts-command-line-interface.md)
 * [Azure-Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)

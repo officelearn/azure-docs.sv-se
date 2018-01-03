@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-powerapps"></a>Anropa en funktion från PowerApps
 Den [PowerApps](https://powerapps.microsoft.com) plattformen är avsedd för affärsexperter att skapa appar utan traditionella programkod. Professionella utvecklare kan använda Azure Functions för att utöka funktionerna i PowerApps, samtidigt PowerApps app builders från teknisk information.
@@ -42,37 +42,11 @@ I det här avsnittet lär du dig hur du:
 > * Lägga till kontroller för att anropa funktionen och visa data.
 > * Kör appen för att avgöra om en reparation är kostnadseffektiv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En aktiv [PowerApps konto](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
-+ Excel eftersom Excel ska användas som en datakälla för din app.
++ Excel och [Excel exempelfilen](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) som du vill använda som en datakälla för din app.
 + Slutför guiden [en OpenAPI definition för en funktion för att skapa](functions-openapi-definition.md).
-
-
-## <a name="prepare-sample-data-in-excel"></a>Förbereda exempeldata i Excel
-Du börja på genom att förbereda exempeldata som du använder i appen. Kopiera följande tabell i Excel. 
-
-| Rubrik      | Latitud  | Longtitude  | LastServiceDate | MaxOutput | ServiceRequired | EstimatedEffort | InspectionNotes                            |
-|------------|-----------|-------------|-----------------|-----------|-----------------|-----------------|--------------------------------------------|
-| Turbinen 1  | 47.438401 | -121.383767 | 2/23/2017       | 2850      | Ja             | 6               | Detta är det andra den här månaden.       |
-| Turbinen 4  | 47.433385 | -121.383767 | 5/8/2017        | 5400      | Ja             | 6               |                                            |
-| Turbinen 33 | 47.428229 | -121.404641 | 6/20/2017       | 2800      |                 |                 |                                            |
-| Turbinen 34 | 47.463637 | -121.358824 | 2/19/2017       | 2800      | Ja             | 7               |                                            |
-| Turbinen 46 | 47.471993 | -121.298949 | 3/2/2017        | 1200      |                 |                 |                                            |
-| Turbinen 47 | 47.484059 | -121.311171 | 8/2/2016        | 3350      |                 |                 |                                            |
-| Turbinen 55 | 47.438403 | -121.383767 | 10/2/2016       | 2400      | Ja             | 40               | Vi har vissa delar kommer in för den här. |
-
-1. Markera data i Excel, och på den **Start** klickar du på **Format som tabell**.
-
-    ![Formatera som tabell](media/functions-powerapps-scenario/format-table.png)
-
-1. Välj ett format, och klicka på **OK**.
-
-1. Med tabellen valt på den **Design** ange `Turbines` för **tabellnamn**.
-
-    ![Tabellnamnet](media/functions-powerapps-scenario/table-name.png)
-
-1. Spara Excel-arbetsboken.
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
 
@@ -97,35 +71,35 @@ Anpassade API: et (även kallat en anpassad koppling) finns i PowerApps, men du 
 ## <a name="create-an-app-and-add-data-sources"></a>Skapa en app och Lägg till datakällor
 Nu är du redo att skapa appen i PowerApps och lägga till Excel-data och anpassade API som datakällor för appen.
 
-1. I [web.powerapps.com](https://web.powerapps.com), i den vänstra rutan klickar du på **ny App**.
+1. I [web.powerapps.com](https://web.powerapps.com), Välj **Start från tomt** > ![Phone app ikonen](media/functions-powerapps-scenario/icon-phone-app.png) (phone) > **gör den här appen**.
 
-1. Under **tom app**, klickar du på **telefonlayouten**.
+    ![Starta från tom - telefonapp](media/functions-powerapps-scenario/create-phone-app.png)
 
-    ![Skapa tablet-app](media/functions-powerapps-scenario/create-phone-app.png)
-
-    Appen öppnas i PowerApps Studio för webbplatsen. Följande bild visar de olika delarna av PowerApps Studio. Den här bilden är för färdiga appen; Du ser ett tomt fönster först i den mellersta rutan.
+    Appen öppnas i PowerApps Studio för webbplatsen. Följande bild visar de olika delarna av PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(1) vänstra navigeringsfältet**, som visas i en hierarkisk vy över alla kontroller på varje skärm
+    **(A) vänstra navigeringsfältet**, som visas i en hierarkisk vy över alla kontroller på varje skärm
 
-    **(2) mittenrutan**, som visar skärmen för att du arbetar med
+    **(B) mittenrutan**, som visar skärmen för att du arbetar med
 
-    **(3) till höger**, var du anger alternativ, till exempel layout och datakällor
+    **(C) högra**, var du anger alternativ, till exempel layout och datakällor
 
-    **(4) egenskapen** listrutan väljer du de egenskaper som formler som gäller för
+    **(D) egenskapen** listrutan väljer du de egenskaper som formler som gäller för
 
-    **(5) formelfältet**, där du lägger till formler (som i Excel) som definierar beteendet för app
+    **(E) formelfältet**, där du lägger till formler (som i Excel) som definierar beteendet för app
     
-    **(6) menyfliksområdet**, där du lägger till kontroller och anpassa designelement
+    **F menyfliksområdet**, där du lägger till kontroller och anpassa designelement
 
 1. Lägg till Excel-filen som en datakälla.
 
-    1. I den högra rutan på den **Data** klickar du på **Lägg till datakälla**.
+    De data som du vill importera ser ut som följande:
 
-        ![Lägg till datakälla](media/functions-powerapps-scenario/add-data-source.png)
+    ![Data som ska importeras](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Klicka på **lägga till statiska data i appen**.
+    1. På arbetsytan app väljer **ansluta till data**.
+
+    1. På den **Data** klickar du på **lägga till statiska data i appen**.
 
         ![Lägg till datakälla](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -134,6 +108,7 @@ Nu är du redo att skapa appen i PowerApps och lägga till Excel-data och anpass
     1. Navigera till Excel-filen som du sparade, Välj den **turbiner** tabell och klicka på **Anslut**.
 
         ![Lägg till datakälla](media/functions-powerapps-scenario/choose-table.png)
+
 
 1. Lägg till anpassade API som en datakälla.
 
@@ -156,17 +131,21 @@ Nu när datakällorna som är tillgängliga i appen, du lägger till en skärm i
 
     ![Ändra rubrik och ändra storlek på galleriet](media/functions-powerapps-scenario/gallery-title.png)
 
-1. Med galleriet som valts i den högra rutan på den **Data** fliken, ändrar datakällan från **CustomGallerySample** till **turbiner**.
+1. Med galleriet som valts i den högra rutan, under **egenskaper**, klickar du på **CustomGallerySample**.
 
     ![Datakälla för förändring](media/functions-powerapps-scenario/change-data-source.png)
 
+1. I den **Data** fönstret väljer **turbiner** från listan.
+
+    ![Välj datakälla](media/functions-powerapps-scenario/select-data-source.png)
+
     Datauppsättningen innehåller inte en bild bredvid du ändra layouten så att de bättre passar data. 
 
-1. I den högra rutan, ändra **Layout** till **rubrik, underrubrik och brödtext**.
+1. Fortfarande i den **Data** panelen, ändra **Layout** till **rubrik, underrubrik och brödtext**.
 
     ![Ändra galleriet layout](media/functions-powerapps-scenario/change-layout.png)
 
-1. Ändra fälten som visas i galleriet som det sista steget i den högra rutan.
+1. Som det sista steget i den **Data** panelen, ändra fälten som visas i galleriet.
 
     ![Ändra galleriet fält](media/functions-powerapps-scenario/change-fields.png)
     
@@ -185,6 +164,8 @@ Nu när datakällorna som är tillgängliga i appen, du lägger till en skärm i
 1. Du behöver inte den ursprungliga skärmen i appen. I den vänstra rutan hovra över **Screen1**, klickar du på **...** , och **ta bort**.
 
     ![Ta bort skärmen](media/functions-powerapps-scenario/delete-screen.png)
+
+1. Klicka på **filen**, och ger den namnet appen. Klicka på **spara** klicka sedan på den vänstra menyn **spara** i nederkant högra hörnet.
 
 Det finns en mängd annan formatering som du vanligtvis gör i ett produktionsprogram, men vi ska flytta in viktig del i det här scenariot - anropar funktionen.
 

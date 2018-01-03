@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Översikt över hot Modeling verktyget funktioner
 
@@ -29,11 +29,11 @@ Verktyget Modeling hot kan hjälpa dig med din hot modeling behov. En grundlägg
 
 Om du vill öppna en tom sida, Välj **skapa en modell**.
 
-![Tom sida](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Tom sida](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 För närvarande tillgängliga funktioner i verktyget, Använd hotmodell som skapats av vårt team i den [Kom igång](./azure-security-threat-modeling-tool-getting-started.md) exempel.
 
-![Grundläggande hotmodell](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Grundläggande hotmodell](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navigering
 
@@ -43,7 +43,7 @@ Innan vi går de inbyggda funktionerna nu ska vi se huvudkomponenterna i verktyg
 
 Upplevelsen liknar andra Microsoft-produkter. Nu ska vi se de översta menyalternativen.
 
-![Menyalternativ](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Menyalternativ](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Etikett                               | Information      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ Arbetsytan är det utrymme som du drar och släpper element. Dra och släpp är 
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Släpp stencilen på arbetsytan
 
-![Arbetsytan släpp](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Arbetsytan släpp](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Välj stencilen
 
-![Egenskaper](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Egenskaper](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Stenciler
 
@@ -120,15 +120,15 @@ När du öppnar appen visas den **Välkommen** skärmen.
 
 Hovra över **öppna en modell** avslöjar två alternativ: **öppna från den här datorn** och **öppna från OneDrive**. De första alternativet Öppna den **öppna** skärmen. Det andra alternativet tar dig igenom processen inloggning för OneDrive. När autentiseringen lyckas kan du välja mappar och filer.
 
-![Öppna modellen](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Öppna modellen](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Öppna från datorn eller OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Öppna från datorn eller OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Feedback, förslag och problem
 
 När du väljer **Feedback, förslag och problem**, du gå till MSDN-Forum för SDL-verktyg. Du kan läsa vad andra säger om verktyget, inklusive lösningar och nya idéer.
 
-![Feedback](./media/azure-security-threat-modeling-tool/feedback.png)
+![Feedback](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Designvyn
 
@@ -152,19 +152,19 @@ Du kan ansluta element på två sätt:
 
  Om du vill se vilka egenskaper som kan ändras i stenciler, Välj stencilen och informationen fyller du i enlighet med detta. I följande exempel visas före och efter ett **databasen** stencil dras till diagrammet:
 
-#### <a name="before"></a>Innan du
+#### <a name="before"></a>Före
 
-![Innan du](./media/azure-security-threat-modeling-tool/properties1.png)
+![Före](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Efter
 
-![Efter](./media/azure-security-threat-modeling-tool/properties2.png)
+![Efter](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Meddelanden
 
 Om du skapar en hotmodell och glömt att ansluta dataflöden till element, får du ett meddelande. Du kan ignorera meddelandet eller du kan följa anvisningarna för att åtgärda problemet. 
 
-![Meddelanden](./media/azure-security-threat-modeling-tool/messages.png)
+![Meddelanden](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Anteckningar
 
@@ -174,7 +174,7 @@ Om du vill lägga till anteckningar i diagrammet växla från den **meddelanden*
 
 När du skapar ditt diagram, väljer du den **Analysis** symbol (förstoringsglas) i verktygsfältet genvägar växla till den **Analysis** vyn.
 
-![Analysen](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analysen](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Val av genererade hot
 
@@ -182,27 +182,27 @@ När du väljer ett hot kan använda du tre olika funktioner:
 
 | Funktion                               | Information      |
 | --------------------------------------- | ------------ |
-| **Läs indikator** | <p>Hotet har markerats som Läs-, som hjälper dig att hålla reda på de objekt som du granskat.</p><p>![Läs oläst indikator](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Interaktion fokus** | <p>Interaktion i som hör till ett hot i diagrammet markeras.</p><p>![Interaktion fokus](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Egenskaper för hot** | <p>Mer information om hot visas i den **hot egenskaper** fönster.</p><p>![Egenskaper för hot](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Läs indikator** | <p>Hotet har markerats som Läs-, som hjälper dig att hålla reda på de objekt som du granskat.</p><p>![Läs oläst indikator](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Interaktion fokus** | <p>Interaktion i som hör till ett hot i diagrammet markeras.</p><p>![Interaktion fokus](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Egenskaper för hot** | <p>Mer information om hot visas i den **hot egenskaper** fönster.</p><p>![Egenskaper för hot](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Ändra prioritet
 
 Du kan ändra prioritetsnivån för varje genererade hot. Olika färger gör det enkelt att identifiera hög, medel- och låg prioritet hot.
 
-![Ändra prioritet](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Ändra prioritet](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Redigerbart fält för hot egenskaper
 
 Du kan ändra den information som genereras av verktyget som visas i föregående bild. Du kan också lägga till information till vissa fält, till exempel justering. De här fälten skapas av mallen. Om du behöver mer information för varje hot kan göra du ändringar.
 
-![Egenskaper för hot](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Egenskaper för hot](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Rapporter
 
 När du har ändrat prioriteter och uppdaterar statusen för varje genererade hot, du kan spara filen och/eller skriva ut rapporten. Gå till **rapporten** > **skapa fullständig**. Namn på rapporten och du bör se något liknande följande bild:
 
-![Rapport](./media/azure-security-threat-modeling-tool/report.png)
+![Rapport](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

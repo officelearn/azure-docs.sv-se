@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Säkerhetskopieringsvalvet uppgraderas till Recovery Services-valvet
 Den här artikeln innehåller en översikt över vilka Recovery Services-valvet tillhandahåller, vanliga frågor och svar om hur du uppgraderar en befintlig säkerhetskopia valvet Recovery Services-valvet och åtgärder efter uppgradering. Recovery Services-valvet motsvarar Azure Resource Manager ett säkerhetskopieringsvalv som innehåller dina säkerhetskopierade data. Data är om vanligtvis kopior av data eller konfigurationsinformation för virtuella datorer (VM), arbetsbelastningar, servrar eller arbetsstationer, lokalt eller i Azure.
@@ -71,7 +71,7 @@ När du uppgraderar till Recovery Services-valvet Konfigurera rapporter för Azu
 Nej. Säkerhetskopiorna pågående fortsätta utan avbrott under och efter uppgraderingen.
 
 **Vad betyder det här uppgradering för Mina befintliga verktygsuppsättning?**</br>
-Du måste uppdatera ditt befintliga automation eller verktygsuppsättning till Resource Manager-distributionsmodellen så att den fortsätter att fungera efter uppgraderingen. Finns i PowerShell-cmdlets referenser för den [Service Manager-distributionsmodellen](backup-client-automation-classic.md) och [Resource Manager-distributionsmodellen](backup-client-automation.md).
+Du måste uppdatera ditt befintliga automation eller verktygsuppsättning till Resource Manager-distributionsmodellen så att den fortsätter att fungera efter uppgraderingen. Finns i PowerShell-cmdlets referenser för den [Resource Manager-distributionsmodellen](backup-client-automation.md).
 
 **Kan jag återställa efter uppgraderingen?**</br>
 Nej. Återställning stöds inte när resurserna har uppgraderats.

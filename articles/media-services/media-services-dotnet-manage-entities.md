@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera resurser och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Det här avsnittet visar hur du hanterar Azure Media Services entiteter med .NET
 >[!NOTE]
 > Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Till exempel på 1 April 2017 tas alla jobb poster i ditt konto som är äldre än den 31 December 2016 automatiskt bort. Du kan använda koden som beskrivs i det här avsnittet om du behöver Arkivera jobb/aktivitetsinformationen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 

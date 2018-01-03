@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncepten
 Det här avsnittet ger en översikt av de viktigaste Media Services-begrepp.
 
-## <a id="assets"></a>Tillgångar och lagring
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Tillgångar och lagring
 ### <a name="assets"></a>Tillgångar
 En [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När digitala filer överförs till en tillgång, kan de användas i Media Services encoding och direktöverföring av arbetsflöden.
 
@@ -71,7 +71,7 @@ En blob-behållare grupperar en uppsättning blobbar. BLOB-behållare används s
 > 
 > 
 
-### <a id="locators"></a>Lokaliserare
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Lokaliserare
 [Lokaliserare](https://docs.microsoft.com/rest/api/media/operations/locator)s ger en startpunkt för att få åtkomst till filer i en tillgång. En åtkomstprincip används för att definiera behörigheter och varaktighet för att en klient har åtkomst till en given tillgång. Positionerare kan ha en många-till-en relation med en åtkomstprincip så att olika positionerare kan ange olika start- och anslutningstyper för olika klienter när alla använder samma behörighet och varaktigheten; på grund av en delad åtkomst för begränsning av Azure storage-tjänster, kan inte du ha fler än fem unika lokaliserare som är associerade med en viss resurs i taget. 
 
 Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) eller progressivt hämta media och SAS-URL-positionerare som används för att överföra eller hämta media filer to\from Azure storage. 
@@ -83,7 +83,7 @@ Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare
 All åtkomst till Azure Storage görs genom ett lagringskonto. Ett Media Service-konto kan associera med en eller flera lagringskonton. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras sammanlagda storlek är under 500TB per lagringskonto.  Media Services tillhandahåller SDK nivån verktygsuppsättning så att du kan hantera flera lagringskonton och belastningsutjämna distribution av dina tillgångar vid överföring till dessa konton baserat på mått eller en slumpmässig distributionsplats. Mer information finns i Arbeta med [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Jobb och uppgifter
-En [jobbet](https://docs.microsoft.com/en-us/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ljud/video presentationer. Om du bearbetar flera videor, skapa ett jobb varje video ska kodas.
+En [jobbet](https://docs.microsoft.com/rest/api/media/operations/job) används vanligtvis för att bearbeta (till exempel index eller koda) ljud/video presentationer. Om du bearbetar flera videor, skapa ett jobb varje video ska kodas.
 
 Ett jobb innehåller metadata om bearbetning ska utföras. Varje jobb innehåller en eller flera [aktivitet](https://docs.microsoft.com/rest/api/media/operations/task)s som anger en atomisk Bearbetningsuppgift tillgångarna indata, utdata tillgångar, en medieprocessor och dess associerade inställningarna. Uppgifter i ett jobb kan sammankopplas, där utdatatillgången av en aktivitet anges som indata tillgången till nästa aktivitet. På så sätt kan ett jobb innehåller alla bearbetning behövs för en media.
 
@@ -156,7 +156,7 @@ Mer information finns i följande artiklar:
 - [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Leverera
-### <a id="dynamic_packaging"></a>Dynamisk paketering
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamisk paketering
 När du arbetar med Media Services, rekommenderas att koda mezzanine filerna till en MP4-uppsättningen med anpassad bithastighet och sedan konvertera uppsättningen till önskade format med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Slutpunkt för direktuppspelning

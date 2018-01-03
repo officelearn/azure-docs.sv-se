@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 80b693420768d574b2371211298562ba35e7ed97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -165,6 +165,73 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
 2. Kontrollera att distributionen har slutförts. Bläddra efter **resursgrupper** &gt;, klicka på den **system.\< plats\>.sqladapter** resurs gruppen och kontrollera att alla fyra distributioner lyckades.
 
       ![Kontrollera distributionen av SQL-RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Uppdatera SQL Resource Provider nätverkskort (med flera noder bara versioner 1710 och senare)
+När Azure Stack build uppdateras släpps ett nytt SQL Resource Provider-kort. När befintliga nätverkskortet kan fortsätta att fungera, rekommenderas du att uppdatera till den senaste versionen så snart som möjligt efter den Azure-stacken har uppdaterats. Uppdateringsprocessen påminner om installationen som beskrivs ovan. En ny virtuell dator skapas med den senaste RP-koden och inställningarna ska migreras till den här nya instansen inklusive databas och värd-serverinformation, samt nödvändiga DNS-posten.
+
+Använda skriptet UpdateSQLProvider.ps1 med samma argument som ovan. Du måste ange det här certifikatet samt.
+
+> [!NOTE]
+> Uppdatering stöds bara på datorer med flera noder.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parametrar
+Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon parameter valideringen misslyckas, uppmanas du att ange de nödvändiga.
+
+| Parameternamn | Beskrivning | Kommentar eller standardvärde |
+| --- | --- | --- |
+| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _krävs_ |
+| **AzCredential** | Ange autentiseringsuppgifter för Azure-administratörskonto Stack-tjänsten. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure-stacken). | _krävs_ |
+| **VMLocalCredential** | Definiera autentiseringsuppgifter för det lokala administratörskontot för SQL-resursprovidern VM. | _krävs_ |
+| **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på slutpunkten Privleged. |  _krävs_ |
+| **DependencyFilesLocalPath** | Certifikatets PFX-fil måste placeras i den här katalogen samt. | _valfria_ (_obligatoriska_ för flera noder) |
+| **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat | _krävs_ |
+| **MaxRetryCount** | Ange hur många gånger som du vill försöka utföra varje åtgärd om det finns ett fel.| 2 |
+| **RetryDuration** | Definiera tidsgräns mellan försök i sekunder. | 120 |
+| **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan) | Nej |
+| **DebugMode** | Förhindrar automatisk rensning vid fel | Nej |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Ta bort SQL Resource Provider-kort

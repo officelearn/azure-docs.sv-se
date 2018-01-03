@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-meddelanden för enterprise-integrering med logic apps
 
@@ -45,7 +45,7 @@ När du [skapa ett konto för integrering](../logic-apps/logic-apps-enterprise-i
     > [!TIP]
     > Om du inte ser **fler tjänster**, du kan behöva expandera menyn först. Längst upp i den komprimerade menyn, Välj **menyn Visa**.
 
-    ![Fler tjänster, filtret på ”integration”, Välj ”Integrationskonton”](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Fler tjänster, filtret på ”integration”, Välj ”Integrationskonton”](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. I den **Integrationskonton** bladet som öppnas väljer du det integration konto där du vill skapa avtal.
 Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-apps-enterprise-integration-accounts.md "om integrationskonton").  
@@ -54,15 +54,15 @@ Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-
 
 4. Välj den **avtal** panelen. Om du inte har ett avtal sida vid sida, lägga till panelen först.
 
-    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. I bladet avtal som öppnas väljer du **Lägg till**.
 
-    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Under **Lägg till**, ange en **namn** för ditt avtal. För **avtalstyp**väljer **AS2**. Välj den **värden Partner**, **Värdidentiteten**, **gäst Partner**, och **gäst identitet** för ditt avtal.
 
-    ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Ange avtalsuppgifter](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Egenskap | Beskrivning |
     | --- | --- |
@@ -82,7 +82,7 @@ Nu när du har angett egenskaperna avtal, kan du konfigurera hur detta avtal ide
 1.  Under **Lägg till**väljer **tar emot inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
 
-    ![Konfigurera ”ta emot inställningar”](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Konfigurera ”ta emot inställningar”](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Alternativt kan du kan åsidosätta egenskaper för inkommande meddelanden genom att välja **åsidosätta meddelandeegenskaper**.
 
@@ -105,15 +105,15 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 | Egenskap | Beskrivning |
 | --- | --- |
 | Åsidosätt meddelandeegenskaper |Anger egenskaper i mottagna meddelanden som kan åsidosättas. |
-| Meddelandet ska vara signerat |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
-| Meddelandet ska vara krypterat |Kräver meddelanden som ska krypteras. Icke-krypterade meddelanden avvisas. Konfigurera värd partner privata certifikat för att dekryptera meddelanden.  |
-| Meddelandet ska vara komprimerat |Kräver att meddelanden ska komprimeras. Icke-komprimerade meddelanden avvisas. |
+| Meddelandet måste vara signerade |Kräver meddelanden som ska signeras digitalt. Konfigurera gäst partner offentliga certifikat för signaturverifiering.  |
+| Meddelandet ska krypteras |Kräver meddelanden som ska krypteras. Icke-krypterade meddelanden avvisas. Konfigurera värd partner privata certifikat för att dekryptera meddelanden.  |
+| Meddelandet som ska komprimeras |Kräver att meddelanden ska komprimeras. Icke-komprimerade meddelanden avvisas. |
 | MDN Text |I standard disposition meddelanden (MDN) som ska skickas till den som skickade meddelandet. |
 | Skicka MDN |Kräver MDNs skickas. |
 | Skicka signerat MDN |Kräver MDNs signeras. |
 | MIC algoritm |Välj algoritmen som ska användas för signering av meddelanden. |
 | Skicka asynkront MDN | Kräver att meddelanden ska skickas asynkront. |
-| URL: EN | Ange URL: en var att skicka MDNs. |
+| Webbadress | Ange URL: en var att skicka MDNs. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurera hur ditt avtal skickar meddelanden
 
@@ -122,7 +122,7 @@ Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddeland
 1.  Under **Lägg till**väljer **skicka inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med den partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellen i det här avsnittet.
 
-    ![Ange egenskaperna ”skicka inställningar”](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Ange egenskaperna ”skicka inställningar”](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Om du vill skicka meddelanden till din partner, Välj **aktivera Meddelandesignering**. För att signera meddelanden, i den **MIC algoritmen** väljer den *partner privata värdcertifikatet MIC algoritmen*. I den **certifikat** väljer du en befintlig [värden partner privat certifikat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -160,9 +160,9 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | Begäran MDN |Kräver en MDN för alla meddelanden som skickas från det här avtalet. |
 | Begäran signerade MDN |Kräver att alla MDNs som skickas till det här avtalet signeras. |
 | Asynkron MDN för begäran |Kräver asynkron MDNs skickas till det här avtalet. |
-| URL: EN |Ange URL: en var att skicka MDNs. |
+| Webbadress |Ange URL: en var att skicka MDNs. |
 | Aktivera NRR |Kräver oavvislighet mottogs (NRR) attributet kommunikation som ger bevis som data togs emot som åtgärdas. |
-| SHA2 algoritmen format |Välj algoritm format i MIC eller logga in utgående huvuden AS2-meddelande eller MDN |
+| SHA2-algoritmformat |Välj algoritm format i MIC eller logga in utgående huvuden AS2-meddelande eller MDN |
 
 ## <a name="find-your-created-agreement"></a>Hitta din skapade avtal
 
@@ -172,7 +172,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 
 2.  Du kan också visa dina avtal i ditt Kontoöversikt för integrering. Välj på ditt kontoblad integration **översikt**och välj den **avtal** panelen. 
 
-    ![Välj ”avtal” panelen om du vill visa alla avtal](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Välj ”avtal” panelen om du vill visa alla avtal](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Visa swagger
 Finns det [swagger information](/connectors/as2/). 

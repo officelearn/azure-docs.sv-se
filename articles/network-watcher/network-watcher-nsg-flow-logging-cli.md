@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 96ffd6e64c73e756e8f646118f2989ba2869a5c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 51683e937b7985bb61671645f3e2e1be6d786201
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera Network Security Group flöda loggar med Azure CLI
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Nätverkssäkerhetsgruppen flöde loggarna är en funktion i Nätverksbevakaren där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Loggarna flödet skrivs i json-format och visa utgående och inkommande flöden på grundval av per regel, NIC flödet gäller för 5-tuppel information om flödet (källan/målet IP-källan/målet Port Protocol), och om trafiken tillåts eller nekas.
 
@@ -66,7 +66,7 @@ Lagringsplatsen för en flödet logg definieras på Skapa. Ett enkelt verktyg f�
 Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 Information om strukturen i loggen finns [Network Security Group flöda logg: översikt](network-watcher-nsg-flow-logging-overview.md)

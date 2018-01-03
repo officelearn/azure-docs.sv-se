@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: f1355cd861722848211277250155c434da1e774d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Kontrollera om trafik tillåts eller nekas till eller från en virtuell dator med IP-flöda Kontrollera en komponent i Azure Nätverksbevakaren
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
+> - [Azure-portalen](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
 ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Återställ filer till en Windows-server eller Windows-klientdator med hjälp av Resource Manager-distributionsmodellen
 
@@ -123,7 +123,7 @@ De termer som används i dessa steg omfattar:
 
 7. På den **Välj återställningsläge** väljer **enskilda filer och mappar** och på **nästa**.
 
-    ![Söka](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Search](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. På den **Välj volym och datum** fönstret väljer du den volym som innehåller filer och/eller mappar som du vill återställa.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 466b146a0c39c1151e52e3ea936ae50705f29c64
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1cdef3454a326fbdbdef5ab51ac93cc8a558f34d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Konfigurera Network Security Group flöda loggar med Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -64,7 +64,7 @@ Lagringsplatsen för en flödet logg definieras på Skapa. Ett enkelt verktyg f�
 Om ett storage-konto anges sparas paket avbilda filer till ett lagringskonto på följande plats:
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 Information om strukturen i loggen finns [Network Security Group flöda logg: översikt](network-watcher-nsg-flow-logging-overview.md)

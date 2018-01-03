@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Biomedicinska entitet bokföring med hjälp av mallen för Team Data vetenskap processen (TDSP)
 
@@ -89,7 +90,7 @@ Följande är en länk till den offentliga GitHub-databasen i verkligt scenario 
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * En Azure [prenumeration](https://azure.microsoft.com/free/)
 * Azure Machine Learning-arbetsstationen. Se [installationsguiden](quickstart-installation.md). För närvarande kan i Azure Machine Learning-arbetsstationen installeras på endast följande operativsystem: 
@@ -257,7 +258,7 @@ Se [distribution](https://github.com/Azure/MachineLearningSamples-BiomedicalEnti
 Distribuerade vi en webbtjänst på ett kluster i den [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). Operationalization miljö bestämmelserna Docker och Kubernetes i klustret för att hantera distributionen av webbtjänsten. Du hittar mer information om hur operationalization [här](model-management-service-deploy.md ).
 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Vi har gått över information om hur du tränar en inbäddning word-modell med Word2Vec algoritm på Spark och använda den extraherade inbäddningar som funktioner för att träna ett djupa neurala nätverk för extrahering av entiteten. Vi har tillämpats utbildning-pipeline på biomedicinska domänen. Pipeline är generisk som ska användas för att identifiera anpassade entitetstyper i andra domäner. Du behöver tillräckligt med data och du kan enkelt anpassa arbetsflödet som presenteras här för en annan domän.
 

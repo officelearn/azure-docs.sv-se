@@ -17,10 +17,10 @@ ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv
 
@@ -41,7 +41,7 @@ Såvida inte den första säkerhetskopieringen kommer att börja snart, rekommen
 Så här kör du det första säkerhetskopieringsjobbet:
 
 1. På instrumentpanelen för valvet klickar du på numret under **Säkerhetskopieringsobjekt**, eller på panelen **Säkerhetskopieringsobjekt**. <br/>
-  ![Inställningsikonen](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Ikonen Inställningar](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   Bladet **Säkerhetskopieringsobjekt** öppnas.
 

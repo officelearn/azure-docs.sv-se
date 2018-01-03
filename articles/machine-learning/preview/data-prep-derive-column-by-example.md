@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Härledd kolumn av exempel omvandling
 
@@ -148,7 +148,7 @@ Antal exempel som krävs för det här fallet: 1
 |Anna Marie|W|Karlsson|Anna Marie· W· Karlsson|
 |Rico||Ropp|Rico·· Ropp|
 |Lauren kan||Fullmer|Lauren May·· Fullmer|
-|Pressrester|T|Maine|Marc· T· Maine|
+|Pressrester|t|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
 |John Paul||Smith|John Paul·· Smith|
 |Låt|W|Staller|Song· W· Staller|
@@ -184,15 +184,15 @@ Antal exempel som krävs för det här fallet: 3
 
 |Administrativa kön|Resultat|
 |:-----|:-----:|
-|man|**0**|
-|hona|**1**|
-|Okänd|**2**|
-|hona|1|
-|hona|1|
-|man|0|
-|Okänd|2|
-|man|0|
-|hona|1|
+|Man|**0**|
+|Kvinna|**1**|
+|Okänt|**2**|
+|Kvinna|1|
+|Kvinna|1|
+|Man|0|
+|Okänt|2|
+|Man|0|
+|Kvinna|1|
 
 ## <a name="examples-of-number-transformations-by-example"></a>Exempel på antalet omvandlingar efter exempel
 
@@ -286,34 +286,34 @@ Antal exempel som krävs för det här fallet: 1
 
 Dessa datumdelar extraherades med olika av exempel omformningar på samma datauppsättning. Fetstil strängar representerar exemplen som gavs i sina respektive omvandling.
 
-|Datum och tid|veckodag|Date|Månad|År|Timme|Minut|Sekund|
+|DateTime|veckodag|Date|Månad|År|Timme|Minut|Andra|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**Fre**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Ons|17|Jan|1990|13|32|01|
-|14-Feb-2034 05:36:07|TIS|14|Feb|2034|5|36|07|
+|14-Feb-2034 05:36:07|Tis|14|Feb|2034|5|36|07|
 |14-Mar-2002 13:16:16|Tor|14|Mar|2002|13|16|16|
-|21-Jan-1985 05:44:43|Måndag|21|Jan|1985|5|44|**43**|
-|16-augusti-1985 01:11:56|Fre|16|Augusti|1985|1|11|56|
-|20-Dec-2033 18:36:29|TIS|20|Dec|2033|18|36|29|
-|16-Jul-1984 10:21:59|Måndag|16|Jul|1984|10|21|59|
+|21-Jan-1985 05:44:43|Mån|21|Jan|1985|5|44|**43**|
+|16-augusti-1985 01:11:56|Fre|16|Aug|1985|1|11|56|
+|20-Dec-2033 18:36:29|Tis|20|Dec|2033|18|36|29|
+|16-Jul-1984 10:21:59|Mån|16|Jul|1984|10|21|59|
 |13 januari 2038 10:59:36|Ons|13|Jan|2038|10|59|36|
-|14-augusti-1982 15:13:54|SAT|14|Augusti|1982|15|13|54|
+|14-augusti-1982 15:13:54|Lör|14|Aug|1982|15|13|54|
 |22-Nov-2030 08:18:08|Fre|22|Nov|2030|8|18|08|
-|21-dessa – 1997 08:42:58|TIS|21|Dessa|1997|8|42|58|
-|28-Nov-2006 14:19:15|TIS|28|Nov|2006|14|19|15|
-|29-april-2031 04:59:45|TIS|29|April|2031|4|59|45|
+|21-dessa – 1997 08:42:58|Tis|21|Okt|1997|8|42|58|
+|28-Nov-2006 14:19:15|Tis|28|Nov|2006|14|19|15|
+|29-april-2031 04:59:45|Tis|29|Apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|Tor|29|Jan|2032|2|38|36|
-|11-maj-2028 15:31:52|Tor|11|Kan|2028|15|31|52|
+|11-maj-2028 15:31:52|Tor|11|Maj|2028|15|31|52|
 |15-Jul-1977 12:45:39|Fre|15|Jul|1977|12|45|39|
-|27-Jan-2029 05:55:41|SAT|27|Jan|2029|5|55|41|
-|2024-03-Mar 10:17:49|Sun|3|Mar|2024|10|17|49|
-|2010-14-april 00:23:13|Ons|14|April|2010|0|23|13|
+|27-Jan-2029 05:55:41|Lör|27|Jan|2029|5|55|41|
+|2024-03-Mar 10:17:49|Sön|3|Mar|2024|10|17|49|
+|2010-14-april 00:23:13|Ons|14|Apr|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formatering av datum
 
 Dessa datum formattings gjordes med olika av exempel omformningar på samma datauppsättning. Fetstil strängar representerar exemplen som gavs i sina respektive omvandling.
 
-|Datum och tid|Format1|Format2|Format3|Format4|Format5|
+|DateTime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Fredag den 31 januari 2031**|**01312031 5:54**|**31/1/2031 5:54 AM**|**F1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Onsdag 17 januari 1990|01171990 13:32|17/1/1990 1:32 PM|F1 1990|
@@ -341,7 +341,7 @@ Dessa datum formattings gjordes med olika av exempel omformningar på samma data
 
 Dessa datum och tid till period mappningar som gjordes med olika av exempel omformningar på samma datauppsättning. Fetstil strängar representerar exemplen som gavs i sina respektive omvandling.
 
-|Datum och tid|Period(seconds)|Period(minutes)|Tid (två timmar)|Tid (30 minuter)|
+|DateTime|Period(seconds)|Period(minutes)|Tid (två timmar)|Tid (30 minuter)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**0-20**|**45-60**|**5 AM - 7 AM**|**5:30-6:00**|
 |17-Jan-1990 13:32:01|**0-20**|30-45|1 PM - 15: 00|13:30-14:00|
@@ -368,16 +368,16 @@ Dessa datum och tid till period mappningar som gjordes med olika av exempel omfo
 
 |tripduration|StartTime|Starta station-id|Starta station latitud|Starta station longitud|UserType|Kolumn|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Prenumeranten|**En prenumerant plockats en cykel från station 107, lat/lång (42.363,-71.088) 08 Jan 2016 cirka 4 PM. Varaktigheten för resa var 61 minuter**|
-|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Kunden|En kund plockats en cykel från station 74, lat/lång (42.373,-71.119) 17 Jan 2016 cirka 9: 00. Varaktigheten för resa var 61 minuter|
-|62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Prenumeranten|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119) 25 Jan 2016 cirka 8: 00. Varaktigheten för resa var 62 minuter|
-|63|2016-01-08 10:10:29|107|42.3625|-71.08822|Prenumeranten|En prenumerant plockats en cykel från station 107, lat/lång (42.363,-71.088) 08 Jan 2016 kl cirka 10. Varaktigheten för resa var 63 minuter|
-|64|2016-01-15 19:42:08|68|42.36507|-71.1031|Prenumeranten|En prenumerant plockats en cykel från station 68, lat/lång (42.365,-71.103), 15 Jan 2016 klockan cirka 7. Varaktigheten för resa var 64 minuter|
-|64|2016-01-22 18:16:13|115|42.387995|-71.119084|Prenumeranten|En prenumerant plockats en cykel från station 115, lat/lång (42.388,-71.119) på 22 januari 2016 cirka 18: 00. Varaktigheten för resa var 64 minuter|
-|68|2016-01-18 09:51:52|178|42.359573201090441|-71.101294755935669|Prenumeranten|En prenumerant plockats en cykel från station 178, lat/lång (42.360,-71.101) 18 Jan 2016 cirka 9: 00. Varaktigheten för resa var 68 minuter|
-|69|2016-01-14 08:57:55|176|42.386748020450561|-71.119018793106079|Prenumeranten|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119), 14 Jan 2016 cirka 8: 00. Varaktigheten för resa var 69 minuter|
-|69|2016-01-13 22:12:55|141|42.363560158429884|-71.08216792345047|Prenumeranten|En prenumerant plockats en cykel från station 141, lat/lång (42.364,-71.082) 13 januari 2016 klockan cirka 10. Varaktigheten för resa var 69 minuter|
-|69|2016-01-15 08:13:09|176|42.386748020450561|-71.119018793106079|Prenumeranten|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119), 15 Jan 2016 cirka 8: 00. Varaktigheten för resa var 69 minuter|
+|61|2016-01-08 16:09:32|107|42.3625|-71.08822|Prenumerant|**En prenumerant plockats en cykel från station 107, lat/lång (42.363,-71.088) 08 Jan 2016 cirka 4 PM. Varaktigheten för resa var 61 minuter**|
+|61|2016-01-17 09:28:10|74|42.373268|-71.118579|Kund|En kund plockats en cykel från station 74, lat/lång (42.373,-71.119) 17 Jan 2016 cirka 9: 00. Varaktigheten för resa var 61 minuter|
+|62|2016-01-25 08:10:26|176|42.386748020450561|-71.119018793106079|Prenumerant|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119) 25 Jan 2016 cirka 8: 00. Varaktigheten för resa var 62 minuter|
+|63|2016-01-08 10:10:29|107|42.3625|-71.08822|Prenumerant|En prenumerant plockats en cykel från station 107, lat/lång (42.363,-71.088) 08 Jan 2016 kl cirka 10. Varaktigheten för resa var 63 minuter|
+|64|2016-01-15 19:42:08|68|42.36507|-71.1031|Prenumerant|En prenumerant plockats en cykel från station 68, lat/lång (42.365,-71.103), 15 Jan 2016 klockan cirka 7. Varaktigheten för resa var 64 minuter|
+|64|2016-01-22 18:16:13|115|42.387995|-71.119084|Prenumerant|En prenumerant plockats en cykel från station 115, lat/lång (42.388,-71.119) på 22 januari 2016 cirka 18: 00. Varaktigheten för resa var 64 minuter|
+|68|2016-01-18 09:51:52|178|42.359573201090441|-71.101294755935669|Prenumerant|En prenumerant plockats en cykel från station 178, lat/lång (42.360,-71.101) 18 Jan 2016 cirka 9: 00. Varaktigheten för resa var 68 minuter|
+|69|2016-01-14 08:57:55|176|42.386748020450561|-71.119018793106079|Prenumerant|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119), 14 Jan 2016 cirka 8: 00. Varaktigheten för resa var 69 minuter|
+|69|2016-01-13 22:12:55|141|42.363560158429884|-71.08216792345047|Prenumerant|En prenumerant plockats en cykel från station 141, lat/lång (42.364,-71.082) 13 januari 2016 klockan cirka 10. Varaktigheten för resa var 69 minuter|
+|69|2016-01-15 08:13:09|176|42.386748020450561|-71.119018793106079|Prenumerant|En prenumerant plockats en cykel från station 176, lat/lång (42.387,-71.119), 15 Jan 2016 cirka 8: 00. Varaktigheten för resa var 69 minuter|
 
 
 ## <a name="technical-notes"></a>Teknisk information

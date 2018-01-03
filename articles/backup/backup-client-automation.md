@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
@@ -105,7 +105,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten är installerad](./media/backup-client-automation/installed-agent-listing.png)
+![Agenten har installerats](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:

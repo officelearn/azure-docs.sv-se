@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service virtuellt nätverk integrering och visar hur du ställer in den med appar i [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Om du inte känner till virtuella Azure-nätverk (Vnet) är en funktion som gör att du kan placera många av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med hjälp av en mängd olika tekniker för VPN. Mer information om virtuella Azure-nätverk som startar med den här informationen: [Azure översikt över virtuella nätverk][VNETOverview]. 
@@ -257,6 +257,10 @@ Nu ditt VNet finns VM kan nå datorn lokalt men appen kan sedan orsaken är för
 * din nätverkssäkerhetsgrupper blockerar åtkomst för din plats till plats IP-intervall
 * din lokala brandväggar blockerar trafik från din plats till plats IP-intervall
 * du har definierat Route(UDR) en användare på ditt VNet som förhindrar din plats till plats baserat trafik från att nå det lokala nätverket
+
+## <a name="powershell-automation"></a>PowerShell automation
+
+Du kan integrera Apptjänst med ett virtuellt Azure-nätverk med PowerShell. En klar och kör skriptet finns [ansluta en app i Azure App Service till ett Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Hybridanslutningar och Apptjänstmiljöer
 Det finns tre funktioner som ger åtkomst till virtuella nätverk finns resurser. De är:

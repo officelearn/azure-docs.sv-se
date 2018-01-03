@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Förbereder för att säkerhetskopiera arbetsbelastningar till Azure med DPM
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Företagets fördelar med hjälp av Azure Backup för att säkerhetskopiera DPM-
 * Du kan använda Azure som ett alternativ till långsiktig distribution till band för lokal DPM-distribution.
 * För DPM-distributioner i Azure kan Azure Backup du omfördela lagring från Azure-disken så att du kan skala upp genom att lagra äldre data i Recovery Services-valvet och nya data på disken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Förbered Azure Backup för att säkerhetskopiera DPM-data på följande sätt:
 
 1. **Skapa ett Recovery Services-valv** – skapa ett valv i Azure-portalen.
@@ -110,7 +110,7 @@ Valvautentiseringen används endast under registreringsarbetsflödet. Det är an
 
 Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure Backup-tjänsten inte känner till den privata nyckeln för certifikatet och den privata nyckeln beständig inte i portalen eller tjänsten. Använd följande steg för att hämta valvautentiseringsfilen till en lokal dator.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna Recovery Services-valvet som du vill registrera DPM-datorn.
 3. Inställningsbladet öppnas som standard. Om den är stängd klickar du på **inställningar** på valvet instrumentpanelen för att öppna inställningsbladet. I inställningar-bladet klickar du på **egenskaper**.
 

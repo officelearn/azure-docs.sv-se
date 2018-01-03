@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Hantera säkerhetskopiering av virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Många hanteringsuppgifter med en säkerhetskopiering av virtuella datorer som b
 ![Fullständig vy med skjutreglaget](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Öppna ett Recovery Services-valv i instrumentpanelen:
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)

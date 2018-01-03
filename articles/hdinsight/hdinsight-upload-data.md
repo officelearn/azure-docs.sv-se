@@ -15,19 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Hadoop-jobb i HDInsight
 
 Azure HDInsight ger en komplett Hadoop distributed file system (HDFS) över Azure Storage och Azure Data Lake Store. Azure Storage och Data lake Store är utformade som ett HDFS-tillägg att förse kunder en sömlös upplevelse. De ger en fullständig uppsättning komponenter i Hadoop-ekosystemet att arbeta direkt med de data som den hanterar. Azure Storage och Data Lake Store är distinkt filsystem som är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med att använda Azure Storage finns [använda Azure Storage med HDInsight] [ hdinsight-storage] och [Använd Data Lake Store med HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Observera följande krav innan du börjar:
 

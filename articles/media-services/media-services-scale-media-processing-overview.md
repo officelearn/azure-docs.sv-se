@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Skalning bearbetning av Media: översikt
 Den här sidan ger en översikt över hur och varför ska man skala media bearbetning. 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från en säkerhetskopia av virtuell Azure-dator
 
@@ -70,40 +70,7 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
    För Linux kräver skriptet 'Öppna iscsi' och 'lshw' komponenter för att ansluta till återställningspunkten. Om komponenterna som inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge ditt medgivande att installera nödvändiga komponenter.  
          
-   Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Finns det [kompatibel OS tabell](backup-azure-restore-files-from-vm.md#compatible-os) för kompatibla operativsystem. Om den skyddade virtuella Azure-datorn använder lagringsutrymmen för Windows (för Windows Azure VM: ar) eller LVM/RAID Arrays(for Linux VMs), kan du inte köra den körbara filen eller skriptet på samma virtuella dator. I stället köra den körbara filen eller skriptet på en dator med ett kompatibelt operativsystem.
-
-### <a name="compatible-os"></a>Kompatibel OS
-
-#### <a name="for-windows"></a>För Windows
-
-I följande tabell visas kompatibiliteten mellan servern och datorn operativsystem. När du återställer filer, kan du återställa filer till en tidigare eller framtida operativsystemversion. Exempelvis kan du inte återställa en fil från en Windows Server 2016 VM till Windows Server 2012 eller Windows 8-dator. Du kan återställa filer från en virtuell dator på samma server-operativsystem eller kompatibel klientens operativsystem.   
-
-|Server-OS | Kompatibel klient-OS  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>För Linux
-
-I Linux stöder OS som används för att återställa filer filsystemet på den skyddade virtuella datorn. När du väljer en dator för att köra skriptet, se till att datorn har ett kompatibelt operativsystem och använder en av de versioner som anges i följande tabell:
-
-|Linux OS | Versioner  |
-| --------------- | ---- |
-| Ubuntu | 12.04 och senare |
-| CentOS | 6.5 och senare  |
-| RHEL | 6.7 och senare |
-| Debian | 7 och senare |
-| Oracle Linux | 6.4 och senare |
-
-Skriptet kräver också Python och bash komponenter som du vill köra på ett säkert sätt ansluta till återställningspunkten.
-
-|Komponent | Version  |
-| --------------- | ---- |
-| Bash | 4 och senare |
-| python | 2.6.6 och senare  |
-
+   Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Finns det [kompatibel OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om den skyddade virtuella Azure-datorn använder lagringsutrymmen för Windows (för Windows Azure VM: ar) eller LVM/RAID-matriser (för virtuella Linux-datorer), kan du inte köra den körbara filen eller skriptet på samma virtuella dator. I stället köra den körbara filen eller skriptet på en dator med ett kompatibelt operativsystem.
 
 ### <a name="identifying-volumes"></a>Identifiera volymer
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 Om RAID-disken har en annan LVM som konfigurerats i, ska du använda föregående procedur för LVM partitioner men använda volymnamn i stället för namnet på RAID-Disk
+
+## <a name="system-requirements"></a>Systemkrav
+
+### <a name="for-windows"></a>För Windows
+
+I följande tabell visas kompatibiliteten mellan servern och datorn operativsystem. När du återställer filer, kan du återställa filer till en tidigare eller framtida operativsystemversion. Exempelvis kan du inte återställa en fil från en Windows Server 2016 VM till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator på samma server-operativsystem eller kompatibel klientens operativsystem.   
+
+|Server-OS | Kompatibel klient-OS  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>För Linux
+
+I Linux stöder OS som används för att återställa filer filsystemet på den skyddade virtuella datorn. När du väljer en dator för att köra skriptet, se till att datorn har ett kompatibelt operativsystem och använder en av de versioner som anges i följande tabell:
+
+|Linux OS | Versioner  |
+| --------------- | ---- |
+| Ubuntu | 12.04 och senare |
+| CentOS | 6.5 och senare  |
+| RHEL | 6.7 och senare |
+| Debian | 7 och senare |
+| Oracle Linux | 6.4 och senare |
+| SLES | 12 och senare |
+| openSUSE | 42.2 och senare |
+
+Skriptet kräver också Python och bash komponenter som du vill köra på ett säkert sätt ansluta till återställningspunkten.
+
+|Komponent | Version  |
+| --------------- | ---- |
+| Bash | 4 och senare |
+| python | 2.6.6 och senare  |
+| TLS | 1.2 ska stödjas  |
 
 ## <a name="troubleshooting"></a>Felsökning
 

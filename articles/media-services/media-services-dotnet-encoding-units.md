@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
 ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Hur du skalar kodning med .NET SDK:n
 > [!div class="op_single_selector"]

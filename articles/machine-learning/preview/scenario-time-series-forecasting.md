@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Energi begäran tidsserier prognoser
 
@@ -51,7 +52,7 @@ Det här scenariot fokuserar på energiförbrukning prognoser där målet är at
 
 Det här scenariot beskrivs konstruktion av machine learning energiförbrukning prognoser lösning. Lösningen har installerats på en offentlig datamängd från den [New York oberoende System operatorn (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), som fungerar power rutnätet för New York tillstånd. Dataset innehåller varje timme power begäran data för New York City under en period på fem år. En ytterligare datamängd som innehåller varje timme väder i New York City under samma period hämtades från [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 - En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [installation snabbstartsguiden](./quickstart-installation.md) att installera programmet och skapa en arbetsyta.
@@ -186,7 +187,7 @@ Vara kan operationalized bästa modellen genom att distribuera den som en webbtj
 
 I det här exemplet har en webbtjänst distribuerats till en Windows 10-dator. Se till att du har slutfört nödvändiga steg för lokala distribution som anges i detta [Kom igång med](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md) för Operationalization CLI. När du har konfigurerat din lokala miljö och modellen hanteringskontot kör den `10-deploy-model.ipynb` anteckningsboken för att distribuera webbtjänsten.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Det här exemplet visar hur du skapar en slutpunkt till slutpunkt tidsserier prognoser lösning för Prognosticering energiförbrukning. Många av de principer som utforskade i det här exemplet kan utökas till andra prognosmodellen scenarier och branscher.
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
 
@@ -34,7 +34,7 @@ När du uppgraderar ett säkerhetskopieringsvalv till Recovery Services-valvet, 
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Ändringar i dina automation och verktyget efter uppgraderingen
 
 När du förberedde din infrastruktur för valvet uppgraderingen, måste du uppdatera din befintliga automation eller verktygsuppsättning så att den fortsätter att fungera efter uppgraderingen.
-Finns i PowerShell-cmdlets referenser för den [Service Manager-distributionsmodellen](backup-client-automation-classic.md) och [Resource Manager-distributionsmodellen](backup-client-automation.md).
+Finns i PowerShell-cmdlets referenser för den [Resource Manager-distributionsmodellen](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Innan du uppgraderar

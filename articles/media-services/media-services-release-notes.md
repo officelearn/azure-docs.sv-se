@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -28,8 +28,9 @@ Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och
 > 
 > 
 
-## <a id="issues"></a>Kända problem
-### <a id="general_issues"></a>Allmänna problem med Media Services
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Kända problem
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Allmänna problem med Media Services
+
 | Problem | Beskrivning |
 | --- | --- |
 | Några vanliga HTTP-huvuden finns inte i REST-API. |Om du utvecklar Media Services-program med hjälp av REST-API kan du upptäcka att vissa vanliga http-huvudfält (inklusive CLIENT-REQUEST-ID, ID för FÖRFRÅGAN och RETUR-CLIENT-REQUEST-ID) stöds inte. Sidhuvuden läggs till i en kommande uppdatering. |
@@ -41,7 +42,7 @@ Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och
 | Azure Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar inte med Azure Caching. |Om du försöker att serialisera objektet om du vill lägga till den i Azure Caching SDK AssetCollection genereras ett undantag. |
 
 
-## <a id="rest_version_history"></a>Versionshistorik för REST API
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versionshistorik för REST API
 Information om tidigare för Media Services REST API-versioner finns [Azure Media Services REST API-referens].
 
 ## <a name="october-2017-release"></a>Oktober 2017 version
@@ -89,7 +90,6 @@ Nu kan du använda Azure Media Standard till [Autogenerera en bithastighet stege
 
 Du kan nu använda Azure Media Standard eller Media Encoder Premium arbetsflödet [skapa en kodning uppgift som genererar fMP4 segment](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Februari 2017 version
 
 Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Om du behöver arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs [här](media-services-dotnet-manage-entities.md).
@@ -102,9 +102,9 @@ Dessutom från och med version 2.15, Azure Media Services lagt till följande eg
 
 ## <a name="december-2016-release"></a>December 2016-versionen
 
-Azure Media Services kan du nu dataåtkomst telemetri/mått för dess tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live-kanal, StreamingEndpoint, och live Arkiv entiteter. Mer information finns i [detta](media-services-telemetry-overview.md) artikel.
+Azure Media Services kan du nu dataåtkomst telemetri/mått för dess tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live-kanal, StreamingEndpoint, och live Arkiv entiteter. Mer information finns i [den här artikeln](media-services-telemetry-overview.md).
 
-## <a id="july_changes16"></a>Versionen för juli 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versionen för juli 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Uppdateringar till manifestfil (*. ISM) som genereras av kodningsuppgifter
 När en kodning uppgiften har skickats till Media Encoder Standard eller Azure Media Encoder kodning uppgiften genererar en [strömmande manifestfilen](media-services-deliver-content-overview.md) (* .ism)-fil i utdata tillgången. Syntaxen för den här strömmande manifestfilen har uppdaterats med den senaste versionen av tjänsten.
 
@@ -519,7 +519,7 @@ De ändringar som nämns i det här avsnittet har uppdateringar som ingår i Nov
   * IAssetFile.UploadAsync (filePath, blobTransferClient, lokaliserare, cancellationToken): en asynkron metod. Detta är den önskade överför mekanismen. 
     
     Känt fel: med cancellationToken verkligen avbryta uppladdningen; tillståndet annullering av aktiviteterna kan dock vara någon av ett antal tillstånd. Du måste korrekt fånga och hantera undantag.
-* Lokaliserare
+* Positionerare
   
     Ursprung-specifika versioner har tagits bort. SAS-specifika-kontext. Locators.CreateSasLocator (tillgången, accessPolicy) markeras som föråldrad eller tagits bort av GA. Se avsnittet lokaliserare under nya funktioner för uppdaterade beteendet.
 
@@ -529,7 +529,7 @@ Följande funktioner är nya i November-versionen av SDK.
 * Ta bort enheter
   
     IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objekt har nu tagits bort på objektnivå, det vill säga IObject.Delete() i stället för att en delete i samlingen som är cloudMediaContext.ObjCollection.Delete(objInstance).
-* Lokaliserare
+* Positionerare
   
     Lokaliserare nu måste skapas med metoden CreateLocator och Använd uppräkningsvärden LocatorType.SAS eller LocatorType.OnDemandOrigin som ett argument för typ av lokaliserare som du vill skapa.
   

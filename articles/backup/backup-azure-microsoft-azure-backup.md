@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ## <a name="3-software-package"></a>3. Programpaket
 ### <a name="downloading-the-software-package"></a>Hämta programpaket
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett öppet för Recovery Services-valvet vidare till steg 3. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -240,10 +240,10 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
 | Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
-| Ansluten |Upphört |Stoppad |Stoppad |Behörig |Behörig |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 | Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
-| Förlorade anslutningen > 15 dagar |Upphört |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från anslutningsproblem

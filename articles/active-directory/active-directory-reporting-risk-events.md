@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -66,7 +66,7 @@ När tjänsten får användarnamn / lösenord par de kontrolleras mot AAD använ
 Den här typen av risk händelse identifierar användare som har loggat in från en IP-adress har identifierats som en anonym proxyserver IP-adress. Dessa proxyservrar används av personer som du vill dölja enhetens IP-adress och kan användas för skadliga åtgärder.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjlig resa till ej typiska platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
 Den här typen av risk händelse identifierar två inloggningar som sker från geografiskt avlägsna platser, där minst en av platserna kanske också onormal för användaren, anges tidigare beteende. Bland flera andra faktorer tar machine learning algoritmen hänsyn till tiden mellan de två inloggningarna och den tid som det skulle ha tagit för användaren att förflytta sig från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter.
 
@@ -76,7 +76,7 @@ Algoritmen ignorerar uppenbara ”falska positiva identifieringar” bidrar till
 
 Den här typen av risk händelse anser tidigare inloggning platser (IP, latitud / longitud och ASN) att fastställa nya / okända platser. Systemet lagrar information om tidigare platser som används av en användare så att dessa ”bekant” platser. Risk-händelsen utlöses när inloggningen sker från en plats som inte är redan i listan över välkända platser. Systemet har en inledande learning-period på 30 dagar då inte flaggas några nya platser som okända platser. Inloggningar från bekant enheter och platser som är geografiskt nära en bekant plats ignoreras också. 
 
-### <a name="sign-ins-from-infected-devices"></a>Inloggningar från smittade enheter
+### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
 
 Den här typen av risk händelse identifierar inloggningar från enheter som infekterats med skadlig kod, som är kända aktivt kommunicera med en botserver. Detta bestäms genom att sammanföra IP-adresser för användarens enhet mot IP-adresser som varit i kontakt med en botserver. 
 
@@ -84,7 +84,7 @@ Den här typen av risk händelse identifierar inloggningar från enheter som inf
 Den här typen av risk händelse identifierar IP-adresser som ett stort antal misslyckade inloggningsförsök visades, för flera användarkonton under en kort tidsperiod. Detta matchar trafikmönster för IP-adresser som används av angripare och är en starkt indikator att konton är antingen redan eller håller på att äventyras. Det här är en maskininlärningsalgoritmen som ignorerar uppenbara ”*FALSKT positiva*”, till exempel IP-adresser som regelbundet används av andra användare i organisationen.  Systemet har en inledande learning-period på 14 dagar där den lär sig inloggning beteendet för en ny användare och nya innehavaren.
 
 
-## <a name="detection-type"></a>Identifiering av typen
+## <a name="detection-type"></a>Identifieringstyp
 
 Egenskapen type identifiering är en indikator (realtid eller Offline) för identifiering tidsramen för en händelse för risk.  
 För närvarande kan identifieras de flesta riskhändelser offline i en åtgärd för efterbearbetning när risken händelse har inträffat.
@@ -93,7 +93,7 @@ I följande tabell visas hur lång tid det tar för en typ av identifiering till
 
 | Identifiering av typen | Rapportering svarstid |
 | --- | --- |
-| Realtidsskydd | 5-10 minuter |
+| Realtid | 5-10 minuter |
 | Offline | 2-4 timmar |
 
 
@@ -102,9 +102,9 @@ För risk händelsetyper Azure Active Directory identifierar, är identifiering-
 | Risk händelsetyp | Identifiering av typen |
 | :-- | --- | 
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtidsskydd |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtid |
 | [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtidsskydd |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtid |
 | [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
@@ -136,18 +136,18 @@ Risknivå för den här typen av risk händelse är **medel** eftersom en anonym
 Vi rekommenderar att du omedelbart kontaktar användaren för att kontrollera om de använder anonym IP-adresser.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjlig resa till ej typiska platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
 Omöjlig resa är vanligtvis en bra indikator som en hackare har kunnat har inloggning. FALSKT positiva kan dock uppstå när en användare reser med hjälp av en ny enhet eller en VPN-anslutning som normalt inte används av andra användare i organisationen. En annan källa för falskt positiva är program som skickar felaktigt server IP-adresser som klient IP-adresser, som kan ge ut av inloggningar äger rum från datacentret där programmet har backend-värd (det är ofta Microsoft datacenter, vilket kan ge intryck av inloggningar tar placera från Microsoft som ägs av IP-adresser). På grund av dessa FALSKT positiva risknivå för den här risken händelsen är **medel**.
 
 > [!TIP]
-> Du kan minska mängden rapporterade false-positves för den här typen av risk händelsen genom att konfigurera [med namnet platser](active-directory-named-locations.md). 
+> Du kan minska mängden rapporterade false-positiva identifieringar för den här typen av risk händelsen genom att konfigurera [med namnet platser](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logga in från okända platser
 
 Okända platser kan ge en stark indikation på att en angripare kan använda en stulen identitet. FALSE-positiva identifieringar kan uppstå när en användare reser, testar en ny enhet eller använder en ny VPN-anslutning. På grund av dessa falska positiva identifieringar risknivå för den här händelsen är **medel**.
 
-### <a name="sign-ins-from-infected-devices"></a>Inloggningar från smittade enheter
+### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
 
 Den här risken händelsen identifierar IP-adresser, inte användarenheter. Om flera enheter som finns bakom en IP-adress och endast vissa är styrs av ett bot nätverk, inloggningar från andra enheter min utlösaren händelsen i onödan, vilket är orsaken till att klassificera risk händelsen som **låg**.  
 
@@ -170,9 +170,9 @@ Riskhändelser är grunden för att skydda din Azure AD identiteter. Azure AD ka
 | Risk händelsetyp | Risknivå | Identifiering av typen |
 | :-- | --- | --- |
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Hög | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Medel | Realtidsskydd |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Medel | Realtid |
 | [Omöjligt att resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Medel | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Medel | Realtidsskydd |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Medel | Realtid |
 | [Inloggningar från infekterade enheter](#sign-ins-from-infected-devices) | Låg | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medel | Offline|
 

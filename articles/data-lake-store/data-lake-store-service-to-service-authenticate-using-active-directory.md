@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Båda dessa alternativ kan resultera i ditt program som tillhandahålls med en O
 
 Den här artikeln handlar om hur du skapar en **webbprogram i Azure AD för autentisering av service to service**. Mer information om programkonfigurationen för Azure AD för autentisering för slutanvändaren finns [slutanvändarens autentisering med Data Lake Store med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Steg 1: Skapa ett Active Directory-webbprogram

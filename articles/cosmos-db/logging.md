@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -35,7 +35,7 @@ Använd den här kursen och kom igång med Azure Cosmos DB loggning via Azure-po
 * Åtgärder på nycklar, vilket innefattar att skapa, ändra eller ta bort de här nycklarna.
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här kursen behöver du följande resurser:
 
 * En befintlig Azure Cosmos DB kontot, databas och behållare. Anvisningar om hur du skapar de här resurserna finns [skapa ett databaskonto i Azure Portal](create-sql-api-dotnet.md#create-a-database-account), [CLI prover](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
@@ -56,7 +56,7 @@ Den här kursen behöver du följande resurser:
     * **Skicka till logganalys**.     Om du vill använda det här alternativet Använd en befintlig arbetsyta eller skapa en ny logganalys-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar loggarna i logganalys finns [visa loggar i logganalys](#view-in-loganalytics).
     * **Logga DataPlaneRequests**. Välj det här alternativet för att logga diagnostik för SQL, diagram och tabellen API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Logga MongoRequests**. Välj det här alternativet för att logga diagnostik för MongoDB-API-konton. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
-    * **Mått begäranden**. Välj det här alternativet för att lagra utförliga data i [Azure mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
+    * **Mått begäranden**. Välj det här alternativet för att lagra utförliga data i [Azure mått](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperiod för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
 
 3. Klicka på **Spara**.
 
@@ -239,7 +239,7 @@ Datum- och tidsvärdena använder UTC.
 
 Eftersom samma lagringskonto kan användas för att samla in loggar för olika resurser, är fullständiga resurs-ID i blobbnamnet mycket användbart för att komma åt eller hämta bara blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Börja med att skapa en mapp som du vill ladda ned blobbarna till. Till exempel:
+Börja med att skapa en mapp som du vill ladda ned blobbarna till. Exempel:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -416,7 +416,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | ActivityId | activityId_g | Unikt GUID för den loggade åtgärden. |
 | UserAgent | userAgent_s | En sträng som anger klientanvändaragent begäran utfördes. Formatet är {användarnamn för agenten} / {version}.|
 | resourceType | ResourceType | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databas, samling, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
-| statuskod |statusCode_s | Svarsstatus för åtgärden. |
+| statusCode |statusCode_s | Svarsstatus för åtgärden. |
 | requestResourceId | Resurs-ID | Resurs-ID som rör begäran, kan peka databaseRid, collectionRid eller documentRid beroende på den åtgärd som utförs.|
 | clientIpAddress | clientIpAddress_s | Klientens IP-adress. |
 | requestCharge | requestCharge_s | Antalet RUs som används av åtgärden |

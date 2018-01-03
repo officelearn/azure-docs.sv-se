@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android komma igång | Microsoft Docs"
-description: "Hur du skapar ett Android-program som kan integreras med Azure AD för inloggnings- och Azure AD-anrop skyddade API: er med hjälp av OAuth."
+description: "Hur du skapar ett Android-program som kan integreras med Azure AD för inloggnings- och Azure AD-anrop skyddade API: er med OAuth2.0."
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Integrera Azure AD i en Android-app
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Testa förhandsversionen av vår nya [utvecklarportalen](https://identity.microsoft.com/Docs/Android), som hjälper dig att komma igång med Azure AD i bara några minuter. Developer-portalen vägleder dig genom processen med att registrera en app och integrera Azure AD i din kod. När du är klar har du ett enkelt program som kan autentisera användare i din klient och en serverdel som kan acceptera token och utföra valideringen.
->
->
 
 Om du utvecklar ett skrivbordsprogram Azure Active Directory (Azure AD) att gör det lätt att autentisera användarna med hjälp av sina lokala Active Directory-konton. Det gör också ditt program att använda alla webb-API som skyddas av Azure AD, till exempel API: er för Office 365 eller Azure API på ett säkert sätt.
 

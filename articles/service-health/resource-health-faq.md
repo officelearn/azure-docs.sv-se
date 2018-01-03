@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
 Lär dig svar på vanliga frågor om Azure Resource Health.
@@ -80,8 +80,6 @@ Resurshälsa finns tillgänglig i alla regioner som Azure förutom följande omr
 - US DoD, centrala
 - Centrala Tyskland
 - Nordöstra Tyskland
-- Östra Kina
-- Norra Kina
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Hur skiljer sig Resource Health från Hälsoinstrumentpanelen eller Azure portal tjänstmeddelanden?
 Den information som tillhandahålls av Resource Health är mer specifik än vad som tillhandahålls av Azure Hälsoinstrumentpanelen.

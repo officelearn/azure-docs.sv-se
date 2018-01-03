@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure-säkerhetskopiering har flera inbyggda effektivitet som sparar kostnader för nätverk och lagring under de första fullständiga säkerhetskopieringarna av data till Azure. Första fullständiga säkerhetskopieringar vanligtvis överför stora mängder data och kräver större nätverksbandbredd jämfört med efterföljande säkerhetskopieringar som överför bara går/varje. Azure-säkerhetskopiering komprimerar inledande säkerhetskopieringar. Genom processen att dirigera offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.  
@@ -31,7 +31,7 @@ Det är enkelt att överföra data offline till Azure med hjälp av diskar med o
 Den [augusti 2016 uppdatera Azure Backup (och senare)](http://go.microsoft.com/fwlink/?LinkID=229525) innehåller den *förberedelseverktyget för Azure Disk*, med namnet AzureOfflineBackupDiskPrep, som:
 
 * Hjälper dig att förbereda dina enheter för Azure Import med hjälp av verktyget Azure Import/Export.
-* Skapar automatiskt en Azure-importjobbet för tjänsten Azure Import/Export på den [klassiska Azure-portalen](https://manage.windowsazure.com) i stället för att skapa samma manuellt med äldre versioner av Azure Backup.
+* Skapar automatiskt en Azure-importjobbet för tjänsten Azure Import/Export av [Azure-portalen](https://ms.portal.azure.com).
 
 När överföringen av säkerhetskopieringsdata till Azure är klar, Azure Backup kopierar den säkerhetskopiera informationen till säkerhetskopieringsvalvet och inkrementella säkerhetskopieringar är schemalagda.
 
@@ -40,7 +40,7 @@ När överföringen av säkerhetskopieringsdata till Azure är klar, Azure Backu
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Bekanta dig med Azure Import/Export-arbetsflödet](../storage/common/storage-import-export-service.md).
 * Kontrollera följande innan du påbörjar arbetsflödet:
   * Ett Azure Backup-valvet har skapats.
@@ -69,11 +69,11 @@ Informationen i det här avsnittet hjälper dig att slutföra offlinesäkerhetsk
     * **Azure Importjobbets namn**: det unika namnet för vilka Azure Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
     * **Azure Publiceringsinställningar**: en XML-fil som innehåller information om din prenumeration profil. Den innehåller också säkra referenser som är associerade med prenumerationen. Du kan [hämta filen](https://manage.windowsazure.com/publishsettings). Ange den lokala sökvägen till filen publicera.
     * **Prenumerations-ID för Azure**: Azure prenumerations-ID för den prenumeration där du planerar att starta Azure-importjobbet. Om du har flera Azure-prenumerationer, använder du ID för den prenumeration som du vill associera med importjobbet.
-    * **Azure Storage-konto**: klassisk typ storage-konto i den angivna Azure-prenumeration som ska associeras med Azure-importjobbet.
+    * **Azure Storage-konto**: storage-konto i Azure-prenumerationen som är associerade med Azure-importjobbet.
     * **Azure Storage-behållare**: namnet på målet lagringsblob i Azure storage-konto där det här jobbet data importeras.
 
     > [!NOTE]
-    > Om du har registrerat din server till en Azure Recovery Services-valvet från den [Azure-portalen](https://portal.azure.com) för dina säkerhetskopieringar och finns inte på en prenumeration som Cloud Solution Providers (CSP) du kan ändå skapa ett lagringskonto för klassisk typ från Azure portalen och använder den för offline-säkerhetskopiering arbetsflödet.
+    > Om du har registrerat din server till en Azure Recovery Services-valvet från den [Azure-portalen](https://portal.azure.com) för dina säkerhetskopieringar och finns inte på en prenumeration som Cloud Solution Providers (CSP) du kan ändå skapa ett lagringskonto från Azure-portalen och Använd den för offline-säkerhetskopiering arbetsflödet.
     >
     >
 
@@ -123,7 +123,7 @@ Förberedelseverktyget för Azure Disk är tillgänglig i installationskatalogen
 
     Verktyget börjar sedan förbereda disken med säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas av verktyget om den angivna disken inte har tillräckligt med utrymme för säkerhetskopierade data. <br/>
 
-    I slutet av verktyget har körts förbereds en eller flera diskar som du angav för leverans till Azure. Dessutom kan ett importjobb med namnet du angav under den **initiera offlinesäkerhetskopiering** arbetsflödet har skapats på den klassiska Azure-portalen. Slutligen visas leveransadressen till Azure-datacenter där diskarna måste levereras och länken för att hitta importjobbet på den klassiska Azure-portalen.
+    I slutet av verktyget har körts förbereds en eller flera diskar som du angav för leverans till Azure. Dessutom kan ett importjobb med namnet du angav under den **initiera offlinesäkerhetskopiering** arbetsflödet har skapats i Azure-portalen. Slutligen visas leveransadressen till Azure-datacenter där diskarna måste levereras och länken för att hitta importjobbet på Azure-portalen.
 
     ![Förberedelse av Azure-disken har slutförts](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -181,7 +181,7 @@ Första säkerhetskopierade informationen är tillgänglig i ditt lagringskonto 
   ![PowerShell-utdata](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Skapa ett importjobb i Azure-portalen
-1. Gå till ditt lagringskonto i den [klassiska Azure-portalen](https://manage.windowsazure.com/), klickar du på **Import/Export**, och sedan **skapa importjobbet** i åtgärdsfönstret.
+1. Gå till ditt lagringskonto i den [Azure-portalen](https://ms.portal.azure.com/), klickar du på **Import/Export**, och sedan **skapa importjobbet** i åtgärdsfönstret.
 
     ![Import/export-fliken i Azure-portalen](./media/backup-azure-backup-import-export/azureportal.png)
 

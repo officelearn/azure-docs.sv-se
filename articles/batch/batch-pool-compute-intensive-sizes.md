@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler
 
@@ -47,11 +47,11 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pooler för Linux - konfiguration av virtuell dator
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r H16mr A8 A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, eller<br/>CentOS-baserade HPC<br/>(Azure Marketplace) | Intel MPI 5 | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC-serien *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivrutiner | Saknas | 
-| [NV serien](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Saknas |
+| [NC-serien *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivrutiner | Gäller inte | 
+| [NV serien](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Gäller inte |
 
 * RDMA-anslutningar på NC24r virtuella datorer stöds på Ubuntu 16.04 LTS eller CentOS-baserade 7.3 HPC (från Azure Marketplace) med Intel MPI.
 
@@ -59,11 +59,11 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pooler för Windows - konfiguration av virtuell dator
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r H16mr A8 A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 eller<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-tillägget | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC-serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 eller <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller CUDA Toolkit 9.0 drivrutiner| Saknas | 
-| [NV serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Saknas |
+| [NC-serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 eller <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller CUDA Toolkit 9.0 drivrutiner| Gäller inte | 
+| [NV serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Gäller inte |
 
 * RDMA-anslutningar på NC24r virtuella datorer stöds i Windows Server 2012 R2 (från Azure Marketplace) med tillägget HpcVMDrivers och Microsoft MPI eller Intel MPI.
 
@@ -73,7 +73,7 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 > N-serien storlekar stöds inte i Batch-pooler med cloud services-konfiguration.
 >
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r H16mr A8 A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012, eller<br/>Windows Server 2008 R2 (gäst-OS-familjen) | Microsoft MPI 2012 R2 eller senare, eller<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-tillägget | Aktivera kommunikationen mellan noder,<br/> inaktivera samtidiga uppgiftskörningen |
 
@@ -109,7 +109,7 @@ Om du vill köra Windows MPI program på en pool med Azure A8 noder som du behö
 
 | Inställning | Värde |
 | ---- | ----- | 
-| **Bildtyp** | Molntjänster |
+| **Bildtyp** | Cloud Services |
 | **OS-familjen** | Windows Server 2012 R2 (OS-familjen 4) |
 | **Nodstorlek** | A8 Standard |
 | **Dessa kommunikation aktiverad** | True |
@@ -122,7 +122,7 @@ Om du vill köra Windows MPI program på en pool med Azure A8 noder som du behö
 Om du vill köra CUDA program på en pool med Linux NC-noder som du behöver installera CUDA Toolkit 9.0 på noderna. Verktyget installerar nödvändiga NVIDIA Tesla GPU-drivrutiner. Här följer exempel steg för att distribuera en anpassad avbildning Ubuntu 16.04 LTS med GPU-drivrutiner:
 
 1. Distribuera ett Azure NC6 virtuell dator som kör Ubuntu 16.04 LTS. Till exempel skapa den virtuella datorn i oss södra centrala region. Se till att du skapar den virtuella datorn med en hanterad disk.
-2. Följ stegen för att ansluta till den virtuella datorn och [CUDA drivrutinsinstallation](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. Följ stegen för att ansluta till den virtuella datorn och [CUDA drivrutinsinstallation](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. Ta bort etableringen av Linux-agenten och sedan [avbildning Linux VM](../virtual-machines/linux/capture-image.md).
 4. Skapa ett Batch-konto i en region som stöder NC virtuella datorer.
 5. Skapa en pool med Batch-API: er eller Azure-portalen [med hjälp av den anpassade avbildningen](batch-custom-images.md) och med önskat antal noder och skala. I följande tabell visas exempel processpool-inställningar för avbildningen:

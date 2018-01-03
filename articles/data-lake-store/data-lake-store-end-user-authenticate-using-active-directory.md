@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Slutanvändarens autentisering med Data Lake Store med Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Båda dessa alternativ kan resultera i ditt program som tillhandahålls med en O
 
 Den här artikeln handlar om hur du skapar en **interna Azure AD-program för slutanvändare autentisering**. Mer information om programkonfigurationen för Azure AD för autentisering för tjänst-till-tjänst finns [tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Ditt prenumerations-ID. Du kan hämta den från Azure-portalen. Till exempel är den tillgänglig från bladet Data Lake Store-konto.

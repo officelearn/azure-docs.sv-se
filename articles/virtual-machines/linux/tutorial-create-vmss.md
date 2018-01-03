@@ -4,7 +4,7 @@ description: "Skapa och distribuera ett program som har hög tillgänglighet på
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/08/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04fe3948f37936b43d1f2155635f0f52583d5e1b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Skapa en Virtual Machine Scale Set och distribuera en app som har hög tillgänglighet på Linux
 En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Du kan skala antalet virtuella datorer i skaluppsättning manuellt eller definiera regler för att kunna Autoskala baserat på Resursanvändning t.ex CPU, minne begäran eller nätverkstrafik. I kursen får distribuera du en virtuell dator skala i Azure. Lär dig att:
@@ -35,7 +35,7 @@ En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsä
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Skala Set-översikt
 En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Virtuella datorer i en skaluppsättning är fördelade på logiken fel- och update-domäner i en eller flera *placering grupper*. Dessa är grupper med liknande konfigurerad virtuella datorer, liknar [tillgänglighetsuppsättningar](tutorial-availability-sets.md).
@@ -187,13 +187,13 @@ az vmss show \
     --output table
 ```
 
-Du kan manuellt öka eller minska antalet virtuella datorer i skaluppsättningen med [az vmss skala](/cli/azure/vmss#scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *5*:
+Du kan manuellt öka eller minska antalet virtuella datorer i skaluppsättningen med [az vmss skala](/cli/azure/vmss#scale). I följande exempel anger hur många virtuella datorer i din skaluppsättningen *3*:
 
 ```azurecli-interactive 
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
-    --new-capacity 5
+    --new-capacity 3
 ```
 
 

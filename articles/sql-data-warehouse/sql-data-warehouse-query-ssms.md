@@ -16,10 +16,10 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Anslut till SQL Data Warehouse med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/18/2017
 
 Använda SQL Server Management Studio (SSMS) för att ansluta till och fråga Azure SQL Data Warehouse. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att använda de här självstudierna:
 
 * Ett befintligt SQL Data Warehouse. Se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] för att se hur man skapar det.

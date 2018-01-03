@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
 ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på en DPM-server och för att hantera säkerhetskopiering och återställning.
@@ -119,7 +119,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Agenten visas i listan över installerade program. Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten är installerad](./media/backup-dpm-automation/installed-agent-listing.png)
+![Agenten har installerats](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:

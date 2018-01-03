@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 761c0d808eb787517473036e53992ff5e49b17fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importera och exportera data i Azure Redis-Cache
 Importera och exportera är en Azure Redis-Cache data management-åtgärd, där du kan importera data till Azure Redis-Cache eller exportera data från Azure Redis-Cache genom att importera och exportera en ögonblicksbild för Redis-Cache databasen (RDB) från cache premium till en blobb i Azure Storage-konto. 
@@ -77,7 +77,7 @@ Exportera kan du exportera de data som lagras i Azure Redis-Cache för Redis-kom
 2. Klicka på **Välj lagringsbehållaren** och välj önskat lagringskonto. Lagringskontot måste vara i samma prenumeration och region som ditt cacheminne.
 
    > [!IMPORTANT]
-   > Exportera fungerar med sidblobbar som stöds av både klassiska eller Resource Manager storage-konton, men stöds inte av [Blob storage-konton](../storage/blobs/storage-account-options.md#blob-storage-accounts) just nu.
+   > Exportera fungerar med sidblobbar som stöds av både klassiska eller Resource Manager storage-konton, men stöds inte av [Blob storage-konton](../storage/common/storage-account-options.md#blob-storage-accounts) just nu.
    >
    >
 
@@ -155,7 +155,7 @@ Om du finns kvar i den **dataimport** eller **exportera data** bladet för läng
 Om du vill lösa problemet, starta importen eller exportåtgärd innan 15 minuter har gått ut.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Jag fick ett fel när du exporterar data till Azure Blob Storage. Vad hände?
-Export fungerar bara med RDB filer som lagras som sidblobar. Andra blob-typer stöds för närvarande inte, inklusive blob storage-konton med frekvent och lågfrekvent nivåer. Mer information finns i [Blob storage-konton](../storage/blobs/storage-account-options.md#blob-storage-accounts).
+Export fungerar bara med RDB filer som lagras som sidblobar. Andra blob-typer stöds för närvarande inte, inklusive blob storage-konton med frekvent och lågfrekvent nivåer. Mer information finns i [Blob storage-konton](../storage/common/storage-account-options.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du använder flera funktioner som cache premium.

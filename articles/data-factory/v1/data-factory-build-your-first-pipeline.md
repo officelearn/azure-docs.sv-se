@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att omvandla data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Från raderna exemplet ovan, det första (med 2016-01-01) skrivs till filen 000000_0 i månaden = 1 mapp. På liknande sätt kan det andra skrivs till filen i månaden = 2 mappen och tredje en skrivs till filen i månaden = 3 mapp.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Finns det [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan skaffa ett kostnadsfritt utvärderingskonto.
@@ -93,11 +93,11 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 Välj något av följande verktyg/SDK behöver kursen när du har slutfört de nödvändiga förutsättningarna: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 Azure-portalen och Visual Studio tillhandahåller GUI sätt för att skapa din datafabriker. Medan PowerShell, Resource Manager-mall och REST-API ger scripting/programmering sätt för att skapa din datafabriker.
 

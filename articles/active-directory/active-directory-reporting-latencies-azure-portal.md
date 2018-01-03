@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting svarstider
 
@@ -37,15 +37,15 @@ Det finns två områden av aktiviteten reporting:
 
 I följande tabell visas latensinformation för aktivitetsrapporter.
 
-| Rapport | Minimum | Genomsnitt |
-| :-- | --- | --- |
-| Granskningsloggar | 30 minuter  | 1 timme  |
-| Inloggningar | 15 minuter  | 2 timmar |
+| Rapport | Minimum | Medel | Kommentarer |
+| :-- | --- | --- | :-- |
+| Granskningsloggar | 30 minuter  | 1 timme  |I vissa fall kan ta det upp till två timmar för aktiviteten granskningsdata visas.|
+| Inloggningar | 15 minuter  | 2 timmar |I vissa fall kan ta det upp till 24 timmar efter inloggningsaktivitet data visas. Detta inkluderar inloggningar aktivitetsdata från äldre office-program. |
 
-I vissa fall kant kan ta det:
 
-- 2 timmar för granska aktivitetsdata visas.
-- 24 timmar efter inloggningsaktivitet data visas. Detta inkluderar inloggningar aktivitetsdata från äldre office-program. 
+
+
+
 
 
 ## <a name="security-reports"></a>Säkerhetsrapporter
@@ -57,7 +57,7 @@ Det finns två områden av säkerhet reporting:
 
 I följande tabell visas latensinformation för säkerhetsrapporter.
 
-| Rapport | Minimum | Genomsnitt | Maximal |
+| Rapport | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
 | Användare i farozonen          | 5 minuter   | 15 minuter  | 2 timmar  |
 | Riskfyllda inloggningar         | 5 minuter   | 15 minuter  | 2 timmar  |
@@ -68,13 +68,13 @@ Azure Active Directory använder anpassningsbar maskininlärningsalgoritmer och 
 
 I följande tabell visas latensinformation för riskhändelser.
 
-| Rapport | Minimum | Genomsnitt | Maximal |
+| Rapport | Minimum | Medel | Maximal |
 | :-- | --- | --- | --- |
 | Inloggningar från anonyma IP-adresser |5 minuter |15 minuter |2 timmar |
 | Inloggningar från okända platser |5 minuter |15 minuter |2 timmar |
 | Används med läckta autentiseringsuppgifter |2 timmar |4 timmar |8 timmar |
-| Omöjlig resa till ej typiska platser |5 minuter |1 timme |8 timmar  |
-| Inloggningar från smittade enheter |2 timmar |4 timmar |8 timmar  |
+| Omöjligt att resa till ovanliga platser |5 minuter |1 timme |8 timmar  |
+| Inloggningar från angripna enheter |2 timmar |4 timmar |8 timmar  |
 | Inloggningar från IP-adresser med misstänkt aktivitet |2 timmar |4 timmar |8 timmar  |
 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6cf6b6b59f222f68036dab68e4d20db0d0b9dd6d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -319,7 +319,7 @@ Om kraven inte uppfylls, kontrollerar du inställningarna för Azure Data Factor
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -355,12 +355,15 @@ Om du vill använda den här funktionen kan du skapa en [Azure länkade lagrings
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }
@@ -422,7 +425,7 @@ När du kopierar data från/till Azure SQL Data Warehouse, används följande ma
 | Binär |byte] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |DateTime |
+| datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Data Lake Store med Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Här följer några viktiga överväganden när för att använda HDInsight med 
 
 I den här artikeln etablera vi ett Hadoop-kluster med Data Lake Store som ytterligare lagringsutrymme. Anvisningar om hur du skapar ett Hadoop-kluster med Data Lake Store som standardlagring finns [skapar ett HDInsight-kluster med Data Lake Store med hjälp av Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

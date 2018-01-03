@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Självstudier: Azure Active Directory-integrering med Benefitsolver
 
@@ -32,7 +32,7 @@ Integrera Benefitsolver med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Benefitsolver, behöver du följande:
 
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. Klicka på **OK**.
 
-6. På den **SAML-signeringscertifikat** klickar du på **Metadta XML** och spara sedan metadatafilen på datorn.
+6. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Länken hämta certifikatet](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -150,7 +150,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Konfigurera enkel inloggning på **Benefitsolver** sida, måste du skicka den hämtade **Metadta XML** till [Benefitsolver supportteamet](https://www.businessolver.com/contact).
+8. Konfigurera enkel inloggning på **Benefitsolver** sida, måste du skicka den hämtade **XML-Metadata för** till [Benefitsolver supportteamet](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Supportteamet Benefitsolver har att göra den faktiska SSO-konfigurationen. Du får ett meddelande när enkel inloggning har aktiverats för din prenumeration.

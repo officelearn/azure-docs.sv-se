@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Så här filtrerar du efter språk i Azure Search 
 
@@ -39,7 +39,7 @@ På Azure Search mål frågor ett index. Utvecklare som vill ge språkspecifika 
 
 I vårt exempel, inklusive den [fastigheter exempel](search-get-started-portal.md) visas nedan, du kanske har sett fältdefinitioner som liknar följande skärmbild. Observera hur det här exemplet visar språket analyzer tilldelningar för fälten i indexet. Fält som innehåller strängar bättre i fulltextsökning med en analyzer som utformats för att hantera språkliga reglerna för mål-språk.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Kodexempel visar fältdefinitioner med språk analyzers finns [definiera ett index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) och [definiera ett index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
@@ -65,7 +65,7 @@ parameters =
 > [!Note]
 > Även om det finns no $filter argument på frågan, är den här användningsfall starkt knuten till filter begrepp, så vi finns det ett scenario med filtrering.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Filter i Azure Search](search-filters.md)
 + [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)

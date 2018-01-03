@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exempel 1 – skapa en enkel DMZ NSG: er med klassiska PowerShell
 [Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]
@@ -253,7 +253,7 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
 4. Trafik träffar interna IP-adressen för IIS01 (10.0.1.5)
 5. IIS01 lyssnar inte på port 1433, så inga svar på begäran
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Det här exemplet är ett relativt enkla och rakt framåt sätt att isolera backend-undernät från inkommande trafik.
 
 Fler exempel och en översikt över nätverket säkerhetsgränser finns [här][HOME].

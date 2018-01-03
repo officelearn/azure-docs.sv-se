@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 27bd93896718bf54ea3d483671b11070e8c274ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 41a1c7c0b7c0ad00746508bbf341eff448690725
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Kör jobb för Sqoop med hjälp av .NET SDK för Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -32,7 +32,7 @@ Lär dig hur du använder Azure HDInsight .NET SDK för att köra Sqoop jobb i H
 > Men du kan använda procedurerna i den här artikeln med antingen en Windows- eller Linux-baserade HDInsight-kluster, fungerar de endast från en Windows-klient. Använd flikväljaren överst i den här artikeln om du vill välja andra metoder.
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande objekt:
 
 * Ett Hadoop-kluster i HDInsight. Mer information finns i [skapa ett kluster och en SQL-databas](hdinsight-use-sqoop.md#create-cluster-and-sql-database).

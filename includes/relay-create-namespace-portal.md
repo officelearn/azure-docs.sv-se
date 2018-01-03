@@ -1,5 +1,5 @@
 1. Logga in på [Azure portal][Azure portal].
-2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Relay**.
+2. I det vänstra navigeringsfältet i portalen klickar du på **+Skapa en resurs**, sedan **Enterprise-integration** och sedan på **Relay**.
 3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
 4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
 5. I fältet **[Resursgrupp](../articles/azure-resource-manager/resource-group-portal.md)** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
@@ -9,12 +9,13 @@
 7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Efter ett par minuter etableras resurser för ditt konto i systemet.
 
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
-1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
-2. På namnområdesbladet klickar du på **Principer för delad åtkomst**.
-3. På bladet **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
+
+1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
+2. I Relay-namnrymdsfönstret klickar du på **Principer för delad åtkomst**.
+3. I fönstret **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. På bladet **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. På skärmen **Princip: RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
     ![connection-string][connection-string]
 

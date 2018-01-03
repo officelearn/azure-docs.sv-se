@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c0aded35066b4dd819a754a663fdbbf0b0bf6feb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Använda Azure-filer i Kubernetes
 
@@ -66,7 +66,7 @@ Därefter koda lagringskontots åtkomstnyckel. Om det behövs, Ersätt `$STORAGE
 echo -n $STORAGE_KEY | base64
 ```
 
-Skapa en fil med namnet `azure-secret.yml` och kopiera följande YAML. Uppdatering av `azurestorageaccountname` och `azurestorageaccountkey` värden med base64-kodade värdena som hämtas i det sista steget.
+Skapa en fil med namnet `azure-secret.yaml` och kopiera följande YAML. Uppdatering av `azurestorageaccountname` och `azurestorageaccountkey` värden med base64-kodade värdena som hämtas i det sista steget.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Använd den [kubectl skapa] [ kubectl-create] kommando för att skapa hemligheten.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Montera filresursen som volym
 
-Du kan montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
+Du kan montera filer för Azure-resurs i din baljor genom att konfigurera volymen i dess-specifikationen. Skapa en ny fil med namnet `azure-files-pod.yaml` med följande innehåll. Uppdatera `aksshare` dela med namnet på Azure-filer.
 
 ```yaml
 apiVersion: v1
@@ -112,7 +112,7 @@ spec:
 Använd kubectl för att skapa en baljor.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Nu har du en behållare som körs med din Azure-filresursen monterat i den `/mnt/azure` directory. Du kan se volymen montera vid inspektion av din baljor via `kubectl describe pod azure-files-pod`.

@@ -3,7 +3,7 @@ title: Verifiera konfiguration av Azure Automation-konto | Microsoft Docs
 description: "Den här artikeln beskriver hur du bekräftar att konfigurationen av ditt Automation-konto har gjorts på korrekt sätt."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testa Kör som-kontoautentisering för Azure Automation
 När ett Automation-konto har skapats kan du utföra ett enkelt test för att bekräfta att du kan autentisera i Azure Resource Manager eller den klassiska Azure-distributionen med ditt nyskapade eller uppdaterade Automation Kör som-konto.    
@@ -66,9 +66,9 @@ Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-cre
 
 Observera cmdleten som används för autentisering i runbooken – **Add-AzureRmAccount** använder *ServicePrincipalCertificate*-parameteruppsättningen.  Den autentiserar med hjälp av tjänstobjektets certifikat, inte autentiseringsuppgifter.  
 
-När du [kör en runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) för att verifiera ditt Kör som-konto skapas ett [runbook-jobb](automation-runbook-execution.md), bladet för jobbet öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
+När du [kör en runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) för att verifiera ditt Kör som-konto skapas ett [runbook-jobb](automation-runbook-execution.md), jobbet W öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
 
-Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  På bladet **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla resurser i alla resursgrupper i prenumerationen.  
+Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  På sidan **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla resurser i alla resursgrupper i prenumerationen.  
 
 Kom bara ihåg att ta bort blockeringen av kod med början med kommentaren `#Get all ARM resources from all resource groups` när du återanvänder koden för dina runbookflöden.
 
@@ -102,9 +102,9 @@ Använd exempelkoden nedan för att [skapa en PowerShell-runbook](automation-cre
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-När du [kör en runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) för att verifiera ditt Kör som-konto skapas ett [runbook-jobb](automation-runbook-execution.md), bladet för jobbet öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
+När du [kör en runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) för att verifiera ditt Kör som-konto skapas ett [runbook-jobb](automation-runbook-execution.md), jobbsidan öppnas och jobbstatusen visas på panelen **Jobbsammanfattning**. Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en Runbook Worker gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.  När runbook-jobbet har slutförts bör du se statusen **Slutfört**.
 
-Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  På bladet **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla resurser i alla virtuella Azure-datorer efter virtuellt datornamn som har distribuerats i prenumerationen.  
+Om du vill visa ett detaljerat resultat av runbook-jobbet klickar du på panelen **Utdata**.  På sidan **Utdata** bör du se att autentiseringen har lyckats samt en lista över alla resurser i alla virtuella Azure-datorer efter virtuellt datornamn som har distribuerats i prenumerationen.  
 
 Kom bara ihåg att ta bort cmdlet **Get-AzureVM** när du återanvänder koden för dina runbooflöden.
 

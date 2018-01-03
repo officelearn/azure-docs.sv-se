@@ -3,8 +3,8 @@ title: "Översikt över skalningsuppsättningar för virtuella datorer i Azure |
 description: "Mer information om skalningsuppsättningar för virtuella datorer i Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
@@ -50,7 +50,7 @@ För mallexemplen för snabbstart kopplar knappen ”Distribuera till Azure” i
 ## <a name="autoscale"></a>Automatisk skalning
 För att upprätthålla konsekvent programprestanda kan du automatiskt öka eller minska antalet VM-instanser i en skalningsuppsättning. Den här funktionen för automatisk skalning minskar hanteringsomkostnaderna för att övervaka och finjustera din skalningsuppsättning enligt kundens behov över tid. Du kan definiera regler baserat på prestandavärden, programsvar eller ett fast schema och din skalningsuppsättning skalas automatiskt efter behov.
 
-Du kan använda värdbaserade prestandavärden som CPU-användning eller disk-I/O för grundläggande regler för automatisk skalning. De här värdbaserade måtten är tillgängliga direkt, utan ytterligare agenter eller tillägg som måste installeras och konfigureras. Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
+Du kan använda värdbaserade prestandavärden som CPU-användning eller disk-I/O för grundläggande regler för automatisk skalning. De här värdbaserade måtten är tillgängliga automatiskt, utan ytterligare agenter eller tillägg som måste installeras och konfigureras. Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,10 +159,10 @@ Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättni
 
 **F.** Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
-**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs. Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Ordningsföljd för tillägg till skalningsuppsättningar för virtuella datorer i Azure).
+**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs. Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Ordningsföljd för skalningsuppsättningar för virtuella Microsoft Azure-datorer](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
-**S.** Ja. En skalningsuppsättning är en implicit tillgänglighetsuppsättning med 5 feldomäner och 5 uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera *placeringsgrupper* som är likvärdiga med flera tillgänglighetsuppsättningar. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
+**S.** Ja. En skalningsuppsättning är en implicit tillgänglighetsuppsättning med fem feldomäner och fem uppdateringsdomäner. Skalningsuppsättningar med mer än 100 virtuella datorer sträcker sig över flera *placeringsgrupper* som är likvärdiga med flera tillgänglighetsuppsättningar. Mer information om placeringsgrupper finns i [Arbeta med stora skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-placement-groups.md). En tillgänglighetsuppsättning för virtuella datorer kan finnas i samma virtuella nätverk som en skalningsuppsättning för virtuella datorer. En vanlig konfiguration är att placera virtuella kontrollnodsdatorer (som ofta kräver unika konfigurationer) i en tillgänglighetsuppsättning och placera datanoder i skalningsuppsättningen.
 
 Fler svar på frågor om skalningsuppsättningar finns i [Azure virtual machine scale sets FAQ (Vanliga frågor och svar om skalningsuppsättningar för virtuella datorer i Azure)](virtual-machine-scale-sets-faq.md).

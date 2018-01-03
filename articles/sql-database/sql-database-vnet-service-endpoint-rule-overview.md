@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -65,7 +65,7 @@ En regel för virtuellt nätverk visar SQL Database-server för att acceptera ko
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Fördelarna med en regel för virtuellt nätverk
 
-Tills du vidta åtgärder kommunicera de virtuella datorerna på dina undernät inte med SQL-databasen. Grund för att välja den virtuella nätverk regel metoden för att tillåta kommunikation kräver en Jämför och kontrast diskussion som involverar konkurrerande säkerhetsalternativ som erbjuds av brandväggen.
+Tills du vidta åtgärder kommunicera de virtuella datorerna på dina undernät inte med SQL-databasen. En åtgärd som upprättar kommunikation är att skapa en regel för virtuellt nätverk. Grund för att välja metod för VNet-regeln kräver en Jämför och kontrast diskussion som involverar konkurrerande säkerhetsalternativ som erbjuds av brandväggen.
 
 #### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
 
@@ -115,16 +115,16 @@ Det finns en uppdelning av säkerhetsroller i administrationen av slutpunkter f�
 - **Nätverket Admin:** &nbsp; aktivera slutpunkten.
 - **Databasen Admin:** &nbsp; uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet i SQL Database-servern.
 
-*RBAC alternativ:* 
+*RBAC alternativ:*
 
 Roller i nätverket Admin och databasen Admin har mer än vad som behövs för att hantera virtuella Nätverksregler. Endast en del av deras funktioner krävs.
 
 Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)] [ rbac-what-is-813s] i Azure för att skapa en anpassad roll som har den nödvändiga delmängden av funktioner. Den anpassade rollen som kan användas i stället för som omfattar nätverk Admin eller administratören för databasen. Ytan på din sårbart är lägre om du lägger till en användare till en anpassad roll, jämfört med att lägga till användaren i de andra två huvudsakliga administratörsroller.
 
-
-
-
-
+> [!NOTE]
+> I vissa fall är Azure SQL-databasen och VNet-undernätet för olika prenumerationer. I dessa fall måste du kontrollera följande konfigurationer:
+> - Båda prenumerationer måste vara i samma Azure Active Directory-klienten.
+> - Användaren har behörigheterna som krävs för att initiera åtgärder, till exempel aktivera slutpunkter och lägga till ett VNet-undernät i den angivna servern.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>Effekt vid borttagning av ”Tillåt alla Azure-tjänster:
+
+Många användare vill du ta bort **Tillåt alla Azure-tjänster** från Azure SQL-servrar och ersätta den med en brandväggsregel för virtuella nätverk.
+Men att ta bort detta påverkar följande funktioner i Azure SQLDB:
+
+#### <a name="import-export-service"></a>Importera Export Service
+Azure SQLDB importera exportera-tjänsten körs på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk och därför hämta en Azure-IP-adress vid anslutning till databasen. För att ta bort **Tillåt alla Azure-tjänster** dessa virtuella datorer kommer inte att komma åt dina databaser.
+Du kan undvika problemet. Kör BACPAC importera eller exportera direkt i koden med DACFx API. Se till att det är distribuerat i en virtuell dator som är i VNet-undernät som du har angett brandväggsregeln.
+
+#### <a name="sql-database-query-editor"></a>Frågeredigeraren för SQL-databas
+Azure SQL Database Query Editor distribueras på virtuella datorer i Azure. Dessa virtuella datorer som inte ingår i ditt VNet. De virtuella datorerna får därför en Azure-IP-adress vid anslutning till databasen. För att ta bort **Tillåt alla Azure-tjänster**, dessa virtuella datorer kommer inte att komma åt dina databaser.
+
+#### <a name="table-auditing"></a>Granskning av tabell
+Det finns två sätt att aktivera granskning på SQL-databasen för närvarande. Det går inte att granskning av tabellen när du har aktiverat Tjänsteslutpunkter i Azure SQL Server. Här lösning är att flytta till blobbgranskning.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda slutpunkter för virtuellt nätverk med Azure storage
+
+Azure Storage har implementerat samma funktion som låter dig begränsa anslutning till ditt lagringskonto.
+Om du väljer att använda den här funktionen med ett lagringskonto som används av en Azure SQL Server stöter du på problem. Nästa är en lista och en beskrivning av Azure SQLDB funktioner som påverkas av detta.
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om det lagringskonto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, bryts anslutningen från PolyBase till kontot.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
+Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen för slutpunkter VÄNDNING tjänsten bryts anslutningen från Azure SQLDB till lagringskontot.
 
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615
@@ -199,7 +223,7 @@ Det här avsnittet beskriver hur du kan använda den [Azure-portalen] [ http-azu
 
 Ett PowerShell-skript kan även skapa regler för virtuellt nätverk. Cmdleten avgörande **ny AzureRmSqlServerVirtualNetworkRule**. Om du vill använda, se [PowerShell för att skapa ett virtuellt nätverk tjänstslutpunkten och regeln för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 Det måste finnas ett undernät som är märkta med viss virtuellt nätverk tjänstslutpunkten *typnamn* relevanta för Azure SQL Database.
 
@@ -217,16 +241,17 @@ Det måste finnas ett undernät som är märkta med viss virtuellt nätverk tjä
 3. Ange den **Tillåt åtkomst till Azure-tjänster** kontrollen till OFF.
 
     > [!IMPORTANT]
-    > Om du lämnar kontrollen inställt på ON sedan godkänner Azure SQL Database-server kommunikation från alla undernät, vilket kan vara mycket åtkomst från en säkerhetssynpunkt. Microsoft Azure Virtual Network service endpoint funktionen, tillsammans med funktionen virtuellt nätverk regeln för SQL-databas kan tillsammans minska din säkerhet ytan.
+    > Om du lämnar kontrollen inställt på ON accepterar kommunikation från alla undernät i Azure SQL Database-server. Lämna kontrollen inställt på ON kan vara mycket åtkomst från en säkerhetssynpunkt. Microsoft Azure Virtual Network service endpoint funktionen, tillsammans med funktionen virtuellt nätverk regeln för SQL-databas kan tillsammans minska din säkerhet ytan.
 
 4. Klicka på den **+ Lägg till befintliga** styra i den **virtuella nätverk** avsnitt.
 
     ![Klicka på Lägg till befintliga (som en SQL-regel slutpunkt undernät).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. I den nya **skapa/uppdatera** rutan, fyller du i kontroller med namnen på Azure-resurser.
- 
+
     > [!TIP]
-    > Du måste inkludera rätt **adressprefixet** för undernätet. Du hittar värdet i portalen. Navigera **alla resurser** &gt; **alla typer av** &gt; **virtuella nätverken**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och sedan på **undernät**. Den **ADRESSINTERVALLET** kolumnen har adressprefixet som du behöver.
+    > Du måste inkludera rätt **adressprefixet** för undernätet. Du hittar värdet i portalen.
+    > Navigera **alla resurser** &gt; **alla typer av** &gt; **virtuella nätverken**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och sedan på **undernät**. Den **ADRESSINTERVALLET** kolumnen har adressprefixet som du behöver.
 
     ![Fyll i fälten för nya regeln.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ Det måste finnas ett undernät som är märkta med viss virtuellt nätverk tjä
     ![Om fönstret brandväggen finns i den nya regeln.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> Följande statusar eller tillstånd som gäller reglerna:
+> - **Klar:** anger att åtgärden som du har startat har lyckats.
+> - **Misslyckades:** anger åtgärden som du har startat misslyckades.
+> - **Ta bort:** endast gäller för borttagningen och anger att regeln har tagits bort och inte längre gäller.
+> - **InProgress:** anger åtgärden pågår. Gamla regeln gäller när åtgärden är i det här tillståndet.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Använd PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för virtuellt nätverk för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Slutpunkter för virtuella Azure-nätverket][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database server- och databasnivå brandväggsregler][sql-db-firewall-rules-config-715d]
 
-Funktionen slutpunkter för tjänsten Microsoft Azure-nätverk och virtuella nätverk regeln funktion för Azure SQL Database, både blev tillgängliga i sen September 2017.
+Funktionen för regeln virtuellt nätverk för Azure SQL Database blev tillgängliga i sen September 2017.
 
+## <a name="next-steps"></a>Nästa steg
 
-
+- [Använd PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för virtuellt nätverk för Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ Funktionen slutpunkter för tjänsten Microsoft Azure-nätverk och virtuella nä
 
 - ARM templates
 -->
-

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -36,14 +36,14 @@ Använda Service Bus-utlösaren ska svara på meddelanden från en Service Bus-k
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som loggar meddelandet Service Bus-kö.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som loggar meddelandet Service Bus-kö.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en Service Bus-utlösare:
+I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en Service Bus-utlösare:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   }
   ```
 
-  En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+  En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -250,14 +250,14 @@ Använd Azure Service Bus-utdatabindning att skicka meddelanden i kö eller ett 
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#output---c-example)
-* [C#-skript](#output---c-script-example)
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som skickar ett meddelande för Service Bus-kö:
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar ett meddelande för Service Bus-kö:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Attributets konstruktorn har namnet på kön eller ämnet och prenumerationen. Du kan också ange åtkomstbehörigheter för den anslutningen. Så här väljer du de åtkomstbehörigheter som inställningen förklaras i den [utdata - configuration](#output---configuration) avsnittet. Här är ett exempel som visar de attribut som används i det returnera värdet för funktionen:
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
-Du kan använda den `ServiceBusAccount` -attribut som anger Service Bus-konto som ska användas på klass, metoden eller parametern-nivå.  Mer information finns i [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
+Du kan använda den `ServiceBusAccount` -attribut som anger Service Bus-konto som ska användas på klass, metoden eller parametern-nivå.  Mer information finns i [utlösaren - attribut](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 

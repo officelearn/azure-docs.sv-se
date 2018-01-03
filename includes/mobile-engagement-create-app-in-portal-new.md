@@ -3,7 +3,7 @@
 2. Klicka på **Nya**, sedan **Webb + Mobil**, och sedan **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
-3. På bladet **Ny Mobile Engagement App-samling** som visas, skapar du en appsamling i stället för en app som i den klassiska Azure-portalen. Ange följande information:
+3. På bladet **Ny Mobile Engagement app-samling** som visas, skapar du en appsamling. Ange följande information:
    
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    

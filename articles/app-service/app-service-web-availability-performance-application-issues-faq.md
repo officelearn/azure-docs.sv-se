@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Programprestanda vanliga frågor och svar för Web Apps i Azure
 
@@ -174,7 +174,7 @@ Det här problemet löses i Kestrel version 1.0.2. Den här versionen ingår i A
 
 Om du använder den lokala cachefunktionen i App Service påverkas mappstrukturen i mapparna loggfiler och Data för din App Service-instans. När lokal Cache används skapas undermappar i mappar och lagring av loggfiler. Undermapparna använder namngivning mönstret ”UID” + tidsstämpel. Varje undermapp motsvarar en VM-instans som webbappen körs eller har körts.
 
-Ta reda på om du använder lokalt cacheminne, kontrollera din Apptjänst **programinställningar** fliken. Om lokal Cache används, appen inställningen `WEBSITE_LOCAL_CACHE_OPTION` är inställd på `Always`. 
+Ta reda på om du använder lokalt cacheminne, kontrollera din Apptjänst **programinställningar** fliken. Om lokal Cache används, appen inställningen `WEBSITE_LOCAL_CACHE_OPTION` är inställd på `Always`.
 
 Om du inte använder lokal Cache och har det här problemet kan du skicka en supportbegäran.
 

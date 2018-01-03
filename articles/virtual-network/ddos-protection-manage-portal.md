@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS-skydd Standard med hjälp av Azure portal
 
@@ -31,21 +31,21 @@ Lär dig mer om att aktivera och inaktivera för tjänsten (DDoS)-skydd och anv�
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Aktivera DDoS-skydd Standard - nytt virtuellt nätverk
 
 1. Logga in på Azure Portal på http://portal.azure.com. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-2. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
+2. Klicka på **skapar du en resurs** i det övre vänstra hörnet i Azure-portalen.
 3. Välj **nätverk**, och välj sedan **virtuellt nätverk**.
-4. Skapa ett virtuellt nätverk med dina valda inställningar. Mer information om hur du skapar virtuella nätverk finns [skapa ett virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md). Under *DDoS-skydd*, klickar du på **aktiverad**, och klicka sedan på **skapa**.
+4. Skapa ett virtuellt nätverk med dina valda inställningar. Mer information om hur du skapar virtuella nätverk finns [skapa ett virtuellt nätverk](virtual-networks-create-vnet-arm-pportal.md). Under **DDoS-skydd**, klickar du på **aktiverad**, och klicka sedan på **skapa**. Om du inte ser **DDoS-skydd**, en trolig orsak är att din prenumeration inte har registrerats för funktionen. Du måste slutföra [registrering](http://aka.ms/ddosprotection), och meddelande om att din prenumeration har aktiverats för funktionen, innan **DDoS-skydd** visas.
 
     ![Skapa det virtuella nätverket](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > När du väljer en region väljer du en region som stöds i listan i [Azure DDoS-skydd Standard översikt](ddos-protection-overview.md).
+    > När du väljer en region väljer du en region som stöds i listan i [Azure DDoS-skydd Standard översikt](ddos-protection-overview.md). Om du inte väljer en region som stöds misslyckas för det virtuella nätverket.
 
     En varning om att aktivera DDoS-skydd debiteras. Inga avgifter för DDoS-skydd uppkommer under förhandsgranskningen. Avgifter påförs vid allmän tillgänglighet. Du får 30 dagars varsel före början av kostnader och allmän tillgänglighet.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Aktivera DDoS-skydd Standard - befintligt virtuellt nätverk 
 
 1. Klicka på **virtuella nätverken** på Azure portal-menyn och välj sedan det virtuella nätverket.
-2. Klicka på **DDoS-skydd**, klickar du på **aktiverad** på den *DDoS-skydd* skärmen och klicka sedan på **spara**. 
+2. Klicka på **DDoS-skydd**, klickar du på **aktiverad** på den *DDoS-skydd* skärmen och klicka sedan på **spara**. Om du inte ser **DDoS-skydd**, en trolig orsak är att din prenumeration inte har registrerats för funktionen. Du måste slutföra [registrering](http://aka.ms/ddosprotection), och meddelande om att din prenumeration har aktiverats för funktionen, innan **DDoS-skydd** visas. 
 
     > [!WARNING]
     > Det virtuella nätverket måste finnas i en region som stöds. En lista över regioner som stöds, se [Azure DDoS-skydd Standard översikt](ddos-protection-overview.md).

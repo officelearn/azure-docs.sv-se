@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Hitta vägar för olika lägen för resa med hjälp av Azure baserad platstjänster
 
@@ -26,7 +26,7 @@ Den här kursen visar hur du använder Azure plats Services-konto och väg Servi
 > * Konfigurera Route Service-fråga
 > * Återge vägar prioriteras av läget för resa
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter, kontrollera att [skapa Azure baserad platstjänster kontot](./tutorial-search-location.md#createaccount), och [hämta nyckel för prenumerationen för ditt konto](./tutorial-search-location.md#getkey). Du kan också se hur du använder Kartkontrollen och API: er för Search-tjänsten enligt beskrivningen i självstudierna [Sök Närliggande intressant med hjälp av Azure baserad platstjänster](./tutorial-search-location.md), samt Lär dig grundläggande användning av flödet Service API: er som beskrivs i kursen [väg till en plats med hjälp av Azure baserad platstjänster intressanta](./tutorial-route-location.md).
 
@@ -209,9 +209,9 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
     ```
     Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Den skapar en matris med koordinater för det flöde som returneras för ett lyckat svar och lägger till den på kartan `truckRouteLayerName` lager. 
     
-    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Följande valfria parametrar används för att ange flödet för en tung lastbil:-parametern `travelMode=truck` anger läget för resa som *lastbil*. Andra former av resa som stöds är *taxi*, *bus*, *van*, *motorcykel*, och standardvärdet *bilen* . 
-        -Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` ange dimensionerna för programuppdatering i mätare och anses endast om läget för resa är *lastbil*. 
-        - `vehicleLoadType` Klassificerar last som farliga och begränsade på vissa vägar. Detta betraktas som för närvarande endast för den *lastbil* läge. 
+    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Följande valfria parametrar används för att ange flödet för en tung lastbil:-parametern `travelMode=truck` anger läget för resa som *lastbil*. Andra former av resa som stöds är *taxi*, *bus*, *van*, *motorcykel*, och standardvärdet *bilen* .  
+        -Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` ange dimensionerna för programuppdatering i mätare och anses endast om läget för resa är *lastbil*.  
+        - `vehicleLoadType` Klassificerar last som farliga och begränsade på vissa vägar. Detta betraktas som för närvarande endast för den *lastbil* läge.  
 
 2. Lägg till följande JavaScript-kod för att få flödet för en bil med hjälp av tjänsten väg:
 

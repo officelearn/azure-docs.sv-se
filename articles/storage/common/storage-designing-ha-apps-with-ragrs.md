@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Designa hög tillgängliga program med hjälp av RA-GRS
 
@@ -26,7 +26,7 @@ En vanlig funktion för molnbaserad infrastruktur som Azure Storage är de ger e
 
 Azure Storage erbjuder fyra alternativ för redundans för data i ditt lagringskonto:
 
-– LRS (lokalt Redundant lagring)
+- LRS (lokalt Redundant lagring)
 - ZRS (zonen Redundant lagring) 
 - GRS (Geo-Redundant lagring)
 - RA-GRS (Geo-Redundant lagring med läsbehörighet). 

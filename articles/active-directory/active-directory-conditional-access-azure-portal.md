@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Villkorlig åtkomst i Azure Active Directory
 
@@ -35,7 +35,7 @@ Villkorlig åtkomst är en funktion i Azure Active Directory som gör att du kan
 
 Normalt kan du definiera åtkomstkraven med hjälp av rapporter som baseras på följande sätt:
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/10.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/10.png)
 
 När du ersätter två förekomster av ”*detta*” verkliga information du har ett exempel på en kommentar som känner till dig du förmodligen:
 
@@ -48,11 +48,11 @@ I samband med Azure Active Directory villkorlig åtkomst
 - ”**När detta sker**” kallas **condition-instruktion**
 - ”**Gör du så här**” kallas **kontroller**
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/11.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/11.png)
 
 Kombinationen av en condition-instruktion med kontrollerna representerar en princip för villkorlig åtkomst.
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/12.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/12.png)
 
 
 ## <a name="controls"></a>Kontroller
@@ -66,11 +66,11 @@ Det finns två typer av kontroller:
 - **Bevilja styr** -bevilja kontroller styr om en användare kan slutföra autentisering och nå resursen som de försöker logga in på. Om du har markerat flera kontroller kan konfigurera du om alla krävs när principen har bearbetats.
 Den aktuella implementationen av Azure Active Directory kan du konfigurera följande bevilja kontrollen krav:
 
-    ![Kontrollen](./media/active-directory-conditional-access-azure-portal/73.png)
+    ![Kontroll](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Sessionen kontroller** -Session styr aktivera begränsa användarupplevelse inom en molnappen. Sessionen kontroller tillämpas av molnappar och förlitar sig på ytterligare information som tillhandahålls av Azure AD App om sessionen.
 
-    ![Kontrollen](./media/active-directory-conditional-access-azure-portal/31.png)
+    ![Kontroll](./media/active-directory-conditional-access-azure-portal/31.png)
 
 
 Mer information finns i [kontrollerna i Azure Active Directory villkorlig åtkomst](active-directory-conditional-access-controls.md).
@@ -82,14 +82,14 @@ I föregående avsnitt har införts stöds alternativ att blockera eller begrän
 
 Du kan inkludera följande tilldelningar i din villkorssatsen:
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/07.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
 ### <a name="who"></a>Vem?
 
 Du måste markera de användare eller grupper som principen gäller när du konfigurerar en princip för villkorlig åtkomst. I många fall vill du kontrollerna som ska tillämpas på en specifik uppsättning användare. I en villkorssatsen kan du definiera detta genom att välja nödvändiga användare och grupper som principen gäller för. Om det behövs kan du även uttryckligen undanta en uppsättning användare från din princip genom att undanta dem.  
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/08.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
@@ -99,7 +99,7 @@ Du måste välja molnappar som principen gäller när du konfigurerar en princip
 Det finns normalt sett vissa appar i din miljö som kräver mer uppmärksamhet än andra ur skydd. Detta påverkar t.ex, appar som har åtkomst till känslig information.
 Genom att välja molnappar, definiera omfattningen av molnappar som principen gäller för. Om det behövs kan du också explicit utesluta en uppsättning appar från principen.
 
-![Kontrollen](./media/active-directory-conditional-access-azure-portal/09.png)
+![Kontroll](./media/active-directory-conditional-access-azure-portal/09.png)
 
 En fullständig lista över molnappar som du kan använda i din princip för villkorlig åtkomst finns i [Teknisk referens för Azure Active Directory villkorlig åtkomst](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
 
@@ -117,7 +117,7 @@ I den aktuella implementationen av Azure Active Directory kan du definiera villk
 - Inloggningsrisk
 - Enhetsplattformar
 - Platser
-- Klientprogram
+- Klientappar
 
 
 ![Villkor](./media/active-directory-conditional-access-azure-portal/01.png)
@@ -174,7 +174,7 @@ I principen för villkorlig åtkomst kan du:
 ![Villkor](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-apps"></a>Klientprogram
+### <a name="client-apps"></a>Klientappar
 
 Klientappen kan vara antingen på en allmän nivå app (webbläsare, mobila appar klientversionen) som du har använt för att ansluta till Azure Active Directory eller mer specifikt kan du välja Exchange Active Sync.  
 Äldre autentisering refererar till klienter som använder grundläggande autentisering, till exempel äldre Office-klienter som inte använder modern autentisering. Villkorlig åtkomst stöds för närvarande inte med äldre autentisering.
@@ -200,7 +200,7 @@ Om du vill lägga till ett extra skyddslager för dessa appar kan du konfigurera
 
 Det här scenariot liknar föregående scenario eftersom den lägger till ett krav för multifaktorautentisering.
 Den största skillnaden är dock villkoret för det här kravet.  
-Medan fokus i det föregående scenariot var i appar med åtkomst till sensitve data, fokuserar i det här scenariot på betrodda platser.  
+Medan fokus i det föregående scenariot var i appar med åtkomst till känsliga data, fokuserar i det här scenariot på betrodda platser.  
 Du kan med andra ord ha ett krav för multifaktorautentisering om en app öppnas av en användare från ett nätverk som du inte litar på.
 
 
@@ -209,6 +209,9 @@ Du kan med andra ord ha ett krav för multifaktorautentisering om en app öppnas
 Om du använder Intune i din miljö kan du direkt börja använda gränssnittet för princip för villkorlig åtkomst i Azure-konsolen.
 
 Många Intune-kunder använder villkorlig åtkomst för att se till att endast betrodda enheter kan komma åt Office 365-tjänster. Detta innebär att mobila enheter har registrerats med Intune och uppfyller krav på efterlevnad och att Windows-datorer är anslutna till en lokal domän. En viktiga förbättringar är att du inte behöver ange samma princip för varje Office 365-tjänster.  När du skapar en ny princip, konfigurera molnappar för att inkludera varje O365-appar som du vill skydda med villkorlig åtkomst.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Växla en enhet från företagsägda till Bring Your Own Device (BYOD)
+Om du vill blockera registrerade enheter genom att ändra ägarskap för enhet från företagets till personliga kan du göra detta med hjälp av villkorlig åtkomst i Azure Active Directory (AAD). Du måste först skapa en princip för villkorlig åtkomst där **blockera åtkomst** väljs från åtkomstkontroller **bevilja** bladet. Skapa sedan en **dynamisk enhet** gruppen genom att ange den **deviceOwnership** egenskapen **personliga**. Rikta ovan principen till den nya gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 

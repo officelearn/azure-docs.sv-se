@@ -3,8 +3,8 @@ title: "Arbeta med stora skalningsuppsättningar för virtuella Azure-datorer | 
 description: "Vad du behöver veta för att använda stora skalningsuppsättningar för virtuella Azure-datorer"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: guybo
-ms.openlocfilehash: b2d6aba2c8efa7f20753de7bfb79c2f22b07318b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: negat
+ms.openlocfilehash: 192f2c01be0992e22ce67e3df6d641ba707e22fd
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -49,13 +49,13 @@ När du skapar en skalningsuppsättning som angetts i Azure Portal kan du tillå
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Du kan skapa en stor VM-skalningsuppsättning med [Azure CLI](https://github.com/Azure/azure-cli)-kommandot _az vmss create_. Det här kommandot anger intelligenta standardvärden som storleken för undernät baserat på argumentet för _antal instanser_:
+Du kan skapa en stor skalningsuppsättning för virtuella datorer med [Azure CLI](https://github.com/Azure/azure-cli)-kommandot _az vmss create_. Det här kommandot anger intelligenta standardvärden som storleken för undernät baserat på argumentet för _antal instanser_:
 
 ```bash
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
-Observera att kommandot _vmss create_ ställer in vissa konfigurationsvärden som standard om du inte själv anger dem. För att se de tillgängliga alternativen som du kan åsidosätta kan du försöka följande:
+Kommandot _vmss create_ ställer in vissa konfigurationsvärden som standard om du inte själv anger dem. För att se de tillgängliga alternativen som du kan åsidosätta kan du försöka följande:
 ```bash
 az vmss create --help
 ```

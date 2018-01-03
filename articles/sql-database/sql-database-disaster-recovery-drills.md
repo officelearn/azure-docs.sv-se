@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Utför Återställningsgranskning för katastrofåterställning
 Du rekommenderas att verifieringen av programmet beredskap för återställningsarbetsflöde utförs med jämna mellanrum. Verifiera programfunktioner och följderna av förlust av data och/eller störningar innebär att redundansväxlingen är bra engineering. Det är också ett krav som de flesta branschstandarder som en del av business continuity certifikatutfärdare.
@@ -37,7 +37,7 @@ Beroende på hur du [utformats för ditt program för affärskontinuitet](sql-da
 För att förhindra förlust av data när du utför en katastrofåterställning återställningsgranskning, utför du detaljgranska använder en testmiljö genom att skapa en kopia av produktionsmiljön och använder den för att kontrollera programmets redundans arbetsflöde.
 
 #### <a name="outage-simulation"></a>Avbrott simulering
-Om du vill simulera avbrottet kan du ta bort eller byta namn på källdatabasen. Detta medför anslutningsfel till programmet.
+För att simulera avbrottet, kan du byta namn på källdatabasen. Detta medför anslutningsfel till programmet.
 
 #### <a name="recovery"></a>Återställning
 * Utföra geo-återställning av databasen till en annan server enligt beskrivningen [här](sql-database-disaster-recovery.md).

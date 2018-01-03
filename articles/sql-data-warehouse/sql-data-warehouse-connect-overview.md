@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Anslut till Azure SQL Data Warehouse
 Artikeln visar hur du ansluter till SQL Data Warehouse för första gången.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
-Det första steget när du ska ansluta till SQL Data Warehouse är att ta reda på servernamnet.  I följande exempel är servernamnet sample.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
+Det första steget när du ska ansluta till SQL Data Warehouse är att ta reda på servernamnet.  I följande exempel är servernamnet samplesvr.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
 
 1. Gå till [Azure Portal][Azure portal].
-2. Klicka på **SQL-databaser** 
-3. Klicka på den databas som du vill ansluta till.
+2. Klicka på **SQL-informationslager**.
+3. Klicka på det informationslager som du vill ansluta till.
 4. Leta upp det fullständiga servernamnet.
    
     ![Fullständigt servernamn][1]
@@ -93,6 +93,6 @@ Information om hur du ansluter och ställer frågor med Visual Studio finns i [F
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c9dcfb7d769d8a59ecd7d8d238ac86f76ef1da66
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -32,7 +32,7 @@ Integrera Amazon Web Services (AWS) med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
@@ -278,7 +278,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     f. När principen har verifierats korrekt kan du klicka på på **skapa princip** knappen.
 
-    ![Skapa en ny princip](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+    ![Skapa ny princip](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
 27. Skapa ett nytt användarkonto i AWS IAM-tjänsten genom att utföra följande steg:
 
@@ -424,6 +424,13 @@ I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med 
 
 När du klickar på panelen Amazon Web Services (AWS) på åtkomstpanelen du bör få automatiskt loggat in på ditt program för Amazon Web Services (AWS).
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="known-issues"></a>Kända problem
+
+ * I den **etablering** avsnittet den **mappningar** underavsnittet visas meddelandet ”inläsning...” och visa aldrig attributmappningar. Etablering arbetssätt stöds idag är import av roller från AWS till Azure AD för val under användare/grupp tilldelning. Attributmappning för det här är förutbestämd och kan inte konfigureras.
+ 
+ * Den **etablering** avsnittet stöder endast att ange en uppsättning autentiseringsuppgifter för en AWS-klient i taget. Alla importerade roller skrivs till egenskapen appRoles i Azure AD [servicePrincipal objekt](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS klient. Flera AWS-klienter, (representeras av servicePrincipals) kan läggas till Azure AD från galleriet för etablering, men det är ett känt problem med att automatiskt skriva alla importerade roller från flera AWS servicePrincipals som används för etablering i den enda servicePrincipal som används för enkel inloggning. Som en tillfällig lösning kan den [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) kan användas för att extrahera alla appRoles importeras till varje AWS servicePrincipal där etablering har konfigurerats. Strängarna roll kan senare läggs till AWS-servicePrincipal där enkel inloggning har konfigurerats.
+
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tillägg-hanterare
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Azure VM-agenten och dess associerade tillägg är en del av Microsoft Azure Inf
 
 Den här artikeln introducerar PowerShell önskad tillstånd Configuration DSC ()-tillägg för virtuella datorer i Azure som en del av Azure PowerShell SDK. Du kan använda nya cmdlet: ar för att överföra och tillämpa en PowerShell DSC-konfiguration på en virtuell Azure-dator aktiveras med PowerShell DSC-tillägg. PowerShell DSC-tillägg anrop till PowerShell DSC till tillämpar mottagna DSC-konfigurationen på den virtuella datorn. Denna funktion är också tillgängliga via Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 **Lokal dator** ska interagera med Virtuella Azure-tillägget, måste du använda Azure-portalen eller Azure PowerShell SDK. 
 
 **Gästagenten** på Azure VM som konfigurerats av DSC-konfigurationen måste vara ett operativsystem som stöder antingen Windows Management Framework (WMF) 4.0 eller 5.0. En fullständig lista över operativsystemversioner som stöds finns på den [DSC-tillägg versionshistorik](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -37,11 +37,9 @@ Den här artikeln introducerar PowerShell önskad tillstånd Configuration DSC (
 ## <a name="terms-and-concepts"></a>Termer och begrepp
 Den här handboken förutsätter förtrogenhet med följande:
 
-Konfiguration – ett dokument för DSC-konfigurationen. 
-
-Nod - mål för DSC-konfigurationen. I det här dokumentet refererar ”nod” alltid till en Azure VM.
-
-Konfigurationsdata - en .psd1 fil som innehåller miljödata för ett konfigurationsobjekt
+* **Konfigurationen** -A DSC-konfiguration dokumentet. 
+* **Noden** -mål för DSC-konfigurationen. I det här dokumentet refererar ”nod” alltid till en Azure VM.
+* **Konfigurationsdata** – en .psd1-fil som innehåller miljödata för ett konfigurationsobjekt
 
 ## <a name="architectural-overview"></a>Översikt över arkitekturen
 Azure DSC-tillägg använder Azure VM-agenten framework för att leverera, tillämpar och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. DSC-tillägg förväntar sig en .zip-fil som innehåller minst ett konfigurationsdokument och en uppsättning parametrar som tillhandahålls via Azure PowerShell SDK eller Azure-portalen.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Loggning
 Loggar placeras i:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[versionsnummer]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om PowerShell DSC [finns på PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kredit- eller kort för Azure
 
@@ -77,7 +77,7 @@ Om ditt kreditkort associeras med andra aktiva prenumerationer från Microsoft, 
 
 När din prenumeration är inaktiverad eller avbryts, vänta vi 90 dagar före permanent ta bort din prenumeration. Vi behåller din betalningsmetod på filen under kvarhållningsperioden om du vill aktivera prenumerationen. Efter att är prenumerationen bort helt.
 
-Om du behöver ta bort din kredit- eller kort innan 90-dagars kvarhållningsperioden slutar [kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Om du behöver ta bort din kredit- eller kort innan 90-dagars kvarhållningsperioden slutar [återaktivera din prenumeration](billing-subscription-become-disable.md). Om du inte kan aktivera [kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Varför får jag ”din inloggningssession har upphört att gälla. Klicka här för att logga in igen ”?
 
@@ -96,6 +96,10 @@ Om du är [betalning via faktura](billing-how-to-pay-by-invoice.md), skickar du 
 ### <a name="how-do-i-make-a-one-time-payment"></a>Hur gör jag en enstaka betalning
 
 Tyvärr stöds Azure för närvarande inte enstaka betalningar för kredit- eller kort. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Hur ändrar jag Skatteklass?
+
+Om du vill lägga till eller uppdatera skatte-ID, besök [ **profil** i Azure Kontocenter](https://account.azure.com/Profile)och välj **skatt post**. Den här skatte-ID används för skatt undantag beräkningar och visas på fakturan.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

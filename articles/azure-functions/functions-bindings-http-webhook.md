@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -41,14 +41,14 @@ Som standard svarar ett HTTP-utlösaren på begäran med ett 200 OK HTTP-statusk
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#webhook---c-example)
-* [C#-skript](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C#-skript (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som skickar en HTTP-200 som svar på en allmän JSON-begäran.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar en HTTP-200 som svar på en allmän JSON-begäran.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Du kan ange tillståndet nivå och tillåten HTTP-metoderna i attributet konstruktorparametrarna och det finns webhook typ och väg mall. Mer information om dessa inställningar finns [utlösaren - konfiguration](#trigger---configuration). Här är ett `HttpTrigger` attribut i en signatur:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Utlösaren - konfiguration
 
@@ -540,7 +540,7 @@ Använd HTTP-utdata bindning svarar på http-begäran avsändaren. Den här bind
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
-För förkompilerade C# finns inga egenskaper för konfiguration av utdata-specifik bindning. Om du vill skicka ett HTTP-svar, kontrollera funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`.
+C#-klassbibliotek finns det inga egenskaper för konfiguration av utdata-specifik bindning. Om du vill skicka ett HTTP-svar, kontrollera funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`.
 
 För andra språk, en HTTP-utdatabindning har definierats som ett JSON-objekt i den `bindings` matris med function.json som visas i följande exempel:
 

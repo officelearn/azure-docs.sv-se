@@ -3,7 +3,7 @@ title: "Skapa flera Virtuella miljöer och PaaS-resurser med Azure Resource Mana
 description: "Lär dig att skapa flera Virtuella miljöer och PaaS-resurser i Azure DevTest Labs från en Azure Resource Manager-mall"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Skapa flera Virtuella miljöer och PaaS-resurser med Azure Resource Manager-mallar
 
-Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [skapa och lägga till en virtuell dator i ett labb](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Detta fungerar bra för att skapa en virtuell dator i taget. Om miljön innehåller flera virtuella datorer, har varje virtuell dator skapas individuellt. För scenarier, till exempel en webbapp i flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu ange infrastrukturen och konfigurationen av din lösning för Azure och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
+Den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) kan du enkelt [skapa och lägga till en virtuell dator i ett labb](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Detta fungerar bra för att skapa en virtuell dator i taget. Om miljön innehåller flera virtuella datorer, har varje virtuell dator skapas individuellt. För scenarier, till exempel en webbapp i flera nivåer eller en SharePoint-servergrupp krävs en mekanism för att tillåta för att skapa flera virtuella datorer i ett enda steg. Med hjälp av Azure Resource Manager-mallar kan du nu ange infrastrukturen och konfigurationen av din lösning för Azure och upprepade gånger distribuera flera virtuella datorer i ett konsekvent tillstånd. Den här funktionen ger följande fördelar:
 
 - Azure Resource Manager-mallar har lästs in direkt från din källkontroll (GitHub eller Team Services Git).
 - När du konfigurerat dina användare kan skapa en miljö genom att välja en Azure Resource Manager-mall från Azure portal som de kan göra med andra typer av [VM baser](./devtest-lab-comparing-vm-base-image-types.md).

@@ -4,7 +4,7 @@ description: "Lär dig hur du skapar en Jenkins virtuell dator i Azure som tar e
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Så här skapar du en infrastruktur för utveckling på en Linux-VM i Azure med Jenkins, GitHub och Docker
 Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera fasen bygg- och för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline på en Azure VM att:
@@ -36,12 +36,12 @@ Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline f�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Skapa en instans av Jenkins
 I en tidigare självstudiekurs om [hur du anpassar en Linux-dator vid den första starten](tutorial-automate-vm-deployment.md), du lärt dig hur du automatiserar VM anpassning med molnet initiering. Den här kursen använder en moln-init-fil för att installera Jenkins och Docker på en virtuell dator. Jenkins är en populär öppen källkod automation-server som smidigt kan integreras med Azure för att aktivera kontinuerlig integration (KO) och kontinuerlig leverans (CD). Självstudier om hur du använder Jenkins finns i [Jenkins i Azure-hubb](https://docs.microsoft.com/azure/jenkins/).
 
-Skapa en fil med namnet i din aktuella shell *moln init.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Ange `sensible-editor cloud-init-jenkins.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
+Skapa en fil med namnet i din aktuella shell *moln-init-jenkins.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Ange `sensible-editor cloud-init-jenkins.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Om filen är inte tillgängligt ännu, Vänta några minuter för moln-init att 
 
 Öppna en webbläsare och gå till `http://<publicIps>:8080`. Slutför det inledande Jenkins på följande sätt:
 
-- Ange den *initialAdminPassword* hämtas från den virtuella datorn i föregående steg.
-- Välj **Välj plugin-program för att installera**
-- Sök efter *GitHub* i textrutan högst upp väljer du den *GitHub-plugin-programmet*och välj **installera**
-- Om du vill skapa ett användarkonto för Jenkins, fyller du i formuläret efter behov. Du bör skapa första Jenkins användaren i stället för att fortsätta som standardkonto för admin från ett säkerhetsperspektiv.
-- När du är klar väljer **börja använda Jenkins**
+- Ange användarnamnet **admin**, ange den *initialAdminPassword* hämtas från den virtuella datorn i föregående steg.
+- Välj **hantera Jenkins**, sedan **hantera plugin-program**.
+- Välj **tillgänglig**, Sök sedan efter *GitHub* i textrutan längst upp. Markera kryssrutan för *GitHub-plugin-programmet*och välj **nu hämta och installera efter omstart**.
+- Markera kryssrutan för **starta om Jenkins när installationen är klar och inga jobb körs**, och sedan vänta tills plugin-programmet installera processen är klar.
 
 
 ## <a name="create-github-webhook"></a>Skapa GitHub-webhook
@@ -168,7 +167,7 @@ I Jenkins, startar en ny version den **skapa historik** avsnittet längst ned ti
 ## <a name="define-docker-build-image"></a>Definiera Docker build-bild
 Se Node.js-app som körs baserat på ditt GitHub-incheckningar kan skapa en Docker-avbildning för att köra appen. Avbildningen skapas från en Dockerfile som definierar hur du konfigurerar den behållare som kör appen. 
 
-Ändra till katalogen Jenkins arbetsytan med namnet efter jobb som du skapade i föregående steg från SSH-anslutningen till den virtuella datorn. I vårt exempel som kallades *HelloWorld*.
+Ändra till katalogen Jenkins arbetsytan med namnet efter jobb som du skapade i föregående steg från SSH-anslutningen till den virtuella datorn. I det här exemplet som kallades *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld

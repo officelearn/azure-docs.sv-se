@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Hantera Azure-diskar med PowerShell
 
@@ -81,7 +81,7 @@ Standard Storage stöds av hårddiskar och levererar kostnadseffektiv lagring sa
 
 ### <a name="premium-disk"></a>Premium-disk
 
-Premiumdiskar backas upp av SSD-baserad hög prestanda, låg latens disk. Perfekt för virtuella datorer som kör produktion arbetsbelastning. Premium-lagring stöder DS-serien, DSv2-serien GS-serien och FS-serien virtuella datorer. Premiumdiskar finns i tre olika typer (P10, P20, P30, P40, p 50) och storleken på disken fastställer typ av disk. När du väljer, avrundat diskstorleken värdet till nästa typen. Till exempel om storleken är lägre än 128 GB disktyp är P10, mellan 129 och 512 P20 512 för P30, P40 för 2TB och p 50 4TB. 
+Premiumdiskar backas upp av SSD-baserad hög prestanda, låg latens disk. Perfekt för virtuella datorer som kör produktion arbetsbelastning. Premium-lagring stöder DS-serien, DSv2-serien GS-serien och FS-serien virtuella datorer. Premiumdiskar kommer i fem typer (P10, P20, P30, P40, p 50) och storleken på disken fastställer typ av disk. När du väljer, avrundat diskstorleken värdet till nästa typen. Till exempel om storleken är lägre än 128 GB disktyp är P10, mellan 129 och 512 P20 512 för P30, P40 för 2TB och p 50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium-diskprestanda
 

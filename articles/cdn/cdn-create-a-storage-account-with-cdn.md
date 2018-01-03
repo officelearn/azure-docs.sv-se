@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrera Azure storage-konto med Azure CDN
 CDN kan aktiveras till att cachelagra innehåll från ditt Azure storage. Den erbjuder utvecklare en global lösning för att leverera innehåll med hög bandbredd genom cachelagring av blobbar och compute-instanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika statiskt innehåll.
@@ -40,7 +40,7 @@ Du måste vara tjänstadministratör eller en medadministratör för den associe
     
     Den **skapa lagringskonto** bladet visas.   
 
-    ![Skapa Lagringskonto][create-new-storage-account]  
+    ![Skapa lagringskonto][create-new-storage-account]  
 
 3. I den **namnet** skriver du ett underdomännamn. Den här posten kan innehålla 3 till 24 gemena bokstäver och siffror.
    

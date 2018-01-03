@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Skaffa en Azure Active Directory-klient
 I Azure Active Directory (Azure AD) representerar en [klient](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) en organisation.  Det är en dedikerad instans av Azure AD-tjänsten som en organisation tilldelas och äger när den registrerar sig för en Microsoft-molntjänst som Azure, Microsoft Intune och Office 365.  Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter.  
@@ -39,7 +39,7 @@ Så, hur skaffar du en Azure AD-klient?  Hur processen ser ut beror delvis på o
 Om du har en befintlig prenumeration på Office 365 kan har du redan en Azure AD-klientorganisation! Du kan logga in på [Azure Portal](https://portal.azure.com) med ditt O365-konto och börja använda Azure AD.
 
 ## <a name="use-an-msa-azure-subscription"></a>Använda en MSA Azure-prenumeration
-Om du redan har registrerat dig för en Azure-prenumeration med ditt individuella Microsoft-konto har du redan en klient!  När du loggar in på [Azure Portal](https://portal.azure.com), kommer du automatiskt att loggas in till din standard-klientorganisation. Du kan använda den här innehavaren om det är lämpligt, men du kanske vill skapa ett administratörskonto för din organisation.
+Om du redan har registrerat dig för en Azure-prenumeration med ditt individuella Microsoft-konto har du redan en klient!  När du loggar in på [Azure Portal](https://portal.azure.com), loggas du automatiskt in till din standard-klientorganisation. Du kan använda den här innehavaren om det är lämpligt, men du kanske vill skapa ett administratörskonto för din organisation.
 
 I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient och skapa en administratör i den klienten med hjälp av en liknande process.
 
@@ -61,6 +61,4 @@ I så fall följer du dessa steg.  Alternativt kanske du vill skapa en ny klient
 Om du redan har registrerat dig för en Azure-prenumeration med ditt organisationskonto har du redan en klient.  I [Azure Portal](https://portal.azure.com), borde du hitta en klientorganisation när du navigerar till "Fler tjänster" och "Azure Active Directory".  Du kan använda den här klienten om du vill.
 
 ## <a name="start-from-scratch"></a>Börja från början
-Oroa dig inte om inget av alternativen ovan passar dig.  Gå bara till [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) och registrera dig för Azure med en ny organisation.  När du har slutfört processen har du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till ”Azure Active Directory” i det vänstra navigeringsfältet.
-
-Som en del av registreringen i Azure måste du ange kreditkortsinformation.  Oroa dig inte: du debiteras inte när du publicerar program i Azure AD eller skapar nya klienter.
+Oroa dig inte om inget av alternativen ovan passar dig. Gå bara till [Azure Portal](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) för att skapa en ny Azure AD-katalog. När du har slutfört processen får du din egen Azure AD-klient med det domännamn som du valde när du registrerade dig.  I [Azure Portal](https://portal.azure.com), hittar du din klientorganisation genom att navigera till **Azure Active Directory** i det vänstra navigeringsfältet.

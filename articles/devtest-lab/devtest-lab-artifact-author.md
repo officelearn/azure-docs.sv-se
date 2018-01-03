@@ -3,7 +3,7 @@ title: "Skapa anpassade artefakter för din virtuella dator för DevTest Labs | 
 description: "Lär dig hur du skapar egna artefakter som ska användas med Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
@@ -55,7 +55,7 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
 | $schema |Nej |Plats för JSON-schemafilen. Med hjälp av JSON-schemafilen kan du testa att definitionsfilen. |
-| Rubrik |Ja |Namnet på den artefakt som visas i labbet. |
+| rubrik |Ja |Namnet på den artefakt som visas i labbet. |
 | description |Ja |Beskrivning av artefakt som visas i labbet. |
 | iconUri |Nej |URI för den ikon som visas i labbet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows- och Linux. |

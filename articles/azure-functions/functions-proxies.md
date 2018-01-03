@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -50,13 +50,13 @@ Med Azure Functions-proxyservrar, kan du ändra till och -svar från serverdelen
 
 Som standard initieras backend-begäran som en kopia av den ursprungliga begäranden. Utöver att ställa in backend-URL: en kan du ändra till HTTP-metoden, rubriker och fråga string-parametrar. Ändrade värden kan referera [programinställningar] och [parametrar från den ursprungliga klientbegäran].
 
-Det finns för närvarande inga portaler för att ändra backend-begäranden. Information om hur du använder den här funktionen från proxies.json finns [definiera ett requestOverrides objekt].
+Det finns för närvarande inga portaler för att ändra backend-begäranden. Information om hur du kan använda den här funktionen från *proxies.json*, se [definiera ett requestOverrides objekt].
 
 ### <a name="modify-response"></a>Ändra svaret
 
 Som standard initieras klienten svaret som en kopia av backend-svaret. Du kan ändra svaret statuskod, orsaksfrasen, rubriker och brödtext. Ändrade värden kan referera [programinställningar], [parametrar från den ursprungliga klientbegäran], och [parametrar från backend-svaret].
 
-Det finns för närvarande inga portaler för att ändra svar. Information om hur du använder den här funktionen från proxies.json finns [definiera ett responseOverrides objekt].
+Det finns för närvarande inga portaler för att ändra svar. Information om hur du kan använda den här funktionen från *proxies.json*, se [definiera ett responseOverrides objekt].
 
 ## <a name="using-variables"></a>Använda variabler
 
@@ -84,7 +84,7 @@ Svarsparametrar kan användas som en del av ändra svar till klienten. Följande
 
 * **{backend.response.statusCode}** : HTTP-statuskod som returneras av backend-svaret.
 * **{backend.response.statusReason}** : HTTP-orsaksfrasen som returneras av backend-svaret.
-* **{backend.response.headers. \<HeaderName\>}**: ett huvud som kan läsas från backend-svaret. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill läsa. Om rubriken inte finns på begäran, ska värdet vara en tom sträng.
+* **{backend.response.headers. \<HeaderName\>}**: ett huvud som kan läsas från backend-svaret. Ersätt  *\<HeaderName\>*  med namnet på det huvud som du vill läsa. Om rubriken inte ingår i svaret, ska värdet vara en tom sträng.
 
 ### <a name="use-appsettings"></a>Referens för programinställningar
 
@@ -97,12 +97,12 @@ Till exempel backend-URL: en *https://%ORDER_PROCESSING_HOST%/api/orders* skulle
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-Proxyservrar som du konfigurerar lagras i en proxies.json-fil som finns i roten av en funktion programkatalogen. Du kan manuellt redigera den här filen och distribuera det som en del av din app när du använder någon av de [distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöder funktioner. Funktionen måste vara [aktiverat](#enable) för filen som ska bearbetas. 
+Proxyservrar som du konfigurerar lagras i en *proxies.json* fil som finns i roten av en funktion programkatalogen. Du kan manuellt redigera den här filen och distribuera det som en del av din app när du använder någon av de [distributionsmetoder](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) som stöder funktioner. Funktionen Azure Functions proxyservrar måste vara [aktiverat](#enable) för filen som ska bearbetas. 
 
 > [!TIP] 
-> Om du inte har angett något av metoder för distribution, kan du också fungera med filen proxies.json i portalen. Gå till funktionen appen, Välj **plattformsfunktioner**, och välj sedan **App Service Editor**. På så sätt, kan du visa hela filen strukturen för din funktionsapp och göra ändringar.
+> Om du inte har angett något av metoder för distribution, du kan också fungera med den *proxies.json* filen i portalen. Gå till funktionen appen, Välj **plattformsfunktioner**, och välj sedan **App Service Editor**. På så sätt, kan du visa hela filen strukturen för din funktionsapp och göra ändringar.
 
-Proxies.JSON definieras av ett proxyservrar-objekt som består av namngivna proxyservrar och deras definitioner. Du kan också om redigeringsprogram stöder detta, kan du referera en [JSON-schema](http://json.schemastore.org/proxies) för kod slutförande. En exempelfil kan se ut ungefär så här:
+*Proxies.JSON* definieras av ett proxyservrar-objekt som består av namngivna proxyservrar och deras definitioner. Du kan också om redigeringsprogram stöder detta, kan du referera en [JSON-schema](http://json.schemastore.org/proxies) för kod slutförande. En exempelfil kan se ut ungefär så här:
 
 ```json
 {
@@ -129,7 +129,7 @@ Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objektet för
 * **responseOverrides**: ett objekt som definierar omvandlingar för klient-svaret. Se [definiera ett responseOverrides objekt].
 
 > [!NOTE] 
-> Egenskapen väg Azure Functions proxyservrar inte att behandla egenskapen routePrefix för Värdkonfiguration funktioner. Om du vill inkludera ett prefix, till exempel /api måste tas med i egenskapen vägen.
+> Den *väg* egenskap i Azure Functions proxyservrar inte att behandla den *routePrefix* -egenskapen för Värdkonfiguration Funktionsapp. Om du vill ha ett prefix som `/api`, det måste ingå i den *väg* egenskapen.
 
 ### <a name="requestOverrides"></a>Definiera ett requestOverrides-objekt
 
@@ -193,7 +193,7 @@ En exempelkonfiguration kan se ut ungefär så här:
 }
 ```
 > [!NOTE] 
-> I det här exemplet brödtexten anges direkt, så ingen `backendUri` egenskapen krävs. Exemplet visar hur du kan använda Azure Functions proxyservrar för mocking API: er.
+> I det här exemplet svarstexten anges direkt, så ingen `backendUri` egenskapen krävs. Exemplet visar hur du kan använda Azure Functions proxyservrar för mocking API: er.
 
 ## <a name="enable"></a>Aktivera Azure Functions proxyservrar
 

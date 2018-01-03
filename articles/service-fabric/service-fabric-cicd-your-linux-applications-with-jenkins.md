@@ -14,24 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Använd Jenkins för att skapa och distribuera Linux-program
 Jenkins är ett populärt verktyg för kontinuerlig integrering och distribution av appar. Så här skapar och distribuerar du ett Azure Service Fabric-program med Jenkins.
 
 ## <a name="general-prerequisites"></a>Allmänna krav
 - Du måste ha Git installerat lokalt. På [nedladdningssidan för Git](https://git-scm.com/downloads) kan du installera lämplig Git-version för ditt operativsystem. Om du är nybörjare på Git kan du läsa mer i [Git-dokumentationen](https://git-scm.com/docs).
-- Du måste ha plugin-programmet Service Fabric Jenkins till hands. Du kan ladda ned det från [Service Fabric-nedladdningar](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Om du använder edge webbläsare byta tillägget för hämtade filer från ZIP i .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Konfigurera Jenkins i ett Service Fabric-kluster
 
 Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följande avsnitt visar hur du konfigurerar det i ett kluster när ett Azure storage-konto för att spara tillståndet för behållaren-instans.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 1. Ha ett Service Fabric Linux-kluster redo. Docker finns redan installerat i Service Fabric-kluster som skapas via Azure Portal. Om du kör klustret lokalt kan du kontrollera om Docker är installerat med hjälp av kommandot ``docker info``. Om Docker inte är installerat kan du installera det med följande kommandon:
 
   ```sh
@@ -118,7 +117,7 @@ ssh user@PublicIPorFQDN -p [port]
 
 Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. I följande avsnitt visas hur du konfigurerar Jenkins utanför ett kluster.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Du måste ha Docker installerat. Följande kommandon kan användas för att installera Docker från terminalen:
 
   ```sh
@@ -129,8 +128,8 @@ Du måste ha Docker installerat. Följande kommandon kan användas för att inst
 När du kör ``docker info`` på terminalen visar utdata nu att Docker-tjänsten körs.
 
 ### <a name="steps"></a>Steg
-  1. Kör behållaren Service Fabric Jenkins, avbildning: ``docker pull rapatchi/jenkins:v9``
-  2. Kör behållaravbildningen: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Hämtar Service Fabric Jenkins behållare avbildningen: ``docker pull rapatchi/jenkins:v10``. Den här avbildningen innehåller Service Fabric Jenkins plugin förinstallerat.
+  2. Kör behållaravbildningen: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Hämta ID:t för behållaravbildningsinstansen. Du kan visa en lista med alla Docker-behållare med hjälp av kommandot ``docker ps –a``
   4. Logga in på Jenkins-portalen med följande steg:
 
@@ -151,11 +150,6 @@ När du kör ``docker info`` på terminalen visar utdata nu att Docker-tjänsten
 
 Kontrollera att klustret eller datorn där Jenkins-behållaravbildningen finns har en offentlig IP-adress. Detta gör att Jenkins-instansen kan ta emot meddelanden från GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Installera plugin-programmet till Service Fabric Jenkins från portalen
-
-1. Gå till ``http://PublicIPorFQDN:8081``
-2. Från Jenkins-instrumentpanelen väljer du **Manage Jenkins (Hantera Jenkins)** > **Manage Plugins (Hantera plugin-program)** > **Avancerat**.
-Här kan du ladda upp ett plugin-program. Välj **Välj fil**, och välj sedan den **serviceFabric.hpi** filen som du hämtade under krav eller kan du hämta [här](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). När du väljer alternativet för att **ladda upp** installerar Jenkins automatiskt plugin-programmet åt dig. Tillåt en omstart om det begärs.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 

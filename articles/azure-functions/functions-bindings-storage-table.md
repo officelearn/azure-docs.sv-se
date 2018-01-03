@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage bindningar för Azure Functions
 
@@ -35,8 +35,8 @@ Använda Azure Table storage indatabindning för att läsa en tabell i ett Azure
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C# läsa en entitet](#input---c-example-1)
-* [Förkompilerade C# läsa flera entiteter](#input---c-example-2)
+* [C#-läsa en entitet](#input---c-example-1)
+* [C#-läsa flera entiteter](#input---c-example-2)
 * [C# skript - läsa en entitet](#input---c-script-example-1)
 * [C# skript - läsa flera entiteter](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Finns i det språkspecifika:
 
 ### <a name="input---c-example-1"></a>Indata - C#-exempel 1
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som läser en tabellrad. 
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som läser en tabellrad. 
 
 Raden värdet för nyckeln ”{queueTrigger}” visar att Radnyckeln kommer från kön Meddelandesträngen.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Indata - C#-exempel 2
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som läser flera rader. Observera att den `MyPoco` klassen härleds från `TableEntity`.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som läser flera rader. Observera att den `MyPoco` klassen härleds från `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Indata - attribut
  
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en tabell indatabindning:
+I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en tabell indatabindning:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   }
   ```
 
-  En komplett exempel finns [indata - förkompilerade C#-exempel](#input---c-example).
+  En komplett exempel finns [indata - C#-exempel](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Använd Azure Table storage utdata bindning skriva entiteter till en tabell i et
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#output---c-example)
-* [C#-skript](#output---c-script-example)
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som använder en HTTP-utlösare för att skriva en tabellrad. 
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som använder en HTTP-utlösare för att skriva en tabellrad. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Attributets konstruktorn har tabellens namn. Den kan användas på ett `out` parametern eller returvärdet för funktionen som visas i följande exempel:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
-Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [indata - attribut](#input---attributes-for-precompiled-c).
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [indata - attribut](#input---attributes).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 

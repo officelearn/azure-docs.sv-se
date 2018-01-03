@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Hantera en virtuell dator-skala med Azure CLI 2.0
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några av de vanliga Azure CLI 2.0-kommandon som gör att du kan utföra dessa uppgifter.
 
-Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste versionen av Azure CLI 2.0. Mer information om hur du installerar och använder den senaste versionen finns [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-portal-create.md).
+Om du vill utföra dessa hanteringsuppgifter, behöver du den senaste versionen av Azure CLI 2.0. Mer information om hur du installerar och använder den senaste versionen finns [installera Azure CLI 2.0](/cli/azure/install-azure-cli). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skaluppsättning
-Ta bort en eller flera virtuella datorer i en skaluppsättning med [az vmss delete-instanser](/cli/azure/vmss#delete-instances). Den '--instans-ID '' parametern kan du ange en eller flera virtuella datorer ska tas bort. Om du anger * för instansen-ID, alla virtuella datorer i skaluppsättning tas bort. Avgränsa varje instans-ID för att ta bort flera virtuella datorer med ett blanksteg.
+Ta bort en eller flera virtuella datorer i en skaluppsättning med [az vmss delete-instanser](/cli/azure/vmss#delete-instances). Den `--instance-ids` parametern kan du ange en eller flera virtuella datorer ska tas bort. Om du anger * för instansen-ID, alla virtuella datorer i skaluppsättning tas bort. Avgränsa varje instans-ID för att ta bort flera virtuella datorer med ett blanksteg.
 
 I följande exempel tar bort instansen *0* i skaluppsättningen namngivna *myScaleSet* och *myResourceGroup* resursgruppen. Ange värdena på följande sätt:
 

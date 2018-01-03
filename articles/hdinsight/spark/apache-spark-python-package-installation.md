@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter-anteckningsböcker i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig
 
 I den här artikeln får du lära dig hur du installerar den [TensorFlow](https://www.tensorflow.org/) paketet med skriptåtgärder på klustret och använda den via Jupyter-anteckningsboken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

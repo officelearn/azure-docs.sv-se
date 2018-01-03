@@ -8,3 +8,8 @@ Om kunden använder en klient som inte skickar den [SNI](https://tools.ietf.org/
 
 * Om tjänsten har en anpassad domän som konfigurerats för Proxy, är standard-certifikatet det certifikat som utfärdades till den anpassade domänen för Proxy.
 * Om tjänsten har konfigurerats flera anpassade domäner för Proxy (stöds bara i den **Premium** nivån), kunden kan välja vilket certifikat som ska vara standardcertifikatet. Ange standardcertifikatet i [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/createorupdate#definitions_hostnameconfiguration) egenskapen ska anges till true (”defaultSslBinding”: ”true”). Om kunden inte har angetts för egenskapen är standardcertifikatet det certifikat som utfärdats till Proxy standarddomän *.azure api.net som värd.
+
+## <a name="support-for-putpost-request-with-large-payload"></a>Stöd för PUT/POST-begäran med stora nyttolast
+
+APIM proxyservern stöder begäran med stora nyttolast när klientens certifikat i HTTPS (till exempel nyttolast > 40 KB). Om du vill förhindra att begäran serverns frysa kunder kan ställa in egenskapen [”negotiateClientCertificate”: ”true”](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/CreateOrUpdate#definitions_hostnameconfiguration) på Proxy-värdnamnet. Om egenskapen är inställd på true och klienten certifikatet har begärts samtidigt SSL/TLS-anslutning innan exchange alla HTTP-begäran. Eftersom inställningen på den **Proxy Hostname** genom alla anslutningsbegäranden be om klientcertifikatet. Kunder kan konfigurera upp till 20 anpassade domäner för Proxy (stöds bara i den **Premium** nivån) och undviker du den här begränsningen.
+

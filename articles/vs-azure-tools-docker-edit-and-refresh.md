@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Felsök appar i en lokal Docker-behållare
 ## <a name="overview"></a>Översikt
@@ -32,7 +32,7 @@ Den här artikeln beskriver också hur du ställer in brytpunkter för felsökni
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande verktyg måste vara installerad.
 
 * [Senaste version av Visual Studio](https://www.visualstudio.com/downloads/)
@@ -54,7 +54,7 @@ För att snabbt iterera ändringar, kan du starta appen i en behållare och fort
 
 1. Konfigurera lösningen `Debug` och tryck på  **&lt;CTRL + F5 >** att skapa en docker-avbildning och köra det lokalt.
 
-    När avbildningen behållaren har skapats och körs i en dockerbehållare, startas Visual Studio webbappen i din standardwebbläsare.
+    När avbildningen behållaren har skapats och körs i en dockerbehållare, startar Visual Studio webbapp i din standardwebbläsare.
     Om du använder Microsoft Edge-webbläsaren eller på annat sätt har fel finns [felsökning](vs-azure-tools-docker-troubleshooting-docker-errors.md) avsnitt.
 2. Gå till sidan om, vilket är där vi göra våra ändringar.
 3. Gå tillbaka till Visual Studio och öppna `Views\Home\About.cshtml`.

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Länkas namnområde implementeringsdetaljer och cost effekter
+
 Den [PairNamespaceAsync] [ PairNamespaceAsync] metod med en [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instansen, utför synliga uppgifter å dina vägnar. Eftersom det är kostnad överväganden när du använder funktionen, är det viktigt att förstå dessa uppgifter så att du förväntar dig beteendet när det sker. API: et aktiverar följande automatiska funktioner för din räkning:
 
 * Skapa eftersläpning köer.
@@ -60,8 +61,8 @@ Den [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOp
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | Varaktighet |1 minut |
-| EnableDeadLetteringOnMessageExpiration |SANT |
-| EnableBatchedOperations |SANT |
+| EnableDeadLetteringOnMessageExpiration |sant |
+| EnableBatchedOperations |sant |
 
 Till exempel den första eftersläpning kön skapas för namnområdet **contoso** heter `contoso/x-servicebus-transfer/0`.
 

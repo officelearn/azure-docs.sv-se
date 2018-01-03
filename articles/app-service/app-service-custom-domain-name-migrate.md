@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ När du migrerar en levande plats och DNS-domännamn till App Service används d
 
 Om du inte oroar avbrott i DNS-matchning, se [mappa ett befintligt anpassade DNS-namn till Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Att slutföra den här anvisningar:
 
@@ -39,7 +39,7 @@ Att slutföra den här anvisningar:
 
 När du binder en anpassad domän förebyggande syfte göra du följande innan du gör några ändringar i DNS-posterna:
 
-- Verifiera ditt ägarskap för domänen
+- Verifiera domänägarskap
 - Aktivera domännamnet för din app
 
 När du migrerar slutligen din anpassade DNS-namnet från den gamla platsen till App Service-appen måste finnas det utan avbrott i DNS-matchning.
@@ -50,7 +50,7 @@ När du migrerar slutligen din anpassade DNS-namnet från den gamla platsen till
 
 Lägg till en TXT-post för att verifiera domänen ägarskap. TXT-posten mappar från _awverify.&lt; underdomän >_ till  _&lt;appname >. azurewebsites.net_. 
 
-TXT-posten som du behöver beror på DNS-posten som du vill migrera. Exempel finns i följande tabell (`@` representerar vanligen rotdomänen):  
+TXT-posten som du behöver beror på DNS-posten som du vill migrera. Exempel finns i följande tabell (`@` representerar vanligen rotdomänen):
 
 | DNS-post-exempel | TXT-värden | TXT-värde |
 | - | - | - |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Tjänstens hälsa för Azure ger lämplig och personlig information när problem i Azure-tjänster påverkar dina tjänster.  Det hjälper dig också för kommande planerat underhåll.
@@ -57,5 +57,4 @@ Filtrera tjänstens hälsa för att visa dina verksamhetskritiska prenumeratione
 ## <a name="configure-service-health-alerts"></a>Konfigurera aviseringar för tjänstens hälsa
 Tjänstens hälsa för Azure integreras med Azure-Övervakaren för att meddela dig via e-post och textmeddelanden webhook meddelanden när resurserna verksamhetskritiska påverkas. Konfigurera en varning för logg för tjänstens hälsa för händelsen. Vidarebefordra den här aviseringen till rätt personer i organisationen med hjälp av åtgärdsgrupper. Mer information finns i [konfigurera aviseringar för tjänstens hälsa](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Nästa steg
-Ställa in aviseringar så meddelas du om hälsotillstånd. Mer information finns i [konfigurera aviseringar för tjänstens hälsa](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

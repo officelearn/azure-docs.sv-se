@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direkt metoder från IoT-hubb
 IoT-hubb kan du anropa direkt metoder på enheter från molnet. Direkta metoder representerar en request-reply-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade timeout). Den här metoden är användbar för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten har kunna svara, till exempel skicka ett SMS-wake-up till en enhet om en enhet är offline (SMS är dyrare än ett metodanrop).
@@ -33,7 +33,7 @@ Direkta metoder följer ett mönster i begäran och svar och är avsedda för ko
 Referera till [moln till enhet kommunikation vägledning] [ lnk-c2d-guidance] dirigera om osäkra mellan med hjälp av egenskaper, metoder eller moln till enhet meddelanden.
 
 ## <a name="method-lifecycle"></a>Metoden livscykel
-Direkta metoder implementeras på enheten och kan kräva noll eller fler indata i metod nyttolasten att instansiera korrekt. Du anropa en metod som har direkt via en tjänst-riktade URI (`{iot hub}/twins/{device id}/methods/`). En enhet tar emot direkt metoder igenom avsnittet enhetsspecifika MQTT (`$iothub/methods/POST/{method name}/`). Vi stöder direkt metoder på ytterligare enheter på klientsidan nätverksprotokoll i framtiden.
+Direkta metoder implementeras på enheten och kan kräva noll eller fler indata i metod nyttolasten att instansiera korrekt. Du anropa en metod som har direkt via en tjänst-riktade URI (`{iot hub}/twins/{device id}/methods/`). En enhet tar emot direkt metoder igenom avsnittet enhetsspecifika MQTT (`$iothub/methods/POST/{method name}/`) eller via AMQP länkar (`IoThub-methodname` och `IoThub-status` programegenskaper). 
 
 > [!NOTE]
 > När du anropar en direkt metod på en enhet, egenskapsnamn och värden kan endast innehålla US-ASCII utskrivbara alfanumeriskt, förutom eventuella i följande: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -75,8 +75,7 @@ Backend-appen tar emot ett svar som omfattar:
 * *Huvuden* som innehåller en ETag, begär ID, content-type och Innehållskodning
 * En JSON *brödtext* i följande format:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ Backend-appen tar emot ett svar som omfattar:
    Båda `status` och `body` som tillhandahålls av enheten och används för att svara med enhetens egna statuskod och/eller beskrivning.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Hantera en direkt metod på en enhet
-### <a name="method-invocation"></a>Metodanropet
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Metodanropet
 Enheter får direkta metodbegäranden om MQTT avsnittet:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Meddelandetexten som tar emot enheten är i följande format:
@@ -99,13 +99,30 @@ Meddelandetexten som tar emot enheten är i följande format:
 
 Metodbegäranden är QoS 0.
 
-### <a name="response"></a>Svar
+#### <a name="response"></a>Svar
 Enheten skickar svar till `$iothub/methods/res/{status}/?$rid={request id}`, där:
 
 * Den `status` egenskapen innebär att enheten har angett metod utförs.
 * Den `$rid` egenskapen är begäran-ID från metodanropet togs emot från IoT-hubb.
 
 Innehållet har angetts av enheten och kan vara status.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Metodanropet
+Enheten tar emot direkta metodbegäranden genom att skapa en receive-länk på adressen`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+AMQP meddelandet anländer på mottagarsidan länken som representerar metoden begäran. Det innehåller följande:
+* Egenskapen Korrelation ID, som innehåller en begäran-ID som ska skickas tillbaka med motsvarande metodsvaret
+* En program-egenskap med namnet `IoThub-methodname`, som innehåller namnet på den metod som anropas
+* AMQP meddelandetexten som innehåller nyttolasten metoden som JSON
+
+#### <a name="response"></a>Svar
+Enheten skapar en Skicka länk för att returnera metodsvaret på adressen`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+Metodens svar returneras på länken skickas och med följande struktur:
+* Egenskapen Korrelations-ID, som innehåller begäran-ID skickades i metodens begärandemeddelandet
+* En program-egenskap med namnet `IoThub-status`, som innehåller användaren angett metoden status
+* AMQP meddelandetexten som innehåller metodsvaret som JSON
 
 ## <a name="additional-reference-material"></a>Ytterligare referensmaterialet
 Andra referensavsnitten i utvecklarhandboken för IoT-hubben är:

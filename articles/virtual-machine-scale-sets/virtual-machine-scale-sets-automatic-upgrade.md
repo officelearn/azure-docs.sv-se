@@ -3,7 +3,7 @@ title: Den automatiska OS uppgraderingar med virtuella Azure-datorn skala anger 
 description: "Lär dig hur man automatiskt uppgraderar Operativsystemet på VM-instanser i en skaluppsättning"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: guybo
-ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: negat
+ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatiska OS-uppgraderingar skaluppsättning för virtuell Azure-dator
 
@@ -176,7 +176,7 @@ I följande exempel används Azure CLI (2.0.20 eller senare) att kontrollera sta
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel används REST API för att kontrollera status för skaluppsättningen namngivna *myVMSS* i resursgrupp med namnet *myResourceGroup*:
 
 ```

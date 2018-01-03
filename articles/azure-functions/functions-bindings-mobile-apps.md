@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
@@ -37,8 +37,7 @@ Mobile Apps-indatabindning läser en post från en mobil tabell slutpunkt och sk
 
 Finns i det språkspecifika:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [C#-skript](#input---c-script-example)
+* [C#-skript (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Indata - exempel på C#-skript
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Indata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Information om egenskaper för attribut som du kan konfigurera finns [konfigurationsavsnittet följande](#input---configuration).
 
@@ -168,13 +167,13 @@ Använda Mobile Apps utdata bindning för att skriva en ny post i en tabell för
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#output---c-example)
-* [C#-skript](#output---c-script-example)
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som utlöses av ett meddelande i kön och skapar en post i en tabell för mobila appar.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som utlöses av ett meddelande i kön och skapar en post i en tabell för mobila appar.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Information om egenskaper för attribut som du kan konfigurera finns [utdata - konfiguration](#output---configuration). Här är en `MobileTable` attributet exempel i en signatur:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
@@ -312,7 +311,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# skript funktion, använder en namngiven output-parameter av typen `out object` åtkomst till utdata-posten. I förkompilerade C#-funktioner, den `MobileTable` attributet kan användas med någon av följande typer:
+I C# skript funktion, använder en namngiven output-parameter av typen `out object` åtkomst till utdata-posten. I C#-klassbibliotek, den `MobileTable` attributet kan användas med någon av följande typer:
 
 * `ICollector<T>`eller `IAsyncCollector<T>`, där `T` är antingen `JObject` eller någon typ med en `public string Id` egenskap.
 * `out JObject`

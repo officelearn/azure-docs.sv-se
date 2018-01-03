@@ -3,7 +3,7 @@ title: "Överföra VHD-filen till Azure DevTest Labs med Microsoft Azure Lagring
 description: "Överföra VHD-filen till labblagringskontot med Lagringsutforskaren för Microsoft Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Överföra VHD-filen till labblagringskontot med Lagringsutforskaren för Microsoft Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar som används för att etablera virtuella datorer. Den här artikeln beskrivs hur du använder [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att ladda upp en VHD-fil till ett labb storage-konto. När du har överfört VHD-filen i [nästa steg avsnittet](#next-steps) innehåller vissa artiklar som illustrerar hur du skapar en anpassad avbildning från den överförda VHD-filen. Mer information om diskar och virtuella hårddiskar i Azure finns [om diskar och virtuella hårddiskar för virtuella datorer](../virtual-machines/linux/about-disks-and-vhds.md)
 
-## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
+## <a name="step-by-step-instructions"></a>Stegvisa anvisningar
 
 I följande steg beskriver hur du överför en VHD-fil på DevTest Labs med [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
@@ -100,7 +100,7 @@ I följande steg beskriver hur du överför en VHD-fil på DevTest Labs med [Mic
 
     1. I den högra rutan i Lagringsutforskaren bör du se en lista över blobbar i den **överför** blob-behållaren i den labblagringskontot. På verktygsfältet blob editor väljer **överför** 
         
-        ![Överför knappen][6]
+        ![Knappen för överföring][6]
     
     1. Från den **överför** nedrullningsbara menyn och väljer **Överför filer...** .
     

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -58,7 +58,7 @@ Du kan tilldela en princip för villkorlig åtkomst till följande molnappar fr�
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (inklusive OneDrive för företag)
+- Microsoft Office 365 SharePoint Online (inklusive OneDrive för företag och Project Online)
 
 - Microsoft Power BI 
 
@@ -154,7 +154,7 @@ Du kan välja i principen för villkorlig åtkomst **mobilappar och skrivbordskl
 Den här inställningen påverkar åtkomstförsök från följande mobila appar och skrivbord klienter: 
 
 
-|Klientprogram|Måltjänsten|Plattform|
+|Klientappar|Måltjänsten|Plattform|
 |---|---|---|
 |Azure RemoteApp|Azure RemoteApp-tjänsten|Windows 10, Windows 8.1, Windows 7, iOS, Android och Mac OS X|
 |Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS och Android|

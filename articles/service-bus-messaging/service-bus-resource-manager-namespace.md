@@ -1,6 +1,6 @@
 ---
-title: "Skapa Service Bus-namnområde med en Azure Resource Manager-mall | Microsoft Docs"
-description: "Använd Azure Resource Manager-mall för att skapa ett namnområde för Service Bus"
+title: "Skapa namnområde för Service Bus-meddelanden med hjälp av Azure Resource Manager-mall | Microsoft Docs"
+description: "Använd Azure Resource Manager-mall för att skapa ett namnområde för Service Bus-meddelanden"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Service Bus med en Azure Resource Manager-mall
 
@@ -41,6 +41,7 @@ Den fullständiga mallen finns i [mall för Service Bus-namnområde] [ Service B
 > 
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
+
 Med denna mall kan du distribuera en Service Bus-namnrymd med ett [Standard eller Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Klicka på följande knapp för att köra distributionen automatiskt:
@@ -48,11 +49,13 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 [![Distribuera till Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametrar
+
 Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parametervärdena. Du bör definiera en parameter för de värden som varierar utifrån det projekt som du distribuerar eller utifrån den miljö som du distribuerar till. Definiera inte parametrar för värden som aldrig ändras. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Den här mallen definierar följande parametrar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Namnet på namnområdet för Service Bus för att skapa.
 
 ```json
@@ -65,6 +68,7 @@ Namnet på namnområdet för Service Bus för att skapa.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Namnet på Service Bus [SKU](https://azure.microsoft.com/pricing/details/service-bus/) att skapa.
 
 ```json
@@ -86,6 +90,7 @@ Mallen definierar de värden som tillåts för den här parametern (Standard ell
 Läs mer om prissättningen för Service Bus [Service Bus priser och fakturering][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Service Bus-API-versionen av mallen.
 
 ```json
@@ -98,7 +103,9 @@ Service Bus-API-versionen av mallen.
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-### <a name="service-bus-namespace"></a>Service Bus-namnrymd
+
+### <a name="service-bus-namespace"></a>Service Bus-namnområde
+
 Skapar en standard Service Bus-namnrymd av typen **Messaging**.
 
 ```json
@@ -120,15 +127,18 @@ Skapar en standard Service Bus-namnrymd av typen **Messaging**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

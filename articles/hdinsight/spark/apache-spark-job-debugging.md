@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1eaa5982703c31485c7b73eae780a62a0c5d672a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark-jobb som körs på Azure HDInsight
 
 I den här artikeln får lära du att spåra och felsöka Spark-jobb som körs på HDInsight-kluster med hjälp av YARN-Användargränssnittet, Spark användargränssnitt och Spark historik Server. Vi börja ett Spark-jobb med hjälp av en bärbar dator som är tillgängliga med Spark-kluster för den här artikeln **Maskininlärning: förutsägbar analys på mat inspektion data med hjälp av MLLib**. Du kan använda stegen nedan för att spåra ett program som du skickas med någon annan metod, till exempel **spark-skicka**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -106,7 +106,7 @@ När ett jobb har slutförts sparas information om jobbet i Spark historik Serve
    
     ![Starta Spark historik Server](./media/apache-spark-job-debugging/view-completed-applications.png)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 *  [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 
 ### <a name="for-data-analysts"></a>För dataanalytiker

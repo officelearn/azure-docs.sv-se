@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -206,7 +206,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
 1. Använd följande kommando för att skapa en realtidswebbtjänst:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Det här kommandot genererar ett webbtjänst-ID som du kan använda senare.
 
@@ -216,6 +216,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
    * `--model-file`: Modellfilen. I det här fallet är det pickle-filen model.pkl.
    * `-r`: Typ av modell. I det här fallet är det en Python-modell.
    * `--collect-model-data true`: Det här aktiverar datainsamling.
+   * `-c`: Sökvägen till filen conda-beroenden där ytterligare paket har angetts.
 
    >[!IMPORTANT]
    >Tjänstnamnet, som även är namnet på den nya Docker-avbildningen, måste skrivas med små bokstäver. Annars får du ett felmeddelande. 
@@ -254,10 +255,10 @@ Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen
 
 3. Skapa en Docker-avbildning.
 
-   Använd följande kommando för att skapa en Docker-avbildning och ange manifest-ID:t från föregående steg:
+   Använd följande kommando för att skapa en Docker-avbildning och ange manifest-ID:t från föregående steg. Du kan även inkludera conda-beroenden med hjälp av växeln `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    Det här kommandot genererar ett Docker-avbildnings-ID.
    

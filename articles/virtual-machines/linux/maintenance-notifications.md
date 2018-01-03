@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Hantering av planerat underhåll meddelanden för Linux virtuella datorer
 
@@ -30,9 +30,9 @@ Azure utför regelbundet uppdateringar för att förbättra tillförlitligheten,
 - Om en omstart krävs för underhåll, får du ett meddelande om vid underhåll är planerade. I dessa fall måste ges ett tidsfönster där du kan starta underhållet själv när det passar dig.
 
 
-Planerat underhåll som kräver en omstart kommer i waves. Varje wave har ett annat område (regioner).
+Planerat underhåll som kräver omstart schemaläggs i waves. Varje wave har ett annat område (regioner).
 
-- En våg börjar med ett meddelande till kunder. Som standard skickas meddelandet till prenumerationen ägare och Medägare. Du kan lägga till fler meddelanden alternativ som e-post, SMS och Webhooks, och mottagare till meddelanden med Azure [aktivitet loggen aviseringar](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- En våg börjar med ett meddelande till kunder. Som standard skickas meddelandet till prenumerationen ägare och Medägare. Du kan lägga till fler meddelanden alternativ som e-post, SMS och webhooks, och mottagare till meddelanden med Azure [aktivitet loggen aviseringar](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - Vid tidpunkten för meddelandet, en *självbetjäning fönstret* görs tillgänglig. Under det här fönstret kan du söka efter vilka av dina virtuella datorer ingår i den här wave och proaktivt starta Underhåll efter behov schemaläggning.
 - När fönstret självbetjäning en *schemalagda underhållsperiod* börjar. Någon gång under det här fönstret Azure schemalägger och gäller det nödvändiga underhållet för den virtuella datorn. 
 
@@ -92,8 +92,8 @@ Följande värden returneras under MaintenanceRedeployStatus:
 | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu ||
 | PreMaintenanceWindowStartTime         | I början av självbetjäning underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
 | PreMaintenanceWindowEndTime           | Slutet av självbetjäning underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
-| MaintenanceWindowStartTime            | I början av det schemalagda underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
-| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperioden när du kan initiera Underhåll på den virtuella datorn ||
+| MaintenanceWindowStartTime            | I början av den schemalagda underhållsperiod som initierar Azure Underhåll på den virtuella datorn ||
+| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperiod som initierar Azure Underhåll på den virtuella datorn ||
 | LastOperationResultCode               | Resultatet av det senaste försöket att starta Underhåll på den virtuella datorn ||
 
 
@@ -159,7 +159,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 
 **F: hur lång tid tar det att datorn startas om min virtuella dator?**
 
-**S:** beroende på storleken på den virtuella datorn, omstart kan ta flera minuter. Observera att om du använder molntjänster (Web/Worker-rollen), Skalningsuppsättningarna för virtuella datorer eller tillgänglighetsuppsättningar, får du 30 minuter mellan varje grupp av virtuella datorer (UD). 
+**S:** beroende på storleken på den virtuella datorn omstart kan ta flera minuter under självbetjäning underhållsperiod. Under Azure initierade omstarter i fönstret schemalagt underhåll omstarten normalt tar cirka 25 minuter. Observera att om du använder molntjänster (Web/Worker-rollen), Skalningsuppsättningarna för virtuella datorer eller tillgänglighetsuppsättningar, får du 30 minuter mellan varje grupp av virtuella datorer (UD) under den schemalagda underhållsperioden.
 
 **F: Vad är upplevelsen för molntjänster (Web/Worker-rollen), Service Fabric och Skalningsuppsättningar i virtuella datorer?**
 

@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge dina programdata hög tillgänglighet med Azure storage
 
@@ -32,7 +32,7 @@ I delen en av serierna kan du lära dig hur du:
 > * Ange anslutningssträngen
 > * Köra konsolprogrammet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -113,7 +113,7 @@ I koden, den `RunCircuitBreakerAsync` uppgift i den `Program.cs` används för a
 
 ### <a name="retry-event-handler"></a>Försök händelsehanterare
 
-Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ställts in till rety. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
+Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ange att försöka igen. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)

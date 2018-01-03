@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 184a30c91de0d4141d6bd8a8b9db93c539e083b5
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Skapa en grundläggande virtuell dator i Azure med Ansible
 Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en grundläggande virtuell dator med Ansible. Du kan också lära dig hur du [skapa en fullständig VM-miljö med Ansible](ansible-create-complete-vm.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill hantera Azure-resurser med Ansible, behöver du följande:
 
 - Ansible och Azure SDK för Python-moduler som har installerats på värdsystemet.
@@ -37,7 +37,7 @@ Om du vill hantera Azure-resurser med Ansible, behöver du följande:
 
 
 ## <a name="create-supporting-azure-resources"></a>Skapa stöd för Azure-resurser
-I det här exemplet skapar vi en runbook som distribuerar en virtuell dator i en befintlig infrastruktur. Börja med att skapa resursgrupp med [az gruppen skapa](/cli/azure/vm#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
+I det här exemplet skapar du en runbook som distribuerar en virtuell dator i en befintlig infrastruktur. Börja med att skapa resursgrupp med [az gruppen skapa](/cli/azure/vm#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i den *eastus* plats:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -56,7 +56,7 @@ az network vnet create \
 
 
 ## <a name="create-and-run-ansible-playbook"></a>Skapa och köra Ansible playbook
-Skapa en Ansible playbook med namnet **azure_create_vm.yml** och klistra in följande innehåll. Det här exemplet skapar en enda virtuell dator och konfigurerar SSH-autentiseringsuppgifter. Ange dina egna offentliga nyckel data i den *key_data* koppla på följande sätt:
+Skapa en Ansible playbook med namnet *azure_create_vm.yml* och klistra in följande innehåll. Det här exemplet skapar en enda virtuell dator och konfigurerar SSH-autentiseringsuppgifter. Ange dina egna fullständig offentliga nyckel data i den *key_data* koppla på följande sätt:
 
 ```yaml
 - name: Create Azure VM

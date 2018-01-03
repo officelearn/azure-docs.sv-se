@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Köra en av aktivitet i Azure Container instanser
 
@@ -20,7 +20,7 @@ Enkel och hastighet för att distribuera behållare i Azure Container instanser 
 
 Du kan ange att behållarna har stoppats när deras processer har slutförts med en omstartsprincip för konfigurerbara. Eftersom behållarinstanser debiteras med andra är du debiteras för de beräkningsresurser som används när behållaren köra uppgiften körs.
 
-Exemplen som presenteras i den här artikeln används Azure CLI. Du måste ha Azure CLI version 2.0.21 eller större [installeras lokalt](/cli/azure/install-azure-cli), eller använda CLI i den [Azure Cloud Shell](../cloud-shell/overview.md).
+Exemplen som presenteras i den här artikeln används Azure CLI. Du måste ha Azure CLI version 2.0.21 eller större [installeras lokalt][azure-cli-install], eller använda CLI i den [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Princip för omstart av behållare
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Kör till exempel för slutförande
 
-Om du vill se omstartspolicyn i praktiken, skapa en behållare-instans från den [aci/microsoft-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) avbildning och ange den `OnFailure` starta om principen. Den här behållaren exempel kör Python-skriptet som standard, analyserar du texten i Shakespeare's [samhälle](http://shakespeare.mit.edu/hamlet/full.html), skriver du 10 vanligaste orden STDOUT och sedan avslutas.
+Om du vill se omstartspolicyn i praktiken, skapa en behållare-instans från den [aci/microsoft-wordcount] [ aci-wordcount-image] avbildning och ange den `OnFailure` starta om principen. Den här behållaren exempel kör Python-skriptet som standard, analyserar du texten i Shakespeare's [samhälle](http://shakespeare.mit.edu/hamlet/full.html), skriver du 10 vanligaste orden STDOUT och sedan avslutas.
 
 Kör exempel behållaren med följande [az behållaren skapa] [ az-container-create] kommando:
 
@@ -168,7 +168,11 @@ Resultat:
 
 Mer information om hur du bevara utdata från de behållare som att slutföras finns [montera en filresurs som Azure med Azure Container instanser](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

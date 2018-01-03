@@ -1,6 +1,6 @@
 ---
-title: "Cykeln filresurs kursen - förberedelse av avancerade data med Azure Machine Learning arbetsstationen"
-description: "Och förberedelse självstudier för slutpunkt till slutpunkt-data med hjälp av Azure Machine Learning arbetsstationen"
+title: "Självstudie för cykeldelning – förberedelse av avancerade data med Azure Machine Learning-arbetsstationen"
+description: "Och dataförberedelse av självstudier för slutpunkt till slutpunkt med hjälp av Azure Machine Learning-arbetsstationen"
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -9,40 +9,40 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: article
+ms.topic: hero-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: MT
+ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Cykeln filresurs Självstudier: avancerade förberedelse av data med Azure Machine Learning arbetsstationen
-Azure Machine Learning-tjänster (förhandsversion) är en integrerad, slutpunkt-till-slutpunkt datavetenskap och avancerade analyser lösning för professionella datavetare och förbereda data, utveckla experiment och distribuera modeller i molnskala.
+# <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Självstudie för cykeldelning: Förberedelse av avancerade data med Azure Machine Learning-arbetsstationen
+Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
 
-I kursen får du använder Azure Machine Learning services (förhandsvisning) att lära dig hur du:
+I den här självstudien använder du Azure Machine Learning (förhandsversion) till att lära dig att:
 > [!div class="checklist"]
 > * Förbereda data interaktivt med förberedelseverktyget för Azure Machine Learning Data
-> * Importera, transformera och skapa en test-datamängd
-> * Skapa ett paket för förberedelse av Data
-> * Kör förberedelse datapaketet använder Python
-> * Generera en datauppsättning för träning genom att återanvända paketet förberedelse av Data för ytterligare inkommande filer
+> * Importera, transformera och skapa en test-datauppsättning
+> * Skapa ett paket för förberedelse av data
+> * Kör paketet för förberedelse av data med Python
+> * Generera en datauppsättning för träning genom att återanvända paketet för förberedelse av data för ytterligare inkommande filer
 
 > [!IMPORTANT]
-> Den här självstudiekursen bara förbereds data, den skapa inte modellen förutsägelse.
+> Den här självstudiekursen förbereder bara data, den skapa inte förutsägelsemodellen.
 >
-> Du kan använda förberedda data för att träna förutsägelse modeller. Du kan till exempel skapa en modell för att förutsäga cykel begäran under en 2 timmar.
+> Du kan använda förberedda data för att träna din förutsägelsemodell. Du kan till exempel skapa en modell för att förutsäga cykelefterfrågan under en 2-timmarsperiod.
 
 ## <a name="prerequisites"></a>Krav
-* Azure Machine Learning arbetsstationen måste vara installerad lokalt. Mer information i [installation Quickstart](quickstart-installation.md).
-* Om du är bekant med att skapa ett nytt projekt i arbetsstationen.
+* Azure Machine Learning-arbetsstationen måste vara installerad lokalt. Mer information finns i [snabbstart av installation](quickstart-installation.md).
+* Liknar processen med att skapa ett nytt projekt i arbetsstationen.
 
 ## <a name="data-acquisition"></a>Datainsamling
-Den här kursen använder den [Boston Hubway dataset](https://s3.amazonaws.com/hubway-data/index.html) och Boston väder data från [NOAA](http://www.noaa.gov/).
+Den här kursen använder data från [Boston Hubway-datauppsättning](https://s3.amazonaws.com/hubway-data/index.html) och Boston weather från [NOAA](http://www.noaa.gov/).
 
 1. Hämta datafiler från följande länkar till din lokala utvecklingsmiljö. 
-   * [Boston väder data](https://azuremluxcdnprod001.blob.core.windows.net/docs/azureml/bikeshare/BostonWeather.csv). 
-   * Hubway resa data från Hubway webbplats.
+   * [Boston weather-data](https://azuremluxcdnprod001.blob.core.windows.net/docs/azureml/bikeshare/BostonWeather.csv). 
+   * Hubway-resedata från Hubway-webbplatsen.
 
       - [201501-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201501-hubway-tripdata.zip)
       - [201504-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201504-hubway-tripdata.zip)
@@ -52,291 +52,291 @@ Den här kursen använder den [Boston Hubway dataset](https://s3.amazonaws.com/h
       - [201610-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201610-hubway-tripdata.zip)
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
-2. Packa upp varje ZIP-filen efter nedladdning.
+2. Packa upp varje ZIP-fil efter nedladdning.
 
 ## <a name="learn-about-the-datasets"></a>Lär dig mer om datauppsättningar
-1. Den __Boston väder__ filen innehåller följande väder-relaterade fält rapporteras på timme:
-   * Datum
+1. Filen __Boston weather__ innehåller följande väderrelaterade fält som rapporteras varje timme:
+   * DATE
    * REPORTTPYE
    * HOURLYDRYBULBTEMPF
    * HOURLYRelativeHumidity
    * HOURLYWindSpeed
 
-2. Den __Hubway__ ordnas data i filer per år och månad. Till exempel filen `201501-hubway-tripdata.zip` innehåller en CSV-fil som innehåller data för januari 2015. Data innehåller följande fält för varje rad som representerar en cykel resa:
+2. __Hubway__-data ordnas i filer per år och månad. Till exempel innehåller filen `201501-hubway-tripdata.zip` en CSV-fil som innehåller data för januari 2015. Data innehåller följande fält för varje rad som representerar en cykelresa:
 
-   * Resa varaktighet (i sekunder)
-   * Starttiden och startdatumet
-   * Stoppa tid och datum
-   * Starta Stationsnamn & ID
-   * End Stationsnamn & ID
+   * Resans varaktighet (i sekunder)
+   * Starttid och startdatum
+   * Stopptid och stoppdatum
+   * Startstationens namn och ID
+   * Slutstationens namn och ID
    * Cykel-ID
-   * Användartyp (Avslappnad = 24 timmar eller 72 timmar Pass-användaren. Medlemmen = årliga eller varje månad)
+   * Användartyp (Tillfällig = 24 timmars- eller 72-timmarsanvändare. Medlem = års- eller månadsmedlem)
    * Postnummer (om användaren är medlem)
-   * Kön (automatisk rapporterat av medlem)
+   * Kön (självrapporterat av medlemmen)
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
-1. Starta den **Azure Machine Learning arbetsstationen** från start-menyn eller starta.
+1. Starta **Azure Machine Learning-arbetsstationen** från startmenyn eller startprogrammet.
 
-2. Skapa ett nytt Azure Machine Learning-projekt.  Klicka på den  **+**  knappen på den **projekt** sidan eller **filen** > **ny**.
-   - Använd den **tomt projekt** mall.
+2. Skapa ett nytt Azure Machine Learning-projekt.  Klicka på knappen **+** på sidan **Projekt** eller **Fil** > **Ny**.
+   - Använd mallen **Tomt projekt**.
    - Namnge projektet **BikeShare**. 
 
 ## <a id="newdatasource"></a>Skapa en ny datakälla
 
-1. Skapa en ny datakälla. Klicka på den **Data** i verktygsfältet (cylinder ikonen) vänstra. Visar den **datavy**.
+1. Skapa en ny datakälla. Klicka på knappen **Data** (cylinderikonen) till vänster i verktygsfältet. Det här visar **Datavyn**.
 
-   ![Bild av fliken vyn data](media/tutorial-bikeshare-dataprep/navigatetodatatab.png)
+   ![Bild av datavyfliken](media/tutorial-bikeshare-dataprep/navigatetodatatab.png)
 
-2. Lägg till en datakälla. Välj den  **+**  ikon och väljer sedan **Lägg till datakälla**.
+2. Lägg till en datakälla. Välj ikonen **+** och välj sedan **Lägg till datakälla**.
 
    ![Bild av posten Lägg till datakälla](media/tutorial-bikeshare-dataprep/newdatasource.png)
 
-## <a name="add-weather-data"></a>Lägg till väder data
+## <a name="add-weather-data"></a>Lägg till väderdata
 
-1. **Datalagret**: Välj datalager som innehåller data. Eftersom du använder filer, markerar **fil(er) / Directory**. Välj **nästa** att fortsätta.
+1. **Datalager**: Välj det datalager som innehåller data. Eftersom du använder filer, välj **Fil(er)/Katalog**. Välj **Nästa** för att fortsätta.
 
-   ![Bild av filen eller filerna / katalogposten](media/tutorial-bikeshare-dataprep/datasources.png)
+   ![Bild av posten för fil(er)/katalog](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Filen val**: lägga till väder-data. Bläddra och välj den `BostonWeather.csv` filen som du hämtade tidigare. Klicka på **Nästa**.
+2. **Filval**: Lägg till väderdata. Bläddra och välj den `BostonWeather.csv`-fil som du hämtade tidigare. Klicka på **Nästa**.
 
-   ![Bild av filval med BostonWeater.csv valt](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
+   ![Bild av filval med BostonWeater.csv](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 
-3. **Filinformation**: verifiera filen schemat som upptäcks. Azure Machine Learning arbetsstationen analyserar data i filen och härleder schemat ska användas.
+3. **Filinformation**: Verifiera filschemat som upptäcks. Azure Machine Learning-arbetsstationen analyserar data i filen och härleder det schema som ska användas.
 
    ![Bild av filinformation](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
    > [!IMPORTANT]
-   > Arbetsstationen identifieras inte korrekt schema i vissa fall. Du bör alltid kontrollera att parametrarna är korrekta för datauppsättningen. Kontrollera att de är inställda på följande värden för väder-data:
+   > Arbetsstationen identifierar kanske inte korrekt schema i vissa fall. Du bör alltid kontrollera att parametrarna är korrekta för datauppsättningen. Kontrollera att de är inställda på följande värden för väderdata:
    >
-   > * __Filtyp__: fil fil (csv, TVs, txt, etc.)
-   > * __Avgränsare__: kommatecken [,]
-   > * __Kommentera tecknet__: inget värde har angetts.
-   > * __Hoppa över rader läge__: Hoppa inte över
-   > * __Filen kodning__: utf-8
-   > * __Befordra huvuden läge__: Använd rubriker från första filen
+   > * __Filtyp__: Avgränsad fil (csv, tvs, txt, etc.)
+   > * __Avgränsare__: Kommatecken [,]
+   > * __Kommentarradstecken__: Inget värde har angetts.
+   > * __Läget Hoppa över rader__: Hoppa inte över
+   > * __Filkodning__: utf-8
+   > * __Uppgradera rubrikläge__: Använd rubriker från första filen
 
-   Förhandsgranskning av data ska visas följande kolumner:
+   Förhandsgranskning av data ska visa följande kolumner:
    * **Sökväg**
-   * **DATUM**
+   * **DATE**
    * **REPORTTYPE**
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
 
-   Om du vill fortsätta, Välj **nästa**.
+   Välj **Nästa** för att fortsätta.
 
-4. **Datatyper**: granska de datatyper som identifieras automatiskt. Azure Machine Learning arbetsstationen analyserar data i filen och härleder datatyperna som ska använda.
+4. **Datatyper**: Granska de datatyper som identifieras automatiskt. Azure Machine Learning-arbetsstationen analyserar data i filen och härleder de datatyper som ska användas.
 
-   Dessa data, ändra den `DATA TYPE` för alla kolumner till `String`.
+   Ändra `DATA TYPE` för alla kolumner till `String` för dessa data.
 
    > [!NOTE]
-   > `String`används för att markera funktionerna i arbetsstationen senare i den här kursen. 
+   > `String` används för att markera funktionerna i arbetsstationen senare i den här kursen. 
 
-   ![Bild av datatyper](media/tutorial-bikeshare-dataprep/datatypedetection.png)
+   ![Bild av datatyperna](media/tutorial-bikeshare-dataprep/datatypedetection.png)
 
-   Om du vill fortsätta, Välj __nästa__. 
+   Välj __Nästa__ för att fortsätta. 
 
-5. **Provtagning**: Om du vill skapa ett schema för provtagning, Välj den **+ ny** knappen. Välj den nya __upp 10000__ rad som har lagts till och markera sedan __redigera__. Ange __exempel strategi__ till **fullständig**, och välj sedan **tillämpa**.
+5. **Sampling**: Om du vill skapa ett schema för sampling, välj knappen **+ Ny**. Välj den nya raden __Top 10000__ som har lagts till och markera sedan __Redigera__. Ange __Samplingsstrategi__ till **Fullständig fil**, och välj sedan **Tillämpa**.
 
-   ![Bild för att lägga till en ny provtagning](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
+   ![Bild för att lägga till en ny samplingsstrategi](media/tutorial-bikeshare-dataprep/weatherdatasampling.png)
 
-   Att använda den __fullständig__ strategi, Välj den __fullständig__ posten och välj sedan __inställd som aktiv__. En stjärna visas bredvid __fullständig__ som indikerar att den aktiva strategin.
+   För att använda strategin __Fullständig fil__, välj posten __Fullständig Fil__ och välj sedan __Ställ in som aktiv__. En stjärna visas bredvid __Fullständig fil__ som indikerar att detta är den aktiva strategin.
 
-   ![Bild av fullständiga filen som aktiv strategin](media/tutorial-bikeshare-dataprep/fullfileactive.png)
+   ![Bild av Fullständig fil som aktiv strategi](media/tutorial-bikeshare-dataprep/fullfileactive.png)
 
-   Om du vill fortsätta, Välj **nästa**.
+   Välj **Nästa** för att fortsätta.
 
-6. **Kolumnen sökväg**: den __kolumnen sökväg__ avsnitt kan du inkludera den fullständiga sökvägen som en kolumn i den importerade informationen. Välj __ingår inte i kolumnen sökväg__.
+6. **Sökvägskolumn**: Med avsnittet __Sökvägskolumn__ kan du inkludera den fullständiga sökvägen som en kolumn i den importerade informationen. Välj __Inkludera inte i sökvägskolumnen__.
 
    > [!TIP]
-   > Inklusive sökväg som en kolumn är användbart om du importerar en mapp med många filer med olika namn. Det är också användbart om filnamnen innehåller information som du vill extrahera senare.
+   > Det är användbart att inkludera sökvägen som en kolumn om du importerar en mapp med många filer med olika namn. Det är också användbart om filnamnen innehåller information som du vill extrahera senare.
 
-   ![Bild av värdet ingår inte i kolumnen sökväg](media/tutorial-bikeshare-dataprep/pathcolumn.png)
+   ![Bild av inställd Sökvägskolumn som inte ska inkluderas](media/tutorial-bikeshare-dataprep/pathcolumn.png)
 
-7. **Slutför**: Slutför datakällan, välja den **Slutför** knappen.
+7. **Slutför**: För att slutföra skapandet av datakällan, välj knappen **Slutför**.
 
-    En ny datakälla flik med namnet __BostonWeather__ öppnas. Ett exempel på data visas i ett rutnät. Exemplet baseras på aktiva samplingsfrekvensen schemat som angavs tidigare.
+    En ny flik för datakälla med namnet __BostonWeather__ öppnas. Ett exempel på data visas i ett rutnät. Exemplet baseras på det aktiva samplingsschemat som angavs tidigare.
 
-    Observera den **steg** rutan till höger på skärmen visar de enskilda åtgärder som vidtas när du skapar den här datakällan.
+    Observera rutan **Steg** till höger på skärmen som visar de enskilda åtgärder som vidtas när du skapar den här datakällan.
 
    ![Bild som visar datakällan, exempel och steg](media/tutorial-bikeshare-dataprep/weatherdataloaded.png)
 
-### <a name="view-data-source-metrics"></a>Visa datakälla mått
+### <a name="view-data-source-metrics"></a>Visa mått för datakällan
 
-Välj den __mått__ längst upp till vänster i på fliken rutnätsvy. Den här vyn visar fördelningen och andra statistik samplade data.
+Välj knappen __Mått__ längst upp till vänster på flikens rutnätsvy. Den här vyn visar fördelningen och annan samlad statistik över exempeldata.
 
-![Bild av mätvärdena visar](media/tutorial-bikeshare-dataprep/weathermetrics.png)
+![Bild av Mått visas](media/tutorial-bikeshare-dataprep/weathermetrics.png)
 
 > [!NOTE]
-> Om du vill konfigurera synligheten för statistik, använda den **välja mått** listrutan. Kontrollera och avmarkera det mått om du vill ändra diagramvyn.
+> Om du vill konfigurera synligheten för statistik, använder du listrutan **Välj mått**. Markera och avmarkera mått om du vill ändra rutnätsvyn.
 
-Returnera den __datavy__väljer __Data__ från det övre vänstra hörnet på sidan.
+För att återgå till __Datavy__, välj __Data__ från det övre vänstra hörnet på sidan.
 
-## <a name="add-data-source-to-data-preparation-package"></a>Lägga till datakälla paket för förberedelse av data
+## <a name="add-data-source-to-data-preparation-package"></a>Lägg till datakälla till paket för förberedelse av data
 
-1. Välj __Förbered__ att börja förbereda informationen. 
+1. Välj __Förbered__ för att börja förbereda informationen. 
 
-2. När du uppmanas, anger du ett namn för förberedelse av Data-paketet som `BikeShare Data Prep`. 
+2. När du uppmanas, anger du ett namn för förberedelsen av datapaketet, som t.ex. `BikeShare Data Prep`. 
 
-3. Välj __OK__ att fortsätta.
+3. Klicka på __OK__ för att fortsätta.
 
-   ![Bild av dialogrutan Förbered](media/tutorial-bikeshare-dataprep/dataprepdialog.png)
+   ![Bild av dialogrutan Förbereda](media/tutorial-bikeshare-dataprep/dataprepdialog.png)
 
-4. Ett nytt paket med namnet **BikeShare Data Prep** visas under __förberedelse av Data__ avsnitt i den __Data__ fliken. 
+4. Ett nytt paket med namnet **BikeShare Data Prep** visas under avsnittet __Förberedelse av Data__ i fliken __Data__. 
 
-   Visa paketet, markera den här posten. 
+   För att visa paketet, markera den här posten. 
 
-5. Välj den  **>>**  för att expandera för att visa den __Dataflows__ som ingår i paketet. I det här exemplet __BostonWeather__ är den enda dataflöde.
+5. Välj knappen **>>** för att expandera för att visa de __Dataflöden__ som ingår i paketet. I det här exemplet är __BostonWeather__ det enda dataflödet.
 
    > [!IMPORTANT]
-   > Ett paket kan innehålla flera Dataflows.
+   > Ett paket kan innehålla flera dataflöden.
 
-   ![Bild av dataflows som ingår i paketet](media/tutorial-bikeshare-dataprep/weatherdataloadedingrid.png)
+   ![Bild av de dataflöden som ingår i paketet](media/tutorial-bikeshare-dataprep/weatherdataloadedingrid.png)
 
 ## <a name="filter-data-by-value"></a>Filtrera data efter värde
-1. Filtrera data, högerklicka på en cell med ett visst värde och välj __Filter__, och sedan vilken typ av filter.
+1. Filtrera data, högerklicka på en cell med ett visst värde och välj __Filter__, och sedan typ av filter.
 
-2. Markera en cell som innehåller värdet för den här självstudiekursen `FM-15` och sedan anger du filtret till ett filter för **är lika med**.  Nu data filtreras till endast returnerar rader där den __REPORTTYPE__ är `FM-15`.
+2. För den här självstudien, markerar du en cell som innehåller värdet `FM-15` och sedan anger du filtret till ett filter för **Är lika med**.  Nu filtreras data till att endast returnera rader där __REPORTTYPE__ är `FM-15`.
 
-   ![Bild av dialogrutan filter](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
+   ![Bild av filterdialogrutan](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > RM-15 är en typ av meteorologiska Terminal luftfart rutinunderhåll väder rapport (METAR). Rapporterar FM 15 observeras empiriskt kan vara den mest fullständig, lite data som saknas.
+   > FM-15 är en typ av METAR-rapport (Meteorological Terminal Aviation Routine Weather Report). FM-15:s rapporter har empiriskt observerats vara de mest fullständiga, med lite saknad data.
 
 ## <a name="remove-a-column"></a>Ta bort en kolumn
 
-Du behöver inte längre den __REPORTTYPE__ kolumn. Högerklicka på kolumnrubriken och välj **ta bort kolumnen**.
+Du behöver inte längre kolumnen __REPORTTYPE__. Högerklicka på kolumnrubriken och välj **Ta bort kolumn**.
 
-   ![Bild av alternativet Ta bort kolumnen](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
+   ![Bild av alternativet Ta bort kolumn](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Ändra datatyper och ta bort fel
-1. När du trycker på __Ctrl (kommandot ⌘ på Mac)__ med att välja kolumnrubriker kan du markera flera kolumner på samma gång. Använd detta för att välja följande kolumnrubriker:
+1. När du trycker på __Ctrl (kommandot ⌘ på Mac)__ kan du medan du väljer kolumnrubriker markera flera kolumner på samma gång. Använd detta för att välja följande kolumnrubriker:
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
 
-2. **Högerklicka på** en av de valda kolumnrubriker och välj **konvertera fälttypen till numeriska**. Detta omvandlar datatyp för kolumnerna till numeriska.
+2. **Högerklicka** på en av de valda kolumnrubrikerna och välj **Konvertera fälttyp till numerisk**. Detta omvandlar datatypen för kolumnerna till numerisk.
 
    ![Konvertera flera kolumner till numeriska](media/tutorial-bikeshare-dataprep/weatherconverttonumeric.png)
 
-3. Filtrera ut felvärdena. Vissa kolumner har problem med konverteringen av datatyp. Det här problemet visas med röd färg i den __kvalitet datastapel__ för kolumnen.
+3. Filtrera ut felvärdena. Vissa kolumner har problem med konverteringen av datatyp. Det här problemet visas med röd färg i __Datakvalitetsstapeln__ för kolumnen.
 
-   Om du vill ta bort de rader som innehåller fel, högerklicka på den **HOURLYDRYBULBTEMPF** kolumnrubriken. Välj **Filterkolumn**. Använd standard **jag vill att** som **Behåll rader**. Ändra den **villkor** listrutan och välj **är inte ett fel**. Välj **OK** att tillämpa filtret.
+   Om du vill ta bort de rader som innehåller fel, högerklicka på kolumnrubriken **HOURLYDRYBULBTEMPF**. Välj **Filterkolumn**. Använd standard **Jag vill att** som **Behåll rader**. Ändra listrutan **Villkor** och välj **är inte ett fel**. Välj **OK** för att tillämpa filtret.
 
-4. För att minimera de återstående raderna med fel i de övriga kolumnerna måste du upprepa proceduren filter för **HOURLYRelativeHumidity** och **HOURLYWindSpeed** kolumner.
+4. För att minimera de återstående raderna med fel i de övriga kolumnerna måste du upprepa filterproceduren för kolumnerna **HOURLYRelativeHumidity** och **HOURLYWindSpeed**.
 
-## <a name="use-by-example-transformations"></a>Använda som exempel omvandlingar
+## <a name="use-by-example-transformations"></a>Använd omvandlingar som exempel
 
-Om du vill använda data i en förutsägelse för två-timmarsformat block, måste du beräkna genomsnittliga väderlek villkoren för två timmar punkter. Om du vill göra detta måste använda du följande åtgärder:
+Om du vill använda data i en förutsägelse för tvåtimmarsblock, måste du beräkna de genomsnittliga väderleksvillkoren för tvåtimmarsperioder. Om du vill göra detta måste du använda följande åtgärder:
 
-* Dela den **datum** kolumn i separata **datum** och **tid** kolumner. Se avsnittet nästa detaljerade anvisningar.
+* Dela kolumnen **DATE** i separata kolumner för **Datum** och **Tid**. Se nästa avsnitt för detaljerade anvisningar.
 
-* Härleda ett **Hour_Range** kolumnen från den **tid** kolumn. Se följande avsnitt för detaljerade anvisningar.
+* Härled en kolumn för **Hour_Range** från kolumnen **Tid**. Se följande avsnitt för detaljerade anvisningar.
 
-* Härledd en **datum\_timme\_intervallet** kolumnen från den **datum** och **Hour_Range** kolumner. Se följande avsnitt för detaljerade anvisningar.
+* Härled en kolumn för **Datum\_Timintervall\_** från kolumnerna **DATE** och **Hour_Range**. Se följande avsnitt för detaljerade anvisningar.
 
 ### <a name="split-column-by-example"></a>Dela kolumner med exempel
 
-1. Dela den **datum** kolumn till separata datum- och time-kolumner. Högerklicka på den **datum** kolumnrubriken och välj **delad kolumn efter exempel**.
+1. Dela kolumnen **DATE** i separata kolumner för datum och tid. Högerklicka på kolumnrubriken **DATE** och välj **Dela kolumn efter exempel**.
 
-   ![Bild av kolumnen delning av exempel på post](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
+   ![Bild av den delade kolumnen enligt exempelpost](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
 
-2. Azure Machine Learning arbetsstationen automatiskt identifierar en avgränsare för en meningsfull och skapar två kolumner genom att dela data i datum- och tidsvärden. 
+2. Azure Machine Learning-arbetsstationen identifierar automatiskt en meningsfull avgränsare och skapar två kolumner genom att dela data i datum- och tidsvärden. 
 
-3. Välj __OK__ att acceptera Åtgärdsresultat dela.
+3. Välj __OK__ för att acceptera resultaten för delningen.
 
-   ![Bild av dela kolumnerna DATE_1 och DATE_2](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
+   ![Bild av de delade kolumnerna DATE_1 och DATE_2](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
 
 ### <a name="derive-column-by-example"></a>Härled kolumner med exempel
 
-1. För att härleda en två timmars intervall, högerklicka på den __datum\_2__ kolumnrubriken och välj **härledd kolumn efter exempel**.
+1. För att härleda ett tvåtimmarsintervall, högerklicka på kolumnrubriken __DATE\_2__ och välj **Härled kolumn efter exempel**.
 
-   ![Bild av härledd kolumn av exempel på post](media/tutorial-bikeshare-dataprep/weatherdate2range.png)
+   ![Bild av den härledda kolumnen enligt exempelpost](media/tutorial-bikeshare-dataprep/weatherdate2range.png)
 
    En ny tom kolumn läggs med null-värden.
 
-2. Klicka på den första tom cellen i kolumnen nytt. Ge ett exempel på det tidsintervall som önskas genom att skriva `12AM-2AM` i den nya kolumnen och tryck sedan på Ange.
+2. Klicka på den första tomma cellen i den nya kolumnen. Ge ett exempel på det tidsintervall som önskas genom att skriva `12AM-2AM` i den nya kolumnen och tryck sedan på retur.
 
-   ![Bild av den nya kolumnen med ett värde av 12: 00 - 02: 00](media/tutorial-bikeshare-dataprep/weathertimerangeexample.png)
+   ![Bild av den nya kolumnen med ett värde av 12.00–02.00](media/tutorial-bikeshare-dataprep/weathertimerangeexample.png)
 
    > [!NOTE]
-   > Azure ML-arbetsstationen Syntetiserar program baserat på de exempel som tillhandahålls av du och använder samma program på övriga rader. Alla andra rader fylls i automatiskt baserat på de exempel som du angav. Arbetsstationen också analyserar dina data och försöker identifiera edge fall. 
+   > Azure ML-arbetsstationen syntetiserar program baserat på de exempel som tillhandahålls av dig och använder samma program på övriga rader. Alla andra rader fylls i automatiskt baserat på de exempel som du angav. Arbetsstationen analyserar också dina data och försöker identifiera gränsfall. 
   
-3. Texten **analysera Data** ovanför rutnätet anger att arbetsstationen försöker identifiera edge fall. När du är klar status ändras till **granska nästa föreslagna rad** eller **inga förslag**. I det här exemplet **granska nästa föreslagna rad** returneras.
+3. Texten **Analysera data** ovanför rutnätet anger att arbetsstationen försöker identifiera gränsfall. När du är klar ändras statusen till **Granska nästa föreslagna rad** eller **Inga förslag**. I det här exemplet returneras **Granska nästa föreslagna rad**.
 
-4. Om du vill granska de föreslagna ändringarna, Välj **granska nästa föreslagna rad**. Cellen som du bör granska och korrigera (vid behov) är markerad på skärmen.
+4. Om du vill granska de föreslagna ändringarna, välj **Granska nästa föreslagna rad**. Cellen som du bör granska och korrigera (vid behov) är markerad på skärmen.
 
-   ![Bild av granska raden](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
+   ![Bild av granskningsraden](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
 
-    Välj __OK__ att acceptera omvandlingen.
+    Välj __OK__ för att acceptera omvandlingen.
  
-5. Du kommer tillbaka till diagramvyn för __BostonWeather__. Rutnätet innehåller nu tre kolumner som lagts till tidigare.
+5. Du kommer tillbaka till rutnätsvyn för data för __BostonWeather__. Rutnätet innehåller nu tre kolumner som lagts till tidigare.
 
    ![Bild av rutnätsvy med tillagda rader](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
-   >  Alla ändringar du har gjort sparas på den **steg** fönstret. Gå till steg som du skapade i den **steg** klickar du på nedpilen och välj **redigera**. Fönstret Avancerade för **härledd kolumn efter exempel** visas. Alla exempel bevaras här. Du kan också lägga till exempel manuellt genom att dubbelklicka på en rad i rutnätet nedan. Välj **Avbryt** att återgå till huvudsakliga rutnätet utan att tillämpa ändringar. Du kan också komma åt den här vyn genom att välja **Avancerat läge** när du utför en **härledd kolumn efter exempel** transformeringen.
+   >  Alla ändringar du har gjort sparas på panelen **Steg**. Gå till de steg som du skapade i panelen **Steg**, klicka på nedpilen och välj **Redigera**. Det avancerade fönstret för **Härled kolumn efter exempel** visas. Alla exempel bevaras här. Du kan också lägga till exempel manuellt genom att dubbelklicka på en rad i rutnätet nedan. Välj **Avbryt** för att återgå till det huvudsakliga rutnätet utan att tillämpa ändringarna. Du kan också komma åt den här vyn genom att välja **Avancerat läge** när du utför en omvandling med **Härled kolumn efter exempel**.
 
-6. Om du vill byta namn på kolumnen, dubbelklickar du på kolumnrubriken och skriv **timme intervallet**. Tryck på **RETUR** att spara ändringen.
+6. Om du vill byta namn på kolumnen, dubbelklickar du på kolumnrubriken och skriver **Timintervall**. Tryck på **Retur** att spara ändringen.
 
    ![Byta namn på kolumnen](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-7. Att härleda datum och tid intervallet, välja flera den **datum\_1** och **timme intervallet** kolumner, högerklicka och välj sedan **härledd kolumn efter exempel**.
+7. För att härleda datum- och tidsintervallet, väljer du både kolumnen **Datum\_1** och **Timintervall**, högerklickar och väljer sedan **Härled kolumn efter exempel**.
 
-   ![Härledda kolumn efter exempel](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
+   ![Härleda kolumner med exempel](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
-   Typen `Jan 01, 2015 12AM-2AM` exempel mot den första raden och tryck på **RETUR**.
+   Ange `Jan 01, 2015 12AM-2AM` som exempel mot den första raden och tryck på **Retur**.
 
-   Arbetsstationen anger transformation som baseras på exemplet som du anger. I det här exemplet är resultatet att datumformatet ändras och användas i sammanslagningen av fönstret två timmar.
+   Arbetsstationen anger omvandlingen som baseras på exemplet som du anger. I det här exemplet är resultatet att datumformatet ändras och sammanfogas med tvåtimmarsfönstret.
 
-   ![Bild av exemplet ' 01 januari 2015 12: 00 - 02: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+   ![Bild av exemplet 01 januari 2015 12.00–02.00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
 
-8. Vänta tills status för att ändra från **analysera Data** till **granska nästa föreslagna rad**. Det kan ta flera sekunder. Välj länken status för att navigera till den föreslagna raden. 
+8. Vänta på status för att ändra från **Analysera data** till **Granska nästa föreslagna rad**. Det kan ta flera sekunder. Välj statuslänken för att navigera till den föreslagna raden. 
 
    ![Bild av den föreslagna raden att granska](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
-   Raden har ett null-värde eftersom källan date-värde kan vara för dd/mm/åååå eller mm/dd/åååå. Ange det korrekta värdet för `Jan 13, 2015 2AM-4AM` och tryck på **RETUR**. Arbetsstationen använder de två exemplen för att förbättra härledning för återstående rader.
+   Raden har ett null-värde eftersom källdatavärdet kan vara antingen dd/mm/åååå eller mm/dd/åååå. Ange det korrekta värdet för `Jan 13, 2015 2AM-4AM` och tryck på **Retur**. Arbetsstationen använder de två exemplen för att förbättra härledning för återstående rader.
 
-   ![Bild av korrekt formaterad data](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
+   ![Bild av korrekt formaterade data](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
-9. Välj **OK** att acceptera transformeringen.
+9. Välj **OK** för att acceptera omvandlingen.
 
-   ![Bild av slutförda omvandling rutnätet](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
+   ![Bild av det slutförda omvandlingsrutnätet](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
    > [!TIP]
-   > Du kan använda Avancerat läge av **härledd kolumn efter exempel** för det här steget genom att klicka på pilen i den **steg** fönstret. Det finns kryssrutorna bredvid kolumnnamnen i datarutnätet, **datum\_1** och **timme intervallet** kolumner. Avmarkera kryssrutan bredvid den **timme intervallet** kolumnen att se hur detta ändrar utdata. Om den **timme intervallet** kolumnen som indata, **12: 00 - 02: 00** behandlas som en konstant och läggs till i de härledda värdena. Välj **Avbryt** att återgå till huvudsakliga rutnätet utan att tillämpa ändringarna.
+   > Du kan använda avancerat läge av **Härled kolumn efter exempel** för det här steget genom att klicka på pilen i fönstret **Steg**. I datarutnätet finns det kryssrutor bredvid kolumnnamnen **DATE\_1** och **Timintervall**. Avmarkera kryssrutan bredvid kolumnen **Timintervall** för att se hur detta ändrar utdata. Om kolumnen **Timintervall** som indata saknas, behandlas **12.00–02.00** som en konstant och läggs till i de härledda värdena. Välj **Avbryt** för att återgå till det huvudsakliga rutnätet utan att tillämpa ändringarna.
 
-10. Om du vill byta namn på kolumnen, dubbelklickar du på rubriken. Ändra namnet till **timme datumintervall** och tryck sedan på **RETUR**.
+10. Om du vill byta namn på kolumnen, dubbelklickar du på rubriken. Ändra namnet till **Datum Timintervall** och tryck sedan på **Retur**.
 
-11. Markera den **datum**, **datum\_1**, **datum\_2**, och **timme intervallet** kolumner. Högerklicka och välj **ta bort kolumnen**.
+11. Markera kolumnerna **DATE**, **DATE\_1**, **DATE\_2**, och **Timintervall**. Högerklicka och välj **Ta bort kolumn**.
 
 ## <a name="summarize-data-mean"></a>Sammanfatta data (medel)
 
-Nästa steg är att sammanfatta väder genom att göra medelvärdet av värden, grupperade efter timmars intervall.
+Nästa steg är att sammanfatta vädret genom att ta medelvärdet av värdena, grupperat efter timintervall.
 
-1. Välj den **timme datumintervall** kolumn och välj sedan **Summarize** från den **transformerar** menyn.
+1. Välj kolumnen **Datum Timintervall** och välj sedan **Sammanfatta** från menyn **Transformeringar**.
 
-    ![Transformerar menyn](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
+    ![Transformeringsmenyn](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-2. För att sammanfatta data dra kolumner i rutnätet längst ned på sidan till vänster och höger fönsterruta längst upp. Den vänstra rutan innehåller texten **dra kolumner hit om du vill gruppera data**. Den högra rutan innehåller texten **dra kolumner hit kan du sammanfatta data**. 
+2. För att sammanfatta data drar du kolumner från rutnätet längst ned på sidan till vänster och höger fönster längst upp. Den vänstra panelen innehåller texten **Dra kolumner hit om du vill gruppera data**. Det högra fönstret innehåller texten **Dra kolumner hit om du vill sammanfatta data**. 
 
-    Dra den **timme datumintervall** kolumn från rutnätet längst ned i den vänstra rutan. Dra **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity**, och **HOURLYWindSpeed** till det högra fönstret. 
+    Dra kolumnen **Datum Timintervall** från rutnätet längst ned i det vänstra fönstret. Dra **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity** och **HOURLYWindSpeed** till det högra fönstret. 
 
-    I den högra rutan, Välj **innebär** som den **sammanställd** för varje kolumn. Klicka på **OK** att slutföra sammanfattningen.
+    I det högra fönstret väljer du **Medel** som måttet **Samlat** för varje kolumn. Klicka på **OK** för att slutföra sammanfattningen.
 
-   ![Bild av sammanfattningsdata skärmen](media/tutorial-bikeshare-dataprep/weathersummarize.png)
+   ![Bild av sammanfattad dataskärm](media/tutorial-bikeshare-dataprep/weathersummarize.png)
 
 ## <a name="transform-dataflow-using-script"></a>Transformera dataflöde med hjälp av skript
 
-Ändra data i numeriska kolumner till ett intervall av 0-1 kan vissa modeller att Konvergera snabbt. Det finns för närvarande ingen inbyggd transformation Allmänt göra transformationen men Python-skriptet kan användas för att utföra den här åtgärden.
+Genom att ändra data i de numeriska kolumnerna till ett intervall på 0–1 kan vissa modeller konvergera snabbt. Det finns för närvarande ingen inbyggd transformation för att göra den här transformationen, men Python-skriptet kan användas för att utföra den här åtgärden.
 
-1. Från den **transformera** väljer du **transformera dataflöde**.
+1. Från menyn **Transformera** väljer du **Transformera dataflöde**.
 
-2. Ange följande kod i textrutan som visas. Om du har använt kolumnnamnen bör koden fungera utan modifiering. Du skriver en enkel min max normalisering logik i Python.
+2. Ange följande kod i textrutan som visas. Om du har använt kolumnnamnen bör koden fungera utan modifiering. Du skriver en enkel normaliseringslogik för min–max i Python.
 
     > [!WARNING]
-    > Skriptet förväntar kolumnnamnen använt tidigare i den här självstudiekursen. Om du har olika kolumnnamn måste du ändra namn i skriptet.
+    > Skriptet förväntar de kolumnnamn som använts tidigare i den här självstudien. Om du har andra kolumnnamn måste du ändra namn i skriptet.
 
    ```python
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
@@ -360,210 +360,210 @@ Nästa steg är att sammanfatta väder genom att göra medelvärdet av värden, 
     > [!TIP]
     > Python-skriptet måste returnera `df` i slutet. Det här värdet används för att fylla i rutnätet.
     
-    ![Transformera data flödet dialogruta för skript](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
+    ![Skriptdialog för att transformera dataflödet](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
-3. Välj __OK__ du använder skriptet. Numeriska kolumner i rutnätet innehåller nu värden i intervallet 0-1.
+3. Välj __OK__ för att använda skriptet. Numeriska kolumner i rutnätet innehåller nu värden i intervallet 0–1.
 
     ![Rutnät som innehåller värden mellan 0 och 1](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
-Förbereder väder-data är klar. Förbered data för kommunikation.
+Förberedelsen av väderdata är klar. Förbered nu resedata.
 
-## <a name="load-trip-data"></a>Läs in resa data
+## <a name="load-trip-data"></a>Läs in resedata
 
-1. Så här importerar du den `201701-hubway-tripdata.csv` fil, Följ stegen i den [skapa en ny datakälla](#newdatasource) avsnitt. Använd följande alternativ under importen:
+1. Så här importerar du filen `201701-hubway-tripdata.csv`, använd stegen i avsnittet [Skapa en ny datakälla](#newdatasource). Använd följande alternativ under importen:
 
-    * __Sampling schemat__: **fullständig** provtagning schemat, aktivera exemplet, och 
-    * __Datatypen__: Godkänn standardinställningarna.
+    * __Samplingsschemat__: **Fullständig fil** samplingsschema, aktivera exemplet och 
+    * __Datatyp__: Acceptera standardvärdena.
 
-2. När du har importerat data, Välj den __Förbered__ om du vill börja förbereda data. Välj den befintliga **BikeShare Data Prep.dprep** paketet och välj sedan __OK__.
+2. När du har importerat data, väljer du knappen __Förbered__ om du vill börja förbereda data. Välj det befintliga paketet **BikeShare Data Prep.dprep** och välj sedan __OK__.
 
-    Den här processen lägger till en **Dataströmsblocket** i den befintliga **förberedelse av Data** fil i stället för att skapa en ny.
+    Den här processen lägger till ett **Dataflöde** i den befintliga filen **Förberedelse av data** i stället för att skapa en ny.
 
-    ![Bild av du väljer det befintliga paketet](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
+    ![Bild av val av det befintliga paketet](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
 
-3. När rutnätet har lästs in, expandera __DATAFLOWS__. Det finns nu två dataflows: **BostonWeather** och **201701-hubway-tripdata**. Välj den **201701-hubway-tripdata** transaktionen.
+3. När rutnätet har lästs in, expandera __DATAFLOWS__. Det finns nu två dataflöden: **BostonWeather** och **201701-hubway-tripdata**. Välj posten **201701-hubway-tripdata**.
 
-    ![Bild av 201701-hubway-tripdata-post](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
+    ![Bild av posten 201701-hubway-tripdata](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
-## <a name="use-map-inspector"></a>Använd kartan inspector
+## <a name="use-map-inspector"></a>Använd kartkontroll
 
-Det finns ett antal användbara visualiseringar kallas för förberedelse av data **kontrollanter** för String, numeriska och geografiska data att förstå bättre data och för att identifiera avvikare. Använd följande steg för att använda kartan inspector:
+För förberedelse av data finns det ett antal användbara visualiseringar som kallas **Kontroller** för sträng-, numeriska och geografiska data för att bättre förstå data och för att identifiera avvikare. Använd följande steg för att använda kartkontrollen:
 
-1. Väljer du den **starta station latitud** och **starta station longitud** kolumner. Högerklicka på en av kolumnerna och välj sedan **kartan**.
+1. Välj både kolumnen **latitud för startstation** och **longitud för startstation**. Högerklicka på en av kolumnerna och välj sedan **Karta**.
 
     > [!TIP]
-    > Om du vill aktivera flerval, håll ned __Ctrl (kommandot ⌘ på Mac)__ och Välj rubriken för varje kolumn.
+    > Om du vill aktivera flerval, håll ned __Ctrl (kommandot ⌘ på Mac)__ och välj rubriken för varje kolumn.
 
-    ![Bild av visualiseringen karta](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
+    ![Bild av kartvisualiseringen](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
-2. För att maximera kartan visualiseringen, Välj den **Maximera** ikon. För att passa kartan till fönstret Välj den **E** ikon på den översta vänstra sidan av visualiseringen.
+2. För att maximera kartvisualiseringen, välj ikonen **Maximera**. För att passa in kartan till fönstret väljer du ikonen **E** på den översta vänstra sidan av visualiseringen.
 
-    ![Maximerat bild](media/tutorial-bikeshare-dataprep/maximizedmap.png)
+    ![Maximerad bild](media/tutorial-bikeshare-dataprep/maximizedmap.png)
 
-3. Klicka på den **minimera** vill gå tillbaka till diagramvyn.
+3. Klicka på knappen **Minimera** för att gå tillbaka till rutnätsvyn.
 
-## <a name="use-column-statistics-inspector"></a>Använd kolumnen statistik Inspector
+## <a name="use-column-statistics-inspector"></a>Använd kolumnstatistikkontroll
 
-Om du vill använda kolumnen statistik inspector, högerklicka på den __tripduration__ kolumn och markera __Kolumnstatistik__.
+Om du vill använda kolumnstatistikkontroll, högerklicka på kolumnen __tripduration__ och markera __Kolumnstatistik__.
 
-![Kolumnen statistik post](media/tutorial-bikeshare-dataprep/tripdurationcolstats.png)
+![Kolumnstatistikpost](media/tutorial-bikeshare-dataprep/tripdurationcolstats.png)
 
-Den här processen lägger till en ny visualisering med titeln __tripduration statistik__ i den __KONTROLLANTER__ fönstret.
+Den här processen lägger till en ny visualisering med titeln __tripduration Statistics__ i fönstret __INSPECTORS__.
 
-![Bild av tripduration statistik inspector](media/tutorial-bikeshare-dataprep/tripdurationcolstatsinwell.png)
+![Bild av kontroll för tripduration Statistics](media/tutorial-bikeshare-dataprep/tripdurationcolstatsinwell.png)
 
 > [!IMPORTANT]
-> Det högsta värdet för resa duration är **961,814 minuter**, vilket är ungefär två år. Det verkar det finns vissa avvikare i datauppsättningen.
+> Det högsta värdet för resans varaktighet är **961 814 minuter**, vilket är ungefär två år. Det verkar det finns vissa avvikare i datauppsättningen.
 
-## <a name="use-histogram-inspector"></a>Använd histogram inspector
+## <a name="use-histogram-inspector"></a>Använd histogramkontroll
 
-Om du vill försöka identifiera avvikare högerklickar du på den __tripduration__ kolumn och markera __Histogram__.
+Om du vill försöka identifiera avvikare högerklickar du på kolumnen __tripduration__ markerar __Histogram__.
 
-![Histogram inspector](media/tutorial-bikeshare-dataprep/tripdurationhistogram.png)
+![Histogramkontroll](media/tutorial-bikeshare-dataprep/tripdurationhistogram.png)
 
-Histogrammet är inte användbart, eftersom avvikare skeva i diagrammet.
+Histogrammet är inte användbart, eftersom avvikare snedställer diagrammet.
 
 ## <a name="add-column-using-script"></a>Lägg till kolumn med hjälp av skript
 
-1. Högerklicka på den **tripduration** kolumn och markera **Add Column (skript)**.
+1. Högerklicka på kolumnen **tripduration** och markera **Lägg till kolumn (skript)**.
 
     ![Bild av menyn Lägg till kolumn (skript)](media/tutorial-bikeshare-dataprep/computecolscript.png)
 
-2. I den __Add Column (skript)__ dialogrutan, använder du följande värden:
+2. I dialogrutan __Lägg till kolumn (skript)__, använder du följande värden:
 
-    * __Nya kolumnnamnet__: logtripduration
+    * __Nya kolumnnamn__: logtripduration
     * __Infoga den här nya kolumn efter__: tripduration
-    * __Den nya kolumnen koden__:`math.log(row.tripduration)`
-    * __Code blocktyp__: uttryck
+    * __Ny kolumnkod__: `math.log(row.tripduration)`
+    * __Kodblocktyp__: Uttryck
 
-   ![Dialogrutan Lägg till kolumn (skript)](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
+   ![Bild av dialogen Lägg till kolumn (skript)](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
-3. Välj __OK__ att lägga till den **logtripduration** kolumn.
+3. Välj __OK__ för att lägga till kolumnen **logtripduration**.
 
 4. Högerklicka på kolumnen och välj **Histogram**.
 
     ![Histogram för kolumnen logtripduration](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
 
-  Det här histogrammet verkar visuellt, normalfördelning med en onormalt sida.
+  Det här histogrammet verkar visuellt som en normalfördelning med en onormal ände.
 
-## <a name="use-advanced-filter"></a>Använda avancerade Filter
+## <a name="use-advanced-filter"></a>Använd avancerat filter
 
-Använda ett filter på data uppdaterar kontrollanterna med den nya distributionsplatsen. Högerklicka på den **logtripduration** kolumn och markera **filterkolumnen**. I den __redigera__ dialogrutan, använder du följande värden:
+Genom att använda ett filter på data uppdateras kontrollerna med den nya distributionen. Högerklicka på kolumnen **logtripduration** och markera **Filtrera kolumn**. I dialogrutan __Redigera__, använder du följande värden:
 
-* __Det här numret Filterkolumn__: logtripduration
-* __Jag vill__: Behåll rader
-* __När__: något av villkoren nedan är True (logisk OR)
-* __Om den här kolumnen__: mindre än
+* __Filtrera den här talkolumnen__: logtripduration
+* __Jag vill__: Behålla rader
+* __När__: Något av villkoren nedan är Sant (logiskt ELLER)
+* __Om den här kolumnen__: är mindre än
 * __Värdet__: 9
 
-![Filteralternativ](media/tutorial-bikeshare-dataprep/loftripfilter.png)
+![Filtrera alternativ](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
-Välj __OK__ att tillämpa filtret.
+Välj __OK__ för att tillämpa filtret.
 
 ![Uppdaterade histogram efter filter används](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
-### <a name="the-halo-effect"></a>Halo effekt
+### <a name="the-halo-effect"></a>Halo-effekt
 
-1. Maximera den **logtripduration** histogram. Det finns en blå histogram högst upp på en grå histogram. Den här vyn kallas den **Halo effekt**:
+1. Maximera histogrammet **logtripduration**. Det finns ett blått histogram ovanpå ett grått histogram. Den här vyn kallas **Halo-effekt**:
 
-    * Den **grå histogram** representerar distribution innan åtgärden (i det här fallet filtreringen).
-    * Den **blå histogram** representerar histogrammet efter åtgärden. 
+    * Det **grå histogrammet** representerar distributionen innan åtgärden (i det här fallet filtreringen).
+    * Det **blå histogrammet** representerar histogrammet efter åtgärden. 
 
-   Halo effekten hjälper med visualisera effekten av en åtgärd på data.
+   Halo-effekten hjälper att visualisera effekten av en åtgärd på data.
 
-   ![Bild av halo effekt](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
+   ![Bild på halo-effekten](media/tutorial-bikeshare-dataprep/loftripfilteredinspectormaximized.png)
 
     > [!NOTE]
-    > Observera att det blå histogrammet visas kortare jämfört med föregående. Detta beror på automatisk bucketing igen på data i det nya området.
+    > Observera att det blå histogrammet visas kortare jämfört med föregående. Detta beror på automatisk bucket av data igen i det nya området.
 
-2. Om du vill ta bort halo, Välj __redigera__ och avmarkerar __visa halo__.
+2. Om du vill ta bort halon, välj __Redigera__ och avmarkerar __Visa halo__.
 
     ![Alternativ för histogrammet](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
 
-3. Välj **OK** att inaktivera halo effekt och minimera histogrammet.
+3. Välj **OK** för att inaktivera halo-effekten och minimera histogrammet.
 
 ### <a name="remove-columns"></a>Ta bort kolumner
 
-Varje rad representerar en cykel pickup händelse i resa-data. Den här kursen behöver du bara den **starttime** och **starta station id** kolumner. Ta bort de andra kolumnerna som du väljer flera dessa två kolumner, högerklicka på kolumnrubriken och välj sedan **Behåll kolumnen**. Andra kolumner tas bort.
+I resedata representerar varje rad en cykelhämtningshändelse. I den här självstudien behöver du bara kolumnen **starttime** och **starta station id**. Ta bort de andra kolumnerna genom att välja dessa två kolumner samtidigt, högerklicka på kolumnrubriken och välj sedan **Behåll kolumn**. Andra kolumner tas bort.
 
 ![Bild av alternativet Behåll kolumn](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 
 ### <a name="summarize-data-count"></a>Sammanfatta data (antal)
 
-Använd härledda kolumner för att sammanfatta cykel efterfrågan på en 2-timmarsperiod.
+Använd härledda kolumner för att sammanfatta cykelefterfrågan för en 2-timmarsperiod.
 
-1. Högerklicka på den **starttime** kolumn och markera **härledd kolumn efter exempel**
+1. Högerklicka på kolumnen **starttime** och markera **Härled kolumn efter exempel**
 
-    ![Bild av härledd av exempel alternativet](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
+    ![Bild av alternativet härled efter exempel](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
-2. Det här exemplet anger du värdet `Jan 01, 2017 12AM-2AM` för den första raden.
+2. För det här exemplet anger du värdet `Jan 01, 2017 12AM-2AM` för den första raden.
 
     > [!IMPORTANT]
-    > I det förra exemplet härledande kolumner används flera steg för att härleda en kolumn som innehåller datum och tid period. I det här exemplet ser du att den här åtgärden kan utföras som ett enda steg genom att tillhandahålla ett exempel på det slutgiltiga resultatet.
+    > I det förra exemplet för att härleda kolumner används flera steg för att härleda en kolumn som innehåller datum- och tidsperioden. I det här exemplet ser du att den här åtgärden kan utföras som ett enda steg genom att tillhandahålla ett exempel på det slutgiltiga resultatet.
 
     > [!NOTE]
-    > Du kan ge ett exempel mot någon av raderna. I det här exemplet värdet för `Jan 01, 2017 12AM-2AM` är giltig för den första raden med data.
+    > Du kan ge ett exempel mot någon av raderna. I det här exemplet är värdet för `Jan 01, 2017 12AM-2AM` giltigt för den första raden med data.
 
     ![Bild av exempeldata](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
    
-3. Vänta tills programmet beräknar värden mot alla rader. Det kan ta flera sekunder. När analysen är klar kan du använda den __granska nästa föreslagna rad__ länken för att granska data.
+3. Vänta tills programmet beräknar värden mot alla rader. Det kan ta flera sekunder. När analysen är klar kan du använda länken __Granska nästa föreslagna rad__ för att granska data.
 
-   ![Bild av slutförda analysen med granska länk](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
+   ![Bild av slutförd analys med granskningslänk](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
 
-    Se till att de beräknade värdena är korrekta. Om inte, uppdatera värdet med det förväntade värdet och tryck på RETUR. Vänta sedan att slutföra. Slutför den **granska nästa föreslagna rad** bearbeta tills du ser **inga förslag**. När du ser **inga förslag**, programmet har tittat på edge-fall och är nöjd med syntetiskt programmet. Det är bäst att utföra en granskning av omvandlade data innan du godkänner omvandlingen. 
+    Se till att de beräknade värdena är korrekta. Om inte, uppdatera värdet med det förväntade värdet och tryck på retur. Vänta sedan på att analysen ska slutföras. Slutför processen **Granska nästa föreslagna rad** tills du ser **Inga förslag**. När du ser **Inga förslag**, har programmet tittat på gränsfall och är nöjd med det syntetiserade programmet. Det är bäst att utföra en granskning av transformerade data innan du godkänner transformationen. 
 
-4. Välj **OK** att acceptera transformeringen. Byt namn på den nyligen skapade kolumnen att **timme datumintervall**.
+4. Välj **OK** för att acceptera omvandlingen. Byt namn på den nyligen skapade kolumnen till **Datum Timintervall**.
 
-    ![Bild av kolumnen har bytt namn till](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
+    ![Bild av den omdöpta kolumnen](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
 
-5. Högerklicka på den **starttime** kolumnrubriken och välj **ta bort kolumnen**.
+5. Högerklicka på kolumnrubriken **starttime** och välj **Ta bort kolumn**.
 
-6. Om du vill sammanfatta data, Välj __Summarize__ från den __transformera__ menyn. Utför följande åtgärder för att skapa omvandlingen:
+6. Om du vill sammanfatta data, välj __Sammanfatta__ från menyn __Transformera__. Utför följande åtgärder för att skapa transformeringen:
 
-    * Dra __timme datumintervall__ och __starta station id__ till vänster (grupp av)-rutan.
-    * Dra __starta station id__ till höger (sammanfatta data) rutan.
+    * Dra __Datum Timintervall__ och __startstation-id__ till vänster fönster (gruppera enligt).
+    * Dra __startstation-id__ till höger fönster (sammanfatta data).
 
-   ![En avbildning av alternativen sammanfattning](media/tutorial-bikeshare-dataprep/tripdatacount.png)
+   ![En bild av sammanfattningsalternativen](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
-7. Välj **OK** att acceptera sammanfattning resultatet.
+7. Välj **OK** för att acceptera sammanfattningsresultaten.
 
-## <a name="join-dataflows"></a>Anslut dataflows
+## <a name="join-dataflows"></a>Slå ihop dataflöden
 
-Använd följande steg för att ansluta väder-data med resa data:
+Använd följande steg för att slå ihop väderdata med resedata:
 
-1. Välj __ansluta__ från den __transformerar__ menyn.
+1. Välj __Koppla__ från menyn __Transformerar__.
 
-2. __Tabeller__: Välj **BostonWeather** som vänstra dataflöde och **201701-hubway-tripdata** som rätt dataflöde. Om du vill fortsätta, Välj **nästa**.
+2. __Tabeller__: Välj **BostonWeather** som det vänstra dataflödet och **201701-hubway-tripdata** som det högra dataflödet. Välj **Nästa** för att fortsätta.
 
-    ![Bild av tabeller val](media/tutorial-bikeshare-dataprep/jointableselection.png)
+    ![Bild av tabellvalen](media/tutorial-bikeshare-dataprep/jointableselection.png)
 
-3. __Nyckelkolumner__: Välj den **timme datumintervall** kolumn i både tabeller och välj sedan __nästa__.
+3. __Nyckelkolumner__: Välj kolumnen **Datum Timintervall** i båda tabellerna och välj sedan __Nästa__.
 
-    ![Bild av kopplingen på nyckelkolumner](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
+    ![Bild av sammanslagningen av nyckelkolumner](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
 
-4. __Kopplingstyp__: Välj __matchande rader__ som kopplingstyp och välj sedan __Slutför__.
+4. __Kopplingstyp__: Välj __Matchande rader__ som kopplingstyp och välj sedan __Slutför__.
 
-    ![Matchande rader kopplingstyp](media/tutorial-bikeshare-dataprep/joinscreen.png)
+    ![Matchande rader som kopplingstyp](media/tutorial-bikeshare-dataprep/joinscreen.png)
 
-    Den här processen skapar en ny dataflöde med namnet __ansluta resultatet__.
+    Den här processen skapar ett nytt dataflöde med namnet __Kopplingsresultat__.
 
 ## <a name="create-additional-features"></a>Skapa ytterligare funktioner
 
-1. Om du vill skapa en kolumn som innehåller dagen i veckan, högerklicka på den **timme datumintervall** kolumn och markera **härledd kolumn efter exempel**. Använd värdet __Sun__ för ett datum som inträffat på söndag. Till exempel **01 januari 2017 12: 00 - 02: 00**. Tryck på **RETUR** och välj sedan **OK**. Byt namn på den här kolumnen till __veckodag__.
+1. Om du vill skapa en kolumn som innehåller veckodagen, högerklicka på kolumnen **Datum Timintervall** och markera **Härled kolumn efter exempel**. Använd värdet __Sun__ för ett datum som inträffat på söndag. Till exempel **01 januari 2017 12.00–02.00**. Tryck på **Retur** och välj sedan **OK**. Byt namn på den här kolumnen till __Veckodag__.
 
-    ![Bild av hur du skapar en ny kolumn som innehåller dagen i veckan](media/tutorial-bikeshare-dataprep/featureweekday.png)
+    ![Bild av hur du skapar en ny kolumn som innehåller veckodagen](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-2. Om du vill skapa en kolumn som innehåller tidsperioden för en rad, högerklicka på den **timme datumintervall** kolumn och markera **härledd kolumn efter exempel**. Använd värdet **12: 00 - 02: 00** för den rad som innehåller **01 januari 2017 12: 00 - 02: 00**. Tryck på **RETUR** och välj sedan **OK**. Byt namn på den här kolumnen till **Period**.
+2. Om du vill skapa en kolumn som innehåller tidsperioden för raden, högerklicka på kolumnen **Datum Timintervall** och markera **Härled kolumn efter exempel**. Använd värdet **12.00–02.00** för den rad som innehåller **01 januari 2017 12.00–02.00**. Tryck på **Retur** och välj sedan **OK**. Byt namn på den här kolumnen till **Period**.
 
     ![Bild av periodkolumnen](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Ta bort den **timme datumintervall** och **rDate timme intervallet** kolumner, tryck på **Ctrl (kommandot ⌘ på Mac)** och markera varje kolumnrubriken. Högerklicka och välj **ta bort kolumnen**.
+3. Ta bort kolumnerna **Datum Timintervall** och **rDatum Timintervall**, tryck på **Ctrl (kommandot ⌘ på Mac)** och markera varje kolumnrubrik. Högerklicka och välj **Ta bort kolumn**.
 
-## <a name="read-data-from-python"></a>Läsa data från Python
+## <a name="read-data-from-python"></a>Läs data från Python
 
-Du kan köra ett paket för förberedelse av data från Python eller PySpark och hämta resultatet som ett **Data ram**.
+Du kan köra ett paket för förberedelse av data från Python eller PySpark och hämta resultatet som en **Dataram**.
 
-Om du vill generera ett exempel Python-skriptet, högerklicka på __BikeShare Data Prep__ och välj __generera Data Access kodfilen__. Exempel Python-filen skapas i din **projektmappen**, och även har lästs in på en flik arbetsstationen. Följande skript i Python är ett exempel på den kod som genereras:
+Om du vill generera ett Python-skriptexempel, högerklicka på __BikeShare Data Prep__ och välj __Generera kodfil för dataåtkomst__. Python-exempelfilen skapas i din **Projektmapp**, och läses även in på en flik i arbetsstationen. Följande skript i Python är ett exempel på den kod som genererades:
 
 ```python
 # Use the Azure Machine Learning data preparation package
@@ -582,11 +582,11 @@ df = package.run('BikeShare Data Prep.dprep', dataflow_idx=0)
 df.head(10)
 ```
 
-Den här självstudien är namnet på filen `BikeShare Data Prep.py`. Den här filen används senare under kursen.
+För den här självstudien är namnet på filen `BikeShare Data Prep.py`. Den här filen används senare under självstudien.
 
 ## <a name="save-test-data-as-a-csv-file"></a>Spara testdata som en CSV-fil
 
-Spara den **ansluta resultatet** dataflöde till en. CSV-fil måste du ändra den `BikeShare Data Prep.py` skript. Uppdatera Python-skriptet med följande kod:
+För att spara dataflöde för **Koppla resultat** till en. CSV-fil måste du ändra skriptet `BikeShare Data Prep.py`. Uppdatera Python-skriptet med följande kod:
 
 ```python
 from azureml.dataprep.package import run
@@ -598,43 +598,43 @@ df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 df.to_csv('Your Test Data File Path here')
 ```
 
-Välj **kör** högst upp på skärmen. Skriptet har skickats in som en **jobbet** på den lokala datorn. När jobbet har statusen ändras till __slutförd__, filen har skrivits till den angivna platsen.
+Välj **Kör** högst upp på skärmen. Skriptet har skickats in som ett **Jobb** på den lokala datorn. När jobbstatusen ändras till __Slutförd__, har filen skrivits till den angivna platsen.
 
 ## <a name="substitute-data-sources"></a>Ersätt datakällor
 
-I föregående steg, som du använde den `201701-hubway-tripdata.csv` och `BostonWeather.csv` datakällor för att förbereda testdata. Om du vill använda paketet med andra resa-datafiler, använder du följande steg:
+I föregående steg, använde du datakällorna `201701-hubway-tripdata.csv` och `BostonWeather.csv` för att förbereda testdata. Om du vill använda paketet med andra resedatafiler, använder du följande steg:
 
-1. Skapa en ny **datakällan** med hjälp av anvisningarna tidigare, med följande ändringar i processen:
+1. Skapa en ny **Datakälla** med hjälp av anvisningarna som gavs tidigare, med följande ändringar i processen:
 
-    * __Filen val__: när du väljer en fil, välja flera sex återstående resa tripdata. CSV-filer.
+    * __Filval__: När du väljer en fil, välj de sex återstående tripdata. CSV-filerna för resan samtidigt.
 
-        ![Läsa in sex återstående filer](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
+        ![Läs in de sex återstående filerna](media/tutorial-bikeshare-dataprep/selectsixfiles.png)
 
         > [!NOTE]
-        > Den __+ 5__ posten indikerar att det finns fem ytterligare filer utöver det som visas.
+        > Posten __+ 5__ indikerar att det finns fem ytterligare filer utöver den som visas.
 
-    * __Filinformation__: Ange __befordra huvuden läge__ till **alla filer har samma sidhuvuden**. Det här värdet anger att var och en av filerna som innehåller samma huvud.
+    * __Filinformation__: Ange __Befordra rubrikläge__ till **Alla filer har samma rubriker**. Det här värdet anger att var och en av filerna innehåller samma rubrik.
 
-        ![Välj information](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
+        ![Val av filinformation](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
 
    Spara namnet på den här datakällan eftersom den används i senare steg.
 
-2. Välj mappikonen för att visa filerna i projektet. Expandera den __aml\_config__ katalogen och välj sedan den `local.runconfig` filen.
+2. Välj mappikonen för att visa filerna i projektet. Expandera katalogen __aml\_config__ och välj sedan filen `local.runconfig`.
 
     ![Bild av platsen för local.runconfig](media/tutorial-bikeshare-dataprep/localrunconfig.png) 
 
-3. Lägg till följande rader i slutet av den `local.runconfig` filen och klicka på diskikonen för att spara filen.
+3. Lägg till följande rader i slutet av filen `local.runconfig` och klicka på diskikonen för att spara filen.
 
     ```yaml
     DataSourceSubstitutions:
       201701-hubway-tripdata.dsource: 201501-hubway-tripdata.dsource
     ```
 
-    Den här ändringen ersätts den ursprungliga datakällan med den som innehåller sex resa datafiler.
+    Den här ändringen ersätter den ursprungliga datakällan med den som innehåller de sex resedatafilerna.
 
 ## <a name="save-training-data-as-a-csv-file"></a>Spara träningsdata som en CSV-fil
 
-Navigera till filen Python `BikeShare Data Prep.py` du redigera tidigare och ange en annan sökväg till filen för att spara Data utbildning.
+Navigera till filen Python `BikeShare Data Prep.py` som du redigerade tidigare och ange en annan sökväg till filen för att spara träningsdata.
 
 ```python
 from azureml.dataprep.package import run
@@ -645,17 +645,17 @@ df = run('BikeShare Data Prep.dprep', dataflow_idx=2)
 df.to_csv('Your Training Data File Path here')
 ```
 
-Om du vill skicka ett nytt jobb, Använd den **kör** längst upp på sidan. En **jobbet** har skickats in med den nya konfigurationen. Utdata för jobbet är utbildning-Data. Dessa data skapas med hjälp av samma steg för förberedelse av Data som du skapade tidigare. Det kan ta några minuter att slutföra jobbet.
+Om du vill skicka ett nytt jobb, använd ikonen **Kör** längst upp på sidan. Ett **Jobb** skickas in med den nya konfigurationen. Utdata för jobbet är träningsdata. Dessa data skapas med hjälp av samma steg för förberedelse av data som du skapade tidigare. Det kan ta några minuter att slutföra jobbet.
 
 ## <a name="next-steps"></a>Nästa steg
-Du har slutfört självstudierna cykeln filresurs förberedelse av Data. I den här kursen används Azure Machine Learning services (förhandsvisning) att lära dig hur du:
+Du har slutfört självstudierna för förberedelse av data för cykeldelning. I den här självstudien använde du Azure Machine Learning (förhandsversion) till att lära dig att:
 > [!div class="checklist"]
 > * Förbereda data interaktivt med förberedelseverktyget för Azure Machine Learning Data
-> * Importera, transformera och skapa en test-datamängd
-> * Skapa ett paket för förberedelse av Data
-> * Kör förberedelse datapaketet använder Python
-> * Generera en datauppsättning för träning genom att återanvända paketet förberedelse av Data för ytterligare inkommande filer
+> * Importera, transformera och skapa en test-datauppsättning
+> * Skapa ett paket för förberedelse av data
+> * Kör paketet för förberedelse av data med Python
+> * Generera en datauppsättning för träning genom att återanvända paketet för förberedelse av data för ytterligare inkommande filer
 
-Lär dig mer om förberedelse av data sedan:
+Härnäst, lär dig mer om förberedelse av data:
 > [!div class="nextstepaction"]
-> [Användarhandboken för förberedelse av data](data-prep-user-guide.md)
+> [Användarhandbok för förberedelse av data](data-prep-user-guide.md)

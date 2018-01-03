@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Rapport för kapacitetsplaneraren i Azure Site Recovery
 Den genererade rapporten i Microsoft Excel innehåller följande ark:
@@ -131,7 +131,7 @@ Grafen visar sammanfattningsvyn av den uppskattade kostnaden haveriberedskapen (
 
 ![Sammanfattning av kostnadsuppskattning](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
-Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala för lagring, beräkning, nätverk och licens när du skyddar alla dina kompatibla virtuella datorer till Azure med Azure Site Recovery. Kostnaden beräknas för kompatibla virtuella datorer och inte för alla profilerade virtuella datorer.  
+Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala för lagring, beräkning, nätverk och licenser när du skyddar alla dina kompatibla virtuella datorer till Azure med Azure Site Recovery. Kostnaden beräknas för kompatibla virtuella datorer och inte för alla profilerade virtuella datorer.  
  
 Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
@@ -139,9 +139,9 @@ Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som st
 
 **Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test. 
 
-**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det täcker kostnaden för lagring, nätverk och Azure Site Recovery-licens. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery ökar hastigheten på de virtuella datorerna under testredundans. Testredundanskostnaden täcker beräknings- och lagringskostnaden för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure storage cost per Month/Year** (Azure Storage-kostnad per månad/år) Det visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test.
 Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
@@ -234,8 +234,8 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 * Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 5 000 per disk.
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 80 000 per virtuell dator.
-* Den genomsnittliga dataomsättningen överskrider den dataomsättningsgräns som stöds av Site Recovery på 10 Mbit/s för den genomsnittliga I/O-storleken för disken.
-* Den totala dataomsättningen för alla diskar i den virtuella datorn överskrider högsta gränsen i Site Recovery på 54 Mbit/s per virtuell dator.
+* Den genomsnittliga dataomsättningen överskrider den dataomsättningsgräns som stöds av Site Recovery på 10 MB/s för den genomsnittliga I/O-storleken för disken.
+* Den totala dataomsättningen för alla diskar i den virtuella datorn överskrider högsta gränsen i Site Recovery på 54 MB/s per virtuell dator.
 * Genomsnittligt antal effektiva skrivåtgärder (IOPS) överskrider gränsen i Site Recovery på 840 per disk.
 * Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB.
 
@@ -263,12 +263,12 @@ Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser
  
 **Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
 ---|---|---|---
-Standard Storage | 8 kB | 2 Mbit/s | 168 GB per disk
-Premium P10- eller P15-disk | 8 kB  | 2 Mbit/s | 168 GB per disk
-Premium P10- eller P15-disk | 16 kB | 4 Mbit/s |  336 GB per disk
-Premium P10- eller P15-disk | 32 kB eller mer | 8 Mbit/s | 672 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 Mbit/s | 421 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 Mbit/s | 842 GB per disk
+Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
+Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
 
 Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 

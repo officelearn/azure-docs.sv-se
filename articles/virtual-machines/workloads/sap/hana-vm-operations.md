@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA på Azure-handboken
 Detta dokument ger vägledning för operativsystem SAP HANA som distribueras på Azure interna virtuella maskiner (VMs). Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen som innehåller följande innehåll:
@@ -29,7 +29,7 @@ Detta dokument ger vägledning för operativsystem SAP HANA som distribueras på
 - [Guider för SAP-installation](https://service.sap.com/instguides)
 - [SAP anteckningar](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda den här guiden behöver du grundläggande kunskaper om Azure följande komponenter:
 
 - [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -80,16 +80,23 @@ Azure Premium-diskar som rekommenderas för /hana/data och /hana/log volymer. Du
 
 I följande tabell visas en konfiguration av VM-typer som kunder använder ofta till värd SAP HANA på virtuella Azure-datorer:
 
-| VM-SKU | RAM | / hana/data och loggfilen/hana /<br /> stripe-volymer med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | Hana eller säkerhetskopiering |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data och loggfilen/hana /<br /> stripe-volymer med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | Hana eller säkerhetskopiering |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 giB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 giB | 1 200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 giB | 2 000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 giB | 1 000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1 750 giB | 1 000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 giB | 2 000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 giB | 2 000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+
+
+> [!NOTE]
+> Diskar som rekommenderas för mindre VM typer med 3 x P20 oversize volymer om utrymme rekommendationerna enligt den [SAP TDI lagring Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Men gjordes valet som visas i tabellen för att tillhandahålla tillräcklig diskgenomflödet för SAP HANA. Om du behöver mindre i/o-genomflöde kan justera du valet av Premium-lagring diskar för /hana/data och /hana/log. Samma sak gäller för storleksändring av /hana/backup volymen, som var storlek för att behålla säkerhetskopior som representerar dubbelt så mycket minne volymen. Om du behöver mindre utrymme, kan sedan du justera. Tänk också övergripande VM-i/o-genomflöde när storleksändring och bestämmer för en virtuell dator. Övergripande VM genomströmning dokumenteras i artikeln [minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+
+> [!NOTE]
+> Om du vill dra nytta av [virtuella Azure-datorn enkel VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) måste du ändra alla virtuella hårddiskar som anges som standardlagring (Sxx) till Premium-lagring (Pxx). 
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Konfigurera virtuella Azure-nätverk

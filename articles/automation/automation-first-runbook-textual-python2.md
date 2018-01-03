@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Den här självstudiekursen vägleder dig genom att skapa en [Python runbook](automation-runbook-types.md#python-runbooks) i Azure Automation. Vi börjar med en enkel runbook som vi testar och publicerar medan vi förklarar hur du spårar statusen för runbook-jobbet. Sedan ändrar vi vår runbook så att den hanterar Azure-resurser, i vårt exempel ska den starta en virtuell dator i Azure. Slutligen ska vi göra runbooken mer robust genom att lägga till runbook-parametrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -147,7 +147,7 @@ Om du vill hantera Azure-resurser skriptet måste autentisera med autentiserings
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Lägg till kod för att skapa Python Compute-klienten och starta den virtuella datorn
 
-Om du vill arbeta med virtuella Azure-datorer, skapa en instans av den [Azure Compute-klienten för Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Om du vill arbeta med virtuella Azure-datorer, skapa en instans av den [Azure Compute-klienten för Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Använd beräknings-klienten för att starta den virtuella datorn. Lägg till följande kod i runbook:
 

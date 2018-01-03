@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Konfigurera katastrofåterställning för virtuella Azure-datorer till en sekundär Azure region (förhandsgranskning)
 
@@ -30,7 +30,7 @@ Den här kursen visar hur du ställer in återställning till en sekundär Azure
 > * Ställ in utgående åtkomst för virtuella datorer
 > * Aktivera replikering för en virtuell dator
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -129,10 +129,10 @@ Site Recovery hämtar en lista över de virtuella datorerna som är associerad m
 
 Skapar site Recovery standardinställningar och replikeringsprincip för mål-region. Du kan ändra inställningarna efter behov.
 
-1. Klicka på **inställningar** att visa inställningar för målet.
-2. Om du vill åsidosätta standardinställningarna för mål klickar du på **anpassa**. 
+1. Klicka på **inställningar** att visa inställningarna för mål och replikering.
+2. Om du vill åsidosätta standardinställningarna för mål klickar du på **anpassa** bredvid **resursgrupp, nätverk, lagring och Tillgänglighetsuppsättningar**.
 
-![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Målplatsen**: målregionen som används för katastrofåterställning. Vi rekommenderar att målplatsen matchar platsen för Site Recovery-valvet.
@@ -148,11 +148,23 @@ Skapar site Recovery standardinställningar och replikeringsprincip för mål-re
 
 - **Rikta tillgänglighetsuppsättningar**: som standard skapar en ny tillgänglighetsuppsättning i målregionen med suffixet ”asr” Site Recovery. Du kan bara lägga till tillgänglighetsuppsättningar om virtuella datorer som är en del av en uppsättning i käll-region.
 
+Om du vill åsidosätta standard replikeringsprincipens inställningar klickar du på **anpassa** bredvid **replikeringsprincipen**.  
+
 - **Namn på**: principnamn.
 
 - **Kvarhållningstid för återställningspunkten**: som standard sparas Site Recovery återställningspunkter under 24 timmar. Du kan konfigurera ett värde mellan 1 och 72 timmar.
 
 - **Frekvens av programkonsekventa ögonblicksbilder**: som standard Site Recovery tar en ögonblicksbild av programkonsekventa var fjärde timme. Du kan konfigurera ett värde mellan 1 och 12 timmar. Programkonsekventa ögonblicksbilder är en tidpunkt i ögonblicksbild av programdata inuti den virtuella datorn. Volume Shadow Copy Service (VSS) säkerställer appen på den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
+
+- **Replikeringsgruppen**: om ditt program måste konsekvens för flera över virtuella datorer, du kan skapa en replikeringsgrupp för de virtuella datorer. Som standard är de valda virtuella datorerna inte tillhör någon replikeringsgrupp.
+
+  Klicka på **anpassa** bredvid **replikeringsprincipen** och välj sedan **Ja** för konsekvens för flera så att virtuella datorer ingår i en replikeringsgrupp. Du kan skapa en ny replikeringsgrupp eller Använd en befintlig replikeringsgrupp. Välj de virtuella datorerna vara en del av den replikeringsgrupp och klicka på **OK**.
+
+> [!IMPORTANT]
+  Alla datorer i en replikeringsgrupp har delat krasch konsekvent och programkonsekventa återställningspunkter vid redundansväxling. Aktivera konsekvens för flera kan påverka arbetsbelastningens prestanda och bör endast användas om datorer kör samma arbetsbelastning och du behöver enhetlighet på flera datorer.
+
+> [!IMPORTANT]
+  Om du aktiverar konsekvens för flera kommunicerar datorer i replikeringsgruppen med varandra via port 20004. Kontrollera att det finns inga brandväggsinstallation blockerar intern kommunikation mellan de virtuella datorerna via port 20004. Om du vill att de virtuella Linux-datorer ska ingå i en replikeringsgrupp Kontrollera utgående trafik på port 20004 manuellt öppnas enligt vägledning för en viss version av Linux.
 
 ### <a name="track-replication-status"></a>Spåra replikeringsstatus
 
@@ -164,7 +176,7 @@ Skapar site Recovery standardinställningar och replikeringsprincip för mål-re
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen konfigurerats katastrofåterställning för en Azure VM. Nästa steg är att testa din konfiguration.
+I kursen får konfigurerat du katastrofåterställning för en Azure VM. Nästa steg är att testa din konfiguration.
 
 > [!div class="nextstepaction"]
 > [Köra ett återställningstest](azure-to-azure-tutorial-dr-drill.md)

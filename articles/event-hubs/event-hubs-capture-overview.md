@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs avbildning
 
@@ -39,7 +39,13 @@ Insamlade data skrivs i [Apache Avro] [ Apache Avro] format: ett compact, snabb,
 Event Hubs avbilda kan du konfigurera ett fönster för att styra avbildning. Det här fönstret är en minsta storlek och konfiguration med en ”första WINS-princip”, vilket innebär att den första utlösaren påträffade orsakar en capture-åtgärd. Om du har en femton minuter fönstret capture 100 MB och skicka 1 MB per sekund, storlek fönstret utlösare innan tidsfönstret. Varje partition in separat och skriver en slutförd blockblob vid tidpunkten för insamlingen, med namnet för den tid då avbilda intervallet påträffades. Namngivningskonventionen för lagring är följande:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Observera att datumvärdena är fylls ut med nollor; ett filnamn som exempel kan vara:
+
+```
+https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Skalning till enheter

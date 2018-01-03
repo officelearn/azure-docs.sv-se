@@ -3,7 +3,7 @@ title: "Begrepp för DevTest Labs | Microsoft Docs"
 description: "Lär dig grundläggande begrepp för DevTest Labs och hur det kan göra det enkelt att skapa, hantera och övervaka virtuella Azure-datorer"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs-koncept
 ## <a name="overview"></a>Översikt

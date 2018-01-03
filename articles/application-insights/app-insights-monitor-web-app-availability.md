@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f4fcc3eb0dac2c5796b0a291425ad17a60a5bae
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -29,9 +29,9 @@ Det finns två typer av tillgänglighetstester:
 * [URL-pingtest](#create): Ett enkelt test som du kan skapa på Azure-portalen.
 * [Flerstegstest för webbplatser](#multi-step-web-tests): Ett test som du skapar i Visual Studio Enterprise och laddar upp till portalen.
 
-Du kan skapa upp till 25 tillgänglighetstester per programresurs.
+Du kan skapa upp till 100 tillgänglighetstester per programresurs.
 
-## <a name="create"></a>1. Öppna en resurs för dina tillgänglighetstestrapporter
+## <a name="create"></a>Öppna en resurs för dina tillgänglighetstestrapporter
 
 **Om du redan har konfigurerat Application Insights** för din webbapp öppnar du dess Application Insights-resurs i [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Du kan skapa upp till 25 tillgänglighetstester per programresurs.
 
 Klicka på **alla resurser** för att öppna översiktsbladet för den nya resursen.
 
-## <a name="setup"></a>2. Skapa ett URL-pingtest
+## <a name="setup"></a>Skapa ett URL-pingtest
 Öppna bladet Tillgänglighet och lägg till ett test.
 
 ![Fyll åtminstone i URL:en för din webbplats](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Klicka på **alla resurser** för att öppna översiktsbladet för den nya resur
 Lägg till fler test. Förutom att testa din hemsida kan du till exempel kontrollera att din databas körs genom att testa URL:en för en sökning.
 
 
-## <a name="monitor"></a>3. Visa tillgänglighetstestresultat
+## <a name="monitor"></a>Visa tillgänglighetstestresultat
 
 Efter ett par minuter klickar du på **Uppdatera** för att visa testresultaten. 
 
@@ -102,14 +102,11 @@ Klicka på en röd punkt.
 Från ett tillgänglighetstestresultat kan du:
 
 * Kontrollera de svar som mottas från servern.
-* Öppna telemetrin som har skickas av serverappen samtidigt som den misslyckades begärandeinstansen behandlas.
+* Diagnostisera fel med telemetri på serversidan som samlats in under bearbetning av instansen för det misslyckade begärandet.
 * Logga ett problem eller arbetsuppgift i Git eller VSTS för att spåra problemet. Buggen innehåller en länk till den här händelsen.
 * Öppna resultatet av webbtestet i Visual Studio.
 
-
-*Ser det okej ut trots att fel har rapporterats?* Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt.
-
-*Inga relaterade objekt?* Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](app-insights-sampling.md) pågår. 
+*Ser det okej ut trots att fel har rapporterats?* Se [vanliga frågor och svar](#qna) för sätt att minska bruset.
 
 ## <a name="multi-step-web-tests"></a>Webbtester med flera steg
 Du kan övervaka ett scenario med en serie URL:er. Om du till exempel övervakar en försäljningswebbplats kan du testa att det går att lägga till objekt i kundvagnen korrekt.
@@ -256,6 +253,20 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 * Konfigurera en [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) som anropas när en avisering genereras.
 
 ## <a name="qna"></a>Har du några frågor? Har du problem?
+* *Tillfälligt test misslyckades med ett protokollfel?*
+
+    Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av belastningsutjämnare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange radslut vilket överskrider HTTP-specifikationen och därför misslyckas valideringen på .NET WebRequest-nivån. Kontrollera svaret för att hitta huvuden som kan vara felaktiga.
+    
+    Obs: URL:en kanske inte är felaktig på webbläsare som har en avslappnad verifiering av HTTP-huvuden. Se det här blogginlägget för en detaljerad förklaring av problemet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Webbplatsen ser bra ut men testet är felaktigt?*
+
+    * Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt. Om du vill minska känsligheten för testet till dessa resursfel, avmarkerar du helt enkelt ”parsa beroende begäranden om” från testkonfigurationen. 
+
+    * Kontrollera att konfigurationen ”aktivera återförsök för misslyckade test” är markerad för att minska sannolikheten för brus från tillfälliga nätverkssignaler o.s.v. Du kan också testa från fler platser och hantera tröskelvärden för varningsregeln i enlighet för att förhindra platsspecifika problem som orsakar onödiga aviseringar.
+    
+* *Jag ser inte någon relaterad telemetri på serversidan för att diagnostisera testfel?*
+    
+    Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](app-insights-sampling.md) pågår.
 * *Kan jag anropa kod från mitt webbtest?*
 
     Nej. Stegen i testet måste finnas i filen .webtest. Och du kan inte anropa andra webbtester eller använda loopar. Men det finns flera plugin-program som kan vara användbara.

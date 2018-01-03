@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Förbereda program för Azure-behållaren (AKS)
 
@@ -60,7 +60,7 @@ I katalogen är programmets källkod, en förskapad Docker compose fil- och en K
 
 [Docker Compose] [ docker-compose] kan användas för att automatisera build från behållaren avbildningar och distribution av program med flera behållare.
 
-Kör den `docker-compose.yml` filen för att skapa avbildningen behållare, ladda ned avbildningen Redis och starta programmet.
+Kör den `docker-compose.yaml` filen för att skapa avbildningen behållare, ladda ned avbildningen Redis och starta programmet.
 
 ```console
 docker-compose up -d

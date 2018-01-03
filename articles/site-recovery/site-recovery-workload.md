@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
 
@@ -49,21 +49,20 @@ Site Recovery erbjuder skydd och återställning på programnivå enligt följan
 ## <a name="workload-summary"></a>Översikt över arbetsbelastningar
 Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessutom samarbetar vi med produktteam för att utföra ytterligare appspecifika tester.
 
-| **Arbetsbelastning** | **Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |Y |Y |Y |Y |
-| Webbappar (IIS, SQL) |Y |Y |Y |Y |
-| System Center Operations Manager |Y |Y |Y |Y |
-| Sharepoint |Y |Y |Y |Y |
-| SAP<br/><br/>Replikera en SAP-plats till Azure för icke-kluster |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
-| Exchange (icke-DAG) |Y |Y |Y |Y |
-| Fjärrskrivbord/VDI |Y |Y |Y |Saknas |
-| Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
-| Dynamics AX |Y |Y |Y |Y |
-| Dynamics CRM |Y |Kommer snart |Y |Kommer snart |
-| Oracle |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |
-| Windows-filserver |Y |Y |Y |Y |
-| Citrix XenApp och XenDesktop |Saknas |Y |Saknas |Y |
+| **Arbetsbelastning** |**Replikera virtuella Azure-datorer till Azure** |**Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| Webbappar (IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| Sharepoint |Y |Y |Y |Y |Y|
+| SAP<br/><br/>Replikera en SAP-plats till Azure för icke-kluster |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
+| Exchange (icke-DAG) |Y |Y |Y |Y |Y|
+| Fjärrskrivbord/VDI |Y |Y |Y |Y |Y|
+| Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Oracle |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
+| Windows-filserver |Y |Y |Y |Y |Y|
+| Citrix XenApp och XenDesktop |Y|Saknas |Y |Saknas |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 En Active Directory- och DNS-infrastruktur är fundamentalt för de flesta företagsappar. Vid haveriberedskap, behöver du skydda och återställa de här infrastrukturkomponenterna innan du återställer dina arbetsbelastningar och appar.
@@ -106,13 +105,16 @@ Azure Site Recovery hjälper dig att skydda din Dynamics AX ERP-lösning genom a
 Fjärrskrivbordstjänster (RDS) stöder VDI-sessionsbaserade (Virtual Desktop Infrastructure) skrivbord och program så att användarna kan arbeta var som helst. Med Azure Site Recovery kan du:
 
 * Replikera hanterade eller ohanterade poolindelade virtuella skrivbord till en sekundär plats, och fjärrprogram och fjärrsessioner till en sekundär plats eller Azure.
+
 * Du kan replikera det här:
 
-| **RDS** | **Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** | **Replikera fysiska servrar till en sekundär plats** | **Replikera fysiska servrar till Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Poolat virtuellt skrivbord (ohanterat)** |Ja |Nej |Ja |Nej |Ja |Nej |
-| **Poolat virtuellt skrivbord (hanterat och utan UPD)** |Ja |Nej |Ja |Nej |Ja |Nej |
-| **Fjärrprogram och skrivbordssessioner (utan UPD)** |Ja |Ja |Ja |Ja |Ja |Ja |
+| **RDS** |**Replikera virtuella Azure-datorer till Azure** | **Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** | **Replikera fysiska servrar till en sekundär plats** | **Replikera fysiska servrar till Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Poolat virtuellt skrivbord (ohanterat)** |Nej|Ja |Nej |Ja |Nej |Ja |Nej |
+| **Poolat virtuellt skrivbord (hanterat och utan UPD)** |Nej|Ja |Nej |Ja |Nej |Ja |Nej |
+| **Fjärrprogram och skrivbordssessioner (utan UPD)** |Ja|Ja |Ja |Ja |Ja |Ja |Ja |
+
+[Konfigurera haveriberedskap för Fjärrskrivbordstjänster med hjälp av Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Lär dig mer](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) om hur du kan skydda Fjärrskrivbordstjänster.
 
@@ -138,7 +140,7 @@ Använd Site Recovery för att skydda din SAP-distribution på följande sätt:
 ## <a name="protect-iis"></a>Skydda IIS
 Använd Site Recovery för att skydda din IIS-distribution på följande sätt:
 
-Azure Site Recovery erbjuder haveriberedskap genom att replikera viktiga komponenter i din miljö till en fjärrplats eller ett offentligt moln, till exempel Microsoft Azure. Eftersom den virtuella datorn med webbservern och databasen replikeras till återställningsplatsen finns inget behov av separat säkerhetskopiering av konfigurationsfiler eller certifikat. Programmappningar och bindningar som är beroende av miljövariabler som ändras efter redundans kan uppdateras via skript som är integrerade i haveriberedskapsplanerna. Virtuella datorer finns endast på återställningsplatsen i händelse av redundans. Azure Site Recovery hjälper dig även att dirigera redundans från slutpunkt till slutpunkt genom att erbjuda följande funktioner:
+Azure Site Recovery erbjuder haveriberedskap genom att replikera viktiga komponenter i din miljö till en fjärrplats eller ett offentligt moln, till exempel Microsoft Azure. Eftersom de virtuella datorerna med webbservern och databasen replikeras till återställningsplatsen finns inget behov av separat säkerhetskopiering av konfigurationsfiler eller certifikat. Programmappningar och bindningar som är beroende av miljövariabler som ändras efter redundans kan uppdateras via skript som är integrerade i haveriberedskapsplanerna. Virtuella datorer finns endast på återställningsplatsen i händelse av redundans. Azure Site Recovery hjälper dig även att dirigera redundans från slutpunkt till slutpunkt genom att erbjuda följande funktioner:
 
 -   Användning av ordningsföljd för avstängning och start av virtuella datorer i olika nivåer.
 -   Tillägg av skript för att tillåta uppdatering av programberoenden och bindningar på de virtuella datorerna efter att de startats. Skripten kan också användas för att uppdatera DNS-servern så att den pekar på återställningsplatsen.

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 
@@ -27,7 +27,7 @@ Microsoft Azure Storage Data Movement Library är ett bibliotek med öppen käll
 
 .NET Core, vilket innebär att du kan använda den när du skapar .NET appar för Windows, Linux och macOS används också i det här biblioteket. Om du vill veta mer om .NET Core kan referera till den [.NET Core-dokumentation](https://dotnet.github.io/). Det här biblioteket fungerar även för traditionella .NET Framework-appar för Windows. 
 
-Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som som körs på Windows, Linux och macOS och utför följande scenarier:
+Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs på Windows, Linux och macOS och utför följande scenarier:
 
 - Ladda upp filer och kataloger till Blob Storage.
 - Definiera antalet parallella åtgärder vid överföring av data.
@@ -562,7 +562,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 
 I det här exemplet anger vi boolesk parameter i `TransferManager.CopyAsync` till `false` att indikera att vi vill göra en synkron kopia. Detta innebär att resursen är laddas ned till våra lokala datorn först och sedan har överförts till Azure-Blob. Alternativet synkrona kopior är ett bra sätt att kontrollera att din Kopieringsåtgärden har en konsekvent hastighet. Däremot är hastigheten för en asynkron serversidan kopia beroende av den tillgängliga nätverksbandbredden på servern, vilket kan variera. Synkron copy kan dock ge ytterligare utgång kostnaden jämfört med asynkron kopia. Den rekommenderade metoden är att använda synkron kopia i en Azure VM är i samma region som ditt källa storage-konto för att undvika kostnader för utgående trafik.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Vårt program för flytt av data är slutförd. [Fullständig kodexemplet finns på GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Hantering av planerat underhåll meddelanden för Windows-datorer
 
@@ -56,9 +56,7 @@ Följande riktlinjer hjälper dig att avgöra om du ska använda den här funkti
 
 Självbetjäning Underhåll rekommenderas inte för distributioner med hjälp av **tillgänglighetsuppsättningar** eftersom dessa inställningar för hög tillgänglighet, där endast en uppdateringsdomän påverkas vid en given tidpunkt. 
     - Låta Azure utlösaren underhållet, men tänk på att ordningen för update-domäner som påverkas inte nödvändigtvis sker sekventiellt och att det finns en paus på 30 minuter mellan domäner för uppdateringen.
-    - Om en temporär förlust av vissa av dina kapacitet (1/uppdateringsdomänantalet) är ett problem, kan den enkelt kompenseras genom att allokera ytterligare instanser under underhållsperioden. 
-
-**Inte** använder självbetjäning Underhåll i följande scenarier: 
+    - Om en temporär förlust av vissa av dina kapacitet (1/uppdateringsdomänantalet) är ett problem, den kan enkelt kompenseras genom att allokera ytterligare instanser under underhållsperioden **inte** använder självbetjäning Underhåll i följande scenarier: 
     - Om du stänger av din virtuella dator ofta, antingen manuellt med hjälp av DevTest labs, med hjälp av automatisk avstängning eller enligt ett schema den kunde Återställ status för underhåll och därför orsaka ytterligare driftstopp.
     - På tillfällig virtuella datorer som du vet att tas bort före utgången av Underhåll wave. 
     - För arbetsbelastningar med en stor tillstånd lagras i den lokala (tillfälliga) disken som önskas bevaras vid uppdatering. 
@@ -93,8 +91,8 @@ Under MaintenanceRedeployStatus returneras följande egenskaper:
 | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu ||
 | PreMaintenanceWindowStartTime         | I början av självbetjäning underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
 | PreMaintenanceWindowEndTime           | Slutet av självbetjäning underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
-| MaintenanceWindowStartTime            | I början av det schemalagda underhållsfönstret när du kan initiera Underhåll på den virtuella datorn ||
-| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperioden när du kan initiera Underhåll på den virtuella datorn ||
+| MaintenanceWindowStartTime            | I början av schemalagt underhåll som initierar Azure Underhåll på den virtuella datorn ||
+| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperiod som initierar Azure Underhåll på den virtuella datorn ||
 | LastOperationResultCode               | Resultatet av det senaste försöket att starta Underhåll på den virtuella datorn ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Mer information om hög tillgänglighet finns i [regioner och tillgänglighet f�
 
 **F: hur lång tid tar det att datorn startas om min virtuella dator?**
 
-**S:** beroende på storleken på den virtuella datorn, omstart kan ta flera minuter. Observera att om du använder molntjänster (Web/Worker-rollen), Skalningsuppsättningarna för virtuella datorer eller tillgänglighetsuppsättningar, får du 30 minuter mellan varje grupp av virtuella datorer (UD). 
+**S:** beroende på storleken på den virtuella datorn omstart kan ta flera minuter under självbetjäning underhållsperiod. Under Azure initieras omstarter i det schemalagda underhållsfönstret omstart kommer typicall tar cirka 25 minuter. Observera att om du använder molntjänster (Web/Worker-rollen), Skalningsuppsättningarna för virtuella datorer eller tillgänglighetsuppsättningar, får du 30 minuter mellan varje grupp av virtuella datorer (UD) under den schemalagda underhållsperioden. 
 
 **F: Vad är upplevelsen för molntjänster (Web/Worker-rollen), Service Fabric och Skalningsuppsättningar i virtuella datorer?**
 

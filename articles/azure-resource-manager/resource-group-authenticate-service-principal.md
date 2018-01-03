@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för att få åtkomst till resurser
 
@@ -27,10 +27,10 @@ När du har en app eller skript som behöver åtkomst till resurser, kan du stä
 * Tilldela behörigheter till app-identitet som skiljer sig från din egen behörighet. Dessa behörigheter normalt begränsad till exakt vad appen behöver göra.
 * Använda ett certifikat för autentisering när du kör ett oövervakat skript.
 
-Det här avsnittet visar hur du använder [Azure PowerShell](/powershell/azure/overview) att ställa in allt du behöver för att program ska köras under sina egna autentiseringsuppgifter och identitet.
+Den här artikeln visar hur du använder [Azure PowerShell](/powershell/azure/overview) att ställa in allt du behöver för att program ska köras under sina egna autentiseringsuppgifter och identitet.
 
-## <a name="required-permissions"></a>Behörigheter som krävs
-Du måste ha behörighet i både din Azure Active Directory och Azure-prenumerationen för att slutföra det här avsnittet. Mer specifikt måste du att kunna skapa en app i Azure Active Directory och tilldela en roll tjänstens huvudnamn. 
+## <a name="required-permissions"></a>Nödvändiga behörigheter
+Du måste ha tillräckliga behörigheter i både din Azure Active Directory och Azure-prenumerationen för att slutföra den här artikeln. Mer specifikt måste du att kunna skapa en app i Azure Active Directory och tilldela en roll tjänstens huvudnamn. 
 
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Om du vill lägga till ett lösenord, använder du:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Skapa ett självsignerat certifikat för att lägga till ett Certifikatvärde som visas i det här avsnittet. Använd sedan:
+Skapa ett självsignerat certifikat för att lägga till ett Certifikatvärde som visas i den här artikeln. Använd sedan:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore

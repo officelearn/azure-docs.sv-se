@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för Azure Site Recovery-kapacitetsplaneraren
 Den genererade rapporten i Microsoft Excel innehåller följande ark:
@@ -126,9 +126,9 @@ Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som st
 
 **Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test. 
 
-**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det täcker kostnaden för lagring, nätverk och Azure Site Recovery-licens. 
+**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen. 
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery ökar hastigheten på de virtuella datorerna under testredundans. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
+**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs. 
 
 **Azure storage cost per Month/Year** (Azure Storage-kostnad per månad/år) Det visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test.
 Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
@@ -188,7 +188,7 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Peak Data Churn in Mbps (with Growth Factor)** (Högsta dataomsättning i Mbit/s (med tillväxtfaktor)): Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta dataomsättning i MB/s (med tillväxtfaktor)**: Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Azure VM Size** (Storlek för virtuell Azure-dator): Lämplig mappad storlek på den virtuella Azure Cloud Services-datorn för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder, IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
@@ -235,15 +235,15 @@ Microsoft Excel-rapporten som genereras av distributionshanteraren för Azure Si
 
 * Käll-IOPS överskrider IOPS-gränsen för lagring på 80 000 per virtuell dator.
 
-* Den genomsnittliga dataomsättningen överskrider den dataomsättningsgräns som stöds av Azure Site Recovery på 10 Mbit/s för den genomsnittliga I/O-storleken för disken.
+* Den genomsnittliga dataomsättningen för virtuella källdatorer överskrider den dataomsättningsgräns som stöds av Azure Site Recovery på 10 MB/s för den genomsnittliga I/O-storleken.
 
-* Genomsnittligt antal effektiva skrivåtgärder (IOPS) överskrider gränsen i Azure Site Recovery på 840 per disk.
+* Genomsnittligt antal effektiva skrivåtgärder (IOPS) för den virtuella källdatorn överskrider gränsen i Azure Site Recovery på 840.
 
 * Beräknat lagringsutrymme för ögonblicksbilder överskrider gränsen på 10 TB.
 
 **Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Peak Data Churn in Mbps (with Growth Factor)** (Högsta dataomsättning i Mbit/s (med tillväxtfaktor)): Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta dataomsättning i MB/s (med tillväxtfaktor)**: Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
 **Number of Disks** (Antal diskar): Det totala antalet VHD:er på den virtuella datorn.
 
@@ -260,14 +260,11 @@ Microsoft Excel-rapporten som genereras av distributionshanteraren för Azure Si
 ## <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen rekommenderar vi alltid att du kör omfattande programtester med redundanstest för att få en bild av verklig prestanda för programmet.
  
-**Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
+**Replication Storage Target** (Lagringsmål för replikering) | **Genomsnittlig I/O-storlek för virtuell källdator** |**Genomsnittlig omsättning för virtuell källdator** | **Total dataomsättning per dag för virtuell källdisk**
 ---|---|---|---
-Standard Storage | 8 kB | 2 Mbit/s | 168 GB per disk
-Premium P10- eller P15-disk | 8 kB  | 2 Mbit/s | 168 GB per disk
-Premium P10- eller P15-disk | 16 kB | 4 Mbit/s |  336 GB per disk
-Premium P10- eller P15-disk | 32 kB eller mer | 8 Mbit/s | 672 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 Mbit/s | 421 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 Mbit/s | 842 GB per disk
+Standard Storage | 8 kB | 2 MB/s per virtuell dator | 168 GB per virtuell dator
+Premium Storage | 8 kB  | 5 MB/s per virtuell dator | 421 GB per virtuell dator
+Premium Storage | 16 kB eller mer| 10 MB/s per virtuell dator | 842 GB per virtuell dator
 
 Gränserna är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Azure Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 

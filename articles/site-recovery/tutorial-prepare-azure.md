@@ -2,30 +2,23 @@
 title: "Skapa resurser för användning med Azure Site Recovery | Microsoft Docs"
 description: "Lär dig hur du förbereder Azure för replikering av lokala datorer med hjälp av Azure Site Recovery-tjänsten."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Förbered Azure-resurser för replikering av lokala datorer
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten bidrar till din affärskontinuitet och haveriberedskap (BCDR) strategi genom att hålla dina appar och köra tillgängliga under planerade och oplanerade avbrott. Site Recovery samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer (VM), inklusive replikering, redundans och återställning hanterar.
 
-Den här kursen visar hur du förbereder Azure komponenter när du vill replikera lokala virtuella datorer och fysiska servrar till Azure. I den här guiden får du lära dig hur man:
+Den här kursen visar hur du förbereder Azure komponenter när du vill replikera lokala virtuella datorer (Hyper-V eller VMware) eller Windows-/ Linux fysiska servrar till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Verifiera ditt konto har behörighet för replikering
@@ -53,13 +46,13 @@ Virtual Machine-deltagare inbyggda rollen har dessa behörigheter. Du måste ock
 Bilder av replikerade datorer lagras i Azure storage. Virtuella Azure-datorer skapas från lagring när du växla över från lokal till Azure.
 
 1. I den [Azure-portalen](https://portal.azure.com) -menyn klickar du på **ny** -> **lagring** -> **lagringskonto**.
-2. Ange ett namn för lagringskontot. För dessa självstudier använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken, witn siffror och gemener.
+2. Ange ett namn för lagringskontot. För dessa självstudier använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken, siffror och gemener.
 3. Använd den **Resource Manager** distributionsmodell.
 4. Välj **generella** > **Standard**.
 5. Välj standard **RA-GRS** för lagring redundans.
 6. Välj den prenumeration som du vill skapa det nya lagringskontot i.
-7. Ange en ny resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. För dessa självstudier använder vi namnet **ContosoRG**.
-8. Välj den geografiska platsen för ditt lagringskonto. Lagringskontot måste vara i samma region som Recovery Services-valvet. För dessa självstudier använder vi platsen **Västeuropa**.
+7. Ange en ny resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Dessa självstudier använder vi namnet **ContosoRG**.
+8. Välj den geografiska platsen för ditt lagringskonto. Lagringskontot måste vara i samma region som Recovery Services-valvet. Dessa självstudier vi använder den **Västeuropa** region.
 
    ![Skapa storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Bilder av replikerade datorer lagras i Azure storage. Virtuella Azure-datorer sk
     **säkerhetskopiering och återställning av**.
 2. I **Namn** anger du ett eget namn som identifierar valvet. Den här kursen använder vi **ContosoVMVault**.
 3. Välj den befintliga resursgruppen med namnet **contosoRG**.
-4. Ange Azure-regionen **Västeuropa**.
+4. Ange Azure-regionen **Västeuropa**, som vi använder i den här självstudier.
 5. För att snabbt komma åt valvet från instrumentpanelen, klickar du på **fäst på instrumentpanelen** > **skapa**.
 
    ![Nytt valv](./media/tutorial-prepare-azure/new-vault-settings.png)

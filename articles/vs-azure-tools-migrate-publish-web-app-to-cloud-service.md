@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Så här: migrera och publicera ett program till en Azure-molntjänst från Visual Studio
 
@@ -29,7 +29,7 @@ Om du vill dra nytta av värd-tjänster och skalning möjligheten för Azure, ka
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Migrera ett projekt till molntjänster
 
-1. Högerklicka på webbapprojektet och välj **konvertera > Konvertera till Microsoft Azure Cloud Service-projekt**. (Att det här kommandot inte visas om du redan har ett webbprojekt roll i lösningen.)
+1. Högerklicka på webbapprojektet och välj **konvertera > Konvertera till Microsoft Azure Cloud Service-projekt**. (Observera att det här kommandot inte visas om du redan har ett webbprojekt roll i lösningen.)
 1. Visual Studio skapar en molntjänstprojektet i lösningen som innehåller nödvändiga webbrollen. Namnet på det här projektet är samma som projektet med plus suffixet `.Azure`.
 1. Visual Studio anger också de **kopiera lokala** egenskap till true för alla sammansättningar som krävs för MVC 2, MVC 3, 4 MVC och Silverlight affärsprogram. Den här egenskapen lägger till dessa sammansättningar tjänstpaket som används för distribution.
 

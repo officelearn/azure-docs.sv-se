@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.openlocfilehash: 983c7d1f7e3b562a8b89f6afaf52a3289ab33f17
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 833ac053b3ad23a60b84adce1dfa9015bee99046
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop-självstudiekurs: Komma igång med Hadoop i HDInsight
 
@@ -58,7 +58,7 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
     Vissa egenskaper har hårdkodats i mallen.  Du kan konfigurera dessa värden från mallen.
 
     * **Plats**: Platsen för klustret och det beroende lagringskontot använder samma plats som resursgruppen.
-    * **Klusterversion**: 3.5
+    * **Klusterversion**: 3.6
     * **OS-typ**: Linux
     * **Antal arbetsnoder**: 2
 
@@ -66,11 +66,11 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
      
      Fler förklaringar av dessa egenskaper finns i [Skapa Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Välj **Jag godkänner villkoren som anges ovan** och **Fäst på instrumentpanelen** och klicka sedan på **Köp**. Du ska se en ny panel som heter **Skicka malldistribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Då öppnar portalen automatiskt resursgruppen i ett nytt blad. Du kan se både klustret och standardlagringsutrymmet i listan.
+3. Välj **Jag godkänner villkoren som anges ovan** och **Fäst på instrumentpanelen** och klicka sedan på **Köp**. Du ska se en ny panel som heter **Skicka malldistribution** på portalens instrumentpanel. Det tar cirka 20 minuter att skapa ett kluster. När klustret skapas, ändras namnet i rubriktexten på panelen till det resursgruppsnamn som du har angett. Då öppnar portalen automatiskt resursgruppen. Du kan se både klustret och standardlagringsutrymmet i listan.
    
     ![HDInsight Linux komma igång resursgrupp](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight klusterresursgrupp").
 
-4. Klicka på klusternamnet öppna klustret i ett nytt blad.
+4. Klicka på klusternamnet för att öppna klustret.
 
    ![HDInsight Linux komma igång klusterinställningar](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight-klusteregenskaper")
 
@@ -82,7 +82,7 @@ Resource Manager-mallen som används i den här självstudien finns på [GitHub]
 2. Ange det Hadoop-användarnamn och -lösenord som du angav i föregående avsnitt. Standardanvändarnamnet är **admin**.
 3. Öppna **Hive-vy** så som det visas på följande skärmbild:
    
-    ![Välja Ambari-vyer](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menyn").
+    ![Välja Ambari-vyer](./media/apache-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer-menyn").
 4. I avsnittet **Frågeredigeraren** på sidan klistrar du in följande HiveQL-instruktioner i kalkylbladet:
    
         SHOW TABLES;
@@ -120,7 +120,7 @@ När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsig
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Gå till portalens instrumentpanel och klicka på panelen med det resursgruppsnamn som du använde när du skapade klustret.
-3. Klicka på **Ta bort** på resursbladet för att ta bort resursgruppen som innehåller klustret och Storage-kontot av standardtyp eller klicka på klusternamnet på panelen **Resurser** och sedan på **Ta bort** på klusterbladet. Tänk på att lagringskontot tas bort om du tar bort resursgruppen. Välj att bara ta bort klustret om du vill behålla Storage-kontot.
+3. Klicka på **Ta bort** för att ta bort resursgruppen som innehåller klustret och Storage-kontot av standardtyp eller klicka på klusternamnet på panelen **Resurser** och sedan på **Ta bort** på klusterbladet. Tänk på att lagringskontot tas bort om du tar bort resursgruppen. Välj att bara ta bort klustret om du vill behålla Storage-kontot.
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -136,12 +136,12 @@ Mer information om att analysera data med HDInsight finns i följande artiklar:
 * Du kan läsa mer om MapReduce, ett sätt att skriva appar som bearbetar data i Hadoop, i [Använda MapReduce med HDInsight](hdinsight-use-mapreduce.md).
 * Du kan läsa mer om hur du använder HDInsight Tools för Visual Studio för att analysera data i HDInsight i [Komma igång med Visual Studio Hadoop-verktyg för HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 
-Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information här:
+Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 
 * Mer information om hur HDInsight använder Azure Storage finns i [Använda Azure Storage med HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * Mer information om hur du överför data till HDInsight finns i [Överföra data till HDInsight](../hdinsight-upload-data.md).
 
-Mer information om att skapa eller hantera HDInsight-kluster hittar du här:
+Mer information om att skapa eller hantera HDInsight-kluster hittar du i följande artiklar:
 
 * Mer information om att hantera ditt Linux-baserade HDInsight-kluster finns i [Hantera HDInsight-kluster med Ambari](../hdinsight-hadoop-manage-ambari.md).
 * Mer information om de alternativ som du kan välja när du skapar ett HDInsight-kluster finns i [Skapa HDInsight i Linux med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md).

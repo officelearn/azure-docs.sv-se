@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs bindningar för Azure Functions
 
@@ -43,7 +43,7 @@ Anta exempelvis att vi börjar med följande inställningar och förutsättninga
 1. 10 partitioner.
 1. 1000 händelser fördelas jämnt över alla partitioner = > 100 meddelanden i varje partition.
 
-När din funktion aktiveras först, är det endast 1 instans av funciton. Vi ska anropa den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar för att få ett lån på alla 10 partitioner. Läsa händelser från partitioner 0-9 startas. Från och med nu händer något av följande:
+När din funktion aktiveras först, finns det endast 1 instans av funktionen. Vi ska anropa den här funktionen instansen Function_0. Function_0 har 1 EPH som hanterar för att få ett lån på alla 10 partitioner. Läsa händelser från partitioner 0-9 startas. Från och med nu händer något av följande:
 
 * **Funktionen endast 1 instans krävs** -Function_0 har kunnat bearbeta alla 1000 innan Azure Functions skalning logik aktiveras. Därför måste bearbetas alla 1000 meddelanden av Function_0.
 
@@ -59,14 +59,14 @@ Om alla körningar av funktionen fungerar utan fel har kontrollpunkter lagts til
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som loggar av meddelandetexten i hubben händelseutlösare.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som loggas av meddelandetexten i hubben händelseutlösare.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Attributets konstruktorn har namnet på händelsehubben, namnet på konsumentgruppen och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns i [utlösa konfigurationsavsnittet](#trigger---configuration). Här är en `EventHubTriggerAttribute` attributet exempel:
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Utlösaren - konfiguration
 
@@ -242,14 +242,14 @@ Använda Händelsehubbar utdata bindning skriva händelser till en händelsestr�
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#output---c-example)
-* [C#-skript](#output---c-script-example)
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som skriver ett meddelande till en händelsehubb med hjälp av metoden returvärdet som utdata:
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skriver ett meddelande till en händelsehubb med hjälp av metoden returvärdet som utdata:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+För [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Attributets konstruktorn har namnet på händelsehubben och namnet på en appinställning som innehåller anslutningssträngen. Mer information om dessa inställningar finns [utdata - konfiguration](#output---configuration). Här är en `EventHub` attributet exempel:
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 

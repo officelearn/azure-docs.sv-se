@@ -1,6 +1,6 @@
 ---
 title: "Vanliga frågor och svar om Azure Active Directory | Microsoft Docs"
-description: "I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om hur du får åtkomst till Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program."
+description: "I det här avsnittet med vanliga frågor och svar om Azure Active Directory får du svar på frågor om Azure och Azure Active Directory, om lösenordshantering samt om åtkomsten till program."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -27,9 +27,9 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
-**F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Azure AD på den klassiska Azure-portalen?**
+**F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Microsoft Azure Active Directory på Azure-portalen?**
 
-**S:** För att komma åt den klassiska Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [http://aka.ms/accessAAD](http://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [http://aka.ms/accessAAD](http://aka.ms/accessAAD) och följer steget för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
 
 Mer information finns i:
 
@@ -44,11 +44,9 @@ Mer information finns i:
 Alla användare som har ställts in för att använda webbtjänster definieras som användarkonton i en eller flera Azure AD-instanser. Du kan ställa in dessa konton för kostnadsfria Azure AD-funktioner, till exempel programåtkomst i molnet.
 
 Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra webbtjänster som Office 365 och Microsoft Azure med heltäckande hanterings- och säkerhetslösningar i företagsklass.
-- - -
-**F: Varför kan jag logga in i Azure Portal, men inte den klassiska Azure-portalen?**
 
-**S:** Azure Portal kräver ingen giltig prenumeration, men den klassiska portalen kräver att du har en giltig prenumeration.  Om du inte har någon prenumeration kan du inte logga in på den klassiska portalen.
 - - -
+
 **F: Vad är skillnaden mellan prenumerationsadministratör och katalogadministratör?**
 
 **S:** Som standard tilldelas du rollen som prenumerationsadministratör när du registrerar dig för Azure. En prenumerationsadministratör kan använda antingen ett Microsoft-konto eller ett arbets- eller skolkonto från den katalog som Azure-prenumerationen är associerad med.  Den här rollen har behörighet att hantera tjänster på Azure-portalen.
@@ -56,7 +54,7 @@ Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra 
 Om andra behöver logga in och komma åt tjänster med samma prenumeration kan du lägga till dem som medadministratörer. Den här rollen har samma åtkomstbehörigheter som tjänstadministratören, men kan inte ändra associationen mellan prenumerationer och Azure-kataloger.  Ytterligare information om prenumerationsadministratörer finns i [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) (Så här lägger du till eller ändrar Azure-administratörsroller) och [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner.  De här administratörerna har åtkomst till olika funktioner i Azure Portal eller den klassiska Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner.  De här administratörerna har åtkomst till olika funktioner i Azure Portal eller Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela administratörsroller i Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
@@ -137,16 +135,20 @@ För Azure AD-konton kan administratörer återställa lösenord med någon av f
 
 - - -
 ## <a name="security"></a>Säkerhet
-**Fråga: Låses konton efter ett visst antal misslyckade försök eller finns det en mer avancerad strategi?**</br>
+**Fråga: Låses konton efter ett visst antal misslyckade försök eller finns det en mer avancerad strategi?**
+
 Vi använder en mer avancerad strategi för att låsa konton.  Den är baserad på IP-adressen för begäran och det lösenord som anges. Låsningens varaktighet ökar också beroende på sannolikheten för att det rör sig om ett angrepp.  
 
-**Fråga: Vissa (vanliga) lösenord avvisas med meddelandet ”lösenordet har använts för många gånger”. Gäller detta lösenord som används i aktuell Active Directory?**</br>
+**Fråga: Vissa (vanliga) lösenord avvisas med meddelandet ”lösenordet har använts för många gånger”. Gäller detta lösenord som används i aktuell Active Directory?**
+
 Det här gäller lösenord som är allmänt vanliga, till exempel varianter av "Lösenord" och "123456".
 
-**Fråga: Blockeras inloggningsbegäranden från misstänkta källor (botnät, Tor-slutpunkt) på en B2C-klient eller kräver detta att klienten har en Basic- eller Premium-utgåva?**</br>
+**Fråga: Blockeras inloggningsbegäranden från misstänkta källor (botnät, Tor-slutpunkt) på en B2C-klient eller kräver detta att klienten har en Basic- eller Premium-utgåva?**
+
 Vi har en gateway som filtrerar begäranden och som ger ett visst skydd mot botnät. Den används för alla B2C-klienter.
 
 ## <a name="application-access"></a>Programåtkomst
+
 **F: Var kan jag hitta en lista över program som redan är integrerade i Azure AD och deras funktioner?**
 
 **S:** Azure AD har mer än 2 600 redan integrerade program från Microsoft, programtjänstleverantörer och partner. Alla redan integrerade program stöder enkel inloggning (SSO). Med enkel inloggning kan du använda din organisations autentiseringsuppgifter för att komma åt dina appar. Vissa program stöder även automatisk etablering och avetablering.

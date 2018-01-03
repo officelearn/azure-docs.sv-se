@@ -14,25 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)
 
-Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.2 (förhandsgranskning) samt viktig information för tidigare versioner.
+Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.3 (förhandsgranskning) samt viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren (förhandsversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
+
+## <a name="version-093"></a>Version 0.9.3
+12/08/2017
+
+### <a name="download-azure-storage-explorer-093-preview"></a>Hämta Azure Lagringsutforskaren 0.9.3 (förhandsgranskning)
+- [Azure Lagringsutforskaren 0.9.3 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.3 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.3 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Ny
+* Din befintliga lagring Utforskaren ska återanvändas när:
+    * Öppna Direktlänkar genereras i Lagringsutforskaren.
+    * Öppna Lagringsutforskaren från portalen.
+    * Öppna Lagringsutforskaren från Azure Storage VS anknytning (kommer snart).
+* Utökad möjlighet att öppna ett nytt Lagringsutforskaren-fönster från Lagringsutforskaren.
+    * Det finns ett 'nytt fönster och' alternativ under Arkiv-menyn och på snabbmenyn i Aktivitetsfältet i Windows.
+    * För Mac finns det ett 'nytt fönster och' alternativet App-menyn.
+
+### <a name="fixes"></a>Korrigeringar
+* Gamla aktiviteter har inte korrekt rensas. Detta påverkade prestanda för tidskrävande jobb. De är nu rensas på rätt sätt.
+* Åtgärder som inbegriper stort antal filer och kataloger kan ibland orsaka Lagringsutforskaren att låsa. Begäranden till Azure för filresurser är nu trottled att begränsa system Resursanvändning.
+
+### <a name="known-issues"></a>Kända problem
+* Lagringsutforskaren stöder inte ADFS-konton.
+* Kortkommandon för ”Visa Explorer” och ”visa kontohantering” ska vara Ctrl / Cmd + SKIFT + E och Ctrl / Cmd + SKIFT + A respektive.
+* När måldatorn Azure Stack misslyckas överföring av filer tilläggsblobar.
+* När du klickar på ”Avbryt” för en uppgift, kan det ta ett tag att avbryta aktiviteten. Det beror på att vi använder Avbryt filter lösningen som beskrivs här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Panelen konto inställningar kan indikera att du måste ange autentiseringsuppgifter för att filtrera prenumerationer.
+* Byta namn på blobbar (individuellt eller i en bytt namn till blob-behållare) bevaras inte ögonblicksbilder. Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras vid ett byte av namn.
+* Även om Azure-stacken inte stöder filresurser, visas en filresurser nod fortfarande under ett bifogade Stack för Azure storage-konto.
+* Electron-gränssnittet som används av Lagringsutforskaren har problem med vissa maskinvaruacceleration GPU (graphics bearbetning unit). Om Lagringsutforskaren visas en tom (tom) huvudfönstret, kan du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växel:
+```
+./StorageExplorer --disable-gpu
+```
+* Du behöver kontrollera GCC är uppdaterad – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu 14.04:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – kan du göra det genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-092"></a>Version 0.9.2
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Hämta Azure Lagringsutforskaren 0.9.2 (förhandsgranskning)
-- [Azure Lagringsutforskaren 0.9.2 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Hämta Azure Lagringsutforskaren 0.9.2 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.2 för Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
 * Oväntade data har möjligt när du redigerar Edm.DateTime värden för tabellentiteter beroende på den lokala tidszonen. Nu används en oformaterad textruta med exakt och konsekvent kontroll över Edm.DateTime värden.
@@ -41,7 +92,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 * Domänen slutpunkter för Azure som tillhör amerikanska myndigheter var fel. Den har korrigerats.
 * Verkställ-knappen på panelen hantera konton har ibland svårt att klicka på. Detta ska inte längre inträffa.
 
-### <a name="new"></a>Skapa
+### <a name="new"></a>Ny
 * Förhandsgranska stöd för Azure Cosmos DB:
     * [Onlinedokumentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Skapa databaser och samlingar
@@ -95,14 +146,33 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 
 
+
+
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 0.9.1 / 0.9.0](#version-091)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Version 0.8.9 / 0.8.8](#version-089--088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-091--090-preview"></a>Version 0.9.1 / 0.9.0 (förhandsgranskning)
 10/20/2017
-### <a name="download-azure-storage-explorer-091-preview"></a>Hämta Azure Lagringsutforskaren 0.9.1 (förhandsgranskning)
-* [Hämta Azure Lagringsutforskaren 0.9.1 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Hämta Azure Lagringsutforskaren (förhandsversion) för 0.9.1 för Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-### <a name="new"></a>Skapa
+### <a name="new"></a>Ny
 * Förhandsgranska stöd för Azure Cosmos DB:
     * [Onlinedokumentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Skapa databaser och samlingar
@@ -154,32 +224,10 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     sudo apt-get install libgconf-2-4
     ```
 
-
-
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Version 0.8.9 / 0.8.8](#version-089--088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-0816"></a>Version 0.8.16
 8/21/2017
 
-### <a name="new"></a>Skapa
+### <a name="new"></a>Ny
 * När du öppnar en blob uppmanas Lagringsutforskaren du att ladda upp den hämta filen om en ändring identifieras
 * Förbättrad Azure Stack inloggning
 * Bättre prestanda för att ladda upp/hämta många små filer på samma gång
@@ -219,7 +267,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 ### <a name="version-0814"></a>Version 0.8.14
 06/22/2017
 
-### <a name="new"></a>Skapa
+### <a name="new"></a>Ny
 
 * Uppdaterade Electron versionen till 1.7.2 för att kunna dra nytta av flera viktiga säkerhetsuppdateringar
 * Du kan nu snabbt komma åt online felsökningsguiden från Hjälp-menyn
@@ -246,7 +294,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 ### <a name="version-0813"></a>Version 0.8.13
 05/12/2017
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Lagringsutforskaren felsökning [Guide][2]
 * [Instruktioner] [ 3] om hur du ansluter till en Azure-Stack-prenumeration
@@ -281,7 +329,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 ### <a name="version-0812--0811--0810"></a>Version 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Lagringsutforskaren stängs nu automatiskt när du installerar en uppdatering från meddelanden om uppdateringar
 * Lokalt Snabbåtkomst ger en förbättrad upplevelse för att arbeta med resurserna används ofta
@@ -329,7 +377,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Lagringsutforskaren 0.8.9 kommer automatiskt att hämta den senaste versionen för uppdateringar.
 * Snabbkorrigering: med hjälp av en portal resulterar genererade SAS-URI att koppla ett lagringskonto i ett fel.
@@ -359,7 +407,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Du kan välja hur du löser konflikter i början av en uppdatering, hämta eller kopiera session i fönstret aktiviteter
 * Hovra över en flik om du vill se den fullständiga sökvägen till resursen lagring
@@ -386,7 +434,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 11/18/2016
 ### <a name="version-086"></a>Version 0.8.6
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Du kan nu PIN-kod används oftast Snabbåtkomst-tjänster för enkel navigering
 * Nu kan du öppna flera redigerare på olika flikar. Enskild klickar för att öppna en tillfällig flik; Dubbelklicka om du vill öppna en permanent flik. Du kan också klicka på fliken tillfälligt så att den permanenta fliken
@@ -424,7 +472,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 10/03/2016
 ### <a name="version-085"></a>Version 0.8.5
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Kan nu använda Portal-genererade SAS nycklar för att ansluta till Lagringskonton och resurser
 
@@ -447,7 +495,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Generera Direktlänkar till storage-konton, behållare, köer, tabeller eller filresurser för att dela och stöd för enkel åtkomst till dina resurser - Windows- och Mac OS x
 * Sök efter din blob-behållare, tabeller, köer, filresurser eller storage-konton från sökrutan
@@ -468,7 +516,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Byt namn på behållare, tabeller, filresurser
 * Bättre frågan builder upplevelse
@@ -494,7 +542,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Storage-konton är grupperade efter prenumerationer; utveckling lagring och resurser som är anslutna via SAS eller nyckeln visas under noden (lokala och bifogad)
 * Logga ut från konton ”Azure kontoinställningar” Kontrollpanelen
@@ -521,7 +569,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Stöd för resursen: visa, överföra, hämta, kopiera filer och kataloger, SAS-URI: er (skapa och ansluta)
 * Förbättrad användarupplevelse för anslutning till lagring med SAS URI: er eller konto nycklar
@@ -544,7 +592,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 05/17/2016
 ### <a name="version-07201605090"></a>Version 0.7.20160509.0
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Bättre felhantering för appen kraschar
 
@@ -565,7 +613,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Tabell stöd: visa, frågor, exportera, importera och CRUD-åtgärder för entiteter
 * Kö stöd: visa, lägga till dequeueing meddelanden
@@ -597,7 +645,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 ### <a name="version-07201601050"></a>Version 0.7.20160105.0
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * Linux-support (OSX paritet funktioner)
 * Lägga till blob-behållare med delad åtkomst signaturer (SAS)-nyckel
@@ -627,7 +675,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 11/18/2015
 ### <a name="version-07201511160"></a>Version 0.7.20151116.0
 
-#### <a name="new"></a>Skapa
+#### <a name="new"></a>Ny
 
 * macOS och versioner av Windows
 * Logga in att visa dina Lagringskonton – använda din organisations konto, Account, 2FA osv.

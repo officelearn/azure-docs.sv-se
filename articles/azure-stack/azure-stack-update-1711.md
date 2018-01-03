@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure-stacken 1711 uppdatering
 
@@ -35,7 +35,7 @@ Azure-stacken 1711 uppdatera versionsnumret är **171201.3**.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste först installera Azure-stacken [1710 uppdatera](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) innan du installerar den här uppdateringen.
 
@@ -51,6 +51,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 - Användare kan nu aktivera virtuella Windows-datorer automatiskt
 - Tillagda Privilegierade endpoint PowerShell-cmdlet för att hämta BitLocker återställningsnycklar för bevarande
 - Stöd för att uppdatera offlineavbildningar vid uppdatering av infrastruktur
+- Aktivera infrastrukturen för säkerhetskopiering med tjänsten Aktivera säkerhetskopiering
 
 #### <a name="fixes"></a>Korrigeringar
 
@@ -139,6 +140,17 @@ I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den 
 > [!IMPORTANT]
 > Även om den **azurestack\cloudadmin** konto är ägare till prenumerationen Standard Provider i ADFS distribuerade miljöer, har inte behörighet att RDP till värden. Fortsätta att använda den **azurestack\azurestackadmin** konto eller det lokala administratörskontot för att logga in, komma åt och hantera värden efter behov.
 
+#### <a name="infrastructure-backup-sevice"></a>Infrastruktur för säkerhetskopiering katalogtjänsten
+<!-- 1974890-->
+
+- **Pre-1711 säkerhetskopior stöds inte för återställning i molnet.**  
+  Pre-1711 säkerhetskopior är inte kompatibla med recovery för molnet. Du måste uppdatera till 1711 först och aktiverar säkerhetskopiering. Om du redan har aktiverat säkerhetskopiering måste du gör en säkerhetskopia när du har uppdaterat till 1711. Pre-1711 säkerhetskopior bör tas bort.
+
+- **Aktiverar infrastruktur för säkerhetskopiering på ASDK är endast avsedd för testning.**  
+  Infrastruktur säkerhetskopieringar kan användas för att återställa med flera noder lösningar. Du kan aktivera infrastrukturen för säkerhetskopiering på ASDK men det går inte att testa återställning.
+
+Mer information finns i [säkerhetskopia och återställa data för Azure-stacken med Backup-tjänsten infrastruktur](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+
 ## <a name="download-the-update"></a>Hämta uppdateringen
 
 Du kan ladda ned uppdateringspaketet Azure Stack 1711 från [här](https://aka.ms/azurestackupdatedownload).
@@ -149,7 +161,7 @@ Microsoft tillhandahåller ett sätt att övervaka och återuppta uppdateringar 
 
 - Finns det [övervaka uppdateringar i Azure-stacken använder Privilegierade endpoint-dokumentationen](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - Se [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md) en översikt över uppdateringshantering i Azure-stacken.
 - Se [tillämpa uppdateringar i Azure-stacken](azure-stack-apply-updates.md) för mer information om hur du installerar uppdateringar med Azure-stacken.

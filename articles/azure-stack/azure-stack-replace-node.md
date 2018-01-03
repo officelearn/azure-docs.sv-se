@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Ersätta en scale unit nod på ett Azure-stacken integrerat system
 
@@ -51,6 +51,10 @@ Om du öppnar aviseringen ”skala enhet noden är offline” innehåller varnin
 Följande steg tillhandahålls som en översikt över skala enhet nod ersättningsprocessen. Dokumentationen din OEM maskinvaruleverantören FRU detaljerade anvisningar som är specifika för ditt system. Följ inte stegen utan att referera till din OEM-tillverkarens dokumentation.
 
 1. Använd den [tömmer](azure-stack-node-actions.md#scale-unit-node-actions) åtgärden att placera noden skala enhet i underhållsläge. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
+
+   > [!NOTE]
+   > Under inga omständigheter kan endast en nod tar slut och stängas av på samma gång utan att bryta SSD (Storage Spaces Direct).
+
 2. Om noden fortfarande är påslagen, använder du den [stängs](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
  
    > [!NOTE]

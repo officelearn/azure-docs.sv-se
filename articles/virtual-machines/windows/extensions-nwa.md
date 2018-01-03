@@ -15,33 +15,34 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b8d6a998bc86337b286a3434f44f762cca9b7e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Nätverk Watcher Agent tillägg för virtuell dator för Windows
 
 ## <a name="overview"></a>Översikt
 
-[Azure Nätverksbevakaren](https://review.docs.microsoft.com/en-us/azure/network-watcher/) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning för Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för några av de Nätverksbevakaren funktionerna på virtuella Azure-datorer. Detta omfattar att samla in nätverkstrafik på begäran och andra avancerade funktioner.
+[Azure Nätverksbevakaren](../../network-watcher/network-watcher-monitoring-overview.md) är en prestanda övervakning, diagnostik och analytics nätverkstjänst som tillåter övervakning av Azure-nätverk. Tillägget för virtuell dator Network Watcher Agent är ett krav för att samla in nätverkstrafik på begäran och andra avancerade funktioner på virtuella Azure-datorer.
+
 
 Det här dokumentet beskriver de plattformar som stöds och distributionsalternativ för tillägget för virtuell dator Network Watcher Agent för Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
-Network Watcher Agent-tillägget utgåvor för Windows kan köras mot Windows Server 2008 R2, 2012 och 2012 R2 2016. Observera att Nano Server inte stöds just nu.
+Network Watcher Agent-tillägget utgåvor för Windows kan köras mot Windows Server 2008 R2, 2012 och 2012 R2 2016. Nano Server stöds inte.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Inte kan upprätta utgående anslutningar vissa Network Watcher Agent-funktioner kan fungera helt eller inte tillgänglig. Mer information finns i [Nätverksbevakaren dokumentationen](../../network-watcher/network-watcher-monitoring-overview.md).
+Några av funktioner som Network Watcher Agent kräver att den virtuella måldatorn är ansluten till Internet. Utan möjlighet att upprätta utgående anslutningar, Network Watcher Agent inte kan hämta paketet insamlingar till ditt lagringskonto. Mer information finns i [Nätverksbevakaren dokumentationen](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget Network Watcher Agent. Tillägget varken kräver inte heller stöder alla inställningar som anges av användaren just nu och förlitar sig på en standardkonfiguration.
+Följande JSON visar schemat för tillägget Network Watcher Agent. Tillägget varken kräver, eller stöder alla inställningar som anges av användaren, och bygger på en standardkonfiguration.
 
 ```json
 {
@@ -73,27 +74,28 @@ Följande JSON visar schemat för tillägget Network Watcher Agent. Tillägget v
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra tillägget Network Watcher Agent under en Azure Resource Manager för malldistribution.
+Du kan distribuera Azure VM-tillägg med Azure Resource Manager-mallar. Du kan använda JSON-schema som beskrivs i föregående avsnitt i en Azure Resource Manager-mall för att köra tillägget Network Watcher Agent under en Azure Resource Manager för malldistribution.
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 
-Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Network Watcher Agent tillägget för virtuell dator till en befintlig virtuell dator.
+Använd den `Set-AzureRmVMExtension` kommando för att distribuera Network Watcher Agent tillägget för virtuell dator till en befintlig virtuell dator:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Felsökning och support
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och genom att använda Azure PowerShell-modulen. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure PowerShell-modulen.
+Du kan hämta data om tillståndet för distributioner av tillägg från Azure portal och PowerShell. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure PowerShell-modulen:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

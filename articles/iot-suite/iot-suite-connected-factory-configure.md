@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5a4a57f50b0485b178b01c55bc3a71fcc288bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="how-to-configure-the-connected-factory-preconfigured-solution"></a>Så här konfigurerar du anslutna fabriken förkonfigurerade lösningen
+# <a name="configure-the-connected-factory-preconfigured-solution"></a>Konfigurera anslutna factory förkonfigurerade lösningen
 
 Den anslutna factory förkonfigurerade lösningen visar en simulerad instrumentpanel för fiktiva företaget Contoso. Det här företaget har fabriker i flera globala platser globalt.
 

@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: Programregistrering | Microsoft Docs'
+title: "Programregistrering – Azure Active Directory B2C"
 description: Registrera ditt program med Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Registrera ditt program
 
@@ -28,7 +27,7 @@ Med hjälp av den här snabbstarten registrerar du ett program i en Microsoft Az
 
 Om du vill skapa ett program som accepterar registrering och inloggning av konsumenter måste du först registrera programmet med en Azure Active Directory B2C-klient. Skaffa en egen klient genom att följa stegen i [Skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md).
 
-Program som har skapats från Azure AD B2C-bladet i Azure Portal måste hanteras från samma plats. Om du redigerar B2C-program med hjälp av PowerShell eller någon annan portal, stöds de inte och fungerar inte med Azure AD B2C. Mer information finns i avsnittet [felaktiga appar](#faulted-apps). 
+Program som har skapats i Azure-portalen måste hanteras från samma plats. Om du redigerar Azure AD B2C-program med hjälp av PowerShell eller någon annan portal, stöds de inte och fungerar inte med Azure AD B2C. Mer information finns i avsnittet [felaktiga appar](#faulted-apps). 
 
 Informationen i den här artikeln hjälper dig att komma igång med våra exempel. Du lär dig mer om dessa exempel i efterföljande artiklar.
 
@@ -117,7 +116,7 @@ Du kan lägga till två senare eftersom de är underdomäner i den första reply
 
 Det finns två viktiga överväganden när du väljer en omdirigerings-URI för mobila/interna program:
 
-* **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I vårt exempel (com.onmicrosoft.contoso.appname://redirect/path) använder vi com.onmicrosoft.contoso.appname som schema. Vi rekommenderar att detta mönster följs. Om två program delar samma schema visas en dialogruta för att ”välja app”. Inloggningen misslyckas om användaren gör ett felaktigt val.
+* **Unik**: Schemat för omdirigerings-URI måste vara unikt för varje program. I exemplet (com.onmicrosoft.contoso.appname://redirect/path), är com.onmicrosoft.contoso.appname schemat. Vi rekommenderar att detta mönster följs. Om två program delar samma schema visas en dialogruta för att ”välja app”. Inloggningen misslyckas om användaren gör ett felaktigt val.
 * **Fullständig**: Omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen (till exempel fungerar //contoso/ medan //contoso misslyckas).
 
 Se till att det inte finns några specialtecken som understreck i omdirigerings-uri.
@@ -126,16 +125,16 @@ Se till att det inte finns några specialtecken som understreck i omdirigerings-
 
 B2C program bör INTE redigeras:
 
-* På andra programhanteringsportaler, som den [klassiska Azure-portalen](https://manage.windowsazure.com/) & den [Programregistreringsportalen](https://apps.dev.microsoft.com/).
+* På andra programhanteringsportaler, som [Programregistreringsportalen](https://apps.dev.microsoft.com/).
 * Med Graph API eller PowerShell
 
-Om du redigerar B2C-programmet enligt ovan och försöker att redigera det på Azure AD B2C-funktionsbladet på Azure Portal, blir det en felaktig app och programmet kommer inte längre att kunna användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
+Om du redigerar Azure AD B2C-programmet enligt beskrivning och försöker att redigera det i Azure AD B2C-funktionerna på Azure Portal, blir det en felaktig app och programmet kommer inte längre att kunna användas med Azure AD B2C. Du måste ta bort programmet och skapa det igen.
 
 Ta bort appen genom att gå till den [Appregistreringsportalen](https://apps.dev.microsoft.com/) och ta bort det appen. Du måste vara ägare till appen (och inte bara en administratör för klienten) för att appen ska vara synlig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har registrerat ett program med Azure AD B2C kan du gå [en av våra snabbstartsguider](active-directory-b2c-overview.md#get-started) för att komma igång.
+Nu när du har registrerat ett program med Azure AD B2C kan du göra [en av snabbstartsguiderna](active-directory-b2c-overview.md#get-started) för att komma igång.
 
 > [!div class="nextstepaction"]
 > [Skapa en ASP.NET-webbapp med registrering, inloggning och lösenordsåterställning](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

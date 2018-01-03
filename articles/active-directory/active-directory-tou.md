@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Användningsvillkorsfunktion för Azure Active Directory (förhandsversion)
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare.  Det gör att användarna kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav.
@@ -52,14 +52,16 @@ När du har skapat dina användningsvillkor använder du följande metod för at
 ### <a name="to-add-terms-of-use"></a>Så här lägger du till användningsvillkor
 1. Gå till instrumentpanelen på [https://aka.ms/catou](https://aka.ms/catou)
 2. Klicka på Add (Lägg till).</br>
-![Lägga till användningsvillkor](media/active-directory-tou/tou2.png)
+![Lägga till användningsvillkor](media/active-directory-tou/tou12.png)
 3. Ange **namn** för användningsvillkoren
 4. Ange **Visningsnamn**.  Den här rubriken ser användarna när de loggar in.
 5. **Bläddra** till dina färdigställda användningsvillkor i pdf-form och markera dem.  Den rekommenderade teckenstorlek är 24.
-6. Du kan **använda** de uppladdade användningsvillkoren genom att använda en mall eller en anpassad villkorlig åtkomstprincip.  Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [configuring conditional access policies](active-directory-conditional-access-best-practices.md) (konfigurera villkorliga åtkomstprinciper)
-7. Klicka på **Skapa**.
-8. Om du har markerat en mall för villkorlig åtkomst visas en ny skärm där du kan anpassa certifikatutfärdarprincipen.
-7. Nu ska du inte längre se dina nya användningsvillkor.</br>
+6. **Välj** ett språk för användningsvillkoren.  Via språkalternativet kan du ladda upp flera användningsvillkor, vart och ett med olika språk.  Versionen av användningsvillkoren som en användare ser baseras på deras inställningar för webbläsaren.
+7. Välj antingen aktivera eller inaktivera för **Kräv att användarna expanderar användningsvillkoren**.  Om det här är aktiverat måste slutanvändarna läsa villkoren innan de accepterar dem.
+8. Under **Villkorlig åtkomst** kan du **Framtvinga** de uppladdade användningsvillkoren genom att använda en mall eller en anpassad villkorlig åtkomstprincip.  Anpassade villkorliga åtkomstprinciper möjliggör detaljerade användningsvillkor för ett specifikt molnprogram eller grupp med användare.  Mer information finns i [configuring conditional access policies](active-directory-conditional-access-best-practices.md) (konfigurera villkorliga åtkomstprinciper)
+9. Klicka på **Skapa**.
+10. Om du har markerat en mall för villkorlig åtkomst visas en ny skärm där du kan anpassa certifikatutfärdarprincipen.
+11. Nu ska du inte längre se dina nya användningsvillkor.</br>
 
 ![Lägga till användningsvillkor](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Användare som ingår i området ser följande när användningsvillkoren har sk
 ![Granska händelse](media/active-directory-tou/tou10.png)
 -   Så här ser det ut på mobila enheter</br></br>
 ![Granska händelse](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Granska användningsvillkoren
+Användare kan granska och se användningsvillkoren som de har godkänt.  Detta kan göras på följande sätt:
+
+1. Navigera till och logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. Klicka på ditt namn i övre högra hörnet och välj **Profil** i listrutan.
+![Profil](media/active-directory-tou/tou14.png)
+
+3. Klicka på **Granska användningsvillkoren** på din profil.
+![Granska händelse](media/active-directory-tou/tou13a.png)
+
+4.  Därifrån kan du granska användningsvillkoren som du har accepterat. 
+
 
 ## <a name="additional-information"></a>Ytterligare information
 Följande information är något som du bör känna till, och det kan hjälpa till med användningsvillkor.

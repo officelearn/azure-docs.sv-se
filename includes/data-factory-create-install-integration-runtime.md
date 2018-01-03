@@ -1,13 +1,13 @@
-## <a name="create-a-self-hosted-ir"></a>Skapa IR med egen värd
+## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
-I det här avsnittet kan du skapa en Integration Runtime med egen värd och koppla den till en lokal dator med SQL Server-databasen. Den lokala installationen av Integration Runtime är den komponent som kopierar data från SQL Server på din dator till Azure Blob Storage. 
+I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. Den lokala installationen av Integration Runtime är den komponent som kopierar data från SQL Server på din dator till Azure Blob Storage. 
 
-1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och notera namnet. Du använder det senare i den här självstudien. 
+1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och anteckna det. Du använder det senare i den här självstudien. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Skapa Integration Runtime med egen värd. 
+2. Skapa Integration Runtime med egen värd. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -24,8 +24,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
     Description       :
     ```
  
-
-2. Kör följande kommando för att hämta status för din skapade integration runtime. Kontrollera att värdet för egenskapen **State** är inställd på **NeedRegistration**. 
+3. Kör följande kommando för att hämta statusen för din skapade Integration Runtime. Kontrollera att värdet för egenskapen **State** är inställd på **NeedRegistration**. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
@@ -50,7 +49,7 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
    State                     : NeedRegistration
    ```
 
-3. Kör följande kommando för att hämta **autentiseringsnycklarna** för att registrera Integration Runtime med tjänsten Data Factory i molnet. 
+4. Kör följande kommando som används för att hämta autentiseringsnycklarna för att registrera en lokal Integration Runtime med Azure Data Factory-tjänsten i molnet: 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -64,48 +63,70 @@ I det här avsnittet kan du skapa en Integration Runtime med egen värd och kopp
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```    
-4. Kopiera en av nycklarna (uteslut dubbla citattecken) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i nästa steg.  
 
-## <a name="install-integration-runtime"></a>Installera Integration Runtime
-1. Om du redan har **Microsoft Integration Runtime** på din dator ska du avinstallera det med **Lägg till eller ta bort program**. 
-2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator och kör installationen. 
-3. På **välkomstskärmen till installationsguiden för Microsoft Integration Runtime** klickar du på **Nästa**.  
-4. På sidan med **licensavtalet** godkänner du villkoren och klickar på **Nästa**. 
-5. På sidan **Målmapp** klickar du på **Nästa**. 
-6. På sidan **Klar att installera Microsoft Integration Runtime** klickar du på **Installera**. 
-7. Om du ser ett varningsmeddelande om att datorn håller på att konfigureras för att övergå i strömsparläge eller viloläge när den inte används, klickar du på **OK**. 
-8. Om du ser fönstret **Energialternativ** stänger du det och växlar till konfigurationsfönstret. 
-9. På sidan för att **installationsguiden för Microsoft Integration Runtime har slutförts** klickar du på **Slutför**.
-10. Klistra in den nyckel som du sparade i föregående avsnitt på sidan **Registrera Integration Runtime (lokal)** och klicka på **Registrera**. 
+5. Kopiera en av nycklarna (uteslut de dubbla citattecknen) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i följande steg.  
 
-   ![Registrera Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
-2. När integration runtime med egen värd har registrerats ser du följande meddelande:
+## <a name="install-the-integration-runtime"></a>Installera Integration Runtime
+1. Om du redan har Integration Runtime på din dator ska du avinstallera det med **Lägg till eller ta bort program**. 
 
-   ![Registered successfully (Registrerat)](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator. Kör installationen.
 
-3. På sidan **Ny nod för Integration Runtime (lokal)** klickar du på **Nästa**. 
+3. På sidan **Välkommen till Microsoft Integration Runtime** klickar du på **Nästa**.
+
+4. På sidan med **licensavtalet för slutanvändare** godkänner du villkoren och väljer du **Nästa**.
+
+5. På sidan **Målmapp** väljer du **Nästa**.
+
+6. På sidan **Klar att installera Microsoft Integration Runtime** väljer du **Installera**.
+
+7. Om du ser ett varningsmeddelande om att konfigurera datorn att övergå i strömsparläge eller viloläge när den inte används, väljer du **OK**.
+
+8. Om du ser sidan **Energialternativ** stänger du den och gå till konfigurationssidan.
+
+9. På sidan **Slutfört installationen av Microsoft Integration Runtime**  väljer du **Slutför**.
+
+10. Klistra in den nyckel som du sparade i föregående avsnitt på sidan **Registrera Integration Runtime (lokal installation)** och välj **Registrera**. 
+
+    ![Registrera Integration Runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
+
+11. När integration runtime med egen värd har registrerats ser du följande meddelande:
+
+    ![Registered successfully (Registrerat)](media/data-factory-create-install-integration-runtime/registered-successfully.png)
+
+12. På sidan **Ny nod för Integration Runtime (lokal installation)** väljer du **Nästa**. 
 
     ![Sidan Ny nod för Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
-4. På sidan **Kommunikationskanal för intranät** klickar du på **Hoppa över**. Du kan välja ett TLS/SSL-certifikat för att skydda kommunikationen mellan noderna i en miljö med flera noder för Integration Runtime. 
+
+13. På sidan **Kommunikationskanal för intranät** väljer du **Hoppa över**. Välj ett TLS/SSL-certifikat för att skydda kommunikationen mellan noderna i en miljö med flera noder för Integration Runtime. 
 
     ![Sidan Kommunikationskanal för intranät](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
-5. På sidan **Registrera Integration Runtime (lokal)** klickar du på **Starta Konfigurationshanteraren**. 
-6. Du ser följande sida när noden är ansluten till molntjänsten:
 
-   ![Node is connected (Noden är ansluten)](media/data-factory-create-install-integration-runtime/node-is-connected.png)
-7. Testa nu anslutningen till din SQL Server-databasen.
+14. På sidan **Registrera Integration Runtime (lokal installation)** väljer du **Starta konfigurationshanteraren**.
+
+15. När noden är ansluten till molntjänsten ser du följande sida:
+
+    ![Sidan Noden är ansluten](media/data-factory-create-install-integration-runtime/node-is-connected.png)
+
+16. Testa nu anslutningen till din SQL Server-databasen.
 
     ![Fliken Diagnostik](media/data-factory-create-install-integration-runtime/config-manager-diagnostics-tab.png)   
 
-    - I fönstret **Configuration Manager** växlar du till fliken **Diagnostik**.
-    - Välj**SqlServer** som **typ av datakälla**.
-    - Ange **servernamnet**.
-    - Ange namnet på **databasen**. 
-    - Välj **autentiseringsmetod**. 
-    - Ange **användarnamn**. 
-    - Ange **lösenord** för användarnamnet.
-    - Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Annars ser du ett felmeddelande som är kopplat till felet. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till din SQL Server.    
+    a. I fönstret **Konfigurationshanteraren** växlar du till fliken **Diagnostik**.
+
+    b. Välj**SqlServer** som typ av datakälla.
+
+    c. Ange servernamnet.
+
+    d. Ange namnet på databasen.
+
+    e. Välj autentiseringsläge.
+
+    f. Ange användarnamnet.
+
+    g. Ange lösenordet för användarnamnet.
+
+    h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Om anslutningen inte lyckats får du ett felmeddelande. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till SQL Server.    
 
     > [!NOTE]
-    > Anteckna värdena (autentiseringstyp, server, databas, användare, lösenord). Du använder det senare i den här självstudien. 
+    > Anteckna värdena för autentiseringstyp, server, databas, användare och lösenord. Du använder det senare i den här självstudien. 
     

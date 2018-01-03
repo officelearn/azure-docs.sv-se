@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Felsöka Azure Backup-fel: problem med agenten och/eller tillägg
 
@@ -34,6 +34,7 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Orsak 3: [agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Orsak 4: [går inte att hämta status för ögonblicksbild eller en ögonblicksbild kan inte utföras](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Orsak 5: [tillägget säkerhetskopiering misslyckas med att uppdatera eller läsa in](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Orsak 6: [klassiska virtuella Azure-datorer kan kräva ytterligare steg för att slutföra registreringen](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Snapshot-åtgärden misslyckades på grund av ingen nätverksanslutning på den virtuella datorn
 När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänsten startar Säkerhetskopiering jobbet genom att kommunicera med VM-tillägg att ta en ögonblicksbild i tidpunkt för säkerhetskopiering. Något av följande villkor kan förhindra att ögonblicksbilden från som utlöses, vilket i sin tur kan leda till säkerhetskopiering misslyckades. Följ nedan felsökningssteg i angiven ordning och försök igen.
@@ -69,14 +70,14 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Den angivna diskkonfigurationen stöds inte
 
 > [!NOTE]
-> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB ohanterad diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Det finns en privat förhandsgranskning som stöder säkerhetskopiering av virtuella datorer med > 1 TB ohanterade diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 För närvarande Azure Backup stöder inte diskstorlekar [större än 1 023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Om du har diskar som är större än 1 TB [bifoga nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB <br>
-- Kopiera sedan data från disk som är större än 1TB i nyskapade diskarna på mindre än 1 TB. <br>
-- Se till att alla data har kopierats och ta bort diskarna som är större än 1TB
+- Om du har diskar som är större än 1 TB [kopplar du nya diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) som är mindre än 1 TB <br>
+- Kopiera sedan data från disken som är större än 1 TB till nyligen skapade diskar som är mindre än 1 TB. <br>
+- Se till att alla data har kopierats och ta bort de diskar som är större än 1 TB
 - Starta säkerhetskopieringen
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
@@ -99,7 +100,7 @@ Lös problemet, försök med något av de metoder som anges här.
 1. Om du har nätverksbegränsningar på plats (t.ex, en nätverkssäkerhetsgrupp) kan du distribuera en HTTP-proxyserver för att dirigera trafiken.
 2. Om du vill tillåta åtkomst till Internet från HTTP-proxyserver, att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
 
-Information om hur du ställer in en HTTP-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Information om hur du ställer in en HTTP-proxy för VM-säkerhetskopieringar finns [förbereda din miljö för att säkerhetskopiera virtuella datorer i Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Om du använder hanterade diskar måste kanske en ytterligare port (8443) öppnas på brandvägg.
 
@@ -115,7 +116,7 @@ Den Virtuella Datoragenten kan vara skadad eller tjänsten kan ha stoppats. Inst
 6. Sedan ska du kunna visa Gästagenten för Windows-tjänster i tjänster
 7. Försök att köra en på-begäran/ad hoc-säkerhetskopiering genom att klicka på ”säkerhetskopiering” i portalen.
 
-Kontrollera också att den virtuella datorn har  **[.NET 4.5 installerat i systemet](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Det krävs för VM-agenten kan kommunicera med tjänsten
+Kontrollera också att den virtuella datorn har  **[.NET 4.5 installerat i systemet](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Det krävs för VM-agenten kan kommunicera med tjänsten
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Agenten som är installerad på den virtuella datorn är inaktuellt (för virtuella Linux-datorer)
 
@@ -183,4 +184,23 @@ Om du vill avinstallera tillägget gör du följande:
 6. Klicka på **avinstallera**.
 
 Den här proceduren medför att tillägg installeras under nästa säkerhetskopiering.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Klassiska virtuella Azure-datorer kan kräva ytterligare steg för att slutföra registreringen
+Agenten i klassiska virtuella Azure-datorer måste registreras för att upprätta en anslutning till tjänsten för säkerhetskopiering och starta säkerhetskopieringen
+
+#### <a name="solution"></a>Lösning
+
+När du har installerat VM-gästagent starta Azure PowerShell <br>
+1. Logga in i Azure-konto med hjälp av <br>
+       `Login-AzureAsAccount`<br>
+2. Kontrollera om Virtuella datorns ProvisionGuestAgent egenskap är inställd på True, med följande kommandon <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Om egenskapen är inställd på FALSE, följ nedan kommandon ska anges till TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Kör följande kommando för att uppdatera den virtuella datorn <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Försök att initiera säkerhetskopieringen. <br>
+
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera en apptjänstplan i Azure
 
-En [programtjänstplanen](azure-web-sites-web-hosting-plans-in-depth-overview.md) innehåller resurser som en Apptjänst-app måste köras. Den här instruktioner visar hur du hanterar en programtjänstplan. 
+En [programtjänstplanen](azure-web-sites-web-hosting-plans-in-depth-overview.md) innehåller resurser som en Apptjänst-app måste köras. Den här instruktioner visar hur du hanterar en programtjänstplan.
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
@@ -68,6 +68,8 @@ Välj **ändra programtjänstplanen** att starta processen.
 > 
 
 ![App Service-plan väljare.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Varje plan har sin egen prisnivån. Till exempel flytta en plats från en **lediga** tjänstnivån till en **Standard** tjänstnivån, gör att alla appar som har tilldelats till den använda de funktioner och resurser i den **Standard** nivå. Flytta en app från en högre nivåindelade plan till en lägre nivåindelade plan innebär dock att du inte längre har åtkomst till vissa funktioner. Om din app använder en funktion som inte är tillgänglig i planen mål, får du ett felmeddelande som visar vilken funktion används som inte är tillgänglig. Till exempel om en av dina appar använder SSL-certifikat kan visas felmeddelandet: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`i detta fall kan du behöva skalas upp prisnivån för planen för målet att **grundläggande** eller högre, eller så måste du ta bort alla SSL-anslutningar till din app, innan du kan flytta appen till mål-plan.
 

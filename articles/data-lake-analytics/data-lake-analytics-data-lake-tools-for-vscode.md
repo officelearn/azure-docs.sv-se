@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake-verktyg för Visual Studio Code
 
@@ -28,7 +28,7 @@ Läs Azure Data Lake-verktyg för Visual Studio-koden (VS) att skapa, testa och 
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Data Lake-verktyg för VSCode stöder Windows, Linux och MacOS.  
 
@@ -116,8 +116,18 @@ När du skickar ett U-SQL-jobb loggar som skickas visas i den **utdata** fönste
 
 Om du vill aktivera utdata i Jobbinformationen ange **jobInformationOutputPath** i den **vs Platskod för u-sql_settings.json** fil.
  
+**Ange Git Ignorera**
+
+1. Välj Ctrl + Skift + P för att öppna paletten kommando. 
+2. Ange **ADL: Ange Git Ignorera**.
+
+    - Om du inte har en **.gitIgnore** filer i arbetsmappen VSCode på en fil med namnet **.gitIgnor** skapas i mappen. Fyra objekt (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) läggs till i filen som standard. Ytterligare kan du göra uppdateringar om det behövs.
+    - Om du redan har en **.gitIgnore** filer i arbetsmappen VSCode verktyget lägger till fyra objekt (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **.cache**, **obj**) till din **.gitIgnore** filen, om de fyra objekten inte ingick i filen.
+
+  ![Data Lake-verktyg för Visual Studio Code konfigurationsfil](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Använda Python, R och CSharp bakomliggande kod-fil
-Azure Data Lake-verktyget stöder flera anpassad kod finns i anvisningarna [utveckla U-SQL med Python, R och CSharp för Azure Data Lake Analytics i VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
+Azure Data Lake-verktyget stöder flera anpassade koder finns i anvisningarna [utveckla U-SQL med Python, R och CSharp för Azure Data Lake Analytics i VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Använd sammansättningar
 
@@ -193,17 +203,19 @@ Innan du kan kompilera och köra U-SQL-skript i Data Lake Analytics, måste du a
 **Att ansluta till Azure**
 
 1.  Välj Ctrl + Skift + P för att öppna paletten kommando. 
-2.  Ange **ADL: inloggning**. Inloggningsinformationen som visas i den **utdata** fönstret.
+2.  Ange **ADL: inloggning**. Inloggningsinformation visas på ytan.
 
     ![Data Lake-verktyg för Visual Studio Code kommandot paletten](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Data Lake-verktyg för Visual Studio Code enhetsinformation för inloggning](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Välj Ctrl + klicka på inloggnings-URL: https://aka.ms/devicelogin att öppna inloggnings-webbsidan. Ange koden **G567LX42V** i textrutan och välj sedan **Fortsätt**.
+3.  Klicka på **Kopiera & Öppna** att öppna webbsidan inloggningen med URL: https://aka.ms/devicelogin. Klistra in koden **G567LX42V** i textrutan och välj sedan **Fortsätt**.
 
    ![Data Lake-verktyg för Visual Studio Code inloggningen klistra in koden](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Följ instruktionerna för att logga in från webbsidan. När du är ansluten Azure kontonamnet visas i statusfältet i det nedre vänstra hörnet i det **VS kod** fönster. 
 
     > [!NOTE] 
-    > Om ditt konto har två faktorer är aktiverat, rekommenderar vi att du använder phone autentisering i stället för en PIN-kod.
+    >- Data Lake-verktyg loggar automatiskt in nästa gång om du har loggat in innan, men du inte har loggat ut ännu.
+    >- Om ditt konto har två faktorer är aktiverat, rekommenderar vi att du använder phone autentisering i stället för en PIN-kod.
+
 
 Ange kommandot för att logga ut **ADL: Logga ut**.
 
@@ -289,7 +301,7 @@ Det är ett annat sätt att förhandsgranskningsfilen via snabbmenyn på den ful
 På samma gång, kan du övervaka den [Överföringsstatus](#check-storage-tasks-status).
 
 
-## <a name="download-file"></a>Hämta filen 
+## <a name="download-file"></a>Hämta fil 
 Du kan hämta filer genom att ange kommandona **ADL: hämta filen** eller **ADL: hämta filen (Avancerat)**.
 
 **Hämta filer även om ADL: hämta filen (Avancerat)**
@@ -324,15 +336,38 @@ Statusen visas längst ned i statusfältet när du är klar överföra och ladda
    ![Data Lake-verktyg för Visual Studio Code Kontrollera lagring status](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>VSCode Explorer integrering med Azure Data Lake
-1. Efter inloggningen, visas alla Azure-konton visas i den vänstra panelen i den **DataLake Explorer**. Expandera en databas kan du visa den **scheman**, **tabeller**, **sammansättningar** och så vidare, under noden.
+
+**Azure-integrering** 
+
+- Innan inloggningen till Azure kan du alltid Expandera **DATALAKE EXPLORER**, klicka på **logga in på Azur** att logga in på Azure. Efter inloggningen, visas alla prenumerationer i ditt Azure-konto visas i den vänstra panelen i den **DATALAKE EXPLORER**. 
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. Du kan utföra kommandot **registrera sammansättningen** genom att högerklicka på den **sammansättningar** nod.
+**ADLA metadatanavigering** 
+
+- Expandera din Azure-prenumeration kan du navigera U-SQL-databasen, visa den **scheman**, **autentiseringsuppgifter**, **sammansättningar**, **tabell**, **Index**och så vidare under noden U-SQL-databaser.
+
+**Hantering av ADLA Metadata entitet**
+
+- Expandera **U-SQL-databaser**, kan du skapa en ny databas, schemat, tabell, tabelltyper, index, statistik genom att högerklicka på den **skript för att skapa** snabbmenyn under noden motsvarande. På sidan öppna skriptet skript efter dina behov och sedan skicka jobbet genom att högerklicka på snabbmenyn **ADL: skicka jobbet**. När du slutför skapandet av det, klickar du på snabbmenyn **uppdatera** att visa den nya objekt skapas. Du kan också ta bort objektet genom att högerklicka på snabbmenyn **ta bort**.
+
+   ![DataLake skapas nya objekt-menyn](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![DataLake explorer skapar nytt objektskript](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**ADLA regasm.exe för registrering**
+
+ - Du kan **registrera sammansättningen** till motsvarande databasen genom att högerklicka på den **sammansättningar** nod.
 
     ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. Gå till **Lagringskonto**, du kan överföra eller hämta filen genom att högerklicka på mappen eller filen. Och du även **Preview** en fil, **hämta**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** av snabbmenyn.
+**ADLS-integrering** 
+
+ - Gå till **Lagringskonto**, kan du **Preview**, **hämta**, **ta bort**, **kopiera relativa sökväg**, **Kopiera fullständig sökväg** av snabbmenyn på noden fil. Du kan **uppdatera**, **överför**, **överför mappen**, **ta bort** genom att högerklicka på snabbmenyn på noden mapp.
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -344,7 +379,7 @@ Statusen visas längst ned i statusfältet när du är klar överföra och ladda
 Data Lake-verktyg öppnar Azure storage-sökvägen i Azure-portalen. Du kan hitta sökvägen och förhandsgranska filen från webben.
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Lokal körning och lokala debug för Windows användare
-Lokal U-SQL kör testar dina lokala data och verifierar ditt skript lokalt, innan koden publiceras till Data Lake Analytics. Lokala debug-funktionen kan du utföra följande åtgärder innan koden skickas till Data Lake Analytics: 
+Lokal U-SQL kör testar dina lokala data och verifierar ditt skript lokalt innan koden publiceras till Data Lake Analytics. Lokala debug-funktionen kan du utföra följande åtgärder innan koden skickas till Data Lake Analytics: 
 - Felsöka ditt C# bakomliggande kod. 
 - Gå igenom koden. 
 - Validera skriptet lokalt.

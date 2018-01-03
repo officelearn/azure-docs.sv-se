@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Säkerhetskopiera och återställa den krypterade virtuella datorer med Azure Backup
 Den här artikeln handlar om stegen för att säkerhetskopiera och återställa virtuella datorer (VM) med hjälp av Azure Backup. Det ger också information om scenarier som stöds, krav och felsökningssteg för fel.
@@ -37,7 +37,7 @@ Den här artikeln handlar om stegen för att säkerhetskopiera och återställa 
    | **Icke-hanterade virtuella datorer**  | Ja | Ja  |
    | **Hanterade virtuella datorer**  | Ja | Ja  |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Den virtuella datorn har krypterats med hjälp av [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
 * Recovery Services-valvet har skapats och storage-replikering har angetts genom att följa stegen i [förbereda miljön för säkerhetskopiering](backup-azure-arm-vms-prepare.md).
@@ -77,11 +77,17 @@ Använd följande steg för att ange ett mål för säkerhetskopiering, definier
 6. Välj de kryptera virtuella datorerna som ska associeras med den angivna principen och välj **OK**.
 
       ![Välj krypterade virtuella datorer](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. Den här sidan visas ett meddelande om nyckelvalv som är associerade med de krypterade virtuella datorer som du har valt. Skrivskyddad åtkomst till nycklar och hemligheter i nyckelvalvet krävs. Dessa behörigheter används för att säkerhetskopiera nycklar och hemligheter, tillsammans med associerade virtuella datorer. *Du måste ange behörigheter till säkerhetskopieringstjänsten för att få åtkomst till nyckelvalvet för säkerhetskopiering ska fungera*. Du kan ange behörigheterna genom att följa den [anvisningarna i följande avsnitt](#provide-permissions-to-azure-backup).
+7. Den här sidan visas ett meddelande om nyckelvalv som är associerade med de krypterade virtuella datorer som du har valt. Skrivskyddad åtkomst till nycklar och hemligheter i nyckelvalvet krävs. Dessa behörigheter används för att säkerhetskopiera nycklar och hemligheter, tillsammans med associerade virtuella datorer.<br>
+Om du är en **medlem användaren**, aktivera säkerhetskopieringen kommer sömlöst få åtkomst till nyckelvalvet till säkerhetskopiering krypterade virtuella datorer utan användarens ingripande.
 
-      ![Krypterat meddelande för virtuella datorer](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![Krypterat meddelande för virtuella datorer](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      Nu när du har definierat alla inställningar för valvet, Välj **Aktivera säkerhetskopiering** längst ned på sidan. **Aktivera säkerhetskopiering** distribueras principen till valvet och de virtuella datorerna.
+   För en **gästanvändare**, måste du ange behörigheter till säkerhetskopieringstjänsten för att få åtkomst till nyckelvalvet för säkerhetskopiering ska fungera. Du kan ange behörigheterna genom att följa den [anvisningarna i följande avsnitt](#provide-permissions-to-backup)
+
+   ![Krypterat meddelande för virtuella datorer](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    Nu när du har definierat alla inställningar för valvet, Välj **Aktivera säkerhetskopiering** längst ned på sidan. **Aktivera säkerhetskopiering** distribueras principen till valvet och de virtuella datorerna.
+  
 8. Nästa fas förberedelse installeras den Virtuella Datoragenten eller kontrollera att den Virtuella Datoragenten är installerad. Om du vill göra samma följer du stegen i [förbereda miljön för säkerhetskopiering](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Utlösa ett säkerhetskopieringsjobb
@@ -102,7 +108,7 @@ Använd följande steg för att ange relevant behörighet till Backup för att k
      
 3. Välj **åtkomstprinciper**, och välj sedan **Lägg till ny**.
 
-    ![Lägga till nya](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+    ![Lägg till ny](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
     
 4. Välj **väljer principal**, och skriv sedan **säkerhetskopiering hanteringstjänsten** i sökrutan. 
 
@@ -118,7 +124,7 @@ Använd följande steg för att ange relevant behörighet till Backup för att k
     
 7. Välj **OK**. Observera att **säkerhetskopiering hanteringstjänsten** hämtar lades till i **åtkomstprinciper**. 
 
-    ![Principer för åtkomst](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
+    ![Åtkomstprinciper](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
     
 8. Välj **spara** att ge behörigheterna som krävs för säkerhetskopiering.
 
@@ -133,9 +139,9 @@ Om du vill återställa en virtuell dator i krypterade återställa diskar genom
 * Eller, [använda mallar för att anpassa en återställd VM](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) att skapa virtuella datorer från återställda diskar. Mallar kan användas endast för återställningspunkter som skapats efter 26 April 2017.
 
 ## <a name="troubleshooting-errors"></a>Felsökning av fel
-| Åtgärd | information om fel | Lösning |
+| Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-|Säkerhetskopiering | Säkerhetskopiering har inte tillräcklig behörighet för att nyckelvalvet för säkerhetskopiering av krypterade virtuella datorer. | Säkerhetskopiering ska tillhandahållas behörigheterna genom att följa den [stegen i föregående avsnitt](#provide-permissions-to-azure-backup). Du kan följa PowerShell anvisningarna i avsnittet ”Aktivera skydd” i PowerShell-dokumentationen på [Använd AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer](backup-azure-vms-automation.md#back-up-azure-vms). |  
+|Backup | Säkerhetskopiering har inte tillräcklig behörighet för att nyckelvalvet för säkerhetskopiering av krypterade virtuella datorer. | Säkerhetskopiering ska tillhandahållas behörigheterna genom att följa den [stegen i föregående avsnitt](#provide-permissions-to-azure-backup). Du kan följa PowerShell anvisningarna i avsnittet ”Aktivera skydd” i PowerShell-dokumentationen på [Använd AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer](backup-azure-vms-automation.md#back-up-azure-vms). |  
 | Återställ |Du kan inte återställa den kryptera virtuella datorn eftersom nyckelvalvet som är associerade med den här virtuella datorn inte finns. |Skapa ett nyckelvalv med [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md). Se [återställa en nyckelvalv nyckel och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet om de inte finns. |
 | Återställ |Du kan inte återställa den kryptera virtuella datorn eftersom nyckeln och den hemlighet som är associerade med den här virtuella datorn inte finns. |Se [återställa en nyckelvalv nyckel och en hemlighet med hjälp av Azure Backup](backup-azure-restore-key-secret.md) att återställa en nyckel och en hemlighet om de inte finns. |
 | Återställ |Säkerhetskopiering har inte behörighet att komma åt resurser i din prenumeration. |Som tidigare nämnts återställa diskar först genom att följa stegen i avsnittet ”återställa säkerhetskopierade diskar” i [väljer en konfiguration för återställning av Virtuella](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Sedan kan använda PowerShell för att [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

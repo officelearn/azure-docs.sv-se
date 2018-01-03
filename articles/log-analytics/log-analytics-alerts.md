@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Förstå aviseringar i logganalys
 
@@ -80,13 +80,13 @@ Om du vill Varna när processorn körs exempelvis över 90%, använder du en fr�
 
     
 
-Om du vill meddela när processorn var i genomsnitt över 90% för ett visst tidsintervall du vill använda en fråga med hjälp av den [mäta kommandot](log-analytics-search-reference.md#commands) följande med tröskelvärdet för varningsregeln **större än 0**.
+Om du vill meddela när processorn var i genomsnitt över 90% av en viss tidsfönstret använder du en fråga som följande med tröskelvärdet för varningsregeln **större än 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Om ditt arbetsområde inte har ännu uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan senare frågorna skulle ändra till följande:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Om ditt arbetsområde inte har ännu uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), sedan senare frågorna skulle ändra till följande med en senare med hjälp av den [mäta kommandot](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -113,8 +113,8 @@ Föreställ dig ett scenario där du vill lägga till en avisering om alla dator
 **Fråga:** Perf | där ObjectName == ”-Processor” och CounterName == ”% processortid” | sammanfatta AggregatedValue = avg(CounterValue) av bin (TimeGenerated, 5 m), datorn<br>
 **Tidsfönstret:** 30 minuter<br>
 **Varna frekvens:** 5 minuter<br>
-**Aggregera värde:** bra än 90<br>
-**Utlösaren avisering baserat på:** totalt överträdelser som är större än 5<br>
+**Aggregera värde:** större än 90<br>
+**Utlösaren avisering baserat på:** totalt överträdelser som är större än 2<br>
 
 Frågan skulle skapa ett genomsnittligt värde för varje dator vid 5 minuters mellanrum.  Den här frågan skulle köras var femte minut för data som samlas in under de föregående 30 minuterna.  Exempeldata visas nedan för tre datorer.
 

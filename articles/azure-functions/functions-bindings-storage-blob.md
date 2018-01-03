@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -43,13 +43,13 @@ Använd en Blob storage-utlösare för att starta en funktion när en ny eller u
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Mer information om den `BlobTrigger` attribut, se [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
+Mer information om den `BlobTrigger` attribut, se [utlösaren - attribut](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen skriver en logg när en blob läggs till eller uppdateras i den `samples-workitems` behållare.
 
 Här är de bindande data den *function.json* fil:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en blob-utlösare:
+I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en blob-utlösare:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   }
   ```
 
-  En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+  En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Använda Blob storage indata och utdata bindningar för att läsa och skriva BLO
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#input--output---c-example)
-* [C#-skript](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [C#-skript (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Indata och utdata - C#-exempel
 
-Följande exempel är en [förkompilerat C#](functions-dotnet-class-library.md) funktion som använder en blob-utlösare och två utdata blob-bindningar. Funktionen utlöses av skapandet av en avbildning blob i den *exempel bilder* behållare. Storlek för små och medelstora kopior av avbildningsbloben skapas. 
+Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en blob-utlösare och två utdata blob-bindningar. Funktionen utlöses av skapandet av en avbildning blob i den *exempel bilder* behållare. Storlek för små och medelstora kopior av avbildningsbloben skapas. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Indata och utdata - exempel på C#-skript
 
-I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningar. Funktionen skapas en kopia av en text-blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
+I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningar. Funktionen skapas en kopia av en text-blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
 
 I den *function.json* filen, den `queueTrigger` metadataegenskapen används för att ange blobbnamnet i den `path` egenskaper:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Indata och utdata - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Den Attributkonstruktorn tar sökvägen till blob och en `FileAccess` parameter som anger läsning eller skrivning, som visas i följande exempel:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-En komplett exempel finns [indata och utdata - förkompilerade C#-exempel](#input--output---c-example).
+En komplett exempel finns [indata och utdata - C#-exempel](#input--output---c-example).
 
-Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Indata och utdata - konfiguration
 
@@ -496,7 +496,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="input--output---usage"></a>Indata och utdata - användning
 
-I förkompilerade C# och C# skript, åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
 * `out string`
 * `TextWriter` 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Skala automatiskt en virtuell dator-skala med Azure CLI 2.0
 När du skapar en skaluppsättning för definiera antalet VM-instanser som du vill köra. När din begäran för program ändras, kan du automatiskt öka eller minska antalet VM-instanser. Möjligheten att Autoskala kan du Håll dig uppdaterad med kundernas behov eller svara på ändringar i programmet prestanda under hela livscykeln för din app.
@@ -27,8 +27,8 @@ När du skapar en skaluppsättning för definiera antalet VM-instanser som du vi
 Den här artikeln visar hur du skapar automatiska regler med Azure CLI 2.0 som övervaka prestanda för VM-instanser i en skaluppsättning. Reglerna Autoskala öka eller minska antalet VM-instanser som svar på dessa prestandamått. Du kan också utföra dessa steg med [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) eller i den [Azure-portalen](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Krav
-Du behöver en befintlig virtuell dator för att skapa regler för automatiska skaluppsättning. Du kan skapa en skala som anges med den [Azure-portalen](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), eller [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+## <a name="prerequisites"></a>Förutsättningar
+Du behöver en befintlig virtuell dator för att skapa regler för automatiska skaluppsättning. Du kan skapa en skala som anges med den [Azure-portalen](virtual-machine-scale-sets-create-portal.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), eller [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Att göra det enklare att skapa automatiska regler, definiera vissa variabler för din skaluppsättning. I följande exempel definieras variabler för skaluppsättningen namngivna *myScaleSet* i resursgrupp med namnet *myResourceGroup* och i den *eastus* region. Din prenumeration hämta ID med [az konto visa](/cli/azure/account#az_account_show). Om du har flera prenumerationer som är kopplade till ditt konto, returneras endast det första abonnemanget. Justera namn och prenumerations-ID på följande sätt:
 
@@ -65,13 +65,13 @@ Följande parametrar används för den här regeln:
 
 | Parameter         | Förklaring                                                                                                         | Värde           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Procentandel CPU  |
+| *metricName*      | Prestanda-mått för att övervaka och tillämpa skala ange åtgärder på.                                                   | Processorprocentandel  |
 | *Tidskorn*       | Hur ofta mätvärdena som har samlats in för analys.                                                                   | 1 minut        |
-| *timeAggregation* | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Genomsnittlig         |
+| *timeAggregation* | Definierar hur mätvärdena som samlats in ska aggregeras för analys.                                                | Medel         |
 | *värdet timeWindow*      | Tidsperiod som övervakas innan värdena mått och tröskelvärdet jämförs.                                   | 10 minuter      |
 | *operatorn*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
 | *Tröskelvärde*       | Det värde som regeln Autoskala kan utlösa en åtgärd.                                                      | 70%             |
-| *riktning*       | Anger om skaluppsättning bör skala upp eller ned när regeln gäller.                                             | Öka        |
+| *riktning*       | Anger om skaluppsättning bör skala upp eller ned när regeln gäller.                                             | Höj        |
 | *typ*            | Anger att antalet VM-instanser som ska ändras som ett procenttal.                                 | Procentuell förändring  |
 | *värdet*           | Hur många VM-instanser som ska skalas uppåt eller nedåt när regeln gäller.                                            | 20              |
 | *cooldown*        | Hur lång tid ska gå innan regeln tillämpas igen så att automatiska åtgärder har tid att börja gälla. | 5 minuter       |

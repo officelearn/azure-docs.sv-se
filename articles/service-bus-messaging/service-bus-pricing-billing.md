@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus priser och fakturering
-Service Bus erbjuds i Standard och [Premium](service-bus-premium-messaging.md) nivåer. Du kan välja en tjänstnivå för varje namnområde för Service Bus-tjänsten som du skapar och detta val av gäller över alla enheter som har skapats inom det här namnområdet.
+
+Azure Service Bus erbjuds i Standard och [Premium](service-bus-premium-messaging.md) nivåer. Du kan välja en tjänstnivå för varje namnområde för Service Bus-tjänsten som du skapar och detta val av gäller över alla enheter som har skapats inom det här namnområdet.
 
 > [!NOTE]
 > Detaljerad information om aktuella Service Bus-priser finns i [Azure Service Bus sida med priser](https://azure.microsoft.com/pricing/details/service-bus/), och [Service Bus FAQ](service-bus-faq.md#pricing).
@@ -42,18 +43,20 @@ Observera att standardnivån grundläggande kostnad debiteras en gång per måna
 Den [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) tabell sammanfattas funktionella skillnader mellan nivåerna Standard och Premium.
 
 ## <a name="messaging-operations"></a>Meddelandeåtgärder
-Som en del av nya priserna ändrar fakturering för köer och ämnen-prenumerationer. Dessa enheter övergång från fakturering per meddelande till fakturering per åtgärd. ”Åtgärden” syftar på alla API-anrop som görs mot en tjänstslutpunkt kö eller ämne /-prenumeration. Detta omfattar åtgärder för hantering, skicka och ta emot och session tillstånd.
+
+Köer och ämnen/prenumerationer debiteras per ”åtgärd” inte per meddelande. En åtgärd refererar till en API-anrop som görs mot en tjänstslutpunkt kö eller ämne /-prenumeration. Det innefattar åtgärder för hantering, skicka/ta emot och sessionstillstånd.
 
 | Åtgärdstyp | Beskrivning |
 | --- | --- |
 | Hantering |Skapa, läsa, uppdatera, ta bort CRUD-mot köer och ämnen-prenumerationer. |
 | Meddelandetjänster |Skicka och ta emot meddelanden med köer och ämnen-prenumerationer. |
-| Sessionstillstånd |Hämtar eller anger sessionens tillstånd för en kö eller ett ämne /-prenumeration. |
+| Sessionstillstånd |Hämta eller ange sessionens tillstånd för en kö eller ett ämne /-prenumeration. |
 
 Kostnadsinformation finns i de priser som visas på den [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) sidan.
 
 ## <a name="brokered-connections"></a>Brokered Connections
-*Asynkrona anslutningar* hantera kunden användningsmönster som rör ett stort antal ”beständigt ansluten” avsändare/mottagare mot köer, ämnen och prenumerationer. Beständigt anslutna avsändare/mottagare är de som ansluter via AMQP eller HTTP med icke-noll får timeout (till exempel HTTP lång avsökning). HTTP-avsändare och mottagare med en omedelbar timeout genererar inte asynkrona anslutningar.
+
+*Asynkrona anslutningar* hantera användningsmönster som rör ett stort antal ”beständigt ansluten” avsändare/mottagare mot köer, ämnen och prenumerationer. Beständigt anslutna avsändare/mottagare är de som ansluter via AMQP eller HTTP med icke-noll får timeout (till exempel HTTP lång avsökning). HTTP-avsändare och mottagare med en omedelbar timeout genererar inte asynkrona anslutningar.
 
 Anslutningen kvoter och andra tjänstbegränsningarna finns i [Service Bus-kvoter](service-bus-quotas.md) artikel. Mer information om asynkrona anslutningar finns i [vanliga frågor och svar](#faq) senare i den här artikeln.
 
@@ -78,6 +81,7 @@ Brokered Connections debiteras inte på Premium-nivån.
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Vad är asynkrona anslutningar och hur jag hämta debiteras för dem?
+
 En Brokered Connection definieras som något av följande:
 
 1. En AMQP anslutning från en klient till en Service Bus-kö eller ett ämne /-prenumeration.
@@ -91,9 +95,11 @@ Exempel:
 2. 10 000 enheter ta emot meddelanden från en Service Bus-kö via HTTP, med en icke-noll-timeout. Om alla enheter ansluter 12 timmar varje dag, visas följande anslutning avgifterna (förutom eventuella övriga kostnader för Service Bus): 10 000 ta emot HTTP-anslutningar * 12 timmar per dag * 31 dagar / 744 timmar = 5 000 asynkrona anslutningar.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Gäller Brokered Connection-avgifter för köer och ämnen/prenumerationer?
-Ja. Det finns inga avgifter för anslutning för att skicka händelser med hjälp av HTTP, oavsett antalet skickar datorer eller enheter. Ta emot händelser med hjälp av en tidsgräns som är större än noll, kallas ibland ”länge avsökning”, HTTP genererar asynkrona anslutning avgifter. AMQP-anslutningar genererar Brokered Connection-avgifter oavsett om anslutningarna används till att skicka eller ta emot. 1 000 första asynkrona anslutningar över alla namnområden som Standard i en Azure-prenumeration ingår utan extra kostnad (utöver grundläggande tillägget). Eftersom dessa tillägg är tillräckligt för att täcka många meddelandehantering för tjänst-till-tjänst, blivit asynkrona anslutning avgifter vanligtvis bara relevant om du planerar att använda AMQP eller HTTP lång-avsökning med ett stort antal klienter. till exempel för att uppnå effektivare händelse strömning eller Aktivera dubbelriktad kommunikation med många enheter eller programinstanser.
+
+Ja. Du debiteras inga anslutningsavgifter för att skicka händelser via HTTP, oavsett antalet sändande system eller enheter. Ta emot händelser med hjälp av en tidsgräns som är större än noll, kallas ibland ”länge avsökning”, HTTP genererar asynkrona anslutning avgifter. AMQP-anslutningar genererar Brokered Connection-avgifter oavsett om anslutningarna används till att skicka eller ta emot. 1 000 första asynkrona anslutningar över alla namnområden som Standard i en Azure-prenumeration ingår utan extra kostnad (utöver grundläggande tillägget). Eftersom dessa tillägg är tillräckligt för att täcka många meddelandehantering för tjänst-till-tjänst, blivit asynkrona anslutning avgifter vanligtvis bara relevant om du planerar att använda AMQP eller HTTP lång-avsökning med ett stort antal klienter. till exempel för att uppnå effektivare händelse strömning eller Aktivera dubbelriktad kommunikation med många enheter eller programinstanser.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Mer information om Service Bus priser finns i [Service Bus sida med priser](https://azure.microsoft.com/pricing/details/service-bus/).
 * Finns det [Service Bus FAQ](service-bus-faq.md#pricing) för några vanliga frågor och svar om Service bus priser och fakturering.
 

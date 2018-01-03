@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativsystemet funktioner i Azure App Service
 Den här artikeln beskrivs vanliga grundläggande operativsystem-funktioner som är tillgänglig för alla appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverket och till registret och diagnostik loggar och händelser. 
@@ -27,6 +27,8 @@ Den här artikeln beskrivs vanliga grundläggande operativsystem-funktioner som 
 
 ## <a name="app-service-plan-tiers"></a>App Service-plan nivåer
 App Service kör kunden appar på en värd för flera innehavare. Appar som distribuerats i det **lediga** och **delade** nivåer kör i arbetsprocesser på delade virtuella datorer, medan appar som distribuerats i det **Standard** och **Premium**  nivåer som körs på virtuella datorer som är dedikerad för appar som är kopplad till en kund.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Eftersom Apptjänst har stöd för skalning smidigt mellan olika nivåer, förblir detsamma säkerhetskonfigurationen för Apptjänst-appar. Detta säkerställer att appar inte plötsligt fungerar annorlunda, misslyckas på oväntade sätt när App Service-plan som växlar från en nivå till en annan.
 
@@ -76,7 +78,7 @@ Arbetskatalogen innehåller en app innehåll och programkod kan skriva till den.
 
 <a id="NetworkAccess"></a>
 
-## <a name="network-access"></a>Åtkomst till nätverket
+## <a name="network-access"></a>Nätverksåtkomst
 Programkod kan använda TCP/IP och UDP-baserat protokoll för att utgående nätverksanslutningar till Internet tillgänglig slutpunkter som exponerar externa tjänster. Appar kan använda dessa samma protokoll för att ansluta till tjänster i Azure & #151, till exempel genom att etablera HTTPS-anslutningar till SQL-databas.
 
 Det finns också en begränsad funktion för appar att upprätta en anslutning för lokal loopback och har en app som lyssnar på den lokala loopback-socketen. Den här funktionen finns i första hand för att aktivera appar som lyssnar på lokal loopback sockets som en del av deras funktioner. Observera att varje app ser en ”privat” loopback-anslutning. App ”A” kan inte lyssna på en lokal loopback socket som upprättas av app ”B”.
@@ -115,7 +117,7 @@ Skrivåtkomst till registret är blockerad, inklusive åtkomst till några regis
 [Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -den allra senaste informationen om körningsmiljö av App Service. Den här sidan hanteras direkt av Utvecklingsteamet App Service.
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 > 
 > 
 

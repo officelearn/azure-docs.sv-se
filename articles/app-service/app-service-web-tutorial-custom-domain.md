@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mappa ett befintligt anpassade DNS-namn till Azure Web Apps
 
@@ -43,7 +43,7 @@ Du kan använda antingen en **CNAME-post** eller en **en post** att mappa ett an
 
 Om du vill migrera en levande plats och DNS-domännamn till App Service, se [Migrera ett aktivt DNS-namn till Azure App Service](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -58,6 +58,8 @@ För att slutföra den här kursen behöver du:
 ## <a name="prepare-the-app"></a>Förbered appen
 
 Mappa ett anpassat DNS-namn till ett webbprogram, webbappen [programtjänstplanen](https://azure.microsoft.com/pricing/details/app-service/) måste vara en betald nivå (**delade**, **grundläggande**, **Standard**, eller **Premium**). I det här steget kan se du till att Apptjänst-app är i det prisnivån.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

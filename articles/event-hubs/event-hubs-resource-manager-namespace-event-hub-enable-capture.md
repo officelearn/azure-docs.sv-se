@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
 Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar ett namnområde för Event Hubs med en händelsehubbinstans och även aktiverar [avbildningsfunktionen](event-hubs-capture-overview.md) på händelsehubben. Artikeln beskriver hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
@@ -161,7 +161,7 @@ Det tidsintervall inom vilket Event Hubs Capture börjar samla in data.
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ Prenumerations-ID för namnområdet för Event Hubs och Azure Data Lake Store. B
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ Azure Data Lake Store-namnet för de avbildade händelserna.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Sökvägen till målmappen för de avbildade händelserna.Det här är mappen i din Data Lake Store som händelserna hämtas till från Capture. Läs artikeln om att [använda Data Lake Store för att hämta data från Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture) för att ange behörigheter för den här mappen
+Sökvägen till målmappen för de avbildade händelserna. Detta är mappen i din Data Lake Store dit händelserna ska skickas under avbildningen. Se [Använda Data Lake Store för att hämta data från Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) för att ange behörigheter för den här mappen.
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Resurser att distribuera för Azure Storage som mål för avbildade händelser
 
-Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning till Azure Blob Storage.
+Skapar ett namnområde av typen **EventHub** med en händelsehubb och möjliggör avbildning till Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjligg�
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Resurser att distribuera för Azure Data Lake Store som mål
 
-Skapar ett namnområde av typen **EventHubs** med en händelsehubb och möjliggör avbildning till Azure Data Lake Store.
+Skapar ett namnområde av typen **EventHub** med en händelsehubb och möjliggör avbildning till Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Välja Azure Blob Storage som mål:
+Azure Blob Storage som mål:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Välja Azure Data Lake Store som mål:
+Azure Data Lake Store som mål:
 
 ```azurecli
 azure config mode arm

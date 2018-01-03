@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a661aa5a555dacac5c94c3feb8c6b88bb5033f83
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en virtuell dator-skala med Azure PowerShell
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
 
-För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information om hur du installerar och använder den senaste versionen finns [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-portal-create.md).
+För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information om hur du installerar och använder den senaste versionen finns [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning

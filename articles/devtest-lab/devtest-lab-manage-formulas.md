@@ -3,7 +3,7 @@ title: "Hantera formler i Azure DevTest Labs för att skapa virtuella datorer | 
 description: "Lär dig att uppdatera och ta bort Azure DevTest Labs formler"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -64,7 +64,7 @@ Följande steg leder dig genom processen att skapa en formel från en anpassad a
     * **Lösenordet** – Skriv - eller välj i listrutan - ett värde som är associerade med den hemlighet (lösenord) som du vill använda för den angivna användaren. Mer information om hemligheterna finns [Azure DevTest Labs: hemliga datorarkivet](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Typ av virtuell dator disk** – ange antingen Hårddisk (hårddiskenheten) eller SSD (SSD) som anger vilken lagringstyp som disk tillåts för de virtuella datorerna etableras med den här grundläggande bild.
     * ** Virtuella storlek ** – Välj något av de fördefinierade objekt som anger processorkärnor, ram-storlek och storleken på hårddisken på den virtuella datorn för att skapa. 
-    * **Artefakter** – Välj för att öppna den **lägga till artefakter** bladet, där du kan välja och konfigurera artefakter som du vill lägga till basavbildningen. Läs mer om artefakter [hantera VM artefakter i Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefakter** – Välj för att öppna den **lägga till artefakter** bladet, där du kan välja och konfigurera artefakter som du vill lägga till basavbildningen. Läs mer om artefakter [skapa anpassade artefakter för dina virtuella datorer i Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **Avancerade inställningar** – Välj för att öppna den **Avancerat** bladet där du kan konfigurera följande inställningar:
         * **Virtuellt nätverk** -ange det önskade virtuella nätverket.
         * **Undernät** – ange det önskade undernätet.    
@@ -135,5 +135,5 @@ Följ dessa steg om du vill ta bort en formel:
 * [Anpassade avbildningar eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Nästa steg
-När du har skapat en formel för användning när du skapar en virtuell dator, nästa steg är att [lägga till en virtuell dator i labbet](devtest-lab-add-vm-with-artifacts.md).
+När du har skapat en formel för användning när du skapar en virtuell dator, nästa steg är att [lägga till en virtuell dator i labbet](devtest-lab-add-vm.md).
 

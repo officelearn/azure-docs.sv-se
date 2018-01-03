@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Avbilda en virtuell Windows-dator skapad med den klassiska distributionsmodellen.
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Dessa instruktioner förutsätter att du redan skapat en virtuell Azure-dator oc
 >
 >
 
-Innan du gör en avbildning av en virtuell Azure-dator, rekommenderas det att säkerhetskopiera den virtuella måldatorn. Virtuella Azure-datorer kan säkerhetskopieras med Azure Backup. Mer information finns i [Säkerhetskopiera virtuella Azure-datorer](../../../backup/backup-azure-vms.md). Det finns andra lösningar från certifierade partner. Om du vill ta reda på vad som finns för närvarande kan du söka på Azure Marketplace.
+Innan du gör en avbildning av en virtuell Azure-dator, rekommenderas det att säkerhetskopiera den virtuella måldatorn. Virtuella Azure-datorer kan säkerhetskopieras med Azure Backup. Mer information finns i [Säkerhetskopiera virtuella Azure-datorer](../../../backup/backup-azure-arm-vms.md). Det finns andra lösningar från certifierade partner. Om du vill ta reda på vad som finns för närvarande kan du söka på Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Avbilda den virtuella datorn
 1. I den [Azure-portalen](http://portal.azure.com), **Anslut** till den virtuella datorn. Instruktioner finns i [så att logga in på en virtuell dator som kör Windows Server][How to sign in to a virtual machine running Windows Server].

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 62b1a34f2380446b9f5cbadda7eab8c698f1a92f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
 Med hjälp av Azure Active Directory (AD Azure) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering i appen skrivbord i några korta steg. Den här artikeln visar hur du skapar ett .NET Windows Presentation Foundation (WPF) ”uppgiftslistan” som innehåller användarregistrering, inloggning och profilhantering. Appen tas stöd för registrering och inloggning med ett användarnamn eller e-post. Den omfattar också stöd för registrering och inloggning med hjälp av sociala konton, till exempel Facebook och Google.
@@ -33,9 +33,7 @@ Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som 
 * Kopiera den **omdirigerings-URI** `urn:ietf:wg:oauth:2.0:oob`. Den är standard-URL:en för det här kodexemplet.
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver den senare.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
-## <a name="create-your-policies"></a>Skapa dina principer
+## <a name="create-your-policies"></a>Skapa principer
 I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: registrering, inloggning och profilredigering. Du måste skapa en princip för varje typ, enligt beskrivningen i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar de tre principerna:
 
 * Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8555bd830583f51164d39ca0e7b95813b7d35965
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Skapa en virtuell dator (klassisk) med flera nätverkskort som använder Azure CLI 1.0
 
@@ -35,7 +35,7 @@ Du kan skapa virtuella datorer (VM) i Azure och koppla flera nätverksgränssnit
 
 Följande steg använder en resursgrupp med namnet *IaaSStory* för webbservrar och en resursgrupp med namnet *IaaSStory BackEnd* för DB-servrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa DB-servrar, måste du skapa den *IaaSStory* resursgrupp med alla nödvändiga resurser för det här scenariot. Följ instruktionerna som följer för att skapa dessa resurser. Skapa ett virtuellt nätverk genom att följa stegen i den [skapa ett virtuellt nätverk](virtual-networks-create-vnet-classic-cli.md) artikel.
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
@@ -191,4 +191,4 @@ Nu när du har hämtat och ändra skriptet baserat på dina behov, kör du skrip
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Steg 5 – konfigurera routning i operativsystemet för den virtuella datorn
 
-Azure DHCP tilldelar en standard-gateway till det första (primära) nätverksgränssnittet kopplade till den virtuella datorn. Azure tilldela inte en standardgateway på ytterligare (sekundär) nätverksgränssnitt som är kopplad till en virtuell dator. Du kan därför inte att kommunicera med resurser utanför det undernät som sekundärt nätverksgränssnitt finns som standard. Sekundära nätverksgränssnitt kan dock kommunicera med resurser utanför deras undernät. Om du vill konfigurera routning för sekundära nätverksgränssnitt, se [routning i ett operativsystem för virtuella datorer med flera nätverksgränssnitt](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+Azure DHCP tilldelar en standard-gateway till det första (primära) nätverksgränssnittet kopplade till den virtuella datorn. Azure tilldelar inte en standardgateway till ytterligare (sekundära) nätverksgränssnitt som är kopplade till en virtuell dator. Du kan därför som standard inte kommunicera med resurser utanför det undernät som är ett sekundärt nätverksgränssnitt befinner sig i. Sekundära nätverksgränssnitt kan dock kommunicera med resurser utanför deras undernät. Om du vill konfigurera routning för sekundära nätverksgränssnitt, se [routning i ett operativsystem för virtuella datorer med flera nätverksgränssnitt](virtual-network-network-interface-vm.md).

@@ -1,5 +1,5 @@
 ---
-title: Integrera Azure AD i en iOS-app | Microsoft Docs
+title: "Azure AD iOS komma igång | Microsoft Docs"
 description: "Hur du skapar en iOS-program som kan integreras med Azure AD för inloggnings- och Azure AD-anrop skyddade API: er med hjälp av OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrera Azure AD i en iOS-app
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Testa förhandsversionen av vår nya [utvecklarportalen](https://identity.microsoft.com/Docs/iOS) som hjälper dig att komma igång med Azure Active Directory på bara några minuter!  Developer-portalen får du hjälp med att registrera en app och integrera Azure AD i din kod.  När du är klar har du ett enkelt program som kan autentisera användare i din klient och en serverdel som kan acceptera token och utföra valideringen. 
-> 
-> 
 
 Azure Active Directory (AD Azure) tillhandahåller Active Directory Authentication Library eller ADAL för iOS-klienter som behöver åtkomst till skyddade resurser. ADAL förenklar som din app använder för att erhålla åtkomsttoken. Att demonstrera hur lätt det är i den här artikeln vi skapa ett uppgiftslista för Objective C-program som:
 

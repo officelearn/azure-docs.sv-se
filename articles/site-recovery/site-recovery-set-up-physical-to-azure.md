@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: d242954eb62a0d7325cc4222a54f2581967fdc19
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Konfigurera källmiljön (fysisk server till Azure)
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikering av fysiska servrar som kör Windows eller Linux till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
 1. En Recovery Services-valvet i den [Azure-portalen](http://portal.azure.com "Azure-portalen").

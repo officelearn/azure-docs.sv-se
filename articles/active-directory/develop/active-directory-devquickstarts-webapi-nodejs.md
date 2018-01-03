@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Node.js komma igång"
+title: "Azure AD-Node.js-webb-API komma igång | Microsoft Docs"
 description: "Hur du skapar en Node.js-REST-webb-API som kan integreras med Azure AD för autentisering."
 services: active-directory
 documentationcenter: nodejs
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Skydda Node.js-webb-API med Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD-Node.js-webb-API komma igång
 
 Den här artikeln visar hur du skyddar en [Restify](http://restify.com/) API-slutpunkten med [Passport](http://passportjs.org/) med hjälp av den [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) modul som ska hantera kommunikationen med Azure Active Directory (AAD). 
 
@@ -187,7 +187,7 @@ Slutligen servern har angetts till att lyssna på den konfigurerade porten genom
 server.listen(serverPort);
 ```
 
-## <a name="run-the-sample"></a>Köra exemplet
+## <a name="run-the-sample"></a>Kör exemplet
 
 Nu när servern har implementerats kan du starta om servern genom att öppna en kommandotolk och ange:
 

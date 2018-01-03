@@ -4,15 +4,17 @@ description: "Så här sammanfatta och analysera en stor mängd dokument, inklus
 services: machine-learning
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Dokumentet samling analys
 
@@ -52,7 +54,7 @@ De tekniker/maskininlärningsalgoritmer används i det här scenariot omfattar:
 
 1. Aktuell trender och avvikelseidentifiering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
@@ -227,7 +229,7 @@ Bärbar dator `5_Topic_Model_Analysis.ipynb` visar hur du analyserar aktuell inn
 
 Bärbar dator `6_Interactive_Visualization.ipynb` visar hur du interaktivt visualisera inlärda avsnittet modellen. Den omfattar fyra interaktiva visualiseringen uppgifter.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Den här verkligt scenario illustrerar hur du använder välkänd text analytics metoder (i det här fallet frasen learning och LDA avsnittet modellering) som ger en robust modell och Azure Machine Learning arbetsstationen hur spåra modellen prestanda och köras utan problem inlärning på högre nivå. I större detalj:
 

@@ -17,14 +17,14 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdlets för grupphantering
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
+> * [Azure-portalen](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -168,7 +168,7 @@ Om du vill ta bort grupper från katalogen, använder du cmdleten Remove-AzureAD
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
 ## <a name="manage-group-membership"></a>Hantera gruppmedlemskap 
-### <a name="add-members"></a>Lägga till medlemmar
+### <a name="add-members"></a>Lägg till medlemmar
 Använd cmdleten Add-AzureADGroupMember om du vill lägga till nya medlemmar i en grupp. Detta kommando lägger till en medlem i gruppen Intune-administratörer vi använde i det förra exemplet:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -252,7 +252,7 @@ Använd cmdleten Remove-AzureADGroupOwner om du vill ta bort en ägare från en 
 När en grupp har skapats, vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadress i gruppen. Grupper med följande mycket Privilegierade e-post-alias kan bara skapas av en global administratör för Azure AD. 
   
 * missbruk 
-* Admin 
+* administratör 
 * Administratören 
 * hostmaster 
 * majordomo 

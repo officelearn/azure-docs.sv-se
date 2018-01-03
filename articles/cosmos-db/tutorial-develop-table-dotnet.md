@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Utveckla med tabell-API i .NET
 
@@ -130,7 +130,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 5. Spara filen app.config.
 
-Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
 ## <a name="azure-cosmos-db-capabilities"></a>Azure DB Cosmos-funktioner
 Azure Cosmos-DB stöder ett antal funktioner som inte är tillgängliga i Azure Table storage API. 
@@ -148,8 +148,6 @@ Andra funktioner kan aktiveras via följande `appSettings` konfigurationsvärden
 
 | Nyckel | Beskrivning |
 | --- | --- |
-| TableThroughput | Reserverat dataflöde för tabellen uttryckt i frågeenheter (RU) per sekund. Enskild tabeller har stöd för 100-tal miljontals RU/s. Se [programbegäran](request-units.md). Standardvärdet är`400` |
-| TableIndexingPolicy | JSON-sträng som överensstämmer med indexering principspecifikationen. Se [indexering princip](indexing-policies.md) att se hur du kan ändra indexprincip om du vill inkludera/exkludera specifika kolumner. |
 | TableQueryMaxItemCount | Konfigurera det maximala antalet objekt som returneras per fråga i en enda onödig kommunikation. Standardvärdet är `-1`, vilket gör att Azure Cosmos DB dynamiskt bestämma värdet vid körning. |
 | TableQueryEnableScan | Om frågan inte kan använda indexet för filter kan sedan köra det ändå via en genomsökning. Standardvärdet är `false`.|
 | TableQueryMaxDegreeOfParallelism | Grad av parallellitet för körning av en fråga för cross-partition. `0`är seriell med ingen före hämtning, `1` är seriell med före hämtning och högre värden ökar mängden parallellitet. Standardvärdet är `-1`, vilket gör att Azure Cosmos DB dynamiskt bestämma värdet vid körning. |
@@ -164,10 +162,6 @@ Om du vill ändra standardvärdet, öppna den `app.config` filen i Solutions Exp
       <add key="CosmosDBStorageConnectionString" 
         value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-      <add key="TableIndexingPolicy" value="{""indexingMode"": ""Consistent""}"/>
 
       <!-- Table query options -->
       <add key="TableQueryMaxItemCount" value="-1"/>
@@ -194,13 +188,13 @@ Sedan kan du skapa en tabell med hjälp av `CloudTable`. Tabeller i Azure Cosmos
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");
-
-table.CreateIfNotExists();
+400
+table.CreateIfNotExists(throughput: 800);
 ```
 
 Det finns en viktig skillnad i hur du skapar tabeller. Azure Cosmos-DB reserverar dataflöde, till skillnad från Azure storage förbrukningsbaserad modell för transaktioner. Din genomströmning reserveras dedikerad /, så du får aldrig begränsas om din frågehastigheten är vid eller under din dataflöde.
 
-Du kan konfigurera standard-genomströmning genom att konfigurera inställningen för `TableThroughput` vad gäller RU (frågeenheter) per sekund. 
+Du kan konfigurera standard-genomströmning genom att inkludera den som en parameter för CreateIfNotExists.
 
 En läsning av en 1 KB entitet är normaliserat som 1 RU och andra åtgärder är normaliserade till ett fast RU värde baserat på deras förbrukning av CPU, minne och IOPS. Lär dig mer om [programbegäran i Azure Cosmos DB](request-units.md) och specifikt för [nyckel / värdepar](key-value-store-cost.md).
 

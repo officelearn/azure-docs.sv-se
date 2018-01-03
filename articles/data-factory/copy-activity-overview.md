@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopieringsaktiviteten i Azure Data Factory
 
@@ -192,6 +192,12 @@ Som standard kopieringsaktiviteten slutar att kopiera data och returnerar fel vi
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
 
 Finns det [prestandajustering guide och Kopieringsaktivitet prestanda](copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för flytt av data (Kopieringsaktiviteten) i Azure Data Factory. Den visar observerade prestanda under interna tester och beskrivs olika sätt för att optimera prestanda för Kopieringsaktivitet.
+
+## <a name="incremental-copy"></a>Inkrementell kopia 
+Data Factory version 2 har stöd för scenarier för att kopiera inkrementellt deltadata från ett dataarkiv som källa till ett dataarkiv som mål. Se [Självstudier: kopiera data inkrementellt](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Läsa och skriva partitionerade data
+Azure Data Factory stöds läsning eller skrivning partitionerade data med hjälp av SliceStart/SliceEnd/WindowStart/WindowEnd systemvariabler i version 1. Du kan åstadkomma detta genom att använda en pipeline-parameter och utlösarens schemalagd tid/starttid som ett värde för parametern i version 2. Mer information finns i [så att läsa eller skriva partitionerad data](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande Snabbstart, självstudier och exempel:

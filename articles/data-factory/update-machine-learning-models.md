@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av uppdateringen resurs aktivitet
 Den här artikeln kompletterar den huvudsakliga version av Azure Data Factory - Azure Machine Learning integration artikel: [skapa förutsägande pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan har gjort granska huvudsakliga artikeln innan du läser igenom den här artikeln. 
@@ -86,33 +86,6 @@ För ovan nämnda slutpunkt till slutpunkt arbetsflödet ska fungera måste du s
 2. En Azure Machine Learning länkad tjänst för uppdatering resurs slutpunkten för förutsägande webbtjänsten. Den här länkade tjänsten används genom att uppdatera resursen aktiviteten för att uppdatera förutsägande webbtjänsten med hjälp av filen iLearner returnerade ovan steg. 
 
 Konfigurationen är olika för andra Azure Machine Learning länkad tjänst när din Azure Machine Learning-webbtjänst är en klassiska webbtjänst eller en ny webbtjänst. Skillnaderna beskrivs separat i följande avsnitt. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Webbtjänsten är en klassiska webbtjänst
-Om webbtjänsten predict är en **klassiska webbtjänsten**, skapa andra **inte är standard och uppdateras endpoint** med hjälp av Azure portal. Se [skapa slutpunkter](../machine-learning/machine-learning-create-endpoint.md) artikel anvisningar. När du har skapat icke-uppdateringsbar standardslutpunkten gör du följande steg:
-
-* Klicka på **BATCH EXECUTION** att hämta URI-värdet för den **mlEndpoint** JSON-egenskapen.
-* Klicka på **uppdatering resurs** länken för att visa URI-värdet för den **updateResourceEndpoint** JSON-egenskapen. API-nyckeln finns på sidan endpoint sig själv (i det nedre högra hörnet).
-
-![Uppdatera slutpunkten](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Sedan kan använda i följande exempel länkade tjänsten för att skapa en ny Azure Machine Learning länkade tjänsten. Den länkade tjänsten använder apiKey för autentisering.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Webbtjänsten är nya Azure Resource Manager-webbtjänst 
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Hur du skapar ett filter för aspekten i Azure Search 
 
@@ -33,7 +33,7 @@ Fasetterad navigering används för automatisk dirigerad filtrering på resultat
 
 Facets är dynamiska och returnerade på en fråga. Sökningssvar ta med sig aspekten kategorier som används för att gå till resultaten. Om du inte är bekant med facets är följande exempel en illustration av en aspekten navigeringsstruktur.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Ny till fasetterad navigering och vill mer information? Se [implementera fasetterad navigering i Azure Search](search-faceted-navigation.md).
 
@@ -127,7 +127,7 @@ En av utmaningarna med aspekten navigering i Azure Search är att det finns face
 
 Detta är ett vanligt användningsfall, det är inte något aspekten navigeringsstrukturen innehåller för närvarande out box. Utvecklare som vill statiska facets vanligtvis kringgå begränsningen genom att utfärda två filtrerade frågor: en begränsad till resultaten, den andra används för att skapa en statisk lista över facets för navigering.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Filter i Azure Search](search-filters.md)
 + [Skapa Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Kopiera data från Azure Storage-blobar till Data Lake Store
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Du kan också använda verktyget AdlCopy i två olika lägen:
 * **Fristående**, där verktyget använder Data Lake Store-resurser för att utföra åtgärden.
 * **Med ett Data Lake Analytics-konto**, där enheter som tilldelats till ditt Data Lake Analytics-konto som används för att utföra kopieringen. Du kanske vill använda det här alternativet när du behöver utföra uppgifter kopiera förutsägbart.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -3,8 +3,8 @@ title: "Allmän SQL Connector | Microsoft Docs"
 description: "Den här artikeln beskriver hur du konfigurerar Microsofts allmänna SQL-anslutningen."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Teknisk referens för allmän SQL Connector
 Den här artikeln beskriver allmänna SQL-anslutningen. Artikeln gäller för följande produkter:
@@ -43,7 +43,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 | Åtgärder |<li>Fullständig Import och Deltaimport, Export</li><li>För Export: Lägga till, ta bort uppdateringen, och Ersätt</li><li>Ange lösenord, ändra lösenord</li> |
 | Schema |<li>Dynamisk identifiering av objekt och attribut</li> |
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du använder anslutningen kan du kontrollera att du har följande på synkroniseringsservern:
 
 * 4.5.2 för Microsoft .NET Framework eller senare
@@ -231,7 +231,11 @@ Generisk SQL Connector-stöd fullständig och Deltaimport på följande sätt:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabellen/vyn**  
-Om du vill importera flera värden attribut för ett objekt, du måste ange namnet i CSV-tabell/vy **namn multivärdes tabellvyer** och respektive kopplingsvillkor i den **kopplingsvillkor** med den överordnade tabellen.
+Om du vill importera flera värden attribut för ett objekt som du måste ange namnet på tabellen/vyn i **namn multivärdes tabellvyer** och respektive kopplingsvillkor i den **kopplingsvillkor** med den överordnade tabellen . Om det finns flera med flera värden tabeller i datakällan, kan du använda union till en enda vy.
+
+>[!IMPORTANT]
+Hanteringsagenten generiskt SQL fungerar bara med en tabell i flera värden. Placera inte till namnet på flera värden tabellvyer mer än ett namn för tabellen. Det är en begränsning av generisk SQL.
+
 
 Exempel: Du vill importera medarbetare objektet och alla dess med flera värden attribut. Det finns två tabeller, namngivna medarbetare (huvudtabell) och avdelning (med flera värden).
 Gör följande:

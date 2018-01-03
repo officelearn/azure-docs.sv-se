@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 > [!div class="op_single_selector"]

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: shengc
 ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]

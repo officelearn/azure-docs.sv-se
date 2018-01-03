@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Använda PowerShell för att hantera resurser för Händelsehubbar
 
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell är en skriptmiljö som du kan använda för att styr
 
 Du kan också hantera Händelsehubbar resurser med hjälp av Azure Resource Manager-mallar. Mer information finns i artikeln [skapa ett namnområde för Händelsehubbar med nav- och konsumenten händelsegruppen med en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du följande:
 

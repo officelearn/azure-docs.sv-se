@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure portal och PowerShell
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Dataset-segment i datafabriken kan ha en av följande status:
 <td>Sektorn behandlas.</td>
 </tr>
 <tr>
-<td rowspan="4">Misslyckades</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Sektorn avbröts av en användare.</td>
@@ -134,7 +134,7 @@ Dataset-segment i datafabriken kan ha en av följande status:
 <td>Klar</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
 </tr>
 <tr>
-<td>Hoppades över</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
+<td>Överhoppad</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>En sektor som brukade finnas med en annan status, men den har återställts.</td>
@@ -368,9 +368,9 @@ Följande tabell innehåller en lista över tillgängliga åtgärder och status 
 
 | Åtgärdsnamn | Status | Substatus |
 | --- | --- | --- |
-| RunStarted |Startade |Startar |
+| RunStarted |Startad |Startar |
 | RunFinished |Misslyckades / lyckades |FailedResourceAllocation<br/><br/>Lyckades<br/><br/>FailedExecution<br/><br/>För lång tid<br/><br/>< avbröts<br/><br/>FailedValidation<br/><br/>Avbrutna |
-| OnDemandClusterCreateStarted |Startade | |
+| OnDemandClusterCreateStarted |Startad | |
 | OnDemandClusterCreateSuccessful |Lyckades | |
 | OnDemandClusterDeleted |Lyckades | |
 

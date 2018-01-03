@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Den här självstudiekursen vägleder dig genom stegen för att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto.

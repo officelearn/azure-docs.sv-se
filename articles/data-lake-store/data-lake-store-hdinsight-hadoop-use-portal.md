@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Data Lake Store med hjälp av Azure portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Lär dig hur du använder Azure-portalen för att skapa ett HDInsight-kluster med ett Azure Data Lake Store-konto som standardlagring eller en extra lagringsutrymme. Även om ytterligare lagringsutrymme är valfri för ett HDInsight-kluster, rekommenderas att lagra företagsdata i ytterligare storage-konton.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att du har uppfyllt följande krav innan du börjar den här kursen:
 
 * **En Azure-prenumeration**. Gå till [hämta kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -205,7 +205,7 @@ Du kan använda ett Spark-kluster för att köra Spark på data som lagras i ett
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Använd Data Lake Store i en Storm-topologi
 Du kan använda Data Lake Store för att skriva data från en Storm-topologi. Instruktioner om hur du utför det här scenariot finns [Använd Azure Data Lake Store med Apache Storm med HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Använd Data Lake Store med Azure HDInsight-kluster](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Skapa ett HDInsight-kluster om du vill använda Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

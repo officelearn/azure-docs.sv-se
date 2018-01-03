@@ -3,16 +3,18 @@ title: Flygfoto avbildningen klassificering | Microsoft Docs
 description: "Innehåller instruktioner för verkligt scenario på Flygfoto avbildningen klassificering"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Flygfoto avbildningen klassificering
 
@@ -44,15 +46,15 @@ I det här exemplet sparades bilddata och pretrained modeller i ett Azure storag
 
 ![Skiss för Flygfoto avbildningen klassificering verkligt scenario](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Den [stegvisa instruktioner](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) börjar du med guidar dig genom att skapa och förberedelse av en Azure storage-konto och Spark-kluster, inklusive data transfer och beroende installation. De kan sedan beskrivs hur du starta utbildning jobb och jämför prestanda för de resulterande modellerna. Slutligen illustrerar de hur du kan tillämpa en vald modell till en stor bild i Spark-klustret och analysera resultaten förutsägelse lokalt.
+Dessa stegvisa anvisningar börjar du med guidar dig genom att skapa och förberedelse av en Azure storage-konto och Spark-kluster, inklusive data transfer och beroende installation. De kan sedan beskrivs hur du starta utbildning jobb och jämför prestanda för de resulterande modellerna. Slutligen illustrerar de hur du kan tillämpa en vald modell till en stor bild i Spark-klustret och analysera resultaten förutsägelse lokalt.
 
 
 ## <a name="set-up-the-execution-environment"></a>Ställ in körningsmiljön
 
 Följande instruktionerna leder dig igenom processen för att konfigurera körningsmiljö för det här exemplet.
 
-### <a name="prerequisites"></a>Krav
-- En [Azure-konto](https://azure.microsoft.com/en-us/free/) (gratisutvärderingar finns)
+### <a name="prerequisites"></a>Förutsättningar
+- En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns)
     - Du skapar ett HDInsight Spark-kluster med 40 arbetarnoder (168 kärnor totala). Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
        - Om du har färre kärnor som är tillgängliga kan du ändra mallen HDInsight-kluster för att minska antalet personer som har etablerats. Instruktioner för detta visas under avsnittet ”Skapa HDInsight Spark-kluster”.
     - Det här exemplet skapar en Batch AI utbildning-kluster med två NC6 (1 GPU, 6 vCPU) virtuella datorer. Kontrollera att ditt konto har tillräckligt med tillgängliga kärnor i östra USA genom att granska ”användning + kvoter” för din prenumeration på Azure-portalen.
@@ -68,7 +70,7 @@ Följande instruktionerna leder dig igenom processen för att konfigurera körni
     - Klient-ID-post, secret och klient-ID för Azure Active Directory-program kommer du att skapa. Dessa autentiseringsuppgifter används senare i den här kursen.
     - När detta skrivs Azure Machine Learning arbetsstationen och Azure Batch AI kan du använda separata fildelar av Azure CLI 2.0. För tydlighetens skull kallar vi i arbetsstationen version av CLI som ”en CLI som startas från Azure Machine Learning arbetsstationen” och allmänna-versionen (som innehåller Batch AI) ”Azure CLI 2.0”.
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)en kostnadsfria verktyg för att koordinera filöverföring mellan Azure storage-konton
-    - Kontrollera att mappen som innehåller den körbara filen AzCopy finns på systemets PATH-miljövariabeln. (Instruktioner för att ändra miljövariabler finns [här](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Kontrollera att mappen som innehåller den körbara filen AzCopy finns på systemets PATH-miljövariabeln. (Instruktioner för att ändra miljövariabler finns [här](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - En SSH-klienten. Vi rekommenderar [PuTTY](http://www.putty.org/).
 
 Det här exemplet har testats på en Windows 10-dator; du ska kunna köra den från alla Windows-datorer, inklusive Azure datavetenskap virtuella datorer. Azure CLI 2.0 har installerats från en MSI enligt [instruktionerna](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Mindre ändringar kan krävas (t.ex, ändringar av filepaths) när du kör det här exemplet på macOS.

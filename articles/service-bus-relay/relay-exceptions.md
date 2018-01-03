@@ -1,6 +1,6 @@
 ---
 title: "Azure Relay-undantag och hur du löser dem | Microsoft Docs"
-description: "Hämta en lista över Azure Relay-undantag och föreslagna åtgärder du kan vidta för att lösa dem."
+description: "Lista över Azure Relay-undantag och föreslagna åtgärder du kan vidta för att lösa dem."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay-undantag
 
@@ -65,7 +65,7 @@ För relä, undantaget radbryts i [System.ServiceModel.QuotaExceededException](h
 ## <a name="timeoutexception"></a>TimeoutException
 En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) anger att en åtgärd som initieras av användaren tar längre tid än tidsgränsen för åtgärden. 
 
-Kontrollera värdet för den [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) egenskapen. Träffa den här gränsen kan även orsaka en [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Kontrollera värdet för den [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) egenskapen. Ansluter till den här gränsen kan även orsaka en [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 För Relay, kan du få tidsgränsfel första gången du öppnar en avsändare relay-anslutning. Det finns två vanliga orsaker till detta undantag:
 

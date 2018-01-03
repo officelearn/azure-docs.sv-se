@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.
+
+## <a name="december-2017"></a>December 2017
+**Agentuppdatering:**
+
+*   Azure AD Connect Health agent för AD DS (version 3.0.145.0)
+  1. Förbättringar för agenten tillgänglighet 
+  2. Tillagda nya kommandona som används för att felsöka agent
+  3. Felkorrigeringar och allmänna förbättringar
+*   Azure AD Connect Health agent för AD FS (version 3.0.145.0)
+  1. Tillagda nya kommandona som används för att felsöka agent
+  2. Förbättringar för agenten tillgänglighet 
+  3. Felkorrigeringar och allmänna förbättringar
+
+## <a name="july-2017"></a>Juli 2017
+**Agentuppdatering:**
+
+*   Azure AD Connect Health agent för AD DS (version 3.0.68.0)
+  1. Felkorrigeringar och allmänna förbättringar
+  2. Stöd för suveräna moln
+*   Azure AD Connect Health agent för AD FS (version 3.0.68.0)
+  1. Felkorrigeringar och allmänna förbättringar
+  2. Stöd för suveräna moln
+
+## <a name="april-2017"></a>April 2017      
+**Agentuppdatering:**
+
+*   Azure AD Connect Health agent för AD FS (version 3.0.12.0)
+  1. Felkorrigeringar och allmänna förbättringar
+*   Azure AD Connect Health agent för AD DS (version 3.0.12.0)
+  1. Prestandaräknare överför förbättringar
+  2. Felkorrigeringar och allmänna förbättringar
 
 ## <a name="october-2016"></a>Oktober 2016
 **Agentuppdatering:**

@@ -1,44 +1,46 @@
 ---
 title: "Azure Behållarinstanser tutorial – förbereda din app"
-description: "Förbereda en app för distribution till Azure Container Instances"
+description: "Azure Behållarinstanser självstudiekursen del 1 av 3 – Förbereda en app för distribution till Azure-Behållarinstanser"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6555b41f2debdfe46ec2d4ece8e3281155099a77
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Skapa behållare för distribution till Azure Container Instances
 
-Azure Container Instances möjliggör distribution av Docker-behållare till en Azure-infrastruktur utan att tillhandahålla några virtuella datorer eller anpassa eventuella tjänster på högre nivå. I den här självstudiekursen, skapa ett litet webbprogram i Node.js och paketet i en behållare som kan köras med Azure Container instanser. Vi går igenom:
+Azure Container Instances möjliggör distribution av Docker-behållare till en Azure-infrastruktur utan att tillhandahålla några virtuella datorer eller anpassa eventuella tjänster på högre nivå. I den här självstudiekursen, skapa ett litet webbprogram i Node.js och paketet i en behållare som kan köras med Azure Container instanser.
+
+I den här artikeln ingår i serien du:
 
 > [!div class="checklist"]
-> * Klona programkällan från GitHub
-> * Skapa behållaravbildningar från en programkälla
-> * Testa avbildningarna i en lokal Docker-miljö
+> * Klona programmets källkod från GitHub
+> * Skapa en behållare avbildning från programmet källa
+> * Testa bilden i en lokal Docker-miljö
 
 I efterföljande självstudiekurser överför avbildningen till ett Azure Container registret och distribuera den till Azure-Behållarinstanser.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här kursen kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
+Den här kursen kräver att du använder Azure CLI version 2.0.23 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI 2.0][azure-cli-install].
 
-Den här kursen förutsätter en grundläggande förståelse av grundläggande Docker begrepp som behållare, behållare avbildningar och basic `docker` kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för behållare.
+Den här kursen förutsätter en grundläggande förståelse av grundläggande Docker begrepp som behållare, behållare avbildningar och basic `docker` kommandon. Om det behövs, se [Kom igång med Docker] [ docker-get-started] för en introduktion om grunderna i behållaren.
 
-För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+Den här kursen behöver en Docker-utvecklingsmiljö installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på någon [Mac][docker-mac], [Windows][docker-windows], eller [Linux] [ docker-linux] system.
 
-Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. Därför rekommenderar vi en lokal installation av Azure CLI och Docker-utvecklingsmiljö.
+Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. På den lokala datorn för att slutföra den här guiden måste du installera Azure CLI och Docker-utvecklingsmiljö.
 
 ## <a name="get-application-code"></a>Hämta programkod
 
-Exemplet i den här självstudien innehåller en enkel webbapp som skapats i [Node.js](http://nodejs.org). Appen har en statisk HTML-sida och ser ut så här:
+Exemplet i den här självstudiekursen innehåller en enkel webbapp som skapats [Node.js][nodejs]. Appen har en statisk HTML-sida och ser ut så här:
 
 ![Självstudieappen visas i webbläsare][aci-tutorial-app]
 
@@ -50,7 +52,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Bygga behållaravbildningen
 
-Den Dockerfile som finns i exempelrepon visar hur behållaren är byggd. Den börjar från en [officiell Node.js-avbildning][dockerhub-nodeimage] baserat på [Alpine Linux](https://alpinelinux.org/), en liten distribution som är lämplig för användning med behållare. Den kopierar sedan programfilerna till behållaren, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
+Den Dockerfile som finns i exempelrepon visar hur behållaren är byggd. Den startar från en [officiella Node.js bild] [ docker-hub-nodeimage] baserat på [Alpine Linux][alpine-linux], en liten distribution som är lämplig för användning med behållare. Den kopierar sedan programfilerna till behållaren, installerar beroenden med Node Package Manager (nodpaketshanteraren) och startar slutligen programmet.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -61,13 +63,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Använd kommandot `docker build` för att skapa behållaravbildningen, och märk den med *aci-tutorial-app*:
+Använd den [docker build] [ docker-build] kommando för att skapa behållaren bilden märkning som *aci kursen app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Utdata från den `docker build` kommando som liknar följande (trunkerad för läsbarhet):
+Utdata från den [docker build] [ docker-build] kommando som liknar följande (trunkerad för läsbarhet):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -88,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Använd `docker images` för att se den skapade avbildningen:
+Använd den [docker bilder] [ docker-images] kommandot för att se den inbyggda avbildningen:
 
 ```bash
 docker images
@@ -127,9 +129,23 @@ Fortsätt till nästa självstudie och lär dig om att lagra behållaravbildning
 > [!div class="nextstepaction"]
 > [Push-avbildningar med Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
 
-<!-- LINKS -->
-[dockerhub-nodeimage]: https://store.docker.com/images/node
-
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
+
+<!-- LINKS - External -->
+[alpine-linux]: https://alpinelinux.org/
+[docker-build]: https://docs.docker.com/engine/reference/commandline/build/
+[docker-get-started]: https://docs.docker.com/get-started/
+[docker-hub-nodeimage]: https://store.docker.com/images/node
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+[nodejs]: http://nodejs.org
+
+<!-- LINKS - Internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli

@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Hantera datorkraft i Azure SQL Data Warehouse (Azure portal)
 > [!div class="op_single_selector"]

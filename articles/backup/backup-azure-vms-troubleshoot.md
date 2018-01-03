@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel påträffades när med Azure Backup med information som visas i tabellen nedan.
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Fel: Den angivna diskkonfigurationen stöds inte
 
@@ -131,7 +131,7 @@ Hur du kontrollerar agentversionen VM på virtuella Windows-datorer:
 Säkerhetskopiering är beroende av utfärdande ögonblicksbild kommandon för underliggande lagringsutrymmet. Att ha åtkomst till lagring eller fördröjningar i en ögonblicksbild för körning av aktiviteten inte kan orsaka säkerhetskopieringsjobb misslyckas. Följande kan orsaka ögonblicksbild aktivitet, fel.
 
 1. Nätverksåtkomst till lagring blockeras med hjälp av NSG<br>
-    Lär dig mer om hur du [aktivera nätverksåtkomst](backup-azure-arm-vms-prepare.md#network-connectivity) lagring med hjälp av antingen Vitlistning av IP-adresser eller via en proxyserver.
+    Lär dig mer om hur du [aktivera nätverksåtkomst](backup-azure-arm-vms-prepare.md#establish-network-connectivity) lagring med hjälp av antingen Vitlistning av IP-adresser eller via en proxyserver.
 2. Virtuella datorer med Sql Server säkerhetskopiering har konfigurerats kan orsaka ögonblicksbild uppgiften fördröjning <br>
    Standard VM säkerhetskopieringsproblem VSS fullständig säkerhetskopiering på virtuella Windows-datorer. Detta kan orsaka försening ögonblicksbild körning på virtuella datorer som kör Sql-servrar och om säkerhetskopiering av Sql Server är konfigurerad. Ange följande registernyckel om det uppstår fel vid säkerhetskopiering på grund av problem med ögonblicksbilder.
 
@@ -163,7 +163,7 @@ När namnmatchningen utförs korrekt måste åtkomst till Azure IP-adresser ocks
    * Avblockera en IP-adresser med hjälp av den [ny NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Kör denna cmdlet i Azure-dator i ett upphöjt PowerShell-fönster (Kör som administratör).
    * Lägg till regler NSG: N (om du har en plats) för att tillåta åtkomst till IP-adresser.
 2. Skapa en sökväg för HTTP-trafik
-   * Om du har några nätverksbegränsning på plats (en Nätverkssäkerhetsgrupp, till exempel) att distribuera en HTTP-proxyserver för att dirigera trafiken. Steg för att distribuera en HTTP-proxyserver kan hitta [här](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Om du har några nätverksbegränsning på plats (en Nätverkssäkerhetsgrupp, till exempel) att distribuera en HTTP-proxyserver för att dirigera trafiken. Steg för att distribuera en HTTP-proxyserver kan hitta [här](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Lägg till regler NSG: N (om du har en plats) för att tillåta åtkomst till INTERNET från HTTP-Proxy.
 
 > [!NOTE]

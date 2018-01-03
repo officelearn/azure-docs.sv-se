@@ -1,24 +1,16 @@
 ---
-title: "Granska arkitektur för VMware-replikering till Azure | Microsoft Docs"
+title: VMware till Azure replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
 description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella VMware-datorer till Azure med Azure Site Recovery-tjänsten"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware till Azure replikeringsarkitektur
 
@@ -85,5 +77,4 @@ När din primära lokala plats är tillgänglig igen, kan du återställa dit.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska supportmatrisen Följ guiden för att aktivera VMware till Azure-replikering.
-Kör en redundans och återställning efter fel.
+Följ [självstudierna](tutorial-vmware-to-azure.md) att aktivera VMware till Azure-replikering.

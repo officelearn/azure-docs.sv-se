@@ -5,13 +5,13 @@ author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 429a9150d1fbf50c0e3fa2046eb64affc8db8e5d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="group-machines-for-assessment"></a>Grupp datorer för utvärdering
 
@@ -20,7 +20,7 @@ Den här artikeln beskriver hur du skapar en grupp datorer för bedömning av [A
 
 ## <a name="create-a-group"></a>Skapa en grupp
 
-1. I den **instrumentpanelen** Azure migrera-projektet klickar du på **grupper** > **+ grupp**, och ange ett gruppnamn.
+1. I den **översikt** Azure migrera projektet, under hantera, klickar du på **grupper** > **+ grupp**, och ange ett gruppnamn.
 2. Lägg till en eller flera datorer i gruppen och klicka på **skapa**. 
 3. Du kan också välja för att köra en ny utvärdering för gruppen. 
 
@@ -30,5 +30,5 @@ När gruppen har skapats kan du ändra den genom att välja gruppen på den **gr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du använder [datorn beroende mappning](how-to-create-group-machine-dependencies.md) att skapa mer detaljerade grupper.
+- Lär dig hur du använder [datorn beroende mappning](how-to-create-group-machine-dependencies.md) skapa hög exakthet grupper.
 - [Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.

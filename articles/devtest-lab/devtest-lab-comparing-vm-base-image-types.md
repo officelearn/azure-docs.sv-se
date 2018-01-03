@@ -3,7 +3,7 @@ title: "Jämföra anpassade avbildningar och formler i DevTest Labs | Microsoft 
 description: "Lär dig mer om skillnaderna mellan anpassade avbildningar och formler som VM baserar så att du kan bestämma vilket som passar din miljö."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a3cb259a-7d80-40ec-8ee8-45105704d589
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: tarcher
-ms.openlocfilehash: ff771abc26c08f0adb977c29739d2f5c91924b21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 78c0255f142bd3d4b2311ac953541153b72ac12d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade avbildningar och formler i DevTest Labs
-Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapa nya virtuella datorer](devtest-lab-add-vm-with-artifacts.md). Dock viktiga skillnaden mellan anpassade avbildningar och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuella nätverk, undernät och artefakter. Inställningarna förinställda ställs in med standardvärden som kan åsidosättas vid tidpunkten för att skapa en virtuell dator. Den här artikeln förklarar några av (tekniker) och nackdelar (nackdelar) till att använda anpassade avbildningar jämfört med formler.
+Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapa nya virtuella datorer](devtest-lab-add-vm.md). Dock viktiga skillnaden mellan anpassade avbildningar och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuella nätverk, undernät och artefakter. Inställningarna förinställda ställs in med standardvärden som kan åsidosättas vid tidpunkten för att skapa en virtuell dator. Den här artikeln förklarar några av (tekniker) och nackdelar (nackdelar) till att använda anpassade avbildningar jämfört med formler.
 
 ## <a name="custom-image-pros-and-cons"></a>Anpassad bild- och nackdelar
 Anpassade avbildningar är statisk, ändras kan du skapa virtuella datorer från en önskad miljö. 

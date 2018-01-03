@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introduktion till Microsoft Azure
 Microsoft Azure är Microsofts programplattform för det offentliga molnet.  Syftet med den här artikeln är att ge dig en grund för att förstå grunderna i Azure, även om du inte känner till något om cloud computing.
 
 **Hur du läser den här artikeln**
 
-Azure växer hela tiden så att det är enkelt att överbelastas.  Börja med de grundläggande tjänster, som visas först i den här artikeln och fortsätter sedan till ytterligare tjänster. Det betyder inte att inte du kan bara de ytterligare tjänsterna ensamt, men de grundläggande tjänsterna utgör kärnan i ett program som körs i Azure.
+Azure växer hela tiden så att det är enkelt att överbelastas.  Börja med de grundläggande tjänster, som visas först i den här artikeln och fortsätter sedan till ytterligare tjänster. Det betyder att du inte kan använda bara de ytterligare tjänsterna sig själva. Men de grundläggande tjänsterna utgör kärnan i ett program som körs i Azure.
 
 **Ge feedback**
 
 Din feedback är viktig. Den här artikeln bör du få en effektiv översikt över Azure. Om det inte berätta i kommentaravsnittet längst ned på sidan. Ge vissa detaljer på vad du förväntade dig att se och hur vi kan förbättra artikeln.  
 
 ## <a name="the-components-of-azure"></a>Komponenterna i Azure
-Azure grupperar tjänster i kategorier i hanteringsportalen och på olika visuella hjälpmedel som den [vad är Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . Hanteringsportalen är det du använder för att hantera de flesta (men inte alla) tjänster i Azure.
+Azure grupperar tjänster i kategorier i Azure-portalen och på olika visuella hjälpmedel som den [vad är Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/). Den [Azure-portalen](http://portal.azure.com) är det du använder för att hantera tjänster i Azure.
 
 Den här artikeln använder en **annan organisation** pratar om tjänster baserat på liknande funktion och identifiera viktiga underordnade tjänster som ingår i större de.  
 
 ![Azure-komponenter](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Bild: Azure tillhandahåller Internet-tillgängliga programtjänster körs i Azure-datacenter.*
 
-## <a name="management-portal"></a>Hanteringsportal
-Azure har ett webbgränssnitt som kallas den [hanteringsportalen](http://manage.windowsazure.com) som gör det möjligt för administratörer att få åtkomst till och administrera de flesta, men inte alla Azure-funktioner.  Microsoft släpper vanligtvis nyare UI-portal i beta innan den dras tillbaka en tidigare version. Den nya som kallas den [”Azure Portal”](https://portal.azure.com/).
-
-Det är vanligtvis en lång överlappning när båda portaler är aktiva. Även om kärntjänster visas i båda portalerna kanske inte alla funktioner tillgängliga i båda. Nyare tjänster kan visas i nyare portal första och äldre tjänster och funktioner kan endast finnas i den äldre.  Det här meddelandet är om du inte hittar något i den äldre portalen kontrollerar den nyare och vice versa.
+## <a name="azure-portal"></a>Azure Portal
+Azure har ett webbgränssnitt som kallas den [Azure-portalen](http://portal.azure.com) som gör det möjligt för administratörer att få åtkomst till och administrera Azure-funktioner och tjänster.  
 
 ## <a name="compute"></a>Compute
 En av de mest grundläggande sakerna som har en molnplattform är att köra program. Varje Azure compute-modeller har sin egen roll.
@@ -66,7 +64,7 @@ Den här allmän metod för molntjänster kan användas för att lösa många ol
 **Scenarier för virtuell dator**
 
 1. **Utveckling och testning** -du kan använda dem för att skapa en billig utveckling och testning plattform som du kan stänga av när du är klar. Du kan också skapa och köra program som använder oavsett språk och bibliotek som du vill. Dessa program kan använda något av alternativen för hantering av data som Azure tillhandahåller och du kan också välja att använda SQL Server eller en annan DBMS som körs i en eller flera virtuella datorer.
-2. **Flytta program till Azure (Lift och SKIFT)** -”Lift och SKIFT” refererar till mycket flytta programmet som du skulle använda en gaffeltruck för att flytta ett stort objekt.  Du ”lyfter” på den virtuella Hårddisken från ditt lokala datacenter och ”växlas” den till Azure och kör det det.  Du behöver normalt krävs en del arbete för att ta bort beroenden i andra system. Om det finns för många, kan du välja alternativ 3 i stället.  
+2. **Flytta program till Azure (Lift och SKIFT)** -”Lift och SKIFT” refererar till mycket flytta programmet som du skulle använda en gaffeltruck för att flytta ett stort objekt.  Du ”lyfter” på den virtuella Hårddisken från ditt lokala datacenter och ”växlas” den till Azure och kör det det.  Du har vanligtvis krävs en del arbete för att ta bort beroenden i andra system. Om det finns för många, kan du välja alternativ 3 i stället.  
 3. **Utöka ditt Datacenter** -Använd Azure virtuella datorer som ett tillägg till ditt lokala datacenter kör SharePoint eller andra program. Stöd för detta är det möjligt att skapa Windows-domäner i molnet genom att köra Active Directory i virtuella Azure-datorer. Du kan använda Azure Virtual Network (beskrivs senare) för att koppla det lokala nätverket och nätverket i Azure tillsammans.
 
 ### <a name="web-apps"></a>Web Apps
@@ -75,7 +73,7 @@ Den här allmän metod för molntjänster kan användas för att lösa många ol
 
 En av de vanligaste sakerna som människor gör i molnet körs webbplatser och webbprogram. Virtuella Azure-datorer kan detta, men den lämnar du fortfarande med ansvar för att administrera en eller flera virtuella datorer och de underliggande operativsystemen. Cloud services web-roller kan göra detta, men distribuera och underhålla dem. fortfarande tar administrativt arbete.  Vad händer om du bara vill ha en webbplats där någon annan tar hand om det administrativa arbetet åt dig?
 
-Detta är exakt vad Web Apps erbjuder. Den här modellen för beräkning erbjuder en hanterad webbmiljö med hjälp av Azure Management portal samt API: er. Du kan flytta ett befintligt program för webbplatsen i Web Apps oförändrade eller skapa en ny direkt i molnet. När en webbplats körs kan du lägga till eller ta bort instanser dynamiskt, förlita dig på Azure Web Apps att läsa in Utjämna begäranden om över dem. Appar i Azure erbjuder både en delad, där webbplatsen körs i en virtuell dator med andra platser, och en standard som gör att en plats ska köras på egen virtuell dator. Standard alternativet kan du öka storleken (prestanda) för dina instanser om det behövs.
+Detta är exakt vad Web Apps erbjuder. Den här modellen för beräkning erbjuder en hanterad webbmiljö med hjälp av Azure portal samt API: er. Du kan flytta ett befintligt program för webbplatsen i Web Apps oförändrade eller skapa en ny direkt i molnet. När en webbplats körs kan du lägga till eller ta bort instanser dynamiskt, förlita dig på Azure Web Apps att läsa in Utjämna begäranden om över dem. Appar i Azure erbjuder både en delad, där webbplatsen körs i en virtuell dator med andra platser, och en standard som gör att en plats ska köras på egen virtuell dator. Standard alternativet kan du öka storleken (prestanda) för dina instanser.
 
 För utveckling stöder Web Apps .NET, PHP, Node.js, Java och Python tillsammans med SQL Database och Azure-databas för MySQL för relationslagret. Den innehåller också inbyggda stöd för flera populära program, inklusive WordPress, Joomla och Drupal. Målet är att tillhandahålla en billig, skalbara och fritt och praktiskt plattform för att skapa webbplatser och webbprogram i det offentliga molnet.
 
@@ -83,13 +81,13 @@ För utveckling stöder Web Apps .NET, PHP, Node.js, Java och Python tillsammans
 
 Web Apps är avsedd att vara användbara för företag, utvecklare och web design myndigheter. För företag är det ett enkelt att hantera, skalbar, mycket säkert och hög tillgänglighet lösning för att köra förekomst webbplatser. När du behöver konfigurera en webbplats, är det bäst att börja med Azure-Webbappar och fortsätta till molntjänster när du behöver en funktion som inte är tillgänglig. Se slutet av avsnittet ”beräkning” för flera länkar som kan hjälpa dig att välja mellan alternativen.
 
-### <a name="cloud-services"></a>Molntjänster
+### <a name="cloud-services"></a>Cloud Services
 ![Azure-molntjänst](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Bild: Azure Cloud Services tillhandahåller en mycket skalbar anpassad kod körs på en plattform som en tjänst (PaaS)-miljö*
 
-Anta att du vill skapa en moln-program som har stöd för många samtidiga användare, inte kräver mycket administration och aldrig kraschar. Du kanske en upprättad programvaruleverantör, till exempel som har beslutat att omfatta programvara som en tjänst (SaaS) genom att skapa en version av ett program i molnet. Eller kanske är en Startup som skapar en konsument-program som du förväntar dig ökar snabbt. Om du bygger på Azure, vilka körningsmodell bör du använda?
+Anta att du vill skapa en moln-program som har stöd för många samtidiga användare, inte kräver mycket administration och aldrig kraschar. Du kanske en upprättad programvaruleverantör, till exempel som har beslutat att omfatta programvara som en tjänst (SaaS) genom att skapa en version av ett program i molnet. Eller kanske är en Startup som skapar en konsument-program som du förväntar dig att öka snabbt. Om du bygger på Azure, vilka körningsmodell bör du använda?
 
-Azure Web Apps gör den här typen av webbprogram, men det finns vissa begränsningar. Du har inte administratörsbehörighet, till exempel vilket innebär att du inte kan installera skadlig programvara. Virtuella datorer i Azure ger dig stor flexibilitet, inklusive administrativ åtkomst och du har använda den för att skapa en mycket skalbar program, men måste du hantera många aspekter av tillförlitlighet och administration av dig själv. Vad som är ett alternativ som ger dig kontroll du behöver, men hanterar också mesta av arbetet som krävs för tillförlitlighet och administration.
+Azure Web Apps gör den här typen av webbprogram, men det finns vissa begränsningar. Du har inte administratörsbehörighet, till exempel vilket innebär att du inte kan installera skadlig programvara. Virtuella datorer i Azure ger stor flexibilitet, inklusive administrativ åtkomst. Du kan använda den för att skapa ett mycket skalbart program. Men du måste hantera många aspekter av tillförlitlighet och administration av dig själv. Vad som är ett alternativ som ger dig kontroll du behöver, men hanterar också mesta av arbetet som krävs för tillförlitlighet och administration.
 
 Detta är exakt vad som tillhandahålls av Azure Cloud Services. Den här tekniken är utformad att stödja skalbar, tillförlitlig och låg-admin-program, och den är ett exempel på hur ofta kallas plattform som en tjänst (PaaS). För att använda den, kan du skapa ett program med hjälp av den teknik som du väljer, till exempel C#, Java, PHP, Python, Node.js eller något annat. Koden utför på virtuella datorer (kallas instanser) kör en version av Windows Server.
 
@@ -162,7 +160,7 @@ Ibland vill du att flytta stora mängder data till Azure. Som skulle ta lång ti
 **Scenarier för Import / Export**
 
 * **Stora datamigrering** -när du har stora mängder data (terabyte) som du vill överföra till Azure Import/Export-tjänsten är ofta mycket snabbare och kanske billigare än att överföra den via internet. När data är i blobbar, kan du bearbeta det till andra former, till exempel tabellagring eller en SQL-databas.
-* **Arkiverade dataåterställning** -du kan använda Import/Export för att Microsoft överför stora mängder data lagras i Azure Blob Storage till en lagringsenhet som du skickar och har enheten levereras till en plats som du önskar. Eftersom detta kan ta lite tid, men det är inte ett bra alternativ för katastrofåterställning. Det är bäst för arkiverade data som du inte behöver snabb åtkomst till.
+* **Arkiverade dataåterställning** -du kan använda Import/Export för att Microsoft överför stora mängder data lagras i Azure Blob Storage till en lagringsenhet som du skickar och har enheten levereras till en plats som du önskar. Eftersom detta ta lite tid är den inte ett bra alternativ för katastrofåterställning. Det är bäst för arkiverade data som du inte behöver snabb åtkomst till.
 
 ### <a name="file-service"></a>Tjänsten File
 ![Tjänsten Azure File](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png)    
@@ -211,7 +209,7 @@ Mer information om ExpressRoute finns [teknisk översikt för ExpressRoute](expr
 
 Om din Azure-program körs i flera datacenter, kan du använda Azure Traffic Manager för att skicka begäranden från användare som använder det Intelligent mellan instanser av programmet. Du kan också dirigera trafik till tjänster inte körs i Azure så länge de är tillgängliga från internet.  
 
-Ett Azure-program med användare i en enda del av världen kan köras i endast en Azure-datacenter. Ett program med användare som spridda runtom i världen är dock troligt att köras i flera Datacenter kanske även alla. Står inför ett problem i den här andra situationen: hur du använder det Intelligent dirigera användare till programinstanser? I de flesta fall, vill du förmodligen varje användare att komma åt datacenter som är närmast, eftersom du förmodligen får henne bästa svarstid. Men vad händer om instansen av programmet är överbelastad eller inte är tillgängligt? I det här fallet, skulle det vara praktiskt att dirigera sin begäran automatiskt till en annan datacenter. Detta är exakt vad görs av Azure Traffic Manager.
+Ett Azure-program med användare i en enda del av världen kan köras i endast en Azure-datacenter. Ett program med användare som spridda runtom i världen är dock troligt att köras i flera Datacenter kanske även alla. Står inför ett problem i den här andra situationen: hur du använder det Intelligent dirigera användare till programinstanser? I de flesta fall, vill du förmodligen varje användare att komma åt datacentret som är närmast dem, eftersom det ger den bästa svarstiden. Men vad händer om instansen av programmet är överbelastad eller inte är tillgängligt? I det här fallet, skulle det vara praktiskt att dirigera begäran automatiskt till en annan datacenter. Detta är exakt vad görs av Azure Traffic Manager.
 
 Ägaren till ett program definierar regler som anger hur begäranden från användare som ska dirigeras till datacenter och förlitar sig på Traffic Manager att genomföra de här reglerna. Användare kan normalt dirigeras till närmaste Azure-datacentret men skickas till en annan när svarstid från sina datacenter standard överskrider svarstid från andra datacenter. Globalt distribuerade program med många användare är har en inbyggd tjänst för att hantera problem som dessa användbart.
 
@@ -234,7 +232,7 @@ För att undvika förvirring - finns det inte en värdbaserad eller webbaserade 
 
 Det omfattar en värdbaserad källkontrollsystem kallas Team Foundation-tjänst som erbjuder versionskontroll och arbete objektet spårning.  Du kan även använda Git för versionskontroll om du föredrar som. Och du kan variera källkontrollsystem som du använder av projektet. Du kan skapa obegränsade privata grupprojekt nås från var som helst i världen.  
 
-Visual Studio Team Services innehåller en belastningen tester. Du kan köra belastningstester som skapats i Visual Studio på virtuella datorer i molnet. Du anger det totala antalet användare som du vill testa med att läsa in och Visual Studio Team Services avgör automatiskt hur många agenter krävs få igång de nödvändiga virtuella datorerna och kör din belastningstester. Om du är en MSDN-prenumerant kan hämta du tusentals ledigt användarminuter belastningen Testa varje månad.
+Visual Studio Team Services innehåller en belastningen tester. Du kan köra belastningstester som skapats i Visual Studio på virtuella datorer i molnet. Du anger det totala antalet användare som du vill läsa in testet med och Visual Studio Team Services automatiskt avgör hur många agenter krävs få igång de nödvändiga virtuella datorerna och kör din belastningstester. Om du är en MSDN-prenumerant kan hämta du tusentals ledigt användarminuter belastningen Testa varje månad.
 
 Visual Studio Team Services har också stöd för flexibel utveckling med funktioner som kontinuerlig integration bygger, Kanban: er och virtuella team lokaler.
 
@@ -249,7 +247,7 @@ Men organisationer som redan har ett lokalt system kan testa nya projekt i Visua
 
 *Bild: Application Insights övervakar prestanda och användning av appen live webb- eller enhet.*
 
-När du har publicerat din app – om den körs på mobila enheter, datorer eller webbläsare - anger Application Insights hur den fungerar och vad användarna gör med den. Kommer att antalet krascher och lång svarstid, varning om siffrorna mellan oacceptabel tröskelvärden och hjälpa dig att diagnostisera problemen.
+När du har publicerat din app – om den körs på mobila enheter, datorer eller webbläsare - anger Application Insights hur den fungerar och vad användarna gör med den. Det antal krascher och långsamma svar och Avisera dig om siffrorna mellan oacceptabel tröskelvärden och hjälpa dig att diagnostisera problemen.
 
 När du utvecklar en ny funktion planera dess framgångarna mäts med användare. Genom att analysera användningsmönster, förstå vad som fungerar bäst för dina kunder och förbättra din app i varje utvecklingscykeln.
 
@@ -281,9 +279,9 @@ Azure API Management gör det lättare för organisationer att publicera API: er
 
 **Scenarier för API-hantering**
 
-Anta att ditt företag har en uppsättning enheter som alla måste motringning till en central tjänst för att hämta data, till exempel ett leverans företag som har enheter i varje lastbil på vägen.  Har ska företaget du konfigurera ett system för att spåra eget lastbilar så att den kan förutsäga och uppdatera leveranstider på ett tillförlitligt sätt. Den kan vet hur många lastbilar har och planera på lämpligt sätt.  Varje lastbil måste en enhet som anropar tillbaka till en central plats med dess placering och hastighet data och kanske.
+Anta att ditt företag har en uppsättning enheter som alla måste motringning till en central tjänst för att hämta data, till exempel ett leverans företag som har enheter i varje lastbil på vägen.  Har vill företaget konfigurera ett system för att spåra eget lastbilar så att den kan förutsäga och uppdatera leveranstider på ett tillförlitligt sätt. Den kan vet hur många lastbilar har och planera på lämpligt sätt.  Varje lastbil måste en enhet som anropar tillbaka till en central plats med dess placering och hastighet data och kanske.
 
-En kund leverans företagets skulle förmodligen också dra nytta av komma informationen placering.  Kunden kan använda för att vet hur långt produkter har överföras, där de fastna, hur mycket de betalar längs vissa vägar (om det kombineras med vad de betalt att leverera). Om företaget leverans sammanställer informationen redan, kan många kunder betalar för den.  Men sedan leverans företaget måste kunna erbjuda ett sätt att ge kunderna data. När de ger åtkomst till kunder kanske de inte har kontroll över hur ofta data efterfrågas. De måste ange regler om vem som kan komma åt vilka data. Alla dessa regler måste vara inbyggt i sina externt API. Detta är där API-hantering kan hjälpa.  
+En kund leverans företagets skulle förmodligen också dra nytta av komma informationen placering.  Kunden kan använda för att vet hur långt produkter har överföras, där de fastna, hur mycket de betalar längs vissa vägar (om det kombineras med vad de betalt att leverera). Om företaget leverans sammanställer informationen redan, kan många kunder betalar för den.  Men sedan leverans företaget måste kunna erbjuda ett sätt att ge kunderna data. När de ger åtkomst till kunder kanske de inte har kontroll över hur ofta data efterfrågas. De måste du ange regler om vem som kan komma åt vilka data. Alla dessa regler måste vara inbyggt i sina externt API. Detta är där API-hantering kan hjälpa.  
 
 ## <a name="identity-and-access"></a>Identitet och åtkomst
 Arbeta med identity ingår i de flesta program. Att veta vem en användare är kan ett program bestämma hur den ska interagera med användaren. Azure tillhandahåller tjänster för att spåra identitet samt integrera den med identitetslagringar kanske du redan använder.
@@ -347,7 +345,7 @@ Notification Hubs är avsedd att fungera med alla serverdelar. Du kan använda A
 
 Du kan skicka de senaste nyheterna, sporting händelser och produkten meddelande meddelanden till miljontals användare med låg latens. Företag kan meddela sina anställda om ny tid känsliga kommunikationer, till exempel säljleads, så att anställda inte behöver ständigt kontrollera e-post eller andra program för att hålla dig informerad. Du kan också skicka en-gång-lösenord som krävs för multi-Factor authentication.
 
-## <a name="back-up"></a>Säkerhetskopiera
+## <a name="back-up"></a>Säkerhetskopiering
 Alla företag behöver säkerhetskopiera och återställa data. Du kan använda Azure för att säkerhetskopiera och återställa ditt program i molnet eller lokalt. Azure erbjuder olika alternativ för att hjälpa beroende på vilken typ av säkerhetskopia.
 
 ### <a name="site-recovery"></a>Webbplatsåterställning
@@ -380,7 +378,7 @@ Oavsett vad det gör, måste kod ofta interagera med annan kod.  I vissa fall ä
 
 Queuing är en enkel idé: ett program visas ett meddelande i en kö och meddelandet så småningom läsa av ett annat program. Om ditt program behöver bara den här enkla tjänsten, kan Azure köer vara det bästa valet.
 
-Ange liknande queuing tjänster på grund av hur Azure vuxen över tid, Azure Storage-köer och Service Bus-köer. Beskrivs skälen varför du vill använda en via en annan i ganska tekniska dokumentet [Azure köer och Service Bus-köer - skillnad från och med](http://msdn.microsoft.com/library/azure/hh767287.aspx).  I många fall är antingen kommer att fungera.
+Ange liknande queuing tjänster på grund av hur Azure vuxen över tid, Azure Storage-köer och Service Bus-köer. Beskrivs skälen varför du vill använda en via en annan i ganska tekniska dokumentet [Azure köer och Service Bus-köer - skillnad från och med](http://msdn.microsoft.com/library/azure/hh767287.aspx).  I många fall är antingen fungerar.
 
 **Scenarier för kön**
 
@@ -461,7 +459,7 @@ Prestanda är alltid viktigt för ett program. Program tenderar att få åtkomst
 
 Ett Cloud Services-program kan lagra data i det här cacheminnet och sedan hämta direkt utan att behöva komma åt beständig lagring. Cachen kan underhållas i programmets virtuella datorer eller anges av virtuella datorer som är dedikerad enbart för cachelagring. I båda fallen cachen kan distribueras, med data som den innehåller sprids över flera virtuella datorer i ett Azure-datacenter.
 
-Azure har ett antal olika cache-tekniker som har flyttat över tid. I den ordning som de har introducerats finns en delad i rollen hanteras och Redis-cache. Delade cachelagring är en äldre teknik och du bör inte skapa nya implementeringar med den. Hanterade cacheminnet har samma funktioner för cachelagring i Rollinstanser, men som hanterad tjänst utanför Azure-hanteringsportalen. Redis-Cache är i förhandsgranskningen. Redis-implementering har det största antalet funktioner och rekommenderas när du skriver nya cachelagring kod.
+Azure har ett antal olika cache-tekniker som har flyttat över tid. I den ordning som de har introducerats finns en delad i rollen hanteras och Redis-cache. Delade cachelagring är en äldre teknik och du bör inte skapa nya implementeringar med den. Hanterade cacheminnet har samma funktioner för cachelagring i Rollinstanser, men som hanterad tjänst utanför Azure-portalen. Redis-implementering har det största antalet funktioner och rekommenderas när du skriver nya cachelagring kod.
 
 **Scenarier för Azure Cache**
 
@@ -527,7 +525,7 @@ En mer visuell översikt över hur Media Services fungerar kan du hämta den [Az
 ![Azure handel](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Bild: Azure Marketplace och Azure Store kan du söka efter och köpa Azure-program och kommersiella datauppsättningar och använda dem som en del av din Azure-program.**
 
-Skillnaden mellan dem är att Marketplace ligger utanför Azure-hanteringsportalen, men Store kan nås från i portalen. Potentiella kunder kan söka efter Azure-program som uppfyller deras behov. Kunder kan söka efter kommersiell datauppsättningar, inklusive demografisk data, ekonomiska data, geografiska data och mycket mer. När de hittar något de som kommer de åt den från leverantören, direkt via Marketplace eller Store-webbplatser eller i vissa fall från hanteringsportalen. Program kan också använda API: et för Bing Search via Marketplace ge dem åtkomst till web sökresultaten.
+Skillnaden mellan dem är att Marketplace ligger utanför Azure-portalen, men Store kan nås från i portalen. Potentiella kunder kan söka efter Azure-program som uppfyller deras behov. Kunder kan söka efter kommersiell datauppsättningar, inklusive demografisk data, ekonomiska data, geografiska data och mycket mer. När de hittar något de som kommer de åt den från leverantören, direkt via Marketplace eller Store-webbplatser eller i vissa fall från Azure-portalen. Program kan också använda API: et för Bing Search via Marketplace ge dem åtkomst till web sökresultaten.
 
 **Commerce-scenarier**
 

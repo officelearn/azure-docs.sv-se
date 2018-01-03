@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/30/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera automatiskt diagnostikinställningar när resursen skapas med hjälp av en Resource Manager-mall
 I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) Konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta strömning dina diagnostikloggar och mått i Händelsehubbar arkivering dem i ett Lagringskonto eller skicka dem till logganalys när en resurs skapas automatiskt.
@@ -40,19 +40,31 @@ Nedan kan vi ge ett exempel på mallen JSON-fil måste du generera för icke-ber
 ## <a name="non-compute-resource-template"></a>Icke-beräkningsresurser mall
 För icke-beräkningsresurser behöver du göra två saker:
 
-1. Lägga till parametrar till blob med parametrar för lagringskontonamn, service bus regel-ID och/eller OMS logganalys arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar för Händelsehubbar och/eller skicka loggar till logganalys).
+1. Lägga till parametrar till blob med parametrar för lagringskontonamn, event hub auktorisering regel-ID och/eller OMS logganalys arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar för Händelsehubbar och/eller skicka loggar till loggen Analytics).
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
@@ -72,10 +84,12 @@ För icke-beräkningsresurser behöver du göra två saker:
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -89,7 +103,7 @@ För icke-beräkningsresurser behöver du göra två saker:
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -102,7 +116,7 @@ För icke-beräkningsresurser behöver du göra två saker:
     ]
     ```
 
-Egenskaper för blob för Diagnostikinställningen följer [det format som beskrivs i den här artikeln](https://msdn.microsoft.com/library/azure/dn931931.aspx). Att lägga till den `metrics` egenskapen gör att du kan även skicka resurs mått till dessa samma utdata, under förutsättning att [resursen stöder Azure-Monitor mått](monitoring-supported-metrics.md).
+Egenskaper för blob för Diagnostikinställningen följer [det format som beskrivs i den här artikeln](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Att lägga till den `metrics` egenskapen gör att du kan även skicka resurs mått till dessa samma utdata, under förutsättning att [resursen stöder Azure-Monitor mått](monitoring-supported-metrics.md).
 
 Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktuppspelning Händelsehubbar och lagring i ett lagringskonto.
 
@@ -122,16 +136,28 @@ Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktup
       "type": "string",
       "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId": {
@@ -188,10 +214,12 @@ Här är ett fullständigt exempel som skapar en Logikapp och aktiverar direktup
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "properties": {
+            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {

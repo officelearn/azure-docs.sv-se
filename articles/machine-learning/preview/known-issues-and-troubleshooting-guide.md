@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -28,7 +28,7 @@ Vi har en MSDN-Forum kan du skriva frågor. Produktteamet övervakar forumet akt
 ## <a name="gather-diagnostics-information"></a>Samla in diagnostikinformation
 Ibland kan det vara användbart om du kan ange diagnostikinformation när be om hjälp. Här är där loggfilerna live:
 
-### <a name="installer"></a>Installer
+### <a name="installer-log"></a>Installer-loggen
 Om du stöter på problem under installationen finns installer loggfilerna här:
 
 ```
@@ -40,18 +40,7 @@ Om du stöter på problem under installationen finns installer loggfilerna här:
 ```
 Du kan zip-innehållet i de här katalogerna och skicka det till oss för diagnostik.
 
-### <a name="app-update"></a>Uppdatering för App 
-#### <a name="no-update-notification-on-windows-desktop"></a>Inga meddelanden om uppdateringar på skrivbordet 
-Det här problemet åtgärdas i en kommande uppdatering. Under tiden är lösningen att undvika att starta appen från genvägen i Aktivitetsfältet. I stället att starta appen med hjälp av Start-menyn eller starta sökfältet eller genvägen på skrivbordet (om du har en). 
-
-#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Inga meddelanden om uppdateringar på en Ubuntu Data Sciece Virtual Machine (DSVM)
-Utför följande steg för att hämta senaste programmet:   
-   - ta bort mappen \Users\AppData\Local\amlworkbench
-   - ta bort skriptet`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
-   - ta bort genväg på skrivbordet som startar skriptet ovan
-   - installera rätt sätt med [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
-
-### <a name="workbench-desktop-app"></a>Arbetsstationen skrivbordsapp
+### <a name="workbench-desktop-app-log"></a>Arbetsstationen skrivbordsapp logg
 Om du har problem med att logga in, eller om arbetsstationen skrivbordet krascher, hittar du här loggfiler:
 ```
 # Windows
@@ -62,7 +51,7 @@ Om du har problem med att logga in, eller om arbetsstationen skrivbordet krasche
 ``` 
 Du kan zip-innehållet i de här katalogerna och skicka det till oss för diagnostik.
 
-### <a name="experiment-execution"></a>Körningen av experimentet
+### <a name="experiment-execution-log"></a>Experiment körningsloggen
 Om ett visst skript misslyckas under överföring från skrivbordsappen, försök att skicka via med hjälp av CLI `az ml experiment submit` kommando. Detta bör du få fullständigt felmeddelande i JSON-format och viktigast av allt innehåller en **åtgärds-ID** värde. Skicka oss JSON-filen inklusive den **åtgärds-ID** och vi kan hjälpa till att diagnostisera. 
 
 Om ett visst skript lyckas skicka misslyckas körning, ska skrivas på **kör ID** att identifiera den viss körningen. Du kan packa upp de relevanta loggfiler med hjälp av följande kommando:
@@ -95,6 +84,8 @@ När du arbetar i Azure ML-arbetsstationen, kan du också skicka en bister (elle
 - Text klustring transformeringar stöds inte för Mac.
 
 - RevoScalePy bibliotek stöds bara på Windows och Linux (i behållare med Docker). Det finns inte stöd för macOS.
+
+- Jupyter-anteckningsböcker har en maxstorlek gräns på 5 MB när du öppnar dem från appen arbetsstationen. Du kan öppna stora anteckningsböcker från CLI kommandot az ml anteckningsboken start och ren cell matar ut för att minska filstorleken.
 
 ## <a name="cant-update-workbench"></a>Det går inte att uppdatera arbetsstationen
 När en ny uppdatering är tillgänglig, visas arbetsstationen app webbsida ett meddelande som talar om den nya uppdateringen. Du bör se en uppdatering Aktivitetsikon som visas i det nedre vänstra hörnet på appen på på klockikonen. Klicka på skylt och Följ guiden installationsprogrammet för att installera uppdateringen. 
@@ -207,7 +198,18 @@ $ docker system prune -a
 
 Du kan också lägga till en datadisk och konfigurera Docker-motorn om du vill använda datadisken för lagring av bilder. Här är [hur du lägger till en datadisk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Du kan sedan [ändra där avbildningar lagras i Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+
+```azure-cli
+#Deallocate VM (stopping will not work)
+$ az vm deallocate --resource-group myResourceGroup  --name myVM
+
+# Update Disc Size
+$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+    
+# Start VM    
+$ az vm start --resource-group myResourceGroup  --name myVM
+```
 
 ## <a name="sharing-c-drive-on-windows"></a>Dela C-enheten i Windows
 Om du kör i en lokal dockerbehållare i Windows ställer `sharedVolumes` till `true` i den `docker.compute` filen `aml_config` kan förbättra prestanda för körning. Detta kräver dock du dela C-enheten i den _Docker för Windows-verktyget för_. Om du inte kunna dela C-enheten, kan du försöka med följande:
@@ -220,6 +222,18 @@ Om du kör i en lokal dockerbehållare i Windows ställer `sharedVolumes` till `
 * När du delar C-enheten med domänreferenser kan delning sluta fungera i nätverk där domänkontrollanten inte kan nås (till exempel nätverk, offentliga wifi osv.). Mer information finns i [inlägget](https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/).
 
 Du kan undvika att delningsproblem på en mindre prestandakostnad, genom att ange `sharedVolumne` till `false` i den `docker.compute` filen.
+
+## <a name="wipe-clean-workbench-installation"></a>Rensa ren installation av Workbench
+Du behöver vanligtvis inte göra detta. Men om du måste rensa ren en installation, följer du stegen:
+
+- I Windows:
+  - Först kontrollera att du använder _Lägg till eller ta bort program_ appleten i den _Kontrollpanelen_ att ta bort den _Azure Machine Learning arbetsstationen_ kopplingen.  
+  - Sedan kan du hämta och köra någon av följande skript:
+    - [Windows-kommandoradsskript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
+    - [Windows PowerShell-skript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Du kan behöva köra `Set-ExecutionPolicy Unrestricted` i privilegiet-upphöjd PowerShell-fönstret innan du kan köra skriptet.)
+- I macOS:
+  - Bara ladda ned och kör den [macOS bash kommandoskript](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
 
 ## <a name="some-useful-docker-commands"></a>Vissa användbara Docker-kommandon
 

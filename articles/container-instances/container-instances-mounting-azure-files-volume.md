@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b2e8e27cecb4d1225e378690063b42f5d5242868
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7203c95a1269698dea91475aa6aa24c47bcfb0f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Montera en filresurs som Azure med Azure Container instanser
 
@@ -25,43 +25,47 @@ Innan du använder en Azure-filresursen med Azure Container instanser, måste du
 
 ```azurecli-interactive
 # Change these four parameters as needed
-ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
+ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_LOCATION=eastus
 ACI_PERS_SHARE_NAME=acishare
 
 # Create the storage account with the parameters
-az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
+az storage account create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --location $ACI_PERS_LOCATION \
+    --sku Standard_LRS
 
 # Export the connection string as an environment variable. The following 'az storage share create' command
 # references this environment variable when creating the Azure file share.
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
 
 # Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
-## <a name="acquire-storage-account-access-details"></a>Hämta information om lagringskonto åtkomst
+## <a name="get-storage-credentials"></a>Hämta autentiseringsuppgifter för lagring
 
 Om du vill montera en Azure-filresurs som en volym i Azure Container instanser, du behöver tre värden: lagringskontonamnet, resursnamnet och lagringsåtkomstnyckel.
 
 Om du använder skriptet ovan, har namnet på lagringskontot skapats med ett slumpmässigt värde i slutet. Om du vill fråga sista strängen (inklusive den slumpmässiga delen), använder du följande kommandon:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 Resursnamnet är redan känd (definieras som *acishare* i skriptet ovan), så att all som återstår är lagringskontonyckel som finns med följande kommando:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-the-container-and-mount-the-volume"></a>Distribuera behållaren och montera volymen
+## <a name="deploy-container-and-mount-volume"></a>Distribuera behållare och montera volymen
 
-Ange om du vill montera en Azure-filresurs som en volym i en behållare, resurs och volym monteringspunkt när du skapar behållaren med [az behållaren skapa](/cli/azure/container#az_container_create). Om du har följt de föregående stegen kan du montera den resurs som du skapade tidigare med hjälp av följande kommando för att skapa en behållare:
+Ange om du vill montera en Azure-filresurs som en volym i en behållare, resurs och volym monteringspunkt när du skapar behållaren med [az behållaren skapa][az-container-create]. Om du har följt de föregående stegen kan du montera den resurs som du skapade tidigare med hjälp av följande kommando för att skapa en behållare:
 
 ```azurecli-interactive
 az container create \
@@ -78,14 +82,23 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer i monterade volymer
 
-När behållaren startar, kan du använda en enkel webbapp som distribueras den [aci/seanmckenna-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) bilden för att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Skaffa IP-adressen för webbprogrammet med den [az behållaren visa](/cli/azure/container#az_container_show) kommando:
+När behållaren startar, kan du använda en enkel webbapp som distribueras den [aci/seanmckenna-hellofiles] [ aci-hellofiles] bilden för att hantera filerna i Azure-filresursen på monteringssökväg som du angav. Skaffa IP-adressen för webbprogrammet med den [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
 ```
 
-Du kan använda den [Azure-portalen](https://portal.azure.com) eller ett verktyg som den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) att hämta och granska filen skrivs till filresursen.
+Du kan använda den [Azure-portalen] [ portal] eller ett verktyg som den [Microsoft Azure Lagringsutforskaren] [ storage-explorer] att hämta och granska filen skrivs till filresursen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om förhållandet mellan [Azure Behållarinstanser och behållare orchestrators](container-instances-orchestrator-relationship.md).
+
+<!-- LINKS - External -->
+[aci-hellofiles]: https://hub.docker.com/r/seanmckenna/aci-hellofiles/
+[portal]: https://portal.azure.com
+[storage-explorer]: https://storageexplorer.com
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show

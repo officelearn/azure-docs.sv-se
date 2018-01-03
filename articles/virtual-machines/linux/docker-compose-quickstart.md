@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och skriv för att definiera och köra ett program för flera behållare i Azure
 Med [Compose](http://github.com/docker/compose), du använder en enkel textfil för att definiera ett program som består av flera Docker-behållare. Sedan få igång ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis visar den här artikeln hur du snabbt ställa in en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu VM. Du kan också använda Compose för att ställa in mer komplexa program.
@@ -40,30 +40,14 @@ Börja med att skapa en resursgrupp för din Docker-miljö med [az gruppen skapa
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera en virtuell dator med [az distribution skapa](/cli/azure/group/deployment#create) som innehåller Azure Docker VM-tillägget från [Azure Resource Manager-mallen på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Ange dina egna unika värden för *newStorageAccountName*, *adminUsername*, *adminPassword*, och *dnsNameForPublicIP*:
+Distribuera en virtuell dator med [az distribution skapa](/cli/azure/group/deployment#create) som innehåller Azure Docker VM-tillägget från [Azure Resource Manager-mallen på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). När du uppmanas att ange dina egna unika värden för *newStorageAccountName*, *adminUsername*, *adminPassword*, och *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Det tar några minuter för att distributionen ska slutföras. När distributionen är klar [vidare till nästa steg](#verify-that-compose-is-installed) till SSH till den virtuella datorn. 
-
-För att i stället komma tillbaka till meddelandet och gör distributionen fortsätter i bakgrunden, Lägg till den `--no-wait` flagga för att kommandot ovan. Den här processen kan du utföra annat arbete i CLI medan distributionen fortsätter om en stund. Du kan sedan visa information om värdstatusen Docker med [az vm visa](/cli/azure/vm#show). I följande exempel kontrollerar status för den virtuella datorn med namnet *myDockerVM* (standardnamnet från mall - inte ändrar namnet) i resursgrupp med namnet *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-När det här kommandot returnerar *lyckades*distributionen är klar och du kan SSH till den virtuella datorn i följande steg.
+Det tar några minuter för att distributionen ska slutföras.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Kontrollera att Skriv är installerad
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH till din nya Docker-värden. Ange dina egna DNS-namnet på följande sätt:
+SSH till din nya Docker-värden. Ange användarnamn och DNS-namnet från föregående steg:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

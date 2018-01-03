@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay vanliga frågor och svar
 
@@ -32,7 +32,7 @@ Den [Azure vidarebefordrande tjänsten](relay-what-is-it.md) underlättar för d
 En [namnområde](relay-create-namespace-portal.md) är en omfattningsbehållare som du kan använda för att adressera Relay resurser i ditt program. Du måste skapa ett namnområde för att använda Relay. Detta är en av de första stegen i komma igång.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Vad hände med Service Bus Relay-tjänsten?
-Tidigare Service Bus Relay tjänsten kallas nu WCF Relay. Du kan fortsätta att använda den här tjänsten som vanligt. Hybridanslutningar-funktionen är en uppdaterad version av en tjänst som har varit transplanteras från Azure BizTalk-tjänst. Vidarebefordrande WCF och Hybridanslutningar fortsätta att stödjas.
+Tidigare Service Bus Relay tjänsten kallas nu [vidarebefordrande WCF](relay-wcf-dotnet-get-started.md). Du kan fortsätta att använda den här tjänsten som vanligt. Hybridanslutningar-funktionen är en uppdaterad version av en tjänst som har varit transplanteras från Azure BizTalk-tjänst. Vidarebefordrande WCF och Hybridanslutningar fortsätta att stödjas.
 
 ## <a name="pricing"></a>Prissättning
 Det här avsnittet besvarar några vanliga frågor om Relay priser struktur. Du kan också se [Azure svar](http://go.microsoft.com/fwlink/?LinkID=185083) för allmän Azure prisinformation. Fullständig information om priser Relay finns [Service Bus prisinformation][Pricing overview].

@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/18/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6d8fbddc2f26fe739dd725f417961d7b3d7f77e6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Felsöka distributionsproblem med Azure Container instanser
 
@@ -21,15 +21,15 @@ Den här artikeln visar hur du felsöker problem när du distribuerar behållare
 
 ## <a name="get-diagnostic-events"></a>Hämta diagnostiska händelser
 
-Om du vill visa loggar från din programkod i en behållare som du kan använda den [az behållaren loggar](/cli/azure/container#logs) kommando. Men om din behållaren inte distribuerar har du behöver diagnostisk information som tillhandahålls av Azure Behållarinstanser resursprovidern. Om du vill visa händelser för din behållare, kör du följande kommando:
+Om du vill visa loggar från din programkod i en behållare som du kan använda den [az behållaren loggar] [ az-container-logs] kommando. Men om din behållaren inte distribuerar har du behöver diagnostisk information som tillhandahålls av Azure Behållarinstanser resursprovidern. Om du vill visa händelser för din behållaren kör den [az behållaren visa] [ az-container-show] kommando:
 
 ```azurecli-interactive
-az container show -n mycontainername -g myresourcegroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-Utdata innehåller huvudegenskaper för din behållare, tillsammans med distribution av händelser:
+Utdata innehåller huvudegenskaper för din behållare, tillsammans med distribution av händelser (visas här trunkerat):
 
-```bash
+```JSON
 {
   "containers": [
     {
@@ -37,45 +37,54 @@ Utdata innehåller huvudegenskaper för din behållare, tillsammans med distribu
       "environmentVariables": [],
       "image": "microsoft/aci-helloworld",
       ...
-
-      "events": [
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:52+00:00",
-        "lastTimestamp": "2017-08-03T22:12:52+00:00",
-        "message": "Pulling: pulling image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
+        "events": [
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:49+00:00",
+            "lastTimestamp": "2017-12-21T22:50:49+00:00",
+            "message": "pulling image \"microsoft/aci-helloworld\"",
+            "name": "Pulling",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
+            "name": "Pulled",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Created",
+            "type": "Normal"
+          },
+          {
+            "count": 1,
+            "firstTimestamp": "2017-12-21T22:50:59+00:00",
+            "lastTimestamp": "2017-12-21T22:50:59+00:00",
+            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "name": "Started",
+            "type": "Normal"
+          }
+        ],
+        "previousState": null,
+        "restartCount": 0
       },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Pulled: Successfully pulled image \"microsoft/aci-helloworld\"",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Created: Created container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      },
-      {
-        "count": 1,
-        "firstTimestamp": "2017-08-03T22:12:55+00:00",
-        "lastTimestamp": "2017-08-03T22:12:55+00:00",
-        "message": "Started: Started container with id 61602059d6c31529c27609ef4ec0c858b0a96150177fa045cf944d7cf8fbab69",
-        "type": "Normal"
-      }
-    ],
-    "name": "helloworld",
+      "name": "mycontainer",
       "ports": [
         {
-          "port": 80
+          "port": 80,
+          "protocol": null
         }
       ],
-    ...
-  ]
+      ...
+    }
+  ],
+  ...
 }
 ```
 
@@ -85,32 +94,35 @@ Det finns några vanliga problem för de flesta fel i distributionen.
 
 ## <a name="unable-to-pull-image"></a>Det gick inte att pull-bild
 
-Om Azure Behållarinstanser inte att hämta bilden från början, ett nytt försök under en period innan förr eller senare. Om bilden inte kan hämtas, visas händelser som liknar följande:
+Om Azure Behållarinstanser inte att hämta bilden från början, ett nytt försök under en period innan förr eller senare. Om bilden inte kan hämtas, händelser, t.ex. följande visas i utdata från [az behållaren visa][az-container-show]:
 
 ```bash
 "events": [
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:31+00:00",
-    "lastTimestamp": "2017-08-03T22:19:31+00:00",
-    "message": "Pulling: pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "name": "Pulling",
     "type": "Normal"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:32+00:00",
-    "lastTimestamp": "2017-08-03T22:19:32+00:00",
-    "message": "Failed: Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image microsoft/aci-hellowrld:latest not found",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:19+00:00",
+    "lastTimestamp": "2017-12-21T22:57:00+00:00",
+    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "name": "Failed",
     "type": "Warning"
   },
   {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:19:33+00:00",
-    "lastTimestamp": "2017-08-03T22:19:33+00:00",
-    "message": "BackOff: Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "count": 3,
+    "firstTimestamp": "2017-12-21T22:56:20+00:00",
+    "lastTimestamp": "2017-12-21T22:57:16+00:00",
+    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "name": "BackOff",
     "type": "Normal"
   }
-]
+],
 ```
 
 Lös, ta bort behållaren och försök distributionen betalande uppmärksam på att du har angett rätt avbildning.
@@ -119,7 +131,7 @@ Lös, ta bort behållaren och försök distributionen betalande uppmärksam på 
 
 Om din behållare körs kan slutföras och startar om automatiskt, du kan behöva ange ett [starta om principen](container-instances-restart-policy.md) av **OnFailure** eller **aldrig**. Om du anger **OnFailure** och fortfarande se kontinuerliga startas om, kan det vara ett problem med program eller skript som körs i en behållare.
 
-Behållaren instanser API innehåller en `restartCount` egenskap. Du kan använda för att kontrollera antalet omstarter för en behållare i [az behållaren visa](/cli/azure/container#az_container_show) i Azure CLI 2.0. I följande exempel på utdata (som har trunkerats planeringsaspekter), kan du se den `restartCount` egenskapen i slutet av utdata.
+Behållaren instanser API innehåller en `restartCount` egenskap. Du kan använda för att kontrollera antalet omstarter för en behållare i [az behållaren visa] [ az-container-show] i Azure CLI 2.0. I följande exempel på utdata (som har trunkerats planeringsaspekter), kan du se den `restartCount` egenskapen i slutet av utdata.
 
 ```json
 ...
@@ -179,7 +191,7 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-Nyckeln till att hålla bildstorleken små är att säkerställa att dina slutliga avbildningen inte innehåller allt som inte krävs vid körning. Det här är ett sätt att göra med [flera steg versioner](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). Flera steg skapar gör det enkelt att se till att den slutliga avbildningen innehåller de artefakter som du behöver för ditt program och inte något av extra innehåll som krävdes vid byggning.
+Nyckeln till att hålla bildstorleken små är att säkerställa att dina slutliga avbildningen inte innehåller allt som inte krävs vid körning. Det här är ett sätt att göra med [flera steg versioner][docker-multi-stage-builds]. Flera steg skapar gör det enkelt att se till att den slutliga avbildningen innehåller de artefakter som du behöver för ditt program och inte något av extra innehåll som krävdes vid byggning.
 
 Ett annat sätt att minska effekten av avbildningen pull på din behållaren starttiden är värd för behållaren avbildningen med Azure Container registret i samma region som du tänker använda Azure Container instanser. Detta förkortar nätverkssökvägen behållaren avbildningen måste reser kan avsevärt minska hämtningstiden.
 
@@ -189,9 +201,16 @@ På grund av olika regionala resurs läsa in i Azure, kan du få följande fel v
 
 `The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
 
-Det här felet indikerar att på grund av hög belastning i den region där du försöker distribuera resurserna som angetts för din behållaren inte kan allokeras vid den tiden. Använda en eller flera av de följande säkerhetsåtgärder för att lösa problemet.
+Det här felet indikerar att på grund av hög belastning i den region där du försöker distribuera resurserna som angetts för din behållaren inte kan allokeras vid den tiden. Använda en eller flera av följande säkerhetsåtgärder för att lösa problemet.
 
 * Kontrollera distributionsinställningarna behållaren faller inom de parametrar som definierats i [regional tillgänglighet för Azure-Behållarinstanser](container-instances-region-availability.md)
 * Ange inställningar för lägre CPU och minne för behållaren
 * Distribuera till en annan Azure-region
 * Distribuera vid ett senare tillfälle
+
+<!-- LINKS - External -->
+[docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Lösa felmeddelanden från NPS-tillägg för Azure Multi-Factor Authentication
 
@@ -106,9 +106,10 @@ Om användarna är [har problem med tvåstegsverifiering](./end-user/multi-facto
 
 Om du behöver ytterligare hjälp kan du kontakta supportpersonalen via [stöd för Azure Multi-Factor Authentication-servern](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan ange så mycket information om problemet som möjligt. Information som du kan ange innehåller sidan där du såg fel, den specifika felkoden specifika sessions-ID, ID för den användare som såg felet, loggar och felsökningsloggar.
 
-Använd följande steg för att samla in felsökningsloggar för stöd för diagnostik: 
+Använd följande steg på NPS-servern för att samla in felsökningsloggar för stöd för diagnostik:
 
-1. Öppna en administratörskommandotolk och kör följande kommandon:
+1. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** till **SANT**
+2. Öppna en administratörskommandotolk och kör följande kommandon:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Använd följande steg för att samla in felsökningsloggar för stöd för diag
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Återskapa problemet
+3. Återskapa problemet
 
-3. Stoppa spårning med följande kommandon:
+4. Stoppa spårning med följande kommandon:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Använd följande steg för att samla in felsökningsloggar för stöd för diag
    Start .
    ```
 
-4. ZIP-innehållet i mappen C:\NPS och bifoga den komprimerade filen i supportärende.
+5. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** till **FALSKT**
+6. ZIP-innehållet i mappen C:\NPS och bifoga den komprimerade filen i supportärende.
 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
@@ -34,7 +34,7 @@ Den här anslutningen Dynamics stöder nedan Dynamics versioner och typer av aut
 
 | Dynamics versioner | Typer av autentisering | Länkad tjänst-exempel |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM online | Office 365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 lokalt med IFD <br> Dynamics CRM 2016 lokalt med IFD <br> Dynamics CRM 2015 lokalt med IFD | IFD | [Dynamics lokalt med IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 För Dynamics 365 mer specifikt kan stöds följande programtyper:
@@ -337,13 +337,13 @@ Konfigurera motsvarande Data Factory-datatypen i datauppsättningsstrukturen bas
 | AttributeType.Lookup | GUID | ✓ |  |
 | AttributeType.ManagedProperty | Boolesk | ✓ |  |
 | AttributeType.Memo | Sträng | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ |  |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
 | AttributeType.String | Sträng | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

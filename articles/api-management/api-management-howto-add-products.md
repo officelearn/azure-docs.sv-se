@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig hur man:
 
 ![lagts till produkten](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 + Dessutom slutföra följande kursen: [Import och publicera din första API](import-and-publish.md).
@@ -54,12 +54,12 @@ I den här guiden får du lära dig hur man:
     |Namn|Ett beskrivande namn på produkten.|
     |Beskrivning|Den **beskrivning** fältet kan du ange detaljerad information om produkten som sitt syfte, API: er som den ger åtkomst till och annan användbar information.|
     |Status|Tryck på **publicerade** om du vill publicera produkten. Produkten måste publiceras innan API: er i en produkt kan anropas. Som standard nya produkter är opublicerad och visas bara för den **administratörer** grupp.|
-    |Kräver godkännande|Kontrollera **kräver godkännande för prenumerationen** om du vill att en administratör för att granska och godkänna eller avvisa prenumeration försöker den här produkten. Om rutan är avmarkerad är prenumeration försök godkänts automatiskt. |
-    |Prenumerationsgränsen för antal|Ange gränsen för att begränsa antalet flera samtidiga prenumerationer. |
+    |Godkännande krävs|Kontrollera **kräver godkännande för prenumerationen** om du vill att en administratör för att granska och godkänna eller avvisa prenumeration försöker den här produkten. Om rutan är avmarkerad är prenumeration försök godkänts automatiskt. |
+    |Antal tillåtna prenumerationer|Ange gränsen för att begränsa antalet flera samtidiga prenumerationer. |
     |Juridiska villkor|Du kan inkludera villkor för användning av produkten som prenumeranter måste acceptera för att kunna använda produkten.|
     |API:er|Produkter är kopplingar till en eller flera API: er. Du kan innehålla ett antal API: er och erbjuda utvecklare via developer-portalen. <br/> Du kan lägga till en befintlig API under skapande av produkten. Du kan lägga till en API produkten senare, antingen från produkterna **inställningar** sidan eller när du skapar en API.|<br/>Utvecklare måste först prenumerera på en produkt kan få åtkomst till API: et. När man prenumererar få de en prenumeration nyckel som är bra för API: er i produkten.<br/> Om du har skapat APIM instans är du administratör redan, så du prenumererar på varje produkt som standard.|
 
-3. Klicka på **spara** att skapa den nya produkten.
+3. Klicka på **skapa** att skapa den nya produkten.
 
 ### <a name="add-more-configurations"></a>Lägger till flera konfigurationer
 

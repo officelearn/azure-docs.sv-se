@@ -3,8 +3,8 @@ title: "Uppgradera en skaluppsättning för virtuell dator i Azure | Microsoft D
 description: "Uppgradera en skaluppsättning för virtuell Azure-dator"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Uppgradera en virtuella datorns skaluppsättning
 Den här artikeln beskriver hur du lanserar en OS-uppdatering till en virtuell dator i Azure-skala utan driftavbrott. I den här kontexten innebär en OS-uppdatering ändra version eller SKU av Operativsystemet eller ändra URI för en anpassad avbildning. Uppdaterar utan driftavbrott uppdatera virtuella datorer en i taget eller grupper (till exempel en feldomän i taget) i stället för på en gång. På så sätt, kan alla virtuella datorer som inte uppgraderas att köra.
@@ -31,7 +31,7 @@ För att undvika tvetydighet vi skilja fyra typer av OS-uppdateringar som du kan
 * Ändra bildreferens för skaluppsättning som har skapats med hjälp av Azure hanterade diskar.
 * Korrigering av operativsystem från en virtuell dator (exempel på detta är hur du installerar en säkerhetskorrigering och kör Windows Update). Det här scenariot stöds, men som inte omfattas i den här artikeln.
 
-Skalningsuppsättningar i virtuella datorer som distribueras som en del av en [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) kluster beskrivs inte här. Se [korrigering Windows OS i Service Fabric-kluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) mer information om Service Fabric-korrigering.
+Skalningsuppsättningar i virtuella datorer som distribueras som en del av en [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) kluster beskrivs inte här. Läs mer om Service Fabric-korrigering [korrigering Windows OS i Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 Grundläggande sekvensen för att ändra OS-version/SKU av en plattformsavbildning eller URI för en anpassad avbildning ser ut som följer:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Om du uppdaterar URI för en anpassad avbildning istället för att ändra en plattform Avbildningsversion Ersätt ”ange den nya versionen” rad med ett kommando som kommer att uppdatera Källavbildningen URI. Till exempel om skaluppsättning skapades utan att använda Azure hanterade diskar, uppdateringen skulle se ut så här:
+Om du uppdaterar URI för en anpassad avbildning istället för att ändra en plattform Avbildningsversion, ersätter du raden ”ange den nya versionen” med ett kommando som uppdaterar Källavbildningen URI. Till exempel om skaluppsättning skapades utan att använda Azure hanterade diskar, uppdateringen skulle se ut så här:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Om en anpassad avbildning baserad skaluppsättning har skapats med hjälp av Azure hanterade diskar och sedan bildreferensen skulle uppdateras. Exempel:
+Om en anpassad avbildningsbaserad skaluppsättning har skapats med hjälp av Azure hanterade diskar, skulle bildreferensen uppdateras. Exempel:
 
 ```powershell
 # set the new version in the model data

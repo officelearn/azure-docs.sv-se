@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>GEO-replikering i Azure-behållaren registret
 
@@ -94,7 +94,7 @@ ACR börjar synkronisera bilder över de konfigurerade replikerna. När borttagn
 
 ## <a name="geo-replication-pricing"></a>Priser för GEO-replikering
 
-GEO-replikering är en funktion i den [Premium-SKU](container-registry-skus.md#premium) i registret för Azure-behållare. När du replikerar ett register till din önskade regioner innebära Premium registret avgifter för varje region.
+GEO-replikering är en funktion i den [Premium-SKU](container-registry-skus.md) i registret för Azure-behållare. När du replikerar ett register till din önskade regioner innebära Premium registret avgifter för varje region.
 
 I föregående exempel konsoliderade Contoso två register som ett, lägger till repliker i östra USA och Kanada Central västra Europa. Contoso betalar fyra gånger Premium per månad utan ytterligare konfiguration och hantering. Varje region hämtar nu deras bilder lokalt, vilket förbättrar prestanda, tillförlitlighet utan nätverk utgång avgifter från västra USA Kanada och östra USA.
 

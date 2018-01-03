@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Inbyggda roller för rollbaserad åtkomstkontroll i Azure
 Azure rollbaserad åtkomstkontroll (RBAC) levereras med följande inbyggda roller som kan tilldelas användare, grupper och tjänster. Du kan inte ändra definitionerna av inbyggda roller. Du kan dock skapa [anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md) så att den passar de specifika behoven i din organisation.
@@ -57,8 +57,8 @@ Den här artikeln tar endast de olika roller som finns idag. När du tilldelar e
 | [DNS-zonen deltagare](#dns-zone-contributor) |Kan hantera DNS-zoner och poster |
 | [DocumentDB-konto deltagare](#documentdb-account-contributor) |Kan hantera Azure DB som Cosmos-konton |
 | [Intelligenta System-kontot deltagare](#intelligent-systems-account-contributor) |Kan hantera intelligenta system konton |
-| Logik App deltagare | Kan hantera alla aspekter av en Logikapp, men inte skapa en ny. |
-| Logik App Operator |Kan starta och stoppa arbetsflöden som definierats inom en Logikapp. |
+| Logic App-deltagare | Kan hantera alla aspekter av en Logikapp, men inte skapa en ny. |
+| Logic App-operatör |Kan starta och stoppa arbetsflöden som definierats inom en Logikapp. |
 | [Övervaka läsare](#monitoring-reader) |Kan läsa övervakningsdata för alla |
 | [Övervakning av deltagare](#monitoring-contributor) |Kan läsa övervakningsdata och redigera inställningarna för övervakning |
 | [Nätverksdeltagare](#network-contributor) |Kan hantera alla nätverksresurser |
@@ -101,7 +101,7 @@ Kan hantera API Management-tjänster
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs roller och rolltilldelningar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="api-management-service-operator-role"></a>Operatörsrollen för API Management-tjänsten
+### <a name="api-management-service-operator-role"></a>Operatörsroll för API Management
 Kan hantera API Management-tjänster
 
 | **Åtgärder** |  |
@@ -121,7 +121,7 @@ Kan hantera API Management-tjänster
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs roller och rolltilldelningar |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="api-management-service-reader-role"></a>Rollen för API Management-tjänsten läsare
+### <a name="api-management-service-reader-role"></a>Läsarroll för API Management-tjänst
 Kan hantera API Management-tjänster
 
 | **Åtgärder** |  |
@@ -173,7 +173,7 @@ Kan starta, stoppa, pausa och återuppta jobb
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="backup-contributor"></a>Säkerhetskopiering deltagare
+### <a name="backup-contributor"></a>Säkerhetskopieringsmedarbetare
 Kan hantera alla åtgärder för hantering av säkerhetskopiering, förutom att skapa Recovery Services-valvet och ge åtkomst till andra
 
 | **Åtgärder** | |
@@ -200,7 +200,7 @@ Kan hantera alla åtgärder för hantering av säkerhetskopiering, förutom att 
 | Microsoft.Storage/storageAccounts/read | Läs storage-konton |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="backup-operator"></a>Ansvarig för säkerhetskopiering
+### <a name="backup-operator"></a>Säkerhetskopieringsoperatör
 Kan hantera alla säkerhetskopiering hanteringsåtgärder förutom att skapa valv, ta bort säkerhetskopiering och ger åtkomst till andra
 
 | **Åtgärder** | |
@@ -238,7 +238,7 @@ Kan hantera alla säkerhetskopiering hanteringsåtgärder förutom att skapa val
 | Microsoft.Storage/storageAccounts/read | Läs storage-konton |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-### <a name="backup-reader"></a>Säkerhetskopiering läsare
+### <a name="backup-reader"></a>Säkerhetskopieringsläsare
 Kan övervaka säkerhetskopiering hantering i Recovery Services-valvet
 
 | **Åtgärder** | |
@@ -265,7 +265,7 @@ Kan övervaka säkerhetskopiering hantering i Recovery Services-valvet
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Läsa registrerade artiklar på valvet |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Läs användning av Recovery Services-valvet |
 
-### <a name="billing-reader"></a>Fakturering läsare
+### <a name="billing-reader"></a>Faktureringsläsare
 Kan visa all information om fakturering
 
 | **Åtgärder** |  |
@@ -358,7 +358,7 @@ Kan visa allt och ansluta, starta, -omstart och -avstängning virtuella datorer
 | Microsoft.Resources/subscriptions/resourceGroups/read |Läs resursgrupper |
 | Microsoft.Storage/storageAccounts/listKeys/action |Lista nycklar för lagringskonto |
 
-### <a name="dns-zone-contributor"></a>DNS-zonen deltagare
+### <a name="dns-zone-contributor"></a>DNS-zondeltagare
 Hantera DNS-zoner och poster.
 
 | **Åtgärder** |  |
@@ -406,7 +406,7 @@ Kan läsa alla övervakningsdata (mått, loggar osv.). Se även [Kom igång med 
 | Microsoft.OperationalInsights/workspaces/search/action |Sök logganalys data |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="monitoring-contributor"></a>Övervakning av deltagare
+### <a name="monitoring-contributor"></a>Övervaka deltagare
 Kan läsa alla övervakningsdata och redigera inställningarna för övervakning. Se även [Kom igång med roller, behörigheter och säkerhet med Azure-Monitor](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Åtgärder** |  |
@@ -522,7 +522,7 @@ Kan hantera säkerhetskomponenter, säkerhetsprinciper och virtuella datorer
 | Microsoft.Security/* |Skapa och hantera säkerhetskomponenter och principer |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="site-recovery-contributor"></a>Site Recovery-deltagare
+### <a name="site-recovery-contributor"></a>Site Recovery-bidragsgivare
 Kan hantera alla Site Recovery-hanteringsåtgärder, förutom att skapa Recovery Services-valvet och tilldela behörigheter till andra användare
 
 | **Åtgärder** | |
@@ -552,7 +552,7 @@ Kan hantera alla Site Recovery-hanteringsåtgärder, förutom att skapa Recovery
 | Microsoft.Storage/storageAccounts/read | Läs storage-konton |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="site-recovery-operator"></a>Site Recovery-operatorn
+### <a name="site-recovery-operator"></a>Site Recovery-operatör
 Kan redundans och återställning efter fel kan, men inte utföra andra åtgärder för hantering av Site Recovery eller tilldela åtkomst till andra användare
 
 | **Åtgärder** | |
@@ -612,7 +612,7 @@ Kan redundans och återställning efter fel kan, men inte utföra andra åtgärd
 | Microsoft.Storage/storageAccounts/read | Läs storage-konton |
 | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-### <a name="site-recovery-reader"></a>Site Recovery läsare
+### <a name="site-recovery-reader"></a>Site Recovery-läsare
 Kan övervaka status för Site Recovery i Recovery Services-valvet och aktivera supportärenden
 
 | **Åtgärder** | |
@@ -703,7 +703,7 @@ Kan hantera SQL-servrar och databaser, men inte deras säkerhetsrelaterade princ
 
 | **Åtgärder** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Läsa tillstånd |
+| Microsoft.Authorization/*/read |Läs roller och rolltilldelningar |
 | Microsoft.Insights/alertRules/* |Skapa och hantera insikter Varningsregler |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Läs hälsotillståndet för resurser |
 | Microsoft.Resources/deployments/* |Skapa och hantera distributionen av resursgrupper |
@@ -751,7 +751,7 @@ Kan hantera storage-konton, men inte åtkomst till dem.
 | Microsoft.Storage/storageAccounts/* |Skapa och hantera storage-konton |
 | Microsoft.Support/* |Skapa och hantera supportärenden |
 
-### <a name="support-request-contributor"></a>Stöd för begäran deltagare
+### <a name="support-request-contributor"></a>Supportförfrågningsdeltagare
 Skapa och hantera supportärenden definitionsområdet prenumeration
 
 | **Åtgärder** |  |
@@ -867,7 +867,7 @@ Kan hantera webbplatser, men inte alla web-planer som de är anslutna
 | Microsoft.Web/serverFarms/read |Läs servergrupper |
 | Microsoft.Web/sites/* |Skapa och hantera webbplatser (för att skapa även kräver behörighet att skriva till den associerade Apptjänstplan) |
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Rollbaserad åtkomstkontroll](role-based-access-control-configure.md): komma igång med RBAC på Azure-portalen.
 * [Anpassade roller i Azure RBAC](role-based-access-control-custom-roles.md): Lär dig att skapa anpassade roller som passar dina åtkomstbehov.
 * [Skapa en profil över åtkomständringshistorik](role-based-access-control-access-change-history-report.md): hålla reda på hur du ändrar rolltilldelningar i RBAC.

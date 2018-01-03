@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurera domänanslutna HDInsight begränsat läge
 
@@ -138,9 +138,9 @@ I det här avsnittet använder du Azure-portalen för att lägga till ett HDInsi
     Det finns sex avsnitt med alternativet Anpassad konfiguration: Grunderna, lagring, program, klustret storlek, avancerade inställningar och sammanfattning.
 5. I den **grunderna** avsnitt:
 
-    - Kluster-typ: Välj **PREMIUM**. Du kan för närvarande bara skapa premium klustret med följande typer av klustret: Hadoop, interaktiva fråge- och Spark.
+    - Kluster-typ: Välj **Enterprise säkerhetspaketet**. Enterprise säkerhetspaketet kan för närvarande bara aktiveras för följande typer av klustret: Hadoop, interaktiva fråge- och Spark.
 
-        ![HDInsight Premium för domänanslutna](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![HDInsight domän domänanslutna enterprise säkerhetspaketet](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Klustret inloggning användarnamn: Detta är den Hadoop HTTP-användaren. Det här kontot skiljer sig från domänadministratörskontot.
     - Resursgrupp: Markera den resursgrupp som du skapat tidigare med Resource Manager-mallen.
     - Plats: Platsen måste vara samma som du använde när du skapar vnet och domänkontrollanter med hjälp av Resource Manager-mall.

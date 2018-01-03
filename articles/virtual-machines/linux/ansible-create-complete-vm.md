@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Skapa en miljö med fullständiga Linux virtuella datorer i Azure med Ansible
 Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure, samma som någon annan resurs. Den här artikeln visar hur du skapar en komplett Linux-miljö och ge support för resurser med Ansible. Du kan också lära dig hur du [skapa en grundläggande virtuell dator med Ansible](ansible-create-vm.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill hantera Azure-resurser med Ansible, behöver du följande:
 
 - Ansible och Azure SDK för Python-moduler som har installerats på värdsystemet.
@@ -105,7 +105,7 @@ Ett virtuellt nätverkskort (NIC) ansluter den virtuella datorn till ett givet v
 
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-Det sista steget är att skapa en virtuell dator och använda de resurser som skapades. Följande avsnitt i en Ansible playbook skapar en virtuell dator med namnet *myVM* och bifogar det virtuella nätverkskortet med namnet *myNIC*. Ange dina egna offentliga nyckel data i den *key_data* koppla på följande sätt:
+Det sista steget är att skapa en virtuell dator och använda de resurser som skapades. Följande avsnitt i en Ansible playbook skapar en virtuell dator med namnet *myVM* och bifogar det virtuella nätverkskortet med namnet *myNIC*. Ange dina egna fullständig offentliga nyckel data i den *key_data* koppla på följande sätt:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Det sista steget är att skapa en virtuell dator och använda de resurser som sk
 ```
 
 ## <a name="complete-ansible-playbook"></a>Slutföra Ansible playbook
-Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_create_complete_vm.yml* och klistra in följande innehåll:
+Skapa en Ansible playbook med namnet för att samordna dessa avsnitt *azure_create_complete_vm.yml* och klistra in följande innehåll. Ange dina egna fullständig offentliga nyckel data i den *key_data* par:
 
 ```yaml
 - name: Create Azure VM

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
 
 Syftet med den här kursen är att visa steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och avinstallation etablera användarkonton från Azure AD för att Salesforce.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -65,7 +65,7 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 4. Ange den **Etableringsläge** till **automatisk**.
 
-    ![Etablering](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** och ange följande inställningar:
    
@@ -89,19 +89,21 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 10. Kopiera token, gå till Azure AD-fönstret och klistrar in det i den **hemlighet Token** fältet.
 
-11. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till ditt Salesforce-app.
+11. Den **klient URL** måste anges om Salesforce-instansen är i Salesforce offentliga moln. Annars är valfria. Ange klient-URL i formatet https://your-instance.my.salesforce.com, ersätta din-instans med namnet på ditt Salesforce-instans.
 
-12. I den **e-postmeddelande** anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden om etablering fel och markera kryssrutan nedan.
+12. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till ditt Salesforce-app.
 
-13. Klicka på **spara.**  
+13. I den **e-postmeddelande** anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden om etablering fel och markera kryssrutan nedan.
+
+14. Klicka på **spara.**  
     
-14.  Välj under avsnittet mappningar **synkronisera Azure Active Directory-användare till Salesforce.**
+15.  Välj under avsnittet mappningar **synkronisera Azure Active Directory-användare till Salesforce.**
 
-15. I den **attributmappning** avsnittet kan du granska användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attribut som är markerade som **matchande** egenskaper som används för att matcha användarkonton i Salesforce för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+16. I den **attributmappning** avsnittet kan du granska användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attribut som är markerade som **matchande** egenskaper som används för att matcha användarkonton i Salesforce för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-16. Om du vill aktivera Azure AD-tjänsten för Salesforce-etablering, ändra den **Status för etablering** till **på** i avsnittet Inställningar
+17. Om du vill aktivera Azure AD-tjänsten för Salesforce-etablering, ändra den **Status för etablering** till **på** i avsnittet Inställningar
 
-17. Klicka på **spara.**
+18. Klicka på **spara.**
 
 Detta startar den första synkroniseringen av användare och/eller grupper som tilldelas till Salesforce i avsnittet användare och grupper. Observera att den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar som sker ungefär var tjugonde minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnittet för att övervaka förloppet och följ länkarna till att etablera aktivitetsrapporter som beskriver alla åtgärder som utförs av tjänsten etablering på ditt Salesforce-app.
 

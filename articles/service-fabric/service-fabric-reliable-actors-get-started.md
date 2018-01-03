@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Den här artikeln beskrivs hur du skapar och felsökning av ett enkelt tillförlitliga aktören program i Visual Studio. Läs mer på Reliable Actors [introduktion till Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du har utvecklingsmiljön Service Fabric, inklusive Visual Studio, Ställ in på din dator. Mer information finns i [hur du ställer in utvecklingsmiljön](service-fabric-get-started.md).
 

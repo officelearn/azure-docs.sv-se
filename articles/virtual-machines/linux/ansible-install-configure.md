@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installera och konfigurera Ansible för att hantera virtuella datorer i Azure
 Den här artikeln beskrivs hur du installerar Ansible och Azure SDK för Python-moduler som krävs för några av de vanligaste Linux-distributioner. Du kan installera Ansible på andra distributioner genom att justera installerade paket så att de passar din viss plattform. Om du vill skapa Azure-resurser på ett säkert sätt du också lära dig hur du skapar och definiera autentiseringsuppgifter för Ansible ska användas. 
@@ -34,7 +34,7 @@ Börja med att skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#crea
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Nu skapa en virtuell dator och installera Ansible för en av följande distributioner:
+Nu kan skapa en virtuell dator och installera Ansible för en av följande distributioner önskat:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ Nu skapa en virtuell dator och installera Ansible för en av följande distribut
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credent
 ### <a name="centos-73"></a>CentOS 7.3
 Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credent
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Skapa en virtuell dator med [az vm create](/cli/azure/vm#create). I följande exempel skapas en virtuell dator med namnet *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ På den virtuella datorn att installera de nödvändiga paketen för Azure Pytho
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credentials).
@@ -138,26 +141,26 @@ Nu gå vidare till [skapa Azure-autentiseringsuppgifterna](#create-azure-credent
 ## <a name="create-azure-credentials"></a>Skapa autentiseringsuppgifter för Azure
 Ansible kommunicerar med Azure med ett användarnamn och lösenord eller ett huvudnamn för tjänsten. En Azure-tjänstens huvudnamn är en säkerhetsidentitet som du kan använda med appar, tjänster och verktyg för automatisering som Ansible. Du styr och definiera behörigheter för vilka åtgärder som tjänstens huvudnamn kan utföra i Azure. Om du vill förbättra säkerheten bara att ange ett användarnamn och lösenord, kan det här exemplet skapar en grundläggande service principal.
 
-Skapa en tjänstens huvudnamn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) och utdata autentiseringsuppgifterna som Ansible måste:
+Skapa ett huvudnamn för tjänsten på värddatorn med [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) och utdata autentiseringsuppgifterna som Ansible måste:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Ett exempel på utdata från föregående kommandona är följande:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Om du vill autentisera till Azure måste du också behöva hämta ditt Azure prenumerations-ID med [az konto visa](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Du kan använda utdata från dessa två kommandon i nästa steg.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-Den *autentiseringsuppgifter* själva filen kombinerar prenumerations-ID med utdata för att skapa ett huvudnamn för tjänsten. Utdata från den tidigare [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) kommandot är samma ordning som behövs för *client_id*, *hemlighet*, och *klient*. I följande exempel *autentiseringsuppgifter* filen visar värdena matchar föregående utdata. Ange egna värden enligt följande:
+Den *autentiseringsuppgifter* själva filen kombinerar prenumerations-ID med utdata för att skapa ett huvudnamn för tjänsten. Utdata från den tidigare [az ad sp skapa-för-rbac](/cli/azure/ad/sp#create-for-rbac) kommandot är samma som behövs för *client_id*, *hemlighet*, och *klient*. I följande exempel *autentiseringsuppgifter* filen visar värdena matchar föregående utdata. Ange egna värden enligt följande:
 
 ```bash
 [default]

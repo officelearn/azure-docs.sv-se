@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e33d5fe99d884801e451b8f7e7989f979074e3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure filer med Linux
-[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [cifs-verktyg för webbplatsuppgradering paketet](https://wiki.samba.org/index.php/LinuxCIFS_utils) från den [Samba projekt](https://www.samba.org/). Den här artikeln beskrivs två sätt att montera en filresurs i Azure: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
+[Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [CIFS kernel klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln beskrivs två sätt att montera en filresurs i Azure: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
 
 > [!NOTE]  
 > För att montera en filresurs på Azure utanför Azure stöder region som den är värd för, till exempel lokalt eller i en annan Azure region Operativsystemet kryptering funktionerna i SMB 3.0. Krypteringsfunktionerna för SMB 3.0 för Linux introducerades i 4.11 kernel. Den här funktionen gör det möjligt för montering av Azure-filresursen från lokala eller en annan Azure-region. Vid tidpunkten för publicering har den här funktionen anpassats till Ubuntu från 16.04 och senare.
-
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Prerequisities för att montera en Azure-fil dela med Linux- och cifs-verktyg för webbplatsuppgradering-paket
 * **Välj en Linux-distributionsplats som kan ha cifs-verktyg för webbplatsuppgradering paketet installeras**: Microsoft rekommenderar följande Linux-distributioner i Azure-avbildning galleriet:
@@ -80,7 +79,7 @@ ms.lasthandoff: 10/11/2017
 3. **Använd mount-kommando för att montera filresursen Azure**: Kom ihåg att ersätta `<storage-account-name>`, `<share-name>`, och `<storage-account-key>` med rätt information.
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
@@ -98,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 3. **Använd följande kommando för att lägga till följande rad `/etc/fstab`** : Kom ihåg att ersätta `<storage-account-name>`, `<share-name>`, och `<storage-account-key>` med rätt information.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  

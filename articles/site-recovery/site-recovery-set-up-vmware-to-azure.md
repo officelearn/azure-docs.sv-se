@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Konfigurera källmiljön (VMware till Azure)
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Den här artikeln beskriver hur du ställer in din lokala miljö för att starta replikering av virtuella datorer som körs på VMware till Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har skapat:
 - Recovery Services-ventilen i den [Azure-portalen](http://portal.azure.com "Azure-portalen").

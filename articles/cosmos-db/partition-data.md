@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitionera och skala i Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Azure Cosmos-DB använder hash-baserad partitionering. När du skriver ett objek
 > Det är bäst att ha en partitionsnyckel med många distinkta värden (500 till 1 000 minst).
 >
 
-Azure DB Cosmos-behållare kan skapas som *fast* eller *obegränsade*. Fast storlek behållare har en maxgräns på 10 GB och 10 000 RU/s genomströmning. Vissa API: er kan partitionsnyckel utelämnas för behållare med fast storlek. Du måste ange en lägsta dataflöde på 2 500 RU/s för att skapa en behållare som obegränsade.
+Azure DB Cosmos-behållare kan skapas som *fast* eller *obegränsade*. Fast storlek behållare har en maxgräns på 10 GB och 10 000 RU/s genomströmning. Om du vill skapa en behållare som obegränsade, måste du ange en lägsta dataflöde på 1 000 RU/s och du måste ange en partitionsnyckel.
 
 Det är en bra idé att kontrollera hur dina data är distribuerad i partitioner. Du kan kontrollera detta i portalen, gå till Azure DB som Cosmos-konto och klicka på **mått** i **övervakning** avsnittet och klicka sedan i den högra rutan på **lagring** fliken för att se hur dina data är partitionerade i olika fysiska partition.
 
@@ -127,25 +127,18 @@ Resultat:
 
 ### <a name="table-api"></a>Tabell-API
 
-Med tabell-API anger du genomströmning för tabeller i appSettings-konfigurationen för programmet.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Sedan kan du skapa en tabell med hjälp av Azure Table storage SDK. Partitionsnyckeln skapas implicit som den `PartitionKey` värde. 
+Använd metoden CreateIfNotExists om du vill skapa en tabell med hjälp av Azure Cosmos DB tabell-API. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Dataflöde har angetts som argument för CreateIfNotExists.
+
+Partitionsnyckeln skapas implicit som den `PartitionKey` värde. 
 
 Du kan hämta en enda entitet med hjälp av följande utdrag:
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 211036f32df719bf329783b3e4333a8496aa1676
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
 Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem på grund av att resurserna är överutnyttjade och därefter bestämma när det är dags att justera prestandanivån och [tjänstnivån](sql-database-service-tiers.md) för databasen. Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -39,7 +39,7 @@ I [Azure-portalen](https://portal.azure.com/), kan du övervaka en enskild datab
 
 När du väl lagt till de här måtten, kan du fortsätta att se dem i **Övervaknings**-diagrammet med mer information i **Mått**-fönstret. Alla fyra mätvärdena visar ett snittvärde för utnyttjandeprocent i förhållande till din databas **DTU:er**. Se artikeln [tjänstnivåer](sql-database-service-tiers.md) för mer information om DTU:er.
 
-![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Tjänstnivå-övervakning av databasprestanda.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 Du kan också konfigurera aviseringar på prestandamåtten. Klicka på knappen **Lägg till avisering** i **mått**-fönstret. Följ guiden för att konfigurera aviseringen. Du har möjlighet att avisera om måttet överskrider ett visst tröskelvärde eller om måttet faller under ett visst tröskelvärde.
 

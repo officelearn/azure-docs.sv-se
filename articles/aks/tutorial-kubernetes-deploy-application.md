@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Köra program i Azure Container Service (AKS)
 
@@ -21,7 +21,7 @@ I den här självstudiekursen del fyra åtta, ett exempelprogram har distribuera
 
 > [!div class="checklist"]
 > * Uppdatera Kubernetes manifestfiler
-> * Kör program i Kubernetes
+> * Köra program i Kubernetes
 > * Testa programmet
 
 Det här programmet skalas ut, uppdateras i efterföljande självstudiekurser och Operations Management Suite som konfigurerats för att övervaka Kubernetes klustret.
@@ -32,7 +32,7 @@ Den här kursen förutsätter en grundläggande förståelse för begrepp Kubern
 
 I föregående självstudier, ett program som har paketerats till en behållare bild, bilden överfördes till registret för Azure-behållare och en Kubernetes klustret har skapats. 
 
-Den här kursen behöver du i förväg skapade `azure-vote-all-in-one-redis.yml` Kubernetes manifestfil. Den här filen hämtades i föregående självstudiekursen med programmets källkod. Kontrollera att du har klona lagringsplatsen och att du har ändrat kataloger till klonade lagringsplatsen.
+Den här kursen behöver du i förväg skapade `azure-vote-all-in-one-redis.yaml` Kubernetes manifestfil. Den här filen hämtades i föregående självstudiekursen med programmets källkod. Kontrollera att du har klona lagringsplatsen och att du har ändrat kataloger till klonade lagringsplatsen.
 
 Om du inte har gjort dessa steg och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app].
 
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Manifestfilen har skapats i förväg med inloggningen servernamnet `microsoft`. Öppna filen med en textredigerare. I det här exemplet filen har öppnats med `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Ersätt `microsoft` med ACR server inloggningsnamnet. Det här värdet finns på rad **47** för manifestfilen.
@@ -67,7 +67,7 @@ Spara och stäng filen.
 Använd den [kubectl skapa] [ kubectl-create] kommando för att köra programmet. Det här kommandot Parsar manifestfilen och skapar de definierade Kubernetes-objekt.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Resultat:
@@ -81,7 +81,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testa program
 
-En [Kubernetes service] [ kubernetes-service] skapas som visar programmet till internet. Den här processen kan ta några minuter. 
+En [Kubernetes service] [ kubernetes-service] skapas som visar programmet till internet. Den här processen kan ta ett par minuter. 
 
 För att övervaka förloppet, Använd den [kubectl hämta service] [ kubectl-get] kommandot med de `--watch` argumentet.
 
@@ -95,7 +95,7 @@ Till en början visas *EXTERNAL-IP* för *azure-vote-front*-tjänsten som *pendi
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-En gång i *externa IP-* adress har ändrats från *väntande* till en *IP-adress*, använda `CTRL-C` att stoppa kubectl titta på processen. 
+När *EXTERNAL-IP*-adressen har ändrats från *pending* till en *IP-adress* använder du `CTRL-C` för att stoppa kubectl-övervakningsprocessen. 
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m

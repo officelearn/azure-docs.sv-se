@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Hur du konfigurerar Azure Cosmos DB global distributionsplatsen med hjälp av Graph-API
 
-I den här artikeln visar vi hur du använder Azure portal för att installationen Azure Cosmos DB global distributionsplatsen och ansluter sedan med hjälp av Graph-API (förhandsversion).
+I den här artikeln visar vi hur du använder Azure-portalen för att konfigurera Azure Cosmos DB global distributionsplatsen och sedan ansluta med Graph API.
 
 Den här artikeln omfattar följande aktiviteter: 
 
 > [!div class="checklist"]
 > * Konfigurera distributionslistor med Azure-portalen
-> * Konfigurera distributionslistor med hjälp av den [Graph API: er](graph-introduction.md) (förhandsgranskning)
+> * Konfigurera distributionslistor med hjälp av den [Graph API: er](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ För att kunna dra nytta av [global distributionsplatsen](distribute-data-global
 
 Den här inställningen listan anges när du initierar en anslutning med SDK: erna. SDK: erna acceptera en valfri parameter ”PreferredLocations” som en sorterad lista över Azure-regioner.
 
-* **Skriver**: SDK skickar automatiskt alla skrivningar till aktuellt skriva region.
-* **Läser**: alla Läs kommer att skickas till den första tillgängliga regionen i listan över PreferredLocations. Om begäran inte klienten misslyckas nedåt i listan till nästa region, och så vidare. SDK: erna görs endast försök att läsa från de regioner som anges i PreferredLocations. Så, till exempel om Cosmos-DB-konto finns i tre regioner, men klienten endast anger två av regionerna som icke-och skrivbehörighet för PreferredLocations, sedan utan läsning hanteras utanför området skrivåtgärder även vid redundans.
+* **Skriver**: SDK skickar automatiskt alla skrivningar till det aktuella området för skrivning.
+* **Läser**: alla Läs skickas till den första tillgängliga regionen i listan över PreferredLocations. Om begäran inte klienten inte ned i listan och nästa region och så vidare. SDK: erna endast försök att läsa från de regioner som anges i PreferredLocations. Så till exempel hanteras om Cosmos-DB-konto finns i tre regioner, men klienten anger endast två av-write-regioner för PreferredLocations, utan läsning utanför området skrivåtgärder även vid redundans.
 
-Programmet kan verifiera den aktuella write-slutpunkten och läsa slutpunkt som valts av SDK genom att kontrollera två egenskaper, WriteEndpoint och ReadEndpoint, finns i SDK-version 1.8 och senare. Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från det aktuella området för skrivning.
+Programmet kan verifiera den aktuella write-slutpunkten och läsa slutpunkt som valts av SDK genom att kontrollera två egenskaper, WriteEndpoint och ReadEndpoint, finns i SDK-version 1.8 och senare. Om egenskapen PreferredLocations inte har angetts visas alla förfrågningar från det aktuella området för skrivning.
 
 ### <a name="using-the-sdk"></a>Med SDK
 

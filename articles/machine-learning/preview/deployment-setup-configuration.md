@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -84,10 +84,12 @@ När installationen miljö:
 - Under autentiseringen efterfrågas ett konto för att autentisera med. Viktigt: Välj ett konto som har ett giltigt Azure-prenumeration och tillräcklig behörighet för att skapa resurser för kontot. - när du är klar logga in på din prenumerationsinformation visas och du tillfrågas om du vill fortsätta med den valda kontot.
 
 ### <a name="environment-setup"></a>Miljökonfiguration
-Om du vill starta installationen måste du registrera providern miljö genom att ange följande kommando:
+Om du vill starta installationen måste du registrera några miljö providrar genom att ange följande kommandon:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Lokal distribution
 Konfigurera en lokal miljö med följande kommando för att distribuera och testa webbtjänsten på den lokala datorn. Resursgruppens namn är valfritt.

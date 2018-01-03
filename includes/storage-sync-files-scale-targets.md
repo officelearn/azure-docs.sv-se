@@ -8,3 +8,4 @@
 | Storlek för slutpunkten | 4 TiB | Nej |
 | Filsystemobjekt (kataloger och filer) per sync-grupp | 6 miljoner objekt | Nej |
 | Filstorlek | 100 giB | Nej |
+| Minsta filstorlek för en fil som nivåindelas | 64 KiB | Ja |

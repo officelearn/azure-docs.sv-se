@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använd Azure AD-autentisering för åtkomst till Azure Media Services-API med övriga
 
-Azure Media Services-teamet har publicerat Azure Active Directory (AD Azure) autentiseringsstöd för åtkomst till Azure Media Services. Det har också meddelat planer för att inaktualisera Azure Access Control service autentisering för åtkomst till Media Services. Eftersom varje Azure-prenumeration och alla Media Services-konto är kopplat till en Azure AD-klient, ger stöd för Azure AD-autentisering många fördelar för säkerheten. Mer information om den här ändringen och migrering (om du använder Media Services .NET SDK för din app) finns i följande blogginlägg och artiklar:
+När du använder Azure AD-autentisering med Azure Media Services kan autentisera du på något av två sätt:
 
-- [Azure Media Services annonserar stöd för Azure AD och utfasningen av Access Control-autentisering](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [Åtkomst till Azure Media Services API med hjälp av Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md)
-- [Använda Azure AD-autentisering för att komma åt Azure Media Services API med hjälp av Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
-- [Komma igång med Azure AD authentication med hjälp av Azure portal](media-services-portal-get-started-with-aad.md)
+- **Användarautentisering** autentiserar en person som använder appen för att interagera med Azure Media Services-resurser. Interaktiva program bör först uppmana användaren att ange autentiseringsuppgifter. Ett exempel är en management konsolapp som används av behöriga användare att övervaka kodning jobb eller direktsänd strömning. 
+- **Autentiseringen av tjänsten huvudnamn** autentiserar en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som körs daemon tjänster, mellannivå tjänster eller schemalagt jobb, t.ex webbprogram, funktionen appar, logikappar, API: er eller mikrotjänster.
 
-Vissa kunder behöver utveckla sina lösningar för Media Services under följande begränsningar:
+    Den här kursen visar hur du använder Azure AD **tjänstens huvudnamn** autentisering åtkomst AMS API med övriga. 
 
-*   De använder ett programmeringsspråk som inte är Microsoft .NET- eller C# eller körningsmiljön är inte Windows.
-*   Azure AD-bibliotek, till exempel Active Directory-Autentiseringsbibliotek är inte tillgängliga för programmeringsspråket eller kan inte användas för sina körningsmiljön.
+    > [!NOTE]
+    > **Tjänstens huvudnamn** är rekommenderad praxis för de flesta program som ansluter till Azure Media Services. 
 
-Vissa kunder har utvecklat program med hjälp av REST API för både autentisering för åtkomstkontroll och Azure Media Services. Du behöver ett sätt att använda REST API för Azure AD-autentisering och efterföljande Azure Media Services-åtkomst för dessa kunder. Du behöver inte förlita dig på någon av Azure AD-bibliotek eller på Media Services .NET SDK. I den här artikeln vi beskriver en lösning och ger exempelkod för det här scenariot. Eftersom koden är alla REST API-anrop med inga beroende på Azure AD eller Azure Media Services-biblioteket koden kan enkelt översättas till alla andra programmeringsspråk.
+I den här guiden får du lära dig hur man:
+
+> [!div class="checklist"]
+> * Hämta autentiseringsinformation om från Azure-portalen
+> * Hämta åtkomsttoken med hjälp av Postman
+> * Testa den **tillgångar** API: et med åtkomst-token
+
 
 > [!IMPORTANT]
-> Media Services stöder för närvarande Azure Access Control services autentisering-modell. Access Control-autentisering kommer dock föråldrad den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentisering så snart som möjligt.
+> Media Services stöder för närvarande Azure Access Control services autentisering-modell. Access Control-autentisering kommer dock föråldrad den 1 juni 2018. Vi rekommenderar att du migrerar till Azure AD-autentiseringsmodellen så snart som möjligt.
 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="design"></a>Designa
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+- [Skapa ett Azure Media Services-konto med hjälp av Azure portal](media-services-portal-create-account.md).
+- Granska de [åtkomst till Azure Media Services API med AAD autentiseringsöversikt](media-services-use-aad-auth-to-access-ams-api.md) artikel.
+- Installera den [Postman](https://www.getpostman.com/) REST-klient för att köra av REST-API som visas i den här artikeln. 
 
-I den här artikeln använder vi följande designen för autentisering och auktorisering:
+    I den här kursen är vi er **Postman** men ett REST-verktyg skulle vara lämplig. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
 
-*  Authorization protocol: OAuth 2.0. OAuth 2.0 är en standard för web säkerhet som omfattar både autentisering och auktorisering. Det stöds av Google, Microsoft, Facebook och PayPal. Det har ratificerat oktober 2012. Microsoft stöder ordentligt OAuth 2.0 och OpenID Connect. Båda dessa normer stöds i flera tjänster och klientbibliotek, inklusive Azure Active Directory, öppna Webbgränssnitt för .NET (OWIN) Katana och Azure AD-bibliotek.
-*  Bevilja: bevilja klientens autentiseringsuppgifter. Klientens autentiseringsuppgifter är en av de fyra grant-typerna för OAuth 2.0. Det används ofta för Azure AD Microsoft Graph API-åtkomst.
-*  Autentiseringsläge: tjänstens huvudnamn. Andra autentiseringsläget är användare eller interaktiv autentisering.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Hämta autentiseringsinformation om från Azure-portalen
 
-Summan av fyra program eller tjänster som är inblandade i Azure AD-autentisering och auktorisering flödet för med Media Services. Program och tjänster och flödet, beskrivs i följande tabell:
+### <a name="overview"></a>Översikt
 
-|Programtyp |Program |Flöde|
-|---|---|---|
-|Client | Kunden app eller lösning | Den här appen (faktiskt, dess proxy) har registrerats i Azure AD-klient som Azure-prenumerationen och media service-konto finns. Tjänstens huvudnamn för den registrerade appen beviljas sedan med rollen ägare eller deltagare i den åtkomst kontrollen (IAM) för media-tjänstkontot. Tjänstens huvudnamn representeras av app-ID och klienten klienthemligheten. |
-|Identitetsprovider (IDP) | Azure AD som IDP | Den registrerade app tjänsten huvudnamn (klient-ID och klienthemlighet) autentiseras av Azure AD som IDP. Autentiseringen utförs internt och implicit. Klienten är autentiserad istället för användaren som klientautentiseringsuppgifter. |
-|Skydda säkerhetstokentjänst (STS) / OAuth-server | Azure AD som STS | Efter autentisering av IDP (eller OAuth-Server i OAuth 2.0-villkor), en åtkomst-token eller en JSON-Webbtoken (JWT) är utfärdat av Azure AD som STS/OAuth-Server för åtkomst till resursen mellannivå: i det här fallet Media Services REST API-slutpunkt. |
-|Resurs | Media Services REST API | Varje Media Services REST API-anrop är auktoriserad genom en åtkomst-token som utfärdas av Azure AD som STS eller OAuth-servern. |
+Du behöver samla in följande datapunkter för att komma åt Media Services API.
 
-Om du kör exempelkoden och avbilda en JWT eller en åtkomst-token har JWT följande attribut:
+|Inställning|Exempel|Beskrivning|
+|---|-------|-----|
+|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomst-token).|
+|REST API-slutpunkt|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program görs.|
+|Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att få åtkomst-token. |
+|Klienthemlighet|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Azure AD application-nycklar (klienthemlighet). Klienthemligheten krävs för att få åtkomst-token.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Hämta AAD auth information från Azure-portalen
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Följ dessa steg om du vill hämta information om:
 
-    iat: 1497146280,
+1. Logga in på [Azure-portalen](http://portal.azure.com).
+2. Gå till din AMS-instans.
+3. Välj **API-åtkomst**.
+4. Klicka på **Anslut till Azure Media Services-API med tjänstens huvudnamn**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![API-åtkomst](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Välj en befintlig **Azure AD-program** eller skapa en ny (se nedan).
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > För Azure Media REST-begäran ska lyckas den anropande användaren måste ha en **deltagare** eller **ägare** roll för Media Services-kontot som försöker komma åt. Om du får ett undantag som säger ”fjärrservern returnerade ett fel: (401) obehörig” Se [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Följ dessa steg om du behöver skapa en ny AD-app:
+    
+    1. Tryck på **skapa nya**.
+    2. Ange ett namn.
+    3. Tryck på **Skapa nytt** igen.
+    4. Tryck på **spara**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![API-åtkomst](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    Den nya appen visas på sidan.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Hämta den **klient-ID** (program-ID).
+    
+    1. Välj ett program.
+    2. Hämta den **klient-ID** från fönstret till höger. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![API-åtkomst](./media/connect-with-rest/existing-client-id.png).
 
-Här följer mappningar mellan attribut i JWT och fyra program eller tjänster i tabellen ovan:
+7.  Hämta programmets **nyckeln** (klienthemlighet). 
 
-|Programtyp |Program |JWT-attribut |
-|---|---|---|
-|Client |Kunden app eller lösning |AppID: ”02ed1e8e-af8b-477e-af3d-7e7219a99ac6”. Klient-ID för ett program som du ska registrera till Azure AD i nästa avsnitt. |
-|Identitetsprovider (IDP) | Azure AD som IDP |IDP: ”https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/” GUID är ID för Microsoft-klient (microsoft.onmicrosoft.com). Varje innehavare har sin egen, unikt ID. |
-|Skydda säkerhetstokentjänst (STS) / OAuth-server |Azure AD som STS | ISS: ”https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/”. GUID är ID för Microsoft-klient (microsoft.onmicrosoft.com). |
-|Resurs | Media Services REST API |eller: ”https://rest.media.azure.net”. Mottagaren eller målgruppen för åtkomst-token. |
+    1. Klicka på den **hantera program** knappen (Observera att informationen i klient-ID är under **program-ID**). 
+    2. Tryck på **nycklar**.
+    
+        ![API-åtkomst](./media/connect-with-rest/manage-app.png)
+    3. Generera app nyckeln (klienthemlighet) genom att fylla i **beskrivning** och **EXPIRES** och trycka på **spara**.
+    
+        En gång i **spara** knappen är nedtryckt, visas värdet för nyckeln. Kopiera värdet för nyckeln innan de lämnar bladet.
 
-## <a name="steps-for-setup"></a>Steg för installation
+    ![API-åtkomst](./media/connect-with-rest/connect-with-rest03.png)
 
-Att registrera och konfigurera ett program för Azure Active Directory (AAD) och för att hämta nycklar för Azure Media Services REST API-slutpunkt anropas finns i artikel [komma igång med Azure AD-autentisering med hjälp av Azure portal](media-services-portal-get-started-with-aad.md)
+Du kan lägga till värden för parametrarna för AD-anslutningen till din web.config eller app.config-fil för senare användning i din kod.
 
+> [!IMPORTANT]
+> Den **klientnyckel** är ett viktigt hemlighet och vara korrekt skyddade i ett nyckelvalv eller krypterade i produktion.
 
-## <a name="info-to-collect"></a>Information för att samla in
+## <a name="get-the-access-token-using-postman"></a>Hämta åtkomsttoken med hjälp av Postman
 
-Samla in följande datapunkter ska ingå i koden för att förbereda REST kodning:
+Det här avsnittet visar hur du använder **Postman** att köra en REST-API som returnerar en JWT ägar-Token (åtkomst-token). För att anropa Media Services REST API: er, måste du lägga till rubriken ”tillstånd” anropen och lägga till värdet för ”ägar *your_access_token*” till varje anrop (som visas i nästa avsnitt i den här kursen). 
 
-*   Azure AD som en STS-slutpunkt: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. En JWT-åtkomsttoken har begärts från den här slutpunkten. Förutom fungerar som en IDP fungerar även Azure AD som en Säkerhetstokentjänst. Azure AD utfärdar en JWT för åtkomst till företagsresurser (en åtkomst-token). En JWT-token har olika krav.
-*   Azure Media Services REST API som resurs eller en publik: https://rest.media.azure.net.
-*   Klient-ID: Se steg 2 i [steg för att installationen](#steps-for-setup).
-*   Klienthemligheten: se steg 2 i [steg för att installationen](#steps-for-setup).
-*   Media Services konto REST API-slutpunkt i följande format:
+1. Öppna **Postman**.
+2. Välj **POST**.
+3. Ange den URL som innehåller ditt klientnamn med hjälp av följande format: klientnamnet ska avslutas med **. onmicrosoft.com** och URL: en måste sluta med **oauth2-token**: 
 
-    https://[media_service_account_name].restv2. [data_center].media.azure.net/API 
+    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program görs. Till exempel https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Välj den **huvuden** fliken.
+5. Ange den **huvuden** information med hjälp av datarutnätet ”nyckel/värde”. 
 
-Du kan sedan lägga parametrarna fem i filen web.config eller app.config, i din kod.
+    ![Datarutnätet](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Exempelkod
+    Alternativt klickar du på **Massredigera** länka till höger i fönstret Postman och klistra in följande kod.
 
-Du kan hitta exempelkoden i [Azure AD-autentisering för Azure Media Services-åtkomst: båda via REST API](https://github.com/willzhan/WAMSRESTSoln).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-Exempelkoden består av två delar:
+6. Tryck på den **brödtext** fliken.
+7. Ange brödtext information med hjälp av datarutnätet ”nyckel/värde” (Ersätt klient-ID och Hemlig värden). 
 
-*   En DLL-biblioteksprojekt som har alla REST API-koden för Azure AD-autentisering och auktorisering. Det har också en metod för att göra REST API-anrop till Media Services REST API-slutpunkten med den åtkomst-token.
-*   En konsol test-klient som initierar Azure AD-autentisering och annan Media Services REST API-anrop.
+    ![Datarutnätet](./media/connect-with-rest/data-grid.png)
 
-Exempelprojektet har tre funktioner:
+    Alternativt klickar du på **Massredigera** till höger i fönstret Postman och klistra in följande organ (Ersätt klient-ID och Hemlig värden):
 
-*   Azure AD-autentiseringar via klientens autentiseringsuppgifter ger med hjälp av REST API.
-*   Azure Media Services-åtkomst med hjälp av REST API.
-*   Azure Storage-åtkomst med hjälp av endast REST API (som används för att skapa ett Media Services-konto med hjälp av REST-API).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. Tryck på **Skicka**.
 
-## <a name="where-is-the-refresh-token"></a>Där är uppdateringstoken?
+    ![Hämta token](./media/connect-with-rest/connect-with-rest04.png)
 
-Vissa webbläsare kan be: där är uppdateringstoken? Varför inte använda en uppdateringstoken här?
+Returnerade svaret innehåller den **åtkomsttoken** att du behöver använda för åtkomst till alla AMS APIs.
 
-Syftet med en uppdateringstoken är inte att uppdatera en åtkomst-token. Den är utformad att kringgå slutanvändarens autentisering och fortfarande få en giltig åtkomsttoken när ett tidigare token upphör att gälla. Ett bättre namn för en uppdateringstoken kan vara ungefär ”kringgå återexport-sign in användartoken”.
+## <a name="test-the-assets-api-using-the-access-token"></a>Testa den **tillgångar** API: et med åtkomst-token
 
-Om du använder OAuth 2.0 auktorisering bevilja flöde (användarnamn och lösenord, fungerar för en användares räkning), kan du hämta ett förnyat åtkomsttoken utan åtgärder från användaren begär en uppdateringstoken. För OAuth 2.0 klientens autentiseringsuppgifter bevilja flödet som beskrivs i den här artikeln, fungerar dock klienten för sin egen räkning. Du behöver inte användaren behöver göra något alls och auktorisering servern behöver inte ge dig en uppdateringstoken. Om du felsöka den **GetUrlEncodedJWT** metod du märker att svaret från token slutpunkten har en åtkomst-token, men ingen uppdateringstoken.
+Det här avsnittet visas hur du kommer åt den **tillgångar** API med hjälp av **Postman**.
+
+1. Öppna **Postman**.
+2. Välj **GET**.
+3. Klistra in REST API-slutpunkt (till exempel https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+4. Välj den **auktorisering** fliken. 
+5. Välj **Ägartoken**.
+6. Klistra in den token som skapades i föregående avsnitt.
+
+    ![Hämta token](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > Postman UX kan vara olika mellan Mac- och PC. Om Mac-version inte har alternativet ”ägar-Token” i den **autentisering** avsnittet listrutan som du bör lägga till den **auktorisering** huvud manuellt på Mac-klienten.
+
+   ![Auth-huvud](./media/connect-with-rest/auth-header.png)
+
+7. Välj **huvuden**.
+5. Klicka på **Massredigera** länka Postman fönstret till höger.
+6. Klistra in följande huvuden:
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. Tryck på **Skicka**.
+
+Returnerade svaret innehåller de resurser som finns i ditt konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [överföringen av filer till ditt konto](media-services-dotnet-upload-files.md).
+* Prova den här exempelkoden i [Azure AD-autentisering för Azure Media Services-åtkomst: båda via REST API](https://github.com/willzhan/WAMSRESTSoln)
+* [Överföra filer med .NET](media-services-dotnet-upload-files.md)

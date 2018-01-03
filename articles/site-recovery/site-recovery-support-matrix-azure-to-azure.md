@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure Site Recovery stöd matrix för replikering från Azure till Azure
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver konfigurationer som stöds och komponenter för Azur
 
 **Användargränssnittet** |  **Stöds / stöds inte**
 --- | ---
-**Azure Portal** | Stöds
+**Azure-portalen** | Stöds
 **Klassisk portal** | Stöds inte
 **PowerShell** | Stöds för närvarande inte
 **REST API** | Stöds för närvarande inte
@@ -168,6 +168,7 @@ RA-GRS | Stöds |
 ZRS | Stöds inte |  
 Kall och het lagring | Stöds inte | Virtuella diskar stöds inte på kall och het lagring
 Virtuella nätverksslutpunkter (Azure Storage brandväggar och virtuella nätverk)  | Nej | Att tillåta åtkomst till specifika virtuella Azure-nätverk på cache storage-konton som används för att lagra replikerade data stöds inte. 
+Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generella V1 storage-konton
 
 >[!IMPORTANT]
 > Se till att du upptäcker att Virtuella disken skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery krävs diskar och storage-konton baserat på käll-konfigurationen. Se till att du följer disk skalbarhets- och prestandamål för dina virtuella källdatorer om du anpassar och välja egna inställningar.

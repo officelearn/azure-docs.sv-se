@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search ska indexera dokument (till exempel PDF-filer, Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar det grunderna för att installera och konfigurera en indexerare blob. Sedan den erbjuder en ingående undersökning av beteenden och scenarier troligen kommer att stöta på.
@@ -31,7 +31,7 @@ Blob-indexeraren kan extrahera text från följande dokumentformat:
 ## <a name="setting-up-blob-indexing"></a>Konfigurera blob-indexering
 Du kan konfigurera en Azure Blob Storage indexeraren med:
 
-* [Azure Portal](https://ms.portal.azure.com)
+* [Azure-portalen](https://ms.portal.azure.com)
 * Azure Search [REST-API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
@@ -225,28 +225,6 @@ Du kan utesluta blobbar med specifika filnamnstillägg från att indexera med hj
 
 Om båda `indexedFileNameExtensions` och `excludedFileNameExtensions` parametrar finns, Azure har genomsöks vid `indexedFileNameExtensions`, sedan på `excludedFileNameExtensions`. Det innebär att om samma filnamnstillägget finns i båda listorna, den kommer att uteslutas från indexering.
 
-### <a name="dealing-with-unsupported-content-types"></a>Hantera innehållstyper som inte stöds
-
-Som standard avbryts blob-indexering så snart den stöter på en blob med en stöds inte innehållstyp (till exempel en bild). Naturligtvis kan du använda den `excludedFileNameExtensions` parametern för att hoppa över vissa typer av innehåll. Du kan dock behöva index blobbar utan att känna till alla möjliga typer av innehåll i förväg. Om du vill fortsätta indexeringen när en innehållstyp som inte stöds har påträffats, ange den `failOnUnsupportedContentType` konfigurationsparameter till `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Ignorerar tolkningsfel
-
-Azure Search dokumentet extrahering logik är inte perfekt och ibland kommer inte att parsa dokument för en stöds innehållstyp, t.ex. DOCX eller. PDF-FILEN. Om du inte vill avbryta indexering i sådana fall kan du ange den `maxFailedItems` och `maxFailedItemsPerBatch` konfigurationsparametrar för vissa rimliga värden. Exempel:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Kontrollera vilka delar av blob indexeras
 
@@ -275,6 +253,31 @@ De konfigurationsparametrar som beskrivs ovan gäller för alla BLOB. Ibland kan
 | --- | --- | --- |
 | AzureSearch_Skip |”true” |Instruerar blob indexeraren att helt och hållet blob. Varken metadata eller innehåll extrahering görs. Detta är användbart när en viss blob misslyckas flera gånger och avbryter indexering processen. |
 | AzureSearch_SkipContent |”true” |Detta är likvärdiga med `"dataToExtract" : "allMetadata"` inställningen beskrivs [ovan](#PartsOfBlobToIndex) begränsade till en viss blob. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Hantera fel
+
+Som standard avbryts blob-indexering så snart den stöter på en blob med en stöds inte innehållstyp (till exempel en bild). Naturligtvis kan du använda den `excludedFileNameExtensions` parametern för att hoppa över vissa typer av innehåll. Du kan dock behöva index blobbar utan att känna till alla möjliga typer av innehåll i förväg. Om du vill fortsätta indexeringen när en innehållstyp som inte stöds har påträffats, ange den `failOnUnsupportedContentType` konfigurationsparameter till `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Azure Search kan inte fastställa innehållstypen för vissa BLOB eller går inte att bearbeta ett dokument för annars stöds content-type. Om du vill ignorera det här felet läget, ange den `failOnUnprocessableDocument` konfigurationsparameter till false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Du kan också fortsätta indexera om fel inträffa när som helst bearbetning, antingen vid parsning av blobbar eller när du lägger till dokument i ett index. Om du vill ignorera ett visst antal fel, ange den `maxFailedItems` och `maxFailedItemsPerBatch` konfigurationsparametrar till önskade värden. Exempel:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Identifiering av inkrementell indexering och borttagning
 När du ställer in en blob-indexeraren ska köras enligt ett schema, den indexerar endast ändrade blobbar, enligt blobben `LastModified` tidsstämpel.

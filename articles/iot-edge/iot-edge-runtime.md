@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Förstå Azure IoT kant-runtime och dess arkitektur - förhandsgranskning
 
@@ -22,12 +22,12 @@ IoT-Edge runtime är en uppsättning program som måste installeras på en enhet
 IoT-Edge runtime utför följande funktioner på enheter som IoT:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
-* Underhåller Azure IoT kant säkerhetskrav på enheten.
+* Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
 * Garanterar att [IoT kant moduler][lnk-moduler] alltid körs.
-* Rapporter modulen hälsa till molnet för övervakning av fjärråtkomst.
-* Underlättar kommunikationen mellan underordnade lövmedlemmar enheter och IoT gränsenheten.
-* Underlättar kommunikationen mellan moduler på IoT gränsenheten.
-* Underlättar kommunikationen mellan IoT gränsenheten och molnet.
+* Rapporterar modulens hälsa till molnet för fjärrövervakning.
+* Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheten.
+* Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
+* Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
 
 ![IoT-Edge runtime kommunicerar insikter och modulen hälsa till IoT-hubb][1]
 
@@ -89,17 +89,25 @@ Varje objekt i moduler ordlistan innehåller specifik information om en modul oc
 * **Settings.Image** – behållaren avbildningen Edge-agenten använder för att starta modulen. Edge-agent måste konfigureras med autentiseringsuppgifter för behållaren registernyckeln om bilden skyddas av ett lösenord. Om du vill konfigurera Edge-agenten använder du följande kommando:`azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – en sträng som skickas direkt till Docker-daemon när du startar en modul behållare. Lägger till Docker-alternativ i den här egenskapen kan avancerade alternativ som port vidarebefordran eller montering av volymer i en modul behållare.  
 * **status för** – tillstånd där agenten Edge placerar modulen. Det här värdet anges vanligtvis *kör* som de flesta vill Edge-agent för att starta alla moduler direkt på enheten. Du kan dock ange inledningsvis i en modul som ska stoppas och vänta en framtida tid för att ange Edge-agenten för att starta en modul. Edge agenten rapporterar status för varje modul tillbaka till molnet i rapporterade egenskaper. Skillnad mellan önskade egenskaperna och rapporterade är en indikator eller fel enhet. Stöds statusar:
-   * Ladda ned
+   * Hämtar
    * Körs
    * Skadad
-   * Misslyckades
+   * Misslyckad
    * Stoppad
 * **restartPolicy** – hur Edge agenten startar om en modul. Möjliga värden omfattar:
    * Edge-agenten startar aldrig – aldrig om modulen.
    * onFailure - om modulen kraschar Edge agenten startar om den. Om modulen avslutas korrekt Edge-agenten inte starta om den.
    * Ohälsosamma - om modulen kraschar eller bedöms ohälsosamt Edge agenten startar om den.
    * Alltid - om modulen kraschar, anses feltillstånd eller stängs av på något sätt, startar Edge agenten den. 
-   
+
+IoT-Edge agenten skickar runtime svar till IoT-hubb. Här är en lista över möjliga svar:
+  * 200 - OK
+  * 400 - distributionskonfigurationen är skadad eller ogiltig.
+  * 417 - enheten har inte en distributionskonfiguration anger.
+  * 412 - schemaversionen i distributionskonfigurationen är ogiltig.
+  * 406 - gränsenheten är offline eller inte skicka statusrapporter.
+  * 500 - ett fel inträffade i edge-körningsmiljön.
+
 ### <a name="security"></a>Säkerhet
 
 IoT-Edge agenten spelar en viktig roll i säkerheten för en IoT-enhet. Till exempel utför den åtgärder som verifierar en modul bilden innan du startar den. Dessa funktioner läggs vid allmän tillgänglighet för V2-funktioner. 

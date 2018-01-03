@@ -15,34 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hur fungerar Azure Cosmos DB indexinformationen?
 
-Alla Azure Cosmos DB data indexeras som standard. Och många kunder är glada över att låta Azure Cosmos DB automatiskt hantera alla aspekter av indexering, Azure Cosmos DB också stöd för att ange en anpassad **indexering princip** för samlingar när du skapar. Indexering principer i Azure Cosmos DB är mer flexibel och kraftfull än sekundärindex som erbjuds i andra databasplattformar,, eftersom de låter dig utforma och anpassa formen av indexet utan att kompromissa flexibelt schema. Om du vill veta hur indexering fungerar i Azure Cosmos DB, måste du förstå som du kan göra detaljerade kompromisser mellan Omkostnad för indexlagring, Skriv- och fråga genomflöde och fråga konsekvens genom att hantera indexprincip.  
+Alla Azure Cosmos DB data indexeras som standard. Även om många kunder är glada över att låta Azure Cosmos DB automatiskt hantera alla aspekter av indexering, kan du ange en anpassad *indexering princip* för samlingar i Azure Cosmos DB när den skapas. Indexering principer i Azure Cosmos DB är mer flexibel och kraftfull än sekundärindex som erbjuds i andra databasplattformar. Du kan utforma och anpassa formen av indexet utan att kompromissa flexibelt schema i Azure Cosmos-databasen. 
 
-I den här artikeln vi titta Stäng på Azure Cosmos DB indexering principer, hur du kan anpassa indexprincip och associerade avvägningarna. 
+Om du vill veta hur indexering fungerar i Azure Cosmos DB, är det viktigt att förstå att du kan göra detaljerade avvägningarna mellan Omkostnad för indexlagring, Skriv- och fråga genomflöde och fråga konsekvenskontroll när du hanterar indexprincip.  
+
+I den här artikeln titta vi Stäng på Azure Cosmos DB indexering principer på hur du anpassar indexprincip och associerade avvägningarna. 
 
 När du har läst den här artikeln kommer du att kunna svara på följande frågor:
 
 * Hur åsidosätta egenskaper för att inkludera eller exkludera från indexering?
 * Hur konfigurerar indexet för eventuell uppdateringar?
-* Hur kan jag konfigurera indexering för att utföra Order By- eller intervallet frågor?
+* Hur kan jag konfigurera indexering för att utföra ORDER BY- eller intervallet frågor?
 * Hur gör ändringar till en samling indexprincip?
 * Hur jag jämföra lagrings- och prestandakrav för olika indexering principer?
 
-## <a id="CustomizingIndexingPolicy"></a>Anpassa indexprincip i en samling
-Utvecklare kan anpassa avvägningarna mellan lagring, Skriv-/ frågeprestanda och fråga konsekvens genom att åsidosätta standardprincipen för fulltextindexering på en samling Azure Cosmos DB och konfigurera följande aspekter.
+## Anpassa indexprincip i en samling<a id="CustomizingIndexingPolicy"></a>  
+Du kan anpassa avvägningarna mellan lagring, Skriv- och prestanda för frågor och fråga konsekvens genom att åsidosätta standardvärdet indexering princip på en Azure DB som Cosmos-samling. Du kan konfigurera följande aspekter:
 
-* **Inklusive/exklusive dokument och sökvägar till/från index**. Utvecklare kan välja vissa dokument som ska uteslutas eller ingår i indexet vid tidpunkten för att infoga eller ersätta dem till samlingen. Utvecklare kan också välja att inkludera eller exkludera kallas även vissa JSON-egenskaper sökvägar (inklusive mönster med jokertecken) med att indexera mellan dokument som ingår i ett index.
-* **Konfigurera olika indexera typer**. För alla sökvägar som tas kan utvecklare även ange vilken typ av index som de kräver över en samling baserat på deras data och förväntas arbetsbelastningen för frågan och numeriska/strängen ”precision” för varje sökväg.
-* **Konfigurera Index Update lägen**. Azure Cosmos-DB stöder tre indexering lägen som kan konfigureras via indexprincip på en samling Azure Cosmos DB: konsekvent, Lazy och None. 
+* **Inkludera eller exkludera dokument och sökvägar till och från indexet**. Du kan exkludera eller inkludera specifika dokument i index när du infoga eller ersätta dokumenten i samlingen. Du kan även inkludera eller exkludera specifika JSON-egenskaper, kallas även *sökvägar*, indexeras i dokument som ingår i ett index. Sökvägar inkluderar mönster med jokertecken.
+* **Konfigurera olika typer av indexet**. Du kan ange vilken typ av index sökvägen som krävs för en samling för varje inkluderade sökväg. Du kan ange vilken typ av index baserat på den sökvägen data, förväntade frågan arbetsbelastning och numeriska/strängen ”precision”.
+* **Konfigurera index update lägen**. Azure Cosmos-DB stöder tre indexering lägen: konsekvent, Lazy, och inget. Du kan konfigurera indexering lägen via indexprincip på en Azure DB som Cosmos-samling. 
 
-Följande kodavsnitt i .NET visar hur du ställer in en anpassad indexprincip under genereringen av en samling. Här ange vi principen med områdesindex för strängar och tal i den maximala precisionen. Den här principen kan vi köra Order By-frågor mot strängar.
+Följande kodavsnitt för Microsoft .NET visar hur du ställer in en anpassad indexprincip när du skapar en samling. I det här exemplet anger vi principen med ett intervall index för strängar och tal på högsta precision. Du kan använda den här principen för att köra ORDER BY-frågor mot strängar.
 
     DocumentCollection collection = new DocumentCollection { Id = "myCollection" };
 
@@ -53,53 +55,61 @@ Följande kodavsnitt i .NET visar hur du ställer in en anpassad indexprincip un
 
 
 > [!NOTE]
-> JSON-schema för indexprincip har ändrats med lanseringen av REST API version 2015-06-03 att stödja intervallet index mot strängar. .NET SDK 1.2.0 och Java, Python och Node.js SDK 1.1.0 stöd för det nya schemat för principen. Äldre SDK REST-API: n version 2015-04-08 och stöd för äldre schemat för indexering av principen.
+> JSON-schema för indexprincip ändras med lanseringen av REST API-version 2015-06-03. Med den versionen stöder JSON-schema för indexering princip intervallet index mot strängar. .NET SDK 1.2.0 och Java, Python och Node.js SDK 1.1.0 stöd för det nya schemat för principen. Tidigare versioner av SDK använda REST API för version 2015-04-08. De stöder tidigare schemat för indexering princip.
 > 
-> Som standard indexerar Azure Cosmos DB alla egenskaper för anslutningssträngen i dokument konsekvent med ett Hash-index och numeriska egenskaper med ett index för intervallet.  
+> Standard indexerar Azure Cosmos DB alla egenskaper för anslutningssträngen i dokument konsekvent med ett Hash-index. Indexeras alla numeriska egenskaper i dokument konsekvent med ett index för intervallet.  
 > 
 > 
 
-### <a name="customizing-the-indexing-policy-using-the-portal"></a>Anpassa den indexprincip med hjälp av portalen
+### <a name="customize-the-indexing-policy-in-the-portal"></a>Anpassa indexprincip i portalen
 
-Du kan ändra indexprincip i en samling med Azure-portalen. Öppna Azure DB som Cosmos-konto i Azure portal, Välj din samling i det vänstra navigeringsfönstret och klicka **inställningar**, och klicka sedan på **indexering princip**. I den **indexering princip** bladet ändra indexprincip och klicka sedan på **OK** att spara ändringarna. 
+Du kan ändra indexprincip i en samling i Azure-portalen: 
 
-### <a id="indexing-modes"></a>Databasen indexering lägen
-Azure Cosmos-DB stöder tre indexering lägen som kan konfigureras via indexprincip på en samling Azure Cosmos DB – konsekvent, Lazy och None.
+1. Gå till Azure DB som Cosmos-konto i portalen och välj sedan din samling. 
+2. Välj i den vänstra navigeringsmenyn **inställningar**, och välj sedan **indexering princip**. 
+3. Under **indexering princip**, ändra indexprincip och väljer sedan **OK**. 
 
-**Konsekvent**: om en samling Azure Cosmos DB princip utses ”konsekvent”, frågor om Azure Cosmos DB samling följer konsekvenskontroll samma nivå som angetts för plats-läsningar (d.v.s. stark, begränsat föråldrad, session eller eventuell). Indexet uppdateras synkront som en del av dokument-uppdateringen (d.v.s. insert-, Ersätt, uppdatering och borttagning av ett dokument i en samling Azure Cosmos DB).  Konsekvent indexering stöder konsekvent frågor på bekostnad av eventuell minskning i genomströmning för skrivning. Denna minskning är en funktion av de unika sökvägar som behöver indexeras och ”konsekvensnivå”. Konsekvent indexering läge är utformad för ”skriva snabbt fråga omedelbart” arbetsbelastningar.
+### Databasen indexering lägen<a id="indexing-modes"></a>  
+Azure Cosmos-DB stöder tre indexering lägen som du kan konfigurera via indexprincip på en samling Azure Cosmos DB: konsekvent, Lazy, och inget.
 
-**Lazy**: I det här fallet indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt, det vill säga när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som. För ”mata in nu fråga senare” arbetsbelastningar som kräver dokumentet införandet är ”lazy” indexering läge lämpligt. Observera att du kan få inkonsekventa resultat som data hämtar inhämtas och indexerade långsamt. Detta innebär att din antal frågor eller en specifik fråga resultaten kan vara konsekvent eller repeterbara vid en given tidpunkt. Indexet är vanligtvis i fångar upp läge med infogade data. Med avseende på lazy indexering ändrar gång live (TTL) resultatet i indexet komma släppas och återskapas, vilket gör resultatet antal och fråga inkonsekvent för en viss tidsperiod. En majoritet av Azure Cosmos DB konton bör därför använda konsekvent indexering.
+**Konsekvent**: om en samling Azure Cosmos DB principen är konsekvent, samma konsekvensnivå som angetts för plats-läsningar följer du frågor för en specifik Azure DB som Cosmos-samling (stark, begränsat föråldrad, session eller senare). Indexet uppdateras synkront som en del av uppdateringen dokumentet (Infoga, Ersätt, uppdatera och ta bort ett dokument i en samling Azure Cosmos DB).
 
-**Ingen**: en samling som markerats med index ”None” har inget index som är kopplade till den. Detta är vanligt om Azure Cosmos DB används som en nyckel / värde-lagring och dokument används endast av deras ID-egenskap. 
+Konsekvent indexering stöder konsekvent frågor på bekostnad av en eventuell minskning i genomströmning för skrivning. Denna minskning är en funktion av de unika sökvägar som behöver indexeras och ”konsekvensnivå”. Konsekvent indexering läge är utformad för ”skriva snabbt fråga omedelbart” arbetsbelastningar.
+
+**Lazy**: indexet uppdateras asynkront när en samling Azure Cosmos DB overksamt, det vill säga när mängdens genomflödeskapaciteten inte fullt ut för att betjäna användarförfrågningar som. Det Lazy indexering läget kan vara lämplig för ”mata in nu fråga senare” arbetsbelastningar som kräver införandet av dokumentet. Observera att du kan få inkonsekventa resultat eftersom data är inhämtas och indexerade långsamt. Detta innebär att din antal frågor eller en specifik fråga resultaten kan vara konsekvent eller repeterbara vid en given tidpunkt. 
+
+Indexet är vanligtvis i catch-up läge med infogade data. Med Lazy indexering, ändrar tiden live (TTL) resultatet i indexet tas bort och återskapas. Detta gör att antalet och fråga resultaten inkonsekvent under en tidsperiod. Därmed bör de flesta Azure Cosmos DB konton Använd konsekventa indexering läge.
+
+**Ingen**: en samling som har en ingen indexläge har inget index som är kopplade till den. Detta är vanligt om Azure Cosmos DB används som en nyckel / värde-lagring och dokument används endast av deras ID-egenskap. 
 
 > [!NOTE]
-> Om du konfigurerar indexprincip med ”None” har att släppa alla befintliga indexet. Använd det här alternativet om ditt åtkomstmönster bara behöver ”id” och/eller ”automatisk länka”.
+> Om du konfigurerar indexprincip med eftersom ingen har att släppa alla befintliga indexet. Använd det här alternativet om ditt åtkomstmönster kräver endast ID eller självlänkar.
 > 
 > 
 
-I följande tabell visas konsekvens för frågor baserat på indexering läge (konsekvent och Lazy) som konfigurerats för samlingen samt konsekvensnivå som angetts för frågan förfrågan. Detta gäller för frågor som gjorts med alla gränssnitt - REST API-SDK: er eller inifrån lagrade procedurer och utlösare. 
+I följande tabell visas konsekvens för frågor baserat på indexering läge (konsekvent och Lazy) som konfigurerats för samlingen samt konsekvensnivå som angetts för frågan förfrågan. Detta gäller för frågor genom att använda alla gränssnitt: REST-API, SDK: er, eller inifrån lagrade procedurer och utlösare. 
 
 |Konsekvens|Indexering läge: konsekvent|Indexering läge: Lazy|
 |---|---|---|
 |Stark|Stark|Eventuell|
-|Begränsad föråldring|Begränsad föråldring|Eventuell|
+|Begränsad föråldrad|Begränsad föråldrad|Eventuell|
 |Session|Session|Eventuell|
 |Eventuell|Eventuell|Eventuell|
 
-Azure Cosmos-DB Returnerar ett fel för frågor som gjorts på samlingar med ingen indexering läge. Frågor kan fortfarande köras som genomsökningar via en explicit `x-ms-documentdb-enable-scan` huvudet i REST-API eller `EnableScanInQuery` begära alternativet med .NET SDK. Vissa frågefunktioner som ORDER BY stöds inte som sökningar med `EnableScanInQuery`.
+Azure Cosmos-DB Returnerar ett fel för frågor som görs på samlingar som inte har något indexering läge. Frågor kan fortfarande köras som genomsökningar via en explicit **x-ms-documentdb-enable-genomsökning** huvudet i REST-API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Vissa frågefunktioner, som ORDER BY stöds inte som sökningar med **EnableScanInQuery**.
 
-I följande tabell visas konsekvens för frågor baserat på indexering läge (konsekvent Lazy och None) när EnableScanInQuery har angetts.
+I följande tabell visas konsekvens för frågor baserat på indexering läge (konsekvent Lazy och None) när **EnableScanInQuery** har angetts.
 
 |Konsekvens|Indexering läge: konsekvent|Indexering läge: Lazy|Indexering läge: ingen|
 |---|---|---|---|
 |Stark|Stark|Eventuell|Stark|
-|Begränsad föråldring|Begränsad föråldring|Eventuell|Begränsad föråldring|
+|Begränsad föråldrad|Begränsad föråldrad|Eventuell|Begränsad föråldrad|
 |Session|Session|Eventuell|Session|
 |Eventuell|Eventuell|Eventuell|Eventuell|
 
-I följande exempel visar hur skapa en Azure DB som Cosmos-samling med .NET SDK med indexering konsekvent på alla dokument infogningar.
+I följande exempel visar hur skapa en Azure DB som Cosmos-samling med hjälp av .NET SDK med indexering konsekvent på alla dokument infogningar.
 
-     // Default collection creates a hash index for all string fields and a range index for all numeric    
+     // Default collection creates a Hash index for all string fields and a Range index for all numeric    
      // fields. Hash indexes are compact and offer efficient performance for equality queries.
 
      var collection = new DocumentCollection { Id ="defaultCollection" };
@@ -110,29 +120,29 @@ I följande exempel visar hur skapa en Azure DB som Cosmos-samling med .NET SDK 
 
 
 ### <a name="index-paths"></a>Index sökvägar
-Azure Cosmos-DB modeller JSON-dokument och indexet som träd och gör att du kan finjustera principer för sökvägar i trädet. Dokument, kan du välja vilka sökvägar måste inkluderas eller uteslutas från indexering. Detta kan erbjuda bättre skrivprestanda och lägre index lagring för scenarier när frågemönster är kända i förväg.
+Azure Cosmos-DB modeller JSON-dokument och indexet som träd. Du kan finjustera principer för sökvägar i trädet. Du kan välja sökvägar till inkludera eller exkludera från att indexera dokument. Detta kan erbjuda bättre skrivprestanda och lägre index lagring för scenarier där frågemönster är kända i förväg.
 
-Index sökvägar som börjar med rot (/) och vanligtvis avslutas med det? jokertecken operator, som anger att det finns flera möjliga värden för prefix. Till exempel för att hantera SELECT * FROM familjer F var F.familyName = ”Andersen” måste du inkludera ett index sökvägen för /familyName/? i den samling index princip.
+Index sökvägar som börjar med rot (/) och vanligtvis avslutas med det? jokertecken operator. Detta anger att det finns flera möjliga värden för prefix. Till exempel för att hantera SELECT * FROM familjer F var F.familyName = ”Andersen” måste du inkludera ett index sökvägen för /familyName/? i den samling index princip.
 
-Index sökvägar kan också använda den * jokertecken operatorn för att ange beteendet för sökvägar rekursivt under prefixet. Till exempel nyttolast / * kan användas för att undanta allt under egenskapen nyttolast från indexering.
+Index sökvägar kan också använda den \* jokertecken operatorn för att ange beteendet för sökvägar rekursivt under prefixet. Till exempel nyttolast / * kan användas för att undanta allt under egenskapen nyttolast från indexering.
 
 Här följer vanliga mönster för att ange index sökvägar:
 
 | Sökväg                | Beskrivning/användningsfall                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Standardsökvägen för samlingen. Rekursiva och gäller för hela dokumentträdet.                                                                                                                                                                                                                                   |
-| / prop /?             | Index sökväg som krävs för att hantera frågor som följande (typer respektive med hash- eller intervall):<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                       |
+| / prop /?             | Index sökväg som krävs för att hantera frågor som följande (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                       |
 | / prop / *             | Index sökvägen för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”värde”<br><br>Välj samling c ORDER BY c.prop         |
 | [] / sammanställer / /?         | Index sökväg krävs för att hantera iteration och delta i frågor mot matriser av skalärer som [”a”, ”b”, ”c”]:<br><br>Välj taggen från tagg i collection.props var taggen = ”värde”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props där tagga > 5                                                                         |
 | /Props/ [] /subprop/? | Index sökväg krävs för att hantera iteration och JOIN-frågor mot matriser av objekt som [{subprop: ”a”}, {subprop: ”b”}]:<br><br>Välj taggen från tagg i collection.props var tag.subprop = ”värde”<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var tag.subprop = ”värde”                                  |
-| / prop/subprop /?     | Index sökväg som krävs för att hantera frågor (typer respektive med hash- eller intervall):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5                                                                                                                    |
+| / prop/subprop /?     | Index sökväg som krävs för att hantera frågor (med Hash- eller typer respektive):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
-> När anpassat index sökvägar, du måste ange standard indexering regel för trädet hela dokumentet med särskilda sökvägen ”/ *”. 
+> När du ställer in anpassat index sökvägar du krävs för att ange standard indexering regel för trädet hela dokumentet som markerats med särskilda sökvägen ”/ *”. 
 > 
 > 
 
-I följande exempel konfigureras en specifik sökväg med intervallet indexering och anpassade Precisionvärdet 20 byte:
+I följande exempel konfigureras en specifik sökväg med områdesindex och anpassade Precisionvärdet 20 byte:
 
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
@@ -157,24 +167,24 @@ I följande exempel konfigureras en specifik sökväg med intervallet indexering
 
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Index-datatyper, typer och Precision-datorerna
-Nu när vi har valt en titt på hur du anger sökvägar, ska vi titta på de alternativ som vi kan använda för att konfigurera indexprincip för en sökväg. Du kan ange en eller flera indexering definitioner för varje sökväg:
+Du har flera alternativ när du konfigurerar indexprincip för en sökväg. Du kan ange en eller flera indexering definitioner för varje sökväg:
 
-* Datatyp: **sträng**, **nummer**, **punkt**, **Polygon**, eller **LineString** (kan endast innehålla en post per datatyp per sökväg)
-* Index-typ: **Hash** (likhetsfrågor) **intervallet** (likhetsfrågor, intervall eller Order By-frågor) eller **Spatial** (spatial frågor) 
-* Precision: För hash-index detta varierar från 1 till 8 för både strängar och tal med en standard som 3. För områdesindex det här värdet vara 1 (maximal precision) och variera mellan 1-100 (maximal precision) för sträng eller numeriska värden.
+* **Datatypen**: sträng, siffra, punkt, Polygon eller LineString (kan innehålla endast en post per datatyp och sökväg).
+* **Index-typ**: Hash (likhetsfrågor), intervall (likhetsfrågor, intervall eller ORDER BY-frågor) eller Spatial (spatial frågor).
+* **Precision**: för ett Hash-index detta varierar från 1 till 8 för både strängar och siffror. Standardvärdet är 3. Det här värdet kan vara -1 (maximal precision) för ett intervall index. Det kan variera finns mellan 1 och 100 (maximal precision) för sträng eller numeriska värden.
 
 #### <a name="index-kind"></a>Typ av index
-Azure Cosmos-DB stöder Hash och intervallet index typer för varje sökväg (som kan konfigureras för strängar, siffror eller båda).
+Azure Cosmos-DB stöder Hash-index och intervallet index typer för varje sökväg som kan konfigureras för datatyperna String eller en siffra eller båda.
 
-* **Hash** stöder effektiv likhetsfrågor och JOIN-frågor. Hash-index behöver inte en högre precision än standardvärdet 3 byte för de flesta användningsfall. Datatyp kan vara en sträng eller en siffra.
-* **Intervallet** stöder effektiv likhetsfrågor intervallet frågor (med hjälp av >, <>, =, < =,! =), och Order By-frågor. Order By-frågor som standard även kräva maximala index precision (-1). Datatyp kan vara en sträng eller en siffra.
+* **Hash** stöder effektiv likhetsfrågor och JOIN-frågor. För de flesta användningsfall behöver Hash-index en högre precision än standardvärdet 3 byte. Datatypen kan vara en sträng eller en siffra.
+* **Intervallet** stöder effektiv likhetsfrågor intervallet frågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER By-frågor som standard även kräva maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
 
 Azure Cosmos-DB stöder också Spatial index-typ för varje sökväg som kan anges för datatyperna punkt, Polygon eller LineString. Värdet på den angivna sökvägen måste vara ett giltigt GeoJSON-fragment som `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
-* **Spatial** stöder effektiv spatial (inom och avstånd) frågor. Datatyp kan vara punkt, Polygon eller LineString.
+* **Spatial** stöder effektiv spatial (inom och avstånd) frågor. Datatypen kan vara punkt, Polygon eller LineString.
 
 > [!NOTE]
-> Azure Cosmos-DB har stöd för automatisk indexering av punkter och polygoner LineStrings.
+> Azure Cosmos-DB har stöd för automatisk indexering av punkt och Polygon LineString datatyper.
 > 
 > 
 
@@ -183,38 +193,38 @@ Här följer stöds index typer och exempel på frågor som de kan användas fö
 | Typ av index | Beskrivning/användningsfall                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hash       | Hash-över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Hash över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj taggen från samlingen c JOIN-tagg i c.props var taggen = 5                                                                                                                       |
-| intervallet      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
+| Intervall      | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”värde”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop                                                                                                                                                                                                              |
 | Spatial     | Intervallet över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>VAR ST_DISTANCE (c.prop, {”typ”: ”plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj från samlingen c där ST_WITHIN(c.prop, {"type": "Polygon",...})--med indexering punkter aktiverad<br><br>Välj från samlingen c där ST_WITHIN({"type": "Point",...}, c.prop)--med indexering på polygoner aktiverad              |
 
-Som standard returneras ett fel för frågor med intervallet operatorer som > = om det finns inga intervall index (för alla precision) för att signalera att en genomsökning kan vara nödvändigt att hantera frågan. Intervallet frågor kan utföras utan ett intervall index med x-ms-documentdb-enable-genomsökning huvudet i REST-API eller alternativet EnableScanInQuery som med .NET SDK. Om det finns andra filter i frågan att Azure Cosmos DB kan använda indexet för att filtrera mot sedan inga fel returneras.
+Som standard returneras ett fel för frågor med intervallet operatorer som > = om det finns inga intervall index (för alla precision) att signalera att en genomsökning kan vara nödvändigt att hantera frågan. Intervallet frågor kan utföras utan ett intervall index med hjälp av den **x-ms-documentdb-enable-genomsökning** huvudet i REST-API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Om det finns andra filter i frågan som Azure Cosmos DB kan använda indexet för att filtrera mot, returneras inget fel.
 
-Samma regler gäller för spatial frågor. Som standard returneras ett fel för spatial frågor om det finns inget spatial index och det finns inga filter som kan hanteras från indexet. De kan utföras som en genomsökning med x-ms-documentdb-enable-genomsökning/EnableScanInQuery.
+Samma regler gäller för spatial frågor. Som standard returneras ett fel för spatial frågor om det finns inget spatial index och det finns inga filter som kan hanteras från indexet. De kan utföras en genomsökning med hjälp av **x-ms-documentdb-enable-genomsökning** eller **EnableScanInQuery**.
 
 #### <a name="index-precision"></a>Index precision
-Index precision kan du väger index lagring omkostnader och prestanda för frågor. För tal rekommenderar vi använder standardkonfigurationen för precision-1 (”högsta”). Eftersom siffror är 8 byte i JSON är motsvarar detta en konfiguration på 8 byte. Du väljer ett lägre värde för precision, till exempel 1-7, innebär att värdena inom vissa intervall som mappas till samma indexposten. Därför minskar du index lagringsutrymme, men Frågekörningen kanske har att bearbeta flera dokument och därför använda mer genomströmning d.v.s. enheter för programbegäran.
+Du kan använda index precision för att kompromissa mellan index lagringsutrymmet omkostnader och prestanda för frågor. För tal rekommenderar vi använder standardkonfigurationen för precision-1 (max). Eftersom siffror är 8 byte i JSON kan motsvarar detta en konfiguration på 8 byte. Att välja ett lägre värde för precision, till exempel 1 och 7, indexposten innebär att värdena inom vissa intervall som mappas till samma. Därför du minska index lagringsutrymme, men frågan kanske har att bearbeta fler dokument. Därför måste förbrukar den mer genomflöde i frågeenheter.
 
-Index precision konfigurationen har mer praktiska program med strängen intervall. Eftersom strängar kan vara en godtycklig längd, kan valet av indexet precision påverka prestanda för sträng intervallet frågor och påverka mängden index lagringsutrymme som krävs. Strängen intervallet index kan konfigureras med 1-100 eller -1 (”högsta”). Om du vill utföra Order By-frågor mot egenskaperna för anslutningssträngen måste du ange en noggrannhet på 1 för motsvarande sökvägar.
+Index precision konfigurationen har mer praktiska program med strängen intervall. Eftersom strängar kan vara en godtycklig längd, kan valet av indexet precision påverka prestanda för sträng intervallet frågor. Det kan även påverka mängden index lagringsutrymme som krävs. Sträng intervallet index kan konfigureras med 1 till 100 eller -1 (max). Om du vill utföra ORDER BY-frågor mot egenskaperna för anslutningssträngen måste du ange en noggrannhet på 1 för motsvarande sökvägar.
 
-Rumsindex alltid använda standard index för alla typer (poäng, LineStrings och polygoner) och kan inte ändras. 
+Rumsindex använda alltid standard index precisionen för alla typer (Point, LineString och Polygon). Standard index precisionen för rumsindex kan inte åsidosättas. 
 
-I följande exempel visas hur du ökar precisionen för intervallet index i en samling med .NET SDK. 
+I följande exempel visas hur du ökar precisionen för intervallet index i en samling med hjälp av .NET SDK. 
 
 **Skapa en samling med ett anpassat index precision**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
 
-    // Override the default policy for Strings to range indexing and "max" (-1) precision
+    // Override the default policy for strings to Range indexing and "max" (-1) precision
     rangeDefault.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
 
     await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), rangeDefault);   
 
 
 > [!NOTE]
-> Azure Cosmos-DB Returnerar ett fel när en fråga som använder Order By men har inte en områdesindex mot den efterfrågade sökvägen med högsta precision. 
+> Azure Cosmos-DB Returnerar ett fel när en fråga som använder ORDER BY men inte har en områdesindex mot den efterfrågade sökvägen med högsta precision. 
 > 
 > 
 
-På liknande sätt kan sökvägar inte helt uteslutas från indexering. I nästa exempel visas hur du undantar en hela avsnittet dokument (kallas även ett underträd) från att använda indexering av ”*” jokertecken.
+Du kan dessutom helt exkludera sökvägar från indexering. I nästa exempel visas hur du undantar en hela avsnittet dokument (en *underträd*) från att indexera med hjälp av den \* jokertecken operator.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -224,54 +234,52 @@ På liknande sätt kan sökvägar inte helt uteslutas från indexering. I nästa
 
 
 
-## <a name="opting-in-and-opting-out-of-indexing"></a>Börjar och väljer bort indexering
-Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument. Alla dokument indexeras automatiskt som standard, men du kan välja att inaktivera den. När indexering är avstängd dokument kan nås bara via deras självlänkar eller av frågor med ID: t.
+## <a name="opt-in-and-opt-out-of-indexing"></a>Delta och välja att inaktivera indexering
+Du kan välja om du vill att samlingen som automatiskt indexerar alla dokument. Alla dokument indexeras automatiskt som standard, men du kan inaktivera automatisk indexering. När indexering är avstängd dokument kan nås bara via deras självlänkar eller frågor med hjälp av dokumentet-ID.
 
-Du kan fortfarande selektivt lägga till endast vissa dokument med automatisk indexering avstängd, i indexet. Däremot kan du lämna automatisk indexering på och selektivt välja att utesluta endast vissa dokument. Indexering på/av konfigurationer är användbara när du har bara en del av dokument som behöver efterfrågas.
+Du kan fortfarande selektivt lägga till endast vissa dokument med automatisk indexering avstängd, i indexet. Däremot kan du lämna automatisk indexering på och selektivt väljer att undanta vissa dokument. Indexering på/av konfigurationer är användbara när du har bara en del av dokument som ska efterfrågas.
 
-Till exempel i följande exempel visas hur du lägger till ett dokument som uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
+I följande exempel visas hur du lägger till ett dokument uttryckligen med hjälp av den [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) och [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) egenskapen.
 
     // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
+    // exclude (or include) a document in indexing,
     // use the RequestOptions.IndexingDirective property.
     client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"),
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
-## <a name="modifying-the-indexing-policy-of-a-collection"></a>Ändra indexprincip i en samling
-Azure Cosmos-DB kan du göra ändringar i indexprincip i en samling direkt. En ändring i indexering princip på en samling Azure Cosmos DB kan leda till en ändring i form av indexet inklusive sökvägar kan indexeras, deras precision samt indexet själva konsekvent modell. Därmed kan en ändring i indexprincip, effektivt kräver en transformering av gammalt index till en ny. 
+## <a name="modify-the-indexing-policy-of-a-collection"></a>Ändra indexprincip i en samling
+I Azure Cosmos DB, kan du ändra indexprincip i en samling direkt. En ändring i indexering princip på en samling Azure Cosmos DB kan leda till en ändring i form av indexet. Ändringen påverkar sökvägar som kan indexeras, deras precision och konsekvent modell för indexet sig själv. En ändring i indexering princip effektivt kräver en transformering av gammalt index till ett nytt index. 
 
-**Online Index omvandlingar**
+**Online index omvandlingar**
 
 ![Hur indexering fungerar – Azure Cosmos DB online index omvandlingar](./media/indexing-policies/index-transformations.png)
 
-Index transformationer görs online, vilket innebär att de indexerade per gamla principen effektivt omvandlas per den nya principen **utan att påverka tillgängligheten för skrivning eller etablerat dataflöde** i mängden. Konsekvenskontroll av Läs- och skrivåtgärder som skapats med hjälp av REST-API, SDK: er eller inifrån lagrade procedurer och utlösare påverkas inte under omvandling av indexet. Det innebär att det finns ingen prestandaförsämring eller driftstopp för dina appar när du gör en indexprincip ändra.
+Index transformationer görs online. Det innebär att de indexerade per gamla principen effektivt omvandlas per den nya principen *utan att påverka tillgängligheten för skrivning eller etablerat dataflöde* i mängden. Konsekvenskontroll av Läs- och skrivåtgärder som gjorts med hjälp av REST-API, SDK: er, eller inifrån lagrade procedurer och utlösare påverkas inte under omvandling av indexet. Det finns ingen prestandaförsämring eller driftstopp för dina appar när du gör en indexprincip ändra.
 
-Under den tid som index omvandling är pågår, är dock frågor överensstämmelse oavsett indexering läge är konfigurerad (konsekvent eller Lazy). Detta gäller för frågor från alla gränssnitt – REST API SDK: er, och inifrån lagrade procedurer och utlösare. Precis som med Lazy indexering, utförs omvandling av indexet asynkront i bakgrunden på replikerna med hjälp av ledig tillgängliga resurser för en viss replik. 
+Under den tid som index omvandling är pågår, är dock frågor överensstämmelse oavsett indexering läge är konfigurerad (konsekvent eller Lazy). Detta gäller även för frågor från alla gränssnitt: REST-API, SDK: er, och inifrån lagrade procedurer och utlösare. Precis som med Lazy indexering, utförs omvandling av indexet asynkront i bakgrunden på replikerna med hjälp av ledig resurser som är tillgängliga för en viss replik. 
 
-Index transformationer görs också **i situ** (på plats), d.v.s. Azure Cosmos-DB inte upprätthålla två kopior av index och byta ut gammal indexet med den nya. Detta innebär att inga ytterligare diskutrymme krävs eller förbrukas i samlingar när du utför index transformationer.
+Index transformationer görs också på plats. Azure Cosmos-DB upprätthålla inte två kopior av index och Byt ut det gamla indexet med den nya. Detta innebär att inga ytterligare diskutrymme krävs eller förbrukas i samlingar medan index omvandlingar utförs.
 
-När du ändrar indexprincip exkluderad hur ändringarna tillämpas för att flytta från det gamla indexet till den nya en beror främst på indexering läge konfigurationer viktigare än andra värden som inkluderad/sökvägar, index-typer och Precision-datorerna. Om både de gamla och nya principerna använder konsekvent indexering, utför Azure Cosmos DB en onlineåtgärd transformation. Du kan inte använda en annan indexering principändring konsekvent indexering läge medan omvandlingen pågår.
+När du ändrar indexprincip, tillämpas ändringar för att flytta från det gamla indexet till den nya främst utifrån indexering läge konfigurationer. Indexering läge konfigurationer spela en viktigare roll än andra värden som inkluderad/exkluderad sökvägar, index-typer och Precision-datorerna. 
 
-Du kan dock flytta Lazy eller ingen indexering läge under en transformering pågår. 
+Om ditt gamla och nya både principer använder konsekvent indexering, utför Azure Cosmos DB en onlineåtgärd omvandling. Du kan inte använda en annan indexering ändring av principer som har konsekvent indexering läge medan omvandlingen pågår. Du kan dock flytta till Lazy eller ingen indexering läge under en transformering pågår: 
 
-* När du flyttar till Lazy principändring index görs gällande omedelbart och Azure Cosmos DB börjar återskapa indexet asynkront. 
-* När du flyttar till None, har sedan indexet släppts gälla omedelbart. Flytta till None är användbart när du vill avbryta en pågående omvandling och starta ny med en annan indexprincip. 
+* När du flyttar till Lazy är index principändring gälla omedelbart. Azure Cosmos-DB startar återskapa indexet asynkront. 
+* När du flyttar till None, släppa indexet omedelbart. Flytta till None är användbart när du vill avbryta en pågående omvandling och börja om från början med en annan indexprincip. 
 
-Här är ett kodfragment som visar hur du ändrar en samling indexprincip från konsekvent indexerings-läge till Lazy.
+Följande kodavsnitt visar hur du ändrar en samling indexprincip från konsekvent indexerings-läge till Lazy indexerings-läge. Om du använder .NET SDK kan startar du en indexering principändring med hjälp av den nya **ReplaceDocumentCollectionAsync** metod.
 
-Om du använder .NET SDK kan startar du en indexering principändring med hjälp av den nya **ReplaceDocumentCollectionAsync** metod.
+**Ändra indexprincip från konsekvent till Lazy**
 
-**Ändra Indexprincip från konsekvent till Lazy**
-
-    // Switch to lazy indexing.
+    // Switch to Lazy indexing mode.
     Console.WriteLine("Changing from Default to Lazy IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-**Spåra förloppet för omvandling av Index**
+**Spåra förloppet för omvandling av index**
 
 Du kan spåra procentandel förloppet för omvandling av index till ett konsekvent index med hjälp av den **IndexTransformationProgress** svar egenskap från en **ReadDocumentCollectionAsync** anropa. Andra SDK: er och REST-API stöd för motsvarande egenskaper och metoder för att göra ändringar av indexerings-principer. Du kan kontrollera förloppet för en omvandling av index till ett konsekvent index genom att anropa **ReadDocumentCollectionAsync**: 
 
@@ -289,18 +297,15 @@ Du kan spåra procentandel förloppet för omvandling av index till ett konsekve
     }
 
 > [!NOTE]
-> Egenskapen IndexTransformationProgress gäller bara när du omvandlar en konsekvent index. Använd egenskapen ResourceResponse.LazyIndexingProgress för att spåra transformationer till ett lazy-index.
->
-
-> [!NOTE]
-> IndexTransformationProgress och egenskaper för LazyIndexingProgress fylls endast när det gäller en samling som partitionerade som är en samling som har skapats utan någon partitionsnyckel.
+> * Den **IndexTransformationProgress** egenskapen gäller bara när du omvandlar en konsekvent index. Använd den **ResourceResponse.LazyIndexingProgress** egenskapen för att spåra transformationer till ett Lazy-index.
+> * Den **IndexTransformationProgress** och **LazyIndexingProgress** egenskaper fylls endast för en samling som partitionerade som är en samling som har skapats utan någon partitionsnyckel.
 >
 
 Du kan släppa indexet för en samling genom att flytta till ingen indexering läge. Det kan vara användbart operativa om du vill avbryta en pågående omvandling och starta en ny direkt.
 
-**Släppa indexet för en samling**
+**DROP index för en samling**
 
-    // Switch to lazy indexing.
+    // Switch to Lazy indexing mode.
     Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
@@ -309,22 +314,22 @@ Du kan släppa indexet för en samling genom att flytta till ingen indexering l�
 
 När blir du indexering principändringar till Azure DB som Cosmos-samlingar Följande är de vanligaste användningsområden:
 
-* Hantera enhetliga resultat under normal drift, men faller tillbaka till lazy indexering under bulk data import
-* Börjar använda nya indexering funktioner på din aktuella Azure DB som Cosmos-samlingar, t.ex. som geospatiala fråga som kräver Spatial index-typ eller Order By / sträng intervallet frågor som kräver sträng intervallet index typ
-* Sidan Välj egenskaperna som indexeras och ändra dem över tid
-* Finjustera indexering precision om du vill förbättra frågeprestanda eller minska lagringsutrymme som förbrukas
+* Hantera enhetliga resultat under normal drift, men återgår till att Lazy indexering läge under bulk data import.
+* Börja använda nya funktioner för fulltextindexering på din aktuella Azure DB som Cosmos-samlingar. Du kan exempelvis använda geospatiala frågar, vilket kräver Spatial index-typ eller ORDER BY- / sträng intervallet frågor, vilket kräver att strängen intervallet index typ.
+* Hand – Välj egenskaper som indexeras och ändra dem över tid.
+* Finjustera indexering precision att förbättra frågeprestanda eller minska lagringsutrymme som förbrukas.
 
 > [!NOTE]
-> Om du vill ändra indexprincip med ReplaceDocumentCollectionAsync du behöver version > = 1.3.0 av .NET SDK
+> Att ändra indexprincip genom att använda **ReplaceDocumentCollectionAsync**, måste du använda version 1.3.0 eller en senare version av .NET SDK.
 > 
-> För index omvandling ska slutföras, måste du se till att det finns tillräckligt med ledigt lagringsutrymme på samlingen. Om samlingen når sin lagringskvot, pausas index-transformation. Index omvandling återupptas automatiskt när lagringsutrymmet är tillgängligt, t.ex. Om du tar bort vissa dokument.
+> Se till att det finns tillräckligt med ledigt lagringsutrymme på samlingen för omvandling av indexet ska kunna slutföras. Om samlingen når sin lagringskvot, har index-transformation pausats. Index omvandling återupptas automatiskt när lagringsutrymme som är tillgängliga, till exempel om du tar bort vissa dokument.
 > 
 > 
 
 ## <a name="performance-tuning"></a>Prestandajustering
-SQL-API: er ger information om prestandamått, till exempel index lagringsutrymme som används och genomströmning kostnaden (frågeenheter) för varje åtgärd. Den här informationen kan användas för att jämföra olika principer för indexering och för prestandajustering.
+SQL-API: er innehåller information om prestandavärden, till exempel index lagringsutrymme som används och genomströmning kostnaden (frågeenheter) för varje åtgärd. Du kan använda den här informationen för att jämföra olika principer för indexering, och för prestandajustering.
 
-Kör en HEAD eller GET-begäran mot samlingen resurs för att kontrollera lagringskvoten och användning av en samling och inspektera x-ms-begäran-quota och x-ms-begäran-användning-rubriker. I .NET-SDK på [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) och [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) egenskaper i [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) innehåller dessa motsvarande värden.
+Kontrollera lagringskvoten och användning av en samling genom att köra en **HEAD** eller **hämta** begäran mot samlingen resursen. Granska sedan de **x-ms-begäran-quota** och **x-ms-begäran-användning** huvuden. I .NET-SDK på [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) och [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) egenskaper i [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) innehåller dessa motsvarande värden.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -332,7 +337,7 @@ Kör en HEAD eller GET-begäran mot samlingen resurs för att kontrollera lagrin
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Att mäta arbetet med att indexera i varje skrivåtgärd (skapa, uppdatera eller ta bort) inspektera huvudet x-ms-begäran-tillägget (eller motsvarande [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) egenskap i [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) i .NET SDK) att mäta antalet begäran enheter som används av dessa åtgärder.
+Att mäta arbetet med att indexera i varje skrivåtgärd (skapa, uppdatera eller ta bort) granska de **x-ms-begäran-kostnad** huvud (eller motsvarande [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) egenskap i [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) i .NET SDK) att mäta antalet frågeenheter som förbrukas av dessa åtgärder.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              
@@ -352,39 +357,21 @@ Att mäta arbetet med att indexera i varje skrivåtgärd (skapa, uppdatera eller
      Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
 ## <a name="changes-to-the-indexing-policy-specification"></a>Ändringar av indexering principspecifikationen
-En ändring i schemat för indexprincip introducerades 7 juli 2015 med REST API-version 2015-06-03. Motsvarande klasser i SDK-versioner har nya implementeringar så att den matchar schemat. 
+En ändring i schemat för indexering princip introducerades 7 juli 2015 med REST API-version 2015-06-03. Motsvarande klasser i SDK-versioner har nya implementeringar så att den matchar schemat. 
 
 Följande ändringar har införts i JSON-specifikationen:
 
-* Indexering princip stöder intervallet index för strängar
-* Varje sökväg kan ha flera index definitioner, ett för varje datatyp
-* Indexering precision har stöd för 1 – 8 för tal 1-100 för strängar och -1 (maximal precision)
-* Sökvägar segment kräver inte ett citattecken för att undvika varje sökväg. Exempelvis kan du lägga till en sökväg för/rubrik /? i stället för / ”title” /?
-* Rotsökvägen som representerar ”alla sökvägar” kan representeras som / * (förutom /)
+* Indexering princip stöder intervallet index för strängar.
+* Varje sökväg kan ha flera definitioner av indexet. Det kan ha en för varje datatyp.
+* Indexering precision stöder 1 till 8 för tal, 1 till 100 för strängar och -1 (maximal precision).
+* Sökvägssegment behöver inte ha ett citattecken för att undvika varje sökväg. Du kan till exempel lägga till en sökväg för   **/rubrik /?** i stället för **/ ”title” /?**.
+* Rotsökvägen som representerar ”alla sökvägar” kan representeras som  **/ \***  (förutom  **/** ).
 
-Om du har kod som tillhandahåller samlingar med en anpassad indexprincip som skrivits med version 1.1.0 av .NET SDK eller äldre behöver du ändra din programkod för att hantera dessa ändringar för att flytta till SDK version 1.2.0. Om du inte har kod som konfigurerar indexprincip eller planerar att använda en äldre version av SDK, krävs några ändringar.
+Om du har kod som tillhandahåller samlingar med en anpassad indexprincip som skrivits med .NET SDK-version 1.1.0 eller en tidigare version om du vill flytta till SDK version 1.2.0, måste du ändra din programkod för att hantera de här ändringarna. Om du inte har koden som konfigurerar indexprincip eller om du vill fortsätta med en tidigare version av SDK några ändringar krävs.
 
-En praktisk jämförelse är här ett exempel anpassad indexprincip skrivs med hjälp av REST API-version 2015-06-03 samt föregående version 2015-04-08.
+Här är ett exempel på en anpassad indexprincip som skrivits med hjälp av REST API-version 2015-06-03, följt av samma indexprincip som skrivits med hjälp av det tidigare REST-API-version 2015-04-08 en praktiska jämförelse.
 
-**Tidigare Indexprincip JSON**
-
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-       "IncludedPaths":[
-          {
-             "IndexType":"Hash",
-             "Path":"/",
-             "NumericPrecision":7,
-             "StringPrecision":3
-          }
-       ],
-       "ExcludedPaths":[
-          "/\"nonIndexedContent\"/*"
-       ]
-    }
-
-**Aktuella Indexprincip JSON**
+**Aktuella indexering princip-JSON (REST API version 2015-06-03)**
 
     {
        "automatic":true,
@@ -413,10 +400,30 @@ En praktisk jämförelse är här ett exempel anpassad indexprincip skrivs med h
        ]
     }
 
-## <a name="next-steps"></a>Nästa steg
-Följ länkarna nedan för index princip för hantering av prover och vill veta mer om Azure Cosmos DB frågespråk.
 
-1. [SQL API .NET indexhantering kodexempel](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Åtgärder för insamling av SQL API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Fråga med SQL](sql-api-sql-query.md)
+**Tidigare indexering princip-JSON (REST API version 2015-04-08)**
+
+    {
+       "automatic":true,
+       "indexingMode":"Consistent",
+       "IncludedPaths":[
+          {
+             "IndexType":"Hash",
+             "Path":"/",
+             "NumericPrecision":7,
+             "StringPrecision":3
+          }
+       ],
+       "ExcludedPaths":[
+          "/\"nonIndexedContent\"/*"
+       ]
+    }
+
+
+## <a name="next-steps"></a>Nästa steg
+För index princip för hantering av prover och för att lära dig mer om Azure DB som Cosmos-frågespråket finns i följande länkar:
+
+* [SQL API .NET index management-kodexempel](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+* [Åtgärder för insamling av SQL API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+* [Fråga med SQL](sql-api-sql-query.md)
 

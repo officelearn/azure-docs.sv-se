@@ -1,24 +1,16 @@
 ---
-title: "Granska arkitekturen för Hyper-V-replikering till en sekundär plats med Azure Site Recovery | Microsoft Docs"
+title: "Hyper-V-replikering till sekundära platsen arkitekturen i Azure Site Recovery | Microsoft Docs"
 description: "Den här artikeln innehåller en översikt över arkitekturen för replikering av lokala virtuella Hyper-V-datorer till en sekundär System Center VMM-plats med Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Hyper-V-replikering till en sekundär plats
 
@@ -51,20 +43,18 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 
 ## <a name="failover-and-failback-process"></a>Processen för redundans och återställning efter fel
 
-1. Du kan växla över en enskild dator eller skapa återställningsplaner för att samordna växling vid fel på flera datorer.
-2. Du kan köra en planerad eller oplanerad växling mellan lokala platser. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
+- Du kan växla över en enskild dator eller skapa återställningsplaner för att samordna växling vid fel på flera datorer.
+- Du kan köra en planerad eller oplanerad växling mellan lokala platser. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade.
     - Om du gör en oplanerad redundansväxling till en sekundär plats när failover-datorer i den sekundära platsen inte är skyddade.
     - Om du utför en planerad redundans skyddas datorerna på den sekundära platsen efter redundansen.
-3. Efter den inledande redundansen körs genomföra den för att starta åt arbetsbelastningen från replikerade virtuella datorn.
-
-När den primära platsen är tillgänglig igen, kan du växla tillbaka.
-
-1. Du kan starta omvänd replikering för att starta replikering från den sekundära platsen till den primära servern. Omvänd replikering skyddar de virtuella datorerna, men det sekundära datacentret är fortfarande den aktiva platsen.
-2. För att göra den primära platsen till den aktiva platsen igen, initierar du en planerad redundans från sekundär till primär, följt av en till omvänd replikering.
+- Efter den inledande redundansen körs genomföra den för att starta åt arbetsbelastningen från replikerade virtuella datorn.
+- När den primära platsen är tillgänglig igen, kan du växla tillbaka.
+    - Du kan starta omvänd replikering för att starta replikering från den sekundära platsen till den primära servern. Omvänd replikering skyddar de virtuella datorerna, men det sekundära datacentret är fortfarande den aktiva platsen.
+    - För att göra den primära platsen till den aktiva platsen igen, initierar du en planerad redundans från sekundär till primär, följt av en till omvänd replikering.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska supportmatrisen Följ guiden för att aktivera Hyper-V-replikering mellan VMM-moln.
-Kör en redundans och återställning efter fel.
+
+Följ [självstudierna](tutorial-vmm-to-vmm.md) att aktivera Hyper-V-replikering mellan VMM-moln.

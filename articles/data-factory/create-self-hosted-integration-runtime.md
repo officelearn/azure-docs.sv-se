@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Hur du skapar och konfigurerar Self-hosted integrering Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla data integrationsmöjligheter mellan olika nätverksmiljöer. Mer information om IR finns [integrering Runtime översikt](concepts-integration-runtime.md).
@@ -66,7 +66,7 @@ Här är ett övergripande dataflöde för sammanfattning av steg för att kopie
 - Hantera din datakälla som en lokal datakälla (som finns bakom en brandvägg) även om du använder **ExpressRoute**. Använda automatisk värdbaserade integration körningsmiljön för att upprätta en anslutning mellan service och datakällan.
 - Du måste använda automatisk värdbaserade integration runtime även om datalagret finns i molnet på ett **Azure IaaS-virtuella**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den stöds **operativsystemet** versioner är Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. Installation av själva värdbaserade integration körningsmiljön på en **domänkontrollant stöds inte**.
 - **.NET framework 4.6.1 eller senare** krävs. Om du installerar själv värdbaserade integration körning på en Windows 7-dator, installera .NET Framework 4.6.1 eller senare. Se [systemkrav för .NET Framework](/dotnet/framework/get-started/system-requirements) mer information.
@@ -110,7 +110,20 @@ En Self-hosted integrering Runtime kan vara kopplad till flera lokala datorer. D
 Du kan associera flera noder genom att bara installera Self-hosted integrering Runtime-programvara från den [hämtningssidan](https://www.microsoft.com/download/details.aspx?id=39717) och genom att registrera den genom att antingen autentiseringsnycklar som hämtats från Nya AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet som beskrivs i den [självstudiekursen](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Du behöver inte skapa en ny Self-hosted integrering Runtime för att associera varje nod.
+> Du behöver inte skapa en ny Self-hosted integrering Runtime för att associera varje nod. Du kan installera själva värdbaserade integration körning på en annan dator och registrera den med samma nyckel för autentisering. 
+
+> [!NOTE]
+> Innan du lägger till en annan nod för **hög tillgänglighet och skalbarhet**, kontrollera **'Fjärråtkomst till intranät'** alternativet är **aktiverat** på noden 1 (Microsoft Integration Runtime Configuration Manager -> Inställningar -> fjärransluten åtkomst till intranät). 
+
+### <a name="tlsssl-certificate-requirements"></a>Krav för TLS/SSL-certifikat
+Här följer kraven för TLS/SSL-certifikatet som används för att skydda kommunikationen mellan integration runtime noder:
+
+- Certifikatet måste vara offentligt betrodda X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (tredje parts) certifikatutfärdare (CA).
+- Det här certifikatet måste ha förtroende för varje integration runtime-nod.
+- Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
+- SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
+- Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
+- Certifikat med CNG nycklar stöds inte. Doesrted DoesDoes har inte stöd för certifikat med CNG-nycklar.
 
 ## <a name="system-tray-icons-notifications"></a>Ikoner i Systemstatusfältet / meddelanden
 Om du flyttar markören över system fack ikonen/meddelandet hittar du information om tillståndet för automatisk värdbaserade integration runtime.
@@ -225,14 +238,20 @@ Om du stöter på fel liknande följande dem, är det troligen på grund av fela
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Öppna port 8060 för kryptering av autentiseringsuppgifter
-Den **ställa in autentiseringsuppgifter** programmet (för närvarande stöds inte) använder den inkommande porten 8060 vidarebefordrande referenser till själva värdbaserade integration runtime när du ställer in en lokal länkad tjänst i Azure-portalen. Under själva värdbaserade integration runtime installationen öppnas som standard själva värdbaserade integration runtime-installation den på själva värdbaserade integration runtime-datorn.
+### <a name="enable-remote-access-from-intranet"></a>Aktivera fjärråtkomst från intranätet  
+I fallet om du använder **PowerShell** eller **Autentiseringshanteraren programmet** att kryptera autentiseringsuppgifterna från en annan dator (i nätverket) än där själva värdbaserade integration runtime installeras sedan du kräver det **fjärråtkomst från intranätet** alternativ ska aktiveras. Om du kör den **PowerShell** eller **Autentiseringshanteraren programmet** att kryptera autentiseringsuppgifter på samma dator där själva värdbaserade integration runtime installeras sedan **-fjärråtkomst från intranätet '** får inte aktiveras.
 
-Om du använder en brandvägg från tredje part, kan du öppna port 8050 manuellt. Om du stöter på problem med brandväggen under installationen av själva värdbaserade integration runtime, kan du med följande kommando för att installera den själva värdbaserade integration runtime utan att konfigurera brandväggen.
+Fjärråtkomst från intranätet ska vara **aktiverat** innan du lägger till en annan nod för **hög tillgänglighet och skalbarhet**.  
+
+Under själva värdbaserade integration runtime installationen (och senare för v 3.3.xxxx.x), som standard inaktiverar automatisk värdbaserade integration runtime-installation av **fjärråtkomst från intranätet** på själva värdbaserade integration runtime-datorn.
+
+Om du använder en brandvägg från tredje part, kan du manuellt öppna port 8060 (eller den konfigurerade användaren-porten). Om du stöter på problem med brandväggen under installationen av själva värdbaserade integration runtime, kan du med följande kommando för att installera den själva värdbaserade integration runtime utan att konfigurera brandväggen.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Autentiseringshanteraren programmet** är inte tillgänglig för kryptering av autentiseringsuppgifter i ADFv2 ännu. Vi lägger till det här stödet senare.  
 
 Om du inte väljer att öppna port 8060 på själva värdbaserade integration runtime-datorn, använda metoder än med hjälp av den ** ställa in autentiseringsuppgifter ** tillämpningsprogrammet kan konfigurera autentiseringsuppgifterna för datalager. Exempelvis kan du använda New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell-cmdlet. Se avsnittet Ställa in autentiseringsuppgifter och säkerhet på hur data lagra autentiseringsuppgifter som kan anges.
 

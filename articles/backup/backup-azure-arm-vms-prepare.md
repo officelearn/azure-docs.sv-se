@@ -14,238 +14,248 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.author: markgal;trinadhk;sogup;
+ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
-Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Resource Manager-distribuerad virtuell dator (VM). Stegen visas i procedurer använder Azure-portalen.  
+Den här artikeln innehåller steg för att förbereda din miljö för att säkerhetskopiera en Azure Resource Manager-distribuerad virtuell dator (VM). Stegen visas i procedurer använder Azure-portalen.  
 
-Azure Backup-tjänsten har två typer av valv (säkerhetskopiera valv och recovery services-valv) för att skydda dina virtuella datorer. Ett säkerhetskopieringsvalv skyddar virtuella datorer som distribueras med hjälp av den klassiska distributionsmodellen. Recovery services-ventilen skyddar **både distribuerade klassiska eller Resource Manager distribuerade virtuella datorer**. För att skydda en Resource Manager-distribuerad virtuell dator måste du använda en Recovery Services-valvet.
+Tjänsten Azure Backup har två typer av valv för att skydda dina virtuella datorer: säkerhetskopieringsvalv och Recovery Services-valv. Ett säkerhetskopieringsvalv skyddar virtuella datorer som distribueras via den klassiska distributionsmodellen. Recovery Services-valvet skyddar *både klassiska distribueras och Resource Manager-distribuerade virtuella datorer*. Om du vill skydda en Resource Manager-distribuerad virtuell dator måste du använda en Recovery Services-valvet.
 
 > [!NOTE]
-> Azure har två distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../azure-resource-manager/resource-manager-deployment-model.md). 
+> Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md).
 
-Innan du kan skydda eller säkerhetskopiera en Resource Manager-distribuerad virtuell dator (VM), se till att dessa krav finns:
+Innan du kan skydda eller säkerhetskopiera en Resource Manager-distribuerad virtuell dator, kontrollera att dessa krav finns:
 
-* Skapa ett recovery services-valv (eller identifiera befintliga recovery services-ventilen) *på samma plats som den virtuella datorn*.
+* Skapa ett Recovery Services-valv (eller identifiera ett befintligt Recovery Services-valv) *på samma plats som den virtuella datorn*.
 * Välj ett scenario, definiera princip för säkerhetskopiering och definiera objekt som ska skyddas.
-* Kontrollera installationen av VM-agenten på den virtuella datorn.
-* Kontrollera nätverksanslutningen
-* Virtuella Linux-datorer, om du vill anpassa säkerhetskopiering miljön för program som konsekvent säkerhetskopiering finns Följ den [steg för att konfigurera inför ögonblicksbilden och efter ögonblickbild skript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
+* Kontrollera installationen av en VM-agenten på den virtuella datorn.
+* Kontrollera nätverksanslutningen.
+* För Linux virtuella datorer kan om du vill anpassa säkerhetskopiering programkonsekventa säkerhetskopior i miljön gör den [steg för att konfigurera inför ögonblicksbilden och efter ögonblickbild skript](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Om du känner till dessa villkor redan finns i din miljö och sedan fortsätta till den [säkerhetskopiera virtuella datorer artikeln](backup-azure-arm-vms.md). Om du behöver konfigurera eller kontrollera någon av dessa förutsättningar leder dig igenom stegen för att förbereda den nödvändiga i den här artikeln.
+Om dessa villkor finns redan i din miljö, fortsätter du till den [säkerhetskopiera din virtuella dator](backup-azure-arm-vms.md) artikel. Om du behöver konfigurera eller kontrollera någon av dessa förutsättningar leder dig genom stegen i den här artikeln.
 
-##<a name="supported-operating-system-for-backup"></a>Operativsystem som stöds för säkerhetskopiering
- * **Linux**: Azure Backup stöder [en lista över distributioner som godkänts av Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med undantag för Core OS Linux. _Andra Bring-Your-äger-Linux-distributioner också fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns. Vi inte stödja dessa distributioner för säkerhetskopiering._
+## <a name="supported-operating-systems-for-backup"></a>Operativsystem som stöds för säkerhetskopiering
+ * **Linux**: Azure Backup stöder [en lista över distributioner rekommenderar Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), förutom CoreOS Linux. 
+ 
+    > [!NOTE] 
+    > Andra bring-your-äger-Linux-distributioner fungera så länge som den Virtuella datoragenten är tillgänglig på den virtuella datorn och stöd för Python finns. Vi inte stödja dessa distributioner för säkerhetskopiering.
  * **Windows Server**: versioner som är äldre än Windows Server 2008 R2 stöds inte.
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Begränsningar när du säkerhetskopierar och återställer en virtuell dator
-Innan du förbereder din miljö kan du förstå begränsningar.
+Innan du förbereder din miljö måste du förstå följande begränsningar:
 
 * Säkerhetskopiera virtuella datorer med fler än 16 datadiskar stöds inte.
-* Säkerhetskopiering av virtuella datorer med data storlekar för diskar som är större än 1 023 GB stöds inte.
+* Säkerhetskopiering av virtuella datorer med data storlekar för diskar som är större än 1,023 GB stöds inte.
 
-> [!NOTE]
-> Det finns en privat förhandsgranskning som stöder säkerhetskopiering av virtuella datorer med > 1 TB ohanterade diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
+  > [!NOTE]
+  > Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med ohanterad diskar för 1 TB (eller högre). Mer information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  >
 
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
-* Säkerhetskopiering av virtuella datorer som har krypterats med bara BEK stöds inte. Säkerhetskopiering av virtuella Linux-datorer krypteras med LUKS kryptering stöds inte.
-* Säkerhetskopiering av virtuella datorer som innehåller klustret delade Volumes(CSV) eller skala ut filservern konfigurationen rekommenderas inte eftersom de kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under ögonblicksbilden. Azure-säkerhetskopiering har inte stöd för flera Virtuella datorer. 
-* Säkerhetskopierade data innehåller monterade nätverksenheter kopplat till VM.
+* Säkerhetskopiera virtuella datorer som har krypterats med bara en BitLocker-krypteringsnyckeln (BEK) stöds inte. Säkerhetskopiera virtuella Linux-datorer krypterade via Linux Unified nyckeln installationsprogrammet (LUKS)-kryptering stöds inte.
+* Vi rekommenderar inte att du säkerhetskopierar virtuella datorer som innehåller konfiguration för klusterdelade volymer (CSV) eller en skalbar filserver. De kräver som omfattar alla virtuella datorer som ingår i klusterkonfigurationen under en ögonblicksbilden. Azure-säkerhetskopiering har inte stöd för flera Virtuella datorer. 
+* Säkerhetskopierade data innehåller monterade nätverksenheter kopplad till en virtuell dator.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Region mellan säkerhetskopiering och återställning stöds inte.
-* Du kan säkerhetskopiera virtuella datorer i alla offentliga områden i Azure (se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds). Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
-* Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer om [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
-* Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapades med arbetsflödet för återställning i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
-
+* Säkerhetskopiering och återställning av lagring ACLed virtuella datorer stöds inte från och med nu. Säkerhetskopiering av virtuella datorer stöds inte om du har aktiverat lagring på VNET-funktionen som gör att storage-konton ska kunna nås från vissa Vnet-undernät och/eller IP-adresser.
+* Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
+* Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Virtuella datorer under konfigurationen av belastningsutjämnaren (interna och externa)
   * Virtuella datorer med flera reserverade IP-adresser
   * Virtuella datorer med flera nätverkskort
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Skapa ett Recovery Services-valv för en virtuell dator
-Recovery services-ventilen är en entitet som lagrar säkerhetskopior och återställningspunkter som har skapats med tiden. Recovery services-ventilen innehåller även principer för säkerhetskopiering som är associerade med de skyddade virtuella datorerna.
+Recovery Services-valvet är en entitet som lagrar säkerhetskopior och återställningspunkter som har skapats med tiden. Recovery Services-valvet innehåller även principer för säkerhetskopiering som är associerade med de skyddade virtuella datorerna.
 
 Så här skapar du ett Recovery Services-valv:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
+2. På den **hubb** väljer du **Bläddra**, och skriv sedan **återställningstjänster**. När du börjar skriva filtrerar listan över resurser i dina indata. Välj **Recovery Services-valv**.
 
-    ![Klicka på Bläddra och Skriv Recovery Services. När alternativet Recovery Services-valvet, klickar du på den för att öppna bladet Recovery Services-valvet.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+    ![Att skriva i rutan och välja ”Recovery Services-valv” i resultaten](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     Listan över Recovery Services-valv visas.
-3. På menyn **Recovery Services-valv** klickar du på **Lägg till**.
+3. På den **Recovery Services-valv** väljer du **Lägg till**.
 
     ![Skapa Recovery Services-valv (steg 2)](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
-    Bladet Recovery Services-valv öppnas och du uppmanas att ange **namn**, **prenumeration**, **resursgrupp** och **plats**.
+    Den **Recovery Services-valv** fönstret öppnas. Uppmanas du att ange information för **namn**, **prenumeration**, **resursgruppen**, och **plats**.
 
-    ![Skapa ett Recovery Services-valv (steg 5)](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
-5. Klicka på **Prenumeration** för att visa listan över prenumerationer. Om du inte är säker på vilken prenumeration du ska använda använder du standardprenumerationen (eller den föreslagna). Du kan bara välja mellan flera alternativ om ditt organisationskonto är associerat med flera Azure-prenumerationer.
-6. Klicka på **Resursgrupp** för att visa listan över resursgrupper eller klicka på **Nytt** för att skapa en ny resursgrupp. För komplett information om resursgrupper, se [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Klicka på **Plats** för att välja en geografisk region för valvet. Valvet **måste** finnas i samma region som de virtuella datorer som du vill skydda.
+    ![”Recovery Services-valv” fönstret](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
+4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller 2 och 50 tecken. Det måste börja med en bokstav och kan innehålla endast bokstäver, siffror och bindestreck.
+5. Välj **prenumeration** att se listan över prenumerationer tillgängliga. Om du inte är säker på vilken prenumeration för att använda använda standardvärdet (eller förslag) prenumerationen. Det finns flera alternativ bara om ditt arbete eller skola konto är kopplat till flera Azure-prenumerationer.
+6. Välj **resursgruppen** finns i listan över resursgrupper tillgängliga, eller välj **ny** att skapa en ny resursgrupp. Mer information om resursgrupper finns i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+7. Välj **plats** att välja den geografiska regionen för valvet. Valvet *måste* finnas i samma region som de virtuella datorer som du vill skydda.
 
    > [!IMPORTANT]
-   > Om du är osäker på var din virtuella dator finns stänger du dialogrutan för valvgenerering och går till listan med virtuella datorer på portalen. Om du har virtuella datorer i flera regioner måste du skapa ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du fortsätter till nästa plats. Du behöver inte ange lagringskonton för att lagra säkerhetskopierade data: Recovery Services-valvet och tjänsten Azure Backup hanterar detta automatiskt.
+   > Om du är osäker på den plats där den virtuella datorn finns Stäng dialogrutan valvet skapas och gå till listan över virtuella datorer i portalen. Om du har virtuella datorer i flera områden, måste du skapa ett Recovery Services-valv i varje region. Skapa valvet på den första platsen innan du fortsätter till nästa plats. Det finns inget behov av att ange storage-konton för att lagra säkerhetskopierade data. Recovery Services-valvet och Azure Backup-tjänsten ska du hantera som automatiskt.
    >
    >
 
-8. Klicka på **Skapa**. Det kan ta en stund innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena uppe till höger på portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv, klickar du på **uppdatera** till
+8. Välj **Skapa**. Det kan ta en stund innan Recovery Services-valvet har skapats. Meddelandena status längst upp till höger i portalen. När din valvet har skapats visas den i listan över Recovery Services-valv. Om du inte ser ditt valv, Välj **uppdatera**.
 
     ![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-    Nu när du har skapat valvet ska vi se hur du konfigurerar lagringsreplikeringen.
+Nu när du har skapat valvet ska vi se hur du konfigurerar lagringsreplikeringen.
 
-## <a name="set-storage-replication"></a>Konfigurera lagringsreplikering
-Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Lämna alternativet inställt på geo-redundant lagring om det här är din primära säkerhetskopia. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt.
+## <a name="set-storage-replication"></a>Ange storage-replikering
+Lagringsalternativ för replikering kan du välja mellan geo-redundant lagring och lokalt redundant lagring. Valvet använder geo-redundant lagring som standard. Lämna alternativet inställt på geo-redundant lagring om det här är din primära säkerhetskopia. Välj lokalt redundant lagring om du vill använda ett billigare alternativ som inte är lika beständigt.
 
 Så här redigerar du inställningen för lagringsreplikering:
 
-1. På den **Recovery Services-valv** bladet välj ditt valv.
-    När du klickar på ditt valv inställningsbladet (*som har namnet på valvet överst*) och valvet detaljer blad öppnas.
+1. På den **Recovery Services-valv** rutan, Välj ditt valv.
+    När du väljer ditt valv den **inställningar** fönstret (som har namnet på valvet överst) och öppna valvet informationsfönstret.
 
-    ![Välj ditt valv i listan över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+   ![Välj ditt valv i listan över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. På den **inställningar** bladet använder lodräta skjutreglaget för att rulla ned till den **hantera** avsnitt. Klicka på **säkerhetskopiering infrastruktur** att öppna dess bladet. I den **allmänna** Klicka på avsnittet **konfigurering av säkerhetskopiering** att öppna dess bladet. På bladet **Konfiguration av säkerhetskopiering** väljer du alternativet för lagringsreplikering för ditt valv. Valvet använder geo-redundant lagring som standard. Om du ändrar lagringstyp för replikering, klickar du på **spara**.
+2. På den **inställningar** rutan Använd lodräta skjutreglaget för att rulla ned till den **hantera** och markerar **säkerhetskopiering infrastruktur**. I den **allmänna** väljer **konfigurering av säkerhetskopiering**. På den **konfigurering av säkerhetskopiering** fönstret Välj replikeringsalternativ lagring för ditt valv. Valvet använder geo-redundant lagring som standard.
 
-    ![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/full-blade.png)
+   ![Lista över säkerhetskopieringsvalv](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-     Om du använder Azure som en primär slutpunkt för lagring av säkerhetskopior fortsätter du att använda geo-redundant lagring. Om du använder Azure som en icke-primär säkerhetskopieringslagring slutpunkt Välj lokalt redundant lagring. Läs mer om alternativen för [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokalt redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) lagring i [Översikt över Azure Storage-replikering](../storage/common/storage-redundancy.md).
-    När du har valt lagringsalternativet för valvet är det dags att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
+   Om du använder Azure som en primär säkerhetskopieringslagring slutpunkt kan fortsätta att använda geo-redundant lagring. Om du använder Azure som en icke-primär säkerhetskopieringslagring slutpunkt, välja lokalt redundant lagring. Läs mer om alternativ för lagring i den [Azure Storage-replikering: översikt](../storage/common/storage-redundancy.md).
 
-## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Välj ett säkerhetskopieringsmål, ange en princip och definiera objekt som ska skyddas
-Innan du registrerar en virtuell dator med ett valv kör du identifieringsprocessen för att säkerställa att nya virtuella datorer som har lagts till i prenumerationen identifieras. Under processen uppmanas Azure att returnera listan med virtuella datorer i prenumerationen, tillsammans med ytterligare information som molntjänstens namn och regionen. På Azure-portalen refererar scenariot till vad du ska lägga till i Recovery Services-valvet. Principen är schemat för hur ofta återställningspunkter skapas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna.
+3. Om du har ändrat replikeringstyp lagring väljer **spara**.
+    
+När du väljer lagringsalternativet för ditt valv, är du redo att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
 
-1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Om du inte har ett Recovery Services-valv öppna öppnar du den [Azure-portalen](https://portal.azure.com/) och klickar på navmenyn **fler tjänster**.
+## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Välj ett mål för säkerhetskopiering, ange principen och definiera objekt som ska skyddas
+Innan du registrerar en virtuell dator med ett valv, köra identifieringsprocessen för att säkerställa att alla nya virtuella datorer som har lagts till i prenumerationen identifieras. Process-frågor Azure för listan över virtuella datorer i prenumerationen, tillsammans med information som molntjänstnamnet och regionen. 
 
-   * I listan över resurser skriver du **Recovery Services**.
-   * När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services-valv** klickar du på det.
+I Azure-portalen *scenariot* refererar till det du angav i Recovery Services-valvet. *Princip för* är schemat för hur ofta och när återställningspunkter tas. Principen omfattar också kvarhållningsintervallet för återställningspunkterna.
 
-     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+1. Om du redan har ett öppet Recovery Services-valv går du vidare till steg 2. Om du inte har ett Recovery Services-valv öppna, öppna den [Azure-portalen](https://portal.azure.com/). På den **hubb** väljer du **fler tjänster**.
 
-     Listan över Recovery Services-valv visas. Om det finns några valv i din prenumeration kan är den här listan tom.
+   a. I listan över resurser skriver du **Recovery Services**. När du börjar skriva filtrerar indata i listan. När du ser **Recovery Services-valv**, markerar du den.
 
-    ![Vy över listan med Recovery Services-valv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+      ![Att skriva i rutan och välja ”Recovery Services-valv” i resultaten](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-   * Välj en valvet för att öppna dess instrumentpanelen från listan över Recovery Services-valv.
+      Listan över Recovery Services-valv visas. Om det finns några valv i din prenumeration kan är den här listan tom.
 
-     Bladet inställningar och valvet instrumentpanelen för valda valvet, öppnas.
+      ![Vy över listan med Recovery Services-valv](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-     ![Öppna bladet för valvet](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. På menyn på instrumentpanelen för valvet öppnar du bladet Säkerhetskopiering genom att klicka på **Säkerhetskopiering**.
+   b. Välj ett valv i listan över Recovery Services-valv.
 
-    ![Öppna bladet Säkerhetskopiering](./media/backup-azure-arm-vms-prepare/backup-button.png)
+      Den **inställningar** rutan och valvet instrumentpanelen för valt valvet öppna.
 
-    Bladen Säkerhetskopiering och Säkerhetskopieringsmål öppnas.
+      ![Inställningar för fönstret och valvet instrumentpanelen](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+2. Välj på menyn valvet instrumentpanelen **säkerhetskopiering**.
 
-    ![Öppna bladet Scenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   ![Säkerhetskopiering knappen](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-3. Ange på bladet säkerhetskopiering målet **var körs din arbetsbelastning** till Azure och **vad vill du säkerhetskopiera** till den virtuella datorn, klicka sedan på **OK**.
+   Den **säkerhetskopiering** och **säkerhetskopiering målet** fönstren öppna.
 
-    Nu registreras VM-tillägget med valvet. Bladet Säkerhetskopieringsmål stängs och bladet **Säkerhetskopieringspolicy** öppnas.
+3. På den **säkerhetskopiering målet** ställer du in **var körs din arbetsbelastning?** till **Azure** och **vad vill du säkerhetskopiera?** till  **Virtuella**. Välj sedan **OK**.
 
-    ![Öppna bladet Scenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. På bladet Säkerhetskopieringspolicy väljer du den säkerhetskopieringspolicy som du vill använda för valvet.
+   ![Fönster för säkerhetskopiering och mål för säkerhetskopian](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-    ![Välja säkerhetskopieringspolicy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
+   Det här steget registrerar VM-tillägget med valvet. Den **säkerhetskopiering målet** fönstret stängs och **säkerhetskopiera princip** fönstret öppnas.
 
-    Information om standardprincipen visas under den nedrullningsbara menyn. Om du vill skapa en ny policy väljer du **Skapa ny** i listrutan. Mer information om hur du definierar en säkerhetskopieringspolicy finns i [Definiera en säkerhetskopieringspolicy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
-    Klicka på **OK** för att associera säkerhetskopieringspolicyn med valvet.
+   ![”Säkerhetskopiering” och ”säkerhetskopiera principen” fönster](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+4. På den **säkerhetskopiera princip** fönstret Välj principen för säkerhetskopiering som du vill koppla till valvet.
 
-    Bladet Säkerhetskopieringspolicy stängs och bladet **Välj virtuella datorer** öppnas.
-5. På bladet **Välj virtuella datorer** väljer du de virtuella datorer som du vill associera med den angivna principen och klickar på **OK**.
+   ![Välja säkerhetskopieringspolicy](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    ![Välja arbetsbelastning](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+   Information om standardprincipen visas under den nedrullningsbara menyn. Om du vill skapa en ny policy väljer du **Skapa ny** i listrutan. Mer information om hur du definierar en säkerhetskopieringspolicy finns i [Definiera en säkerhetskopieringspolicy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+    Välj **OK** att koppla principen för säkerhetskopiering till valvet.
 
-    Den valda virtuella datorn verifieras. Om du inte ser de virtuella datorerna som du förväntade dig att se, kontrollera att de finns i samma Azure-plats som Recovery Services-valvet och inte redan skyddas i ett annat valv. Platsen för Recovery Services-valvet visas på instrumentpanelen för valvet.
+   Den **säkerhetskopiera princip** fönstret stängs och **Välj virtuella datorer** fönstret öppnas.
+5. På den **Välj virtuella datorer** fönstret väljer du de virtuella datorerna som associeras med den angivna principen och välj **OK**.
 
-6. Nu när du har definierat alla inställningar för valvet klickar du på **Aktivera säkerhetskopiering** på bladet Säkerhetskopiering. När du gör det distribueras policyn till valvet och de virtuella datorerna. Dock skapas inte den första återställningspunkten för den virtuella datorn med den här åtgärden.
+   ![”Välj virtuella datorer” fönstret](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    ![Aktivera säkerhetskopiering](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+   Den valda virtuella datorn verifieras. Om du inte ser de virtuella datorerna som du vill kontrollera att de finns i samma Azure-plats som Recovery Services-valvet och inte redan skyddas i ett annat valv. Valvet instrumentpanelen visar var Recovery Services-valvet.
 
-När du har aktiverat säkerhetskopieringen körs säkerhetskopieringspolicyn enligt schemat. Om du vill generera en på-begäran jobbet att säkerhetskopiera virtuella datorer nu se [utlösa jobbet som](./backup-azure-arm-vms.md#triggering-the-backup-job).
+6. Nu när du har definierat alla inställningar för valvet, på den **säkerhetskopiering** väljer **Aktivera säkerhetskopiering**. Det här steget distribuerar principen till valvet och de virtuella datorerna. Det här steget kan inte skapa den första återställningspunkten för den virtuella datorn.
 
-Om du har problem med att registrera den virtuella datorn finns i följande information på VM-agenten installeras och nätverksanslutningen. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat virtuella datorer till Azure sedan vara säker på att VM-agenten har installerats och att den virtuella datorn kan kommunicera med det virtuella nätverket.
+   ![Knappen ”Aktivera säkerhetskopiering”](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+När du har aktiverat säkerhetskopieringen, körs din princip för säkerhetskopiering enligt schema. Om du vill generera en på-begäran jobbet att säkerhetskopiera virtuella datorer nu se [utlösa säkerhetskopieringsjobbet](./backup-azure-arm-vms.md#triggering-the-backup-job).
+
+Om du har problem med att registrera den virtuella datorn finns i följande information på VM-agenten installeras och nätverksanslutningen. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat virtuella datorer till Azure, se till att du installerade VM-agenten och att den virtuella datorn kan kommunicera med det virtuella nätverket.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
-VM-agenten i Azure måste installeras på den virtuella Azure-datorn för att säkerhetskopieringstillägget ska fungera. VM-agenten är redan finns på den virtuella datorn om den virtuella datorn har skapats från Azure-galleriet. Den här informationen anges i situationer där du har *inte* använda en virtuell dator som skapats från Azure-galleriet – till exempel du migrerat en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn. Lär dig mer om den [VM-agenten](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux).
+För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
 
-Om du har problem med att säkerhetskopiera den virtuella datorn i Azure kontrollerar du att VM-agenten i Azure är korrekt installerad på den virtuella datorn (se tabellen nedan). Följande tabell innehåller ytterligare information om VM-agenten för virtuella Windows- och Linux-datorer.
+Den här informationen för situationer där du har *inte* använda en virtuell dator som skapats från Azure Marketplace. Till exempel migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.
+
+Om du har problem med säkerhetskopiering av virtuella Azure-datorn använder du följande tabell för att kontrollera att den Virtuella Azure-agenten är korrekt installerat på den virtuella datorn. Tabellen innehåller ytterligare information om VM-agenten för Windows och Linux virtuella datorer.
 
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installera VM-agenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |<li> Installera senaste [Linux-agenten](../virtual-machines/linux/agent-user-guide.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från databasen för din distribution. Vi **rekommenderar inte** Linux VM-agent som installeras direkt från github.  |
-| Uppdatera VM-agenten |Det är enkelt att uppdatera VM-agenten. Du installerar bara om [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ anvisningarna för hur du [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från databasen för din distribution. Vi **rekommenderar inte** uppdatering Linux VM-agenten direkt från github.<br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
-| Bekräfta installationen av VM-agenten |<li>Gå till mappen *C:\WindowsAzure\Packages* på den virtuella datorn i Azure. <li>Du bör hitta filen WaAppAgent.exe.<li> Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Fältet Produktversion ska vara 2.6.1198.718 eller högre. |Saknas |
+| Installera den Virtuella datoragenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |Installera senaste [Linux-agenten](../virtual-machines/linux/agent-user-guide.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från databasen för din distribution. Vi *rekommenderar inte* Linux VM-agenten installeras direkt från GitHub.  |
+| Uppdatera den Virtuella datoragenten |Uppdatera den Virtuella datoragenten är så enkelt som att installera om den [binärfilerna för VM-agenten](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |Följ instruktionerna för [uppdatering Linux VM-agenten](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vi rekommenderar att du uppdaterar agenten från databasen för din distribution. Vi *rekommenderar inte* uppdaterar Linux VM-agenten direkt från GitHub.<br><br>Kontrollera att ingen säkerhetskopieringsåtgärd körs medan VM-agenten uppdateras. |
+| Verifiera installationen av VM |1. Bläddra till mappen C:\WindowsAzure\Packages i Azure-VM. <br><br>2. Hitta WaAppAgent.exe-filen. <br><br>3. Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Den **produktversionen** fältet måste innehålla 2.6.1198.718 eller högre. |Gäller inte |
 
 ### <a name="backup-extension"></a>Säkerhetskopieringstillägg
-När VM-agenten har installerats på den virtuella datorn installerar Azure Backup-tjänsten säkerhetskopieringstillägget till VM-agenten. Tjänsten Azure Backup sömlöst uppgraderar och korrigeringsfiler sekundär anknytning.
+När den Virtuella datoragenten är installerad på den virtuella datorn installerar tjänsten Azure Backup tillägget säkerhetskopiering av VM-agenten. Backup-tjänsten sömlöst uppgraderar och korrigeringsfiler sekundär anknytning.
 
-Säkerhetskopieringstillägget installeras av Backup-tjänsten oavsett om den virtuella datorn körs eller inte. En virtuell dator som körs har bäst chans att tilldelas en programkonsekvent återställningspunkt. Azure Backup-tjänsten fortsätter dock att säkerhetskopiera den virtuella datorn även om den är avstängd och det inte gick att installera tillägget. Detta kallas för en virtuell offlinedator. I detta fall är återställningspunkten *kraschkonsekvent*.
+Backup-tjänsten installerar tillägget säkerhetskopiering oavsett om den virtuella datorn körs. En virtuell dator som körs har bäst chans att tilldelas en programkonsekvent återställningspunkt. Backup-tjänsten fortsätter dock att säkerhetskopiera den virtuella datorn även om den är avstängd och tillägget kunde inte installeras. Detta kallas *offline VM*. I detta fall är återställningspunkten *kraschkonsekvent*.
 
-## <a name="network-connectivity"></a>Nätverksanslutning
-För att kunna hantera VM-ögonblicksbilder måste sekundär anknytning anslutningen till Azure offentliga IP-adresser. Den virtuella datorns HTTP-begäranden timeout utan rätt Internet-anslutning och säkerhetskopieringen misslyckas. Om distributionen har åtkomstbegränsningar (via en nätverkssäkerhetsgrupp (NSG), till exempel), väljer du något av följande alternativ för att tillhandahålla en tydlig sökväg för säkerhetskopiering trafik:
+## <a name="establish-network-connectivity"></a>Upprätta nätverksanslutning
+Om du vill hantera VM-ögonblicksbilder måste sekundär anknytning anslutningen till Azure offentliga IP-adresser. Den virtuella datorns HTTP-begäranden timeout utan rätt internet-anslutning och säkerhetskopieringen misslyckas. Om distributionen har åtkomstbegränsningar--via en nätverkssäkerhetsgrupp (NSG), till exempel--Välj något av dessa alternativ för att göra det lätt för säkerhetskopiering trafik:
 
-* [Godkända Azure datacenter-IP-adressintervall](http://www.microsoft.com/en-us/download/details.aspx?id=41653) -finns i artikeln anvisningar om hur till listan över godkända IP-adresser.
+* [Godkända Azure datacenter-IP-adressintervall](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
 * Distribuera en HTTP-proxyserver för dirigera trafiken.
 
 När du bestämmer vilket alternativ som är avvägningarna mellan hanterbarhet, granulär kontroll och kostnader.
 
 | Alternativ | Fördelar | Nackdelar |
 | --- | --- | --- |
-| Whitelist IP-adressintervall |Inga ytterligare kostnader.<br><br>För att öppna åtkomst i en NSG, Använd den <i>Set AzureNetworkSecurityRule</i> cmdlet. |Komplext för att hantera som den berörda IP-adressintervall ändras med tiden.<br><br>Tillhandahåller åtkomst till Azure och inte bara lagring som helhet. |
-| HTTP-proxy |Granulär kontroll i proxyn över lagringen webbadresser tillåts.<br>Enskild plats Internet-åtkomst till virtuella datorer.<br>Inte ändras Azure IP-adress. |Ytterligare kostnader för att köra en virtuell dator med proxy-programvara. |
+| Whitelist IP-adressintervall |Inga ytterligare kostnader.<br><br>För att öppna åtkomst i en NSG, Använd den **Set AzureNetworkSecurityRule** cmdlet. |Komplext för att hantera som den berörda IP-adressintervall ändras med tiden.<br><br>Tillhandahåller åtkomst till Azure och inte bara lagring som helhet. |
+| Använda en HTTP-proxy |Granulär kontroll i proxyn över lagringen webbadresser tillåts.<br><br>Enskild plats internet-åtkomst till virtuella datorer.<br><br>Inte ändras Azure IP-adress. |Ytterligare kostnader för att köra en virtuell dator med proxy-programvara. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Godkända Azure-datacentret IP-intervall
-* Att godkända Azure-datacenter IP-adressintervall, finns det [Azure-webbplatsen](http://www.microsoft.com/en-us/download/details.aspx?id=41653) för information om IP-adressintervall och instruktioner.
-* Du kan använda tjänsten taggar för att tillåta anslutningar till lagring av specifik region med [Service taggar](../virtual-network/security-overview.md#service-tags). Kontrollera att den regel som tillåter åtkomst till lagringskontot har högre prioritet än regeln blockera åtkomst till internet. 
+Godkända Azure-datacenter IP-adressintervall, finns det [Azure-webbplatsen](http://www.microsoft.com/en-us/download/details.aspx?id=41653) för information om IP-adressintervall och instruktioner.
 
-  ![NSG med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+Du kan tillåta anslutningar till lagring av specifik region med hjälp av [tjänsten taggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till lagringskontot har högre prioritet än den regel som blockerar Internetåtkomst. 
+
+![NSG med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Storage-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. Lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags)
+> Storage-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).
 
-### <a name="using-an-http-proxy-for-vm-backups"></a>Med hjälp av en HTTP-proxy för VM-säkerhetskopieringar
-När du säkerhetskopierar en virtuell dator skickas säkerhetskopiering tillägget på den virtuella datorn ögonblicksbild management till Azure Storage med hjälp av en HTTPS-API. Vidarebefordra trafik reservanknytning via HTTP-proxy eftersom det är den enda komponenten som konfigurerats för åtkomst till Internet.
+### <a name="use-an-http-proxy-for-vm-backups"></a>Använda en HTTP-proxy för VM-säkerhetskopieringar
+När du säkerhetskopierar en virtuell dator, skickas säkerhetskopiering tillägget på den virtuella datorn ögonblicksbild management till Azure Storage med hjälp av en HTTPS-API. Vidarebefordra trafik reservanknytning via HTTP-proxy eftersom det är den enda komponenten som konfigurerats för åtkomst till internet.
 
 > [!NOTE]
-> Det finns ingen rekommendation för proxyprogram som ska användas. Se till att du väljer en proxy som är kompatibel med konfigurationssteg som nedan.
+> Vi rekommenderar inte att specifika proxy-programvara som du ska använda. Se till att du väljer en proxy som är kompatibel med konfigurationssteg som följer.
 >
 >
 
-Exempel bilden nedan visar de tre konfigurationssteg som krävs för att använda en HTTP-proxy:
+Följande exempelbild visar tre konfigurationssteg som krävs för att använda en HTTP-proxy:
 
-* Appen VM dirigerar alla HTTP-trafik för Internet via Proxy VM.
+* VM-vägar app trafiken bunden till det offentliga internet via proxy VM.
 * Proxy VM tillåter inkommande trafik från virtuella datorer i det virtuella nätverket.
-* Den Nätverkssäkerhetsgrupp (NSG) med namnet NSF låsning måste en säkerhet regeln möjliggör utgående Internet-trafik från VM-Proxy.
+* Nätverkssäkerhetsgruppen med namnet NSF låsning måste en säkerhetsregel som tillåter utgående internet-trafik från VM-proxyservern.
 
-Följ dessa steg om du vill använda en HTTP-proxy kommunikation till det offentliga Internet:
+Utför följande steg om du vill använda en HTTP-proxy ska kunna kommunicera med det offentliga internet.
 
-#### <a name="step-1-configure-outgoing-network-connections"></a>Steg 1. Konfigurera utgående nätverksanslutningar
+> [!NOTE]
+> De här stegen kan du använda specifika namn och värden för det här exemplet. När du anger (eller klistra in) information i koden, använda namn och värden för din distribution.
+
+#### <a name="step-1-configure-outgoing-network-connections"></a>Steg 1: Konfigurera utgående nätverksanslutningar
 ###### <a name="for-windows-machines"></a>För Windows-datorer
-Detta konfigurerar proxyserverkonfiguration för det lokala systemkontot.
+Den här proceduren ställer in proxyserverkonfiguration för det lokala systemkontot.
 
-1. Hämta [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
-2. Kör följande kommando från en upphöjd kommandotolk
+1. Hämta [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
+2. Öppna Internet Explorer genom att köra följande kommando från en upphöjd kommandotolk:
 
-     ```
-     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
-     ```
-     Fönster i internet explorer öppnas.
-3. Gå till Verktyg -> Internet-alternativ -> anslutningar LAN-inställningar ->.
-4. Kontrollera proxy-inställningar för System-kontot. Ange Proxy-IP och port.
+    ```
+    psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
+    ```
+
+3. I Internet Explorer går du till **verktyg** > **Internetalternativ** > **anslutningar** > **LAN-inställningar**.
+4. Kontrollera proxyinställningarna för system-kontot. Ange proxy-IP och port.
 5. Stäng Internet Explorer.
 
-Detta ställer in en datoromfattande proxy-konfiguration och kommer att användas för all utgående HTTP/HTTPS-trafik.
-
-Om du har konfigurerat en proxyserver för ett aktuella användarkonto (inte ett lokalt systemkonto) kan du använda följande skript för att använda dem på SYSTEMACCOUNT:
+Följande skript ställer in en datoromfattande proxy-konfiguration och använder den för utgående HTTP eller HTTPS-trafik. Om du har ställt in en proxyserver för ett aktuella användarkonto (inte ett lokalt systemkonto), kan du använda skriptet för att använda dem på SYSTEMACCOUNT.
 
 ```
    $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
@@ -257,7 +267,7 @@ Om du har konfigurerat en proxyserver för ett aktuella användarkonto (inte ett
 ```
 
 > [!NOTE]
-> Om du upptäcker ”(407) krävs proxyautentisering” i serverloggen proxy, kontrollera autentiseringen har konfigurerats korrekt.
+> Om du upptäcker ”(407) krävs proxyautentisering” i serverloggen proxy, kontrollera att autentiseringen har ställts in korrekt.
 >
 >
 
@@ -275,36 +285,30 @@ HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
 
-#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Steg 2. Tillåt inkommande anslutningar på proxyservern:
-1. Öppna Windows-brandväggen på proxyservern. Det enklaste sättet att komma åt brandväggen är att söka efter Windows-brandväggen med avancerad säkerhet.
-2. I dialogrutan Windows-brandväggen högerklickar du på **regler för inkommande trafik** och på **ny regel...** .
-3. I den **ny inkommande regel för**, Välj den **anpassad** för den **regeltyp** och klicka på **nästa**.
-4. På sidan för att välja den **programmet**, Välj **alla program** och på **nästa**.
-5. På den **protokoll och portar** , anger du följande information och klickar på **nästa**:
+#### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Steg 2: Tillåta inkommande anslutningar på proxyservern
+1. Öppna Windows-brandväggen på proxyservern. Det enklaste sättet att komma åt brandväggen är att söka efter **Windows-brandväggen med avancerad säkerhet**.
+2. I den **Windows-brandväggen med avancerad säkerhet** dialogrutan, högerklicka på **regler för inkommande trafik** och välj **ny regel**.
+3. I guiden Ny inkommande regel, på den **regeltyp** väljer den **anpassad** alternativet och välj **nästa**.
+4. På den **programmet** väljer **alla program** och välj **nästa**.
+5. På den **protokoll och portar** anger du följande information och välj **nästa**:
+   * För **protokolltyp**väljer **TCP**.
+   * För **lokal port**väljer **specifika portar**. Ange numret på den Proxyport som har konfigurerats i följande ruta.
+   * För **Fjärrport**väljer **alla portar**.
 
-   * för *protokolltyp* Välj *TCP*
-   * för *lokal port* Välj *specifika portar*, i fältet nedan anger du den ```<Proxy Port>``` som har konfigurerats.
-   * för *Fjärrport* Välj *alla portar*
+Acceptera standardinställningarna för resten av guiden tills du kommer till slutet. Sedan ge regeln ett namn. 
 
-     Klicka på ända till slutet och ge regeln ett namn för resten av guiden.
+#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Steg 3: Lägga till en undantagsregel NSG: N
+Följande kommando lägger till ett undantag NSG: N. Det här undantaget kan TCP-trafik från alla portar på 10.0.0.5 till alla internet-adress på port 80 (HTTP) eller 443 (HTTPS). Om du behöver en viss port på internet, måste du lägga till porten till ```-DestinationPortRange```.
 
-#### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>Steg 3. Lägg till en undantagsregel NSG: N:
 Ange följande kommando i en Azure PowerShell-kommandotolk:
-
-Följande kommando lägger till ett undantag NSG: N. Det här undantaget kan TCP-trafik från alla portar på 10.0.0.5 till alla Internet-adress på port 80 (HTTP) eller 443 (HTTPS). Om du behöver en specifik port i det offentliga Internet bör du lägga till porten till den ```-DestinationPortRange``` samt.
 
 ```
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-
-*De här stegen kan du använda specifika namn och värden för det här exemplet. Använd namn och värden för din distribution när du anger, eller kopiera och klistra in information i koden.*
-
-Nu när du vet att du har nätverksanslutning, är du redo att säkerhetskopiera den virtuella datorn. Se [säkerhetskopiera Resource Manager distribuerade virtuella datorer](backup-azure-arm-vms.md).
-
-## <a name="questions"></a>Frågor?
-Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
+## <a name="questions"></a>Har du några frågor?
+Om du har frågor eller om det finns en funktion som du vill se ingår, [skicka feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har förberett din miljö för att säkerhetskopiera den virtuella datorn, är nästa logiska steg att skapa en säkerhetskopia. Planering artikeln innehåller mer detaljerad information om hur du säkerhetskopierar virtuella datorer.

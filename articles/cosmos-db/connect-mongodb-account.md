@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/19/2017
 ms.author: anhoh
-ms.openlocfilehash: 5a47001705531d971d3181df9c0aa8f957168845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad6308903d1c3615392eadedfd7da3cfad4096d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ansluta ett MongoDB-program till Azure Cosmos DB
 Lär dig mer om att ansluta appen MongoDB till ett Azure DB som Cosmos-konto med hjälp av en anslutningssträng för MongoDB. Du kan sedan använda en Azure Cosmos-DB-databas som data store för MongoDB-app. 
@@ -29,7 +29,7 @@ Den här kursen finns det två sätt att hämta information om anslutningssträn
 - [Snabbstartsguide metoden](#QuickstartConnection), för användning med .NET, Node.js, MongoDB-gränssnittet, Java och Python drivrutiner
 - [Anpassad sträng anslutningsmetoden](#GetCustomConnection), för användning med andra drivrutiner
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har ett Azure-konto kan du skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) nu. 
 - Ett Azure Cosmos DB-konto. Instruktioner finns i [bygga en MongoDB API webbprogram med .NET och Azure portal](create-mongodb-dotnet.md).
@@ -72,7 +72,7 @@ Värdena för den här strängen är tillgängliga i den **anslutningssträngen*
 
 Anta till exempel att det konto som visas i den **anslutningssträngen** bladet. Det är en giltig anslutningssträng:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10255/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [använder MongoChef](mongodb-mongochef.md) med en Azure Cosmos DB API för MongoDB-kontot.

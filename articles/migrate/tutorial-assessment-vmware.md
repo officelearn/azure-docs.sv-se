@@ -4,13 +4,13 @@ description: "Beskriver hur du identifierar och utvärdera lokala virtuella VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Identifiera och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur man:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **VMware**: på virtuella datorer som du planerar att migrera måste hanteras av en vCenter-servern körs version 5.5, 6.0 eller 6.5. Du måste dessutom en ESXi-värd kör version 5.0 eller senare distribution insamlaren VM. 
  
@@ -44,10 +44,10 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 ## <a name="create-a-project"></a>Skapa ett projekt
 
 1. I Azure-portalen klickar du på **skapar du en resurs**.
-2. Sök efter **Azure migrera**, och välj tjänsten (**Azure migrera (förhandsgranskning)** i sökresultaten. Klicka sedan på **Skapa**.
+2. Sök efter **Azure migrera**, och välj tjänsten **Azure migrera (förhandsgranskning)** i sökresultaten. Klicka sedan på **Skapa**.
 3. Ange ett projektnamn och Azure-prenumeration för projektet.
 4. Skapa en ny resursgrupp.
-5. Ange regionen där du vill skapa projektet och klicka sedan på **skapa**. Metadata som samlats in från lokala virtuella datorer kommer att lagras i den här regionen. Du kan bara skapa ett Azure migrera projekt i West centrala oss region för den här förhandsversionen. Du kan dock fortfarande planera migreringen för alla Azure-plats. 
+5. Ange platsen där du vill skapa projektet och klicka sedan på **skapa**. Du kan bara skapa ett Azure migrera projekt i West centrala oss region för den här förhandsversionen. Du kan dock fortfarande planera migreringen för alla Azure-plats. Den angivna platsen för projektet används bara för att lagra metadata som samlats in från lokala virtuella datorer. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -108,19 +108,24 @@ Importera den hämta filen till vCenter-servern.
 1. Högerklicka på den virtuella datorn i klientkonsolen vSphere > **öppna konsolen**.
 2. Ange språk, tidszon och lösenord inställningar för produkten.
 3. På skrivbordet klickar du på den **kör insamlaren** genväg.
-4. Öppna i Azure migrera insamlaren **in krav**.
+4. Öppna i Azure migrera insamlaren **uppfylla krav**.
     - Acceptera licensvillkoren och läsa information från tredje part.
     - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
     - Om den virtuella datorn har åtkomst till internet via en proxyserver, klickar du på **proxyinställningar**, och ange proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn behöver autentisering.
-    - Insamlaren kontrollerar att profileraren Windows-tjänsten körs. Tjänsten installeras som standard på VM-insamlaren.
+
+    > [!NOTE]
+    > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. HTTP-proxy stöds.
+
+    - Insamlaren kontrollerar att collectorservice körs. Tjänsten installeras som standard på VM-insamlaren.
     - Hämta och installera VMware PowerCLI.
-. I **identifiera datorer**, gör du följande:
+
+5. I **ange vCenter-serverinformationen**, gör du följande:
     - Ange namn (FQDN) eller IP-adressen för vCenter-servern.
     - I **användarnamn** och **lösenord**, ange de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer på vCenter server.
     - I **samling scope**, väljer du en omfattning för identifiering av virtuell dator. Insamlaren kan bara identifiera virtuella datorer i angivet omfång. Omfång kan anges till en viss mapp, ett datacenter eller ett kluster. Det får inte innehålla fler än 1000 virtuella datorer. 
     - I **Taggkategori för att gruppera**väljer **ingen**.
-1. I **Välj projekt**anger Azure migrera projekt-ID och nyckel som du kopierade från portalen. Om inte kopiera dem, öppna Azure-portalen från VM-insamlaren. I projektet **översikt** klickar du på **identifiera datorer**, och kopiera värdena.  
-2. I **fullständig identifiering**, övervaka identifiering och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren ger en tid för ungefärlig identifiering.
+6. I **ange migrering projektet**anger Azure migrera projekt-ID och nyckel som du kopierade från portalen. Om inte kopiera dem, öppna Azure-portalen från VM-insamlaren. I projektet **översikt** klickar du på **identifiera datorer**, och kopiera värdena.  
+7. I **Visa förloppet för samlingen**, övervaka identifiering och kontrollera att metadata som samlas in från de virtuella datorerna är i ett omfång. Insamlaren ger en tid för ungefärlig identifiering.
 
 > [!NOTE]
 > Insamlaren har endast stöd för ”engelska (USA)” som språket i operativsystemet och gränssnittsspråk insamlaren. Stöd för flera språk kommer snart.
@@ -152,7 +157,7 @@ Här är en exempelrapport assessment. Den innehåller information om virtuella 
 
 ![Rapport](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Azure beredskap
+#### <a name="azure-readiness"></a>Azure-beredskap
 
 Den här vyn visar beredskap status för varje dator.
 
@@ -162,7 +167,7 @@ Den här vyn visar beredskap status för varje dator.
 
   ![Bedömning beredskap](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Månatliga kostnadsuppskattning
+#### <a name="monthly-cost-estimate"></a>Uppskattad månadskostnad
 
 Den här vyn visar totalt antal beräkning och lagringskostnaden för att köra de virtuella datorerna i Azure tillsammans med information för varje dator. Kostnad uppskattningar beräknas med hjälp av rekommendationer för prestandabaserad storlek för en dator och dess diskar och assessment egenskaper. 
 
@@ -179,6 +184,6 @@ Du kan öka detaljnivån till mer information finns för en specifik dator.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs](how-to-scale-assessment.md) hur du ställer in en bedömning för ett stort antal lokala datorer.
-- Lär dig att skapa mer detaljerade assessment grupper med [datorn beroende mappning](how-to-create-group-machine-dependencies.md)
+- [Läs](how-to-scale-assessment.md) så att identifiera och utvärdera en stor VMware-miljön.
+- Lär dig hur du skapar hög exakthet assessment grupper med hjälp av [datorn beroende mappning](how-to-create-group-machine-dependencies.md)
 - [Lär dig mer](concepts-assessment-calculation.md) om hur bedömningar beräknas.

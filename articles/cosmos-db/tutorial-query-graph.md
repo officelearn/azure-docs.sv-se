@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Hur man frågan med Graph-API (förhandsgranskning)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Hur man frågan med Graph API?
 
-Azure Cosmos DB [Graph API](graph-introduction.md) (förhandsversion) stöder [Gremlin](https://github.com/tinkerpop/gremlin/wiki) frågor. Den här artikeln innehåller exempeldokument och frågor för att komma igång. En detaljerad Gremlin referens har angetts i den [Gremlin stöd](gremlin-support.md) artikel.
+Azure Cosmos DB [Graph API](graph-introduction.md) stöder [Gremlin](https://github.com/tinkerpop/gremlin/wiki) frågor. Den här artikeln innehåller exempeldokument och frågor för att komma igång. En detaljerad Gremlin referens har angetts i den [Gremlin stöd](gremlin-support.md) artikel.
 
 Den här artikeln omfattar följande aktiviteter: 
 
 > [!div class="checklist"]
 > * Datafrågor med Gremlin
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och har diagramdata i behållaren. Har inte något av de? Slutför den [5 minuter quickstart](create-graph-dotnet.md) eller [developer kursen](tutorial-query-graph.md) och skapa ett konto som du kan fylla i databasen. Du kan köra följande frågor med hjälp av den [Azure Cosmos DB .NET graph-bibliotek](graph-sdk-dotnet.md), [Gremlin konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), eller ditt favoritprogram Gremlin-drivrutinen.
 

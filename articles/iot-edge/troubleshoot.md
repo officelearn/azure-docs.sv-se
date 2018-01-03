@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT kant
 
@@ -24,7 +24,7 @@ Om du får problem med att köra Azure IoT kant i din miljö, Använd den här a
 
 När det uppstår ett problem, mer information om tillståndet för din IoT-Edge-enhet genom att granska loggarna för behållaren och meddelanden som skickar till och från enheten. Använda kommandon och verktyg i det här avsnittet för att samla in information. 
 
-* Granska loggarna för docker-behållare för att identifiera problem. Börja med distribuerade behållarna titta sedan på de behållare som utgör IoT kant-körning: Edge Agent och kant-hubb. Edge Agent-loggarna ger vanligtvis info på lifecylce för varje behållare. Edge-hubb-loggarna ger information på meddelanden och routning. 
+* Granska loggarna för docker-behållare för att identifiera problem. Börja med distribuerade behållarna titta sedan på de behållare som utgör IoT kant-körning: Edge Agent och kant-hubb. Edge-agenten loggar innehåller vanligtvis info om livscykeln för varje behållare. Edge-hubb-loggarna ger information på meddelanden och routning. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Nätverkskonfigurationen på värdnätverket förhindrar att Edge-agenten anslut
 IoT-Edge runtime ställer in ett nätverk för varje moduler att kommunicera på. Det här nätverket är på Linux, en brygga för nätverk. I Windows använder den NAT. Det här problemet är vanligare på Windows-enheter med hjälp av Windows-behållare som använder NAT-nätverk. 
 
 ### <a name="resolution"></a>Lösning
-Kontrollera att det finns en väg till internet för IP-adresser som tilldelats den här bridge/NAT-nätverk. Det har förekommit fall där en VPN-konfiguration på värden åsidosätter IoT kant-nätverk. 
+Kontrollera att det finns en väg till internet för IP-adresser som tilldelats den här bridge/NAT-nätverk. En VPN-konfiguration på värden åsidosätter ibland IoT kant-nätverk. 
 
 ## <a name="edge-hub-fails-to-start"></a>Edge-hubb som inte går att starta
 

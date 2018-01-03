@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin diagram
 Har stöd för Azure Cosmos-DB [Apache Tinkerpop](http://tinkerpop.apache.org) kurva traversal språk [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Graph API för att skapa diagram entiteter och utför åtgärder i diagrammet frågan. Du kan använda Gremlin språk för att skapa diagram entiteter (formhörnen och kanter), ändra egenskaper i dessa enheter, utföra frågor och traversals och ta bort enheter. 
 
 Azure Cosmos-DB ger funktioner för enterprise-redo för graph-databaser. Detta inkluderar global distributionsplatsen, oberoende skalning av lagring och dataflöde, förutsägbar en siffra millisekunders latens automatisk indexering servicenivåavtal, läsa tillgänglighet för databasen konton utsträckning två eller flera Azure-regioner. Eftersom Azure Cosmos DB stöder TinkerPop/Gremlin kan migrera du enkelt program som skrivits med en annan graph-databas utan att behöva göra kodändringar. Dessutom tack vare stöd för Gremlin Azure Cosmos DB smidigt kan integreras med TinkerPop-aktiverade analytics ramverk som [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Vi ger en snabb genomgång av Gremlin i den här artikeln och räkna upp Gremlin funktioner och åtgärder som stöds i förhandsversionen av Graph API-stöd.
+Vi ger en snabb genomgång av Gremlin i den här artikeln och räkna upp Gremlin funktioner och åtgärder som stöds av Graph API.
 
 ## <a name="gremlin-by-example"></a>Gremlin efter exempel
 Nu ska vi använda ett diagram som exempel för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, enheter i form av ett diagram.  
@@ -80,7 +80,7 @@ I följande tabell visas funktionerna TinkerPop som implementeras av Azure Cosmo
 
 | Kategori | Azure DB Cosmos-implementering |  Anteckningar | 
 | --- | --- | --- |
-| Diagram-funktioner | Ger beständighet och ConcurrentAccess i förhandsgranskningen. Stöder transaktioner | Datorn metoder kan implementeras via Spark-koppling. |
+| Diagram-funktioner | Ger beständighet och ConcurrentAccess. Stöder transaktioner | Datorn metoder kan implementeras via Spark-koppling. |
 | Variabeln funktioner | Stöder boolesk, heltal, Byte, Double, Float, Integer, Long, sträng | Har stöd för primitiva typer, är kompatibel med komplexa typer via datamodellen |
 | Vertex funktioner | Stöder RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Har stöd för att skapa, ändra och ta bort formhörnen |
 | Vertex egenskapen funktioner | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Har stöd för att skapa, ändra och ta bort vertex egenskaper |

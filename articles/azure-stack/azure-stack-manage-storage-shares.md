@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure-stacken
 
@@ -63,7 +63,7 @@ När en blob placeras i en behållare, kan att blob växa till mer utrymme. När
 
 Behållare är inte begränsade till en enda resurs. När den kombinerade blob-data i en behållare växer Använd 80% eller mer av det tillgängliga utrymmet behållaren anges *spill* läge. I spill läge tilldelas alla nya blobbar som skapas i behållaren till en annan volym som har tillräckligt med utrymme. Med tiden kan en behållare i spill läge ha blobbar som är fördelade på flera volymer.
 
-När du använder 80% och 90% av det tillgängliga utrymmet på en volym, genererar systemet aviseringar i Azure Stack-administratörsportalen. Molnoperatörer bör granska tillgängliga lagringskapaciteten och planera att balansera innehållet. Lagringstjänsten slutar fungera när en disk är 100% används och det finns inga ytterligare aviseringar aktiveras.
+När du använder 80% och 90% av det tillgängliga utrymmet på en volym, genererar systemet aviseringar i Azure Stack-administratörsportalen. Molnoperatörer bör granska tillgängliga lagringskapaciteten och planera att balansera innehållet. Lagringstjänsten slutar fungera när en disk är 100% används, och inga ytterligare aviseringar aktiveras.
 
 ### <a name="disks"></a>Diskar
 Virtuella diskar har lagts till i behållare av klienter och inkluderar en operativsystemdisk. Virtuella datorer kan också ha en eller flera datadiskar. Båda typerna av diskar lagras som sidblobar. Vägledning för att klienter är att placera varje disk i en separat behållare för att förbättra prestanda för den virtuella datorn.
@@ -123,7 +123,7 @@ Du kan försöka att frigöra utrymme på en överansträngda resurs manuellt mi
 
 Migrering konsoliderar alla behållare blob på den nya resursen.
 
-- Om en behållare har angetts spill läge och har placerats blobbar på ytterligare volymer, måste den nya resursen ha tillräckligt med kapacitet för att rymma alla blobbar för den behållare som du migrerar. Detta inkluderar bloggar som finns på ytterligare resurser.
+- Om en behållare har angetts spill läge och har placerats blobbar på ytterligare volymer, måste den nya resursen ha tillräckligt med kapacitet för att rymma alla blobbar för den behållare som du migrerar. Detta inkluderar blobbar som finns på ytterligare resurser.
 
 - PowerShell-cmdleten *Get-AzsStorageContainer* identifierar utrymmen som används i den ursprungliga volymen för en behållare. Cmdleten identifierar inte utrymme som används av blobbar spärra ytterligare volymer. Maximal storlek för en behållare kan därför inte klart. Det går att slå samman en behållare på en ny resurs kan skicka den nya resursen i ett spilltillstånd där placeras data till ytterligare resurser. Därför kan behöva du balansera om resurser.
 

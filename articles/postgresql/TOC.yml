@@ -1,6 +1,6 @@
 - name: Azure DB för PostgreSQL-dokument
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Azure DB för PostgreSQL
       href: overview.md
@@ -41,7 +41,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Databas och servrar
       items:
@@ -95,6 +95,8 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importera och exportera
           href: howto-migrate-using-export-and-import.md
+        - name: Minimal stilleståndstid vid migrering
+          href: howto-migrate-online.md
     - name: Konfigurera serverparametrar
       items:
         - name: Azure Portal
@@ -115,7 +117,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/postgres
-    - name: REST API
+    - name: REST-API
       href: /rest/api/postgresql
 - name: Resurser
   items:
@@ -123,7 +125,7 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'

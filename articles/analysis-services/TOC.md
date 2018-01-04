@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Azure Analysis Services?](analysis-services-overview.md)
 ## [Datakällor som stöds](analysis-services-datasource.md)
 ## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
@@ -23,6 +24,7 @@
 ### [Hantera databasanvändare](analysis-services-database-users.md)
 ### [Hantera serveradministratörer](analysis-services-server-admins.md)
 ### [Övervaka servermått](analysis-services-monitor.md)
+### [Konfigurera diagnostisk loggning](analysis-services-logging.md)
 ## Anslut
 ### [Hämta klientbibliotek](analysis-services-data-providers.md)
 ### [Anslut till Excel](analysis-services-connect-excel.md)

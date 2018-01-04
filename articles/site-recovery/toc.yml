@@ -1,6 +1,10 @@
 - name: Dokumentation om Site Recovery
   href: index.yml
-- name: Översikt
+- name: Migrering av lokala datorer och virtuella Azure-datorer
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure-till-Azure-haveriberedskap
+  href: azure-to-azure/azure-to-azure-quickstart.md
+- name: "Översikt\r\n"
   items:
     - name: Vad är Site Recovery?
       href: site-recovery-overview.md
@@ -39,7 +43,7 @@
           href: tutorial-migrate-on-premises-to-azure.md
         - name: Migrera AWS-instanser till Azure
           href: tutorial-migrate-aws-to-azure.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Arkitektur för Azure till Azure
       href: concepts-azure-to-azure-architecture.md
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Stödmatris för lokal till Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Hyper-V-till-Azure-supportmatris
+      href: support-matrix-hyper-v-to-azure.md
     - name: Stödmatris för lokal till sekundär plats
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Haveriberedskap för arbetsbelastningar
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Haveriberedskap
       items:
+        - name: Förbereda Hyper-V för replikering till Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Virtuella Hyper-V-datorer till Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Virtuella Hyper-V-datorer i VMM-moln till Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Fysiska servrar till Azure
           href: tutorial-physical-to-azure.md
         - name: Virtuella Hyper-V-datorer till en sekundär plats

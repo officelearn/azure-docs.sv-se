@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure-stacken
 
@@ -31,7 +31,7 @@ En VPN-gateway-anslutningen förlitar sig på konfigurationen av flera resurser 
 ## <a name="vpn-gateway-settings"></a>Inställningar för VPN-gateway
 
 ### <a name="gateway-types"></a>Gateway-typer
-Varje virtuellt nätverk i Azure-stacken stöder en enda virtuell nätverksgateway, vilket måste vara av typen **Vpn**.  Detta skiljer sig från Azure som har stöd för andra typer.  
+Varje virtuellt nätverk i Azure-stacken stöder en enda virtuell nätverksgateway, vilket måste vara av typen **Vpn**.  Det här stödet skiljer sig från Azure, vilket stöder ytterligare typer.  
 
 När du skapar en virtuell nätverksgateway, måste du se till att gateway-typen är korrekta för din konfiguration. Kräver en VPN-gateway den `-GatewayType Vpn`.
 
@@ -90,7 +90,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Du måste ange en VPN-typ när du skapar den virtuella nätverksgatewayen för en konfiguration för VPN-gateway. VPN-typ som du väljer beror på topologin anslutning som du vill skapa.  En VPN-typ kan också vara beroende av den maskinvara som du använder. S2S konfigurationer kräver en VPN-enhet. Vissa VPN-enheter stöder bara en viss typ av VPN.
 
 > [!IMPORTANT]  
-> Azure-stacken stöder endast väg-baserad VPN-typ för tillfället.  Om enheten stöder endast princip-baserade VPN-anslutningar, stöds inte anslutningar till dessa enheter från Azure-stacken.
+> Azure-stacken stöder endast väg-baserad VPN-typ för tillfället. Om enheten stöder endast princip-baserade VPN-anslutningar, stöds inte anslutningar till dessa enheter från Azure-stacken.
 
 - **PolicyBased**: *(stöds av Azure, men inte av Azure-stacken)* principbaserade VPN: er krypterar och dirigerar paket via IPsec-tunnlar baserat på IPsec-principer som konfigureras med kombinationer av adressprefix mellan ditt lokala nätverk och Azure-stacken VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-enhetens konfiguration.
 
@@ -108,13 +108,13 @@ I följande tabell visas kraven för VPN-gatewayer.
 
 | |PolicyBased grundläggande VPN-Gateway | RouteBased grundläggande VPN-Gateway | RouteBased Standard VPN-Gateway | RouteBased hög prestanda VPN-Gateway|
 |--|--|--|--|--|
-| **Plats-till-plats-anslutning (S2S)** | Stöds inte | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration |
+| **Plats-till-plats-anslutning (S2S connectivity)** | Stöds inte | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration |
 | **Autentiseringsmetod**  | Stöds inte | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  |   
 | **Maximalt antal S2S-anslutningar**  | Stöds inte | 10 | 10| 30|
 |**Stöd för aktiv routning (BGP)** | Stöds inte | Stöds inte | Stöds | Stöds |
 
 ### <a name="gateway-subnet"></a>Gateway-undernät 
-Innan du skapar en VPN-gateway, måste du skapa en gateway-undernätet. Gateway-undernätet innehåller IP-adresser som virtuell nätverksgateway virtuella datorer och tjänster. När du skapar din virtuella nätverksgateway kan distribueras till gateway-undernätet gateway VMs och konfigurerad med de nödvändiga inställningarna för VPN-gateway. Distribuera inte något annat (till exempel ytterligare virtuella datorer) till gateway-undernät. Gateway-undernätet måste ha namnet ”GatewaySubnet' ska fungera korrekt. 'GatewaySubnet' kan namngivning av gateway-undernätet Azure Stack känna till detta är att distribuera virtuell nätverksgateway virtuella datorer och tjänster till undernätet.
+Innan du skapar en VPN-gateway, måste du skapa en gateway-undernätet. Gateway-undernätet innehåller IP-adresser som virtuell nätverksgateway virtuella datorer och tjänster. När du skapar din virtuella nätverksgateway kan distribueras till gateway-undernätet gateway VMs och konfigurerad med de nödvändiga inställningarna för VPN-gateway. Distribuera inte något annat (till exempel ytterligare virtuella datorer) till gateway-undernät. Gateway-undernätet måste ha namnet ”GatewaySubnet' ska fungera korrekt. 'GatewaySubnet' kan namngivning av gateway-undernätet Azure stackutrymme för att identifiera undernät för att distribuera virtuell nätverksgateway virtuella datorer och tjänster.
 
 När du skapar gatewayundernätet anger du det antal IP-adresser som undernätet innehåller. IP-adresser i gatewayundernätet allokeras till gateway VMs och gateway-tjänster. Vissa konfigurationer kräver fler IP-adresser än andra. Titta på anvisningarna för den konfiguration som du vill skapa och verifiera att gateway-undernätet som du vill skapa uppfyller dessa krav. Dessutom kanske du vill se till gateway-undernätet innehåller IP-adresser räcker för att anpassa framtida ytterligare konfigurationer. Du kan skapa en gateway-undernätet så liten som /29, rekommenderar vi att du skapar ett gateway-undernät för /28 eller större (/ 28 minst/27, /26 osv.). På så sätt kan om du lägger till funktioner i framtiden, du behöver inte går sönder ned din gateway och sedan ta bort och återskapa gateway-undernät så att flera IP-adresser.
 
@@ -128,7 +128,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 > När du arbetar med gateway-undernät, bör du undvika att associera en nätverkssäkerhetsgrupp (NSG) till gateway-undernätet. Om du kopplar en nätverkssäkerhetsgrupp (NSG) till det här undernätet så kan din VPN-gateway sluta fungera som förväntat. Läs mer om nätverkssäkerhetsgrupper [vad är en nätverkssäkerhetsgrupp?](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Lokala nätverksgatewayer
-När du skapar en konfiguration för VPN-gateway i Azure, representerar den lokala nätverksgatewayen ofta den lokala platsen. I Azure-stacken representerar den fjärranslutna VPN-enheter som befinner sitter utanför Azure-stacken.  Detta kan vara en VPN-enhet i ditt datacenter, en fjärransluten datacenter eller en VPN-Gateway i Azure.
+När du skapar en konfiguration för VPN-gateway i Azure, representerar den lokala nätverksgatewayen ofta den lokala platsen. I Azure-stacken representerar alla fjärranslutna VPN-enheter som befinner sitter utanför Azure-stacken.  Detta kan vara en VPN-enhet i ditt datacenter, en fjärransluten datacenter eller en VPN-Gateway i Azure.
 
 Du namnge den lokala nätverksgatewayen, offentliga IP-adressen för VPN-enheten och ange adressprefix som finns på den lokala platsen. Azure tittar på mål-adressprefix för nätverkstrafik, tittar du den konfiguration som du har angett för din lokala nätverksgateway och därefter dirigerar paket.
 
@@ -141,7 +141,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 Ibland måste du ändra inställningarna för lokala gateway. Till exempel när du lägger till eller ändra adressintervallet, eller om IP-adressen för VPN-enhet ändras. Se [ändra lokala gateway nätverksinställningar med hjälp av PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE-parametrar
-När du konfigurerar en VPN-anslutning i Azure-stacken måste du konfigurera anslutningen i båda ändar.  Om du konfigurerar en VPN-anslutning mellan Azure-stacken och en maskinvaruenhet, till exempel en växel eller router som fungerar som en VPN-Gateway, be enheten dig för ytterligare inställningar.
+När du konfigurerar en VPN-anslutning i Azure-stacken måste du konfigurera anslutningen i båda ändar.  Om du konfigurerar en VPN-anslutning mellan Azure-stacken och en maskinvaruenhet som en växel eller router som fungerar som en VPN-Gateway, be enheten dig för ytterligare inställningar.
 
 Till skillnad från Azure, vilket stöder flera erbjudanden för både som initierare och en Övervakare, stöder Azure-stacken bara ett erbjudande.
 

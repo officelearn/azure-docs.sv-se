@@ -1,6 +1,6 @@
 - name: Azure Storage-dokumentation
   href: /azure/storage/
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Introduktion
       href: storage-blobs-introduction.md
@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simulera ett fel med RA-GRS-lagring
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrera lokala data till molnet med AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Sök efter ostrukturerade data i molnlagringen
       href: storage-unstructured-search.md
     - name: Optimera prestanda och skalbarhet för lagringsprogram
@@ -68,7 +70,7 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera och designa
       items:

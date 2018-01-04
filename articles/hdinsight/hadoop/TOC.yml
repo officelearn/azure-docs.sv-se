@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: apache-hadoop-introduction.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -121,6 +121,9 @@
       items:
         - name: Analysera med Power Query
           href: apache-hadoop-connect-excel-power-query.md
+        - name: Ansluta Power BI till interaktiv fråga
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Ansluta Power BI till Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Ansluta Excel till Hadoop
@@ -332,7 +335,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: Översikt
+        - name: "Översikt\r\n"
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

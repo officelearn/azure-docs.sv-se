@@ -1,6 +1,6 @@
 - name: Azure DB för MySQL-dokument
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Azure DB för MySQL
       href: overview.md
@@ -49,7 +49,7 @@
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Databas och servrar
       items:
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Importera och exportera
           href: concepts-migrate-import-export.md
+        - name: Minimal stilleståndstid vid migrering
+          href: howto-migrate-online.md
     - name: Anslut program
       items:
         - name: Skapa användare
@@ -137,7 +139,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
-    - name: REST API
+    - name: REST-API
       href: /rest/api/mysql
 - name: Resurser
   items:
@@ -145,7 +147,7 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'

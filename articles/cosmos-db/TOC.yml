@@ -1,6 +1,6 @@
 - name: Dokumentation om Cosmos DB
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
@@ -131,7 +131,7 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Databas utan server
       href: serverless-computing-database.md
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Prestandatestning
               href: performance-testing.md
-            - name: Prestandatips
+            - name: Prestandatips för .NET
               href: performance-tips.md
+            - name: Prestandatips för Java
+              href: performance-tips-java.md
             - name: Konfiguration med flera huvudservrar
               href: multi-region-writers.md
             - name: DateTimes

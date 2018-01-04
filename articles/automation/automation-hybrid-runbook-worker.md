@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d33ce1b4f00e8186ad894d54901e3bc09d263fa4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0fcf7485d64d2e947be1730d168ed0a645a50714
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller molnet med Hybrid Runbook Worker
 Runbooks i Azure Automation kan inte komma åt resurser i andra moln eller lokala miljö eftersom de körs i Azure-molnet.  Funktionen Hybrid Runbook Worker i Azure Automation kan du köra runbooks direkt på den dator där rollen och mot resurser i miljön för att hantera de lokala resurserna. Runbooks lagras och hanteras i Azure Automation och sedan levereras till en eller flera särskilda datorer.  
@@ -165,7 +165,7 @@ Hybrid Runbook Worker är beroende av Microsoft Monitoring Agent kan kommunicera
     Om Microsoft Monitoring Agent Windows-tjänsten inte körs, förhindrar detta Hybrid Runbook Worker från att kommunicera med Azure Automation.  Kontrollera att agenten körs genom att ange följande kommando i PowerShell: `get-service healthservice`.  Om tjänsten stoppas kan du ange följande kommando i PowerShell för att starta tjänsten: `start-service healthservice`.  
 
 4. I den **program och tjänster för Logs\Operations** händelseloggen händelse 4502 och EventMessage som innehåller **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** med följande beskrivning: *certifikatet som presenterades av tjänsten <wsid>. oms.opinsights.azure.com har inte utfärdats av en certifikatutfärdare som används för Microsoft-tjänster. Kontakta nätverksadministratören för att se om de kör en proxy som hindrar TLS/SSL-kommunikation. Artikeln KB3126513 innehåller ytterligare felsökningsinformation för problem med nätverksanslutningen.*
-    Detta kan orsakas av din brandväggen proxy eller network blockking-kommunikation till Microsoft Azure.  Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
+    Detta kan bero på att din proxy- eller brandvägg som blockerar kommunikation till Microsoft Azure.  Kontrollera att datorn är utgående åtkomst till *.azure automation.net på port 443.
 
 Loggfilerna lagras lokalt på varje worker-hybrid på C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.  Du kan kontrollera om det finns några varning eller felhändelser som sparas i den **program och tjänster Logs\Microsoft-SMA\Operations** och **program och tjänster för Logs\Operations** händelseloggen som visar att det finns en anslutning eller andra problem som påverkar onboarding av rollen för Azure Automation eller problem under normal drift.  
 

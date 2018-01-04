@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Om du inte vill köra grundläggande server i Azure kan du köra servern på en 
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 och senare) |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |

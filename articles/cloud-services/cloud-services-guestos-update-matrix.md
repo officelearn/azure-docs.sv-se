@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/3/2018
 ms.author: raiye
-ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -159,7 +159,7 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.68_201710-01 |14 december 2017 |Bokför 2.70 |TBD |
+| WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Bokför 2.70 |TBD |
 | WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |

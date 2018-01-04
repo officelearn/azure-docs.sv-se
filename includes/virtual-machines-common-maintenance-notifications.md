@@ -18,11 +18,10 @@ Du kan använda Azure portal och leta efter virtuella datorer som är schemalagd
       | Värde | Beskrivning |
       |-------|-------------|
       | Börja nu | Den virtuella datorn är i underhållsfönstret självbetjäning som gör att du kan initiera underhållet själv. Se nedan om hur du startar Underhåll på den virtuella datorn | 
-      | Schemalagda | Den virtuella datorn är schemalagt för underhåll utan något alternativ att initiera underhåll. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
-      | Slutfört | Du har initierat och slutföra Underhåll på den virtuella datorn. | 
-      | Hoppades över| Du har valt för att initiera underhåll utan framgång. Azure har avbrutit underhållet för den virtuella datorn och kommer att schemaläggas om den i ett senare tillfälle | 
-      | Försök igen senare| Du har valt för att initiera underhåll och Azure kunde inte slutföra din förfrågan. I det här fallet kan du försöka igen i ett senare tillfälle. | 
-   
+      | Schemalagd | Den virtuella datorn är schemalagt för underhåll utan något alternativ att initiera underhåll. Du kan lära dig för underhåll genom att välja fönstret automatiskt schemalagda i den här vyn eller genom att klicka på den virtuella datorn | 
+      | Slutförd | Du har initierat och slutföra Underhåll på den virtuella datorn. | 
+      | Överhoppad| Du har valt för att initiera underhåll utan framgång. Du kommer inte att använda alternativet självbetjäning underhåll. Den virtuella datorn måste startas av Azure under fasen schemalagt underhåll. | 
+
    **Underhåll proaktiva** -visar tidsfönstret vid automatisk start Underhåll på dina virtuella datorer.
    
    **Underhåll schemalagda** -visar tidsfönstret när Azure startar om den virtuella datorn för att kunna utföra underhåll. 

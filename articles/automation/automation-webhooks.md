@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation-runbook med en webhook
 En *webhook* kan du starta en viss runbook i Azure Automation via en HTTP-begäran. Detta gör att externa tjänster, till exempel Visual Studio Team Services, GitHub, logganalys för Microsoft Operations Management Suite eller anpassade program att starta runbooks utan att implementera en fullständig lösning med hjälp av Azure Automation-API.  
@@ -33,11 +33,11 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 |:--- |:--- |
 | Namn |Du kan ange vilket namn som helst för en webhook eftersom detta inte är exponerad för klienten.  Den används endast för dig för att identifiera runbook i Azure Automation. <br>  Som bästa praxis, bör du ge webhooken ett namn som är relaterade till klienter som använder den. |
 | Webbadress |URL till webhooken är unika adressen som en klient anropar med en HTTP POST till att starta runbook kopplad till webhooken.  Det genereras automatiskt när du har skapat webhooken.  Du kan inte ange en anpassad URL. <br> <br>  URL: en innehåller en säkerhetstoken som gör att runbook anropas av en tredjeparts-system utan ytterligare autentisering. Det bör därför behandlas som ett lösenord.  Av säkerhetsskäl bör visa du bara URL: en i Azure-portalen när webhook har skapats. Du bör anteckna URL-Adressen i en säker plats för framtida användning. |
-| Utgångsdatum |Varje webhook har ett sista giltighetsdatum som den kan inte längre användas som ett certifikat.  Den här upphör att gälla kan ändras när du har skapat webhooken. |
+| Förfallodatum |Varje webhook har ett sista giltighetsdatum som den kan inte längre användas som ett certifikat.  Den här upphör att gälla kan ändras när du har skapat webhooken. |
 | Enabled |En webhook är aktiverad som standard när den skapas.  Om du den inaktiverad, kommer ingen klient att kunna använda den.  Du kan ange den **aktiverad** egenskapen när du skapar webhooken eller när som helst när den skapas. |
 
 ### <a name="parameters"></a>Parametrar
-En webhook kan definiera värden för runbookparametrar som används när runbook startas genom att webhooken. Webhooken måste innehålla värden för alla obligatoriska parametrar runbook och kan innehålla värden för valfria parametrar. Ett parametervärde som konfigurerats för att en webhook kan ändras när webhoook. Flera webhooks som är kopplad till en enda runbook kan använda olika parametervärden.
+En webhook kan definiera värden för runbookparametrar som används när runbook startas genom att webhooken. Webhooken måste innehålla värden för alla obligatoriska parametrar runbook och kan innehålla värden för valfria parametrar. Ett parametervärde som konfigurerats för att en webhook kan ändras även när du har skapat webhooken. Flera webhooks som är kopplad till en enda runbook kan använda olika parametervärden.
 
 När en klient startar en runbook med en webhook, kan inte det åsidosätta de parametervärden som definierats i webhooken.  Om du vill ta emot data från klienten, runbook kan acceptera en enda parameter med namnet **$WebhookData** av typen [objekt] som innehåller data som klienten innehåller i POST-begäran.
 
@@ -53,7 +53,7 @@ Den **$WebhookData** objekt har följande egenskaper:
 
 Det finns ingen konfiguration av webhooken krävs för att stödja den **$WebhookData** parametern och runbook inte krävs för att godkänna.  Om runbook inte definierar parametern ignoreras någon information om den begäran som skickades från klienten.
 
-Om du anger ett värde för $WebhookData när du skapar webhooken, att värdet ska åsidosättas när webhooken startar runbook med data från klienten POST-begäran, även om klienten inte innehåller några data i begärandetexten.  Om du startar en runbook med hjälp av en annan metod än en webhook $WebhookData, kan du ange ett värde för $Webhookdata som identifieras av runbook.  Det här värdet ska vara ett objekt med samma [egenskaper](#details-of-a-webhook) som $Webhookdata så att runbook fungerar korrekt med det som om den arbetade med faktiska WebhookData skickades av en webhook.
+Om du anger ett värde för $WebhookData när du skapar webhooken, att värdet kommer att åsidosättas när webhooken startar runbook med data från klienten POST-begäran, även om klienten inte innehåller några data i begärandetexten.  Om du startar en runbook med hjälp av en annan metod än en webhook $WebhookData, kan du ange ett värde för $Webhookdata som identifieras av runbook.  Det här värdet ska vara ett objekt med samma [egenskaper](#details-of-a-webhook) som $Webhookdata så att runbook fungerar korrekt med det som om den arbetade med faktiska WebhookData skickades av en webhook.
 
 Till exempel om du startar följande runbook från Azure Portal och vill skicka vissa exempel WebhookData för att testa, eftersom WebhookData är ett objekt som ska den skickas som JSON i Användargränssnittet.
 
@@ -104,7 +104,7 @@ Klienten får ett av följande returkoder från POST-begäran.
 
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
-| 202 |Godkänd |Begäran accepterades och runbook placerades i kö. |
+| 202 |Accepterad  |Begäran accepterades och runbook placerades i kö. |
 | 400 |Felaktig förfrågan |Begäran accepterades inte av något av följande skäl. <ul> <li>Webhook har gått ut.</li> <li>Webhook har inaktiverats.</li> <li>Token i URL-Adressen är ogiltig.</li>  </ul> |
 | 404 |Kunde inte hittas |Begäran accepterades inte av något av följande skäl. <ul> <li>Webhooken hittades inte.</li> <li>Runbook hittades inte.</li> <li>Det gick inte att hitta kontot.</li>  </ul> |
 | 500 |Internt serverfel |URL: en är giltig, men ett fel uppstod.  Skicka begäran igen. |
@@ -189,7 +189,7 @@ Webhook-aktiverade runbooks som kan användas för att ta hänsyn till [Azure av
 
 Förutom att använda Azure-aviseringar som ett system, kan du också startar runbooks som svar på aviseringar. Azure Automation ger möjlighet att köra webhook-aktiverade runbooks med Azure-aviseringar. När ett mått överskrider det konfigurerade tröskelvärdet sedan varningsregeln blir aktiv och utlöser automation-webhook som i sin tur kör runbook.
 
-![Webhooks](media/automation-webhooks/webhook-alert.jpg)
+![Webhook-konfigurationer](media/automation-webhooks/webhook-alert.jpg)
 
 ### <a name="alert-context"></a>Varningskontext
 Överväg att en Azure-resurs, till exempel en virtuell dator, CPU-användning för den här datorn är ett mått för KPI. Om CPU-användning är 100% eller mer än en viss mängd under lång tid, kanske du vill starta om den virtuella datorn för att åtgärda problemet. Detta kan lösas genom att konfigurera en aviseringsregel till den virtuella datorn och den här regeln tar CPU-procent som dess mått. CPU-procent här tas bara som ett exempel men det finns många andra mått som du kan konfigurera att Azure-resurser och starta om den virtuella datorn är en åtgärd som vidtagits för att åtgärda det här problemet kan du konfigurera runbook för att vidta andra åtgärder.

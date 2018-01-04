@@ -9,16 +9,16 @@ tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 29e41b100f594d044e00054c91fb0095679ca627
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Distribuera virtuell Linux-dator till den nya noden i Azure
 Om du står inför svårigheter felsökning SSH eller kan bidra till att programmet åtkomst till en Linux-dator (VM) i Azure, omdistribuera den virtuella datorn. När du distribuerar en virtuell dator, flyttar den virtuella datorn till en ny nod i Azure-infrastrukturen och sedan aktiveras den tillbaka. Alla konfigurationsalternativ och associerade resurser bevaras. Den här artikeln visar hur du distribuerar en virtuell dator med hjälp av Azure CLI eller Azure-portalen.
@@ -30,7 +30,7 @@ Du kan distribuera en virtuell dator med någon av följande alternativ. Du beh�
 
 - [Azure CLI 2.0](#azure-cli-20)
 - [Azure CLI 1.0](#azure-cli-10)
-- [Azure Portal](#using-azure-portal)
+- [Azure-portalen](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Använda Azure CLI 2.0
 Installera senaste [Azure CLI 2.0](/cli/azure/install-az-cli2) och logga in till din Azure med hjälp av [az inloggningen](/cli/azure/#login).

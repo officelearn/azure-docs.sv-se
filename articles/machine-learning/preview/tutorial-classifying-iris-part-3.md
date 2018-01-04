@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: HT
+ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -32,7 +32,7 @@ Den här självstudien är del tre i en serie med tre delar. I den här delen av
 
  Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Gå igenom de första två delarna i självstudieserien:
 
    * Gå igenom [självstudien Förbereda data](tutorial-classifying-iris-part-1.md), där du får skapa Machine Learning-resurser och installera Azure Machine Learning Workbench.
@@ -160,6 +160,9 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
    ``` 
 
    Den tredje utdataraden visar **"registrationState": "Registering"**. Vänta en stund och upprepa **visningskommandot** tills utdata visar **"registrationState": "Registered"**.
+
+   >[!NOTE] 
+   Om du distribuerar till en ACS-kluster, måste du registrera den **Microsoft.ContainerService** resursprovidern samt med exakt samma metod.
 
 3. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
 

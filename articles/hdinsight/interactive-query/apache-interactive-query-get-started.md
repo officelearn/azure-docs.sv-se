@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Använd interaktiva frågan med HDInsight
 Interaktiva fråga (kallas även Hive LLAP eller [Live långa och processen](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är en Azure HDInsight [kluster typen](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Interaktiva Query stöder cachelagra i minnet, vilket gör Hive-frågor snabbare och mycket mer interaktiva.
@@ -43,8 +43,8 @@ Om du vill köra Hive-frågor, har du följande alternativ:
 
 * Använda Powerbi
 
-    Se [visualisera stora data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Se [visualisera interaktiva frågan som Hive data med Power BI i Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) finns [visualisera stora data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Använd Zeppelin
 
     Se [använda Zeppelin köra Hive-frågor i Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).

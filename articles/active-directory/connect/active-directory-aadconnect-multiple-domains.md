@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 597ea863275a5603e093307ce4334ae68e5ea5cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation innehåller information om hur du använder flera domäner på toppnivå och underdomäner när federering med Office 365 eller Azure AD-domäner.
@@ -29,9 +29,9 @@ Federering flera domäner på toppnivå med Azure AD kräver ytterligare konfigu
 När en domän är federerat med Azure AD, ange flera egenskaper på domänen i Azure.  Ett är viktigt IssuerUri.  Det här är en URI som används av Azure AD för att identifiera den domän som token som är associerad med.  URI: N behöver inte matcha till något annat än det måste vara en giltig URI.  Standard Azure AD anger detta till värdet för federationstjänstidentifieraren i din lokala AD FS konfiguration.
 
 > [!NOTE]
-> Identifierare för federation service är en URI som unikt identifierar en federationstjänst.  Federationstjänsten är en instans av AD FS som fungerar som säkerhetstokentjänsten. 
-> 
-> 
+> Identifierare för federation service är en URI som unikt identifierar en federationstjänst.  Federationstjänsten är en instans av AD FS som fungerar som säkerhetstokentjänsten.
+>
+>
 
 Du kan visa IssuerUri med hjälp av PowerShell-kommando `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
@@ -62,9 +62,9 @@ Tittar på inställningarna på vår nya bmfabrikam.com domänen som du kan se f
 
 Observera att `-SupportMultipleDomain` ändras inte de andra slutpunkterna som fortfarande är konfigurerade för att peka till vår federationstjänsten på adfs.bmcontoso.com.
 
-En annan sak som `-SupportMultipleDomain` har är det garanterar att AD FS-system innehåller värdet för rätt utfärdaren i token som utfärdats för Azure AD. Detta åstadkoms genom att använda den som domändel av användarna UPN och inställningar som domänen i IssuerUri, d.v.s. https://{upn suffix} / adfs-services-förtroendet. 
+En annan sak som `-SupportMultipleDomain` har är det garanterar att AD FS-system innehåller värdet för rätt utfärdaren i token som utfärdats för Azure AD. Detta åstadkoms genom att använda den som domändel av användarna UPN och inställningar som domänen i IssuerUri, d.v.s. https://{upn suffix} / adfs-services-förtroendet.
 
-Därmed under autentiseringen till Azure AD eller Office 365, elementet IssuerUri i användarens token som används för att leta upp domänen i Azure AD.  Om en matchning inte hittas autentiseringen misslyckas. 
+Därmed under autentiseringen till Azure AD eller Office 365, elementet IssuerUri i användarens token som används för att leta upp domänen i Azure AD.  Om en matchning inte hittas autentiseringen misslyckas.
 
 Till exempel om en användares UPN är bsimon@bmcontoso.com, elementet IssuerUri i token AD FS problem kommer att ställas in http://bmcontoso.com/adfs/services/trust. Detta motsvarar Azure AD-konfigurationen och autentiseringen lyckas.
 
@@ -75,8 +75,8 @@ Följande är anpassade anspråksregeln som implementerar denna logik:
 
 > [!IMPORTANT]
 > För att kunna använda växeln - SupportMultipleDomain när du försöker lägga till nya eller konvertera redan lagts till domäner, som du behöver ha installationsprogrammet din federerat förtroende som ursprungligen stöder dessa.  
-> 
-> 
+>
+>
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Så här uppdaterar du förtroende mellan AD FS och Azure AD
 Om du inte konfigurera federerat förtroende mellan AD FS och din instans av Azure AD, kan du behöva återskapa förtroendet.  Detta beror på att när den är ursprungligen installationen utan den `-SupportMultipleDomain` parameter, IssuerUri anges med standardvärdet.  I skärmbilden nedan du ser IssuerUri är inställd på https://adfs.bmcontoso.com/adfs/services/trust.
@@ -97,7 +97,7 @@ Följ anvisningarna nedan för att lägga till en ytterligare toppnivådomän.  
 
 Använd följande steg för att ta bort Microsoft Online-förtroende och uppdatera din ursprungliga domän.
 
-1. På din AD FS-federationsserver öppna **AD FS-hantering.** 
+1. På din AD FS-federationsserver öppna **AD FS-hantering.**
 2. Till vänster, expandera **förtroenden** och **förtroende för förlitande part**
 3. Ta bort till höger i **Identitetsplattformen för Microsoft Office 365** post.
    ![Ta bort Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
@@ -137,14 +137,14 @@ När du lägger till en underordnad domän, på grund av hur Azure AD hanterade 
 Så kan anta till exempel att jag har bmcontoso.com och Lägg sedan till corp.bmcontoso.com.  Det innebär att IssuerUri för en användare från corp.bmcontoso.com måste vara **http://bmcontoso.com/adfs/services/trust.**  Men standard regeln implementerats ovan för Azure AD, genererar en token med en utfärdare som **http://corp.bmcontoso.com/adfs/services/trust.** som inte matchar domänens krävs värdet och autentiseringen misslyckas.
 
 ### <a name="how-to-enable-support-for-sub-domains"></a>Så här aktiverar du stöd för underordnade domäner
-Förlitande part för Microsoft Online måste uppdateras för att komma runt detta AD FS.  Om du vill göra detta måste konfigurera du en anpassad anspråksregel så att den tar ut alla underordnade domäner från användarens UPN-suffixet när man skapar anpassade utfärdaren värdet. 
+Förlitande part för Microsoft Online måste uppdateras för att komma runt detta AD FS.  Om du vill göra detta måste konfigurera du en anpassad anspråksregel så att den tar ut alla underordnade domäner från användarens UPN-suffixet när man skapar anpassade utfärdaren värdet.
 
 Följande anspråk kommer att göra det:
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-Det sista numret i det reguljära uttrycket ange hur många överordnade domäner som finns i rotdomänen. Här finns i bmcontoso.com så att två överordnade domäner krävs. Om tre överordnade domäner har hållas (d.v.s.: corp.bmcontoso.com), och sedan antalet skulle ha varit tre. Eventualy kan ett intervall anges matchningen görs alltid att matcha maximalt antalet domäner. {2,3}-matchar två till tre domäner (d.v.s.: bmfabrikam.com och corp.bmcontoso.com).
+Det sista numret i det reguljära uttrycket ange hur många överordnade domäner som finns i rotdomänen. Här finns i bmcontoso.com så att två överordnade domäner krävs. Om tre överordnade domäner har hållas (d.v.s.: corp.bmcontoso.com), och sedan antalet skulle ha varit tre. Slutligen kan en intervallet anges matchningen görs alltid att matcha maximalt antalet domäner. {2,3}-matchar två till tre domäner (d.v.s.: bmfabrikam.com och corp.bmcontoso.com).
 
 Använd följande steg om du vill lägga till ett anpassat anspråk för att stödja underdomäner.
 
@@ -152,14 +152,13 @@ Använd följande steg om du vill lägga till ett anpassat anspråk för att st�
 2. Högerklicka på Microsoft Online RP-förtroende och väljer Redigera anspråksregler
 3. Välj den tredje anspråksregeln och Ersätt ![redigera anspråk](./media/active-directory-multiple-domains/sub1.png)
 4. Ersätt det aktuella anspråket:
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-   
+
        with
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![Ersätt anspråk](./media/active-directory-multiple-domains/sub2.png)
 
 5. Klicka på Ok.  Klicka på Använd.  Klicka på Ok.  Stäng AD FS-hantering.
-

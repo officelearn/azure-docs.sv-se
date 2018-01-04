@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 1bff8e4b052ffe8274c290abdebfbac7bf9a883d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Tjänsten Microsoft Azure Virtual Network kan Azure-resurser för säker kommunikation med andra i ett virtuellt nätverk. Ett virtuellt nätverk är en representation av ditt eget nätverk i molnet. Ett virtuellt nätverk är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till andra virtuella nätverk eller till ditt lokala nätverk. Följande bild visar några av funktionerna i Azure Virtual Network service:
+Tjänsten Microsoft Azure Virtual Network kan Azure-resurser för säker kommunikation med varandra i ett virtuellt nätverk. Ett virtuellt nätverk är en logisk isolering av Azure-molnet dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till andra virtuella nätverk eller till ditt lokala nätverk. Följande bild visar några av funktionerna i Azure Virtual Network service:
 
 ![Diagram över nätverk](./media/virtual-networks-overview/virtual-network-overview.png)
 

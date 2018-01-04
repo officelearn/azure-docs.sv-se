@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -30,7 +30,11 @@ Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-
 
 ## <a name="is-seamless-sso-a-free-feature"></a>Är sömlös SSO en kostnadsfri funktion?
 
-Sömlös SSO är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den. Den återstående ledigt när funktionen når allmän tillgänglighet.
+Sömlös SSO är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Är sömlös SSO tillgänglig i den [Tyskland för Microsoft Azure-molnet](http://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?
+
+Nej. Sömlös SSO är endast tillgängligt i den globala instansen av Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Vilka program utnyttja `domain_hint` eller `login_hint` parametern möjligheterna för sömlös SSO?
 
@@ -57,7 +61,7 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 
 1. Först ladda ned och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Hämta och installera den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigera till den `%programfiles%\Microsoft Azure Active Directory Connect` mapp.
+3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importera sömlös SSO-PowerShell-modulen med det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 5. Kör PowerShell som administratör. I PowerShell anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör du få ett popup-fönster att ange autentiseringsuppgifter för din klient Global administratör.
 6. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.
@@ -87,7 +91,7 @@ Om du vill slutföra processen gör du följande manuellt på den lokala servern
 
 1. Först ladda ned och installera den [Microsoft Online Services-inloggningsassistent](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Hämta och installera den [64-bitars Azure Active Directory-modulen för Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigera till den `%programfiles%\Microsoft Azure Active Directory Connect` mapp.
+3. Gå till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importera sömlös SSO-PowerShell-modulen med det här kommandot: `Import-Module .\AzureADSSO.psd1`.
 5. Kör PowerShell som administratör. I PowerShell anropa `New-AzureADSSOAuthenticationContext`. Det här kommandot bör du få ett popup-fönster att ange autentiseringsuppgifter för din klient Global administratör.
 6. Anropa `Get-AzureADSSOStatus`. Det här kommandot innehåller en lista över AD-skogar (titt på listan ”domäner”) på som den här funktionen har aktiverats.

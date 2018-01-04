@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i ditt webbprogram med Application Insights
 Undantag i livewebbappar rapporteras av [Programinsikter](app-insights-overview.md). Du kan jämföra misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsaker.
@@ -57,7 +57,7 @@ Observera att CodeLens visar information om undantagen i koden:
 ![CodeLens meddelande om undantag.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnostisera fel i Azure Portal
-Application Insights levereras med en granskad APM-upplevelse som hjälper dig att diagnostisera fel i övervakade program. Klicka på alternativet fel i menyn Application Insights-resursen finns i avsnittet Undersök. Du bör se en helskärmsläge som visar fel hastighet trender för dina begäranden, hur många av dem misslyckas och hur många användare påverkas. Till höger visas några av de mest användbara distributioner som är specifika för den valda misslyckas åtgärden, inklusive upp 3 svarskoder, top 3 undantag typer och översta 3 misslyckas depedency typer. 
+Application Insights levereras med en granskad APM-upplevelse som hjälper dig att diagnostisera fel i övervakade program. Klicka på alternativet fel i menyn Application Insights-resursen finns i avsnittet Undersök. Du bör se en helskärmsläge som visar fel hastighet trender för dina begäranden, hur många av dem misslyckas och hur många användare påverkas. Till höger visas några av de mest användbara distributioner som är specifika för den valda misslyckas åtgärden, inklusive upp 3 svarskoder, top 3 undantag typer och översta 3 misslyckas Beroendetyper. 
 
 ![Fel prioritering vy (operations fliken)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 

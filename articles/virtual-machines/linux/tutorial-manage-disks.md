@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Hantera Azure-diskarna med Azure CLI
 
@@ -50,7 +50,7 @@ När en virtuell Azure-dator har skapats är automatiskt två diskar kopplade ti
 
 ### <a name="temporary-disk-sizes"></a>Tillfällig diskstorlekar
 
-| Typ | VM-storlek | Maxstorlek för temporär disk (GB) |
+| Typ | Storlek på virtuell dator | Maxstorlek för temporär disk (GB) |
 |----|----|----|
 | [Generellt syfte](sizes-general.md) | A och D-serien | 800 |
 | [Beräkningsoptimerad](sizes-compute.md) | F-serien | 800 |
@@ -65,7 +65,7 @@ Ytterligare datadiskar kan läggas till för att installera program och lagra da
 
 ### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
 
-| Typ | VM-storlek | Maximalt antal datadiskar per VM |
+| Typ | Storlek på virtuell dator | Maximalt antal datadiskar per VM |
 |----|----|----|
 | [Generellt syfte](sizes-general.md) | A och D-serien | 32 |
 | [Beräkningsoptimerad](sizes-compute.md) | F-serien | 32 |
@@ -233,7 +233,7 @@ Ta en ögonblicksbild av disk skapar en skrivskyddad, men i tidpunkt kopia av di
 
 ### <a name="create-snapshot"></a>Skapa en ögonblicksbild
 
-Innan du skapar en ögonblicksbild av en virtuell dator disk krävs-Id eller diskens namn. Använd den [az vm visa](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) kommando för att returnera disk-id. I det här exemplet lagras disk-id i en variabel så att den kan användas i ett senare steg.
+Innan du skapar en ögonblicksbild av en virtuell dator disk krävs-Id eller diskens namn. Använd den [az vm visa](https://docs.microsoft.com/cli/azure/vm#az_vm_show) kommando för att returnera disk-id. I det här exemplet lagras disk-id i en variabel så att den kan användas i ett senare steg.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

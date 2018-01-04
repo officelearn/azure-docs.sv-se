@@ -14,8 +14,7 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en datab
     Samlings-id|Objekt|Ange *Objekt* som namnet på din nya samling. Samma teckenkrav gäller för samlings-ID:n som databasnamn.
     Lagringskapacitet| Fast (10 GB)|Ändra värdet till **Fast (10 GB)**. Det här värdet är databasens lagringskapacitet.
     Dataflöde|400 RU|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Lagringskapaciteten måste anges till **Fast (10 GB)** för att kunna ställa in dataflöde på 400 RU/s. Du kan skala upp dataflödet senare om du vill minska svarstiden. 
-    Partitionsnyckeln|/category|Ange */category* som partitionsnyckel. En partitionsnyckel distribuerar data jämnt till varje partition i databasen. Mer information om partitionering finns i [Designing for partitioning](../articles/cosmos-db/partition-data.md#designing-for-partitioning) (Utforma för partitionering).
-
+    
     Klicka på **OK**.
 
     Datautforskaren visar den nya databasen och samlingen.

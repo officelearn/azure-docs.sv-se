@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -31,7 +31,7 @@ Det här är en lista över närliggande ämnen:
 Avsnitt |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [uppgradera från en tidigare version till senast](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect-versionen.
-Behörigheter som krävs | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+Nödvändiga behörigheter | Behörigheter som krävs för att tillämpa en uppdatering finns [konton och behörigheter](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Hämta | [Hämta Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -48,7 +48,7 @@ Förbättra har lagts till Azure AD Connect version 1.1.654.0 (och när) så att
 - För kunder som har uppgraderat från en äldre version av Azure AD Connect till 1.1.654.0 (eller efter) behörigheten används ändringar retroaktivt inte för befintliga AD DS-konton som skapats före uppgraderingen. De kan bara tillämpas på nya AD DS-konton som skapas efter uppgraderingen. Detta inträffar när du lägger till nya AD-skogar som ska synkroniseras till Azure AD.
 
 >[!NOTE]
->Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. Befintliga installationer eller i fall där du skapar kontot själv kan du sould Kontrollera att problemet inte finns.
+>Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. För befintliga installationer, eller i fall där du skapar kontot själv, bör du kontrollera att problemet inte finns.
 
 #### <a name="lock"></a>Låsa åtkomst till AD DS-konto
 Lås åtkomst till AD DS-konto genom att implementera följande behörighetsändringar i lokalt AD:  
@@ -57,7 +57,7 @@ Lås åtkomst till AD DS-konto genom att implementera följande behörighetsänd
 *   Ta bort alla ACE: er för specifika objekt, förutom ACE: er som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill behålla standardbehörigheterna intakt när det gäller till sig SJÄLVT.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller
+Typ     | Namn                          | Access               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |

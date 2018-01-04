@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Så här skapar du en infrastruktur för utveckling på en Linux-VM i Azure med Jenkins, GitHub och Docker
 Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera fasen bygg- och för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline på en Azure VM att:
@@ -146,7 +146,7 @@ Välj i webbplatsen Jenkins **skapa nya jobb** från startsidan:
 - Under den **allmänna** väljer **GitHub** projektet och ange din andelen vridvuxna lagringsplatsen URL, exempelvis *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Under den **datakällan kod management** väljer **Git**, ange din andelen vridvuxna lagringsplatsen *.git* -URL som *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Under den **Skapa utlösare** väljer **GitHub hook utlösare för GITscm avsökning**.
-- Under den **skapa** väljer **Lägg till build steg**. Välj **köra shell**, ange `echo "Testing"` i till kommandofönstret.
+- Under den **skapa** väljer **Lägg till build steg**. Välj **köra shell**, ange `echo "Testing"` i kommandofönstret.
 - Välj **spara** längst ned i fönstret jobb.
 
 
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Om du vill spara ändringarna genom att markera den **genomför ändringar** längst ned.
 
-I Jenkins, startar en ny version den **skapa historik** avsnittet längst ned till vänster på sidan jobb. Att välja länken för bygga och **konsolen utdata** på vänstra storlek. Du kan visa de steg Jenkins utförs som koden hämtas från GitHub och build-åtgärd matar ut meddelandet `Testing` till konsolen. Varje gång ett genomförande görs i GitHub webhooken når till Jenkins och utlösa en ny version på detta sätt.
+I Jenkins, startar en ny version den **skapa historik** avsnittet längst ned till vänster på sidan jobb. Att välja länken för bygga och **konsolen utdata** på vänster sida. Du kan visa de steg Jenkins utförs som koden hämtas från GitHub och build-åtgärd matar ut meddelandet `Testing` till konsolen. Varje gång ett genomförande görs i GitHub webhooken når till Jenkins och utlöser en ny version på detta sätt.
 
 
 ## <a name="define-docker-build-image"></a>Definiera Docker build-bild
@@ -173,7 +173,7 @@ Se Node.js-app som körs baserat på ditt GitHub-incheckningar kan skapa en Dock
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Skapa en fil med i den här arbetsytan katalogen med `sudo sensible-editor Dockerfile` och klistra in följande innehåll. Se till att hela Dockerfile kopierats på rätt sätt, särskilt den första raden:
+Skapa en fil i den här arbetsytan katalogen med `sudo sensible-editor Dockerfile` och klistra in följande innehåll. Se till att hela Dockerfile kopierats på rätt sätt, särskilt den första raden:
 
 ```yaml
 FROM node:alpine

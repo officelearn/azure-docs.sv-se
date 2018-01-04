@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 064b1b10f2bd776e4ae88d8460e106a0318476c7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
 Verktyget Application Insights Trends hjälper dig att visualisera hur webbappens viktiga telemetrihändelser ändras med tiden, så att du snabbt kan identifiera problem och inkonsekvenser. Med länkar till mer detaljerad diagnostisk information kan Trends hjälpa dig att förbättra dina apprestanda, spåra orsakerna till undantag och avslöja insikter från anpassade händelser.
@@ -57,7 +57,7 @@ Application Insights Trends skapar en tidsserievisualisering från din apps tele
 
 Använd kontrollerna längst upp i fönstret för att justera vilka typer av telemetri som visas. Börja med att välja de typer av telemetri som du är intresserad av:
 
-* **Typ av telemetri** – Serverbegäranden, undantag, beroenden eller anpassade händelser
+* **Telemetri typen** -serverbegäranden undantag, beroenden eller anpassade händelser
 * **Tidsintervall** – Allt från de senaste 30 minuterna till de senaste 3 dagarna
 * **Gruppera efter** – Undantagstyp, problem-ID, land/region och mer.
 

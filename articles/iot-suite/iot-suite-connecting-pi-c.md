@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Ansluta enheten hallon Pi till fjärråtkomst övervakning förkonfigurerade lösningen (C)
 
@@ -47,9 +47,11 @@ Du måste SSH-klienten på den stationära datorn så att du kan fjärransluta t
 
 ### <a name="required-raspberry-pi-software"></a>Programvara som krävs hallon Pi
 
+Den här artikeln förutsätter att du har installerat den senaste versionen av den [Raspbian OS på din hallon Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-program som ansluter till den förkonfigurerade lösningen:
 
-1. Anslut till din hallon Pi med `ssh`. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
+1. Anslut till din hallon Pi med **ssh**. Mer information finns i [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) på den [hallon Pi webbplats](https://www.raspberrypi.org/).
 
 1. Använd följande kommando för att uppdatera din hallon Pi:
 
@@ -60,31 +62,27 @@ Följande steg visar hur du förbereder din hallon Pi för att bygga ett C-progr
 1. Använd följande kommando för att lägga till nödvändiga utvecklingsverktyg och bibliotek hallon-Pi:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. Använd följande kommandon för att installera klientbibliotek IoT-hubb:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Klona Parson JSON-parsern för att din hallon Pi med följande kommandon:
+1. Använd följande kommandon för att hämta, bygga och installera klientbibliotek IoT-hubb på din hallon Pi:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
-Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
+Utför följande steg med hjälp av den **ssh** anslutning till din hallon Pi:
 
-1. Skapa en mapp med namnet `remote_monitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i kommandoraden:
+1. Skapa en mapp med namnet `remote_monitoring` i arbetsmappen på hallon Pi. Navigera till den här mappen i gränssnittet:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
     cd remote_monitoring
     ```
 
-1. Skapa fyra filerna `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, och `CMakeLists.txt` i den `remote_monitoring` mapp.
+1. Skapa fyra filerna **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, och **CMakeLists.txt** i den `remote_monitoring` mapp.
 
-1. Skapa mapp med namnet `parson` i den `remote_monitoring` mapp.
-
-1. Kopiera filerna `parson.c` och `parson.h` från den lokala kopian av Parson databasen till den `remote_monitoring/parson` mapp.
-
-1. I en textredigerare, öppnar den `remote_monitoring.c` filen. På hallon Pi, kan du använda antingen den `nano` eller `vi` textredigerare. Lägg till följande `#include`-uttryck:
+1. I en textredigerare, öppnar den **remote_monitoring.c** fil. På hallon Pi, kan du använda antingen den **nano** eller **vi** textredigerare. Lägg till följande `#include`-uttryck:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Utför följande steg med hjälp av den `ssh` anslutning till din hallon Pi:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Spara den **remote_monitoring.c** filen och avsluta redigeraren.
+
 ## <a name="add-code-to-run-the-app"></a>Lägg till kod för att köra appen
 
-I en textredigerare, öppnar den `remote_monitoring.h` filen. Lägg till följande kod:
+I en textredigerare, öppnar den **remote_monitoring.h** fil. Lägg till följande kod:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-I en textredigerare, öppnar den `main.c` filen. Lägg till följande kod:
+Spara den **remote_monitoring.h** filen och avsluta redigeraren.
+
+I en textredigerare, öppnar den **main.c** fil. Lägg till följande kod:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Spara den **main.c** filen och avsluta redigeraren.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
@@ -158,18 +158,16 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ Följande steg beskriver hur du använder *CMake* att skapa ditt klientprogram.
         m
     )
     ```
+
+1. Spara den **CMakeLists.txt** filen och avsluta redigeraren.
 
 1. I den `remote_monitoring` mapp, skapa en mapp för att lagra den *Se* filer som CMake genererar. Kör sedan den **cmake** och **Se** kommandon på följande sätt:
 

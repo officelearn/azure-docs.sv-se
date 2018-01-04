@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Hantera registrerade servrar med Azure filsynkronisering (förhandsgranskning)
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -28,7 +28,7 @@ I följande artikel visar hur du kan registrera och hantera en server med en Sto
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registrera/avregistrera en server med synkroniseringstjänsten för lagring
 Registrera en server med Azure filsynkronisering upprättar en förtroenderelation mellan Windows Server och Azure. Den här relationen kan sedan användas för att skapa *server slutpunkter* på servern, som representerar specifika mappar som ska synkroniseras med en Azure-filresurs (även kallat en *molnet endpoint*). 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Om du vill registrera en server med en tjänst för synkronisering av lagring, måste du förbereda de nödvändiga förutsättningarna för servern:
 
 * Servern måste köra en version av Windows Server stöds. Mer information finns i [versioner av Windows Server stöds](storage-sync-files-planning.md#supported-versions-of-windows-server).
@@ -147,7 +147,7 @@ Eftersom Azure filsynkronisering sällan är den enda service körs i ditt datac
 > Ange begränsningar för lågt påverkar prestandan för Azure filsynkronisering synkronisering och återkalla.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Ange begränsningar för Azure filsynkronisering nätverk
-Du kan begränsa nätverket utilitization för Azure filsynkronisering med hjälp av 'StorageSyncNetworkLimit'-cmdlets. 
+Du kan begränsa nätverksanvändning för Azure filsynkronisering med hjälp av den `StorageSyncNetworkLimit` cmdlets. 
 
 Du kan exempelvis skapa en ny gräns nätverket så att Azure filsynkronisering inte använda fler än 10 Mbit/s mellan 9: 00 och 17: 00 (17:00-h) under Arbetsvecka: 
 
@@ -171,7 +171,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Använda Windows QoS-serverlagring 
 När Azure filsynkronisering finns på en virtuell dator som körs på en Windows Server-Virtualiseringsvärd, kan du använda QoS-lagring (lagringens tjänstkvalitet) att reglera lagring i/o-användning. Storage QoS-principen kan anges som maximalt (eller gränsen som hur StorageSyncNetwork gränsen tillämpas ovan) eller som ett minimum (eller reservation). Minst i stället för maximalt kan Azure filsynkronisering till burst använda tillgängligt lagringsutrymme bandbredd om andra arbetsbelastningar som inte använder den. Mer information finns i [Tjänstkvalitet för lagring](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 - [Planera för distribution av en Azure-filsynkronisering (förhandsgranskning)](storage-sync-files-planning.md)
 - [Distribuera Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) 
 - [Felsöka Azure filsynkronisering (förhandsgranskning)](storage-sync-files-troubleshoot.md)

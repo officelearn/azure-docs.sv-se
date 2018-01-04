@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Använda Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,15 +47,15 @@ HDInsight-kluster levereras med exempeldata. Du kan använda följande två exem
   
   | Fält | Datatyp |
   | --- | --- |
-  | clientid |Sträng |
-  | querytime |Sträng |
-  | marknaden |Sträng |
-  | deviceplatform |Sträng |
-  | devicemake |Sträng |
-  | devicemodel |Sträng |
-  | state |Sträng |
-  | Land |Sträng |
-  | querydwelltime |dubbla |
+  | clientid |sträng |
+  | querytime |sträng |
+  | marknaden |sträng |
+  | deviceplatform |sträng |
+  | devicemake |sträng |
+  | devicemodel |sträng |
+  | state |sträng |
+  | Land |sträng |
+  | querydwelltime |dubbel |
   | sessions-ID |bigint |
   | sessionpagevieworder |bigint |
 
@@ -221,7 +221,7 @@ PowerShell-exempel utför följande steg:
    > Förutom informationen i anslutningssträngen, bör stegen i det här avsnittet fungera för en Azure SQL database eller SQL Server. Dessa steg har testats med följande konfiguration:
    > 
    > * **Virtuella Azure-nätverket punkt-till-plats configuration**: ett virtuellt nätverk anslutet HDInsight-klustret till en SQL-Server i ett privat datacenter. Se [konfigurera en punkt-till-plats-VPN i hanteringsportalen](../../vpn-gateway/vpn-gateway-point-to-site-create.md) för mer information.
-   > * **Azure HDInsight 3.1**: se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md) information om hur du skapar ett kluster på ett virtuellt nätverk.
+   > * **Azure HDInsight**: se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md) information om hur du skapar ett kluster på ett virtuellt nätverk.
    > * **SQL Server 2014**: konfigurerad att tillåta autentisering och kör konfigurationspaket att ansluta säkert till det virtuella nätverket för VPN-klienten.
    > 
    > 

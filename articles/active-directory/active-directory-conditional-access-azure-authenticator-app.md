@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator för Android
 IT-administratören kanske har rekommenderat dig använda Microsoft Azure Authenticator för att logga in till dina arbetsresurser. Det här programmet innehåller de här två alternativen inloggning:
@@ -41,7 +41,7 @@ Följande instruktioner gäller Samsung GS3 och ovan telefoner eller meddelande 
 4. Klicka på Aktivera enheten administratör skärmen **aktivera**.
 5. Markerar du kryssrutan och klickar på skärmen sekretesspolicy **Bekräfta**.
 6. Ange användar-ID som tillhandahålls av din organisation och klicka på skärmen Anslut till arbetsplatsen **ansluta**.
-7. Om du vill logga in på Azure Authenticator-appen, ange din organisations en *** onto och lösenordet och klickar på **logga in**.
+7. Om du vill logga in på Azure Authenticator-appen, ange ditt organisationskonto och lösenord och klicka på **logga in**.
 8. På nästa skärm som visar information om multifaktorautentisering (MFA) för läggs säkerhet och är valfritt. Den här skärmen visas om ditt arbete eller skola kräver andra faktor-autentisering för att skapa arbetskonto. Den innehåller instruktioner för att verifiera ditt konto ytterligare.
 9. Anslut till arbetsplatsen skärmen visar meddelandet ”**anslutning till din arbetsplats**”. Azure authenticator-appen försöker ansluta enheten till arbetsplatsen.
 10. Du bör se meddelandet Arbetsplatsanslutna på nästa skärm.

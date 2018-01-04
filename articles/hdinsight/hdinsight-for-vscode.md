@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: d6ca3bcb91261a863444bc331c78adf44844be56
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
 Lär dig hur du använder Azure HDInsight Tools för Visual Studio-koden (VS) för att skapa och skicka Hive batchjobb, interaktiva Hive-frågor och pySpark-skript. Azure HDInsight-verktyg kan installeras på de plattformar som stöds av VS-kod. Dessa omfattar Windows, Linux och macOS. Du kan hitta de nödvändiga förutsättningarna för olika plattformar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra stegen i den här artikeln:
 
@@ -286,6 +286,7 @@ HDInsight VS-kod har stöd för följande funktioner:
 * [Använda externa paket med Jupyter-anteckningsböcker](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Konfigurera PySpark interaktiv miljö för Visual Studio Code](set-up-pyspark-interactive-environment.md)
 * [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
 

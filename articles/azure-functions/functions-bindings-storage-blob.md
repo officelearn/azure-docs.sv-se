@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -486,7 +486,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**typ** | Saknas | måste anges till `blob`. |
-|**riktning** | Saknas | Måste anges till `in` för en indatabindning eller out för en bindning för utdata. Undantag anges i den [användning](#input--output---usage) avsnitt. |
+|**riktning** | Saknas | Måste anges till `in` för en indatabindning eller `out` för en bindning för utdata. Undantag anges i den [användning](#input--output---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange till `$return` att referera till returvärde för funktion.|
 |**sökväg** |**BlobPath** | Sökvägen till blob. | 
 |**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|

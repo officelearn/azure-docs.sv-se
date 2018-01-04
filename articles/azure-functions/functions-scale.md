@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
@@ -90,7 +90,7 @@ Läs mer om lagringskontotyper i [introduktion till Azure Storage-tjänster](../
 
 ## <a name="how-the-consumption-plan-works"></a>Så här fungerar förbrukning planen
 
-I planen förbrukning skalas skala domänkontrollant automatiskt Processortid och minnesresurser genom att lägga till ytterligare instanser av funktioner värden baserat på antalet händelser som utlöses på dess funktioner. Varje instans av funktioner värden är begränsad till 1,5 GB minne.  En instans av värden är funktionen appen, vilket innebär alla funktioner i en funciton app dela resurser i en annan instans och skala på samma gång.
+I planen förbrukning skalas skala domänkontrollant automatiskt Processortid och minnesresurser genom att lägga till ytterligare instanser av funktioner värden baserat på antalet händelser som utlöses på dess funktioner. Varje instans av funktioner värden är begränsad till 1,5 GB minne.  En instans av värden är funktionen appen, vilket innebär alla funktioner i en funktion app dela resurser i en annan instans och skala på samma gång.
 
 När du använder förbrukningen värd plan som funktionen kodfiler lagras på Azure-filresurser för den funktionen main storage-konto. När du tar bort huvudsakliga lagringskontot för funktionen appen kodfiler funktionen tas bort och kan inte återställas.
 
@@ -119,7 +119,7 @@ Olika utlösare kan också ha olika skala gränser som dokumenterade nedan:
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bästa praxis och mönster för skalbara appar
 
-Det finns många aspekter av en funktionsapp som påverkar hur väl den skalar, inklusive Värdkonfiguration, runtime storleken och resursen effeciency.  Visa den [skalbarhet avsnitt i artikeln prestanda överväganden](functions-best-practices.md#scalability-best-practices) för mer information.
+Det finns många aspekter av en funktionsapp som påverkar hur väl den skalar, inklusive Värdkonfiguration, runtime storleken och effektiviteten för resursen.  Visa den [skalbarhet avsnitt i artikeln prestanda överväganden](functions-best-practices.md#scalability-best-practices) för mer information.
 
 ### <a name="billing-model"></a>Faktureringsmodell
 

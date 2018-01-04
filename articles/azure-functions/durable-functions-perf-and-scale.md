@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure-funktioner)
 
@@ -32,11 +32,11 @@ Historiktabellen är en Azure Storage-tabell som innehåller Händelsehistorik f
 
 ## <a name="internal-queue-triggers"></a>Intern Kölängd utlösare
 
-Orchestrator-funktioner och aktivitet funktioner initieras både av interna köer i appen funktionen standardkontot för lagring. Det finns två typer av köer i varaktiga funktioner: den **kontroll kön** och **arbetsuppgiftskön**.
+Orchestrator-funktioner och aktivitet funktioner initieras både av interna köer i appen funktionen standardkontot för lagring. Det finns två typer av köer i varaktiga funktioner: den **kontroll kön** och **arbetsobjekt kön**.
 
-### <a name="the-work-item-queue"></a>Arbetsuppgiftskön
+### <a name="the-work-item-queue"></a>Arbetsobjekt kön
 
-Det finns en kö per aktivitet hubben i varaktiga funktioner. Det här är en enkel kö och fungerar på samma sätt som andra `queueTrigger` kön i Azure Functions. Den här kön används för att utlösa tillståndslös *aktivitet funktioner*. När ett program för beständig funktioner skalas ut till flera virtuella datorer kan dessa virtuella datorer som alla konkurrerar att förvärva arbete från arbetsobjekt kön.
+Det finns en kö för arbetsobjekt per aktivitet hubben i varaktiga funktioner. Det här är en enkel kö och fungerar på samma sätt som andra `queueTrigger` kön i Azure Functions. Den här kön används för att utlösa tillståndslös *aktivitet funktioner*. När ett program för beständig funktioner skalas ut till flera virtuella datorer kan dessa virtuella datorer som alla konkurrerar att förvärva arbete från arbetsobjekt kön.
 
 ### <a name="control-queues"></a>Kontrollen kö(er)
 
@@ -54,18 +54,18 @@ Följande diagram illustrerar hur Azure Functions värden samverkar med lagring 
 
 ![Skala diagram](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-Som du kan se kan alla virtuella datorer konkurrerar om meddelanden på arbetsuppgiftskön. Dock endast tre virtuella datorer kan hämta meddelanden från kontrollen köer och varje virtuell dator låser en enskild kontroll-kö.
+Som du kan se kan alla virtuella datorer konkurrerar om meddelanden i kön arbetsobjekt. Dock endast tre virtuella datorer kan hämta meddelanden från kontrollen köer och varje virtuell dator låser en enskild kontroll-kö.
 
 Orchestration-instanser som är fördelade på kontrollen kön instanser genom att köra en intern hash-funktionen mot den orchestration-instansens ID. Instans-ID: N är genereras automatiskt och slumpmässiga som standard som säkerställer att instanser är balanserad över alla tillgängliga kontrollen köer. Aktuella standardantalet stöds kontrollen kön partitioner är **4**.
 
 > [!NOTE]
-> Det går för närvarande inte att konfigurera antalet partitioner i Azure Functions. [För att stödja det här konfigurationsalternativet spåras](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Det går för närvarande inte att konfigurera antalet kontrollen kön partitioner i Azure Functions. [För att stödja det här konfigurationsalternativet spåras](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 I allmänhet är avsedda att lightweight orchestrator-funktioner och bör mycket datorkraft. Därför är det inte nödvändigt att skapa ett stort antal kontrollen kön partitioner för att hämta mycket bra genomströmning. I stället mesta av tunga arbetet görs i tillståndslös aktivitet funktioner som kan skalas ut oändligt.
 
 ## <a name="auto-scale"></a>Autoskala
 
-Som med alla Azure Functions körs i förbrukning planen varaktiga funktioner stöder Autoskala via den [Azure Functions skala-controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Skala Controller övervakar längden på köns arbetsobjekt och alla kontroll-köer att lägga till eller ta bort Virtuella resurser i enlighet med detta. Om kontrollen kölängder ökar med tiden, fortsätter skala controller att lägga till instanser tills antalet partitioner kontrollen kön. Om arbete objektet kölängder ökar med tiden, fortsätter skala controller att lägga till Virtuella resurser förrän load, oavsett antalet partitioner kontrollen kön kan matchas.
+Som med alla Azure Functions körs i förbrukning planen varaktiga funktioner stöder Autoskala via den [Azure Functions skala controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Skala Controller övervakar längden på köns arbetsobjekt och alla kontroll-köer att lägga till eller ta bort VM-instanser i enlighet med detta. Om kontrollen kölängder ökar med tiden, fortsätter skala controller att lägga till VM-instanser tills antalet partitioner kontrollen kön. Om arbetsobjektet kölängder ökar med tiden, fortsätter skala controller lägga till VM-instanser tills load, oavsett antalet partitioner kontrollen kön kan matchas.
 
 ## <a name="thread-usage"></a>Tråden användning
 

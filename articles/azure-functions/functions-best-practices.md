@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -44,7 +44,7 @@ När det är möjligt, flytta stora funktionerna i mindre funktionen anger som f
 
 Om du inte använder beständiga funktioner eller Logic Apps kan integreras med flera funktioner, är det vanligtvis en bra idé att använda lagringsköer för mellan funktionen kommunikation.  Det främsta skälet är lagringsköer är billigare och enklare att etablera. 
 
-Enskilda meddelanden i en kö för lagring är begränsade i storlek till 64 KB. Om du behöver skicka större meddelanden mellan funktioner storlek en Azure Service Bus-kö kan användas för att stödja meddelande upp till 256 KB.
+Enskilda meddelanden i en kö för lagring är begränsade i storlek till 64 KB. Om du behöver skicka större meddelanden mellan funktioner, ett Azure Service Bus-kö kan användas för att stödja meddelande storlek upp till 256 KB på standardnivån, och upp till 1 MB i Premium-nivån.
 
 Service Bus-ämnen är användbara om du behöver meddelande filtrering innan bearbetning.
 

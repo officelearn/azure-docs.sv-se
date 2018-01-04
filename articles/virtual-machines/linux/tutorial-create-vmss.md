@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 04fe3948f37936b43d1f2155635f0f52583d5e1b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Skapa en Virtual Machine Scale Set och distribuera en app som har hög tillgänglighet på Linux
 En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Du kan skala antalet virtuella datorer i skaluppsättning manuellt eller definiera regler för att kunna Autoskala baserat på Resursanvändning t.ex CPU, minne begäran eller nätverkstrafik. I kursen får distribuera du en virtuell dator skala i Azure. Lär dig att:
@@ -40,7 +40,7 @@ Om du väljer att installera och använda CLI lokalt kursen krävs att du använ
 ## <a name="scale-set-overview"></a>Skala Set-översikt
 En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Virtuella datorer i en skaluppsättning är fördelade på logiken fel- och update-domäner i en eller flera *placering grupper*. Dessa är grupper med liknande konfigurerad virtuella datorer, liknar [tillgänglighetsuppsättningar](tutorial-availability-sets.md).
 
-Virtuella datorer skapas efter behov i en skaluppsättning. Du kan definiera automatiska regler för att styra hur och när virtuella datorer läggs till eller tas bort från skaluppsättning. De här reglerna kan utlösa baserat på mått som CPU-belastning, minnesanvändning eller nätverkstrafik.
+Virtuella datorer skapas efter behov i en skaluppsättning. Du kan definiera automatiska regler för att styra hur och när virtuella datorer läggs till eller tas bort från skaluppsättning. De här reglerna kan utlösas baserat på mått som CPU-belastning, minnesanvändning eller nätverkstrafik.
 
 Skala anger stöd för upp till 1 000 virtuella datorer när du använder en avbildning i Azure-plattformen. För arbetsbelastningar med betydande installation eller VM anpassning krav, kan du [skapa en anpassad VM-avbildning](tutorial-custom-images.md). Du kan skapa upp till 300 virtuella datorer i en skala som anges när du använder en anpassad avbildning.
 

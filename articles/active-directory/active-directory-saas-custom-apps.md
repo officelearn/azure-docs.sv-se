@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Konfigurera enkel inloggning för program som inte ingår i Azure Active Directory-programgalleriet
 Den här artikeln handlar om en funktion som låter administratörer konfigurera enkel inloggning till program finns inte i appgalleriet för Azure Active Directory *utan att skriva kod*. Den här funktionen har frigjorts från technical preview 18 November 2015 och ingår i [Azure Active Directory Premium](active-directory-editions.md). Om du söker i stället för guide för utvecklare om hur du integrerar anpassade appar med Azure AD via kod, se [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).
@@ -59,7 +59,7 @@ Välj det här alternativet för att konfigurera SAML-baserad autentisering för
 
 Dessa är:
 
-* **Logga URL (SP-initierad endast)** – där användaren går för att logga in på det här programmet. Om programmet har konfigurerats för att utföra service provider-initierad enkel inloggning på sedan när användarna navigerar till den här URL: en gör tjänstleverantör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls använder Azure AD sedan denna URL starta program från Office 365 och Azure AD-åtkomstpanelen. Om det här fältet är ommited och Azure AD i stället utför identitetsleverantör-initierat inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller Azure AD enkel inloggnings-URL (copiable från fliken instrumentpanel).
+* **Logga URL (SP-initierad endast)** – där användaren går för att logga in på det här programmet. Om programmet har konfigurerats för att utföra service provider-initierad enkel inloggning på sedan när användarna navigerar till den här URL: en gör tjänstleverantör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls använder Azure AD sedan denna URL starta program från Office 365 och Azure AD-åtkomstpanelen. Om fältet utelämnas, så Azure AD i stället utför identitetsleverantör-initierat inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller Azure AD enkel inloggnings-URL (copyable från fliken instrumentpanel).
 * **Utfärdar-URL** -utfärdar-URL ska identifiera programmet för vilket enkel inloggning är konfigurerade. Detta är det värde som Azure AD skickar tillbaka till programmet som den **målgruppen** parametern för SAML-token och programmet förväntas att verifiera den. Det här värdet visas också som den **enhets-ID** i eventuella SAML-metadata som tillhandahålls av programmet. Kontrollera programmets SAML-dokumentationen för mer information om vad det är enhets-ID eller målgruppen värdet. Nedan visas ett exempel på hur URL: en målgrupp visas i SAML-token som returneras till programmet:
 
 ```

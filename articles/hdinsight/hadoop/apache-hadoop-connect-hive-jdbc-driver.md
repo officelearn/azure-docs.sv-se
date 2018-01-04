@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Frågan Hive genom JDBC driver i HDInsight
 
@@ -30,7 +30,7 @@ Lär dig hur du använder JDBC driver från ett Java-program för att skicka Hiv
 
 Läs mer på gränssnittet Hive JDBC [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Hadoop på HDInsight-kluster. Linux-baserade eller Windows-baserade kluster fungerar.
 
@@ -197,6 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 Nu när du har lärt dig hur du använder JDBC för att arbeta med Hive, utforska andra sätt att arbeta med Azure HDInsight med hjälp av följande länkar.
 
 * [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Anslut Excel till HDInsight med Microsoft Hive ODBC-drivrutinen](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ansluta Excel till Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md).

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -36,7 +36,7 @@ Det här avsnittet visar hur du använder Azure Functions-verktyg för Visual St
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du publicerar från ett lokalt projekt till en funktionsapp distributionsprocessen skriver över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions-verktyg ingår i Azure-utveckling arbetsbelastning [Visual Studio 2017 version 15,4](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure-utveckling** arbetsbelastning i Visual Studio 2017 installationen:
 
@@ -68,7 +68,7 @@ Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa 
 
 1. Öppna i Visual Studio **Cloud Explorer**, expandera **Lagringskonto** > **Your Lagringskonto**och välj **egenskaper**och kopiera den **primära anslutningssträngen** värde.   
 
-2. Öppna projektfilen local.settings.json i ditt projekt och värdet för den **AzureWebJobsStorage** nyckel i anslutningssträngen som du kopierade.
+2. Öppna filen local.settings.json i ditt projekt och ange värdet för den **AzureWebJobsStorage** nyckel i anslutningssträngen som du kopierade.
 
 3. Upprepa det föregående steget för att lägga till unika nycklar till den **värden** matris för alla anslutningar som krävs av dina funktioner.  
 
@@ -106,7 +106,7 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
     } 
     ````
  
-    En bindning-specifika attributet används för varje bindning-parameter som skickades till metoden. Attributet tar bindningsinformationen som parametrar. I föregående exempel är den första parametern har en **QueueTrigger** -attribut som används, som anger kön aktiveras funktionen. Könamnet och namn för anslutningssträngen inställningen överförs som parametrar.  
+    En bindning-specifika attributet används för varje bindning-parameter som skickades till metoden. Attributet tar bindningsinformationen som parametrar. I föregående exempel är den första parametern har en **QueueTrigger** -attribut som används, som anger kön aktiveras funktionen. Könamnet och namn för anslutningssträngen inställningen överförs som parametrar till den **QueueTrigger** attribut.
 
 ## <a name="testing-functions"></a>Testa funktioner
 

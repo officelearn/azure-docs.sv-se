@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Identifiering - Prestandaavvikelser för smartkort
 
@@ -103,7 +103,7 @@ Använda instruktionen påverkan (användare som påverkas eller % av trafik) so
 Överväg att parametrarna för problemet. Om det är beroende geografi, ställa in [tillgänglighetstester](app-insights-monitor-web-app-availability.md) inklusive den regionen: det kanske bara nätverksproblem i detta område.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnostisera långsam sidan läses in
-Där är problemet? Är servern svarar långsamt, är sidan lång eller webbläsaren behöver göra mycket arbete för att visa den?
+Var har problemet uppstått? Är servern svarar långsamt, är sidan lång eller webbläsaren behöver göra mycket arbete för att visa den?
 
 Öppna bladet webbläsare mått. Segmenterade visningen av webbläsaren belastningen tid visas där tiden kommer. 
 
@@ -157,7 +157,7 @@ Observera att du får meddelande:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Smart identifiering av långsam prestanda mönster 
 
-Application Insights söker efter prestandaproblem som påverkar endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel meddelanden om sidor belastningen är slowler på en typ av webbläsare än på andra typer av webbläsare, eller om begäranden som betjänats långsammare från en viss server. Problem med kombinationer av egenskaper, kan också identifieras som långsam sidan läses in i ett geografiskt område för klienter som använder operativsystemet.  
+Application Insights söker efter prestandaproblem som påverkar endast en del av användarna eller påverkar endast användare i vissa fall. Till exempel meddelanden om sidor belastningen är långsammare på en typ av webbläsare än på andra typer av webbläsare, eller om begäranden som betjänats långsammare från en viss server. Problem med kombinationer av egenskaper, kan också identifieras som långsam sidan läses in i ett geografiskt område för klienter som använder operativsystemet.  
 
 Avvikelser som dessa är mycket svåra att upptäcka genom att kontrollera data, men är vanligare än du tror. De yta ofta endast när dina kunder klagar. Vid den tidpunkten är för sent: berörda användare redan växla till konkurrenter!
 

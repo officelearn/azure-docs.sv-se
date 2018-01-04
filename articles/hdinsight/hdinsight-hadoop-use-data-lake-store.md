@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Använda Data Lake Store med Azure HDInsight-kluster
 
@@ -80,13 +80,13 @@ Mer information om att skapa tjänstens huvudnamn och bevilja åtkomst finns i [
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Använda Data Lake Store som ytterligare lagring
 
-Du kan även använda Data Lake Store som ytterligare lagringsutrymme för klustret. I sådana fall kan standardlagringsutrymmet för klustret vara ett konto för antingen Azure Storage Blob eller Data Lake Store. Om du kör HDInsight-jobb mot data som finns lagrade i Data Lake Store som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Exempel:
+Du kan även använda Data Lake Store som ytterligare lagringsutrymme för klustret. I sådana fall kan standardlagringsutrymmet för klustret vara ett konto för antingen Azure Storage Blob eller Data Lake Store. Om du kör HDInsight-jobb mot data som finns lagrade i Data Lake Store som ytterligare lagringsutrymme måste du använda den fullständiga sökvägen till filerna. Till exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Store inte är ett standardlagringsutrymme i det här fallet, så allt du behöver göra är att ange sökvägen till filerna.
 
-För att kunna använda ett Data Lake Store som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Exempel:
+För att kunna använda ett Data Lake Store som ytterligare lagringsutrymme behöver du bara ge tjänstens huvudnamn åtkomst till de sökvägar där filerna lagras.  Till exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 875e5c804251047f4a413e99018968564b6107c8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata, till exempel ett felmeddelande för användaren eller ett komplext objekt som är avsedd att användas av ett annat arbetsflöde. Windows PowerShell innehåller [flera strömmar](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar olika med var och en av dessa strömmar och du bör följa bästa praxis för hur du använder när du skapar en runbook.
@@ -206,7 +206,7 @@ Du kan se från ovan skärmbilden att mycket mer information finns tillgänglig 
 2. Öppna listan med runbooks genom att klicka på panelen **Runbooks**.
 3. Markera en grafisk runbook från listan med runbooks på bladet Runbooks.
 4. Klicka på inställningsbladet för den valda runbooken **loggning och spårning**.
-5. Klicka på loggning och spårning bladet under logga utförliga meddelanden **på** aktivera utförlig loggning och spårning udner aktivitetsnivå ändra spårningsnivån till **grundläggande** eller **detaljerad** baserat på nivån av spårning som du behöver.<br>
+5. Klicka på loggning och spårning bladet under logga utförliga meddelanden **på** att aktivera utförlig loggning och ändra spårningsnivån till under aktivitetsnivå spårning **grundläggande** eller **detaljerad** baserat på nivån av spårning som du behöver.<br>
    
    ![Grafisk redigering loggning och spårning bladet](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 

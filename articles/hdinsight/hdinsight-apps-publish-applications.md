@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicera ett HDInsight-program i Azure Marketplace
 Du kan installera ett Azure HDInsight-program på en Linux-baserade HDInsight-kluster. I den här artikeln lär du dig hur du publicerar ett HDInsight-program i Azure Marketplace. Allmän information om hur du publicerar i Azure Marketplace finns [publicera ett erbjudande på Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -32,7 +32,7 @@ Mer information finns i dessa artiklar om HDInsight-program:
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md). Lär dig hur du installerar ett HDInsight-program på ditt kluster.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md). Lär dig hur du installerar och testar anpassade HDInsight-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Att skicka det anpassade programmet på marknaden först [skapa och testa det anpassade programmet](hdinsight-apps-install-custom-applications.md).
 
 Du måste också registrera ditt utvecklarkonto. Mer information finns i [publicera ett erbjudande på Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) och [skapa ett konto på Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -46,8 +46,7 @@ Två steg ingår i publicering av program på Marketplace. Först definierar du 
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ Två steg ingår i publicering av program på Marketplace. Först definierar du 
 | Fält | Beskrivning | Möjliga värden |
 | --- | --- | --- |
 | typer |De klustertyper programmet är kompatibelt med. |Hadoop, HBase, Storm, Spark (eller en kombination av dessa) |
-| nivåer |De klusternivåer programmet är kompatibelt med. |Standard, Premium (eller båda) |
 | versioner |De typer av HDInsight-kluster programmet är kompatibelt med. |3.4 |
 
 ## <a name="application-installation-script"></a>Installationsskriptet för programmet

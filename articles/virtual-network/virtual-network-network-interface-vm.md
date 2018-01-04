@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Lägg till nätverksgränssnitt till eller ta bort nätverksgränssnitt från virtuella datorer
 
@@ -118,4 +118,4 @@ Läs följande artiklar för att skapa en virtuell dator med flera nätverksgrä
 - Du kan lägga till IP-adresser för alla IP-konfiguration för alla primära eller sekundära nätverksgränssnittet för en Azure-belastningsutjämnaren backend-adresspool. Tidigare kunde endast primära IP-adressen för det primära nätverksgränssnittet läggas till en backend-adresspool. Mer information om IP-adresser och konfigurationer av [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md) artikel.
 - Om du tar bort en virtuell dator tar inte bort nätverksgränssnitt som är kopplade till den. När en virtuell dator tas bort oberoende nätverksgränssnitt från den virtuella datorn. Du kan lägga till nätverksgränssnitt i olika virtuella datorer eller ta bort dem.
 - Om ett nätverksgränssnitt har en privat IPv6-adress som tilldelats, måste du lägga till (bifoga) den till en virtuell dator när du skapar den virtuella datorn. Du kan inte lägga till ett nätverksgränssnitt med en tilldelad IPv6-adress till en virtuell dator när den virtuella datorn har skapats. Om du lägger till ett nätverksgränssnitt med en tilldelad privata IPv6-adress när du skapar en virtuell dator kan du bara lägga till nätverksgränssnittet till den virtuella datorn, oavsett hur många nätverkskort som stöder VM-storlek. Se [Network interface IP-adresser](virtual-network-network-interface-addresses.md) lära dig mer om att tilldela IP-adresser till nätverksgränssnitt.
-- Liknande IPv6, du kan inte lägga ett nätverksgränssnitt med snabbare nätverksfunktioner som är aktiverade för att en virtuell dator när den virtuella datorn har skapats. Dessutom för att kunna utnyttja snabbare nätverksfunktioner, måste du också slutföra stegen i VM-operativsystemet. Läs mer om snabbare nätverksfunktioner och andra begränsningar när du använder den i [skapa en virtuell dator med snabbare nätverksfunktioner](virtual-network-create-vm-accelerated-networking.md).
+- Liknande IPv6, du kan inte lägga ett nätverksgränssnitt med snabbare nätverksfunktioner som är aktiverade för att en virtuell dator när den virtuella datorn har skapats. Dessutom för att kunna utnyttja snabbare nätverksfunktioner, måste du också slutföra stegen i VM-operativsystemet. Läs mer om snabbare nätverksfunktioner och andra begränsningar när du använder den i Accelerated nätverksfunktioner för [Windows](create-vm-accelerated-networking-powershell.md) eller [Linux](create-vm-accelerated-networking-cli.md) virtuella datorer.

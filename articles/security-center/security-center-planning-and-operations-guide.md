@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8a44542091ea4dddc214a4954766c63dacd3e2a2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden riktar sig till IT-tekniker, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer i organisationer där man planerar att börja använda Azure Security Center.
@@ -46,7 +46,7 @@ Beroende på hur stor din organisation är och hur den är uppbyggd kan olika me
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Till exempel:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -125,7 +125,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Security Center-principer innehåller följande komponenter:
 - [Datainsamling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agentetablering och datainsamlingsinställningar.
-- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure-princip](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) som bestämmer vilka kontroller som övervakas och rekommenderas av Security Center, eller använd Azure-principen till att skapa nya definitioner, definiera fler principer och tilldela principer i flera hanteringsgrupper.
+- [Säkerhetsprincip](https://docs.microsoft.com/azure/security-center/security-center-policies): en [Azure-princip](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) som bestämmer vilka kontroller som övervakas och rekommenderas av Security Center, eller använd Azure-principen till att skapa nya definitioner, definiera fler principer och tilldela principer i flera hanteringsgrupper.
 - [E-postmeddelanden](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): säkerhetskontakter och inställningar för meddelanden.
 - [Prisnivå](https://docs.microsoft.com/azure/security-center/security-center-pricing): val av kostnadsfritt eller standardpris, som bestämmer vilka Security Center-funktioner som är tillgängliga för resurser i omfattningen (kan anges för prenumerationer, resursgrupper och arbetsytor).
 
@@ -178,7 +178,7 @@ När rekommendationerna i Security Center har ställts in och tillämpats är de
 
 Översikten över Security Center ger en enhetlig vy över säkerheten i alla dina Azure-resurser och eventuella icke-Azure-resurser som du har anslutit. Exemplet nedan visar en miljö med många problem att hantera:
 
-![instrumentpanel](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![instrumentpanel](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center påverkar inte de normala driftrutinerna. Alla distributioner övervakas passivt och rekommendationer går ut baserat på de säkerhetsprinciper som du har aktiverat.

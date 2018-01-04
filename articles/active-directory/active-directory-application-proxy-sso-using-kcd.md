@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -41,7 +41,7 @@ Det här diagrammet beskriver flödet när en användare försöker få åtkomst
 7. Kopplingen skickar den ursprungliga begäranden till programservern, med hjälp av Kerberos-token som togs emot från AD.
 8. Programmet skickar svar till Connector, som då returneras till tjänsten Application Proxy och slutligen till användaren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Kontrollera din miljö är redo med följande inställningar och konfigurationer innan du börjar med enkel inloggning för IWA program:
 
 * Dina appar, t.ex SharePoint Web apps är inställd på att använda integrerad Windows-autentisering. Mer information finns i [aktivera stöd för Kerberos-autentisering](https://technet.microsoft.com/library/dd759186.aspx), eller för SharePoint finns [planera för Kerberos-autentisering i SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -91,7 +91,7 @@ Mer information om Kerberos finns [alla du vill veta om Kerberos-begränsad dele
 Appar för icke-Windows vanligtvis användaren användarnamn eller SAM-namnen i stället för domänen e-postadresser. Om denna situation gäller för dina program, måste du konfigurera delegerade inloggningsfältet identitet för att ansluta din molnidentiteter till programmet identiteter. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Arbeta med olika lokala och molnidentiteter
-Programproxy förutsätter att användarna har exakt samma identitet i molnet och lokalt. Om detta inte är fallet, kan du fortfarande göra KCD för enkel inloggning. Konfigurera en **delegerade identitet för nätverksinloggning** för varje program för att ange vilken identitet som ska användas när du utför enkel inloggning.  
+Programproxy förutsätter att användarna har exakt samma identitet i molnet och lokalt. Om detta inte är fallet kan du fortfarande använda KCD för enkel inloggning. Konfigurera en **delegerade identitet för nätverksinloggning** för varje program för att ange vilken identitet som ska användas när du utför enkel inloggning.  
 
 Den här funktionen kan många organisationer som har olika lokalt och molnidentiteter har enkel inloggning från molnet till lokala appar utan att användaren att ange olika användarnamn och lösenord. Detta inkluderar organisationer som:
 

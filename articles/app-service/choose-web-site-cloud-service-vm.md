@@ -15,14 +15,15 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 ## <a name="overview"></a>Översikt
+
 Azure erbjuder flera värdalternativ för webbplatser: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] och [Cloud Services][Cloud Services]. Den här artikeln hjälper dig att förstå alternativen och fatta rätt beslut för din webbapp.
 
 Azure App Service är det bästa alternativet för de flesta webbapparna. Distribution och hantering finns integrerat i plattformen, platser kan skalas snabbt för att hantera hög trafikbelastning och inbyggd belastningsutjämning och Traffic Manager ger hög tillgänglighet. Du kan enkelt flytta befintliga webbplatser till Azure App Service med ett [onlinemigreringsverktyg](https://www.migratetoazure.net/), använda en app baserad på öppen källkod från webbappgalleriet eller skapa en ny webbplats med hjälp av ramverket och verktyg som du väljer själv. Med funktionen [WebJobs][WebJobs] kan du enkelt lägga till bearbetning av bakgrundsjobb i din App Service-webbapp.
@@ -110,6 +111,8 @@ Azure App Service är en bra lösning för det här scenariot eftersom du kan b�
 * använda appgalleriet för att snabbt komma igång med populära webbappar, till exempel WordPress.
 * lägga till ytterligare Azure-tjänster och funktioner i din app efter behov.
 * skydda din webbapp med HTTPS.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a>Jag är en webb- eller grafikdesigner som designar och bygger webbplatser åt mina kunder
 Webbutvecklare och designers kan enkelt integrera Azure App Service med flera olika ramverk och verktyg. Azure App Service har distributionsstöd för Git och FTP och nära integrering med verktyg och tjänster som Visual Studio och SQL Database. Med App Service kan du:

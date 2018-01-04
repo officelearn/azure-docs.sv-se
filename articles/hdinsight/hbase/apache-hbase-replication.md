@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -43,7 +43,7 @@ Följande är HBase replikering användning fall för två virtuella nätverk:
 
 Du kan replikera kluster med hjälp av [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Konfigurera miljöerna
@@ -119,7 +119,7 @@ Vissa hårdkodade värden i mallen:
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
 | Klusternamn | &lt;ClusterNamePrefix > 1 |
-| Kluster av version | 3.6 |
+| Klusterversion | 3.6 |
 | Typ av kluster | hbase |
 | Antalet för kluster worker nod | 2 |
 
@@ -141,7 +141,7 @@ Vissa hårdkodade värden i mallen:
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
 | Klusternamn | &lt;ClusterNamePrefix > 2 |
-| Kluster av version | 3.6 |
+| Klusterversion | 3.6 |
 | Typ av kluster | hbase |
 | Antalet för kluster worker nod | 2 |
 

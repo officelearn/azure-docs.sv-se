@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: 1a2bb4c56484540f8b5de5fb61ca5b5f611e99c4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1f5139f3fdb1cc73bb40828021256bed4290e1a2
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Ansluta Excel till Hadoop med Power Query
 En nyckelfunktion i Microsofts lösning för stora data är integreringen av Microsoft business intelligence (BI)-komponenter med Hadoop-kluster i Azure HDInsight. En primär exempel är möjligheten att ansluta Excel till Azure Storage-konto som innehåller data som är associerade med Hadoop-kluster med hjälp av Microsoft Power Query för Excel-tillägg. Den här artikeln vägleder dig genom att ställa in och använda Power Query att fråga efter data som är associerade med ett Hadoop-kluster som hanteras med HDInsight.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här artikeln, måste du ha följande:
 
 * **Ett HDInsight-kluster**. Om du vill konfigurera en finns [komma igång med Azure HDInsight] [hdinsight-get-started].
@@ -75,6 +75,7 @@ Power Query-tillägget för Excel gör det enkelt att importera data från ditt 
 I den här artikeln har du lärt dig hur du använder Power Query för att hämta data från HDInsight till Excel. På liknande sätt kan du hämta data från HDInsight till Azure SQL Database. Det är också möjligt att överföra data till HDInsight. Mer information finns i följande artiklar:
 
 * [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualisera interaktiva frågan Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Använda Zeppelin för att köra Hive-frågor i Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
 * [Anslut Excel till HDInsight med Microsoft Hive ODBC-drivrutinen](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Ansluta till Azure HDInsight och köra Hive-frågor med Data Lake-verktyg för Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

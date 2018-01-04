@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,7 +54,7 @@ IOS-format för en omdirigerings-URI: N är:
 ```
 
 * **App-schemat** -detta är registrerad i ditt XCode-projekt. Det är hur andra program kan ringa dig. Du hittar detta under Info.plist -> URL typer -> URL-identifierare. Du bör skapa en om du inte redan har en eller flera konfigurerats.
-* **paket-id** -detta är paket-ID hittades under ”identitet” ta bort dina Projektinställningar i XCode.
+* **paket-id** -detta är paket-ID hittades under ”identitet” i inställningarna för XCode-projekt.
 
 Ett exempel på den här koden för Snabbstart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

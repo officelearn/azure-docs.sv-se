@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 408e1680e7aee13663bb6511e65fd5685eb7d518
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
 
 
 
-> Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på vår ![RSS](./media/whats-new/feed-icon-16x16.png) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på vår [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -53,15 +53,15 @@ Du besöker sidan regelbundet vi uppdateras varje månad.
  
 Användarna har nu möjlighet att gå till åtkomstpanelen och visa användningsvillkoren som tidigare har accepterat.
 
-Användare kan granska och se villkoren för användning som de har godkänt. Detta kan göras på följande sätt:
+Användare kan granska och se användningsvillkoren som de har godkänt. Detta kan göras på följande sätt:
 
 1. Navigera och logga in på den [MyApps portal](https://myapps.microsoft.com).
 
-2. I övre högra hörnet på ditt namn och välj **profil** från listrutan. 
+2. Klicka på ditt namn i övre högra hörnet och välj **Profil** i listrutan. 
 
-3. Klicka på din profil **granska användningsvillkoren**. 
+3. Klicka på **Granska användningsvillkoren** på din profil. 
 
-4. Därifrån kan du granska villkor för användning som du har accepterat. 
+4. Därifrån kan du granska användningsvillkoren som du har accepterat. 
 
 Mer information finns i [Azure Active Directory användningsvillkoren funktionen (förhandsgranskning)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
  
@@ -104,7 +104,7 @@ Mer information finns i [färre inloggningsprompter: ”Jag vill förbli inlogga
  
 Nu har vi lagt till ett alternativ för administratörer att kräva slutanvändarna att expandera användningsvillkoren innan du godkänner villkoren.
 
-Välj antingen aktivera eller inaktivera för användarna att expandera användningsvillkoren. Om detta är inställt på på kommer slutanvändarna att behöva visa användningsvillkoren innan du godkänner dem.
+Välj antingen aktivera eller inaktivera för användarna att expandera användningsvillkoren. Om det här är aktiverat måste slutanvändarna läsa villkoren innan de accepterar dem.
 
 Mer information finns i [Azure Active Directory användningsvillkoren funktionen (förhandsgranskning)](active-directory-tou.md)
  

@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Komma igång med säkerhets- och granskningslösningen i Operations Management Suite
 Det här dokumentet hjälper dig att snabbt komma igång med funktionerna i säkerhets- och granskningslösningen i Operations Management Suite (OMS) genom att vägleda dig igenom de olika alternativen.
@@ -193,7 +193,7 @@ Du kan använda listan över vanliga säkerhetsfrågor för att snabbt komma åt
 * Inloggningsaktivitet per konto
 * Konton som har loggat in på datorn ”computer01.contoso.com” via en fjärranslutning (ersätt namnet med ditt datornamn)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 I det här dokumentet introducerades säkerhets- och granskningslösningen i OMS. Mer information om säkerheten i OMS finns i följande artiklar:
 
 * [Översikt över Operations Management Suite (OMS)](operations-management-suite-overview.md)

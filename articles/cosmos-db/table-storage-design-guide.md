@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Designguide för Azure Storage-tabellen: Utforma skalbar och Performant tabeller
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ I följande exempel visas ett enkelt tabelldesign att lagra medarbetare och avde
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tidsstämpel</th>
+<th>Tidsstämpel</th>
 <th></th>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ I följande exempel visas ett enkelt tabelldesign att lagra medarbetare och avde
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Avdelningsnamn</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ Tabelltjänsten indexerar automatiskt dina enheter med hjälp av den **Partition
 Många-Designer måste uppfylla kraven för att aktivera sökning efter enheter baserat på flera villkor. Hitta medarbetare enheter baserat på e-post, till exempel anställnings-id eller efternamn. Följande mönster i avsnittet [tabell designmönster](#table-design-patterns) dessa typer av krav och beskriver fungerar runt det faktum att tabelltjänsten inte ger sekundärindex på olika sätt:  
 
 * [Intra-partition sekundärt index mönster](#intra-partition-secondary-index-pattern) -lagra flera kopior av varje enhet med hjälp av olika **RowKey** värden (i samma partition) för att aktivera snabb och effektiv sökningar och alternativa sorteringsordningen genom att använda olika **RowKey** värden.  
-* [Mellan sekundära Partitionsindex mönster](#inter-partition-secondary-index-pattern) – lagra flera kopior av varje entitet som använder olika RowKey värden i olika partitioner eller i separata tabeller för att aktivera snabb och effektiv sökningar och alternativa sorteringen sorterar med hjälp av olika **RowKey** värden.  
+* [Mellan sekundära Partitionsindex mönster](#inter-partition-secondary-index-pattern) -lagra flera kopior av varje enhet med hjälp av olika **RowKey** värden i separata partitioner eller i separata tabeller för att aktivera snabb och effektiv sökningar och alternativa sorteringen order med hjälp av olika **RowKey** värden.  
 * [Index entiteter mönster](#index-entities-pattern) -Underhåll index enheter om du vill aktivera effektiva sökningar som returnerar en lista över enheter.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Sortera data i tabelltjänsten
@@ -1107,7 +1107,7 @@ Tabelltjänsten är en *schemat mindre* tabell butik som innebär att en enskild
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tidsstämpel</th>
+<th>Tidsstämpel</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ Tabelltjänsten är en *schemat mindre* tabell butik som innebär att en enskild
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Avdelningsnamn</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1199,7 +1199,7 @@ Observera att varje entitet måste dock ha **PartitionKey**, **RowKey**, och **t
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>tidsstämpel</th>
+<th>Tidsstämpel</th>
 <th></th>
 </tr>
 <tr>
@@ -1254,7 +1254,7 @@ Observera att varje entitet måste dock ha **PartitionKey**, **RowKey**, och **t
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>Avdelningsnamn</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>

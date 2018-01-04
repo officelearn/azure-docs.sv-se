@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
@@ -36,16 +36,18 @@ Kunden isolering inom infrastruktur stämpeln utförs i klienter, som i detalj s
 
 Dessa enheter bare metal-server stöds endast kör SAP HANA. SAP programnivå eller arbetsbelastning i mitten-ware layer körs i Microsoft Azure Virtual Machines. Stämplarna infrastruktur körs SAP HANA på Azure (stora instans)-enheter är anslutna till de Azure Network backbones, så som låg latens anslutning mellan Azure virtuella datorer och SAP HANA på Azure (stora instans)-enheter har angetts.
 
-Det här dokumentet är en av fem dokument, som omfattar avsnittet SAP HANA i Azure (stora instans). I det här dokumentet går vi genom grundläggande arkitektur, ansvar, tjänster och på en hög nivå via funktionerna i lösningen. För de flesta av områdena som nätverk och anslutning, fyra dokument täcker information och öka detaljnivån listrutor. I dokumentationen för SAP HANA i Azure (stora instans) omfattar inte aspekter av SAP NetWeaver installation eller distribution av SAP NetWeaver i virtuella Azure-datorer. Det här avsnittet beskrivs i separata dokumentation finns i samma behållare i dokumentationen. 
+Det här dokumentet är ett av flera dokument som täcker SAP HANA i Azure (stora instans). I det här dokumentet går vi genom grundläggande arkitektur, ansvar, tjänster och på en hög nivå via funktionerna i lösningen. För de flesta av områdena som nätverk och anslutning, fyra dokument täcker information och öka detaljnivån listrutor. I dokumentationen för SAP HANA i Azure (stora instans) omfattar inte aspekter av SAP NetWeaver installation eller distribution av SAP NetWeaver i virtuella Azure-datorer. SAP NetWeaver på Azure ingår i separata dokument som finns i samma behållare i Azure-dokumentationen. 
 
 
-De fem delarna av den här guiden beskrivs i följande avsnitt:
+Olika dokument på HANA stora instans vägledning täcker följande områden:
 
 - [Översikt över SAP HANA (stora instans) och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastruktur för SAP HANA (stora instanser) och anslutningar på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Installera och konfigurera SAP HANA (stora instanser) på Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (stora instanser) med hög tillgänglighet och katastrofåterställning i Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Felsökning för SAP HANA (stora instanser) och övervakning på Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Hög tillgänglighet som angetts i SUSE med hjälp av STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [OS-säkerhetskopiering och återställning för typ II SKU: er](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Definitioner
 
@@ -67,7 +69,7 @@ Flera gemensamma definitioner används ofta i guiden arkitektur och teknisk dist
     - **Typ II klass:** S384, S384m, S384xm, S576, S768 och S960
 
 
-Det finns ett antal ytterligare resurser som har publicerats på avsnittet för att distribuera SAP arbetsbelastningen för Microsoft Azures offentliga moln. Vi rekommenderar att alla planerings- och köra en SAP HANA-distribution i Azure är erfarna och medveten om ägare av Azure IaaS och distributionen av SAP arbetsbelastningar på Azure IaaS. Följande resurser ger mer information och bör refereras innan du fortsätter:
+Det finns ett antal ytterligare resurser som har publicerats på distribuera SAP arbetsbelastningen på Microsoft Azure offentligt moln. Vi rekommenderar att alla planerings- och köra en SAP HANA-distribution i Azure är erfarna och medveten om ägare av Azure IaaS och distributionen av SAP arbetsbelastningar på Azure IaaS. Följande resurser ger mer information och bör refereras innan du fortsätter:
 
 
 - [Med hjälp av SAP-lösningar på Microsoft Azure-datorer](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -357,7 +359,7 @@ De här storlekarna är grov volym siffror som kan variera något baserat på di
 
 Du som en kund kan ha för mer lagringsutrymme kan du ha möjlighet att lägga till lagringsenheter om du vill köpa ytterligare lagringsutrymme i enheter som 1 TB. Den här ytterligare lagringsutrymme kan läggas till som en ytterligare volym eller kan användas för att utöka en eller flera av de befintliga volymerna. Det går inte att minska storleken på volymerna som ursprungligen har distribuerats och främst dokumenterats i tabellerna ovan. Det är också inte går att ändra namnen på volymerna eller montera namn. Lagringsvolymer som beskrivs ovan är kopplade till HANA stora instans-enheter som NFS4 volymer.
 
-Som en kund kan du använda ögonblicksbilder för lagring av säkerhetskopiering/återställning och katastrofåterställning återställning. Mer information om det här avsnittet beskrivs i [SAP HANA (stora instanser) med hög tillgänglighet och katastrofåterställning i Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Som en kund kan du använda ögonblicksbilder för lagring av säkerhetskopiering/återställning och katastrofåterställning återställning. Mer information ges i [SAP HANA (stora instanser) med hög tillgänglighet och katastrofåterställning i Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
 Det lagringsutrymme som används för HANA stora instanser kan en transparent kryptering av data som lagras på diskarna. Vid tidpunkten för distribution av en HANA stora instans har möjlighet att ha den här typen av kryptering aktiverat. Du kan också välja att ändra till krypterade volymer efter distributionen redan. Flytta från en icke-krypterade till krypterade volymer är transparent och kräver inte ett driftstopp. 
@@ -464,14 +466,18 @@ Distribuera SAP programnivå eller komponenter, över flera virtuella Azure-nät
 
 ### <a name="routing-in-azure"></a>Routning i Azure
 
-Det finns två viktiga routning Nätverksöverväganden för SAP HANA i Azure (stora instanser):
+Det finns tre viktiga routning Nätverksöverväganden för SAP HANA i Azure (stora instanser):
 
-1. SAP HANA i Azure (stora instanser) kan endast användas av virtuella Azure-datorer i den dedikerade ExpressRoute-anslutningen. inte direkt från lokalt. Vissa klienter för administration och alla program som behöver direktåtkomst, till exempel SAP lösning Manager som körs lokalt, kan inte ansluta till SAP HANA-databas.
+1. SAP HANA i Azure (stora instanser) kan endast nås via virtuella Azure-datorer och via dedikerade ExpressRoute-anslutningen. inte direkt från lokalt. Direktåtkomst från lokal till HANA stora instans-enheter är som levereras av Microsoft, inte möjlig direkt på grund av tillfälliga routning begränsningar för den aktuella Azure nätverksarkitekturen används för SAP HANA stora instanser. Vissa klienter för administration och alla program som behöver direktåtkomst, till exempel SAP lösning Manager som körs lokalt, kan inte ansluta till SAP HANA-databas.
 
-2. SAP HANA på Azure (stora instanser)-enheter har en tilldelad IP-adress från Serverpoolen IP-adress vara du som kund har skickats (se [SAP HANA (stora instanser) infrastruktur och anslutningar på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) information).  Denna IP-adress är tillgänglig via Azure-prenumerationer och ExpressRoute som ansluter Azure Vnet till HANA i Azure (stora instanser). IP-adress som tilldelats utanför servern IP-poolen adressintervallet tilldelas direkt till enheten maskinvara och inte är NAT'ed längre eftersom det var skiftläget för de första distributionerna av den här lösningen. 
+2. Om du har stora HANA-instans enheter som distribuerats i två olika Azure-regioner för Disaster Recovery gäller samma tillfälligt routning begränsningar. Eller IP-adresser för en enhet HANA stora instans i en region (t.ex. oss West) kommer med andra ord inte dirigeras till en stor HANA-instans distribuerad du i en annan region (t.ex. oss East). Detta är oberoende av användningen av Azure-nätverk mellan regioner eller mellan ansluter ExpressRoute-kretsar som ansluter HANA stora instans enheter till Azure-Vnet-peering. Som visas lite mer ned i den här dokumentationen. Den här begränsningen som medföljer distribuerad arkitektur kommer förhindrar omedelbar användningen av HANA System Replication när Disaster recovery-funktioner.
+
+3. SAP HANA på Azure (stora instanser)-enheter har en tilldelad IP-adress från Serverpoolen IP-adress vara du som kund har skickats (se [SAP HANA (stora instanser) infrastruktur och anslutningar på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) information).  Denna IP-adress är tillgänglig via Azure-prenumerationer och ExpressRoute som ansluter Azure Vnet till HANA i Azure (stora instanser). IP-adress som tilldelats utanför servern IP-poolen adressintervallet tilldelas direkt till enheten maskinvara och inte är NAT'ed längre eftersom det var skiftläget för de första distributionerna av den här lösningen. 
 
 > [!NOTE] 
-> Om du behöver ansluta till SAP HANA i Azure (stora instanser) i en _datalagret_ scenario där program och/eller användare behöver för att ansluta till SAP HANA-databas (som körs direkt), måste du använda en annan nätverkskomponent: en omvänd-proxy för att vidarebefordra data till och från. Exempelvis F5 BIG-IP, NGINX med Traffic Manager distribueras i Azure som en virtuell brandväggen-trafik routning lösning.
+> Om du behöver lösa begränsningen i tillfälliga routning som beskrivs i de första två listobjekt ovan, måste du använda ytterligare komponenter för routning. Komponenter som kan användas för att lösa begränsningen kan vara: en omvänd proxy att vidarebefordra data till och från. Exempelvis F5 BIG-IP, NGINX med Traffic Manager distribueras i Azure som en virtuell brandväggen-trafik routning lösning.
+> Med hjälp av [IPTables regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en Linux-VM för att aktivera routning mellan lokala platser och HANA stora instans enheter eller mellan HANA stora instans enheter i olika regioner.
+> Tänk på att implementering och stöd för anpassade lösningar från tredje part nätverksinstallationer eller IPTables inte tillhandahålls av Microsoft. Stöd måste tillhandahållas av tillverkaren av den komponent som används eller integrator. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>Internet-anslutning av HANA stora instanser
 HANA stora instanser har inte direkt Internetanslutning. Detta är att begränsa din förmåga att till exempel registrera OS-avbildningen direkt med OS-leverantören. Du kan därför behöver arbeta med lokala SLES SMT-servern eller RHEL prenumeration Manager

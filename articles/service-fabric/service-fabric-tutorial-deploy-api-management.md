@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c685e5250943098f43f232b2b09d3ae55c0380d0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuera API Management med Service Fabric
-Den här kursen ingår fyra i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API-hantering är användbart när du vill publicera API: er med en omfattande uppsättning regler för vidarebefordran för backend-Service Fabric-tjänster. Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. En gateway kan vara alla tillståndslösa tjänster som utformats för trafik ingång, till exempel en APP.NET Core programmet Event Hubs, IoT-hubb eller Azure API Management i Service Fabric. 
+Den här kursen ingår fyra i en serie.  Distribuera Azure API Management med Service Fabric är ett avancerat scenario.  API-hantering är användbart när du vill publicera API: er med en omfattande uppsättning regler för vidarebefordran för backend-Service Fabric-tjänster. Molnprogram måste vanligtvis en frontend-gateway att tillhandahålla en enda åtkomstpunkt för inkommande trafik för användare, enheter eller andra program. En gateway kan vara alla tillståndslösa tjänster som utformats för trafik ingång, till exempel en ASP.NET Core programmet Event Hubs, IoT-hubb eller Azure API Management i Service Fabric. 
 
 Den här kursen visar hur du ställer in [Azure API Management](../api-management/api-management-key-concepts.md) med Service Fabric att dirigera trafik till en backend-tjänst i Service Fabric.  När du är klar kan har du distribuerat API-hantering till ett virtuellt nätverk, konfigurerat en API-åtgärd för att skicka trafik till backend-tillståndslösa tjänster. Mer information om Azure API Management scenarier med Service Fabric finns i [översikt](service-fabric-api-management-overview.md) artikel.
 
@@ -42,7 +42,7 @@ I den här självstudiekursen serien lär du dig hur du:
 > * [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Distribuera API Management med Service Fabric
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här kursen:
 - Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Installera den [Azure Powershell Modulversion 4.1 eller högre](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) eller [Azure CLI 2.0](/cli/azure/install-azure-cli).

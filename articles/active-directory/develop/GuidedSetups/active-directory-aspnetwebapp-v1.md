@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning med Microsoft till ett ASP.NET-webbprogram
@@ -42,7 +42,7 @@ I slutet av den här guiden tillämpningsprogrammet accepterar inloggningar av a
 Den här guiden bygger på ett scenario där en webbläsare har åtkomst till en ASP.NET-webbplats, begär en användare autentiseras via en knapp för inloggning. I det här scenariot inträffar mesta av arbetet ska renderas webbsidan på serversidan.
 
 > [!NOTE]
-> Interaktiv installationen visar hur du loggar in användare i ASP.NET-webbprogram från en tom mall och innehåller steg som att lägga till ett tecken i knappen och varje styrenhet och metoder, samtidigt som förklarar också några begrepp. Alternativelly, du kan också skapa ett projekt för att logga in Azure Active Directory användare (arbets- och skolkonton konton) med hjälp av den [Visual Studio webbmallen](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) och välja *Organisationskonton* och sedan något av alternativen cloud - Det här alternativet använder en rikare mall med ytterligare domänkontrollanter, metoder och vyer.
+> Interaktiv installationen visar hur du loggar in användare i ASP.NET-webbprogram från en tom mall och innehåller steg som att lägga till ett tecken i knappen och varje styrenhet och metoder, samtidigt som förklarar också några begrepp. Alternativt kan du också skapa ett projekt för att logga in Azure Active Directory användare (arbets- och skolkonton konton) med hjälp av den [Visual Studio webbmallen](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) och välja *Organisationskonton* och sedan något av alternativen cloud - Det här alternativet använder en rikare mall med ytterligare domänkontrollanter, metoder och vyer.
 
 ## <a name="libraries"></a>Bibliotek
 

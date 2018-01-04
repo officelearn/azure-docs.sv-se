@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -211,7 +211,7 @@ Azure Backup har en gräns på 9 999 återställningspunkter (även kallade s�
 
 ## <a name="what-is-a-protected-instance"></a>Vad är en skyddad instans?
 En skyddad instans är en generisk referens till en Windows-dator, en server (fysisk eller virtuell) eller en SQL-databas som har konfigurerats för att säkerhetskopiera till Azure. En instans är skyddad när du har konfigurerat en säkerhetskopieringsprincip för datorn, servern eller databasen och skapar en säkerhetskopia av data. Efterföljande kopior av säkerhetskopierade data för den skyddade instansen (kallade återställningspunkter) ökar mängden lagringsutrymme som förbrukas. Du kan skapa upp till 9 999 återställningspunkter för en skyddad instans. Om du tar bort en återställningspunkt från lagring räknas den inte mot det sammanlagda antalet på 9 999 återställningspunkter.
-Några vanliga exempel på skyddade instanser är virtuella datorer, programservrar, databaser och personliga datorer som kör Windows-operativsystemet. Exempel:
+Några vanliga exempel på skyddade instanser är virtuella datorer, programservrar, databaser och personliga datorer som kör Windows-operativsystemet. Till exempel:
 
 * En virtuell dator som kör Hyper-V- eller Azure IaaS-hypervisorinfrastrukturen. Gästoperativsystemen för den virtuella datorn kan vara Windows Server eller Linux.
 * En programserver: Programservern kan vara en fysisk eller virtuell dator som kör Windows Server och arbetsbelastningar med data som behöver säkerhetskopieras. Vanliga arbetsbelastningar är Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server och filserverrollen i Windows Server. Om du vill säkerhetskopiera dessa arbetsbelastningar behöver du System Center Data Protection Manager (DPM) eller Azure Backup Server.
@@ -238,7 +238,7 @@ Azure Backup skyddar data lokalt och i molnet. Azure Site Recovery samordnar rep
 
 Följande begrepp hjälper dig att fatta viktiga beslut om säkerhetskopiering och haveriberedskap.
 
-| Begrepp | Information | Säkerhetskopiering | Haveriberedskap |
+| Begrepp | Information | Backup | Haveriberedskap |
 | --- | --- | --- | --- |
 | Mål för återställningspunkt (RPO) |Mängden godtagbar dataförlust om en återställning krävs. |Säkerhetskopieringslösningar har stor variation vad gäller deras godtagbara återställningspunktmål. Säkerhetskopieringar av virtuella datorer har vanligtvis ett återställningspunktmål på en dag, medan säkerhetskopieringar av databaser har återställningspunktmål på så lite som 15 minuter. |Lösningar för haveriberedskap har låga återställningspunktmål. Kopian för haveriberedskap kan ligga några få sekunder eller minuter efter. |
 | Mål för återställningstid (RTO) |Hur lång tid det tar att slutföra en återställning. |På grund av det större återställningspunktmålet är mängden data som en säkerhetskopieringslösning behöver bearbeta normalt mycket högre, vilket leder till längre mål för återställningstid. Det kan till exempel ta dagar att återställa data från band, beroende på hur lång tid det tar att överföra bandet från den externa platsen. |Lösningar för haveriberedskap har mindre mål för återställningstid eftersom de är mer synkroniserade med källan. Färre ändringar behöver bearbetas. |
@@ -254,7 +254,7 @@ Mer information om att skydda andra arbetsbelastningar finns i någon av följan
 
 * [Säkerhetskopiera Windows Server](backup-configure-vault.md)
 * [Säkerhetskopiera programarbetsbelastningar](backup-azure-microsoft-azure-backup.md)
-* [Säkerhetskopiera virtuella IaaS-datorer i Azure](backup-azure-vms-prepare.md)
+* [Säkerhetskopiera virtuella IaaS-datorer i Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Samla in data från Linux-datorer i din miljö
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från fysiska eller virtuella Linux-datorer och andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](log-analytics-quick-collect-azurevm.md).  
+
+Information om nätverks- och systemkraven för att distribuera Linux-agenten finns i [Collect data from your environment with Azure Log Analytics](log-analytics-concept-hybrid.md#prerequisites) (Samla in data från din miljö med Azure Log Analytics).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -30,21 +32,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
   * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
-  * För **resursgruppen** ska du välja en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
+  * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  För mer information om de olika nivåerna, se [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
 Innan du installerar OMS-agenten för Linux behöver du arbetsytans id och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs av agentens adapterskript för att agenten ska konfigureras ordentligt och kunna kommunicera med Log Analytics.  
 
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.

@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -73,7 +73,7 @@ Via en gemensam och integrerad miljö effektiviserar Azure Databricks processen 
 
 * Avgör hur du vill använda data med enkel datautforskning.
 * Dokumentera förloppet på bärbara datorer i R, Python, Scala eller SQL.
-* Visualisera data med några få klickningar och använd välbekanta verktyg som Matplotlib, ggoplot eller d3.
+* Visualisera data med några få klickningar och använd välbekanta verktyg som Matplotlib, ggplot eller d3.
 * Använd interaktiva instrumentpaneler för att skapa dynamiska rapporter.
 * Använd Spark och interagera med data samtidigt.
 

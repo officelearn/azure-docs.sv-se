@@ -1,10 +1,10 @@
 ---
-title: "Distribuera ett program på en Azure VM-skalningsuppsättning | Microsoft Docs"
-description: "Lär dig att distribuera ett enkelt autoskalningsprogram på en VM-skaluppsttning med en Azure Resource Manager-mall."
+title: "Skapa en VM-skalningsuppsättning med en Azure-mall | Microsoft Docs"
+description: "Lär dig hur du snabbt skapar en VM-skalningsuppsättning med en Azure Resource Manager-mall"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,297 +13,211 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
-ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.author: iainfou
+ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="deploy-an-autoscaling-app-using-a-template"></a>Distribuera en app för automatisk skalning med en mall
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Skapa en VM-skalningsuppsättning med Azure CLI 2.0
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt, eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I den här artikeln skapar du en VM-skalningsuppsättning med en Azure Resource Manager-mall. Du kan också skapa en skalningsuppsättning med [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) eller [Azure Portal](virtual-machine-scale-sets-create-portal.md).
 
-[Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) är ett bra sätt att distribuera grupper av relaterade resurser. Den här kursen bygger på [Distribuera en enkel skaluppsättning](virtual-machine-scale-sets-mvss-start.md) och beskriver hur du distribuerar ett enkelt program med autoskalning på en skaluppsättning med en Azure Resource Manager-mall.  Du kan också ställa in autoskalning med PowerShell, CLI eller portalen. Mer information finns i [Översikt för autoskala](virtual-machine-scale-sets-autoscale-overview.md).
 
-## <a name="two-quickstart-templates"></a>Två snabbstartmallar
-När du distribuerar en skaluppsättning du kan installera ny programvara på en plattformbild med ett [VM-tillägg](../virtual-machines/virtual-machines-windows-extensions-features.md). Ett VM-tilläggt är ett litet program som innehåller en färdig konfiguration och automatisering av uppgifter på virtuella Azure-datorer, till exempel att distribuera en app. Två olika exempelmallar finns i [Azure/azure-snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) som visar hur du distribuerar ett autoskalningsprogram på en skaluppsättning som anges med VM-tillägg.
+## <a name="overview-of-templates"></a>Översikt över mallar
+Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Mallarna är skrivna i JavaScript Object Notation (JSON) och definierar hela infrastrukturen i Azure-miljön för din app. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure Portal, Azure CLI 2.0 eller Azure PowerShell och anropa dem från pipelines för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
-### <a name="python-http-server-on-linux"></a>Python-HTTP-servern på Linux
-Exempelmallen [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) distribuerar ett enkelt autoskalningsprogram som körs på en Linux-skaluppsättning.  [Bottle](http://bottlepy.org/docs/dev/), ett Python webwramverk och en enkel HTTP-server distribueras på varje virtuell dator i skaluppsättningen med ett anpassat skript för VM-tillägget. Skaluppsättningen skalar upp när den genomsnittliga CPU-användningen över alla virtuella datorer är större än 60 % och skalar ner när den genomsnittliga CPU-användningen är mindre än 30 %.
+Mer information om mallar finns i [Översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
-Förutom skaluppsättningsresursen deklarerar exempelmallen *azuredeploy.json* också virtuella nätverk, offentlig IP-adress, belastningsutjämnare och resurser för inställning av autoskala.  Mer information om hur du skapar dessa resurser i en mall finns i [Linux-skala med autoskala](virtual-machine-scale-sets-linux-autoscale.md).
 
-I mallen *azuredeploy.json* anger `extensionProfile`-egenskapen för `Microsoft.Compute/virtualMachineScaleSets`-resurs ett anpassat skripttillägg. `fileUris` anger platsen för skript. I det här fallet två filer: *workserver.py*, som definierar en enkel HTTP-server och *installserver.sh*, som installerar Bottle och startar HTTP-servern. `commandToExecute` anger kommandot som ska köras när skaluppsättning har distribuerats.
+## <a name="define-a-scale-set"></a>Definiera en skalningsuppsättning
+En mall definierar konfigurationen för varje resurstyp. Resurstypen för VM-skalningsuppsättning är ungefär samma som för en enskild virtuell dator. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
+
+| Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
+| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| location                     | Platsen där skalningsuppsättningen skapas                     | Östra USA                                   |
+| sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
+| sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
+| upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatisk                                 |
+| imageReference               | Plattform eller anpassad avbildning som ska användas för VM-instanserna | Canonical Ubuntu Server 16.04-LTS         |
+| osProfile.computerNamePrefix | Namnprefix för varje VM-instans                     | myvmss                                    |
+| osProfile.adminUsername      | Användarnamn för varje VM-instans                        | azureuser                                 |
+| osProfile.adminPassword      | Lösenord för varje VM-instans                        | P@ssw0rd!                                 |
+
+ Följande utdrag visar resursdefinitionen för skalningsuppsättningen i en mall. Av utrymmesskäl visas inte nätverkskortkonfigurationen. Om du vill anpassa en skalningsuppsättningsmall kan du ändra VM-storleken eller den inledande kapaciteten, eller använda en annan plattform eller en anpassad avbildning.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "lapextension",
-                "properties": {
-                  "publisher": "Microsoft.Azure.Extensions",
-                  "type": "CustomScript",
-                  "typeHandlerVersion": "2.0",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "fileUris": [
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-                    ],
-                    "commandToExecute": "bash installserver.sh"
-                  }
-                }
-              }
-            ]
-          }
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US",
+  "apiVersion": "2016-04-30-preview",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
-### <a name="aspnet-mvc-application-on-windows"></a>ASP.NET MVC-appen i Windows
-Exempelmallen [ASP.NET MVC-appen i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) distribuerar en enkel ASP.NET MVC-app som körs i IIS på Windows-skaluppsättning.  IIS och MVC-appen distribueras med VM-tillägget [PowerShell önskad tillståndskonfiguration (DSC)](virtual-machine-scale-sets-dsc.md).  Skaluppsättningen skalar upp (en VM-instans i taget) när CPU-användning är större än 50 % under 5 minuter. 
 
-Förutom skaluppsättningsresursen deklarerar exempelmallen *azuredeploy.json* också virtuella nätverk, offentlig IP-adress, belastningsutjämnare och resurser för inställning av autoskala. Den här mallen visas också uppgradering av programmet.  Mer information om hur du skapar dessa resurser i en mall finns i [Windows-skala med autoskala](virtual-machine-scale-sets-windows-autoscale.md).
+## <a name="install-an-application"></a>Installera en app
+När du distribuerar en skalningsuppsättning kan du använda VM-tillägg för att utföra konfigurations- och automatiseringsåtgärder efter distributionen, till exempel installera en app. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Om du vill använda ett tillägg för skalningsuppsättningen lägger du till avsnittet *extensionProfile* i föregående resursexempel. Tilläggsprofilen definierar vanligtvis följande egenskaper:
 
-I mallen *azuredeploy.json* anger resursen `extensionProfile` egenskapen för `Microsoft.Compute/virtualMachineScaleSets` ett [önskad tillståndskonfiguration (DSC)](virtual-machine-scale-sets-dsc.md)-tillägg som installerar IIS och en standard-webbapp från ett WebDeploy-paket.  Skriptet *IISInstall.ps1* installerar IIS på den virtuella datorn och finns i mappen *DSC*.  MVC-webbappen finns i mappen *WebDeploy*.  Sökvägar till installationsskriptet och webbprogrammet har definierats i parametrarna `powershelldscZip` och `webDeployPackage` i filen *azuredeploy.parameters.json*. 
+- Tilläggstyp
+- Tilläggsutgivare
+- Tilläggsversion
+- Plats för konfiguration eller installation av skript
+- Kommandon för att köra VM-instanserna
+
+Nu ska vi titta på två sätt att installera en app med tillägg. Vi använder tillägget för anpassat skript för att installera en Python-app i Linux och använder tillägget PowerShell DSC för att installera en ASP.NET-app i Windows.
+
+### <a name="python-http-server-on-linux"></a>Python-HTTP-servern på Linux
+[Python-HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) använder tillägget för anpassat skript för att installera [Bottle](http://bottlepy.org/docs/dev/) (ett Python-webbramverk) och en enkel HTTP-server. 
+
+Två skript definieras i *fileUris* - *installserver.sh* och *workserver.py*. De här filerna laddas ned från GitHub. Sedan definierar *commandToExecute* `bash installserver.sh` för den app som ska installeras och konfigureras:
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "Microsoft.Powershell.DSC",
-                "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.9",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('powershelldscUpdateTagVersion')]",
-                  "settings": {
-                    "configuration": {
-                      "url": "[variables('powershelldscZipFullPath')]",
-                      "script": "IISInstall.ps1",
-                      "function": "InstallIIS"
-                    },
-                    "configurationArguments": {
-                      "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
-                    }
-                  }
-                }
-              }
-            ]
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "AppInstall",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+          ],
+          "commandToExecute": "bash installserver.sh"
+        }
+      }
+    }
+  ]
+}
+```
+
+### <a name="aspnet-application-on-windows"></a>ASP.NET-app i Windows
+Exempelmallen [ASP.NET-app i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) använder tillägget PowerShell DSC för att installera en ASP.NET MVC-app som körs i IIS. 
+
+Ett installationsskript hämtas från GitHub enligt definitionen i *url*. Tillägget kör sedan *InstallIIS* från skriptet *IISInstall.ps1* enligt definitionen i *funktion* och *Skript*. Själva ASP.NET-appen tillhandahålls som ett webbdistributionspaket, vilket också hämtas från GitHub enligt definitionen i *WebDeployPackagePath*:
+
+```json
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "Microsoft.Powershell.DSC",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "forceUpdateTag": "1.0",
+        "settings": {
+          "configuration": {
+            "url": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/DSC/IISInstall.ps1.zip",
+            "script": "IISInstall.ps1",
+            "function": "InstallIIS"
+          },
+          "configurationArguments": {
+            "nodeName": "localhost",
+            "WebDeployPackagePath": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/WebDeploy/DefaultASPWebApp.v1.0.zip"
           }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
-Det enklaste sättet att distribuera [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) eller mallen [ASP.NET MVC-program på Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) är att använda knappen **Distribuera till Azure** som finns i readme-filerna i GitHub.  Du kan också använda PowerShell eller Azure CLI för att distribuera exempelmallarna.
+Det enklaste sättet att distribuera [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) eller mallen [ASP.NET MVC-app i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) är att använda knappen **Distribuera till Azure** som finns i readme-filerna i GitHub.  Du kan också använda PowerShell eller Azure CLI för att distribuera exempelmallarna.
 
-### <a name="powershell"></a>PowerShell
-Kopiera [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) eller filerna [ASP.NET MVC-appen i Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) från GitHub-lagringsplatsen till en mapp på den lokala datorn.  Öppna filen *azuredeploy.parameters.json* och uppdatera standardvärdena för parametrarna `vmssName`, `adminUsername` och `adminPassword`. Spara följande PowerShell-skript till *deploy.ps1* i samma mapp som mallen *azuredeploy.json*. För att distribuera exempelmallen, kör skriptet *deploy.ps1* från en PowerShell-kommandotolk.
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+Du kan använda Azure CLI 2.0 för att installera Python-HTTP-servern på Linux enligt följande:
 
-```powershell
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
-
- [string]
- $resourceGroupLocation,
-
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
-
- [string]
- $templateFilePath = "template.json",
-
- [string]
- $parametersFilePath = "parameters.json"
-)
-
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
-$ErrorActionPreference = "Stop"
-
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
-
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-    }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
-}
-
-# Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-}
+# Deploy template into resource group
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>Azure CLI
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+Om du vill testa din app i praktiken erhåller du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip list](/cli/azure/network/public-ip#show) på följande sätt:
 
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
 ```
+
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http://<publicIpAddress>:9000/do_work*. Belastningsutjämnaren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+
+![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Du kan använda Azure PowerShell för att installera ASP.NET-app i Windows på följande sätt:
+
+```azurepowershell-interactive
+# Create a resource group
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+
+# Deploy template into resource group
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName myResourceGroup `
+    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+```
+
+Om du vill testa appen hämtar du den offentliga IP-adressen för belastningsutjämnaren med [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) enligt följande:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http://<publicIpAddress>/MyApp*. Belastningsutjämnaren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+
+![Köra IIS-webbplats](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
+
+
+## <a name="clean-up-resources"></a>Rensa resurser
+När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser:
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
-
-[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

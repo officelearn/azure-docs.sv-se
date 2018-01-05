@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snabb distribution av återställning av lösenord för självbetjäning i Azure AD
 
@@ -36,35 +36,38 @@ I den här handboken förutsätts att du redan har en aktiv utvärderingsversion
 1. Från din befintliga Azure AD-klient väljer du **Återställning av lösenord**.
 
 2. Välj något av följande på sidan **Egenskaper** under alternativet **Återställning av lösenord via självbetjäning har aktiverats**:
-    * **Ingen**: Ingen kan använda funktionen SSPR.
-    * **Valda**: Endast medlemmar av en viss Azure AD-grupp som du utser kan använda SSPR-funktionen. Vi rekommenderar att du definierar en grupp användare och använder den här inställningen när du distribuerar funktionen för ett ”proof of concept” (POC).
-    * **Alla**: Alla användare med konton i din Azure AD-klient kan använda SSPR-funktionen. Vi rekommenderar att du använder den här inställningen när du är redo att distribuera den här funktionen till hela din klientorganisation när du har slutfört ett ”proof of concept” (POC).
+   * **Ingen**: Ingen kan använda funktionen SSPR.
+   * **Valda**: Endast medlemmar av en viss Azure AD-grupp som du utser kan använda SSPR-funktionen. Vi rekommenderar att du definierar en grupp användare och använder den här inställningen när du distribuerar funktionen för ett ”proof of concept” (POC).
+   * **Alla**: Alla användare med konton i din Azure AD-klient kan använda SSPR-funktionen. Vi rekommenderar att du använder den här inställningen när du är redo att distribuera den här funktionen till hela din klientorganisation när du har slutfört ett ”proof of concept” (POC).
+
+   > [!IMPORTANT]
+   > De som har ett Azure-administratörskonto har alltid möjlighet att återställa sitt lösenord, oavsett vad det här alternativet är inställt på. 
 
 3. Välj följande på sidan **Autentiseringsmetoder**:
-    * **Antal metoder som krävs för återställning**: Vi stöder minst en eller högst två.
-    * **Metoder som finns tillgängliga för användare**: Vi behöver minst en, men det skadar inte att ha ett extra alternativ tillgängligt.
-        * **E-post**: Skickar ett e-postmeddelande med en kod till användarens konfigurerade e-postadress för autentisering.
-        * **Mobiltelefon**: Ger användaren möjlighet att ta emot ett samtal eller sms med en kod till hans/hennes konfigurerade mobiltelefonnummer.
-        * **Arbetstelefon**: Ringer användaren med en kod till användarens konfigurerade arbetstelefonnummer.
-        * **Säkerhetsfrågor**: Du måste välja:
-            * **Antal frågor som krävs för registrering**: Minimum för lyckad registrering. En användare kan välja att besvara fler frågor för att skapa en pool med frågor som funktionen kan använda. Det här alternativet går att ställa in från tre till fem frågor och måste vara större än eller lika med antalet frågor som krävs för att återställa lösenordet. Användaren kan lägga till anpassade frågor om hon/han väljer **knappen för anpassat** knappen när hon/han väljer sina säkerhetsfrågor.
-            * **Antal frågor som krävs för återställning**: Kan ställas in från tre till fem frågor som ska besvaras korrekt innan en användares lösenord kan återställas eller låsas upp.
+   * **Antal metoder som krävs för återställning**: Vi stöder minst en eller högst två.
+   * **Metoder som finns tillgängliga för användare**: Vi behöver minst en, men det skadar inte att ha ett extra alternativ tillgängligt.
+      * **E-post**: Skickar ett e-postmeddelande med en kod till användarens konfigurerade e-postadress för autentisering.
+      * **Mobiltelefon**: Ger användaren möjlighet att ta emot ett samtal eller sms med en kod till hans/hennes konfigurerade mobiltelefonnummer.
+      * **Arbetstelefon**: Ringer användaren med en kod till användarens konfigurerade arbetstelefonnummer.
+      * **Säkerhetsfrågor**: Du måste välja:
+         * **Antal frågor som krävs för registrering**: Minimum för lyckad registrering. En användare kan välja att besvara fler frågor för att skapa en pool med frågor som funktionen kan använda. Det här alternativet går att ställa in från tre till fem frågor och måste vara större än eller lika med antalet frågor som krävs för att återställa lösenordet. Användaren kan lägga till anpassade frågor om hon/han väljer **knappen för anpassat** knappen när hon/han väljer sina säkerhetsfrågor.
+         * **Antal frågor som krävs för återställning**: Kan ställas in från tre till fem frågor som ska besvaras korrekt innan en användares lösenord kan återställas eller låsas upp.
             
     ![Autentisering][Authentication]
 
 4. Rekommenderat: **Anpassning** gör att du kan ändra länken **Kontakta administratören** så att den pekar på en sida eller e-postadress som du definierar. Vi rekommenderar att du ställer in den här länken så att den dirigerar till något som en e-postadress eller en webbplats som användarna redan använder för supportförfrågningar.
 
 5. Valfritt: Sidan **Registrering** ger administratörer alternativ för följande:
-    * Kräv att användare registrerar sig vid inloggning.
-    * Ange antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation.
+   * Kräv att användare registrerar sig vid inloggning.
+   * Ange antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation.
 
 6. Valfritt: Sidan **Meddelande** ger administratörer alternativ för följande:
-    * Meddela användare om lösenordsåterställning.
-    * Meddela alla administratörer när andra administratörer återställer sina lösenord.
+   * Meddela användare om lösenordsåterställning.
+   * Meddela alla administratörer när andra administratörer återställer sina lösenord.
 
 Nu har du konfigurerat SSPR för din Azure AD-klient. Användarna kan nu använda instruktionerna i artiklarna [Registrera för återställning av lösenord för självbetjäning](active-directory-passwords-reset-register.md) och [Återställ eller ändra ditt lösenord](active-directory-passwords-update-your-own-password.md) för att uppdatera sina lösenord utan inblandning av administratören. Om du använder en molnbaserad lösning kan du sluta här. Alternativt kan du fortsätta till nästa avsnitt och konfigurera synkronisering av lösenord till en lokal Active Directory-domän.
 
-> [!IMPORTANT]
+> [!TIP]
 > Testa SSPR med en användare och inte en administratör eftersom Microsoft tillämpar starka autentiseringskrav för administratörskonton i Azure. Mer information om lösenordsprinciper för administratörer finns i vår artikel om [lösenordsprinciper](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Konfigurera synkronisering till en befintlig identitetskälla

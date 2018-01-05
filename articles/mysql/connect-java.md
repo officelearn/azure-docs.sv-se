@@ -10,25 +10,28 @@ ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
-ms.openlocfilehash: aeca003a9b031a48804a057b627714b554298645
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.openlocfilehash: 6d27ec96f56e576d4af02c5e0e70e6364bd5a9ec
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure-databas för MySQL: Använd Java för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program och JDBC-drivrutinen [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Krav
-I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
-- [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+Det finns många andra exempel och exempelkod på [sidan med exempel för MySQL Connector](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
-Du måste också:
-- Hämta JDBC-drivrutinen [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Ta med JDBC jar-filen (till exempel mysql-connector-java-5.1.42-bin.jar) i klassökvägen i programmet. Om du har problem med detta kan du läsa dokumentationen för miljön för information om klassens sökväg, som [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) eller [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
-- Se till att säkerhetsinställningarna för Azure Database för MySQL-anslutning konfigureras med brandväggen öppen och att SSL-inställningarna justeras så att programmet kan ansluta.
+## <a name="prerequisites"></a>Nödvändiga komponenter
+1. I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
+   - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
+   - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+
+2. Se till att säkerhetsinställningarna för Azure Database för MySQL-anslutning konfigureras med brandväggen öppen och att SSL-inställningarna justeras så att programmet kan ansluta.
+
+3. Hämta MySQL Connector/J-anslutningen på något av följande sätt:
+   - Använd Maven-paketet [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) för att inkludera [mysql-beroendet](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) i POM-filen för projektet.
+   - Ladda ned JDBC-drivrutinen [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) och lägg till JDBC-jar-filen (till exempel mysql-connector-java-5.1.42-bin.jar) i appens klassökväg. Om du har problem med klassökvägar kan du läsa dokumentationen för miljön för information om klassens sökväg, till exempel [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) eller [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
@@ -392,5 +395,7 @@ public class DeleteTable {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+Det finns många andra exempel och exempelkod på [sidan med exempel för MySQL Connector/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
+
 > [!div class="nextstepaction"]
 > [Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning](concepts-migrate-dump-restore.md)

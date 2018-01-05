@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure PowerShell
 
@@ -33,7 +33,7 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Blobar laddas alltid upp till en behållare. På så vis kan du ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
+Blobar laddas alltid upp till en behållare. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
 Ange behållarnamnet på och sedan skapa behållaren med hjälp av [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Ange behörigheterna till blob för att tillåta offentlig åtkomst till filerna. Behållarens namn i det här exemplet är *quickstartblobs*.
 
@@ -48,7 +48,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. VHD-filer som a
 
 Om du vill ladda upp en fil till en blockblob ska du hämta en referens för behållaren och sedan hämta en referens för blockbloben i den behållaren. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över den om den finns.
 
-I följande exempel laddas Image001.jpg och Image002.png upp från mappen D:\\_TestImages på den lokala disken till behållaren som du just skapade.
+I följande exempel laddas Image001.jpg och Image002.png upp från mappen D:\\_TestImages på den lokala disken till behållaren som du skapade.
 
 ```powershell
 # upload a file
@@ -118,7 +118,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta anvisningarna om Blob Storage.
+I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Anvisningar för Blob Storage-åtgärder](storage-how-to-use-blobs-powershell.md)

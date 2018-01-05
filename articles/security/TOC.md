@@ -54,6 +54,8 @@
 #### [Efterlevnad – UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Översikt](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Översikt över principer](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Efterlevnad – Ekonomiska tjänster
+##### [Ekonomiska tjänster för reglerade arbetsbelastningar](./blueprints/financial-services-regulated-workloads.md)
 
 # Kom igång
 ## [Komma igång med Azure Security](azure-security-getting-started.md)

@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Service Bus-meddelanden?](service-bus-messaging-overview.md)
 ## [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus-arkitektur](service-bus-architecture.md)
@@ -6,7 +7,6 @@
 
 # Kom igång
 ## [Skapa ett namnområde](service-bus-create-namespace-portal.md)
-### [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 ## Använda köer
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +37,7 @@
 
 ## Utveckla
 ### Meddelandehantering
+#### [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 #### [Meddelanden, nyttolaster och serialisering](service-bus-messages-payloads.md)
 #### [Överföringar av meddelanden, lås och uppgörelser](message-transfers-locks-settlement.md)
 #### [Ordningsföljd och tidsstämplar för meddelanden](message-sequencing.md)

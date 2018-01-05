@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Hantera Azure AD-katalogen
 
@@ -80,7 +80,6 @@ Från dessa portaler (eller cmdletar) kan du:
 * Konfigurera lokal integrering med identitets- och autentiseringstjänster i Azure AD
 
 Azure AD-administrationscentret, administrationscentret för Office 365, Microsoft Intune-kontoportalen och Azure AD-cmdletarna läser alla från och skriver till en enda delad instans av Azure AD som associeras med din organisations katalog. Alla dessa verktyg fungerar som ett klientdelsgränssnitt som hämtar eller ändrar dina katalogdata.
-
 När du ändrar organisationens data med hjälp av någon av portalerna eller cmdletarna medan du är inloggad i någon av dessa tjänster visas ändringarna också i de andra portalerna nästa gång du loggar in. Dessa data delas mellan de Microsoft-molntjänster som du prenumererar på.
 
 Om du till exempel blockerar en användare via administrationscentret för Office 365 så kan användaren inte heller logga in till någon annan tjänst som din organisation prenumererar på. Om du visar samma användarkonto på Microsoft Intune-kontoportalen ser du också att användaren är blockerad.
@@ -117,8 +116,8 @@ Följande villkor kontrolleras:
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure AD-forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Frågor om Stack Overflow för Azure](http://stackoverflow.com/questions/tagged/azure)
+* [Azure AD-forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Azure Multi-Factor Authentication-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow för Azure-frågor](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Tilldela administratörsroller i Azure AD](active-directory-assign-admin-roles-azure-portal.md)

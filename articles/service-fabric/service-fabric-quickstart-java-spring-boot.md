@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 002841ff59e7b151ee2288ee4045de5c423df573
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Distribuera ett Spring Boot-program
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och behållare. 
 
 Den här snabbstarten visar hur du distribuerar ett Spring Boot-program till Service Fabric. I den här snabbstarten används exemplet [Komma igång](https://spring.io/guides/gs/spring-boot/) från Spring-webbplatsen. Med bekanta kommandoradsverktyg guidar den här snabbstarten igenom distribuering av Spring Boot-exemplet som ett Service Fabric-program. När du är klar fungerar exemplet Spring Boot Getting Started på Service Fabric. 
 
-![Skärmbild av programmet](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+![Skärmbild av programmet](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 I den här snabbstarten lär du dig att:
 
@@ -35,14 +35,14 @@ I den här snabbstarten lär du dig att:
 > * Distribuera programmet till ditt lokala kluster 
 > * Distribuera programmet till ett kluster i Azure
 > * Skala ut programmet över flera noder
-> * Utför redundans av tjänsten utan träff för tillgänglighet
+> * Utför redundans av tjänsten utan att påverka tillgängligheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här snabbstarten behöver du:
-1. [Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installera Git](https://git-scm.com/)
-3. [Installera Yeoman](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. [Konfigurera Java-miljö](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+3. [Installera Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+4. [Konfigurera Java-miljö](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 Kör följande kommando i ett kommandofönster för att klona exempelappen Spring Boot Getting Started till den lokala datorn.
@@ -51,7 +51,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="package-the-spring-boot-application"></a>Paketera Spring Boot-programmet 
-1. I katalogen `gs-spring-boot` som just klonades kör du kommandot `yo azuresfguest`. 
+1. I katalogen `gs-spring-boot` som klonades kör du kommandot `yo azuresfguest`. 
 
 2. Ange följande information för varje fråga. 
 
@@ -76,7 +76,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     ```
     Det kan ta lite tid att starta det lokala klustret. Om du vill kontrollera att klustret är fullständigt aktiverat går du till Service Fabric Explorer på **http://localhost:19080**. När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
-    ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
 2. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
 3. Kör följande kommando för att ansluta till det lokala klustret. 
@@ -92,7 +92,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
 
 5. Öppna valfri webbläsare och hitta programmet genom att gå till **http://localhost: 8080**. 
 
-    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
     
 Nu kan du komma åt Spring Boot-programmet som har distribuerats till ett Service Fabric-kluster.  
 
@@ -119,7 +119,7 @@ Nu när programmet och klustret är redo kan du distribuera programmet till klus
     sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
     ```
     
-    Om klustret är skyddad med ett självsignerat certifikat kör du kommandot: 
+    Om klustret är skyddat med ett självsignerat certifikat kör du kommandot: 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -132,50 +132,54 @@ Nu när programmet och klustret är redo kan du distribuera programmet till klus
 
 4. Öppna valfri webbläsare och hitta programmet genom att gå till **http://\<ConnectionIPOrUrl>:8080**. 
 
-    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springsfazure.png)
+    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
     
 Nu kan du komma åt Spring Boot-programmet som har distribuerats till ett Service Fabric-kluster.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
-Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från Service Fabric CLI (sfctl). I det här exemplet använder vi Service Fabric Explorer.
+Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det går att skala tjänsterna på flera sätt, till exempel med skript eller kommandon från Service Fabric CLI (sfctl). I det här exemplet används Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080), till exempel `http://localhost:19080`.
 
 Gör så här om du vill skala frontwebbtjänsten:
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
 2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale Service** (Skala tjänst).
 
-    ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/springbootsfhowtoscale.png)
+    ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Du kan nu välja att skala antalet instanser av tjänsten.
 
-3. Ändra antalet till **5** och klicka på **Scale Service** (Skala tjänst).
+3. Ändra antalet till **3** och klicka på **Scale Service** (Skala tjänst).
 
     Ett annat sätt att skala tjänsten med hjälp av kommandoraden är som följer.
 
     ```bash 
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 5 --stateless 
+    # Connect to your local cluster
+    sfctl cluster select --endpoint http://localhost:19080
+
+    # Run Bash command to scale instance count for your service
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
     ``` 
 
 4. Klicka på noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
 
-    ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java-spring-boot/springsfscaled.png)
+    ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
-    Du kan nu se att tjänsten har fem instanser och i trädvyn du se vilka noder instanserna körs på.
+    Tjänsten har tre instanser, och trädvyn visar vilka noder instanserna körs på.
 
-Med den här enkla hanteringsåtgärden har vi ökat resurserna för bearbetning av användarbelastning för Spring-tjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
+Med den här enkla hanteringsåtgärden utökas resurserna för bearbetning av användarbelastning för Spring-tjänsten. Det är viktigt att veta att du inte behöver flera instanser av en tjänst för att den ska köras på ett tillförlitligt sätt. Om en tjänst misslyckas ser Service Fabric till att en ny tjänstinstans körs i klustret.
 
-## <a name="failover-services-in-a-cluster"></a>Redundanstjänster i ett kluster 
-För att demonstrera tjänstredundans kan vi simulera en nodomstart med Service Fabric Explorer. Se till att endast 1 instans av din tjänst körs. 
+## <a name="fail-over-services-in-a-cluster"></a>Redundanstjänster i ett kluster 
+För att demonstrera tjänstredundans simuleras en nodomstart med Service Fabric Explorer. Se till att endast en instans av din tjänst körs. 
 
-1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
 2. Klicka på ellipsknappen (tre punkter) bredvid noden som kör instansen av din tjänst och starta om noden. 
 
-    ![Omstartsnod för Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestart.png)
-3. Instansen av tjänsten flyttas nu till en annan nod och ditt program får inget avbrott. 
+    ![Omstartsnod för Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+3. Instansen av tjänsten flyttas till en annan nod och ditt program får inget avbrott. 
 
-    ![Omstartsnod för Service Fabric Explorer lyckades](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestartsucceed.png)
+    ![Omstartsnod för Service Fabric Explorer lyckades](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten har du lärt dig att:
@@ -185,8 +189,8 @@ I den här snabbstarten har du lärt dig att:
 > * Distribuera programmet till ditt lokala kluster 
 > * Distribuera programmet till ett kluster i Azure
 > * Skala ut programmet över flera noder
-> * Utför redundans av tjänsten utan träff för tillgänglighet
+> * Utför redundans av tjänsten utan att påverka tillgängligheten
 
 * Läs mer om att [skapa Java-mikrotjänster med programmeringsmodeller för Service Fabric](service-fabric-quickstart-java-reliable-services.md)
-* Läs mer om hur man [konfigurerar kontinuerlig integration och distribution med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+* Läs mer om hur du [konfigurerar kontinuerlig integration och distribution med Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Se andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)

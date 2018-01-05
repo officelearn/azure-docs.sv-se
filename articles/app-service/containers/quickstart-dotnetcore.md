@@ -16,26 +16,30 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Skapa en .NET Core-webbapp i App Service på Linux
 
-Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till webbappen.
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en ASP.NET Core-webbapp i Azure](../app-service-web-get-started-dotnet.md).
+>
+
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till webbappen.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">Installera .NET Core SDK</a>
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Installera .NET Core SDK 1.1</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -89,7 +93,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn>_ med namnet på din webbapp.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;app name>_ med namnet på din webbapp.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -140,7 +144,7 @@ Node.js-exempelkoden körs i en webbapp med inbyggd avbildning.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Grattis!** Du har distribuerat din första Node.js-app till App Service på Linux.
+**Grattis!** Nu har du distribuerat din första Node.js-app till App Service i Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 

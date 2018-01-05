@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure-stacken
 
@@ -53,7 +53,7 @@ Resurser på volymer som innehåller klientdata. Klientdata innehåller sidbloba
 När en resurs börjar ta slut på ledigt utrymme och åtgärder för att [Frigör](#reclaim-capacity) utrymme inte lyckades eller tillgängliga, operatorn Azure Stack molnet kan [migrera](#migrate-a-container-between) blob-behållare från en resurs till en annan.
 
 - Mer information om behållare och blobbar finns [Blob storage](azure-stack-key-features.md#blob-storage) i nyckeln funktioner och koncept i Azure-stacken.
-- Information om hur klienten användare arbetar med blogg lagring i Azure-stacken finns [Azure Stack lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Information om hur klienten användare arbeta med blob storage i Azure-stacken finns [Azure Stack lagringstjänster](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Behållare

@@ -6,25 +6,25 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bf511f60a431a110f43d26444dedb7728b040af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Skapa din första behållare i Azure Container Instances
-Azure Container Instances gör det enkelt att skapa och hantera dockerbehållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
+Azure Container Instances gör det enkelt att skapa och hantera Docker-behållare i Azure, utan att behöva etablera virtuella datorer eller gå upp till en högre tjänstnivå. I den här snabbstarten skapar du en behållare i Azure och gör den tillgänglig på Internet med en offentlig IP-adress. Den här åtgärden utförs med ett enda kommando. Inom några sekunder visas det här i webbläsaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsare][aci-app-browser]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.21 eller senare för den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.21 eller senare under den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -40,16 +40,16 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Du kan skapa en behållare genom att ange ett namn, en dockeravbildning och en Azure-resursgrupp med kommandot [az container create][az-container-create]. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I den här snabbstarten distribuerar du en behållare som är värd för en liten webbapp som skrivits i [Node.js](http://nodejs.org).
+Du kan skapa en behållare genom att ange ett namn, en dockeravbildning och en Azure-resursgrupp med kommandot [az container create][az-container-create]. Du kan också göra behållaren tillgänglig på Internet med en offentlig IP-adress. I den här snabbstarten distribuerar du en behållare som är värd för en liten webbapp som skrivits i [Node.js][node-js].
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
 ```
 
 Om några sekunder bör du få ett svar på din begäran. Först har behållaren statusen **Creating** (skapas) men den bör starta inom några sekunder. Du kan kontrollera statusen med kommandot [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --name mycontainer --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
 Längst ned i resultatet visas behållarens etableringsstatus och IP-adress:
@@ -79,7 +79,7 @@ När behållaren övergår i status **Succeeded** (lyckades) kan du nå den via 
 Du kan hämta loggar för den behållare du skapade med hjälp av kommandot [az container logs][az-container-logs]:
 
 ```azurecli-interactive
-az container logs --name mycontainer --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
 Resultat:
@@ -95,13 +95,13 @@ listening on port 80
 När du är klar med behållaren kan du ta bort den med kommandot [az container delete][az-container-delete]:
 
 ```azurecli-interactive
-az container delete --name mycontainer --resource-group myResourceGroup
+az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
 Kontrollera att behållaren har tagits bort genom att köra kommandot [az container list](/cli/azure/container#az_container_list):
 
 ```azurecli-interactive
-az container list --resource-group myResourceGroup -o table
+az container list --resource-group myResourceGroup --output table
 ```
 
 Behållaren **MinBehållare** ska inte visas i kommandots utdata. Om du inte har några andra behållare i resursgruppen visas inga utdata.
@@ -115,17 +115,21 @@ All kod för behållaren som används i den här snabbstartsguiden finns [på Gi
 
 Om du vill testa alternativ för att köra behållare i ett orkestreringssystem på Azure kan du gå vidare till snabbstarterna om [Service Fabric][service-fabric] eller [Azure Container Service (AKS)][container-service].
 
-<!-- LINKS -->
+<!-- IMAGES -->
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[node-js]: http://nodejs.org
+
+<!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-
-
-<!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

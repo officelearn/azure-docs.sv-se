@@ -1,6 +1,6 @@
 # Översikt
 
-## [Vad är Azure Analysis Services?](analysis-services-overview.md)
+## [Om Analysis Services](analysis-services-overview.md)
 ## [Datakällor som stöds](analysis-services-datasource.md)
 ## [Autentisering och användarbehörigheter](analysis-services-manage-users.md)
 ## [Ansluta till lokala datakällor](analysis-services-gateway.md)

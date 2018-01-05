@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b014d43ab25124d3e08e19ca190b320fc8456593
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Ta bort en virtuell nätverksgateway med hjälp av portalen
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Den här artikeln innehåller instruktioner för att ta bort en Azure VPN-gatewayer distribueras med Resource Manager-distributionsmodellen. Det finns ett par olika metoder som du kan använda när du vill ta bort en virtuell nätverksgateway för en konfiguration för VPN-gateway.
 
-- Om du vill ta bort allt och börja om från början, som i fallet med en testmiljö kan du ta bort resursgruppen. När du tar bort en resursgrupp tar bort alla resurser i gruppen. Det här är metod rekommenderas endast om du inte vill behålla några resurser i resursgruppen. Du kan inte selektivt Radera endast några resurser med hjälp av den här metoden.
+- Om du vill ta bort allt och börja om från början, som i fallet med en testmiljö kan du ta bort resursgruppen. När du tar bort en resursgrupp tar bort alla resurser i gruppen. Den här metoden bör endast om du inte vill att alla resurser i resursgruppen. Du kan inte selektivt Radera endast några resurser med hjälp av den här metoden.
 
 - Om du vill behålla vissa av resurserna i resursgruppen blir tar bort en virtuell nätverksgateway något mer komplicerad. Innan du kan ta bort den virtuella nätverksgatewayen, måste du först ta bort alla resurser som är beroende av denna gateway. De steg du följer beror på vilken typ av anslutningar som du skapade och beroende resurser för varje anslutning.
 

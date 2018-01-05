@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 Nu tillgängligt: Azure Cosmos-DB [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner). Läs mer i [uppskatta dina genomströmning måste](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Vi rekommenderar att komma igång med att titta på nedanstående video, där Ar
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Ange kapacitet för begäran-enhet i Azure Cosmos DB
 När du startar en ny samling, tabell eller diagrammet kan du ange hur många frågeenheter per sekund (RU per sekund) som du vill reserverade. Baserat på etablerat dataflöde, Azure Cosmos DB allokerar fysiska partitioner som värd för din samling och delningar/rebalances data över partitioner när det växer.
 
-Azure Cosmos-DB kräver en partitionsnyckel anges när en samling är etablerad med 2 500 frågeenheter eller högre. En partitionsnyckel krävs också för att skala din samling genomströmning utöver 2 500 frågeenheter i framtiden. Därför rekommenderas att konfigurera en [partitionsnyckel](partition-data.md) när du skapar en behållare oavsett din första genomflöde. Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden du se till att ditt diagram-samling/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
+Azure DB Cosmos-behållare kan skapas som fast eller obegränsade. Fast storlek behållare har en maxgräns på 10 GB och 10 000 RU/s genomströmning. Du måste ange minsta dataflöde på 1 000 RU/s för att skapa ett obegränsat antal behållare och en [partitionsnyckel](partition-data.md). Eftersom dina data kan behöva delas mellan flera partitioner, är det nödvändigt att välja en partitionsnyckel som har en hög kardinalitet (100 miljoner distinkta värden). Genom att välja en partitionsnyckel med många distinkta värden du se till att ditt diagram-samling/tabell och begäranden kan skalas enhetligt med Azure Cosmos DB. 
 
 > [!NOTE]
 > En partitionsnyckel är en logisk gräns och inte en fysisk. Därför behöver du inte begränsa antalet distinkta partitionsnyckelvärden. I praktiken är det bättre att ha tydligare partitionsnyckelvärden än mindre, Azure Cosmos DB har flera alternativ för belastningsutjämning.

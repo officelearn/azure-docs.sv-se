@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
 
+## <a name="december-guest-os"></a>December gäst-OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 17-12 | [4053579], [4054517] |Windows 10 säkerhetsuppdateringar |4.49, 5.14 |12 december 2017 |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Windows-säkerhet |2.69, 3.56, 4.49 |12 december 2017 |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 december 2017 |
+| Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 december 2017 |
+| Gäller inte | [4048957] |Insamling av november icke-säkerhet |2.67 |14 november 2017 |
+| Gäller inte | [4048959] |Insamling av november icke-säkerhet |3.56 |14 november 2017 |
+| Gäller inte | [4048958] |Insamling av november icke-säkerhet |4.49 |14 november 2017 |
+| Gäller inte | [4049068] |Uppdatering för december tidszonen |2.69, 3.56, 4.49 |12 december 2017 |
+
 ## <a name="november-guest-os"></a>November gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 17 10 | [4048953] |Windows 10-uppdateringar |5.13 |14 november 2017 |
-| Rel 17 10 | [4048960], [4048962], [4048961] |Windows-säkerhet |2.68, 3.55, 4.48 |14 november 2017 |
-| Rel 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 november 2017 |
-| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
+| Rel 17-11 | [4048953] |Windows 10-uppdateringar |5.13 |14 november 2017 |
+| Rel 17-11 | [4048960], [4048962], [4048961] |Windows-säkerhet |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 november 2017 |
+| Rel 17-11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 november 2017 |
 | Gäller inte | [4041681] |Insamling av oktober icke-säkerhet |2.67 |Den 10 oktober 2017 |
 | Gäller inte | [4041690] |Insamling av oktober icke-säkerhet |3.55 |Den 10 oktober 2017 |
 | Gäller inte | [4041693] |Insamling av oktober icke-säkerhet |4.48 |Den 10 oktober 2017 |
@@ -562,6 +574,19 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte |[3007054] |PIN-kodsskyddade utskrifter alternativet alltid visas när du skriver ut ett dokument i Windows Store-programmet i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2999802] |Heldragen linje i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

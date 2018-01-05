@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d6a950d69e5279c3cc19d8e457bfa23c2b40f515
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation Runbook- och stänga
 Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft och communityn istället för att skapa egna runbooks och moduler i Azure Automation.  Du kan antingen använda de här scenarierna utan ändringar eller använda dem som en startpunkt och redigera dem för dina specifika krav.
@@ -26,23 +26,14 @@ Du kan komma åt en mängd olika scenarier som redan har skapats av Microsoft oc
 Du kan hämta runbooks från den [Runbook-galleriet](#runbooks-in-runbook-gallery) och moduler från den [PowerShell-galleriet](#modules-in-powerShell-gallery).  Du kan även bidra till gruppen genom att dela scenarier som du utvecklar.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks i Runbook-galleriet
-Den [Runbook-galleriet](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) innehåller en mängd olika runbooks från Microsoft och som du kan importera till Azure Automation. Du kan antingen ladda ned en runbook från galleri som finns i den [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), eller så kan du importera runbooks direkt från galleriet från den klassiska Azure-portalen eller Azure-portalen.
+Den [Runbook-galleriet](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) innehåller en mängd olika runbooks från Microsoft och som du kan importera till Azure Automation. Du kan antingen ladda ned en runbook från galleri som finns i den [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), eller så kan du importera runbooks direkt från galleriet i Azure-portalen.
 
-Du kan bara importera direkt från galleriet Runbook med den klassiska Azure-portalen eller Azure-portalen. Du kan inte utföra den här funktionen med Windows PowerShell.
+Du kan bara importera direkt från Runbook-galleriet med Azure-portalen. Du kan inte utföra den här funktionen med Windows PowerShell.
 
 > [!NOTE]
 > Du bör verifiera innehållet i alla runbooks du hämta från Runbook-galleriet och vara mycket försiktig installera och köra dem i en produktionsmiljö. |
 > 
 > 
-
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-classic-portal"></a>Så här importerar du en runbook från galleriet Runbook med den klassiska Azure-portalen
-1. I Azure-portalen klickar du på, **ny**, **Apptjänster**, **Automation**, **Runbook**, **från galleriet**.
-2. Välj en kategori för att visa relaterade runbooks och välj en runbook för att visa dess egenskaper. När du väljer den runbook du vill, klicka på högerpilen.
-   
-    ![Runbook-galleri](media/automation-runbook-gallery/runbook-gallery.png)
-3. Granska innehållet i runbook och notera eventuella krav i beskrivningen. Klicka på högerpilen när du är klar.
-4. Ange information om runbook och klicka sedan på knappen markering. Runbooknamnet är ifylld.
-5. Runbook visas på den **Runbooks** för Automation-kontot.
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importera en runbook från Runbook-galleriet med Azure-portalen
 1. Öppna ditt Automation-konto på Azure Portal.
@@ -70,21 +61,21 @@ Microsoft rekommenderar att du vill lägga till runbooks i Runbook-galleriet som
 * Sammanfattning för överföringen visas i resultaten för Runbook-galleriet så bör du ge detaljerad information som hjälper användaren identifiera funktionen för runbook.
 * Du bör tilldela en till tre av följande taggar till överföringen.  Runbook visas i guiden under kategorier som matchar dess taggar.  Alla taggar inte på den här listan ignoreras av guiden. Om du inte anger någon matchande taggar visas runbook under den andra kategorin.
   
-  * Säkerhetskopiering
+  * Backup
   * Kapacitetshantering
   * Ändringshantering
   * Efterlevnad
   * Dev / Test miljöer
   * Haveriberedskap
   * Övervakning
-  * Korrigering
+  * Uppdatering
   * Etablering
-  * Reparation
+  * Åtgärd
   * Livscykelhantering för VM
 * Automation uppdaterar galleriet en gång i timmen, så att du inte se dina bidrag omedelbart.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduler i PowerShell-galleriet
-PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och befintliga moduler som du kan installera i Azure Automation är tillgängliga i den [PowerShell-galleriet](http://www.powershellgallery.com).  Du kan starta den här gallery från Azure-portalen och installera dem direkt i Azure Automation eller hämta dem och installera dem manuellt.  Du kan inte installera modulerna direkt från den klassiska Azure-portalen, men du kan hämta dem installera dem som en annan modul.
+PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och befintliga moduler som du kan installera i Azure Automation är tillgängliga i den [PowerShell-galleriet](http://www.powershellgallery.com).  Du kan starta den här gallery från Azure-portalen och installera dem direkt i Azure Automation eller hämta dem och installera dem manuellt.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Importera en modul från galleriet Automation-modul med Azure-portalen
 1. Öppna ditt Automation-konto på Azure Portal.

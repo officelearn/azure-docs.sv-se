@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: e915c936af65bc9cac591d1fc011351b1720bb5b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Exempel på anpassade kolumnen transformeringar (Python) 
 Namnet på den här transformeringen i menyn är **Add Column (skript)**.
@@ -54,6 +54,12 @@ Antal sekunder sedan Unix-epok (antagande om Kol1 är redan ett datum):
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## <a name="hash-a-column-value-into-a-new-column"></a>Hash-värde i kolumnen till en ny kolumn
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

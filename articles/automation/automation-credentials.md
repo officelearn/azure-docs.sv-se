@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Inloggningstillgångar i Azure Automation
 Ett Automation-autentiseringsuppgiftstillgång innehåller en [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objekt som innehåller säkerhetsreferenser, till exempel användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt för att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfigurationen med den [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivitet.
@@ -81,13 +81,6 @@ Följande exempelkommandon visar hur du skapar en ny automation-autentiseringsup
     $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
     $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
     New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
-
-### <a name="to-create-a-new-credential-asset-with-the-azure-classic-portal"></a>Skapa en ny autentiseringstillgång med den klassiska Azure-portalen
-1. Från ditt automation-konto klickar du på **tillgångar** längst upp i fönstret.
-2. Längst ned i fönstret klickar du på **Lägg till inställning**.
-3. Klicka på **Lägg till autentiseringsuppgift**.
-4. I den **autentiseringstypen** listrutan **PowerShell-autentiseringsuppgift**.
-5. Slutför guiden och klickar du på kryssrutan för att spara de nya autentiseringsuppgifter.
 
 ## <a name="using-a-powershell-credential"></a>Med hjälp av en PowerShell-autentiseringsuppgift
 Du kan hämta en autentiseringstillgång i en runbook eller DSC-konfigurationen med den **Get-AutomationPSCredential** aktivitet. Detta returnerar en [PSCredential-objekt](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) som du kan använda med en aktivitet eller cmdlet som kräver en PSCredential-parameter. Du kan också hämta egenskaperna för objektet autentiseringsuppgifter att använda individuellt. Objektet har en egenskap för användarnamnet och säkert lösenord, eller så kan du använda den **GetNetworkCredential** metod för att returnera en [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) objekt som ger en oskyddad version av lösenordet.

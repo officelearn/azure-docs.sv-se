@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Förstå hur IoT kant moduler kan användas, konfigurerad, och återanvänds - förhandsgranskning
 
@@ -99,7 +99,7 @@ Sink kan vara något av följande:
 | sink | Beskrivning |
 | ---- | ----------- |
 | `$upstream` | Skicka meddelandet till IoT-hubb |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Skicka meddelandet till indata `{input}` för modulen`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Skicka meddelandet till indata `{input}` för modulen`{moduleId}` |
 
 Det är viktigt att notera att Edge hubb tillhandahåller garantier för på-minst en gång, vilket innebär att meddelanden kommer att lagras lokalt om en väg går inte att leverera meddelandet till dess mottagare, t.ex. Edge-hubb kan inte ansluta till IoT-hubb eller mål-modulen är inte anslutet.
 

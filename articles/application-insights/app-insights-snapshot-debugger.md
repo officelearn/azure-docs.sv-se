@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -62,8 +62,6 @@ Följande miljöer stöds:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -161,7 +159,7 @@ Följande miljöer stöds:
    }
     ```
     
-## <a name="grant-permissions"></a>Bevilja behörighet
+## <a name="grant-permissions"></a>Bevilja behörigheter
 
 Ägarna av Azure-prenumeration kan inspektera ögonblicksbilder. Andra användare måste beviljas behörighet genom en ägare.
 
@@ -174,8 +172,8 @@ Om du vill ge behörighet, tilldela den `Application Insights Snapshot Debugger`
 1. Klicka på Spara för att lägga till användaren i rollen.
 
 
-[!IMPORTANT]
-    Ögonblicksbilder kan innehålla personliga och annan känslig information i variabeln och parametervärden.
+> [!IMPORTANT]
+> Ögonblicksbilder kan innehålla personliga och annan känslig information i variabeln och parametervärden.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Felsöka ögonblicksbilder i Application Insights-portalen
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 För program som är _inte_ finns i App Service, överföring loggarna finns i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är instrumentation-nyckel).
 
+För roller i molntjänster kanske tillfälliga standardmappen för liten för minidumpfiler. I så fall kan du ange en annan mapp via egenskapen TempFolder i ApplicationInsights.config.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights Sök efter undantag med ögonblicksbilder
 
 När en ögonblicksbild skapas är utlösande undantaget märkta med en ögonblicksbild-ID. När undantagstelemetri rapporterats till Application Insights ögonblicksbilds-ID ingår som en anpassad egenskap. Med hjälp av bladet Sök i Application Insights, du kan hitta all telemetri med den `ai.snapshot.id` anpassad egenskap.
@@ -299,6 +308,6 @@ Om du fortfarande inte ser ett undantag med detta ID för ögonblicksbild rappor
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ange snappoints i koden](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) att hämta ögonblicksbilder utan att vänta på ett undantag.
+* [Ange snappoints i koden](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) att hämta ögonblicksbilder utan att vänta på ett undantag.
 * [Diagnostisera undantag i web apps](app-insights-asp-net-exceptions.md) förklarar hur du se flera undantag till Application Insights. 
 * [Identifiering för smartkort](app-insights-proactive-diagnostics.md) upptäcker automatiskt prestandaavvikelser.

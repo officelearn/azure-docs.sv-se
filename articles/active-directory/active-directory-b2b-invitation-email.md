@@ -1,5 +1,5 @@
 ---
-title: Elementen i e-postinbjudan Azure Active Directory B2B-samarbete | Microsoft Docs
+title: Elementen i B2B-samarbete e-postinbjudan - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B-samarbete inbjudan e-postmall
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Elementen i e-postinbjudan B2B-samarbete
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i B2B-samarbete e-postinbjudan - Azure Active Directory
 
 E-postmeddelanden för inbjudan är en kritisk komponent återinföra partners på tåget som B2B-samarbete användare i Azure AD. Du kan använda dem för att öka mottagarens förtroende. Du kan lägga till är giltiga och sociala bevis till e-post, se till mottagaren känns bekväm med att välja den **Kom igång** för att tacka ja till inbjudan. Förtroendet är en nyckel som innebär att minska delning friktion. Och du vill se e-postmeddelandet ser bra ut!
 
@@ -33,7 +31,7 @@ Nu ska vi titta på några elementen i e-postmeddelandet så att du vet hur du b
 ### <a name="subject"></a>Ämne
 Ämnet för e-postmeddelandet efter följande mönster: du inbjuds att den &lt;tenantname&gt; organisation
 
-### <a name="from-address"></a>Från-adress
+### <a name="from-address"></a>Från adress
 Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren av inbjudan och e-postadress som företagets och även tydliggöra att e-postmeddelandet kommer från Microsoft. Formatet är: &lt;visningsnamnet för bjuder in&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Svara

@@ -3,8 +3,8 @@ title: "Uppgradera från Mobile Services till Azure App Service"
 description: "Lär dig hur du lätt att uppgradera ditt Mobile Services-program till en Apptjänst Mobile App"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Uppgradera din befintliga Mobiltjänst för .NET-Azure till App Service
 Apptjänst Mobile är ett nytt sätt att skapa mobila program med Microsoft Azure. Läs mer i [vad är Mobilappar?].
@@ -123,7 +123,7 @@ Så att du har samma schema refereras som tidigare, Använd följande för att s
 
 Kontrollera att du har MS_MobileServiceName ange om du gör det som nämns ovan. Du kan också ange en annan schemanamnet om tillämpningsprogrammet anpassat detta tidigare.
 
-### <a name="system-properties"></a>Egenskaper för system
+### <a name="system-properties"></a>Systemegenskaper
 #### <a name="naming"></a>Namngivning
 I Azure Mobile Services-servern SDK Systemegenskaper alltid innehålla ett dubbelt understreck (`__`)-prefixet för egenskaperna:
 
@@ -139,7 +139,7 @@ I Azure Mobile Apps Systemegenskaper inte längre har en särskild format och ha
 * CreatedAt
 * updatedAt
 * ta bort
-* Version
+* version
 
 Mobile Apps klienten SDK: er använda de nya egenskaper för namn, så inga ändringar krävs för att klientkod. Men om du direkt gör REST-anrop till din tjänst bör du ändra dina frågor i enlighet med detta.
 
@@ -155,7 +155,7 @@ På iOS, bör du ändra schemat för dina data entiteter till följande grundlä
 | id |Strängen som markerats krävs |primärnyckeln i fjärranslutna store |
 | CreatedAt |Date |(valfritt) mappas till createdAt Systemegenskapen |
 | updatedAt |Date |(valfritt) mappas till updatedAt Systemegenskapen |
-| Version |Sträng |(valfritt) används för att identifiera konflikter, mappas till version |
+| version |Sträng |(valfritt) används för att identifiera konflikter, mappas till version |
 
 #### <a name="querying-system-properties"></a>Frågar Systemegenskaper
 I Azure Mobile Services Systemegenskaper skickas inte som standard, men endast när de begär med hjälp av frågesträngen `__systemProperties`. Däremot i Azure Mobile Apps system egenskaper är **alltid valt** eftersom de är en del av objektmodellen server SDK.

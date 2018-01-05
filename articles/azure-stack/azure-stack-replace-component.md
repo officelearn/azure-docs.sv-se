@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersätta en maskinvarukomponent på Azure-stacken skala enhet nod
 
 *Gäller för: Azure Stack integrerat system*
 
-Den här artikeln beskriver den allmänna processen för att ersätta maskinvarukomponenter som är inte bytas. Faktiska ersättning stegen varierar utifrån maskinvaruleverantören OEM-tillverkaren (OEM). Dokumentationen leverantörens fältet utbytbara enhet (FRU) för detaljerade anvisningar som är specifika för din Azure-stacken integrerat system.
+Den här artikeln beskriver den allmänna processen för att ersätta maskinvarukomponenter som är inte bytas. Faktiska ersättning stegen variera baserat på maskinvaruleverantören OEM-tillverkaren (OEM). Dokumentationen leverantörens fältet utbytbara enhet (FRU) för detaljerade anvisningar som är specifika för din Azure-stacken integrerat system.
 
 Följande är icke växlas komponenter:
 
@@ -40,7 +40,7 @@ Följande är icke växlas komponenter:
 
 Följande flöde diagram visar den allmänna FRU-processen att ersätta en icke växlas maskinvarukomponent.
 
-![Flödesdiagram för visar komponenten ersättning flöde](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Flödesdiagram för visar komponenten ersättning flöde](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
 
@@ -48,11 +48,11 @@ Följande flöde diagram visar den allmänna FRU-processen att ersätta en icke 
 
 ## <a name="review-alert-information"></a>Granska aviseringsinformation
 
-Azure-stacken hälsotillstånd och övervakningssystemet övervakar hälsan för nätverkskort och dataenheter som styrs av Storage Spaces Direct. Den övervakar inte andra maskinvarukomponenter. Aviseringar som aktiveras för alla andra maskinvarukomponenter i leverantörsspecifika maskinvara övervakningslösning som körs på värden för maskinvara livscykel.
+Azure-stacken hälsotillstånd och övervakningssystemet spårar hälsotillståndet för nätverkskort och dataenheter som styrs av Storage Spaces Direct. Den spårar inte andra maskinvarukomponenter. Aviseringar som aktiveras för alla andra maskinvarukomponenter i leverantörsspecifika maskinvara övervakningslösning som körs på värden för maskinvara livscykel.
 
 ## <a name="component-replacement-process"></a>Process för ersättning av komponenter
 
-Följande steg tillhandahålls som en översikt över processen för att byta komponent. Följ inte stegen utan att referera till OEM-tillverkarens FRU-dokumentationen.
+Följande steg ger en översikt över processen för att byta komponent. Följ inte stegen utan att referera till OEM-tillverkarens FRU-dokumentationen.
 
 1. Använd den [tömmer](azure-stack-node-actions.md#scale-unit-node-actions) åtgärden att placera noden skala enhet i underhållsläge. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
 2. När noden skala enhet är i underhållsläge, använda den [stängs](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
@@ -69,4 +69,5 @@ Följande steg tillhandahålls som en översikt över processen för att byta ko
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om du vill ersätta en växlas fysisk disk finns [ersätta en disk](azure-stack-replace-disk.md).
-- Information om du vill ersätta en fysisk nod finns [ersätta en scale unit nod](azure-stack-replace-node.md). 
+- Information om du vill ersätta en fysisk nod finns [ersätta en scale unit nod](azure-stack-replace-node.md).
+- 

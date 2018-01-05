@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Översikt över SAP HANA (stora instanser) och arkitektur på Azure
 
@@ -468,7 +468,7 @@ Distribuera SAP programnivå eller komponenter, över flera virtuella Azure-nät
 
 Det finns tre viktiga routning Nätverksöverväganden för SAP HANA i Azure (stora instanser):
 
-1. SAP HANA i Azure (stora instanser) kan endast nås via virtuella Azure-datorer och via dedikerade ExpressRoute-anslutningen. inte direkt från lokalt. Direktåtkomst från lokal till HANA stora instans-enheter är som levereras av Microsoft, inte möjlig direkt på grund av tillfälliga routning begränsningar för den aktuella Azure nätverksarkitekturen används för SAP HANA stora instanser. Vissa klienter för administration och alla program som behöver direktåtkomst, till exempel SAP lösning Manager som körs lokalt, kan inte ansluta till SAP HANA-databas.
+1. SAP HANA i Azure (stora instanser) kan endast nås via virtuella Azure-datorer och via dedikerade ExpressRoute-anslutningen. inte direkt från lokalt. Direktåtkomst från lokal till HANA stora instans-enheter är som levereras av Microsoft, inte möjlig direkt på grund av transitiva routning begränsningar för den aktuella Azure nätverksarkitekturen används för SAP HANA stora instanser. Vissa klienter för administration och alla program som behöver direktåtkomst, till exempel SAP lösning Manager som körs lokalt, kan inte ansluta till SAP HANA-databas.
 
 2. Om du har stora HANA-instans enheter som distribuerats i två olika Azure-regioner för Disaster Recovery gäller samma tillfälligt routning begränsningar. Eller IP-adresser för en enhet HANA stora instans i en region (t.ex. oss West) kommer med andra ord inte dirigeras till en stor HANA-instans distribuerad du i en annan region (t.ex. oss East). Detta är oberoende av användningen av Azure-nätverk mellan regioner eller mellan ansluter ExpressRoute-kretsar som ansluter HANA stora instans enheter till Azure-Vnet-peering. Som visas lite mer ned i den här dokumentationen. Den här begränsningen som medföljer distribuerad arkitektur kommer förhindrar omedelbar användningen av HANA System Replication när Disaster recovery-funktioner.
 

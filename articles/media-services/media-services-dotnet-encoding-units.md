@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Hur du skalar kodning med .NET SDK:n
 > [!div class="op_single_selector"]
@@ -31,12 +31,12 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Om du vill hämta den senaste versionen av Java SDK och börja utveckla med Java Se [komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure paketet i den [Packagist databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Översikt
 > [!IMPORTANT]
-> Se till att granska den [översikt](media-services-scale-media-processing-overview.md) avsnittet om du vill ha mer information om skalning media bearbetning av avsnittet.
+> Se till att granska den [översikt](media-services-scale-media-processing-overview.md) för mer information om att skala media bearbetning.
 > 
 > 
 
@@ -56,17 +56,7 @@ Om du vill ändra typ av enhet och antalet kodningsreserverade enheter med hjäl
 Som standard kan alla Media Services-konto skala upp till 25 kodning och 5 på begäran reserverade enheter för strömning. Du kan begära en högre gräns genom att öppna ett supportärende.
 
 ### <a name="open-a-support-ticket"></a>Öppna ett supportärende
-Om du vill öppna en supportbegäran biljetten gör du följande:
-
-1. Klicka på [få Support](https://manage.windowsazure.com/?getsupport=true). Om du inte är inloggad uppmanas du att ange dina autentiseringsuppgifter.
-2. Välj din prenumeration.
-3. Välj ”Technical” under typ av stöd.
-4. Klicka på ”Skapa biljett”.
-5. Välj ”Azure Media Services” i produktlistan över visas på nästa sida.
-6. Välj ”typ” som passar ditt problem.
-7. Klicka på Fortsätt.
-8. Följ instruktionerna på nästa sida och anger sedan information om problemet.
-9. Klicka på Skicka för att öppna biljetten.
+I Azure-portalen går du till [hjälp + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Om du inte är inloggad på Azure, uppmanas du att ange dina autentiseringsuppgifter.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

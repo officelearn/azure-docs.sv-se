@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Hur en IoT-enhet kan användas som en gateway - förhandsgranskning
 
@@ -23,7 +23,7 @@ Syftet med gateways i IoT-lösningar är specifik för lösningen och kombinera 
 Det finns tre mönster för att använda en insticksenhet för IoT som gateway: öppet, protokoll, översättning och identitet översättning:
 * **Transparent** – enheter som teoretiskt kunde ansluta till IoT-hubb kan ansluta till en gateway-enhet i stället. Detta innebär att de underordnade enheterna har sina egna identiteter för IoT-hubb och använder något av de MQTT, AMQP och HTTP-protokoll. Gatewayen skickar bara kommunikation mellan enheter och IoT-hubb. Enheter är inte medveten om att de kommunicerar med molnet via en gateway och en användare interagerar med enheter i IoT-hubben är medveten om mellanliggande gateway-enheten. Gatewayen är alltså transparent. Referera till den [skapa en transparent gateway] [ lnk-iot-edge-as-transparent-gateway] instruktioner för närmare information om hur du använder en IoT-enhet som en transparent gateway.
 * **Protokollet översättning** – enheter som inte stöder MQTT, AMQP och HTTP-använda en gateway-enhet för att skicka data till IoT-hubb. Gatewayen är smart att förstå det protokoll som används av underordnade enheter; Det är emellertid bara enheten som har en identitet i IoT-hubb. All information som ser ut som kommer från en enhet, gatewayen. Detta innebär att efterföljande enheter måste bädda in ytterligare identifieringsinformation i meddelandena om molnprogram vill orsak om data på grundval av per enhet. Dessutom IoT-hubb primitiver som dubbla och metoder är bara tillgängliga för gateway-enheten inte efterföljande enheter.
-* **Identitet översättning** -enheter som inte kan ansluta till IoT-hubb som ansluter till en gateway-enhet som tillhandahåller identitets- och översättning för underordnade enheter för IoT-hubb. Gatewayen är smart att förstå det protokoll som används av underordnade enheter, ger dem identitet och översätta IoT-hubb primitiver. Efterföljande enheter visas i IoT-hubb som förstklassigt enheter med twins och metoder. En användare kan interagera med enheter i IoT-hubben har inte känner till mellanliggande gateway-enheten.
+* **Identitet översättning** -enheter som inte kan ansluta till IoT-hubb som ansluter till en gateway-enhet som tillhandahåller identitets- och översättning för underordnade enheter för IoT-hubb. Gatewayen är smart att förstå det protokoll som används av underordnade enheter, ger dem identitet och översätta IoT-hubb primitiver. Efterföljande enheter visas i IoT-hubb som förstklassigt enheter med twins och metoder. En användare kan interagera med enheter i IoT-hubb och stöder inte mellanliggande gateway-enheten.
 
 ![Diagram över gateway mönster][1]
 
@@ -49,7 +49,7 @@ Här är en snabb över blad som jämför IoT-hubb primitiver när du använder 
 | Direkta metoder och meddelanden moln till enhet | Molnet kan adressera varje ansluten enhet individuellt | Molnet kan bara adressera gateway-enhet | Molnet kan adressera varje ansluten enhet individuellt |
 | [IoT-hubb begränsningar och kvoter][lnk-iothub-throttles-quotas] | Gäller för varje enhet | Gäller för gateway-enhet | Gäller för varje enhet |
 
-När du använder ett mönster för täckande gateway, dela alla enheter som ansluter via denna gateway samma kö från moln till enhet, som kan innehålla högst 50 meddelanden. Det följer att täckande gateway mönstret bör endast användas när mycket få enheter ansluter via varje fält gateway och moln till enhet trafiken är låg.
+Dela samma kö från moln till enhet, som kan innehålla högst 50 meddelanden när du använder ett mönster för täckande gateway (översättning av protokollet) alla enheter som ansluter via denna gateway. Det följer att täckande gateway mönstret bör endast användas när mycket få enheter ansluter via varje fält gateway och moln till enhet trafiken är låg.
 
 ## <a name="next-steps"></a>Nästa steg
 Använda en insticksenhet för IoT som en [transparent gateway][lnk-iot-edge-as-transparent-gateway] 

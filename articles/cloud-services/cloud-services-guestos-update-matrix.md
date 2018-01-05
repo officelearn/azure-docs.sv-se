@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,10 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+
+###### <a name="january-4-2018"></a>**4 januari 2018**
+December Gästoperativsystem har publicerat.
+
 ###### <a name="december-14-2017"></a>**14 december 2017**
 November Gästoperativsystem har publicerat.
 
@@ -69,12 +73,6 @@ Juni Gästoperativsystem har publicerat.
 ###### <a name="june-16-2017"></a>**16 juni 2017**
 Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 juli.
 
-###### <a name="june-5-2017"></a>**5 juni 2017**
-Gästoperativsystem kan har publicerat.
-
-###### <a name="may-17-2017"></a>**Den 17 maj 2017**
-På grund av ett programfel för säkerhet kan vi inaktiverar följande December 2016 och januari 2017 OS-versioner som inte har den [åtgärda] från portalen: WA-GÄST-OS-5.4_201612-01, WA-GÄST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>Versioner
 ## <a name="family-5-releases"></a>Familj 5 versioner
@@ -90,8 +88,9 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Bokför 5.15 |TBD |
-| WA-GUEST-OS-5.12_201710-02 |8 november 2017 |Bokför 5.14 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
@@ -113,8 +112,9 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Bokför 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Bokför 4,50 |TBD |
-| WA-GUEST-OS-4.47_201710-02 |8 november 2017 |Bokför 4.49 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
@@ -136,8 +136,9 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |TBD |
 | WA-GUEST-OS-3.55_201711-01 |14 december 2017 |Bokför 3.57 |TBD |
-| WA-GUEST-OS-3.54_201710-02 |8 november 2017 |Post 3.56 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
@@ -159,8 +160,9 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |TBD |
 | WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Bokför 2.70 |TBD |
-| WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
@@ -246,4 +248,4 @@ Principen för Gästoperativsystem support och tillbakadragning förklaras [här
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[åtgärda]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

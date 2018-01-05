@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostikloggning
 
@@ -34,9 +34,9 @@ Du kan välja **motorn**, **Service**, och **mått** kategorier.
 
 ### <a name="engine"></a>Motorn
 
-Att välja motorn loggar alla [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
+Att välja **motorn** loggar alla [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
 
-|XEvent-kategorier |Händelsenamn  |
+|XEvent-kategorier |händelsenamnet  |
 |---------|---------|
 |Säkerhetsgranskning    |   Granska inloggning      |
 |Säkerhetsgranskning    |   Granska logga ut      |
@@ -73,17 +73,17 @@ Att välja motorn loggar alla [xEvents](https://docs.microsoft.com/sql/analysis-
 
 ### <a name="all-metrics"></a>Alla mått
 
-Kategorin AllMetrics loggar samma [serverstatistik](analysis-services-monitor.md#server-metrics) visas i mått.
+Kategorin mått loggar samma [serverstatistik](analysis-services-monitor.md#server-metrics) visas i mått.
 
 ## <a name="setup-diagnostics-logging"></a>Konfigurera diagnostikloggning
 
-### <a name="by-using-the-azure-portal"></a>Med hjälp av Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. I [Azure-portalen](https://portal.azure.com), i din Azure Analysis Services-server klickar du på **diagnostikloggar** i det vänstra navigeringsfönstret och klicka sedan på **aktivera diagnostiken**.
+1. I [Azure-portalen](https://portal.azure.com) > server, klickar du på **diagnostikloggar** i det vänstra navigeringsfönstret och klicka sedan på **aktivera diagnostiken**.
 
     ![Aktivera diagnostikloggning för Azure Cosmos DB i Azure-portalen](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. I den **diagnostikinställningar** gör följande: 
+2. I **diagnostikinställningar**, gör du följande: 
 
     * **Namn**. Ange ett namn för loggfilerna för att skapa.
 
@@ -101,8 +101,9 @@ Kategorin AllMetrics loggar samma [serverstatistik](analysis-services-monitor.md
 
     Om du vill ändra hur dina diagnostikloggar sparas när som helst i framtiden kan du återgå till den här sidan om du vill ändra inställningarna.
 
-### <a name="by-using-powershell"></a>Med hjälp av PowerShell
-Här är de grundläggande kommandona som du kan gå. Om du vill hjälp om hur du konfigurerar loggning till ett lagringskonto med hjälp av PowerShell, finns det [kursen](#tutorial) senare i den här artikeln.
+### <a name="powershell"></a>PowerShell
+
+Här är de grundläggande kommandona som du kan gå. Om du vill ha hjälp om hur du konfigurerar loggning till ett lagringskonto med hjälp av PowerShell finns i kursen nedan.
 
 Om du vill aktivera mätvärden och diagnostikfunktionerna loggning med hjälp av PowerShell använder du följande kommandon:
 
@@ -156,13 +157,11 @@ Loggarna är normalt tillgängliga inom några timmar för att konfigurera loggn
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 * Glöm inte att ange en kvarhållningsperiod för så gamla loggarna tas bort från ditt lagringskonto.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visa loggfiler i logganalys
 
 Mått och serverhändelser är integrerade med xEvents i Log Analytics för sida vid sida analys. Log Analytics kan också konfigureras för att ta emot händelser från andra Azure-tjänster att ge en helhetsvy över diagnostiska loggningsdata över arkitekturen.
 
-Om du vill visa dina diagnostiska data i logganalys öppna loggen söksidan från den vänstra menyn eller området på sidan som visas i följande bild:
+Om du vill visa dina diagnostiska data i logganalys öppna loggen söksidan från den vänstra menyn eller området som visas nedan.
 
 ![Logga Sökalternativ i Azure-portalen](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Klicka på **EventClass\_s** eller en händelsenamn och logganalys fortsätter a
 
 Se till att checka ut Operations Management Suite som ger en webbplats med aviseringar funktioner på logganalys data, dashboarding och förbättrad frågan.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Frågor
 
 Det finns hundratals frågor som du kan använda. Här följer några att komma igång.
@@ -199,7 +197,6 @@ Mer information om hur du använder nya loggen Sök frågespråket finns [först
 > Har en bra Log Analytics-fråga som du vill dela? Om du har en GitHub-konto kan du lägga till den i den här artikeln. Klicka bara på **redigera** på upp till höger på sidan.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Självstudiekurs – aktivera loggning med hjälp av PowerShell
 I självstudierna snabbt skapa ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Du kan sedan använda Set-AzureRmDiagnosticSetting för att aktivera diagnostiken loggar, skicka utdata till det nya lagringskontot.
 
@@ -208,8 +205,7 @@ Den här kursen behöver du följande resurser:
 
 * En befintlig Azure Analysis Services-server. Anvisningar om hur du skapar en server-resurs finns [skapa en server i Azure-portalen](analysis-services-create-server.md), eller [skapa en Azure Analysis Services-server med hjälp av PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Ansluta till dina prenumerationer
+### <a name="aconnect-to-your-subscriptions"></a></a>Ansluta till dina prenumerationer
 
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
+### <a name="create-a-new-storage-account-for-your-logs"></a>Skapa ett nytt lagringskonto för dina loggar
 
 Du kan använda ett befintligt lagringskonto för dina loggar under förutsättning att den är i samma prenumeration som din server. Den här självstudiekursen skapa du ett nytt lagringskonto dedikerade till Analysis Services-loggar. Om du vill göra det enklare, du lagrar information om lagringskonto i en variabel med namnet **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Identifiera server-konto för loggarna
+### <a name="identify-the-server-account-for-your-logs"></a>Identifiera server-konto för loggarna
 
 Ange namnet på kontot till en variabel med namnet **konto**, där ResourceName är namnet på kontot.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Aktivera loggning
+### <a name="enable-logging"></a>Aktivera loggning
 
 Använd cmdlet Set-AzureRmDiagnosticSetting tillsammans med variabler för att aktivera loggning för det nya lagringskontot, server-konto och kategorin. Kör följande kommando, ange den **-aktiverad** flaggan till **$true**:
 

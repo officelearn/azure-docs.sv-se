@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Ge dina programdata hög tillgänglighet med Azure storage
 
-Den här kursen ingår i en serie. Den här kursen visar hur du gör dina programdata hög tillgänglighet i Azure. När du är klar har du en .NET core-konsolprogram som överför och hämtar en blobb till en [geo-redundant läsbehörighet](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage-konto. RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är överensstämmelse. Programmet använder den [strömbrytare](/azure/architecture/patterns/circuit-breaker.md) mönstret för att avgöra vilken slutpunkt för att ansluta till. Programmet växlar till sekundär slutpunkt när ett fel simuleras.
+Den här kursen ingår i en serie. Den här kursen visar hur du gör dina programdata hög tillgänglighet i Azure. När du är klar har du en .NET core-konsolprogram som överför och hämtar en blobb till en [geo-redundant läsbehörighet](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) storage-konto. RA-GRS fungerar genom att replikera transaktioner från den primära servern till den sekundära regionen. Den här replikeringen garanterar att data i den sekundära regionen är överensstämmelse. Programmet använder den [strömbrytare](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) mönstret för att avgöra vilken slutpunkt för att ansluta till. Programmet växlar till sekundär slutpunkt när ett fel simuleras.
 
 I delen en av serierna kan du lära dig hur du:
 
@@ -109,11 +109,11 @@ Ett konsolfönster öppnas och börjar programmet körs. Programmet överför de
 
 ![Kör-konsolapp](media/storage-create-geo-redundant-storage/figure3.png)
 
-I koden, den `RunCircuitBreakerAsync` uppgift i den `Program.cs` används för att hämta en avbildning från storage-konto med den [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) metod. Före hämtningen en [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) har definierats. Åtgärden kontexten definierar händelsehanterare som utlöses när hämtningen är klar eller om en hämtning misslyckas och försöker igen.
+I koden, den `RunCircuitBreakerAsync` uppgift i den `Program.cs` används för att hämta en avbildning från storage-konto med den [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) metod. Före hämtningen en [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) har definierats. Åtgärden kontexten definierar händelsehanterare som utlöses när hämtningen är klar eller om en hämtning misslyckas och försöker igen.
 
 ### <a name="retry-event-handler"></a>Försök händelsehanterare
 
-Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ange att försöka igen. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
+Den `OperationContextRetrying` händelsehanteraren anropas när hämtningen av avbildningen misslyckas och ange att försöka igen. Om det maximala antalet försök som har definierats i programmet har uppnått den [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) för begäran har ändrats till `SecondaryOnly`. Den här inställningen tvingar programmet att försöka ladda ned avbildningen från den sekundära slutpunkten. Den här konfigurationen minskar den tid det tar att begära bilden som primär slutpunkten inte försöks under obestämd tid.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Begäran slutförd händelsehanterare
 
-Den `OperationContextRequestCompleted` händelsehanteraren anropas när hämtningen av avbildningen lyckas. Om programmet använder sekundära slutpunkten, fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger programmet anger den [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) tillbaka till `PrimaryThenSecondary` och försöker den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
+Den `OperationContextRequestCompleted` händelsehanteraren anropas när hämtningen av avbildningen lyckas. Om programmet använder sekundära slutpunkten, fortsätter programmet att använda den här slutpunkten upp till 20 gånger. Efter 20 gånger programmet anger den [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) tillbaka till `PrimaryThenSecondary` och försöker den primära slutpunkten. Om en begäran lyckas fortsätter programmet att läsa från den primära slutpunkten.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

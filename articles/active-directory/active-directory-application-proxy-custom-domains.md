@@ -3,7 +3,7 @@ title: "Anpassade domäner i Azure AD Application Proxy | Microsoft Docs"
 description: "Hantera anpassade domäner i Azure AD Application Proxy så att URL: en för appen är detsamma oavsett där användarna komma åt den."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: billmath
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 48e074f3f7bd60bc02e26c4bd634ec646b1ff401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -34,7 +34,7 @@ Vi rekommenderar att du konfigurerar anpassade domäner för dina program när d
 
 ## <a name="configure-a-custom-domain"></a>Konfigurera en anpassad domän
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar en anpassad domän måste du kontrollera att du har följande krav förberedd: 
 - En [verifierade domän som lagts till i Azure Active Directory](active-directory-domains-add-azure-portal.md).

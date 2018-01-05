@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -71,14 +71,6 @@ Funktionen i följande tabell används för att komma åt anslutningar i en Pyth
 3. Klicka på **lägga till en anslutning** längst upp på bladet.
 4. I den **typen** listrutan, Välj typ av anslutning som du vill skapa. Formuläret visas egenskaperna för den här typen.
 5. Fyll i formuläret och klicka på **skapa** att spara den nya anslutningen.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Skapa en ny anslutning med den klassiska Azure-portalen
-
-1. Från ditt automation-konto klickar du på **tillgångar** längst upp i fönstret.
-2. Längst ned i fönstret klickar du på **Lägg till inställning**.
-3. Klicka på **Lägg till anslutning**.
-4. I den **anslutningstypen** listrutan, Välj typ av anslutning som du vill skapa.  Guiden visar egenskaperna för den här typen.
-5. Slutför guiden och klicka på kryssrutan om du vill spara den nya anslutningen.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Skapa en ny anslutning med Windows PowerShell
 

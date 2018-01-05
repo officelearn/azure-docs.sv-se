@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -84,7 +84,7 @@ När NPS-tillägget för Azure är integrerad med NPS, resultatet en lyckad aute
 
 8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet beskrivs de förutsättningar som måste slutföras innan du kan integrera MFA med fjärrskrivbordsgateway. Innan du börjar måste du ha följande krav på plats:
 
 * VPN-infrastruktur
@@ -171,8 +171,7 @@ Du kan använda en standard (guidebaserad) eller avancerade konfigurationsaltern
 
 4. I den **ange fjärranslutning eller VPN-servern** väljer **Lägg till**.
 
-5. I den **ny RADIUS-klient** och ange ett eget namn, anger du namnet eller IP-adressen för VPN-servern och ange en delade hemliga lösenordet.  
-    Skapa delade hemliga lösenordet långa och komplexa. Posten, eftersom du behöver det i nästa avsnitt.
+5. I den **ny RADIUS-klient** och ange ett eget namn, anger du namnet eller IP-adressen för VPN-servern och ange en delade hemliga lösenordet. Skapa delade hemliga lösenordet långa och komplexa. Posten, eftersom du behöver det i nästa avsnitt.
 
     ![Ny RADIUS-klient](./media/nps-extension-vpn/image5.png)
 
@@ -183,8 +182,7 @@ Du kan använda en standard (guidebaserad) eller avancerade konfigurationsaltern
     > [!NOTE]
     > Om du konfigurerar Extensible Authentication Protocol (EAP), måste du använda Microsoft Challenge Handshake Authentication Protocol (CHAPv2) eller PEAP Protected Extensible Authentication Protocol (). Inga andra EAP stöds.
  
-8. I den **ange användargrupper** väljer **Lägg till**, och välj sedan ett lämpligt gruppen.  
-    Om det finns ingen grupp lämna det tomt om du vill bevilja åtkomst till alla användare.
+8. I den **ange användargrupper** väljer **Lägg till**, och välj sedan ett lämpligt gruppen. Om det finns ingen grupp lämna det tomt om du vill bevilja åtkomst till alla användare.
 
     ![Fönstret Ange användargrupper](./media/nps-extension-vpn/image7.png)
 
@@ -209,20 +207,17 @@ Det här avsnittet beskrivs den konfiguration som du skapat med hjälp av guiden
 
 1. Expandera på nätverksprincipservern i konsolen NPS (lokal) **RADIUS-klienter**, och välj sedan **RADIUS-klienter**.
 
-2. I informationsfönstret högerklickar du på RADIUS-klienten som du skapade och välj sedan **egenskaper**.  
-    Egenskaper för RADIUS-klienten (VPN-server) bör vara som de som visas här:
+2. I informationsfönstret högerklickar du på RADIUS-klienten som du skapade och välj sedan **egenskaper**. Egenskaper för RADIUS-klienten (VPN-server) bör vara som de som visas här:
 
     ![VPN-egenskaper](./media/nps-extension-vpn/image11.png)
 
 3. Välj **Avbryt**.
 
-4. Expandera på nätverksprincipservern i konsolen NPS (lokal) **principer**, och välj sedan **principer för anslutningsbegäran**.  
-    VPN-anslutningar principen visas som visas i följande bild:
+4. Expandera på nätverksprincipservern i konsolen NPS (lokal) **principer**, och välj sedan **principer för anslutningsbegäran**. VPN-anslutningar principen visas som visas i följande bild:
 
     ![Anslutningsbegäranden](./media/nps-extension-vpn/image12.png)
 
-5. Under **principer**väljer **nätverksprinciper**.  
-    Du bör se en princip för virtuella privata nätverk (VPN) anslutningar som liknar den princip som visas i följande bild:
+5. Under **principer**väljer **nätverksprinciper**. Du bör se en princip för virtuella privata nätverk (VPN) anslutningar som liknar den princip som visas i följande bild:
 
     ![Nätverksprinciper](./media/nps-extension-vpn/image13.png)
 
@@ -305,104 +300,17 @@ I det här avsnittet kan bekräfta du att VPN-klienten autentiseras och auktoris
 
     ![Fönstret Egenskaper för händelse](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-guide"></a>Felsökningsguide
+## <a name="troubleshooting-radius"></a>Felsöka RADIUS
+
 Anta att VPN-konfiguration fungerade innan du har konfigurerat VPN-servern för att använda en centraliserad RADIUS-server för autentisering och auktorisering. Om konfigurationen fungerar är det troligt att problemet orsakas av en felaktig konfiguration av RADIUS-servern eller användning av ett ogiltigt användarnamn eller lösenord. Till exempel om du använder alternativt UPN-suffix i användarnamnet, kan försök logga in misslyckas. Använd samma kontonamn för bästa resultat. 
 
 Felsökning av problem med dessa är användbar om du vill starta för att granska säkerhetshändelser på RADIUS-servern. Om du vill spara tid på att söka efter händelser, kan du använda rollbaserad nätverksprincip och åtkomst till servern anpassad vy i Loggboken, som visas här. ”Händelse-ID 6273” anger händelser där NPS nekas åtkomst till en användare. 
 
 ![Loggboken](./media/nps-extension-vpn/image22.png)
  
-## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor authentication
-Det här avsnittet innehåller instruktioner för att aktivera användare för MFA och konfigurera konton för tvåstegsverifiering. 
+## <a name="configure-multi-factor-authentication"></a>Konfigurera Multi-Factor Authentication
 
-### <a name="enable-multi-factor-authentication"></a>Aktivera multifaktorautentisering
-I det här avsnittet kan aktivera du Azure AD-konton för MFA. Använd den klassiska Azure-portalen så att användarna för MFA. 
-
-1. Gå till den [Microsoft Azure](https://manage.windowsazure.com) webbplats. 
-
-2. Logga in som administratör.
-
-3. I den vänstra rutan, Välj **Active Directory**.
-
-    ![Standardkatalog](./media/nps-extension-vpn/image23.png)
-
-4. I den **namn** väljer **standardkatalog** (eller en annan katalog, vid behov).
-
-5. I den **standardkatalogen** väljer **konfigurera**.
-
-    ![Konfigurera standardkatalogen](./media/nps-extension-vpn/image24.png)
-
-6. I den **konfigurera** fönstret under **multifaktorautentisering**väljer **hantera tjänstinställningar**.
-
-    ![Hantera inställningar för multifaktorautentisering](./media/nps-extension-vpn/image25.png)
- 
-7. I den **multifaktorautentisering** fönster, granska standard tjänstinställningar och välj sedan den **användare** fliken. 
-
-    ![Fliken Multi-Factor authentication-användare](./media/nps-extension-vpn/image26.png)
- 
-8. På den **användare** väljer du de användare som du vill aktivera för MFA och välj sedan **aktivera**.
-
-    ![Egenskaper](./media/nps-extension-vpn/image27.png)
- 
-9. När du uppmanas, Välj **aktivera multifaktorautentisering**.
-
-    ![Aktivera multifaktorautentisering](./media/nps-extension-vpn/image28.png)
- 
-10. Välj **Stäng**. 
-
-11. Uppdatera sidan.  
-    Multifaktorautentisering statusen ändras till *aktiverad*.
-
-Information om hur användarna för MFA finns [Kom igång med Azure Multi-Factor Authentication i molnet](multi-factor-authentication-get-started-cloud.md). 
-
-### <a name="configure-accounts-for-two-step-verification"></a>Konfigurera konton för tvåstegsverifiering
-Användare kan inte logga in till resurser som styrs av principen MFA förrän de har konfigurerat en betrodd enhet ska användas för andra autentiseringsfaktor när ett konto har aktiverats för Multifaktorautentisering.
-
-I det här avsnittet kan konfigurera du en betrodd enhet för användning med tvåstegsverifiering. Du har flera Enhetsalternativ för, inklusive följande:
-
-* **Mobilapp**: installation av Microsoft Authenticator-appen på en Windows Phone, Android eller iOS-enhet. Beroende på din organisations principer kan krävs du för att använda appen i ett av två lägen: 
-    * Ta emot meddelanden för verifieringar (skickas ett meddelande till din enhet).
-    * Använd verifieringskoden (du måste ange en Verifieringskod som uppdateras var 30: e sekund). 
-
-* **Mobiltelefon samtal eller textmeddelande**: du kan ta emot en automatisk telefonsamtal eller ett textmeddelande. Med alternativet telefonsamtal besvara samtalet och välj nummertecken (#) för autentisering. Med alternativet text kan du svara på textmeddelandet eller ange verifieringskoden i gränssnittet för inloggning.
-
-* **Telefonsamtal till arbete**: den här processen är densamma som den process som beskrivs tidigare för automatisk telefonsamtal.
-
-Om du vill konfigurera en enhet för att använda den mobila appen tar emot push-meddelanden för verifiering, gör du följande:
-
-1. Logga in på [Microsoft Azure](https://aka.ms/mfasetup) eller en plats som den [Azure-portalen](https://portal.azure.com), där du måste autentisera med dina inloggningsuppgifter för MFA-aktiverade.  
-    Du uppmanas att konfigurera kontot för ytterligare säkerhetsverifiering som visas här:
-
-    ![Ökad säkerhet](./media/nps-extension-vpn/image29.png)
-
-2. Välj **ställa in nu**.
-
-3. I den **ytterligare säkerhetsverifiering** skriver du väljer en kontakt (**telefon för autentisering**, **Arbetstelefon**, eller **mobilappen** ), Välj ett land eller region och välj sedan en metod. Välj inte **kontakta mig** ännu.  
-    Metoden varierar beroende på typ av. Om du exempelvis **mobilappen**, kan du välja om du vill ta emot meddelanden för verifiering eller använda en Verifieringskod. 
-
-    ![Fönstret ”ytterligare säkerhetsverifiering”](./media/nps-extension-vpn/image30.png)
-
-    De steg som följer förutsätter att du har valt **mobilappen** kontakta typen.
-
-4. Välj **mobilappen**väljer **ta emot meddelanden för verifiering**, och välj sedan **konfigurera**. 
-
-    ![Fönstret ”ytterligare säkerhetsverifiering”](./media/nps-extension-vpn/image31.png)
- 
-5. Om du inte redan gjort det installerar du Microsoft Authenticator-mobilappen på din enhet. 
-
-6. Skanna in streckkoden som visas i mobilappen, eller ange informationen manuellt och välj sedan **klar**.
-
-    ![Konfigurera Microsoft Authenticator-mobilappen](./media/nps-extension-vpn/image32.png)
-
-7. I den **ytterligare säkerhetsverifiering** väljer **kontakta mig**, och sedan svara på meddelandet som skickas till din enhet.
-
-8. I den **ytterligare säkerhetsverifiering** fönstret under **steg3: Om du skulle förlora åtkomsten till mobilappen**, anger ett kontaktnummer att anropa om du skulle förlora åtkomsten till mobilappen och välj sedan  **Nästa**.
-
-    ![Fönstret ”ytterligare säkerhetsverifiering”](./media/nps-extension-vpn/image33.png)
- 
-9. I den **ytterligare säkerhetsverifiering** väljer **klar**.
-
-Enheten har nu konfigurerats för att tillhandahålla en andra metod för verifiering. Information om hur du konfigurerar konton för tvåstegsverifiering finns [Konfigurera mitt konto för tvåstegsverifiering](./end-user/multi-factor-authentication-end-user-first-time.md).
+Mer information om hur du konfigurerar användare för Multifaktorautentisering finns artiklarna [kräva tvåstegsverifiering för en användare eller grupp](multi-factor-authentication-get-started-user-states.md) och [Konfigurera mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installera och konfigurera NPS-tillägget
 
@@ -470,8 +378,7 @@ Om du vill använda skriptet ger tillägget dina administrativa autentiseringsup
 
 2. I Kommandotolken PowerShell ange **cd c:\Program Files\Microsoft\AzureMfa\Config**, och välj sedan RETUR.
 
-3. I nästa kommandotolk, ange **.\AzureMfsNpsExtnConfigSetup.ps1**, och välj sedan RETUR.  
-    Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installeras skriptet modulen.
+3. I nästa kommandotolk, ange **.\AzureMfsNpsExtnConfigSetup.ps1**, och välj sedan RETUR. Skriptet kontrollerar om Azure AD PowerShell-modulen är installerad. Om det inte är installerat installeras skriptet modulen.
  
     ![PowerShell](./media/nps-extension-vpn/image38.png)
  

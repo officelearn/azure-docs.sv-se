@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulera ett fel vid åtkomst till redundant lagring med läsbehörighet
 
@@ -33,7 +33,7 @@ I del två av serien får du lära dig hur du:
 > * Simulera ett fel
 > * Simulera primära endpoint återställning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -88,7 +88,7 @@ Gå till Fiddler och välj **regler** -> **anpassa regler...** .  Ta bort kommen
 
 Om du vill återuppta programmet trycker du på **valfri tangent** .
 
-När programmet börjar köras igen, börja begäranden till den primära slutpunkten misslyckas. Programmet försöker återansluta till den primära slutpunkten 5 gånger. När tröskelvärdet fel fem gånger begär avbildningen från sekundär skrivskyddad slutpunkten. När programmet har hämtar avbildningen 20 gånger från sekundär slutpunkten, försöker programmet att ansluta till den primära slutpunkten. Om den primära slutpunkten är fortfarande inte kan nås, fortsätter programmet läsning från den sekundära slutpunkten. Det här mönstret är den [strömbrytare](/azure/architecture/patterns/circuit-breaker.md) mönster som beskrivs i föregående kursen.
+När programmet börjar köras igen, börja begäranden till den primära slutpunkten misslyckas. Programmet försöker återansluta till den primära slutpunkten 5 gånger. När tröskelvärdet fel fem gånger begär avbildningen från sekundär skrivskyddad slutpunkten. När programmet har hämtar avbildningen 20 gånger från sekundär slutpunkten, försöker programmet att ansluta till den primära slutpunkten. Om den primära slutpunkten är fortfarande inte kan nås, fortsätter programmet läsning från den sekundära slutpunkten. Det här mönstret är den [strömbrytare](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) mönster som beskrivs i föregående kursen.
 
 ![Klistra in anpassad regel](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 

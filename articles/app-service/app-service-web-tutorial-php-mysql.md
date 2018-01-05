@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bcbe59d5e2f085f055b99b715bcbcd91d9845f2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig hur man:
 > * Dataströmmen diagnostiska loggar från Azure
 > * Hantera appen i Azure-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -167,7 +167,7 @@ Molnet Shell, skapar du en server i Azure-databas för MySQL (förhandsversion) 
 Ersätt namnet på MySQL-servern där du ser i följande kommando i  _&lt;mysql_server_name >_ platshållare (giltiga tecken är `a-z`, `0-9`, och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`), den måste vara globalt unika.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 > [!NOTE]
@@ -205,7 +205,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Ansluta till MySQL produktionsservern lokalt
 
-Anslut till MySQL-server i Azure i det lokala terminalfönstret. Använd värdet du angav tidigare för  _&lt;mysql_server_name >_. När du uppmanas att ange ett lösenord, Använd _MySQLAzure2017_, som du angav när du skapade databasen i Azure.
+Anslut till MySQL-server i Azure i det lokala terminalfönstret. Använd värdet du angav tidigare för  _&lt;mysql_server_name >_. När du uppmanas att ange ett lösenord, Använd _My5up3r tr0ngPa$ $w0rd!_, som du angav när du skapade databasen i Azure.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
@@ -341,7 +341,7 @@ I det här steget kan distribuera du MySQL-anslutna PHP-program till Azure App S
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurera databasinställningar för
+### <a name="configure-database-settings"></a>Konfigurera databasinställningarna
 
 Du kan ansluta till din Azure MySQL-databas med miljövariabler i App Service som pekas tidigare.
 

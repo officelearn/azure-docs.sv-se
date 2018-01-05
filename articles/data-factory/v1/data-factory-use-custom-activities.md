@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ Den här genomgången innehåller stegvisa instruktioner för att skapa en anpas
 > - Det går inte att använda en Data Management Gateway från en anpassad aktivitet för att få åtkomst till lokala datakällor. För närvarande [Data Management Gateway](data-factory-data-management-gateway.md) stöder endast kopieringsaktiviteten och aktiviteten lagrad procedur i Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genomgång: skapa en anpassad aktivitet
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012/2013/2015
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
@@ -112,7 +112,9 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
      <li>Välj <b>C:\ADFGetStarted</b> för den <b>plats</b>.</li>
      <li>Klicka på <b>OK</b> för att skapa projektet.</li>
    </ol>
-2.Klicka på **verktyg**, peka på **NuGet Package Manager**, och klicka på **Pakethanterarkonsolen**.
+   
+2. Klicka på **Verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager Console**.
+
 3. I Package Manager-konsolen kör du följande kommando för att importera **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell

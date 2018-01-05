@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -59,13 +59,7 @@ Information om tidigare för Media Services REST API-versioner finns [Azure Medi
 2.  Om du har källa video som har kodats med H.265(HEVC) video-codec, som till exempel video till med iOS11 eller GoPro hjälte 6, kan du nu använda Premium-kodare eller Standard-kodare för att koda videoklipp. Mer information finns i [Online Services-villkoren](https://azure.microsoft.com/support/legal/) för viktigt patent återkallningslicens(er).
 3.  Om du har innehåll som innehåller flera språk ljud spår, sedan så länge språk-värden är korrekt märkta enligt motsvarande filformatsspecifikation (t.ex. ISO MP4) kan du använda Standard-kodare för att koda innehållet för strömning. Resulterande strömningslokaliseraren visar en lista över tillgängliga ljud språk.
 4.  Standard-kodare stöder nu två nya ljuddata systeminställningar, ”AAC ljud” och ”AAC bra kvalitet ljud”. Både resultat stereo AAC, vid bithastigheter 128 kbit/s och 192 kbps respektive.
-5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM.
-
-> [!NOTE]
-> Premium-kodare stöder inte, till exempel DVC/DVCPro video omslutas i QuickTime/MOV-filer som indata.  Standard-kodare stöder dessa video-codec.
->
->
-
+5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM. Premium-kodare stöder inte, till exempel DVC/DVCPro video omslutas i QuickTime/MOV-filer som indata.  Standard-kodare stöder dessa video-codec.
 6.  Felkorrigeringar i kodare:
     * Du kan nu skicka jobb med hjälp av en indata tillgång när dessa fullständig ändra tillgången (till exempel genom att lägga till/ta bort/byta namn på filerna i tillgången) och skicka ytterligare jobb. 
     * Förbättrad kvalitet för JPEG-miniatyrer produceras av Standard-kodare
@@ -563,7 +557,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady licens mall översikt]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [strömning lagring krypterat innehåll]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dynamisk paketering]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin blogg]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protecting Smooth Stream med PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

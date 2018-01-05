@@ -3,7 +3,7 @@ title: "Publicera program på separata nätverk och platser med hjälp av koppli
 description: Beskriver hur du skapar och hanterar grupper av kopplingar i Azure AD Application Proxy.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicera program på separata nätverk och platser med hjälp av connector-grupper
 
@@ -32,7 +32,7 @@ Alla program som har tilldelats en grupp för anslutningen. Om du inte skapa gru
 >[!TIP] 
 >Om du har en stor Application Proxy-distribution kan inte tilldela alla program i standardgruppen för anslutningen. På så sätt kan nya anslutningar får inte någon live trafik tills du tilldelar dem till en grupp i active-koppling. Den här konfigurationen kan du placera kopplingar i ett inaktivt tillstånd genom att flytta dem till standardgruppen, så att du kan utföra underhåll utan att påverka dina användare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill gruppera dina kontakter har se till att du [installerat flera kopplingar](active-directory-application-proxy-enable.md). När du installerar en ny koppling den automatiskt ansluter den **standard** connector grupp.
 
 ## <a name="create-connector-groups"></a>Skapa grupper för anslutningstjänsten

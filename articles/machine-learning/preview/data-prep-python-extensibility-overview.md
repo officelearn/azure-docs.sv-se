@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -123,6 +123,31 @@ Kör något av följande kommandon:
 eller 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Använda anpassade moduler
+I transformera dataflöde (skript), skriver du python kod så här:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+I Lägg till kolumn (skript), och ange koden Block = modulen och skriva python kod efter:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Körningen av olika kontexter (lokal, docker spark), peka absolut sökväg på rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
+
 
 ## <a name="column-data"></a>Kolumndata 
 Kolumndata kan nås från en rad med hjälp av punktnotation eller nyckel / värde-notation. Kolumnnamn som innehåller blanksteg eller specialtecken kan inte nås med hjälp av punktnotation. Den `row` variabeln ska alltid vara definierat i båda lägena av Python-tillägg (modul och uttryck). 

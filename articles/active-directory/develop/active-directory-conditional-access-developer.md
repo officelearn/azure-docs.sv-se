@@ -1,5 +1,5 @@
 ---
-title: "Guide för utvecklare för villkorlig åtkomst i Azure Active Directory | Microsoft Docs"
+title: "Guide för utvecklare för villkorlig åtkomst i Azure Active Directory"
 description: "Guide för utvecklare och scenarier för villkorlig åtkomst i Azure AD"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) finns flera sätt att skydda din app och skydda en t
 * Att tillåta att Intune endast registrerade enheter att få åtkomst till särskilda tjänster
 * Begränsa användarplatser och IP-adressintervall
 
-Mer information om alla funktioner för villkorlig åtkomst finns [villkorlig åtkomst i den klassiska Azure-portalen](../active-directory-conditional-access-azure-portal.md). 
+Mer information om alla funktioner för villkorlig åtkomst finns [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 I den här artikeln fokuserar vi på vilka villkorlig åtkomst som innebär att utvecklare som bygger appar för Azure AD.  Den förutsätter kunskaper om [enda](active-directory-integrating-applications.md) och [flera innehavare](active-directory-devhowto-multi-tenant-overview.md) appar och [vanliga autentisering mönster](active-directory-authentication-scenarios.md).
 
@@ -74,7 +73,7 @@ Utvecklare kan ta denna utmaning och lägga till en ny begäran till Azure AD.  
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Azure AD villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Du kan lära dig mer om licensiering krav i den [olicensierad användningsrapporten](../active-directory-conditional-access-unlicensed-usage-report.md).  Utvecklare kan ansluta till den [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), som innehåller en kostnadsfri prenumeration på Enterprise Mobility Suite som innehåller Azure AD Premium.
 
@@ -216,9 +215,9 @@ Vår app behöver fånga den `error=interaction_required`.  Programmet kan sedan
 Om du vill testa det här scenariot finns i vår [JS SPA On-behalf-of kodexemplet](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Det här kodexemplet använder principen för villkorlig åtkomst och webb-API som du tidigare registrerad hos en JS SPA att visa det här scenariot. Den visar hur du korrekt hantera utmaningen anspråk och få en åtkomsttoken som kan användas för webb-API. Alternativt utcheckningen allmänna [Angular.js kodexemplet](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) vägledning om en vinkel SPA
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
-* Läs mer om funktionerna i [villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Läs mer om funktionerna i [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Läs mer Azure AD-kodexempel [Github-Repo över kodexempel](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Mer information om ADAL SDK och åtkomst i referensdokumentationen finns [biblioteket guiden](active-directory-authentication-libraries.md).
 * Mer information om flera innehavare scenarier finns [loggar in användare med flera innehavare mönstret](active-directory-devhowto-multi-tenant-overview.md).

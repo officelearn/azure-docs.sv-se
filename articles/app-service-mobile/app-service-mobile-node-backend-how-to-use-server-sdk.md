@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Hur du använder Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -92,7 +92,7 @@ Visual Studio 2015 kräver ett tillägg till utvecklar Node.js-program i IDE.  S
 1. Öppna den **nytt projekt** dialogrutan (från **filen** > **ny** > **projekt...** ).
 2. Expandera **mallar** > **JavaScript** > **Node.js**.
 3. Välj den **grundläggande Azure Node.js Express 4 programmet**.
-4. Fyll i projektets namn.  Klicka på *OK*.
+4. Fyll i projektets namn.  Klicka på *OK*
 
     ![Nytt projekt i Visual Studio 2015][1]
 5. Högerklicka på den **npm** och välj **installera nya npm-paket...** .
@@ -320,9 +320,9 @@ De flesta inställningar i den *azureMobile.js* filen har en motsvarande Appinst
 
 | Appinställningen | *azureMobile.js* inställning | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |namn |Namnet på appen |Sträng |
+| **MS_MobileAppName** |namn |Namnet på appen |sträng |
 | **MS_MobileLoggingLevel** |Logging.level |Lägsta loggningsnivån för meddelanden att logga |fel, varning, information, verbose,-debug, Löjliga |
-| **MS_DebugMode** |Felsöka |Aktivera eller inaktivera felsökningsläge |SANT, FALSKT |
+| **MS_DebugMode** |felsök |Aktivera eller inaktivera felsökningsläge |SANT, FALSKT |
 | **MS_TableSchema** |data.schema |Schemat för standardnamnet för SQL-tabeller |String (standard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Aktivera eller inaktivera felsökningsläge |SANT, FALSKT |
 | **MS_DisableVersionHeader** |(Ange till odefinierad) version |Inaktiverar huvudet X-ZUMO-Server-Version |SANT, FALSKT |
@@ -797,7 +797,7 @@ Enkelt tabeller i portalen kan du skapa och arbeta med tabeller direkt i portale
 * CreatedAt
 * updatedAt
 * ta bort
-* Version
+* version
 
 Du kan även redigera åtgärder för tabeller med App Service-redigeraren. När du klickar på **enkelt tabeller** i dina backend-inställningar, du kan lägga till, ändra eller ta bort en tabell. Du kan också se data i tabellen.
 

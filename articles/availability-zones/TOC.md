@@ -20,7 +20,7 @@
 #### [Lägga till en hanterad disk i tillgänglighetszoner med PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Skalningsuppsättningar för virtuella datorer
-#### [Skapa en skalningsuppsättning för en virtuell dator med Azure Portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Skapa en skalningsuppsättning i en tillgänglighetszon](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Belastningsutjämnare
 #### [Vad är en belastningsutjämnare?](../load-balancer/load-balancer-standard-overview.md)

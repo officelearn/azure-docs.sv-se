@@ -1,6 +1,6 @@
 - name: App Service på Linux
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Web Apps
       href: ../app-service-web-overview.md
@@ -29,6 +29,8 @@
       items:
         - name: .NET Core med SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby med MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP med MySQL
           href: tutorial-php-mysql-app.md
         - name: Node.js med MongoDB
@@ -49,7 +51,7 @@
       href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Azure PowerShell
       href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- name: Koncept
+- name: Begrepp
   items:
     - name: Så här fungerar App Service
       href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -139,7 +141,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: REST API
+    - name: REST-API
       href: /rest/api/appservice/
 - name: Resurser
   items:

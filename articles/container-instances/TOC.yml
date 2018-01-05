@@ -1,6 +1,6 @@
 - name: Container Instances
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure Container Instances
       href: container-instances-overview.md
@@ -21,10 +21,10 @@
       href: container-instances-tutorial-prepare-acr.md
     - name: 3 – Distribuera program
       href: container-instances-tutorial-deploy-app.md
-- name: Koncept
+- name: Begrepp
   items:
-    - name: Regioner och tillgänglighet
-      href: container-instances-region-availability.md
+    - name: Kvoter och regionala begränsningar
+      href: container-instances-quotas.md
     - name: Relation till dirigeringsverktyg
       href: container-instances-orchestrator-relationship.md
     - name: Behållargrupper

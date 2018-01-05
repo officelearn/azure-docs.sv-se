@@ -59,6 +59,6 @@ Användare kan ansluta till Azure med hjälp av inbyggda VPN-klienten i Windows,
 
 Azure har endast stöd för Windows och Mac för P2S-VPN.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Jag har redan en Azure VPN Gateway distribuerad. Kan jag aktivera RADIUS och/eller IKEv2 VPN på den?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Jag har redan en Azure VPN Gateway distribuerad. Kan jag aktivera RADIUS och/eller IKEv2 VPN på den?
 
-Ja, kan du aktivera de här nya funktionerna på redan distribuerade gateways, både via Powershell och Azure Portal.
+Ja, kan du aktivera de här nya funktionerna på redan distribuerade gateways med Powershell eller Azure-portalen, förutsatt att gateway-SKU: N som du använder har stöd för RADIUS-och/eller IKEv2. Till exempel stöder inte VPN-gateway grundläggande SKU RADIUS- eller IKEv2.

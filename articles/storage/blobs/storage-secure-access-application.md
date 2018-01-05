@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Säker åtkomst till data i ett program i molnet
 
@@ -33,7 +33,7 @@ I del tre av serien får du lära dig hur du:
 
 [Azure-blobblagring](../common/storage-introduction.md#blob-storage) innehåller en robust tjänst för att lagra filer för program. Den här självstudiekursen utökar [föregående] [ previous-tutorial] att visa hur få säker åtkomst till ditt lagringskonto från ett webbprogram. När du är klar avbildningar krypteras och webbprogrammet använder säker SAS-token för åtkomst till miniatyrbilder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudiekursen du måste ha slutfört föregående lagring kursen: [automatisera storleksändring upp bilder med hjälp av händelse rutnätet][previous-tutorial]. 
 
@@ -55,7 +55,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Webbprogrammet har visar avbildningar från en offentlig behållare för del i den här självstudiekursen serie. I den här delen av serien kan du använda [säker signatur åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens för att hämta miniatyrbilder. SAS-token kan du ge begränsad åtkomst till en behållare eller blob baserat på IP, protokoll, tidsintervall eller rättigheter.
 
-I det här exemplet kod källdatabasen använder den `sasTokens` filial som har en uppdaterad kodexempel. Ta bort den befintliga GitHub-distributionen med den [az webapp distribution källa delete](/cli/azure/webapp/deployments/source#delete). Konfigurera sedan GitHub distribution till webbprogram med den [az webapp källa distributionskonfiguration](/cli/azure/webapp/deployment/source#config) kommando.  
+I det här exemplet kod källdatabasen använder den `sasTokens` filial som har en uppdaterad kodexempel. Ta bort den befintliga GitHub-distributionen med den [az webapp distribution källa delete](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Konfigurera sedan GitHub distribution till webbprogram med den [az webapp källa distributionskonfiguration](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) kommando.  
 
 I följande kommando, `<web-app>` är namnet på ditt webbprogram.  
 
@@ -194,7 +194,7 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Aktivera endast HTTPS
 
-Du kan begränsa endast begäranden till HTTPS för att säkerställa att begäranden om data till och från ett lagringskonto är säkra. Uppdatera protokollet storage-konto krävs med hjälp av den [az lagring uppdatering](/cli/azure/storage/account#update) kommando.
+Du kan begränsa endast begäranden till HTTPS för att säkerställa att begäranden om data till och från ett lagringskonto är säkra. Uppdatera protokollet storage-konto krävs med hjälp av den [az lagring uppdatering](/cli/azure/storage/account#az_storage_account_update) kommando.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true

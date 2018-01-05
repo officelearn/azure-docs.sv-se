@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Felsöka distributionsproblem med Azure Container instanser
 
@@ -203,7 +203,7 @@ På grund av olika regionala resurs läsa in i Azure, kan du få följande fel v
 
 Det här felet indikerar att på grund av hög belastning i den region där du försöker distribuera resurserna som angetts för din behållaren inte kan allokeras vid den tiden. Använda en eller flera av följande säkerhetsåtgärder för att lösa problemet.
 
-* Kontrollera distributionsinställningarna behållaren faller inom de parametrar som definierats i [regional tillgänglighet för Azure-Behållarinstanser](container-instances-region-availability.md)
+* Kontrollera distributionsinställningarna behållaren faller inom de parametrar som definierats i [kvoter och regional tillgänglighet för Azure-Behållarinstanser](container-instances-quotas.md#region-availability)
 * Ange inställningar för lägre CPU och minne för behållaren
 * Distribuera till en annan Azure-region
 * Distribuera vid ett senare tillfälle

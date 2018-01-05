@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Onboarding-datorer för hantering av Azure Automation DSC
 
@@ -36,7 +36,7 @@ Azure Automation DSC kan användas för att hantera en mängd olika datorer:
 Dessutom om du inte är redo att hantera datorkonfigurationen från molnet kan Azure Automation DSC också användas som en endast rapport-slutpunkt. På så sätt kan du ange (push) önskad konfiguration via DSC lokala och visa omfattande rapportering på noden kompatibilitet med tillståndet i Azure Automation.
 
 > [!NOTE]
-> Hantera virtuella Azure-datorer med DSC ingår utan extra kostnad om virtuella DSC-tillägg som installeras är större än 2.7.  Mer information finns i [ **Automation sida med priser** ](https://azure.microsoft.com/en-us/pricing/details/automation/) för mer information.
+> Hantera virtuella Azure-datorer med DSC ingår utan extra kostnad om virtuella DSC-tillägg som installeras är större än 2.70. Mer information finns i [ **Automation sida med priser** ](https://azure.microsoft.com/en-us/pricing/details/automation/) för mer information.
 
 
 I följande avsnitt beskrivs hur du kan publicera varje typ av dator till Azure Automation DSC.

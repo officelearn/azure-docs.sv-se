@@ -1,12 +1,11 @@
 ---
-title: "Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD | Microsoft Docs"
+title: "Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD"
 description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -34,7 +33,7 @@ På en hög nivå hela auktorisering flödet för ett program ser ut så här:
 ![Flödet för OAuth-Auth-kod](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Begära ett auktoriseringskod
-Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här förfrågan anger klienten de behörigheter som behövs för att hämta från användaren. Du kan hämta OAuth 2.0-slutpunkter från ditt program sida i klassiska Azure-portalen i den **visa slutpunkter** knapp i nedre lådan.
+Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här förfrågan anger klienten de behörigheter som behövs för att hämta från användaren. Du kan hämta OAuth 2.0-slutpunkten för din klient genom att välja **App registreringar > slutpunkter** i Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -50,7 +49,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
 | response_type |Krävs |Måste innehålla `code` för auktoriseringskodflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade.  Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
@@ -132,8 +131,8 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i den klassiska Azure-portalen. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för appregistrering.  |
 | grant_type |Krävs |Måste vara `authorization_code` för auktoriseringskodflödet. |
 | Koden |Krävs |Den `authorization_code` som du har införskaffade i föregående avsnitt |
 | redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |

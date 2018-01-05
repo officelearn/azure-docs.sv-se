@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: cd7889be101e718e309e630a04a2e23b6b5823ac
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Skapa en virtuell Linux-dator med snabbare nätverk
 
@@ -30,7 +30,7 @@ I kursen får du lära dig hur du skapar en Linux-dator (VM) med snabbare nätve
 
 Utan snabbare nätverk måste alla nätverkstrafiken till och från den virtuella datorn passerar värden och den virtuella växeln. Den virtuella växeln tillhandahåller alla tvingande, till exempel nätverkssäkerhetsgrupper, åtkomstkontrollistor, isolering och andra virtualiserade nätverkstjänster för nätverkstrafik. Mer information om virtuella växlar på [Hyper-V-nätverksvirtualisering och den virtuella växeln](https://technet.microsoft.com/library/jj945275.aspx) artikel.
 
-Med snabbare nätverksfunktioner trafik anländer till den Virtuella datorns nätverksgränssnitt (NIC) och sedan vidarebefordras till den virtuella datorn. Alla principer för nätverk som den virtuella växeln gäller utan snabbare nätverk avläst och tillämpas i maskinvara. Tillämpa principen i den maskinvara som gör det möjligt för nätverkskort för att vidarebefordra trafik direkt till den virtuella datorn, vilket kringgår värden och den virtuella växeln samtidigt som den principen tillämpades på värden.
+Med snabbare nätverksfunktioner trafik anländer till den Virtuella datorns nätverksgränssnitt (NIC) och sedan vidarebefordras till den virtuella datorn. Alla principer för nätverk som gäller för den virtuella växeln avläst nu och tillämpas i maskinvara. Tillämpa principen i den maskinvara som gör det möjligt för nätverkskort för att vidarebefordra trafik direkt till den virtuella datorn, vilket kringgår värden och den virtuella växeln samtidigt som den principen tillämpades på värden.
 
 Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella datorn som den är aktiverad på. Det är perfekt att aktivera funktionen på minst två virtuella datorer anslutna till samma Azure virtuella nätverk (VNet) för bästa resultat. Vid kommunikation över Vnet eller anslutande lokalt har funktionen minimal inverkan på övergripande svarstiden.
 
@@ -39,16 +39,26 @@ Fördelarna med snabbare nätverksfunktioner gäller endast för den virtuella d
 * **Minskar jitter:** virtuella växeln bearbetning beror på mängden principinformation som måste tillämpas och arbetsbelastningen processorkraft som utför bearbetning. Avlastning tvingande principer till maskinvaran som tar bort den variationen genom att leverera paket direkt till den virtuella datorn, ta bort värden till programvara avbrott och kontext växlar för VM-kommunikation och alla.
 * **Minskas CPU-användning:** kringgår den virtuella växeln på värden leder till färre CPU-belastningen för bearbetning av nätverkstrafik.
 
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
+* **Ubuntu 16.04**: 4.11.0-1013 eller större kernel-version
+* **SLES SP3**: 4.4.92-6.18 eller större kernel-version
+* **RHEL**: 7.4.2017120423 eller större kernel-version
+* **CentOS**: 7.4.20171206 eller större kernel-version
+
+## <a name="supported-vm-instances"></a>VM-instanser som stöds
+Snabbare nätverksfunktioner stöds på mest generella och beräknings-optimerad instans storlekar med 4 eller fler vCPUs. På instanser, till exempel D/DSv3 eller E/ESv3 som stöder hypertrådar stöds snabbare nätverk för VM-instanser med 8 eller flera vCPUs.  Stöds serien är: D/DSv2, D/DSv3, E/ESv3, Fsv2-F/Fs och Ms-/ Mms. 
+
+Mer information om VM-instanser finns [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regioner
+Tillgänglig i alla offentliga Azure-regioner med undantag för Östasien.   Azure Government-molnet stöds inte ännu.
+
 ## <a name="limitations"></a>Begränsningar
 Följande begränsningar gäller när du använder den här funktionen:
 
 * **Network interface skapa:** Accelerated nätverk kan bara aktiveras för en ny nätverkskort. Det går inte att aktivera för en befintlig nätverkskort.
 * **Skapa en virtuell dator:** A nätverkskortet med snabbare nätverksfunktioner som är aktiverad kan endast kopplas till en virtuell dator när den virtuella datorn skapas. Nätverkskortet kan inte kopplas till en befintlig virtuell dator. Om du lägger till den virtuella datorn i en befintlig tillgänglighetsuppsättning måste alla virtuella datorer i tillgänglighetsuppsättningen också ha snabbare nätverk som är aktiverad.
-* **Regioner:** kapacitet finns i många Azure-regioner och fortsätter att expandera. En fullständig lista finns [Azure virtuella nätverk uppdaterar](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogg.   
-* **Operativsystem som stöds:** Ubuntu Server 16.04 LTS med kernel 4.4.0-77 eller högre, SLES 12 SP2, RHEL 7.4 och CentOS 7.4 (som publicerats av falska Wave programvara).
-* **VM-storlek:** generella och beräknings-optimerad instans storlekar med minst åtta kärnor. Mer information finns i [Linux VM-storlekar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Uppsättningen stöds storlekar på VM-instans fortsätter att expandera.
 * **Distribution via Azure Resource Manager:** virtuella datorer (klassisk) kan inte distribueras med snabbare nätverk.
-
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 

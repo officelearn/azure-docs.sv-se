@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 4. Amazon Web Services (AWS) program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
 
-    ![Konfigurera enkel inloggning attribut](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Konfigurera enkel inloggning attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden ovan och utför följande steg:
     
@@ -126,7 +126,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning Lägg till](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Konfigurera enkel inloggning attribut](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Konfigurera enkel inloggning addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. I den **namn** textruta ange attributets namn visas för den raden.
 
@@ -230,18 +230,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Skapar en ny princip](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Skapa din egen policy för att hämta alla roller från AWS-konton. I den **skapa din egen princip** klickar du på **Välj** knappen.
+25. Skapa din egen policy för att hämta alla roller från AWS-konton. I den **skapa din egen policy** avsnittet klickar du på **Välj** knappen.
     
     ![Skapar en ny princip](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Definiera den nya principen genom att utföra följande steg:
 
-    ![Definiera den nya principen](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Definiera den nya principen](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Ange den **principnamn** som **AzureAD_SSOUserRole_Policy**.
 
     b. Du kan ange **beskrivning** till principen som **principen tillåter för att hämta rollerna från AWS konton**.
-
+    
     c. Lägg till i principdokument i nedan JSON.
     
     ```
@@ -271,14 +271,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     }
     
     ```
-
+    
     d. Kontrollera att du söker på **Använd hjälp för att redigera principen**.
-
+    
     e. Klicka på **Validera princip** längst ned.
-
+    
     f. När principen har verifierats korrekt kan du klicka på på **skapa princip** knappen.
-
-    ![Skapa ny princip](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
 27. Skapa ett nytt användarkonto i AWS IAM-tjänsten genom att utföra följande steg:
 
@@ -302,7 +300,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 28. Nu skapa en ny princip för den här användaren genom att utföra följande steg:
 
-    ![Lägga till användare](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Lägga till användare](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Klicka på den **koppla befintliga principer direkt** knappen.
 
@@ -332,7 +330,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Lägga till användare](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Ange den **åtkomstnyckeln** och **hemlighet** i den **Klienthemlighet** och **hemlighet Token** respektive fält.
+32. Ange den **åtkomstnyckeln** och **hemlighet** i den **Klienthemlighet** och **hemlighet Token** fältet respektive.
 
     ![Lägga till användare](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med 
 
 När du klickar på panelen Amazon Web Services (AWS) på åtkomstpanelen du bör få automatiskt loggat in på ditt program för Amazon Web Services (AWS).
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Kända problem
-
- * I den **etablering** avsnittet den **mappningar** underavsnittet visas meddelandet ”inläsning...” och visa aldrig attributmappningar. Etablering arbetssätt stöds idag är import av roller från AWS till Azure AD för val under användare/grupp tilldelning. Attributmappning för det här är förutbestämd och kan inte konfigureras.
- 
- * Den **etablering** avsnittet stöder endast att ange en uppsättning autentiseringsuppgifter för en AWS-klient i taget. Alla importerade roller skrivs till egenskapen appRoles i Azure AD [servicePrincipal objekt](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) AWS klient. Flera AWS-klienter, (representeras av servicePrincipals) kan läggas till Azure AD från galleriet för etablering, men det är ett känt problem med att automatiskt skriva alla importerade roller från flera AWS servicePrincipals som används för etablering i den enda servicePrincipal som används för enkel inloggning. Som en tillfällig lösning kan den [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) kan användas för att extrahera alla appRoles importeras till varje AWS servicePrincipal där etablering har konfigurerats. Strängarna roll kan senare läggs till AWS-servicePrincipal där enkel inloggning har konfigurerats.
-
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

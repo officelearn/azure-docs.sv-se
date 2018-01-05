@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="1.14.2"/>1.14.2</a>
+* Uppdaterad dokumentation till referens Azure Cosmos-DB i stället för Azure DocumentDB.
+* Stöd för proxyUrl inställning i ConnectionPolicy har lagts till.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Mindre korrigera för skiftlägeskänsliga filsystem.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Lägger till stöd för Sessionskonsekvens.
@@ -187,6 +194,8 @@ Alla förfrågningar till Cosmos-databas med hjälp av en pensionerad SDK är av
 
 | Version | Utgivningsdatum | Datumet för tillbakadragandet |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |21 december 2017 |--- |
+| [1.14.1](#1.14.1) |10 november 2017 |--- |
 | [1.14.0](#1.14.0) |9 november 2017 |--- |
 | [1.13.0](#1.13.0) |11 oktober 2017 |--- |
 | [1.12.2](#1.12.2) |10 augusti 2017 |--- |
@@ -221,6 +230,6 @@ Alla förfrågningar till Cosmos-databas med hjälp av en pensionerad SDK är av
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Läs mer om Cosmos-DB i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) sida.
 

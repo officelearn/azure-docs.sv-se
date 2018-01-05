@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 9c0ff3394dac12bdcac9d618832566ef0d3a6609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
 > Det krävs en prenumeration på Azure AD Premium för tillbakaskrivning av enheter.
-> 
-> 
+>
+>
 
 Följande dokumentation innehåller information om hur du aktiverar funktionen för tillbakaskrivning av enhet i Azure AD Connect. Tillbakaskrivning av enheter används i följande scenarier:
 
@@ -34,7 +34,8 @@ Det ger ökad säkerhet och garanterar att beviljas åtkomst till program bara t
 
 > [!IMPORTANT]
 > <li>Enheter måste finnas i samma skog som användarna. Eftersom enheter måste skrivas tillbaka till en enda skog, stöder funktionen för närvarande inte en distribution med flera skogar för användaren.</li>
-> <li>Konfigurationsobjekt för endast en enhet registreringen kan läggas till lokala Active Directory-skogen. Den här funktionen är inte kompatibel med en topologi där lokala Active Directory synkroniseras till flera Azure AD-kataloger.</li>> 
+> <li>Konfigurationsobjekt för endast en enhet registreringen kan läggas till lokala Active Directory-skogen. Den här funktionen är inte kompatibel med en topologi där lokala Active Directory synkroniseras till flera Azure AD-klienter.</li>
+>
 
 ## <a name="part-1-install-azure-ad-connect"></a>Del 1: Installera Azure AD Connect
 1. Installera Azure AD Connect med anpassade eller standardinställningar. Microsoft rekommenderar att börja med alla användare och grupper har synkroniserats innan du aktiverar tillbakaskrivning av enheter.
@@ -43,15 +44,15 @@ Det ger ökad säkerhet och garanterar att beviljas åtkomst till program bara t
 Använd följande steg för att förbereda för att använda tillbakaskrivning av enheter.
 
 1. Starta PowerShell från den dator där Azure AD Connect är installerat i upphöjt läge.
-2. Om Active Directory PowerShell-modulen inte är installerad, installerar du den Remote Server Administration Tools som innehåller AD PowerShell-modulen och dsacls.exe som krävs för att köra skriptet.  Kör följande kommando:
-  
+2. Om Active Directory PowerShell-modulen inte är installerad, installera den Remote Server Administration Tools, som innehåller AD PowerShell-modulen och dsacls.exe, vilket krävs för att köra skriptet. Kör följande kommando:
+
    ``` powershell
    Add-WindowsFeature RSAT-AD-Tools
    ```
 
 3. Om Azure Active Directory PowerShell-modulen inte är installerat kan du hämta och installera den från [Azure Active Directory-modulen för Windows PowerShell (64-bitars version)](http://go.microsoft.com/fwlink/p/?linkid=236297). Den här komponenten har ett beroende på inloggningsassistenten, som installeras med Azure AD Connect.  
 4. Kör följande kommandon och avsluta sedan PowerShell med enterprise-administratörsautentiseringsuppgifter.
-   
+
    ``` powershell
    Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
    ```
@@ -62,8 +63,7 @@ Använd följande steg för att förbereda för att använda tillbakaskrivning a
 
 Enterprise-administratörsautentiseringsuppgifter krävs eftersom namnområdet konfiguration behövs. En domänadministratör har inte tillräcklig behörighet.
 
-![PowerShell för att aktivera tillbakaskrivning av enheter](./media/active-directory-aadconnect-feature-device-writeback/powershell.png) d
-
+![PowerShell för att aktivera tillbakaskrivning av enhet.](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
 
 Beskrivning:
 
@@ -87,18 +87,22 @@ Använd följande procedur för att aktivera tillbakaskrivning av enheter i Azur
 3. På sidan tillbakaskrivning visas den angivna domänen som standard enheten tillbakaskrivning skog.
    ![Anpassad installation enheten tillbakaskrivning målskogen](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4. Slutför installationen av guiden utan ytterligare konfigurationsändringar. Om det behövs, referera till [anpassad installation av Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
+5. Om du har aktiverat [filtrering](active-directory-aadconnectsync-configure-filtering.md) i Azure AD Connect, kontrollera att den nya behållaren CN = Registreradeenheter ingår i omfattningen.
 
-## <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
-Detaljerade instruktioner för att aktivera det här scenariot finns i [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
-
-## <a name="verify-devices-are-synchronized-to-active-directory"></a>Kontrollera att enheter ska synkroniseras med Active Directory
-Tillbakaskrivning av enheter bör nu fungerar korrekt. Tänk på att det kan ta upp till tre timmar för enhetsobjekt som ska skrivas tillbaka till AD.  Gör för att kontrollera att dina enheter som har synkroniserats korrekt följande när reglerna synkroniseringen är klar:
+## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Del 4: Kontrollera enheter som synkroniseras till Active Directory
+Tillbakaskrivning av enheter bör nu fungerar korrekt. Tänk på att det kan ta upp till tre timmar för enhetsobjekt som ska skrivas tillbaka till AD. Gör följande för att kontrollera att dina enheter som har synkroniserats korrekt när synkroniseringen är klar:
 
 1. Starta Active Directory Administrationscenter.
-2. Expandera Registreradeenheter inom domänen som är att federerade.
-   ![Active Directory Administrationscenter registrerade enheter](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3. Aktuella registrerade enheter visas det.
-   ![Active Directory Administrationscenter registrerade enheter lista](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+2. Expandera Registreradeenheter, i den domän som konfigurerades i [del 2](#part-2-prepare-active-directory).  
+
+   ![Active Directory Administrationscenter registrerade enheter](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
+   
+3. Aktuella registrerade enheter visas det.  
+
+   ![Active Directory Administrationscenter registrerade enheter lista](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+
+## <a name="enable-conditional-access"></a>Aktivera villkorlig åtkomst
+   Detaljerade instruktioner för att aktivera det här scenariot finns i [konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Kryssrutan tillbakaskrivning är fortfarande inaktiverad
@@ -113,7 +117,8 @@ Första sakerna första:
   * Öppna den **kopplingar** fliken.
   * Hitta anslutningen med typen Active Directory Domain Services och markera den.
   * Under **åtgärder**väljer **egenskaper**.
-  * Gå till **ansluta till Active Directory-skog**. Kontrollera att namnet på domänen och användarnamnet som angetts på den här skärmen matchar det konto som anges i skriptet.
+  * Gå till **ansluta till Active Directory-skog**. Kontrollera att namnet på domänen och användarnamnet som angetts på den här skärmen matchar det konto som anges i skriptet.  
+  
     ![Connector-kontot i Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Kontrollera konfigurationen i Active Directory:
@@ -140,10 +145,9 @@ Kontrollera konfigurationen i Active Directory:
 
 ![Felsöka, kontrollera behörigheter på konfigurationen för Enhetsregistrering](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ytterligare information
+## <a name="additional-information"></a>Extra information
 * [Hantera risker med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
 * [Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
-

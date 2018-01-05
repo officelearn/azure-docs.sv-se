@@ -3,7 +3,7 @@ title: "Rubrik-baserad autentisering med PingAccess för Azure AD Application Pr
 description: "Publicera program med PingAccess och App-Proxy som stöder huvud-baserad autentisering."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrik-baserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -52,7 +52,7 @@ Om du redan har Application Proxy är aktiverat och har en koppling installeras,
 
 Application Proxy connector är en Windows Server-tjänst som dirigerar trafik från fjärranslutna anställda till publicerade appar. Mer detaljerad Installationsinstruktioner finns [aktivera Application Proxy på Azure-portalen](active-directory-application-proxy-enable.md).
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **programproxy**.
 3. Välj **hämta anslutning** att starta Application Proxy connector hämtningen. Följ installationsanvisningarna.
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Det här exemplet används den [Azure-portalen](https://portal.azure.com) till udpate den *acceptedMappedClaims* fält:
-1. Logga in på den [Azure-portalen](https://portal.azure.com) som global administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör.
 2. Välj **Azure Active Directory** > **App registreringar**.
 3. Markera programmet > **Manifest**.
 4. Välj **redigera**, söka efter den *acceptedMappedClaims* fältet och ändra värdet till **SANT**.

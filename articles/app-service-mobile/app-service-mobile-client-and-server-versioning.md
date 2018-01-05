@@ -3,8 +3,8 @@ title: Klient- och SDK-versionshantering i Mobile Apps och Mobile Services | Mic
 description: "Lista över klient-SDK: er och kompatibilitet med server SDK-versioner för Mobile Services och Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Klienten och servern versionshantering i Mobile Apps och Mobile Services
 Den senaste versionen av Azure Mobile Services är den **Mobile Apps** funktion i Azure App Service.
@@ -54,8 +54,8 @@ Diagrammet nedan visar kompatibiliteten mellan alla typer av klienten och server
 
 |  | **Mobiltjänster** Node.js eller .NET | **Mobilappar** Node.js eller .NET |
 | --- | --- | --- |
-| [Klienter för Mobile Services] |Okej |Fel\* |
-| [Mobile Apps-klienter] |Fel\* |Okej |
+| [Klienter för Mobile Services] |OK |Fel\* |
+| [Mobile Apps-klienter] |Fel\* |OK |
 
 \*Detta kan kontrolleras genom att ange **MS_SkipVersionCheck**.
 
@@ -87,7 +87,7 @@ Obs: Mobile Services klienten SDK *inte* skicka ett värde för `ZUMO-API-VERSIO
 ### <a name="behavior-of-mobile-services-backends"></a>Beteendet för Mobile Services serverdelar
 | ZUMO-API-VERSION | Värdet för MS_SkipVersionCheck | Svar |
 | --- | --- | --- |
-| Inte angetts |Alla |200 - OK |
+| Ej specificerat |Alla |200 - OK |
 | Inget värde |True |200 - OK |
 | Inget värde |FALSKT/inte angetts |400 – Felaktig begäran |
 

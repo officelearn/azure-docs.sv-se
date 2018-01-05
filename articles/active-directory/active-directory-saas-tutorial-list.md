@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 01/03/2018
 ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 6e6db5937463062c3b5359ae4a226f48ce752417
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: eb5ea2825318d75b37cd0d51b0fac3c1c7454fa2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrering av SaaS-program med Azure Active Directory
 
@@ -31,7 +31,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 
 ## <a name="saas-tutorials"></a>Självstudier för SaaS
 
-| logotypen | Självstudiekurs för enkel inloggning | Självstudiekursen för användaretablering |
+| Logotyp | Självstudiekurs för enkel inloggning | Självstudiekursen för användaretablering |
 | :---: | :--- | :--- |
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-andfrankly-tutorial.png)| [& även](active-directory-saas-andfrankly-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/SaaSApp_AtTask.png)| [@Task](active-directory-saas-attask-tutorial.md)|
@@ -322,7 +322,7 @@ Omfattande lista över SaaS-appar som har redan integrerade i Azure AD, finns de
 | ![logotypen](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.png)| [SAP HANA Molnplattform](active-directory-saas-sap-hana-cloud-platform-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/SaaSApp_SAPNetWeaver.png)| [SAP NetWeaver](active-directory-saas-sap-netweaver-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/saasapp_scalexenterprise.png)| [ScaleX Enterprise](active-directory-saas-scalexenterprise-tutorial.md)|
-| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC livscykel](active-directory-saas-scc-lifecycle-tutorial.md)|
+| ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [SCC livscykel](active-directory-saas-scclifecycle-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/active-directory-saas-schoox-tutorial.png)| [Schoox](active-directory-saas-schoox-tutorial.md) 
 | ![logotypen](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.png)| [Sciforma](active-directory-saas-sciforma-tutorial.md)|
 | ![logotypen](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.png)| [SciQuest tillbringar Director](active-directory-saas-sciquest-spend-director-tutorial.md)|

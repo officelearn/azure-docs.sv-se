@@ -3,7 +3,7 @@ title: Publicera appar med Azure AD Application Proxy | Microsoft Docs
 description: "Publicera lokala program till molnet med Azure AD Application Proxy på Azure-portalen."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicera program med Azure AD Application Proxy
 
@@ -86,7 +86,7 @@ Lägga till ett användarkonto för testet om du vill testa att appen har public
   ![Lägg till en användare eller grupp](./media/application-proxy-publish-azure-portal/add-user.png)
 
 3. På bladet Lägg till tilldelningen väljer **användare och grupper** Välj det konto som du vill lägga till. 
-4. Välj **tilldela**.
+4. Välj **Tilldela**.
 
 ## <a name="test-your-published-app"></a>Testa din publicerade app
 

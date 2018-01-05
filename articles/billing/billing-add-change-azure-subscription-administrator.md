@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
@@ -40,9 +40,11 @@ Att säkerställa bättre kontroll och för att förenkla åtkomsthantering reko
 Om du vill lägga till en person som administratör för Azure-prenumeration tjänsten administration du ge dem en roll för RBAC ägare till prenumerationen. Rollen som ägare kan hantera resurserna i prenumerationen du tilldelade och har inte behörighet att använda till andra prenumerationer.
 
 1. Besök [ **prenumerationer** i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj den prenumeration som du vill ge åtkomst.
-1. Välj **åtkomstkontroll (IAM)** på menyn.
-1. Välj **lägga till** > **rollen** > **ägare**. Skriv e-postadressen för den användare som du vill lägga till som ägare, Välj användaren och välj sedan **spara**.
+2. Välj den prenumeration som du vill ge åtkomst.
+3. Välj **åtkomstkontroll (IAM)** på menyn.
+4. I den **rollen** väljer **ägare**. 
+5. I den **bevilja åtkomst till** väljer **Azure AD-användare, grupp eller programmet**. 
+6. I den **Välj** Skriv e-postadressen för den användare som du vill lägga till som ägare. Välj användaren och välj sedan **spara**.
 
     ![Skärmbild som visar ägarrollen som valts](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Teknisk guide till Cortana Intelligence lösning mallen för begäran vid en prognos i energi
 ## <a name="overview"></a>**Översikt**
@@ -150,7 +150,7 @@ När Data Generator har startats pipeline börjar hämta ur och de olika kompone
     En av Stream Analytics-jobb skriver inkommande rådata till blob storage. Om du klickar på **Azure Blob Storage** komponent i lösningen från skärmen du distribuera lösningen och klicka sedan på **öppna** i den högra panelen, det tar dig till den [Azure portalen](https://portal.azure.com). När det, klickar du på på **Blobbar**. I panelen nästa visas en lista över behållare. Klicka på **”energysadata”**. I panelen nästa visas de **”demandongoing”** mapp. I mappen \data du se mappar med namn som datum = 2016-01-28 osv. Om du ser dessa mappar, betyder det att rådata är korrekt som genereras på datorn och lagras i blob storage. Du bör se filer som ska ha begränsad storlek i MB i mapparna.
 2. Kontrollera om data från Azure SQL Database.
 
-    Det sista steget i pipeline är att skriva data (till exempel förutsägelser från maskininlärning) i SQL-databasen. Du måste kanske vänta en högsta oftwo timmar för data som visas i SQL-databas. Ett sätt att övervaka hur mycket data som är tillgängliga i SQL-databasen är via [Azure-portalen](https://manage.windowsazure.com/). Leta reda på SQL-databaser på den vänstra panelen![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) och klicka på den. Leta upp din databas (d.v.s. demo123456db) och klicka på den sedan. På nästa sida under **”ansluta till databasen”** klickar du på **”kör Transact-SQL-frågor mot din SQL-databas”**.
+    Det sista steget i pipeline är att skriva data (till exempel förutsägelser från maskininlärning) i SQL-databasen. Du kan behöva vänta högst två timmar för data som visas i SQL-databas. Ett sätt att övervaka hur mycket data som är tillgängliga i SQL-databasen är via [Azure-portalen](https://portal.azure.com/). Leta reda på SQL-databaser på den vänstra panelen![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) och klicka på den. Leta upp din databas (d.v.s. demo123456db) och klicka på den sedan. På nästa sida under **”ansluta till databasen”** klickar du på **”kör Transact-SQL-frågor mot din SQL-databas”**.
 
     Här kan du klicka på ny fråga och fråga för hur många rader (till exempel ”Välj count(*) från DemandRealHourly)” att län, öka antalet rader i tabellen.)
 3. Kontrollera om data från Power BI-instrumentpanelen.
@@ -167,7 +167,7 @@ Följande steg hjälper dig hur du visualisera data i realtid utdata från Strea
 1. Lägga till Power BI-utdata i Azure Stream Analytics (ASA).
 
    * Du bör följa anvisningarna i [Azure Stream Analytics & Power BI: en analys i realtid instrumentpanel för realtid synligheten för strömmande data](stream-analytics/stream-analytics-power-bi-dashboard.md) att ställa in utdata för din Azure Stream Analytics-jobb som Power BI-instrumentpanel .
-   * Leta upp stream analytics-jobbet i din [Azure-portalen](https://manage.windowsazure.com). Namnet på jobbet bör vara: YourSolutionName + ”streamingjob” + slumpmässiga nummer + ”asapbi” (d.v.s. demostreamingjob123456asapbi).
+   * Leta upp stream analytics-jobbet i din [Azure-portalen](https://portal.azure.com). Namnet på jobbet bör vara: YourSolutionName + ”streamingjob” + slumpmässiga nummer + ”asapbi” (d.v.s. demostreamingjob123456asapbi).
    * Lägga till en PowerBI-utdata för jobbet ASA. Ange den **utdata Alias** som **'PBIoutput'**. Ange din **Dataset-namnet** och **tabellnamn** som **'EnergyStreamData'**. När du har lagt till utdata, klickar du på **”Start”** längst ned på sidan för att starta Stream Analytics-jobbet. Du bör få ett bekräftelsemeddelande (till exempel ”start stream analytics-jobbet myteststreamingjob12345asablob lyckades”).
 2. Logga in på [Power BI online](http://www.powerbi.com)
 

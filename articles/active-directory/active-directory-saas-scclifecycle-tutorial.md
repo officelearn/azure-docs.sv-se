@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 30b3ed453cb67516b49bcf27376a1a0aea43d9b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7e6cc4a78b3e31b1357671fdb19d8eb9cf927ce
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Självstudier: Azure Active Directory-integrering med SCC livscykel
 
@@ -31,7 +31,7 @@ Integrera SCC livscykel med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med SCC livscykel, behöver du följande:
 
@@ -132,10 +132,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. Konfigurera enkel inloggning på **SCC livscykel** sida, måste du skicka den hämtade **XML-Metadata för** till [SCC livscykel supportteamet](mailto:lifecycle.support@scc.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
-     >[!NOTE]
-   >Enkel inloggning måste vara aktiverat av supportteamet SCC livscykel.
-   > 
-   > 
+  >[!NOTE]
+  >Enkel inloggning måste vara aktiverat av supportteamet SCC livscykel.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +177,7 @@ För att aktivera Azure AD-användare att logga in på SCC livscykel, måste de 
 När en tilldelad användare försöker logga in på SCC livscykel, skapas automatiskt ett SCC livscykel-konto om det behövs.
 
 > [!NOTE]
-    > Azure Active Directory kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den aktiveras.
+> Azure Active Directory kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den aktiveras.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
-Om du vill schemalägga en runbook i Azure Automation för att starta vid en viss tidpunkt länka du det till ett eller flera scheman. Ett schema kan konfigureras för att köras en gång eller på en igen timvis eller daglig schema för runbooks i den klassiska Azure-portalen och runbooks i Azure-portalen, du kan också schemalägga dem för varje vecka, månad, särskilda dagar i veckan eller dagar i månaden, eller en viss dag i månaden.  En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks som är länkade till den.
+Om du vill schemalägga en runbook i Azure Automation för att starta vid en viss tidpunkt länka du det till ett eller flera scheman. Ett schema kan konfigureras för att köras en gång eller på en igen timvis eller daglig schema för runbooks i Azure-portalen. Du kan också schemalägga dem för varje vecka, månad, särskilda dagar i veckan eller dagar i månaden, eller en viss dag i månaden.  En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks som är länkade till den.
 
 > [!NOTE]
 > Scheman stöder för närvarande inte Azure Automation DSC-konfigurationer.
@@ -51,7 +51,7 @@ Cmdlets i följande tabell används för att skapa och hantera scheman med Windo
 | [Avregistrera AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Dissociates en runbook från ett schema. |
 
 ## <a name="creating-a-schedule"></a>Skapa ett schema
-Du kan skapa ett nytt schema för runbooks i Azure-portalen i den klassiska portalen eller med Windows PowerShell. Du har också möjlighet att skapa ett nytt schema när du länkar en runbook till ett schema med Azure klassiska eller Azure-portalen.
+Du kan skapa ett nytt schema för runbooks i Azure-portalen eller med Windows PowerShell. Du har också möjlighet att skapa ett nytt schema när du länkar en runbook till ett schema med Azure klassiska eller Azure-portalen.
 
 > [!NOTE]
 > Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.  För att undvika att påverka dina runbooks och processer som de automatisera, bör du testa alla runbooks som har länkats scheman med ett Automation-konto som är dedikerad för testning.  Detta verifierar din schemalagda runbooks fortsätter att fungera korrekt om inte, du kan och ytterligare felsöka tillämpar ändringar som krävs innan du migrerar den uppdaterade runbook-versionen till produktionen.  
@@ -63,14 +63,6 @@ Du kan skapa ett nytt schema för runbooks i Azure-portalen i den klassiska port
 2. Klicka på **lägga till ett schema** överst på sidan.
 4. På den **nytt schema** rutan Ange ett **namn** och eventuellt en **beskrivning** för det nya schemat.
 5. Välj om schemat har körts en gång, eller på ett reoccurring schema genom att välja **när** eller **återkommande**.  Om du väljer **när** ange en **starttid** och klicka sedan på **skapa**.  Om du väljer **återkommande**, ange en **starttid** och frekvens för hur ofta du vill att runbook ska upprepas - av **timme**, **dag**, **vecka**, eller av **månad**.  Om du väljer **vecka** eller **månad** från den nedrullningsbara listan den **upprepning alternativet** visas i fönstret och vid val av den **upprepning alternativet** fönstret visas och du kan välja dag i veckan om du har valt **vecka**.  Om du har valt **månad**, du kan välja efter **veckodagar** eller särskilda dagar i månaden i kalendern och slutligen vill du köra den på den sista dagen i månaden eller inte och klicka sedan på **OK**.   
-
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Skapa ett nytt schema i den klassiska Azure-portalen
-1. Välj Automation och välj sedan namnet på ett Automation-konto i den klassiska Azure-portalen.
-2. Välj den **tillgångar** fliken.
-3. Längst ned i fönstret klickar du på **Lägg till inställning**.
-4. Klicka på **Lägg till schema**.
-5. Ange en **namn** och eventuellt en **beskrivning** för det nya schemat. Schemat kan köra **en gång**, **timvis**, **dagliga**, **veckovisa**, eller **månatliga**.
-6. Ange en **starttid** och andra alternativ beroende på vilken typ av schema som du har valt.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Skapa ett nytt schema med Windows PowerShell
 Du kan använda den [ny AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) för att skapa ett nytt schema i Azure Automation för klassiska runbooks eller [ny AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet för runbooks i Azure-portalen. Du måste ange starttiden för schemat och frekvensen ska köras.
@@ -98,14 +90,6 @@ En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks s
 2. Klicka på namnet på runbooken som ska schemaläggas.
 3. Om runbook inte är för närvarande kopplad till ett schema, erbjuds du alternativet för att skapa ett nytt schema eller länka till ett befintligt schema.  
 4. Om runbooken har parametrar, kan du välja alternativet **ändra körningsinställningar (standard: Azure)** och **parametrar** fönstret visas där du kan ange information i enlighet med detta.  
-
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Länka ett schema till en runbook med den klassiska Azure-portalen
-1. I den klassiska Azure-portalen väljer **Automation** och klicka sedan på namnet på ett Automation-konto.
-2. Välj den **Runbooks** fliken.
-3. Klicka på namnet på runbooken som ska schemaläggas.
-4. Klicka på den **schema** fliken.
-5. Om runbook inte är för närvarande kopplad till ett schema så att du har möjlighet att **länk till ett nytt schema** eller **länk till ett befintligt schema**.  Om runbooken för närvarande är länkad till ett schema, klickar du på **länk** längst ned i fönstret för att komma åt dessa alternativ.
-6. Om runbooken har parametrar uppmanas för deras värden.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Länka ett schema till en runbook med Windows PowerShell
 Du kan använda den [registrera AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) länka ett schema till en klassisk runbook eller [registrera AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet för runbooks i Azure-portalen.  Du kan ange värden för runbookens parametrar med parametern parametrar. Se [starta en Runbook i Azure Automation](automation-starting-a-runbook.md) mer information om specificering av parametervärden.
@@ -135,14 +119,6 @@ När du inaktiverar ett schema körs alla runbooks inte längre länkad till den
 1. Välj i Azure-portalen från ditt Automation-konto **scheman** under avsnittet **delade resurser** till vänster.
 2. Klicka på namnet på ett schema för att öppna informationsfönstret.
 3. Ändra **aktiverat** till **nr**.
-
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Inaktivera ett schema från den klassiska Azure-portalen
-Du kan inaktivera ett schema i den klassiska Azure-portalen från sidan Schemadetaljer för schemat.
-
-1. Välj Automation och klicka sedan på namnet på ett Automation-konto i den klassiska Azure-portalen.
-2. Välj fliken tillgångar.
-3. Klicka på namnet på ett schema för att öppna dess detaljsida.
-4. Ändra **aktiverat** till **nr**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Inaktivera ett schema med Windows PowerShell
 Du kan använda den [Set AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) för att ändra egenskaperna för ett befintligt schema för en klassiska runbook eller [Set AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet för runbooks i Azure-portalen. Om du vill inaktivera schemat, ange **FALSKT** för den **IsEnabled** parameter.

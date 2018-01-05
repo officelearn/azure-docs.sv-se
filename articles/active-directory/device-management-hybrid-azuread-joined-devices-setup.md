@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -32,11 +32,12 @@ Om du har en lokal Active Directory-miljö och du vill ansluta till din domänan
 
 Innan du börjar konfigurera hybrid Azure AD anslutna enheter i din miljö bör du bekanta dig med scenarierna som stöds och begränsningar.  
 
+Om du förlita dig på den [systemförberedelseverktyget (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), se till att du skapar bilder från en installation av Windows som inte ännu har registrerats med Azure AD.
+
 För att förbättra läsbarhet beskrivningar, används det här avsnittet följande villkor: 
 
 - **Aktuella Windows-enheter** -termen refererar till domänanslutna enheter som kör Windows 10 eller Windows Server 2016.
 - **Windows-klientversioner enheter** -termen avser alla **stöds** domänanslutna Windows-enheter som inte är igång Windows 10 eller Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Aktuella Windows-enheter
 
@@ -57,7 +58,7 @@ För att förbättra läsbarhet beskrivningar, används det här avsnittet följ
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar att aktivera hybrid Azure AD anslutna enheter i din organisation, måste du se till att du kör en uppdaterad version av Azure AD connect.
 
@@ -66,6 +67,15 @@ Azure AD Connect:
 - Behåller associationen mellan datorkonto i din lokala Active Directory (AD) och enhetsobjekt i Azure AD. 
 - Gör andra enheter relaterade funktioner som Windows Hello för företag.
 
+Kontrollera att följande URL: er är tillgängliga från datorer i nätverket i din organisation för registrering av datorer till Azure AD:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.login.microsoftonline.com
+
+Om ditt företag kräver åtkomst till Internet via en utgående proxy, måste implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera på Azure AD.
 
 
 ## <a name="configuration-steps"></a>Konfigurationssteg

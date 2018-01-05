@@ -3,10 +3,9 @@ title: Integrera program med Azure Active Directory
 description: "Så här lägger du till, uppdatera eller ta bort ett program i Azure Active Directory (AD Azure)."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Dessutom innan en klient kan komma åt ett webb-API som exponeras av en resurspr
 - Delegerade behörigheter: Ditt klientprogram behöver åtkomst till webb-API som den inloggade användaren, men med åtkomst begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare om behörigheten kräver godkännande av administratören. 
 
   > [!NOTE]
-  > Lägga till en delegerad behörighet till ett program ger automatiskt inte medgivande till användare i klienten, som i den klassiska Azure-portalen. Användarna måste fortfarande manuellt medgivande för tillagda delegerade behörigheter vid körning, om inte administratören klickar på den **bevilja med** knappen från den **nödvändiga behörigheter** avsnitt i den sidan program i Azure-portalen. 
+  > Lägga till en delegerad behörighet till ett program ger automatiskt inte medgivande till användare i klienten. Användarna måste fortfarande manuellt medgivande för tillagda delegerade behörigheter vid körning, om inte administratören klickar på den **bevilja med** knappen från den **nödvändiga behörigheter** avsnitt i den sidan program i Azure-portalen. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Att lägga till autentiseringsuppgifter eller behörighet att komma åt web API: er
 1. Logga in på [Azure Portal](https://portal.azure.com).

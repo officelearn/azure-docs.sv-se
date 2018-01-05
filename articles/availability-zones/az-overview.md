@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Översikt över tillgänglighet zoner i Azure (förhandsversion)
 
@@ -54,7 +54,7 @@ Tillgänglighet zoner förhandsgranskningen är tillgängligt i östra USA 2, v�
 3. Välj en region som stöder tillgänglighet zoner.
 4. Använd någon av följande länkar för att börja använda tillgänglighet zoner med din tjänst. 
     - [Skapa en virtuell dator](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Skapa en zonal virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Skapa en skaluppsättning för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Lägga till en hanteras med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Belastningsutjämnare](../load-balancer/load-balancer-standard-overview.md)
 

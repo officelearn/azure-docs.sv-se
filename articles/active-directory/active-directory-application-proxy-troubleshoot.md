@@ -3,7 +3,7 @@ title: "Felsöka Application Proxy | Microsoft Docs"
 description: "Beskriver hur du felsöker fel i Azure AD Application Proxy."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 87c88f9ba9932c101e979c949121aae0884e9f24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d9342194c41c551123a6eb307da98f7a9248a265
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsökning av problem med Application Proxy och felmeddelanden
 Om fel uppstår i att komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD Application Proxy fungerar:
@@ -86,7 +86,7 @@ Den här listan innehåller fel som slutanvändarna kan uppstå när de försök
 
 Om det uppstår ett fel eller problem med Azure AD Application Proxy som inte finns i den här felsökningsguiden vill vi höra om den. Skicka ett e-postmeddelande till vår [feedback team](mailto:aadapfeedback@microsoft.com) med information om de fel.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Aktivera Application Proxy för Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publicera program med Application Proxy](active-directory-application-proxy-publish.md)
 * [Aktivera enkel inloggning](active-directory-application-proxy-sso-using-kcd.md)

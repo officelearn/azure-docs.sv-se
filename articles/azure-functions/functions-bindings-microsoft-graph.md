@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Microsoft Graph bindningar | Microsoft Docs
+title: "Microsoft Graph bindningar för Azure Functions"
 description: "Förstå hur du använder Microsoft Graph utlösare och bindningar i Azure Functions."
 services: functions
 author: mattchenderson
@@ -9,18 +9,17 @@ ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 63b94c0a9b77a3f3a6fd394a130bf8f132d51369
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="azure-functions-microsoft-graph-bindings"></a>Azure Functions Microsoft Graph-bindningar
+# <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
-Den här artikeln beskriver hur du konfigurerar och arbetar med Microsoft Graph utlösare och bindningar i Azure Functions.
-Med dessa kan du använda Azure Functions för att arbeta med data, insikter och händelser från den [Microsoft Graph](https://graph.microsoft.io).
+Den här artikeln beskriver hur du konfigurerar och arbetar med Microsoft Graph utlösare och bindningar i Azure Functions. Med dessa kan du använda Azure Functions för att arbeta med data, insikter och händelser från den [Microsoft Graph](https://graph.microsoft.io).
 
 Microsoft Graph filnamnstillägget innehåller följande Bindningar:
 - En [auth token inkommande bindningen](#token-input) kan du samverka med eventuella Microsoft Graph API.
@@ -33,24 +32,22 @@ Microsoft Graph filnamnstillägget innehåller följande Bindningar:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!Note] 
+> [!Note]
 > Microsoft Graph-bindningar finns för närvarande under förhandsgranskning.
 
 ## <a name="setting-up-the-extensions"></a>Konfigurera tillägg
 
-Microsoft Graph bindningar är tillgängliga via _bindning tillägg_. Bindningen tillägg är valfria komponenter till Azure Functions-runtime. Det här avsnittet visas hur du ställer in av Microsoft Graph och auth token tillägg.
+Microsoft Graph bindningar är tillgängliga via _bindning tillägg_. Bindningen tillägg är valfria komponenter till Azure Functions-runtime. Det här avsnittet visar hur du ställer in av Microsoft Graph och auth token tillägg.
 
 ### <a name="enabling-functions-20-preview"></a>Aktivera funktioner 2.0 preview
 
-Bindningen tillägg är bara tillgängliga endast för förhandsversionen av Azure Functions 2.0. 
+Bindningen tillägg är bara tillgängliga för förhandsversionen av Azure Functions 2.0. 
 
-[!INCLUDE [functions-set-runtime-version](../../includes/functions-set-runtime-version.md)]
-
-Läs mer i [så avsedda för Azure Functions-runtime versioner](functions-versions.md).
+Information om hur du ställer in en funktionsapp att använda förhandsversionen 2.0 av Functions-runtime finns [version 2.0 har körningsmiljön](functions-versions.md#target-the-version-20-runtime).
 
 ### <a name="installing-the-extension"></a>Installationen av tillägget
 
-Om du vill installera ett tillägg från Azure-portalen måste du gå till en mall eller bindning som hänvisar till. Skapa en ny funktion och välj ”Microsoft Graph”-scenario i urvalssidan mallen. Välj en av mallar från det här scenariot. Du kan också gå till fliken ”integrera” i en befintlig funktion och välja en av de bindningar som beskrivs i det här avsnittet.
+Om du vill installera ett tillägg från Azure portal, navigerar du till en mall eller bindning som refererar till den. Skapa en ny funktion och välj ”Microsoft Graph”-scenario i urvalssidan mallen. Välj en av mallar från det här scenariot. Du kan också gå till fliken ”integrera” i en befintlig funktion och välja en av de bindningar som beskrivs i den här artikeln.
 
 I båda fallen visas en varning som anger att tillägget ska kunna installeras. Klicka på **installera** att hämta tillägget.
 
@@ -61,49 +58,41 @@ Om du använder Visual Studio kan du hämta tillägg genom att installera dessa 
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
 - [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
 
-### <a name="configuring-app-service-authentication--authorization"></a>Konfigurera App Service autentisering / auktorisering
+### <a name="configuring-authentication--authorization"></a>Konfigurera autentisering / auktorisering
 
-De bindningar som beskrivs i det här avsnittet kräver en identitet som ska användas. På så sätt kan Microsoft Graph att tillämpa behörigheter och granska interaktioner. Identiteten kan vara en användare att komma åt programmet eller programmet. Om du vill konfigurera den här identiteten, behöver du ställa in [App Service autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) med Azure Active Directory. Du måste också begära alla dina funktioner kräver resursbehörigheter.
+De bindningar som beskrivs i den här artikeln kräver en identitet som ska användas. På så sätt kan Microsoft Graph att tillämpa behörigheter och granska interaktioner. Identiteten kan vara en användare att komma åt programmet eller programmet. Om du vill konfigurera den här identiteten konfigurera [App Service autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) med Azure Active Directory. Du måste också begära alla dina funktioner kräver resursbehörigheter.
 
 > [!Note] 
-> Microsoft Graph filnamnstillägget har endast stöd för AAD-autentisering. Användarna måste logga in med ett arbets- eller skolkonto.
+> Microsoft Graph filnamnstillägget har endast stöd för Azure AD-autentisering. Användarna måste logga in med ett arbets- eller skolkonto.
 
-Om du använder Azure-portalen nedan tillfrågas om du vill installera tillägg, visas en varning som uppmanar dig att konfigurera App Service-autentisering / auktorisering och begära alla behörigheter mallen eller bindning krävs. Klicka på **nu konfigurera AAD** eller **lägga till behörigheter nu** efter behov.
-
-
-
+Om du använder Azure-portalen, visas en varning under uppmaningen att installera tillägget. Varningen uppmanar dig att konfigurera App Service-autentisering / auktorisering och begära alla behörigheter mallen eller bindning krävs. Klicka på **nu konfigurera Azure AD** eller **lägga till behörigheter nu** efter behov.
 
 
 
 <a name="token-input"></a>
-## <a name="auth-token-input-binding"></a>Auth token indatabindning
+## <a name="auth-token"></a>Autentiseringstoken
 
-Den här bindningen hämtar en AAD-token för en viss resurs och förser koden som en sträng. Resursen kan vara någon som har behörighet för programmet. 
+Auth token indatabindning hämtar en Azure AD-token för en viss resurs och förser koden som en sträng. Resursen kan vara någon som har behörighet för programmet. 
 
-### <a name="configuring-an-auth-token-input-binding"></a>Konfigurera en token indatabindning auth
+Det här avsnittet innehåller följande underavsnitt:
 
-Bindningen själva kräver inte några AAD-behörigheter, men beroende på hur token som används, kan du behöva begär ytterligare behörighet. Kontrollera kraven för den resurs som du vill komma åt med token.
+* [Exempel](#auth-token---example)
+* [Attribut](#auth-token---attributes)
+* [Konfiguration](#auth-token---configuration)
+* [Användning](#auth-token---usage)
 
-Bindningen stöder följande egenskaper:
+### <a name="auth-token---example"></a>Token för auth - exempel
 
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en token för auth inkommande bindningen från kod](#token-input-code).|
-|**typ**|Krävs – måste vara inställd på `token`.|
-|**riktning**|Krävs – måste vara inställd på `in`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**resursen**|Krävs – en AAD resurs-URL som token begärs.|
+Finns i det språkspecifika:
 
-<a name="token-input-code"></a>
-### <a name="using-an-auth-token-input-binding-from-code"></a>Med hjälp av en auth token indatabindning från kod
+* [C#-skript (.csx)](#auth-token---c-script-example)
+* [JavaScript](#auth-token---javascript-example)
 
-Token visas alltid till kod som en sträng.
+#### <a name="auth-token---c-script-example"></a>Token för auth - exempel på C#-skript
 
-#### <a name="sample-getting-user-profile-information"></a>Exempel: Hämta användarens profilinformation
+I följande exempel hämtas användarens profilinformation.
 
-Anta att du har följande function.json som definierar en HTTP-utlösare med en token indatabindning:
+Den *function.json* filen definierar en HTTP-utlösare med en token indatabindning:
 
 ```json
 {
@@ -130,7 +119,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med en 
 }
 ```
 
-Följande C#-exempel använder token för att göra ett HTTP-anrop till Microsoft Graph och returnerar resultatet:
+C#-skriptkod använder token för att göra ett HTTP-anrop till Microsoft Graph och returnerar resultatet:
 
 ```csharp
 using System.Net; 
@@ -145,7 +134,38 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string
 }
 ```
 
-I följande exempel JS använder token för att göra ett HTTP-anrop till Microsoft Graph och returnerar resultatet. I den `function.json` ovan, ändra `$return` till `res` första.
+#### <a name="auth-token---javascript-example"></a>Token för auth - JavaScript-exempel
+
+I följande exempel hämtas användarens profilinformation.
+
+Den *function.json* filen definierar en HTTP-utlösare med en token indatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "token",
+      "direction": "in",
+      "name": "graphToken",
+      "resource": "https://graph.microsoft.com",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-kod använder token för att göra ett HTTP-anrop till Microsoft Graph och returnerar resultatet.
 
 ```js
 const rp = require('request-promise');
@@ -177,47 +197,56 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="auth-token---attributes"></a>Token för auth - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+
+### <a name="auth-token---configuration"></a>Token för auth - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Token` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en token för auth inkommande bindningen från kod](#token-input-code).|
+|**typ**||Krävs – måste vara inställd på `token`.|
+|**riktning**||Krävs – måste vara inställd på `in`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**Resurs**|**resursen**|Krävs – en Azure AD resurs-URL som token begärs.|
+
+<a name="token-input-code"></a>
+### <a name="auth-token---usage"></a>Token för auth - användning
+
+Bindningen själva kräver inte några Azure AD-behörigheter, men beroende på hur token som används, kan du behöva begär ytterligare behörighet. Kontrollera kraven för den resurs som du vill komma åt med token.
+
+Token visas alltid till kod som en sträng.
 
 
 
 
 <a name="excel-input"></a>
-## <a name="excel-table-input-binding"></a>Excel-tabellen indatabindning
+## <a name="excel-input"></a>Excel-indata
 
-Den här bindningen läser innehållet i en Excel-tabell som lagras i OneDrive.
+Excel-tabellen indatabindning läser innehållet i en Excel-tabell som lagras i OneDrive.
 
-### <a name="configuring-an-excel-table-input-binding"></a>Konfigurera en indatabindning för Excel-tabell
+Det här avsnittet innehåller följande underavsnitt:
 
-Den här bindningen kräver AAD följande behörigheter:
-|Resurs|Behörighet|
-|--------|--------|
-|Microsoft Graph|Läs användarfiler|
+* [Exempel](#excel-input---example)
+* [Attribut](#excel-input---attributes)
+* [Konfiguration](#excel-input---configuration)
+* [Användning](#excel-input---usage)
 
-Bindningen stöder följande egenskaper:
+### <a name="excel-input---example"></a>Excel-indata - exempel
 
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för Excel-tabellen. Se [med hjälp av en Excel-tabell inkommande bindningen från kod](#excel-input-code).|
-|**typ**|Krävs – måste vara inställd på `excel`.|
-|**riktning**|Krävs – måste vara inställd på `in`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|Kalkylbladet som hittas i tabellen.|
-|**tableName**|Namnet på tabellen. Om inget anges används innehållet i kalkylbladet.|
+Finns i det språkspecifika:
 
-<a name="excel-input-code"></a>
-### <a name="using-an-excel-table-input-binding-from-code"></a>Med hjälp av en Excel tabell indatabindning från kod
+* [C#-skript (.csx)](#excel-input---c-script-example)
+* [JavaScript](#excel-input---javascript-example)
 
-Bindningen visar följande typer till .NET-funktioner:
-- String []]
-- Microsoft.Graph.WorkbookTable
-- Anpassade objektgrupper (med strukturella modellbindning)
+#### <a name="excel-input---c-script-example"></a>Excel-indata - exempel på C#-skript
 
-#### <a name="sample-reading-an-excel-table"></a>Exempel: Läsa en Excel-tabell
-
-Anta att du har följande function.json som definierar en HTTP-utlösare med en Excel-indatabindning:
+Följande *function.json* filen definierar en HTTP-utlösare med en Excel-indatabindning:
 
 ```json
 {
@@ -246,7 +275,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med en 
 }
 ```
 
-Följande C#-exempel lägger till läser innehållet i den angivna tabellen och returnerar dem till användaren:
+Följande C# skriptkoden läser innehållet i den angivna tabellen och returnerar dem till användaren:
 
 ```csharp
 using System.Net;
@@ -259,7 +288,38 @@ public static IActionResult Run(HttpRequest req, string[][] excelTableData, Trac
 }
 ```
 
-I följande exempel JS lägger till läser innehållet i den angivna tabellen och returnerar dem till användaren. I den `function.json` ovan, ändra `$return` till `res` första.
+#### <a name="excel-input---javascript-example"></a>Excel-indata - JavaScript-exempel
+
+Följande *function.json* filen definierar en HTTP-utlösare med en Excel-indatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "excel",
+      "direction": "in",
+      "name": "excelTableData",
+      "path": "{query.workbook}",
+      "identity": "UserFromRequest",
+      "tableName": "{query.table}"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Följande JavaScript-kod läser innehållet i den angivna tabellen och returnerar dem till användaren.
 
 ```js
 module.exports = function (context, req) {
@@ -270,45 +330,72 @@ module.exports = function (context, req) {
 };
 ```
 
-<a name="excel-output"></a>
-## <a name="excel-table-output-binding"></a>Excel-tabellen utdatabindning
+### <a name="excel-input---attributes"></a>Excel-indata - attribut
 
-Den här bindningen ändrar innehållet i en Excel-tabell som lagras i OneDrive.
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-### <a name="configuring-an-excel-table-output-binding"></a>Konfigurera en Excel-tabell utdatabindning
+### <a name="excel-input---configuration"></a>Excel-indata - konfiguration
 
-Den här bindningen kräver AAD följande behörigheter:
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Excel` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för Excel-tabellen. Se [med hjälp av en Excel-tabell inkommande bindningen från kod](#excel-input-code).|
+|**typ**||Krävs – måste vara inställd på `excel`.|
+|**riktning**||Krävs – måste vara inställd på `in`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**worksheetName**|**WorksheetName**|Kalkylbladet som hittas i tabellen.|
+|**tableName**|**TableName**|Namnet på tabellen. Om inget anges används innehållet i kalkylbladet.|
+
+<a name="excel-input-code"></a>
+### <a name="excel-input---usage"></a>Excel-indata - användning
+
+Den här bindningen kräver följande behörigheter i Azure AD:
 |Resurs|Behörighet|
 |--------|--------|
-|Microsoft Graph|Ha fullständig åtkomst till användarfiler|
-
-Bindningen stöder följande egenskaper:
-
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en Excel-tabell utdatabindning från kod](#excel-output-code).|
-|**typ**|Krävs – måste vara inställd på `excel`.|
-|**riktning**|Krävs – måste vara inställd på `out`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
-|**worksheetName**|Kalkylbladet som hittas i tabellen.|
-|**tableName**|Namnet på tabellen. Om inget anges används innehållet i kalkylbladet.|
-|**Uppdateringstyp**|Obligatoriskt - typ av ändring som du gör i tabellen. Kan vara något av följande värden:<ul><li><code>update</code>-Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code>-Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
-
-<a name="excel-output-code"></a>
-### <a name="using-an-excel-table-output-binding-from-code"></a>Med hjälp av en Excel-tabell utdatabindning från kod
+|Microsoft Graph|Läs användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
 - String []]
-- Newtonsoft.Json.Linq.JObject
 - Microsoft.Graph.WorkbookTable
 - Anpassade objektgrupper (med strukturella modellbindning)
 
-#### <a name="sample-adding-rows-to-an-excel-table"></a>Exempel: Lägga till rader i en Excel-tabell
 
-Anta att du har följande function.json som definierar en HTTP-utlösare med en Excel-utdatabindning:
+
+
+
+
+
+
+
+
+<a name="excel-output"></a>
+## <a name="excel-output"></a>Excel-utdata
+
+Excel utdata bindning ändrar innehållet i en Excel-tabell som lagras i OneDrive.
+
+Det här avsnittet innehåller följande underavsnitt:
+
+* [Exempel](#excel-output---example)
+* [Attribut](#excel-output---attributes)
+* [Konfiguration](#excel-output---configuration)
+* [Användning](#excel-output---usage)
+
+### <a name="excel-output---example"></a>Excel-utdata - exempel
+
+Finns i det språkspecifika:
+
+* [C#-skript (.csx)](#excel-output---c-script-example)
+* [JavaScript](#excel-output---javascript-example)
+
+#### <a name="excel-output---c-script-example"></a>Excel utdata - exempel på C#-skript
+
+I följande exempel lägger till rader till en Excel-tabell.
+
+Den *function.json* filen definierar en HTTP-utlösare med en Excel-utdatabindning:
 
 ```json
 {
@@ -338,8 +425,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med en 
 }
 ```
 
-
-Följande C#-exempel lägger till en ny rad i tabellen (antas vara en kolumn) baserat på indata från frågesträngen:
+C#-skriptkod lägger till en ny rad i tabellen (antas vara en kolumn) baserat på indata från frågesträngen:
 
 ```csharp
 using System.Net;
@@ -358,7 +444,41 @@ public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRo
 }
 ```
 
-I följande exempel JS lägger till en ny rad i tabellen (antas vara en kolumn) baserat på indata från frågesträngen. I den `function.json` ovan, ändra `$return` till `res` första.
+#### <a name="excel-output---javascript-example"></a>Excel utdata - JavaScript-exempel
+
+I följande exempel lägger till rader till en Excel-tabell.
+
+Den *function.json* filen definierar en HTTP-utlösare med en Excel-utdatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "newExcelRow",
+      "type": "excel",
+      "direction": "out",
+      "identity": "userFromRequest",
+      "updateType": "append",
+      "path": "{query.workbook}",
+      "tableName": "{query.table}"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Följande JavaScript-kod lägger till en ny rad i tabellen (antas vara en kolumn) baserat på indata från frågesträngen.
 
 ```js
 module.exports = function (context, req) {
@@ -370,45 +490,69 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="excel-output---attributes"></a>Excel utdata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="excel-output---configuration"></a>Excel-utdata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Excel` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för auth-token. Se [med hjälp av en Excel-tabell utdatabindning från kod](#excel-output-code).|
+|**typ**||Krävs – måste vara inställd på `excel`.|
+|**riktning**||Krävs – måste vara inställd på `out`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**Användar-ID** |**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**sökväg**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
+|**worksheetName**|**WorksheetName**|Kalkylbladet som hittas i tabellen.|
+|**tableName**|**TableName**|Namnet på tabellen. Om inget anges används innehållet i kalkylbladet.|
+|**Uppdateringstyp**|**Uppdateringstyp**|Obligatoriskt - typ av ändring som du gör i tabellen. Kan vara något av följande värden:<ul><li><code>update</code>-Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code>-Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
+
+<a name="excel-output-code"></a>
+### <a name="excel-output---usage"></a>Excel utdata - användning
+
+Den här bindningen kräver följande behörigheter i Azure AD:
+|Resurs|Behörighet|
+|--------|--------|
+|Microsoft Graph|Ha fullständig åtkomst till användarfiler|
+
+Bindningen visar följande typer till .NET-funktioner:
+- String []]
+- Newtonsoft.Json.Linq.JObject
+- Microsoft.Graph.WorkbookTable
+- Anpassade objektgrupper (med strukturella modellbindning)
+
+
 
 
 
 <a name="onedrive-input"></a>
-## <a name="onedrive-file-input-binding"></a>OneDrive filen indatabindning
+## <a name="file-input"></a>Filen indata
 
-Den här bindningen läser innehållet i en fil som lagras i OneDrive.
+OneDrive filen indatabindning läser innehållet i en fil som lagras i OneDrive.
 
-### <a name="configuring-a-onedrive-file-input-binding"></a>Konfigurera en inkommande bindning för OneDrive-fil
+Det här avsnittet innehåller följande underavsnitt:
 
-Den här bindningen kräver AAD följande behörigheter:
-|Resurs|Behörighet|
-|--------|--------|
-|Microsoft Graph|Läs användarfiler|
+* [Exempel](#file-input---example)
+* [Attribut](#file-input---attributes)
+* [Konfiguration](#file-input---configuration)
+* [Användning](#file-input---usage)
 
-Bindningen stöder följande egenskaper:
+### <a name="file-input---example"></a>Filen indata - exempel
 
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i funktionskod för filen. Se [med hjälp av en fil på OneDrive inkommande bindningen från kod](#onedrive-input-code).|
-|**typ**|Krävs – måste vara inställd på `onedrive`.|
-|**riktning**|Krävs – måste vara inställd på `in`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**sökväg**|Krävs – sökvägen till filen i OneDrive.|
+Finns i det språkspecifika:
 
-<a name="onedrive-input-code"></a>
-### <a name="using-a-onedrive-file-input-binding-from-code"></a>Med hjälp av en OneDrive fil indatabindning från kod
+* [C#-skript (.csx)](#file-input---c-script-example)
+* [JavaScript](#file-input---javascript-example)
 
-Bindningen visar följande typer till .NET-funktioner:
-- byte]
-- Stream
-- Sträng
-- Microsoft.Graph.DriveItem
+#### <a name="file-input---c-script-example"></a>Indata - filen C# exempel på skript
 
-#### <a name="sample-reading-a-file-from-onedrive"></a>Exempel: Läsa en fil från OneDrive
+I följande exempel läser en fil som lagras i OneDrive.
 
-Anta att du har följande function.json som definierar en HTTP-utlösare med OneDrive-indatabindning:
+Den *function.json* filen definierar en HTTP-utlösare med indatabindning för filen som ska användas som OneDrive:
 
 ```json
 {
@@ -436,7 +580,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med One
 }
 ```
 
-Följande C#-exempel läser filen som anges i frågesträngen och loggar längden:
+C#-skriptkod läser filen som anges i frågesträngen och loggar längden:
 
 ```csharp
 using System.Net;
@@ -447,7 +591,39 @@ public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWrite
 }
 ```
 
-I följande exempel JS läser filen som anges i frågesträngen och returnerar längden. I den `function.json` ovan, ändra `$return` till `res` första.
+#### <a name="file-input---javascript-example"></a>Indata - filen JavaScript-exempel
+
+I följande exempel läser en fil som lagras i OneDrive.
+
+Den *function.json* filen definierar en HTTP-utlösare med indatabindning för filen som ska användas som OneDrive:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myOneDriveFile",
+      "type": "onedrive",
+      "direction": "in",
+      "path": "{query.filename}",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Följande JavaScript-kod läser filen som anges i frågesträngen och returnerar längden.
 
 ```js
 module.exports = function (context, req) {
@@ -458,43 +634,67 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="file-input---attributes"></a>Filen indata - attribut
 
-<a name="onedrive-output"></a>
-## <a name="onedrive-file-output-binding"></a>OneDrive filen utdatabindning
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
 
-Den här bindningen ändrar innehållet i en fil som lagras i OneDrive.
+### <a name="file-input---configuration"></a>Filen indata - konfiguration
 
-### <a name="configuring-a-onedrive-file-output-binding"></a>Konfigurera en OneDrive utdatabindning filen
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `OneDrive` attribut.
 
-Den här bindningen kräver AAD följande behörigheter:
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i funktionskod för filen. Se [med hjälp av en fil på OneDrive inkommande bindningen från kod](#onedrive-input-code).|
+|**typ**||Krävs – måste vara inställd på `onedrive`.|
+|**riktning**||Krävs – måste vara inställd på `in`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**sökväg**|**Sökväg**|Krävs – sökvägen till filen i OneDrive.|
+
+<a name="onedrive-input-code"></a>
+### <a name="file-input---usage"></a>Filen indata - användning
+
+Den här bindningen kräver följande behörigheter i Azure AD:
 |Resurs|Behörighet|
 |--------|--------|
-|Microsoft Graph|Ha fullständig åtkomst till användarfiler|
-
-Bindningen stöder följande egenskaper:
-
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i funktionskod för filen. Se [med hjälp av en fil på OneDrive-utdatabindning från kod](#onedrive-output-code).|
-|**typ**|Krävs – måste vara inställd på `onedrive`.|
-|**riktning**|Krävs – måste vara inställd på `out`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**sökväg**|Krävs – sökvägen till filen i OneDrive.|
-
-<a name="onedrive-output-code"></a>
-### <a name="using-a-onedrive-file-output-binding-from-code"></a>Med hjälp av en OneDrive utdatabindning filen från kod
+|Microsoft Graph|Läs användarfiler|
 
 Bindningen visar följande typer till .NET-funktioner:
 - byte]
 - Stream
-- Sträng
+- sträng
 - Microsoft.Graph.DriveItem
 
-#### <a name="sample-writing-to-a-file-in-onedrive"></a>Exempel: Skrivning till en fil på OneDrive
 
-Anta att du har följande function.json som definierar en HTTP-utlösare med en OneDrive utdatabindning:
+
+
+
+
+<a name="onedrive-output"></a>
+## <a name="file-output"></a>Utdata
+
+Filen OneDrive utdata bindning ändrar innehållet i en fil som lagras i OneDrive.
+
+Det här avsnittet innehåller följande underavsnitt:
+
+* [Exempel](#file-output---example)
+* [Attribut](#file-output---attributes)
+* [Konfiguration](#file-output---configuration)
+* [Användning](#file-output---usage)
+
+### <a name="file-output---example"></a>Filen utdata - exempel
+
+Finns i det språkspecifika:
+
+* [C#-skript (.csx)](#file-output---c-script-example)
+* [JavaScript](#file-output---javascript-example)
+
+#### <a name="file-output---c-script-example"></a>Filen utdata - exempel på C#-skript
+
+I följande exempel skriver till en fil som lagras i OneDrive.
+
+Den *function.json* filen definierar en HTTP-utlösare med en OneDrive utdatabindning:
 
 ```json
 {
@@ -522,7 +722,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med en 
 }
 ```
 
-Följande C#-exempel hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt enligt definitionen i konfigurationen ovan) i roten på anroparens OneDrive:
+C#-skriptkod hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt som definierats i föregående exempel) i roten på anroparens OneDrive:
 
 ```csharp
 using System.Net;
@@ -537,7 +737,40 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
     return;
 }
 ```
-I följande exempel JS hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt som definierats i konfigurationen ovan) i roten på anroparens OneDrive. I den `function.json` ovan, ändra `$return` till `res` första.
+
+#### <a name="file-output---javascript-example"></a>Output - filen JavaScript-exempel
+
+I följande exempel skriver till en fil som lagras i OneDrive.
+
+Den *function.json* filen definierar en HTTP-utlösare med en OneDrive utdatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myOneDriveFile",
+      "type": "onedrive",
+      "direction": "out",
+      "path": "FunctionsTest.txt",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-kod hämtar text från frågesträngen och skriver den till en textfil (FunctionsTest.txt enligt definitionen i konfigurationen ovan) i roten på anroparens OneDrive.
 
 ```js
 module.exports = function (context, req) {
@@ -546,43 +779,66 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="file-output---attributes"></a>Filen utdata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="file-output---configuration"></a>Filen utdata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `OneDrive` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i funktionskod för filen. Se [med hjälp av en fil på OneDrive-utdatabindning från kod](#onedrive-output-code).|
+|**typ**||Krävs – måste vara inställd på `onedrive`.|
+|**riktning**||Krävs – måste vara inställd på `out`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**Användar-ID** |**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**sökväg**|**Sökväg**|Krävs – sökvägen till filen i OneDrive.|
+
+<a name="onedrive-output-code"></a>
+#### <a name="file-output---usage"></a>Filen utdata - användning
+
+Den här bindningen kräver följande behörigheter i Azure AD:
+|Resurs|Behörighet|
+|--------|--------|
+|Microsoft Graph|Ha fullständig åtkomst till användarfiler|
+
+Bindningen visar följande typer till .NET-funktioner:
+- byte]
+- Stream
+- sträng
+- Microsoft.Graph.DriveItem
+
+
+
 
 
 <a name="outlook-output"></a>
-## <a name="outlook-message-output-binding"></a>Outlook-meddelande utdatabindning
+## <a name="outlook-output"></a>Outlook-utdata
 
-Skickar ett e-postmeddelande via Outlook.
+Outlook-meddelande utdata bindning skickar ett e-postmeddelande via Outlook.
 
-### <a name="configuring-an-outlook-message-output-binding"></a>Konfigurera ett Outlook-meddelande utdatabindning
+Det här avsnittet innehåller följande underavsnitt:
 
-Den här bindningen kräver AAD följande behörigheter:
-|Resurs|Behörighet|
-|--------|--------|
-|Microsoft Graph|Skicka e-post som användare|
+* [Exempel](#outlook-output---example)
+* [Attribut](#outlook-output---attributes)
+* [Konfiguration](#outlook-output---configuration)
+* [Användning](#outlook-outnput---usage)
 
-Bindningen stöder följande egenskaper:
+### <a name="outlook-output---example"></a>Utdata för Outlook - exempel
 
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**|Krävs – måste vara inställd på `outlook`.|
-|**riktning**|Krävs – måste vara inställd på `out`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+Finns i det språkspecifika:
 
-<a name="outlook-output-code"></a>
-### <a name="using-an-outlook-message-output-binding-from-code"></a>Med hjälp av ett Outlook-meddelande utdatabindning från kod
+* [C#-skript (.csx)](#outlook-output---c-script-example)
+* [JavaScript](#outlook-output---javascript-example)
 
-Bindningen visar följande typer till .NET-funktioner:
-- Microsoft.Graph.Message
-- Newtonsoft.Json.Linq.JObject
-- Sträng
-- Anpassade objektgrupper (med strukturella modellbindning)
+#### <a name="outlook-output---c-script-example"></a>Outlook utdata - exempel på C#-skript
 
-#### <a name="sample-sending-an-email-through-outlook"></a>Exempel: Skicka ett e-postmeddelande i Outlook
+I följande exempel skickar ett e-postmeddelande via Outlook.
 
-Anta att du har följande utdatabindning function.json som definierar en HTTP-utlösare med ett Outlook-meddelande:
+Den *function.json* filen definierar en HTTP-utlösare med ett Outlook meddelandet utdatabindning:
 
 ```json
 {
@@ -603,7 +859,7 @@ Anta att du har följande utdatabindning function.json som definierar en HTTP-ut
 }
 ```
 
-Följande C#-exempel skickar ett e-postmeddelande från anroparen till en mottagare som angetts i frågesträngen.
+C#-skriptkod skickar ett e-postmeddelande från anroparen till en mottagare som angetts i frågesträngen:
 
 ```csharp
 using System.Net;
@@ -632,7 +888,32 @@ public class Recipient {
 }
 ```
 
-I följande exempel JS skickar ett e-postmeddelande från anroparen till en mottagare som angetts i frågesträngen.
+#### <a name="outlook-output---javascript-example"></a>Outlook utdata - JavaScript-exempel
+
+I följande exempel skickar ett e-postmeddelande via Outlook.
+
+Den *function.json* filen definierar en HTTP-utlösare med ett Outlook meddelandet utdatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "message",
+      "type": "outlook",
+      "direction": "out",
+      "identity": "userFromRequest"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-koden skickar ett e-postmeddelande från anroparen till en mottagare som angetts i frågesträngen:
 
 ```js
 module.exports = function (context, req) {
@@ -647,175 +928,80 @@ module.exports = function (context, req) {
 };
 ```
 
+### <a name="outlook-output---attributes"></a>Outlook utdata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="outlook-output---configuration"></a>Utdata för Outlook - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Outlook` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**typ**||Krävs – måste vara inställd på `outlook`.|
+|**riktning**||Krävs – måste vara inställd på `out`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+
+<a name="outlook-output-code"></a>
+### <a name="outlook-output---usage"></a>Outlook utdata - användning
+
+Den här bindningen kräver följande behörigheter i Azure AD:
+|Resurs|Behörighet|
+|--------|--------|
+|Microsoft Graph|Skicka e-post som användare|
+
+Bindningen visar följande typer till .NET-funktioner:
+- Microsoft.Graph.Message
+- Newtonsoft.Json.Linq.JObject
+- sträng
+- Anpassade objektgrupper (med strukturella modellbindning)
 
 
 
 
-<a name="webhooks"></a>
-## <a name="microsoft-graph-webhook-bindings"></a>Microsoft Graph webhook bindningar
+
+
+## <a name="webhooks"></a>Webhook-konfigurationer
 
 Webhooks kan du ta hänsyn till händelser i Microsoft Graph. För att stödja webhooks, funktioner som krävs för att skapa, uppdatera och ta hänsyn till _webhook prenumerationer_. En fullständig webhook-lösning kräver en kombination av bindningarna som följande:
 - En [Microsoft Graph webhook utlösaren](#webhook-trigger) kan du ta hänsyn till en inkommande webhook.
 - En [Microsoft Graph webhook prenumeration inkommande bindningen](#webhook-input) kan du visa en lista med befintliga prenumerationer och du kan också uppdatera dem.
 - En [Microsoft Graph webhook prenumeration utdatabindning](#webhook-output) gör att du kan skapa eller ta bort webhooken prenumerationer.
 
-Bindningar själva kräver inte några AAD-behörigheter, men du kommer att behöva begära behörigheter som är relevanta för den resurstyp som du vill ta hänsyn till. En lista som behövs för varje resurstyp av finns [Prenumerationsbehörighet](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Bindningar själva kräver inte några Azure AD-behörigheter, men du måste begära behörigheter som är relevanta för den resurstyp som du vill ta hänsyn till. En lista som behövs för varje resurstyp av finns [Prenumerationsbehörighet](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
 
-Mer information om webhooks finns [arbeta med webhooks i Microsoft Graph].
-
-
+Läs mer om webhooks [arbeta med webhooks i Microsoft Graph].
 
 
 
-<a name="webhook-trigger"></a>
-### <a name="microsoft-graph-webhook-trigger"></a>Microsoft Graph webhook utlösare
-
-Den här utlösaren kan en funktion att reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.
-
-#### <a name="configuring-a-microsoft-graph-webhook-trigger"></a>Konfigurera en utlösare för Microsoft Graph-webhook
-
-Bindningen stöder följande egenskaper:
-
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**|Krävs – måste vara inställd på `graphWebhook`.|
-|**riktning**|Krävs – måste vara inställd på `trigger`.|
-|**resourceType**|Obligatoriskt - diagram-resurs som den här funktionen ska svara på webhooks. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code>-ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code>-ändrade OneDrive rot-objekt.</li><li><code>#Microsoft.Graph.Contact - changes made to personal contacts in Outlook.</code></li><li><code>#Microsoft.Graph.Event - changes made to Outlook calendar items.</code></li></ul>|
-
-> [!Note]
-> En funktionsapp kan bara ha en funktion som har registrerats mot en given `resourceType` värde.
-
-#### <a name="using-a-microsoft-graph-webhook-trigger-from-code"></a>Med hjälp av en Microsoft Graph webhook utlösare från kod
-
-Bindningen visar följande typer till .NET-funktioner:
-- Microsoft Graph SDK-typer till resursen skriver, t.ex. Microsoft.Graph.Message, Microsoft.Graph.DriveItem
-- Anpassade objektgrupper (med strukturella modellbindning)
-
-Exempel på hur du använder den här bindningen i koden finns [Microsoft Graph webhook exempel](#webhook-samples).
 
 
+## <a name="webhook-trigger"></a>Webhook-utlösare
 
-<a name="webhook-input"></a>
-### <a name="microsoft-graph-webhook-subscription-input-binding"></a>Microsoft Graph webhook prenumeration indatabindning
+Microsoft Graph webhook-utlösare gör en funktion att reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.
 
-Den här bindningen kan du hämta listan över prenumerationer som hanteras av den här funktionen appen. Bindningen läser från funktionen app lagring och återspeglar inte andra prenumerationer som skapats från utanför appen.
+Det här avsnittet innehåller följande underavsnitt:
 
-#### <a name="configuring-a-microsoft-graph-webhook-subscription-input-binding"></a>Konfigurera en inkommande bindning för Microsoft Graph webhook-prenumeration
+* [Exempel](#webhook-trigger---example)
+* [Attribut](#webhook-trigger---attributes)
+* [Konfiguration](#webhook-trigger---configuration)
+* [Användning](#webhook-trigger---usage)
 
-Bindningen stöder följande egenskaper:
+### <a name="webhook-trigger---example"></a>Webhook-utlösare - exempel
 
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**|Krävs – måste vara inställd på `graphWebhookSubscription`.|
-|**riktning**|Krävs – måste vara inställd på `in`.|
-|**filter**| Om värdet `userFromRequest`, och sedan bindningen endast hämtar prenumerationer som ägs av den anropande användaren (bara giltigt med [HTTP-utlösaren]).| 
+Finns i det språkspecifika:
 
-#### <a name="using-a-microsoft-graph-webhook-subscription-input-binding-from-code"></a>Med hjälp av en Microsoft Graph webhook prenumeration indatabindning från kod
+* [C#-skript (.csx)](#webhook-trigger---c-script-example)
+* [JavaScript](#webhook-trigger---javascript-example)
 
-Bindningen visar följande typer till .NET-funktioner:
-- String]
-- Anpassade objekt typen matriser
-- Newtonsoft.Json.Linq.JObject]
-- Microsoft.Graph.Subscription]
+#### <a name="webhook-trigger---c-script-example"></a>Webhook - utlösare i C# exempel på skript
 
-Exempel på hur du använder den här bindningen i koden finns [Microsoft Graph webhook exempel](#webhook-samples).
+I följande exempel hanterar webhooks för inkommande meddelanden i Outlook. För att använda en webhook utlösa du [skapa en prenumeration](#webhook-output---example), och du kan [uppdatera prenumerationen](#webhook-subscription-refresh) att förhindra att den upphör.
 
-
-<a name="webhook-output"></a>
-### <a name="microsoft-graph-webhook-subscription-output-binding"></a>Webhook-prenumeration för Microsoft Graph-utdatabindning
-
-Den här bindningen kan du skapa, ta bort och uppdatera webhook prenumerationer i Microsoft Graph.
-
-#### <a name="configuring-a-microsoft-graph-webhook-subscription-output-binding"></a>Konfigurera en Microsoft Graph webhook utdatabindning prenumeration
-
-Bindningen stöder följande egenskaper:
-
-|Egenskap|Beskrivning|
-|--------|--------|
-|**Namn**|Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
-|**typ**|Krävs – måste vara inställd på `graphWebhookSubscription`.|
-|**riktning**|Krävs – måste vara inställd på `out`.|
-|**identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
-|**användar-ID** |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
-|**userToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
-|**åtgärden**|Obligatoriskt – anger åtgärden bindningen ska utföra. Kan vara något av följande värden:<ul><li><code>create</code>-Registrerar en ny prenumeration.</li><li><code>delete</code>-Tar bort en angiven prenumeration.</li><li><code>refresh</code>– Uppdaterar en angiven prenumeration om du vill behålla upphör att gälla.</li></ul>|
-|**subscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
-|**changeType**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger vilken typ av ändring i den prenumererar på resurs som ska generera ett meddelande. Värdena som stöds är: `created`, `updated`, `deleted`. Du kan kombinera flera värden med hjälp av en kommaavgränsad lista.|
-
-#### <a name="using-a-microsoft-graph-webhook-subscription-output-binding-from-code"></a>Med hjälp av en Microsoft Graph webhook utdatabindning prenumeration från kod
-
-Bindningen visar följande typer till .NET-funktioner:
-- Sträng
-- Microsoft.Graph.Subscription
-
-Exempel på hur du använder den här bindningen i koden finns [Microsoft Graph webhook exempel](#webhook-samples).
- 
-<a name="webhook-samples"></a>
-### <a name="microsoft-graph-webhook-samples"></a>Microsoft Graph webhook-exempel
-
-#### <a name="sample-creating-a-subscription"></a>Exempel: Skapa en prenumeration
-
-Anta att du har följande function.json som definierar en HTTP-utlösare med en prenumeration utdata bindning med åtgärden Skapa:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "type": "graphwebhook",
-      "name": "clientState",
-      "direction": "out",
-      "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
-      "changeTypes": [
-        "created"
-      ],
-      "identity": "userFromRequest"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Följande C#-exempel registrerar en webhook som meddelar den här funktionen appen när den anropande användaren tar emot ett Outlook-meddelande:
-
-```csharp
-using System;
-using System.Net;
-
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
-{
-  log.Info("C# HTTP trigger function processed a request.");
-    clientState = Guid.NewGuid().ToString();
-    return new HttpResponseMessage(HttpStatusCode.OK);
-}
-```
-
-I följande exempel JS registrerar en webhook som meddelar den här funktionen appen när den anropande användaren tar emot ett Outlook-meddelande:
-
-```js
-const uuidv4 = require('uuid/v4');
-
-module.exports = function (context, req) {
-    context.bindings.clientState = uuidv4();
-    context.done();
-};
-```
-
-#### <a name="sample-handling-notifications"></a>Exempel: Hantering av aviseringar
-
-Anta att du har följande function.json som definierar diagram webhook utlösare för att hantera Outlook-meddelanden:
+Den *function.json* filen definierar en webhook-utlösare:
 
 ```json
 {
@@ -831,7 +1017,7 @@ Anta att du har följande function.json som definierar diagram webhook utlösare
 }
 ```
 
-Följande C#-exempel reagerar på inkommande e-postmeddelanden och loggar innehållet i de som skickas av mottagaren och som innehåller ”Azure Functions” i ämnesraden:
+C#-skriptkod reagerar på inkommande e-postmeddelanden och loggar innehållet i de som skickas av mottagaren och som innehåller ”Azure Functions” i ämnesraden:
 
 ```csharp
 #r "Microsoft.Graph"
@@ -849,7 +1035,27 @@ public static async Task Run(Message msg, TraceWriter log)
 }
 ```
 
-I följande exempel JS reagerar på inkommande e-postmeddelanden och loggar innehållet i de som skickas av mottagaren och som innehåller ”Azure Functions” i ämnesraden:
+#### <a name="webhook-trigger---javascript-example"></a>Webhook - utlösare i JavaScript-exempel
+
+I följande exempel hanterar webhooks för inkommande meddelanden i Outlook. För att använda en webhook utlösa du [skapa en prenumeration](#webhook-output---example), och du kan [uppdatera prenumerationen](#webhook-subscription-refresh) att förhindra att den upphör.
+
+Den *function.json* filen definierar en webhook-utlösare:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "GraphWebhookTrigger",
+      "direction": "in",
+      "resourceType": "#Microsoft.Graph.Message"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-kod reagerar på inkommande e-postmeddelanden och loggar innehållet i de som skickas av mottagaren och som innehåller ”Azure Functions” i ämnesraden:
 
 ```js
 module.exports = function (context) {
@@ -863,9 +1069,57 @@ module.exports = function (context) {
 };
 ```
 
-#### <a name="sample-deleting-subscriptions"></a>Exempel: Ta bort prenumerationer
+### <a name="webhook-trigger---attributes"></a>Webhook-utlösare - attribut
 
-Anta att du har följande function.json som definierar en HTTP-utlösare med en prenumeration indatabindning och en prenumeration utdata bindning med borttagningsåtgärden ta:
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-trigger---configuration"></a>Webhook-utlösare - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebHookTrigger` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**typ**||Krävs – måste vara inställd på `graphWebhook`.|
+|**riktning**||Krävs – måste vara inställd på `trigger`.|
+|**resourceType**|**ResourceType**|Obligatoriskt - diagram-resurs som den här funktionen ska svara på webhooks. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code>-ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code>-ändrade OneDrive rot-objekt.</li><li><code>#Microsoft.Graph.Contact</code>-ändringar som gjorts i personliga kontakter i Outlook.</li><li><code>#Microsoft.Graph.Event</code>-ändringar som gjorts i kalenderobjekt i Outlook.</li></ul>|
+
+> [!Note]
+> En funktionsapp kan bara ha en funktion som har registrerats mot en given `resourceType` värde.
+
+### <a name="webhook-trigger---usage"></a>Webhook-utlösare - användning
+
+Bindningen visar följande typer till .NET-funktioner:
+- Microsoft Graph SDK typer som är relevanta för resurstyp, `Microsoft.Graph.Message` eller `Microsoft.Graph.DriveItem`.
+- Anpassade objektgrupper (med strukturella modellbindning)
+
+
+
+
+<a name="webhook-input"></a>
+## <a name="webhook-input"></a>Webhook-indata
+
+Microsoft Graph webhook-indatabindning kan du hämta listan över prenumerationer som hanteras av den här funktionen appen. Bindningen läser från funktionen app lagring, så att den inte återspeglar andra prenumerationer som skapats från utanför appen.
+
+Det här avsnittet innehåller följande underavsnitt:
+
+* [Exempel](#webhook-input---example)
+* [Attribut](#webhook-input---attributes)
+* [Konfiguration](#webhook-input---configuration)
+* [Användning](#webhook-input---usage)
+
+### <a name="webhook-input---example"></a>Webhook-indata - exempel
+
+Finns i det språkspecifika:
+
+* [C#-skript (.csx)](#webhook-input---c-script-example)
+* [JavaScript](#webhook-input---javascript-example)
+
+#### <a name="webhook-input---c-script-example"></a>Webhook-indata - exempel på C#-skript
+
+I följande exempel hämtar alla prenumerationer för den anropande användaren och tar bort dem.
+
+Den *function.json* filen definierar en HTTP-utlösare med en prenumeration indatabindning och en prenumeration utdata bindning som använder åtgärden ta bort:
 
 ```json
 {
@@ -898,7 +1152,7 @@ Anta att du har följande function.json som definierar en HTTP-utlösare med en 
 }
 ```
 
-Följande C#-exempel hämtar alla prenumerationer för den anropande användaren och tar bort dem:
+C#-skriptkod hämtar prenumerationerna och tar bort dem:
 
 ```csharp
 using System.Net;
@@ -914,7 +1168,44 @@ public static async Task Run(HttpRequest req, string[] existingSubscriptions, IA
 }
 ```
 
-I följande exempel JS hämtar alla prenumerationer för den anropande användaren och tar bort dem:
+#### <a name="webhook-input---javascript-example"></a>Webhook-indata - JavaScript-exempel
+
+I följande exempel hämtar alla prenumerationer för den anropande användaren och tar bort dem.
+
+Den *function.json* filen definierar en HTTP-utlösare med en prenumeration indatabindning och en prenumeration utdata bindning som använder åtgärden ta bort:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "existingSubscriptions",
+      "direction": "in",
+      "filter": "userFromRequest"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "subscriptionsToDelete",
+      "direction": "out",
+      "action": "delete",
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "res",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-kod hämtar prenumerationerna och tar bort dem:
 
 ```js
 module.exports = function (context, req) {
@@ -929,17 +1220,200 @@ module.exports = function (context, req) {
 };
 ```
 
-#### <a name="sample-refreshing-subscriptions"></a>Exempel: Uppdatera prenumerationer
+### <a name="webhook-input---attributes"></a>Webhook-indata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-input---configuration"></a>Webhook-indata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebHookSubscription` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**typ**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
+|**riktning**||Krävs – måste vara inställd på `in`.|
+|**filter**|**Filter**| Om värdet `userFromRequest`, och sedan bindningen endast hämtar prenumerationer som ägs av den anropande användaren (bara giltigt med [HTTP-utlösaren]).| 
+
+### <a name="webhook-input---usage"></a>Webhook-indata - användning
+
+Bindningen visar följande typer till .NET-funktioner:
+- String]
+- Anpassade objekt typen matriser
+- Newtonsoft.Json.Linq.JObject]
+- Microsoft.Graph.Subscription]
+
+
+
+
+
+## <a name="webhook-output"></a>Webhook-utdata
+
+Webhook-prenumerationen utdata bindning kan du skapa, ta bort och uppdatera webhook prenumerationer i Microsoft Graph.
+
+Det här avsnittet innehåller följande underavsnitt:
+
+* [Exempel](#webhook-output---example)
+* [Attribut](#webhook-output---attributes)
+* [Konfiguration](#webhook-output---configuration)
+* [Användning](#webhook-output---usage)
+
+### <a name="webhook-output---example"></a>Webhook-utdata - exempel
+
+Finns i det språkspecifika:
+
+* [C#-skript (.csx)](#webhook-output---c-script-example)
+* [JavaScript](#webhook-output---javascript-example)
+
+#### <a name="webhook-output---c-script-example"></a>Webhook utdata - exempel på C#-skript
+
+I följande exempel skapas en prenumeration. Du kan [uppdatera prenumerationen](#webhook-subscription-refresh) att förhindra att den upphör.
+
+Den *function.json* filen definierar en HTTP-utlösare med en prenumeration utdata bindning med åtgärden Skapa:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphwebhook",
+      "name": "clientState",
+      "direction": "out",
+      "action": "create",
+      "listen": "me/mailFolders('Inbox')/messages",
+      "changeTypes": [
+        "created"
+      ],
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+C#-skriptkod registrerar en webhook som meddelar den här funktionen appen när den anropande användaren tar emot ett Outlook-meddelande:
+
+```csharp
+using System;
+using System.Net;
+
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+{
+  log.Info("C# HTTP trigger function processed a request.");
+    clientState = Guid.NewGuid().ToString();
+    return new HttpResponseMessage(HttpStatusCode.OK);
+}
+```
+
+#### <a name="webhook-output---javascript-example"></a>Webhook utdata - JavaScript-exempel
+
+I följande exempel skapas en prenumeration. Du kan [uppdatera prenumerationen](#webhook-subscription-refresh) att förhindra att den upphör.
+
+Den *function.json* filen definierar en HTTP-utlösare med en prenumeration utdata bindning med åtgärden Skapa:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "type": "graphwebhook",
+      "name": "clientState",
+      "direction": "out",
+      "action": "create",
+      "listen": "me/mailFolders('Inbox')/messages",
+      "changeTypes": [
+        "created"
+      ],
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "$return",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-koden registrerar en webhook som meddelar den här funktionen appen när den anropande användaren tar emot ett Outlook-meddelande:
+
+```js
+const uuidv4 = require('uuid/v4');
+
+module.exports = function (context, req) {
+    context.bindings.clientState = uuidv4();
+    context.done();
+};
+```
+
+### <a name="webhook-output---attributes"></a>Webhook utdata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+
+### <a name="webhook-output---configuration"></a>Webhook-utdata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `GraphWebHookSubscription` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**Namn**||Obligatoriskt - variabelnamnet som används i Funktionskoden för e-postmeddelandet. Se [med ett Outlook-meddelande utdatabindning från kod](#outlook-output-code).|
+|**typ**||Krävs – måste vara inställd på `graphWebhookSubscription`.|
+|**riktning**||Krävs – måste vara inställd på `out`.|
+|**identitet**|**Identitet**|Obligatoriskt - identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code>– Endast giltigt med [HTTP-utlösaren]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-Använder identiteten för en tidigare användare med angivet ID. Finns det <code>userId</code> egenskapen.</li><li><code>userFromToken</code>-Använder den identitet som representeras av den angivna token. Finns det <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code>-Använder identiteten för funktionen appen.</li></ul>|
+|**användar-ID**|**Användar-ID**  |Krävs om och bara om _identitet_ är inställd på `userFromId`. En användare ägar-ID som är associerade med en tidigare användare.|
+|**userToken**|**UserToken**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionen appen. |
+|**åtgärden**|**Åtgärd**|Obligatoriskt – anger åtgärden bindningen ska utföra. Kan vara något av följande värden:<ul><li><code>create</code>-Registrerar en ny prenumeration.</li><li><code>delete</code>-Tar bort en angiven prenumeration.</li><li><code>refresh</code>– Uppdaterar en angiven prenumeration om du vill behålla upphör att gälla.</li></ul>|
+|**subscriptionResource**|**SubscriptionResource**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger Microsoft Graph-resurs som ska övervakas för ändringar. Se [arbeta med webhooks i Microsoft Graph]. |
+|**changeType**|**ChangeType**|Krävs om och bara om den _åtgärd_ är inställd på `create`. Anger vilken typ av ändring i den prenumererar på resurs som ska generera ett meddelande. Värdena som stöds är: `created`, `updated`, `deleted`. Du kan kombinera flera värden med hjälp av en kommaavgränsad lista.|
+
+### <a name="webhook-output---usage"></a>Webhook utdata - användning
+
+Bindningen visar följande typer till .NET-funktioner:
+- sträng
+- Microsoft.Graph.Subscription
+
+
+
+
+<a name="webhook-examples"></a>
+## <a name="webhook-subscription-refresh"></a>Webhook-prenumeration uppdatering
 
 Det finns två sätt att uppdatera prenumerationer:
+
 - Använd programidentiteten för att hantera alla prenumerationer. Detta kräver godkännande från en Azure Active Directory-administratör. Detta kan användas av alla språk som stöds av Azure Functions.
 - Använda det identitet som är associerade med varje prenumeration genom att manuellt binda varje användar-ID. Detta kräver vissa anpassad kod för att utföra bindningen. Detta kan endast användas av .NET-funktioner.
 
-Båda alternativen visas nedan.
+Det här avsnittet innehåller ett exempel för var och en av dessa metoder:
 
-**Med hjälp av programidentiteten**
+* [Exempel för App-identitet](#webhook-subscription-refresh---app-identity-example)
+* [Användarens identitet exempel](#webhook-subscription-refresh---user-identity-example)
 
-Anta att du har följande function.json som definierar en timer som utlösare med en prenumeration indatabindning prenumeration utdata bindning, med programidentiteten:
+### <a name="webhook-subscription-refresh---app-identity-example"></a>Webhook-prenumeration uppdatera - app identity-exempel
+
+Finns i det språkspecifika:
+
+* [C#-skript (.csx)](#app-identity-refresh---c-script-example)
+* [JavaScript](#app-identity-refresh---javascript-example)
+
+### <a name="app-identity-refresh---c-script-example"></a>Uppdatera identitet App - exempel på C#-skript
+
+I följande exempel används programidentiteten för att uppdatera en prenumeration.
+
+Den *function.json* definierar en timer som utlösare med en prenumeration indatabindning och en prenumeration utdatabindning:
 
 ```json
 {
@@ -967,7 +1441,7 @@ Anta att du har följande function.json som definierar en timer som utlösare me
 }
 ```
 
-Följande C#-exempel uppdaterar prenumerationer på en timer som använder programidentiteten:
+C#-skriptkod uppdaterar prenumerationerna:
 
 ```csharp
 using System;
@@ -985,7 +1459,39 @@ public static void Run(TimerInfo myTimer, string[] existingSubscriptions, IColle
 }
 ```
 
-I följande exempel JS uppdaterar prenumerationer på en timer som använder programidentiteten:
+### <a name="app-identity-refresh---c-script-example"></a>Uppdatera identitet App - exempel på C#-skript
+
+I följande exempel används programidentiteten för att uppdatera en prenumeration.
+
+Den *function.json* definierar en timer som utlösare med en prenumeration indatabindning och en prenumeration utdatabindning:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 * * */2 * *"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "existingSubscriptions",
+      "direction": "in"
+    },
+    {
+      "type": "graphWebhookSubscription",
+      "name": "subscriptionsToRefresh",
+      "direction": "out",
+      "action": "refresh",
+      "identity": "clientCredentials"
+    }
+  ],
+  "disabled": false
+}
+```
+
+JavaScript-kod uppdaterar prenumerationerna:
 
 ```js
 // This template uses application permissions and requires consent from an Azure Active Directory admin.
@@ -1003,9 +1509,11 @@ module.exports = function (context) {
 };
 ```
 
-**Med dynamisk användaridentiteter**
+### <a name="webhook-subscription-refresh---user-identity-example"></a>Uppdatera Webhook prenumeration - användarens identitet exempel
 
-Anta att du har följande function.json som definierar en timer som utlösare, inkommande vänta bindning till prenumerationen bindningen till Funktionskoden för det andra alternativet:
+I följande exempel används användar-ID för att uppdatera en prenumeration.
+
+Den *function.json* filen definierar en timer som utlösare och skjuts upp prenumerationen inkommande bindningen till Funktionskoden:
 
 ```json
 {
@@ -1026,7 +1534,8 @@ Anta att du har följande function.json som definierar en timer som utlösare, i
 }
 ```
 
-Följande C#-exempel uppdaterar prenumerationer på en timer med varje användares identitet genom att skapa bindningen utdata i koden:
+C#-skriptkod uppdaterar prenumerationerna och skapar utdata bindningen i kod, med varje användar-ID:
+
 ```csharp
 using System;
 
@@ -1057,12 +1566,10 @@ public class UserSubscription {
 }
 ```
 
-
-
-[HTTP-utlösaren]: functions-bindings-http-webhook.md
-[arbeta med webhooks i Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Lär dig mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+
+[HTTP-utlösaren]: functions-bindings-http-webhook.md
+[arbeta med webhooks i Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks

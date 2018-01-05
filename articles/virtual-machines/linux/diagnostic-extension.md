@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux diagnostiska tillägget för att övervaka mått och loggar
 
@@ -50,9 +50,9 @@ Dessa instruktioner för installation och en [nedladdningsbara exempelkonfigurat
 
 Nedladdningsbar konfigurationen är bara ett exempel. Anpassa efter dina behov.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux galleriavbildningar inkluderar version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta den version som installeras på den virtuella datorn. Om den virtuella datorn kör en äldre version av gästagenten, Följ [instruktionerna](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) att uppdatera den.
+* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux galleriavbildningar inkluderar version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta den version som installeras på den virtuella datorn. Om den virtuella datorn kör en äldre version av gästagenten, Följ [instruktionerna](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) att uppdatera den.
 * **Azure CLI**. [Konfigurera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) miljö på din dator.
 * Kommandot wget om du inte redan har det: kör `sudo apt-get install wget`.
 * En befintlig Azure-prenumeration och ett befintligt lagringskonto i den för att lagra data.
@@ -134,6 +134,10 @@ storageAccountEndPoint | (valfritt) Slutpunkten som identifierar det moln där l
 storageAccountSasToken | En [konto-SAS-token](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) för Blob- och tjänster (`ss='bt'`), gäller för behållare och objekt (`srt='co'`), vilket ger lägga till, skapa, visa, uppdatera och skrivbehörighet (`sp='acluw'`). Gör *inte* omfattar det inledande frågetecknet (?).
 mdsdHttpProxy | (valfritt) HTTP-proxyinformation som behövs för att aktivera tillägget att ansluta till det angivna lagringskontot och slutpunkt.
 sinksConfig | (valfritt) Information om alternativa mål som mått och händelser levereras. Specifik information om varje mottagare för data som stöds av tillägget beskrivs i avsnitten som följer.
+
+
+> [!NOTE]
+> När du distribuerar tillägget med en Distributionsmall av Azure måste storage-konto och SAS-token skapas i förväg och sedan skickas till mallen. Du kan inte distribuera en VM, storage-konto och konfigurera tillägget i samma mall. Skapa en SAS-token i en mall stöds inte för närvarande.
 
 Du kan enkelt skapa nödvändiga SAS-token via Azure-portalen.
 
@@ -300,8 +304,8 @@ Exempel på mått som anges i avsnittet prestandaräknarna samlas var 15: e seku
 Det här valfria avsnittet kontroll över insamlingen av mått. Rådata exempel aggregeras för varje [scheduledTransferPeriod](#metrics) att generera dessa värden:
 
 * medelvärde
-* minsta
-* Maximalt
+* min
+* max
 * senaste samlas in värdet
 * Antal raw exempel som används för att beräkna mängden
 
@@ -309,10 +313,10 @@ Element | Värde
 ------- | -----
 egenskaperna | (valfritt) En kommaavgränsad lista över namnen på sänkor till vilka LAD skickar samman mått resultat. Alla sammanställda mått publiceras till varje listad mottagare. Se [sinksConfig](#sinksconfig). Exempel: `"EHsink1, myjsonsink"`.
 typ | Identifierar den faktiska providern av måttet.
-Klass | Identifierar den specifika måtten i leverantörens namnrymd tillsammans med ”räknaren”.
+klass | Identifierar den specifika måtten i leverantörens namnrymd tillsammans med ”räknaren”.
 Räknaren | Identifierar den specifika måtten i leverantörens namnrymd tillsammans med ”class”.
 counterSpecifier | Identifierar specifikt mått i Azure mått-namnområdet.
-Villkor | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer sammanställning över alla instanser av objektet. Mer information finns i [ `builtin` måttdefinitioner](#metrics-supported-by-builtin).
+tillstånd | (valfritt) Väljer en specifik instans av objektet som måttet gäller eller väljer sammanställning över alla instanser av objektet. Mer information finns i [ `builtin` måttdefinitioner](#metrics-supported-by-builtin).
 sampleRate | ÄR 8601 tidsintervall som anger den hastighet som rådata prover för det här måttet har samlats in. Om inte ange intervall för insamling anges med värdet [sampleRateInSeconds](#ladcfg). Kortaste stöds samplingsfrekvens är 15 sekunder (PT15S).
 enhet | Måste vara ett av de här strängarna: ”antal”, ”byte”, ”sekunder”, ”procent”, ”CountPerSecond”, ”BytesPerSecond”, ”millisekunder”. Definierar enheten för måttet. Konsumenter av insamlade data förväntas värdena insamlade data för att matcha den här enheten. LAD ignorerar det här fältet.
 Visningsnamn | Etikett (på det språk som anges av den associerade språkinställningen) som ska kopplas till dessa data i Azure mått. LAD ignorerar det här fältet.
@@ -384,7 +388,7 @@ Element | Värde
 ------- | -----
 namnområde | (valfritt) OMI namnområde där frågan ska köras. Om inget anges är standardvärdet ”root/scx”, implementeras av den [System Center plattformsoberoende Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 DocumentDB | OMI-frågan ska köras.
-Tabell | (valfritt) Azure storage-tabellen i avsedda storage-konto (se [skyddade inställningarna](#protected-settings)).
+tabell | (valfritt) Azure storage-tabellen i avsedda storage-konto (se [skyddade inställningarna](#protected-settings)).
 frequency | (valfritt) Antalet sekunder mellan körning av frågan. Standardvärdet är 300 (5 minuter). lägsta värdet är 15 sekunder.
 egenskaperna | (valfritt) En kommaavgränsad lista över namnen på ytterligare sänkor som rådata mått resultat ska publiceras. Ingen aggregering av exemplen rådata beräknas genom tillägget eller Azure mått.
 
@@ -406,8 +410,8 @@ Styr infångandet av loggfiler. LAD in nya textrader som de skrivs till filen oc
 
 Element | Värde
 ------- | -----
-Filen | Den fullständiga sökvägen för loggfilen ska övervakas och hämtas. Sökvägen måste namnet på en enskild fil. Det går inte att namnge en katalog eller innehåller jokertecken.
-Tabell | (valfritt) Azure storage tabell i avsedda storage-konto (som anges i konfigurationen av skyddade) som nya rader från ”slutet” i filen skrivs.
+fil | Den fullständiga sökvägen för loggfilen ska övervakas och hämtas. Sökvägen måste namnet på en enskild fil. Det går inte att namnge en katalog eller innehåller jokertecken.
+tabell | (valfritt) Azure storage tabell i avsedda storage-konto (som anges i konfigurationen av skyddade) som nya rader från ”slutet” i filen skrivs.
 egenskaperna | (valfritt) En kommaavgränsad lista över namnen på ytterligare sänkor till vilka loggen rader skickas.
 
 Antingen ”table” eller ”egenskaperna”, eller både och måste anges.

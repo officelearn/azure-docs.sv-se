@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Återställ filer till en Windows-server eller Windows-klientdator med hjälp av Resource Manager-distributionsmodellen
 
@@ -33,7 +33,7 @@ Microsoft släppt en förhandsgranskning uppdatering MARS-agenten i januari 2017
 > Den [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) krävs om du vill använda snabbmeddelanden återställning för att återställa data. Säkerhetskopierade data måste också skyddas i valv i språk som anges i support-artikeln. Läs den [januari 2017 Azure Backup update](https://support.microsoft.com/en-us/help/3216528?preview) för den senaste listan över språk som har stöd för omedelbar återställning. Omedelbar återställning **inte** är tillgänglig i alla språk.
 >
 
-Omedelbar återställning är tillgänglig för användning i Recovery Services-valv i Azure portal och säkerhetskopieringsvalv i den klassiska portalen. Om du vill använda snabbmeddelanden återställa hämta MARS-uppdatering och följa procedurerna som nämner omedelbar återställning.
+Använda snabbmeddelanden återställa med Recovery Services-valv i Azure-portalen. Om du lagras data i säkerhetskopieringsvalv, har de konverterats till Recovery Services-valv. Om du vill använda snabbmeddelanden återställa hämta MARS-uppdatering och följa procedurerna som nämner omedelbar återställning.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

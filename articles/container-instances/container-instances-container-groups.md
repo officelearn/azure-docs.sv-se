@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container instanser
 
@@ -33,6 +33,9 @@ Det här exemplet behållaren grupp:
 * Visar en offentlig IP-adress, med en exponerade port.
 * Består av två behållare. En behållare lyssnar på port 80, medan andra lyssnar på port 5000.
 * Innehåller två Azure filresurser som volym monteringar och varje behållare monterar en resurs lokalt.
+
+> [!NOTE]
+> Flera behållare grupper är för närvarande begränsad till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare, hittar du den aktuella plattformen skillnader i [kvoter och regional tillgänglighet för Azure-Behållarinstanser](container-instances-quotas.md).
 
 ### <a name="networking"></a>Nätverk
 

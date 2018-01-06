@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Integrerat system viktig information
           items:
+            - name: 1712 uppdatering
+              href: azure-stack-update-1712.md
             - name: 1711 uppdatering
               href: azure-stack-update-1711.md
             - name: 1710 uppdatering

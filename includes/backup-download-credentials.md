@@ -1,5 +1,5 @@
 ## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>Med hjälp av autentiseringsuppgifter för valv för att autentisera med Azure Backup-tjänsten
-Lokal server (Windows-klient eller server för Windows Server eller Data Protection Manager) måste autentiseras med ett säkerhetskopieringsvalv innan den kan säkerhetskopiera data till Azure. Autentisering uppnås med hjälp av ”valvet autentiseringsuppgifter”. Begreppet valvautentiseringsuppgifter liknar begreppet ”Publiceringsinställningar” fil som används i Azure PowerShell.
+Innan du kan säkerhetskopiera en lokal server (Windows-klienten eller Windows Server eller Data Protection Manager server) till Azure, autentisera servern med ett Recovery Services-valv. Använd en valvautentiseringsfil för att autentisera servern med Azure. Valvautentiseringsuppgifter liknar konceptet för en ”publicera inställningar”-fil som används i Azure PowerShell.
 
 ### <a name="what-is-the-vault-credential-file"></a>Vad är valvautentiseringsfilen?
 Valvautentiseringsfilen är ett certifikat som genereras av portalen för varje säkerhetskopieringsvalv. Portalen överför sedan den offentliga nyckeln till Access Control Service (ACS). Den privata nyckeln för certifikatet görs tillgänglig för användaren som en del av arbetsflödet som angetts som indata i arbetsflöde för registrering av datorn. Detta autentiserar datorn för att skicka säkerhetskopierade data till ett identifierade valv i Azure Backup-tjänsten.
@@ -9,10 +9,10 @@ Valvautentiseringen används endast under registreringsarbetsflödet. Det är an
 ### <a name="download-the-vault-credential-file"></a>Hämta valvautentiseringsfilen
 Valvautentiseringsfilen hämtas via en säker kanal från Azure-portalen. Azure Backup-tjänsten inte känner till den privata nyckeln för certifikatet och den privata nyckeln beständig inte i portalen eller tjänsten. Använd följande steg för att hämta valvautentiseringsfilen till en lokal dator.
 
-1. Logga in på den [hanteringsportalen](https://manage.windowsazure.com/)
-2. Klicka på **återställningstjänster** i det vänstra navigeringsfönstret och välj det säkerhetskopieringsvalv som du har skapat. Klicka på ikonen molnet till vyn Snabbstart i säkerhetskopieringsvalvet.
-   
-   ![Snabb överblick](./media/backup-download-credentials/quickview.png)
+1. Öppna den [Azure-portalen](https://ms.azure.portal.com/)
+2. På den vänstra menyn väljer **alla tjänster** och Skriv i listan över tjänster **återställningstjänster**. Klicka på **Recovery Services-valv**.
+
+   ![Öppna Recovery Services-valvet](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. På sidan Snabbstart **ladda ned valvautentiseringsuppgifter**. Portalen genererar valvautentiseringsfilen som görs tillgänglig för hämtning.
    
    ![Ladda ned](./media/backup-download-credentials/downloadvc.png)

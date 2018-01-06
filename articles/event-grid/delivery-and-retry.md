@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Händelsen rutnätet meddelandeleverans och försök igen 
 
@@ -62,7 +62,31 @@ Händelsen rutnätet lägger till en liten slumpmässig alla återförsöksinter
 
 ## <a name="retry-duration"></a>Försök varaktighet
 
-Under förhandsgranskning, Azure händelse rutnätet upphör att gälla alla händelser som inte levereras inom två timmar. Innan du allmän tillgänglighet kommer nu att öka till 24 timmar. 
+Under förhandsgranskning, Azure händelse rutnätet upphör att gälla alla händelser som inte levereras inom två timmar.
+
+## <a name="monitoring"></a>Övervakning
+
+Du kan använda portalen för att se status för händelse leveranser.
+
+Om du vill visa måtten för en händelseprenumerationen söka efter **händelseprenumerationer** i tjänsterna och markera den.
+
+![Sök efter händelseprenumerationer](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Filtrera efter typ av händelse, prenumeration och plats. Välj **mått** för prenumerationen att visa.
+
+![Filtrera prenumerationer på händelser](./media/delivery-and-retry/filter-events.png)
+
+Visa mått för händelsen ämnet och prenumerationen.
+
+![Visa händelse mått](./media/delivery-and-retry/subscription-metrics.png)
+
+Om du har publicerat en anpassad avsnittet kan visa du mätvärden för den. Välj den resursgrupp som innehåller avsnittet och välj ämnet.
+
+![Välja anpassade ämne](./media/delivery-and-retry/select-custom-topic.png)
+
+Visa mått för avsnittet anpassade händelsen.
+
+![Visa händelse mått](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

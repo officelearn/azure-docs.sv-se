@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery experimenten | Microsoft Docs
-description: Identifiera och dela experiment i Cortana Intelligence Gallery.
+title: Azure AI-galleriet experimenten | Microsoft Docs
+description: Identifiera och dela experiment i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Identifiera experiment i Cortana Intelligence Gallery
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Identifiera experiment i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experiment för Machine Learning Studio
@@ -45,7 +45,7 @@ Du kan få mer information om ett experiment på informationssidan experiment. O
 ## <a name="download"></a>Ladda ned
 Du kan hämta en kopia av alla experiment i galleriet till Machine Learning Studio-arbetsytan. Sedan kan du ändra din kopia om du vill skapa egna lösningar.
 
-Cortana Intelligence Gallery finns två sätt att importera en kopia av ett experiment:
+Azure AI-galleriet finns två sätt att importera en kopia av ett experiment:
 
 * **Från galleriet**. Om du hittar ett experiment i galleriet kan du hämta en kopia och öppna den i Machine Learning Studio-arbetsytan.
 * **Inifrån Maskininlärning Studio**. I Machine Learning Studio, kan du använda alla experiment i galleriet som en mall för att skapa ett nytt experiment.
@@ -132,7 +132,7 @@ Om du behöver göra ändringar i arbetsflödet (moduler, parametrar och så vid
 
 Du kan ändra följande information för experimentet direkt i galleriet:
 
-* Namn på experimentet
+* Namn på experiment
 * Sammanfattning eller beskrivning
 * Taggar
 * Bild

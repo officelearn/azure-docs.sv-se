@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter-anteckningsböcker i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Lär dig använda Script Actions för att konfigurera ett Apache Spark-kluster i
 > 
 > 
 
-Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som är tillgängliga via [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) eller [conda bedömningar](https://conda-forge.github.io/feedstocks.html).
+Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som är tillgängliga via [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) eller [conda bedömningar](https://conda-forge.org/feedstocks/).
 
 I den här artikeln får du lära dig hur du installerar den [TensorFlow](https://www.tensorflow.org/) paketet med skriptåtgärder på klustret och använda den via Jupyter-anteckningsboken.
 

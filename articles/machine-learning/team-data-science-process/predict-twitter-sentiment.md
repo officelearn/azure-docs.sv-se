@@ -1,6 +1,6 @@
 ---
-title: "Förutsäga Twitter-åsikter med word inbäddningar med Team vetenskap av data - Azure | Microsoft Docs"
-description: "De steg som krävs för att köra datavetenskap projekt"
+title: "Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data i Azure | Microsoft Docs"
+description: "De steg som behövs för att köra datavetenskap projekt."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,126 +14,137 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: fe1c87df40102a62e1e0c8873b25fa3df7d743bc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 20bc3f31897cec4a3cec9ca409062229133102f5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="predict-twitter-sentiment-with-word-embeddings-using-the-team-data-science-process"></a>Förutsäga Twitter-åsikter med word inbäddningar med Team av vetenskapliga data
+# <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Förutsäga Twitter-åsikter med word inbäddningar med hjälp av Team av vetenskapliga data
 
-Den här artikeln visar hur du samarbeta effektivt när du använder den **Word2Vec** word bädda in algoritmen och **Sentiment specifika ord bädda in (SSWE) algoritmen** att förutsäga Twitter-åsikter med den [Azure Machine Learning](../preview/index.yml). För ytterligare information om aktiviteten för att förutsäga twitter-sentiment polaritet, se [databasen](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction). Nyckeln till att underlätta effektiva gruppsamarbete på datavetenskap projekt är att standardisera struktur och dokumentation av projekt med en fastställd datavetenskap livscykel. Den [Team Data vetenskap processen (TDSP)](overview.md) innehåller sådant strukturerade [livscykel](lifecycle.md). 
+Den här artikeln visar hur du samarbeta effektivt med hjälp av den _Word2Vec_ word bädda in algoritmen och _Sentiment-specifika ord bädda in (SSWE)_ algoritmen för att förutsäga Twitter-åsikter med [Azure Machine Learning](../preview/index.yml). Läs mer på Twitter-sentiment polaritet att förutsäga den [MachineLearningSamples TwitterSentimentPrediction databasen](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) på GitHub. Nyckeln till att underlätta effektiva gruppsamarbete på datavetenskap projekt är att standardisera struktur och dokumentation av projekt med en fastställd datavetenskap livscykel. Den [Team Data vetenskap processen (TDSP)](overview.md) ger den här typen av strukturerade [livscykel](lifecycle.md). 
 
-Skapa datavetenskap projekt med den **TDSP mallen** innehåller den här standardiserade ramverk för Azure Machine Learning-projekt. Tidigare TDSP-teamet har publicerat en [GitHub-lagringsplatsen för TDSP projektstruktur och mallar](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu skapas av Azure Machine Learning-projekt som instansieras med [TDSP struktur och dokumentation mallar för Azure Machine Learning](https://github.com/amlsamples/tdsp) har aktiverats. Instruktioner om hur du använder TDSP struktur och mallar i Azure Machine Learning finns [struktur projekt med mallen Team datavetenskap Process](../preview/how-to-use-tdsp-in-azure-ml.md). 
+Skapa datavetenskap projekt med den _TDSP mallen_ innehåller det standardiserade ramverket för Azure Machine Learning-projekt. Tidigare TDSP-teamet släppte en [GitHub-lagringsplatsen för TDSP projektstruktur och mallar](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu Machine Learning-projekt som instansieras med [TDSP mallar för Azure Machine Learning](https://github.com/amlsamples/tdsp) är aktiverade. Instruktioner finns i hur du använder [TDSP struktur projekt med mallen TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) i Azure Machine Learning. 
 
 
-## <a name="the-sentiment-polarity-sample"></a>Sentiment polaritet exempel
+## <a name="twitter-sentiment-polarity-sample"></a>Twitter-sentiment polaritet exempel
 
-Ett exempel som visar hur du initiera och kör machine learning-projekt med Team datavetenskap Process strukturen och mallar i Azure Machine Learning Arbetsbänk har angetts i det här [genomgången](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Aktiviteten modellering är att förutsäga sentiment polaritet (positiv eller negativ) med hjälp av texten från tweets. Den här artikeln beskriver datamodeller uppgifter som beskrivs i den här genomgången. Den här genomgången innehåller följande uppgifter:
+Den här artikeln används ett exempel på hur du kan skapa och köra ett Machine Learning-projekt. Används av TDSP struktur och mallar i Azure Machine Learning-arbetsstationen. Hela exemplet tillhandahålls i [den här genomgången](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). Aktiviteten modellering beräknar sentiment polaritet (positiv eller negativ) med hjälp av texten från tweets. Den här artikeln beskrivs data modellering uppgifter som beskrivs i den här genomgången. Den här genomgången innehåller följande uppgifter:
 
-- Datagranskning, utbildning och distribution av en maskininlärningsmodell som göra förutsägelser problemet som beskrivs i fallet översikt för användning. För detta ändamål [Twitter-Sentiment data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) används.
-- Körningen av projektet i Azure Machine Learning med mallen Team Data vetenskap processen (TDSP) från Azure Machine Learning för det här projektet. TDSP livscykel används för körning av projektet och rapportering.
-- Operationalization lösning direkt från Azure Machine Learning i Azure Container Services.
+- Datagranskning, utbildning och distribution av machine learning-modell som gäller förutsägelse problemet som beskrivs i case översikt för användning. [Twitter-sentiment data](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) används för dessa uppgifter.
+- Körningen av projektet med hjälp av Azure Machine Learning TDSP mallen för det här projektet. TDSP livscykel används för körning av projektet och rapportering.
+- Operationalization lösning direkt från Azure Machine Learning i Azure Container Service.
 
-Projektet visar flera funktioner i Azure Machine Learning sådana TDSP struktur instansiering och Använd, körning av kod i Azure Machine Learning Arbetsbänk och enkelt operationalization i Azure Container Services med Docker och Kubernetes.
+Projektet visar följande funktioner i Azure Machine Learning:
+
+- Instansieringen och användning av TDSP-strukturen.
+- Körning av kod i Azure Machine Learning-arbetsstationen.
+- Enkelt operationalization i Container Service med hjälp av Docker och Kubernetes.
 
 ## <a name="team-data-science-process"></a>TDSP (Team Data Science Process)
-Du kan använda projektet TDSP mallar struktur och dokumentation för att köra det här exemplet. Följer den [TDSP livscykel]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). Projektet har skapats utifrån anvisningarna [här](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+För att köra det här exemplet använder du de TDSP projektmallarna struktur och dokumentation i Azure Machine Learning-arbetsstationen. Exemplet implementerar den [TDSP livscykel](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)som visas i följande bild:
 
 ![TDSP livscykel](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-![Skapa en instans av TDSP](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+TDSP-projekt har skapats i Azure Machine Learning arbetsstationen baserat på [instruktionerna](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md)som visas i följande bild:
+
+![Skapa TDSP i Azure Machine Learning-arbetsstationen](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
-## <a name="data-acquisition-and-understandinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Datainsamling och förstå](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
-Det första steget i det här exemplet är att hämta sentiment140 datauppsättningen och dela upp den i träning och testning datauppsättningar. Sentiment140 datamängden innehåller det faktiska innehållet i tweet (med uttryckssymboler bort) tillsammans med polaritet för var och en av tweet (negativt = 0, positivt = 4), med neutral tweets tas bort. När uppdelat, resulterande träningsdata har 1.3 miljoner rader och tester data har 320 kB rader.
+## <a name="data-acquisition-and-preparationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Datainsamling och förberedelse](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
+Det första steget i det här exemplet är att hämta sentiment140 datauppsättningen och dela in data i träning och testning datauppsättningar. Sentiment140 datamängden innehåller det faktiska innehållet i tweet (med uttryckssymboler tas bort). Dataset innehåller också polaritet för varje tweet (negativt = 0, positivt = 4) med neutral tweets bort. När data delas av att träningsinformationen har 1.3 miljoner rader och tester data har 320,000 rader.
 
 
-## <a name="modelinghttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Modeling](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
+## <a name="model-developmenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Modell-utveckling](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 
-Den här delen av provet delas upp ytterligare i tre delar:
- 
-- **Egenskapsval** motsvarar generering av funktioner som använder olika word bädda in algoritmer. 
-- **Modellen skapa** behandlar utbildning av olika modeller som _logistic regression_ och _toning förstärkning_ att förutsäga sentiment av indatatexten. 
-- **Modellen utvärdering** gäller den tränade modellen över tester data.
+Nästa steg i samplet som är att utveckla en modell för data. Aktiviteten modellering är uppdelat i tre delar:
+
+- Egenskapsval: Generera funktioner för modellen med hjälp av olika word bädda in algoritmer. 
+- Skapa modellen: träna modeller att förutsäga sentiment av indatatexten. Exempel på dessa modeller är _Logistic Regression_ och _toning förstärkning_.
+- Modellen utvärdering: utvärdera tränade modeller över tester data.
 
 
 ### <a name="feature-engineeringhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling01featureengineering"></a>[Funktionen tekniker](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
 
-Word2Vec och SSWE är ordet bädda in algoritmer som används här för att generera word inbäddningar. 
+Algoritmer för Word2Vec och SSWE används för att generera word inbäddningar. 
 
 
-#### <a name="word2vec"></a>Word2Vec
+#### <a name="word2vec-algorithm"></a>Word2Vec algoritm
 
-Algoritmen Word2Vec används i Skipgram-läge. Det här sättet att generera word inbäddningar förklaras i dokumentet av Tomas Mikolov et al.: [distribuerade garantier ord och fraser och deras Compositionality. Utvecklingen av neural bearbeta system information. 2013.](https://arxiv.org/abs/1310.4546).
+Algoritmen Word2Vec används i Skip-g-modellen. Den här modellen är förklaras i dokumentet Tomas Mikolov m.fl. ”[Distribuerade representationer av ord och fraser och deras Compositionality. Utvecklingen av neural bearbeta system information. ](https://arxiv.org/abs/1310.4546)" 2013.
 
-Hoppa över gram är ett lite neurala nätverk. Indata är målet ordet kodad som en en varm vector som använder för att förutsäga Närliggande ord. Om **V** är storleken på ordförråd, storleken på utdata-lager skulle vara __C * V__ där C är storleken på fönstret kontext. Hoppa över gram-baserad arkitektur visas i följande bild:
+Hoppa över Gram modellen är ett lite neurala nätverk. Indata är målordet som är kodade som en en-hot vector som används för att förutsäga Närliggande ord. Om **V** är storleken på ordförråd, storleken på utdata-lagret är __C * V__ där C är storleken på fönstret kontext. Följande bild visar en arkitektur som baseras på Skip Gram modellen:
 
-![Hoppa över gram modellen](./media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Hoppa över Gram modellen](./media/predict-twitter-sentiment/skip-gram-model.PNG)
 
-***Hoppa över gram modellen***
+Detaljerad säkerhetsnivån Word2Vec algoritmen och hoppa över Gram modellen är utanför omfattningen för det här exemplet. Mer information finns i följande referenser:
 
-Detaljerad säkerhetsnivån word2vec algoritmen och hoppa över gram modellen är utanför omfattningen för det här exemplet. Läsare är intresserad av mer information om dess bearbetningen kan finns i följande referenser:
-
-- [Koden 02_A_Word2Vec.py refereras TensorFlow exempel](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
-- [Vektorn Representation av ord](https://www.tensorflow.org/tutorials/word2vec)
+- [02_A_Word2Vec.PY kod med refererade TensorFlow-exempel](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
+- [Vektorn representationer av ord](https://www.tensorflow.org/tutorials/word2vec)
 - [Hur fungerar word2vec?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
 - [Information om bruset Contrastive uppskattning och negativa provtagning](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
 
 
-#### <a name="sswe"></a>SSWE
-Den **Sentiment specifika ord bädda in (SSWE) algoritmen** försöker lösa en svaghet i Word2vec algoritmen att ord med liknande kontexter och motsatt polaritet kan ha liknande word angreppsmetoderna. Den här likhet innebär att Word2vec inte kan genomföra korrekt för uppgifter som sentiment analys. Algoritmen SSWE försöker hantera den här svaghet genom att inkludera både meningen polaritet och ordet kontext till dess förlust-funktionen.
-
-Det här exemplet används en variant av SSWE. SSWE använder både den ursprungliga ngram och skadat ngram som indata och den använder en rangordning stil led förlust av funktionen för både syntaktiska förlust och semantiska går förlorade. Ultimate förlust funktionen är viktad kombination av både syntaktiska dataförlust och semantiska dataförlust. För enkelhetens skull används bara den semantiska mellan entropi som funktionen går förlorade. Som du ser senare, även om den här funktionen för enklare förlust är prestanda för SSWE bädda in bättre än Word2Vec bädda in.
-
-SSWE inspirerat neurala nätverket modellen som du använder i det här exemplet visas i följande bild:
-
-![Jämförelse av ROC modellen](./media/predict-twitter-sentiment/embedding-model-2.PNG)
-
-***Convolutional modellen för att generera sentiment-specifika ord bädda in.***
 
 
-När utbildning processen är klar genereras två inbäddning filer i formatet TVS för modellering steg.
+#### <a name="sentiment-specific-word-embedding-algorithm"></a>Bädda in sentiment-specifika ord algoritm
+Algoritmen SSWE försöker lösa en svaghet av algoritmen Word2Vec där ord med liknande kontexter och motsatt polaritet kan ha liknande word angreppsmetoderna. Likheterna kan orsaka Word2Vec-algoritmen för att genomföra inte korrekt för uppgifter som sentiment analys. Algoritmen SSWE försöker hantera den här svaghet genom att inkludera både meningen polaritet och ordet kontext till dess förlust-funktionen.
 
-Mer information om algoritmerna SSWE finns i dokumentet av Duyu Tang et al.: [Learning Sentiment-specifika ord inbäddning av Twitter-Sentiment klassificering. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) 
+En variant av algoritmen SSWE används på följande sätt:
+
+- Ursprungligt _ngram_ och den skadade _ngram_ används som indata.
+- En rangordning format led förlust av funktionen används för både syntaktiska förlust och semantiska går förlorade.
+- Funktionen ultimate förlust är viktad kombination av både syntaktiska förlust och semantiska går förlorade.
+- För enkelhetens skull används bara den semantiska mellan entropi som funktionen går förlorade.
+
+Exemplet visar att prestandan för inbäddning av SSWE även med funktionen enklare förlust är bättre än Word2Vec bädda in. Följande bild visar convolutional modellen som används för att generera sentiment-specifika ord bädda in:
+
+![Neurala nätverket modellen inspirerat av SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
+
+När utbildning processen är klar genereras två inbäddning filer i formatet tabbavgränsade värden (TVS) för modellering steg.
+
+Mer information om algoritmerna SSWE finns i dokumentet av Duyu Tang m.fl. ”[Learning Sentiment-specifika Word inbäddning av Twitter-Sentiment klassificering](http://www.aclweb.org/anthology/P14-1146)”. Associationen för beräkningar Linguistics (1). 2014.
 
 
 ### <a name="model-creationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling02modelcreation"></a>[Skapa en modell](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
-När word angreppsmetoderna har skapats med antingen SSWE eller Word2vec algoritmer, är nästa steg att träna modeller att förutsäga faktiska sentiment polaritet klassificering. Två typer av funktioner, Word2Vec och SSWE, tillämpas på två modeller GBM modell och Logistic regressionsmodell. Så fyra olika modeller är håller på att tränas.
+När word angreppsmetoderna har genererats med hjälp av algoritmen SSWE eller Word2Vec tränas klassificering modeller att förutsäga den faktiska sentiment polaritet. Två typer av funktioner: Word2Vec och SSWE, tillämpas på två modeller: toning förstärkning modellen och Logistic Regression modell. Därför tränas fyra olika modeller.
 
 
 ### <a name="model-evaluationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling03modelevaluation"></a>[Modellen utvärdering](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
-Nu kan du använda fyra modeller tränas i föregående steg i att testa data för att utvärdera modellens prestanda. 
+När modeller tränas för modeller att testa Twitter textdata och utvärdera varje modell prestanda. Exemplet utvärderar följande fyra modeller:
 
-1. Toning Boosting över SSWE bädda in
-2. Logistic Regression över SSWE bädda in
-3. Toning Boosting över Word2Vec bädda in
-4. Logistic Regression över Word2Vec bädda in
+- Toning Boosting över SSWE bädda in.
+- Logistic Regression över SSWE bädda in.
+- Toning Boosting över Word2Vec bädda in.
+- Logistic Regression över Word2Vec bädda in.
 
-![Jämförelse av ROC modellen](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+En jämförelse av de fyra modellerna visas i följande bild:
 
-GBM modellen med SSWE funktioner är den bästa med AUC mått.
+![Mottagaren operativsystem karakteristiken (ROC) modellen jämförelse](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+
+Toning förstärkning modellen med funktionen SSWE ger bästa prestanda när du vill jämföra modeller med hjälp av området under kurvan (AUC) mått.
 
 
 ## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[Distribution](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-Den här delen distribuerar utbildade sentiment förutsägelse modellen (SSWE bädda in + GBM modellen) till en webbtjänst på ett kluster i Azure Container Service (ACS). Operationalization miljö bestämmelserna Docker och Kubernetes i klustret för att hantera distributionen av webbtjänsten. Du hittar mer information om operationalization [här](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+Det sista steget är distributionen av utbildade sentiment förutsägelse modellen till en webbtjänst på ett kluster i Azure Container Service. Modellen toning förstärkning används med algoritmen SSWE inbäddning som den tränade modellen. Operationalization miljön etablerar Docker och Kubernetes i klustret för att hantera distributionen av webbtjänsten som visas i följande bild: 
 
-![kubenetes_dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
+![Kubernetes instrumentpanelen](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
+Läs mer om operationalization [distribuera en Azure Machine Learning-modell som en webbtjänst](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
-Information om hur du tränar en modell för inbäddning av word med algoritmer Word2Vec och SSWE har förklaras och extraherade inbäddningar som funktioner som användes för att träna flera modeller att förutsäga sentiment poängen för Twitter textdata. Funktionen Sentiment specifika ordval Embeddings(SSWE) med toning ökat trädet modell gav bästa prestanda. Den här modellen distribuerades sedan som en webbtjänst som realtid i Azure Container tjänster med hjälp av Azure Machine Learning Arbetsbänk.
+I den här artikeln beskrivs hur du tränar en modell för inbäddning av word med hjälp av Word2Vec och Sentiment-specifika ord inbäddning algoritmer. Extraherade inbäddningar användes för att träna flera modeller att förutsäga sentiment poängen för Twitter-textdata som funktioner. Funktionen SSWE används med toningen förstärkning modellen gav bästa prestanda. Modellen distribueras sedan som en realtid webbtjänst i Container Service med hjälp av Azure Machine Learning-arbetsstationen.
 
 
 ## <a name="references"></a>Referenser
 
 * [Team av vetenskapliga data](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
 * [Hur du använder Team Data vetenskap processen (TDSP) i Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
-* [TDSP projektmall för Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure ML arbete bänk](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-* [USA intäkter datauppsättning från UCI ML-databas](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Biomedicinska entitet bokföring med hjälp av TDSP mall](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov Tomas, m.fl. Distribuerade representationer av ord och fraser och deras compositionality. Utvecklingen av neural bearbeta system information. 2013.](https://arxiv.org/abs/1310.4546)
+* [TDSP projektmallar för Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
+* [Azure Machine Learning-arbetsstationen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [USA intäkter datauppsättning från UCI ML-databasen](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Biomedicinska entitet recognition med hjälp av TDSP mallar](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Mikolov Tomas, m.fl. ”Distribuerade representationer av ord och fraser och deras Compositionality. Avancerar i neural bearbeta system information ”. 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang Duyu, m.fl. ”Utbildning Sentiment-specifika ord inbäddning av klassificering för Twitter-Sentiment”. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

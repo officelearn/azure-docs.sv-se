@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopiera data till och från Azure-tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +81,10 @@ En delad signatur åtkomst (SAS) ger delegerad åtkomst till resurser i ditt lag
 
 > [!IMPORTANT]
 > Azure Data Factory nu har bara stöd för **Service SAS** men inte kontots SAS. Se [typer av signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) mer information om dessa två typer och hur du skapar. SAS-URL generable från Azure-portalen eller Lagringsutforskaren är ett konto-SAS, vilket inte stöds.
->
+
+> [!TIP]
+> Du kan köra nedan PowerShell-kommandon för att generera en SAS för tjänst för ditt lagringskonto (Ersätt plats-innehavare och bevilja behörighet som krävs):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Om du vill använda tjänsten SAS-autentisering stöds följande egenskaper:
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar
 
@@ -38,11 +38,17 @@ Nej. Sömlös SSO är endast tillgängligt i den globala instansen av Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Vilka program utnyttja `domain_hint` eller `login_hint` parametern möjligheterna för sömlös SSO?
 
-Vi håller på att sammanställa lista över program som skickar dessa parametrar och de som inte. Om du har program som är intresserade berätta för oss kommentarer.
+Vi håller på att sammanställa lista över program som skickar dessa parametrar och de som inte. Om du har program som du är intresserad av att berätta för oss kommentarer.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder sömlös SSO `Alternate ID` som användarnamn, i stället för `userPrincipalName`?
 
 Ja. Sömlös SSO stöder `Alternate ID` som användarnamnet som konfigurerades i Azure AD Connect enligt [här](active-directory-aadconnect-get-started-custom.md). Inte alla Office 365-program stöder `Alternate ID`. Finns det specifika programmet dokumentationen för support-instruktionen.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Vad är skillnaden mellan enkel inloggning som tillhandahålls av [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös SSO?
+
+[Azure AD-anslutning](../active-directory-azureadjoin-overview.md) ger enkel inloggning för användare om deras enheter är registrerade med Azure AD. Dessa enheter behöver inte nödvändigtvis vara ansluten till domänen. Enkel inloggning har angetts med hjälp av *primära uppdaterings-tokens* eller *PRTs*, och inte Kerberos. Användarupplevelsen är mest optimala på Windows 10-enheter. SSO sker automatiskt i Edge-webbläsare. Fungerar på Chrome med hjälp av ett webbläsartillägg.
+
+Du kan använda Azure AD Join och sömlös SSO på din klient. Dessa två funktioner är kompletterande. Om båda funktionerna aktiveras har enkel inloggning från Azure AD Join företräde framför sömlös SSO.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Jag vill registrera Windows 10-enheter med Azure AD utan att använda AD FS. Kan jag använda sömlös SSO i stället?
 

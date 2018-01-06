@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enheten twins i IoT-hubb
 
 *Enheten twins* är JSON-dokument som lagrar tillstånd enhetsinformation inklusive metadata, konfigurationer och villkor. Azure IoT-hubb upprätthåller en enhet dubbla för varje enhet som du ansluter till IoT-hubb. Den här artikeln beskrivs:
+
 
 * Strukturen för enheten dubbla: *taggar*, *önskade* och *rapporterade egenskaper*.
 * De åtgärder som appar för enheter och -servrar kan utföra på enheten twins.
@@ -51,8 +52,7 @@ En enhet dubbla är en JSON-dokument som innehåller:
 * **Taggar**. En del av JSON-dokumentet som lösningens serverdel kan läsa från och skriva till. Taggar visas inte för appar för enheter.
 * **Egenskaper för Desired**. Används tillsammans med rapporterade egenskaper för att synkronisera enhetskonfigurationen eller villkor. Appen enheten kan läsa dem lösningens serverdel kan ange egenskaper. Appen enheten kan också ta emot meddelanden om ändringar i egenskaperna.
 * **Rapporterade egenskaper**. Används tillsammans med egenskaper för att synkronisera enhetskonfigurationen eller villkor. Enheten appen kan ange rapporterade egenskaper och lösningens serverdel kan läsa och fråga dem.
-
-Dessutom roten på enhet dubbla JSON-dokumentet innehåller skrivskyddade egenskaper från motsvarande enhetens identitet lagras i den [identitetsregistret][lnk-identity].
+* **Enheten identitetsegenskaper**. Roten på enhet dubbla JSON-dokumentet innehåller skrivskyddade egenskaper från motsvarande enhetens identitet lagras i den [identitetsregistret][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ I följande exempel visas en enhet dubbla JSON-dokumentet:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ I följande exempel visas en enhet dubbla JSON-dokumentet:
             }
         }
 
-I rotobjektet Systemegenskaper, och behållarobjekt för `tags` och båda `reported` och `desired` egenskaper. Den `properties` behållaren innehåller vissa skrivskyddad element (`$metadata`, `$etag`, och `$version`) beskrivs i den [enhetens dubbla metadata] [ lnk-twin-metadata] och [Optimistisk samtidighet] [ lnk-concurrency] avsnitt.
+I rotobjektet enheten identitetsegenskaper, och behållarobjekt för `tags` och båda `reported` och `desired` egenskaper. Den `properties` behållaren innehåller vissa skrivskyddad element (`$metadata`, `$etag`, och `$version`) beskrivs i den [enhetens dubbla metadata] [ lnk-twin-metadata] och [Optimistisk samtidighet] [ lnk-concurrency] avsnitt.
 
 ### <a name="reported-property-example"></a>Rapporterat egenskapen exempel
 I det förra exemplet, enhet dubbla innehåller en `batteryLevel` egenskap som rapporteras av appen enhet. Den här egenskapen gör det möjligt att fråga efter och fungerar på enheter utifrån den senaste rapporterade batterinivån. Andra exempel är enheten app reporting enhetsfunktioner eller alternativ för nätverksanslutning.
@@ -240,7 +246,7 @@ Taggar, önskade egenskaper och rapporterade egenskaper är JSON-objekt med föl
 * Alla strängvärden kan vara högst 4 KB längd.
 
 ## <a name="device-twin-size"></a>Enheten dubbla storlek
-IoT-hubb tillämpar en begränsning på 8KB storlek på de totala värdena för `tags`, `properties/desired`, och `properties/reported`, exklusive skrivskyddade element.
+IoT-hubb tillämpar en begränsning på 8KB storleken på varje totala värdena i `tags`, `properties/desired`, och `properties/reported`, exklusive skrivskyddade element.
 Storleken beräknas genom att räkna alla tecken, förutom Unicode-kontrolltecken (segment C0 och C1) och blanksteg som befinner sig utanför strängkonstanter.
 IoT-hubb avvisar alla åtgärder som kan öka storleken på dessa dokument än gränsen med ett fel.
 

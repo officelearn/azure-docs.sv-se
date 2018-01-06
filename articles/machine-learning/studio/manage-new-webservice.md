@@ -3,7 +3,7 @@ title: "Använda Azure Machine Learning-webbtjänster portal | Microsoft Docs"
 description: "Hantera åtkomst till Azure Machine Learning arbetsytor och distribuera och hantera ml – API-tjänster"
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning-webbtjänster-portalen
 Du kan hantera Machine Learning nya och klassiska webbtjänster med hjälp av portalen för Microsoft Azure Machine Learning-webbtjänster. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande tekniker, ha lite olika hanteringsfunktioner för dem.
@@ -110,7 +110,7 @@ Planera instrumentpanelen innehåller följande information:
 
 ## <a name="manage-classic-web-services"></a>Hantera klassiska webbtjänster
 > [!NOTE]
-> Procedurerna i det här avsnittet är relevanta för att hantera klassisk webbtjänster via portalen Azure Machine Learning-webbtjänster. Information om hur du hanterar klassiska webbtjänster via Machine Learning Studio och den klassiska Azure-portalen finns [hantera en Azure Machine Learning-arbetsytan](manage-workspace.md).
+> Procedurerna i det här avsnittet är relevanta för att hantera klassisk webbtjänster via portalen Azure Machine Learning-webbtjänster. Information om hur du hanterar klassiska webbtjänster via Machine Learning Studio och Azure portal finns [hantera en Azure Machine Learning-arbetsytan](manage-workspace.md).
 > 
 > 
 

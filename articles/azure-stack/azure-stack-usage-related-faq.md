@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/05/2018
 ms.author: alfredop
-ms.openlocfilehash: 5008c2a7764a17a937c8ab2025ac430f05b780cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9ec0b0456a0e7bc5f86f33981d4be6289f5fbc71
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure-stacken användnings-API
 Den här artikeln besvarar några vanliga frågor om Azure-stacken användning API.
@@ -31,23 +31,23 @@ Användning har rapporterats för följande resursleverantörer.
 | **Nätverk** |F271A8A388C44D93956A063E1D2FA80B |Användning av statisk IP-adress |IP-adresser| Räkna IP-adresser som används |
 | |9E2739BA86744796B465F64674B822BA |Dynamisk IP-Adressanvändning |IP-adresser| Räkna IP-adresser som används |
 | **Storage** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*timmar |Total kapacitet som används av tabeller |
-| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*timmar |Total kapacitet som används av sidblobar |
-| | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*timmar |Total kapacitet som används av kön |
-| | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*timmar |Total kapacitet som används av blockblobbar |
-| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Antalet begäranden i 10 000-tal |Tjänstbegäranden i tabell (i 10 000-tal) |
-| | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Ingång data i GB |Tabellen service data ingång i GB |
-| | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Utgående trafik i GB |Tabellen service datatrafik i GB |
-| | 43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Begäranden räkna i 10 000-tal |Begäranden för BLOB-tjänst (i 10 000-tal) |
-| | 9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Ingång data i GB |BLOB-tjänsten data ingång i GB |
-| | 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Utgående trafik i GB |BLOB-tjänsten datatrafik i GB |
-| | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Begäranden räkna i 10 000-tal |Kön tjänstbegäranden (i 10 000-tal) |
-| | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingång data i GB |Kön tjänsten data ingång i GB |
-| | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Utgående trafik i GB |Kön service datatrafik i GB |
+| |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*timmar |Total kapacitet som används av sidblobar |
+| |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*timmar |Total kapacitet som används av kön |
+| |09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*timmar |Total kapacitet som används av blockblobbar |
+| |B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Antalet begäranden i 10 000's |Tjänstbegäranden i tabell (i 10 000's) |
+| |50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Ingång data i GB |Tabellen service data ingång i GB |
+| |1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Utgående trafik i GB |Tabellen service datatrafik i GB |
+| |43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Antal begäranden i 10 för 000's |Begäranden för BLOB-tjänst (i 10 000's) |
+| |9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Ingång data i GB |BLOB-tjänsten data ingång i GB |
+| |3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Utgående trafik i GB |BLOB-tjänsten datatrafik i GB |
+| |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Antal begäranden i 10 för 000's |Kön tjänstbegäranden (i 10 000's) |
+| |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Ingång data i GB |Kön tjänsten data ingång i GB |
+| |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Utgående trafik i GB |Kön service datatrafik i GB |
 | **Compute** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Timmar för grundläggande VM-storlek |Virtuella core minuter | Virtuella kärnor antal minuter som den virtuella datorn kördes |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM storlek timmar |Virtuella core minuter | Virtuella kärnor antal minuter som den virtuella datorn kördes |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Timmar för VM-storlek |VM-timmar |Samlar in bas- och Windows-VM. Justeras inte för kärnor |
-| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transaktioner | Antalet begäranden i 10 000-tal| Antal REST API-begäranden tas emot av Key Vault dataplan |
-
+| **Key Vault** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault transaktioner | Antalet begäranden i 10 000's| Antal REST API-begäranden tas emot av Key Vault dataplan |
+| **Apptjänst** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | App Service   | Virtuella kärntimmar  | Antal virtuella kärnor som används för att köra apptjänst |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Hur gör Azure Stack-användning API: er som jämför med den [Azure användnings-API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (för närvarande i förhandsversion)?
 * Användning-API-klient är konsekvent med Azure-API, med ett undantag: den *showDetails* flaggan för närvarande inte stöds i Azure-stacken.

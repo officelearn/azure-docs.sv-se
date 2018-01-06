@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Omtrimma en klassisk webbtjänst
 Förutsägande webbtjänsten som du har distribuerat är standard bedömningsslutpunkten. Slutpunkter hålls synkroniserade med den ursprungliga utbildningen och bedömningen experiment och därför den tränade modellen för standardslutpunkten kan inte ersättas. För att träna om webbtjänsten måste du lägga till en ny slutpunkt till webbtjänsten. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha konfigurerat en träningsexperiment och prediktivt experiment som visas i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -116,7 +116,7 @@ Den *apiKey* och *endpointUrl* för anropet kan hämtas från slutpunkten instru
 
 Värdet för den *namn* parameter i *resurser* ska matcha namnet på den sparade tränade modellen i prediktivt experiment resurs. Hämta resursnamnet:
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I den vänstra menyn klickar du på **Maskininlärning**.
 3. Klicka på arbetsytan under namn och klicka sedan på **Web Services**.
 4. Under namn, klickar du på **inventering modellen [förutsägande exp].** .

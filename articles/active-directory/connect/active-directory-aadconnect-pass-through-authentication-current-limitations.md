@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory direkt-autentisering: Aktuella begränsningar
 
@@ -45,6 +45,7 @@ Följande scenarier är _inte_ stöds:
 - Applösenord för Multifaktorautentisering.
 - Identifiering av användare med [läcka ut autentiseringsuppgifter](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services måste synkronisering av lösenords-Hash måste vara aktiverat på klienten. Därför klienter som använder direkt autentisering _endast_ fungerar inte för scenarier som kräver Azure AD Domain Services.
+- Direkt-autentisering inte är integrerad med [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
 >Som en lösning för scenarier som inte stöds _endast_, aktivera synkronisering av lösenords-Hash för den [valfria funktioner](active-directory-aadconnect-get-started-custom.md#optional-features) sida i Azure AD Connect-guiden.

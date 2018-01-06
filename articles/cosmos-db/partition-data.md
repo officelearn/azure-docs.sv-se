@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ Du kan lagra och fråga schemat mindre data med ordning millisekunder svarstider
 
 Behållare är logiska nätverksresurser och kan sträcka sig över en eller flera partitioner fysiska servrar. Antalet partitioner bestäms av Azure Cosmos DB baserat på lagringsstorleken och etablerat dataflöde på behållaren. 
 
-En fysisk partition är en fast mängd reserverade SSD-baserad lagring med maximalt 10 GB. Varje fysiska partition replikeras för hög tillgänglighet. En eller flera fysiska partitioner utgör en behållare. Hantering av fysiska partition hanteras helt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Azure DB Cosmos-behållare är obegränsad lagring och genomflöde. 
+En fysisk partition är en fast mängd reserverade SSD-baserad lagring. Varje fysiska partition replikeras för hög tillgänglighet. En eller flera fysiska partitioner utgör en behållare. Hantering av fysiska partition hanteras helt av Azure Cosmos DB och du behöver inte skriva komplex kod eller hantera din partitioner. Azure DB Cosmos-behållare är obegränsad lagring och genomflöde. 
 
-En logisk partition är en partition inom en fysiska partition, som lagrar alla data som är associerade med värdet för en enskild partition. I följande diagram visas har en enskild behållare tre logiska partitioner. Varje logisk partition lagrar data för en partitionsnyckel, LAX och AMS MEL respektive. Alla logiska partitioner LAX och AMS MEL växer inte gräns maximala fysiska partition på 10 GB. 
+En logisk partition är en partition inom en fysiska partition som lagrar alla data som är associerade med värdet för en enskild partition. En logisk partition har en 10 GB max. I följande diagram visas har en enskild behållare tre logiska partitioner. Varje logisk partition lagrar data för en partitionsnyckel, LAX och AMS MEL respektive. Alla logiska partitioner LAX och AMS MEL växer inte gräns maximala logisk partition på 10 GB. 
 
 ![Resursen partitionering](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ När en samling uppfyller de [partitionering krav](#prerequisites), partitioneri
 
 ## <a name="how-does-partitioning-work"></a>Hur fungerar partitionering
 
-Hur fungerar partitionering? Varje objekt måste ha en partitionsnyckel och en rad, som kan identifieras. Din partitionsnyckel fungerar som en logisk partition för dina data och ger Azure Cosmos DB en naturlig gräns för att distribuera data över partitioner. Kom ihåg att en logisk partition kan sträcka sig över flera fysiska partitioner, men fysiska partition management hanteras av Azure Cosmos DB. 
+Hur fungerar partitionering? Varje objekt måste ha en partitionsnyckel och en rad, som kan identifieras. Din partitionsnyckel fungerar som en logisk partition för dina data och ger Azure Cosmos DB en naturlig gräns för att distribuera data över fysiska partitioner. Kom ihåg att data för en enskild logisk partition måste finnas inuti en enda fysisk partition, men fysiska partition management hanteras av Azure Cosmos DB. 
 
 I korthet är här hur partitionering fungerar i Azure Cosmos DB:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Vanliga frågor och svar om IoT Suite
 
@@ -86,13 +86,16 @@ Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise 
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Kan jag skapa en förkonfigurerad lösning om jag har Microsoft Azure för DreamSpark?
 
-För närvarande kan du inte skapa en förkonfigurerade lösning med en [Microsoft Azure för DreamSpark] [ lnk-dreamspark] konto. Du kan dock skapa en [kostnadsfri utvärderingsversion konto för Azure] [ lnk-30daytrial] på ett par minuter som du kan skapa en förkonfigurerade lösning.
+> [!NOTE]
+> Microsoft Azure för DreamSpark kallas nu Microsoft Imagine för studenter.
+
+För närvarande kan du inte skapa en förkonfigurerade lösning med en [Microsoft Azure för DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) konto. Du kan dock skapa en [kostnadsfri utvärderingsversion konto för Azure](https://azure.microsoft.com/free/) på ett par minuter som du kan skapa en förkonfigurerade lösning.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Kan jag skapa en förkonfigurerade lösning om jag har Cloud Solution Providers (CSP)-prenumeration?
 
 För närvarande kan skapa du inte en förkonfigurerade lösning med en prenumeration Cloud Solution Providers (CSP). Du kan dock skapa en [kostnadsfri utvärderingsversion konto för Azure] [ lnk-30daytrial] på ett par minuter som du kan skapa en förkonfigurerade lösning.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Hur tar jag bort en AAD-klient?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Hur tar jag bort en Azure AD-klient?
 
 Finns i blogginlägget Eric Golpe [genomgång av du tar bort en Azure AD-klient][lnk-delete-aad-tennant].
 

@@ -1,6 +1,6 @@
 ---
-title: "Hantera nödåtkomst administrativa konton i Azure AD | Microsoft Docs"
-description: "Beskriver hur du använder nödåtkomst konton för att hjälpa organisationer att begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö."
+title: "Hantera åtkomst nödsituation administrativa konton i Azure AD | Microsoft Docs"
+description: "Den här artikeln beskriver hur du använder nödåtkomst konton för att hjälpa organisationer att begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö."
 services: active-directory
 keywords: "Inte lägga till eller Redigera nyckelord utan samråd med din SEO-champ."
 author: markwahl-msft
@@ -11,69 +11,77 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 75ea8e445c890e7af5ab14f4fc4c53cfb1af4568
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="managing-emergency-access-administrative-accounts-in-azure-ad"></a>Hantera nödåtkomst administrativa konton i Azure AD 
+# <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Hantera åtkomst nödsituation administrativa konton i Azure AD 
 
-För de flesta dagliga aktiviteter behövs inte global administratörsroll rättigheter.  Användare ska inte tilldelas permanent till rollen som användaren kan oavsiktligt utföra en uppgift med högre behörighet än vad som krävs. När en användare behöver att fungera som en global administratör, bör de aktivera rolltilldelning med hjälp av Azure AD PIM, antingen på sitt eget konto eller ett annat administrativt konto.
+För de flesta dagliga aktiviteter *global administratör* rättigheter inte krävs av dina användare. Användare ska inte tilldelas permanent till rollen, eftersom de av misstag kan utföra en uppgift som kräver högre behörighet än de ska ha. När användarna inte behöver fungera som en global administratör, bör de aktivera rolltilldelning med hjälp av Azure Active Directory (Azure AD) Privileged Identity Management (PIM), på sitt eget konto eller ett annat administrativt konto.
 
-Förutom att användare tar på administrativ behörighet som krävs för sig själva, måste kunder du förbereda så att de inte står i en situation där de kan oavsiktligt utestängas från administration av sina Azure AD-klient på grund av deras oförmåga att logga i eller aktivera en befintlig enskilda användares konto som administratör.  De kan minimera effekten av misstag bristande administrativ åtkomst genom att lagra i klientorganisationen två eller flera *konton för nödåtkomst*.
+Utöver användarnas tar på administrativ behörighet som krävs för sig själva, behöver du förhindra att av misstag utelåst från administrationen av Azure AD-klient eftersom du kan varken logga in eller aktivera en befintlig enskilda användares konto som ett administratören. Du kan minimera effekten av oavsiktligt bristande administrativ åtkomst genom att lagra två eller fler *konton för nödåtkomst* i din klient.
 
-Konton för nödåtkomst hjälpa organisationer att begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö. Dessa konton är mycket Privilegierade och har tilldelats inte till specifika personer. Konton för nödåtkomst är begränsade till nödfall 'nödkonto' scenarier där normala administrativa konton inte kan användas.  Organisationer måste kontrollera i syfte att kontrollera och minska användningen av nödfall konton till endast den tid som det är nödvändigt.
+Konton för nödåtkomst hjälper organisationer att begränsa privilegierad åtkomst i en befintlig Azure Active Directory-miljö. Dessa konton är mycket Privilegierade och de inte är tilldelade till specifika personer. Konton för nödåtkomst är begränsade till nödsituation eller 'nödkonto' scenarier situationer där normala administrativa konton inte kan användas. Organisationer måste upprätthålla ett mål för att begränsa användningen av nödfall konton till endast den tid då det är nödvändigt.
 
-Scenarier där en organisation kan behöva göra användning av ett nödåtkomst konto:
+En organisation kan behöva använda ett konto för nödåtkomst i följande situationer:
 
- - Användarkonton är federerad och federation är inte tillgänglig på grund av ett nätverksavbrott eller ett avbrott i identitetsleverantören.  Till exempel om identitet providern värden i kundens miljö har avbrutits kanske sedan en användare inte kan logga in när Azure AD omdirigeras till deras identitetsleverantör. 
- - Administratörerna som har registrerats via MFA och alla enskilda enheter är inte tillgängliga.  Det är möjligt att användare inte kan fullständiga multifaktorautentisering att aktivera en roll om till exempel nätverksavbrott cell kan hindra användare från att besvara samtal eller ta emot meddelanden och som var den enda funktionen som de registrerats för enheten. 
- - Den senaste personen som hade global administrativ åtkomst lämnar organisationen.  Azure AD förhindrar senaste globala administratörskonto tas bort, men det hindrar inte kontot tas bort eller inaktiveras lokalt, vilket leder till en situation där organisationen är det går inte att återställa det kontot.
+ - Användarkonton är federerad och federation är inte tillgänglig på grund av ett cell nätverksavbrott eller identitetsleverantör avbrott. Till exempel om identitet providern värden i din miljö har avbrutits kanske användare inte kan logga in när Azure AD omdirigeras till deras identitetsleverantör. 
+ - Administratörer är registrerade via Azure Multi-Factor Authentication och deras enskilda enheter är inte tillgängliga. Användare kan inte slutföra Multi-Factor Authentication för att aktivera en roll. Till exempel hindrar nätverksavbrott cell dem från besvara samtal och ta emot textmeddelanden bara två autentiseringsmekanismer som de har registrerats för enheten. 
+ - Personen med senaste global administrativ åtkomst lämnar organisationen. Azure AD gör att senaste *global administratör* kontot tas bort, men det hindrar inte kontot tas bort eller inaktiveras lokalt. Antingen situation kan göra att det går inte att återställa kontot organisationen.
 
 ## <a name="initial-configuration"></a>Inledande konfiguration
 
-Skapa två eller flera konton för nödåtkomst.  Endast molnbaserad konton med hjälp av bör vara den *. onmicrosoft.com-domän som inte är federerat eller synkroniseras från en lokal miljö.  
+Skapa två eller flera konton för nödåtkomst. Bör vara endast molnbaserad konton som använder den \*. onmicrosoft.com-domän och som inte federerad eller som synkroniseras från en lokal miljö. 
 
-De får inte vara kopplad till en enskild användare i organisationen.  Organisationer behöver du autentiseringsuppgifterna för dessa konton stannar säker och kända endast till personer som har behörighet att använda dem. 
+Konton får inte vara kopplad till en enskild användare i organisationen. Organisationer behöver säkerställa att autentiseringsuppgifter för dessa konton hålls säker och kända endast till personer som har behörighet att använda dem. 
 
-Obs: Normalt kontolösenord för ett konto för nödåtkomst är indelade i två eller tre delar, skrivs på olika delar av dokumentet och lagras i säker, brandsäkert kassaskåp som finns i säker olika platser. Se till att dina konton för nödåtkomst inte är kopplad till alla medarbetare angivna mobiltelefoner, maskinvara tokens som överförs med enskilda medarbetare eller andra autentiseringsuppgifter för specifika medarbetare, om den medarbetaren kan inte nås vid tidpunkten autentiseringsuppgifter krävs. 
+> [!NOTE]
+> Lösenordet för ett konto för ett konto för nödåtkomst är vanligtvis indelade i två eller tre delar, skrivs på olika delar av dokumentet och lagras i säker, brandsäkert kassaskåp som är säkra, separata platser. 
+>
+> Se till att dina konton för nödåtkomst inte är kopplad till alla medarbetare angivna mobiltelefoner, maskinvara tokens som överförs med enskilda medarbetare eller andra medarbetare-specifika autentiseringsuppgifter. Den här försiktighetsåtgärden omfattar instanser där en enskild medarbetare kan inte nås när autentiseringsuppgifter krävs. 
 
 ### <a name="initial-configuration-with-permanent-assignments"></a>Inledande konfiguration med permanenta tilldelningar
 
-Ett alternativ är att tilldela dessa användare som permanenta medlemmar i rollen Global administratör.  Det är lämpligt för organisationer som inte har Azure AD Premium P2-prenumerationer.
+Ett alternativ är att göra användarna permanenta medlemmar i den *global administratör* roll. Det här alternativet är lämpligt för organisationer som inte har Azure AD Premium P2-prenumerationer.
 
-Azure AD rekommenderar att du kräver Multi-Factor authentication (MFA) för alla enskilda användare, administratörer och andra användare som skulle ha betydande påverkan om sitt konto komprometteras (t.ex. ekonomiska polis). Detta minskar risken för angrepp på grund av en komprometterad lösenord. Men om organisationen inte har delade enheter kanske sedan MFA inte möjligt för dessa konton för nödåtkomst.  Om du konfigurerar en princip för villkorlig åtkomst att kräva [MFA-registrering för varje admin](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) för Azure AD och andra anslutet SaaS-appar kan du behöva konfigurera undantag för principen för att undanta nödåtkomst konton från den här kravet.
+Om du vill minska risken för angrepp som härrör från en komprometterad lösenord rekommenderar Azure AD som du vill ha Multifaktorautentisering för alla enskilda användare. Den här gruppen ska innehålla administratörer och alla andra (till exempel finansiella polis) vars komprometterat konto skulle ha en betydande inverkan. 
+
+Men om organisationen inte har delade enheter kanske Multifaktorautentisering inte möjligt för dessa konton för nödåtkomst. Om du konfigurerar en princip för villkorlig åtkomst att kräva [Multi-Factor Authentication-registrering för varje admin](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) för Azure AD och andra anslutet programvara som en tjänst (SaaS)-appar du kan behöva konfigurera en princip undantag för att utesluta konton för nödåtkomst från det här kravet.
 
 ### <a name="initial-configuration-with-approvals"></a>Inledande konfiguration med godkännanden
 
-Ett annat alternativ är att konfigurera de användare som är berättigade och godkännare för att aktivera rollen Global administratör.  Detta kräver att organisationen får Azure AD Premium P2-prenumerationer, samt ett MFA-alternativ som är lämpliga för delade bland flera personer och nätverksmiljön.  Det beror på att aktivering av rollen Global administratör kräver att användaren har tidigare har utfört MFA.  Mer information finns i [kräva MFA i Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Ett annat alternativ är att konfigurera dina användare som kvalificerade och godkännare att aktivera den *global administratör* roll. Det här alternativet kräver din organisation har Azure AD Premium P2-prenumerationer. Kräver också ett alternativ för Multifaktorautentisering som är lämpliga för delade bland flera personer och nätverksmiljön. Dessa krav är eftersom aktivering av den *global administratör* rollen kräver att användare tidigare har utfört Multifaktorautentisering. Mer information finns i [kräva Multifaktorautentisering i Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
-Med hjälp av MFA som är associerade med personliga enheter rekommenderas inte för konton för nödåtkomst, eftersom i en verklig nödfall en person som måste ha inte kanske åtkomst till en MFA-registrerade enheter som håller den personliga enheten.  Överväg också att hotbild är om på grund av oförutsedda omständigheter mobiltelefon eller andra nätverk är tillgängliga under en naturkatastrof nödfall.  Det är därför viktigt att se till att alla registrerade enheter hålls i en känd, säker plats som har flera sätt att kommunicera med Azure AD.
+Vi rekommenderar inte använda Multifaktorautentisering som är associerad med personliga enheter för konton för nödåtkomst. I nödfall faktiska kanske inte den person som behöver åtkomst till en Multi-Factor Authentication-registrerad enhet som också har den personliga enheten. 
+
+Överväg också att hotbilden i grunden. Exempelvis kan ett oförutsett omständigheter, till exempel en naturkatastrof nödfall uppstå under vilka en mobiltelefon eller andra nätverk kan vara otillgänglig. Det är viktigt att se till att alla registrerade enheter hålls i en känd, säker plats som har flera sätt att kommunicera med Azure AD.
 
 ## <a name="ongoing-monitoring"></a>Kontinuerlig övervakning
 
-Övervaka den [Azure AD logga in och granskningsloggar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) för alla inloggningar och granska aktivitet från konton för nödåtkomst.  Normalt bör inte logga in dessa konton och bör inte göra ändringar, så att användning av dem kommer troligen att vara avvikande och kräver säkerhet undersökning.
+Övervaka den [Azure AD-inloggning och granska loggar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) för alla inloggningar och granska aktivitet från nödsituation åtkomstkonton. Normalt bör inte logga in dessa konton och bör inte göra ändringar, så att användning av dem kommer troligen att vara avvikande och kräver säkerhet undersökning.
 
-## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Kontot du verifiering måste ske med jämna mellanrum
+## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Kontokontroll verifiering måste ske med jämna mellanrum
 
-Utför följande steg på minst:
- - Efter 90 dagar
- - När det har en ändring i IT-personal – ett jobb ändra, avvikelse eller nya uthyrning
- - När Azure AD-prenumerationer i organisationen har ändrats
+Utför följande steg som minimum för att verifiera kontot:
+- Efter 90 dagar.
+- När det har en ändring i IT-avdelning, till exempel en ändring i jobbet, en avvikelse eller en ny hyra.
+- När Azure AD-prenumerationer i organisationen har ändrats.
 
-För att säkerställa tränas personal i hur du använder konton för nödåtkomst:
+För att träna anställda att använda konton för nödåtkomst, gör du följande:
 
-1.  Kontrollera övervakning säkerhetspersonal är medveten om att aktiviteten konto kontroll pågår.
-2.  Kontrollera att molnet användarkonton kan logga in och aktivera sina roller och att användare som kan behöva utföra stegen vid en nödsituation tränas på processen.
-3.  Se till att de inte har registrerats för MFA eller SSPR till en enskild användare enhet eller personlig information.  
-4. Om konton som har registrerats för MFA till en enhet som ska användas under rollaktivering, se till att enheten är tillgänglig för alla administratörer som kan behöva använda en nödsituation.  Kontrollera också att enheten är registrerad med minst två mekanismer som inte delar en gemensam felläget (t.ex. enheten kan kommunicera till Internet både via en anläggning trådlöst nätverk samt via ett nätverk för cellen provider).
-5.  Uppdatera autentiseringsuppgifterna.
+* Kontrollera att säkerhetsövervakning personal är medveten om att konto-check-aktivitet pågår.
+* Kontrollera att molnet användarkonton kan logga in och aktivera sina roller och att användare som kan behöva utföra dessa steg under en nödsituation tränas på processen.
+* Se till att de inte har registrerat Multifaktorautentisering eller lösenordsåterställning via självbetjäning (SSPR) till en enskild användare enhet eller personlig information. 
+* Se till att enheten är tillgänglig för alla administratörer som kan behöva använda en nödsituation om konton som har registrerats för Multifaktorautentisering till en enhet för användning under aktiveringen av rollen. Kontrollera också att enheten är registrerad med minst två mekanismer som inte delar en gemensam felläget. Enheten kan till exempel kommunicera till internet via både en anläggning trådlöst nätverk och en cell providern nätverk.
+* Uppdatera autentiseringsuppgifterna för kontot.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lägga till en molnbaserad användare](add-users-azure-active-directory.md) och [tilldelar den nya användaren rollen global administratör](active-directory-users-assign-role-azure-portal.md)
-- [Registrera dig för Azure Active Directory Premium](active-directory-get-started-premium.md), om du inte redan gjort
-- [Kräv Azure MFA för enskilda användare som utsetts till administratörer](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)
-- [Konfigurera ytterligare skydd för globala administratörer i Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), om du använder Office 365
-- [Utföra en åtkomst-granskning av globala administratörer](active-directory-privileged-identity-management-how-to-start-security-review.md) och [övergång befintliga globala administratörer av mer specifika administratörsroller](active-directory-assign-admin-roles-azure-portal.md)
+- [Lägga till en molnbaserad användare](add-users-azure-active-directory.md) och [tilldelar den nya användaren rollen global administratör](active-directory-users-assign-role-azure-portal.md).
+- [Registrera dig för Azure Active Directory Premium](active-directory-get-started-premium.md), om du inte har registrerat dig redan.
+- [Kräver Azure Multi-Factor Authentication för enskilda användare som utsetts till administratörer](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+- [Konfigurera ytterligare skydd för globala administratörer i Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), om du använder Office 365.
+- [Utföra en åtkomst-granskning av globala administratörer](active-directory-privileged-identity-management-how-to-start-security-review.md) och [övergång befintliga globala administratörer av mer specifika administratörsroller](active-directory-assign-admin-roles-azure-portal.md).
+
 

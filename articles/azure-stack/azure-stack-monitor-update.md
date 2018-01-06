@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Övervaka uppdateringar i Azure-stacken använder Privilegierade slutpunkten
 
 *Gäller för: Azure Stack integrerat system*
 
-Du kan använda Privilegierade slutpunkten för att övervaka förloppet för en Azure-Stack-uppdatering körs och att återuppta en misslyckad uppdatering köras från det senaste lycka steget. 
+Du kan använda Privilegierade slutpunkten för att övervaka förloppet för en Azure-stacken uppdatering körs och att återuppta en misslyckad uppdatering köras från det senaste lycka steget ska du Azure-stacken portal blir otillgängliga.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure-stacken.
 
 Följande nya PowerShell-cmdlets för uppdateringshantering ingår i uppdateringen 1710 för Azure-stacken integrerat system.
 
@@ -110,8 +110,8 @@ $statusString.Value
 Möjliga värden omfattar:
 
 - Körs
-- Slutfört
-- Misslyckades 
+- Slutförd
+- Misslyckad 
 - Avbrutna
 
 Du kan köra dessa kommandon flera gånger för att se senaste status. Du behöver inte återupprätta en anslutning till Kontrollera igen.

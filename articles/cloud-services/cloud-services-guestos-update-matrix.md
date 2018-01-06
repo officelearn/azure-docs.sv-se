@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="january-4-2018"></a>**4 januari 2018**
+Gästoperativsystem januari har släppts för OS-familjer 4 (WA-GÄST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) och innehåller viktiga säkerhetskorrigeringar.  
 
 ###### <a name="january-4-2018"></a>**4 januari 2018**
 December Gästoperativsystem har publicerat.
@@ -88,6 +90,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Bokför 5,17 |TBD |
 | WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |TBD |
 | WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Bokför 5.15 |TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
@@ -112,6 +115,7 @@ Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Bokför 4.52 |TBD |
 | WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Bokför 4.51 |TBD |
 | WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Bokför 4,50 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |

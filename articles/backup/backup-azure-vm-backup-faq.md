@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -51,6 +51,9 @@ Ja. Även om en dator är avstängd säkerhetskopieringen fungerar och återstä
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag avbryta en pågående säkerhetskopiering?
 Ja. Du kan avbryta jobbet om den finns i ”ta ögonblicksbilder” fas. **Du kan inte avbryta ett jobb om dataöverföring från en ögonblicksbild pågår**. 
+
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Jag har aktiverat resursgruppen lås på min säkerhetskopierade hanterade diskar för virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
+Om användaren låser resursgruppen, kan Backup-tjänsten inte ta bort äldre återställningspunkter. På grund av detta starta nya säkerhetskopior misslyckas eftersom det finns en gräns på högsta 18 återställningspunkter införts från serverdelen. Om säkerhetskopieringarna misslyckas med ett internt fel när RG låset, följer du dessa [steg för att ta bort återställningen peka samlingen](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## <a name="restore"></a>Återställ
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hur gör jag för att välja mellan diskåterställning och fullständig återställning av en virtuell dator?

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade runbooks i Azure Automation
 Det är bästa praxis i Azure Automation för att skriva återanvändningsbara, modulbaserade runbooks med en diskret funktion som kan användas av andra runbooks. En överordnad runbook anropar ofta en eller flera underordnade runbooks för att utföra en funktion som krävs. Det finns två sätt att anropa en underordnad runbook och var och en har tydliga skillnader som du bör känna till så att du kan bestämma vilket som är bäst för dina olika scenarier.
@@ -30,7 +30,7 @@ När du aktiverar en infogad runbook körs i samma jobb som den överordnade run
 
 När en runbook publiceras måste alla underordnade runbooks som anropas redan publiceras. Det beror på att Azure Automation bygger en association med någon av underordnade runbooks när en runbook kompileras. Om de inte är den överordnade runbooken kommer att visas publicerar korrekt, men genererar ett undantag när den startas. Om det händer kan du publicera om den överordnade runbooken för att korrekt referens till underordnade runbooks. Du behöver inte publicera om den överordnade runbooken om någon av underordnade runbooks ändras eftersom associationen kommer redan har skapats.
 
-Parametrarna för en underordnad runbook som anropas internt kan vara en datatyp som inkluderar komplexa objekt och det finns inga [JSON-serialisering](automation-starting-a-runbook.md#runbook-parameters) eftersom det inte finns när du startar runbook med Azure-hanteringsportalen eller med cmdleten Start-AzureRmAutomationRunbook.
+Parametrarna för en underordnad runbook som anropas internt kan vara en datatyp som inkluderar komplexa objekt och det finns inga [JSON-serialisering](automation-starting-a-runbook.md#runbook-parameters) eftersom det inte finns när du startar runbooken med Azure-portalen eller med den Start-AzureRmAutomationRunbook cmdlet.
 
 ### <a name="runbook-types"></a>Runbook-typer
 Vilka typer kan anropa varandra:

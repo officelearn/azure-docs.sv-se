@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Molnet init-stöd för virtuella datorer i Azure
 Den här artikeln innehåller information som finns för [moln init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller virtuella datorn anger skala (VMSS) vid etablering tid i Azure. Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure.  
 
-## <a name="cloud-init-overview"></a>Översikt över molntjänster initiering
+## <a name="cloud-init-overview"></a>Översikt över Cloud-init
 [Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`är textfiler i base64-kodade.
 
 Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
@@ -42,12 +42,12 @@ Molnet init fungerar även över distributioner. Exempelvis kan du inte använda
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan moln init- och Linux-agenten (WALA)?
 WALA är en Azure plattformsspecifika agent används för att etablera och konfigurera virtuella datorer och hantera Azure-tillägg. Vi förbättra uppgiften att konfigurera virtuella datorer för att använda molnet init i stället för Linux-agenten för att tillåta befintliga molnet init kunderna att använda sina aktuella molnet init-skript.  Om du har befintliga investeringar i molnet init-skript för att konfigurera Linux-system är **inga ytterligare inställningar krävs** så att de. 
 
-Om du inte tar med kommandoradsväxeln AzureCLI `--custom-data` vid etablering tid WALA tar minimal VM etablering parametrar som krävs för att etablera den virtuella datorn och slutföra distributionen med standardinställningarna.  Om du refererar till molnet initiering `--custom-data` växla, oavsett finns i dina egna data (individuella inställningar eller fullständig skript) åsidosätter standardinställningarna WALA definieras. 
+Om du inte tar med Azure CLI `--custom-data` växeln vid etablering tid, WALA har minimal VM etablering parametrar som krävs för att etablera den virtuella datorn och slutföra distributionen med standardinställningarna.  Om du refererar till molnet initiering `--custom-data` växla åsidosätter vad ingår i din anpassade data (individuella inställningar eller fullständig skript) WALA standardvärdena. 
 
-WALA konfigurationer av virtuella datorer är tid att fungera inom den maximala etablering VM-tid.  Molnet init-konfigurationer som tillämpas på virtuella datorer har inte tidsbegränsningar och kommer inte att orsaka en misslyckas av tidsfel vid distributionen. 
+WALA konfigurationer av virtuella datorer är begränsad tid att fungera inom den maximala VM etablering tid.  Molnet init-konfigurationer som tillämpas på virtuella datorer har inte tidsbegränsningar och kommer inte att orsaka en misslyckas av tidsfel vid distributionen. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Distribuera en moln-init aktiverad virtuell dator
-Distribuera en virtuell dator i molnet init aktiverad är så enkelt som refererar till en moln-init-aktiverad distributionsplats under distributionen.  Sköter underhåll själva för Linux-distribution måste du välja att aktivera och integrera molnet init i deras grundläggande Azure publicerade bilder. När du har bekräftat bilden som du vill distribuera är moln init-aktiverad, kan du använda AzureCLI ska distribuera avbildningen. 
+Distribuera en virtuell dator i molnet init aktiverad är så enkelt som refererar till en moln-init-aktiverad distributionsplats under distributionen.  Sköter underhåll själva för Linux-distribution måste du välja att aktivera och integrera molnet init i deras grundläggande Azure publicerade bilder. När du har bekräftat bilden som du vill distribuera är moln init-aktiverad, kan du använda Azure CLI ska distribuera avbildningen. 
 
 Det första steget i att distribuera den här avbildningen är att skapa en resursgrupp med det [az gruppen skapa](/cli/azure/group#create) kommando. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
 

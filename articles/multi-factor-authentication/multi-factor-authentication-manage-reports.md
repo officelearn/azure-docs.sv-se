@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: fb83e957a206bff29132973d2dd3e9a7b5f9f060
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 696f4ae3cb479a208e73e53a9a9a437caeabd294
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -28,6 +28,7 @@ Azure Multi-Factor Authentication innehåller flera rapporter som kan användas 
 |:--- |:--- |:--- |
 | Blockeringshistorik för användare | Azure AD > MFA-Server > blockera/avblockera användare | Visar historiken över förfrågningar om att blockera eller avblockera användare. |
 | Användnings- och bedrägeri aviseringar | Azure AD > inloggningar | Innehåller information om totala användningen och Användarsammanfattning användarinformation; samt en historik över bedrägerivarningar som skickats inom det angivna datumintervallet. |
+| Användning för lokala komponenter | Azure AD > MFA-Server > Aktivitetsrapport | Innehåller information om totala användningen för MFA via tillägg för NPS, AD FS, och MFA-servern. |
 | Förbikopplingshistorik för användare | Azure AD > MFA-Server > engångsförbikoppling | Innehåller en historik över förfrågningar om förbikoppling Multifaktorautentisering för en användare. |
 | Serverstatus | Azure AD > MFA-Server > serverstatus | Visar status för multi-Factor Authentication-servrar som är kopplade till ditt konto. |
 

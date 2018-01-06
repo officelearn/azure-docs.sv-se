@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Skapa textanalysmodeller i Azure Machine Learning Studio
 Du kan använda Azure Machine Learning för att skapa och använda text analytics modeller. Med hjälp av dessa modeller kan du till exempel lösa problem med dokumentet klassificering eller sentiment analys.
@@ -33,7 +33,7 @@ I en text analytics experiment skulle du normalt:
 
 I kursen får du lära dig stegen som vi går igenom en sentiment analysmodell använder Amazon Book granskningar dataset (finns i det här dokumentet, research ”biografier, Bollywood, BOM rutor och blandningsföretag: domän anpassning för Sentiment klassificering” av John Blitzer Markera Dredze och Fernando Pereira; Koppling av beräkningar Linguistics (ACL) 2007.) Den här datauppsättningen består av Granska resultat (1 till 2 eller 4-5) och en valfri form text. Målet är att förutsäga granska poäng: låg (1 - 2) eller hög (4-5).
 
-Du kan hitta experiment som beskrivs i den här självstudiekursen i Cortana Intelligence Gallery:
+Du kan hitta experiment som beskrivs i den här självstudiekursen i Azure AI-galleriet:
 
 [Förutsäga Book granskningar](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 

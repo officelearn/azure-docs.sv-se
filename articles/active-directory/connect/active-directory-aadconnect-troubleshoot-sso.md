@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
 
@@ -27,6 +27,7 @@ Den här artikeln får du hittar felsökningsinformation om vanliga problem om A
 ## <a name="known-problems"></a>Kända problem
 
 - I några fall kan det ta upp till 30 minuter att aktivera sömlös SSO.
+- Om du inaktiverar och återaktivera sömlös SSO på din klient kan får användarna inte enkel inloggning till deras cachelagrade Kerberos-biljetter, oftast giltigt för 10 timmar har upphört att gälla.
 - Det finns inte stöd för Edge-webbläsare.
 - Starta Office-klienter, särskilt i scenarier med delad dator gör prompter extra inloggning för användare. Användare måste ange sina användarnamn ofta, men inte sina lösenord.
 - Om det lyckas sömlös SSO, användaren inte har möjlighet att välja **Håll mig inloggad**. På grund av det här beteendet fungerar inte SharePoint och OneDrive mappning scenarier.
@@ -68,13 +69,15 @@ Bläddra till **Azure Active Directory** > **inloggningar** i den [Azure Active 
 Använd följande checklista för att felsöka problem med sömlös SSO:
 
 - Se till att sömlös SSO-funktionen är aktiverad i Azure AD Connect. Om du inte kan aktivera funktionen (t.ex, på grund av en blockerad-port), se till att du har alla de [krav](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) på plats.
+- Om du har aktiverat båda [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös SSO på din klient, kontrollera att problemet inte är med Azure AD Join. Enkel inloggning från Azure AD Join företräde framför sömlös SSO om enheten är registrerad med Azure AD såväl som ingår i domänen. Med enkel inloggning från Azure AD Join ser användaren en inloggning panel med texten ”ansluten till Windows”.
 - Kontrollera att båda Azure AD (https://autologon.microsoftazuread-sso.com och https://aadg.windows.net.nsatc.net) är en del av användarens intranätsinställningar för zonen.
 - Se till att företagets enheter är anslutna till Active Directory-domänen.
 - Se till att användaren är inloggad på enheten via ett domänkonto för Active Directory.
 - Kontrollera att användarkontot har från en Active Directory-skog där sömlös SSO har ställts in.
 - Kontrollera att enheten är ansluten till företagsnätverket.
 - Kontrollera att enhetens tiden har synkroniserats med tiden i både Active Directory och domänkontrollanter och att de är inom fem minuter efter varandra.
-- Visa en lista med befintliga Kerberos-biljetter på enheten med hjälp av den `klist` kommandot från en kommandotolk. Se till att biljetter som utfärdats för den `AZUREADSSOACCT` datorkonto finns. Användarnas Kerberos-biljetter gäller vanligtvis 12 timmar. Du kan ha olika inställningar i Active Directory.
+- Visa en lista med befintliga Kerberos-biljetter på enheten med hjälp av den `klist` kommandot från en kommandotolk. Se till att biljetter som utfärdats för den `AZUREADSSOACCT` datorkonto finns. Användarnas Kerberos-biljetter gäller vanligtvis under 10 timmar. Du kan ha olika inställningar i Active Directory.
+- Om du inaktiveras och återaktiveras sömlös SSO på din klient kan får användarna inte enkel inloggning till deras cachelagrade Kerberos-biljetter har upphört att gälla.
 - Rensa befintliga Kerberos-biljetter från enheten med hjälp av den `klist purge` kommandot och försök igen.
 - Granska loggarna för konsolen i webbläsaren för att fastställa om det finns JavaScript-relaterade problem (under **Developer Tools**).
 - Granska de [domain controller loggar](#domain-controller-logs).

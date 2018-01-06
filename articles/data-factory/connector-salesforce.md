@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Kopiera data från/till Salesforce med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Mer specifikt stöder denna Salesforce-koppling:
 - Följande versioner av Salesforce: **Developer Edition, Professional Edition, Enterprise Edition eller obegränsade Edition**.
 - Kopiera data från/till Salesforce **produktion, sandbox och domänen**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * API-behörighet måste vara aktiverat i Salesforce. Se [hur aktivera API-åtkomst i Salesforce av behörighetsgrupp?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
@@ -67,10 +67,10 @@ Följande egenskaper stöds för Salesforce länkade tjänsten:
 | användarnamn |Ange ett användarnamn för användarkontot. |Ja |
 | lösenord |Ange ett lösenord för användarkontot.<br/><br/>Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och kan kopiera aktivitet hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). |Ja |
 | securityToken |Ange en säkerhetstoken för användarkontot. Se [hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställa/hämta en säkerhetstoken. Läs om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra säkerhetstoken i Azure Key Vault och kan kopiera aktivitet hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källa länkade tjänsten inte IR |
 
 >[!IMPORTANT]
->Kopiera data till Salesforce, uttryckligen [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära dina Salesforce och koppla i den länkade tjänsten som i följande exempel.
+>När du kopierar data **till** Salesforce standard Azure Integration körning inte kan användas för att köra kopia. I andra word om käll-länkad-tjänsten inte har en angiven IR explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära dina Salesforce och koppla i Salesforce länkade tjänsten som i följande exempel.
 
 **Exempel: lagra autentiseringsuppgifter i ADF**
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Kopiera data från och till Oracle med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Mer specifikt denna koppling Oracle stöder följande versioner av Oracle-databa
 - Oracle 9i R1, R2 (9.0.1, 9.2)
 - Oracle 8i R3 (8.1.7)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill kopiera data från/till en Oracle-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information om integrering av körningsmiljön. Integration Runtime innehåller en inbyggd Oracle-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till Oracle.
 
@@ -57,7 +57,7 @@ Följande egenskaper stöds för Oracle länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Oracle** | Ja |
-| connectionString | Ange information som behövs för att ansluta till Oracle-databasinstansen. Markera det här fältet som en SecureString. | Ja |
+| connectionString | Ange information som behövs för att ansluta till Oracle-databasinstansen. Markera det här fältet som en SecureString.<br><br>**Stöd för anslutningstypen**: du kan välja att använda **Oracle SID** eller **Oracle tjänstnamnet** att identifiera din databas:<br>-Använder SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Använder namn på tjänst:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Self-hosted integrering Runtime eller Azure Integration Runtime (om datalager är offentligt tillgänglig). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -210,7 +210,7 @@ När du kopierar data från/till Oracle, används följande mappningar från Ora
 | BLOB |byte]<br/>(endast kan användas på Oracle 10g och senare) |
 | CHAR |Sträng |
 | CLOB |Sträng |
-| Datum |DateTime |
+| DATE |DateTime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | LÅNG |Sträng |

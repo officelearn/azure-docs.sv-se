@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c6758e8e1a9d9595ae8efb0b8c5aba0b81b0dc38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Gemensamma krav för distribution av OpenShift i Azure
 
@@ -94,7 +94,7 @@ Mer information om SSH-nycklar i Windows finns [skapa SSH-nycklar i Windows](/az
 OpenShift distributionen använder SSH-nyckeln som du skapade för att skydda åtkomsten till OpenShift huvudservern. Om du vill aktivera distributionen för att på ett säkert sätt hämta SSH-nyckeln, lagra nyckeln i Nyckelvalvet med hjälp av följande kommando:
 
 ```azurecli
-az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten 
@@ -123,7 +123,7 @@ Anteckna egenskapen appId returnerades från kommandot:
  > [!WARNING] 
  > Se till att skapa ett säkert lösenord. Följ vägledningen med [regler för lösenord och begränsningar i Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
-Mer information om tjänstens huvudnamn finns [skapa en Azure tjänstens huvudnamn med Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Mer information om tjänstens huvudnamn finns [skapa en Azure tjänstens huvudnamn med Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nästa steg
 

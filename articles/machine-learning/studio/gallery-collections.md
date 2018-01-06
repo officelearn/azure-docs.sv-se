@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery samlingar | Microsoft Docs
-description: Identifiera och dela samlingar i Cortana Intelligence Gallery.
+title: Azure AI-galleriet samlingar | Microsoft Docs
+description: Identifiera och dela samlingar i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Identifiera och dela samlingar i Cortana Intelligence Gallery
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Identifiera och dela samlingar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Samlingar
@@ -71,7 +71,7 @@ T.ex, du kan använda en samling för att gruppera objekt i ett visst ämne elle
     ![Välj ”offentliga” eller ”olistade”](./media/gallery-collections/create-collection-page-3.png)
 7. Välj **Skapa**.
 
-Samlingen är nu i Cortana Intelligence Gallery. Samlingar visas på sidan för konto på den **samling** fliken.
+Samlingen är nu i Azure AI-galleriet. Samlingar visas på sidan för konto på den **samling** fliken.
 
 ### <a name="add-items-to-a-collection"></a>Lägg till objekt i en samling
 Om du vill lägga till objekt i samlingen, öppna insamling, Välj **redigera**, och välj sedan **Lägg till objekt**.

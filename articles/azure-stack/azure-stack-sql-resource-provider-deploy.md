@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 80b693420768d574b2371211298562ba35e7ed97
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -60,6 +60,7 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     | Azure-stacken Build | SQL RP installer |
     | --- | --- |
+    | 1.0.180102.3 | **Vänta ytterligare information, aktuella versioner kan inte installeras, men fortsätter att köras på flera noder efter en uppgradering för Azure-stacken.** |
     | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |

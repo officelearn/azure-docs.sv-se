@@ -1,42 +1,43 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med fungerar MOBILE | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och fungerar MOBILE."
+title: "Självstudier: Azure Active Directory-integrering med rad WORKS | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och rad fungerar."
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 23d57bf81e15bf23d26a1e323f7cd04ee5f35d13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Självstudier: Azure Active Directory-integrering med fungerar MOBILE
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Självstudier: Azure Active Directory-integrering med rad fungerar
 
-I kursen får du lära dig hur du integrerar MOBILE fungerar med Azure Active Directory (AD Azure).
+I kursen får lära du att integrera rad fungerar med Azure Active Directory (AD Azure).
 
-Integrerar MOBILE fungerar med Azure AD ger dig följande fördelar:
+Integrera rad fungerar med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till fungerar MOBILE
-- Du kan aktivera användarna att automatiskt hämta loggat in på fungerar MOBILE (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till rad fungerar.
+- Du kan aktivera användarna att automatiskt hämta loggat in på raden fungerar (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med MOBILE fungerar, behöver du följande:
+För att konfigurera Azure AD-integrering med rad fungerar, behöver du följande:
 
 - En Azure AD-prenumeration
-- En MOBILE fungerar enkel inloggning aktiverad prenumeration
+- En rad fungerar enkel inloggning aktiverad prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -44,162 +45,153 @@ För att konfigurera Azure AD-integrering med MOBILE fungerar, behöver du följ
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till fungerar MOBILE från galleriet
+1. Att lägga till raden fungerar från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-works-mobile-from-the-gallery"></a>Att lägga till fungerar MOBILE från galleriet
-Du måste lägga till MOBILE fungerar från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av MOBILE fungerar i Azure AD.
+## <a name="adding-line-works-from-the-gallery"></a>Att lägga till raden fungerar från galleriet
+Du måste lägga till raden fungerar från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av raden fungerar i Azure AD.
 
-**Utför följande steg för att lägga till MOBILE fungerar från galleriet:**
+**Utför följande steg för att lägga till raden fungerar från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **fungerar MOBILE**.
+4. I sökrutan skriver **rad fungerar**väljer **rad fungerar** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_search.png)
+    ![RADEN fungerar i resultatlistan](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
-5. Välj i resultatpanelen **fungerar MOBILE**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_addfromgallery.png)
+I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med rad fungerar baserat på en testanvändare som kallas ”Britta Simon”.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med fungerar MOBILE baserat på en testanvändare som kallas ”Britta Simon”.
+Azure AD måste du känna till motsvarande användaren i rad fungerar för en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i rad fungerar upprättas.
 
-Azure AD måste du känna till motsvarande användaren i fungerar MOBILE till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i fungerar MOBILE upprättas.
+I rad fungerar, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i MOBILE fungerar.
+Om du vill konfigurera och testa Azure AD enkel inloggning med rad fungerar, måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med MOBILE fungerar, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en rad fungerar testanvändare](#create-a-line-works-test-user)**  – du har en motsvarighet för Britta Simon i rad fungerar som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare fungerar MOBILE](#creating-a-works-mobile-test-user)**  – du har en motsvarighet för Britta Simon i fungerar MOBILE som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i tillämpningsprogrammet rad fungerar.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program fungerar MOBILE.
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med rad fungerar:**
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med fungerar MOBILE:**
+1. I Azure-portalen på den **rad fungerar** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-1. I Azure-portalen på den **fungerar MOBILE** integreringssidan för programmet, klickar du på **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
-3. På den **fungerar MOBILE domän och URL: er** avsnittet, utför följande steg:
+3. På den **rad fungerar domän och URL: er** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
+    ![URL: er och rad fungerar domän med enkel inloggning information](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-    b. I den **identifierare** textruta Skriv värdet som`worksmobile.com`
+    b. I den **identifierare** textruta Skriv värdet:`worksmobile.com`
 
     > [!NOTE] 
-    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [fungerar mobila klienten supportteamet](mailto:dl_ssoinfo@worksmobile.com) att hämta det här värdet. 
- 
+    > Det här värdet är inte verkliga. Uppdatera det här värdet med det faktiska inloggnings-URL. Kontakta [rad fungerar klienten supportteamet](mailto:dl_ssoinfo@worksmobile.com) att hämta det här värdet.
+
 4. På den **SAML-signeringscertifikat** klickar du på **Certificate(Raw)** och spara certifikatfilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
-6. På den **fungerar MOBILE Configuration** klickar du på **konfigurera fungerar MOBILE** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+6. På den **rad fungerar Configuration** klickar du på **konfigurera rad fungerar** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_configure.png) 
+    ![RADEN fungerar konfiguration](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
-7. För att få SSO konfigurerats för ditt program, kontakta [fungerar MOBILE supportteamet](mailto:dl_ssoinfo@worksmobile.com) och ge dem med följande information: 
-
-    • Den hämtade **certifikatfilen**
-
-    • Den **URL för SAML-tjänst för enkel inloggning**
-
-    • Den **SAML enhets-ID**
-
-    • Den **URL för utloggning**
+7. Konfigurera enkel inloggning på **rad fungerar** sida, måste du skicka den hämtade **certifikat filen, Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** till [rad fungerar stöd team](mailto:dl_ssoinfo@worksmobile.com). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-lineworks-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-lineworks-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-lineworks-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-lineworks-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-works-mobile-test-user"></a>Skapa en testanvändare fungerar MOBILE
+### <a name="create-a-line-works-test-user"></a>Skapa en rad fungerar testanvändare
 
- I det här avsnittet kan du skapa en användare som kallas Britta Simon i MOBILE fungerar. Se tillsammans med [fungerar MOBILE supportteamet](mailto:dl_ssoinfo@worksmobile.com) att lägga till användare i fungerar MOBILE-plattformen.
+I det här avsnittet kan du skapa en användare som kallas Britta Simon i rad fungerar. Se tillsammans med [rad fungerar supportteam](mailto:dl_ssoinfo@worksmobile.com) att lägga till användare i rad fungerar-plattformen.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MOBILE fungerar.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till rad fungerar.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
-**Om du vill tilldela fungerar MOBILE Britta Simon utför du följande steg:**
+**Om du vill tilldela rad fungerar Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **fungerar MOBILE**.
+2. Välj i listan med program **rad fungerar**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_app.png) 
+    ![Länken fungerar för rad i listan med program](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -207,11 +199,11 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet kan du testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
+I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen fungerar MOBILE på åtkomstpanelen du ska hämta automatiskt loggat in på ditt fungerar mobila program.
+När du klickar på panelen rad fungerar på åtkomstpanelen du bör få automatiskt loggat in i tillämpningsprogrammet rad fungerar.
 Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
@@ -219,19 +211,17 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_203.png
 

@@ -1,42 +1,43 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med MobileXpense | Microsoft Docs"
-description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och MobileXpense."
+title: "Självstudier: Azure Active Directory-integrering med Mobile Xpense | Microsoft Docs"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och mobila Xpense."
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: e649fc4e-3e15-4948-b977-00bfe9f7db13
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: f1d65a2404fc90943bba4921158f5366bc9778ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3beea4dc7889d84ba2724b9b4ebf88d2fae3a284
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Självstudier: Azure Active Directory-integrering med MobileXpense
+# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Självstudier: Azure Active Directory-integrering med Mobile Xpense
 
-I kursen får lära du att integrera MobileXpense med Azure Active Directory (AD Azure).
+Lär dig hur du integrerar Mobile Xpense med Azure Active Directory (AD Azure) i den här självstudiekursen.
 
-Integrera MobileXpense med Azure AD ger dig följande fördelar:
+Integrera mobila Xpense med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till MobileXpense
-- Du kan aktivera användarna att automatiskt hämta loggat in på MobileXpense (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till Mobile Xpense.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Mobile Xpense (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med MobileXpense, behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Mobile Xpense behöver du följande:
 
 - En Azure AD-prenumeration
-- En MobileXpense enkel inloggning på aktiverade prenumeration
+- En Mobile Xpense enkel inloggning på aktiverade prenumeration
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -44,155 +45,154 @@ För att konfigurera Azure AD-integrering med MobileXpense, behöver du följand
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
 - Använd inte i produktionsmiljön, om det är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
-1. Att lägga till MobileXpense från galleriet
+1. Att lägga till Mobile Xpense från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
 
-## <a name="adding-mobilexpense-from-the-gallery"></a>Att lägga till MobileXpense från galleriet
-Du måste lägga till MobileXpense från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av MobileXpense i Azure AD.
+## <a name="adding-mobile-xpense-from-the-gallery"></a>Att lägga till Mobile Xpense från galleriet
+Du måste lägga till Mobile Xpense från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av mobil Xpense i Azure AD.
 
-**Utför följande steg för att lägga till MobileXpense från galleriet:**
+**Utför följande steg för att lägga till Mobile Xpense från galleriet:**
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-4. I sökrutan skriver **MobileXpense**.
+4. I sökrutan skriver **Mobile Xpense**väljer **Mobile Xpense** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_search.png)
+    ![Mobila Xpense i resultatlistan](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_addfromgallery.png)
 
-5. Välj i resultatpanelen **MobileXpense**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_addfromgallery.png)
+I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Mobile Xpense baserat på en testanvändare som kallas ”Britta Simon”.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med MobileXpense baserat på en testanvändare som kallas ”Britta Simon”.
+Azure AD måste du känna till användaren i Mobile Xpense motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Mobile Xpense upprättas.
 
-Azure AD måste du känna till användaren i MobileXpense motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i MobileXpense upprättas.
+I Mobile Xpense tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-I MobileXpense, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
+Om du vill konfigurera och testa Azure AD enkel inloggning med Mobile Xpense, måste du utföra följande byggblock:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med MobileXpense, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Mobile Xpense](#create-a-mobile-xpense-test-user)**  – du har en motsvarighet för Britta Simon i Mobile Xpense som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare MobileXpense](#creating-a-mobilexpense-test-user)**  – du har en motsvarighet för Britta Simon i MobileXpense som är kopplad till Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för mobila Xpense.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt MobileXpense program.
+**Utför följande steg för att konfigurera Azure AD enkel inloggning med Mobile Xpense:**
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med MobileXpense:**
+1. I Azure-portalen på den **Mobile Xpense** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-1. I Azure-portalen på den **MobileXpense** integreringssidan för programmet, klickar du på **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_samlbase.png)
 
-3. På den **MobileXpense domän och URL: er** om du vill konfigurera programmet i **IDP** initierade läge:
+3. På den **Mobile Xpense domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP initierade läge:
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
+    ![URL: er och mobila Xpense domän med enkel inloggning information](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url11.png)
 
-    I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<sub domain>.mobilexpense.com/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    a. I den **identifierare** textruta, ange ett URL-Adressen:`https://mobilexpense.com/ServiceProvider`
 
-4. Kontrollera **visa avancerade inställningar för URL: en**, om du vill konfigurera programmet i **SP** initierade läge:
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
+4. Kontrollera **visa avancerade inställningar för URL: en** och utför följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
-I den **inloggnings-URL** textruta Skriv en URL med följande mönster::`https://<sub domain>.mobilexpense.com/<customername>`
+    ![URL: er och mobila Xpense domän med enkel inloggning information](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_url22.png)
 
-> [!NOTE] 
-> Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [MobileXpense klienten supportteamet](http://www.mobilexpense.net/contact) att hämta dessa värden. 
+    I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<sub-domain>.mobilexpense.com/<customername>`
+     
+    > [!NOTE] 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska Reply URL och inloggnings-URL. Kontakta [Mobile Xpense klienten supportteamet](http://www.mobilexpense.net/contact) att hämta dessa värden. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_certificate.png) 
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-mobilexpense-tutorial/tutorial_general_400.png)
 
-8. Konfigurera enkel inloggning på **MobileXpense** sida, måste du skicka den hämtade **XML-Metadata för** till [MobileXpense supportteamet](http://www.mobilexpense.net/contact).
+7. Konfigurera enkel inloggning på **Mobile Xpense** sida, måste du skicka den hämtade **XML-Metadata för** till [Mobile Xpense supportteamet](http://www.mobilexpense.net/contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
 Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
 
-![Skapa Azure AD-användare][100]
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-mobilexpense-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-mobilexpense-test-user"></a>Skapa en testanvändare MobileXpense
+### <a name="create-a-mobile-xpense-test-user"></a>Skapa en Mobile Xpense testanvändare
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i MobileXpense. Arbeta med [MobileXpense supportteamet](http://www.mobilexpense.net/contact) att lägga till användare i MobileXpense-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MobileXpense.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Mobile Xpense.
 
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
-**Om du vill tilldela MobileXpense Britta Simon utför du följande steg:**
+**Om du vill tilldela Mobile Xpense Britta Simon utför du följande steg:**
 
 1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
-2. Välj i listan med program **MobileXpense**.
+2. Välj i listan med program **Mobile Xpense**.
 
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_app.png) 
+    ![Länken Mobile Xpense i listan med program](./media/active-directory-saas-mobilexpense-tutorial/tutorial_mobilexpense_app.png)  
 
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
 4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
@@ -200,12 +200,12 @@ I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inlog
 
 7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
     
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen MobileXpense på åtkomstpanelen du bör få automatiskt loggat in på ditt MobileXpense program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](https://msdn.microsoft.com/library/dn308586). 
+När du klickar på panelen Mobile Xpense på åtkomstpanelen du bör få automatiskt loggat in på ditt Mobile Xpense program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

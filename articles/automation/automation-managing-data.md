@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>Hantera Azure Automation-data
 Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.
@@ -49,13 +49,13 @@ Men om du vill behålla data under en längre tidsperiod, kan du vidarebefordra 
 När du tar bort ett automation-konto i Microsoft Azure tas alla objekt i kontot bort inklusive runbooks, moduler, konfigurationer, inställningar, jobb och tillgångar. Objekten kan inte återställas när kontot har tagits bort.  Du kan använda följande information för att säkerhetskopiera innehållet i ditt automation-konto innan den tas bort. 
 
 ### <a name="runbooks"></a>Runbooks
-Du kan exportera dina runbooks till filer med hjälp av antingen Azure-hanteringsportalen eller [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet i Windows PowerShell.  Dessa filer kan importeras till en annan automation-konto som beskrivs i [skapa eller importera en Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Du kan exportera dina runbooks till filer med hjälp av Azure portal eller [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet i Windows PowerShell.  Dessa filer kan importeras till en annan automation-konto som beskrivs i [skapa eller importera en Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Integreringsmoduler
 Du kan inte exportera integreringsmoduler från Azure Automation.  Du måste se till att de är tillgängliga utanför automation-kontot.
 
 ### <a name="assets"></a>Tillgångar
-Du kan inte exportera [tillgångar](https://msdn.microsoft.com/library/dn939988.aspx) från Azure Automation.  Med hjälp av Azure-hanteringsportalen, måste du Observera information om variabler, autentiseringsuppgifter, certifikat, anslutningar och scheman.  Därefter måste du manuellt skapa alla objekt som används av runbooks som importeras till en annan automation.
+Du kan inte exportera [tillgångar](https://msdn.microsoft.com/library/dn939988.aspx) från Azure Automation.  Med Azure-portalen måste du Observera information om variabler, autentiseringsuppgifter, certifikat, anslutningar och scheman.  Därefter måste du manuellt skapa alla objekt som används av runbooks som importeras till en annan automation.
 
 Du kan använda [Azure-cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) att hämta information om okrypterad tillgångar och antingen spara dem för framtida bruk eller skapa motsvarande tillgångar i en annan automation-kontot.
 
@@ -64,7 +64,7 @@ Du kan inte hämta värdet för krypterade variabler eller lösenordsfältet aut
 Du kan inte exportera certifikat från Azure Automation.  Du måste se till att det finns några certifikat utanför Azure.
 
 ### <a name="dsc-configurations"></a>DSC-konfigurationer
-Du kan exportera dina konfigurationer till filer med hjälp av antingen Azure-hanteringsportalen eller [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet i Windows PowerShell. De här konfigurationerna kan importeras och används i en annan automation-kontot.
+Du kan exportera dina konfigurationer till filer med hjälp av Azure portal eller [Export AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet i Windows PowerShell. De här konfigurationerna kan importeras och används i en annan automation-kontot.
 
 ## <a name="geo-replication-in-azure-automation"></a>GEO-replikering i Azure Automation
 GEO-replikering, standard i Azure Automation-konton, säkerhetskopierar kontodata till en annan geografisk region för redundans. Du kan välja en primär region när du konfigurerar ditt konto och en sekundär region tilldelas den automatiskt. Den sekundära data som kopieras från den primära regionen uppdateras kontinuerligt händelse av dataförlust.  

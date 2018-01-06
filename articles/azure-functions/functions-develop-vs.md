@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -46,7 +46,8 @@ Om du vill skapa och distribuera funktioner, måste du också:
 
 * En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration [kostnadsfria konton](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) är tillgängliga.
 
-* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ Mer information om hur du använder Azure Functions grundläggande verktygen fin
 Mer information om Azure Functions verktyg finns i avsnittet vanliga frågor för den [Visual Studio 2017 verktyg för Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogginlägg.
 
 Läs mer om Azure Functions grundläggande verktyg i [koden och testa Azure functions lokalt](functions-run-local.md).  
-Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns i [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Använda .NET-klassbibliotek med Azure Functions). Det här avsnittet innehåller också exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    
+Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns [Azure Functions C#-utvecklare](functions-dotnet-class-library.md). Det här avsnittet innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Konfigurera giltighetstid för Office 365-grupper (förhandsgranskning)
 
@@ -30,9 +30,7 @@ Genom att ange funktioner för förfallodatum för dem kan du nu hantera livscyk
 -   En Office 365-grupp som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören
 
 > [!NOTE]
-> Ange förfallodatum för Office 365-grupper måste en Azure AD Premium-licensen eller en Azure AD Basic EDU för alla medlemmar i grupper som upphör att gälla inställningarna.
-> 
-> För Azure AD Basic EDU licensierade kunder: konfigurera principen för första gången med Azure Active Directory PowerShell-cmdlets. Därefter kan du uppdatera inställningar för giltighetstid med hjälp av PowerShell eller Azure AD-portalen med ett konto som är kontoadministratör för användaren eller Global administratör i Azure AD-klienten.
+> Ange förfallodatum för Office 365-grupper måste en Azure AD Premium-licens för alla medlemmar i grupper som upphör att gälla inställningar tillämpas.
 
 Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph - offentliga förhandsversionen 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 

@@ -27,7 +27,10 @@ En signatur för delad åtkomst (SAS) ger delegerad åtkomst till resurser i dit
 
 > [!IMPORTANT]
 > Azure Data Factory nu har bara stöd för **Service SAS** men inte kontots SAS. Se [typer av signaturer för delad åtkomst](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) mer information om dessa två typer och hur du skapar. Observera SAS-URL generable från Azure-portalen eller Lagringsutforskaren är ett konto-SAS, vilket inte stöds.
-> 
+
+> [!TIP]
+> Du kan köra nedan PowerShell-kommandon för att generera en SAS för tjänst för ditt lagringskonto (Ersätt plats-innehavare och bevilja behörighet som krävs):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Azure Storage SAS länkade tjänsten kan du länka ett Azure Storage-konto till ett Azure data factory med hjälp av en delad signatur åtkomst (SAS). Det ger datafabriken begränsad/Tidsbundna åtkomst till alla utvalda resurser (blobbehållare) i lagringen. Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Storage SAS länkad tjänst. 
 

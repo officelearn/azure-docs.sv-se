@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Hur du skapar komplexa scheman och avancerade upprepning med Azure Schemaläggaren
 ## <a name="overview"></a>Översikt
@@ -59,7 +59,7 @@ Så här skapar du ett enkelt schema med den [Azure Scheduler REST API](https://
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -92,7 +92,7 @@ Efter den här översikten vi beskrivs de här elementen i detalj.
 | ***startTime*** |Sträng |Nej |Ingen |ISO 8601-datum/tid |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
 | ***upprepning*** |Objekt |Nej |Ingen |Upprepningsobjekt |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
 | ***frekvens*** |Sträng |Ja |Ingen |”minuter”, ”timmar”, ”dag”, ”vecka”, ”månad” |<code>"frequency" : "hour"</code> |
-| ***intervall*** |Tal |Nej |1 |1 till 1000. |<code>"interval":10</code> |
+| ***intervall*** |Tal |Ja |Ingen |1 till 1000. |<code>"interval":10</code> |
 | ***Sluttid*** |Sträng |Nej |Ingen |Datum/tid-värde som representerar en tidpunkt i framtiden |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 | ***Antal*** |Tal |Nej |Ingen |>= 1 |<code>"count": 5</code> |
 | ***schema*** |Objekt |Nej |Ingen |Schemaobjekt |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
@@ -125,11 +125,11 @@ I följande tabell beskrivs *schema* element i detalj.
 
 | **JSON-namn** | **Beskrivning** | **Giltiga värden** |
 |:--- |:--- |:--- |
-| **minuter** |Minuter efter den timme då jobbet ska köras |<ul><li>Heltal, eller</li><li>Heltalsmatris</li></ul> |
-| **timmar** |Tidpunkter på dagen då jobbet ska köras |<ul><li>Heltal, eller</li><li>Heltalsmatris</li></ul> |
-| **Veckodagar** |Dagar i veckan jobbet körs. Kan bara anges med veckofrekvens. |<ul><li>”Måndag”, ”tisdag”, ”onsdag”, ”torsdag”, ”fredag”, ”lördag” eller ”söndag”</li><li>Matris med någon av ovanstående värden (max. matrisstorlek 7)</li></ul>*Inte* skiftlägeskänsligt |
+| **minuter** |Minuter efter den timme då jobbet ska köras |<ul><li>Heltalsmatris</li></ul> |
+| **timmar** |Tidpunkter på dagen då jobbet ska köras |<ul><li>Heltalsmatris</li></ul> |
+| **Veckodagar** |Dagar i veckan jobbet körs. Kan bara anges med veckofrekvens. |<ul><li>Matris med någon av de under värden (max matrisstorlek 7)<ul><li>”Måndag”</li><li>”Tisdag”</li><li>”Onsdag”</li><li>”Torsdag”</li><li>”Fredag”</li><li>”Lördag”</li><li>”Söndag”</li></ul></li></ul>*Inte* skiftlägeskänsligt |
 | **monthlyOccurrences** |Fastställer vilka dagar i månaden som jobbet ska köras. Kan bara anges med månadsfrekvens. |<ul><li>Matris med monthlyOccurrence objekt:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dag* är dag i veckan jobbet körs, till exempel {söndag} är varje söndag i månaden. Krävs.</p><p>Förekomst är *förekomsten* dag under månaden, t.ex. {söndag, -1} är den sista söndagen i månaden. Valfri.</p> |
-| **monthDays** |Dagen i månaden jobbet körs. Kan bara anges med månadsfrekvens. |<ul><li>Inget värde < = -1 och > =-31.</li><li>Ett värde > = 1 och < = 31.</li><li>En matris med ovanstående värden</li></ul> |
+| **monthDays** |Dagen i månaden jobbet körs. Kan bara anges med månadsfrekvens. |<ul><li>En matris med under värden</li><ul><li>Inget värde < = -1 och > =-31.</li><li>Ett värde > = 1 och < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exempel: Återkommande scheman
 Följande är olika exempel på återkommande scheman – fokus på schema-objektet och dess underordnade element.

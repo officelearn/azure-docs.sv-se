@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
@@ -68,10 +68,10 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Office365”** för Dynamics Online. | Ja |
 | användarnamn | Ange användarnamn för att ansluta till dynamiska. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Du måste placera lösenordet i Azure Key Vault och konfigurera lösenord som ”AzureKeyVaultSecret”. Mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Ingen datakälla Ja för sink |
+| connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om inget anges används standard-Azure Integration Runtime. | Inte för källa och har Ja för sink om källa länkade tjänsten inte IR |
 
 >[!IMPORTANT]
->Kopiera data till Dynamics, uttryckligen [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics och koppla i den länkade tjänsten som i följande exempel.
+>När du kopierar data **till** Dynamics Azure Integration körning inte kan användas för att köra kopiera standard. I andra word om käll-länkad-tjänsten inte har en angiven IR explicit [skapa ett Azure-IR](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Dynamics och koppla i den länkade tjänsten Dynamics som i följande exempel.
 
 **Exempel: Dynamics online med Office 365-autentisering**
 

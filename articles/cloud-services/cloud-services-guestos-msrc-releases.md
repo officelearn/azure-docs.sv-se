@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Azure-Gästoperativsystem
 Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Azure-Gästoperativsystem. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för en viss [familj] [ family-explain] de introducerades i.
+
+## <a name="january-guest-os"></a>Januari gäst-OS
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
+| --- | --- | --- | --- | --- |
+| Gäller inte | [4056898] |Windows-säkerhet |4.50 |3 januari 2018 |
+| Gäller inte | [4056890] |Windows-säkerhet |5.15 |3 januari 2018 |
 
 ## <a name="december-guest-os"></a>December gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som först introducerades |
@@ -574,6 +580,9 @@ Följande tabeller visar de Microsoft Security Response Center (MSRC) uppdaterin
 | Gäller inte |[3007054] |PIN-kodsskyddade utskrifter alternativet alltid visas när du skriver ut ett dokument i Windows Store-programmet i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2999802] |Heldragen linje i stället för kantlinjerna skrivs ut i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | Gäller inte |[2896881] |Långt inloggningen när du använder kommandot AddPrinterConnection VBScript för att mappa skrivare för användare vid inloggning i Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

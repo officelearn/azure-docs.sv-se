@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -36,7 +36,7 @@ För närvarande identifierar Azure Active Directory sex typer av riskhändelser
 
 ![Risk händelse](./media/active-directory-reporting-risk-events/91.png)
 
-Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Om du har en Azure AD Premium P1-version (ingår i EMS E3 erbjudande) identifieringar som inte omfattas av din licens rapporteras som **logga in med ytterligare risker som identifierats**. Med andra ord kan du se en risk händelse logga in med ytterligare risk upptäcktes för identifieringar exklusivt för Azure AD Identity Protection prenumeranter.
+Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Med Azure AD Premium P2-edition får du den mest detaljerade informationen om alla underliggande identifieringar. Med Azure AD Premium P1-edition identifieringar som inte omfattas av din licens visas som händelsen risk **logga in med ytterligare risker som identifierats**.
 
 
 Det här avsnittet får du en detaljerad översikt över vilka riskhändelser är och hur du kan använda dem för att skydda din Azure AD-identiteter.

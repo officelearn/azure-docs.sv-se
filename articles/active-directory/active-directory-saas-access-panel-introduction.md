@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -70,7 +70,31 @@ Du kan interagera med de program som administratören har integrerat med katalog
 
 Minst åtkomstpanelen kräver en webbläsare som stöder JavaScript och har aktiverat för CSS. Tillägget för åtkomst-panelen måste installeras i webbläsaren för användare att logga in på program via lösenordsbaserade enkel inloggning (SSO). Tillägget laddas ned automatiskt när du väljer ett program som har konfigurerats för lösenordsbaserad enkel inloggning.
 
-Tillägget för åtkomst-panelen är tillgänglig för Internet Explorer 8 och senare, gräns, Chrome, Firefox webbläsare och.
+Tillägget för åtkomst-panelen är tillgängligt för:
+-   Kanten på Windows 10 årsdagar Edition eller senare 
+
+-   Chrome--På Windows 7 eller senare, och i MacOS X eller senare
+
+-   Firefox 26.0 eller senare--på Windows XP SP2 eller senare, och på Mac OS X 10,6 eller senare
+
+-   Internet Explorer 8, 9, 10, 11--på Windows 7 eller senare (begränsat stöd)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Mina appar skyddat inloggningstillägg
+Tillägget krävs för användare att logga in på lösenordsbaserade enkel inloggning. När du installerade användare kan också aktivera ytterligare funktioner genom att logga in på tillägget genom att klicka på **logga in att komma igång**. 
+
+- Användare kan logga in på appar direkt genom att gå till appens **inloggnings-URL**. När användaren navigerar till appens inloggnings-URL tillägget identifierar detta och göra möjligt för användare att logga in på den från tillägget.
+- Användare kan också starta en av sina appar från Kontrollpanelen åtkomst med den **Snabbsökning** funktion i tillägget. 
+- Tillägget visas även användare de sista tre program som de startats under **nyligen använda** avsnitt.
+> [!NOTE]
+> Ytterligare funktioner är bara tillgängliga för gräns, Chrome, Firefox.
+
+
+Om du använder en annan Mina appar URL än https://myapps.microsoft.com måste du konfigurera standard-URL genom följande steg:
+1. Medan inte loggat in på tillägget **Högerklicka** ikonen tillägg.
+2. Klicka på **URL Välj appar** på menyn.
+3. **Välj** standard-URL.
+4. Klicka på ikonen för tillägget.
+5. Logga in på tillägget genom att välja **logga in att komma igång**.
 
 ## <a name="mobile-app-support"></a>Stöd för mobila appar
 

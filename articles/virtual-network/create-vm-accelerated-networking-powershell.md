@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/20/2017
+ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med snabbare nätverk
+
+> [!IMPORTANT] 
+> Virtuella datorer måste skapas med snabbare nätverk aktiverad. Den här funktionen kan inte aktiveras på befintliga virtuella datorer. Du kan följa stegen nedan för att aktivera snabbare nätverksfunktioner
+>   1. Ta bort den virtuella datorn
+>   2. Skapa den virtuella datorn med snabbare nätverksfunktioner som är aktiverad
+>
 
 Lär dig hur du skapar en Windows-dator (VM) med snabbare nätverk i den här självstudiekursen. Snabbare nätverksfunktioner kan single-root I/O virtualization (SR-IOV) till en virtuell dator, vilket avsevärt minskar tiden dess nätverksprestanda. Den här sökvägen för högpresterande kringgår värden från datapath, vilket minskar latens och jitter CPU-belastningen för användning med de mest krävande nätverksbelastning på VM-typer som stöds. Följande bild visar kommunikation mellan två virtuella datorer med och utan snabbare nätverksfunktioner:
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Hantera uppdateringar i Azure Stack-översikt
 
 *Gäller för: Azure Stack integrerat system*
 
-Microsoft kommer att släppa uppdateringspaket för Azure-stacken integrerat system i en vanlig takt som ankommer vanligtvis den fjärde tisdagen varje månad från och vid allmän tillgänglighet. Be OEM-tillverkaren om sina specifika meddelandeprocessen för att se till att uppdateringen meddelanden nå din organisation eller kontrollera här under Concepts\Release notes\Integrated system viktig information för mer information om specifika versioner.
+Microsoft kommer att släppa uppdateringspaket för Azure-stacken integrerat system i en vanlig takt som ankommer vanligtvis den fjärde tisdagen varje månad från och vid allmän tillgänglighet. Be OEM-tillverkaren om sina specifika meddelandeprocessen för att se till att uppdateringen meddelanden nå din organisation eller kontrollera här under Overview\Release Notes\Integrated system viktig information för mer information om specifika versioner.
 
 Varje version av Microsoft-programuppdateringar tillsammans i en enda uppdateringspaketet. Som operatör Azure Stack du enkelt kan importera, installera och övervaka installationsförloppet för dessa uppdateringspaket från administratörsportalen. 
 

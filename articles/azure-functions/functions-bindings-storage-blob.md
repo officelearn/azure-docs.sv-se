@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -210,10 +210,12 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 ## <a name="trigger---usage"></a>Utlösaren - användning
 
-Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+Få åtkomst till blob-data i C# och C# skript, med hjälp av en metodparameter som `T paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
 * `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
 * `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)
@@ -498,10 +500,16 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(endast indata)
+* `string`(endast indata)
+* `Byte[]`(endast indata)
+* `TextWriter`(utdata)
+* `out string`(utdata)
+* `out Byte[]`(utdata)
+*  `CloudBlobStream`(utdata)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
 * `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
 * `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)

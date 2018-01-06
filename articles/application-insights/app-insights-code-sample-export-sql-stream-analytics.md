@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med Stream Analytics
 Den här artikeln visar hur du flyttar telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 I det här exemplet använder data från sidvisningar. Om du vill visa andra tillgängliga data inspektera JSON-utdata och se den [exportera datamodellen](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
-Från den [klassiska Azure-portalen](https://manage.windowsazure.com/), Välj Azure Stream Analytics-tjänsten och skapa ett nytt Stream Analytics-jobb:
+Från den [Azure-portalen](https://portal.azure.com/), Välj Azure Stream Analytics-tjänsten och skapa ett nytt Stream Analytics-jobb:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-När det nya jobbet skapas, expandera information:
+När det nya jobbet skapas, Välj **finns resurs**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Ange blob-plats
+#### <a name="add-a-new-input"></a>Lägga till en ny indata
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Ställ in den att hämta indata från din löpande Export blob:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Nu behöver du den primära åtkomstnyckeln från ditt Lagringskonto som du antecknade tidigare. Ange som Lagringskontots åtkomstnyckel.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Ange sökvägar för prefix
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Se till att ange formatet för datum till **åååå-MM-DD** (med **streck**).
+**Glöm inte att ange datumformatet för åååå-MM-DD (med bindestreck).**
 
 Prefixet sökvägar anger hur Stream Analytics hittar indatafilerna i lagringen. Du måste konfigurera den så att de motsvarar hur löpande Export lagrar data. Ställ in den så här:
 
@@ -178,22 +178,12 @@ I det här exemplet:
 
 Öppna Essentials på dess översiktssidan för att få namnet och iKey av Application Insights-resurs, eller öppna inställningar.
 
-#### <a name="finish-initial-setup"></a>Slut installationen
-Bekräfta serialiseringsformat:
-
-![Bekräfta och Stäng guiden](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Stäng guiden och vänta på att installationen ska kunna slutföras.
-
 > [!TIP]
 > Funktionen exempel används för att kontrollera att du har angett korrekt inkommande sökvägen. Om det misslyckas: Kontrollera att det finns data i lagringen för det exemplet tidsintervallet som du har valt. Redigera den inkommande definitionen och kontrollerar du ange storage-konto, sökväg prefix och datumformat korrekt.
 > 
 > 
-
 ## <a name="set-query"></a>Ange fråga
 Öppna avsnittet fråga:
-
-![Välj frågan i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Ersätt standardfråga med:
 
@@ -238,22 +228,20 @@ Observera att de första några egenskaperna är specifika för data om sidvisni
 ## <a name="set-up-output-to-database"></a>Ställ in utdata till databasen
 Välj SQL som utdata.
 
-![Välj utdata i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![Välj utdata i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Ange SQL-databasen.
 
-![Fyll i informationen för din databas](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Fyll i informationen för din databas](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Stäng guiden och vänta tills ett meddelande om att utdata har ställts in.
 
 ## <a name="start-processing"></a>Starta bearbetning
 Starta jobbet från Åtgärdsfältet:
 
-![Klicka på Start i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![Klicka på Start i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Du kan välja om du vill starta bearbetning av data från och med nu, eller starta med tidigare data. Den andra är användbar om du har haft löpande Export redan körs på ett tag.
-
-![Klicka på Start i stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Gå tillbaka till SQL Server-hanteringsverktyg och titta på de data som flödar i efter några minuter. Till exempel använda en fråga så här:
 

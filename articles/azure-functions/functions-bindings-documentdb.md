@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41b1943ecf84ad67af936c6be8707fc9e003f718
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -460,7 +460,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
 |**databaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på den samling som innehåller dokumentet. |
-|**ID**    | **ID** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
+|**ID**    | **ID** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
 |**anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 |**partitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|

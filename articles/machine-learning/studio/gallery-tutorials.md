@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Gallery självstudier | Microsoft Docs"
-description: "Identifiera och dela självstudier i Cortana Intelligence Gallery."
+title: "Azure AI-galleriet självstudier | Microsoft Docs"
+description: "Identifiera och dela självstudier i Azure AI-galleriet."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Identifiera och dela självstudier i Cortana Intelligence Gallery
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Identifiera och dela självstudier i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Självstudier
-Cortana Intelligence Gallery erbjuder flera [självstudier](https://gallery.cortanaintelligence.com/tutorials) som kan vägleder dig genom machine learning tekniker och begrepp. Självstudiekurser kan också beskrivs metoder för att lösa problem med machine learning.
+AI-galleriet som Azure erbjuder flera [självstudier](https://gallery.cortanaintelligence.com/tutorials) som kan vägleder dig genom machine learning tekniker och begrepp. Självstudiekurser kan också beskrivs metoder för att lösa problem med machine learning.
 
 ## <a name="discover"></a>Utforska
 Bläddra självstudier [i galleriet](http://gallery.cortanaintelligence.com)under **mer**väljer **självstudier**.
@@ -72,7 +72,7 @@ Du kan lägga till en självstudiekurs galleriet för att hjälpa andra använda
 
 7. Välj **Skapa**.
 
-Åtgärderna i självstudiekursen är nu i Cortana Intelligence Gallery. Din självstudier visas på sidan för konto på den **objekt** fliken.
+Åtgärderna i självstudiekursen är nu i Azure AI-galleriet. Din självstudier visas på sidan för konto på den **objekt** fliken.
 
 **[Gå till galleriet](http://gallery.cortanaintelligence.com)**
 

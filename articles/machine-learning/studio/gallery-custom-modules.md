@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery anpassade moduler | Microsoft Docs
-description: Identifiera anpassade machine learning-moduler i Cortana Intelligence Gallery.
+title: Azure AI-galleriet anpassade moduler | Microsoft Docs
+description: Identifiera anpassade machine learning-moduler i Azure AI-galleriet.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>Identifiera anpassade machine learning-moduler i Cortana Intelligence Gallery
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Identifiera anpassade machine learning-moduler i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Anpassade moduler för Machine Learning Studio
-Cortana Intelligence Gallery erbjuder flera [anpassade moduler](https://gallery.cortanaintelligence.com/customModules) som utöka funktionerna hos Azure Machine Learning Studio. Du kan importera modulerna som ska användas i dina experiment, så du kan utveckla mer avancerade förutsägelseanalyslösningar.
+AI-galleriet som Azure erbjuder flera [anpassade moduler](https://gallery.cortanaintelligence.com/customModules) som utöka funktionerna hos Azure Machine Learning Studio. Du kan importera modulerna som ska användas i dina experiment, så du kan utveckla mer avancerade förutsägelseanalyslösningar.
 
 För närvarande galleriet erbjuder moduler på *time series analytics*, *association regler*, *clustering algoritmer* (utöver k-means) och *visualiseringar*, och andra bestämmer hög grad verktyget moduler.
 
@@ -52,7 +52,7 @@ På en anpassad modul information sidan den **kommentarer** avsnitt, du kan komm
 ## <a name="import"></a>Importera
 Du kan importera en anpassad modul från galleriet till dina egna experiment.
 
-Cortana Intelligence Gallery finns två sätt att importera en kopia av modulen:
+Azure AI-galleriet finns två sätt att importera en kopia av modulen:
 
 * **Från galleriet**. När du importerar en anpassad modul från galleriet måste få du också en exempelexperimentet som ger ett exempel på hur du använder modulen.
 * **Inifrån Maskininlärning Studio**. Du kan importera en anpassad modul när du arbetar i Machine Learning Studio (i detta fall kan du inte får exempelexperimentet).

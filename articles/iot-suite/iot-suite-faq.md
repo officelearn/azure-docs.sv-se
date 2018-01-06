@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: aa8a053e6b3b6fcf6e026f2fd65942a943e12a08
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 945b985e69c14bb513477fc740652f13236d7518
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Vanliga frågor och svar om IoT Suite
 
@@ -84,7 +84,10 @@ Två. Du kan skapa två interna transaktioner nivå 1 Bing Maps för Enterprise 
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Kan jag skapa en förkonfigurerad lösning om jag har Microsoft Azure för DreamSpark?
 
-För närvarande kan du inte skapa en förkonfigurerade lösning med en [Microsoft Azure för DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99) konto. Du kan dock skapa en [kostnadsfri utvärderingsversion konto för Azure](https://azure.microsoft.com/free/) på ett par minuter som du kan skapa en förkonfigurerade lösning.
+> [!NOTE]
+> Microsoft Azure för DreamSpark kallas nu Microsoft Imagine för studenter.
+
+För närvarande kan du inte skapa en förkonfigurerade lösning med en [Microsoft Azure för DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) konto. Du kan dock skapa en [kostnadsfri utvärderingsversion konto för Azure](https://azure.microsoft.com/free/) på ett par minuter som du kan skapa en förkonfigurerade lösning.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Kan jag skapa en förkonfigurerade lösning om jag har Cloud Solution Providers (CSP)-prenumeration?
 

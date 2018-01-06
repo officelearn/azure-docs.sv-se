@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT-hubb frågespråk för enheten twins, jobb och meddelanderoutning
 
@@ -35,6 +35,17 @@ Anta exempelvis att din IoT-hubb enheten twins har följande struktur:
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Den här grupperingen frågan skulle returnera ett resultat som liknar följande
         "status": "Error"
     }
 ]
+```
+
+Projektionsfrågor kan utvecklare returnerar bara de egenskaper som de är intresserad av. Till exempel kopplas om du vill hämta den senaste aktivitetstiden för alla enheter, Använd följande fråga:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>C#-exempel
@@ -469,13 +486,13 @@ Följande operatorer stöds:
 ### <a name="functions"></a>Funktioner
 När du frågar twins och jobb som det går endast att är funktionen:
 
-| Funktionen | Beskrivning |
+| Funktion | Beskrivning |
 | -------- | ----------- |
 | IS_DEFINED(Property) | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde (inklusive `null`). |
 
 Följande matematiska funktioner stöds i vägar villkor:
 
-| Funktionen | Beskrivning |
+| Funktion | Beskrivning |
 | -------- | ----------- |
 | ABS(x) | Returnerar det absoluta (positiva) värdet av uttryck. |
 | EXP(x) | Returnerar exponentialfördelningen värdet för det angivna numeriska uttrycket (e ^ x). |
@@ -488,7 +505,7 @@ Följande matematiska funktioner stöds i vägar villkor:
 
 I vägar villkor stöds följande typkontroll och omvandling funktioner:
 
-| Funktionen | Beskrivning |
+| Funktion | Beskrivning |
 | -------- | ----------- |
 | AS_NUMBER | Konverterar den inmatade strängen till ett tal. `noop`Om indata är ett tal. `Undefined` om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om det angivna uttrycket är en matris. |
@@ -502,7 +519,7 @@ I vägar villkor stöds följande typkontroll och omvandling funktioner:
 
 Följande sträng-funktioner stöds i vägar villkor:
 
-| Funktionen | Beskrivning |
+| Funktion | Beskrivning |
 | -------- | ----------- |
 | SAMMANFOGA (x, y,...) | Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden. |
 | LENGTH(x) | Returnerar antalet tecken i angivet stränguttryck.|

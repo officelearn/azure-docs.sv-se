@@ -8,11 +8,11 @@ Med offentligt avslöjande säkerhetsproblem, vi [snabbare planerat underhåll t
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Hur kan jag se vilka av Mina virtuella datorer är redan uppdaterade? 
 
-Du kan se status för din virtuella dator och om omstarten slutföras inom den i den [VM listan i Azure portal](https://aka.ms/T08tdc). Om uppdateringen har tillämpats, eller ”planerat” om uppdateringen krävs fortfarande visas dina virtuella datorer som antingen ”redan uppdaterad”. Om du vill se just din virtuella dator ”schemalagda” referera till din [Azure tjänstens hälsa](https://portal.azure.com/).
+Du kan se status för din virtuella dator, och om omstarten slutförts, i den [VM listan i Azure-portalen](https://aka.ms/T08tdc). Dina virtuella datorer listas som antingen ”redan uppdaterad” om uppdateringen har tillämpats, eller ”planerat” om uppdateringen är fortfarande krävs. Om du vill se just din virtuella dator ”schemalagda” referera till din [Azure tjänstens hälsa](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Kan jag ta reda exakt när Mina virtuella datorer kommer att startas om?
 
-Det bästa sättet att få en avisering om omstarten är att konfigurera [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Detta ger ett 15 minuters meddelande för den virtuella datorn gå på grund av Underhåll – det gör ett API-anrop till den virtuella datorn och dessutom aktivitetsloggpost kan användas för att utlösaren Azure-Monitor för att skicka e-post, SMS eller webhooks. Det går inte att ange någon tidigare meddelande.
+Det bästa sättet att få en avisering om omstarten är att konfigurera [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Detta ger ett 15 minuters meddelande för den virtuella datorn, gå på grund av underhåll.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>Kan jag manuellt distribuera nu för att utföra det nödvändiga underhållet? 
 
@@ -24,7 +24,7 @@ De flesta omstarter tar cirka **30 minuter**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Stöder gästen OS behöver uppdateras? 
 
-Uppdateringen Azure-infrastrukturen adresserar säkerhetsrisk på nivån hypervisor och kräver inte en uppdatering för Windows eller Linux VM-avbildningar. Dock bör du fortsätta att tillämpa rekommenderade säkerhetsmetoder för VM-avbildningar som vanligt. Kontakta med leverantören av din operativsystem för uppdateringar och instruktioner, vid behov. För Windows Server VM kunder vägledning nu har publicerats och är tillgängligt.
+Uppdateringen Azure-infrastrukturen adresserar säkerhetsrisk på nivån hypervisor och kräver inte en uppdatering för Windows eller Linux VM-avbildningar. Dock bör du fortsätta att tillämpa rekommenderade säkerhetsmetoder för VM-avbildningar som vanligt. Kontakta med leverantören av din operativsystem för uppdateringar och instruktioner, vid behov. Vägledning för Windows Server VM kunder nu har publicerats och är tillgänglig [här](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Kommer det att påverka prestanda på grund av hur du löser den här uppdateringen?
 

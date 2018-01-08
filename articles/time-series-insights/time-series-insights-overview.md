@@ -3,19 +3,19 @@ title: "Vad är Azure tid serien Insights? | Microsoft Docs"
 description: "Introduktion till Azure tid serien Insights, en ny tjänst för tid serien dataanalys och IoT-lösningar."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure tid serien Insights?
 
@@ -58,7 +58,7 @@ Komma igång tar mindre än 5 minuter.
 3.  Överför referensdata (detta inte är en ytterligare tjänst).
 4.  Visa data i minuter med tiden serien insikter explorer.
 
-## <a name="time-series-insights-explorer"></a>Tid serien insikter explorer
+## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
 Det här diagrammet visar ett exempel på tidsserier insights-data visas via Utforskaren:! [Tid serien insikter explorer] (media/time-series-insights-explorer/explorer4.png)
 
 

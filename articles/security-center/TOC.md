@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Azure Security Center?](security-center-intro.md)
 ## [Datasäkerhet](security-center-data-security.md)
 ## Scenarier
@@ -90,6 +91,7 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Beredskapsöversikt för Security Center](security-center-readiness-roadmap.md)
 ## [Blogg om säkerhet, sekretess och efterlevnad i Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)

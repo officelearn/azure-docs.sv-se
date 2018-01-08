@@ -1,24 +1,16 @@
 ---
 title: Om Azure Migrate | Microsoft Docs
 description: "Ger en översikt över tjänsten Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -41,13 +33,12 @@ Med Azure Migrate får du hjälp med att:
 - För närvarande kan du utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer.
 
 > [!NOTE]
-> Stöd för Hyper-V finns med i planeringen och kommer att aktiveras om några månader. Under tiden kan rekommenderar vi att du använder Distributionshanteraren för Azure Site Recovery för att planera migrering av Hyper-V-arbetsbelastningar. 
+> Stöd för Hyper-V planeras och kommer att aktiveras snart. Under tiden kan rekommenderar vi att du använder [Distributionshanteraren för Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) för att planera migrering av Hyper-V-arbetsbelastningar. 
 
-- Du kan utvärdera upp till 1000 virtuella datorer med en enda utvärdering, och upp till 1500 datorer i ett enda Azure Migrate-projekt. Om du behöver utvärdera mer kan du öka antalet projekt eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
+- Du kan identifiera upp till 1 000 virtuella datorer i en identifiering och upp till 1500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 400 virtuella datorer i en enda utvärdering. Om du behöver identifiera eller utvärdera mer kan du öka antalet identifieringar eller utvärderingar. [Läs mer](how-to-scale-assessment.md).
 - Virtuella datorer som du vill utvärdera måste hanteras av en vCenter Server, version 5.5, 6.0 eller 6.5.
 - Du kan endast skapa ett Azure Migrate-projekt i regionen västra centrala USA. Men detta påverkar inte din möjlighet att planera migrering för en annan Azure-plats. Platsen för ett migreringsprojekt används endast för att lagra metadata som identifieras från den lokala miljön.
-- Azure Migrate-portalen är för närvarande endast tillgänglig på engelska. 
-- Azure Migrate stöder för närvarande endast replikering av [Lokalt redundant lagring (LRS)](../storage/common/storage-introduction.md#replication).
+- Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Vad måste jag betala för?
 
@@ -91,7 +82,7 @@ I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 |-------------------|------------------------|---------------|---------|
 |Insamlare          |Tjänsten Azure Migrate   |TCP 443        |Insamlaren ansluter till tjänsten via SSL-port 443|
 |Insamlare          |vCenter Server          |Standard 9443   | Som standard ansluter insamlaren till vCenter-servern på port 9443. Om servrarna lyssnar på en annan port ska den konfigureras som en utgående port på VM-insamlaren. |
-|Lokala virtuella datorer     | Operations Management Suite (OMS)-arbetsyta          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA (Microsoft Monitoring Agent). |
+|Lokala virtuella datorer     | Operations Management Suite (OMS)-arbetsyta          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |MMA-agenten använder TCP 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder funktionen beroendevisualisering och installerar MMA (Microsoft Monitoring Agent). |
 
 
   

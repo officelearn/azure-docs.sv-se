@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7acf0cbd4f4cba885e6cc91dfe3cb68306a3649a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ansluta Configuration Manager till logganalys
 Du kan ansluta till System Center Configuration Manager till logganalys i OMS att synkronisera enheten samlingsdata. Detta gör data från Configuration Manager-hierarki finns i OMS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Logganalys stöder System Center Configuration Manager aktuell gren, version 1606 och högre.  
 
 ## <a name="configuration-overview"></a>Konfigurationsöversikt
 Följande steg sammanfattar processen för att ansluta Configuration Manager till logganalys.  
 
-1. Registrera Configuration Manager som en webbprogram och/eller webb-API-app i Azure-hanteringsportalen och kontrollera att du använder klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [använda portalen för att skapa Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
-2. I Azure-hanteringsportalen [ange Configuration Manager (registrerade webbappen) med behörighet att komma åt OMS](#provide-configuration-manager-with-permissions-to-oms).
+1. Registrera Configuration Manager som en webbprogram och/eller webb-API-app i Azure-portalen och kontrollera att du använder klient-ID och klientens hemliga nyckel från registrering från Azure Active Directory. Se [använda portalen för att skapa Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md) detaljerad information om hur du utför det här steget.
+2. I Azure-portalen [ange Configuration Manager (registrerade webbappen) med behörighet att komma åt OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. I Configuration Manager [lägga till en anslutning med hjälp av guiden Lägg till OMS-anslutning](#add-an-oms-connection-to-configuration-manager).
 4. I Configuration Manager [uppdatera anslutningsegenskaperna](#update-oms-connection-properties) om den hemliga nyckeln lösenord eller klienten aldrig upphör att gälla eller går förlorad.
 5. Med information från OMS-portalen [ladda ned och installera Microsoft Monitoring Agent](#download-and-install-the-agent) på datorn som kör Configuration Manager service anslutning platssystemrollen. Agenten skickar data för Configuration Manager till OMS.
@@ -41,7 +41,7 @@ Följande steg sammanfattar processen för att ansluta Configuration Manager til
 Du kan läsa mer om hur du ansluter Configuration Manager till OMS på [synkronisera data från Configuration Manager till Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="provide-configuration-manager-with-permissions-to-oms"></a>Ge behörigheter Configuration Manager till OMS
-Följande procedur innehåller Azure-hanteringsportalen med behörighet att komma åt OMS. Mer specifikt måste du bevilja den *deltagarrollen* till användare i resursgruppen för att tillåta Azure-hanteringsportalen att ansluta Configuration Manager till OMS.
+Följande procedur innehåller Azure-portalen med behörighet att komma åt OMS. Mer specifikt måste du bevilja den *deltagarrollen* för användarna i resursgruppen för att tillåta den Azure-portalen för att ansluta Configuration Manager till OMS.
 
 > [!NOTE]
 > Du måste ange behörigheter i OMS för Configuration Manager. I annat fall visas ett felmeddelande när du använder guiden för konfiguration av i Configuration Manager.
@@ -81,9 +81,9 @@ Om du vill lägga till en OMS-anslutning, Configuration Manager-miljön måste h
 1. I den **Administration** arbetsytan av Configuration Manager, Välj **OMS Connector**. Då öppnas den **guiden för Lägg till OMS-anslutning**. Välj **nästa**.
 2. På den **allmänna** skärmen, bekräfta att du har gjort följande åtgärder och att du har mer detaljer för varje objekt och sedan välja **nästa**.
 
-   1. Azure-hanteringsportalen du har registrerat Configuration Manager som en webbprogram och/eller webb-API-app och som du har den [klient-ID från registreringen](../active-directory/active-directory-integrating-applications.md).
-   2. Du har skapat en app hemlig nyckel för appen registrerade i Azure Active Directory i Azure-hanteringsportalen.  
-   3. Du har angett registrerade webbprogrammet med behörighet att komma åt OMS i Azure-hanteringsportalen.  
+   1. I Azure-portalen har registrerat Configuration Manager som en webbprogram och/eller webb-API-app och att du har den [klient-ID från registreringen](../active-directory/active-directory-integrating-applications.md).
+   2. Du har skapat en app hemlig nyckel för appen registrerade i Azure Active Directory i Azure-portalen.  
+   3. Du har angett registrerade webbprogrammet med behörighet att komma åt OMS i Azure-portalen.  
       ![Anslutningen till OMS guiden allmänna sida](./media/log-analytics-sccm/sccm-console-general01.png)
 3. På den **Azure Active Directory** skärmen, konfigurera anslutningsinställningar till OMS genom att tillhandahålla ditt **klient**, **klient-ID**, och **klienten hemlig nyckel** och välj **nästa**.  
    ![Anslutningen till OMS guiden Azure Active Directory-sida](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)

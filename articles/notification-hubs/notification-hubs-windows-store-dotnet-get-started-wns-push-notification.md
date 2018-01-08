@@ -3,28 +3,29 @@ title: "Komma igång med Azure Notification Hubs för Universal Windows Platform
 description: "I de här självstudierna kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal-plattformsapp."
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: e18a810bcdbd97c79418f53c647df8723ecb6076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Kom igång med Notification Hubs för Universal Windows Platform-appar
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
+
 I den här artikeln beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Windows Universal Platform-app.
 
 I den här artikeln skapar du en tom Windows Store-app som tar emot push-meddelanden med hjälp av Windows Push Notification Service (WNS). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen.
@@ -34,7 +35,7 @@ I den här artikeln skapar du en tom Windows Store-app som tar emot push-meddela
 
 Du hittar den färdiga koden för den här självstudiekursen på [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För den här kursen behöver du följande:
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) eller senare
@@ -81,8 +82,8 @@ Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Win
 ## <a name="configure-your-notification-hub"></a>Konfigurera meddelandehubben
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="5">
-<li><p>Välj <b>Meddelandetjänster</b> > <b>Windows (WNS)</b>, och ange sedan lösenordet för programhemligheten i rutan <b>Säkerhetsnyckel</b>. I rutan <b>Paket-SID</b> anger du värdet som du fick från WNS i föregående avsnitt och väljer sedan <b>Spara</b>.</p>
+<ol start="6">
+<li><p>Under <b>Meddelandetjänster</b> väljer du <b>Windows (WNS)</b>, och ange sedan lösenordet för programhemligheten i rutan <b>Säkerhetsnyckel</b>. I rutan <b>Paket-SID</b> anger du värdet som du fick från WNS i föregående avsnitt och väljer sedan <b>Spara</b>.</p>
 </li>
 </ol>
 
@@ -161,56 +162,6 @@ Den här självstudiekursen visar hur du kan enkelt testa klientappen genom att 
 * **Java eller PHP**: Exempel på hur du skickar meddelanden med hjälp av REST-API:er finns i:
     * [Java](notification-hubs-java-push-notification-tutorial.md)
     * [PHP](notification-hubs-php-push-notification-tutorial.md)
-
-## <a name="optional-send-notifications-from-a-console-app"></a>(Valfritt) Skicka meddelanden från en konsolapp
-Följ anvisningarna nedan om du vill skicka meddelanden med hjälp av ett .NET-konsolprogram: 
-
-1. Högerklicka på lösningen, välj **Lägg till** > **Nytt projekt**, välj **Windows** och **Konsolprogram** under **Visual C#** och välj sedan **OK**.
-   
-    Ett nytt Visual C#-konsolprogram läggs till i lösningen. Du kan också lägga till projektet i en separat lösning.
-
-2. I Visual Studio väljer du **Tools** (verktyg), väljer **NuGet Package Manager** (NuGet-pakethanterare) och väljer sedan **Package Manager Console** (pakethanterarkonsolen).
-   
-    Pakethanterarkonsolen öppnas i Visual Studio.
-
-3. I fönstret Package Manager-konsol ställer du in **standardprojektet** till det nya projektet för konsolprogrammet. Sedan kör du följande kommando i konsolfönstret:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
-   
-    Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-   
-    ![Namnet Standardprojekt](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-
-4. Öppna filen Program.cs och lägg sedan till följande `using`-uttryck:
-   
-        using Microsoft.Azure.NotificationHubs;
-
-5. Lägg till följande metod i **Program**-klassen:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello from a .NET App!</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast);
-        }
-   
-    >[!NOTE]
-    >* Ersätt platshållaren **hub name** (hubbnamn) med namnet på meddelandehubben som visas i Azure-portalen. 
-    >* Byt ut platshållaren för anslutningssträngen mot anslutningssträngen **DefaultFullSharedAccessSignature** som du fick från sidan **Åtkomstpolicyer** i meddelandehubben i avsnittet Konfigurera meddelandehubben.
-    >* Använd den anslutningssträng som har *fullständig* åtkomst, inte enbart åtkomst för att *lyssna*. Strängen med lyssna-åtkomst har inte behörighet att skicka meddelanden.
-   > 
-   > 
-6. Lägg till följande rader i **Main**-metoden:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-
-7. Högerklicka på konsolprogramprojektet i Visual Studio och välj sedan **Konfigurera som startprojekt** för att ställa in det som startprojekt. Tryck på **F5**-tangenten för att köra appen.
-   
-    Du får ett popup-meddelande på alla registrerade enheter. Appen läses in när du väljer eller knackar på popup-banderollen.
-
-Du hittar alla nyttolaster som stöds under ämnena [toast catalog] (katalog över popup-meddelanden), [tile catalog] (katalog över paneler) och [badge overview] (översikt över aktivitetsikoner) på MSDN.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickar du broadcast-meddelanden till alla dina Windows-enheter med hjälp av portalen eller ett konsolprogram. Vi rekommenderar att du går vidare med självstudiekursen [Använda Notification Hubs för att skicka push-meddelanden till användare] som nästa steg. Den visar hur du skickar meddelanden från en ASP.NET-serverdel genom att använda taggar för specifika användare.

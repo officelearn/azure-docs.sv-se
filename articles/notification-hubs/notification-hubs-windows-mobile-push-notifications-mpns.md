@@ -1,30 +1,31 @@
 ---
-title: "Skicka push-meddelanden med Azure Notification Hubs på Windows Phone | Microsoft Docs"
+title: "Kom igång med Azure Notification Hubs för Windows Phone-appar | Microsoft Docs"
 description: "I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Silverlight-app på Windows Phone 8 eller Windows Phone 8.1."
 services: notification-hubs
 documentationcenter: windows
 keywords: "push-meddelande, pushmeddelande, push för windows phone"
-author: ysxu
-manager: erikre
-editor: erikre
+author: jwhitedev
+manager: kpiteira
+editor: 
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/22/2017
+ms.author: jawh
+ms.openlocfilehash: 7d44d0a0f8683ad6ad55136ad17879e98e26498b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Skicka push-meddelanden med Azure Notification Hubs på Windows Phone
+# <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>Kom igång med Azure Notification Hubs för Windows Phone-appar
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
+
 > [!NOTE]
 > Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [här](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
@@ -40,7 +41,7 @@ I denna självstudiekurs skapar du en tom Windows Phone 8-app som tar emot push-
 
 I den här självstudiekursen visas ett enkelt scenario för sändning med Notification Hubs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För den här kursen behöver du följande:
 
 * [Visual Studio 2012 Express för Windows Phone], eller en senare version.
@@ -51,11 +52,11 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>Klicka på avsnittet <b>Notification Services</b> (inne i <i>Inställningar</i>) och sedan på <b>Windows Phone (MPNS)</b>. Därefter markerar du kryssrutan <b>Aktivera ej autentiserade push-meddelanden</b>.</p>
+<li><p>Under <b>Notification Services</b> väljer du <b>Windows Phone (MPNS)</b>. Därefter markerar du kryssrutan <b>Aktivera ej autentiserade push-meddelanden</b>.</p>
 </li>
 </ol>
 
-&emsp;&emsp;![Azure-portalen – Aktivera ej autentiserade push-meddelanden](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+&emsp;&emsp;![Azure Portal – Aktivera ej autentiserade push-meddelanden](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
 Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddelanden till Windows Phone.
 
@@ -129,62 +130,7 @@ Hubben har nu skapats och konfigurerats för att skicka ej autentiserade meddela
    
    > [!NOTE]
    > Om du vill få ett push-meddelande av popup-typ får appen inte köras i förgrunden.
-   > 
-   > 
-
-## <a name="send-push-notifications-from-your-backend"></a>Skicka push-meddelanden från serverdelen
-Du kan skicka push-meddelanden med hjälp av Notification Hubs från vilken serverdel som helst via det offentliga <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST-gränssnittet</a>. I den här självstudiekursen kommer du att skicka push-meddelanden via ett .NET-konsolprogram. 
-
-Om du vill se ett exempel på hur du skickar push-meddelanden från en ASP.NET-WebAPI-serverdel som är integrerad med Notification Hubs, kan du gå till [Meddela användare via en .NET-serverdel i Azure Notification Hubs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
-
-Om du vill se ett exempel på hur du kan skicka push-meddelanden med hjälp av [REST-API:er](https://msdn.microsoft.com/library/azure/dn223264.aspx), kan du gå till [Använda Notification Hubs från Java](notification-hubs-java-push-notification-tutorial.md) och [Använda Notification Hubs från PHP](notification-hubs-php-push-notification-tutorial.md).
-
-1. Högerklicka på lösningen, välj **Lägg till** och **Nytt projekt...** och klicka sedan på **Windows** och **Konsolprogram** under **Visual C#**. Slutligen klickar du på **OK**.
-   
-       ![Visual Studio - New Project - Console Application][6]
-   
-    Detta lägger till ett nytt konsolprogram för Visual C# i lösningen. Du kan också göra detta i en separat lösning.
-2. Klicka på **Verktyg**, **Library Package Manager** och slutligen **Package Manager-konsolen**.
-   
-    Detta öppnar Package Manager-konsolen.
-3. I fönstret för **Package Manager-konsolen** ställer du in **standardprojektet** till det nya projektet för konsolprogrammet. Sedan kör du följande kommando i konsolfönstret:
-   
-       Install-Package Microsoft.Azure.NotificationHubs
-   
-   Då läggs en referens till i Azure Notification Hubs SDK med hjälp av <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs-NuGet-paketet</a>.
-4. Öppna filen `Program.cs` och lägg till följande `using`-uttryck:
-   
-        using Microsoft.Azure.NotificationHubs;
-5. Lägg till följande metod i `Program`-klassen:
-   
-        private static async void SendNotificationAsync()
-        {
-            NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                   "<wp:Toast>" +
-                        "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
-                   "</wp:Toast> " +
-                "</wp:Notification>";
-            await hub.SendMpnsNativeNotificationAsync(toast);
-        }
-   
-    Ersätt platshållaren `<hub name>` med namnet på den meddelandehubb som visas i portalen. Dessutom måste du ersätta platshållaren för anslutningssträngen med den anslutningssträng som heter **DefaultFullSharedAccessSignature**. Du fick denna i avsnittet ”Konfigurera din meddelandehubb”.
-   
-   > [!NOTE]
-   > Kontrollera att du använder anslutningssträngen med **fullständig** åtkomst, inte enbart åtkomst för att **lyssna**. Strängen med lyssna-åtkomst har inte behörighet att skicka push-meddelanden.
-   > 
-   > 
-6. Lägg till följande rad i `Main`-metoden:
-   
-         SendNotificationAsync();
-         Console.ReadLine();
-7. Starta Windows Phone-emulatorn och stäng appen. Konfigurera konsolprogramprojektet som förvalt startprojekt och tryck sedan på tangenten `F5` för att köra appen.
-   
-    Du får ett push-meddelandensom popup. Appen läses in när du knackar på popup-banderollen.
-
-Du hittar alla möjliga nyttolaster under ämnena [toast catalog] (katalog över popup-meddelanden) och [tile catalog] (katalog över paneler) på MSDN.
+   >
 
 ## <a name="next-steps"></a>Nästa steg
 I det här enkla exemplet skickade du push-meddelanden till alla dina Windows Phone 8-enheter. 

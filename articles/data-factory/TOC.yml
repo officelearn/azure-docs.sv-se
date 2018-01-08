@@ -1,6 +1,6 @@
 - name: Dokumentation om Data Factory V2
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Introduktion till Data Factory
       href: introduction.md
@@ -54,7 +54,7 @@
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
     - name: PowerShell
       href: samples-powershell.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Pipelines och aktiviteter
       href: concepts-pipelines-activities.md
@@ -303,13 +303,15 @@
       items:
         - name: Skapa en schemautlösare
           href: how-to-create-schedule-trigger.md
+        - name: Skapa en utlösare för rullande fönster
+          href: how-to-create-tumbling-window-trigger.md
 - name: Referens
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: REST API
+    - name: REST-API
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python
@@ -319,7 +321,7 @@
       href: frequently-asked-questions.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'

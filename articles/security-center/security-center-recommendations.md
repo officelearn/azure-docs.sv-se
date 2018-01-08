@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig igenom hur du använder rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -73,7 +73,7 @@ Använd tabellen nedan som referens för att hjälpa dig att förstå rekommenda
 | Rekommendation | Beskrivning |
 | --- | --- |
 | [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella Azure-datorer (VM) och Azure-datorer. |
-| [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera OS-konfigurationer med de rekommenderade konfigurationen reglerna, till exempel, tillåter inte lösenord ska sparas. |
+| [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du justera OS-konfigurationer med de rekommenderade konfigurationen säkerhetsreglerna, till exempel, tillåter inte lösenord ska sparas. |
 | [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar saknas system säkerhetsuppdateringar och viktiga uppdateringar till Windows och Linux virtuella datorer och datorer. |
 | [Tillämpa Just-In-Time nätverk åtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du installerar just-in-time VM-åtkomst. Den bara i tiden funktionen är i förhandsvisning och finns på standardnivån av Security Center. Se [priser](security-center-pricing.md) att lära dig mer om Security Center prisnivåer. |
 | [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |

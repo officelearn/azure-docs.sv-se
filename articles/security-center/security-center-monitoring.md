@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
 I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
@@ -45,13 +45,14 @@ Du kan se tre flikar när du klickar på panelen **Beräkna**:
 
 ![Systemuppdatering av den virtuella datorn saknas](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet. 
+På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet.
 
 #### <a name="monitoring-recommendations"></a>Rekommendationer för övervakning
-I det här avsnittet visas hur många virtuella datorer och datorer som har initierats för automatisk etablering och deras aktuella status. När du klickar på den här posten öppnas **Den virtuella datoragenten saknas eller svarar inte**. 
+I det här avsnittet visas hur många virtuella datorer och datorer som har initierats för automatisk etablering och deras aktuella status. När du klickar på den här posten öppnas **Övervaka problem med hälsotillstånd**.
 
-![Systemuppdatering av den virtuella datorn saknas](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Övervaka problem med hälsotillstånd](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Virtuella datorer och vanliga datorer som Security Center inte kan övervaka visas i en lista. Välj en virtuell eller vanlig dator för detaljerad information. **Övervakningstillståndet** definierar problemet.
 
 #### <a name="recommendations"></a>Rekommendationer
 I den här delen finns ett antal [rekommendationer för de virtuella datorer och datorer](security-center-virtual-machine-recommendations.md) som övervakas via Azure Security Center. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet virtuella datorer och datorer som påverkas av den här rekommendationen. Den tredje kolumnen visar hur allvarligt problemet är, såsom illustreras på följande skärmbild:
@@ -59,7 +60,7 @@ I den här delen finns ett antal [rekommendationer för de virtuella datorer och
 ![Rekommendationer för virtuella datorer](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Endast virtuella datorer som har minst en offentlig slutpunkt visas för **Nätverkshälsa** i listan **Nätverkstopologi**.
+> Endast virtuella datorer som har minst en offentlig slutpunkt visas under **Nätverkshälsa** i listan **Nätverkstopologi**.
 >
 
 Varje rekommendation har en uppsättning åtgärder som du kan utföra när du klickar på den. Om du till exempel klickar på **Systemuppdateringar saknas** visas en lista över virtuella datorer och datorer som saknar korrigeringsfiler samt allvarlighetsgrad för uppdateringen som saknas, på det sätt som visas i följande skärmbild:
@@ -79,7 +80,7 @@ Varje rekommendation har en uppsättning åtgärder som du kan utföra när du k
   * **Medelhög**: Det behövs mindre viktiga eller ytterligare åtgärder för att slutföra en process eller åtgärda en säkerhetsrisk.
   * **Low (Låg)**: Det finns en säkerhetsrisk som bör åtgärdas, men det måste inte göras omedelbart. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
-Om du vill visa information om rekommendationen klickar du på namnet på den uppdatering som saknas. 
+Om du vill visa information om rekommendationen klickar du på namnet på den uppdatering som saknas.
 
 ![Uppdateringar för en specifik virtuell dator saknas](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -100,7 +101,7 @@ Det finns fyra typer av ikoner som visas i listan, dessa beskrivs i den här lis
 
 ![icon3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Virtuell dator med klassisk Azure.
 
-![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av visad prenumeration. Detta omfattar alla virtuella datorer från andra prenumerationer som rapporterar till arbetsytan i denna prenumeration, och virtuella datorer som installerades med SCOM-direktagent och som inte har något resurs-ID.
+![icon4](./media/security-center-monitoring/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av den visade prenumerationen. Detta omfattar alla virtuella datorer från andra prenumerationer som rapporterar till arbetsytan i denna prenumeration, och virtuella datorer som installerades med SCOM-direktagent och som inte har något resurs-ID.
 
 Genom ikonerna under de olika rekommendationerna kan du snabbt se vilka virtuella datorer och datorer som behöver åtgärdas och typ av rekommendation. Du kan även använda alternativet **Filter** för att välja vilka alternativ du vill se på denna skärm.
 
@@ -121,7 +122,7 @@ I ett scenario där du har en rekommendation (vilket inte är fallet i föregåe
 
 ![Molntjänstinformation](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Om du vill få en mer ingående förklaring av den här rekommendationen klickar du på **Uppdatera OS-version** under kolumnen **BESKRIVNING**. 
+Om du vill få en mer ingående förklaring av den här rekommendationen klickar du på **Uppdatera OS-version** under kolumnen **BESKRIVNING**.
 
 ![Molntjänstrekommendationer](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

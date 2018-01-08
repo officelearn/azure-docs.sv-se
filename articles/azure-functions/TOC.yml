@@ -1,6 +1,6 @@
 - name: Dokumentation om Functions
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Functions
       href: functions-overview.md
@@ -61,7 +61,7 @@
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Skalning och värdtjänster
       href: functions-scale.md
@@ -71,10 +71,10 @@
       items:
         - name: Språk som stöds
           href: supported-languages.md
-        - name: 'C#-skript'
-          href: functions-reference-csharp.md
-        - name: .NET-klassbibliotek
+        - name: 'C# (klassbibliotek)'
           href: functions-dotnet-class-library.md
+        - name: 'C#-skript (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -89,7 +89,7 @@
       href: functions-runtime-overview.md
     - name: Bestående funktioner
       items:
-        - name: Översikt
+        - name: "Översikt\r\n"
           href: durable-functions-overview.md
         - name: Bindningar
           href: durable-functions-bindings.md

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -41,7 +41,7 @@ Security Center erbjuds i två nivåer:
 
 Den **kostnadsfria nivån** ger insyn i säkerhetsläget för Azure-resurser, grundläggande säkerhetsprinciper, säkerhetsrekommendationer och integrering med säkerhetsprodukter och tjänster från partner.
 
-Den **standardnivån** lägger till avancerade threat detection funktioner, inklusive hot intelligence, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hot tillskrivningar rapporter. Standardnivån är gratis för de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, starta vi automatiskt debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivån](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
+Den **standardnivån** lägger till avancerade threat detection funktioner, inklusive hot intelligence, beteendeanalys, avvikelseidentifiering, säkerhetsincidenter och hot tillskrivningar rapporter. Standard-nivån är kostnadsfri de första 60 dagarna. Om du väljer att fortsätta att använda tjänsten efter 60 dagar, starta vi automatiskt debitera för tjänsten.  Om du vill uppgradera, Välj [prisnivån](https://docs.microsoft.com/azure/security-center/security-center-pricing) i säkerhetsprincipen.
 
 ## <a name="permissions"></a>Behörigheter
 I Azure Security Center tillämpas [rollbaserad åtkomstkontroll](../active-directory/role-based-access-control-configure.md), vilket innebär att det finns [förinställda roller](../active-directory/role-based-access-built-in-roles.md) som kan ges till användare, grupper och tjänster i Azure.
@@ -131,7 +131,7 @@ Det här meddelandet visas när det finns inga genomsökningsdata för en virtue
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Hur ofta Security Center igenom för säkerhetsrisker i operativsystemet, uppdateringar och endpoint protection-problem?
 Fördröjning i Security Center söker efter säkerhetsrisker, uppdateringar, och problem är:
 
-- Säkerhetsproblem för operativsystemet (från Microsoft) – uppdatera data inom 48 timmar
+- Operativsystemet säkerhetskonfigurationer – data uppdateras inom 48 timmar
 - Systemuppdateringar – data uppdateras inom 24 timmar
 - Endpoint Protection skickar – uppdatera data i 8 timmar
 

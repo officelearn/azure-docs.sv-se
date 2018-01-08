@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Kom igång med Relay hybridanslutningar
 
@@ -28,14 +28,14 @@ I den här självstudien ger dig en introduktion till [Azure Relay-hybridanslutn
 
 ## <a name="what-will-be-accomplished"></a>Detta kommer att utföras
 
-Eftersom hybridanslutningar kräver både en klient och en serverkomponent, kommer vi att skapa två konsolprogram i den här självstudien. Här är stegen:
+Eftersom hybridanslutningar kräver både en klient och en serverkomponent skapar du två konsolprogram i den här självstudien. Här är stegen:
 
 1. Skapa ett Relay-namnområde med Azure Portal.
 2. Skapa en hybridanslutning med Azure Portal.
 3. Skriv ett serverkonsolprogram för att ta emot meddelanden.
 4. Skriv ett klientkonsolprogram för att ta emot meddelanden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 1. [Node.js](https://nodejs.org/en/).
 2. En Azure-prenumeration.
@@ -76,7 +76,7 @@ För att skicka meddelanden till Relay skriver du ett Node.js-konsolprogram.
 
 Grattis, du har skapat ett hybridanslutningsprogram från slutpunkt till slutpunkt med hjälp av Node.js!
 
-## <a name="next-steps"></a>Nästa steg:
+## <a name="next-steps"></a>Nästa steg
 
 * [Vanliga frågor och svar om Relay](relay-faq.md)
 * [Skapa ett namnområde](relay-create-namespace-portal.md)

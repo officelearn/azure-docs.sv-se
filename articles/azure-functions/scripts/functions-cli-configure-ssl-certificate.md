@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fbc94734f3c49e7318734b05b30e0ef6b8767004
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f8e8570d9c3093b5f49b000916644888304eed4e
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Bind ett anpassade SSL-certifikat till en funktionsapp
 
@@ -35,7 +35,7 @@ Om du vill binda ett SSL-certifikat, måste funktionen appen skapas i en apptjä
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 

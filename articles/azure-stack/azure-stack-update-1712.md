@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-stacken 1712 uppdatering
 
@@ -31,17 +31,9 @@ Den här artikeln beskriver förbättringarna och korrigeringar i det här uppda
 
 ## <a name="build-reference"></a>Skapa referens
 
-Azure-stacken 1712 uppdatera versionsnumret är **180103.2**.
+Azure-stacken 1712 uppdatera versionsnumret är **180106.1**. Om en kund har distribuerats **180103.2** tidigare, du behöver inte tillämpa **180106.1**.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-
-> [!WARNING]
-> Om du är för närvarande i en aktiv fjärrsession för interaktiva program måste du avsluta sessionen innan du påbörjar i Azure-stacken installationsprocessen. Du kan skriva **avsluta** i konsolen för fjärråtkomst att avsluta sessionen.
-> Du kan kontrollera om det finns några befintliga program fjärrsessioner genom att köra två PowerShell-kommandon först **Get-PSSession** som listar alla aktiva fjärrsessioner, sedan **Remove-PSSession** att avsluta och ta bort de aktiva fjärrsessioner. PowerShell-kommandon måste köras från en dator som används för att skapa program fjärrsessioner i Azure Stack-miljö. Här är exempel för PowerShell-kommando:
-```
-Get-PSSession | Remove-PSSession
-```
-Dessutom skapa inte en program-session även när Azure Stack-uppdatering har startats.
 
 > [!IMPORTANT]
 > Försök inte att skapa virtuella datorer under installationen 1712 uppdateringen. Se [hantera uppdateringar i Azure-stacken översikt](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) för mer information.
@@ -100,7 +92,7 @@ Det här avsnittet innehåller kända problem som kan uppstå under installation
 
 ### <a name="known-issues-post-installation"></a>Kända problem (efter installationen)
 
-Det här avsnittet innehåller efter installationen kända problem med build **180103.2**.
+Det här avsnittet innehåller efter installationen kända problem med build **180106.1**.
 
 #### <a name="portal"></a>Portalen
 
@@ -161,6 +153,11 @@ I Azure Active Directory Federation Services (ADFS) distribuerade miljöer, den 
 
 Du kan ladda ned uppdateringspaketet Azure Stack 1712 från [här](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Mer information
+
+Microsoft tillhandahåller ett sätt att övervaka och återuppta uppdateringar med hjälp av detta Privilegierade slutpunkt (program) installeras med uppdatering 1712.
+
+- Finns det [övervaka uppdateringar i Azure-stacken använder Privilegierade endpoint-dokumentationen](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Se också
 
 - Se [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md) en översikt över uppdateringshantering i Azure-stacken.

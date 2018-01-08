@@ -91,7 +91,6 @@
 
 
 ## Läsa in och flytta data
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Offentliga Contoso-data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

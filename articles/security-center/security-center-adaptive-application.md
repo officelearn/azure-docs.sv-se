@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Anpassningsbara programkontroller i Azure Security Center (förhandsversion)
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -36,12 +36,11 @@ Med hjälp av anpassningsbara programkontroller kan du kontrollera vilka program
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hur fungerar anpassningsbara programkontroller?
 Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade resursgrupper. Den här funktionen är endast tillgänglig för Windows-datorer (alla versioner, klassisk eller Azure Resource Manager). Följ stegen nedan för att konfigurera listan över tillåtna program i Security Center:
 
-1.  Öppna instrumentpanelen **Security Center** och klicka på **Översikt**.
-2.  Under **Avancerat molnskydd** visar panelen för **anpassningsbara programkontroller** hur många virtuella datorer som för närvarande har kontroll på plats jämfört med alla virtuella datorer. Det visar också antalet ärenden som har identifierats föregående vecka: 
+1.  Öppna instrumentpanelen för **Security Center** och klicka på **Anpassningsbara programkontroller** under avsnittet **Avancerat molnskydd** i det vänstra navigeringsfönstret.
 
-    ![Anpassningsbara programkontroller](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Klicka på panelen för **anpassningsbara programkontroller** för att se fler alternativ.
+2. Sidan **Anpassningsbara programkontroller** visas.
 
     ![kontroller](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

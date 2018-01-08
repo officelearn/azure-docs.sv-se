@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare serien
 En av affärshemligheter av datavetenskap får andra personer att göra arbetet åt dig. Hitta ett kluster algoritm-exempel i Azure AI-galleriet för egna maskininlärningsexperiment.
 
 > [!IMPORTANT]
-> Cortana Intelligence Gallery bytte **Azure AI-galleriet**. Därför avvika text och bilder i den här betyg något från video, som använder det tidigare namnet.
+> **Cortana Intelligence Gallery** bytte **Azure AI-galleriet**. Därför avvika text och bilder i den här betyg något från video, som använder det tidigare namnet.
 >
 
 Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över videor](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ I det här objektet upptäcker du en plats för att hitta exempel som kan låna 
 
 En av affärshemligheter av datavetenskap får andra personer att göra arbetet åt dig.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Söka efter exempel i Azure AI Intelligence-galleriet
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Söka efter exempel i Azure AI-galleriet
 
 Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) att du befinner dig Välkommen till försök kostnadsfritt. Det ger dig en arbetsyta där du kan experimentera med olika maskininlärningsalgoritmer, och när du har fått din lösning lista ut kan du köra den som en webbtjänst.
 

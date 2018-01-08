@@ -9,15 +9,15 @@ ms.date: 04/28/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 5851b5219b6e25a5a2b005fc3d3c3b44d98ed746
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-an-app-service"></a>Skapa en App Service
 
-I det här scenariot du lära dig hur du skapar en funktion app med hjälp av den [förbrukning plan](../functions-scale.md#consumption-plan) med dess relaterade resurser och kontinuerligt distribuerar Funktionskoden från en Visual Studio Team Services VSTS ()-databas. I det här exemplet behöver du:
+I det här scenariot beskrivs hur du skapar en funktionsapp som använder den [förbrukning plan](../functions-scale.md#consumption-plan) och du ställer in kontinuerlig distribution från Visual Studio Team Services VSTS ()-databasen. För det här exemplet behöver du:
 
 * En VSTS databas med funktioner kod som du har administrativa behörigheter för.
 * En [personlig åtkomst-Token (PATRIK)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) för ditt GitHub-konto.
@@ -26,7 +26,7 @@ I det här scenariot du lära dig hur du skapar en funktion app med hjälp av de
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 

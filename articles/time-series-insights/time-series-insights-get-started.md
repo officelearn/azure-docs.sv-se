@@ -3,19 +3,19 @@ title: "Skapa en Azure Time Series Insights-miljö | Microsoft Docs"
 description: "Den här artikeln beskriver hur du använder Azure-portalen för att skapa en ny tid serien insikter miljö."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 Den här artikeln beskriver hur du skapar en ny tid serien insikter miljö med Azure-portalen.
@@ -41,7 +41,7 @@ Följ dessa steg om du vill skapa en miljö:
    
    Inställning|Föreslaget värde|Beskrivning
    ---|---|---
-   Namn | Ett unikt namn | Det här namnet representerar miljön i [tid serien explorer](https://insights.timeseries.azure.com)
+   Miljönamn | Ett unikt namn | Det här namnet representerar miljön i [tid serien explorer](https://insights.timeseries.azure.com)
    Prenumeration | Din prenumeration | Välj den prenumeration som innehåller din händelsekälla helst om du har flera prenumerationer. Time Series Insights kan automatiskt identifiera Azure IoT Hub- och Event Hub-resurser som existerar i samma prenumeration.
    Resursgrupp | Skapa en ny eller använda befintliga | En resursgrupp är en samling med Azure-resurser som används tillsammans. Du kan välja en befintlig resursgrupp, till exempel en som innehåller din Händelsehubb eller IoT-hubb. Eller så kan du en ny om resursen inte är relaterad till andra resurser.
    Plats | Närmast din händelsekälla | Helst välja samma data center-plats som innehåller källdata händelse i för att undvika att läggas till mellan region och mellan zon bandbreddskostnader och läggs svarstid när data flyttas utanför området.

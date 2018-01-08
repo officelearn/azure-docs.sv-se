@@ -1,5 +1,6 @@
 # Översikt
-## [Vad är Power BI Embedded?](what-is-power-bi-embedded.md)
+
+## [Om Power BI Embedded](what-is-power-bi-embedded.md)
 
 # Kom igång
 ## [Kom igång med Power BI Embedded](get-started.md)
@@ -21,22 +22,20 @@
 # Exempel
 ## [Kodexempel](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Exempelgenomgång](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # Referens
 ## API:er
 ### [Azure Resource Manager REST API:er](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [REST API:er](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## SDK:er
-### [Hämta .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [Nedladdning av JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### ,[Power BI REST-API:er](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # Resurser
-## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Power BI Community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Hämta .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [Nedladdning av JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## GitHub-lagringsplatser
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Power BI Community](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [.NET för Power BI](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript för Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

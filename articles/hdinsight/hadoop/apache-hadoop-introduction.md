@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Introduktion till HDInsight, Hadoop- och Spark-teknikstacken
 Den här artikeln innehåller en introduktion till Azure HDInsight, som är en fullständigt hanterad analystjänst med fullständigt spektrum med öppen källkod för företag. Du kan använda ramverk baserade på öppen källkod, till exempel Hadoop, Spark, Hive, LLAP, Kafka, Storm, R med flera. 
@@ -137,6 +137,7 @@ Välbekanta verktyg för business intelligence (BI) hämtar, analyserar och rapp
 
 * [Apache Spark BI med hjälp av datavisualiseringsverktyg med Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Visualisera Hive-data med Microsoft Power BI i Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Visualisera Interactive Query Hive-data med Power BI i Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Ansluta Excel till Hadoop med Power Query](apache-hadoop-connect-excel-power-query.md): Information om hur du ansluter Excel till det Azure Storage-konto som lagrar data från HDInsight-klustret med hjälp av Microsoft Power Query för Excel. En Windows-arbetsstation krävs. 
 * [Ansluta Excel till Hadoop med ODBC-drivrutinen för Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md): Information om hur du importerar data från HDInsight med hjälp av ODBC-drivrutinen för Microsoft Hive. En Windows-arbetsstation krävs. 
 * [Microsoft Cloud-plattformen](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Information om Power BI för Office 365 samt om hur du hämtar utvärderingsversionen för SQL Server och konfigurerar SharePoint Server 2013 och SQL Server BI.

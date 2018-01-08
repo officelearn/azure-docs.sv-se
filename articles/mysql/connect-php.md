@@ -10,16 +10,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 530b02e7cd2a45ce3d9b8968b090d2b48b34e843
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](http://php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i PHP och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -126,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion.  Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_query](http://php.net/manual/mysqli.query.php) används för att utföra sql-frågan och metoden [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) används för att hämta de resulterande raderna.
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **SELECT**.  Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_query](http://php.net/manual/mysqli.query.php) används för att utföra sql-frågan och metoden [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) används för att hämta de resulterande raderna.
 
 Ersätt parametrarna host, username, password och db_name med dina egna värden. 
 
@@ -195,7 +195,7 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion. 
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. 
 
 Koden använder klassen **MySQL Improved extension** (mysqli) som ingår i PHP. Metoden [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) används för att skapa en förberedd delete-instruktion och sedan binds parametrarna för where-satsen med metoden [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php). Sedan körs instruktionen med metoden [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) och efteråt stängs instruktionen med metoden [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php).
 
@@ -231,4 +231,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Skapa en PHP- och MySQL-webbapp i Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Ansluta till Azure Database for MySQL via SSL] (howto-configure-ssl.md)

@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 ## [Jämför Azure Data Lake Store med Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store för bearbetning av stordata](data-lake-store-data-scenarios.md)
@@ -12,7 +13,7 @@
 
 # Gör så här för att
 ## Läs in och flytta data
-### [Använda Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Använda Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Använda AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)

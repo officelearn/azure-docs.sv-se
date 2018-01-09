@@ -61,7 +61,7 @@ ACU: 160–180
 
 <sup>1</sup> M-serien VM funktionen Intel® flertrådsteknik
 
-<sup>2</sup> fler än 64 vCPU kräver en av dessa stöds gäst-OS: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 och Red Hat Enterprise Linux eller CentOS 7.3 med LIS 4.2.1 
+<sup>2</sup> fler än 64 vCPU kräver en av dessa stöds gäst-OS: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 och Red Hat Enterprise Linux, CentOS 7.3 eller Oracle Linux 7.3 med LIS 4.2.1 
 
 <sup>3</sup> begränsad core storlekar som finns tillgängliga.
 

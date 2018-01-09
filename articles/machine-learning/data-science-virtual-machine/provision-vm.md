@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Etablera Windows datavetenskap virtuell dator på Azure
 Microsoft datavetenskap virtuella datorn är en avbildning på virtuell dator (VM) för Windows Azure före installeras och konfigureras med flera populära verktyg som används för dataanalys och maskininlärning. Verktygen är:
@@ -57,7 +57,7 @@ Det finns inga avgifter för programvara för den här datavetenskap VM-avbildni
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Andra versioner av datavetenskap virtuell dator
 En [Ubuntu](dsvm-ubuntu-intro.md) bilden är tillgänglig, med många liknande verktyg plus några ytterligare djup learning ramverk. En [CentOS](linux-dsvm-intro.md) bilden är också tillgänglig. Vi erbjuder även en [Windows Server 2012 edition](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) för den virtuella datorn för vetenskap av data om några verktyg är bara tillgängliga på Windows Server 2016-versionen.  I annat fall gäller den här artikeln även för Windows Server 2012-versionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en Microsoft datavetenskap virtuell dator, måste du ha följande:
 
 * **En Azure-prenumeration**: Om du vill skaffa en finns [hämta kostnadsfri utvärderingsversion av Azure](http://azure.com/free).
@@ -200,5 +200,5 @@ Här följer några nästa steg för att fortsätta din inlärning och undersök
 * Gå till **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** för exempel som använder RevoScaleR biblioteket i R som har stöd för dataanalys på företagsnivå.  
 * Läs artikeln: [10 saker du kan göra på datavetenskap virtuell dator](http://aka.ms/dsvmtenthings)
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team datavetenskap Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Besök den [Azure Machine Learning-galleriet](http://gallery.cortanaintelligence.com) tjänster i Azure machine learning och analytics exempel som använder Azure Machine learning och relaterade data. Vi har också tillhandahålls en ikon på den **starta** menyn och på skrivbordet för den virtuella datorn till det här galleriet.
+* Besök den [Azure AI-galleriet](http://gallery.cortanaintelligence.com) tjänster i Azure machine learning och analytics exempel som använder Azure Machine learning och relaterade data. Vi har också tillhandahålls en ikon på den **starta** menyn och på skrivbordet för den virtuella datorn till det här galleriet.
 

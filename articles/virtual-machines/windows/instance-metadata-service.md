@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -76,7 +76,7 @@ I följande tabell är en referens för andra dataformat stöder API: er.
 API | Standardformatet för Data | Andra format
 --------|---------------------|--------------
 /Instance | JSON | Text
-/scheduledevents | JSON | Ingen
+/scheduledevents | JSON | ingen
 
 Ange det begärda formatet som en querystring-parameter i begäran för att komma åt en icke-förvalt svarsformat. Exempel:
 
@@ -283,10 +283,10 @@ Data | Beskrivning | Version introduceras
 -----|-------------|-----------------------
 location | Azure-regionen för den virtuella datorn körs i | 2017-04-02 
 namn | Namnet på den virtuella datorn | 2017-04-02
-Erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
+erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
 Publisher | Utgivaren av VM-avbildning | 2017-04-02
 SKU | Specifika SKU för VM-avbildning | 2017-04-02
-Version | Version av VM-avbildning | 2017-04-02
+version | Version av VM-avbildning | 2017-04-02
 osType | Linux- eller Windows | 2017-04-02
 platformUpdateDomain |  [Uppdateringsdomän](manage-availability.md) den virtuella datorn körs | 2017-04-02
 platformFaultDomain | [Feldomänen](manage-availability.md) den virtuella datorn körs | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Språk | Exempel 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.RB
-Gå Lang  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
+Perl       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PL
+Java       | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

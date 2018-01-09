@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 
 #### <a name="new-features"></a>Nya funktioner
 
-- Nya användarupplevelsen när du skapar objekt från Marketplace
 - AzureStack test-cmdlet för att validera moln för Azure-stacken tillgängliga via Privilegierade slutpunkt
 - Möjligheten att registrera en frånkopplad distribution av Azure-stacken
 - Övervaka aviseringar för certifikatet och användaren kontots giltighetstid
@@ -76,7 +75,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 
 - [Januari, 3-2018 – KB4056890 (OS-version 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Uppdateringen innehåller programvara korrigeringar för branschomfattande säkerhetsproblem som beskrivs av [MSRC Security Advisory av 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Kända problem med uppdateringen
 
 Det här avsnittet innehåller kända problem som kan uppstå under installationen av uppdateringen 1712.
@@ -103,7 +102,7 @@ Det här avsnittet innehåller efter installationen kända problem med build **1
 
    - Du kan se en tom rad längst upp i listan. Du måste fortfarande kunna markera ett objekt som förväntat.
    - Om listan över objekt i den nedrullningsbara listrutan är kort kan kanske du inte visa något av objektnamn.
-   - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom. 
+   - Om du har flera prenumerationer för användaren, får den nedrullningsbara resurslistan vara tom.
 
         > [!NOTE]
         > Du kan skriva namnet på den prenumeration eller resursgrupp (om du vet att den) Undvik de två sista problem, eller kan du använda PowerShell i stället.
@@ -124,16 +123,16 @@ Det här avsnittet innehåller efter installationen kända problem med build **1
 - Du kan konfigurera en virtuell dator tillgänglighetsuppsättning endast med en feldomän på en och en uppdateringsdomän i en.
 - Det finns inga marketplace-upplevelse för att skapa virtuella datorer. Du kan skapa en skala som anges med hjälp av en mall.
 - Inställningarna för skalning för virtuella datorer är inte tillgängliga i portalen. Som en tillfällig lösning kan du använda [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). På grund av skillnader mellan versioner PowerShell måste du använda den `-Name` parameter i stället för `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Nätverk
 - Du kan inte skapa en belastningsutjämnare med en offentlig IP-adress med hjälp av portalen. Som en tillfällig lösning kan använda du PowerShell för att skapa belastningsutjämnaren.
 - När du skapar en Utjämning av nätverksbelastning måste du skapa en regel för network adress translation (NAT). Om du inte får ett fel när du försöker lägga till en NAT-regel när belastningsutjämnaren har skapats.
 - Du kan koppla en offentlig IP-adress från en virtuell dator (VM) när den virtuella datorn har skapats och associerats med den IP-adressen. Disassociation visas ska fungera, men tidigare tilldelade offentliga IP-adressen är kopplad till den ursprungliga virtuella datorn. Detta inträffar även om du omtilldelar IP-adress till en ny virtuell dator (som vanligtvis kallas ett *VIP-växling*). Alla framtida försöker att ansluta till IP-adress resultatet i en anslutning till den ursprungligen associerade virtuella datorn och inte till en ny. För närvarande måste du bara använda nya offentliga IP-adresser för att skapa en ny virtuell dator.
 - Azure Stack-operatörer kanske inte kan distribuera, ta bort, ändra Vnet eller Nätverkssäkerhetsgrupper. Det här problemet visas främst på efterföljande update försök av samma paket. Detta beror på ett paketering problem med en uppdatering som för närvarande är under undersökningen.
 - Internt Load Balancing (ILB) hanterar felaktigt MAC-adresser för backend-virtuella datorer som bryter Linux-instanser.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU. 
+- Det kan ta upp till en timme innan klienter kan skapa databaser i en ny SQL eller MySQL SKU.
 - Skapande av objekt direkt på SQL- och MySQL som värd för servrar som inte utförs av resursprovidern stöds inte och kan resultera i ett felaktigt tillstånd.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Du kan ladda ned uppdateringspaketet Azure Stack 1712 från [här](https://aka.m
 Microsoft tillhandahåller ett sätt att övervaka och återuppta uppdateringar med hjälp av detta Privilegierade slutpunkt (program) installeras med uppdatering 1712.
 
 - Finns det [övervaka uppdateringar i Azure-stacken använder Privilegierade endpoint-dokumentationen](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Se också
 
 - Se [hantera uppdateringar i Azure-stacken översikt](azure-stack-updates.md) en översikt över uppdateringshantering i Azure-stacken.

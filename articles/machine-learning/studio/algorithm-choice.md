@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Så här väljer du algoritmer för Microsoft Azure Machine Learning
 Besvara frågan ”vad maskininlärningsalgoritmen ska jag använda”? är alltid ”det beror”. Det beror på storleken, kvaliteten och typen av uppgift. Det beror på vad du vill göra med svaret. Det beror på hur matematiska av algoritmen översattes till instruktioner för den dator som du använder. Och det beror på hur lång tid som du har. Även de mest erfarna datavetare går inte att avgöra vilken algoritm utför bäst innan du försöker dem.
@@ -42,7 +42,7 @@ Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökv
 Ibland är ingen av dem en perfekt passning. De är avsedda att regeln för USB rekommendationer så oroa dig inte om det är exakt.
 Flera datavetare jag pratade med dessa som det enda säkra sättet att hitta algoritmen mycket bästa är att prova alla.
 
-Här är ett exempel från den [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämför flera klassen klassificerare: enhetsbokstaven recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämför flera klassen klassificerare: enhetsbokstaven recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence, tävlingar, vanliga frågor och svar
 **Vad är Cortana Intelligence tävlingar?**
 
-Microsoft Cortana Intelligence tävlingar kan vi förena en global grupp data entusiaster av gemensamt lösa några av världens mest komplexa datavetenskap problem. Cortana Intelligence tävlingar kan data entusiaster från över hela världen till konkurrera och skapa hög korrekt och intelligent vetenskap datamodeller. Vår värdbaserade tävlingar baserat på unika datamängder som har gjorts tillgängliga offentligt för första gången. Deltagare kan win utdelningen eller hämta recognition via vårt översta 10 offentliga resultattavlan. Gå [här](http://aka.ms/CIComp) att komma åt sidan tävlingar.
+Microsoft Cortana Intelligence tävlingar unites en global grupp data entusiaster av gemensamt lösa några av världens mest komplexa datavetenskap problem. Cortana Intelligence tävlingar kan data entusiaster från över hela världen till konkurrera och skapa hög korrekt och intelligent vetenskap datamodeller. Dessa värdbaserade tävlingar baserat på unika datamängder som har gjorts tillgängliga offentligt för första gången. Deltagare kan win utdelningen eller hämta recognition via de översta 10 offentliga resultattavlan. Du kan komma åt webbplatsen tävlingar på [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Hur ofta Microsoft släpper nya tävlingar?**
 
@@ -31,33 +31,33 @@ Vi kommer att startas part 1, Microsoft ägda tävlingar regelbundet, ungefär v
 
 **Där kan be allmänna frågor om datavetenskap?**
 
-Använd våra [forum för Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Du kan använda för allmänna frågor i [forum för Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **Hur anger en konkurrensen?**
 
-Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsidan i den [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/), eller gå till [http://aka.ms/CIComp](http://aka.ms/CIComp). Sidan visas alla tävlingar som körs för närvarande. Varje konkurrens har detaljerade instruktioner och deltagande priser och varaktighet för dess registreringssidan.
+Åtkomst till den [tävlingar](https://gallery.cortanaintelligence.com/competitions) startsidan i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/), eller gå till [http://aka.ms/CIComp](http://aka.ms/CIComp). Sidan visas alla tävlingar som körs för närvarande. Varje konkurrens har detaljerade instruktioner och deltagande priser och varaktighet för dess registreringssidan.
 
-1. Hitta konkurrens som du vill delta i, läsa alla instruktioner och se självstudiekursen video och klicka sedan på den **ange konkurrensen** för att kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsytan. Om du inte redan har åtkomst till en arbetsyta, måste du skapa ett i förväg. Kör experimentet Starter, se prestanda måttet och sedan använda din kreativitet för att förbättra prestanda i modellen. Troligen tillbringar du merparten av din tid i det här steget.   
+1. Hitta konkurrens som du vill delta i, läsa alla instruktioner och titta på videon självstudiekursen. Klicka på den **ange konkurrensen** knappen och kopiera Starter experimentet till din befintliga Azure Machine Learning-arbetsytan. Om du inte redan har åtkomst till en arbetsyta, måste du skapa ett i förväg. Kör experimentet Starter, se prestanda måttet och sedan använda din kreativitet för att förbättra prestanda i modellen. Troligen tillbringar du merparten av din tid i det här steget.   
 
-2. Skapa en Prediktivt Experiment med den tränade modellen utanför experimentet Starter. Sedan noggrant justera indata och utdata schemat för webbtjänsten för att se till att de uppfyller de krav som anges i dokumentationen för konkurrens. Självstudiekurs dokumentet kommer normalt ha detaljerade instruktioner för detta. Du kan också titta på videon självstudiekurs om de är tillgängliga.   
+2. Skapa en Prediktivt Experiment med den tränade modellen utanför experimentet Starter. Sedan noggrant justera indata och utdata schemat för webbtjänsten för att se till att de uppfyller de krav som anges i dokumentationen för konkurrens. Självstudiekurs dokumentet har vanligtvis detaljerade instruktioner för detta. Du kan också titta på videon självstudiekurs om de är tillgängliga.   
 
 3. Distribuera en webbtjänst utanför din Prediktivt Experiment. Testa din web service med hjälp av den **Test** knapp eller Excel-mallen som skapas automatiskt för dig att kontrollera att den fungerar korrekt.   
 
-4. Skicka webbtjänsten som posten konkurrens och se offentliga poängen på sidan Cortana Intelligence Gallery konkurrens. Och fira om du gör den till resultattavlan!  
+4. Skicka webbtjänsten som posten konkurrens och se offentliga poängen på sidan Azure AI-galleriet konkurrens. Och fira om du gör den till resultattavlan!  
 
-När du har skickat en post går du tillbaka till experimentet kopierade Starter iterera, och uppdatera din Prediktivt Experiment, uppdatera webbtjänsten och skicka en ny post.   
+När du har skickat en post kan du gå tillbaka till experimentet kopierade Starter. Sedan iterera och uppdatera din Prediktivt Experiment, uppdatera webbtjänsten och skicka en ny post.   
 
 **Kan jag använda verktyg med öppen källkod för deltagande i dessa tävlingar?**
 
-Konkurrensen deltagare utnyttja Azure Machine Learning Studio, en molnbaserad tjänst i Cortana Intelligence Suite för utveckling av vetenskap datamodeller och för att skapa konkurrensen poster för överföring. Machine Learning Studio ger inte bara ett GUI-gränssnitt för att konstruera maskininlärningsexperiment, det ger dig möjlighet att göra egna R eller Python-skript för intern körning. R och Python körningar i Studio medföljer en omfattande uppsättning R/Python-paket som öppen källkod och du kan importera egna paket som en del av experimentet samt. Studio har också en inbyggd tjänst Jupyter-anteckningsboken att kostnadsfri style datagranskning. Du kan självklart alltid hämta datauppsättningar som används i konkurrensen och utforska i din favorit verktyget utanför Machine Learning Studio. 
+Konkurrensen deltagarna använder Azure Machine Learning Studio, en molnbaserad tjänst i Cortana Intelligence Suite för utveckling av vetenskap datamodeller och för att skapa konkurrensen poster för överföring. Machine Learning Studio ger inte bara ett GUI-gränssnitt för att konstruera maskininlärningsexperiment, det ger dig möjlighet att göra egna R eller Python-skript för intern körning. R och Python körningar i Studio har ett stort utbud av öppen källkod R/Python-paket. Du kan importera egna paket som en del av experimentet samt. Studio har också en inbyggd tjänst Jupyter-anteckningsboken att kostnadsfri style datagranskning. Du kan självklart alltid hämta datauppsättningar som används i konkurrensen och utforska i din favorit verktyget utanför Machine Learning Studio. 
 
 **Måste jag vara en data-forskare att ange?**
 
-Nej. Vi rekommenderar i själva verket data entusiaster nyfiken om datavetenskap och andra blivande datavetare ange vår tävling. Vi har gjort stöddokument för Tillåt alla att konkurrera. Vår målgrupp är:
+Nej. I själva verket gärna data entusiaster någon nyfiken datavetenskap och andra blivande datavetare och ange vår tävling. Vi har gjort stöddokument för Tillåt alla att konkurrera. Målgruppen är:
 
 * **Data utvecklare**, **Datavetare**, **BI** och **Analytics proffs**: personer som ansvarar för att framställa data och analyser innehåll för andra ska kunna använda
 * **Data förvaltare**: de som har kunskapen om data vad det innebär och hur den har avsedd att användas och i vilket syfte
-* **Studenter** & **forskare:** personer inlärning och få data relaterade kunskaper via academic program på universitet eller deltagare i massiv öppna onlinekurser (MOOCs)
+* **Studenter** & **forskare:** personer inlärning och få data som är relaterade kunskaper via academic program på universitet eller deltagare i massiv öppna onlinekurser (MOOCs)
 
 **Kan jag in med min kollegor som ett team?**
 
@@ -65,7 +65,7 @@ Plattformen konkurrens stöder för närvarande inte team deltagande. Varje post
 
 **Behöver jag betala för att delta i en tävling?**
 
-Tävlingar kan delta i. Men behöver åtkomst till en Azure Machine Learning-arbetsytan delta. Du kan skapa en kostnadsfri arbetsyta utan kreditkort genom att logga in med ett giltigt microsoftkonto eller ett Office 365-konto. Om du redan är en kund med Azure eller Cortana Intelligence Suite kan du skapa och använda en Standard arbetsyta under samma Azure-prenumerationen. Om du vill köpa en Azure-prenumeration går du till den [priser för Azure](https://azure.microsoft.com/pricing) sidan. Observera att standardpriser gäller när du använder en Standard arbetsyta för att konstruera experiment. Se [Azure Machine Learning prisinformation](https://azure.microsoft.com/pricing/details/machine-learning/) för mer information. 
+Tävlingar kan delta i. Men behöver åtkomst till en Azure Machine Learning-arbetsytan delta. Du kan skapa en kostnadsfri arbetsyta utan kreditkort genom att logga in med ett giltigt microsoftkonto eller ett Office 365-konto. Om du redan är en kund med Azure eller Cortana Intelligence Suite kan du skapa och använda en Standard arbetsyta under samma Azure-prenumerationen. Om du vill köpa en Azure-prenumeration går du till den [priser för Azure](https://azure.microsoft.com/pricing) sidan. Observera att standardpriser gäller när du använder en Standard arbetsyta för att konstruera experiment. Mer information finns i [Azure Machine Learning prisinformation](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -78,7 +78,7 @@ Här är vad som händer:
 * Hela datamängden som används i konkurrensen delas slumpmässigt med stratifiering i träning och testning (återstående) data. Slumpmässiga delningen stratified för att säkerställa att distributioner av etiketterna i både träning och testning data är konsekventa.
 * Utbildning data överförs och fått som en del av experimentet Starter i modulkonfigurationen importera Data.
 * Tester data delas upp ytterligare i offentliga och privata testnings data med samma stratifieringen.
-* Offentliga tester data används för inledande runda av bedömningen. Resultatet är kallas den offentliga poängen och det är vad som visas i historiken skickas när du skickar din inmatning. Det här resultatet beräknas för varje post som du skickar. Den här offentliga poäng används för att du är på den offentliga resultattavlan.
+* Offentliga tester data används för inledande runda av bedömningen. Resultatet kallas den offentliga poängen. Det är vad som visas i historiken skickas när du skickar din inmatning. Det här resultatet beräknas för varje post som du skickar. Den här offentliga poäng används för att du är på den offentliga resultattavlan.
 * Privata testnings data används för den slutliga hundratal bedömningen när konkurrensen upphör. Detta kallas för privata poäng. 
 * För varje deltagare markeras automatiskt ett fast antal poster med högsta offentliga resultat att ange den privata bedömningsprofil round (det här antalet kan variera beroende på konkurrensen). Posten med den högsta privata poängen väljs sedan att ange den slutliga rangordning som slutligen avgör vinnarna pris.  
 

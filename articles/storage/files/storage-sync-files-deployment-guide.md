@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Distribuera Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planera för distribution av en Azure-filer](storage-files-planning.md) och [planera för distribution av en Azure filsynkronisering](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Ett Azure Storage-konto och ett Azure filresurs i samma region som du vill distribuera Azure filsynkronisering. Mer information finns i:
     - [Regional tillgänglighet](storage-sync-files-planning.md#region-availability) för Azure filsynkronisering.
     - [Skapa ett lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för en stegvis beskrivning av hur du skapar ett lagringskonto.
@@ -71,6 +71,7 @@ Azure filsynkronisering agenten är hämtningsbara paket som gör det möjligt f
 
 > [!Important]  
 > Om du tänker använda Azure filsynkronisering med ett redundanskluster måste filsynkronisering för Azure-agenten installeras på varje nod i klustret.
+
 
 Installera installationspaketet Azure filsynkronisering agent relativt snabbt och utan för många ytterligare frågor. Vi rekommenderar att du gör följande:
 - Lämna standardinstallationssökvägen (C:\Program Files\Azure\StorageSyncAgent) för att förenkla underhållet för felsökning och server.
@@ -118,6 +119,36 @@ Om du vill lägga till Serverslutpunkten, Välj **skapa**. Filerna är nu synkro
 
 > [!Important]  
 > Du kan göra ändringar till en molnslutpunkt eller Serverslutpunkten i gruppen synkronisering och ha dina filer synkroniseras till de andra slutpunkterna i gruppen synkronisering. Om du gör en ändring i molnslutpunkt (Azure-filresursen) direkt måste ändringar först identifieras av en Azure-filen ändras identifiering synkroniseringsjobb. Ett jobb för identifiering av ändring initieras för en molnslutpunkt bara en gång per dygn. Mer information finns i [Azure Files vanliga frågor och](storage-files-faq.md#afs-change-detection).
+
+## <a name="onboarding-with-azure-file-sync"></a>Onboarding med Azure File synkronisering
+Rekommenderade åtgärder ska publiceras på Azure filsynkronisering för först med noll avbrottstid samtidigt som fullständiga återgivning och åtkomstkontrollistan (ACL) är följande:
+ 
+1.  Distribuera en tjänst för synkronisering av lagring.
+2.  Skapa en grupp för synkronisering.
+3.  Installera Azure filsynkronisering agenten på servern med fullständig datauppsättning.
+4.  Registrera servern och skapa en serverslutpunkt för resursen. 
+5.  Kan synkronisera gör fullständig överföringen till Azure-filresursen (molnslutpunkt).  
+6.  När den första överföringen är klar, installerar du Azure filsynkronisering agenten på de återstående servrarna.
+7.  Skapa nya filresurser på var och en av de återstående servrarna.
+8.  Skapa server-slutpunkter på nya filresurser med principer för molnet lagringsnivåer, om så önskas. (Det här steget kräver ytterligare lagringsutrymme ska vara tillgänglig för den första installationen.)
+9.  Kan Azure filsynkronisering agent om du vill göra en snabb återställning av det fullständiga namnområdet utan faktiska dataöverföringen. Efter fullständig namnområde-synkronisering fylls Synkroniseringsmotorn det lokala diskutrymme baserat på principer för lagringsnivåer för molnet för Serverslutpunkten. 
+10. Se till att synkroniseringen har slutförts och testa din topologi efter behov. 
+11. Omdirigera användare och program till nya resursen.
+12. Du kan eventuellt ta bort alla dubbla resurser på servrarna.
+ 
+Om du inte har extra lagring för inledande onboarding och vill ansluta till de befintliga resurserna, kan du initiera data i Azure filresurser före. Den här metoden föreslås endast om du kan acceptera avbrott och absolut garantera att inga dataändringar för serverresurser under inledande onboarding-processen. 
+ 
+1.  Se till att data på någon av servrarna inte kan ändras under onboarding-processen.
+2.  Före utsäde Azure filresurser med data på servern med ett verktyg för överföring av data över SMB t.ex. Robocopy direkt SMB kopia. Eftersom AzCopy inte ladda upp data via SMB så den kan inte användas för före seeding.
+3.  Skapa Azure filsynkronisering topologi med önskad server-slutpunkter som pekar på de befintliga resurserna.
+4.  Kan synkronisera Slutför avstämning process på alla slutpunkter. 
+5.  När avstämningen är klar kan öppna du resurser för ändringar.
+ 
+Tänk på att för närvarande före seeding metod har några begränsningar- 
+- Fullständig återgivning på filer sparas inte. Till exempel förlorar filer ACL: er och tidsstämplar.
+- Dataändringar på servern innan sync topologin är helt upp och körs kan orsaka konflikter på server-slutpunkter.  
+- När molnet slutpunkten har skapats körs Azure filsynkronisering en process för att identifiera filer i molnet innan du startar den första synkroniseringen. Den tid det tar att slutföra den här processen varierar beroende på de olika faktorerna som nätverkshastigheten, tillgänglig bandbredd och antalet filer och mappar. För grov uppskattning i förhandsversionen körs identifieringsprocessen ungefär vid 10 filer per sekund.  Därför måste även om seeding före körs snabbt vara den totala tid att hämta ett fullständigt system betydligt längre när data är förinstallerade i molnet.
+
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrera en distribution av DFS Replication (DFS-R) till Azure filsynkronisering
 Att migrera en DFS-R-distribution till Azure filsynkronisering:

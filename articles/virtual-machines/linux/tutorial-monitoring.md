@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Hur du övervakar och uppdatera en virtuell Linux-dator i Azure
 
@@ -130,7 +130,7 @@ En Linux-VM med en dedikerad värd i Azure som den interagerar med. Mått är au
 >
 > Version 3.0 av Linux diagnostiska tillägget kan aktiveras i stället. Mer information finns i [dokumentationen](./diagnostic-extension.md).
 
-De grundläggande värden är tillgänglig, men att se mer detaljerad och VM-specifika statistik, och du behöver installera Azure-diagnostik-tillägget på den virtuella datorn. Azure diagnostics-tillägget kan ytterligare övervakning och diagnostikdata som ska hämtas från den virtuella datorn. Du kan visa dessa prestandamått och skapa varningar baserat på hur den virtuella datorn utför. Diagnostiska tillägget installeras via Azure portal på följande sätt:
+De grundläggande värden är tillgänglig, men om du vill se mer detaljerad och VM-specifika mått, måste du installera Azure-diagnostik-tillägget på den virtuella datorn. Azure diagnostics-tillägget kan ytterligare övervakning och diagnostikdata som ska hämtas från den virtuella datorn. Du kan visa dessa prestandamått och skapa varningar baserat på hur den virtuella datorn utför. Diagnostiska tillägget installeras via Azure portal på följande sätt:
 
 1. I Azure-portalen klickar du på **resursgrupper**väljer **myResourceGroup**, och välj sedan **myVM** i resurslistan.
 1. Klicka på **diagnos inställningar**. I listan visas som *starta diagnostik* redan aktiverat från föregående avsnitt. Klicka på kryssrutan för *grundläggande mått*.
@@ -167,7 +167,7 @@ I följande exempel skapas en avisering för Genomsnittlig CPU-användning.
 
 Genom att använda hantering av uppdateringar kan hantera du paketet uppdateringar och korrigeringsfiler för din Azure Linux virtuella datorer. Direkt från din virtuella dator du kan snabbt bedöma statusen för uppdateringar, schemalägga installationen av obligatoriska uppdateringar och granska resultatet av distributionen för att kontrollera uppdateringar har använts på den virtuella datorn.
 
-Information om priser finns [Automation priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/)
+Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/)
 
 ### <a name="enable-update-management-preview"></a>Aktivera uppdateringshantering (förhandsgranskning)
 
@@ -177,40 +177,40 @@ Aktivera hantering av uppdatering för den virtuella datorn
 1. Välj en virtuell dator i listan.
 1. På skärmen VM i den **Operations** klickar du på **uppdateringshantering**. Den **aktivera uppdateringshantering** skärmen öppnas.
 
-Verifieringen utförs för att fastställa om uppdateringen management har aktiverats för den här virtuella datorn. Verifieringen inkluderar söker efter en logganalys-arbetsytan och länkade Automation-konto, och om lösningen i arbetsytan.
+Verifieringen utförs för att fastställa om uppdateringshantering är aktiverat för den här virtuella datorn. Verifieringen söker efter en Log Analytics-arbetsyta och ett länkat Automation-konto, och om lösningen är i arbetsytan.
 
-Logganalys-arbetsytan används för att samla in data som genereras av funktioner och tjänster, till exempel hantering av uppdateringar. Arbetsytan innehåller en enda plats för att granska och analysera data från flera källor. Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppdateringar kan Azure Automation du köra skript mot virtuella datorer, såsom att hämta och installera uppdateringar.
+Logganalys-arbetsytan används för att samla in data som genereras av funktioner och tjänster, till exempel hantering av uppdateringar. Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor. Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppdateringar kan Azure Automation du köra skript mot virtuella datorer, såsom att hämta och installera uppdateringar.
 
-Valideringen kontrollerar även om den virtuella datorn har etablerats med Microsoft Monitoring Agent (MMA) och worker-hybrid. Den här agenten används för att kommunicera med den virtuella datorn och få information om uppdateringsstatus. 
+Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Hybrid Worker. Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus. 
 
 Om förutsättningarna inte uppfylls visas en banderoll som ger dig möjlighet att aktivera lösningen.
 
-![Uppdatera Management publicera configuration banderoll](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+![Publicering av konfigurationsbanderoll för Uppdateringshantering](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
 
 Klicka på banderollen för att aktivera lösningen. Om någon av följande förutsättningar hittades saknas efter valideringen läggs de automatiskt:
 
-* [Logga Analytics](../../log-analytics/log-analytics-overview.md) arbetsytan
+* [Log Analytics](../../log-analytics/log-analytics-overview.md)-arbetsyta
 * [Automation](../../automation/automation-offering-get-started.md)
-* En [runbook worker-Hybrid](../../automation/automation-hybrid-runbook-worker.md) är aktiverat på den virtuella datorn
+* En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
 Den **aktivera uppdateringshantering** skärmen öppnas. Konfigurera inställningarna och klicka på **aktivera**.
 
 ![Aktivera uppdateringshantering](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
 Aktivera lösningen kan ta upp till 15 minuter och under tiden ska du inte stänga webbläsarfönstret. När lösningen har aktiverats, flödar information om uppdateringar som saknas från package manager på den virtuella datorn till logganalys.
-Det kan ta mellan 30 minuter och 6 timmar för att data ska vara tillgängliga för analys.
+Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ### <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
 Efter den **uppdateringshantering** lösningen aktiveras den **uppdateringshantering** visas. Du kan se en lista med uppdateringar som saknas på fliken  **Uppdateringar som saknas**.
 
-![Visa status för uppdateringen](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+![Visa uppdateringsstatus](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
 ### <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
 Schemalägga en distribution som följer viktig schema och underhåll fönstret för att installera uppdateringarna.
 
-Schemalägga en ny distribution av uppdatering för den virtuella datorn genom att klicka på **schema uppdateringsdistribution** överst i den **uppdateringshantering** skärmen. I den **ny uppdatera distribution** skärmen, anger du följande information:
+Schemalägga en ny distribution av uppdatering för den virtuella datorn genom att klicka på **schema uppdateringsdistribution** överst i den **uppdateringshantering** skärmen. På skärmen **Ny uppdateringsdistribution** anger du följande information:
 
 * **Namn** – Ett unikt namn som identifierar uppdateringsdistributionen.
 * **Uppdateringar för att utesluta** -Välj detta för att ange namnen på de paket som ska undantas från uppdateringen.
@@ -235,18 +235,18 @@ Om distributionen körs visas status **Pågår**. När distributionen har slutf�
 Om det har uppstått ett fel med en eller flera uppdateringar i distributionen är status **misslyckades**.
 Klicka på den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
 
-![Uppdatera distributionen instrumentpanelen distribution](./media/tutorial-monitoring/manage-updates-view-results.png)
+![Statusinstrumentpanel för Uppdatera distribution för specifik distribution](./media/tutorial-monitoring/manage-updates-view-results.png)
 
 I **Uppdatera resultat** panelen visas en sammanfattning av det totala antalet uppdateringar och distributionsresultat på den virtuella datorn.
 I tabellen till höger visas detaljer för varje uppdatering och installationsresultaten, som kan ha ett av följande värden:
 
-* **Inget försök** -uppdateringen installerades inte eftersom det inte har tillräckligt med tid tillgänglig baserat på Underhåll fönstervaraktigheten som definierats.
+* **Inget försök har gjorts** – Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid utifrån det underhållsfönster som definierats.
 * **Lyckades** -uppdateringen har hämtat och installerat på den virtuella datorn
 * **Det gick inte** -uppdateringen kunde inte hämtas eller installeras på den virtuella datorn.
 
 Klicka på **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 
-Klicka på den **utdata** ruta visas jobbström runbook ansvarar för att hantera distributionen av uppdateringen på målet VM.
+Klicka på panelen **Utdata** om du vill se jobbströmmen för den runbook som ansvarar för att hantera uppdateringsdistributionen på den virtuella måldatorn.
 
 Klicka på **Fel** om du vill se detaljerad information om fel som uppstått vid distributionen.
 

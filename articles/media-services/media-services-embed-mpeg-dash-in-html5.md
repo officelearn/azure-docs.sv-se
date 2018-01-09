@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in en MPEG-DASH anpassningsbar direktuppspelad Video i ett HTML5-program med DASH.js
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in en MPEG-DASH anpassningsbar direktuppspelad Video i ett HTML5-program med DASH.js
 ## <a name="overview"></a>Översikt
 MPEG-DASH är en ISO-standarden för anpassningsbar strömning av video innehållet, vilket medför betydande fördelar för dem som vill leverera hög kvalitet, anpassningsbar videoströmmar utdata. Med MPEG-DASH släpper video-ström automatiskt till en lägre definition när nätverket blir överbelastad. Detta minskar sannolikheten för visningsprogrammet se en video som ”pausad” medan hämtas nästa några sekunder att spela upp (aka buffert). Eftersom överbelastning minskar återgår i sin tur video spelaren till en dataström med högre kvalitet. Den här möjligheten att anpassa den bandbredd som krävs också resulterar i en snabbare starttid för video. Som innebär att några sekunder kan spelas upp i ett fast hämta lägre kvalitet segment och sedan steg upp till en högre kvalitet när tillräckligt innehåll har buffrats.
 
 Dash.js är en öppen källkod MPEG-DASH videospelare skriven i JavaScript. Syftet är att tillhandahålla en robust, plattformsoberoende spelare som fritt kan återanvändas i program som kräver uppspelning av video. Det ger MPEG-DASH uppspelning i valfri webbläsare som stöder W3C Media källa tillägg (mus) idag Chrome, Microsoft Edge och IE11 (sin avsikt att stödja mus har angett i andra webbläsare). Mer information om DASH.js finns js dash.js GitHub-lagret.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Skapa en webbläsarbaserad strömmande videospelare
-Om du vill skapa en enkel webbsida som visar en videospelare med den förväntade styr dessa en play, pausa, tillbakaspolning etc., behöver du:
+Om du vill skapa en enkel webbsida som visar en videospelare med den förväntade styr dessa en play, pausa, tillbakaspolning etc., måste du:
 
 1. Skapa en HTML-sida
 2. Lägg till taggen video
@@ -36,7 +36,7 @@ Om du vill skapa en enkel webbsida som visar en videospelare med den förväntad
 5. Lägga till vissa CSS-format
 6. Visa resultaten i en webbläsare som implementerar mus
 
-Initierar Windows Media player kan utföras i bara ett fåtal rader med JavaScript-kod. Med dash.js verkligen är det enkelt att bädda in video MPEG-DASH i webbläsarbaserade program.
+Initierar Windows Media player kan utföras i bara ett fåtal rader med JavaScript-kod. Med dash.js verkligen är det enkelt att bädda in video MPEG-DASH i dina webbläsarbaserat program.
 
 ## <a name="creating-the-html-page"></a>Skapa HTML-sida
 Det första steget är att skapa en vanlig HTML-sida som innehåller den **video** element, spara filen som basicPlayer.html, som i följande exempel visar:
@@ -51,7 +51,7 @@ Det första steget är att skapa en vanlig HTML-sida som innehåller den **video
     </html>
 
 ## <a name="adding-the-dashjs-player"></a>Lägga till DASH.js Player
-Om du vill lägga till dash.js referens-implementering i programmet, måste du hämta filen dash.all.js från version 1.0 av dash.js projekt. Detta ska sparas i mappen JavaScript i ditt program. Den här filen är en bekvämlighet som sammanställer alla nödvändiga dash.js koden i en enda fil. Om du har en titt runt dash.js databasen du ska söka efter enskilda filer, testa koden och mycket mer, men om du vill göra är Använd dash.js sedan filen dash.all.js är vad du behöver.
+Om du vill lägga till dash.js referens-implementering i programmet måste du hämta filen dash.all.js från version 1.0 av dash.js projekt. Detta ska sparas i mappen JavaScript i ditt program. Den här filen är en bekvämlighet som sammanställer alla nödvändiga dash.js koden i en enda fil. Om du har en titt runt dash.js databasen kan du hitta de enskilda filerna, testa koden och mycket mer, men om du vill göra är använda dash.js, är dash.all.js filen vad du behöver.
 
 Lägg till en skripttagg basicPlayer.html head-avsnittet för att lägga till spelaren dash.js för dina program:
 
@@ -73,9 +73,9 @@ Skapa sedan en funktion för att initiera spelaren när sidan läses in. Lägg t
     }
     </script>
 
-Den här funktionen skapar först ett DashContext. Används för att konfigurera program för en specifik körningsmiljö. Den definierar de klasser som beroende injection framework ska användas för att konstruera programmet från en teknisk synvinkel. I de flesta fall ska du använda Dash.di.DashContext.
+Den här funktionen skapar först ett DashContext. Används för att konfigurera program för en specifik körningsmiljö. Den definierar de klasser som beroende injection framework ska användas för att konstruera programmet från en teknisk synvinkel. I de flesta fall använder du Dash.di.DashContext.
 
-Därefter instansiera primära klassen för ramverket dash.js Media Player. Den här klassen innehåller metoder som behövs spela upp och pausa, hanterar relationen med elementet video och hanterar också för tolkningen av filen Media Presentation beskrivning (MPD) som beskriver videon ska spelas upp.
+Därefter instansiera primära klassen för ramverket dash.js Media Player. Den här klassen innehåller metoder som behövs spela upp och pausa, hanterar relationen med elementet video och hanterar också för tolkningen av filen Media Presentation beskrivning (MPD), som beskriver videon ska spelas upp.
 
 Funktionen startup() av Media Player-klassen anropas för att säkerställa att spelaren är redo att spela upp video. Bland annat funktionen ser till att alla nödvändiga klasserna (som definieras av kontexten) har lästs in. När Windows Media player är klar kan bifoga du video elementet till den med hjälp av funktionen attachView(). Detta gör att MediaPlayer att mata in video-ström i elementet och också styra uppspelning vid behov.
 

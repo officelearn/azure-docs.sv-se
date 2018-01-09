@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.
@@ -34,6 +34,12 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
   1. Tillagda nya kommandona som används för att felsöka agent
   2. Förbättringar för agenten tillgänglighet 
   3. Felkorrigeringar och allmänna förbättringar
+  
+## <a name="october-2017"></a>Oktober 2017
+**Agentuppdatering:**
+
+ * Azure AD Connect Health agent för synkronisering (version 3.0.129.0) lanseras med Azure AD Connect version 1.1.649.0
+<br></br> Fast ett version kompatibilitetsproblem mellan Azure AD Connect och Azure AD Connect Health Agent för synkronisering. Det här problemet påverkar kunder som utför Azure AD Connect på plats-uppgradering till version 1.1.647.0, men har för närvarande Hälsoagenten version 3.0.127.0. Efter uppgraderingen skicka Hälsoagenten inte längre hälsotillståndsdata om Azure AD Connect-synkroniseringstjänsten till Azure AD Health-tjänsten. Med den här snabbkorrigeringen installeras Hälsoagenten version 3.0.129.0 under uppgradering på plats för Azure AD Connect. Hälsoagenten version 3.0.129.0 saknar kompatibilitetsproblem med Azure AD Connect version 1.1.649.0.
 
 ## <a name="july-2017"></a>Juli 2017
 **Agentuppdatering:**
@@ -44,6 +50,8 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 *   Azure AD Connect Health agent för AD FS (version 3.0.68.0)
   1. Felkorrigeringar och allmänna förbättringar
   2. Stöd för suveräna moln
+* Azure AD Connect Health agent för synkronisering (version 3.0.68.0) lanseras med Azure AD Connect version 1.1.614.0
+1. Stöd för Microsoft Azure Government-molnet och Microsoft Cloud Tyskland
 
 ## <a name="april-2017"></a>April 2017      
 **Agentuppdatering:**
@@ -58,13 +66,13 @@ Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med
 **Agentuppdatering:**
 
 * Azure AD Connect Health agent för AD FS \(version 2.6.408.0\)
-  1. Förbättringar för identifiering av klienternas IP-adresser i autentiseringsbegäranden
-  2. Felkorrigeringar relateras till aviseringar
+1. Förbättringar för identifiering av klienternas IP-adresser i autentiseringsbegäranden
+2. Felkorrigeringar relateras till aviseringar
 * Azure AD Connect Health agent för AD DS (version 2.6.408.0)
-  1. Felkorrigeringar relateras till aviseringar.
+1. Felkorrigeringar relateras till aviseringar.
 * Azure AD Connect Health agent för synkronisering (version 2.6.353.0) lanseras med Azure AD Connect version 1.1.281.0
-  1. Ange data som krävs för synkronisering felrapporter
-  2. Felkorrigeringar relateras till aviseringar
+1. Ange data som krävs för synkronisering felrapporter
+2. Felkorrigeringar relateras till aviseringar
 
 **Nya förhandsgranskningsfunktioner:**
 

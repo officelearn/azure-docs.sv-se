@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduktion till Azure Cosmos DB: Graph API
 
@@ -103,7 +103,7 @@ Azure Cosmos-DB erbjuder följande differentierade funktioner jämfört med andr
 Azure Cosmos-DB kan också använda flera modeller som dokument och diagram i samma behållare/databaser. Du kan använda en dokumentsamling för att lagra diagramdata bredvid dokument. Du kan använda både SQL-frågor via JSON och Gremlin frågor för att fråga efter samma data som ett diagram.
 
 ## <a name="get-started"></a>Kom igång
-Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen med stöd för graph API för att skapa Azure DB som Cosmos-konton. När du har skapat konton Azure-portalen innehåller en tjänstslutpunkt som `https://<youraccount>.graphs.azure.com`, som ger en WebSocket-klientdel för Gremlin. Du kan konfigurera din TinkerPop-kompatibla verktyg som den [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och eventuella Gremlin klientdrivrutinen.
+Du kan använda Azure-kommandoradsgränssnittet (CLI), Azure PowerShell eller Azure-portalen med stöd för graph API för att skapa Azure DB som Cosmos-konton. När du har skapat konton Azure-portalen innehåller en tjänstslutpunkt som `https://<youraccount>.gremlin.cosmosdb.azure.com`, som ger en WebSocket-klientdel för Gremlin. Du kan konfigurera din TinkerPop-kompatibla verktyg som den [Gremlin konsolen](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), för att ansluta till den här slutpunkten och skapa program i Java, Node.js och eventuella Gremlin klientdrivrutinen.
 
 I följande tabell visas populära Gremlin drivrutiner som du kan använda mot Azure Cosmos DB:
 

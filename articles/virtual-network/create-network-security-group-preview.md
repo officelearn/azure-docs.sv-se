@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrera nätverkstrafik med nätverks- och säkerhetsgrupper (förhandsgranskning)
 
@@ -42,14 +42,14 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 3. Logga in på Azure med den `az login` kommando.
 4. Registrera dig för förhandsversionen genom att ange följande kommandon:
     
-    ```azurecli-interactive
+    ```azurecli
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     az provider register --namespace Microsoft.Network
     ``` 
 
 5. Bekräfta att du är registrerad för förhandsversionen av genom att ange följande kommando:
 
-    ```azurecli-interactive
+    ```azurecli
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
@@ -58,7 +58,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 6. Kör följande bash-skript för att skapa en resursgrupp:
 
-    ```azurecli-interactive
+    ```azurecli
     #!/bin/bash
     
     az group create \
@@ -68,7 +68,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 7. Skapa tre program säkerhetsgrupper, ett för varje servertyp:
 
-    ```azurecli-interactive
+    ```azurecli
     az network asg create \
       --resource-group myResourceGroup \
       --name WebServers \
@@ -87,7 +87,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 8. Skapa en säkerhetsgrupp för nätverk:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg create \
       --resource-group myResourceGroup \
       --name myNsg \
@@ -96,7 +96,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 9. Skapa säkerhetsregler inom NSG, ställa in programmet säkerhetsgrupper som mål:
     
-    ```azurecli-interactive    
+    ```azurecli    
     az network nsg rule create \
       --resource-group myResourceGroup \
       --nsg-name myNsg \
@@ -136,7 +136,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 10. Skapa ett virtuellt nätverk: 
     
-    ```azurecli-interactive
+    ```azurecli
     az network vnet create \
       --name myVnet \
       --resource-group myResourceGroup \
@@ -147,7 +147,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 11. Koppla nätverkssäkerhetsgruppen för undernätet i det virtuella nätverket:
 
-    ```azurecli-interactive
+    ```azurecli
     az network vnet subnet update \
       --name mySubnet \
       --resource-group myResourceGroup \
@@ -157,7 +157,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
     
 12. Skapa tre nätverksgränssnitt, ett för varje servertyp: 
 
-    ```azurecli-interactive
+    ```azurecli
     az network nic create \
       --resource-group myResourceGroup \
       --name myNic1 \
@@ -183,11 +183,11 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --application-security-groups "DatabaseServers"
     ```
 
-    Endast motsvarande säkerhetsregeln du skapade i steg 9 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för *myNic1*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på *myNic1*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
+    Endast motsvarande säkerhetsregeln du skapade i steg 9 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *AppRule* regeln ska gälla för *myNic2*eftersom nätverksgränssnittet är medlem i den *AppServers* programmet säkerhetsgrupp och regeln Anger den *AppServers* programmet säkerhetsgrupp som mål. Den *WebRule* och *DatabaseRule* regler tillämpas inte på *myNic2*eftersom nätverksgränssnittet inte är medlem i den *webbservrar*och *DatabaseServers* säkerhetsgrupper för programmet. Både den *WebRule* och *AppRule* reglerna är giltiga för *myNic1* dock eftersom den *myNic1* nätverksgränssnittet är medlem i både den *webbservrar* och *AppServers* säkerhetsgrupper för programmet och reglerna som anger den *webbservrar* och *AppServers* programmet säkerhetsgrupper som sina mål. 
 
 13. Skapa en virtuell dator för varje servertyp som kopplar nätverksgränssnittet motsvarande till varje virtuell dator. Det här exemplet skapar Windows-datorer, men du kan ändra *win2016datacenter* till *UbuntuLTS* att skapa virtuella Linux-datorer i stället.
 
-    ```azurecli-interactive
+    ```azurecli
     # Update for your admin password
     AdminPassword=ChangeYourAdminPassword1
 
@@ -198,7 +198,8 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --nics myNic1 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -207,7 +208,8 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       --nics myNic2 \
       --image win2016datacenter \
       --admin-username azureuser \
-      --admin-password $AdminPassword
+      --admin-password $AdminPassword \
+      --no-wait
 
     az vm create \
       --resource-group myResourceGroup \
@@ -281,8 +283,8 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -SourceAddressPrefix Internet `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $webAsg.id `
-      -DestinationPortRange 80  
-
+      -DestinationPortRange 80
+    
     $appRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "AppRule" `
       -Access Allow `
@@ -292,8 +294,8 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -SourceApplicationSecurityGroupId $webAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $appAsg.id `
-      -DestinationPortRange 443 
-
+      -DestinationPortRange 443
+      
     $databaseRule = New-AzureRmNetworkSecurityRuleConfig `
       -Name "DatabaseRule" `
       -Access Allow `
@@ -303,7 +305,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -SourceApplicationSecurityGroupId $appAsg.id `
       -SourcePortRange * `
       -DestinationApplicationSecurityGroupId $databaseAsg.id `
-      -DestinationPortRange 1336    
+      -DestinationPortRange 1336
     ``` 
 
 9. Skapa en säkerhetsgrupp för nätverk:
@@ -361,7 +363,7 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Endast motsvarande säkerhetsregeln du skapade i steg 8 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *WebRule* börjar gälla för *myNic1*eftersom nätverksgränssnittet är medlem i den *webbservrar* programmet säkerhetsgrupp och regeln Anger den *webbservrar* programmet säkerhetsgrupp som mål. Den *AppRule* och *DatabaseRule* regler tillämpas inte på *myNic1*eftersom nätverksgränssnittet inte är medlem i den *AppServers*och *DatabaseServers* säkerhetsgrupper för programmet.
+    Endast motsvarande säkerhetsregeln du skapade i steg 8 tillämpas på nätverksgränssnitt, baserat på säkerhetsgruppen programmet nätverksgränssnittet är medlem i. Om du exempelvis bara den *AppRule* regeln ska gälla för *myNic2*eftersom nätverksgränssnittet är medlem i den *AppServers* programmet säkerhetsgrupp och regeln Anger den *AppServers* programmet säkerhetsgrupp som mål. Den *WebRule* och *DatabaseRule* regler tillämpas inte på *myNic2*eftersom nätverksgränssnittet inte är medlem i den *webbservrar*och *DatabaseServers* säkerhetsgrupper för programmet. Både den *WebRule* och *AppRule* reglerna är giltiga för *myNic1* dock eftersom den *myNic1* nätverksgränssnittet är medlem i både den *webbservrar* och *AppServers* säkerhetsgrupper för programmet och reglerna som anger den *webbservrar* och *AppServers* programmet säkerhetsgrupper som sina mål. 
 
 13. Skapa en virtuell dator för varje servertyp som kopplar nätverksgränssnittet motsvarande till varje virtuell dator. Det här exemplet skapar Windows-datorer, men innan du kör skriptet kan du ändra *-Windows* till *- Linux*, *Microsoft Windows Server* till *Kanoniska*, *WindowsServer* till *UbuntuServer* och *2016 Datacenter* till *14.04.2-LTS*att skapa virtuella Linux-datorer i stället.
 
@@ -429,6 +431,33 @@ Azure CLI-kommandona är desamma, om du kör kommandon från Windows, Linux elle
 
 14. **Valfria**: ta bort resurser som du skapar i den här självstudiekursen genom att slutföra stegen i [bort resurser](#delete-cli).
 
+## <a name="remove-a-nic-from-an-asg"></a>Ta bort ett nätverkskort från en ASG
+När du tar bort ett nätverksgränssnitt från en säkerhetsgrupp för programmet tillämpas ingen av de regler som anger säkerhetsgruppen programmet till nätverksgränssnittet som du tar bort.
+
+### <a name="azure-cli"></a>Azure CLI
+
+Ta bort *myNic3* från alla säkerhetsgrupper för programmet, anger du följande kommando:
+
+```azurecli
+az network nic update \
+  --name myNic3 \
+  --resource-group myResourceGroup \
+  --remove ipConfigurations[0].applicationSecurityGroups
+```
+
+### <a name="powershell"></a>PowerShell
+
+Ta bort *myNic3* från alla säkerhetsgrupper för programmet, ange följande kommandon:
+
+```powershell
+$nic=Get-AzureRmNetworkInterface `
+  -Name myNic3 `
+  -ResourceGroupName myResourceGroup
+
+$nic.IpConfigurations[0].ApplicationSecurityGroups = $null
+$nic | Set-AzureRmNetworkInterface 
+```
+
 ## <a name="delete"></a>Ta bort resurser
 
 När du är klar med den här kursen kan du vill ta bort de resurser som du har skapat, så att du inte betalar användningsavgifter. En resursgrupp också tar du bort alla resurser som finns i resursgruppen.
@@ -443,7 +472,7 @@ När du är klar med den här kursen kan du vill ta bort de resurser som du har 
 
 Ange följande kommando i en CLI-session:
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

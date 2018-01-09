@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -283,4 +283,4 @@ I kursen får du har lärt dig hur du ställer in HBase-replikering i ett virtue
 * [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Översikt över HDInsight HBase](./apache-hbase-overview.md)
 * [Skapa HBase-kluster i Azure-nätverk](./apache-hbase-provision-vnet.md)
-* [Analysera sensordata med Storm och HBase i HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

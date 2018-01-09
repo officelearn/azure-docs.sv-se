@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
 
-Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv.
+Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv. När aktiverad loggas diagnostik och/eller begäranden för bästa prestanda. Både begäranden och diagnostik loggposter skapas bara om det finns begäranden som görs mot tjänstslutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -188,7 +188,7 @@ search *
 
 Azure Data Lake Store ger ett exempel att bearbeta och analysera loggdata. Du kan hitta exempel på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 

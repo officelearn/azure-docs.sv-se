@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Standardformat för Media Encoder och codec-rutiner
 Det här dokumentet innehåller en lista över de vanligaste import och export-filformat som du kan använda med Media Encoder Standard.
@@ -39,7 +39,7 @@ Det här dokumentet innehåller en lista över de vanligaste import och export-f
 | QuickTime (.mov) |Ja |
 
 > [!NOTE]
-> Är en lista över filnamnstillägg som ofta påträffades. Media Encoder Standard stöder många andra (till exempel: .m2ts, .mpeg2video, .qt). Lämna feedback om du försöker att koda en fil och du får ett felmeddelande om formatet inte stöds, [här](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Är en lista över filnamnstillägg som ofta påträffades. Media Encoder Standard stöder många andra (till exempel: .m2ts, .mpeg2video, .qt). Om du försöker att koda en fil och du får ett felmeddelande om formatet inte stöds, ger feedback [här](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
@@ -52,7 +52,7 @@ eller
 
 * MXF, GXF och QuickTime filer där ljuduppspelningen utförs som separata PCM spår men kanalmappning (till stereo eller 5.1) härledas från filens metadata
 
-Observera att stöd för anges explicit/användardefinierat kanalmappning inom en snar framtid.
+Stöd för explicit/användardefinierat kanalmappning anges inom en snar framtid.
 
 ## <a name="input-video-codecs"></a>Inkommande Video-codec
 | Inkommande Video-codec | Stöds |
@@ -107,7 +107,7 @@ I följande tabell visas de codec och filformat som stöds för export.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Koda innehåll på begäran med Azure Media Services](media-services-encode-asset.md)
 
 [Koda med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)

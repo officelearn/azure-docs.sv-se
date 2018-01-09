@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registrera Azure stacken med din Azure-prenumeration
 
@@ -36,7 +36,7 @@ Innan du registrerar Azure stacken med Azure måste du ha:
 
 - Prenumerations-ID för en Azure-prenumeration. Om du vill hämta ID, logga in på Azure, klickar du på **fler tjänster** > **prenumerationer**, klickar du på den prenumeration som du vill använda, och under **Essentials** hittar du i **Prenumerations-ID**. Kina, Tyskland och US government molnprenumerationer stöds inte för närvarande.
 - Användarnamn och lösenord för ett konto som är en ägare till prenumerationen (MSA/2FA konton stöds).
-- *Inte obligatoriskt från och med Azure-stacken 1712 Uppdateringsversion (1.0.180103.2):* Azure Active Directory för Azure-prenumerationen. Du hittar den här katalogen i Azure genom att hovra över din avatar i det övre högra hörnet i Azure-portalen.
+- *Inte obligatoriskt från och med Azure-stacken 1712 Uppdateringsversion (180106.1):* Azure Active Directory för Azure-prenumerationen. Du hittar den här katalogen i Azure genom att hovra över din avatar i det övre högra hörnet i Azure-portalen.
 
 Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/en-us/free/?b=17.06). Registrera Azure Stack ådrar sig utan kostnad på din Azure-prenumeration.
 
@@ -126,7 +126,7 @@ Om du vill ändra faktureringsmodell som tillämpas eller syndikering funktioner
 
 
 ## <a name="disconnected-registration"></a>Frånkopplade registrering
-*Informationen i det här avsnittet gäller som börjar med den uppdaterade versionen som Azure Stack 1712 (1.0.180103.2) och stöds inte med tidigare versioner.*
+*Informationen i det här avsnittet gäller som börjar med den uppdaterade versionen som Azure Stack 1712 (180106.1) och stöds inte med tidigare versioner.*
 
 Om du registrerar Azure Stack i en frånkopplad miljö måste du skaffa en registrering token från Azure Stack-miljö och sedan använda denna token på en dator som kan ansluta till Azure för registrering.  
 

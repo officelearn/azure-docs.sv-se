@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Språk | Exempel 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.RB
-Gå Lang  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
+Perl       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PL
+Java       | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

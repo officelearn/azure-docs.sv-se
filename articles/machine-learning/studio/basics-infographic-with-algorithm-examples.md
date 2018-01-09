@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar infografik: Machine Learning-grunder med algoritmexempel
 Hämta den här enkelt att förstå infographic översikt över machine learning grunderna för att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmen exempel hjälper machine learning-nybörjare förstå vilka algoritmer som ska användas och hur de används.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Populära algoritmer i Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) medföljer stora biblioteket med algoritmer för förutsägelseanalys. Infographic identifierar fyra populära familjer av algoritmer - regression, avvikelseidentifiering, klustring och klassificering - och innehåller länkar till fungerande exemplen i den [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). Galleriet innehåller exempel experiment och självstudier som visar hur dessa algoritmer kan användas i många verkliga lösningar.
+[Azure Machine Learning Studio](https://studio.azureml.net/) medföljer stora biblioteket med algoritmer för förutsägelseanalys. Infographic identifierar fyra populära familjer av algoritmer - regression, avvikelseidentifiering, klustring och klassificering - och innehåller länkar till fungerande exemplen i den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/). Galleriet innehåller exempel experiment och självstudier som visar hur dessa algoritmer kan användas i många verkliga lösningar.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Hämta infographic med algoritmen-exempel
 **[Hämta: Infographic av machine learning grunderna med länkar till exempel algoritmen (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Hämta den här enkelt att förstå infographic översikt över machine learning
 * En lista efter kategori av alla de tillgängliga maskininlärningsalgoritmer i Machine Learning Studio finns [initiera modell] [ initialize-model] i Machine Learning Studio algoritmen modulen hjälpen och.
 * En fullständig alfabetisk lista över algoritmer och moduler i Machine Learning Studio finns [A-Ö-listan över Machine Learning Studio moduler] [ a-z-list] i Machine Learning Studio algoritmen och hjälpa till att modulen.
 * Se [Översiktsdiagram över funktionerna i Azure Machine Learning Studio](studio-overview-diagram.md) om du vill ladda ned och skriva ut ett diagram med en översikt över funktionerna i Machine Learning Studio.
-* En översikt över Cortana Intelligence Gallery och många community-genererad tillgängliga resurser där, se [resursen och identifiera resurser i Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md).
+* En översikt över Azure AI-galleriet och många community-genererad tillgängliga resurser där, se [resursen och identifiera resurser i Azure-galleriet AI](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

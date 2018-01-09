@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Vad är Applösenord i Azure Multi-Factor Authentication?
 Vissa icke-webbläsarappar, till exempel Apple interna e-klienten som använder Exchange Active Sync stöder för tillfället inte multifaktorautentisering. Multifaktorautentisering aktiveras per användare. Det innebär att om en användare har aktiverats för multifaktorautentisering och de försöker använda icke-webbläsarappar, de inte gör. Ett applösenord gör detta möjligt. Du kan inte skapa applösenord om du tillämpar Multifaktorautentisering via principer för villkorlig åtkomst och inte via MFA per användare. Program som använder principer för villkorlig åtkomst för åtkomstkontroll behöver inte applösenord.
@@ -55,30 +55,12 @@ Vid första inloggningen ges ett applösenord som du kan använda.  Dessutom kan
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Hantera lösenord i Azure-portalen
 Om du använder tvåstegsverifiering med Azure som du vill skapa applösenord via Azure-portalen.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Skapa applösenord i Azure-portalen
-1. Logga in på den klassiska Azure-portalen.
-2. Högerklicka på ditt användarnamn längst upp och välj ytterligare säkerhetskontroll.
-3. På sidan proofup överst och välj applösenord
-4. Klicka på **Skapa**.
-5. Ange ett namn för applösenordet och klicka på **nästa**
-6. Kopiera applösenordet till Urklipp och klistrar in den i din app.
-
-   ![Molnet](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Ta bort applösenord i Azure-portalen
-1. Logga in på den klassiska Azure-portalen.
-2. Högerklicka på ditt användarnamn längst upp och välj ytterligare säkerhetskontroll.
-3. Markera överst bredvid ytterligare säkerhetsverifiering **applösenord.**
-4. Bredvid applösenord som du vill ta bort, Välj **ta bort**.
-5. Bekräfta borttagningen genom att klicka på **Ja**.
-6. När applösenordet har tagits bort, kan du klicka på **Stäng**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Hantera applösenord med MyApps-portalen.
 Om du inte är säker på hur du använder multi-Factor authentication kan sedan du alltid skapa och ta bort applösenord myapps-portalen.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Skapa ett applösenord med hjälp av Myapps-portalen
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Skapa ett applösenord med hjälp av MyApps-portalen
 1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Klicka på ditt namn längst upp till höger och välj **profil**.
 3. Välj **ytterligare säkerhetsverifiering**.
@@ -92,7 +74,7 @@ Om du inte är säker på hur du använder multi-Factor authentication kan sedan
 7. Kopiera applösenordet till Urklipp och klistrar in den i din app.
    ![Skapa ett applösenord](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Ta bort ett applösenord med hjälp av Myapps-portalen
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Ta bort ett applösenord med hjälp av MyApps-portalen
 1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Välj profil överst.
 3. Välj **ytterligare säkerhetsverifiering**.

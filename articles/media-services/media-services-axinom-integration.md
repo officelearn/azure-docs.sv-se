@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd Axinom för att leverera Widevine-licenser till Azure Media Services
 > [!div class="op_single_selector"]
@@ -36,9 +36,9 @@ Den här artikeln beskriver hur du integrerar och testa Widevine licensservern s
 
 * Konfigurera dynamic Common Encryption med multi-DRM (PlayReady och Widevine) med motsvarande licens förvärv webbadresserna.
 * Generera en JWT-token för att uppfylla server licensavtalet;
-* Utveckla Azure Media Player-app som hanterar licenser med JWT-token autentisering.
+* Utveckla Azure Media Player-app, som hanterar licenser med JWT-token autentisering.
 
-Hela systemet och flödet av innehåll som är viktiga, nyckel-ID, nyckel seed, JTW token och dess anspråk kan bäst beskrivs i följande diagram.
+Hela systemet och flödet av innehållsnyckeln, nyckel-ID, nyckel seed, JTW token och dess anspråk kan beskrivas bäst med följande diagram:
 
 ![DASH och CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,13 +47,13 @@ Konfigurera dynamisk skydd och viktiga leveransprincipen finns Mingfei's blog: [
 
 Du kan konfigurera skydd för dynamiska CENC med multi-DRM för DASH strömning med båda av följande:
 
-1. PlayReady-skydd för MS Edge och IE11 som kan ha en token auktoriseringsbegränsningar. Den tokenbegränsade principen måste åtföljas av en token som utfärdas av en säker säkerhetstokentjänst (STS), till exempel Azure Active Directory.
+1. PlayReady-skydd för MS Edge och IE11 som kan ha en token auktorisering begränsning. Den tokenbegränsade principen måste åtföljas av en token som utfärdas av en säker säkerhetstokentjänst (STS), till exempel Azure Active Directory.
 2. Widevine skydd för Chrome, kan det kräva token autentisering med token som utfärdas av en annan STS. 
 
 Se [JWT-Token generering](media-services-axinom-integration.md#jwt-token-generation) avsnittet varför Azure Active Directory kan inte användas som en STS för Axinom's Widevine licensservern.
 
 ### <a name="considerations"></a>Överväganden
-1. Du måste använda Axinom angetts viktiga startvärde (8888000000000000000000000000000000000000) och din genererade eller valda nyckel-ID för att generera innehållsnyckeln för att konfigurera viktiga delivery service. Axinom licensservern utfärdar alla licenser som innehåller innehåll nycklar baserat på samma nyckel startvärdet som inte är giltig för testning och produktion.
+1. Du måste använda Axinom angetts viktiga startvärde (8888000000000000000000000000000000000000) och din genererade eller valda nyckel-ID för att generera innehållsnyckeln för att konfigurera viktiga delivery service. Axinom licensserver alla licenser som innehåller innehåll nycklar baserat på samma nyckel startvärdet som inte är giltig för testning och produktion.
 2. Widevine-licens förvärv URL: en för att testa: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Både HTTP och HTTS tillåts.
 
 ## <a name="azure-media-player-preparation"></a>Förberedelser för Azure Media Player
@@ -65,14 +65,14 @@ Widevine-licensservern som tillhandahålls av Axinom kräver JWT-token autentise
 
 Resten av AMP koden är standard AMP API som AMP dokumentet [här](http://amp.azure.net/libs/amp/latest/docs/).
 
-Observera att ovan javascript för inställningen anpassade authorization-huvud är fortfarande ett kort sikt tillvägagångssätt innan den officiella långsiktig strategi i AMP släpps.
+Ovanstående javascript för inställningen anpassade authorization-huvud är fortfarande ett kortsiktigt tillvägagångssätt innan den officiella långsiktig strategi i AMP släpps.
 
 ## <a name="jwt-token-generation"></a>JWT-Token generering
 Axinom Widevine krävs licens för att testa autentisering för JWT-token. Dessutom kan är en av anspråk i JWT-token av en sammansatt objekttyp i stället för primitiv datatyp.
 
 Azure AD kan tyvärr bara utfärda JWT-token med primitiva typer. På liknande sätt, .NET Framework-API (System.IdentityModel.Tokens.SecurityTokenHandler och JwtPayload) kan du bara ange komplexa objekttyp som anspråk. Anspråk är fortfarande serialiserad som sträng. Därför kan vi använda någon av två för att generera JWT-token för begäran för Widevine-licens.
 
-John Sheehan [JWT Nuget-paketet](https://www.nuget.org/packages/JWT) uppfyller dina behov så att vi ska använda den här Nuget-paketet.
+John Sheehan [JWT NuGet-paketet](https://www.nuget.org/packages/JWT) uppfyller dina behov så att vi ska använda den här NuGet-paketet.
 
 Nedan visas koden för genererar JWT-token med nödvändiga anspråk som krävs av Axinom Widevine licensserver för testning:
 
@@ -136,12 +136,12 @@ Axinom Widevine licensserver
 
 ### <a name="considerations"></a>Överväganden
 1. Även om AMS Playreadys licensleveranstjänst kräver ”ägar =” före en autentiseringstoken Axinom Widevine licensservern inte använder den.
-2. Nyckeln Axinom kommunikation används som nyckel för signeringscertifikatet. Observera att nyckeln är en hexadecimal sträng, men den måste behandlas som en serie byte inte en sträng när kodning. Detta uppnås med metoden ConvertHexStringToByteArray.
+2. Nyckeln Axinom kommunikation används som nyckel för signeringscertifikatet. Nyckeln är en hexadecimal sträng, men den måste behandlas som en serie byte inte en sträng när kodning. Detta uppnås med metoden ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Hämta nyckel-ID
 Kanske såg du att i koden för att generera en JWT-token, nyckel-ID krävs. Eftersom JWT-token måste vara klar innan du läser in AMP spelare, nyckel måste-ID hämtas för att generera en JWT-token.
 
-Av kursen finns flera sätt att hämta håller nyckel-ID. Till exempel en kan lagra nyckeln ID tillsammans med innehållet metadata i en databas. Eller du kan hämta nyckeln ID från DASH MPD (Media presentationsbeskrivning)-fil. Koden nedan gäller den senare.
+Naturligtvis finns flera sätt att få bevarande av nyckel-ID. Till exempel en kan lagra nyckeln ID tillsammans med innehållet metadata i en databas. Eller du kan hämta nyckeln ID från DASH MPD (Media presentationsbeskrivning)-fil. Koden nedan gäller den senare.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)

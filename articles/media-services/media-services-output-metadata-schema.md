@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Metadata för utdata
 ## <a name="overview"></a>Översikt
@@ -26,10 +26,10 @@ Ett kodningsjobb är associerad med en inkommande tillgång (eller tillgångar) 
 
 Om du vill undersöka metadatafilen kan du skapa en **SAS** positionerare och hämta filen till den lokala datorn.  
 
-Det här avsnittet beskrivs de element och typer av XML-schemat som utdata metada (&lt;source_file_name&gt;_manifest.xml) är baserad. Information om den fil som innehåller metadata om inkommande tillgången, finns [inkommande Metadata](media-services-input-metadata-schema.md).  
+Den här artikeln beskriver de element och typer av XML-schemat som utdata metada (&lt;source_file_name&gt;_manifest.xml) är baserad. Information om den fil som innehåller metadata om inkommande tillgången, finns [inkommande Metadata](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Du kan hitta fullständigt schema koden och XML-exempel i slutet av det här avsnittet.  
+> Du kan hitta fullständigt schema koden och XML-exempel i slutet av den här artikeln.  
 >
 >
 
@@ -55,7 +55,7 @@ Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md
 | Namn | Beskrivning |
 | --- | --- |
 | **Datakällor** |Samling av indatakälla/mediefiler som bearbetades för att skapa den här AssetFile. Mer information finns i [källelementet](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Varje fysisk AssetFile kan innehålla noll eller flera video spårar överlagrat till en lämplig behållare format i den. Detta är en samling av alla video spår. Mer information finns i [VideoTracks elementet](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Varje fysisk AssetFile i den kan innehålla noll eller fler videor spårar överlagrat till en lämplig behållare format. Mer information finns i [VideoTracks elementet](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs = ”0” maxOccurs = ”1” |Varje fysisk AssetFile kan innehålla noll eller flera ljud spårar överlagrat till en lämplig behållare format i den. Detta är en samling av alla ljud spår. Mer information finns i [AudioTracks elementet](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Källor element
@@ -79,7 +79,7 @@ Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md
 | **Namn**<br/><br/> Krävs |**Xs:String** |Indatakällan filnamn. |
 
 ## <a name="VideoTracks "></a>VideoTracks element
-Varje fysisk AssetFile kan innehålla noll eller flera video spårar överlagrat till en lämplig behållare format i den. Detta är en samling av alla video spår.  
+Varje fysisk AssetFile i den kan innehålla noll eller fler videor spårar överlagrat till en lämplig behållare format. Den **VideoTracks** elementet representerar en samling av alla video spår.  
 
 Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
 
@@ -96,7 +96,7 @@ Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **ID**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Nollbaserade indexet för den här videon spåra. **Obs:** detta är inte nödvändigtvis TrackID som används i en MP4-fil. |
+| **ID**<br/><br/> minInclusive = ”0”<br/><br/> Krävs |**Xs:int** |Nollbaserade indexet för den här videon spåra. **Obs:** detta **Id** är inte nödvändigtvis TrackID som används i en MP4-fil. |
 | **FourCC**<br/><br/> Krävs |**Xs:String** |Video-codec FourCC-kod. |
 | **Profil** |**Xs:String** |H264-profil (gäller endast för H264 codec). |
 | **Nivå** |**Xs:String** |H264 nivå (gäller endast för H264 codec). |
@@ -111,7 +111,7 @@ Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md
 | **MaxGOPBitrate**<br/><br/> minInclusive = ”0” |**Xs:int** |Max GOP genomsnittlig bithastighet för den här videon spår i kilobit per sekund. |
 
 ## <a name="AudioTracks "></a>AudioTracks element
-Varje fysisk AssetFile kan innehålla noll eller flera ljud spårar överlagrat till en lämplig behållare format i den. Detta är en samling av alla ljud spår.  
+Varje fysisk AssetFile kan innehålla noll eller flera ljud spårar överlagrat till en lämplig behållare format i den. Den **AudioTracks** elementet representerar en samling av alla ljud spår.  
 
 Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md#xml).  
 
@@ -510,7 +510,8 @@ Du hittar ett XML-exempel [XML-exempel](media-services-output-metadata-schema.md
 
 
 ## <a name="xml"></a>XML-exempel
- Följande är ett exempel på utdata-metadatafil.  
+
+Följande XML är ett exempel på utdata-metadatafil.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

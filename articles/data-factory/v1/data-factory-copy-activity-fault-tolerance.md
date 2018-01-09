@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Lägg till feltolerans i en Kopieringsaktivitet genom att hoppa över inkompatibla rader
 > [!NOTE]
@@ -43,6 +43,9 @@ Kopieringsaktiviteten stöder tre scenarier för identifiering, hoppar över och
 - **Primärnyckelfel vid skrivning till en relationsdatabas**
 
     Till exempel: kopiera data från en SQLServer till en SQL-databas. En primär nyckel har definierats i sink SQL-databasen, men ingen primär nyckel har definierats i källan SQLServer. Duplicerade rader som finns i källan kan inte kopieras till sink. Kopieringsaktiviteten kopieras bara den första raden i källdata till sink. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
+
+>[!NOTE]
+>Den här funktionen gäller inte när kopieringsaktiviteten är konfigurerad för att anropa externa datainläsning mekanism inklusive [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data i SQL Data Warehouse med PolyBase använda Polybases interna feltolerans stöd genom att ange ”[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)” i en Kopieringsaktivitet.
 
 ## <a name="configuration"></a>Konfiguration
 I följande exempel innehåller en JSON-definitionen om du vill konfigurera hoppar över inkompatibla rader i en Kopieringsaktivitet:

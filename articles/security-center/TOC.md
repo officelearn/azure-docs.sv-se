@@ -22,6 +22,7 @@
 ### [Säkerhetsprincip med Azure-princip](security-center-azure-policy.md)
 ### [E-postmeddelanden](security-center-provide-security-contact-details.md)
 ### [prisnivå](security-center-pricing.md)
+### [Säkerhetskonfigurationer](security-center-customize-os-security-config.md)
 
 ## [Publicering](security-center-onboarding.md)
 ## [Händelser](security-center-events-dashboard.md)
@@ -55,7 +56,7 @@
 #### [Aktivera VM-Agent](security-center-enable-vm-agent.md)
 #### [Installera slutpunktsskydd](security-center-install-endpoint-protection.md)
 #### [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates)
-#### [Åtgärda sårbarheter i operativsystem](security-center-remediate-os-vulnerabilities.md)
+#### [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md)
 #### [Uppdatera OS-versionen](security-center-update-os-version.md)
 #### [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md)
 ### [Övervaka säkerhetshälsa](security-center-monitoring.md)
@@ -91,7 +92,7 @@
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Beredskapsöversikt för Security Center](security-center-readiness-roadmap.md)
+## [Beredskapsöversikt](security-center-readiness-roadmap.md)
 ## [Blogg om säkerhet, sekretess och efterlevnad i Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstöversikt](https://azure.microsoft.com/services/security-center/)

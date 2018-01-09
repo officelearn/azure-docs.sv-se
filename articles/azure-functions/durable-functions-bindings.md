@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindningar för beständig funktioner (Azure-funktioner)
 
@@ -66,7 +66,7 @@ Här följer några anteckningar om orchestration-utlösare:
 
 Orchestration-utlösaren bindningen stöder både inmatningar och matar ut. Här följer några saker att veta om indata och utdata hantering:
 
-* **indata** -Orchestration-funktioner stöder bara [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som parametertyp. Deserialisering indata direkt i funktionssignatur stöds inte. Koden måste använda den [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metod för att hämta orchestrator indata för funktionen. Dessa indata måste vara JSON-serialiserbara typer.
+* **indata** -Orchestration-funktioner stöder bara [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) som parametertyp. Avserialisering av indata direkt i funktionssignatur stöds inte. Koden måste använda den [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) metod för att hämta orchestrator indata för funktionen. Dessa indata måste vara JSON-serialiserbara typer.
 * **matar ut** -Orchestration utlösare stöder utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en funktion returnerar `Task` eller `void`, en `null` värdet kommer att sparas som utdata.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-De flesta funktioner i orchestrator anropa andra funktioner, så här är en ”Hello World”-exempel som visar hur du anropa en funktion:
+De flesta funktioner i orchestrator anropa aktivitet funktioner, så här är en ”Hello World”-exempel som visar hur du anropa en funktion för aktiviteten:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Här följer några anteckningar om utlösaren aktiviteten:
 Aktiviteten utlösaren bindningen stöder både inmatningar och matar ut precis som orchestration-utlösare. Här följer några saker att veta om indata och utdata hantering:
 
 * **indata** -aktiviteten funktioner använder internt [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som parametertyp. Alternativt kan en funktion för aktiviteten deklareras med parametern typer som är JSON-serialiserbara. När du använder `DurableActivityContext`, kan du anropa [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) att hämta och funktionen aktiviteten att deserialisera indata.
-* **matar ut** -aktiviteten utlösare stöder utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en funktion returnerar `Task` eller `void`, en `null` värdet kommer att sparas som utdata.
+* **matar ut** -aktiviteten fungerar stöd utdatavärden som indata. Returvärdet för funktionen används för att tilldela värdet och måste vara JSON-serialiserbara. Om en funktion returnerar `Task` eller `void`, en `null` värdet kommer att sparas som utdata.
 * **metadata** -aktiviteten funktioner kan bindas till en `string instanceId` parametern för att hämta instans-ID för överordnad orchestration.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ Orchestration-klienten bindning kan du skriva funktioner som interagerar med orc
 
 Om du använder Visual Studio kan du binda till orchestration-klienten med hjälp av den [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET-attributet.
 
-Om du använder skriptspråk (t.ex. *.csx* filer) för utveckling, orchestration-utlösaren definieras av följande JSON-objekt i den `bindings` matris med function.json:
+Om du använder skriptspråk (t.ex. *.csx* filer) för utveckling, orchestration-utlösaren definieras av följande JSON-objekt i den `bindings` matris med *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Om du använder skriptspråk (t.ex. *.csx* filer) för utveckling, orchestration
 ```
 
 * `taskHub`– Används i scenarier där flera funktionen appar delar samma lagringskonto men måste isoleras från varandra. Om inget anges standardvärdet från `host.json` används. Det här värdet måste matcha det värde som används av orchestrator-funktioner för målet.
-* `connectionName`-Namnet på en appinställning som innehåller en anslutningssträng för lagring. Storage-kontot som representeras av den här anslutningssträngen måste vara samma som används av orchestrator-funktioner för målet. Om inget anges används standard-anslutningssträngen för funktionen appen.
+* `connectionName`-Namnet på en appinställning som innehåller en anslutningssträng för storage-konto. Storage-kontot som representeras av den här anslutningssträngen måste vara samma som används av orchestrator-funktioner för målet. Om inget anges används standard konto lagringsanslutningssträngen för funktionen appen.
 
 > [!NOTE]
 > I de flesta fall rekommenderar vi att du utelämnar dessa egenskaper och förlitar sig på standardbeteendet.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Klienten exempel (inte Visual Studio)
 
-Om du inte använder Visual Studio för utveckling, kan du skapa följande function.json-fil. Det här exemplet visar hur du konfigurerar en funktion som utlöses av kö som använder beständiga orchestration klienten bindning:
+Om du inte använder Visual Studio för utveckling, kan du skapa följande *function.json* fil. Det här exemplet visar hur du konfigurerar en funktion som utlöses av kö som använder beständiga orchestration klienten bindning:
 
 ```json
 {

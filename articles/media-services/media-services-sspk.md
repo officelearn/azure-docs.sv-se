@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering Microsoft® Smooth Streaming klienten portera Kit
 ## <a name="overview"></a>Översikt
-Microsoft Smooth Streaming klienten portera Kit (**SSPK** för kort) är en Smooth Streaming-klient-implementering som är optimerad för att hjälpa inbäddade enhetstillverkare, kabel och mobila operatorer, innehåll leverantörer, luren tillverkare oberoende programvaruleverantörer (ISV) och lösningsleverantörer att skapa produkter och tjänster för direktuppspelning av anpassningsbar strömning innehåll i Smooth Streaming-format. SSPK är en enhet och plattform oberoende implementering av Smooth Streaming-klient som kan överföras av licenstagaren till enheten och plattform. 
+Microsoft Smooth Streaming klienten portera Kit (**SSPK** för kort) är en Smooth Streaming-klient-implementering som är optimerad för att hjälpa inbäddade enhetstillverkare, kabel och mobila operatorer, innehåll leverantörer, luren tillverkare oberoende programvaruleverantörer (ISV) och lösningsleverantörer att skapa produkter och tjänster för direktuppspelning av anpassningsbar innehåll i Smooth Streaming-format. SSPK är en enhet och plattformsoberoende implementering av Smooth Streaming-klient som kan överföras av licenstagaren till enheten och plattform. 
 
-Med nedan är en hög nivå arkitektur och IIS Smooth Streaming portera Kit är klienten för Smooth Streaming-implementering som tillhandahålls av Microsoft och innehåller alla kärnlogik för uppspelning av Smooth Streaming-innehåll. Detta är portar av partner för en viss enhet eller plattformen genom att implementera rätt gränssnitt. 
+Med nedan är en övergripande arkitektur och IIS Smooth Streaming portera Kit är klienten för Smooth Streaming-implementering som tillhandahålls av Microsoft och innehåller alla kärnlogik för uppspelning av Smooth Streaming-innehåll. Det här innehållet sedan portar av partner för en viss enhet eller plattformen genom att implementera rätt gränssnitt. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ Smooth Streaming klienten slutliga produkten erbjuds under en royalty modell som
 * Ingen royalty för första 10 000 enheter implementeringar varje år 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Licensiering proceduren och SSPK åtkomst
-Kontakta e- [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) licensiering för alla frågor.
+E-post [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) licensiering för alla frågor.
 
 Den [SSPK Distribution portal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) är tillgänglig för den registrerade Interim licenstagare.
 
@@ -103,7 +103,7 @@ Interimistisk och slutlig SSPK licenstagare kan skicka tekniska frågor till [ s
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Companys
+* TCL teknik Electronics (Huizhou) Companys
 * TOP Victory investeringar, Ltd.
 * Vestel Elektronik Sanayi para Ticaret a. s.
 * VisualOn, Inc.

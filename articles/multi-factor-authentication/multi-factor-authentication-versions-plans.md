@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 8c07bafb588a3f3e1dba13a58f83dd6d68c9c089
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Hur du hämtar Azure Multi-Factor Authentication
 
@@ -38,7 +38,7 @@ I följande tabell beskrivs skillnaderna mellan tre versioner av Multi-Factor au
 | Version | Beskrivning |
 | --- | --- |
 | Multi-Factor Authentication för Office 365 |Den här versionen fungerar endast med Office 365-program och hanteras från Office 365-portalen. Administratörer kan [skydda Office 365-resurser med tvåstegsverifiering](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Den här versionen är en del av en prenumeration på Office 365. |
-| Multi-Factor Authentication för Azure-administratörer | Globala administratörer av Azure innehavare kan aktivera tvåstegsverifiering för sina globala administratörskonton utan extra kostnad.|
+| Multi-Factor Authentication för Azure AD-administratörer | Användare som har tilldelats rollen Global administratör i Azure AD-klienter kan aktivera tvåstegsverifiering för sina Azure AD globala administratörskonton utan extra kostnad.|
 | Azure Multi-Factor Authentication | Azure Multi-Factor Authentication erbjuder kallas ofta ”full” versionen och bra uppsättning funktioner. Det ger ytterligare konfigurationsalternativ via den [Azure-portalen](https://portal.azure.com)avancerade rapportering och stöd för ett antal lokala program och molnprogram. Azure Multi-Factor Authentication ingår i [Azure Active Directory Premium-planer](https://www.microsoft.com/cloud-platform/azure-active-directory-features) och [Enterprise Mobility + säkerhetsplaner](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing), och kan användas antingen i molnet eller lokalt. |
 
 ## <a name="feature-comparison-of-versions"></a>Funktionsjämförelse mellan versioner
@@ -48,9 +48,9 @@ Följande tabell innehåller en lista över funktioner som är tillgängliga i d
 > Den här jämförelsetabellen beskrivs de funktioner som ingår i varje version av Multi-Factor Authentication. Om du har fullständig Azure Multi-Factor Authentication-tjänsten kan vissa funktioner kanske inte är tillgängliga beroende på om du använder [MFA i molnet eller MFA lokalt](multi-factor-authentication-get-started.md).
 
 
-| Funktion | Multi-Factor Authentication för Office 365 | Multi-Factor Authentication för Azure-administratörer | Azure Multi-Factor Authentication |
+| Funktion | Multi-Factor Authentication för Office 365 | Multi-Factor Authentication för Azure AD-administratörer | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
-| Skydda administratörskonton med MFA |● |● (endast för konton i en Global administratör) |● |
+| Skydda Azure AD-administratörskonton med MFA |● |● (endast Global administratör för Azure AD-konton) |● |
 | Mobilappar som ett andra alternativ |● |● |● |
 | Telefonsamtal som ett andra alternativ |● |● |● |
 | SMS som ett andra alternativ |● |● |● |

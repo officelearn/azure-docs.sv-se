@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard schemat | Microsoft Docs
-description: "Avsnittet ger en översikt över Media Encoder Standard schemat."
+description: "Artikeln ger en översikt över Media Encoder Standard schemat."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard schema
-Det här avsnittet beskrivs några av de elementen och typer av XML-schemat som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Avsnittet ger förklaring av element och sina giltiga värden. Fullständig schemat kommer att publiceras vid ett senare tillfälle.  
+Den här artikeln beskrivs några av de elementen och typer av XML-schemat som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och sina giltiga värden.  
 
 ## <a name="Preset"></a>Förinställda (rotelementet)
 Definierar en kodning förinställning.  
@@ -35,10 +35,10 @@ Definierar en kodning förinställning.
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Version**<br/><br/> Krävs |**Xs:decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
+| **Version**<br/><br/> Krävs |**Xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
 
 ## <a name="Encoding"></a>Kodning
-Innehåller en sekvens av följande element.  
+Innehåller en sekvens av följande element:  
 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
@@ -54,20 +54,20 @@ Innehåller en sekvens av följande element.
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs = ”0” |**Xs:Boolean** |För närvarande stöds endast en pass-kodning. |
-| **KeyFrameInterval**<br/><br/> minOccurs = ”0”<br/><br/> **standard = ”00: 00:02”** |**Xs: Time** |Anger fast avstånd mellan IDR ramar i antal sekunder. Kallas även GOP varaktighet. Se **SceneChangeDetection** (nedan) för att styra om kodaren kan avvika från det här värdet. |
-| **SceneChangeDetection**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”false” |**Xs:Boolean** |Om värdet är true, kodare försöker identifiera scen ändra i videon och infogar en IDR ram. |
+| **KeyFrameInterval**<br/><br/> minOccurs = ”0”<br/><br/> **standard = ”00: 00:02”** |**Xs: Time** |Anger fast avstånd mellan IDR ramar i antal sekunder. Kallas även GOP varaktighet. Se **SceneChangeDetection** för att styra om kodaren kan avvika från det här värdet. |
+| **SceneChangeDetection**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”false” |**Xs: booleskt** |Om värdet är true, kodare försöker identifiera scen ändra i videon och infogar en IDR ram. |
 | **Komplexitet**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”balanserad” |**Xs:String** |Styr en kompromiss mellan koda hastigheten och video. Kan vara någon av följande värden: **hastighet**, **balanserad**, eller **kvalitet**<br/><br/> Standard: **belastningsutjämnade** |
-| **SyncMode**<br/><br/> minOccurs = ”0” | |Funktionen kommer att exponeras i framtida versioner. |
+| **SyncMode**<br/><br/> minOccurs = ”0” | |Funktionen kommer att exponeras i en framtida version. |
 | **H264Layers**<br/><br/> minOccurs = ”0” |[H264Layers](media-services-mes-schema.md#H264Layers) |Samling av utdata video lager. |
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** | När indata har ingen bild, kanske du vill tvinga kodaren att infoga ett monokromt video spår. Göra genom att använda villkor = ”InsertBlackIfNoVideoBottomLayerOnly” (för att infoga en video på endast de lägsta bithastigheten) eller villkor = ”InsertBlackIfNoVideo” (att infoga en video på alla utdata bithastighet). Mer information finns i [detta](media-services-advanced-encoding-with-mes.md#no_video) avsnitt.|
+| **Villkor** |**Xs:String** | När indata har ingen bild, kanske du vill tvinga kodaren att infoga ett monokromt video spår. Göra genom att använda villkor = ”InsertBlackIfNoVideoBottomLayerOnly” (för att infoga en video på endast de lägsta bithastigheten) eller villkor = ”InsertBlackIfNoVideo” (att infoga en video på alla utdata bithastighet). Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).|
 
 ## <a name="H264Layers"></a>H264Layers
 
-Som standard om du skickar indata till den kodare som innehåller endast ljud och ingen bild innehåller utdatatillgången filer med ljud data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda H264Video **InsertBlackIfNoVideo** attributet inställningen för att tvinga kodaren att lägga till en video Spåra utdata i scenariot. Mer information finns i [detta](media-services-advanced-encoding-with-mes.md#no_video) avsnitt.
+Om du skickar indata till den kodare som innehåller endast ljud och ingen bild innehåller utdatatillgången som standard filer med ljud data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda H264Video **InsertBlackIfNoVideo** attributet inställningen för att tvinga kodaren att lägga till en video Spåra utdata i scenariot. Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).
               
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
@@ -83,18 +83,18 @@ Som standard om du skickar indata till den kodare som innehåller endast ljud oc
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Auto” |**Xs:String** |Kan bero på något av följande **xs:string** värden: **automatisk**, **baslinjen**, **Main**, **hög**. |
-| **Nivå**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Auto” |**Xs:String** | |
+| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Auto” |**Xs: sträng** |Kan bero på något av följande **xs: sträng** värden: **automatisk**, **baslinjen**, **Main**, **hög**. |
+| **Nivå**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Auto” |**Xs: sträng** | |
 | **Bithastighet**<br/><br/> minOccurs = ”0” |**Xs:int** |Bithastighet som används för den här videon skikt som angetts i kbit/s. |
-| **MaxBitrate**<br/><br/> minOccurs = ”0” |**Xs:int** |Den maximala bithastighet som används för den här videon skikt som angetts i kbit/s. |
-| **BufferWindow**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”00: 00:05” |**Xs: Time** |Video buffertens längd. |
-| **Bredd**<br/><br/> minOccurs = ”0” |**Xs:int** |Bredden på utdata video ramen, i bildpunkter.<br/><br/> Observera att för närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal. |
-| **Höjd**<br/><br/> minOccurs = ”0” |**Xs:int** |Höjden på utdata video ramen, i bildpunkter.<br/><br/> Observera att för närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal.|
-| **BFrames**<br/><br/> minOccurs = ”0” |**Xs:int** |Antal B ramar mellan referens ramar. |
+| **MaxBitrate**<br/><br/> minOccurs = ”0” |**Xs: int** |Den maximala bithastighet som används för den här videon skikt som angetts i kbit/s. |
+| **BufferWindow**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”00: 00:05” |**Xs: tid** |Video buffertens längd. |
+| **Bredd**<br/><br/> minOccurs = ”0” |**Xs: int** |Bredden på utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal. |
+| **Höjd**<br/><br/> minOccurs = ”0” |**Xs:int** |Höjden på utdata video ramen, i bildpunkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredden och höjden måste vara jämnt tal.|
+| **BFrames**<br/><br/> minOccurs = ”0” |**Xs: int** |Antal B ramar mellan referens ramar. |
 | **ReferenceFrames**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”3” |**Xs:int** |Antal bildrutor referens i en GOP. |
-| **EntropyMode**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Cabac” |**Xs:String** |Kan vara någon av följande värden: **Cabac** och **Cavlc**. |
-| **Ramhastighet**<br/><br/> minOccurs = ”0” |rationellt tal |Anger bildfrekvens av utdata-video. Använd standardvärdet ”0-1” om du vill låta kodaren använder samma bildfrekvens som indata video. Tillåtna värden förväntas vara vanliga bildruta priser som visas nedan. Men alla giltiga rationell tillåts. Till exempel 1/1 skulle vara 1 fps och är giltigt.<br/><br/> -12-1 (12 fps)<br/><br/> -15-1 (15 fps)<br/><br/> -24-1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25-1 (25 fps)<br/><br/>  -30-1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Obs** om du skapar en anpassad förinställning för flera bithastigheter kodning sedan alla lager i förinställningen **måste** använda ramhastighet samma värde.|
-| **AdaptiveBFrame**<br/><br/> minOccurs = ”0” |**Xs:Boolean** |Kopiera från Azure media-kodaren |
+| **EntropyMode**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”Cabac” |**Xs: sträng** |Kan vara någon av följande värden: **Cabac** och **Cavlc**. |
+| **Ramhastighet**<br/><br/> minOccurs = ”0” |rationellt tal |Anger bildfrekvens av utdata-video. Använd standardvärdet ”0-1” om du vill låta kodaren använder samma bildfrekvens som indata video. Tillåtna värden förväntas vara vanliga bildruta priser. Men alla giltiga rationell tillåts. 1-1 är 1 fps och är giltigt.<br/><br/> -12-1 (12 fps)<br/><br/> -15-1 (15 fps)<br/><br/> -24-1 (24 fps)<br/><br/> 24000/1001 (23.976 fps)<br/><br/> -25-1 (25 fps)<br/><br/>  -30-1 (30 fps)<br/><br/> 30000/1001 (29,97 fps) <br/> <br/>**Obs** om du skapar en anpassad förinställning för flera bithastigheter kodning sedan alla lager i förinställningen **måste** använda ramhastighet samma värde.|
+| **AdaptiveBFrame**<br/><br/> minOccurs = ”0” |**Xs: booleskt** |Kopiera från Azure media-kodaren |
 | **Segment**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”0” |**Xs:int** |Anger hur många segment som en ram är uppdelad i. Du bör använda standard. |
 
 ## <a name="AACAudio"></a>AACAudio
@@ -105,12 +105,12 @@ Som standard om du skickar indata till den kodare som innehåller endast ljud oc
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”AACLC” |**Xs:String** |Kan vara någon av följande värden: **AACLC**, **HEAACV1**, eller **HEAACV2**. |
+| **Profil**<br/><br/> minOccurs = ”0”<br/><br/> standard = ”AACLC” |**Xs: sträng** |Kan vara någon av följande värden: **AACLC**, **HEAACV1**, eller **HEAACV2**. |
 
 ### <a name="attributes"></a>Attribut
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Villkor** |**Xs:String** |Ange värdet ”InsertSilenceIfNoAudio” om du vill tvinga kodaren att skapa en tillgång som innehåller en tyst ljud spåra när indata har inget ljud.<br/><br/> Som standard om du skickar indata till den kodare som bara innehåller video, och inget ljud innehåller sedan utdatatillgången filer som innehåller endast video data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till en tyst ljud Spåra utdata i scenariot. |
+| **Villkor** |**Xs: sträng** |Ange värdet ”InsertSilenceIfNoAudio” om du vill tvinga kodaren att skapa en tillgång som innehåller en tyst ljud spåra när indata har inget ljud.<br/><br/> Som standard om du skickar indata till den kodare som bara innehåller video, och inget ljud innehåller utdatatillgången filer som innehåller endast video data. Vissa spelare kanske inte kan hantera dessa utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till en tyst ljud Spåra utdata i scenariot. |
 
 ### <a name="groups"></a>Grupper
 | Referens | Beskrivning |
@@ -123,9 +123,9 @@ Mer information om vilka värden är giltiga för varje profil finns i tabellen 
 ### <a name="elements"></a>Element
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Kanaler**<br/><br/> minOccurs = ”0” |**Xs:int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> Standard: 2. |
-| **SamplingRate**<br/><br/> minOccurs = ”0” |**Xs:int** |Ljud samplingsfrekvensen, anges i Hz. |
-| **Bithastighet**<br/><br/> minOccurs = ”0” |**Xs:int** |Bithastighet som används när kodning ljud, anges i kbit/s. |
+| **Kanaler**<br/><br/> minOccurs = ”0” |**Xs: int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> Standard: 2. |
+| **SamplingRate**<br/><br/> minOccurs = ”0” |**Xs: int** |Ljud samplingsfrekvensen, anges i Hz. |
+| **Bithastighet**<br/><br/> minOccurs = ”0” |**Xs: int** |Bithastighet som används när kodning ljud, anges i kbit/s. |
 
 ### <a name="audio-codec-details"></a>Ljud-codec information
 Ljud-Codec|Information  
@@ -170,17 +170,17 @@ Ljud-Codec|Information
 | **PreserveResolutionAfterRotation** |**Xs:Boolean** |Detaljerad förklaring finns i följande avsnitt: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a>PreserveResolutionAfterRotation
-Det rekommenderas att använda flaggan PreserveResolutionAfterRotation i kombination med upplösningar uttryckt i procent (Width = ”100%”, höjd = ”100%”).  
+Det rekommenderas att använda den **PreserveResolutionAfterRotation** flaggan i kombination med upplösningar uttryckt i procent (Width = ”100%”, höjd = ”100%”).  
 
-Som standard riktas koda inställningarna för matchning av (bredden och höjden) i Media Encoder Standard (MES) förinställningar videor med rotation 0 grader. Om din indatavideo är minst 1 280 x 720 med noll grad rotation, sedan kontrollera standardförinställningar exempelvis att utdata har samma upplösning. Se bilden nedan.  
+Som standard riktas koda inställningarna för matchning av (bredden och höjden) i Media Encoder Standard (MES) förinställningar videor med rotation 0 grader. Om din indatavideo är minst 1 280 x 720 med noll graders rotation, sedan kontrollera standardförinställningar exempelvis att utdata har samma upplösning.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Men innebär det att om inkommande video har spelats in med noll kan rotera (t.ex. en smartphone eller surfplatta hålls lodrätt), kommer MES som standard ska tillämpa inställningarna för matchning av koda (bredden och höjden) inkommande video och sedan kompensera för rotationen. Till exempel se bilden nedan. Förinställningen använder Width = ”100%”, höjd = ”100%”, som MES tolkas som att kräva att utdata ska vara minst 1 280 bildpunkter och 720 bildpunkter. När du roterar videon krymper sedan bilden passar i fönstret, vilket leder till pillar-box områden till vänster och höger.  
+Om inkommande video har spelats in med noll kan rotera (till exempel en smartphone eller surfplatta hålls lodrätt), sedan MES som standard tillämpar inställningarna för matchning av koda (bredden och höjden) inkommande video och sedan kompensera för rotationen. Till exempel se bilden nedan. Förinställningen använder Width = ”100%”, höjd = ”100%”, som MES tolkas som att kräva att utdata ska vara minst 1 280 bildpunkter och 720 bildpunkter. När du roterar videon krymper sedan bilden passar i fönstret, vilket leder till pillar-box områden till vänster och höger.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Om ovanstående är inte beteenden som önskas, så kan du använda flaggan PreserveResolutionAfterRotation och anger värdet ”true” (standardvärdet är ”false”). Så om förinställning har Width = ”100%”, höjd = ”100%” PreserveResolutionAfterRotation inställt på ”true” och en indatavideo som är minst 1 280 bildpunkter och 720 bildpunkter med 90-gradiga rotation genererar utdata med noll grad rotation, men 720 bildpunkter bred och 1280 bildpunkter. Se bilden nedan.  
+Alternativt kan du använda den **PreserveResolutionAfterRotation** flagga och inställd på ”true” (standardvärdet är ”false”). Så om förinställning har Width = ”100%”, höjd = ”100%” och PreserveResolutionAfterRotation inställt på ”true” och en indatavideo som är minst 1 280 bildpunkter och 720 bildpunkter med 90 grader rotation producerar utdata med noll graders rotation, men 720 bildpunkter bred och 1280 bildpunkter. Se följande bild:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

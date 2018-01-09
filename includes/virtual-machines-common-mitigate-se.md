@@ -22,7 +22,7 @@ I följande erbjudanden följer våra rekommenderade åtgärder för att uppdate
 <td>Virtuella Azure Linux-datorer</td> <td>Installera uppdateringar från leverantören av operativsystemet när det är tillgängligt. </td>
 </tr>
 <tr>
-<td>Windows Azure virtuella datorer </td> <td><ul><li>Kontrollera att du kör ett program som stöds antivirusprogram innan du installerar uppdateringar av operativsystem. Kontakta din antivirusprogramleverantör information om kompatibilitet. </li> <li> Installera den [januari insamling av säkerhet](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Windows Azure virtuella datorer </td> <td>Kontrollera att du kör ett program som stöds antivirusprogram innan du installerar uppdateringar av operativsystem. Kontakta din antivirusprogramleverantör information om kompatibilitet.<p> Installera den [januari insamling av säkerhet](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Andra Azure PaaS-tjänster</td> <td>Det finns ingen åtgärd krävs för kunder som använder dessa tjänster. Azure håller automatiskt OS-versioner aktuella. </td>

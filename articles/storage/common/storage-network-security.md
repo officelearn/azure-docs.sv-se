@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsgranskning)
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
@@ -298,7 +298,6 @@ När ”betrodda Microsoft Services” undantaget aktiveras har följande tjäns
 |Azure Event Hubs|Microsoft.EventHub|Arkivering av data med Event Hubs avbilda.  [Lär dig mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Klusteretablering och installation.  [Läs mer](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure-nätverk|Microsoft.Networking|Lagra och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Backup|Microsoft.RecoveryServices|Säkerhetskopiering och återställning av ohanterade diskar.  [Läs mer](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Storage analytics dataåtkomst

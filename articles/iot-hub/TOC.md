@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Azure och IoT](iot-hub-what-is-azure-iot.md)
 ## [Vad är Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Översikt över enhetshantering](iot-hub-device-management-overview.md)
@@ -75,7 +76,7 @@
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Skicka meddelanden från moln till enhet
-#### [NET](iot-hub-csharp-csharp-c2d.md)
+#### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 ### Ladda upp filer från enheter
@@ -150,8 +151,8 @@
 ## [.NET (enheter)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (tjänst)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (enheter)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (enheter)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (tjänst)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (enheter)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (tjänst)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [C-enhets-SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (resursprovider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -162,6 +163,7 @@
 
 # Relaterat
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Azure IoT Hub Device Provisioning-tjänst](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)

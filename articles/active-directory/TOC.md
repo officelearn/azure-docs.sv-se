@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Om Azures identitetshantering](identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
@@ -45,6 +44,7 @@
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
 ### [Tilldela användare administrativa roller](active-directory-users-assign-role-azure-portal.md)
+### [Återställa en borttagen användare](active-directory-users-restore.md)
 ### [Lägga till gästanvändare från annan katalog (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Administratörer som lägger till B2B-användare](active-directory-b2b-admin-add-users.md)
 #### [Informationsarbetare som lägger till B2B-användare](active-directory-b2b-iw-add-users.md)
@@ -283,7 +283,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Komma gång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### [Migrera klassiska principer](active-directory-conditional-access-migration.md)

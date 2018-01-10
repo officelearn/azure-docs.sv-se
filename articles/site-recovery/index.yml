@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/10/2018
 abstract:
   description: "Azure Site Recovery dirigerar och hanterar haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar. Lär dig att replikera, redundansväxla och återställa med våra snabbstarter och självstudier."
 sections:
@@ -54,6 +54,17 @@ sections:
     - html: <a href="tutorial-vmware-to-azure">Konfigurera haveriberedskap</a>
     - html: "<a href=\"tutorial-dr-drill-azure\">Köra ett återställningstest</a>"
     - html: "<a href=\"tutorial-vmware-to-azure-failover-failback\">Köra redundans och återställning efter fel</a>"
+  - type: text
+    html: <h3>Hyper-V</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"tutorial-prepare-azure\">Förbereda Azure</a>"
+    - html: "<a href=\"tutorial-prepare-on-premises-hyper-v\">Förbereda lokala Hyper-V</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure\">Konfigurera haveriberedskap för virtuella Hyper-V-datorer</a>"
+    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">Konfigurera katastrofåterställning för virtuella Hyper-V datorer som hanteras av System Center VMM</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Köra ett återställningstest</a>"
+    - html: "<a href=\"tutorial-hyper-v-to-azure-failover-failback\">Köra redundans och återställning efter fel</a>"
   - type: text
     html: <h3>Migrera till Azure</h3>
   - type: list

@@ -1,6 +1,6 @@
 - name: Dokumentation om Cosmos DB
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Använda Robomongo
               href: mongodb-robomongo.md
+            - name: Använda Mongoose
+              href: mongodb-mongoose.md
             - name: Funktioner som stöds med MongoDB
               href: mongodb-feature-support.md
             - name: Angular-självstudier

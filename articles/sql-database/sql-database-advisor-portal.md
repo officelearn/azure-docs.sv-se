@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa rekommendationer
 
@@ -31,7 +31,7 @@ Om du vill visa och använda rekommendationer, behöver du rätt [rollbaserad å
 
 Använd följande steg för att hitta rekommendationer på Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till **fler tjänster** > **SQL-databaser**, och välj din databas.
 3. Gå till **prestanda rekommendation** att visa tillgängliga rekommendationer för den valda databasen.
 
@@ -91,13 +91,17 @@ Om du vill kan du lägga till borttagna objekten tillbaka till den **rekommendat
 2. Välj en borttagna objekt från listan för att visa information om den.
 3. Du kan också klicka på **Ångra Ignorera** att lägga till indexet huvudsakliga listan över **rekommendationer**.
 
+> [!NOTE]
+> Observera att om SQL-databas [automatisk justering](sql-database-automatic-tuning.md) aktiveras, och om du har manuellt bort en rekommendation från listan, sådan rekommendation aldrig tillämpas automatiskt. Tar bort en rekommendation är ett praktiskt sätt för att användarna ska ha automatisk justering aktiverad i fall när kräver att en specifik rekommendation inte får användas.
+> Det här problemet kan du återgå genom att lägga till borttagna rekommendationer tillbaka till rekommendationer listan genom att välja alternativet Ångra Ignorera.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 Du kan ställa in Azure SQL-databasen för att implementera rekommendationer automatiskt. Rekommendationer blir tillgängliga tillämpas de automatiskt. Precis som med alla rekommendationer som hanteras av tjänsten, om prestandapåverkan är negativt har rekommendationen återställts.
 
 1. På den **rekommendationer** klickar du på **automatisera**:
    
-    ![Inställningar för klassificering](./media/sql-database-advisor-portal/settings.png)
+    ![Advisor-inställningar](./media/sql-database-advisor-portal/settings.png)
 2. Välj åtgärder för att automatisera:
    
     ![Rekommenderat index](./media/sql-database-advisor-portal/automation.png)
@@ -119,12 +123,12 @@ Tillämpa en rekommendation kanske inte omedelbart sker. Portalen innehåller in
 | Status | Beskrivning |
 |:--- |:--- |
 | Väntande åtgärder |Tillämpa rekommendation kommandot har tagits emot och har schemalagts för körning. |
-| Köra |Rekommendationen som används. |
+| Kör |Rekommendationen som används. |
 | Verifiera |Rekommendation har tillämpats och tjänsten mäter fördelarna. |
 | Lyckades |Rekommendation har tillämpats och fördelar har tagits mäts. |
 | Fel |Det uppstod ett fel i samband med tillämpandet av rekommendationen. Detta kan vara ett övergående problem eller eventuellt ett schema ändra i tabellen och skriptet är inte längre giltig. |
-| Återställa |Rekommendationen tillämpades, men har bedömts vara icke-performant och återställs automatiskt. |
-| Har återställts |Rekommendationen återställdes. |
+| Återkallande |Rekommendationen tillämpades, men har bedömts vara icke-performant och återställs automatiskt. |
+| Återkallat |Rekommendationen återställdes. |
 
 Klicka på ett pågående rekommendation från listan över att se mer information:
 

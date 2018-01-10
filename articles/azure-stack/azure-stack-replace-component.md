@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Ersätta en maskinvarukomponent på Azure-stacken skala enhet nod
 
@@ -55,6 +55,10 @@ Azure-stacken hälsotillstånd och övervakningssystemet spårar hälsotillstån
 Följande steg ger en översikt över processen för att byta komponent. Följ inte stegen utan att referera till OEM-tillverkarens FRU-dokumentationen.
 
 1. Använd den [tömmer](azure-stack-node-actions.md#scale-unit-node-actions) åtgärden att placera noden skala enhet i underhållsläge. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
+
+   > [!NOTE]
+   > Dock endast en nod kan tar slut och stängas av på samma gång utan att S2D (Storage Spaces Direct).
+
 2. När noden skala enhet är i underhållsläge, använda den [stängs](azure-stack-node-actions.md#scale-unit-node-actions) åtgärd. Den här åtgärden kan inte krävas baserat på villkoret fysisk maskinvara.
  
    > [!NOTE]

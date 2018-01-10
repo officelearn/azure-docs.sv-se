@@ -1,5 +1,5 @@
 ---
-title: "Så här felsöker du ett onormalt återkommande jobb | Microsoft Docs"
+title: "Felsöka ett onormalt återkommande jobb | Microsoft Docs"
 description: "Lär dig hur du använder Azure Data Lake-verktyg för Visual Studio för att felsöka ett onormalt återkommande jobb."
 services: data-lake-analytics
 documentationcenter: 
@@ -14,60 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2017
 ms.author: yanacai
-ms.openlocfilehash: a358f94b117c12511028a875e56b5c9dba8d3382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b60c861810d6577b33aa0cdf14f26dc2cfc0e4d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="how-to-troubleshoot-an-abnormal-recurring-job"></a>Så här felsöker du ett onormalt återkommande jobb
+# <a name="troubleshoot-an-abnormal-recurring-job"></a>Felsöka ett onormalt återkommande jobb
 
-I detta dokument, kommer vi hur du använder [Azure Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs) att felsöka problem med återkommande jobb. Mer information om pipeline- och återkommande jobb från [här](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
-Återkommande jobb delar vanligtvis samma fråga logik och liknande indata. Du till exempel har ett återkommande jobb som körs på varje måndag morgon klockan 8. Om du vill räkna förra veckan veckovisa aktiv användare skript för dessa jobb delar en mall för skript som innehåller logiken som frågan och indata för dessa jobb är användningsdata för föregående vecka. Dela samma fråga logik och liknande indatatagg vanligtvis innebär prestanda jobb är liknande och stabil, om någon av dina återkommande jobb plötsligt utför onormalt, misslyckade eller långsamma ned mycket, du kanske vill:
+Den här artikeln visar hur du använder [Azure Data Lake-verktyg för Visual Studio](http://aka.ms/adltoolsvs) att felsöka problem med återkommande jobb. Mer information om pipeline- och återkommande jobb från de [Azure Data Lake och Azure HDInsight blogg](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
-1.  Se statistikrapporter för förhandsversioner körningar av återkommande jobb för att se vad som hänt.
-2.  Jämför onormal jobbet med en normal som ska ta reda på vad som har ändrats.
+Återkommande jobb delar vanligtvis samma fråga logik och liknande indata. Anta exempelvis att du har ett återkommande jobb som körs varje måndag morgon klockan 8. Räkna förra veckan veckovisa aktiv användare. Skript för dessa jobb delar en mall för skript som innehåller logiken som frågan. Indata för dessa jobb är användningsdata för föregående vecka. Dela samma fråga logik och liknande indata vanligtvis innebär att prestanda jobb liknande och stabil. Om en av dina återkommande jobb plötsligt utför onormalt, misslyckas, eller långsammare mycket, kanske du vill:
+
+- Se statistikrapporter för tidigare körningar av återkommande jobb att se vad som hänt.
+- Jämför onormal jobbet med en normal som ska ta reda på vad som har ändrats.
 
 **Relaterade jobbet** i Azure Data Lake-verktyg för Visual Studio hjälper dig att öka felsökning förloppet med båda fallen.
 
 ## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Steg 1: Hitta återkommande jobb och öppna relaterade jobb
 
-Visa felsöka återkommande jobb problem för att använda relaterade jobb, måste du först hittas återkommande projekt i Visual Studio och sedan öppna relaterade jobb.
+Om du vill använda den relaterade jobb visa felsökning av en återkommande jobb problem måste du först hittas återkommande projekt i Visual Studio och sedan öppna relaterade jobb.
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Fall 1: Du har rätt Webbadress för återkommande jobb
 
-Via **Verktyg > Data Lake > jobbet**, kan du klistra in Webbadressen jobbet för att öppna projektet i Visual Studio och via Visa relaterade jobb att öppna relaterade jobbet.
+Via **verktyg** > **Datasjö** > **jobbet**, kan du klistra in Webbadressen jobbet för att öppna projektet i Visual Studio. Välj **Visa relaterade jobb** öppna vyn för relaterade jobb.
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
+![Visa relaterade jobb länken i Data Lake Analytics-verktyg](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Fall 2: Du har pipeline för återkommande jobb, men inte URL-Adressen
 
-I Visual Studio kan du öppna Pipeline webbläsare via **Server Explorer > ditt Data Lake Analytics-konto > Pipelines** (om du inte hittar den här noden i Server Explorer kan du skaffa verktyget lasted [här](http://aka.ms/adltoolsvs)). I Pipeline-webbläsare, visas alla pipelines för kontot ADLA längst till vänster, du kan expandera pipelines du hittar alla återkommande jobb genom att klicka på som har problem, vyn relaterade jobb som öppnas till höger.
+Du kan öppna Pipeline webbläsare via Server Explorer i Visual Studio > ditt Azure Data Lake Analytics-konto > **Pipelines**. (Om du inte hittar den här noden i Server Explorer [hämta det senaste](http://aka.ms/adltoolsvs).) 
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
+![Att välja noden Pipelines](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
+I Pipeline-webbläsare visas alla rörledningar för Data Lake Analytics-kontot till vänster. Du kan expandera pipelines för att hitta alla återkommande jobb och sedan välja en som har problem. Relaterade jobb öppnas till höger.
 
-## <a name="step-2-analyze-statistics-report"></a>Steg 2: Analysera rapport
+![Att välja en pipeline och öppna den relaterade jobb vyn](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-view.png)
 
-En översikt och en rapport visas överst i vyn för relaterade jobb, där du får den eventuella grundorsaken till det onormala. 
+## <a name="step-2-analyze-a-statistics-report"></a>Steg 2: Analysera en rapport
 
-1.  Du måste först hittar onormal jobbet i rapporten. X-axeln visas sändningstid för jobbet som du kan hitta onormal jobbet.
-2.  Följ under processen för att kontrollera statistik och få insikter i den onormal och möjliga lösningar.
+En översikt och en rapport visas överst i vyn för relaterade jobb. Där hittar du den eventuella grundorsaken till problemet. 
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
+1.  I rapporten visas x-axeln sändningstid för jobbet. Du kan använda den för att hitta onormal jobbet.
+2.  Använd processen i följande diagram om du vill kontrollera statistik och få insikter om problemet och möjliga lösningar.
 
-## <a name="step-3-compare-the-abnormal-recurring-job-to-a-normal-job"></a>Steg 3: Jämföra onormal återkommande jobbet till ett normala jobb
+![Processdiagram för att kontrollera statistik](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-metrics-debugging-flow.png)
 
-Du hittar alla skickade återkommande jobb genom jobblistan längst ned i vyn för relaterade jobb. Du kan jämföra onormal jobbet med en föregående normalt att hitta fler insikter och möjliga lösningar i jobbet Diff vy via högerklickar du på.
+## <a name="step-3-compare-the-abnormal-job-to-a-normal-job"></a>Steg 3: Jämföra onormal jobbet till ett normala jobb
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
+Du hittar alla skickade återkommande jobb genom jobblistan längst ned i vyn för relaterade jobb. Högerklicka på onormal jobbet för att hitta mer information och möjliga lösningar. Använd vyn jobb Diff för att jämföra onormal jobbet med en föregående normal.
 
-Vanligtvis måste du vara uppmärksam på stora skillnaderna mellan dessa 2 jobb som de är förmodligen av skäl som orsakar prestandaproblem och du kan även följa nedanstående steg för att göra ytterligare kontroller.
+![Snabbmenyn för att jämföra jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/compare-job.png)
 
-![Verktyg för data Lake Analytics Visa relaterade jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
+Vara uppmärksam på stora skillnaderna mellan dessa två jobb. Dessa skillnader orsakar förmodligen problem med prestanda. Om du vill kontrollera ytterligare använder du stegen i följande diagram:
+
+![Processdiagram för kontroll av skillnaderna mellan jobb](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/recurring-job-diff-debugging-flow.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur du felsöker och löser problem med skeva](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [Felsöka U-SQL-jobbet misslyckades för användardefinierade kodfel](data-lake-analytics-debug-u-sql-jobs.md)
+* [Lösa problem med en förskjutning av data](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
+* [Felsöka användardefinierade C#-kod för misslyckade U-SQL-jobb](data-lake-analytics-debug-u-sql-jobs.md)

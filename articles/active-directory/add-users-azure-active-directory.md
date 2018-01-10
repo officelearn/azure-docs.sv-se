@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b914bb72d9d0d6b6021c221c6019aea69a964a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snabbstart: Lägga till nya användare i Azure Active Directory
-Den här artikeln förklarar hur du lägger till nya användare i din organisation i Azure Active Directory (AD Azure) en i taget med Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-kontot användardata. 
+Den här artikeln beskriver hur du tar bort eller lägga till användare i din organisation till din orgnization Azure Active Directory (Azure AD)-klient med hjälp av Azure-portalen eller genom att synkronisera dina lokala Windows Server AD-kontot användardata. 
 
 ## <a name="add-cloud-based-users"></a>Lägga till molnbaserade användare
 1. Logga in på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) med ett konto som är en global administratör för katalogen.
@@ -48,8 +48,11 @@ Den här artikeln förklarar hur du lägger till nya användare i din organisati
 
 ### <a name="learn-more"></a>Läs mer 
 * [Lägg till gästanvändare från en annan katalog](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Tilldela en användare till en roll i din Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
+* [Återställa en borttagen användare](active-directory-users-restore.md)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Du har lärt dig hur du lägger till nya användare till Azure AD Premium i denna Snabbstart. 

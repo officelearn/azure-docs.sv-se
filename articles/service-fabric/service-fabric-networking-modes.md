@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric-behållaren nätverk lägen
 
@@ -221,8 +221,18 @@ När en behållartjänsten startar om eller flyttas till en annan nod i klustret
     >På Linux-kluster stöds blanda nätverk lägen för olika tjänster inte. 
     >
 
+5. När den **öppna** läget väljs den **Endpoint** definition i service manifest uttryckligen måste peka på kodpaketet för slutpunkten, även om tjänstepaketet har endast en kod paketet i den. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
 ## <a name="next-steps"></a>Nästa steg
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
-* [Lär dig mer om Service Fabric service manifest resurser](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Lär dig mer om Service Fabric service manifest resurser](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuera en dockerbehållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)

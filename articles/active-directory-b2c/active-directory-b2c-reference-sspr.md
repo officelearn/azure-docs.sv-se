@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Konfigurera Självbetjäning för återställning av lösenord för dina användare
 Med funktionen för återställning av självbetjäning lösenord kan dina användare (som har registrerat sig för lokala konton) återställa sina lösenord på egen hand. Detta minskar avsevärt belastningen på supportpersonal, särskilt om programmet har miljontals konsumenter med hjälp av den regelbundet. För närvarande stöder vi bara med en verifierad e-postadress som en återställningsmetod för. Vi lägger till ytterligare återställningsmetoder (verifierade telefonnummer, säkerhetsfrågor osv.) i framtiden.
@@ -30,14 +30,11 @@ Med funktionen för återställning av självbetjäning lösenord kan dina anvä
 
 Som standard i katalogen inte självbetjäning lösenord återställning aktiverat. Använd följande steg för att aktivera den:
 
-1. Logga in på [den klassiska Azure-portalen](https://manage.windowsazure.com/) som administratör för prenumerationen. Detta är samma arbets- eller skolkonto eller samma Microsoft-konto som du använde för att skapa katalogen.
-2. Gå till Active Directory-tillägget i navigeringsfältet till vänster.
-3. Hitta din katalog under den **Directory** och klicka på den.
-4. Klicka på fliken **Konfigurera**.
-5. Rulla ned till den **princip för lösenordsåterställning för användare** avsnittet och växla den **användare som har aktiverats för lösenordsåterställning** att **Ja**. Observera att den **alternativ e-postadress** alternativet är markerat; lämna den som den är.
-   
-    ![Återställning av lösenord för självbetjäning](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Klicka på **Spara** längst ned på sidan. Du är klar!
+1. Logga in på den [Azure-portalen](https://portal.azure.com/) som administratör för prenumerationen. Detta är samma arbets- eller skolkonto eller samma Microsoft-konto som du använde för att skapa katalogen.
+2. Öppna Active Directory (i navigeringsfältet till vänster).
+3. Välj **egenskaper**.
+4. Rulla ned till den **lösenordsåterställning via självbetjäning aktiverat** avsnittet och växla mellan att **alla**. 
+5. Klicka på **spara** överst på sidan. Du är klar!
 
 Om du vill testa, funktionen ”Kör nu” på valfri inloggning princip som har lokala konton som en identitetsleverantör. Vid inloggning lokalt konto sidan (där du anger en e-postadress och lösenord, eller ett användarnamn och lösenord), klicka på **kan inte komma åt ditt konto?** att verifiera användarfunktioner.
 

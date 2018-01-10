@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -116,8 +116,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn  | Attributvärde | Namnrymd |
     | --------------- | --------------- | --------------- |
-    | rolesessionname | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
-    | roll            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | RoleSessionName | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
+    | Roll            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Du måste konfigurera användaretablering i Azure AD för att hämta alla roller från AWS-konsolen. Läs etablering stegen nedan.

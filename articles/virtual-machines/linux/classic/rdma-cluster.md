@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Konfigurera ett Linux RDMA-kluster för att köra MPI-program
 Lär dig hur du ställer in ett Linux RDMA-kluster i Azure med [högpresterande compute VM-storlekar](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) att köra parallella Message Passing Interface (MPI) program. Den här artikeln innehåller steg för att förbereda en Linux HPC-avbildning för att köra Intel MPI på ett kluster. Efter förberedelse, kan du distribuera ett kluster för virtuella datorer med hjälp av den här avbildningen och en av RDMA-kompatibla Azure VM-storlekar (för närvarande H16r H16mr, A8 eller A9). Använd klustret för att köra MPI-program som effektiv kommunicerar över ett nätverk för låg latens, hög genomströmning baserat på remote direct memory access (RDMA)-teknik.
@@ -42,7 +42,7 @@ Följande steg visar hur du använder Azure CLI för att distribuera en SUSE Lin
 >
 >
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * **Klientdatorn**: du behöver en Mac, Linux eller Windows-klientdator att kommunicera med Azure. De här stegen förutsätter att du använder en Linux-klient.
 * **Azure-prenumeration**: Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) på bara några minuter. Överväg att en prenumeration med användningsbaserad betalning eller andra köpalternativ för större kluster.
 * **Tillgänglighet för VM-storlek**: följande instans storleken är RDMA-kompatibla: H16r, H16mr, A8 och A9. Kontrollera [produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/) för tillgänglighet i Azure-regioner.
@@ -304,7 +304,7 @@ cluster12
 Kommandot Intel MPI körs en pingpong prestandamått för att verifiera klusterkonfigurationen och anslutning till RDMA-nätverk.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 Du bör se utdata som liknar följande i ett fungerande kluster med två noder. Förvänta dig fördröjning vid eller under 3 mikrosekunder för meddelande storlekar upp till 512 byte i Azure RDMA-nätverket.

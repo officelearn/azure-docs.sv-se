@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrera nätverkstrafik med nätverks- och säkerhetsgrupper (förhandsgranskning)
 
@@ -31,7 +31,7 @@ De följande avsnitten innehåller steg som du kan vidta för att skapa nätverk
 Den här artikeln innehåller steg för att skapa säkerhetsgrupper via distributionsmodell hanteraren för filserverresurser, som är den distributionsmodell som vi rekommenderar att du använder när du skapar nätverket säkerhetsgrupper för nätverket. Om du behöver skapa en nätverkssäkerhetsgrupp (klassisk) [skapar en nätverkssäkerhetsgrupp (klassisk)](virtual-networks-create-nsg-classic-ps.md). Om du inte är bekant med Azures distributionsmodeller [förstå Azure distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> Den här kursen använder gruppfunktioner för nätverkssäkerhet som för närvarande i förhandsversionen. Funktioner i förhandsversionen har inte samma tillgänglighet och tillförlitlighet som funktioner i allmänhet versionen. I förhandsgranskningen funktionerna är bara tillgängliga i följande regioner: WestCentralUS. Om du vill implementera nätverkssäkerhet släpper grupper med hjälp av endast funktioner i allmänhet kan du gå [skapar en nätverkssäkerhetsgrupp](virtual-networks-create-nsg-arm-pportal.md). 
+> Den här kursen använder gruppfunktioner för nätverkssäkerhet som för närvarande i förhandsversionen. Funktioner i förhandsversionen har inte samma tillgänglighet och tillförlitlighet som funktioner i allmänhet versionen. Om du vill implementera nätverkssäkerhet släpper grupper med hjälp av endast funktioner i allmänhet kan du gå [skapar en nätverkssäkerhetsgrupp](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>Azure CLI
 

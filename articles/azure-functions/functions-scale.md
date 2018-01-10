@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd för
 
@@ -97,7 +97,7 @@ När du använder förbrukningen värd plan som funktionen kodfiler lagras på A
 > [!NOTE]
 > När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar om en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Överväg att något av följande alternativ för att undvika den här första fördröjningen:
 > - Värd för appen funktionen på en apptjänstplan med alltid på aktiverad.
-> - Använd en annan funktion för att utlösa blob bearbetning, till exempel en händelse rutnätet prenumeration eller ett meddelande i kön som innehåller blob-namnet. Ett exempel finns i [C#-skript och JavaScript-exempel för blobben indata och utdata bindningar](functions-bindings-storage-blob.md#input--output---example).
+> - Använd en annan funktion för att utlösa blob bearbetning, till exempel en händelse rutnätet prenumeration eller ett meddelande i kön som innehåller blob-namnet. Ett exempel finns i [exempel blob inkommande bindningen](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Runtime skalning
 

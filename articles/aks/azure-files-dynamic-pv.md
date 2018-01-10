@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Beständiga volymer med Azure files - dynamiska etablering
 
@@ -79,7 +79,7 @@ parameters:
 En beständig volym anspråk använder klassen lagringsobjektet för att dynamiskt etablerar en typ av lagring. När du använder en Azure-filer, skapas en Azure-filresursen i lagringskontot valt eller som anges i klassen lagringsobjektet.
 
 >  [!NOTE]
->   Kontrollera att ett lämpligt storage-konto har skapats före i samma resursgrupp som klustret AKS. Beständiga volym anspråket misslyckas att etablera Azure filresursen om ett lagringskonto inte är tillgänglig. 
+>   Kontrollera att ett lämpligt storage-konto har skapats i förväg i samma resursgrupp som klusterresurser AKS. Den här resursgruppen har ett namn, till exempel *MC_myAKSCluster_myAKSCluster_eastus*. Beständiga volym anspråket misslyckas att etablera Azure filresursen om ett lagringskonto inte är tillgänglig. 
 
 Följande Manifestet kan användas för att skapa en beständig volym anspråk `5GB` i storlek med `ReadWriteOnce` åtkomst. Mer information om PVC Åtkomstlägen finns [Åtkomstlägen][access-modes].
 

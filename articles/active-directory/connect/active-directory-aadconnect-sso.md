@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory sömlös enkel inloggning (Azure AD sömlös SSO) automatiskt loggar användarna när de är på sina enheter anslutna till företagsnätverket. När aktiverad behöver användare inte ange sina lösenord för att logga in till Azure AD och normalt även ange sina användarnamn. Den här funktionen ger dina användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-](active-directory-aadconnectsync-implement-password-synchronization.md) eller [direkt autentisering](active-directory-aadconnect-pass-through-authentication.md) inloggning metoder.
 
@@ -55,13 +55,13 @@ Sömlös SSO kan kombineras med antingen den [synkronisering av lösenords-hash-
 - Det är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den.
 - Den stöds på web webbläsarbaserad och Office-klienter som stöder [modern autentisering](https://aka.ms/modernauthga) på plattformar och webbläsare som stöder Kerberos-autentisering:
 
-| OS\Browser |Internet Explorer|Kant|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja|Nej|Ja|Ja\*|Saknas
-|Windows 8.1|Ja|Saknas|Ja|Ja\*|Saknas
-|Windows 8|Ja|Saknas|Ja|Ja\*|Saknas
-|Windows 7|Ja|Saknas|Ja|Ja\*|Saknas
-|Mac OS X|Saknas|Saknas|Ja\*|Ja\*|Ja\*
+|Windows 10|Ja|Nej|Ja|Ja\*|Gäller inte
+|Windows 8.1|Ja|Gäller inte|Ja|Ja\*|Gäller inte
+|Windows 8|Ja|Gäller inte|Ja|Ja\*|Gäller inte
+|Windows 7|Ja|Gäller inte|Ja|Ja\*|Gäller inte
+|Mac OS X|Gäller inte|Gäller inte|Ja\*|Ja\*|Ja\*
 
 \*Kräver [ytterligare konfiguration](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

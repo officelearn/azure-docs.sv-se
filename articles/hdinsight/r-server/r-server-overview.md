@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
 
@@ -46,7 +46,7 @@ Du har möjlighet att lägga till åtkomst till ytterligare Blob och Data lake l
 Du kan också använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) som ett lagringsalternativ för användning på kantnoden. Azure Files kan du montera en filresurs som skapats i Azure Storage till Linux-filsystem. Mer information om de här alternativen för datalagring för R Server på HDInsight-kluster finns [Azure Storage-alternativen för R Server på HDInsight-kluster](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Åtkomst R Server i klustret
-Du kan ansluta till R Server på kantnod med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [hämta stared med R Server på HDInsight](r-server-get-started.md).
+Du kan ansluta till R Server på kantnod med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [komma igång med R Server på HDInsight](r-server-get-started.md).
 
 Du kan också ansluta till R-Server från kommandoraden med hjälp av SSH/PuTTY åtkomst till R-konsolen. 
 

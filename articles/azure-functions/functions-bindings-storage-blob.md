@@ -15,15 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6985d631bdac7114a72f105716c9483d0c5733ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
-Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i Azure Functions. Azure Functions stöder utlösa indata och utdata bindningar för BLOB.
+Den här artikeln förklarar hur du arbetar med Azure Blob storage bindningar i Azure Functions. Azure Functions stöder utlösa indata och utdata bindningar för BLOB. Artikeln innehåller ett avsnitt för varje bindning:
+
+* [BLOB-utlösare](#trigger)
+* [BLOB-indatabindning](#input)
+* [BLOB-bindning för utdata](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,7 +41,7 @@ Använd en Blob storage-utlösare för att starta en funktion när en ny eller u
 > [!NOTE]
 > När du använder en blob-utlösare på en plan för förbrukning, kan det finnas upp till en 10 minuters fördröjning vid bearbetningen av nya blobbar när en funktionsapp är inaktiv. När funktionen appen körs bearbetas blobbar omedelbart. Överväg att något av följande alternativ för att undvika den här första fördröjningen:
 > - Använda en apptjänstplan med alltid på aktiverad.
-> - Använd en annan funktion för att utlösa blob bearbetning, till exempel ett kömeddelande som innehåller blobbnamnet på. Ett exempel finns i [blob-i/o-bindningar exempel senare i den här artikeln](#input--output---example).
+> - Använd en annan funktion för att utlösa blob bearbetning, till exempel ett kömeddelande som innehåller blobbnamnet på. Ett exempel finns i [blob inkommande bindningar exemplet nedan](#input---example).
 
 ## <a name="trigger---example"></a>Utlösaren - exempel
 
@@ -310,52 +314,37 @@ Om alla 5 försök misslyckas Azure Functions läggs ett meddelande till en kö 
 
 Om blob-behållaren som övervakas innehåller fler än 10 000 blobbar, loggfiler funktioner runtime genomsökningar kan du titta på för nya eller ändrade BLOB. Den här processen kan orsaka försening. En funktion kan hämta aktiveras inte förrän flera minuter eller längre efter blob skapas. Dessutom [lagring loggfiler skapas på ”bästa prestanda”](/rest/api/storageservices/About-Storage-Analytics-Logging) basis. Det är inte säkert att alla händelser fångas. Loggar under vissa förhållanden kan missas. Om du behöver snabbare och mer tillförlitlig blob-bearbetning kan du skapa en [kömeddelande](../storage/queues/storage-dotnet-how-to-use-queues.md) när du skapar blob. Använd sedan en [kö utlösaren](functions-bindings-storage-queue.md) i stället för en blob-trigger för att bearbeta blob. Ett annat alternativ är att använda händelsen rutnät. Se Självstudierna [automatisera storleksändring upp bilder med hjälp av händelse rutnätet](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="input--output"></a>Indata och utdata
+## <a name="input"></a>Indata
 
-Använda Blob storage indata och utdata bindningar för att läsa och skriva BLOB.
+Använda en Blob storage-indatabindning för att läsa blobbar.
 
-## <a name="input--output---example"></a>Indata och utdata - exempel
+## <a name="input---example"></a>Indata - exempel
 
 Finns i det språkspecifika:
 
-* [C#](#input--output---c-example)
-* [C#-skript (.csx)](#input--output---c-script-example)
-* [JavaScript](#input--output---javascript-example)
+* [C#](#input---c-example)
+* [C#-skript (.csx)](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-### <a name="input--output---c-example"></a>Indata och utdata - C#-exempel
+### <a name="input---c-example"></a>Indata - C#-exempel
 
-Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en blob-utlösare och två utdata blob-bindningar. Funktionen utlöses av skapandet av en avbildning blob i den *exempel bilder* behållare. Storlek för små och medelstora kopior av avbildningsbloben skapas. 
+Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en kö-utlösare och en inkommande blob-bindning. Kön messagge innehåller namnet på blob och funktionen loggar storleken på blobben.
 
 ```csharp
-[FunctionName("ResizeImage")]
+[FunctionName("BlobInput")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
 ```        
 
-### <a name="input--output---c-script-example"></a>Indata och utdata - exempel på C#-skript
+### <a name="input---c-script-example"></a>Indata - exempel på C#-skript
+
+<!--Same example for input and output. -->
 
 I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningar. Funktionen skapas en kopia av en text-blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
 
@@ -390,7 +379,7 @@ I den *function.json* filen, den `queueTrigger` metadataegenskapen används för
 }
 ``` 
 
-Den [configuration](#input--output---configuration) förklaras de här egenskaperna.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
 Här är skriptkod C#:
 
@@ -402,7 +391,9 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-### <a name="input--output---javascript-example"></a>Indata och utdata - JavaScript-exempel
+### <a name="input---javascript-example"></a>Indata - JavaScript-exempel
+
+<!--Same example for input and output. -->
 
 I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil- och [JavaScript-kod] (funktioner-referens-node.md) som använder bindningar. Funktionen skapas en kopia av en blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
 
@@ -437,7 +428,7 @@ I den *function.json* filen, den `queueTrigger` metadataegenskapen används för
 }
 ``` 
 
-Den [configuration](#input--output---configuration) förklaras de här egenskaperna.
+Den [configuration](#input---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
 
@@ -449,7 +440,219 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes"></a>Indata och utdata - attribut
+## <a name="input---attributes"></a>Indata - attribut
+
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+Den Attributkonstruktorn tar sökvägen till blob och en `FileAccess` parameter som anger läsning eller skrivning, som visas i följande exempel:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+
+```
+
+Du kan ange den `Connection` att ange storage-konto du använder, enligt följande exempel:
+
+```csharp
+[FunctionName("BlobInput")]
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
+    TraceWriter log)
+{
+    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes).
+
+## <a name="input---configuration"></a>Indata - konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Blob` attribut.
+
+|Egenskapen Function.JSON | Egenskap |Beskrivning|
+|---------|---------|----------------------|
+|**typ** | Saknas | måste anges till `blob`. |
+|**riktning** | Saknas | måste anges till `in`. Undantag anges i den [användning](#input---usage) avsnitt. |
+|**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.|
+|**sökväg** |**BlobPath** | Sökvägen till blob. | 
+|**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|Saknas | **Åtkomst** | Anger om du läsning eller skrivning. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="input---usage"></a>Indata - användning
+
+I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
+
+* `TextReader`
+* `string`
+* `Byte[]`
+* `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `CloudBlockBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `CloudPageBlob`(kräver ”inout” bindning riktning i *function.json*)
+* `CloudAppendBlob`(kräver ”inout” bindning riktning i *function.json*)
+
+Som anges är en del av dessa typer kräver en `inout` bindning riktning i *function.json*. Den här riktningen stöds inte av standardredigeraren i Azure-portalen så du måste använda redigeraren.
+
+Om du läser text blobbar, du kan binda till en `string` typen. Den här typen rekommenderas endast om blobbstorleken är liten, som hela blobbinnehållet läses in i minnet. Vanligtvis är det bättre att använda en `Stream` eller `CloudBlockBlob` typen.
+
+I JavaScript, få åtkomst till blob-data med `context.bindings.<name>`.
+
+## <a name="output"></a>Resultat
+
+Använda Blob storage utdata bindningar för att skriva BLOB.
+
+## <a name="output---example"></a>Output - exempel
+
+Finns i det språkspecifika:
+
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Utdata - C#-exempel
+
+Följande exempel är en [C#-funktionen](functions-dotnet-class-library.md) som använder en blob-utlösare och två utdata blob-bindningar. Funktionen utlöses av skapandet av en avbildning blob i den *exempel bilder* behållare. Storlek för små och medelstora kopior av avbildningsbloben skapas. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
+{
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+}
+
+public enum ImageSize { ExtraSmall, Small, Medium }
+
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
+};
+```        
+
+### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
+
+<!--Same example for input and output. -->
+
+I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningar. Funktionen skapas en kopia av en text-blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
+
+I den *function.json* filen, den `queueTrigger` metadataegenskapen används för att ange blobbnamnet i den `path` egenskaper:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
+
+Här är skriptkod C#:
+
+```cs
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    myOutputBlob = myInputBlob;
+}
+```
+
+### <a name="output---javascript-example"></a>Utdata - JavaScript-exempel
+
+<!--Same example for input and output. -->
+
+I följande exempel visas blob-indata och utdata bindningar i en *function.json* fil- och [JavaScript-kod] (funktioner-referens-node.md) som använder bindningar. Funktionen skapas en kopia av en blob. Funktionen utlöses av ett meddelande i kön som innehåller namnet på blob att kopiera. Ny blob heter *{originalblobname}-kopiera*.
+
+I den *function.json* filen, den `queueTrigger` metadataegenskapen används för att ange blobbnamnet i den `path` egenskaper:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+Den [configuration](#output---configuration) förklaras de här egenskaperna.
+
+Här är JavaScript-kod:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+## <a name="output---attributes"></a>Utdata - attribut
 
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -477,18 +680,18 @@ public static void Run(
 }
 ```
 
-En komplett exempel finns [indata och utdata - C#-exempel](#input--output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
 Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes).
 
-## <a name="input--output---configuration"></a>Indata och utdata - konfiguration
+## <a name="output---configuration"></a>Output - konfiguration
 
 I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `Blob` attribut.
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**typ** | Saknas | måste anges till `blob`. |
-|**riktning** | Saknas | Måste anges till `in` för en indatabindning eller `out` för en bindning för utdata. Undantag anges i den [användning](#input--output---usage) avsnitt. |
+|**riktning** | Saknas | Måste anges till `out` för en bindning för utdata. Undantag anges i den [användning](#output---usage) avsnitt. |
 |**Namn** | Saknas | Namnet på variabeln som representerar blob i funktionskoden.  Ange till `$return` att referera till returvärde för funktion.|
 |**sökväg** |**BlobPath** | Sökvägen till blob. | 
 |**anslutning** |**Anslutning**| Namnet på en appinställning som innehåller anslutningssträngen för lagring för den här bindningen. Om appen Inställningens namn börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Till exempel om du ställer in `connection` för ”MyStorage” Functions-runtime ut för en app inställningen som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom Functions-runtime använder standard lagringsanslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.<br><br>Anslutningssträngen får inte vara för ett allmänt lagringskonto en [endast blob storage-konto](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
@@ -496,17 +699,14 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="input--output---usage"></a>Indata och utdata - användning
+## <a name="output---usage"></a>Utdata - användning
 
 I C#-klassbibliotek och C# skript för åtkomst till blob med hjälp av en metodparameter som `Stream paramName`. I C# skript `paramName` anges värdet i den `name` -egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
-* `TextReader`(endast indata)
-* `string`(endast indata)
-* `Byte[]`(endast indata)
-* `TextWriter`(utdata)
-* `out string`(utdata)
-* `out Byte[]`(utdata)
-*  `CloudBlobStream`(utdata)
+* `TextWriter`
+* `out string`
+* `out Byte[]`
+* `CloudBlobStream`
 * `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`

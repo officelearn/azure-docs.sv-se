@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-ms.openlocfilehash: dc252903571857b5fc89d1d9a2c63cd6b44e9021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f58464ac212b84623d2287205271301dbaa0ffb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure Apptjänst-App kloning med hjälp av PowerShell
 Med versionen av Microsoft Azure PowerShell version 1.1.0 har ett nytt alternativ lagts till ny AzureRMWebApp som skulle ge användaren möjlighet att klona en befintlig Webbapp till en nyligen skapade appen i en annan region eller i samma region. Detta gör att kunder att distribuera flera appar över olika regioner, snabbt och enkelt.
@@ -102,6 +102,7 @@ Den här funktionen är för närvarande under förhandsgranskning, vi arbetar f
 * Kudu-tillägget klonas inte
 * Tips regler klonas inte
 * Databasen innehåll klonas inte
+* Utgående IP-adresser ändras om Kloningen till en annan skalningsenhet
 
 ### <a name="references"></a>Referenser
 * [Kloning av Web App](app-service-web-app-cloning.md)

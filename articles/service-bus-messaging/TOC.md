@@ -1,5 +1,4 @@
 # Översikt
-
 ## [Vad är Service Bus-meddelanden?](service-bus-messaging-overview.md)
 ## [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus-arkitektur](service-bus-architecture.md)
@@ -65,6 +64,7 @@
 #### [Chain-enheter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
 #### [Transaktionsbearbetning](service-bus-transactions.md)
 #### [Implementering av kopplat namnområde](service-bus-paired-namespaces.md)
+### [Slutpunkt till slutpunkt – spårning och diagnostik](service-bus-end-to-end-tracing.md)
 ## Hantera
 ### [Övervaka Service Bus med Azure-övervakning](service-bus-metrics-azure-monitor.md)
 ### [Service Bus-hanteringsbibliotek](service-bus-management-libraries.md)

@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introduktion till R Server och öppen källkod R-funktioner på HDInsight
 
 Microsoft R Server är tillgänglig som ett distributionsalternativ när du skapar HDInsight-kluster i Azure. Den här nya funktionen ger dataanalytiker, statistiker och R-programmerare på begäran åtkomst till skalbara, distribuerade metoder för analyser på HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Kluster kan storlek på lämpligt sätt till projekt och uppgifter till hands och datakanalen när de inte längre behövs. Eftersom de är en del av Azure HDInsight medföljer dessa kluster på företagsnivå 24/7 stöd och ett SLA för 99,9% drifttid kan integrera med andra komponenter i Azure-ekosystemet.
 
@@ -44,7 +46,7 @@ Du har möjlighet att lägga till åtkomst till ytterligare Blob och Data lake l
 Du kan också använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) som ett lagringsalternativ för användning på kantnoden. Azure Files kan du montera en filresurs som skapats i Azure Storage till Linux-filsystem. Mer information om de här alternativen för datalagring för R Server på HDInsight-kluster finns [Azure Storage-alternativen för R Server på HDInsight-kluster](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Åtkomst R Server i klustret
-Du kan ansluta till R Server på kantnod med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [hämta stared med R Server på HDInsight](r-server-get-started.md).
+Du kan ansluta till R Server på kantnod med en webbläsare. Den installeras som standard när klustret skapas. Mer information finns i [komma igång med R Server på HDInsight](r-server-get-started.md).
 
 Du kan också ansluta till R-Server från kommandoraden med hjälp av SSH/PuTTY åtkomst till R-konsolen. 
 
@@ -96,7 +98,7 @@ Ett annat alternativ för fullständig IDE är att installera en stationär IDE 
 Till sist ska du har åtkomst till konsolen på noden edge R Server genom att skriva **R** Linux Kommandotolken efter anslutning via SSH eller PuTY. När gränssnittet i konsolen, är det praktiskt att köra en textredigerare för utveckling av R-skript i ett annat fönster och klippa och klistra in avsnitt i ditt skript i konsolen R efter behov.
 
 ## <a name="learn-about-pricing"></a>Läs mer om prissättningen
-Avgifter som är associerade med ett HDInsight-kluster med R Server är strukturerade på samma sätt att avgifter för standard HDInsight-kluster. De är baserade på storleksändring av de underliggande virtuella datorerna över namn, data och edge noder med att lägga till en timme core-höjning. Mer information om priser för HDInsight och tillgängligheten för en kostnadsfri 30-dagars utvärderingsversion finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+Avgifter som är associerade med ett HDInsight-kluster med R Server är strukturerade på samma sätt att avgifter för standard HDInsight-kluster. De är baserade på storleksändring av de underliggande virtuella datorerna över namn, data och edge noder med att lägga till en timme core-höjning. Läs mer om prissättningen för HDInsight [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du använder R Server med HDInsight-kluster finns i följande avsnitt:

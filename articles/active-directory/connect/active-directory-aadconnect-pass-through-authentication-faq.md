@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direkt-autentisering: Vanliga frågor och svar
 
@@ -81,6 +81,12 @@ Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverad i din lokala miljö, förs�
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan jag installera två eller flera direkt autentisering agenter på samma server?
 
 Nej, kan du endast installera en Agent för direkt-autentisering på en enskild server. Om du vill konfigurera direkt autentisering för hög tillgänglighet, följ instruktionerna i [Azure Active Directory direkt-autentisering: Snabbstart](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur tar jag bort en direkt autentiseringsagent?
+
+Så länge en direkt autentiseringsagent körs förblir aktiv och kontinuerligt hanterar begäranden om användare loggar in. Om du vill avinstallera en Agent för autentisering går du till **Kontrollpanelen -> program -> program och funktioner** och avinstallera både den **ansluta autentiseringsagent för Microsoft Azure AD** och  **Microsoft Azure AD Connect Agent Updater** program.
+
+Om du markerar bladet direkt-autentisering på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) när du har slutfört föregående steg visas autentiseringsagent visas som **inaktiv**. Detta är _förväntade_. Autentisering-agenten bort automatiskt från listan efter några dagar.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur jag växlar den direkt autentisering?
 

@@ -1,37 +1,35 @@
 ## <a name="set-up-the-development-environment"></a>Konfigurera utvecklingsmiljön
 
-Det här avsnittet går igenom Konfigurera utvecklingsmiljön, inklusive att skapa en ASP.NET MVC-app, lägger till en ansluten Services-anslutning, lägger till en domänkontrollant och att ange de nödvändiga namnområde direktiv.
+Det här avsnittet går igenom hur du konfigurerar utvecklingsmiljön. Detta omfattar att skapa en ASP.NET MVC-app, lägger till en anslutning för anslutna tjänster, att lägga till ett och ange de obligatoriska namnområde-direktiv.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Skapa en ASP.NET MVC-app-projekt
 
 1. Öppna Visual Studio.
 
-1. Välj **Arkiv -> Ny -> projekt** från huvudmenyn
+1. Välj på huvudmenyn **filen** > **ny** > **projekt**.
 
-1. På den **nytt projekt** dialogrutan, ange alternativ som är markerade i följande bild:
+1. I den **nytt projekt** dialogrutan **Web** > **ASP.NET-webbprogram (.NET Framework)**. I den **namn** anger **StorageAspNet**. Välj **OK**.
 
-    ![Skapa ASP.NET-projekt](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
+    ![Dialogrutan Skärmbild av nytt projekt](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. Välj **OK**.
+1. I den **nytt ASP.NET-webbprogram** dialogrutan **MVC**, och välj sedan **OK**.
 
-1. På den **nytt ASP.NET-projekt** dialogrutan, ange alternativ som är markerade i följande bild:
+    ![Skärmbild av nytt ASP.NET-webbprogram dialogrutan](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-    ![Ange MVC](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Använd anslutna tjänster för att ansluta till ett Azure storage-konto
 
-1. Välj **OK**.
+1. I **Solution Explorer**, högerklicka på projektet.
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Använda anslutna Services för att ansluta till ett Azure storage-konto
+2. På snabbmenyn Välj **Lägg till** > **ansluten Service**.
 
-1. I den **Solution Explorer**, högerklicka på projektet och på snabbmenyn väljer **Lägg till -> ansluten Service**.
+1. I den **anslutna tjänster** dialogrutan **lagringsutrymmet i molnet med Azure Storage**, och välj sedan **konfigurera**.
 
-1. På den **Lägg till ansluten tjänst** markerar **lagringsutrymmet i molnet med Azure Storage**, och välj sedan **konfigurera**.
+    ![Skärmbild av anslutna Services dialogrutan](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-    ![Dialogrutan för anslutna Service](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
-
-1. På den **Azure Storage** dialogrutan Välj Azure Storage-konto som ska användas för den här kursen.  Om du vill skapa ett nytt Azure Storage-konto, klickar du på **skapa ett nytt Lagringskonto** och Fyll i formuläret.  När du väljer ett befintligt lagringskonto eller skapa en ny, klickar du på **Lägg till**.  Visual Studio ska installera NuGet-paketet för Azure Storage och en lagringsanslutningssträng till **Web.config**.
+1. I den **Azure Storage** dialogrutan Välj Azure storage-konto som ska användas för den här kursen. Om du vill skapa ett nytt Azure storage-konto, Välj **skapa ett nytt Lagringskonto**, och Fyll i formuläret. Efter att välja ett befintligt lagringskonto eller skapa en ny, Välj **Lägg till**. Visual Studio installerar NuGet-paketet för Azure Storage och en lagringsanslutningssträng till **Web.config**.
 
 > [!TIP]
 > Information om hur du skapar ett lagringskonto med den [Azure-portalen](https://portal.azure.com), se [skapa ett lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 >
-> Ett Azure storage-konto kan även skapas med hjälp av [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), eller [Azure Cloud Shell](../articles/cloud-shell/overview.md).
+> Du kan också skapa ett lagringskonto med hjälp av [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), eller [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 

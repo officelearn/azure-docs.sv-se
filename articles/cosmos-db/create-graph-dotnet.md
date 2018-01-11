@@ -3,7 +3,7 @@ title: Skapa ett Azure Cosmos DB .NET Framework- eller Core-program med Graph AP
 description: "Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Skapa ett .NET Framwork- eller Core-program med Graph API
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en databas och en graf (behållare) med hjälp av Azure Portal. Sedan skapar du och kör en konsolapp som är byggd med [Graph API](graph-sdk-dotnet.md) (förhandsversion).  
+Den här snabbstarten demonstrerar hur du skapar ett Azure Cosmos DB-konto, en databas och en graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp som är byggd med [Graph API](graph-sdk-dotnet.md).  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -108,21 +108,33 @@ Vi gör en snabb genomgång av vad som händer i appen. Öppna filen Program.cs 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Öppna filen appsettings.json i Visual Studio 2017. 
+1. I [Azure Portal](http://portal.azure.com/) klickar du på **Nycklar**. 
 
-2. Klicka på **Nycklar** i ditt Azure Cosmos DB-konto i det vänstra navigeringsfönstret på Azure-portalen. 
+    Kopiera den första delen av URI-värdet.
 
-    ![Visa och kopiera en primärnyckel i Azure-portalen på sidan nycklar](./media/create-graph-dotnet/keys.png)
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-dotnet/keys.png)
 
-3. Kopiera **URI**-värdet från portalen och använd det som värdet för slutpunktsnyckeln i appsettings.json. Du kan använda kopieringsknappen som du ser i föregående skärmbild för att kopiera värdet.
+2. Öppna filen appsettings.json i Visual Studio 2017 och klistra in värdet över `FILLME` i `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    Slutpunktsvärdet bör nu se ut så här:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Om du skapade ditt grafdatabaskonto innan 27 November 2017 ändrar du `documents` till `graphs` i värdet `endpoint`. Om du skapade ditt grafdatabaskonto på eller efter 27 November 2017 ändrar du `documents` till `gremlin.cosmosdb` i värdet `endpoint`.
+
+    Slutpunktsvärdet bör nu se ut så här:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` eller `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Kopiera värdet för din **PRIMÄRNYCKEL** från portalen och använd det som värdet för AuthKey-nyckeln i App.config. Avsluta med att spara dina ändringar. 
 
     `"authkey": "FILLME"`
 
-Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+5. Spara filen appsettings.json. 
+
+Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 

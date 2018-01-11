@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-exemplen för gruppbaserade licensiering i Azure AD
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Hämta alla användare med licens fel i en grupp
 
-Beroende på en grupp som innehåller vissa licens relaterade fel, kan du nu visa alla användare som påverkas av felen. En jser kan ha fel från andra grupper för. Men i det här exemplet vi begränsa resultatet bara till fel som är relevanta för den aktuella gruppen genom att kontrollera den **ReferencedObjectId** -egenskapen för varje **IndirectLicenseError** transaktionen på användaren.
+Beroende på en grupp som innehåller vissa licens relaterade fel, kan du nu visa alla användare som påverkas av felen. En användare kan ha fel från andra grupper för. Men i det här exemplet vi begränsa resultatet bara till fel som är relevanta för den aktuella gruppen genom att kontrollera den **ReferencedObjectId** -egenskapen för varje **IndirectLicenseError** transaktionen på användaren.
 
 ```
 #a sample group with errors

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/02/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Leta upp och välj mallen **Azure CosmosDBTrigger** för önskat språk.
+2. Skriv `cosmos` i sökfältet och välj sedan önskat språk för utlösarmallen för Azure Cosmos DB.
 
-    ![Skapa en funktion som utlöses av Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Välj Azure Cosmos DB-utlösaren](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Konfigurera den nya utlösaren med inställningar enligt tabellen under bilden.
 
@@ -60,10 +60,10 @@ Därefter skapar du en funktion i den nya funktionsappen.
     
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Namnge din funktion** | Standard | Använd det standardfunktionsnamn som föreslås av mallen. |
-    | **Databasnamn** | Uppgifter | Namnet på databasen med den samling som ska övervakas. |
+    | **Namn** | Standard | Använd det standardfunktionsnamn som föreslås av mallen. |
     | **Samlingsnamn** | Objekt | Namnet på samlingen som ska övervakas. |
     | **Skapa en lånsamling om ingen finns** | Markerad | Samlingen finns inte redan, så du måste skapa den. |
+    | **Databasnamn** | Uppgifter | Namnet på databasen med den samling som ska övervakas. |
 
 4. Välj **Nytt** bredvid etiketten **Azure Cosmos DB-kontoanslutning** och välj ett befintligt Cosmos DB-konto eller **+ Skapa nytt**. 
  
@@ -149,4 +149,4 @@ Du har nu skapat en funktion som körs när ett dokument läggs till eller ändr
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Mer information om Queue Storage-utlösare finns i [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Azure Functions-lagringsköbindningar).
+Mer information om Cosmos DB-utlösare finns i [Azure Cosmos DB-bindningar för Azure Functions](functions-bindings-documentdb.md).

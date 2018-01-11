@@ -14,22 +14,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överför ägarskapet för en Azure-prenumeration till ett annat konto
 
-Du kan överföra prenumerationen till en annan användare mitt konto. Använd denna funktion för att räcka över prenumeration fakturering ägarskap till någon annan, ändra konto för inloggning eller flytta prenumerationen till en annan katalog. Om du vill ändra prenumerationen till ett annat erbjudande [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
+Överföra prenumerationen till en annan användare att ändra kontoadministratören och överlämna prenumeration faktureringsägarskapet Account Center. Om du vill ändra prenumerationen till ett annat erbjudande [växla din Azure-prenumeration till ett annat erbjudande](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
 > För närvarande stöds inte prenumerationsöverföringar för en kostnadsfri utvärderingsversion eller [Azure i Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) prenumerationer. En lösning finns [flytta resurser till en ny resursgrupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+
+## <a name="transfer-ownership-of-an-azure-subscription"></a>Överför ägarskapet för en Azure-prenumeration
+
+> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
+>
+>
+
+1. Logga in på [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som administratören konto. Om du vill veta vem är kontoadministratören för prenumerationen [vanliga frågor och](#faq).
+
+1. Välj prenumerationen för att överföra.
+
+1. Kontrollera att din prenumeration är berättigad för självbetjäning överföring genom att kontrollera den **erbjuder** och **erbjuder ID** med den [stöds erbjudanden listan](#supported).
+
+   ![Kontrollera erbjudande-ID för prenumerationen i Account Center](./media/billing-subscription-transfer/image0.png)
+1. Klicka på **överföra äganderätten till prenumerationen**.
+
+   ![Fliken abonnemang för Azure-konto](./media/billing-subscription-transfer/image1.png)
+1. Ange mottagaren.
+
+   ![Överföra prenumerationen dialogrutan](./media/billing-subscription-transfer/image2.PNG)
+1. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
+
+   ![E-post i prenumerationen överföring till mottagare](./media/billing-subscription-transfer/image3.png)
+1. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation.
+
+   ![Prenumerationen överföring webbsida](./media/billing-subscription-transfer/image4.png)
+
+   ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
+1. Klar Prenumerationen överförs nu.
+
+<a id="EA"></a>
+
+## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Överför ägarskapet för prenumerationen för kunder med Enterprise-avtal (EA)
+
+Företagsadministratören kan överföra ägarskap för prenumerationer inom en registrering. Om du vill komma igång finns [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
+
+## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att acceptera ägarskap för en prenumeration
+
+1. Du är nu konto administratören. Granska och uppdatera tjänstadministratören och Medadministratörer andra RBAC-roller. Läs mer i [lägga till eller ändra Azure-administratörsroller som hanterar prenumerationen eller tjänster](billing-add-change-azure-subscription-administrator.md).
+1. Uppdatera autentiseringsuppgifterna som associeras med den här prenumerationens tjänster, inklusive:
+   1. Av hanteringscertifikat som beviljar användaren administratörsrättigheter att prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)
+   1. Remote Access-autentiseringsuppgifter för tjänster som Azure virtuella datorer. 
+1. [Uppdatera fakturaaviseringar för den här prenumerationen](billing-set-up-alerts.md) på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions). 
+1. Om du arbetar med en partner Överväg att uppdatera partner-ID för den här prenumerationen. Du kan uppdatera partner-ID i den [Azure-portalen](https://portal.azure.com).
 
 <a id="supported"></a>
 
@@ -51,52 +96,6 @@ Självbetjäning prenumerationsöverföring är tillgänglig för erbjudanden oc
 
 \*[Via EA-portalen](#EA)
 
-## <a name="transfer-ownership-of-an-azure-subscription"></a>Överför ägarskapet för en Azure-prenumeration
-
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
-
-1. Logga in på [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör. Om du vill veta vem som är kontoadministratör för prenumerationen [vanliga frågor och](#faq).
-
-1. Välj prenumerationen för att överföra.
-
-1. Kontrollera att din prenumeration är berättigad för självbetjäning överföring genom att kontrollera den **erbjuder** och **erbjuder ID** med den [stöds erbjudanden listan](#supported).
-
-   ![Kontrollera erbjudande-ID för prenumerationen i Account Center](./media/billing-subscription-transfer/image0.png)
-1. Klicka på **överföra äganderätten till prenumerationen**.
-
-   ![Fliken abonnemang för Azure-konto](./media/billing-subscription-transfer/image1.png)
-1. Ange mottagaren.
-
-   ![Överföra prenumerationen dialogrutan](./media/billing-subscription-transfer/image2.PNG)
-1. Mottagaren hämtar automatiskt ett e-postmeddelande med en länk för godkännande.
-
-   ![E-post i prenumerationen överföring till mottagare](./media/billing-subscription-transfer/image3.png)
-1. Mottagaren klickar på länken och följer instruktionerna, inklusive att ange sin betalningsinformation.
-
-   ![Prenumerationen överföring webbsida](./media/billing-subscription-transfer/image4.png)
-
-   ![Webbsida för överföring till andra prenumeration](./media/billing-subscription-transfer/image5.png)
-1. Lyckades! Prenumerationen överförs nu.
-
-<a id="EA"></a>
-
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Överför ägarskapet för prenumerationen för kunder med Enterprise-avtal (EA)
-
-Företagsadministratören kan överföra ägarskap för prenumerationer inom en registrering. Om du vill komma igång finns [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
-
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att acceptera ägarskap för en prenumeration
-
-1. Du är nu kontoadministratör. Granska och uppdatera tjänstadministratören och Medadministratörer. Hantera administratörer i den [klassiska Azure-portalen](https://manage.windowsazure.com) genom att gå till inställningar. [Lär dig mer om administratörsroller](billing-add-change-azure-subscription-administrator.md).
-1. Du kan också använda rollbaserad åtkomstkontroll (RBAC) för din prenumeration och tjänster. Besök [Azure Portal](https://portal.azure.com). [Mer information om RBAC](../active-directory/role-based-access-control-configure.md)
-1. Uppdatera autentiseringsuppgifterna som associeras med den här prenumerationens tjänster, inklusive:
-   1. Av hanteringscertifikat som beviljar användaren administratörsrättigheter att prenumerationsresurser. Mer information finns i [skapa och ladda upp ett certifikat för Azure](../cloud-services/cloud-services-certs-create.md)
-   1. Snabbtangenter för tjänster som lagring. Mer information finns i [om Azure storage-konton](../storage/common/storage-create-storage-account.md)
-   1. Remote Access-autentiseringsuppgifter för tjänster som Azure virtuella datorer. 
-1. [Uppdatera fakturaaviseringar för den här prenumerationen](billing-set-up-alerts.md) på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions). 
-1. Om du arbetar med en partner Överväg att uppdatera partner-ID för den här prenumerationen. Du kan uppdatera partner-ID i den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions).
-
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
@@ -111,7 +110,7 @@ Kontoadministratören är den person som registrerade sig för eller har köpt A
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Överförs allt? Inklusive resursgrupper, virtuella datorer, diskar och andra tjänster som körs?
 
-Ja, alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) principer som du har konfigurerat överför inte i olika kataloger.
+Alla resurser som virtuella datorer, diskar och webbplatser överföring till den nya ägaren. Men alla [administratörsroller](billing-add-change-azure-subscription-administrator.md) och [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md) principer som du har konfigurerat överför inte i olika kataloger. Dessutom [app registreringar](../active-directory//develop/active-directory-integrating-applications.md) och andra tjänster för klient-specifika inte överföra längs.
 
 ### <a id="no-button"></a>Varför visas inte knappen ”överföra prenumerationen”?
 

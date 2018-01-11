@@ -2,8 +2,8 @@
 title: Aktivera offline synkroniserar med iOS-appar | Microsoft Docs
 description: "Lär dig hur du använder Azure Apptjänst mobilappar till cache och synkronisera offlinedata i iOS-program."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera offline synkroniserar med iOS-appar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ När du använder funktionen offlinesynkronisering definiera tre systemtabellern
 | id | Heltal 64 |
 | itemId | Sträng |
 | properties | Binära Data |
-| Tabell | Sträng |
+| tabell | Sträng |
 | tableKind | Heltal 16 |
 
 
@@ -187,7 +187,7 @@ När du använder funktionen offlinesynkronisering definiera tre systemtabellern
 | id |Sträng |
 | key |Sträng |
 | KeyType |Heltal 64 |
-| Tabell |Sträng |
+| tabell |Sträng |
 | värde |Sträng |
 
 ### <a name="data-table"></a>Datatabell
@@ -197,11 +197,11 @@ När du använder funktionen offlinesynkronisering definiera tre systemtabellern
 | Attribut | Typ | Obs! |
 | --- | --- | --- |
 | id | Strängen som markerats krävs |primärnyckeln i fjärranslutna store |
-| Slutför | Booleskt värde | Fältet för att göra-objekt |
+| Slutför | Boolesk | Fältet för att göra-objekt |
 | Text |Sträng |Fältet för att göra-objekt |
 | CreatedAt | Date | (valfritt) Mappar till **createdAt** Systemegenskapen |
 | updatedAt | Date | (valfritt) Mappar till **updatedAt** Systemegenskapen |
-| Version | Sträng | (valfritt) Används för att identifiera konflikter, mappas till version |
+| version | Sträng | (valfritt) Används för att identifiera konflikter, mappas till version |
 
 ## <a name="setup-sync"></a>Ändra beteendet för synkronisering av appen
 I det här avsnittet kan ändra du appen så att den inte synkroniseras på appen startas eller när du infogar och uppdatera objekt. Det synkroniserar bara när knappen Uppdatera gest utförs.

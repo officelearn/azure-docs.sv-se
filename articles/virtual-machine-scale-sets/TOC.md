@@ -1,10 +1,14 @@
 # Översikt
+
 ## [Vad är skalningsuppsättningar för virtuella datorer?](virtual-machine-scale-sets-overview.md)
 
 # Kom igång
-## [Distribuera en skalningsuppsättning på Azure Portal](virtual-machine-scale-sets-portal-create.md)
-## [Distribuera en skalningsuppsättning med PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
-## [Distribuera en app för automatisk skalning med en mall](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Skapa på Azure Portal](virtual-machine-scale-sets-create-portal.md)
+## [Skapa med Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Skapa med Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Skapa med en mall
+### [Linux-skalningsuppsättning](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows-skalningsuppsättning](virtual-machine-scale-sets-create-template-windows.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -17,10 +21,9 @@
 ### [Använda gästbaserad autoskalning med en Linux-mall för skalningsuppsättning](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Distribuera
-### [Skapa med Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Skapa med Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Skapa med Azure PowerShell eller Azure CLI](virtual-machine-scale-sets-create.md)
 ### [Skalningsuppsättning med hanterade diskar](virtual-machine-scale-sets-managed-disks.md)
+### [Använda tillgänglighetszoner](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Skala en skalningsuppsättning automatiskt](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Använda Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Använda Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)

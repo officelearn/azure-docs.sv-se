@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
-AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon med optimal prestanda. Du kan kopiera data från ett objekt till en annan inom ditt lagringskonto eller mellan lagringskonton.
+AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
 
 Det finns två versioner av AzCopy som du kan hämta. AzCopy i Windows har skapats med .NET Framework och erbjuder kommandoradsalternativ för Windows-formatet. [AzCopy på Linux](storage-use-azcopy-linux.md) har byggts med .NET Core Framework som riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. Den här artikeln beskriver AzCopy i Windows.
 

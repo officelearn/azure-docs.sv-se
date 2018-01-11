@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Åtkomst till diagnostikloggarna för Azure Data Lake Store
 Lär dig att aktivera loggning för ditt Data Lake Store-konto och visa loggar som samlats in för ditt konto.
 
-Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv.
+Organisationer kan aktivera diagnostikloggning för sina Azure Data Lake Store-konto att samla in data granskningsspår från filåtkomstförsök som innehåller information, till exempel listan över användare som har åtkomst till data, hur ofta data används hur mycket data som lagras i konto, osv. När aktiverad loggas diagnostik och/eller begäranden för bästa prestanda. Både begäranden och diagnostik loggposter skapas bara om det finns begäranden som görs mot tjänstslutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Store-konto**. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -177,7 +177,7 @@ Här är ett exempel i JSON-formaterad granskningsloggen. Varje blobb har en rot
 | StreamName |Sträng |Sökvägen åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för att bearbeta loggdata
-När du skickar loggar från Azure Data Lake Store till Azure-Monitor (se [vyn eller analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys), följande fråga returnerar en tabell som innehåller en lista över användare Visa namn, tiden för händelser och antalet händelser för tid för händelsen tillsammans med ett visual diagram. Enkelt kan ändras om du vill visa GUID för användare eller andra attribut:
+När du skickar loggar från Azure Data Lake Store till Azure logganalys (finns [visa och analysera data som samlas in med logganalys loggen search](../log-analytics/log-analytics-tutorial-viewdata.md) mer information om hur du använder logganalys), följande fråga returnerar en tabell som innehåller en lista över användare Visa namn, tiden för händelser och antalet händelser för tid för händelsen tillsammans med ett visual diagram. Enkelt kan ändras om du vill visa GUID för användare eller andra attribut:
 
 ```
 search *
@@ -188,7 +188,7 @@ search *
 
 Azure Data Lake Store ger ett exempel att bearbeta och analysera loggdata. Du kan hitta exempel på [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 

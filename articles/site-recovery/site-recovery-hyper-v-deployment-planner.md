@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure
 Den här artikeln är användarhandboken för Distributionshanteraren för Azure Site Recovery för produktionsdistribution av Hyper-V till Azure.
@@ -40,6 +40,9 @@ Du kan se följande information i verktyget:
 
 * Beräknad nätverksbandbredd som krävs för deltareplikering
 * Dataflödet som Azure Site Recovery kan få från lokala datorer till Azure
+* Möjligt återställningspunktmål för en viss bandbredd
+* Påverkan på det önskade återställningspunktmålet vid lägre brandbredder.
+
     
 **Krav på infrastruktur för Azure**
 
@@ -52,6 +55,7 @@ Du kan se följande information i verktyget:
 
 **Krav på lokal infrastruktur**
 * Den mängd ledigt lagringsutrymme som krävs för varje Hyper-V-lagringsvolym för en lyckad initial replikering och deltareplikering, för att garantera att replikeringen av virtuella datorer inte orsakar några oönskade driftstopp för dina produktionsprogram.
+* Maximal kopieringsfrekvens måste ställas in för Hyper-V-replikering
 
 **Inledande vägledning till batchreplikering** 
 * Antal VM-batchar som ska användas för skyddet
@@ -77,9 +81,9 @@ Du kan se följande information i verktyget:
 Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
 Version som stöds | vCenter 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
 Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
-Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
+Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
-* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden Get Throughput gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
+* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
 ## <a name="prerequisites"></a>Krav
 Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, utför profilering och generera rapporten. Det finns också ett fjärde alternativ som endast beräknar dataflödet. I följande tabell visas kraven för den server där de olika faserna ska köras:
@@ -108,7 +112,7 @@ Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, 
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Ladda ned och extrahera distributionshanteraren
 
-1.  Ladda ned den senaste versionen av [Distributionshanteraren för Azure Site Recovery](https://aka.ms/asr-deployment-planner).
+1.  Ladda ned den senaste versionen av [Azure Site Recovery-kapacitetsplaneraren](https://aka.ms/asr-deployment-planner).
 Verktyget är paketerat i en komprimerad mapp. Samma verktyg har stöd för båda haveriberedskapsscenarierna VMware till Azure och Hyper-V till Azure. Du kan använda det här verktyget för scenariot Hyper-V-till sekundär plats också, men då måste du ignorera rekommendationen om Azure-infrastruktur i rapporten.
 
 2.  Kopiera den komprimerade mappen till den Windows Server du vill köra verktyget från. Du kan köra verktyget på en Windows Server 2012 R2 eller Windows Server 2016. Servern måste ha nätverksåtkomst för anslutning till Hyper-V-klustret eller Hyper-V-värden som innehåller de virtuella datorer som ska profileras. Vi rekommenderar att du använder samma maskinvarukonfiguration för den virtuella dator där verktyget ska köras som den Hyper-V-server du vill skydda. En sådan konfiguration garanterar att det uppnådda dataflödet som verktyget rapporterar matchar det faktiska dataflöde som Azure Site Recovery kan uppnå under replikeringen. Dataflödesberäkningen är beroende av den tillgängliga nätverksbandbredden och maskinvarukonfigurationen (processor, lagringsutrymme och så vidare) på servern. Dataflödet beräknas från servern där verktyget körs till Azure. Om servern har en annan maskinvarukonfiguration än Hyper-V-servern kommer verktyget att rapportera ett felaktigt dataflöde.
@@ -131,7 +135,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
   >
   >När du startar profilering med den nya versionen skickar du samma sökväg för utdatakatalogen så att verktyget lägger till profildata i de befintliga filerna. En fullständig uppsättning profilerade data används för att generera rapporten. Om du skickar en annan utdatakatalog kommer nya filer att skapas och gamla profildata använda inte för att skapa rapporten.
   >
-  >Varje ny distributionshanterare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
+  >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör distributionshanteraren](site-recovery-hyper-v-deployment-planner-run.md).

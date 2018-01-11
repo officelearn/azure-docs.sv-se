@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Frågor om Azure Backup-tjänsten
-Den här artikeln har avsnitt med svar på vanliga frågor så att du snabbt kan förstå hur Azure Backup-komponenterna fungerar. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Den här artikeln innehåller svar på vanliga frågor om Azure Backup-komponenter. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan ställa frågor om Azure Backup genom att klicka på **Kommentarer** (till höger). Kommentarerna visas längst ned i den här artikeln. Ett Livefyre-konto krävs för att lämna kommentarer. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkarna till höger, under **Innehåll i artikeln**.
 
@@ -30,7 +30,7 @@ Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkar
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Finns det någon gräns för antalet valv som kan skapas i varje Azure-prenumeration? <br/>
-Ja. Från och med september 2016 kan du skapa 25 Recovery Services- eller säkerhetskopieringsvalv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
+Ja. Från och med September 2016 kan skapa du 25 Recovery Services-valv per prenumeration. Du kan skapa upp till 25 Recovery Services-valv för varje Azure Backup-region som stöds per prenumeration. Om du behöver fler valv skapar du ytterligare en prenumeration.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv? <br/>
 Ja, du kan registrera upp till 50 datorer per valv. För virtuella Azure IaaS-datorer är gränsen 200 virtuella datorer per valv. Om du behöver registrera fler datorer skapar du ett till valv.
@@ -41,19 +41,11 @@ Alla servrar som är registrerade för samma valv kan återställa data som säk
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Kan jag ”migrera” mina säkerhetskopierade data eller mitt säkerhetskopierade valv mellan prenumerationer? <br/>
 Nej. Valvet skapas på prenumerationsnivå och kan inte tilldelas en annan prenumeration när det har skapats.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Stöds säkerhetskopieringsvalv (klassiskt läge) fortfarande? <br/>
-Alla befintliga säkerhetskopieringsvalv i den [klassiska portalen](https://manage.windowsazure.com) stöds även i fortsättningen. Du kan dock inte längre använda den klassiska portalen för att distribuera nya säkerhetskopieringsvalv. Microsoft rekommenderar att du skapar Recovery Services-valv för alla distributioner, eftersom framtida förbättringar endast kommer att gälla för Recovery Services-valv. Om du försöker skapa ett säkerhetskopieringsvalv i den klassiska portalen omdirigeras du till [Azure Portal](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-valv är baserade på resurshanteraren. Säkerhetskopieringsvalv stöds fortfarande? <br/>
+Säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat säkerhetskopieringsvalvet till Recovery Services-valvet har säkerhetskopieringsvalvet konverterats till ett Recovery Services-valv för dig. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan jag migrera ett Backup-valv till ett Recovery Services-valv? <br/>
-Ja, nu kan du uppgradera din Backup-valvet till Recovery Services-valvet. Mer information finns i artikeln [uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Jag har säkerhetskopierat mina klassiska virtuella datorer i ett säkerhetskopieringsvalv. Kan jag migrera mina virtuella datorer från klassiskt läge till Resource Manager-läge och skydda dem i ett Recovery Services-valv?
-Återställningspunkter för klassiska virtuella datorer i ett säkerhetskopieringsvalv migreras inte automatiskt till ett Recovery Services-valv när du flyttar den virtuella datorn från klassiskt läge till Resource Manager-läge. Överför dina VM-säkerhetskopior genom att följa dessa anvisningar:
-
-1. I säkerhetskopieringsvalvet går du till fliken **Skyddade objekt** och väljer den virtuella datorn. Klicka på [Stoppa skydd](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lämna alternativet *Ta bort associerade säkerhetskopieringsdata* **avmarkerat**.
-2. Ta bort tillägget för säkerhetskopiering/ögonblicksbild från den virtuella datorn.
-3. Migrera den virtuella datorn från klassiskt läge till Resource Manager-läge. Kontrollera att lagrings- och nätverksinformationen för den virtuella datorn också migreras till Resource Manager-läge.
-4. Skapa ett Recovery Services-valv och konfigurera säkerhetskopiering på den migrerade virtuella datorn med åtgärden **Backup** på valvets instrumentpanel. Detaljerad information om hur du säkerhetskopierar en virtuell dator till ett Recovery Services-valv finns i artikeln [Skydda virtuella datorer i Azure med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md).
+Alla säkerhetskopieringsvalv har konverterats till Recovery Services-valv. Om du inte har konverterat säkerhetskopieringsvalvet till Recovery Services-valvet har säkerhetskopieringsvalvet konverterats till ett Recovery Services-valv för dig.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 En detaljerad lista med frågor finns i [vanliga frågor och svar om säkerhetskopiering av Azure-filmappen](backup-azure-file-folder-backup-faq.md)
@@ -92,7 +84,7 @@ Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignore
 Ja. Du kan köra säkerhetskopieringsjobb på Windows Server eller Windows-arbetsstationer upp till tre gånger per dag. Du kan köra säkerhetskopieringsjobb i System Center DPM upp till två gånger om dagen. Du kan köra ett säkerhetskopieringsjobb för virtuella IaaS-datorer en gång om dagen. Du kan använda schemaläggningsprincipen för Windows Server eller Windows-arbetsstationen för att ange dagliga och veckovisa scheman. Med System Center DPM kan du definiera dags-, vecko-, månads- och årsscheman.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Varför är storleken på data som överförs till Recovery Services-valvet mindre än de data jag säkerhetskopierar?<br/>
- Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering tillämpats är storleken på data i säkerhetskopieringsvalvet 30–40 % mindre.
+ Alla de data som säkerhetskopieras från Azure Backup Agent, SCDPM eller Azure Backup Server komprimeras och krypteras innan de överförs. När komprimering och kryptering används, är 30-40% mindre data i Recovery Services-valvet.
 
 ## <a name="what-can-i-back-up"></a>Vad kan jag säkerhetskopiera
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Vilka operativsystem stöder Azure Backup? <br/>
@@ -131,7 +123,7 @@ Det finns ingen gräns för hur mycket data du kan säkerhetskopiera till ett va
 
 Följande tabell beskriver hur datakällans storlek bestäms.
 
-| Datakälla | Detaljer |
+| Datakälla | Information |
 |:---:|:--- |
 | Volym |Mängden data som säkerhetskopieras från en enskild volym på en server eller klientdator |
 | Virtuell Hyper-V-dator |Summan av data på alla virtuella hårddiskar på den virtuella datorn som säkerhetskopieras |

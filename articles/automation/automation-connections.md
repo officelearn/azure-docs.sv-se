@@ -3,7 +3,7 @@ title: "Anslutningstillgångar i Azure Automation | Microsoft Docs"
 description: "Anslutningstillgångar i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfigurationen. Den här artikeln beskriver hur du anslutningar och hur du arbetar med dem i både text och grafiska redigering."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -55,7 +55,7 @@ Aktiviteterna i följande tabell används för att komma åt anslutningar i en r
 ## <a name="python2-functions"></a>Python2 funktioner 
 Funktionen i följande tabell används för att komma åt anslutningar i en Python2 runbook. 
 
-| Funktionen | Beskrivning | 
+| Funktion | Beskrivning | 
 |:---|:---| 
 | automationassets.get_automation_connection | Hämtar en anslutning. Returnerar en ordlista med egenskaperna för anslutningen. | 
 
@@ -72,23 +72,17 @@ Funktionen i följande tabell används för att komma åt anslutningar i en Pyth
 4. I den **typen** listrutan, Välj typ av anslutning som du vill skapa. Formuläret visas egenskaperna för den här typen.
 5. Fyll i formuläret och klicka på **skapa** att spara den nya anslutningen.
 
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Skapa en ny anslutning med den klassiska Azure-portalen
-
-1. Från ditt automation-konto klickar du på **tillgångar** längst upp i fönstret.
-2. Längst ned i fönstret klickar du på **Lägg till inställning**.
-3. Klicka på **Lägg till anslutning**.
-4. I den **anslutningstypen** listrutan, Välj typ av anslutning som du vill skapa.  Guiden visar egenskaperna för den här typen.
-5. Slutför guiden och klicka på kryssrutan om du vill spara den nya anslutningen.
-
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Skapa en ny anslutning med Windows PowerShell
 
 Skapa en ny anslutning med Windows PowerShell med den [ny AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. Denna cmdlet har en parameter med namnet **ConnectionFieldValues** som förväntar sig en [hash-tabell](http://technet.microsoft.com/library/hh847780.aspx) Definiera värden för var och en av de egenskaper som definierats av anslutningstypen.
 
 Om du är bekant med automatisering [kör som-konto](automation-sec-configure-azure-runas-account.md) för att autentisera runbooks med tjänstens huvudnamn PowerShell-skriptet som tillhandahålls som ett alternativ till att skapa kör som-konto från portalen, skapas en ny anslutning tillgångsinformation med hjälp av följande exempelkommandon.  
 
-    $ConnectionAssetName = "AzureRunAsConnection"
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-    New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```powershell
+$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```
 
 Du kan använda skript för att skapa anslutningen tillgången eftersom när du skapar ditt Automation-konto kan den automatiskt innehåller flera globala moduler som standard tillsammans med anslutningstypen **AzurServicePrincipal** att skapa den **AzureRunAsConnection** anslutningstillgång.  Detta är viktigt att tänka på, eftersom om du försöker skapa en ny anslutningstillgång för att ansluta till en tjänst eller program med en annan autentiseringsmetod det misslyckas eftersom typen inte redan har definierats i Automation-kontot.  Mer information om hur du skapar egna anslutningstypen för anpassad eller modul från den [PowerShell-galleriet](https://www.powershellgallery.com), se [integreringsmoduler](automation-integration-modules.md)
   
@@ -100,8 +94,10 @@ Du kan hämta en anslutning i en runbook eller DSC-konfigurationen med den **Get
 
 Följande exempelkommandon visar hur du använder Kör som-kontot tidigare nämnts för att autentisera med Azure Resource Manager-resurser i din runbook.  Den använder anslutningstillgång som representerar det kör som-konto som refererar till certifikatbaserad tjänstens huvudnamn, inte autentiseringsuppgifter.  
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```powershell
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```
 
 ### <a name="graphical-runbook-samples"></a>Grafiska runbook-exempel
 
@@ -116,43 +112,43 @@ Följande bild visar ett exempel på hur du använder en anslutning i en grafisk
 ### <a name="python2-runbook-sample"></a>Python2 runbook-exempel
 I följande exempel visas hur du autentiserar med hjälp av kör som-anslutningen i en Python2 runbook.
 
-    """ Tutorial to show how to authenticate against Azure resource manager resources """
-    import azure.mgmt.resource
-    import automationassets
+```python
+""" Tutorial to show how to authenticate against Azure resource manager resources """
+import azure.mgmt.resource
+import automationassets
 
+def get_automation_runas_credential(runas_connection):
+  """ Returns credentials to authenticate against Azure resoruce manager """
+  from OpenSSL import crypto
+  from msrestazure import azure_active_directory
+  import adal
 
-    def get_automation_runas_credential(runas_connection):
-        """ Returns credentials to authenticate against Azure resoruce manager """
-        from OpenSSL import crypto
-        from msrestazure import azure_active_directory
-        import adal
+  # Get the Azure Automation Run As service principal certificate
+  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+  pks12_cert = crypto.load_pkcs12(cert)
+  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-        # Get the Azure Automation Run As service principal certificate
-        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-        pks12_cert = crypto.load_pkcs12(cert)
-        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+  # Get Run As connection information for the Azure Automation service principal
+  application_id = runas_connection["ApplicationId"]
+  thumbprint = runas_connection["CertificateThumbprint"]
+  tenant_id = runas_connection["TenantId"]
 
-        # Get Run As connection information for the Azure Automation service principal
-        application_id = runas_connection["ApplicationId"]
-        thumbprint = runas_connection["CertificateThumbprint"]
-        tenant_id = runas_connection["TenantId"]
+  # Authenticate with service principal certificate
+  resource = "https://management.core.windows.net/"
+  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+  context = adal.AuthenticationContext(authority_url)
+  return azure_active_directory.AdalAuthentication(
+    lambda: context.acquire_token_with_client_certificate(
+      resource,
+      application_id,
+      pem_pkey,
+      thumbprint)
+  )
 
-        # Authenticate with service principal certificate
-        resource = "https://management.core.windows.net/"
-        authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-        context = adal.AuthenticationContext(authority_url)
-        return azure_active_directory.AdalAuthentication(
-            lambda: context.acquire_token_with_client_certificate(
-                resource,
-                application_id,
-                pem_pkey,
-                thumbprint)
-        )
-
-
-    # Authenticate to Azure using the Azure Automation Run As service principal
-    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
-    azure_credential = get_automation_runas_credential(runas_connection)
+# Authenticate to Azure using the Azure Automation Run As service principal
+runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+azure_credential = get_automation_runas_credential(runas_connection)
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

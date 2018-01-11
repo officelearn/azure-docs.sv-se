@@ -101,6 +101,10 @@ Azure-hanterade diskar stöder för närvarande endast lokalt redundant lagring 
 
 Nej. Den här funktionen stöds inte för närvarande. 
 
+**Kan jag dela ett lån på disken?**
+
+Nej. Detta stöds inte för närvarande eftersom ett lån är att förhindra oavsiktlig borttagning när disken används.
+
 **Kan jag ändra egenskapen name för datorn när en särskild (inte skapats med hjälp av systemförberedelseverktyget eller generaliserad) operativsystemdisk används för att etablera en virtuell dator?**
 
 Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn ärver den från överordnat virtuella datorn som användes för att skapa operativsystemets disk. 
@@ -137,7 +141,7 @@ Ja, du kan välja att gå över till en virtuell dator med hanterade diskar.
 
 **Finns det någon effekt av migrering på virtuella Azure-datorer skyddas av Azure Site Recovery (ASR) via Azure Azure replikering?**
 
-Ja. ASR Azure till Azure-skydd stöds inte för virtuella datorer med hanterade diskar. Den kommer att stödjas i slutet av CY2018. 
+Ja. ASR Azure till Azure-skydd stöds inte för virtuella datorer med hanterade diskar. Den kommer att stödjas i slutet av F1 CY2018. 
 
 **Kan jag migrera virtuella datorer med ohanterad diskar som finns på lagringskonton som är eller krypterats till hanterade diskar?**
 

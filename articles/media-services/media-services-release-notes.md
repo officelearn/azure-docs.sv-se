@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services viktig information
 Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och kända problem.
@@ -28,8 +28,9 @@ Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och
 > 
 > 
 
-## <a id="issues"></a>Kända problem
-### <a id="general_issues"></a>Allmänna problem med Media Services
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Kända problem
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Allmänna problem med Media Services
+
 | Problem | Beskrivning |
 | --- | --- |
 | Några vanliga HTTP-huvuden finns inte i REST-API. |Om du utvecklar Media Services-program med hjälp av REST-API kan du upptäcka att vissa vanliga http-huvudfält (inklusive CLIENT-REQUEST-ID, ID för FÖRFRÅGAN och RETUR-CLIENT-REQUEST-ID) stöds inte. Sidhuvuden läggs till i en kommande uppdatering. |
@@ -41,7 +42,7 @@ Dessa versionsanmärkningar sammanfattar ändringar från tidigare versioner och
 | Azure Media Services .NET SDK-objekt kan inte serialiseras och därför fungerar inte med Azure Caching. |Om du försöker att serialisera objektet om du vill lägga till den i Azure Caching SDK AssetCollection genereras ett undantag. |
 
 
-## <a id="rest_version_history"></a>Versionshistorik för REST API
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versionshistorik för REST API
 Information om tidigare för Media Services REST API-versioner finns [Azure Media Services REST API-referens].
 
 ## <a name="october-2017-release"></a>Oktober 2017 version
@@ -58,13 +59,7 @@ Information om tidigare för Media Services REST API-versioner finns [Azure Medi
 2.  Om du har källa video som har kodats med H.265(HEVC) video-codec, som till exempel video till med iOS11 eller GoPro hjälte 6, kan du nu använda Premium-kodare eller Standard-kodare för att koda videoklipp. Mer information finns i [Online Services-villkoren](https://azure.microsoft.com/support/legal/) för viktigt patent återkallningslicens(er).
 3.  Om du har innehåll som innehåller flera språk ljud spår, sedan så länge språk-värden är korrekt märkta enligt motsvarande filformatsspecifikation (t.ex. ISO MP4) kan du använda Standard-kodare för att koda innehållet för strömning. Resulterande strömningslokaliseraren visar en lista över tillgängliga ljud språk.
 4.  Standard-kodare stöder nu två nya ljuddata systeminställningar, ”AAC ljud” och ”AAC bra kvalitet ljud”. Både resultat stereo AAC, vid bithastigheter 128 kbit/s och 192 kbps respektive.
-5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM.
-
-> [!NOTE]
-> Premium-kodare stöder inte, till exempel DVC/DVCPro video omslutas i QuickTime/MOV-filer som indata.  Standard-kodare stöder dessa video-codec.
->
->
-
+5.  Premium-kodare stöder nu QuickTime/MOV filformat som indata så länge den video-codecen är någon av de [Apple ProRes varianter i den här listan](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), och ljuduppspelningen AAC eller PCM. Premium-kodare stöder inte, till exempel DVC/DVCPro video omslutas i QuickTime/MOV-filer som indata.  Standard-kodare stöder dessa video-codec.
 6.  Felkorrigeringar i kodare:
     * Du kan nu skicka jobb med hjälp av en indata tillgång när dessa fullständig ändra tillgången (till exempel genom att lägga till/ta bort/byta namn på filerna i tillgången) och skicka ytterligare jobb. 
     * Förbättrad kvalitet för JPEG-miniatyrer produceras av Standard-kodare
@@ -89,7 +84,6 @@ Nu kan du använda Azure Media Standard till [Autogenerera en bithastighet stege
 
 Du kan nu använda Azure Media Standard eller Media Encoder Premium arbetsflödet [skapa en kodning uppgift som genererar fMP4 segment](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Februari 2017 version
 
 Från och med 1 april 2017 raderas alla jobbposter i ditt konto som är äldre än 90 dagar automatiskt, tillsammans med deras associerade uppgiftsposter, även om det totala antalet poster är lägre än den maximala kvoten. Om du behöver arkivera jobb/uppgiftsinformationen kan du använda koden som beskrivs [här](media-services-dotnet-manage-entities.md).
@@ -102,9 +96,9 @@ Dessutom från och med version 2.15, Azure Media Services lagt till följande eg
 
 ## <a name="december-2016-release"></a>December 2016-versionen
 
-Azure Media Services kan du nu dataåtkomst telemetri/mått för dess tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live-kanal, StreamingEndpoint, och live Arkiv entiteter. Mer information finns i [detta](media-services-telemetry-overview.md) artikel.
+Azure Media Services kan du nu dataåtkomst telemetri/mått för dess tjänster. Den aktuella versionen av AMS kan du samla in telemetridata för live-kanal, StreamingEndpoint, och live Arkiv entiteter. Mer information finns i [den här artikeln](media-services-telemetry-overview.md).
 
-## <a id="july_changes16"></a>Versionen för juli 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versionen för juli 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Uppdateringar till manifestfil (*. ISM) som genereras av kodningsuppgifter
 När en kodning uppgiften har skickats till Media Encoder Standard eller Azure Media Encoder kodning uppgiften genererar en [strömmande manifestfilen](media-services-deliver-content-overview.md) (* .ism)-fil i utdata tillgången. Syntaxen för den här strömmande manifestfilen har uppdaterats med den senaste versionen av tjänsten.
 
@@ -323,13 +317,6 @@ Media Services SDK för .NET är nu version 3.0.0.7
 ### <a id="sept_14_breaking_changes"></a>Gör ändringar
 * **Ursprung** har bytt namn till [StreamingEndpoint].
 * En förändring i standardbeteendet när du använder den **Azure-portalen** att koda och publicera MP4-filer.
-
-Tidigare, när använder den klassiska Azure-portalen för att publicera en enda fil MP4 videotillgång en SAS-URL skulle skapas (SAS-URL: er kan du hämta videon från ett blob storage). När du använder den klassiska Azure-portalen för att koda och publicera en videotillgång av MP4-fil kan för närvarande pekar genererade URL på ett Azure Media Services strömmande slutpunkten.  Den här ändringen påverkar inte MP4-videor som överförs till Media Services direkt och publiceras utan som kodats med Azure Media Services.
-
-Du har för närvarande följande två alternativ för att lösa problemet.
-
-* Aktivera enheter för strömning och använda dynamisk paketering för att strömma .mp4 tillgången som smooth streaming-presentation.
-* Skapa en SAS-url för att hämta (eller progressivt play) på .mp4. Mer information om hur du skapar en SAS-lokaliserare finns [leverera innehåll].
 
 ### <a id="sept_14_GA_changes"></a>Nya funktioner/scenarier som ingår i GA-version
 * **Indexeraren Medieprocessor**. Mer information finns i [indexering mediefiler med Azure Media Indexer].
@@ -561,7 +548,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [prisinformation för Media Services]: http://azure.microsoft.com/pricing/details/media-services/
 [indata Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [utdata Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[leverera innehåll]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [indexering mediefiler med Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [arbetar med Azure Media Services Liveströmning]: http://msdn.microsoft.com/library/azure/dn783466.aspx
@@ -570,7 +557,7 @@ Följande funktioner är nya i November-versionen av SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady licens mall översikt]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [strömning lagring krypterat innehåll]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [dynamisk paketering]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin blogg]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protecting Smooth Stream med PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

@@ -11,23 +11,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 763f46b9b5be7edf06ee0604bfc51a2482405b60
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp
 
-Normalt distribuerar du alla resurser i mallen som en enskild resursgrupp. Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Exempelvis kanske du vill distribuera den säkerhetskopiera virtuella för Azure Site Recovery till en separat resursgrupp och plats. Resource Manager kan du använda kapslade mallar mål olika prenumerationer och resursgrupper än prenumeration och resursgrupp som används för den överordnade mallen.
-
-Resursgruppen är en behållare för livscykeln för programmet och dess mängd resurser. Du skapar resursgruppen utanför mallen och ange resursgrupp som mål under distributionen. En introduktion till resursgrupper finns [översikt över Azure Resource Manager](resource-group-overview.md).
+Normalt distribuerar du alla resurser i mallen för en enskild [resursgruppen](resource-group-overview.md). Det finns emellertid scenarier där du vill distribuera en uppsättning resurser tillsammans men placera dem i olika resursgrupper eller prenumerationer. Exempelvis kanske du vill distribuera den säkerhetskopiera virtuella för Azure Site Recovery till en separat resursgrupp och plats. Resource Manager kan du använda kapslade mallar mål olika prenumerationer och resursgrupper än prenumeration och resursgrupp som används för den överordnade mallen.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Ange en prenumeration och resurs
 
-Om du vill ange en annan resurs, måste du använda en mall för kapslade eller länkade under distributionen. Den `Microsoft.Resources/deployments` tillhandahåller resurstypen parametrar för `subscriptionId` och `resourceGroup`. Dessa egenskaper kan du ange en annan prenumeration och resurs grupp för den kapslade distributionen. Alla resursgrupper måste finnas innan du kör distributionen. Om du inte anger antingen gruppen prenumerations-ID eller en resurs, prenumeration och resursgrupp från den överordnade mallen används.
+Använd en kapslad eller länkade mall om du vill ange en annan resurs. Den `Microsoft.Resources/deployments` tillhandahåller resurstypen parametrar för `subscriptionId` och `resourceGroup`. Dessa egenskaper kan du ange en annan prenumeration och resurs grupp för den kapslade distributionen. Alla resursgrupper måste finnas innan du kör distributionen. Om du inte anger antingen gruppen prenumerations-ID eller en resurs, prenumeration och resursgrupp från den överordnade mallen används.
+
+Om du vill ange en annan resursgrupp och en prenumeration, använder du:
+
+```json
+"resources": [
+    {
+        "apiVersion": "2017-05-10",
+        "name": "nestedTemplate",
+        "type": "Microsoft.Resources/deployments",
+        "resourceGroup": "[parameters('secondResourceGroup')]",
+        "subscriptionId": "[parameters('secondSubscriptionID')]",
+        ...
+    }
+]
+```
+
+Om din resursgrupper finns i samma prenumeration måste du ta bort den **subscriptionId** värde.
 
 I följande exempel distribuerar två lagringskonton - en i resursgruppen som anges under distributionen, och en i en resursgrupp anges i den `secondResourceGroup` parameter:
 
@@ -106,93 +121,7 @@ I följande exempel distribuerar två lagringskonton - en i resursgruppen som an
 
 Om du ställer in `resourceGroup` till namnet på en resursgrupp som inte finns misslyckas distributionen.
 
-## <a name="deploy-the-template"></a>Distribuera mallen
-
-Om du vill distribuera mallen exempel Använd en version av Azure PowerShell eller Azure CLI från maj 2017 eller senare. De här exemplen använder den [mellan prenumeration mallen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) i GitHub.
-
-### <a name="two-resource-groups-in-the-same-subscription"></a>Två resursgrupper i samma prenumeration
-
-För PowerShell för att distribuera två storage-konton till två resursgrupper i samma prenumeration, Använd:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
-```
-
-För Azure CLI för att distribuera två storage-konton till två resursgrupper i samma prenumeration, Använd:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-När distributionen är klar kan du se två resursgrupper. Varje resursgrupp innehåller ett lagringskonto.
-
-### <a name="two-resource-groups-in-different-subscriptions"></a>Två resursgrupper för olika prenumerationer
-
-För PowerShell för att distribuera två storage-konton till två prenumerationer, Använd:
-
-```powershell
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
-
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
-```
-
-För Azure CLI för att distribuera två storage-konton till två prenumerationer, Använd:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
+Om du vill distribuera mallen exempel Använd en version av Azure PowerShell eller Azure CLI från maj 2017 eller senare.
 
 ## <a name="use-the-resourcegroup-function"></a>Använd funktionen resourceGroup()
 
@@ -230,9 +159,59 @@ Om du länkar till en separat mall löser resourceGroup() i mallen länkade till
 }
 ```
 
-Att testa olika sätt `resourceGroup()` matchar, distribuera ett [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) som returnerar gruppobjektet resurs för överordnat mallen, infogade mall och länkade mall. Den överordnade och infogade mall både motsvara samma resursgrupp. Den länkade mallen matchar länkade resursgruppen.
+## <a name="example-templates"></a>Exempel mallar
 
-Om du använder PowerShell använder du:
+Följande mallar visar flera distributionen av resursgrupper. Skript för att distribuera mallarna visas efter tabellen.
+
+|Mall  |Beskrivning  |
+|---------|---------|
+|[Mellan prenumeration mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Distribuerar ett lagringskonto i en resursgrupp och ett lagringskonto till en andra resursgrupp. Innehåller ett värde för prenumerations-ID när andra resursgruppen finns i en annan prenumeration. |
+|[Mellan resurs grupp Egenskaper mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Visar hur `resourceGroup()` fungerar matchar. Den distribuerar inte några resurser. |
+
+### <a name="powershell"></a>PowerShell
+
+För PowerShell för att distribuera två storage-konton till två resursgrupper i den **samma prenumeration**, Använd:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus
+```
+
+För PowerShell för att distribuera två storage-konton till **två prenumerationer**, Använd:
+
+```powershell
+$firstRG = "primarygroup"
+$secondRG = "secondarygroup"
+
+$firstSub = "<first-subscription-id>"
+$secondSub = "<second-subscription-id>"
+
+Select-AzureRmSubscription -Subscription $secondSub
+New-AzureRmResourceGroup -Name $secondRG -Location eastus
+
+Select-AzureRmSubscription -Subscription $firstSub
+New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $firstRG `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
+  -storagePrefix storage `
+  -secondResourceGroup $secondRG `
+  -secondStorageLocation eastus `
+  -secondSubscriptionID $secondSub
+```
+
+För PowerShell för att testa hur **resurs gruppobjekt** löser för överordnade mallen, infogade mall och länkade mall används:
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -244,7 +223,46 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
-Om du använder Azure CLI använder du:
+### <a name="azure-cli"></a>Azure CLI
+
+För att distribuera två storage-konton till två resursgrupper i Azure CLI i **samma prenumeration**, Använd:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+az group create --name $firstRG --location southcentralus
+az group create --name $secondRG --location eastus
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
+```
+
+För Azure CLI, att distribuera två storage-konton till **två prenumerationer**, Använd:
+
+```azurecli-interactive
+firstRG="primarygroup"
+secondRG="secondarygroup"
+
+firstSub="<first-subscription-id>"
+secondSub="<second-subscription-id>"
+
+az account set --subscription $secondSub
+az group create --name $secondRG --location eastus
+
+az account set --subscription $firstSub
+az group create --name $firstRG --location southcentralus
+
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group $firstRG \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
+  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
+```
+
+För Azure CLI, att testa hur **resurs gruppobjekt** löser för överordnade mallen, infogade mall och länkade mall används:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

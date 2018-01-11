@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastisk databas
 [**Den elastiska databasen jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via Azure-portalen. Du kan komma åt för att skapa och hantera jobb med hjälp av PowerShell API endast om du har installerat PowerShell. Dessutom tillhandahålla PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.
@@ -155,7 +155,7 @@ När du har [skapas en elastisk pool](sql-database-elastic-pool-manage-portal.md
 
 **Uppskattad tidsåtgång:** 10 minuter.
 
-1. Från instrumentpanelsvyn för den elastiska poolen via den [Azure Portal](https://portal.azure.com/#) , klickar du på **skapa jobbet**.
+1. Från instrumentpanelsvyn för den elastiska poolen via den [Azure-portalen](https://portal.azure.com/#) , klickar du på **skapa jobbet**.
 2. Om du skapar ett jobb för första gången, måste du installera **elastisk databas jobb** genom att klicka på **FÖRHANDSGRANSKNINGSVILLKOREN**.
 3. Acceptera villkoren genom att klicka på kryssrutan.
 4. I ”installera services” visas klickar du på **jobbet AUTENTISERINGSUPPGIFTER**.

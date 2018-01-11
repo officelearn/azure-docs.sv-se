@@ -1,6 +1,6 @@
 ---
 title: "Kopiera andras datavetenskap exempel – Azure Machine Learning | Microsoft Docs"
-description: "Affärshemlighet av datavetenskap: hämta andra för att göra arbetet åt dig. Hämta machine learning exempel från galleriet Cortana Analytics."
+description: "Affärshemlighet av datavetenskap: hämta andra för att göra arbetet åt dig. Hämta machine learning exempel från Azure AI-galleriet."
 keywords: datavetenskap exempel machine learning exempelvis kluster-algoritmen, klustring algoritm-exempel
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare serien
-En av affärshemligheter av datavetenskap får andra personer att göra arbetet åt dig. Hitta ett kluster algoritm-exempel i Cortana Analytics-galleriet för egna maskininlärningsexperiment.
+En av affärshemligheter av datavetenskap får andra personer att göra arbetet åt dig. Hitta ett kluster algoritm-exempel i Azure AI-galleriet för egna maskininlärningsexperiment.
+
+> [!IMPORTANT]
+> **Cortana Intelligence Gallery** bytte **Azure AI-galleriet**. Därför avvika text och bilder i den här betyg något från video, som använder det tidigare namnet.
+>
 
 Titta på alla för att få ut mesta möjliga av serien. [Gå till listan över videor](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ I det här objektet upptäcker du en plats för att hitta exempel som kan låna 
 
 En av affärshemligheter av datavetenskap får andra personer att göra arbetet åt dig.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Söka efter exempel i Cortana Intelligence Gallery
-Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) att du befinner dig Välkommen till försök kostnadsfritt. Det ger dig en arbetsyta där du kan experimentera med olika maskininlärningsalgoritmer, och när du har fått din lösning lista ut kan du köra den som en webbtjänst.
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Söka efter exempel i Azure AI-galleriet
 
-En del av den här tjänsten är något som kallas den  **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Den innehåller resurser, inklusive en samling Azure Machine Learning-experiment eller modeller som användare har skapats och bidragit för andra. Dessa experiment som är ett bra sätt att utnyttja tankar och arbete för att andra kan komma igång på egna lösningar.
+Microsoft har en molnbaserad tjänst som kallas [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) att du befinner dig Välkommen till försök kostnadsfritt. Det ger dig en arbetsyta där du kan experimentera med olika maskininlärningsalgoritmer, och när du har fått din lösning lista ut kan du köra den som en webbtjänst.
 
-Du kan hitta galleriet på [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Alla är Välkommen till Bläddra igenom den.
+En del av den här tjänsten är något som kallas den  **[Azure AI-galleriet](https://gallery.cortanaintelligence.com/)**. Den innehåller resurser, inklusive en samling Azure Machine Learning-experiment eller modeller som användare har skapats och bidragit för andra. Dessa experiment som är ett bra sätt att utnyttja tankar och arbete för att andra kan komma igång på egna lösningar. Alla är Välkommen till Bläddra igenom den.
 
-![Cortana Intelligence-galleri](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI-galleriet](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Om du klickar på **experiment** överst, visas ett antal mest aktuella och populära experiment i galleriet. Du kan söka igenom resten av experiment genom att klicka på **Bläddra bland alla** längst upp på skärmen, och du kan ange söka villkor och välj sökfilter.
 
@@ -83,11 +86,11 @@ Jag kan klicka på som och det tar mig att **Azure Machine Learning Studio**. De
 Och nu är en startpunkt. Jag kan byta ut sina data för min egen och göra egna justeringar av modellen. Detta ger mig körs start och den kan jag skapa på verk som tillhör personer som verkligen vet vad de gör.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Hitta experiment som visar machine learning-tekniker
-Det finns andra experiment på den [Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) som har skrivits speciellt för att ge anvisningar exempel för personer som är nytt för datavetenskap. Det finns till exempel ett experiment i galleriet som visar hur du hanterar saknade värden ([metoder för att hantera värden som saknas](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Den vägleder dig genom 15 olika sätt att ersätta tomma värden och pratar om fördelarna med varje metod och när du använder den.
+Det finns andra experiment på den [Azure AI-galleriet](https://gallery.cortanaintelligence.com) som har skrivits speciellt för att ge anvisningar exempel för personer som är nytt för datavetenskap. Det finns till exempel ett experiment i galleriet som visar hur du hanterar saknade värden ([metoder för att hantera värden som saknas](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Den vägleder dig genom 15 olika sätt att ersätta tomma värden och pratar om fördelarna med varje metod och när du använder den.
 
 ![Öppnar du galleriet experiment i Machine Learning Studio - metoder för värden som saknas](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery) är en plats för att hitta fungerande experiment som du kan använda som en startpunkt för egna lösningar.
+[Azure AI-galleriet](https://gallery.cortanaintelligence.com) är en plats för att hitta fungerande experiment som du kan använda som en startpunkt för egna lösningar.
 
 Glöm inte att checka ut andra videor i ”datavetenskap för nybörjare” från Microsoft Azure Machine Learning.
 

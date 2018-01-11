@@ -4,7 +4,7 @@ description: "Konvertera en Linux VM från ohanterade diskar till hanterade disk
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: b9156998e36ddb8c4893cc0df98a7ddf3ff5d4f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 
-Om du har befintliga virtuella Linux-datorer (VM) som använder ohanterade diskar, kan du konvertera virtuella datorer om du vill använda hanterade diskar via den [Azure hanterade diskar](../windows/managed-disks-overview.md) service. Den här processen konverterar både OS-disken och eventuella anslutna hårddiskar.
+Om du har befintliga virtuella Linux-datorer (VM) som använder ohanterade diskar, kan du konvertera virtuella datorer att använda [Azure hanterade diskar](../linux/managed-disks-overview.md). Den här processen konverterar både OS-disken och eventuella anslutna hårddiskar.
 
 Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure CLI. Om du behöver installera eller uppgradera den, se [installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 

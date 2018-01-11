@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure-Webbappar
 
@@ -26,7 +26,7 @@ Apptjänst-domäner (förhandsversion) är toppnivådomäner som hanteras direkt
 
 Den här artikeln är Azure App Service (Web Apps, API Apps, Mobilappar, Logic Apps). Azure Storage eller Azure VM finns [tilldela Apptjänst domän till Azure VM eller Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Cloud Services, se [konfigurera ett anpassat domännamn för en Azure-molntjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -34,6 +34,8 @@ För att slutföra den här kursen behöver du:
 * [Ta bort utgiftsgränsen för din prenumeration](../billing/billing-spending-limit.md#remove). Du kan inte köpa Apptjänst domäner med ledigt prenumerationskrediter.
 
 ## <a name="prepare-the-app"></a>Förbered appen
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Att använda anpassade domäner i Azure Web Apps ditt webbprograms [programtjänstplanen](https://azure.microsoft.com/pricing/details/app-service/) måste vara en betald nivå (**delade**, **grundläggande**, **Standard**, eller **Premium**). I det här steget kan se du till att webbappen är i det prisnivån.
 

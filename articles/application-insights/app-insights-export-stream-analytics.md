@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använda Stream Analytics för att bearbeta data som har exporterats från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för databearbetning [exporterats från Application Insights](app-insights-export-telemetry.md). Stream Analytics kan hämta data från olika källor. Det kan omvandla filtrera data och sedan dirigera till en mängd olika sänkor.
@@ -76,27 +76,27 @@ Löpande export alltid matar ut data till ett Azure Storage-konto, så måste du
 Händelser skrivs till blob-filer i JSON-format. Varje fil kan innehålla en eller flera händelser. Vi vill så att läsa informationen om händelsen och filtrera bort de fält som vi vill. Det finns många olika sätt som vi kan göra med data, men vår plan är idag att använda Stream Analytics för att skicka data till Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Skapa en Azure Stream Analytics-instans
-Från den [klassiska Azure-portalen](https://manage.windowsazure.com/), Välj Azure Stream Analytics-tjänsten och skapa ett nytt Stream Analytics-jobb:
+Från den [Azure-portalen](https://portal.azure.com/), Välj Azure Stream Analytics-tjänsten och skapa ett nytt Stream Analytics-jobb:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-När det nya jobbet skapas, expandera information:
+När det nya jobbet skapas, Välj **finns resurs**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Ange blob-plats
+### <a name="add-a-new-input"></a>Lägga till en ny indata
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Ställ in den att hämta indata från din löpande Export blob:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Nu behöver du den primära åtkomstnyckeln från ditt Lagringskonto som du antecknade tidigare. Ange som Lagringskontots åtkomstnyckel.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Ange sökvägar för prefix
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Glöm inte att ange datumformatet för åååå-MM-DD (med bindestreck).**
 
@@ -114,33 +114,19 @@ I det här exemplet:
 > [!NOTE]
 > Kontrollera lagringen för att kontrollera att du få sökvägen.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Slut installationen
-Bekräfta serialiseringsformat:
+## <a name="add-new-output"></a>Lägga till nya utdata
+Nu välja jobbet > **utdata** > **Lägg till**.
 
-![Bekräfta och Stäng guiden](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Stäng guiden och vänta på att installationen ska kunna slutföras.
 
-> [!TIP]
-> Använd kommandot exempel för att hämta vissa data. Behåll det som ett prov för felsökning av din fråga.
-> 
-> 
-
-## <a name="set-the-output"></a>Ange utdata
-Välj ditt jobb och ange utdata.
-
-![Välj den nya kanalen, klicka på utdata, Lägg till, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Välj den nya kanalen, klicka på utdata, Lägg till, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Ange din **arbets- eller skolkonto** att auktorisera Stream Analytics åtkomst till Power BI-resursen. Skriv sedan ett namn för utdata och för mål Power BI dataset och tabell.
 
-![Tjänsten tre namn](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Skapa en fråga
 Frågan styr översättning från indata till utdata.
-
-![Markera jobbet och klicka på frågan. Klistra in exemplet nedan.](./media/app-insights-export-stream-analytics/180.png)
 
 Använd funktionen Test för att kontrollera att du får rätt utdata. Ge den exempeldata som du tog från sidan indata. 
 
@@ -162,7 +148,7 @@ Klistra in den här frågan:
 
 * export-indata är det alias som vi gav dataströmmen indata
 * pbi-utdata är kolumnalias som vi har definierat
-* Vi använder [yttre gäller GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) eftersom händelsenamnet i en kapslad JSON-arrray. Välj hämtar sedan händelsenamnet, tillsammans med en uppräkning av antalet instanser med det namnet i tidsperioden. Den [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) satsen grupper elementen på perioder på 1 minut.
+* Vi använder [yttre gäller GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) eftersom händelsenamnet i en kapslad JSON-matris. Välj hämtar sedan händelsenamnet, tillsammans med en uppräkning av antalet instanser med det namnet i tidsperioden. Den [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) satsen grupperas elementen i tidsperioder en minut.
 
 ### <a name="query-to-display-metric-values"></a>Frågan för att visa måttvärden
 ```SQL
@@ -206,7 +192,7 @@ Klistra in den här frågan:
 ## <a name="run-the-job"></a>Kör jobbet
 Du kan välja ett datum i det förflutna att starta jobbet från. 
 
-![Markera jobbet och klicka på frågan. Klistra in exemplet nedan.](./media/app-insights-export-stream-analytics/190.png)
+![Markera jobbet och klicka på frågan. Klistra in exemplet nedan.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Vänta tills jobbet körs.
 

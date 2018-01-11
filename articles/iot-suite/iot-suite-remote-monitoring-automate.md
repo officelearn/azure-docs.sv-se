@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Identifiera problem med tröskelvärdesbaserad regler
 
@@ -40,7 +40,7 @@ Om du inte har distribuerat remote övervakningslösning ännu, bör du genomfö
 
 ## <a name="view-the-rules-in-your-solution"></a>Visa regler i din lösning
 
-Den **regler & åtgärder** i lösningen visas en lista över alla aktuella regler:
+Den **regler och åtgärder** i lösningen visas en lista över alla aktuella regler:
 
 ![Sidan regler och åtgärder](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,16 +67,16 @@ Använd följande värden för att skapa regeln:
 | Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Namn             | Kylaggregat varning                       |
-| Källa           | **Kylaggregat** enhetsgrupp              |
-| Utlösaren fält    | Tryck                              |
+| Källa           | **Chillers** enhetsgrupp             |
+| Utlösaren fält    | tryck                              |
 | Utlösaren operator | Större än                          |
 | Värdet för utlösare    | 150                                   |
 | Allvarlighetsgrad   | Varning                               |
-| Larm händelsetexten | Kylaggregat trycket har överskridit 150 PSI |
+| Beskrivning      | Kylaggregat trycket har överskridit 150 PSI |
 
 Om du vill spara den nya regeln, Välj **tillämpa**.
 
-Du kan visa när regeln aktiveras på den **regler & åtgärder** sidan eller på den **instrumentpanelen** sidan.
+Du kan visa när regeln aktiveras på den **regler och åtgärder** sidan eller på den **instrumentpanelen** sidan.
 
 ## <a name="edit-an-existing-rule"></a>Redigera en befintlig regel
 

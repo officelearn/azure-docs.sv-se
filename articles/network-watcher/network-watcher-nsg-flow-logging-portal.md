@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Hantera nätverket grupp flödet säkerhetsloggar i Azure-portalen
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -80,19 +80,19 @@ Flödet loggar sparas i ett lagringskonto. Hämta loggarna om du vill visa dem f
 
 Om du vill hämta loggar flödet, Välj **kan du hämta flödet loggar från konfigurerade lagringskonton**. Det här steget kommer du till vyn storage-konto där du kan välja vilka loggarna om du vill hämta.
 
-![Flöda inställningarna för webbprogramloggar][4]
+![Flödesloggsinställningar][4]
 
 ### <a name="step-2"></a>Steg 2
 
 Gå till rätt storage-konto. Välj sedan **behållare** > **insights-log-networksecuritygroupflowevent**.
 
-![Flöda inställningarna för webbprogramloggar][5]
+![Flödesloggsinställningar][5]
 
 ### <a name="step-3"></a>Steg 3
 
 Gå till platsen för loggen flödet, markerar du den och välj sedan **hämta**.
 
-![Flöda inställningarna för webbprogramloggar][6]
+![Flödesloggsinställningar][6]
 
 Information om strukturen i loggen finns [nätverk grupp flödet loggen Säkerhetsöversikt](network-watcher-nsg-flow-logging-overview.md).
 

@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: c6cfe5c3282064573542050ecc477903ded20467
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Skapa mobila program med Xamarin och Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-De flesta mobila appar måste du lagra data i molnet och Azure Cosmos DB är en moln-databas för mobila appar. Den innehåller allt mobila utvecklare behöver. Det är en helt hanterad databas som en tjänst som kan skalas på begäran. Den kan ge dina data i tillämpningsprogrammet transparent, oavsett var användarna befinner sig över hela världen. Med hjälp av den [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), kan du aktivera Xamarin mobila appar kan interagera direkt med Azure Cosmos DB, utan en mellannivå.
+De flesta mobila appar måste du lagra data i molnet och Azure Cosmos DB är en moln-databas för mobila appar. Den innehåller allt mobila utvecklare behöver. Det är en helt hanterad databas som en tjänst som kan skalas på begäran. Den kan ge dina data i tillämpningsprogrammet transparent, oavsett var användarna befinner sig över hela världen. Med hjälp av den [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), kan du aktivera Xamarin mobila appar kan interagera direkt med Azure Cosmos DB, utan en mellannivå.
 
 Den här artikeln innehåller en vägledning för att skapa mobila appar med Xamarin och Azure Cosmos DB. Du hittar källkoden för fullständig genomgång på [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), inklusive hur du hanterar användare och behörigheter.
 
@@ -33,7 +33,7 @@ Azure Cosmos-DB innehåller följande viktiga funktioner för utvecklare av mobi
 
 ![Azure DB Cosmos-funktioner för mobila appar](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Omfattande frågor över schemalös data. Azure Cosmos-DB lagrar data som schemalös JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabb frågor](documentdb-sql-query.md) utan att behöva bekymra dig om scheman eller index.
+* Omfattande frågor över schemalös data. Azure Cosmos-DB lagrar data som schemalös JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabb frågor](sql-api-sql-query.md) utan att behöva bekymra dig om scheman eller index.
 * Snabb genomflöde. Det tar bara några millisekunder att läsa och skriva dokument med Azure Cosmos DB. Utvecklare kan ange genomströmning som de behöver och Azure Cosmos DB godkänner den med 99,99% tillgänglighet SLA för alla enskild region och konton för alla flera regioner med Avslappnad konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databas .
 * Obegränsad skala. Azure DB som Cosmos-samlingar [växer när din app växer](partition-data.md). Du kan starta med liten storlek och dataflöde hundratals begäranden per sekund. Samlingar kan växa till petabyte data och godtyckligt högt dataflöde med hundratals miljoner förfrågningar per sekund.
 * Globalt distribuerad. Användare av mobila appar är i farten, ofta över hela världen. Azure Cosmos-databasen är en [globalt distribuerad databas](distribute-data-globally.md). Klicka på kartan för att göra data tillgängliga för användarna.
@@ -49,7 +49,7 @@ Det är lätt att komma igång med Azure Cosmos DB. Gå till Azure-portalen och 
 
 ![Azure Cosmos DB Snabbstart för mobila appar](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
-Om du har en befintlig Xamarin-app kan du lägga till den [Azure Cosmos DB NuGet-paketet](documentdb-sdk-dotnet-core.md). Azure Cosmos-DB stöder Xamarin.IOS Xamarin.Android, och Xamarin Forms delade bibliotek.
+Om du har en befintlig Xamarin-app kan du lägga till den [Azure Cosmos DB NuGet-paketet](sql-api-sdk-dotnet-core.md). Azure Cosmos-DB stöder Xamarin.IOS Xamarin.Android, och Xamarin Forms delade bibliotek.
 
 ### <a name="work-with-data"></a>Arbeta med data
 Spara data lagras i Azure Cosmos DB som schemalös JSON-dokument i heterogena samlingar. Du kan lagra dokument med olika strukturer i samma samling:
@@ -103,9 +103,9 @@ Grattis! Du har slutfört lösningen och har en mobil app med Xamarin och Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 * Visa källkoden för [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Hämta den [Cosmos Azure DB .NET Core SDK](documentdb-sdk-dotnet-core.md).
-* Hitta fler kodexempel för [.NET-program](documentdb-dotnet-samples.md).
-* Lär dig mer om [Azure Cosmos DB omfattande fråga funktioner](documentdb-sql-query.md).
+* Hämta den [Cosmos Azure DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
+* Hitta fler kodexempel för [.NET-program](sql-api-dotnet-samples.md).
+* Lär dig mer om [Azure Cosmos DB omfattande fråga funktioner](sql-api-sql-query.md).
 * Lär dig mer om [geospatiala stöd i Azure Cosmos DB](geospatial.md).
 
 

@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Aviseringar
           href: monitoring-overview-alerts.md
+        - name: Aviseringar (förhandsversion)
+          href: monitoring-overview-unified-alerts.md
+        - name: Loggaviseringar
+          href: monitor-alerts-unified-log.md
         - name: Automatisk skalning
           href: monitoring-overview-autoscale.md
         - name: Aktivitetslogg
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Konfigurera aviseringar i Azure Portal
           href: insights-alerts-portal.md
+        - name: Konfigurera mått eller loggaviseringar i Aviseringar (förhandsversion) på Azure Portal
+          href: monitor-alerts-unified-usage.md
         - name: Konfigurera aviseringar med CLI
           href: insights-alerts-command-line-interface.md
         - name: Konfigurera aviseringar med Azure PowerShell
@@ -84,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Använda automatisk skalning
       items:
+        - name: Förstå inställningarna för automatisk skalning
+          href: monitoring-understanding-autoscale-settings.md
         - name: Bästa praxis
           href: insights-autoscale-best-practices.md
         - name: Vanliga mått
@@ -156,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Skicka mått till Grafana
       href: monitor-send-to-grafana.md
+    - name: Skicka övervakningsdata till en händelsehubb
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referens
   items:
     - name: Azure CLI

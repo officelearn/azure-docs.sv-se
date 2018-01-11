@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Nära realtid mått aviseringar (förhandsgranskning)
 Azure-Monitor stöder nu en ny typ av mått aviseringar kallas nära realtid mått aviseringar (förhandsversion). Den här funktionen är för närvarande i förhandsversion.
@@ -38,6 +38,7 @@ Dessa aviseringar skiljer sig från vanlig mått aviseringar på några olika s�
 Fullständig lista över resurstyper som stöds av nära realtid mått aviseringar:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ Fullständig lista över resurstyper som stöds av nära realtid mått avisering
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Nära realtid mått aviseringar på mått med dimensioner
+Stöder nära realtid mått aviseringar varnar vid mått med dimensioner. Dimensioner är ett sätt att filtrera dina mått för rätt nivå. Nära realtid mått stöds aviseringar om mått med dimensioner för följande typer av resurser
+
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts (stöds bara för storage-konton i USA regioner)
+* Microsoft.Storage/storageAccounts/services (stöds bara för storage-konton i USA regioner)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Skapa en nära realtid mått
 Nära realtid mått kan för närvarande aviseringar endast skapas via Azure-portalen. Stöd för att konfigurera nästan realtid mått aviseringar via PowerShell-kommandoradsgränssnittet (CLI) och REST-API för Azure-Monitor kommer snart.
 
-1. I den [portal](https://portal.azure.com/), leta upp den resurs som du är intresserad av övervakning och markera den. Den här resursen ska vara av en av de resurstyper som anges i den [föregående avsnitt](#what-resources-can-i-create-near-real-time-metric-alerts-for). Du kan också göra samma för alla typer av resurser stöds centralt från övervakaren > aviseringar.
+Skapa aviseringar upplevelsen för nära realtid mått aviseringen har flyttats till den nya **Alerts(Preview)** upplevelse. Även om de aktuella aviseringarna sidan visar **lägga till nära realtid mått avisering**, du omdirigeras till den nya upplevelsen.
 
-2. Välj **aviseringar** eller **Varna regler** under avsnittet övervakning. Text och ikon kan variera något mellan olika resurser.
-   ![Övervakning](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Klicka på den **Lägg till nära realtid mått avisering (förhandsgranskning)** kommando. Om kommandot är nedtonad, se till att resursen är markerad i filtret.
-
-    ![Lägg till nära realtid mått avisering knappen](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Namnet** aviseringen regel och väljer en **beskrivning**, som visar även i e-postmeddelanden.
-5. Välj den **mått** du vill övervaka och väljer sedan en **villkoret**, **Aggregation tid**, och **tröskelvärdet** värdet för måttet. Du kan också välja en annan **mått** du vill övervaka och väljer sedan en **villkoret**, **Aggregation tid**, och **tröskelvärdet** värde för andra mått. 
-
-    ![Lägg till nära realtid mått Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![lägga till nära realtid mått Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Välj den **Period** som mått regler måste uppfyllas innan aviseringen utlösare. Om du använder perioden ”under de senaste 5 minuterna” och din avisering ser ut för CPU över 80% (och NetworkIn ovan 500 MB), startar exempelvis aviseringen när Processorn har konsekvent ovan 80% i 5 minuter. När den första utlösaren infaller utlöses igen när Processorn är mindre än 80% i 5 minuter. Aviseringen utvärderas enligt det **utvärdering frekvens**
-
-
-6. Välja en lämplig **allvarlighetsgrad** i listrutan.
-
-7. Ange om du vill använda ett nytt eller befintligt **grupp**.
-
-8. Om du väljer att skapa **ny** grupp, ge åtgärdsgruppen ett namn och ett kort namn, ange åtgärder (SMS, e-post, Webhook) och fylla respektive information.
-
-
-8. Välj **OK** när du är klar för att skapa aviseringen.   
-
-Inom några minuter aviseringen är aktiv och utlöser som beskrivits tidigare.
+Du kan skapa en nära realtid mått med hjälp av stegen som beskrivs [här](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Hantera nära realtid mått aviseringar
-När du har skapat en avisering, kan du välja den och:
+När du har skapat en **nära realtid mått avisering**, den kan hanteras med hjälp av stegen som beskrivs [här](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Visa ett diagram som visar mått tröskelvärdet och faktiska värden från föregående dag.
-* Redigera eller ta bort den.
-* **Inaktivera** eller **aktivera** den om du vill att tillfälligt stoppa eller återuppta tar emot meddelanden om den här aviseringen.
+## <a name="next-steps"></a>Nästa steg
 
-
-
+* [Mer information om den nya upplevelsen aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md)
+* [Lär dig mer om loggen aviseringar i Azure aviseringar (förhandsgranskning)](monitor-alerts-unified-log.md)
+* [Lär dig mer om aviseringar i Azure](monitoring-overview-alerts.md)

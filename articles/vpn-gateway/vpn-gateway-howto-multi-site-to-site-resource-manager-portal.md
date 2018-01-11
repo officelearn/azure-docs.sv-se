@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägga till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 > 

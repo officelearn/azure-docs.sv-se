@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 6e88e8f5d385d63d491415583e1d8c7f89324cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [Klassisk](backup-dpm-automation-classic.md)
->
->
-
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på en DPM-server och för att hantera säkerhetskopiering och återställning.
 
 ## <a name="setting-up-the-powershell-environment"></a>Ställa in PowerShell-miljö
@@ -125,7 +119,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Agenten visas i listan över installerade program. Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten är installerad](./media/backup-dpm-automation/installed-agent-listing.png)
+![Agenten har installerats](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:

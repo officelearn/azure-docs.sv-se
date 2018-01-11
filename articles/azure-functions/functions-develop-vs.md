@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
@@ -36,7 +36,7 @@ Det här avsnittet visar hur du använder Azure Functions-verktyg för Visual St
 > [!IMPORTANT]
 > Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du publicerar från ett lokalt projekt till en funktionsapp distributionsprocessen skriver över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions-verktyg ingår i Azure-utveckling arbetsbelastning [Visual Studio 2017 version 15,4](https://www.visualstudio.com/vs/), eller en senare version. Kontrollera att du inkluderar den **Azure-utveckling** arbetsbelastning i Visual Studio 2017 installationen:
 
@@ -46,7 +46,8 @@ Om du vill skapa och distribuera funktioner, måste du också:
 
 * En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration [kostnadsfria konton](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) är tillgängliga.
 
-* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto finns [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -68,7 +69,7 @@ Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa 
 
 1. Öppna i Visual Studio **Cloud Explorer**, expandera **Lagringskonto** > **Your Lagringskonto**och välj **egenskaper**och kopiera den **primära anslutningssträngen** värde.   
 
-2. Öppna projektfilen local.settings.json i ditt projekt och värdet för den **AzureWebJobsStorage** nyckel i anslutningssträngen som du kopierade.
+2. Öppna filen local.settings.json i ditt projekt och ange värdet för den **AzureWebJobsStorage** nyckel i anslutningssträngen som du kopierade.
 
 3. Upprepa det föregående steget för att lägga till unika nycklar till den **värden** matris för alla anslutningar som krävs av dina funktioner.  
 
@@ -106,7 +107,7 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
     } 
     ````
  
-    En bindning-specifika attributet används för varje bindning-parameter som skickades till metoden. Attributet tar bindningsinformationen som parametrar. I föregående exempel är den första parametern har en **QueueTrigger** -attribut som används, som anger kön aktiveras funktionen. Könamnet och namn för anslutningssträngen inställningen överförs som parametrar.  
+    En bindning-specifika attributet används för varje bindning-parameter som skickades till metoden. Attributet tar bindningsinformationen som parametrar. I föregående exempel är den första parametern har en **QueueTrigger** -attribut som används, som anger kön aktiveras funktionen. Könamnet och namn för anslutningssträngen inställningen överförs som parametrar till den **QueueTrigger** attribut.
 
 ## <a name="testing-functions"></a>Testa funktioner
 
@@ -136,4 +137,4 @@ Mer information om hur du använder Azure Functions grundläggande verktygen fin
 Mer information om Azure Functions verktyg finns i avsnittet vanliga frågor för den [Visual Studio 2017 verktyg för Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogginlägg.
 
 Läs mer om Azure Functions grundläggande verktyg i [koden och testa Azure functions lokalt](functions-run-local.md).  
-Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns i [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md) (Använda .NET-klassbibliotek med Azure Functions). Det här avsnittet innehåller också exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    
+Mer information om hur du utvecklar fungerar som .NET-klassbibliotek finns [Azure Functions C#-utvecklare](functions-dotnet-class-library.md). Det här avsnittet innehåller också länkar till exempel på hur du använder attribut för att deklarera de olika typerna av bindningar som stöds av Azure Functions.    

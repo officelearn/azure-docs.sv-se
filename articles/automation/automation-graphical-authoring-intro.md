@@ -3,7 +3,7 @@ title: Grafisk redigering i Azure Automation | Microsoft Docs
 description: "Grafiska redigering kan du skapa runbooks för Azure Automation utan att arbeta med kod. Den här artikeln innehåller en introduktion till grafiska redigering och all information som behövs för att skapa en grafisk runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 ## <a name="introduction"></a>Introduktion
@@ -114,7 +114,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 
 | Datakälla | Beskrivning |
 |:--- |:--- |
-| Konstant värde |Ange ett värde för parametern.  Detta är endast tillgängligt för följande datatyper: Int32, Int64, String, Boolean, DateTime, växel. |
+| Konstantvärde |Ange ett värde för parametern.  Detta är endast tillgängligt för följande datatyper: Int32, Int64, String, Boolean, DateTime, växel. |
 | Aktivitetsutdata |Utdata från en aktivitet som föregår den aktuella aktiviteten i arbetsflödet.  Alla giltiga aktiviteter visas.  Välj bara aktiviteten för att använda dess utdata för parametervärdet.  Om aktiviteten matar ut ett objekt med flera egenskaper, kan du ange namnet på egenskapen när du har valt aktiviteten. |
 | Runbook-indata |Välj en runbookinmatningsparameter som indata för Aktivitetsparametern. |
 | Variabeltillgång |Välj ett Automation-variabel som indata. |
@@ -122,7 +122,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 | Certifikattillgång |Välj ett Automation-certifikat som indata. |
 | Anslutningstillgång |Välj en Automationsanslutning som indata. |
 | PowerShell-uttryck |Ange enkla [PowerShell-uttryck](#powershell-expressions).  Uttrycket utvärderas innan aktiviteten och resultatet som används för parametervärdet.  Du kan använda variabler för att referera till utdata från en aktivitet eller en runbookinmatningsparameter. |
-| Inte konfigurerat |Rensar alla värden som tidigare har konfigurerats. |
+| Inte konfigurerade |Rensar alla värden som tidigare har konfigurerats. |
 
 #### <a name="optional-additional-parameters"></a>Valfri ytterligare parametrar
 Alla cmdletar har möjlighet att ange ytterligare parametrar.  Dessa är vanliga PowerShell-parametrar eller andra anpassade parametrar.  Visas med en textruta där du kan ange parametrar med PowerShell-syntax.  Till exempel för att använda den **utförlig** gemensamma parametern anger du **”-Verbose: $True”**.
@@ -198,7 +198,7 @@ Du anger ett villkor för ett enskilt objekt för en pipelinelänk och villkoret
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 För en sekvens-länk utvärderas bara villkoret som de en gång eftersom returneras en matris som innehåller alla objekt utdata från källaktiviteten.  Därför en länk i aktivitetssekvensen kan inte användas för att filtrera som en pipelinelänk, men bara avgör huruvida nästa aktivitet körs. Ta till exempel följande uppsättning aktiviteter i vår starta VM-runbook.<br> ![Villkorlig länk med sekvenser](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Det finns tre olika sekvens länkar som verifierar värden angavs till två runbook indataparametrar som representerar namn på virtuell dator och resursgruppens namn för att avgöra vilket är lämplig åtgärd att vidta - startar en enskild virtuell dator, starta alla virtuella datorer i gruppen resurs eller alla virtuella datorer i en prenumeration.  Här är sekvens-länken mellan Anslut till Azure och Get enskild VM logiken villkor:
+Det finns tre olika sekvens länkar som verifierar värden angavs till två runbook indataparametrar som representerar namn på virtuell dator och resursgruppens namn för att avgöra vilket är lämplig åtgärd att vidta - startar en enskild virtuell dator, starta alla virtuella datorer i resursen gruppen eller alla virtuella datorer i en prenumeration.  Här är sekvens-länken mellan Anslut till Azure och Get enskild VM logiken villkor:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 

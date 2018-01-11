@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 2f1793c2de2b68a8b155ada73044c6bc36882612
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Data Lake Store som standardlagring med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Här följer några viktiga överväganden när för att använda HDInsight med 
 
 Följ instruktionerna i följande fem avsnitt om du vill konfigurera HDInsight för att arbeta med Data Lake Store med hjälp av PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du kontrollera att du uppfyller följande krav:
 
 * **En Azure-prenumeration**: Gå till [hämta kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -249,7 +249,7 @@ När du har gjort anslutningen kan du visa filer i Data Lake Store med hjälp av
 
 Du kan också använda den `hdfs dfs -put` kommando för att överföra filer till Data Lake Store och sedan använda `hdfs dfs -ls` att kontrollera om filerna som har laddats upp.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Använd Data Lake Store med Azure HDInsight-kluster](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [Azure-portalen: skapa ett HDInsight-kluster om du vill använda Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 

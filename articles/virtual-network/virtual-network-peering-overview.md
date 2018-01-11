@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -63,13 +63,15 @@ När du konfigurerar peering i virtuella nätverk, kan du öppna eller stänga a
 
 ## <a name="service-chaining"></a>Tjänstlänkning
 
-Du kan konfigurera användardefinierade routningstabeller som pekar på virtuella datorer i peer-kopplade virtuella nätverk som ”nästa hopp”-IP-adressen för säker tjänstlänkning. Med säker tjänstlänkning kan du skapa en tjänstlänkning och därigenom dirigera trafik från ett virtuellt nätverk till en virtuell enhet som körs i ett peer-kopplat virtuellt nätverk genom användardefinierade routning.
+Du kan konfigurera användardefinierade routningstabeller som pekar på virtuella datorer i peer-kopplade virtuella nätverk som IP-adressen för *nästa hopp* eller till virtuella nätverksgatewayer för säker tjänstlänkning. Med säker tjänstlänkning kan du skapa en tjänstlänkning och därigenom dirigera trafik från ett virtuellt nätverk till en virtuell enhet eller virtuella nätverskgatewayer som körs i ett peer-kopplat virtuellt nätverk genom användardefinierade routning.
 
-Du kan även effektivt bygga nav-och-ekermiljöer där hubben kan vara värd för infrastrukturkomponenter, t.ex. en virtuell installation. Alla virtuella ekernätverk kan peer-kopplas till det virtuella navnätverket. Trafiken kan flöda via nätverkets virtuella installationer som körs i det virtuella navnätverket. I korthet gör VNet-peering att ”nästa hopp”-IP-adressen i den användardefinierade routningen kan vara IP-adressen för en virtuell dator i det peer-kopplade virtuella nätverket. Mer information om användardefinierade vägar finns i [översikten över användardefinierade vägar](virtual-networks-udr-overview.md). Läs informationen om [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) om du vill lära dig hur du skapar en nätverkstopologi med nav och ekrar.
+Du kan distribuera nav-och-eker-nätverk där det virtuella navnätverket kan vara värd för infrastrukturkomponenter, t.ex. en virtuell installation eller en VPN-gateway. Alla virtuella ekernätverk kan peer-kopplas till det virtuella navnätverket. Trafiken kan flöda via nätverkets virtuella installationer eller VPN-gatewayer i det virtuella navnätverket. 
+
+Peering för virtuellt nätverk gör att nästa hopp i den användardefinierade routningen kan vara IP-adressen för en virtuell dator i det peer-kopplade virtuella nätverket eller en VPN-gateway. Du kan dock inte gå mellan virtuella nätverk via en användardefinierad väg som anger en ExpressRoute-gateway som nästa hopp-typ. Mer information om användardefinierade vägar finns i [översikten över användardefinierade vägar](virtual-networks-udr-overview.md#user-defined). Läs informationen om [nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) om du vill lära dig hur du skapar en nätverkstopologi med nav och ekrar.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways och lokala anslutningar
 
-Varje virtuellt nätverk, oavsett om det är peer-kopplat med ett annat virtuellt nätverk eller inte, kan fortfarande ha sin egen gateway och använda den för att ansluta till det lokala nätverket. Du kan också konfigurera [VNet-till-VNet-anslutningar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) genom att använda gateways, även om de virtuella nätverken är peer-kopplade.
+Varje virtuellt nätverk, oavsett om det är peer-kopplat med ett annat virtuellt nätverk eller inte, kan fortfarande ha sin egen gateway och använda den för att ansluta till det lokala nätverket. Du kan också konfigurera [VNet-till-VNet-anslutningar](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att använda gateways, även om de virtuella nätverken är peer-kopplade.
 
 När båda alternativen för anslutningar mellan virtuella nätverk har konfigurerats flödar trafiken mellan de virtuella nätverken genom peering-konfigurationen (det vill säga genom Azures stamnätverk).
 
@@ -98,20 +100,17 @@ Exempel: Om du har peer-kopplat virtuella nätverk som heter myVirtualNetworkA o
 
 ## <a name="monitor"></a>Övervaka
 
-Vid peer-koppling av två virtuella nätverk som skapas via Resource Manager måste en peer-koppling konfigureras för varje virtuellt nätverk i peer-kopplingen.
-Du kan övervaka statusen för peering-anslutningen. Statusen för peer-kopplingen är något av följande:
+Vid peer-koppling av två virtuella nätverk som skapas via Resource Manager måste en peer-koppling konfigureras för varje virtuellt nätverk i peer-kopplingen. Du kan övervaka statusen för peering-anslutningen. Statusen för peer-kopplingen är något av följande:
 
-* **Initierad**: När du skapar peer-kopplingen till det andra virtuella nätverket från det första är peering-statusen Initierad.
-
-* **Ansluten**: När du skapar peer-kopplingen från det andra virtuella nätverket till det första är peering-statusen Ansluten. Om du visar peering-statusen för det första virtuella nätverket ändras statusen från Initierad till Ansluten. Peer-kopplingen är inte upprättad förrän peering-statusen för båda virtuella nätverk är Ansluten.
-
-* **Frånkopplad** : Om någon av peering-länkarna tas bort efter att en anslutning har upprättats är peering-statusen Frånkopplad.
+* **Initierad**: När du skapar peer-kopplingen från det första virtuella nätverket till det andra virtuella nätverket.
+* **Ansluten**: När du skapat peer-kopplingen från det andra virtuella nätverket till det första virtuella nätverket. Peering-tillståndet för det första virtuella nätverket ändras från *Initierad* till *Ansluten*. En peer-koppling för virtuellt nätverk är inte upprättad förrän statusen för båda virtuella nätverken är *Ansluten*.
+* **Frånkopplad**: Visas om en peer-kopplingen från ett virtuellt nätverk till ett annat tas bort när en peer-koppling upprättas mellan två virtuella nätverk.
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du vill felsöka trafiken som flödar i peering-anslutningen kan du [kontrollera dina gällande routningar.](virtual-network-routes-troubleshoot-portal.md)
+För att bekräfta peer-kopplingen för virtuella nätverk, kan du [kontrollera effektiva vägar](virtual-network-routes-troubleshoot-portal.md) för ett nätverksgränssnitt i alla undernät i ett virtuellt nätverk. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk.
 
-Du kan även felsöka anslutningen till en virtuell dator i ett peer-kopplat virtuellt nätverk med Network Watchers [anslutningskontroll](../network-watcher/network-watcher-connectivity-portal.md). Med anslutningskontrollen ser du direkt routningen från käll-VM:s nätverksgränssnitt till mål VM:s nätverksgränssnitt.
+Du kan även felsöka anslutningen till en virtuell dator i ett peer-kopplat virtuellt nätverk med Network Watchers [anslutningskontroll](../network-watcher/network-watcher-connectivity-portal.md). Med anslutningskontrollen kan du se hur trafik vidarebefordras från en virtuell källdators nätverksgränssnitt till en virtuell måldators nätverksgränssnitt.
 
 ## <a name="limits"></a>Begränsningar
 

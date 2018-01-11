@@ -23,10 +23,10 @@ Nya gatewayen SKU: er förenklar funktionsuppsättningarna via gatewayer:
 | **SKU**| **Funktioner**|
 | ---    | ---         |
 |**Basic**   | **Ruttbaserad VPN**: 10 tunnlar med P2S; ingen RADIUS-autentisering för P2S; ingen IKEv2 för P2S<br>**Principbaserad VPN**: (IKEv1): 1 tunnel; ingen P2S|
-| **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar (*), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, samtidig ExpressRoute/VPN |
+| **VpnGw1, VpnGw2 och VpnGw3** | **Ruttbaserad VPN**: upp till 30 tunnlar ( * ), P2S, BGP, aktiv-aktiv, anpassade IPsec/IKE-principer, samtidig ExpressRoute/VPN |
 |        |             |
 
-(*) Du kan konfigurera ”PolicyBasedTrafficSelectors” för att ansluta en ruttbaserad VPN-gateway (VpnGw1 VpnGw2, VpnGw3) till flera lokala principbaserade brandväggsenheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
+( * ) Du kan konfigurera ”PolicyBasedTrafficSelectors” för att ansluta en ruttbaserad VPN-gateway (VpnGw1 VpnGw2, VpnGw3) till flera lokala principbaserade brandväggsenheter. Referera till [Ansluta VPN-gatewayer till flera lokala principbaserad VPN-enheter med hjälp av PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) för mer information.
 
 ###  <a name="resize"></a>Ändra storlek på gateway-SKU: er
 

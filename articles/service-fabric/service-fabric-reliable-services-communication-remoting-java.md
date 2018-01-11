@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Tjänsten fjärrkommunikation med Reliable Services
 > [!div class="op_single_selector"]

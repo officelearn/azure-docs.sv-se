@@ -1,32 +1,31 @@
 ---
-title: "Lägga till inloggning till en Node.js-webbapp för Azure B2C | Microsoft Docs"
-description: "Hur du skapar en Node.js-webbapp som loggar in användare med hjälp av en B2C-klient."
+title: "Lägga till inloggning till en Node.js-webbapp - Azure Active Directory B2C"
+description: "Hur du skapar en Node.js-webbapp som loggar in användare med Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Lägga till inloggning till en Node.js-webbapp
 
-**Passport** är ett mellanprogram för autentisering för Node.js. Modulbaserade Passport är mycket flexibelt och kan diskret installeras i alla Express-baserade webbappar eller Restify-webbappar. En omfattande uppsättning strategier stöder autentisering med användarnamn och lösenord, Facebook, Twitter och mycket mer.
+**Passport** är ett mellanprogram för autentisering för Node.js. Modulbaserade Passport är flexibelt och kan diskret installeras i alla Express-baserade webbappar eller Restify-webbappar. En omfattande uppsättning strategier stöder autentisering med användarnamn och lösenord, Facebook, Twitter och mycket mer.
 
-Vi har utvecklat en strategi för Azure Active Directory (Azure AD). Du installerar den här modulen och lägger sedan till Azure AD-plugin-programmet `passport-azure-ad`.
+För Azure Active Directory (Azure AD), kan installera den här modulen och lägger sedan till Azure AD `passport-azure-ad` plugin-programmet.
 
-Om du vill göra det måste du:
+Du behöver:
 
 1. Registrera ett program med hjälp av Azure AD.
 2. Konfigurera din app att använda plugin-programmet `passport-azure-ad`.
@@ -52,9 +51,7 @@ Därefter måste du skapa en app i B2C-katalogen. Det ger Azure AD den informati
 - Skapa en **programhemlighet** för programmet och kopiera den. Du behöver den senare. Tänk på att det här värdet måste ha [ett XM-escape-tecken](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) innan du använder det.
 - Kopiera **program-ID:t** som har tilldelats din app. Du behöver även det senare.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
-## <a name="create-your-policies"></a>Skapa dina principer
+## <a name="create-your-policies"></a>Skapa principer
 
 I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Den här appen innehåller tre identitetsupplevelser: registrering, inloggning och inloggning med Facebook. Du måste skapa den här principen för varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Tänk på följande när du skapar dina tre principer:
 
@@ -104,7 +101,7 @@ Konfigurera Express-mellanprogrammet att använda autentiseringsprotokollet Open
 Öppna `app.js`-filen i projektroten. Lägg till följande anrop för att anropa `OIDCStrategy`-strategin som medföljer `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Använd strategin som du precis refererade till för att hantera inloggningsförfrågningar.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ Föregående kod körs på alla användare som servern autentiserar. Det här ä
 
 Lägg till metoder som gör att du kan hålla reda på användare som har loggat in, på det sätt som krävs av Passport. Serialisering och avserialisering av användarinformation är ett par exempel på den här typen av metoder:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Lägg till koden för att läsa in Express-motorn. Nedan kan du se att vi använder `/views`- och `/routes`-standardmönstret som Express tillhandahåller.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Lägg till `POST`-dirigeringskommandona som lämnar över själva inloggningsförfrågningarna till `passport-azure-ad`-motorn:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ Nu är din app korrekt konfigurerad för att kommunicera med v2.0-slutpunkten me
 
 Börja med att lägga till de förvalda inloggnings-, konto- och utloggningsmetoderna i `app.js`-filen:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Granska dessa metoder i detalj:
 
 För den sista delen av `app.js` lägger du till `EnsureAuthenticated`-metoden som används i `/account`-vägen.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Slutligen skapar du själva servern i `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ Nu är din `app.js` klar. Du behöver bara lägga till vägarna och vyerna som g
 
 Skapa `/routes/index.js`-vägen under rotkatalogen.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Skapa `/routes/user.js`-vägen under rotkatalogen.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Dessa enkla vägar skickar vidare förfrågningar till dina vyer. De innehåller
 
 Skapa `/views/index.ejs`-vyn under rotkatalogen. Det här är en enkel sida som anropar principer för in- och utloggning. Du kan också använda den för att hämta kontoinformation. Notera att du kan använda det villkorliga `if (!user)` som användaren som skickas med i begäran för att bevisa att användaren är inloggad.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Skapa `/views/index.ejs`-vyn under rotkatalogen. Det här är en enkel sida som 
 
 Skapa `/views/account.ejs`-vyn under rotkatalogen så att du kan visa ytterligare information som `passport-azure-ad` har lagt till i användarbegäran.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>

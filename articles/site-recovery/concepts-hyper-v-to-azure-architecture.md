@@ -1,24 +1,16 @@
 ---
-title: "Granska arkitekturen för Hyper-V-replikering till Azure med Azure Site Recovery | Microsoft Docs"
+title: Hyper-V i Azure replikering arkitekturen i Azure Site Recovery | Microsoft Docs
 description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att replikera lokala virtuella datorer med Hyper-V (utan VMM) till Azure med tjänsten Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V kan Azure replikeringsarkitektur
 
@@ -149,6 +141,7 @@ När din lokala infrastruktur är igång kan växla du tillbaka. Återställning
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska supportmatrisen Följ guiden för att aktivera Hyper-V till Azure-replikering.
-Kör en redundans och återställning efter fel.
+
+Följ [självstudierna](tutorial-prepare-azure.md) att komma igång med Hyper-V till Azure-replikering.
+
 

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att tvinga kompatibilitet
 
@@ -35,12 +35,12 @@ Det första steget i att tillämpa kompatibilitet med Azure princip är att till
 
    ![Sök efter princip](media/assign-policy-definition/search-policy.png)
 
-2. Välj **tilldelningar** till vänster på sidan för principer för Azure. En tilldelning är en princip som har tilldelats äga rum inom ett specifikt omfång.
-3. Välj **tilldela principen** från början av den **tilldelningar** fönstret.
+2. Välj **Tilldelningar** i det vänstra fönstret på sidan för Azure Policy. En tilldelning är en princip som har tilldelats äga rum inom ett specifikt omfång.
+3. Välj **Tilldela princip** längst upp på sidan **Tilldelningar**.
 
    ![Tilldela en principdefinition](media/create-manage-policy/select-assign-policy.png)
 
-4. På den **tilldela principen** klickar du på ![princip definition knappen](media/assign-policy-definition/definitions-button.png) bredvid **princip** fältet för att öppna listan över tillgängliga definitionerna.
+4. På sidan **Tilldela princip** klickar du på knappen ![Principdefinition](media/assign-policy-definition/definitions-button.png) bredvid fältet **Princip** för att öppna listan med tillgängliga definitioner.
 
    ![Öppna tillgängliga principdefinitioner](media/create-manage-policy/open-policy-definitions.png)
 
@@ -48,16 +48,16 @@ Det första steget i att tillämpa kompatibilitet med Azure princip är att till
 
    ![Leta upp en princip](media/create-manage-policy/select-available-definition.png)
 
-6. Ange en bildskärm **namn** för tilldelning av principer. I det här fallet ska vi använda *kräver SQL Server version 12.0*. Du kan också lägga till en valfri **beskrivning**. Beskrivningen ger information om hur den här principtilldelning ser alla SQL-servrar som skapas i den här miljön är version 12.0.
-7. Ändra prisnivån till **Standard** så att principen tillämpas med befintliga resurser.
+6. Ange ett **Namn** för visning för principtilldelningen. I det här fallet ska vi använda *kräver SQL Server version 12.0*. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen ger information om hur den här principtilldelning ser alla SQL-servrar som skapas i den här miljön är version 12.0.
+7. Ändra prisnivån till **Standard** för att se till att principen används på befintliga resurser.
 
-   Det finns två prisnivåer i Azure princip – *lediga* och *Standard*. Med den kostnadsfria nivån kan du bara tvinga principer för framtida resurser, medan med Standard, du kan även tillämpa dem på befintliga resurser för att bättre förstå din kompatibilitetstillstånd. Eftersom vi finns i begränsad förhandsgranskningen vi ännu inte har startats prisnivå modellen, så du får en faktura för att välja *Standard*. Du kan läsa mer om prissättning, titta på: [priser för Azure princip](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Det finns två prisnivåer i Azure Policy – *Kostnadsfri* och *Standard*. Med den kostnadsfria nivån kan du bara tillämpa principer på framtida resurser, medan Standard gör det möjligt att även tillämpa dem på befintliga resurser för att förstå kompatibilitetsstatusen bättre. Eftersom det är en begränsad förhandsversion har vi ännu inte lanserat någon prissättningsmodell, så du debiteras inte om du väljer *Standard*. Mer information om prissättning finns i [priser för Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
-8. Välj den **omfång** -prenumerationen (eller resursgrupp) du tidigare har registrerat. Ett omfång avgör vilka resurser eller gruppering av resurser hämtar principtilldelningen tillämpas på. Det kan röra sig om en prenumeration till resursgrupper.
+8. Välj den **omfång** -prenumerationen (eller resursgrupp) du tidigare har registrerat. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
 
    Det här exemplet använder vi den här prenumerationen - **Azure Analytics kapacitet Dev**. Din prenumeration varierar.
 
-10. Välj **tilldela**.
+10. Välj **Tilldela**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementera en ny anpassad princip
 
@@ -73,12 +73,12 @@ Nu när vi har tilldelats principdefinitionen, är det dags att skapa en ny prin
    - Namnet på principdefinitionen - *kräver VM SKU: er mindre än G-serien*
    - Beskrivning av vad principdefinitionen är avsedd att göra – definitionen för den här principen tillämpar att alla virtuella datorer som skapats i denna omfattning har SKU: er mindre än G-serien för att minska kostnaden.
    - Den prenumeration där principdefinitionen kommer live – i det här fallet våra principdefinitionen kommer live **Advisor Analytics kapacitet Dev**. Din prenumerationslista varierar.
-   - Skriva json-kod med:
+   - Kopiera följande json-kod och uppdatera sedan för dina behov med:
       - Principparametrar.
       - Principen regler/villkor, i det här fallet – VM SKU-storleken är lika med G serien
       - Principen effekt, i det här fallet – **neka**.
 
-    Här är hur json ska se ut
+    Här är hur json ska se ut. Klistra in koden reviderade i Azure-portalen.
 
     ```json
 {
@@ -364,13 +364,13 @@ Med en definition av initiativ, kan du gruppera flera principdefinitioner för a
    - prisnivån: Standard
    - omfång som används för tilldelningen: **Azure Advisor kapacitet Dev**
 
-5. Välj **tilldela**.
+5. Välj **Tilldela**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Lösa en icke-kompatibla eller nekade resurs
 
 Följande exempel ovan, efter att principdefinitionen kräver SQL server-version 12.0, skulle en SQL-server som har skapats med en annan version hämta nekas. I det här avsnittet vi gå igenom hur du löser ett nekade försök att skapa en SQLServer på en annan version genom att begära ett undantag.
 
-1. Välj **tilldelningar** i det vänstra fönstret.
+1. Välj **Tilldelningar** i det vänstra fönstret.
 2. Bläddra igenom alla principtilldelningar och starta den *kräver SQL Server version 12.0* tilldelning.
 3. Begära ett undantag för resursgrupper som du försöker att skapa SQLServer. I det här fallet vi vill utelämna Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* och *baconandbeer/Chorizo*.
 

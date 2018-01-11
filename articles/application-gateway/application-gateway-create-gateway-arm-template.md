@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [Azure-portalen](application-gateway-create-gateway-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-gateway.md)
 > * [Azure Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
@@ -165,7 +165,7 @@ Följ anvisningarna nedan om du vill distribuera Azure Resource Manager-mall som
 
 1. Om du aldrig har använt Azure CLI läser du [Installera och konfigurera Azure CLI](/cli/azure/install-azure-cli) och följer anvisningarna fram till det steg då du väljer ditt Azure-konto och din Azure-prenumeration.
 
-1. Kör vid behov på `az group create` kommando för att skapa en resursgrupp, enligt följande kodavsnitt. Observera kommandots utdata. Listan som visas efter alla utdata förklarar parametrarna som använts. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Kör vid behov på `az group create` kommando för att skapa en resursgrupp, enligt följande kodavsnitt. Observera kommandots utdata. Listan som visas efter utdatan beskriver de parametrar som används. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
     ```azurecli
     az group create --location westus --name appgatewayRG
@@ -175,7 +175,7 @@ Följ anvisningarna nedan om du vill distribuera Azure Resource Manager-mall som
     
     **-l (eller --location)**. Azure-region där den nya resursgruppen skapas. I vårt scenario, den har *westus*.
 
-1. Kör den `az group deployment create` att distribuera ett nytt virtuellt nätverk med hjälp av mallen och parametern filer du hämtade och ändrade i föregående steg. Listan som visas efter alla utdata förklarar parametrarna som använts.
+1. Kör den `az group deployment create` att distribuera ett nytt virtuellt nätverk med hjälp av mallen och parametern filer du hämtade och ändrade i föregående steg. Listan som visas efter utdatan beskriver de parametrar som används.
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json

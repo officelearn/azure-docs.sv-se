@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 293ffb2a56ae970c71d495d7d929720ddf758307
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans kopiera aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ Kopieringsaktiviteten stöder tre scenarier för identifiering, hoppar över och
 - **Inkompatibilitet mellan källdatatyp och interna Mottagartypen**. <br/><br/> Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller tre kolumner av typen INT. CSV-filen rader som innehåller numeriska data, till exempel 123,456,789 har kopierats till arkivet sink. Men de rader som innehåller icke-numeriska värden, till exempel 123,456, abc identifieras som inkompatibel och hoppas över.
 - **Matchningsfel i antalet kolumner mellan käll- och sink**. <br/><br/> Till exempel: kopiera data från en CSV-fil i Blob storage till en SQL-databas med en schemadefinition som innehåller sex kolumner. Rader för CSV-fil som innehåller sex kolumner har kopierats till arkivet mottagare. CSV-filen rader som innehåller fler eller färre än sex kolumner identifieras som inkompatibel och hoppas över.
 - **Primärnyckelfel vid skrivning till en relationsdatabas**.<br/><br/> Till exempel: kopiera data från en SQLServer till en SQL-databas. En primär nyckel har definierats i sink SQL-databasen, men ingen primär nyckel har definierats i källan SQLServer. Duplicerade rader som finns i källan kan inte kopieras till sink. Kopieringsaktiviteten kopieras bara den första raden i källdata till sink. Efterföljande källraderna som innehåller duplicerade primärnyckelvärdet identifieras som inkompatibel och hoppas över.
+
+>[!NOTE]
+>Den här funktionen gäller inte när kopieringsaktiviteten är konfigurerad för att anropa externa datainläsning mekanism inklusive [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) eller [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). För att läsa in data i SQL Data Warehouse med PolyBase använda Polybases interna feltolerans stöd genom att ange ”[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)” i en Kopieringsaktivitet.
 
 ## <a name="configuration"></a>Konfiguration
 I följande exempel innehåller en JSON-definitionen om du vill konfigurera hoppar över inkompatibla rader i en Kopieringsaktivitet:
@@ -67,7 +70,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 enableSkipIncompatibleRow | Anger om du vill hoppa över inkompatibla raderna vid kopiering eller inte. | True<br/>FALSKT (standard) | Nej
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga inkompatibla rader. | &nbsp; | Nej
 linkedServiceName | Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) att lagra loggen som innehåller raderna hoppades över. | Namnet på en `AzureStorage` eller `AzureDataLakeStore` skriver länkade tjänst som refererar till den instans som du vill använda för att lagra loggfilen. | Nej
-Sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej
+sökväg | Sökvägen till loggfilen som innehåller raderna hoppades över. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg, skapas en behållare av tjänsten. | Nej
 
 ## <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
 När kopieringsaktiviteten kör har slutförts kan se du antalet överhoppade rader i utdata för kopieringsaktiviteten:

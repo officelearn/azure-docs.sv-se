@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos serversidan programmering: lagrade procedurer, databasutlösare och UDF: er
 
@@ -56,7 +56,7 @@ Den här metoden för *”JavaScript som en modern dag T-SQL”* Frigör program
   * Det lägger till ett Abstraktionslager ovanpå rådata, vilket gör att data arkitekter att utveckla sina program oberoende av data. Detta är särskilt användbar när data är schema-mindre på grund av spröda antaganden som kan behöva vara inbyggd till programmet om de måste behandla data direkt.  
   * Denna framställning kan företag skydda sina data genom att effektivisera åtkomst från skript.  
 
-Skapa och körning av databasutlösare, lagrad procedur och anpassade frågeoperatorer stöds via den [Azure-portalen](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), och [client SDK](documentdb-sdk-dotnet.md) på flera olika plattformar inklusive .NET, Node.js och JavaScript.
+Skapa och körning av databasutlösare, lagrad procedur och anpassade frågeoperatorer stöds via den [Azure-portalen](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), och [client SDK](sql-api-sdk-dotnet.md) på flera olika plattformar inklusive .NET, Node.js och JavaScript.
 
 Den här kursen använder den [Node.js SDK med Q löftena](http://azure.github.io/azure-documentdb-node-q/) att illustrera syntax och användning av lagrade procedurer, utlösare och UDF: er.   
 
@@ -654,7 +654,7 @@ JavaScript-lagrade procedurer och utlösare är i begränsat läge så att effek
 Lagrade procedurer, utlösare och UDF: er är implicit förkompilerade till formatet byte kod för att undvika kompilering kostnaden vid tidpunkten för varje skript-anrop. Detta säkerställer att anrop för lagrade procedurer är snabb och har en låg storleken.
 
 ## <a name="client-sdk-support"></a>Stöd för klient-SDK
-Utöver Azure Cosmos DB [Node.js](documentdb-sdk-node.md) API, Azure Cosmos DB har [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), och [Python SDK](documentdb-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och köras med hjälp av dessa SDK: er samt. I följande exempel visas hur du skapar och köra en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typer som skickas till den lagrade proceduren som JSON och läsa tillbaka.
+Utöver Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB har [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), och [Python SDK](sql-api-sdk-python.md) för SQL-API. Lagrade procedurer, utlösare och UDF: er kan skapas och köras med hjälp av dessa SDK: er samt. I följande exempel visas hur du skapar och köra en lagrad procedur med hjälp av .NET-klienten. Observera hur .NET-typer som skickas till den lagrade proceduren som JSON och läsa tillbaka.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +708,7 @@ Det här exemplet visas hur du använder den [SQL .NET API](/dotnet/api/overview
         });
 
 
-Och följande exempel visar hur du skapar en användardefinierad funktion (UDF) och använda den i en [SQL-frågan](documentdb-sql-query.md).
+Och följande exempel visar hur du skapar en användardefinierad funktion (UDF) och använda den i en [SQL-frågan](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -805,7 +805,7 @@ När du har en eller flera lagrade procedurer, utlösare och användardefinierad
 
 Du kan också hitta följande referenser och resurser användbart i din sökväg till mer information om Azure Cosmos dB serversidan programmering:
 
-* [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [DocumentDB-Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

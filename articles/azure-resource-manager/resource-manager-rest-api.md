@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>REST API:er för Resurshanteraren
 > [!div class="op_single_selector"]
 > * [Azure PowerShell](powershell-azure-resource-manager.md)
 > * [Azure CLI](xplat-cli-azure-resource-manager.md)
 > * [Portal](resource-group-portal.md) 
-> * [REST-API](resource-manager-rest-api.md)
+> * [REST API](resource-manager-rest-api.md)
 > 
 > 
 

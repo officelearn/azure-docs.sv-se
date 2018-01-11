@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att omvandla data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ ms.lasthandoff: 11/02/2017
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Snabbstart: skapa en datafabrik med hjälp av Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
+> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md) (Snabbstart: Skapa en datafabrik med Azure Data Factory version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion.
 
 I den här självstudiekursen skapar du din första Azure data factory med en rörledning för data. Pipelinen omvandlar inkommande data genom att köra Hive-skript i ett kluster för Azure HDInsight (Hadoop) gav inga utdata.  
 
 Den här artikeln innehåller översikt och förutsättningar för självstudiekursen. När du har slutfört kraven kan du göra kursen med någon av följande verktyg/SDK: Azure-portalen, Visual Studio, PowerShell, Resource Manager-mall, REST-API. Välj något av alternativen i listrutan i början (eller) länkar i slutet av den här artikeln att göra kursen med någon av dessa alternativ.    
 
 ## <a name="tutorial-overview"></a>Självstudier – översikt
-I den här kursen kan du utföra följande steg:
+I den här självstudien får du göra följande:
 
 1. Skapa en **datafabriken**. En datafabrik kan innehålla en eller flera pipelines för data som flyttas och transformera data. 
 
@@ -80,7 +80,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Från raderna exemplet ovan, det första (med 2016-01-01) skrivs till filen 000000_0 i månaden = 1 mapp. På liknande sätt kan det andra skrivs till filen i månaden = 2 mappen och tredje en skrivs till filen i månaden = 3 mapp.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här självstudien måste du ha följande krav:
 
 1. **Azure-prenumeration** -om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Finns det [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) artikel om hur du kan skaffa ett kostnadsfritt utvärderingskonto.
@@ -93,7 +93,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 
 Välj något av följande verktyg/SDK behöver kursen när du har slutfört de nödvändiga förutsättningarna: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure-portalen](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)

@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: "Dela och Upptäck analytics resurser och mer i Cortana Intelligence Gallery. Lär dig från andra och göra dina egna bidrag till gruppen."
+title: Azure AI-galleriet | Microsoft Docs
+description: "Dela och Upptäck analytics resurser och mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till gruppen."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Dela och identifiera resurser i Cortana Intelligence Gallery
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI-galleriet
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
-Cortana Intelligence Gallery innehåller en mängd olika resurser som du kan använda för att utveckla egna Analyslösningar.
+Azure-galleriet AI innehåller en mängd olika resurser som du kan använda för att utveckla egna Analyslösningar.
 
 * **[Experiment](gallery-experiments.md)**  -galleriet för den innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio. Dessa mellan snabb proof of concept experiment som visar specifik machine learning-teknik som gör att fullt utvecklade lösningar för komplexa maskininlärning problem.
 * **[Jupyter-anteckningsböcker](gallery-jupyter-notebooks.md)**  - Jupyter-anteckningsböcker är kod, datavisualiseringar, och dokumentation i en enda interaktiva arbetsytan.
@@ -48,7 +48,7 @@ Dessa grundläggande galleriresurser kan grupperas logiskt på ett par olika sä
 
 Slutligen  **[tävlingar](gallery-competitions.md)**  ger spännande möjlighet att konkurrerar med gemenskapen av data scientsts avancerade problem med hjälp av Cortana Intelligence Suite.
 
-![Startsidan för Cortana Intelligence Gallery](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Startsida för Azure AI-galleriet](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Identifiera och lära dig
 Alla kan bläddra och söka efter olika typer av resurser i galleriet som bidrog med Microsoft och avancerade analyser.

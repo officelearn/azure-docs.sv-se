@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: aa64bbc764fe96d7c15d62660114222458e5acf4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid bindningar
 
@@ -28,13 +28,13 @@ Den här artikeln beskrivs hur du skickar e-post med hjälp av [SendGrid](https:
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#c-example)
-* [C#-skript](#c-script-example)
+* [C#](#c-example)
+* [C#-skript (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) att utlösa för använder en Service Bus-kö och en SendGrid utdatabindning.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) att utlösa för använder en Service Bus-kö och en SendGrid utdatabindning.
 
 ```cs
 [FunctionName("SendEmail")]
@@ -155,7 +155,7 @@ module.exports = function (context, input) {
 
 ## <a name="attributes"></a>Attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
 
 Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `SendGrid` attributet exempel i en signatur:
 
@@ -169,7 +169,7 @@ public static void Run(
 }
 ```
 
-En komplett exempel finns [förkompilerat C#-exempel](#c-example).
+En komplett exempel finns [C#-exempel](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 

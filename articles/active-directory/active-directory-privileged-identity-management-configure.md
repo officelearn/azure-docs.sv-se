@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ Du kan börja använda Azure AD Privileged Identity Management i den [Azure-port
 3. Välj **Fler tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Privileged Identity Management-programmet öppnas.
 
-Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog och du navigerar till Azure AD directory roller, aand du navigerar du till Azure AD directory roller, en [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md) vägleder dig genom första tilldelningsupplevelse. Därefter blir du automatiskt först **säkerhetsadministratör** och **administratör av Privilegierade roller** av katalogen.
+Om du är den första personen som använder Azure AD Privileged Identity Management i din katalog och du navigerar till Azure AD directory roller och du navigerar till Azure AD directory roller, en [säkerhetsguiden](active-directory-privileged-identity-management-security-wizard.md) vägleder dig genom första tilldelningsupplevelse. Därefter blir du automatiskt först **säkerhetsadministratör** och **administratör av Privilegierade roller** av katalogen.
 
 Bara en användare som har rollen Administratör av Privilegierade roller kan hantera tilldelningar för andra administratörer i Azure AD PIM för Azure AD-roller. Du kan [ge andra användare möjlighet att hantera directory roller i PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Globala administratörer, säkerhetsadministratörer och säkerhet läsare kan visa tilldelningar till Azure AD-roller i Azure AD PIM.
 Endast en prenumeration administratör, en resursägare eller administratör för användaråtkomst en resurs kan hantera tilldelningar för andra administratörer i Azure AD PIM för Azure RBAC-roller.  Användare som är den privilegierade rollen administratörer, säkerhetsadministratörer eller säkerhet läsare har som standard inte behörighet att visa tilldelningar Azure RBAC-roller i Azure AD PIM.
@@ -80,7 +80,7 @@ Aktivera roller för Azure-resurser (förhandsgranskning) introducerar en ny upp
 
 Om en schemalagd aktivering krävs inte längre, kan användare avbryta väntande begäran genom att gå till väntande begäranden från den vänstra navigeringsmenyn och klicka på Avbryt-knappen i-raden med begäran.
 
-![väntande förfrågningar](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Väntande begäranden](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Privileged Identity Management admin-instrumentpanelen
 

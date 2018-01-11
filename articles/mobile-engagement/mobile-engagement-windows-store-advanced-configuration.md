@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Avancerad konfiguration för Windows Universal-appar Engagement SDK
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Den här proceduren beskriver hur du konfigurerar olika konfigurationsalternativ för Azure Mobile Engagement Android-appar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration

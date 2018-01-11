@@ -3,9 +3,9 @@ title: "Lägg till push-meddelanden till din Android-app med Mobile Apps | Micro
 description: "Lär dig hur du använder Mobile Apps för att skicka push-meddelanden till din Android-app."
 services: app-service\mobile
 documentationcenter: android
-manager: syntaxc4
+manager: crdun
 editor: 
-author: ggailey777
+author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
-ms.author: glenga
-ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: crdun
+ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden i appen för Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ I kursen får du lägga till push-meddelanden till den [Android Snabbstart] proj
 
 Om du inte använder hämtade Snabbstart serverprojekt måste push notification extension-paketet. Mer information finns i [arbeta med serverdelen .NET SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande:
 
 * IDE-miljö, beroende på ditt projekt serverdel:

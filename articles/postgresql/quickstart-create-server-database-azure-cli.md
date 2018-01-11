@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/27/2017
-ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 01/02/2018
+ms.custom: mvc
+ms.openlocfilehash: ab07172d62806631f73c1df35c7d646e83ad5221
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Skapa en Azure Database för PostgreSQL med hjälp av Azure-CLI:n
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL-server i en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med hjälp av Azure-CLI:n.
@@ -23,21 +24,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av kommandot [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in).
+Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av kommandot [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
 ```azurecli-interactive
 az login
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj en specifik prenumerations-ID under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az_account_set).
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az_account_set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
 ```azurecli-interactive
-az account set --subscription 00000000-0000-0000-0000-000000000000
+az account set --subscription <subscription id>
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [az group create](/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
+Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [az group create](/cli/azure/group#az_group_create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras som en grupp. Du bör ange ett unikt namn. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```

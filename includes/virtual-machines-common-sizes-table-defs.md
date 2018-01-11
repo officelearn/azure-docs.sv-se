@@ -7,6 +7,5 @@
 -   Om du vill få bästa prestanda för dina virtuella datorer bör du begränsa antalet datadiskar till 2 diskar per vCPU.
 - **Förväntat nätverksbandbredd** sammanställs maximalt [bandbredd som allokerats per VM typ](../articles/virtual-network/virtual-machine-network-throughput.md) på alla nätverkskort för alla mål. Övre gränser garanteras inte, men är avsedda att ge vägledning vid valet av VM-typ för det avsedda programmet. Faktiska nätverksprestanda beror på flera faktorer, t.ex. nätverksbelastning, programinläsningar och nätverksinställningar. Information om hur du optimerar dataflödet i nätverket finns i [Optimizing network throughput for Windows and Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md) (Optimera nätverksgenomflödet för Windows och Linux). För att uppnå förväntade nätverksprestanda i Linux eller Windows kan det vara nödvändigt att välja en specifik version eller att optimera den virtuella datorn. Mer information finns i [How to reliably test for virtual machine throughput](../articles/virtual-network/virtual-network-bandwidth-testing.md) (Tillförlitlig testning av genomflödet för en virtuell dator).
 
-- &#8224; 16 Prestanda för virtuella processorer kommer konsekvent att uppnå den övre gränsen i en kommande utgåva.
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i logganalys
 
@@ -52,7 +52,7 @@ I följande tabell beskrivs de Docker orchestration och stöd för behållaren i
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Tjänst<br>Fabric | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat öppna<br>SKIFT | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat öppna<br>Skift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(fristående) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux-server<br>(fristående) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -113,7 +113,7 @@ Granska de [Docker-motorn på Windows](https://docs.microsoft.com/virtualization
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera värdar för Linux-behållare
 
-När du har installerat Docker, använder du följande inställningar för behållaren värden för att konfigurera agenten för användning med Docker. Du måste först ditt OMS arbetsyte-ID och nyckel som du hittar i Azure-portalen. I arbetsytan, klickar du på **Snabbstart** > **datorer** att visa din **arbetsyte-ID** och **primärnyckel**.  Kopiera och klistra in både i din favorit-redigeraren.
+När du har installerat Docker, använder du följande inställningar för behållaren värden för att konfigurera agenten för användning med Docker. Du måste först ditt OMS arbetsyte-ID och nyckel som du hittar i Azure-portalen. I arbetsytan, klickar du på **Snabbstart** > **datorer** att visa din **arbetsyte-ID** och **primärnyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
 
 **För alla värdar på grund av Linux-behållaren utom virtuell CoreOS:**
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Växlar från att använda en installerade Linux-agenten till en i en behållare**
 
-Om du tidigare använde direkt-installerade agenten och vill använda i stället för en agent som körs i en behållare, måste du först ta bort OMS-Agent för Linux. Se [avinstallerar OMS-Agent för Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) att förstå hur du avinstallera agenten.  
+Om du tidigare använde direkt-installerade agenten och vill använda i stället för en agent som körs i en behållare, måste du först ta bort OMS-Agent för Linux. Se [avinstallerar OMS-Agent för Linux](log-analytics-agent-linux.md) att förstå hur du avinstallera agenten.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Konfigurera en OMS-agent för Docker Swarm
 
@@ -515,9 +515,9 @@ Mer information om Docker daemon konfiguration används med Windows-behållare f
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 
-Om du vill aktivera Windows- och Hyper-V behållaren övervakning, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är värdar för behållaren. Windows-datorer i din lokala miljö, se [ansluta Windows-datorer till logganalys](log-analytics-windows-agents.md). För virtuella datorer körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-azure-vm-extension.md).
+Om du vill aktivera Windows- och Hyper-V behållaren övervakning, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är värdar för behållaren. Windows-datorer i din lokala miljö, se [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). För virtuella datorer körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](log-analytics-azure-vm-extension.md).
 
-Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-azure-vm-extension.md) och [Windows-datorer i din lokala miljö](log-analytics-windows-agents.md) stöds för närvarande för Service Fabric.
+Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](log-analytics-azure-vm-extension.md) och [Windows-datorer i din lokala miljö](log-analytics-windows-agent.md) stöds för närvarande för Service Fabric.
 
 Du kan kontrollera att lösningen behållaren övervakning är korrekt inställda för Windows. Om du vill kontrollera om det management pack var download korrekt, leta efter *ContainerManagement.xxx*. Filerna måste vara i mappen C:\Program Files\Microsoft övervakning Agent\Agent\Health State\Management servicepack.
 
@@ -534,7 +534,7 @@ Lösning för övervakning av behållare samlar in olika mått och logga prestan
 Data samlas in varje tre minuter med följande typer av agenten.
 
 - [OMS-Agent för Linux](log-analytics-linux-agents.md)
-- [Windows-agenten](log-analytics-windows-agents.md)
+- [Windows-agenten](log-analytics-windows-agent.md)
 - [Log Analytics VM-tillägget](log-analytics-azure-vm-extension.md)
 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med Active Directory Health Check-lösningen i logganalys
 
@@ -52,7 +52,7 @@ När du har lagt till lösningen och en kontroll är slutförd, Sammanfattning v
 
 Om du vill utföra hälsokontroll mot domänkontrollanter som är medlemmar i domänen som ska utvärderas kräver de en agent och anslutningen till logganalys med någon av följande metoder:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) om domänkontrollanten inte redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
+1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om domänkontrollanten inte redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen inte är integrerad med Log Analytics-tjänsten, domänkontrollanten kan vara multi-homed med logganalys samla in data och vidarebefordra till den tjänsten och fortfarande övervakas av Operations Manager.  
 3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-oms) när du har aktiverat lösning på arbetsytan.  
 
@@ -62,7 +62,7 @@ Agenten på en domänkontrollant att en Operations Manager-hanteringsgrupp samla
 
 Active Directory Health Check samlar in data från följande källor med agenten som du har aktiverat:
 
-- Registret 
+- Register 
 - LDAP 
 - .NET framework
 - Händelseloggen 
@@ -108,8 +108,8 @@ När den har installerats kan du visa sammanfattning av rekommendationer med hj�
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
-2. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
 4. På den **översikt** klickar du på den **AD Health Check** panelen. 
 5. På den **Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.

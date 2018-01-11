@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
 ms.author: tamram
-ms.openlocfilehash: b4b917adfb3644cca71b6696df005fbf9e295240
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 87f179d2cf3802af3eca58e0adf57b07069bfcc6
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-storage-account-using-powershell"></a>Skapa ett lagringskonto med PowerShell
 
@@ -44,7 +44,7 @@ Get-AzureRmLocation | select Location
 $location = "eastus"
 ```
 
-## <a name="create-resource-group"></a>Skapa resursgrupp
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
 
@@ -55,7 +55,7 @@ $resourceGroup = "contoso-storage-accounts"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Skapa ett allmänt standardlagringskonto
+## <a name="create-a-general-purpose-storage-account"></a>Skapa ett allmänt lagringskonto
 
 Det finns flera typer av lagringskonton, beroende på hur det ska användas och för vilken tjänst (Blob Service, File Service, Table Service eller Queue Service). Den här tabellen visar vilka möjligheter som finns.
 
@@ -64,7 +64,7 @@ Det finns flera typer av lagringskonton, beroende på hur det ska användas och 
 |**Tjänster som stöds**| Blob Service, File Service, Table Service, Queue Service | Blob Service | Blob Service|
 |**Typer av blobbar som stöds**|Blockblobar, sidblobar och tilläggsblobar | Sidblobbar | Blockblobbar och tilläggsblobbar|
 
-Använd [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) att skapa ett allmänt standardlagringskonto som du kan använda för alla fyra tjänster. Ge lagringskontot namnet *contosomvcstandard* och konfigurera det så att lokalt redundant lagring och blobkryptering är aktiverat.
+Använd [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) att skapa ett allmänt lagringskonto som du kan använda för alla fyra tjänster. Ge lagringskontot namnet *contosomvcstandard* och konfigurera det så att lokalt redundant lagring och blobkryptering är aktiverat.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos DB-emulatorn för lokal utveckling och testning
 
@@ -136,7 +136,7 @@ Du kan köra emulatorn i ett lokalt nätverk. Om du vill aktivera nätverksåtko
 För att aktivera nätverksåtkomst för första gången användaren stänga emulatorn och ta bort den emulator datakatalog (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Utveckla med emulatorn
-När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/documentdb/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för SQL och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
+När du har Azure Cosmos DB emulatorn körs på datorn kan du använda någon stöds [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) eller [Azure Cosmos DB REST API](/rest/api/documentdb/) att interagera med emulatorn. Azure-emulatorn Cosmos DB innehåller också en inbyggd Data Explorer där du kan skapa samlingar för SQL och MongoDB APIs och visa och redigera dokument utan att skriva någon kod.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

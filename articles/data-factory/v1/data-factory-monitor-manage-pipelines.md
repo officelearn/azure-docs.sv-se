@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure portal och PowerShell
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Det här avsnittet beskriver också hur en datamängdssektor övergångar från 
    ![Bläddra igenom alla > datafabriker](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. På den **datafabriker** bladet välj datafabriken som du är intresserad av.
 
-    ![Välj data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Välja datafabrik](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    Du bör se startsidan för datafabriken.
 
@@ -86,7 +86,7 @@ Dataset-segment i datafabriken kan ha en av följande status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Undertillstånden</th><th align="left">Beskrivning</th>
+    <th align="left">Status</th><th align="left">Undertillstånd</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
     <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Tiden har inte inne för att köra sektorn.</td>
@@ -114,13 +114,13 @@ Dataset-segment i datafabriken kan ha en av följande status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Verifiera</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Sektorn behandlas.</td>
 </tr>
 <tr>
-<td rowspan="4">Det gick inte</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Sektorn avbröts av en användare.</td>
@@ -131,10 +131,10 @@ Dataset-segment i datafabriken kan ha en av följande status:
 <tr>
 <td>-</td><td>Det gick inte att vara genereras och/eller verifiera sektorn.</td>
 </tr>
-<td>Redo</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
+<td>Klar</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
 </tr>
 <tr>
-<td>Hoppades över</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
+<td>Överhoppad</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>En sektor som brukade finnas med en annan status, men den har återställts.</td>
@@ -368,9 +368,9 @@ Följande tabell innehåller en lista över tillgängliga åtgärder och status 
 
 | Åtgärdsnamn | Status | Substatus |
 | --- | --- | --- |
-| RunStarted |Igång |Startar |
+| RunStarted |Startad |Startar |
 | RunFinished |Misslyckades / lyckades |FailedResourceAllocation<br/><br/>Lyckades<br/><br/>FailedExecution<br/><br/>För lång tid<br/><br/>< avbröts<br/><br/>FailedValidation<br/><br/>Avbrutna |
-| OnDemandClusterCreateStarted |Igång | |
+| OnDemandClusterCreateStarted |Startad | |
 | OnDemandClusterCreateSuccessful |Lyckades | |
 | OnDemandClusterDeleted |Lyckades | |
 

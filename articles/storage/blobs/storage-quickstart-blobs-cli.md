@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Blobar laddas alltid upp till en behållare. Med behållare kan du ordna grupper av blobar på samma sätt som du ordnar filer i kataloger på datorn.
+Blobar laddas alltid upp till en behållare. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
 Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#create).
 
@@ -47,7 +47,10 @@ az storage container create --name mystoragecontainer
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. De flesta filer som lagras i Blob Storage lagras som blockblobar. Tilläggsblobar används när data måste läggas till i en befintlig blob utan att det befintliga innehållet ändras, som vid loggning. Sidblobar säkerhetskopierar VHD-filerna i virtuella IaaS-datorer.
 
-I det här exemplet laddar vi upp en blob i den behållare vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#upload).
+Skapa först en fil som ska överföras till en blob.
+Om du använder Azure Cloud Shell använder du följande för att skapa en fil: `vi helloworld` när filen öppnas: tryck på **Insert**, skriv "Hello world" och tryck på **Esc** och skriv `:x` och tryck sedan på **Retur**.
+
+I det här exemplet laddar vi upp en blob till den behållare som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Om du använde den tidigare beskrivna metoden för att skapa en fil i Azure Cloud Shell kan du använda det här CLI-kommandot i stället (observera att du inte behövde ange en sökväg eftersom filen skapades i baskatalogen, men i vanliga fall hade du behövt ange en sökväg):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Den här åtgärden skapar bloben om den inte redan finns, och skriver över den om den finns. Ladda upp så många filer som du vill innan du fortsätter.
+
+Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
@@ -70,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Använd kommandot [az storage blob download](/cli/azure/storage/blob#download) för att ladda ned en blob som du tidigare har laddat upp.
+Använd kommandot [az storage blob download](/cli/azure/storage/blob#download) för att ladda ned den blob som du laddade upp tidigare.
 
 ```azurecli-interactive
 az storage blob download \

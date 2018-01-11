@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a>Integrera en tjänst i molnet med Azure CDN
 En tjänst i molnet kan integreras med Azure CDN betjänar allt innehåll från Molntjänsten plats. Den här metoden ger följande fördelar:
@@ -111,7 +111,7 @@ En CDN-profil är en samling CDN-slutpunkter.  Varje profil innehåller en eller
 ## <a name="create-a-new-cdn-endpoint"></a>Skapa en ny CDN-slutpunkt
 **Skapa en ny CDN-slutpunkt för ditt lagringskonto**
 
-1. I den [Azure-hanteringsportalen](https://portal.azure.com), navigera till CDN-profilen.  Du kanske fäste den på instrumentpanelen i föregående steg.  Om du inte hittar den klicka du på **Bläddra**, sedan på **CDN-profiler** och sedan på den profil som du vill lägga till slutpunkten till.
+1. Gå till din CDN-profil på [Azure-portalen](https://portal.azure.com).  Du kanske fäste den på instrumentpanelen i föregående steg.  Om du inte hittar den klicka du på **Bläddra**, sedan på **CDN-profiler** och sedan på den profil som du vill lägga till slutpunkten till.
    
     Bladet för CDN-profilen visas.
    

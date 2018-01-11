@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
-Läs mer om Apache Hadoop-ekosystemet komponenter och versioner i Microsoft Azure HDInsight, samt servicenivåer Standard och Premium. Lär dig också att kontrollera komponenten-versioner i Hadoop i HDInsight. 
+Läs mer om Apache Hadoop-ekosystemet komponenter och versioner i Microsoft Azure HDInsight, samt säkerhetspaketet Enterprise. Lär dig också att kontrollera komponenten-versioner i Hadoop i HDInsight. 
 
 Varje HDInsight-version är en cloud fördelning av en version av Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Tillgängliga med olika versioner av HDInsight Hadoop-komponenter
 Azure HDInsight har stöd för flera Hadoop-klusterversioner som kan distribueras när som helst. Varje version alternativ skapas en viss version av HDP-distribution och en uppsättning komponenter som ingår i distributionen. Från och med den 17 februari 2017 klustret standardversionen används av Azure HDInsight är 3.5 och baseras på HDP 2.5.
 
-Komponent-versioner som är associerade med HDInsight-kluster-versioner visas i följande tabell. 
+Komponent-versioner som är associerade med HDInsight-kluster-versioner finns i följande tabell: 
 
 > [!NOTE]
 > Standardversionen för HDInsight-tjänst kan ändras utan föregående meddelande. Om du har ett beroende som version, ange HDInsight-version när du skapar ditt kluster med .NET SDK med Azure PowerShell och Azure CLI.
@@ -74,27 +74,81 @@ Ett annat sätt att kontrollera komponentversionen är att logga in på ett klus
 Se [HDInsight viktig information](hdinsight-release-notes.md) för ytterligare viktig information om de senaste versionerna av HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>HDInsight-versioner som stöds
-I följande tabell visas HDInsight-versioner som är tillgängliga på Azure-portalen. HDP-versioner som motsvarar varje HDInsight-version visas tillsammans med produkten frisläppningsdatum. Stöd för förfallodatum och tillbakadragning datumen finns också när de är kända.
+I tabellerna nedan listas versionerna av HDInsight. HDP-versioner som motsvarar varje HDInsight-version visas tillsammans med produkten frisläppningsdatum. Stöd för förfallodatum och tillbakadragning datumen finns också när de är kända.
+
+### <a name="available-versions"></a>Tillgängliga versioner
+
+I följande tabell visas HDInsight-versioner som är tillgängliga i Azure Portal samt andra deployement metoder som PowerShell och .NET SDK.
+
+| HDInsight-version | HDP version | VM OS | Utgivningsdatum | Stöd för förfallodatum | Datumet för tillbakadragandet | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3,6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 september 2016 |5 september 2017 |Den 31 maj 2018 |Ja |Ja |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Den 2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
 
 > [!NOTE]
 > När du har stöd för en version har gått ut, kanske den inte tillgängliga via Microsoft Azure-portalen. Dock klusterversioner fortsätter att vara tillgängliga med den `Version` parameter i Windows PowerShell [ny AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) kommandot och förrän version datumet för tillbakadragandet .NET SDK.
-> 
+>
+
+### <a name="retired-versions"></a>Utgångna versioner
+
+I följande tabell visas de versioner av HDInsight **inte** tillgängliga i Azure Portal.
+
+| HDInsight-version | HDP version | VM OS | Utgivningsdatum | Stöd för förfallodatum | Datumet för tillbakadragandet | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Den 29 mars 2016 |Den 29 december 2016 |9 januari 2018 |Ja |Nej |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Den 2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS eller Windows Server 2012 R2 |18 februari 2015 |Den 1 mars 2016 |1 april 2017 |Ja |Nej |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |30 juni 2016 |Ja |Nej |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |Den 31 maj 2015 |Ja |Nej |
+| HDInsight 1.6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |Den 31 maj 2015 |Nej |Nej |
+
+> [!NOTE]
 > Hög tillgänglighet kluster med två noder som head distribueras som standard för HDInsight version 2.1 och senare. De är inte tillgängliga för version 1.6 HDInsight-kluster.
 
-| HDInsight-version | HDP version | VM OS | Hög tillgänglighet | Utgivningsdatum | Tillgänglighet på Azure portal | Stöd för förfallodatum | Datumet för tillbakadragandet |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,6 |HDP 2.6 |Ubuntu 16 |Ja |4 april 2017 |Ja | | |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16 |Ja |30 september 2016 |Ja |5 september 2017 |Den 31 maj 2018 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Ja |Den 29 mars 2016 |Ja |Den 29 december 2016 |9 januari 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Ja |Den 2 december 2015 |Ja |27 juni 2016 |31 juli 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Ja |Den 2 december 2015 |Ja |27 juni 2016 |31 juli 2017 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS eller Windows Server 2012 R2 |Ja |18 februari 2015 |Nej |Den 1 mars 2016 |1 april 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Ja |24 juni 2014 |Nej |18 maj 2015 |30 juni 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Ja |11 februari 2014 |Nej |17 september 2014 |30 juni 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Ja |28 oktober 2013 |Nej |12 maj 2014 |Den 31 maj 2015 |
-| HDInsight 1.6 |HDP 1.1 | |Nej |28 oktober 2013 |Nej |26 april 2014 |Den 31 maj 2015 |
+## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise säkerhetspaketet för HDInsight
 
-## <a name="hdinsight-windows-retirement"></a>HDInsight Windows ur bruk
+Azure HDInsight är ett valfritt paket som du kan lägga till på ditt HDInsight-kluster som en del av arbetsflödet för skapa klustret. Säkerhetspaketet Enterprise stöder:
+
+- Integrering med Active Directory för autentisering.
+
+    Tidigare kan du bara skapa HDInsight-kluster med en lokal administratör och en lokal SSH-användare. Lokal administratör kan komma åt alla filer, mappar, tabeller och kolumner.  Med säkerhetspaketet Enterprise kan du aktivera rollbaserad åtkomstkontroll genom att integrera HDInsight-kluster med egna Active Directory, som innehåller lokala Active Directory, Azure Active Directory Domain Services eller Active Directory på IaaS den virtuella datorn. Domänadministratören på klustret kan ge användare att använda sina egna (företagsdomän)-användarnamn och lösenord får åtkomst till klustret. 
+
+    Mer information finns i:
+
+    - [En introduktion till Hadoop-säkerhet med domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-introduction.md)
+    - [Planera Azure domänanslutna Hadoop-kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Konfigurera domänanslutna begränsat läge](./domain-joined/apache-domain-joined-configure.md)
+    - [Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Auktorisering för data
+
+    - Integrering med Apache Ranger för auktorisering för Hive, Spark SQL och Yarn köer.
+    - Du kan ange behörighet för filer och mappar.
+
+    Mer information finns i:
+
+    - [Konfigurera principer för Hive i HDInsight-domänansluten](./domain-joined/apache-domain-joined-run-hive.md)
+
+- Visa granskningsloggarna att övervakaren har åtkomst och konfigurerade principer. 
+
+### <a name="supported-cluster-types"></a>Stöds klustertyper
+
+För närvarande stöder endast följande typer av klustret säkerhetspaketet Enterprise:
+
+- Hadoop (endast HDInsight 3,6)
+- Spark
+- Interaktiv fråga
+
+### <a name="support-for-azure-data-lake-store"></a>Stöd för Azure Data Lake Store
+
+Enterprise-säkerhetspaketet stöder med Azure Data Lake Store som både primär lagring och för tilläggslagring.
+
+### <a name="pricing-and-sla"></a>Priser och SLA
+Information om priser och SLA för Enterprise-säkerhetspaketet finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## <a name="hdinsight-windows-retirement"></a>Dra tillbaka HDInsight Windows
 Microsoft Azure HDInsight version 3.3 har den senaste versionen av HDInsight på Windows. Datumet för tillbakadragandet för HDInsight på Windows är 31 juli 2018. Om du har alla HDInsight-kluster på Windows 3.3 eller tidigare, måste du migrera till HDInsight på Linux (HDInsight version 3.5 eller senare) innan den 31 juli 2018. Migrera till Linux-operativsystem kan du behålla möjligheten att skapa eller ändra storlek på dina HDInsight-kluster. Stöd för HDInsight version 3.3 i Windows har upphört att gälla på 27 juni 2016.
 
 Från och med HDInsight version 3.4, har Microsoft släppt HDInsight endast på Linux-operativsystem. Därför kan är vissa av komponenterna i HDInsight tillgängliga för Linux endast. Dessa omfattar Apache Ranger, Kafka, interaktiva frågan, Spark HDInsight-program och Azure Data Lake Store som primär filsystem. Framtida versioner av HDInsight är bara tillgängliga på Linux-operativsystem. Det blir inga kommande versioner av HDInsight på Windows. 
@@ -165,36 +219,10 @@ Avsnittet innehåller länkar till viktig information för Hortonworks Data Plat
 * HDInsight-kluster av version 2.1 använder ett Hadoop-distributionen som baseras på [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * HDInsight-kluster av version 1.6 använder ett Hadoop-distributionen som baseras på [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard och HDInsight Premium
 
-Azure HDInsight erbjuder molntjänster för stordata i två kategorier: _Standard_ och _Premium_. I följande tabell visas funktionerna som är tillgängliga _endast_ i HDInsight Premium. Funktioner som inte uttryckligen beskrivs i tabellen finns i både HDInsight Standard och Premium.
 
-> [!NOTE]
-> HDInsight Premium erbjudande är för närvarande under förhandsgranskning och kan bara Linux-kluster.
 
-| HDInsight Premium-funktion | Beskrivning |
-| --- | --- |
-| Domänanslutna HDInsight-kluster |Ansluta till HDInsight-kluster till Azure Active Directory (AD Azure) domäner för säkerhet på företagsnivå. Du kan konfigurera en lista över anställda från ditt företag som kan autentisera till Azure AD för att logga in på ett HDInsight-kluster i HDInsight Premium. Enterprise-administratören kan konfigurera rollbaserad åtkomstkontroll för Hive-säkerhet med hjälp av [Apache Ranger](http://hortonworks.com/apache/ranger/) och begränsa åtkomst till data du använder bara så mycket som behövs. Administratören kan dessutom granska data som nås genom att anställda och ändringar för att få åtkomst till principer för åtkomstkontroll, vilket bidrar till att en hög grad av styrning av företagets resurser. Mer information finns i [konfigurera domänanslutna HDInsight-kluster](./domain-joined/apache-domain-joined-configure.md). |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>Klustertyper som stöds i HDInsight Premium
-I följande tabell visas de klustertyper som stöds i HDInsight Premium.
-
-| Klustertyp | Standard | Premium (förhandsgranskning) |
-| --- | --- | --- |
-| Hadoop |Ja |Ja (endast HDInsight 3,6) |
-| Spark |Ja |Nej |
-| HBase |Ja |Nej |
-| Storm |Ja |Nej |
-| R Server |Ja |Nej |
-| Interaktiv fråga |Ja |Nej |
-| Kafka (förhandsgranskning) |Ja |Nej | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Stöd för Azure Data Lake Store i HDInsight Premium
-
-HDInsight Premium kluster stöder inte användning av Azure Data Lake Store som primär lagring. Du kan dock använda Azure Data Lake Store som tilläggslagring med HDInsight Premium-kluster.
-
-### <a name="pricing-and-sla"></a>Priser och SLA
-Information om priser och SLA för HDInsight Premium finns [HDInsight priser](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Standard nod konfiguration och virtuella storlekar för kluster
 I tabellerna nedan listas standard-storlekar för virtuella datorer (VM) för HDInsight-kluster.

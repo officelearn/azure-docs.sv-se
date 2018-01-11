@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: ee48ca45ae0d337b5b919dbbb28341caf8af0d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-resource-manager"></a>Konfigurera en programgateway för SSL-avlastning med hjälp av Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-ssl-portal.md)
+> * [Azure-portalen](application-gateway-ssl-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure klassiska PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)

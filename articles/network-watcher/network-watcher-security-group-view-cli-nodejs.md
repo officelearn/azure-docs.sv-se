@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: f27157129bea4e47a2e0e6cc1169b9e4887bdd78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>Analysera dina virtuella säkerhet med säkerhet gruppvyn använder Azure CLI 1.0
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-security-group-view-cli.md)
-> - [REST-API](network-watcher-security-group-view-rest.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 Säkerhet gruppvyn returnerar konfigurerade och effektivt Nätverkssäkerhetsregler som tillämpas på en virtuell dator. Den här funktionen är användbar för att granska och diagnostisera Nätverkssäkerhetsgrupper och regler som är konfigurerade på en virtuell dator så trafik som tillåts eller nekas på rätt sätt. I den här artikeln hur vi du kan hämta de konfigurerade och effektivt säkerhetsreglerna till en virtuell dator med hjälp av Azure CLI
 

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs – undantag för meddelanden
-Den här artikeln innehåller några av de undantag som genereras av Azure Service Bus messaging API: er, bland annat Händelsehubbar. Den här referensen kan ändras, så kolla igen efter uppdateringar.
+
+Den här artikeln innehåller några av de undantag som genereras av Azure Service Bus messaging API bibliotek, bland annat Event Hubs API: er. Den här referensen kan ändras, så kolla igen efter uppdateringar.
 
 ## <a name="exception-categories"></a>Undantag kategorier
+
 API: er för Event Hubs skapa undantag som kan delas in i följande kategorier tillsammans med den associerade åtgärden som du kan vidta att åtgärda dem.
 
 1. Användaren kodningsfel: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Allmän åtgärd: försök att åtgärda kod innan du fortsätter.
@@ -78,13 +80,13 @@ En [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.se
 
 Det här felet kan bero på något av två skäl:
 
-1. Belastningen är inte jämnt fördelad över alla partitioner i Händelsehubben och en partition träffar lokala genomströmning enhet begränsning.
+1. Belastningen är inte jämnt fördelad över alla partitioner i händelsehubben och en partition träffar lokala genomströmning enhet begränsning.
     
     Lösning: Ändra distributionsstrategi partition eller försöka [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) kan hjälpa.
 
-2. Händelsehubbar namnområdet har inte tillräcklig genomflödesenheter (du kan kontrollera den **mått** blad i Händelsehubbar namnområde bladet i den [Azure-portalen](https://portal.azure.com) att bekräfta). Observera att portalen visar aggregerade (1 minut) information, men vi mäter genomflöde i realtid – så att det är endast en uppskattning.
+2. Händelsehubbar namnområdet har inte tillräcklig genomflödesenheter (kan du den **mått** skärmen i Hubs namnområde fönster i den [Azure-portalen](https://portal.azure.com) bekräfta). Observera att portalen visar aggregerade (1 minut) information, men vi mäter genomflöde i realtid – så att det är endast en uppskattning.
 
-    Lösning: Öka genomflödesenheter på namnområdet kan hjälpa. Du kan göra detta på portalen i den **skala** bladet av bladet Händelsehubbar namnområde.
+    Lösning: Öka genomflödesenheter på namnområdet kan hjälpa. Du kan göra detta på portalen i den **skala** fönstret i Händelsehubbar namnområde skärmen.
 
 ### <a name="error-code-50001"></a>Felkoden 50001
 

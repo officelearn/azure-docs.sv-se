@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Snabbstart för utveckling med Azure Stack Development Kit
 
@@ -31,9 +31,9 @@ Den [Azure Stack Development Kit](azure-stack-poc.md) är en miljö för testnin
 
 2. [**Ladda ned och extrahera distributionspaketet**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Du kan hämta distributionspaketet till development kit värden eller till en annan dator. De extraherade filerna tar upp 60 GB ledigt diskutrymme, så använder en annan dator kan minska maskinvarukraven för development kit värden.
 
-3. [**Förbereda development kit värden** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) med hjälp av installationsprogrammet. Efter det här steget startar development kit värden till Cloudbuilder.vhdx (installera filer i en virtuell hårddisk som innehåller ett startbart operativsystem och Azure-stacken).
+3. [**Förbereda development kit värden** ](azure-stack-run-powershell-script.md) med hjälp av installationsprogrammet. Efter det här steget startar development kit värden till Cloudbuilder.vhdx (installera filer i en virtuell hårddisk som innehåller ett startbart operativsystem och Azure-stacken).
 
-4. [**Distribuera i development kit** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) på development kit värden.
+4. [**Distribuera i development kit** ](azure-stack-run-powershell-script.md) på development kit värden.
 
 5. Om distributionen av Azure-stacken använder Azure Active Directory, måste du [registrera Azure stacken med Azure](azure-stack-register.md) så att du kan [hämta Azure marketplace-objekt](azure-stack-download-azure-marketplace-item.md) till Azure-stacken.
 

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Självstudier: Klassificera Iris med hjälp av kommandoradsgränssnittet
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys, som datatekniker kan använda till att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -30,7 +30,7 @@ I kursen får du lära dig att använda kommandoradsgränssnittet (CLI) verktyg 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Du behöver åtkomst till en Azure-prenumeration och behörigheter att skapa resurser i den prenumerationen. 
 - Du måste installera Azure-datorn Learing arbetsstationen programmet genom att följa den [installera och skapa Quickstart](quickstart-installation.md). 
 

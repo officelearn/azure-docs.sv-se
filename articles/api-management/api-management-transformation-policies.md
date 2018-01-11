@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -264,6 +264,7 @@ I det här exemplet dirigerar principen begäran till en service fabric serverde
 |SA-replik-typ|Gäller endast när serverdelen är en tjänst för Service Fabric och anges med backend-id. Styr om begäran ska skickas till primär eller sekundär replik av en partition. |Nej|Saknas|    
 |SA Lös villkor|Gäller endast när serverdelen är en tjänst för Service Fabric. Identifiera om anropet till Service Fabric-serverdelen har upprepas med nya lösningar-villkor.|Nej|Saknas|    
 |SA-tjänsten-instansnamn|Gäller endast när serverdelen är en tjänst för Service Fabric. Du kan ändra instanser av tjänsten vid körning. |Nej|Saknas|    
+|SA-lyssnaren-name|Gäller endast när serverdelen är en tjänst för Service Fabric och anges med backend-id. Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en viss lyssnare när en serverdel tillförlitlig tjänst har mer än en lyssnare. Om det här attributet inte anges försöker API Management använda en lyssnare utan namn. En lyssnare utan namn är typiskt för tillförlitlig tjänsterna som har endast en lyssnare. |Nej|Saknas|  
 
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

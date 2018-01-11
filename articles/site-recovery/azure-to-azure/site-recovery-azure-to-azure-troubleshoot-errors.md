@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsökning av problem med Virtuella Azure-Azure-replikering
 
@@ -131,6 +131,20 @@ Om du inte ser ditt Azure-VM för val när du aktiverar replikering, kanske dett
 
 Du kan använda [ta bort inaktuella ASR konfigurationsskript](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) och ta bort inaktuella Site Recovery-konfigurationen på Azure VM. Du bör se den virtuella datorn när du aktiverar replikering när du tar bort inaktuella konfigurationen.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Virtuella datorns etablering tillstånd är inte giltigt (felkod 150019)
+
+Om du vill aktivera replikering på den virtuella datorn ska etableringsstatusen **lyckades**. Du kan kontrollera tillstånd för virtuell dator genom att följa stegen nedan.
+
+1.  Välj den **Resursläsaren** från **alla tjänster** i Azure-portalen.
+2.  Expandera den **prenumerationer** och väljer din prenumeration.
+3.  Expandera den **resursgrupper** och väljer resursgruppen för den virtuella datorn.
+4.  Expandera den **resurser** och väljer den virtuella datorn
+5.  Kontrollera den **provisioningState** i instansvyn på höger sida.
+
+### <a name="fix-the-problem"></a>Åtgärda problemet
+
+- Om **provisioningState** är **misslyckades**, kontakta supporten med information om hur du felsöker.
+- Om **provisioningState** är **uppdatering**, en annan utökning kan komma distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de är klara och gör den misslyckade platsen har återställts **Aktivera replikering** jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 [Replikera virtuella Azure-datorer](azure-to-azure-quickstart.md)

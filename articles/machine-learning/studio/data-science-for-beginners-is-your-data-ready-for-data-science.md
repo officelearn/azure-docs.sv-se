@@ -1,6 +1,6 @@
 ---
 title: "Är dina data klara för datavetenskap? -Utvärdering av Azure Machine Learning | Microsoft Docs"
-description: "Lär dig 4 kriterier för data ska vara klar för datavetenskap. Datavetenskap för nybörjare video 2 har konkreta exempel för att hjälpa dig med grundläggande data utvärdering."
+description: "Fyra villkor som måste uppfylla för att vara klar för datavetenskap. Den här videon har konkreta exempel för att hjälpa dig med grundläggande data utvärdering."
 keywords: "relevanta data utvärdera data, förbereder data, Datakriterier, data som är redo"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Datavetenskap för nybörjare serien
@@ -85,11 +85,11 @@ Nästa komponenten vi behöver är korrekta. Här är fyra mål som vi vill att 
 
 ![Korrekta data kontra felaktiga data - data villkor](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Titta på målet i det övre högra hörnet. Vi har en nära gruppering höger runt piltavla. Naturligtvis är korrekt. Oväntat, datavetenskap språk, vår prestanda till målet höger under det anses också vara korrekt.
+Titta på målet i det övre högra hörnet. Vi har en nära gruppering höger runt tjurar ögat. Naturligtvis är korrekt. Oväntat, datavetenskap språk, vår prestanda till målet höger under det anses också vara korrekt.
 
-Om du har att kartlägga mittpunkt pilarna visas att det är mycket nära piltavla. Pilarna sprids ut alla runt mål, så att de ska anses vara inexakt, men de är uppbyggd kring piltavla, så att de ska anses vara korrekt.
+Om du har att kartlägga mittpunkt pilarna visas att det är mycket nära tjurar öga. Pilarna sprids ut alla runt mål, så att de ska anses vara inexakt, men de är uppbyggd kring ögat tjurar så att de ska anses vara korrekt.
 
-Nu titta på det övre vänstra målet. Vår pilarna nådde här mycket nära varandra en nära gruppering. De är exakt, men de är felaktigt eftersom mitt går ut piltavla. Och naturligtvis pilarna i det nedre vänstra målet är både stämmer och inexakt. Den här archer måste flera praxis.
+Nu titta på det övre vänstra målet. Vår pilarna nådde här mycket nära varandra en nära gruppering. De är exakt, men de är felaktigt eftersom mitt går ut tjurar öga. Och naturligtvis pilarna i det nedre vänstra målet är både stämmer och inexakt. Den här archer måste flera praxis.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Har du tillräckligt med data att arbeta med?
 Slutligen beståndsdel #4 – vi måste ha tillräckligt med data.

@@ -18,7 +18,7 @@ Du kan köpa reserverade virtuella Datorinstanserna den [Azure-portalen](https:/
     |Prenumeration|Den prenumeration som används för att betala för reservationen. Betalningsmetod på prenumerationen debiteras direktkostnader reservationens. Prenumerationstypen måste vara ett enterprise-avtal (erbjuder många: MS-AZR - 0017P) eller betala per användning (erbjuder många: MS-AZR - 0003P). Avgifterna är dras av från det registrering summa saldo eller debiteras som överförbrukning för en enterprise-prenumeration. Betala per användning prenumeration debiteras avgifterna till betalningsmetod kreditkort eller en faktura för prenumerationen.|    
     |Omfång       |Den reservationen omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enda prenumeration - reservation rabatt tillämpas på virtuella datorer i den här prenumerationen. </li><li>Delad - tillämpas reservation rabatt på virtuella datorer som körs i alla prenumerationer inom din faktureringsadress kontext. Företagskunder kan delade scope är registreringen och innefattar alla prenumerationer (med undantag för utveckling och testning prenumerationer) i registreringen. Betala per användning kunder är delade scope alla betala per användning prenumerationer som skapats av kontoadministratören.</li></ul>|
     |Plats    |Azure-regionen som omfattas av reservationen.|    
-    |VM-storlek     |Storleken på VM-instanser.|
+    |Storlek på virtuell dator     |Storleken på VM-instanser.|
     |Period        |Ett år eller tre år.|
     |Antal    |Antalet instanser som köps i reservationen. Antalet är antalet VM-instanser som kan hämta faktureringsinformation rabatten som körs. Till exempel om du kör 10 Standard_D2 virtuella datorer i östra USA, skulle du ange antalet som 10 för att maximera förmån för alla datorer som körs. |
 5. Du kan visa kostnaden för reservation när du väljer **beräkna kostnaden**.
@@ -33,5 +33,5 @@ Du kan köpa reserverade virtuella Datorinstanserna den [Azure-portalen](https:/
 ## <a name="next-steps-after-buying-a-reservation"></a>Nästa steg efter att köpa en reservation
 Reservation rabatten används automatiskt antalet virtuella datorer som matchar reservation scope och attribut som körs. Du kan uppdatera omfånget för reservation via [Azure-portalen](https://portal.azure.com), PowerShell, CLI eller via API: et. 
 
-Information om hur du hanterar en reservation finns [hantera Azure reserverade virtuella Datorinstanser](https://go.microsoft.com/fwlink/?linkid=861613).
+Information om hur du hanterar en reservation finns [hantera Azure reserverade virtuella Datorinstanser](../articles/billing/billing-manage-reserved-vm-instance.md).
 

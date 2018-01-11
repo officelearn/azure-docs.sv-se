@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatisk uppdatering för SQLServer på virtuella Azure-datorer (klassisk)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Automatisk korrigering upprättar en underhållsperiod för en Azure-dator som k
 > [!IMPORTANT] 
 > Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln täcker den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-versionen av den här artikeln finns [automatisk uppdatering för SQL Server i Azure virtuella datorer Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk uppdatering, Överväg följande krav:
 
 **Operativsystemet**:

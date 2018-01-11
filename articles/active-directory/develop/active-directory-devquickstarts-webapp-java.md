@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Java-webbapp inloggning och utloggning med Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Azure AD-Java-webbapp komma igång
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Genom att tillhandahålla en enkel inloggning och utloggning med bara några få rader med kod gör Azure Active Directory (AD Azure) det enkelt för dig att flytta ut webbappen Identitetshantering. Du kan signera användare till och från Java-webbappar med hjälp av Microsofts implementering av community-driven Azure Active Directory Authentication Library för Java (ADAL4J).

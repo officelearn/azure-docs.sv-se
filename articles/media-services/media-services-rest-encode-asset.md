@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -52,18 +52,13 @@ Innan du börjar refererar till media processorer, kontrollera att du har rätt 
 
 Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI.
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Skapa ett jobb med en enda kodning aktivitet
 > [!NOTE]
 > Följande gäller när du arbetar med Media Services REST API:
 >
 > Vid åtkomst till entiteter i Media Services måste du ange specifika namn på huvudfält och värden i HTTP-begäranden. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 >
-> När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI. Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
->
-> När med JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel att refererar till ett länkat), måste du ange den **acceptera** sidhuvud till [utförlig JSON-format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): acceptera: application/json; odata = utförlig.
+> När med JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till referens ett länkat), måste du ange den **acceptera** sidhuvud till [utförlig JSON-format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Acceptera: application/json; odata = utförlig.
 >
 >
 
@@ -76,7 +71,7 @@ Begäran:
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -95,7 +90,7 @@ I följande exempel visas hur du ställer in attributet assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Överväganden
-* TaskBody egenskaper måste använda literal XML för att definiera antalet indata eller utdata tillgångar som används av aktiviteten. Aktiviteten innehåller XML-schemadefinitionen för XML-filen.
+* TaskBody egenskaper måste använda literal XML för att definiera antalet indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
 * I definitionen TaskBody varje inre värde för <inputAsset> och <outputAsset> måste anges som JobInputAsset(value) eller JobOutputAsset(value).
 * En aktivitet kan innehålla flera utdata tillgångar. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
 * Du kan ange JobInputAsset eller JobOutputAsset som inkommande tillgång för en aktivitet.
@@ -118,7 +113,7 @@ I många Programscenarier utvecklare som vill skapa en serie av uppgifter. Du ka
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -162,7 +157,7 @@ I följande exempel visas hur du skapar ett jobb och aktiviteter med hjälp av O
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -182,7 +177,7 @@ I följande exempel visas hur du skapar ett jobb och aktiviteter med hjälp av O
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -199,7 +194,7 @@ I följande exempel visas hur du skapar ett jobb och aktiviteter med hjälp av O
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -223,7 +218,7 @@ I följande exempel visas hur du skapar en jobbmall med en TaskTemplate som är 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 
@@ -250,7 +245,7 @@ I följande exempel visas hur du skapar ett jobb som refererar till en jobbmall-
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 

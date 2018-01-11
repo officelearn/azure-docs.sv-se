@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 42b012fb98bd0504c931ce391d63aecca8c3d311
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eecb17b0e93e1717c5b79701c69e5263e73add9a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Använda kodaren NewTek TriCaster för att skicka en direktsänd dataström med enkel bithastighet
 > [!div class="op_single_selector"]
@@ -29,16 +29,16 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Det här avsnittet visar hur du konfigurerar den [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) livekodare för att skicka en dataström med enkel bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar den [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) livekodare för att skicka en dataström med enkel bithastighet till AMS kanaler som är aktiverade för live encoding. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Den här kursen visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du är på Mac- eller Linux använder Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> När du använder Tricaster för att skicka i ett bidrag till AMS-kanaler som är aktiverade för live encoding, kan det finnas problem med ljud och i din direktsända händelse om du använder vissa funktioner i Tricaster, till exempel snabb klippa ut mellan feeds eller växla till/från pekdatorer. AMS-teamet arbetar på att åtgärda dessa problem fram till dess, är den rekommenderar inte att använda dessa funktioner.
+> När du använder Tricaster för att skicka i ett bidrag till AMS-kanaler som är aktiverade för live encoding, kan det finnas problem med ljud och i din direktsända händelse om du använder vissa funktioner i Tricaster, till exempel snabb klippa ut mellan feeds eller växla till/från pekdatorer. AMS-teamet arbetar på att åtgärda dessa problem fram till dess, rekommenderas inte att använda dessa funktioner.
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
 * Se till att det finns en Strömningsslutpunkt som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
 * Installera den senaste versionen av den [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) verktyget.
@@ -46,11 +46,11 @@ Den här kursen visar hur du hanterar Azure Media Services (AMS) med Azure Media
 
 ## <a name="tips"></a>Tips
 * När det är möjligt använda ett inbyggt internet-anslutning.
-* En bra tumregel samband med fastställandet av krav på bandbredd är att dubbla strömmande bithastighet. Även om detta inte är en nödvändighet hjälper minimera effekten av överbelastning.
-* När du använder programvara baserat kodare, Stäng alla onödiga program.
+* En bra tumregel samband med fastställandet av krav på bandbredd är att dubbla strömmande bithastighet. Detta är inte ett obligatoriskt krav, minimeras det effekten av överbelastning.
+* När du använder programvarubaserad kodare, Stäng alla onödiga program.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
-1. I verktyget AMSE navigerar du till den **Live** fliken och högerklicka i området för kanal. Välj **skapa kanal...** från menyn.
+1. I verktyget AMSE navigerar du till den **Live** fliken och högerklicka på inom området kanal. Välj **skapa kanal...** från menyn.
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -67,10 +67,10 @@ Den här kursen visar hur du hanterar Azure Media Services (AMS) med Azure Media
 >
 >
 
-När kanalen startar kan du [konfigurera kodaren](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+Medan startar kanalen kan [konfigurera kodaren](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
-> Observera att faktureringen påbörjas så snart kanal blir klar att användas. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
+> Faktureringen påbörjas så snart kanal blir klar att användas. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
@@ -136,26 +136,26 @@ Navigera till verktyget AMSE och högerklicka på kanalen som ska testas. Från 
 
 Om strömmen visas i media player, har sedan kodaren konfigurerats korrekt för att ansluta till AMS.
 
-Om ett fel tas emot kanalen kommer att behöva återställas och anpassa inställningar för kodare. Finns det [felsökning](media-services-troubleshooting-live-streaming.md) avsnittet som vägledning.  
+Om ett fel tas emot kanalen kommer att behöva återställas och anpassa inställningar för kodare. Finns det [felsökning](media-services-troubleshooting-live-streaming.md) artikeln som vägledning.  
 
 ## <a name="create-a-program"></a>Skapa ett program
-1. När kanalen uppspelning bekräftas, skapa ett program. Under den **Live** i verktyget AMSE, högerklicka i området för programmet och välj **Skapa nytt Program**.  
+1. När kanalen uppspelning bekräftas, skapa ett program. Under den **Live** i verktyget AMSE, högerklickar du i området för programmet och välj **Skapa nytt Program**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Namnge programmet och, om det behövs, justera det **längd** (som standard 4 timmar). Du kan också ange en lagringsplats eller lämna som standard.  
+2. Namnge programmet och, om det behövs, justera det **längd** (som standard fyra timmar). Du kan också ange en lagringsplats eller lämna som standard.  
 3. Kontrollera den **starta programmet nu** rutan.
 4. Klicka på **skapa Program**.  
 
     >[!NOTE]
     >Skapa en program tar mindre tid än att skapa en kanal.
         
-5. När programmet körs kan bekräfta uppspelning genom att högerklicka på programmet och gå till **uppspelning av program** och sedan välja **med Azure Media Player**.  
-6. När bekräftat, högerklicka på programmet och välj **kopiera den URL som utdata till Urklipp** (eller hämta den här informationen från den **programmet information och inställningar** alternativ på menyn).
+5. När programmet körs kan bekräfta uppspelning genom att högerklicka på programmet och navigera till **uppspelning av program** och sedan välja **med Azure Media Player**.  
+6. När bekräftat, högerklicka på programmet igen och välj **kopiera den URL som utdata till Urklipp** (eller hämta den här informationen från den **programmet information och inställningar** alternativ på menyn).
 
 Dataströmmen är nu redo att vara inbäddat i ett player eller distribuerats till en målgrupp för live visning.  
 
 ## <a name="troubleshooting"></a>Felsökning
-Finns det [felsökning](media-services-troubleshooting-live-streaming.md) avsnittet som vägledning.
+Finns det [felsökning](media-services-troubleshooting-live-streaming.md) artikeln som vägledning.
 
 ## <a name="next-step"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

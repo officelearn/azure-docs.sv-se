@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Skapa ett Azure Search-index med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt](search-what-is-an-index.md)
 > * [Portalen](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
+> * [NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
 > 
 > 
 
 Använda inbyggda index designer i Azure-portalen som prototyp eller skapa en [sökindex](search-what-is-an-index.md) ska köras på din Azure Search-tjänst. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) och [Azure Search-tjänsten](search-create-service-portal.md).  
 
@@ -106,7 +106,7 @@ När du har skapat ett Azure Search-index kan du gå till nästa steg: [överfö
 
 Alternativt kan du också ta en djupare inblick i index. Förutom samlingen fält anger också ett index analyzers, suggesters, bedömningsprofil profiler och CORS-inställningarna. Portalen innehåller sidor för att definiera de vanligaste elementen: fält, analyzers och suggesters. Du kan använda REST API: et eller .NET SDK för att skapa eller ändra andra element.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Så här fungerar fulltextsökning](search-lucene-query-architecture.md)  
  [Söktjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Ta reda på vilka nästa hopptyp är med nästa hopp-funktionen i Azure Nätverksbevakaren använder Azure CLI 1.0
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-check-next-hop-portal.md)
+> - [Azure-portalen](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -55,7 +55,7 @@ azure network watcher next-hop -g resourceGroupName -n networkWatcherName -t tar
 > [!NOTE]
 Om den virtuella datorn har flera nätverkskort och IP-vidarebefordring är aktiverat på något av nätverkskorten och NIC-parameter (-i nic-id) måste anges. Annars är valfria.
 
-## <a name="review-results"></a>Granska resultaten
+## <a name="review-results"></a>Granska resultatet
 
 När du är färdig tillhandahålls resultaten. Nästa hopp IP-adress returneras samt typ av resurs som det är.
 

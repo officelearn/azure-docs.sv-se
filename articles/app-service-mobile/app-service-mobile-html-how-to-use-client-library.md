@@ -3,8 +3,8 @@ title: "Hur du använder JavaScript SDK för Azure Mobile Apps"
 description: "Använda v för Azure Mobile Apps"
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 0c4b4de560d70592f5bbdee28b56a7686b5689f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 9494e40a27895def450de856bbf806573daedfdb
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Hur du använder JavaScript-klientbiblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

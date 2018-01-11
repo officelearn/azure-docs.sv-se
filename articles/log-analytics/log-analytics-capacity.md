@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapaciteten för Hyper-V-virtuella datorer med kapacitet och prestanda för lösning (förhandsgranskning)
 
@@ -45,7 +45,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | Ansluten källa | Support | Beskrivning |
 |---|---|---|
-| [Windows-agenter](log-analytics-windows-agents.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Ja |Lösningen samlar in data om kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direkt anslutning från SCOM-agent till OMS krävs inte. Data vidarebefordras från hanteringsgruppen till OMS-databasen.|
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage innehåller inte data kapacitet och prestanda.|

@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuera en Maskininlärningsmodell som en webbtjänst
 
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -86,9 +87,9 @@ Filen måste innehålla två funktioner: init och köra.
 
 Lägg till följande kod högst upp i filen score.py att aktivera data samling funktioner som hjälper till att samla in indata- och förutsägelse modelldata
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Kontrollera [modell datainsamling](how-to-use-model-data-collection.md) mer information om hur du använder den här funktionen.
 

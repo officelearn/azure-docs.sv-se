@@ -3,8 +3,8 @@ title: "Komma igång med Azure DNS med hjälp av Azure Portal | Microsoft Docs"
 description: "Läs om hur du skapar en DNS-zon och en DNS-post i Azure DNS. Detta är en steg-för-steg-guide om hur du skapar och hanterar din första DNS-zon och DNS-post på Azure Portal."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Komma igång med Azure DNS med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
 Den här artikeln visar hur du skapa din första DNS-zon och DNS-post med Azure Portal. Du kan också utföra dessa steg med Azure PowerShell eller plattformsoberoende Azure CLI.
@@ -36,11 +35,11 @@ En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill l
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
 1. Logga in på Azure Portal
-2. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna bladet Skapa DNS-zon.
+2. Klicka på **Nytt > Nätverk >** på navmenyn och klicka sedan på **DNS-zon** för att öppna sidan **Skapa DNS-zon**.
 
     ![DNS-zon](./media/dns-getstarted-portal/openzone650.png)
 
-4. På bladet **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
+4. På sidan **Skapa DNS-zon** anger du följande värden och klickar sedan på **Skapa**:
 
 
    | **Inställning** | **Värde** | **Detaljer** |
@@ -57,11 +56,11 @@ En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill l
 
 Följande exempel visar hur du skapar en ny "A"-post. Information om andra posttyper och hur du ändrar befintliga poster finns i [Hantera DNS-poster och postuppsättningar med Azure Portal](dns-operations-recordsets-portal.md) (på engelska). 
 
-1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **contoso.com** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contoso.com** i rutan **Filtrera efter namn...** när du ska hitta din DNS-zon.
+1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. Klicka på DNS-zonen **contoso.com** på sidan Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **contoso.com** i rutan **Filtrera efter namn...** när du ska hitta din DNS-zon.
 
-1. Välj **+ Postuppsättning** längst upp på bladet **DNS-zon** för att öppna bladet **Lägg till uppsättning av poster**.
+1. Välj **+ Postuppsättning** längst upp på sidan **DNS-zon** för att öppna sidan **Lägg till uppsättning av poster**.
 
-1. Ange följande värden på bladet **Lägg till uppsättning av poster** och klicka sedan på **OK**. I det här exemplet skapar du en A-post.
+1. Ange följande värden på sidan **Lägg till uppsättning av poster** och klicka på **OK**. I det här exemplet skapar du en A-post.
 
    |**Inställning** | **Värde** | **Detaljer** |
    |---|---|---|
@@ -73,7 +72,7 @@ Följande exempel visar hur du skapar en ny "A"-post. Information om andra postt
 
 ## <a name="view-records"></a>Visa poster
 
-På den nedre delen av bladet DNS-zon visas posterna för DNS-zonen. Du bör se DNS- och SOA-standardposterna (dessa skapas i varje zon) plus eventuella nya poster som du har skapat.
+På den nedre delen av sidan DNS-zon visas posterna för DNS-zonen. Du bör se DNS- och SOA-standardposterna (dessa skapas i varje zon) plus eventuella nya poster som du har skapat.
 
 ![zon](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte d
 
 Så här tar du bort alla resurser som skapats i den här artikeln:
 
-1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **MyResourceGroup** på bladet Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **MyResourceGroup** i rutan **Filtrera efter namn** när du ska hitta resursgruppen.
-1. Klicka på knappen **Ta bort** på bladet **MyResourceGroup**.
+1. Klicka på **Alla resurser** i rutan **Favoriter** i Azure Portal. Klicka på resursgruppen **MyResourceGroup** på sidan Alla resurser. Om den prenumeration du valde redan har flera resurser kan du ange **MyResourceGroup** i rutan **Filtrera efter namn** när du ska hitta resursgruppen.
+1. Klicka på knappen **Ta bort** på sidan **MyResourceGroup**.
 1. Du måste ange namnet på resursgruppen i portalen som bekräftelse på att du vill ta bort den. Klicka på **Ta bort**, skriv *MyResourceGroup* som resursgruppnamn och klicka sedan på **Ta bort**. När du tar bort en resursgrupp så tas alla resurser i resursgruppen bort, så du måste alltid kontrollera innehållet i en resursgrupp innan du tar bort den. Portalen tar bort alla resurser som finns i resursgruppen och sedan tas själva resursgruppen bort. Den här processen tar flera minuter.
 
 

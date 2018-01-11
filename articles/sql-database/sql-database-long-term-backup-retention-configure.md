@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Konfigurera och återställa från Azure SQL Database långsiktig lagring av säkerhetskopior.
 
@@ -82,6 +82,9 @@ Du [konfigurera ett Azure Recovery Services-valv om du vill behålla automatiska
 12. På den **konfigurera** sidan, ange ett giltigt namn för den nya bevarandeprincipen, ändra standardprincipen för kvarhållning efter behov och klicka sedan på **OK**.
 
    ![definiera kvarhållningsprincip](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Kvarhållning principens namn kan inte vissa tecken inklusive blanksteg.
 
 13. På den **långsiktig lagring av säkerhetskopior** för din databas, klickar du på **spara** och klicka sedan på **OK** vill tillämpa principen för långsiktig lagring av säkerhetskopior för alla valda databaser.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Android SDK-Integration för Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Det här dokumentet beskriver alla integrering och konfiguration tillgängliga alternativ för Azure Mobile Engagement Android SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="advanced-features"></a>Avancerade funktioner

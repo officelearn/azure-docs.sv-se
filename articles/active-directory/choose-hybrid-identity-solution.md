@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft hybrididentitetslösningar
 [Microsoft Azure Active Directory (AD Azure)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) hybrididentitetslösningar gör det möjligt att synkronisera lokala katalogobjekt med Azure AD när fortfarande hantera användare lokalt. Det första beslutet att fatta när du planerar att synkronisera dina lokala Windows Server Active Directory med Azure AD är om du vill använda synkroniserade identitet eller federerad identitet. Synkroniserade identiteter och eventuellt lösenordshashvärden, att användarna kan använda samma lösenord för åtkomst till både lokala och molnbaserade organisationens resurser. För mer avancerade krav för scenarier, till exempel enkel inloggning (SSO) eller lokal MFA som du behöver distribuera Active Directory Federation Services (AD FS) för att federera identiteter. 
@@ -50,9 +50,6 @@ Direkt-autentisering har konfigurerats med Azure AD Connect, som använder en en
 
 - Windows Server 2012 R2 eller senare
 - Ansluten till en domän i skogen som användare verifieras
-
-> [!NOTE]
-> Azure AD-direktautentisering är för närvarande under förhandsgranskning och stöds för web webbläsarbaserad och Office-klienter som har stöd för modern autentisering. För klienter som inte stöds, till exempel äldre Office-klienter och Exchange ActiveSync (inklusive interna e-klienter på mobila enheter), har vi rekommenderar att du använder den motsvarande modern autentiseringen. Modern autentisering inte bara gör direktautentisering, men kan även användas för principer för villkorlig åtkomst som ska användas, till exempel multifaktorautentisering. 
 
 Direkt-autentisering stöds inte för närvarande när med hjälp av Windows 10-enheter anslutna till Azure AD. Men du kan använda synkronisering av lösenords-hash som en automatisk användning av stöd för Windows 10 och äldre klienter tidigare nämnts. Under förhandsgranskningen inkluderas är lösenord hash-synkronisering aktiverad som standard när direktautentisering är markerad som inloggningsalternativ i Azure AD Connect.
 

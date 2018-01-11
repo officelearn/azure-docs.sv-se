@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Bild klassificering med Azure Machine Learning arbetsstationen
 
@@ -42,7 +44,7 @@ Den här kursen är uppdelat i tre delar:
 Tidigare erfarenhet av machine learning och CNTK inte krävs, är det lättare att förstå de underliggande principerna. Noggrannhet siffror utbildning tid, etc. som rapporteras i kursen är endast för referens och de faktiska värdena när du kör koden sannolikt skiljer.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutsättningar för att kunna köra det här exemplet är följande:
 
@@ -285,7 +287,7 @@ Vissa av de hämta bilderna är exakt eller nära dubbletter (till exempel skilj
 
 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Vissa viktiga markeringar i det här exemplet är:
 - Kod för att träna, utvärdera och distribuera avbildningen klassificering modeller.

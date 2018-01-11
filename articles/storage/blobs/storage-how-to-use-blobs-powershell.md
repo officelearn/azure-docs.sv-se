@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Utföra Azure Blob storage-åtgärder med Azure PowerShell
 
@@ -40,7 +40,7 @@ Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. 
 
 ## <a name="create-a-container"></a>Skapa en behållare
 
-Blobbar överförs alltid till en behållare. Behållare liknar kataloger på datorn så att du kan ordna grupper med blobbar i behållare som du ordna dina filer i mappar på din dator. Ett lagringskonto kan ha valfritt antal behållare. begränsas bara av mängden utrymme som tas upp i storage-konto (upp till 500TB). 
+Blobar laddas alltid upp till en behållare. Behållare liknar kataloger på datorn så att du kan ordna grupper med blobbar i behållare som du ordna dina filer i mappar på din dator. Ett lagringskonto kan ha valfritt antal behållare. begränsas bara av mängden utrymme som tas upp i storage-konto (upp till 500TB). 
 
 När du skapar en behållare kan ange du åtkomstnivå, vilket bidrar till att definiera vem som kan komma åt blobbar i behållaren. De kan till exempel vara privat (åtkomstnivå = `Off`), vilket innebär att ingen kommer åt dem utan en signatur för delad åtkomst eller åtkomstnycklar för lagringskontot. Om du inte anger åtkomstnivån när du skapar behållaren, standard privata.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>Ladda upp blobbar i en behållare
 
-Azure Blob Storage stöder blockblobbar, tilläggsblobbar och sidblobbar.  VHD-filer som används för att säkerhetskopiera IaaS-VM är sidblobar. Lägg till blobbar som används för inloggning, till exempel när du vill skriva till en fil och sedan hålla att lägga till mer information. De flesta filer som lagras i Blob storage är blockblobbar. 
+Azure Blob Storage stöder blockblobbar, tilläggsblobbar och sidblobbar.  VHD-filer som används för att backa upp virtuella datorer i IaaS är sidblobar. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta filer som lagras i Blob Storage är blockblobar. 
 
-Hämta en referens för behållaren för att överföra en fil till en blockblobb, och sedan hämta en referens till blockblob i behållaren. När du har en blobbreferens kan du överföra data till den med hjälp av [Set AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Den här åtgärden skapas blobben om den finns inte eller skriver över den om den redan finns.
+Om du vill ladda upp en fil till en blockblob ska du hämta en referens för behållaren och sedan hämta en referens för blockbloben i den behållaren. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Den här åtgärden skapas blobben om den finns inte eller skriver över den om den redan finns.
 
 Nedan visas hur du laddar upp en blobb till en behållare. Innan du kan definiera variabler som pekar på katalogen på den lokala datorn där filerna finns, och ange en variabel för namnet på den fil som ska överföras. Detta är användbart när du vill utföra samma åtgärd flera gånger. Ladda upp ett antal filer så att du kan se flera poster när du visar en lista över blobbar i behållaren.
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 
-Hämta blobbarna till den lokala hårddisken. Innan du kan definiera en variabel som refererar till den lokala mappen som du vill hämta blobbarna. Ange namn och anrop för varje blob hämtas [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) att hämta blobben.
+Ladda ned blobarna till den lokala disken. Innan du kan definiera en variabel som refererar till den lokala mappen som du vill hämta blobbarna. Ange namn och anrop för varje blob hämtas [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) att hämta blobben.
 
 Det här exemplet kopierar blobar till D:\\_TestImages\Downloads på den lokala disken. 
 
@@ -152,7 +152,7 @@ Du kanske vill kopiera en blobb till en separat lagringskonto. Ett exempel för 
 Skapa en andra lagringskonto, hämta kontexten, ställa in en behållare i det storage-kontot och utföra kopieringen. Den här delen av skriptet är nästan identisk med skriptet ovan utom med andra storage-konto i stället för först.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -380,7 +380,7 @@ I kursen får du lärt dig om grundläggande Blob storage management, till exemp
 > * Hantera säkerhet med signaturer för delad åtkomst
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell lagrings-cmdletar
-* [PowerShell-cmdlets för lagring](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

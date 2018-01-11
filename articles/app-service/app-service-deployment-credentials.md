@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](app-service-deploy-local-git.md) och [FTP/S distribution](app-service-deploy-ftp.md). Dessa är inte samma som din Azure Active Directory-autentiseringsuppgifter.
 
-* **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Det kan användas för att distribuera till App Service för en app i en prenumeration som Azure-konto har behörighet att komma åt. Det här är en standarduppsättning autentiseringsuppgifter som du konfigurerar i **Apptjänster** > **&lt;appnamn >** > **distributionsbehörigheterna**. Detta är standardvärdet som angetts i GUI-portalen (som den **översikt** och **egenskaper** för din app [resursbladet](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Det kan användas för att distribuera till App Service för en app i en prenumeration som Azure-konto har behörighet att komma åt. Det här är en standarduppsättning autentiseringsuppgifter som du konfigurerar i **Apptjänster** > **&lt;appnamn >** > **distributionsbehörigheterna**. Detta är standardvärdet som angetts i GUI-portalen (som den **översikt** och **egenskaper** för din app [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > När du delegerar åtkomst till Azure-resurser via rollbaserad åtkomstkontroll (RBAC) eller medadministratör behörigheter kan varje Azure användare som får åtkomst till en app använda hans/hennes personliga användarnivå autentiseringsuppgifter förrän åtkomst har återkallats. Dessa autentiseringsuppgifter för distribution bör inte delas med andra Azure-användare.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Ange och återställa användarnivå autentiseringsuppgifter
 
-Du kan konfigurera autentiseringsuppgifterna användarnivå i alla appar [resursbladet](../azure-resource-manager/resource-group-portal.md#manage-resources). Oavsett vilken app du konfigurera dessa autentiseringsuppgifter, gäller det för alla appar och för alla prenumerationer i ditt Azure-konto. 
+Du kan konfigurera autentiseringsuppgifterna användarnivå i alla appar [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources). Oavsett vilken app du konfigurera dessa autentiseringsuppgifter, gäller det för alla appar och för alla prenumerationer i ditt Azure-konto. 
 
 Konfigurera autentiseringsuppgifterna användarnivå:
 
 1. I den [Azure-portalen](https://portal.azure.com), klicka på Apptjänst >  **&lt;any_app >** > **distributionsbehörigheterna**.
 
     > [!NOTE]
-    > Du måste ha minst en app innan du kan komma åt bladet distribution av autentiseringsuppgifter i portalen. Med den [Azure CLI](/cli/azure/webapp/deployment/user#set), kan du konfigurera användarnivå autentiseringsuppgifter utan en befintlig app.
+    > Du måste ha minst en app innan du kan öppna inloggningssidan för distribution i portalen. Med den [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), kan du konfigurera användarnivå autentiseringsuppgifter utan en befintlig app.
 
 2. Konfigurera användarnamn och lösenord och klicka sedan på **spara**.
 

@@ -1,24 +1,16 @@
 ---
-title: "Granska arkitektur för fysisk serverreplikering till Azure | Microsoft Docs"
+title: Fysisk server till Azure replikeringsarkitektur i Azure Site Recovery | Microsoft Docs
 description: "Den här artikeln innehåller en översikt över komponenter och arkitektur som används vid replikering av lokala fysiska servrar till Azure med Azure Site Recovery-tjänsten"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fysisk server till Azure replikeringsarkitektur
 
@@ -63,22 +55,18 @@ Följande tabell och bild ger en övergripande bild av de komponenter som använ
 När replikeringen har ställts in och du har kört en katastrof återställningsgranskning (testa redundans) för att kontrollera att allt fungerar som förväntat, kan du köra redundans och återställning som du behöver. Tänk på följande:
 
 - Planerad redundans stöds inte.
-- Du måste växla tillbaka till en lokal VMware VM. Det innebär du behöver en lokal VMware-infrastruktur, även om du replikerar lokala fysiska servrar till Azure.
-
-
-1. Du växlar över en enskild dator eller skapa återställningsplaner för att växla över flera datorer tillsammans.
-2. När du kör en växling vid fel, skapas virtuella Azure-datorer från replikerade data i Azure-lagring.
-3. Efter utlöser inledande redundans kan genomföra den för att starta åt arbetsbelastningen från den virtuella Azure-datorn.
-
-När din primära lokala plats är tillgänglig igen, kan du återställa dit.
-
-1. Du måste ställa in en infrastruktur för återställning efter fel, inklusive:
+- Du måste växla tillbaka till en lokal VMware VM. Det innebär att du behöver en lokal VMware-infrastruktur, även när du replikera lokala fysiska servrar till Azure.
+- Du växlar över en enskild dator eller skapa återställningsplaner för att växla över flera datorer tillsammans.
+- När du kör en växling vid fel, skapas virtuella Azure-datorer från replikerade data i Azure-lagring.
+- Efter utlöser inledande redundans kan genomföra den för att starta åt arbetsbelastningen från den virtuella Azure-datorn.
+- När din primära lokala plats är tillgänglig igen, kan du återställa dit.
+- Du måste ställa in en infrastruktur för återställning efter fel, inklusive:
     - **Tillfällig processerver i Azure**: Om du vill växla tillbaka från Azure du ställer in en Azure VM att fungera som en processerver för att hantera replikering från Azure. Du kan ta bort den här virtuella datorn när återställningen är klar.
     - **VPN-anslutning**: för att växla tillbaka du behöver en VPN-anslutning (eller Azure ExpressRoute) från Azure-nätverket till den lokala platsen.
     - **Separata huvudmålservern**: som standard som installerades med konfigurationsservern på lokal VMware VM, huvudmålservern hanterar återställning efter fel. Men om du behöver växla tillbaka stora volymer trafik bör du ställa in en separat lokal huvudmålserver för detta ändamål.
     - **Återställningsprincip**: Om du vill replikera tillbaka till din lokala plats behöver du en återställningsprincip. Detta skapas automatiskt när du skapade din replikeringsprincip från lokal till Azure.
     - **VMware-infrastrukturen**: du behöver en VMware-infrastrukturen för återställning efter fel. Du kan inte växla tillbaka till en fysisk server.
-2. När komponenterna är på plats så utförs återställning efter fel i tre steg:
+- När komponenterna är på plats så utförs återställning efter fel i tre steg:
     - Steg 1: Skapa nytt virtuella Azure-datorer så att de replikera från Azure till lokala VMwares virtuella datorer.
     - Steg 2: Kör en redundansväxling till den lokala platsen.
     - Steg 3: När arbetsbelastningar misslyckas igen kan du återaktivera replikering.
@@ -90,5 +78,4 @@ När din primära lokala plats är tillgänglig igen, kan du återställa dit.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska supportmatrisen Följ guiden för att aktivera VMware till Azure-replikering.
-Kör en redundans och återställning efter fel.
+Följ [självstudierna](tutorial-physical-to-azure.md) att aktivera fysisk server till Azure-replikering.

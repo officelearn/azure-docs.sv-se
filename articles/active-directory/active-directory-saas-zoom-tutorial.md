@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Självstudier: Azure Active Directory-integrering med zoomning
 
@@ -32,7 +32,7 @@ Integrera zoomning med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med zoomning, behöver du följande:
 
@@ -113,29 +113,57 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **identifierare** textruta Skriv en URL med följande mönster:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Zooma klienten supportteamet](https://support.zoom.us/hc) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Zooma klienten supportteamet](https://support.zoom.us/hc) att hämta dessa värden.
+
+4. Zooma programmet förväntar SAML-intyg i ett specifikt format, vilket kräver att du kan lägga till anpassade attributmappning konfigurationen för SAML-token attribut. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. 
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i den föregående bilden och utför följande steg:
+    
+    | Attributnamn | Attributvärde | Namespace-värde |
+    | ------------------- | -----------|--------- |    
+    | E-postadress | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Förnamn | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Efternamn | User.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Telefonnummer | User.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Avdelning | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Konfigurera enkel inloggning](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. I den **namn** textruta ange attributets namn visas för den raden.
+
+    c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+
+    d. I den **Namespace** textruta skriver namnområdesvärdet som visas för den raden.
+    
+    e. Klicka på **OK**. 
  
-4. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+6. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länken hämta certifikatet](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Klicka på **spara** knappen.
+7. Klicka på **spara** knappen.
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. På den **Zooma Configuration** klickar du på **konfigurera Zooma** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
+8. På den **Zooma Configuration** klickar du på **konfigurera Zooma** att öppna **konfigurera inloggning** fönster. Kopiera den **Sign-Out URL, SAML enhets-ID och SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
-    ![Zooma konfiguration](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Zooma konfiguration](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. I en annan webbläsarfönster loggar du in på webbplatsen zoomning företag som administratör.
+9. I en annan webbläsarfönster loggar du in på webbplatsen zoomning företag som administratör.
 
-8. Klicka på den **enkel inloggning** fliken.
+10. Klicka på den **enkel inloggning** fliken.
    
     ![Enkel inloggning fliken](./media/active-directory-saas-zoom-tutorial/IC784700.png "enkel inloggning")
 
-9. Klicka på den **säkerhetskontroll** fliken och gå sedan till den **enkel inloggning** inställningar.
+11. Klicka på den **säkerhetskontroll** fliken och gå sedan till den **enkel inloggning** inställningar.
 
-10. Utför följande steg i avsnittet enkel inloggning:
+12. Utför följande steg i avsnittet enkel inloggning:
    
     ![Enkel inloggning avsnittet](./media/active-directory-saas-zoom-tutorial/IC784701.png "enkel inloggning")
    
@@ -148,6 +176,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. I den **utfärdaren** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen. 
 
     e. Klicka på **Spara**.
+
+    > [!NOTE] 
+    > Mer information finns i dokumentationen för zoomning [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

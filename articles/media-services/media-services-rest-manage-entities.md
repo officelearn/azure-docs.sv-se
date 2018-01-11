@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: e322e79c0a11278a6a7d186cfab6b6d6c271ce1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Hantera Media Services entiteter med REST 
 > [!div class="op_single_selector"]
@@ -41,9 +41,6 @@ Vid åtkomst till entiteter i Media Services måste du ange specifika namn på h
 ## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
 Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI.
 
 ## <a name="adding-entities"></a>Lägger till enheter
 Varje entitet i Media Services har lagts till i en entitetsuppsättning, till exempel tillgångar, via en HTTP POST-begäran.

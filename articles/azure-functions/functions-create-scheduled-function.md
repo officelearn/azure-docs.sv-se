@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
@@ -52,13 +52,17 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Välj **TimerTrigger**-mallen för språket. Använd inställningarna som anges i tabellen:
+2. Skriv `timer` i sökfältet och välj sedan önskat språk för utlösarmallen för timern. 
 
-    ![Skapa en timerutlöst funktion i Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Välj mallen för den utlösta timerfunktionen.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Konfigurera den nya utlösaren med inställningar enligt tabellen under bilden.
+
+    ![Skapa en timerutlöst funktion i Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Namnge din funktion** | TimerTriggerCSharp1 | Det här är namnet på den timerutlösta funktionen. |
+    | **Namn** | Standard | Det här är namnet på den timerutlösta funktionen. |
     | **[Schema](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
 2. Klicka på **Skapa**. En funktion skapas i valt språk som körs varje minut.

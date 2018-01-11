@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Skydda SQL Server med SQL Server-katastrofåterställning och Azure Site Recovery
 
@@ -50,6 +50,7 @@ Site Recovery kan skydda SQL Server som sammanfattas i tabellen.
 **Hyper-V** | Ja | Ja
 **VMware** | Ja | Ja
 **Fysisk server** | Ja | Ja
+**Azure**|Ej tillämpligt| Ja
 
 ### <a name="supported-sql-server-versions"></a>SQL Server-versioner som stöds
 De här SQL Server-versioner som stöds för scenarierna som stöds:
@@ -65,7 +66,7 @@ Site Recovery kan integreras med SQL Server BCDR-teknik som sammanfattas i tabel
 
 **Funktion** | **Detaljer** | **SQL Server** |
 --- | --- | ---
-**Always On-tillgänglighetsgrupp** | Flera fristående instanser av SQL Server körs i ett redundanskluster med flera noder.<br/><br/>Databaser kan grupperas i failover-grupper som kan kopieras (speglad) på SQL Server-instanser så att ingen delad lagring krävs.<br/><br/>Ger katastrofåterställning mellan en primär plats och en eller flera sekundära platser. Två noder kan ställas in i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans. | SQL Server 2014 & 2012 Enterprise edition
+**Always On-tillgänglighetsgrupp** | Flera fristående instanser av SQL Server körs i ett redundanskluster med flera noder.<br/><br/>Databaser kan grupperas i failover-grupper som kan kopieras (speglad) på SQL Server-instanser så att ingen delad lagring krävs.<br/><br/>Ger katastrofåterställning mellan en primär plats och en eller flera sekundära platser. Två noder kan ställas in i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans. | SQL Server 2016, SQL Server 2014 och SQL Server 2012 Enterprise edition
 **Failover-kluster (alltid på FCI)** | SQL Server använder Windows-redundanskluster för hög tillgänglighet för lokala SQL Server-arbetsbelastningar.<br/><br/>Noder som kör instanser av SQL Server med delade diskar har konfigurerats i ett redundanskluster. Om en instans som är igång flyttas klustret över till annan.<br/><br/>Klustret skyddar inte mot fel eller avbrott i den delade lagringen. Den delade disken kan implementeras med iSCSI, fibre channel eller delade vhdx-diskar. | SQL Server Enterprise Edition<br/><br/>SQL Server Standard edition (begränsat till två noder)
 **Databasspegling (hög säkerhet läge)** | Skyddar en databas på en sekundär kopia. I båda hög säkerhet (synkron) och hög prestanda (asynkron) replikering lägen. Kräver inte ett failover-kluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise alla versioner
 **Fristående SQL Server** | SQL-servern och databasen finns på en enskild server (fysisk eller virtuell). Om servern är virtuell används värden kluster för hög tillgänglighet. Inga gästnivå hög tillgänglighet. | Enterprise eller Standard edition
@@ -117,7 +118,7 @@ Här är vad du behöver göra:
 
 SQL Always On inte har inbyggt stöd testa redundans. Därför rekommenderar vi följande:
 
-1. Ställ in [Azure Backup](../backup/backup-azure-vms.md) på den virtuella datorn som är värd för tillgänglighetsgruppsrepliker i Azure.
+1. Ställ in [Azure Backup](../backup/backup-azure-arm-vms.md) på den virtuella datorn som är värd för tillgänglighetsgruppsrepliker i Azure.
 
 1. Innan du utlöser test av redundansväxling återställningsplanen kan du återställa den virtuella datorn från säkerhetskopior som gjorts i föregående steg.
 

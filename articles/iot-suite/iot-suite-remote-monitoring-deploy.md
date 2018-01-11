@@ -7,18 +7,18 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 61d36113e60c6bb02ea053493ae461993b18c447
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuera fjärråtkomst övervakning förkonfigurerade lösningen
+# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Distribuera den förkonfigurerade lösningen för fjärrövervakning
 
 I den här självstudiekursen lär du dig hur du etablerar den förkonfigurerade lösningen för fjärrövervakning. Du distribuerar lösningen från azureiotsuite.com. Du kan också distribuera lösningen med hjälp av CLI att lära dig om det här alternativet finns [distribuerar en förkonfigurerade lösning från kommandoraden](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
 

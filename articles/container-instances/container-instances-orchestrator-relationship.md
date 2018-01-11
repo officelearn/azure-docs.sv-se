@@ -1,19 +1,19 @@
 ---
-title: "Azure-Behållarinstanser och behållare Orchestration"
-description: "Förstå hur Azure Behållarinstanser interagera med behållaren orchestrators"
+title: "Azure Behållarinstanser och behållare orchestration"
+description: "Förstå hur Azure-behållaren instanser interagera med behållaren orchestrators."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container instanser och behållare orchestrators
 
@@ -39,8 +39,6 @@ Standard definitionen av orchestration omfattar följande aktiviteter:
 Azure Container-instanser kan en överlappande tillvägagångssättet för orchestration, eftersom alla schemaläggning och hanteringsfunktioner som krävs för att köra en enskild behållare, samtidigt som orchestrator-plattformar för att hantera flera behållare uppgifter ovanpå den.
 
 Eftersom alla underliggande infrastruktur för Behållarinstanser som hanteras av Azure, behöver inte en orchestrator-plattformen rör sig själv med att hitta en lämplig värd-dator som kör en enskild behållare. Elasticitet för molnet garanterar att en alltid är tillgänglig. Orchestrator kan istället fokusera på uppgifter som förenklar utvecklingen av flera behållare arkitekturer, inklusive skalning och samordnade uppgraderingar.
-
-
 
 ## <a name="potential-scenarios"></a>Möjliga scenarier
 

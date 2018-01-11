@@ -48,6 +48,10 @@
 ### [Översikt över ansluten fabrikslösning](iot-suite-connected-factory-overview.md)
 ### [Genomgång av ansluten fabrikslösning](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Enhetssimulering
+### [Distribuera enhetssimulering](iot-suite-device-simulation-deploy.md)
+### [Utforska enhetssimulering](iot-suite-device-simulation-explore.md)
+
 # Instruktionsguider
 ## Fjärrövervakning
 ### [Utföra avancerad övervakning](iot-suite-remote-monitoring-monitor.md)
@@ -71,6 +75,7 @@
 ### [Distribuera en gateway för ansluten fabrik](iot-suite-connected-factory-gateway-deployment.md)
 ### [Anpassa ansluten fabrik ](iot-suite-connected-factory-customize.md)
 ### [Använda OPC-utgivaren för ansluten fabrik](iot-suite-connected-factory-publisher.md)
+### [Konfigurera ansluten fabrik](iot-suite-connected-factory-configure.md)
 ## [Behörigheter på azureiotsuite.com](iot-suite-permissions.md)
 
 # Referens

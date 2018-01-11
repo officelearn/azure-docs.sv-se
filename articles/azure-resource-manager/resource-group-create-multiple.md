@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera flera instanser av en resurs eller en egenskap i Azure Resource Manager-mallar
 Den här artikeln visar hur du distribuerar villkorligt en resurs och hur du iterera i Azure Resource Manager-mall för att skapa flera instanser av en resurs.
@@ -395,140 +395,19 @@ I följande exempel visas implementeringen:
 }]
 ```
 
-## <a name="deploy-example-templates"></a>Distribuera exempel mallar
+## <a name="example-templates"></a>Exempel mallar
 
-### <a name="resource-iteration"></a>Resursen upprepning
+Följande exempel visar vanliga scenarier för att skapa flera resurser eller egenskaper.
 
-Den [kopiera lagring](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) mallen distribuerar flera lagringskonton med index i namnet.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-### <a name="serial-resource-iteration"></a>Seriell resurs upprepning
-
-Den [seriella lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) mallen distribuerar flera lagringskonton som för närvarande. Namnet innehåller antalet index.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-### <a name="resource-iteration-from-array"></a>Resursen iteration från en matris
-
-Den [kopiera lagring med matris](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) mallen distribuerar flera lagringskonton. Namnet innehåller ett värde från en matris.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-### <a name="conditionally-deploy-resources"></a>Villkorligt distribuera resurser
-
-Den [virtuell dator med en ny eller befintlig virtuellt nätverk, lagring och offentliga IP-](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) mallen distribuerar nya eller befintliga resurser med en virtuell dator.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-### <a name="property-iteration"></a>Egenskapen upprepning
-
-Den [distribution av Virtuella datorer med en variabel antalet datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) mallen distribuerar flera datadiskar med en virtuell dator.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-### <a name="variable-iteration"></a>Variabeln upprepning
-
-Den [kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) mall visar olika sätt för att gå på variabler.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-Om du använder Azure CLI använder du:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-### <a name="variable-iteration-to-create-resources"></a>Variabeln iteration att skapa resurser
-
-Den [flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) mallen distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter.
-
-Om du använder PowerShell använder du:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
-```
+|Mall  |Beskrivning  |
+|---------|---------|
+|[Lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuerar flera lagringskonton med index i namnet. |
+|[Seriell lagringsutrymmet](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuerar flera lagringskonton som för närvarande. Namnet innehåller antalet index. |
+|[Lagringsutrymmet med matris](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuerar flera lagringskonton. Namnet innehåller ett värde från en matris. |
+|[Virtuell dator med en ny eller befintlig virtuellt nätverk, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Villkorligt distribuerar nya eller befintliga resurser med en virtuell dator. |
+|[Distribution av Virtuella datorer med en variabel antalet datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |
+|[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar de olika sätt för att gå på variabler. |
+|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Den skapar säkerhetsregler från en parameter. |
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill veta om avsnitt i en mall finns [redigera Azure Resource Manager-mallar](resource-group-authoring-templates.md).

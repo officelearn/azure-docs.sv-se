@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -72,6 +72,22 @@ Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren 
 - `predicate=<string>`
   - *Where*-sats för filtrering på serversidan.
 
+Parametern multiChartStack = <true/false> aktiverar stapling i diagrammet och parametern multiChartSameScale = <true/false> aktiverar samma y-axelskala över villkoren i en valfri parameter.  
+
+- 'multiChartStack=false'
+  - True är aktiverat som standard så skicka False till stapel.
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är false som standard, så skicka true aktiverar den här funktionen.  
+  
+Med timeBucketUnit=<Unit>&timeBucketSize=<integer>, kan du ändra intervallskjutreglaget för att ge en mer detaljerad eller jämnare och mer samlad diagramvy.  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - Enheter (Units) = dagar, timmar, minuter, sekunder och millisekunder.  Inled alltid enheten med versal.
+  - Definiera antalet enheter genom att skicka det önskade heltalet för timeBucketSize.  Observera att du jämnar upp till 7 dagar.  
+  
+Med parametern timezoneOffset=<integer> kan du ange tidszonen som diagrammet ska visas i som en förskjutning till UTC.  
+  - 'timezoneOffset=-<integer>'
+    - Heltalet är alltid i millisekunder.  
+    - Observera den här funktionen är något annorlunda än vad vi aktivera i TSI-utforskaren där du kan välja lokal tid (webbläsartid) eller UTC.  
  
 ### <a name="examples"></a>Exempel
 

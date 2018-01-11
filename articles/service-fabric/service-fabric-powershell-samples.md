@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/28/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 17b10011af915a06e7c65f8d321a1e452956c28a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 1825b2a58e1022f22c71395477a5fca54c715455
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
 
@@ -32,6 +32,7 @@ Följande tabell innehåller länkar till exempel på PowerShell-skript som skap
 |-|-|
 | **Skapa kluster** ||
 | [Skapa ett kluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Skapar ett Azure Service Fabric-kluster. |
+|[Skapa ett testkluster (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Skapar ett tre nodtest Service Fabric-kluster i Azure.|
 | **Hantera kluster, noder och infrastruktur** ||
 | [Lägg till ett certifikat för programmet](./scripts/service-fabric-powershell-add-application-certificate.md)| Lägger till ett program X.509-certifikat för alla noder i ett kluster. |
 | [Uppdatera portintervall RDP på klustret virtuella datorer](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Ändrar portintervall RDP på klusternoden virtuella datorer i en distribuerad kluster.|

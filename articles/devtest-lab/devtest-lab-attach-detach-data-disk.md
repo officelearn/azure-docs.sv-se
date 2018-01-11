@@ -3,7 +3,7 @@ title: "Ansluta eller koppla från en datadisk till en virtuell dator i Azure De
 description: "Lär dig att ansluta eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ansluta eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
-[Azure-hanterade diskar](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) hanterar storage-konton som är kopplade till virtuella hårddiskar. En användare bifogar nya data disken till en virtuell dator Anger typ och storlek på disken som behövs, och Azure skapar och hanterar disken automatiskt. Datadisken kan sedan kopplas från den virtuella datorn och antingen anbringas på nytt senare till samma virtuella dator, eller till en annan virtuell dator som hör till samma användare.
+[Azure-hanterade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterar storage-konton som är kopplade till virtuella hårddiskar. En användare bifogar nya data disken till en virtuell dator Anger typ och storlek på disken som behövs, och Azure skapar och hanterar disken automatiskt. Datadisken kan sedan kopplas från den virtuella datorn och antingen anbringas på nytt senare till samma virtuella dator, eller till en annan virtuell dator som hör till samma användare.
 
 Den här funktionen är praktiskt för att hantera lagring eller programvaran utanför varje enskild virtuell dator. Om lagrings- och programvara finns redan i en datadisk, kan den enkelt ansluten, oberoende och därför kopplats till någon virtuell dator som ägs av den användare som äger data disken.
 
 ## <a name="attach-a-data-disk"></a>Anslut en datadisk
 Innan du ansluta en datadisk till en virtuell dator granskar du de här tipsen:
 
-- Storleken på den virtuella datorn styr hur många datadiskar som du kan bifoga. Mer information finns i [storlekar för virtuella datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- Storleken på den virtuella datorn styr hur många datadiskar som du kan bifoga. Mer information finns i [storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Du kan bara ansluta en datadisk till en virtuell dator som körs. Kontrollera att den virtuella datorn körs innan du försöker ansluta en datadisk.
 
 ### <a name="attach-a-new-disk"></a>Koppla en ny disk

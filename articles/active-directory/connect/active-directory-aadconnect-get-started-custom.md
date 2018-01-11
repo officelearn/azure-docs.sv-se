@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](active-directory-aadconnect-get-started-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -50,12 +50,10 @@ När du har installerat de nödvändiga komponenterna uppmanas du att välja anv
 | Alternativ för enkel inloggning | Beskrivning |
 | --- | --- |
 | Hash-synkronisering av lösenord |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk. Användarnas lösenord synkroniseras med Azure AD som lösenordshasher och autentiseringen sker i molnet. Mer information finns i [Hash-synkronisering av lösenord](active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Direktautentisering|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-kontrollanten för verifiering.
+|Direktautentisering|Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-domänkontrollanten för verifiering.
 | Federation med AD FS |Användare kan logga in till Microsoft-molntjänster, till exempel Office 365, med samma lösenord som de använder i deras lokala nätverk.  Användarna dirigeras till deras lokala AD FS-instans för att logga in och autentiseringen sker lokalt. |
-| Konfigurera inte |Ingen av funktionerna installeras eller konfigureras. Välj det här alternativet om du redan har en federationsserver från en annan tillverkare eller en annan befintlig lösning på plats. |
-|Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordssynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket.  Mer information finns i avsnittet om [enkel inloggning](active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>(om PTA inte har släppts samtidigt)
-|Inloggningsalternativ|Det här alternativet är tillgängligt för kunder som behöver hash-synkronisering av lösenord och ger en miljö med enkel inloggning för datoranvändare i företagsnätverket.  </br>Mer information finns i avsnittet om [enkel inloggning](active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.
-
+| Konfigurera inte |Ingen användarinloggningsfunktion installeras eller konfigureras. Välj det här alternativet om du redan har en federationsserver från en annan tillverkare eller en annan befintlig lösning på plats. |
+|Aktivera enkel inloggning|Det här alternativet är tillgängligt med både lösenordssynkronisering och Direktautentisering och tillhandahåller enkel inloggning för datoranvändare i företagsnätverket. Mer information finns i avsnittet om [enkel inloggning](active-directory-aadconnect-sso.md). </br>Observera att det här alternativet inte är tillgängligt för AD FS-kunder eftersom AD FS redan erbjuder samma nivå av enkel inloggning.</br>
 
 ### <a name="connect-to-azure-ad"></a>Anslut till Azure AD
 Ange ett globalt administratörskonto och lösenord på skärmen Anslut till Azure AD. Om du valde **Federation med AD FS** på föregående sida ska du inte logga in med ett konto i en domän som du planerar att aktivera för federation. En rekommendation är att använda ett konto i standarddomänen **onmicrosoft.com**, som medföljer din Azure AD-katalog.
@@ -81,11 +79,10 @@ När du har angett det första skogsnamnet och klickat på  **Lägg till katalog
 
 | Alternativ | Beskrivning |
 | --- | --- |
-| Använda befintligt konto | Välj det här alternativet om du vill tillhandahålla ett befintligt AD DS-konto som ska användas av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. Du kan ange domändelen i NetBios- eller FQDN-format, dvs. FABRIKAM\syncuser eller fabrikam.com\syncuser. Det här kontot kan vara ett vanligt användarkonto eftersom det bara behöver standardläsbehörighet. Beroende på scenario kan du dock behöva fler behörigheter. Mer information finns i [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
 | Skapa ett nytt konto | Välj det här alternativet om du vill att Azure AD Connect-guiden ska skapa det AD DS-konto som krävs av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. När det är alternativet är valt anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Företagets administratörskonto som angetts används av Azure AD Connect-guiden för att skapa AD DS-kontot som krävs. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. |
+| Använda befintligt konto | Välj det här alternativet om du vill tillhandahålla ett befintligt AD DS-konto som ska användas av Azure AD Connect för att ansluta till AD-skogen under katalogsynkronisering. Du kan ange domändelen i NetBios- eller FQDN-format, dvs. FABRIKAM\syncuser eller fabrikam.com\syncuser. Det här kontot kan vara ett vanligt användarkonto eftersom det bara behöver standardläsbehörighet. Beroende på scenario kan du dock behöva fler behörigheter. Mer information finns i [Azure AD Connect: Konton och behörigheter](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account). |
 
 ![Anslut katalog](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Inloggningskonfiguration för Azure AD
 På den här sidan kan du granska de UPN-domäner som finns i lokala AD DS och som har verifierats i Azure AD. På den här sidan kan du också konfigurera attributet som ska användas för userPrincipalName.
@@ -239,7 +236,7 @@ Du kan konfigurera AD FS med Azure AD Connect med bara några klickningar. Du be
 >Du kan uppdatera SSL-certifikatet för din AD FS-servergrupp med hjälp av Azure AD Connect även om du inte använder det för att hantera federationsförtroendet.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Förutsättningar för AD FS-konfiguration
-Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
+Om du vill konfigurera din AD FS-servergrupp med hjälp av Azure AD Connect kontrollerar du att WinRM är aktiverat på fjärrservrarna. Kontrollera att du har slutfört de övriga uppgifterna i [federationskrav](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Gå också igenom portkraven som anges i [Tabell 3 – Azure AD Connect och federationsservrar/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Skapa en ny AD FS-servergrupp eller använd en befintlig AD FS-servergrupp
 Du kan använda en befintlig AD FS-servergrupp eller välja att skapa en ny AD FS-servergrupp. Om du väljer att skapa en ny servergrupp måste du uppge SSL-certifikatet. Om SSL-certifikatet är lösenordsskyddat uppmanas du att ange lösenordet.
@@ -252,7 +249,7 @@ Om du väljer att använda en befintlig AD FS-servergrupp kommer du direkt till 
 >Det går bara att hantera en AD FS-servergrupp med Azure AD. Om du har ett befintligt federationsförtroende med Azure AD konfigurerat på den valda AD FS-servergruppen återskapas förtroendet från början av Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Ange AD FS-servrarna
-Ange de servrar som du vill installera AD FS på. Du kan lägga till en eller flera servrar baserat på dina kapacitetsplaneringsbehov. Anslut alla servrar till Active Directory innan du utför den här konfigurationen. Microsoft rekommenderar att du installerar en enskild AD FS-server för test- och pilotdistributioner. Lägg sedan till och distribuera fler servrar beroende på dina skalningsbehov genom att köra Azure AD Connect igen efter den första konfigurationen.
+Ange de servrar som du vill installera AD FS på. Du kan lägga till en eller flera servrar baserat på dina kapacitetsplaneringsbehov. Anslut alla AD FS-servrar (krävs inte för WAP-servrarna) till Active Directory innan du utför den här konfigurationen. Microsoft rekommenderar att du installerar en enskild AD FS-server för test- och pilotdistributioner. Lägg sedan till och distribuera fler servrar beroende på dina skalningsbehov genom att köra Azure AD Connect igen efter den första konfigurationen.
 
 > [!NOTE]
 > Se till att alla servrar är anslutna till en AD-domän innan du gör den här konfigurationen.
@@ -265,7 +262,7 @@ Ange de servrar som du vill installera AD FS på. Du kan lägga till en eller fl
 Ange de servrar som du vill använda som dina webbprogramproxyservrar. Webbprogramproxyservern distribueras i DMZ (mot ett extranät) och stöder autentiseringsbegäranden från extranätet. Du kan lägga till en eller flera servrar baserat på dina kapacitetsplaneringsbehov. Microsoft rekommenderar att du installerar en enskild webbprogramproxyserver för test- och pilotdistributioner. Lägg sedan till och distribuera fler servrar beroende på dina skalningsbehov genom att köra Azure AD Connect igen efter den första konfigurationen. Vi rekommenderar att du har motsvarande antal proxyservrar som krävs för att uppfylla autentiseringen från intranätet.
 
 > [!NOTE]
-> <li> Om det konto som du använder inte är en lokal administratör på AD FS-servrarna uppmanas du att ange administratörsautentiseringsuppgifter.</li>
+> <li> Om det konto som du använder inte är en lokal administratör på WAP-servrarna uppmanas du att ange administratörsautentiseringsuppgifter.</li>
 > <li> Kontrollera att det finns en HTTP/HTTPS-anslutning mellan Azure AD Connect-servern och webbprogramproxyservern innan du utför det här steget.</li>
 > <li> Kontrollera att det finns en HTTP/HTTPS-anslutning mellan webbappservern och AD FS-servern så att autentiseringsförfrågningar kan passera.</li>
 >

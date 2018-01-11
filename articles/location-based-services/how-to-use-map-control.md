@@ -6,19 +6,19 @@ keywords: "Inte lägga till eller Redigera nyckelord utan samråd med din SEO-ch
 author: philmea
 ms.author: philmea
 ms.date: 11/22/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9ddd11806accddb41c02c0c6681aac07bba25356
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Hur du använder Azure plats baserat Services Kartkontrollen
 Javascript-bibliotek Kartkontrollen på klientsidan kan du återge maps och inbäddade Azure baserad platstjänster funktioner i ditt webb- eller mobila program. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 En Azure plats Services-konto och prenumeration nyckel. Information om hur du skapar ett konto och hämta en prenumeration för finns [hur du hanterar din Azure plats Services-konto och nycklar](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Skapa en ny mappning på en webbsida med kartan kontroll-API

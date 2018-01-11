@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Utför avancerad övervakning med hjälp av den fjärranslutna övervakningslösning
 
@@ -90,9 +90,6 @@ Kartan visar enheterna i det aktuella filtret med **larm** och **varningar**. De
 Du kan använda den **System larm** filter för att justera tidsintervallet för senaste larm. Panelen visar larm från den senaste timmen som standard:
 
 ![Filtrera larm enligt tid](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> Bläddra till höger för att visa span tidsfiltret.
 
 ## <a name="view-the-system-kpis"></a>Visa system KPI: er
 

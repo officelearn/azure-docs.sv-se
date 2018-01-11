@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Installation av hantering av modellen
 
@@ -81,13 +81,15 @@ Om du vill starta, måste du konfigurera din distributionsmiljö. Inställningen
 
 När installationen miljö:
 - Du uppmanas att logga in på Azure. Logga in genom att använda en webbläsare att öppna sidan https://aka.ms/devicelogin och ange den angivna koden för att autentisera.
-- Under autentiseringen efterfrågas ett konto för att autentisera med. Viktigt: Välj ett konto som har ett giltigt Azure-prenumeration och tillräcklig behörighet för att skapa resurser för kontot. - när du är klar logga in på din prenumerationsinformation visas och du tillfrågas om du vill fortsätta med den valda kontot.
+- Under autentiseringen efterfrågas ett konto för att autentisera med. Viktigt: Välj ett konto som har ett giltigt Azure-prenumeration och tillräcklig behörighet för att skapa resurser i kontot. När du är klar logga in på din prenumerationsinformation visas och tillfrågas du om du vill fortsätta med det valda kontot.
 
 ### <a name="environment-setup"></a>Miljökonfiguration
-Om du vill starta installationen måste du registrera providern miljö genom att ange följande kommando:
+Om du vill starta installationen måste du registrera några miljö providrar genom att ange följande kommandon:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Lokal distribution
 Konfigurera en lokal miljö med följande kommando för att distribuera och testa webbtjänsten på den lokala datorn. Resursgruppens namn är valfritt.

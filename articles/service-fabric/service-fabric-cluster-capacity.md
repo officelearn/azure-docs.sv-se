@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplaneringsöverväganden
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga som en del av den här processen.
@@ -69,7 +69,7 @@ Hållbarhetsnivån används för att ange att systemet de privilegier som din vi
 
 Den här behörigheten uttrycks i följande värden:
 
-* Guld - infrastruktur-jobb kan pausas under en period på två timmar per UD. Guld hållbarhet kan endast aktiveras fullständig nod VM SKU: er som D15_V2 G5 osv.
+* Guld - infrastruktur-jobb kan pausas under en period på två timmar per UD. Guld hållbarhet kan endast aktiveras fullständig nod VM SKU: er L32s, GS5, G5, DS15_v2 osv D15_v2 (i allmänhet VM-storlekar som anges i http://aka.ms/vmspecs som har markerats som ”instans är isolerad till maskinvara som är dedikerad till en kund” i noteringen Fullständig nod virtuella datorer)
 * Silver - infrastruktur-jobb kan pausas för en varaktighet på 10 minuter per UD och är tillgänglig på alla standard virtuella datorer med enkel kärna och senare.
 * Brons - inga privilegier. Detta är standardinställningen. Endast använda den här nivån av hållbarhet för nodtyper som kör _endast_ tillståndslösa arbetsbelastningar. 
 

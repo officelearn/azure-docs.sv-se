@@ -1,5 +1,5 @@
 
-Skapa en app i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#az_webapp_create). 
+Skapa en app i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
 Webbappen ger dig ett lagringsutrymme för ditt API och du får en URL så att du kan visa den distribuerade appen.
 

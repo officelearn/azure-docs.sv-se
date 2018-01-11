@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
 
-## <a name="downloading-the-service-bus-sdk"></a>Hämta Service Bus SDK
+AMQP 1.0-support är tillgänglig i Service Bus paketets version 2.1 eller senare. Du kan kontrollera att du har den senaste versionen genom att hämta Service Bus-bits från [NuGet][NuGet].
 
-AMQP 1.0-support är tillgänglig i Service Bus SDK version 2.1 eller senare. Du kan kontrollera att du har den senaste versionen genom att hämta Service Bus-bits från [NuGet][NuGet].
-
-## <a name="configuring-net-applications-to-use-amqp-10"></a>Konfigurerar .NET-program att använda AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>Konfigurera .NET-program att använda AMQP 1.0
 
 Som standard kommunicerar Service Bus .NET-klientbibliotek med tjänsten Service Bus via en dedikerad SOAP-baserat protokoll. Om du vill använda AMQP 1.0 istället för standard kräver protokollet explicit konfigurationen på Service Bus-anslutningssträng, enligt beskrivningen i nästa avsnitt. Förutom den här ändringen ändras programkod inte när du använder AMQP 1.0.
 
@@ -64,35 +62,35 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP typer för inneh
 
 | Objekttyp för .NET brödtext | Mappade AMQP typ | Typen av AMQP brödtext avsnitt |
 | --- | --- | --- |
-| bool |Booleskt värde |AMQP värde |
-| Mottagna byte |ubyte |AMQP värde |
+| bool |boolesk |AMQP värde |
+| byte |ubyte |AMQP värde |
 | ushort |ushort |AMQP värde |
 | uint |uint |AMQP värde |
 | ulong |ulong |AMQP värde |
-| sbyte |Mottagna byte |AMQP värde |
+| sbyte |byte |AMQP värde |
 | kort |kort |AMQP värde |
 | int |int |AMQP värde |
 | lång |lång |AMQP värde |
-| flyttal |flyttal |AMQP värde |
-| dubbla |dubbla |AMQP värde |
+| flyt |flyt |AMQP värde |
+| dubbel |dubbel |AMQP värde |
 | Decimal |decimal128 |AMQP värde |
 | Char |Char |AMQP värde |
-| Datum och tid |tidsstämpel |AMQP värde |
+| DateTime |tidsstämpel |AMQP värde |
 | GUID |UUID |AMQP värde |
 | byte] |Binär |AMQP värde |
-| Sträng |Sträng |AMQP värde |
+| sträng |sträng |AMQP värde |
 | System.Collections.IList |lista |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. |
 | System.Array |matris |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. |
 | System.Collections.IDictionary |karta |AMQP värde: objekt i samlingen får endast vara de som definieras i den här tabellen. Obs: endast strängnycklar stöds. |
-| URI: N |Beskrivs sträng (se nedan) |AMQP värde |
+| URI |Beskrivs sträng (se nedan) |AMQP värde |
 | DateTimeOffset |Beskrivs långt (se nedan) |AMQP värde |
 | TimeSpan |Beskrivs långt (se följande) |AMQP värde |
-| Dataströmmen |Binär |AMQP Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
+| Stream |Binär |AMQP Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
 | Andra objekt |Binär |AMQP Data (kan vara flera). Innehåller serialiserade binärfilen i objektet som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
 | .NET-typ | Mappade AMQP beskrivs typen | Anteckningar |
 | --- | --- | --- |
-| URI: N |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
+| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
@@ -109,7 +107,7 @@ Det finns också några mindre skillnader i beteendet för Service Bus .NET-API 
 * `MessageReceiver.Receive(TimeSpan.Zero)`implementeras som `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Slutför meddelanden av Lås token kan bara utföras av mottagarna meddelandet som ursprungligen emot meddelanden.
 
-## <a name="controlling-amqp-protocol-settings"></a>Kontrollera inställningarna för AMQP-protokollet
+## <a name="control-amqp-protocol-settings"></a>Inställningar för åtkomstkontroll AMQP-protokollet
 
 Den [.NET API: er](/dotnet/api/) exponera flera inställningar för att styra beteendet för AMQP-protokollet:
 
@@ -124,7 +122,6 @@ Den [.NET API: er](/dotnet/api/) exponera flera inställningar för att styra be
 
 * [Översikt över Service Bus AMQP]
 * [AMQP 1.0-protokollguide]
-* [AMQP i Service Bus för Windows Server]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -135,4 +132,4 @@ Den [.NET API: er](/dotnet/api/) exponera flera inställningar för att styra be
 [Azure portal]: https://portal.azure.com
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
 [AMQP 1.0-protokollguide]: service-bus-amqp-protocol-guide.md
-[AMQP i Service Bus för Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+

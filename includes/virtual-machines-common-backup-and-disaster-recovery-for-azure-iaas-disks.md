@@ -19,7 +19,7 @@ Innan vi tittar på säkerhetskopiering och Katastrofåterställning alternativ 
 
 ### <a name="azure-iaas-resiliency"></a>Azure IaaS-återhämtning
 
-*Återhämtning* refererar till tolerans för vanliga fel som uppstår i maskinvarukomponenter. Återhämtning är möjligheten att återställa från fel och fortsätter att fungera. Det är inte om att undvika fel, men svarar på fel i ett sätt som förhindrar avbrott eller dataförlust. Målet med återhämtning är att returnera programmet till en fullt fungerande tillstånd efter fel. Virtuella Azure-datorer och diskar som är avsedda att vara motståndskraftiga mot vanliga maskinvarufel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtning.
+*Återhämtning* refererar till tolerans för vanliga fel som uppstår i maskinvarukomponenter. Återhämtning är möjligheten att återställa från fel och fortsätter att fungera. Det är inte om att undvika fel, men svarar på fel i ett sätt som förhindrar avbrott eller dataförlust. Målet med elasticiteten är att återställa programmet till ett fullt fungerande tillstånd efter fel. Virtuella Azure-datorer och diskar som är avsedda att vara motståndskraftiga mot vanliga maskinvarufel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtning.
 
 En virtuell dator består i huvudsak av två delar: en beräkningsserver och beständiga diskarna. Både påverkar feltolerans för en virtuell dator.
 
@@ -138,7 +138,7 @@ Använd följande steg för att aktivera säkerhetskopiering av dina virtuella d
 
 4.  Kontrollera att Backup-agenten är installerad på den virtuella datorn. Om den virtuella datorn har skapats med hjälp av en Azure-galleriet bild, installerats Backup-agenten redan. Annars (det vill säga om du använder en anpassad avbildning), följ instruktionerna till [installera VM-agenten på en virtuell dator](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Kontrollera att den virtuella datorn tillåter nätverksanslutningar för säkerhetskopieringstjänsten ska fungera. Följ instruktionerna för [nätverksanslutningar](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Kontrollera att den virtuella datorn tillåter nätverksanslutningar för säkerhetskopieringstjänsten ska fungera. Följ instruktionerna för [nätverksanslutningar](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  När de här stegen har slutförts, körs säkerhetskopieringen med regelbundna intervall som anges i principen för säkerhetskopiering. Om det behövs kan du utlösa den första säkerhetskopieringen manuellt från valvet instrumentpanelen på Azure-portalen.
 
@@ -211,7 +211,7 @@ Om du vill kopiera ditt inkrementell ögonblicksbilder för Katastrofåterställ
 
 ### <a name="recovery-from-snapshots"></a>Återställning från ögonblicksbilder
 
-Kopiera den för att skapa en ny blob för att hämta en ögonblicksbild. Om du vill kopiera ögonblicksbilden från det primära kontot, kan du kopiera ögonblicksbilden över till grundläggande blob med ögonblicksbilden av. Den här processen återställs disken till ögonblicksbilden. Den här processen kallas befordrar ögonblicksbilden. Om du kopierar ögonblicksbild av säkerhetskopian från ett sekundärt konto när det gäller ett konto med geo-redundant lagring med läsbehörighet, måste du kopiera den till en primär konto. Du kan kopiera en ögonblicksbild av [med hjälp av PowerShell](../articles/storage/common/storage-powershell-guide-full.md) eller med hjälp av verktyget AzCopy. Mer information finns i [överföra data med kommandoradsverktyget azcopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy).
+Kopiera den för att skapa en ny blob för att hämta en ögonblicksbild. Om du vill kopiera ögonblicksbilden från det primära kontot, kan du kopiera ögonblicksbilden över till grundläggande blob med ögonblicksbilden av. Den här processen återställs disken till ögonblicksbilden. Den här processen kallas befordrar ögonblicksbilden. Om du kopierar ögonblicksbild av säkerhetskopian från ett sekundärt konto när det gäller ett konto med geo-redundant lagring med läsbehörighet, måste du kopiera den till en primär konto. Du kan kopiera en ögonblicksbild av [med hjälp av PowerShell](../articles/storage/common/storage-powershell-guide-full.md) eller med hjälp av verktyget AzCopy. Mer information finns i [överföra data med kommandoradsverktyget azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 För virtuella datorer med flera diskar, måste du kopiera alla ögonblicksbilder som ingår i samma samordnade återställningspunkt. Du kan använda blobar för att återskapa den virtuella datorn med hjälp av mallen för den virtuella datorn när du har kopierat ögonblicksbilderna skrivbar VHD-blobbar.
 

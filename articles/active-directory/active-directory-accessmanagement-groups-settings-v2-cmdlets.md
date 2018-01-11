@@ -17,14 +17,14 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdlets för grupphantering
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
+> * [Azure-portalen](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -252,7 +252,7 @@ Använd cmdleten Remove-AzureADGroupOwner om du vill ta bort en ägare från en 
 När en grupp har skapats, vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadress i gruppen. Grupper med följande mycket Privilegierade e-post-alias kan bara skapas av en global administratör för Azure AD. 
   
 * missbruk 
-* Admin 
+* administratör 
 * Administratören 
 * hostmaster 
 * majordomo 

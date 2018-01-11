@@ -8,7 +8,9 @@
 ## Integrera
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Lagring
+#### [Integrera ett lagringskonto](cdn-create-a-storage-account-with-cdn.md)
+#### [Support för SAS-lagring](cdn-sas-storage-support.md)
 ### [Cross-origin resource sharing (CORS)](cdn-cors.md)
 ### [Lägga till en anpassad domän i CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 ### [Konfigurera HTTPS på en anpassad domän](cdn-custom-ssl.md)

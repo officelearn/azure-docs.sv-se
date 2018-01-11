@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -49,8 +49,7 @@ Azure HDInsight har stöd för flera Hadoop-klusterversioner som kan distribuera
 Efter 15 December 2017:
 
 - Du kommer inte längre att kunna skapa Linux-baserat HDInsight version 3.3 (eller tidigare versioner) kluster med länkad på begäran HDInsight-tjänst i Azure Data Factory v1. 
-
-- Om den [osType och/eller versionsegenskapen](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i befintliga Azure Data Factory v1 på begäran HDInsight länkade tjänsten JSON definitioner, standardvärdet kommer att ändras från **Version = 3.1 osType = Windows** till **Version = 3,6 osType = Linux**.
+- Om den [osType och/eller versionsegenskapen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) inte uttryckligen anges i befintliga Azure Data Factory v1 på begäran HDInsight länkade tjänsten JSON definitioner, standardvärdet kommer att ändras från **Version = 3.1 osType = Windows** till **Version =[senaste HDI-standardversionen](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Efter den 31 juli 2018:
 
@@ -58,10 +57,10 @@ Efter den 31 juli 2018:
 
  **Rekommenderade åtgärder** 
 
-- Uppdatering av [osType och/eller versionsegenskapen](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) påverkas Azure Data Factory v1 på begäran HDInsight länkade tjänsten definitionerna nyare Linux-baserat HDInsight versioner (HDInsight 3,6) se till att du kan använda den senaste Hadoop ekosystemet komponenter och korrigeringar. 
-- Innan den 15 December 2017 testa Azure Data Factory V1 Hive, Pig, MapReduce och Hadoop streaming aktiviteter som refererar till den berörda länkade tjänsten och kontrollera de är kompatibla med den nya *osType* och/eller  *Version* standardvärde (Version = 3,6 osType = Linux) eller explicit HDInsight-version och osType som du uppgraderar till. Mer information om kompatibilitet, granska den [migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) och [vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) dokumentationen webbsidor. 
+- Uppdatering av [osType och/eller versionsegenskapen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) påverkas Azure Data Factory v1 på begäran HDInsight länkade tjänsten definitionerna nyare Linux-baserat HDInsight versioner (HDInsight 3,6) se till att du kan använda den senaste Hadoop ekosystemet komponenter och korrigeringar. 
+- Innan den 15 December 2017 testa Azure Data Factory V1 Hive, Pig, MapReduce och Hadoop streaming aktiviteter som refererar till den berörda länkade tjänsten och kontrollera de är kompatibla med den nya *osType* och/eller  *Version* standardvärde (Version = 3,6 osType = Linux) eller explicit HDInsight-version och osType som du uppgraderar till. Mer information om kompatibilitet, granska den [migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) och [vad är Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) dokumentationen webbsidor. 
 - Explicit inställd på osType på Windows innan den 15 December 2017 om du vill fortsätta använda Azure Data Factory v1On begäran HDInsight länkad tjänst för att skapa Windows-baserade HDInsight-kluster. Men rekommenderar vi ändå migrera till Linux-baserade HDInsight-kluster innan den 31 juli 2018. 
-- Uppdatera DotNet anpassad aktivitet JSON-definitionen om du vill använda en länkad tjänst för Azure-Batch i stället, om du använder på begäran HDInsight länkad tjänst för att köra Azure Data Factory v1DotNet anpassad aktivitet. Läs mer på den [använda anpassade aktiviteter i en Azure DataFactory pipeline](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) dokumentationen webbsidan. 
+- Uppdatera DotNet anpassad aktivitet JSON-definitionen om du vill använda en länkad tjänst för Azure-Batch i stället, om du använder på begäran HDInsight länkad tjänst för att köra Azure Data Factory v1DotNet anpassad aktivitet. Läs mer på den [använda anpassade aktiviteter i en Azure DataFactory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) dokumentationen webbsidan. 
 
 >[!Note]
 >För kunder som använder din befintliga sätta ditt eget kluster (BYOC) länkad HDInsight-tjänst i Azure Data Factory v1- eller personer använder BYOC och på begäran HDInsightLinked tjänst i Azure Data Factory v2, den senaste versionen stöder princip ofAzure HDInsight kluster tillämpas redan, därför ingen åtgärd krävs. 
@@ -100,17 +99,15 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Om du vill använda ett Windows-baserade HDInsight-kluster **osType** till **windows** eller Använd inte egenskapen som standard är: windows.  
 
 > [!IMPORTANT]
 > HDInsight-klustret skapar en **standardbehållare** i den blobblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här behållaren när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar. 
@@ -125,10 +122,10 @@ Om du vill använda ett Windows-baserade HDInsight-kluster **osType** till **win
 | typ                         | Typegenskapen bör anges till **HDInsightOnDemand**. | Ja      |
 | ClusterSize                  | Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för ytterligare information om Standard_D3-nivå. | Ja      |
 | TimeToLive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 bort klustret som kör aktiviteten har slutförts. Men om du anger ett högt värde kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Om egenskapen timetolive-värdet är korrekt, delar flera pipelines instans av HDInsight-kluster på begäran. | Ja      |
-| Version                      | Version av HDInsight-klustret. Standardvärdet är 3.1 för Windows-kluster och 3.2 för Linux-kluster. | Nej       |
+| version                      | Versionen av HDInsight-kluster finns i [HDInsight-versioner som stöds](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) tillåts för HDInsight-versioner. Om inget anges används den [senaste HDI-standardversionen](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nej       |
 | linkedServiceName            | Azure Storage länkade tjänsten som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som Azure Storage-konto.<p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight som bearbetas i en Azure Data Lake Store kan du använda en Kopieringsaktiviteten för att kopiera data från Azure Blobblagring till Azure Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Anger ytterligare lagringskonton för till HDInsight länkade tjänsten så att Data Factory-tjänsten kan registrera dem å dina vägnar. Dessa storage-konton måste vara i samma region som HDInsight-kluster som skapas i samma region som lagringskontot som anges av linkedServiceName. | Nej       |
-| osType                       | Typ av operativsystem. Tillåtna värden är: (standard) för Windows och Linux | Nej       |
+| osType                       | Typ av operativsystem. Tillåtna värden är: Linux och Windows. Om inget anges används Linux som standard.  <br/>Starkt recommand med Linux-baserat HDInsight-kluster som datumet för tillbakadragandet för HDInsight på Windows är 31 juli 2018. | Nej       |
 | hcatalogLinkedServiceName    | Namnet på Azure SQL länkade tjänst som pekar på HCatalog-databasen. HDInsight-kluster på begäran har skapats med Azure SQL-databas som metastore. | Nej       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-exempel
@@ -162,6 +159,8 @@ Du kan också ange följande egenskaper för den detaljerade konfigurationen av 
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",

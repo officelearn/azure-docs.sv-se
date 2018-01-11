@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Välj mellan Flow, Logic Apps, Functions och WebJobs
 I den här artikeln jämförs molntjänster från Microsoft. Samtliga löser problem med integrering och automatisering av affärsprocesser:
@@ -41,18 +41,18 @@ Det finns en poäng i att presentera Microsoft Flow och Azure Logic Apps tillsam
 * De har samma arbetsflödesdesigner
 * [Anslutningar](../connectors/apis-list.md) som fungerar i en tjänst fungerar ibland även i den andra
 
-Flow ger kontorspersonalen möjlighet att göra enkla integreringar (till exempel skicka ut SMS om viktiga e-postmeddelanden) utan att behöva samråda med utvecklarna eller IT-avdelningen. I kontrast till detta finns Logic Apps, som används för att göra avancerade eller verksamhetskritiska integreringar (till exempel B2B-processer) där DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att arbetsflöden inom företagen växer i komplexitet över tid. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
+Flow ger kontorspersonalen möjlighet att göra enkla integreringar (till exempel en godkännandeprocess i ett SharePoint-dokumentbibliotek) utan att behöva samråda med utvecklarna eller IT-avdelningen. I kontrast till detta finns Logic Apps, som används för att göra avancerade integreringar (till exempel B2B-processer) där DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att arbetsflöden inom företagen växer i komplexitet över tid. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
 
 Tabellen nedan hjälper dig att avgöra om Flow eller Logic Apps passar bäst för en specifik integration.
 
 |  | Flöde | Logic Apps |
 | --- | --- | --- |
-| Målgrupp |Kontorspersonal, företagsanvändare |IT-proffs, utvecklare |
-| Scenarier |Självbetjäning |Verksamhetskritiskt |
+| Målgrupp |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
+| Scenarier |Självbetjäning |Avancerade integreringar |
 | Designverktyg |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
-| DevOps |Ad hoc, utveckling under pågående produktion |källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Administratörsupplevelse |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Säkerhet |Standardmetoder: [datasuveränitet](https://wikipedia.org/wiki/Technological_Sovereignty), [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption), känsliga data osv. |Säkerhetskontroller i Azure: [Azure-säkerhet](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [spårningsloggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) med mera. |
+| Application Lifecycle Management (ALM) |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när du är klar. |DevOps:källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Administratörsupplevelse |Hantera Flow-miljöer och principer för dataförlustskydd, spåra licensiering [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Hantera resursgrupper, anslutningar, åtkomsthantering och loggning [https://portal.azure.com](https://portal.azure.com) |
+| Säkerhet |Granskningsloggar för Office 365-säkerhet och efterlevnad, dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data, o.s.v. |Säkerhetskontroller i Azure: [Azure-säkerhet](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [spårningsloggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) med mera. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ Om du vill använda Functions eller WebJobs beror på vad du redan gör med App 
 Som tidigare nämnts bör du välja tjänst efter situation. 
 
 * Använd Flow för enkel optimering inom företaget.
-* Om ditt integreringsscenario är för avancerat för Flow ska du istället använda Logic Apps. Samma sak om du behöver DevOps-funktioner och eller har säkerhetskrav att uppfylla.
+* Om ditt integreringsscenario är för avancerat för Flow eller om du behöver DevOps-funktioner ska du istället använda Logic Apps.
 * Om ett steg i ditt integreringsscenario kräver omfattande anpassning eller specialkodning kan du skriva en funktion som en åtgärd i din logikapp.
 
 Det går att anropa en logikapp i ett flöde. Du kan också anropa en funktion i en logikapp och en logikapp i en funktion. Integreringen mellan Flow, Logic Apps och Functions förbättras ständigt. Det går bra att skapa något i en tjänst och sedan använda detsamma i de andra tjänsterna. Med andra ord är ingen investering i någon av dessa tre tekniker någonsin bortkastade pengar.

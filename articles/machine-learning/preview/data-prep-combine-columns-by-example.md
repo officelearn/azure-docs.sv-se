@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kombinera kolumner med exempel omvandling
 Den här omvandlingen tillåter användaren att lägga till en ny kolumn genom att kombinera värden från flera kolumner. Användaren kan ange en avgränsare eller ange kombinerade exempelvärden att utföra den här transformationen. När användaren ger exempel på kombination, omvandlingen hanteras av samma **av exempel** motor som används i den **härledd kolumn efter exempel** transformeringen.
@@ -62,14 +62,14 @@ Ett komma följt av ett blanksteg används som avgränsare i det här exemplet f
 
 Värdet i **fetstil** har angetts som ett exempel.
 
-|Date|Månad|År|Timme|Minut|Sekund|Kombinerade kolumn|
+|Date|Månad|År|Timme|Minut|Andra|Kombinerade kolumn|
 |:----|:----|:----|:----|:----|:----|:----|
-|13|Dessa|2016|15|01|23|**13-dessa-2016 15:01:23 PDT**|
-|16|Dessa|2016|16|22|33|16-dessa-2016 15:01:33 PDT|
-|17|Dessa|2016|12|43|12|17-dessa-2016 15:01:12 PDT|
+|13|Okt|2016|15|01|23|**13-dessa-2016 15:01:23 PDT**|
+|16|Okt|2016|16|22|33|16-dessa-2016 15:01:33 PDT|
+|17|Okt|2016|12|43|12|17-dessa-2016 15:01:12 PDT|
 |12|Nov|2016|14|22|44|12-Nov-2016 15:01:44 PDT|
 |23|Nov|2016|01|52|45|23-Nov-2016 15:01:45 PDT|
 |16|Jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
 |23|Mar|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
-|16|April|2017|11|34|36|16-april-2016 15:01:36 PDT|
+|16|Apr|2017|11|34|36|16-april-2016 15:01:36 PDT|
 

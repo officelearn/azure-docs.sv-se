@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Skapa ett virtuellt nätverk med en Azure Resource Manager-mall
 
@@ -75,7 +75,7 @@ Du kan hämta den befintliga mallen för att skapa ett VNet och två undernät f
    * **properties**. Lista över egenskaper för resursen. Den här mallen använder adressutrymmet och undernätsegenskaperna vid skapandet av ett VNet.
 7. Gå tillbaks till [exempelmallsidan](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Klicka på **azuredeploy-parameters.json** och klicka sedan på **RAW**.
-9. Spara filen i en lokal mapp på datorn.
+9. Spara filen på en lokal mapp på datorn.
 10. Öppna filen som du just har sparat och redigera värdena för parametrarna. Använd värdena nedan för att distribuera det VNet som beskrivs i scenariot:
 
     ```json

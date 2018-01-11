@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Hantera en processerver som körs i Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Under återställning efter fel rekommenderas att distribuera processerver i Azu
 > [!NOTE]
 > Den här artikeln som ska användas om du har använt **Resource Manager** som distributionsmodell för de virtuella datorerna under växling vid fel. Om du använde **klassiska** som distributionsmodell, följer du stegen i [hur du ställer in och konfigurera en processerver (klassisk)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 

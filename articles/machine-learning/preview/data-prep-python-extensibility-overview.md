@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Datatillägg för förberedelser Python
 Förberedelser för Azure Machine Learning Data innehåller utökningsbarhet på flera nivåer som ett sätt att fylla i funktionen glapp mellan inbyggda funktioner. I det här dokumentet beskriver vi utökningsbarhet via Python-skriptet. 
@@ -27,7 +27,7 @@ Data förberedelser har följande anpassade steg där användare kan skriva kod:
 * Filen Reader *
 * Skrivaren *
 * Lägg till kolumn
-* Avancerade Filter
+* Avancerat filter
 * Transformera dataflöde
 * Transformera Partition
 
@@ -38,7 +38,7 @@ Vi stöder två typer av kod block för var och en av de här stegen. Vi stöder
 
 Du kan till exempel lägga till en ny kolumn som beräknar en logg för en annan kolumn i följande två sätt:
 
-uttryck 
+Uttryck 
 
 ```python    
     math.log(row["Score"])
@@ -124,6 +124,31 @@ eller
 
 `./pip install <libraryname>`
 
+## <a name="use-custom-modules"></a>Använda anpassade moduler
+I transformera dataflöde (skript), skriver du python kod så här:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+I Lägg till kolumn (skript), och ange koden Block = modulen och skriva python kod efter:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Körningen av olika kontexter (lokal, docker spark), peka absolut sökväg på rätt plats. Du kanske vill använda ”os.getcwd() + relativePath” för att hitta den.
+
+
 ## <a name="column-data"></a>Kolumndata 
 Kolumndata kan nås från en rad med hjälp av punktnotation eller nyckel / värde-notation. Kolumnnamn som innehåller blanksteg eller specialtecken kan inte nås med hjälp av punktnotation. Den `row` variabeln ska alltid vara definierat i båda lägena av Python-tillägg (modul och uttryck). 
 
@@ -155,7 +180,7 @@ Den här dataframe har följande kolumner:
 - AuthenticationValue: Innehåller inget eller token som ska användas.
 
 ### <a name="syntax"></a>Syntax 
-uttryck 
+Uttryck 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +210,7 @@ Skrivaren tillägget punkten kan du helt kontroll av skrivning av data från ett
 Du kan lägga till tillägget nu med de skriva (skript) dataströmsblocket. Det är tillgängligt på den översta **transformationer** menyn.
 
 ### <a name="syntax"></a>Syntax 
-uttryck
+Uttryck
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +235,7 @@ Lägg till kolumn tillägget punkten kan du skriva Python för att beräkna en n
 Du kan lägga till tillägget nu med hjälp av Lägg till kolumn (skript)-block. Det är tillgängligt på den översta **transformationer** menyn, såväl som på den **kolumnen** snabbmenyn. 
 
 ### <a name="syntax"></a>Syntax
-uttryck
+Uttryck
 
 ```python
     math.log(row["Score"])
@@ -224,7 +249,7 @@ def newvalue(row):
 ```
  
 
-## <a name="advanced-filter"></a>Avancerade Filter
+## <a name="advanced-filter"></a>Avancerat filter
 ### <a name="purpose"></a>Syfte 
 Avancerade Filter tillägget punkten kan du skriva ett anpassat filter. Du har åtkomst till hela raden och din kod måste returnera True (inklusive raden) eller FALSKT (exkludera raden). 
 
@@ -233,7 +258,7 @@ Du kan lägga till tillägget nu genom att använda avancerade Filter (skript)-b
 
 ### <a name="syntax"></a>Syntax
 
-uttryck
+Uttryck
 
 ```python
     row["Score"] > 95
@@ -260,7 +285,7 @@ Transformera dataflöde tillägget punkten kan du omvandla helt dataflödet. Du 
 Du kan lägga till tillägget nu med hjälp av den transformera (skript) dataströmsblocket. Det är tillgängligt på den översta **transformationer** menyn. 
 ### <a name="syntax"></a>Syntax 
 
-uttryck
+Uttryck
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +316,7 @@ Du kan lägga till tillägget nu med hjälp av blocket transformera Partition (s
 
 ### <a name="syntax"></a>Syntax 
 
-uttryck 
+Uttryck 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +362,7 @@ DataPrepError({
 Det är möjligt när Python körs på ett tillägg peka generera DataPrepErrors som returnerar värden med hjälp av metoden tidigare skapas. Det är mycket troligt att DataPrepErrors uppstår när data bearbetas en gång för tillägget. Anpassad Python-kod måste nu att hantera en DataPrepError som en giltig datatyp.
 
 #### <a name="syntax"></a>Syntax 
-uttryck 
+Uttryck 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

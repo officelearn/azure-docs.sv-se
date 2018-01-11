@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
 ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Hantera DNS-poster och postuppsättningar i Azure DNS använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure-portalen](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur grunderna för att skydda din Azure SQL Data War
 ## <a name="connection-security"></a>Anslutningssäkerhet
 Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till databasen med hjälp av brandväggsregler och krypterad anslutning.
 
-Brandväggsregler används av både servern och databasen för att avvisa anslutningsförsök från IP-adresser som inte uttryckligen finns på listan över godkända. Om du vill tillåta anslutningar från ditt program eller klienten datorns offentliga IP-adress, måste du först skapa en brandväggsregel på servernivå med hjälp av Azure Portal, REST-API och PowerShell. Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  Kontrollera att brandväggen på ditt nätverk och en lokal dator tillåter utgående kommunikation på TCP-port 1433 för att komma åt Azure SQL Data Warehouse från den lokala datorn.  Mer information finns i [Azure SQL Database-brandvägg][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule], och [sp_set_database_ firewall_rule][sp_set_database_firewall_rule].
+Brandväggsregler används av både servern och databasen för att avvisa anslutningsförsök från IP-adresser som inte uttryckligen finns på listan över godkända. Om du vill tillåta anslutningar från ditt program eller klienten datorns offentliga IP-adress, måste du först skapa en brandväggsregel på servernivå med hjälp av Azure Portal, REST-API och PowerShell. Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  Kontrollera att brandväggen på ditt nätverk och en lokal dator tillåter utgående kommunikation på TCP-port 1433 för att komma åt Azure SQL Data Warehouse från den lokala datorn.  Mer information finns i [Azure SQL Database-brandvägg][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 Anslutningar till SQL Data Warehouse krypterad som standard.  Ändra anslutningsinställningar för att inaktivera kryptering ignoreras.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Serveradministratörskontot som du ansluter med är medlem i db_owner som har behörighet att göra vad som helst i databasen. Spara det här kontot för att distribuera schemauppgraderingar och andra hanteringsåtgärder. Använd kontot "ApplicationUser" med mer begränsade behörigheter för att ansluta från ditt program till databasen med den minsta behörigheten som krävs av programmet.
 
-Det finns olika sätt att ytterligare begränsa vad en användare kan göra med Azure SQL Database:
+Det finns sätt att ytterligare begränsa vad en användare kan göra med Azure SQL Data Warehouse:
 
-* Detaljerade [behörigheter] [ Permissions] kan du kontrollen vilka åtgärder som du kan på enskilda kolumner, tabeller, vyer, procedurer och andra objekt i databasen. Använda detaljerade behörigheter har störst kontroll och bevilja lägsta behörigheten som krävs. Detaljerad behörighet system är ganska komplex och kräver vissa undersökning du använder effektivt.
+* Detaljerade [behörigheter] [ Permissions] kan du kontrollen vilka åtgärder som du kan på enskilda kolumner, tabeller, vyer, scheman, procedurer och andra objekt i databasen. Använda detaljerade behörigheter har störst kontroll och bevilja lägsta behörigheten som krävs. Detaljerad behörighet system är ganska komplex och kräver vissa undersökning du använder effektivt.
 * [Databasrollerna] [ Database roles] än db_datareader och db_datawriter kan användas för att skapa mer kraftfulla program användarkonton eller mindre kraftfulla hanteringskonton. Inbyggda fasta databasroller ger ett enkelt sätt att bevilja behörighet, men kan leda till att bevilja fler behörigheter än nödvändigt.
 * [Lagrade procedurer] [ Stored procedures] kan användas för att begränsa de åtgärder som kan göras på databasen.
+
+Nedan visas ett exempel på bevilja läsbehörighet till ett användardefinierat schema.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Hantera databaser och logiska servrar från Azure-portalen eller med hjälp av Azure Resource Manager API styrs av din portal användarkonto rolltilldelningar. Mer information om det här avsnittet finns [rollbaserad åtkomstkontroll i Azure Portal][Role-based access control in Azure Portal].
 

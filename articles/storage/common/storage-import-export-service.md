@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -177,6 +177,8 @@ Leverans platser som stöds:
 * Östra Kina
 * Norra Kina
 * Storbritannien, södra
+* Centrala Tyskland
+* Nordöstra Tyskland
 
 ### <a name="shipping"></a>Leverans
 **Leverans enheter till datacentret:**
@@ -250,7 +252,7 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 |:--- |:--- |
 | Skapar | När ett jobb skapas, är dess status inställd på att skapa. Jobbet är i läget Skapa, förutsätter tjänsten Import/Export av enheterna som inte har levererats till datacentret. Ett jobb kan vara i läget Skapa upp till två veckor, efter vilken bort automatiskt av tjänsten. |
 | Leverans | När du levererar paketet ska du uppdatera spårningsinformation i Azure-portalen.  Detta kommer att stänga jobbet i ”leverans”. Jobbet kommer att finnas kvar i tillståndet leverans i upp till två veckor. 
-| Tog emot | När alla enheter har tagits emot på Datacenter anges jobbets status till mottagen. |
+| Mottagning | När alla enheter har tagits emot på Datacenter anges jobbets status till mottagen. |
 | Överför | När minst en enhet har startat bearbetning visas anges jobbets status till överföra. Se avsnittet enhet tillstånd under detaljerad information. |
 | Paketering | När alla enheter har bearbetat kommer jobbet att placeras i tillståndet paketering tills enheterna som har levererats till dig. |
 | Slutfört | När alla enheter har levererats till kunden, om jobbet har slutförts utan fel, kommer jobbet anges till slutfört tillstånd. Jobbet tas automatiskt bort efter 90 dagar i slutfört tillstånd. |
@@ -262,7 +264,7 @@ I följande tabell beskrivs varje tillstånd varje enhet i ett jobb kan passera.
 | Enhetsstatus | Beskrivning |
 |:--- |:--- |
 | Angivna | För ett importjobb är ursprungligt tillstånd för en enhet angivna tillstånd när jobbet har skapats från Azure-portalen. För ett exportjobb eftersom ingen enhet anges när jobbet skapas första enhet tillstånd är tillståndet Received. |
-| Tog emot | Enheten övergår till tillståndet Received när operatorn Import/Export service har bearbetat de enheter som har tagits emot från företaget leverans för importen. Tillstånd för första enhet är ett exportjobb tillståndet Received. |
+| Mottagning | Enheten övergår till tillståndet Received när operatorn Import/Export service har bearbetat de enheter som har tagits emot från företaget leverans för importen. Tillstånd för första enhet är ett exportjobb tillståndet Received. |
 | NeverReceived | Enheten flyttas till tillståndet NeverReceived när paketet för ett jobb kommer, men paketet innehåller inte enheten. En enhet kan också flytta detta tillstånd om det har två veckor eftersom tjänsten har tagit emot leveransinformation, men paketet har inte kommit på datacenter. |
 | Överför | En enhet flyttas till överföra tillstånd när tjänsten startar att överföra data från enheten till Windows Azure Storage. |
 | Slutfört | En enhet flyttas till slutfört tillstånd när tjänsten har överförts alla data utan fel.
@@ -410,7 +412,7 @@ Inledande kontroller i följande rekommenderas för att förbereda dina enheter 
    
    I följande tabell visas exempel på giltiga blob-sökvägar:
    
-   | Selector | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Beskrivning |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla BLOB storage-konto |
    | Börjar med |/$root / |Exporterar alla blobbar i behållaren rot |
@@ -493,7 +495,7 @@ Nej. Behöver du levererar egna enheter för både import och export av jobb.
 
 ** Hur kan jag komma åt data som importeras av den här tjänsten **
 
-Informationen under Azure storage-konto kan nås via Azure-portalen eller med ett fristående verktyg som kallas Lagringsutforskaren. https://docs.microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Informationen under Azure storage-konto kan nås via Azure-portalen eller med ett fristående verktyg som kallas Lagringsutforskaren. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
 **När importjobbet slutförs vad kommer Mina data ut i storage-konto? Min kataloghierarkin bevaras?**
 

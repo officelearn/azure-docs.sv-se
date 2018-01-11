@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 79c3f376c2800e2ce9123c31af6e1aa2aacfcf00
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funktioner och verktyg för Bash i Azure Cloud Shell
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Funktioner och verktyg i [PowerShell](features-powershell.md) är också tillgänglig.
@@ -59,7 +59,7 @@ Filer utanför `$Home` och datorns tillstånd är inte beständiga mellan sessio
 |Skapa verktyg            |Kontrollera<br> maven<br> npm<br> PIP         |
 |Behållare             |[Docker CLI](https://github.com/docker/cli)/[Docker-dator](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyget](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Annat                  |iPython klienten<br> [Molnet Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
+|Annat                  |iPython klienten<br> [Molnet Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>Språkstöd
 

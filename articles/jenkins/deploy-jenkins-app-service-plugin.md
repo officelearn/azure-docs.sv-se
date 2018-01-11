@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med hjälp av Jenkins plugin-programmet 
 
@@ -29,7 +29,7 @@ Om du vill distribuera en Java-webbapp till Azure kan du använda Azure CLI i [J
 
 I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
-> * Konfigurera Jenkins för att distribuera webbprogram via Git och FTP.
+> * Konfigurera Jenkins för att distribuera webbprogram via Git eller FTP.
 > * Konfigurera Jenkins för att distribuera webbprogram för behållare.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Skapa och konfigurera en Jenkins-instans
@@ -64,7 +64,7 @@ Du behöver ett Azure tjänstens huvudnamn för att distribuera till Azure.
 3. Om du vill lägga till ett huvudnamn för tjänsten Microsoft Azure, Välj **lägga till autentiseringsuppgifter**. Ange värden för den **prenumerations-ID**, **klient-ID**, **Klienthemlighet**, och **OAuth 2.0-Token för slutpunkt** fält. Ange den **ID** till **mySp**. Vi kan använda detta ID i efterföljande steg i den här artikeln.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Konfigurera Jenkins för att distribuera webbprogram via Git och FTP
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Konfigurera Jenkins för att distribuera webbprogram genom att överföra filer
 
 Du kan ladda upp build-artefakter (till exempel en WAR-fil i Java) för att distribuera projektet till webbprogram med hjälp av Git och FTP.
 
@@ -104,7 +104,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 8. Om du vill distribuera till en annan plats än produktion kan du också ange den **fack** namn.
 9. Spara projektet och skapa den. Ditt webbprogram har distribuerats till Azure när versionen har slutförts.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Distribuera webbprogram via FTP-genom att använda Jenkins Pipeline
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuera webbprogram genom att överföra filer med hjälp av Jenkins Pipeline
 
 Azure App Service Jenkins plugin-programmet är redo pipeline. Du kan se i följande exempel i GitHub-lagringsplatsen.
 

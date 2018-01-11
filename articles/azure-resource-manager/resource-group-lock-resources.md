@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: d7b091f4a437781547610624007ac1d7f22fed61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar 
+
 Som administratör kan behöva du låsa en prenumeration, resursgrupp eller resurs för att förhindra andra användare i din organisation av misstag tas bort eller ändra viktiga resurser. Du kan ange låset för **CanNotDelete** eller **ReadOnly**. 
 
 * **CanNotDelete** innebär behöriga användare kan läsa och ändra en resurs fortfarande, men de kan inte ta bort resursen. 
@@ -43,29 +44,76 @@ För att skapa eller ta bort management lås, måste du ha åtkomst till `Micros
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
-I följande exempel visas en mall som skapar ett lås på ett lagringskonto. Storage-konto som ska tillämpas låset tillhandahålls som en parameter. Namnet på låset har skapats genom att resursnamnet med **/Microsoft.Authorization/** och namnet på Lås i det här fallet **myLock**.
+I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Resurstypen för låset är resurstypen för resurs att låsa och **/providers/Lås**. Namnet på låset har skapats genom att resursnamnet med **/Microsoft.Authorization/** och namnet på låset.
 
-Typen som är specifika för resurstypen. Ange till ”Microsoft.Storage/storageaccounts/providers/locks” för lagring.
-
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "lockedResource": {
-          "type": "string"
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
         }
-      },
-      "resources": [
+    },
+    "variables": {
+        "siteName": "[concat('ExampleSite', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
         {
-          "name": "[concat(parameters('lockedResource'), '/Microsoft.Authorization/myLock')]",
-          "type": "Microsoft.Storage/storageAccounts/providers/locks",
-          "apiVersion": "2015-01-01",
-          "properties": {
-            "level": "CannotDelete"
-          }
+            "apiVersion": "2016-09-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "targetWorkerCount": 1
+            }
+        },
+        {
+            "apiVersion": "2016-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+            ],
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/locks",
+            "apiVersion": "2016-09-01",
+            "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
+            ],
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Site should not be deleted."
+            }
         }
-      ]
-    }
+    ]
+}
+```
+
+Om du vill distribuera den här exempel mallen med PowerShell använder du:
+
+```powershell
+New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
+New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```
+
+För att distribuera det här exemplet mallen med Azure CLI, använder du:
+
+```azurecli
+az group create --name sitegroup --location southcentralus
+az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
+```
 
 ## <a name="powershell"></a>PowerShell
 Du Lås distribueras resurser med Azure PowerShell med hjälp av den [ny AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) kommando.
@@ -73,16 +121,13 @@ Du Lås distribueras resurser med Azure PowerShell med hjälp av den [ny AzureRm
 Ange namnet på resursen och dess resurstypen dess resursgruppens namn om du vill låsa en resurs.
 
 ```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite `
-  -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Om du vill låsa en resursgrupp, ange namnet på resursgruppen.
 
 ```powershell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete `
-  -ResourceGroupName exampleresourcegroup
+New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 För att få information om ett lås använda [Get-AzureRmResourceLock](/powershell/module/azurerm.resources/get-azurermresourcelock). Om du vill hämta alla Lås i din prenumeration, använder du:
@@ -94,8 +139,7 @@ Get-AzureRmResourceLock
 Om du vill hämta alla låsningar för en resurs, använder du:
 
 ```powershell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites `
-  -ResourceGroupName exampleresourcegroup
+Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 Om du vill hämta alla låsningar för en resursgrupp, använder du:
@@ -104,7 +148,12 @@ Om du vill hämta alla låsningar för en resursgrupp, använder du:
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Azure PowerShell innehåller andra kommandon för att arbeta lås som [Set AzureRmResourceLock](/powershell/module/azurerm.resources/set-azurermresourcelock) att uppdatera ett lås och [ta bort AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) att ta bort ett lås.
+Om du vill ta bort ett lås, använder du:
+
+```powershell
+$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzureRmResourceLock -LockId $lockId
+```
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -113,16 +162,13 @@ Du Lås distribueras resurser med Azure CLI med hjälp av den [az Lås skapa](/c
 Ange namnet på resursen och dess resurstypen dess resursgruppens namn om du vill låsa en resurs.
 
 ```azurecli
-az lock create --name LockSite --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup --resource-name examplesite \
-  --resource-type Microsoft.Web/sites
+az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
 Om du vill låsa en resursgrupp, ange namnet på resursgruppen.
 
 ```azurecli
-az lock create --name LockGroup --lock-type CanNotDelete \
-  --resource-group exampleresourcegroup
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
 För att få information om ett lås använda [az Lås listan](/cli/azure/lock#list). Om du vill hämta alla Lås i din prenumeration, använder du:
@@ -134,8 +180,7 @@ az lock list
 Om du vill hämta alla låsningar för en resurs, använder du:
 
 ```azurecli
-az lock list --resource-group exampleresourcegroup --resource-name examplesite \
-  --namespace Microsoft.Web --resource-type sites --parent ""
+az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
 Om du vill hämta alla låsningar för en resursgrupp, använder du:
@@ -144,9 +189,14 @@ Om du vill hämta alla låsningar för en resursgrupp, använder du:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Azure CLI finns andra kommandon för att arbeta lås som [az Lås uppdatering](/cli/azure/lock#update) att uppdatera ett lås och [az Lås ta bort](/cli/azure/lock#delete) att ta bort ett lås.
+Om du vill ta bort ett lås, använder du:
 
-## <a name="rest-api"></a>REST API
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="rest-api"></a>REST-API
 Du kan låsa distribuerade resurser med den [REST API för hantering av Lås](https://docs.microsoft.com/rest/api/resources/managementlocks). REST-API kan du skapa och ta bort lås och hämta information om befintliga Lås.
 
 Om du vill skapa ett lås, kör du:
@@ -165,9 +215,8 @@ I en begäran innehåller ett JSON-objekt som anger egenskaperna för låset.
     } 
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du arbetar med resurslås finns [Lås ned din Azure-resurser](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * Läs om hur du ordnar dina resurser i [med taggar för att organisera dina resurser](resource-group-using-tags.md)
 * Om du vill ändra vilken resursgrupp som en resurs som finns i [flytta resurser till den nya resursgruppen.](resource-group-move-resources.md)
-* Du kan tillämpa begränsningar och konventioner över din prenumeration med anpassade principer. Mer information finns i [vad är Azure principen?](../azure-policy/azure-policy-introduction.md).
+* Du kan tillämpa begränsningar och konventioner över din prenumeration med anpassade principer. Mer information finns i [Vad är Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](resource-manager-subscription-governance.md).
 

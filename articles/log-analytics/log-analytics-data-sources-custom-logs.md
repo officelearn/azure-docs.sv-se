@@ -1,6 +1,6 @@
 ---
-title: Samla in anpassade loggar i OMS Log Analytics | Microsoft Docs
-description: "Logganalys kan samla in händelser från textfiler på Windows- och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om poster skapas i OMS-databasen."
+title: Samla in anpassade loggar i Azure Log Analytics | Microsoft Docs
+description: "Logganalys kan samla in händelser från textfiler på Windows- och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om poster skapas i logganalys-arbetsytan."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Anpassade loggar i logganalys
-Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i loggen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
+Datakälla för anpassade loggar i logganalys kan du samla in händelser från textfiler på Windows- och Linux-datorer. Många program loggar information till textfiler i stället för standardtjänster loggning, till exempel Windows-händelseloggen eller Syslog.  När samlas in, analyserar du varje post i inloggningen till enskilda fält med hjälp av den [anpassade fält](log-analytics-custom-fields.md) funktion i logganalys.
 
 ![Anpassade Logginsamling](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ Loggfilerna ska hämtas måste matcha följande kriterier.
 Använd följande procedur för att definiera en anpassad loggfil.  Rulla till slutet av den här artikeln en genomgång av ett prov för att lägga till en anpassad logg.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Steg 1. Öppna guiden Anpassad logg
-Guiden Anpassad logg körs i OMS-portalen och kan du definiera en ny anpassad logg att samla in.
+Guiden Anpassad logg körs i Azure-portalen och kan du definiera en ny anpassad logg att samla in.
 
-1. I OMS-portalen går du till **inställningar**.
-2. Klicka på **Data** och sedan **anpassade loggar**.
+1. Välj i Azure-portalen **logganalys** > din arbetsyta > **avancerade inställningar**.
+2. Klicka på **Data** > **anpassade loggar**.
 3. Som standard pushas alla konfigurationsändringar automatiskt till alla agenter.  Linux-agenter skickas en konfigurationsfil till Fluentd datainsamlaren.  Om du vill ändra den här filen manuellt på varje Linux-agenten och avmarkera sedan kryssrutan *Använd konfigurationen nedan för Mina Linux-datorer*.
 4. Klicka på **Lägg till +** att öppna guiden Anpassad logg.
 
@@ -54,7 +54,7 @@ Börja med att ladda upp ett exempel på anpassad logg.  Guiden kommer att parsa
 
 **Ny rad** är standard-avgränsare och används för loggfiler som har en post per rad.  Om rad som börjar med ett datum och tid i något av formaten sedan kan du ange en **tidsstämpel** avgränsare som har stöd för transaktioner som sträcker sig över flera rader.
 
-Om en avgränsare för en tidsstämpel används fylls egenskapen TimeGenerated för varje post i OMS med datum/tid som angetts för posten i loggfilen.  Om en Radavgränsare för en ny används fylls TimeGenerated med datum och tid att logganalys samlas in transaktionen.
+Om en avgränsare för en tidsstämpel används fylls egenskapen TimeGenerated för varje post i logganalys med datum/tid som angetts för posten i loggfilen.  Om en Radavgränsare för en ny används fylls TimeGenerated med datum och tid att logganalys samlas in transaktionen.
 
 
 1. Klicka på **Bläddra** och bläddra till en exempelfil.  Observera att detta kan knappen betecknas **Välj fil** i vissa webbläsare.
@@ -103,13 +103,12 @@ Hela loggposten kommer att lagras i en enda egenskap som kallas **\data**.  Du k
 
 Detaljerade anvisningar för parsning av den anpassa loggposten finns inte här.  Mer information finns i [anpassade fält](log-analytics-custom-fields.md) dokumentationen för den här informationen.
 
-## <a name="disabling-a-custom-log"></a>Inaktivera en anpassad logg
-Du kan inte ta bort en anpassad loggdefinition när den har skapats, men du kan inaktivera det genom att ta bort alla sökvägar samling.
+## <a name="removing-a-custom-log"></a>Tar bort en anpassad logg
+Ta bort en anpassad logg som du tidigare har definierats med hjälp av följande process i Azure-portalen.
 
-1. I OMS-portalen går du till **inställningar**.
-2. Klicka på **Data** och sedan **anpassade loggar**.
-3. Klicka på **information** bredvid anpassade loggdefinition för att inaktivera.
-4. Ta bort samlingen sökvägar för anpassad logg-definition.
+1. Från den **Data** -menyn i den **avancerade inställningar** arbetsytan, Välj **anpassade loggar** att lista alla anpassade loggar.
+2. Klicka på **ta bort** bredvid anpassade loggen att ta bort.
+
 
 ## <a name="data-collection"></a>Datainsamling
 Logganalys samlar in nya poster från varje anpassad logg ungefär var 5: e minut.  Agenten att registrera sin plats i varje loggfil som samlas in från.  Om agenten tas offline under en tidsperiod, sedan logganalys samlar in poster från där den senast slutade, även om de posterna som skapades när agenten var offline.
@@ -127,7 +126,7 @@ Anpassade loggposter har en typ med namnet på loggen som du anger och egenskape
 | ManagementGroupName |Namnet på hanteringsgruppen för System Center Operations hantera agenter.  För andra agenter är AOI -\<arbetsyte-ID\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Loggen sökningar med anpassade loggposter
-Poster från anpassade loggar lagras i databasen OMS precis som poster från andra datakällor.  De har en typ som matchar namnet som du anger när du definierar loggen, så du kan använda egenskapen Type i sökningen för att hämta poster som samlas in från en viss loggning.
+Poster från anpassade loggar lagras i logganalys-arbetsytan precis som poster från andra datakällor.  De har en typ som matchar namnet som du anger när du definierar loggen, så du kan använda egenskapen Type i sökningen för att hämta poster som samlas in från en viss loggning.
 
 Följande tabell innehåller olika exempel på loggen sökningar som hämtar poster från anpassade loggar.
 

@@ -3,7 +3,7 @@ title: "Learning PowerShell-arbetsflöde för Azure Automation | Microsoft Docs"
 description: "Den här artikeln är avsedd som en snabb lektionen för författare som är bekanta med PowerShell att förstå de specifika skillnaderna mellan PowerShell och PowerShell-arbetsflöde och begrepp som gäller för Automation-runbooks."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Learning nyckelbegrepp i Windows PowerShell-arbetsflöde för Automation-runbooks 
 Azure Automation-Runbooks implementeras som Windows PowerShell-arbetsflöden.  En Windows PowerShell-arbetsflöde är liknar en Windows PowerShell-skript men vissa viktiga skillnader som kan vara förvirrande för en ny användare.  När den här artikeln är avsedd att hjälpa dig att skriva runbooks med PowerShell-arbetsflöde, rekommenderar vi att du skriver runbooks med PowerShell om du inte behöver kontrollpunkter.  Det finns flera syntax skillnader vid redigering av runbooks med PowerShell-arbetsflöde och skillnaderna kräver lite mer arbete att skriva effektiva arbetsflöden.  
@@ -199,7 +199,7 @@ I följande exempel liknar föregående exempel filkopiering parallellt.  I det 
 >
 
 ## <a name="checkpoints"></a>Kontrollpunkter
-En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och all utdata som genererats till den punkten. Om ett arbetsflöde slutar i fel eller har pausats, sedan startar nästa gång den körs den från den senaste kontrollpunkten i stället för i början av worfklow.  Du kan ange en kontrollpunkt i ett arbetsflöde med den **Checkpoint-Workflow** aktivitet.
+En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och all utdata som genererats till den punkten. Om ett arbetsflöde slutar i fel eller har pausats, sedan startar nästa gång den körs den från den senaste kontrollpunkten i stället för start av arbetsflödet.  Du kan ange en kontrollpunkt i ett arbetsflöde med den **Checkpoint-Workflow** aktivitet.
 
 I följande exempelkod ett undantag som inträffar efter Activity2 orsakar arbetsflödet ska sluta. När arbetsflödet körs igen, startar det genom att köra Activity2 eftersom den bara när den senast lagrade kontrollpunkten.
 
@@ -209,7 +209,7 @@ I följande exempelkod ett undantag som inträffar efter Activity2 orsakar arbet
     <Exception>
     <Activity3>
 
-Du bör lagra kontrollpunkter i ett arbetsflöde efter aktiviteter som kan vara utsatt för undantag och inte ska upprepas om arbetsflödet återupptas. Arbetsflödet kan till exempel skapa en virtuell dator. Du kan ange en kontrollpunkt både före och efter kommandona för att skapa den virtuella datorn. Om misslyckas, skulle sedan kommandona upprepas om arbetsflödet startas igen. Om worfklow misslyckas efter skapandet lyckas, sedan skapas den virtuella datorn inte igen när arbetsflödet återupptas.
+Du bör lagra kontrollpunkter i ett arbetsflöde efter aktiviteter som kan vara utsatt för undantag och inte ska upprepas om arbetsflödet återupptas. Arbetsflödet kan till exempel skapa en virtuell dator. Du kan ange en kontrollpunkt både före och efter kommandona för att skapa den virtuella datorn. Om misslyckas, skulle sedan kommandona upprepas om arbetsflödet startas igen. Om arbetsflödet misslyckas efter skapandet lyckas, sedan skapas den virtuella datorn inte igen när arbetsflödet återupptas.
 
 I följande exempel kopierar flera filer till en nätverksplats och anger en kontrollpunkt efter varje fil.  Om nätverksplatsen tappas bort, slutar arbetsflödet i fel.  När den startas igen fortsätter den med den senaste kontrollpunkten, vilket innebär att endast de filer som redan har kopierats hoppas över.
 

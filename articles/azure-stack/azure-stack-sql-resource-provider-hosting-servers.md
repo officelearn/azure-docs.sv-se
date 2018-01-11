@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Lägg till värdservrar för användning av SQL-kort
 
@@ -28,11 +28,9 @@ Du kan använda SQL-instanser på virtuella datorer i i din [Azure Stack](azure-
 * SQL-instansen måste vara dedikerade för användning av arbetsbelastningar RP och användare. Du kan inte använda en SQL-instans som används av några andra konsumenten, inklusive Apptjänster.
 * RP-nätverkskort är inte ansluten till en domän och kan bara ansluta med SQL-autentisering.
 * Du måste konfigurera ett konto med rätt behörighet för användning av RP.
-* Nätverkstrafik från RP till SQL använder port 1433 och kan inte ändras.
 * RP och användare, till exempel Web Apps använda nätverkets användare, så krävs anslutning till SQL-instans på det här nätverket. Det här kravet innebär vanligtvis IP-Adressen för din SQL-instanser måste vara i ett offentligt nätverk.
 * Hantering av SQL-instanser och deras värdar är; RP matchar inte utföra uppdatering, säkerhetskopiering, autentiseringsuppgifter rotation, osv.
 * SKU: er kan användas för att skapa olika klasser av SQL-funktioner, till exempel prestanda, alltid på osv.
-
 
 
 Ett antal SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Se till att du alltid den senaste versionen av SQL IaaS tillägget innan du distribuerar en virtuell dator med hjälp av en Marketplace-objektet. SQL-avbildningar är desamma som de SQL virtuella datorer som är tillgängliga i Azure. Tillhandahåller funktioner som automatisk uppdatering och funktionerna för säkerhetskopiering för SQL virtuella datorer skapas från dessa avbildningar IaaS-tillägget och motsvarande portalen förbättringar.
@@ -73,6 +71,8 @@ Följ dessa steg för att lägga till en fristående värd server som redan har 
 
   ![Nya värdservern](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Du kan du också inkludera ett instansnamn och ett portnummer som kan tillhandahållas om instansen inte har tilldelats standardporten 1433.
+
   > [!NOTE]
   > Så länge som SQL-instans kan användas av användare och Azure Resource Manager-administratören, kan den placeras under kontroll av resursprovidern. SQL-instansen __måste__ tilldelas enbart RP.
 
@@ -86,10 +86,10 @@ Följ dessa steg för att lägga till en fristående värd server som redan har 
 
     Ett exempel:
 
-    ![SKU: er](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU:er](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKU: er kan ta upp till en timme att vara synliga i portalen. Du kan inte skapa en databas tills SKU: N skapas fullständigt.
+> SKU: er kan ta upp till en timme att vara synliga i portalen. Användare kan inte skapa en databas tills SKU: N skapas fullständigt.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Ange kapacitet med hjälp av SQL Always On-Tillgänglighetsgrupper
 Konfigurera SQL Always On instanser kräver ytterligare åtgärder och omfattar minst tre virtuella datorer (eller fysiska datorer).
@@ -126,7 +126,7 @@ Så här lägger du till SQL alltid på värdservrar:
     Den **värd för SQL-servrar** bladet är där du kan ansluta Resource Provider för SQL Server till faktiska instanser av SQL Server som fungerar som den resursprovidern backend.
 
 
-3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen, som till att använda FQDN eller IPv4-adress för alltid på lyssnare. Ange kontoinformationen för det konto som du har konfigurerat med systemadministratörsprivilegier.
+3. Fyll i formuläret med anslutningsinformationen för SQL Server-instansen, som till att använda FQDN eller IPv4-adress för alltid på lyssnare (och valfritt portnummer). Ange kontoinformationen för det konto som du har konfigurerat med systemadministratörsprivilegier.
 
 4. Den här kryssrutan om du vill aktivera stöd för instanser av SQL Always On-Tillgänglighetsgruppen.
 

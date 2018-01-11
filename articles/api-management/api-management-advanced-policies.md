@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API Management avancerade principer
 Det här avsnittet innehåller en referens för följande API Management-principer. Mer information om att lägga till och konfigurera principer finns [principer i API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -243,7 +243,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
 |timeout = ”heltal”|Det går inte att timeoutintervall i sekunder innan anropet till serverdelstjänsten.|Nej|300 sekunder|  
-|Följ omdirigeringar = ”true &#124; FALSE ”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|false|  
+|Följ omdirigeringar = ”true &#124; FALSE ”|Anger huruvida omdirigeringar från serverdelstjänsten följt av gateway eller returneras till anroparen.|Nej|falskt|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -289,8 +289,8 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|--------------|  
-|key|En sträng. Uttryck tillåts. Anger samtidighet scope. Kan delas av flera principer.|Ja|Saknas|  
-|Max antal|Ett heltal. Anger maximalt antal begäranden som tillåts att ange principen.|Ja|Saknas|  
+|key|En sträng. Uttryck tillåts. Anger samtidighet scope. Kan delas av flera principer.|Ja|Gäller inte|  
+|Max antal|Ett heltal. Anger maximalt antal begäranden som tillåts att ange principen.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Exempel  
- I följande exempelbegäran försöks forewarding upp till tio gånger med exponentiell försök algoritm. Eftersom `first-fast-retry` har angetts till false, alla nya försök regleras av algoritmen exponsntial försök igen.  
+ I följande exempel försöks begäran vidarebefordran upp till tio gånger med en algoritm för exponentiell försök igen. Eftersom `first-fast-retry` har angetts till false, alla nya försök regleras algoritmen exponentiell försök igen.  
   
 ```xml  
   
@@ -438,11 +438,11 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|tillstånd|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Saknas|  
-|antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Saknas|  
-|interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Saknas|  
-|Max-intervall|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Saknas|  
-|delta|Ett positivt tal i sekunder som anger att vänta intervall ökning. Används för att implementera linjär och exponentiella retry-algoritmer.|Nej|Saknas|  
+|tillstånd|En boolesk literal eller [uttryck](api-management-policy-expressions.md) anger om återförsök ska stoppas (`false`) eller fortsatte (`true`).|Ja|Gäller inte|  
+|antal|Ett positivt tal som anger det maximala antalet försök att försöka.|Ja|Gäller inte|  
+|interval|Ett positivt tal i sekunder som anger vänta intervall mellan det nya försöket försöker.|Ja|Gäller inte|  
+|Max-intervall|Ett positivt tal i sekunder som anger maximalt vänta mellan nya försök. Den används för att implementera en algoritm exponentiell försök igen.|Nej|Gäller inte|  
+|delta|Ett positivt tal i sekunder som anger att vänta intervall ökning. Används för att implementera linjär och exponentiella retry-algoritmer.|Nej|Gäller inte|  
 |första-fast-återförsök|Om värdet `true` , första nytt försök utförs omedelbart.|Nej|`false`|  
   
 > [!NOTE]
@@ -563,8 +563,8 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Skapa|  
-|namn|Anger namnet på rubriken anges.|Ja|Saknas|  
+|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|namn|Anger namnet på rubriken anges.|Ja|Gäller inte|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
 ### <a name="usage"></a>Användning  
@@ -642,11 +642,11 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Skapa|  
-|svaret variabelnamn = ”sträng”|Om den inte finns `context.Response` används.|Nej|Saknas|  
+|mode = ”sträng”|Anger om detta är en ny begäran eller en kopia av den aktuella begäranden. I utgående läge, läge = kopiera initieras inte begärandetexten.|Nej|Ny|  
+|svaret variabelnamn = ”sträng”|Om den inte finns `context.Response` används.|Nej|Gäller inte|  
 |timeout = ”heltal”|Det går inte att timeout-intervall i sekunder innan anropet till URL: en.|Nej|60|  
-|Ignorera fel|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|false|  
-|namn|Anger namnet på rubriken anges.|Ja|Saknas|  
+|Ignorera fel|Om true, och begäran resulterar i ett fel:<br /><br /> – Om svaret variabelnamn angavs innehåller ett null-värde.<br />– Om svaret variabelnamn inte har angetts, kontext. Begäran kommer inte att uppdateras.|Nej|falskt|  
+|namn|Anger namnet på rubriken anges.|Ja|Gäller inte|  
 |Det finns åtgärd|Anger vilken åtgärd som ska vidtas när huvudet har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintliga-huvud.<br />-skip - ersätter inte det befintliga huvudvärdet.<br />-Tillägg - lägger till värdet på det befintliga huvudvärdet.<br />-delete - tar bort huvudet i begäran.<br /><br /> Om värdet är `override` ta med flera poster med samma namn resulterar i sidhuvudet har angetts enligt alla poster (som visas flera gånger); endast listade värden anges i resultatet.|Nej|åsidosätt|  
   
 ### <a name="usage"></a>Användning  
@@ -684,9 +684,9 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|URL = ”sträng”|Proxy-URL i form av http://host:port.|Ja|Saknas|  
-|UserName = ”sträng”|Användarnamnet som ska användas för autentisering med proxyservern.|Nej|Saknas|  
-|lösenord = ”sträng”|Lösenordet som ska användas för autentisering med proxyservern.|Nej|Saknas|  
+|URL = ”sträng”|Proxy-URL i form av http://host:port.|Ja|Gäller inte|  
+|UserName = ”sträng”|Användarnamnet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
+|lösenord = ”sträng”|Lösenordet som ska användas för autentisering med proxyservern.|Nej|Gäller inte|  
 
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -784,8 +784,8 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|kod = ”heltal”|HTTP-statuskoden ska returneras.|Ja|Saknas|  
-|Orsak = ”sträng”|En beskrivning av orsaken för att returnera statuskoden.|Ja|Saknas|  
+|kod = ”heltal”|HTTP-statuskoden ska returneras.|Ja|Gäller inte|  
+|Orsak = ”sträng”|En beskrivning av orsaken för att returnera statuskoden.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -886,7 +886,7 @@ Observera användningen av [egenskaper](api-management-howto-properties.md) som 
   
 |Attribut|Beskrivning|Krävs|Standard|  
 |---------------|-----------------|--------------|-------------|  
-|källa|Stränglitteral meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Saknas|  
+|källa|Stränglitteral meningsfulla för visningsprogram och ange källan för meddelandet.|Ja|Gäller inte|  
   
 ### <a name="usage"></a>Användning  
  Den här principen kan användas i följande princip [avsnitt](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  

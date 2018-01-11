@@ -1,6 +1,6 @@
 - name: Azure Container Service (AKS)
   href: ./index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om AKS
       href: intro-kubernetes.md
@@ -39,14 +39,18 @@
       href: kubernetes-helm.md
     - name: Utveckla program med Draft
       href: kubernetes-draft.md
-    - name: Spara data med Azure Files
-      href: azure-files.md
     - name: Integrera med Azure med OSBA
       href: integrate-azure.md
     - name: Använda Kubernetes-instrumentpanelen
       href: kubernetes-dashboard.md
     - name: Skapa tjänstens huvudnamn
       href: kubernetes-service-principal.md
+    - name: Konfigurera datavolymer
+      items:
+        - name: Azure Files – permanent volym
+          href: azure-files-dynamic-pv.md
+        - name: Azure Files – volym
+          href: azure-files.md
 - name: Referens
   items:
     - name: Azure CLI

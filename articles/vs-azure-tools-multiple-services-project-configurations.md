@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Konfigurera Azure-projekt i Visual Studio för att använda flera tjänstkonfiguration
 
@@ -77,7 +77,7 @@ Ny eller befintlig anslutningssträngar, Välj **...** * till höger om den **v�
 
 1. Under **ansluta med**, Välj den **prenumerationen** möjlighet att välja ett lagringskonto från en prenumeration. Visual Studio hämtar sedan autentiseringsuppgifterna för ett lagringskonto automatiskt från den `.publishsettings` filen.
 1. Att välja **autentiseringsuppgifterna anges manuellt** kan du ange kontonamnet och nyckeln direkt med information från Azure-portalen. Kopiera nyckeln för kontot: en. Navigera till lagringskontot på Azure portal och välj **hantera nycklar**.
-    2. På den **hantera nycklar åtkomst** väljer texten på den primära åtkomstnyckeln och tryck på Ctrl + C för att kopiera.
+    2. Om du vill kopiera nyckeln konto navigerar du till lagringskontot på Azure portal, väljer **Inställningar > åtkomstnycklar**, Använd kopieringsknappen för att kopiera den primära åtkomstnyckeln till Urklipp.
 1. Välj något av anslutningsalternativen för. **Ange anpassade slutpunkter** du ombeds ange specifika URL: er för blobbar, tabeller och köer. Anpassade slutpunkter kan du använda [anpassade domäner](storage/blobs/storage-custom-domain-name.md) och kontrollera åtkomsten mer exakt. Se [konfigurera Azure Storage-anslutningssträngar](./storage/common/storage-configure-connection-string.md).
 1. Välj **OK**, sedan **fil > Spara** att uppdatera konfigurationen med den nya anslutningssträngen.
 

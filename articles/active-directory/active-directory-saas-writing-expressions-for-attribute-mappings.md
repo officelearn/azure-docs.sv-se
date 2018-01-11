@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappning i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappning som du kan ange mappningen för en uttryck. Du måste skriva ett skript-liknande uttryck som gör att du kan omvandla användarnas data i format som är mer godkänd för SaaS-program för dessa.
@@ -36,7 +36,7 @@ Syntax för uttryck för attributmappning är påminner om Visual Basic för App
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i en sträng, måste det föregås av omvänt snedstreck (\) symbolen. Till exempel ”: Företagsnamn: \"Contoso\"”
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [ersätta](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [växel](#switch)
+[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätta](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [växel](#switch)
 
 - - -
 ### <a name="append"></a>Lägg till
@@ -138,6 +138,18 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på de ang
 | **Ersättningsvärde** |Valfri |Sträng |Nytt värde som ska ersätta gamla med. |
 | **replacementAttributeName** |Valfri |Sträng |Namnet på attributet som ska användas för ersättningsvärde, när datakällan har inte något värde. |
 | **mallen** |Valfri |Sträng |När **mallen** värde har angetts, kommer vi att leta efter **oldValue** i mallen och Ersätt den med källvärdet. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Funktionen:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Beskrivning:**<br> Returnerar en enda appRoleAssignment från listan över alla appRoleAssignments som tilldelats en användare för ett visst program. Den här funktionen krävs för att konvertera appRoleAssignments-objekt till en enda roll namnsträngen. Observera att det bästa sättet är att se till att endast en appRoleAssignment tilldelas en användare åt gången och om flera roller har tilldelats rollen-sträng returnerades inte förutsägbart.
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Krävs |Sträng |**[appRoleAssignments]**  objekt. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces

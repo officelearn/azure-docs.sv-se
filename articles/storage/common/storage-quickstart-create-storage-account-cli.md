@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: d0f9f487226218e6a8409c60edd7ef39ce760386
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ed956e3d27d315e0ce4901c2c38d50652f77c09a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-storage-account-using-the-azure-cli"></a>Skapa ett lagringskonto med Azure CLI
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="create-resource-group"></a>Skapa resursgrupp
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Skapa en Azure-resursgrupp med kommandot [az group create](/cli/azure/group#create). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
 
@@ -49,7 +49,7 @@ az account list-locations \
     --out table
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Skapa ett allmänt standardlagringskonto
+## <a name="create-a-general-purpose-storage-account"></a>Skapa ett allmänt lagringskonto
 
 Det finns flera typer av lagringskonton som lämpar sig för olika användningsscenarier, och som var och en har stöd för en eller flera av lagringstjänsterna (Blob Service, File Service, Table Service eller Queue Service). I följande tabell beskrivs de olika typer av lagringskonton som är tillgängliga.
 
@@ -64,6 +64,7 @@ Skapa ett allmänt lagringskonto med kommandot [az storage account create](/cli/
 az storage account create \
     --name mystorageaccount \
     --resource-group myResourceGroup \
+    --kind Storage \
     --location eastus \
     --sku Standard_LRS \
     --encryption blob

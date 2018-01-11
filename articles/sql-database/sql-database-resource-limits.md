@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Gränserna för Azure SQL-databas
 
@@ -49,8 +49,7 @@ När du ändrar servicenivån och/eller prestandanivån för en databas skapas e
 Hur lång tid processen att skala upp tar beror på databasens storlek och tjänstnivå före och efter ändringen. Till exempel bör en 250 GB-databas som ändras till, från eller inom en Standard-tjänstnivå slutföras inom sex timmar. Skala upp bör slutföras inom tre timmar för en databas med samma storlek som ändrar prestandanivåer inom premiumnivån.
 
 > [!TIP]
-> Du kan använda följande fråga för att kontrollera statusen för en pågående SQL-databas skalning åtgärden: ```select * from sys.dm_operation_status```.
->
+> Om du vill övervaka i felfri drift, se: [hantera åtgärder med hjälp av REST-API SQL](/rest/api/sql/Operations/List), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) och [stoppa AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * Om du uppgraderar till en högre nivå eller prestanda servicenivå ökar den maximala databasstorleken inte om du inte uttryckligen anger en större (maxsize).
 * Databasutrymme används måste vara mindre än den största tillåtna storleken för mål-tjänstnivå och prestandanivå servicenivån för att nedgradera en databas. 
@@ -147,3 +146,4 @@ När den påträffar hög session eller worker användning inkluderar minskning 
 - Information om elastiska pooler finns [elastiska pooler](sql-database-elastic-pool.md).
 - Information om allmänna Azure gränser finns [Azure-prenumeration och tjänsten gränser, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om dtu: er och edtu: er finns [dtu: er och edtu: er](sql-database-what-is-a-dtu.md).
+- Information om storleksgränser för tempdb finns https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

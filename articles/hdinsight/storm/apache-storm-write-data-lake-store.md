@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till HDFS från Apache Storm på HDInsight
 
@@ -34,7 +34,7 @@ Projektet som innehåller den här topologin är tillgänglig för hämtning fr�
 
 För att kompilera det här projektet, behöver du följande konfiguration för din utvecklingsmiljö:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) eller högre. HDInsight 3.5 eller högre krävs Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller högre. HDInsight 3.5 eller högre krävs Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Läs mer på framework som [https://storm.apache.org/releases/1.1.0/flux.html](h
 
 Storm på HDInsight innehåller inte de komponenter som HdfsBolt använder för att kommunicera med Azure Storage eller Azure Data Lake Store i Storms klassökvägen som standard. Använd följande skriptåtgärden för att lägga till dessa komponenter i `extlib` katalogen för Storm på klustret:
 
-* Skript-URI:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Skript-URI:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Noder som gäller för: Nimbus, chef
 * Parametrar: ingen
 

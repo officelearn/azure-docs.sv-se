@@ -12,48 +12,43 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
+ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2ad62444e57b0ace6490ac0bbd6ae05dda01e791
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
+
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js-webbapp i Azure App Service på Linux](./containers/quickstart-nodejs.md).
+>
 
 Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure Web Apps. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera Node.js-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.   
+Du kan följa stegen här på en Mac-, Windows- eller Linux-dator. Det tar cirka fem minuter att slutföra självstudiekursen när de nödvändiga komponenterna har installerats.   
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
-* <a href="https://git-scm.com/" target="_blank">Installera Git</a>
 * <a href="https://nodejs.org/" target="_blank">Installera Node.js och NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando i ett terminalfönster för att klona databasen för exempelappen till den lokala datorn.
+Ladda ned Node.js-exempelprojektet från [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) och extrahera ZIP-arkivet.
 
-```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
-```
-
-Ändra till den katalog som innehåller exempelkoden.
-
-```bash
-cd nodejs-docs-hello-world
-```
+Navigera till rotkatalogen för Node.js-exempelprojektet i ett terminalfönster (det som innehåller _index.js_).
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -71,53 +66,50 @@ Nu kan du se **Hello World**-meddelandet från exempelappen på sidan.
 
 Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
+[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
-![Sida för tom webbapp](media/app-service-web-get-started-php/app-service-web-service-created.png)
+I Cloud Shell skapar du en webbapp i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
+Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `NODE|6.9`. Om du vill se alla körningar som stöds kör du [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+```
+
+När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ett unikt appnamn.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+http://<app name>.azurewebsites.net
 ```
+![Sida för tom webbapp](media/app-service-web-get-started-php/app-service-web-service-created.png)
+
+[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
 
@@ -141,14 +133,25 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 response.end("Hello Azure!");
 ```
 
-I det lokala terminalfönstret sparar du ändringarna i Git och skickar sedan kodändringarna till Azure.
+I det lokala terminalfönstret navigerar du till programmets rotkatalog och skapar en ny ZIP-fil för det uppdaterade projektet.
 
-```bash
-git commit -am "updated output"
-git push azure master
+```
+# Bash
+zip -r myUpdatedAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
+``` 
+
+Ladda upp den nya ZIP-filen till Cloud Shell med samma steg som i [Ladda upp ZIP-filen](#upload-the-zip-file).
+
+Sedan distribuerar du den uppladdade ZIP-filen till Cloud Shell igen.
+
+```azurecli-interactive
+az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
 ```
 
-När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera.
+Gå tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klicka på knappen för att uppdatera sidan.
 
 ![Uppdaterad exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
@@ -162,7 +165,7 @@ Klicka på **Apptjänster** i menyn till vänster och sedan på namnet på din A
 
 Nu visas sidan Översikt för din webbapp. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 
-![App Service-blad på Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![App Service-sidan på Azure Portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 Menyn till vänster innehåller olika sidor för att konfigurera appen. 
 

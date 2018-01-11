@@ -1,5 +1,5 @@
 ---
-title: Skapa en PHP- och MySQL-webbapp i Azure | Microsoft Docs
+title: "Skapa en PHP- och MySQL-webbapp i Azure App Service på Linux | Microsoft Docs"
 description: "Lär dig hur du hämtar en PHP-app som arbetar i Azure, med anslutning till en MySQL-databas i Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -12,15 +12,19 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Skapa en PHP- och MySQL-webbapp i Azure
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-webbapp i Azure App Service på Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här kursen visar hur du skapar ett PHP-webbprogram och ansluta till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) app som körs i Apptjänsten på Linux.
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service på Linux. Du distribuerar till App Service på _Windows_, se [skapa en PHP- och MySQL-webbapp i Azure](../app-service-web-tutorial-php-mysql.md).
+>
+
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här kursen visar hur du skapar ett PHP-webbprogram och ansluta till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) app som körs i Apptjänsten på Linux.
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -34,7 +38,7 @@ I den här guiden får du lära dig hur man:
 > * Dataströmmen diagnostiska loggar från Azure
 > * Hantera appen i Azure-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -155,12 +159,12 @@ I det här steget skapar du en MySQL-databas i [Azure-databas för MySQL (förha
 
 ### <a name="create-a-mysql-server"></a>Skapa en MySQL-server
 
-Skapa en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server#az_mysql_server_create) kommando.
+Skapa en server i Azure-databas för MySQL (förhandsversion) med den [az mysql-servern skapa](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) kommando.
 
 Ersätt namnet på MySQL-servern där du ser i följande kommando i  _&lt;mysql_server_name >_ platshållare (giltiga tecken är `a-z`, `0-9`, och `-`). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql_server_name>.database.windows.net`), den måste vara globalt unika.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 När MySQL-servern har skapats visas Azure CLI information liknar följande exempel:
@@ -180,7 +184,7 @@ När MySQL-servern har skapats visas Azure CLI information liknar följande exem
 
 ### <a name="configure-server-firewall"></a>Konfigurera server-brandväggen
 
-Skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) kommando.
+Skapa en brandväggsregel för MySQL-servern att tillåta klientanslutningar med hjälp av den [az mysql-brandväggsregel skapa](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) kommando.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -198,7 +202,7 @@ Anslut till MySQL-server i Azure i fönstret terminal. Använd värdet du angav 
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-När du uppmanas att ange ett lösenord, Använd _tr0ngPa $$ w0rd!_, som du angav när du skapade databasen.
+När du uppmanas att ange ett lösenord, Använd _tr0ngPa $$ w0rd!_, som du angav när du skapade databasservern.
 
 ### <a name="create-a-production-database"></a>Skapa en produktionsdatabas
 
@@ -239,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -329,9 +333,9 @@ I det här steget kan distribuera du MySQL-anslutna PHP-program till Azure App S
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Konfigurera databasinställningar för
+### <a name="configure-database-settings"></a>Konfigurera databasinställningarna
 
-I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando.
+I App Service som du anger miljövariabler som _appinställningar_ med hjälp av den [az webapp appsettings konfigurationsuppsättning](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando.
 
 Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, och `DB_PASSWORD`. Ersätt platshållarna  _&lt;appname >_ och  _&lt;mysql_server_name >_.
 
@@ -363,7 +367,7 @@ Använd `php artisan` att generera en ny nyckel för program utan att spara den 
 php artisan key:generate --show
 ```
 
-Ange nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
+Ange nyckeln för programmet i App Service webbapp med hjälp av den [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) kommando. Ersätt platshållarna  _&lt;appname >_ och  _&lt;outputofphpartisankey: Generera >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -375,7 +379,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Ange den virtuella sökvägen för webbprogrammet. Det här steget är nödvändigt eftersom den [Laravel programmet livscykel](https://laravel.com/docs/5.4/lifecycle) börjar i den _offentliga_ katalog i stället för i tillämpningsprogrammets rotkatalog. Andra PHP-ramverk vars livscykel startar i rotkatalogen kan arbeta utan manuell konfiguration av den virtuella sökvägen.
 
-Ange sökvägen till virtuella programmet med hjälp av den [az resurs uppdaterades](/cli/azure/resource#az_resource_update) kommando. Ersätt den  _&lt;appname >_ platshållare.
+Ange sökvägen till virtuella programmet med hjälp av den [az resurs uppdaterades](/cli/azure/resource?view=azure-cli-latest#az_resource_update) kommando. Ersätt den  _&lt;appname >_ platshållare.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

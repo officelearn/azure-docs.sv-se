@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Felsökning: Anslutningsproblem med Azure punkt-till-plats
 
@@ -263,3 +263,52 @@ Du tar bort punkt-till-plats VPN-anslutningen och sedan installera om VPN-klient
 ### <a name="solution"></a>Lösning
 
 Lös problemet genom att ta bort de gamla klienten för VPN-konfigurationsfilerna från **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, och kör sedan installationsprogrammet för VPN-klienten igen.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Punkt-till-plats VPN-klienten inte kan matcha FQDN för resurser i den lokala domänen
+
+### <a name="symptom"></a>Symtom
+
+När klienten ansluter till Azure med hjälp av punkt-till-plats VPN-anslutning, kan den inte kan lösa FQND resurser i den lokala domänen.
+
+### <a name="cause"></a>Orsak
+
+Punkt-till-plats VPN-klienten använder Azure DNS-servrar som konfigurerats i Azure-nätverket. Azure DNS-servrar åsidosätter de lokala DNS-servrar som konfigurerats i klienten, så alla DNS-frågor skickas till Azure DNS-servrar. Om Azure DNS-servrar inte har på posterna för de lokala resurserna, misslyckas.
+
+### <a name="solution"></a>Lösning
+
+Lös problemet genom att kontrollera att Azure DNS-servrar som används på virtuella Azure-nätverket kan matcha DNS-posterna för lokala resurser. Om du vill göra detta måste använda du DNS-vidarebefordrare eller villkorlig vidarebefordran. Mer information finns i [namnmatchning med hjälp av DNS-servern](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Punkt-till-plats VPN-anslutningen har upprättats, men du fortfarande inte kan ansluta till Azure-resurser 
+
+### <a name="cause"></a>Orsak
+
+Det här problemet kan uppstå om VPN-klienten inte får vägar från Azure VPN-gateway.
+
+### <a name="solution"></a>Lösning
+
+Lös problemet, [återställa Azure VPN-gateway](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Fel: ”återkallade funktionen kunde inte återkallningskontroll eftersom återkallade server var offline. (Fel 0x80092013) ”
+
+### <a name="causes"></a>Orsaker
+Det här felmeddelandet visas om klienten inte kan komma åt http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.cr.  Återkallningskontroll kräver åtkomst till dessa två platser.  Det här problemet inträffar oftast på klienten som har en konfigurerad proxyserver. I vissa miljöer om begäranden inte kommer via proxyserver, kommer den att nekas på Gränsbrandväggen.
+
+### <a name="solution"></a>Lösning
+
+Kontrollera inställningarna för proxyservern, kontrollerar du att klienten kan komma åt http://crl3.digicert.com/ssca-sha2-g1.crl och http://crl4.digicert.com/ssca-sha2-g1.cr.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN-klientfel: Anslutningen kunde inte på grund av en princip som konfigurerats på RAS/VPN-servern. (Fel 812)
+
+### <a name="cause"></a>Orsak
+
+Det här felet uppstår om RADIUS-server som du använde för att autentisera VPN-klienten har felaktiga inställningar. 
+
+### <a name="solution"></a>Lösning
+
+Kontrollera att RADIUS-server är korrekt konfigurerad. Mer information finns i [integrera RADIUS-autentisering med Azure Multi-Factor Authentication-servern](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>”Error 405” när du hämtar rotcertifikat från VPN-Gateway
+
+### <a name="cause"></a>Orsak
+
+Rotcertifikatet har inte installerats. Rotcertifikatet är installerat i klientens **certifikat från betrodda** lagras.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
@@ -328,7 +328,7 @@ Vi kan nu kompilera och köra programmet genom att klicka på den **starta** kna
 
 När programmet har nått ovan uppmaningen, bör du kunna återgå till din resursgrupp i Azure portal och se att profilen har skapats.
 
-![Lyckades!](./media/cdn-app-dev-net/cdn-success.png)
+![Klar](./media/cdn-app-dev-net/cdn-success.png)
 
 Vi kan sedan bekräfta anvisningarna för att köra resten av programmet.
 

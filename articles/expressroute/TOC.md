@@ -59,6 +59,7 @@
 
 ## Felsöka
 ### [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
+### [Lösa problem med nätverksprestanda](expressroute-troubleshooting-network-performance.md)
 ### [Återställa en misslyckad krets](reset-circuit.md)
 ### [Hämta ARP-tabeller](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Hämta ARP-tabeller (klassisk)](expressroute-troubleshooting-arp-classic.md)
@@ -85,6 +86,7 @@
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [ExpressRoute för Cloud Solution Providers (CSP)](expressroute-for-cloud-solution-providers.md)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Anslut en virtuell nätverksgateway till en krets](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Skapa ett virtuellt nätverk för ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

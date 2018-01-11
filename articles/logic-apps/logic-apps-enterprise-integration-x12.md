@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Exchange X12 meddelanden för enterprise-integrering med logic apps
 
@@ -57,11 +57,11 @@ Om du inte ser några integrationskonton [skapa en första](../logic-apps/logic-
 
 4. Välj **översikt**och välj den **avtal** panelen. Om du inte har ett avtal sida vid sida, lägga till panelen först. 
 
-    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Välj ikonen ”avtal”](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. I bladet avtal som öppnas väljer du **Lägg till**.
 
-    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Under **Lägg till**, ange en **namn** för ditt avtal. Avtalstyp, Välj **X12**. Välj den **värden Partner**, **Värdidentiteten**, **gäst Partner**, och **gäst identitet** för ditt avtal. Mer information för egenskapen finns i tabellen i det här steget.
 
@@ -126,7 +126,7 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 | Version |Välj X12 version |
 | Transaktionstyp (ST01) |Välj transaktionstyp |
 | Avsändaren program (GS02) |Välj programmet för sändaren |
-| Schemat |Välj den schemafilen som du vill använda. Scheman läggs till ditt konto för integrering. |
+| Schema |Välj den schemafilen som du vill använda. Scheman läggs till ditt konto för integrering. |
 
 > [!NOTE]
 > Konfigurera de nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som överförs till ditt [integrering konto](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -146,8 +146,8 @@ Välj ett schema för varje transaktionstyp (ST1) och avsändaren program (GS2).
 | Egenskap | Beskrivning |
 | --- | --- |
 | Tillåt inte Interchange kontrollen antal dubbletter |Blockera dubbla externa utbyten. Kontrollerar interchange kontrollnumret (ISA13) för det mottagna interchange kontrollnummer. Om en matchning hittas bearbeta inte ta emot pipeline utbyte. Du kan ange antalet dagar för att utföra kontrollen genom att ge ett värde för *Sök efter duplicerade ISA13 varje (dagar)*. |
-| Tillåt inte dubletter av gruppkontrollnummer |Blockera interchanges med dubbla grupp kontrollen nummer. |
-| Tillåt inte dubletter av transaktionsuppsättningsnummer |Blockera interchanges med dubbla transaktion set kontrollen nummer. |
+| Tillåt inte grupp kontrollen nummer dubbletter |Blockera interchanges med dubbla grupp kontrollen nummer. |
+| Tillåt inte transaktionen set kontrollen nummer dubbletter |Blockera interchanges med dubbla transaktion set kontrollen nummer. |
 
 ### <a name="validations"></a>Verifieringar
 
@@ -171,11 +171,11 @@ När du slutför varje validering rad läggs en annan automatiskt. Om du inte an
 | Egenskap | Beskrivning |
 | --- | --- |
 | Konvertera underförstådda decimalformat ”Nn” till en bas 10 numeriskt värde |Konverterar ett EDI-nummer som har angetts med formatet ”Nn” till ett numeriskt värde bas 10 |
-| Skapa tomma XML-taggar om avslutande avgränsare är tillåtna |Välj den här kryssrutan om du vill interchange avsändaren är tom XML-taggar för avslutande avgränsare. |
-| Dela upp interchange i transaktionsuppsättningar – inaktivera transaktionsuppsättningar vid fel|Parsar varje transaktion som anges i ett utbyte i ett annat XML-dokument genom att använda lämpliga kuvertet uppsättningen transaktion. Pausar enbart transaktioner där valideringen misslyckades. |
-| Dela upp interchange i transaktionsuppsättningar – inaktivera interchange vid fel|Parsar varje transaktion som anges i ett utbyte i ett annat XML-dokument genom att tillämpa lämpliga kuvertet. Pausar hela interchange när en eller flera uppsättningar av transaktionen i utbyte inte kan valideras. | 
+| Skapa tomma XML-taggar om avslutande avgränsare tillåts |Välj den här kryssrutan om du vill interchange avsändaren är tom XML-taggar för avslutande avgränsare. |
+| Dela Interchange som transaktionen uppsättningar - inaktivera transaktion anger vid fel|Parsar varje transaktion som anges i ett utbyte i ett annat XML-dokument genom att använda lämpliga kuvertet uppsättningen transaktion. Pausar enbart transaktioner där valideringen misslyckades. |
+| Dela Interchange som transaktionen uppsättningar - inaktivera utbyte vid fel|Parsar varje transaktion som anges i ett utbyte i ett annat XML-dokument genom att tillämpa lämpliga kuvertet. Pausar hela interchange när en eller flera uppsättningar av transaktionen i utbyte inte kan valideras. | 
 | Bevara Interchange – inaktivera transaktion anger vid fel |Lämnar utbyte intakta, skapar ett XML-dokument för hela gruppbaserad datautbyte. Pausar bara som inte kan verifieras när fortsätter att bearbeta alla andra transaktion anger mängderna transaktion. |
-| Bevara interchange – inaktivera interchange vid fel |Lämnar utbyte intakta, skapar ett XML-dokument för hela gruppbaserad datautbyte. Pausar hela interchange när en eller flera uppsättningar av transaktionen i utbyte inte kan valideras. |
+| Bevara Interchange – inaktivera utbyte vid fel |Lämnar utbyte intakta, skapar ett XML-dokument för hela gruppbaserad datautbyte. Pausar hela interchange när en eller flera uppsättningar av transaktionen i utbyte inte kan valideras. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Konfigurera hur ditt avtal skickar meddelanden
 
@@ -240,7 +240,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | --- | --- |
 | Versionsnumret för kontrollen (ISA12) |Välj versionen av X12 standard |
 | Användning-indikatorn (ISA15) |Välj kontexten för ett utbyte.  Värdena är information produktionsdata, eller testa data |
-| Schemat |Genererar GS och ST segment för X12-kodade utbyte som skickas till skicka Pipeline |
+| Schema |Genererar GS och ST segment för X12-kodade utbyte som skickas till skicka Pipeline |
 | GS1 |Valfritt, väljer du ett värde för funktionell kod från den nedrullningsbara listrutan |
 | GS2 |Valfritt program avsändaren |
 | GS3 |Valfritt program mottagare |
@@ -254,7 +254,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | Prefix |Valfritt, avsedda för intervallet för transaktionen set kontrollen nummer som används i bekräftelse. Ange ett numeriskt värde för mellersta två fält och ett alfanumeriskt värde (om du vill) för fälten prefix och suffix. De mellersta är obligatoriska och innehålla minsta och största värdena för kontrollen |
 | Suffix |Valfritt, avsedda för intervallet för transaktionen set kontrollen nummer som används i en bekräftelse. Ange ett numeriskt värde för mellersta två fält och ett alfanumeriskt värde (om du vill) för fälten prefix och suffix. De mellersta är obligatoriska och innehålla minsta och största värdena för kontrollen |
 
-### <a name="character-sets-and-separators"></a>Teckenuppsättningar och avgränsare
+### <a name="character-sets-and-separators"></a>Tecknet uppsättningar och avgränsare
 
 Annat än teckenuppsättningen, kan du ange en annan uppsättning avgränsare för varje meddelandetyp. Om en teckenuppsättning har inte angetts för ett visst meddelande-schema, används den standardinställda teckenuppsättningen.
 
@@ -263,7 +263,7 @@ Annat än teckenuppsättningen, kan du ange en annan uppsättning avgränsare f�
 | Egenskap | Beskrivning |
 | --- | --- |
 | Tecken som ska användas |Att verifiera egenskaper, Välj X12 teckenuppsättningen. Alternativen är grundläggande och utökad UTF8. |
-| Schemat |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda, baserat på följande avgränsare beskrivningar för det aktuella schemat. |
+| Schema |Välj ett schema från den nedrullningsbara listan. När du har slutfört varje rad läggs automatiskt en ny rad. Välj uppsättningen avgränsare som du vill använda, baserat på följande avgränsare beskrivningar för det aktuella schemat. |
 | Indatatypen |Välj en typ av inkommande från den nedrullningsbara listan. |
 | Komponenten avgränsare |Ange ett enskilt tecken för att avgränsa sammansatta dataelement. |
 | Data elementet avgränsare |Ange ett enskilt tecken för att avgränsa enkla dataelement i sammansatta dataelement. |

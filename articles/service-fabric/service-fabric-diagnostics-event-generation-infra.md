@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Generering av plattform nivån händelse och loggfiler
 
@@ -105,7 +105,7 @@ En lista över prestandaräknare för att samla in när du använder Service Fab
 
 Här följer två vanliga sätt som du kan konfigurera att samla in prestandadata för klustret:
 
-* Med hjälp av en agent: Detta är det bästa sättet för att samla in prestanda från en dator eftersom agenter har vanligtvis en lista över möjliga prestandamått som kan samlas in, och det är relativt enkelt att välja mått som du vill samla in eller ändra dem. Läs mer om [hur du konfigurerar OMS för Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) och [ställa in Windows-agenten OMS](../log-analytics/log-analytics-windows-agents.md) artiklar om du vill veta mer om OMS-agenten som är en sådan övervakningsagenten som går att hämta prestandadata för kluster för virtuella datorer och distribueras behållare.
+* Med hjälp av en agent: Detta är det bästa sättet för att samla in prestanda från en dator eftersom agenter har vanligtvis en lista över möjliga prestandamått som kan samlas in, och det är relativt enkelt att välja mått som du vill samla in eller ändra dem. Läs mer om [hur du konfigurerar OMS för Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) och [ställa in Windows-agenten OMS](../log-analytics/log-analytics-windows-agent.md) artiklar om du vill veta mer om OMS-agenten som är en sådan övervakningsagenten som går att hämta prestandadata för kluster för virtuella datorer och distribueras behållare.
 
 * Konfigurera diagnostik för att skriva prestandaräknare till en tabell: för kluster i Azure, innebär detta att ändra konfigurationen av Azure-diagnostik Välj lämplig prestandaräknare från de virtuella datorerna i klustret och att hämta docker statistik om du planerar att distribuera en behållare. Läs om hur du konfigurerar [prestandaräknare i BOMULLSTUSS](service-fabric-diagnostics-event-aggregation-wad.md) i Service Fabric att ställa in prestandaräknarsamlingen.
 

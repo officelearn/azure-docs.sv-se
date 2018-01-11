@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 12/09/2017
-ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
 Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
@@ -57,7 +57,8 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ## <a name="privilege-support"></a>Stöd för behörighet
 
 ### <a name="unsupported"></a>Stöds inte
-- [SUPER behörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+- DBA rollen många sever parametrar och inställningar av misstag kan försämra serverprestanda eller negera ACID DBMS-egenskaper. Därför för att upprätthålla våra service integritet och SLA på en produktnivå exponerar vi inte rollen DBA till kunder. Standard-användarkonto som skapas när en ny databasinstans har skapats, kan kunder utföra de flesta av DDL och DML-instruktioner i hanterade databasinstansen. 
+- SUPER privilegium på samma sätt [SUPER privilegium](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulation instruktionen
 
@@ -85,6 +86,9 @@ När för många anslutningar har uppnåtts, får du följande fel:
 
 ### <a name="subscription-management"></a>Prenumerationshantering
 - Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.
+
+## <a name="current-known-issues"></a>Aktuella kända problem:
+- MySQL-serverinstans visar fel serverversionen efter anslutningen har upprättats. För att få rätt server-instans versionshantering, använder du väljer version(); kommandot MySQL i Kommandotolken.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Vad som är tillgängligt på respektive tjänstnivå](concepts-service-tiers.md)

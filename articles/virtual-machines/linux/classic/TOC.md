@@ -1,59 +1,39 @@
 # [Översikt](../overview.md)
-## [Avbildningar](about-images.md)
-## [VM-tillägg](agents-and-extensions.md)
-## [Tillgänglighet](configure-availability.md)
-## [Vanliga frågor och svar](faq.md)
+## [VM-tillägg](agents-and-extensions-classic.md)
+## [Tillgänglighet](configure-availability-classic.md)
+## [Vanliga frågor och svar](faq-classic.md)
 
 # Kom igång
-## [Skapa en virtuell Linux-dator med Azure Portal](createportal.md)
-## [Installera Azure CLI](../../../cli-install-nodejs.md)
-## [Skapa SSH-nycklar](../mac-create-ssh-keys.md)
+## [Skapa en virtuell Linux-dator med Azure Portal](createportal-classic.md)
 
 # Gör så här för att
 ## Compute
-### [Skapa en anpassad virtuell dator](create-custom.md)
-### [Avbilda en virtuell dator](capture-image.md)
-### [Använda fjärrskrivbord med en virtuell Linux-dator](remote-desktop.md)
-### [Hantera VM-tillägg](manage-extensions.md)
-### [Hantera virtuella datorer med Visual Studio](manage-visual-studio.md)
-### [Övervaka virtuella datorer med hjälp av det diagnostiska VM-tillägget](../diagnostic-extension.md)
+### [Skapa en anpassad virtuell dator](create-custom-classic.md)
+### [Avbilda en virtuell dator](capture-image-classic.md)
+### [Använda fjärrskrivbord med en virtuell Linux-dator](remote-desktop-classic.md)
+### [Hantera VM-tillägg](manage-extensions-classic.md)
 ### [Övervaka virtuella datorer med hjälp av v2.x för det diagnostiska VM-tillägget](diagnostic-extension-v2.md)
-### [Mata in anpassade data](inject-custom-data.md)
-### [Återställ lösenord eller nycklar för Linux, korrigera SSH och kontrollera diskar](reset-access.md)
-### [Underhåll](planned-maintenance-schedule.md)
-### [Skapa en Docker-värd med CLI](cli-use-docker.md)
-### [Skapa en Docker-värd med Azure Portal](portal-use-docker.md)
-### [Så här använder du Docker med Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Återställ lösenord eller nycklar för Linux, korrigera SSH och kontrollera diskar](reset-access-classic.md)
+### [Underhåll](planned-maintenance-schedule-classic.md)
 
 ## Använda Storage
-### [Anslut en datadisk](attach-disk.md)
-### [Koppla ifrån en datadisk](detach-disk.md)
+### [Anslut en datadisk](attach-disk-classic.md)
+### [Koppla ifrån en datadisk](detach-disk-classic.md)
 
 ## Nätverk
 ### [Öppna portar till din virtuella dator](setup-endpoints.md)
-### [Ansluta virtuella datorer till virtuella nätverk eller molntjänster](connect-vms.md)
-
-## Distribuera avbildningar
-### [Skapa och ladda upp en VHD](create-upload-vhd.md)
-### [Skapa och ladda upp en FreeBSD-VHD](freebsd-create-upload-vhd.md)
-### [Lista över Oracle VM-avbildningar](oracle-images.md)
 
 ## Hantera arbetsbelastningar
-### [SAP](sap-get-started.md)
-### MySQL och MariaDB
-#### [MariaDB-kluster, självstudier](mariadb-mysql-cluster.md)
-#### [Installera MySQL på en OpenSUSE-VM](mysql-on-opensuse.md)
-#### [Använd belastningsutjämnade uppsättningar för att skapa kluster av MySQL](mysql-cluster.md)
-#### [Optimera MySQL-prestandan](optimize-mysql.md)
+### [MariaDB-kluster, självstudier](mariadb-mysql-cluster.md)
+### [Installera MySQL på en OpenSUSE-VM](mysql-on-opensuse.md)
+### [Använd belastningsutjämnade uppsättningar för att skapa kluster av MySQL](mysql-cluster.md)
+### [Optimera MySQL-prestandan](optimize-mysql.md)
 
 ## Köra program
-### [Ruby on Rails-webbapp](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Ruby on Rails-webbapp](ruby-rails-web-app.md)
 ### [Cassandra och Node.js-klienten](cassandra-nodejs.md)
-### [LAMP-stack](lamp-script.md)
 ### [tomcat](setup-tomcat.md)
-### [Webbapp med Visual Studio](web-app-visual-studio.md)
 ### [RDMA-kluster för att köra MPI-program](rdma-cluster.md)
-### [Hur du använder Azures sekundära plugin-program med Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Skapa ett kluster för Linux-arbetsbelastningar](hpcpack-cluster-powershell-script.md)
 #### [Hantera ett kluster med Linux-noder](hpcpack-cluster.md)

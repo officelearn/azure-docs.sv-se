@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv
-> [!div class="op_single_selector"]
-> * [Säkerhetskopiera virtuella datorer till Recovery Services-valvet](backup-azure-arm-vms.md)
-> * [Säkerhetskopiera virtuella datorer till Backup-valvet](backup-azure-vms.md)
->
->
 
 Den här artikeln beskrivs hur du säkerhetskopierar virtuella Azure-datorer (både distribuerade Resource Manager och klassisk distribuerade) till Recovery Services-valvet. Det mesta av arbetet för att säkerhetskopiera virtuella datorer är förberedelserna. Innan du kan säkerhetskopiera eller mellan en virtuell dator, måste du slutföra de [krav](backup-azure-arm-vms-prepare.md) att förbereda miljön för att skydda dina virtuella datorer. När du har slutfört förutsättningarna kan du starta säkerhetskopiering för att ta ögonblicksbilder av den virtuella datorn.
 

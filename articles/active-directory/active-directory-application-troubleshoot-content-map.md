@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f75b90aa23068abcd6e3727d7b9cd1b0f71f396c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5869120350ccfeacabaa79037ae57c1ee0fd8e5d
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Felsöka Azure Active Directory hantering och utveckling
 Den här artikeln hjälper dig att hitta användbara dokument relaterade till felsökning av några av de vanligaste problem som rör hantering av **företagsprogram** och utveckla nya program med den **program Registret**.
 
 ## <a name="problems-with-application-development"></a>Problem med att utveckla program
-Följande länkar leder till en innehållskarta som hjälper dig att lösa några av de vanligaste problem som du kan stöta på när du hanterar **företagsprogram** i Azure Active Directory.
+Följande länkar leder till en innehållskarta som hjälper dig att lösa några av de vanligaste problem med programutveckling med den **programmet registret** i Azure Active Directory.
 
 * [Problem med konfiguration och registrering](active-directory-application-dev-config-content-map.md)
 * [Problem med att utveckla program](active-directory-application-dev-development-content-map.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Översikt över hybridanslutningar
 
@@ -90,12 +90,12 @@ Följande TCP-portar används av hybridanslutningar:
 | 80, 443 |Dessa portar används för vissa databegäranden till Azure. Om portarna 9352 och 5671 inte kan användas, kommer *ändå* portarna 80 och 443 vara återställningsportar för dataöverföring och kontrollkanal.<br/><br/>Tillåt utgående anslutningar till dessa portar. <br/><br/>**Observera** Vi rekommenderar inte att använda dessa som återställningsportar i stället för de andra TCP-portarna. HTTP/WebSocket används som protokoll i stället för intern TCP för datakanaler. Det kan leda till lägre prestanda. |
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa och hantera hybridanslutningar](integration-hybrid-connection-create-manage.md)<br/>
+[Skapa och hantera hybridanslutningar](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Se även
-[REST API för att hantera BizTalk Services i Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
-[Skapa en BizTalk-tjänst med Azure-portalen](biztalk-provision-services.md)<br/>
-[BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API för att hantera BizTalk Services i Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)  
+[Skapa en BizTalk-tjänst](biztalk-provision-services.md)  
+[BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Stream Analytics?](stream-analytics-introduction.md)
 ## [Jämför Storm och Stream Analytics](stream-analytics-comparison-storm.md)
 
@@ -17,6 +18,7 @@
 ### [Stream Analytics på IoT Edge (förhandsversion)](stream-analytics-edge.md)
 ### [Avvikelseidentifiering i Azure-användningsguiden (förhandsgranskning)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Handelssimulering med hög frekvens med Stream Analytics](stream-analytics-high-frequency-trading.md)
+### [Azure Functions med Azure Stream Analytics](stream-analytics-with-azure-functions.md)
 
 ## Skapa jobb
 ### [Skapa indata](stream-analytics-define-inputs.md)
@@ -35,7 +37,7 @@
 
 ## Använda Visual Studio-verktyg
 ### [Installera](stream-analytics-tools-for-visual-studio-install.md)
-### [Kom igång](stream-analytics-tools-for-visual-studio.md)
+### [Komma igång](stream-analytics-tools-for-visual-studio.md)
 ### [Konfigurera CI/CD-pipelines](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Övervaka och optimera
@@ -51,6 +53,7 @@
 ## Hantera
 ### [Rotera autentiseringsuppgifter för in- och utdata](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Tillförlitlighet för jobb under uppdateringar](stream-analytics-job-reliability.md)
+### [Konfigurera kompatibilitetsnivå](stream-analytics-compatibility-level.md)
 
 ## Felsöka
 ### [Felsökningsguide](stream-analytics-troubleshooting-guide.md)

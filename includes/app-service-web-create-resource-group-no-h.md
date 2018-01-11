@@ -1,4 +1,4 @@
-Skapa en resursgrupp i Cloud Shell med kommandot [az group create](/cli/azure/group#az_group_create).
+Skapa en resursgrupp i Cloud Shell med kommandot [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 

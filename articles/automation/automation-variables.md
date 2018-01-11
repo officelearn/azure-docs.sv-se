@@ -3,7 +3,7 @@ title: "Variabeln tillgångar i Azure Automation | Microsoft Docs"
 description: "Variabeln tillgångar är värden som är tillgängliga för alla runbooks och i Azure Automation DSC-konfigurationer.  Den här artikeln beskriver hur du variabler och hur du arbetar med dem i både text och grafiska redigering."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d3b04dcc856d4637cf7029701a5e169d3096d15c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabeln tillgångar i Azure Automation
 
@@ -47,8 +47,8 @@ Här följer en lista över variabla typer som är tillgängliga i Automation:
 
 * Sträng
 * Integer
-* Datum och tid
-* Booleskt värde
+* DateTime
+* Boolesk
 * Null
 
 ## <a name="scripting-the-creation-and-management-of-variables"></a>Skapa och hantera variabler-skript
@@ -96,10 +96,10 @@ Den [ny AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.a
 
 Följande exempelkommandon visar hur du skapar en variabel av typen string och returnerar sedan värdet.
 
-    New-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" 
+    New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
     –Encrypted $false –Value 'My String'
-    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
+    $string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 
 Följande exempelkommandon visar hur du skapar en variabel med en komplex typ och återgå sedan dess egenskaper. I det här fallet en virtuell dator objekt från **Get-AzureRmVm** används.
@@ -125,8 +125,8 @@ Använd den **Set-automationvariable,** aktivitet för att ange värdet för ett
 
 Följande exempelkommandon visar hur du ställer in och hämtar en variabel i text-runbook. I det här exemplet förutsätts att variabler av typen heltal med namnet *NumberOfIterations* och *NumberOfRunnings* och en variabel av typen sträng med namnet *SampleMessage* redan har skapats.
 
-    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+    $NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
     $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
     
     Write-Output "Runbook has been run $NumberOfRunnings times."
@@ -134,7 +134,7 @@ Följande exempelkommandon visar hur du ställer in och hämtar en variabel i te
     for ($i = 1; $i -le $NumberOfIterations; $i++) {
        Write-Output "$i`: $SampleMessage"
     }
-    Set-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+    Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 #### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>Ställa in och hämta ett komplext objekt i en variabel
 

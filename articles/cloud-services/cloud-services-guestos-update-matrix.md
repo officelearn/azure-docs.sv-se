@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsmatris
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgradering innan ett gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* Gästoperativsystem uppdateras enligt beskrivningen i [Azure gäst-OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -42,6 +42,14 @@ Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem slä
 Osäker på om vilka Gästoperativsystem är eller hur gäst-OS släpper arbete? Läs [detta](#how-it-works) avsnitt.
 
 ## <a name="news-updates"></a>Nyheter
+###### <a name="january-4-2018"></a>**4 januari 2018**
+Gästoperativsystem januari har släppts för OS-familjer 4 (WA-GÄST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) och innehåller viktiga säkerhetskorrigeringar.  
+
+###### <a name="january-4-2018"></a>**4 januari 2018**
+December Gästoperativsystem har publicerat.
+
+###### <a name="december-14-2017"></a>**14 december 2017**
+November Gästoperativsystem har publicerat.
 
 ###### <a name="november-8-2017"></a>**8 november 2017**
 Oktober Gästoperativsystem har publicerat.
@@ -67,12 +75,6 @@ Juni Gästoperativsystem har publicerat.
 ###### <a name="june-16-2017"></a>**16 juni 2017**
 Juni gäst-OS-distributionen startar 16 juni och har en planerade version av 11 juli.
 
-###### <a name="june-5-2017"></a>**5 juni 2017**
-Gästoperativsystem kan har publicerat.
-
-###### <a name="may-17-2017"></a>**Den 17 maj 2017**
-På grund av ett programfel för säkerhet kan vi inaktiverar följande December 2016 och januari 2017 OS-versioner som inte har den [åtgärda] från portalen: WA-GÄST-OS-5.4_201612-01, WA-GÄST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
-
 
 ## <a name="releases"></a>Versioner
 ## <a name="family-5-releases"></a>Familj 5 versioner
@@ -88,16 +90,18 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-02 |8 november 2017 |Bokför 5.14 |TBD |
-| WA-GUEST-OS-5.11_201709-01 |6 oktober 2017 |Post 5.13 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |24 augusti 2017 |Post 5.12 |TBD |
+| WA-GUEST-OS-5.15_201801-01 |4 januari 2018 |Bokför 5,17 |TBD |
+| WA-GUEST-OS-5.14_201712-01 |4 januari 2018 |Post 5.16 |TBD |
+| WA-GUEST-OS-5.13_201711-01 |14 december 2017 |Bokför 5.15 |TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
+|~~WA-GUEST-OS-5.10_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 januari 2017 |5 juni 2017|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |14 december 2016 |9 kan 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Familj 4 versioner
 **Windows Server 2012 R2**
@@ -111,16 +115,18 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-02 |8 november 2017 |Bokför 4.49 |TBD |
-| WA-GUEST-OS-4.46_201709-01 |6 oktober 2017 |Bokför 4.48 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |24 augusti 2017 |Bokför 4.47 |TBD |
+| WA-GUEST-OS-4.50_201801-01 |4 januari 2018 |Bokför 4.52 |TBD |
+| WA-GUEST-OS-4.49_201712-01 |4 januari 2018 |Bokför 4.51 |TBD |
+| WA-GUEST-OS-4.48_201711-01 |14 december 2017 |Bokför 4,50 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
+|~~WA-GUEST-OS-4.45_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 januari 2017 |5 juni 2017 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |14 december 2016 |9 kan 2017 |TBD |
 
 ## <a name="family-3-releases"></a>Familj 3-versioner
 **Windows Server 2012**
@@ -134,16 +140,17 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-02 |8 november 2017 |Post 3.56 |TBD |
-| WA-GUEST-OS-3.53_201709-01 |6 oktober 2017 |Bokför 3.55 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |24 augusti 2017 |Bokför 3.54 |TBD |
+| WA-GUEST-OS-3.56_201712-01 |4 januari 2018 |Post 3,58 |TBD |
+| WA-GUEST-OS-3.55_201711-01 |14 december 2017 |Bokför 3.57 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 kan 2017 |3 augusti 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 januari 2017 |5 juni 2017 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |14 december 2016 |9 kan 2017 |TBD |
 
 ## <a name="family-2-releases"></a>Familj 2 versioner
 **Windows Server 2008 R2 SP1**
@@ -157,9 +164,11 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum | Utgångna datum |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-02 |8 november 2017 |Post 2.69 |TBD |
-| WA-GUEST-OS-2.66_201709-01 |6 oktober 2017 |Bokför 2.68 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |24 augusti 2017 |Bokför 2.67 |TBD |
+| WA-GUEST-OS-2.69_201712-01 |4 januari 2018 |Post 2.71 |TBD |
+| WA-GUEST-OS-2.68_201711-01 |14 december 2017 |Bokför 2.70 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |8 november 2017 |4 januari 2018 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |6 oktober 2017 |14 december 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |24 augusti 2017 |14 december 2017 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 augusti 2017 |8 november 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 juli 2017 |6 oktober 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 juni 2017 |24 augusti 2017 |TBD |
@@ -167,7 +176,6 @@ På grund av ett programfel för säkerhet kan vi inaktiverar följande December
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 april 2017 |7 juli 2017 |TBD |
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 januari 2017 |5 juni 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 januari 2017 |9 kan 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |14 december 2016 |10 april 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC patch-uppdateringar
@@ -244,4 +252,4 @@ Principen för Gästoperativsystem support och tillbakadragning förklaras [här
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[åtgärda]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

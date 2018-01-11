@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Överföring Data 2.0 (förhandsgranskning) lösning i logganalys
 
@@ -58,7 +58,7 @@ Wire-Data hämtar data från Microsoft Beroendeagent. Agenten beroende beror på
 
 | **Ansluten datakälla** | **Stöds** | **Beskrivning** |
 | --- | --- | --- |
-| Windows-agenter | Ja | Wire-Data analyserar och samlar in data från datorer med Windows-agenten. <br><br> Förutom den [OMS-Agent](log-analytics-windows-agents.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
+| Windows-agenter | Ja | Wire-Data analyserar och samlar in data från datorer med Windows-agenten. <br><br> Förutom den [OMS-Agent](log-analytics-windows-agent.md), Windows-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
 | Linux-agenter | Ja | Wire-Data analyserar och samlar in data från datorer för Linux-agenten.<br><br> Förutom den [OMS-Agent](log-analytics-quick-collect-linux-computer.md), Linux-agenter kräver Microsoft Beroendeagent. Finns det [operativsystem](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) för en fullständig lista över versioner av operativsystemet. |
 | System Center Operations Manager-hanteringsgrupp | Ja | Wire-Data analyserar och samlar in data från Windows- och Linux-agenter i en ansluten [System Center Operations Manager-hanteringsgruppen](log-analytics-om-agents.md). <br><br> Det krävs en direkt anslutning från System Center Operations Manager-agentdatorn till logganalys. Till logganalys vidarebefordras data från hanteringsgruppen. |
 | Azure Storage-konto | Nej | Wire-Data samlar in data från agentdatorer, så det finns inga data från det att samla in från Azure Storage. |
@@ -208,7 +208,7 @@ Beroende-agenten är installerad på Windows-datorer via InstallDependencyAgent 
 
 Använd följande steg för att installera agenten beroende på varje dator som kör Windows:
 
-1. Installera OMS-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-windows-agents.md).
+1. Installera OMS-agenten följa stegen i [samla in data från Windows-datorer i din miljö](log-analytics-windows-agent.md).
 2. Hämta Windows beroende agenten med hjälp av länken i föregående avsnitt och kör sedan med hjälp av följande kommando:`InstallDependencyAgent-Windows.exe`
 3. Följ guiden för att installera agenten.
 4. Om agenten beroende inte startar kontrollerar du loggfilerna för Detaljerad felinformation. Loggkatalogen är %Programfiles%\Microsoft beroende Agent\logs för Windows-agenter.

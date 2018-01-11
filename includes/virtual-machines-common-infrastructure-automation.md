@@ -40,12 +40,12 @@ Lär dig att:
 - [Distribuera Puppet från Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
 
 
-## <a name="cloud-init"></a>molnet initiering
+## <a name="cloud-init"></a>Cloud-init
 [Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init anropas under den ursprungliga startprocessen, finns det inga ytterligare steg eller nödvändiga agenter att tillämpa konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer finns i [molnet init dokumentationsplatsen](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`är textfiler i base64-kodade.
 
 Molnet init fungerar även över distributioner. Exempelvis kan du inte använda **lgh get installera** eller **yum installera** att installera ett paket. I stället kan du definiera en lista över paket som ska installeras. Molnet init används automatiskt det ursprungliga paket hanteringsverktyget för distro som du väljer.
 
- Vi arbetar aktivt med våra påtecknade Linux distro partners för att molnet init aktiverat bilder som finns i Azure marketplace. Dessa avbildningar gör dina molntjänster init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och Virtuella skala uppsättningar (VMSS). I följande tabell beskrivs aktuella molnet init aktiverat bilder tillgängligheten på Azure-plattformen:
+ Vi arbetar aktivt med våra påtecknade Linux distro partners för att molnet init aktiverat bilder som finns i Azure marketplace. Dessa avbildningar gör dina molntjänster init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och virtuella datorer. I följande tabell beskrivs aktuella molnet init aktiverat bilder tillgängligheten på Azure-plattformen:
 
 | Utgivare | Erbjudande | SKU | Version | redo för molnet initiering
 |:--- |:--- |:--- |:--- |:--- |:--- |

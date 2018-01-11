@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
 Den här artikeln sammanfattar Metodtips för [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -35,9 +35,9 @@ Det är bäst för Azure-resurser genom att skriva en lösning, till exempel ett
 När du ser en app förbrukar mer minne än förväntat som anges via övervakning eller tjänsterekommendationer Tänk den [App Service automatisk återställning funktionen](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Något av alternativen för funktionen för automatisk återställning tar anpassade åtgärder baserat på ett tröskelvärde för minne. Åtgärder span spektrumet från e-postmeddelanden till undersökningen via minnesdump till på platsen minskning av återvinning för arbetsprocessen. Automatisk återställning kan konfigureras via web.config och via ett eget användargränssnitt enligt beskrivningen i i det här blogginlägget för den [App webbtjänsttillägget Support webbplats](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
 ## <a name="CPUresources"></a>När appar konsumera mycket mer Processorkraft än väntat
-När du upptäcker att en app förbrukar mer CPU än förväntat eller inträffar upprepas processoranvändning som anges via övervakning eller tjänsterekommendationer Överväg att skala upp eller skala ut App Service-plan. Om ditt program är statefull, är skala upp det enda alternativet medan om ditt program är tillståndslös, skala ut får du större flexibilitet och högre risk för skalan. 
+När du upptäcker att en app förbrukar mer CPU än förväntat eller inträffar upprepas processoranvändning som anges via övervakning eller tjänsterekommendationer Överväg att skala upp eller skala ut App Service-plan. Om ditt program är tillståndskänslig är skala upp det enda alternativet medan om ditt program är tillståndslös, skala ut får du större flexibilitet och högre risk för skalan. 
 
-Mer information om ”statefull” eller ”tillståndslösa” program kan du titta på den här videon: [planera en skalbar slutpunkt till slutpunkt Flernivåapp på Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och autoskalning i Apptjänst: [skala en Webbapp i Azure App Service](web-sites-scale.md).  
+Mer information om ”tillståndskänslig” eller ”tillståndslösa” program kan du titta på den här videon: [planera en skalbar slutpunkt till slutpunkt Flernivåapp på Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för skalning och autoskalning i Apptjänst: [skala en Webbapp i Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>När socketen resurserna är uttömda
 En vanlig orsak till lång körningstid förbrukar utgående TCP-anslutningar är användningen av klientbibliotek som inte implementeras återanvända TCP-anslutningar eller om ett högre nivå protokoll, till exempel HTTP - Keep-Alive inte utnyttjas. Granska dokumentationen för varje bibliotek som refereras av appar i din App Service-Plan så konfigureras eller komma åt i koden för effektiv användning av utgående anslutningar. Du kan även följa biblioteket dokumentationen vägledning för rätt skapas och versionen eller rensning för att undvika läcka anslutningar. När sådana klientbibliotek de pågår påverkas kan undvikas genom att skala ut till flera instanser.

@@ -4,7 +4,7 @@ description: "Få svar på vanliga frågor och svar om virtuella datorer."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Skala virtuell Azure-dator Anger vanliga frågor och svar
 
@@ -73,7 +73,7 @@ Används på värdnivå CPU måttet och ett meddelande count-mått.
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hur ställer jag in Varningsregler i en skaluppsättning för virtuell dator?
 
-Du kan skapa aviseringar för mått för skalningsuppsättningar i virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [Azure-Monitor PowerShell snabb start prover](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure-Monitor plattformsoberoende CLI snabb start exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Du kan skapa aviseringar för mått för skalningsuppsättningar i virtuella datorer via PowerShell eller Azure CLI. Mer information finns i [PowerShell för Azure-Monitor quickstart prover](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) och [Azure-Monitor plattformsoberoende CLI quickstart exempel](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 TargetResourceId för virtuella datorns skaluppsättning ser ut så här: 
 
@@ -185,9 +185,9 @@ Inkludera **osProfile** i mallen:
 }
 ```
  
-Det här JSON-blocket används i [101-vm-sshkey GitHub Snabbstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Det här JSON-blocket används i [101-vm-sshkey GitHub quickstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-OS-profil används också i [grelayhost.json GitHub quick start mallen](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+OS-profil används också i [grelayhost.json GitHub quickstart mallen](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 Mer information finns i [skapa eller uppdatera en virtuell dator skaluppsättning](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
@@ -219,10 +219,10 @@ Du kan ange offentliga SSH-nycklar i klartext när du skapar en Linux VM:
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | --- |  ---
 SSH | Nej | Samling | Anger den nyckel SSH-konfigurationen för ett Linux-operativsystem
-Sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
+sökväg | Ja | Sträng | Anger sökväg till Linux där SSH-nycklar eller certifikat ska hittas
 nyckeldata | Ja | Sträng | Anger en base64-kodad SSH offentlig nyckel
 
-Ett exempel finns [101-vm-sshkey GitHub Snabbstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Ett exempel finns [101-vm-sshkey GitHub quickstart mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När kör `Update-AzureRmVmss` efter att lägga till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
@@ -257,7 +257,7 @@ Om du anger ett felaktigt källa valvet ID men en giltig key vault-URL, rapporte
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Om jag lägger till hemligheter i en befintlig ange virtuella datorn, är hemligheter som läggs in i befintliga virtuella datorer eller bara nya? 
 
-Certifikat har lagts till alla dina virtuella datorer, även redan befintliga viktiga. Om din virtuella skaluppsättning upgradePolicy egenskap är inställd på **manuell**, certifikatet har lagts till den virtuella datorn när du utför en manuell uppdatering på den virtuella datorn.
+Certifikat har lagts till alla dina virtuella datorer, även före befintliga. Om din virtuella skaluppsättning upgradePolicy egenskap är inställd på **manuell**, certifikatet har lagts till den virtuella datorn när du utför en manuell uppdatering på den virtuella datorn.
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Där placera certifikat för Linux virtuella datorer?
 
@@ -281,7 +281,7 @@ Om du återavbilda en virtuell dator tas certifikat bort. Återställning av avb
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Vad händer om du tar bort ett certifikat från nyckelvalvet?
 
-Om hemligheten som tas bort från nyckelvalvet och sedan kör `stop deallocate` för dina virtuella datorer och starta sedan om dem igen, inträffar ett fel. Felet beror på att CRP måste hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från den virtuella datorn skala modellen. 
+Om hemligheten som tas bort från nyckelvalvet och sedan kör `stop deallocate` för dina virtuella datorer och starta sedan om dem igen, om det uppstår ett fel. Felet beror på att CRP måste hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från den virtuella datorn skala modellen. 
 
 CRP-komponenten inte har behållits kunden hemligheter. Om du kör `stop deallocate` för alla virtuella datorer i virtuella datorns skaluppsättning cacheminnet har tagits bort. I det här scenariot hämtas hemligheter från nyckelvalvet.
 
@@ -291,9 +291,9 @@ Det uppstår inte här problemet när skala ut eftersom det inte finns en cachel
  
 Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten som om versionen inte har angetts.
  
-Metod | URL: EN
+Metod | Webbadress
 --- | ---
-HÄMTA | https://mykeyvault.Vault.Azure.NET/secrets/ {hemlighet name} / {hemlighet version}? api-version = {api-version}
+GET | https://mykeyvault.Vault.Azure.NET/secrets/ {hemlighet name} / {hemlighet version}? api-version = {api-version}
 
 Ersätt {*hemlighet namn*} med namnet och Ersätt {*hemlighet version*} med versionen av den hemlighet som du vill hämta. Den hemliga versionen kan inte uteslutas. I så fall hämtas den aktuella versionen.
   
@@ -337,7 +337,7 @@ Från ett kompatibilitetsperspektiv är VM-skalningsuppsättningar en grundlägg
 
 Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>Har [Azure hanterade tjänstidentiteten](https://docs.microsoft.com/azure/active-directory/msi-overview) fungerar med skalningsuppsättningar?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Har [Azure hanterade tjänstidentiteten](https://docs.microsoft.com/azure/active-directory/msi-overview) arbeta med virtuella datorer?
 
 Ja. Du kan se några exempel MSI-mallar i Azure Quickstart-mallar. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -369,24 +369,30 @@ Mer information om tillägg ordningsföljd i skalningsuppsättningar i virtuella
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hur Återställ lösenordet för virtuella datorer i min skaluppsättning för virtuell dator?
 
-Om du vill återställa lösenordet för virtuella datorer i din skaluppsättning för virtuell dator, Använd VM access-tillägg. 
+Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer i skalningsuppsättningar.
 
-Använd följande PowerShell-exempel:
+- Ändra den virtuella datorn skala modellen direkt. Tillgängligt med Compute API 2017-12-01 och senare.
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+    Uppdatera administratörsautentiseringsuppgifter direkt i scale set-modellen (till exempel med resursutforskaren i Azure, PowerShell eller CLI). När skaluppsättning är uppdaterad och alla nya har virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har de nya autentiseringsuppgifterna bara om de avbildade. 
+
+- Återställa lösenordet med hjälp av access-tillägg för virtuell dator.
+
+    Använd följande PowerShell-exempel:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
+
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur lägger jag till ett tillägg till alla virtuella datorer i min skaluppsättning för virtuell dator?
 
 Om principen anges till **automatisk**, omdistribuera mallen med de nya egenskaperna för webbtjänsttillägg uppdaterar alla virtuella datorer.
@@ -461,7 +467,7 @@ Om du vill köra ett anpassat skript som finns i ett privat lagringskonto konfig
 
 ## <a name="networking"></a>Nätverk
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Är det möjligt att tilldela en Nätverkssäkerhetsgrupp (NSG) till en skalningsuppsättning så att den gäller för alla Virtuella nätverkskort i uppsättningen?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Är det möjligt att tilldela en Nätverkssäkerhetsgrupp (NSG) till en skalningsuppsättning så att den gäller för alla Virtuella nätverkskort i uppsättningen?
 
 Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skala som refererar till den i avsnittet networkInterfaceConfigurations i nätverksprofilen. Exempel:
 
@@ -517,11 +523,11 @@ För att distribuera en virtuell dator skala inställd på befintliga Azure-nät
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hur lägger jag till IP-adressen för den första virtuella datorn i en virtuell dator skala inställd på utdata från en mall
 
-Om du vill lägga till IP-adressen för den första virtuella datorn i en virtuell dator skala inställd på utdata från en mall finns [ARM: hämta VMSS privata IP-adresser](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Om du vill lägga till IP-adressen för den första virtuella datorn i en virtuell dator skala inställd på utdata från en mall finns [Azure Resource Manager: Get privata IP-adresser för virtuella skalningsuppsättningarna](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan jag använda skaluppsättningar med snabbare nätverk?
 
-Ja. Om du vill använda snabbare nätverksfunktioner, ange enableAcceleratedNetworking till true i ditt skala uppsättningens networkInterfaceConfigurations inställningar. T.ex.
+Ja. Om du vill använda snabbare nätverksfunktioner, ange enableAcceleratedNetworking till true i ditt skala uppsättningens networkInterfaceConfigurations inställningar. Exempel
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -543,7 +549,7 @@ Ja. Om du vill använda snabbare nätverksfunktioner, ange enableAcceleratedNetw
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Hur kan jag konfigurera DNS-servrar som används av en skalningsuppsättning?
 
-Lägg till ett dnsSettings JSON-paket till avsnittet scale set networkInterfaceConfigurations för att skapa en VM-skala med en anpassad DNS-konfiguration. Exempel:
+Lägg till ett dnsSettings JSON-paket till avsnittet scale set networkInterfaceConfigurations för att skapa en virtuell dator-skala med en anpassad DNS-konfiguration. Exempel:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -552,7 +558,7 @@ Lägg till ett dnsSettings JSON-paket till avsnittet scale set networkInterfaceC
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hur konfigurerar en skala som anger att tilldela en offentlig IP-adress till varje virtuell dator?
 
-Om du vill skapa en skaluppsättning för virtuell dator som tilldelar en offentlig IP-adress till varje virtuell dator, se till att API-versionen av resursen Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 och Lägg till en _publicipaddressconfiguration_ JSON-paketet till skalan ange ipConfigurations avsnitt. Exempel:
+Om du vill skapa en skaluppsättning för virtuell dator som tilldelar en offentlig IP-adress till varje virtuell dator, kontrollera att API-versionen av resursen Microsoft.Compute/virtualMAchineScaleSets är 2017-03-30 och lägga till en _publicipaddressconfiguration_ JSON paketet till skalan ange ipConfigurations avsnitt. Exempel:
 
 ```json
     "publicipaddressconfiguration": {
@@ -577,7 +583,7 @@ En annan orsak kan du skapa en virtuell dator-skala med färre än två virtuell
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hur ändrar numret för virtuella datorer i en skaluppsättning för virtuell dator?
 
-Om du vill ändra hur många virtuella datorer i en virtuell dator skaluppsättningen i Azure-portalen från skalan VM ställer egenskapsavsnittet, klickar du på bladet ”skalning” och använder skjutreglaget. Andra sätt att ändra instansantal, se [ändra instansantalet för en virtuella datorns skaluppsättning](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Om du vill ändra hur många virtuella datorer i en virtuell dator skaluppsättningen i Azure-portalen från virtuella datorns skaluppsättning ställer egenskapsavsnittet, klickar du på bladet ”skalning” och använder skjutreglaget. Andra sätt att ändra instansantal, se [ändra instansantalet för en virtuella datorns skaluppsättning](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hur jag för att definiera anpassade aviseringar för när vissa trösklar har uppnåtts?
 
@@ -651,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Du hittar den nödvändiga workspaceId och workspaceKey i OMS-portalen. Klicka på panelen inställningar på sidan Översikt. Klicka på fliken anslutna källor längst upp.
 
-Obs: om din skalan _upgradePolicy_ anges till manuellt måste du tillämpa tillägget till alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta skulle i CLI vara _az vmss update-instanser_.
+Obs: om din skalan _upgradePolicy_ är inställd på manuell, måste du använda tillägget till alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta skulle i CLI vara _az vmss update-instanser_.
 
 ## <a name="troubleshooting"></a>Felsökning
 

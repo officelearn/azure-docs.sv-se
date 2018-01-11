@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -29,7 +29,7 @@ Om du är en Visual Studio C# utvecklare Azure Functions även [kan integreras m
 >[!IMPORTANT]  
 > Blanda inte lokal utveckling med portalen utveckling i appen med samma funktion. När du skapar och publicera funktioner från ett lokalt projekt bör du inte försöka underhåll eller ändra Projektkod i portalen.
 
-## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core-verktyg
+## <a name="install-the-azure-functions-core-tools"></a>Installera Azure Functions Core Tools
 
 [Azure Functions grundläggande verktyg] är en lokal version av Azure Functions-runtime som du kan köra på utvecklingsdatorn lokala. Det är inte en emulator eller simulatorn. Det är samma körningsmiljön som stänger fungerar i Azure. Det finns två versioner av Azure Functions Core verktyg, en för version 1.x av runtime och en för version 2.x. Båda versionerna tillhandahålls som ett [npm paketet](https://docs.npmjs.com/getting-started/what-is-npm).
 
@@ -132,7 +132,7 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 | **Värden** | Samling av programinställningar som används när du kör lokalt. **AzureWebJobsStorage** och **AzureWebJobsDashboard** är exempel, en fullständig lista, se [app inställningsreferens](functions-app-settings.md).  |
 | **Värden** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. | 
 | **LocalHttpPort** | Anger den standardport som används när du kör den lokala värden funktioner (`func host start` och `func run`). Den `--port` kommandoradsalternativet har högre prioritet än detta värde. |
-| **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (**\***) stöds, vilket gör att begäranden från alla ursprung. |
+| **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från alla ursprung. |
 | **ConnectionStrings** | Innehåller databasanslutningssträngar för dina funktioner. Anslutningssträngar i det här objektet har lagts till i miljön med providern **System.Data.SqlClient**.  | 
 
 De flesta utlösare och bindningar har en **anslutning** egenskap som mappas till namnet på en miljöinställning för variabeln eller app. För varje anslutning-egenskap måste det finnas appinställningen som definierats i local.settings.json-filen. 

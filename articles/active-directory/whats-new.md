@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9e2186839648ffc6492cd64cb140cc767729d189
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
 
 
 
-> Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på detta [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) i din favorit RSS-feed läsare.
+> Hålla dig uppdaterad med vad är nytt i Azure Active Directory genom att prenumerera på vår [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -41,6 +41,163 @@ Vi förbättrar Azure Active Directory med jämna mellanrum. Om du vill aktivera
 
 Du besöker sidan regelbundet vi uppdateras varje månad.
 
+
+## <a name="december-2017"></a>December 2017
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Villkor för användning på åtkomstpanelen för slutanvändare
+
+**Typ:** ny funktion  
+**Tjänstekategori:** villkor för användning  
+**Produkten kapaciteten:** styrning/kompatibilitet
+ 
+Användarna har nu möjlighet att gå till åtkomstpanelen och visa användningsvillkoren som tidigare har accepterat.
+
+Användare kan granska och se användningsvillkoren som de har godkänt. Detta kan göras på följande sätt:
+
+1. Navigera och logga in på den [MyApps portal](https://myapps.microsoft.com).
+
+2. Klicka på ditt namn i övre högra hörnet och välj **Profil** i listrutan. 
+
+3. Klicka på **Granska användningsvillkoren** på din profil. 
+
+4. Därifrån kan du granska användningsvillkoren som du har accepterat. 
+
+Mer information finns i [Azure Active Directory användningsvillkoren funktionen (förhandsgranskning)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nya Azure AD-inloggningsupplevelsen
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Azure AD  
+**Produkten kapaciteten:** användarautentisering
+ 
+Som en del av transporten att Konvergera i Azure AD och identitetssystem för Microsoft-konto, vi har designats om Användargränssnittet på båda systemen så att de har ett konsekvent utseende. Vi har dessutom sidbrytning inloggningssidan för Azure AD så att vi samlar in användarnamnet först, följt av autentiseringsuppgifter på en annan skärm.
+
+Mer information finns i [ny inloggning i Azure AD-miljö är nu tillgänglig som förhandsversion](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Färre inloggningsprompter: en ny ”jag vill förbli inloggad” upplevelse för Azure AD-inloggning
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Azure AD  
+**Produkten kapaciteten:** användarautentisering
+ 
+Vi har ersatts av **Håll mig inloggad** kryssruta på inloggningssidan för Azure AD med en ny fråga som visas när användaren har autentiserar. 
+
+Om en användare svarar **Ja** till den här uppmaningen tjänsten ger dem en beständig uppdateringstoken. Det här är samma beteende som när användaren kontrollerar den **Håll mig inloggad** kryssrutan i gamla upplevelsen. För federerade klienter visas varningen när användaren har autentiseras med den federerade tjänsten.
+
+Mer information finns i [färre inloggningsprompter: ”Jag vill förbli inloggad” avanmäla för Azure AD är en förhandsversion](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Lägg till konfigurationen för att kräva som ska expanderas innan du godkänner villkoren.
+
+**Typ:** ny funktion  
+**Tjänstekategori:** villkor för användning  
+**Produkten kapaciteten:** styrning
+ 
+Nu har vi lagt till ett alternativ för administratörer att kräva slutanvändarna att expandera användningsvillkoren innan du godkänner villkoren.
+
+Välj antingen aktivera eller inaktivera för användarna att expandera användningsvillkoren. Om det här är aktiverat måste slutanvändarna läsa villkoren innan de accepterar dem.
+
+Mer information finns i [Azure Active Directory användningsvillkoren funktionen (förhandsgranskning)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Begränsade aktivering för berättigade rolltilldelningar
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Privileged Identity Management  
+**Produkten kapaciteten:** Privileged Identity Management
+ 
+Begränsade aktivering kan du aktivera berättigade Azure-resurs rolltilldelningar med mindre självständigt än de ursprungliga tilldelningen standardvärdena. Till exempel tilldelas ägare för en prenumeration i din klient. Med begränsade aktivering, kan du aktivera ägare för upp till fem resurser som ingår i prenumerationen (tror resursgrupper, virtuella datorer, etc...). Ange omfång aktiveringen kan minska risken för körning oönskade ändringar av kritiska Azure-resurser.
+
+Mer information finns i [vad är Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nya federerade appar i Azure AD app-galleriet
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapaciteten:** 3 part integrering
+ 
+I December 2017 har vi lagt till stöd för följande nya appar i vår App galleriet med Federation:
+
+|Namn|Integrering av typen|Beskrivning|
+|:-- |----------------|:----------|
+|EFI digitala StoreFront|SAML 2.0|[Skriv ut webbprogrammet 2](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Använda Azure AD för att hantera användarnas åtkomst och aktivera enkel inloggning med Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Kräver ett befintligt Vodeclic-konto.|
+|Accredible|SAML 2.0|[Skapa, hantera och ge certifikat, Aktivitetsikoner och blockchain autentiseringsuppgifter](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Enkel inloggning till Factset's FDSWeb program](https://go.microsoft.com/fwlink/?linkid=863525)|
+|MobileIron Azure AD-integrering|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) mål är att aktivera modern företag att skydda och hantera information som flyttas till mobile och till molnet samtidigt som slutanvändaren sekretess och förtroende.|
+|BILD FUNGERAR|SAML 2.0|Använda Azure AD för att hantera användarnas åtkomst, etablera användarkonton och aktivera enkel inloggning med [AVBILDNINGEN fungerar](https://go.microsoft.com/fwlink/?linkid=863517). Kräver en befintlig avbildning fungerar prenumeration.|
+|SAML SSO för Bitbucket resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegater autentisering till Azure AD, användare redan loggat in till Azure AD kan komma åt Bitbucket direkt. Användare kan skapas och uppdateras på direkt med data från SAML-attribut.|
+|SAML SSO för bambu resolution GmbH|SAML 2.0|[SSO bambu](https://go.microsoft.com/fwlink/?linkid=863520) delegater autentisering till Azure AD, användare redan loggat in till Azure AD kan komma åt bambu direkt.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) är komplett funktionalitet och modern sociala intranät programvaran som har stöd för dina anställda och din verksamhet.|
+|MOBI|SAML 2.0|[Centralisera, förstå och kontrollera hela enheten-ekosystemet](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) är en modern plattform för hantering av prestanda, realtid Feedback och målsättning. Vi gör det lättare för anställda att köra sina egna utveckling, så att du kan vara mer strategiska.|
+|CybSafe|OpenID Connect & OAuth|CybSafe är en GCHQ-certifierade cyber medvetenhet plattform. Den använder avancerad teknik och dataanalys för att minska visat mänsklig aspekt av cyber informationssäkerhet och riskhantering för skydd av data.|
+|WebHR|OpenID Connect & OAuth|Alla favorit i-ett sociala HR programvara. Betrodd av fler än 20 000 företag i 197 länder|
+ |Zenegy Azure AD-integrering|OpenID Connect & OAuth|Du kan använda ditt företags Azure Active Directory-autentiseringsuppgifter med den här appen för att logga in på Zenegy.|
+|Adobe upplevelse Manager|SAML 2.0|Adobe upplevelse Manager (AEM) är en omfattande innehållshantering plattform lösning för att skapa webbplatser, mobilappar och formulär - vilket gör det enkelt att hantera marknadsföring innehåll och tillgångar.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Godkännandearbetsflöden för Azure AD directory roller
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** Privileged Identity Management  
+**Produkten kapaciteten:** Privileged Identity Management
+ 
+Arbetsflöde för godkännande för Azure AD directory roller är allmänt tillgänglig.
+
+Med arbetsflöden för godkännande kräver Privilegierade rollen administratörer berättigade rollmedlemmar begär rollaktivering innan de kan använda den privilegierade rollen.
+Flera användare och grupper kan vara delegerade godkännande ansvarsområden berättigade rollmedlemmar ta emot meddelanden när godkännandet är klar och deras roll är aktiv
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Direkt-autentisering - Skype för företag-support
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** autentiseringar (inloggningar)  
+**Produkten kapaciteten:** användarautentisering
+
+
+Direkt-autentisering stöder nu användarinloggningar till Skype för företag-klientprogram som stöder modern autentisering, inklusive Online och Hybrid-topologier. 
+
+Mer information finns i [Skype för företag-topologier som stöds med Modern autentisering](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Uppdateringar till Azure Active Directory Privileged Identity Management (PIM) för Azure RBAC (förhandsgranskning)
+
+**Typ:** ändrade funktionen  
+**Tjänstekategori:** PIM  
+**Produkten kapaciteten:** Privileged Identity Management
+ 
+Med vår offentliga Preview uppdatera av Azure Active Directory Privileged Identity Management (PIM) för Azure RBAC, kan du nu:
+
+Använd bara tillräckligt Administration kräver godkännande för att aktivera resursroller för schemalägga en framtida aktivering av en roll som kräver godkännande för både AAD och Azure RBAC-roller
+
+ 
+Mer information finns i [PIM för Azure-resurser (förhandsgranskning)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>November 2017
  
 ### <a name="retiring-acs"></a>Ta bort ACS
@@ -178,7 +335,7 @@ Följande villkor och kontroller är nu tillgängliga för användning med app-b
 
 **Klienten appar villkor**
 
-- Mobilappar och skrivbordsklienter
+- Mobila appar och skrivbordsklienter
 
 **Åtkomstkontroll**
 
@@ -513,6 +670,6 @@ En samlad snabbkorrigering (build 4.4.1642.0) är tillgängliga från och med 25
 - Är en kumulativ uppdatering som ersätter alla uppdateringar i MIM 2016 SP1 upp till build 4.4.1459.0 för Microsoft Identity Manager 2016. 
 - Du måste ha **Microsoft Identity Manager 2016 skapa 4.4.1302.0.** 
 
-Mer information finns i [samlade paketet (build 4.4.1642.0) är tillgängligt för Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+Mer information finns i [samlade paketet (build 4.4.1642.0) är tillgängligt för Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---

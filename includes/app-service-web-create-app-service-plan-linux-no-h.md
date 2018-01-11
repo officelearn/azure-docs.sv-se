@@ -1,4 +1,4 @@
-Skapa en apptjänstplan i resursgruppen med molnet Shell, den [az programtjänstplan skapa](/cli/azure/appservice/plan#az_appservice_plan_create) kommando.
+Skapa en apptjänstplan i resursgruppen med molnet Shell, den [az programtjänstplan skapa](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) kommando.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

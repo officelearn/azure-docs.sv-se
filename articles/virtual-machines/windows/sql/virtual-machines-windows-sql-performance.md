@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Prestandametodtips för SQL Server på virtuella Azure-datorer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Det här avsnittet innehåller metodtips för att optimera prestanda för SQL Server i Microsoft Azure-dator. När du kör SQL Server i Azure Virtual Machines, rekommenderar vi att du fortsätter med den samma databas alternativen för prestandajustering som gäller för SQL Server i lokal server-miljö. Prestanda i en relationsdatabas i ett offentligt moln beror dock på många faktorer, till exempel storleken på en virtuell dator och konfigurationen av datadiskar.
 
-När du skapar SQL Server-avbildningar, [överväga etablering dina virtuella datorer i Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server-datorer som etablerats på portalen med Resource Manager implementera alla bästa praxis, inklusive lagringskonfiguration.
+När du skapar SQL Server-avbildningar, [överväga etablering dina virtuella datorer i Azure portal](virtual-machines-windows-portal-sql-server-provision.md). SQL Server-datorer som etablerats på portalen med Resource Manager följer bästa praxis.
 
 Den här artikeln fokuserar på att få den *bästa* prestanda för SQL Server på virtuella Azure-datorer. Om din arbetsbelastning är mindre systemresurser, kanske inte kräver varje optimering nedan. Överväg att dina prestandabehov och mönster för arbetsbelastningen som du utvärdera de här rekommendationerna.
 
@@ -90,6 +90,9 @@ För virtuella datorer som har stöd för Premium-lagring (DS-serien, DSv2-serie
 ### <a name="data-disks"></a>Datadiskar
 
 * **Använd datadiskar för data och loggfiler**: minst 2 Premium-lagring som använder [P30 diskar](../premium-storage.md#scalability-and-performance-targets) där en disk som innehåller loggfilerna och den andra innehåller data och filer på TempDB. Varje disk i Premium-lagring finns ett antal IOPs och bandbredd (MB/s) beroende på dess storlek, enligt beskrivningen i följande artikel: [med Premium-lagring för diskar](../premium-storage.md).
+
+   > [!NOTE]
+   > När du etablerar en SQL Server-VM i portalen har du möjlighet att redigera din lagringskonfiguration. Beroende på din konfiguration konfigurerar Azure du en eller flera diskar. Flera diskar kombineras till en enskild lagringspool med striping. Både data och loggfilen filer finnas tillsammans i den här konfigurationen i stället för två separata diskar. Mer information finns i [lagringskonfigurationen för SQL Server-datorer](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Disk-Striping**: för snabbare dataflöde kan du lägga till ytterligare datadiskar och använda Disk Striping. För att fastställa antalet datadiskar som du behöver analysera antalet IOPS och bandbredd som krävs för din loggfilerna och dina data och filer på TempDB. Observera att olika storlekar på VM har olika begränsningar för antalet IOPs och bandbredd som stöds, se tabellerna på IOPS per [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Använd följande riktlinjer:
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda genom att använda InMemory-tekniker i SQL-databas
 
@@ -77,9 +77,7 @@ Djupgående video om tekniker:
 
 Minnesintern OLTP innehåller minnesoptimerade tabeller som används för lagring av användardata. Dessa tabeller krävs för att få plats i minnet. Eftersom du hantera minne direkt i SQL Database-tjänsten har vi konceptet för en kvot för användardata. Den här idén kallas *Minnesintern OLTP lagring*.
 
-Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Vid tidpunkten för skrivning får du ett GB lagringsutrymme för varje 125 datatransaktionsenheter (Dtu) eller elastiska datatransaktionsenheter (edtu: er).
-
-Den [SQL Database servicenivåer](sql-database-service-tiers.md) artikel har officiella listan Minnesintern OLTP-lagring som är tillgängliga för varje fristående databasen och stöds elastisk pool prisnivån.
+Varje stöds fristående databas prisnivå och varje elastisk pool prisnivån innehåller mängden lagringsutrymme som OLTP i minnet. Vid tidpunkten för skrivning får du ett GB lagringsutrymme för varje 125 datatransaktionsenheter (Dtu) eller elastiska datatransaktionsenheter (edtu: er). Mer information finns i [gränserna för](sql-database-resource-limits.md).
 
 Följande objekt räknas in i din Minnesintern OLTP lagring cap:
 

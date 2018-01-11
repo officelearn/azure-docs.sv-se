@@ -4,7 +4,7 @@ description: "Lär dig hur du använder Mobilappar för att autentisera använda
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
-manager: syntaxc4
+manager: crdun
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: e3e8c843437558c6d5d3a3c39bed1e647f852b18
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Lägg till autentisering i appen Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du autentiserar användare i en Apptjänst Mobile App från klientprogrammet. I kursen får du lägger till autentisering i Xamarin Forms quickstart projektet som en identitetsleverantör som stöds av App Service. Efter att har autentiseras och auktoriseras av din Mobilapp användar-ID-värde visas och du kommer att kunna få åtkomst till begränsade tabelldata.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För bästa resultat med den här självstudiekursen, rekommenderar vi att du först slutföra den [skapa en app i Xamarin Forms] [ 1] kursen. När den här kursen har du en Xamarin Forms-projekt som är en app för flera plattformar TodoList.
 
 Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket projektet. Mer information om server tilläggspaket finns [arbeta med serverdelen .NET SDK för Azure Mobile Apps][2].

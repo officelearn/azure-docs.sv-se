@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Skapa en principtilldelning för att identifiera icke-kompatibla resurser i Azure-miljön med Azure CLI
 
 Det första steget för att förstå efterlevnad i Azure är att veta hur du ligger till med dina befintliga resurser. Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
 
 I slutet av den här processen kommer du att ha lyckats identifiera virtuella datorer som inte använder hanterade diskar och därför är *icke-kompatibla*.
-.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="opt-in-to-azure-policy"></a>Välja Azure Policy
-
-Azure Policy finns nu som en allmänt tillgänglig förhandsversion och du måste registrera dig för att begära åtkomst.
-
-1. Gå till Azure Policy på https://aka.ms/getpolicy och välj **Registrera dig** i det vänstra fönstret.
-
-   ![Sök efter princip](media/assign-policy-definition/sign-up.png)
-
-2. Välj att använda Azure Policy genom att välja de prenumerationer i listan **Prenumeration** som du vill arbeta med. Välj sedan **Registrera**.
-
-   ![Välja att använda Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Din begäran godkänns automatiskt för förhandsversionen. Det kan ta upp till 30 minuter innan systemet har behandlat registreringen.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
@@ -66,7 +51,7 @@ Ange följande information och kör följande kommando för att tilldela princip
 - **Policy** – detta är principdefinitionen som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionen *Granska virtuella datorer utan Managed Disks*.
 - **Scope** – en omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper.
 
-  Använd prenumerationen (eller resursgruppen) som du registrerade tidigare när du valde Azure Policy. I det här exemplet använder vi prenumerations-ID:t **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** och resursgruppen med namnet **FabrikamOMS**. Kom ihåg att ändra dessa till ditt prenumerations-ID och namnet på den resursgrupp som du arbetar med.
+  Använd den prenumeration (eller resursgrupp) som du registrerade tidigare. I det här exemplet använder vi detta prenumerations-ID – **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** och detta resursgruppsnamn – **FabrikamOMS**. Kom ihåg att ändra dessa till ditt prenumerations-ID och namnet på den resursgrupp som du arbetar med.
 
 Så här ska kommandot se ut:
 

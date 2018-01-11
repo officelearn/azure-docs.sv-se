@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure Security Center | Microsoft Docs
+title: "Vad är Azure Security Center? | Microsoft Docs"
 description: "Här får du lära dig om Azure Security Center, de viktigaste funktionerna och hur Security Center fungerar."
 services: security-center
 documentationcenter: na
@@ -12,65 +12,105 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 01/08/2018
 ms.author: terrylan
-ms.openlocfilehash: 21415af0d449d639d000e07afdb4de3680a64774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a54b8d2a73807aa9a0217f7ccf971b8c516494
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="introduction-to-azure-security-center"></a>Introduktion till Azure Security Center
-Här får du lära dig om Azure Security Center, de viktigaste funktionerna och hur Security Center fungerar.
+# <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
+Azure Security Center ger enhetlig hantering och skydd avancerade över hybrid cloud arbetsbelastningar. Med Security Center kan du tillämpa säkerhetsprinciper på din arbetsbelastning, begränsa din utsättas för hot, och identifiera och svara på attacker.
 
-## <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
-Azure Security Center ger enhetlig hantering och avancerade threat protection för arbetsbelastningar som körs i Azure, lokalt och i andra moln.  Den ger synlighet och kontroll över hybrid cloud arbetsbelastningar, aktiva försvar som minskar din utsättas för hot och intelligent identifiering som hjälper dig att hålla jämna steg med utvecklas snabbt cyberattacks.
+Varför ska man använda Security Center?
 
-Security Center översikten ger en snabb överblick över säkerhetstillståndet på Azure och Azure-arbetsbelastningar, vilket gör det lättare att identifiera och utvärdera säkerheten för dina arbetsbelastningar och att identifiera och minimera risker.
+- **Centraliserad hantering av Grupprincip** – säkerställa efterlevnad med företagets eller reglerande säkerhetskrav genom att hantera principer centralt över alla dina hybrid cloud arbetsbelastningar.
+- **Kontinuerlig security assessment** – övervaka säkerheten för datorer, nätverk, lagring och data tjänster och program för att identifiera potentiella säkerhetsproblem.
+- **Rekommenderade åtgärder** – åtgärda säkerhetsproblem innan de kan utnyttjas av angripare med prioriterad och tillämplig säkerhetsrekommendationer.
+- **Avancerade molnet försvar** – minska hot med just-in-time-åtkomst mot hanteringsportar och vitlistning styra program som körs på din virtuella dator.
+- **Prioritera aviseringar och incidenter** -fokuserar på de mest kritiska hot först med-prioriteras på säkerhetsaviseringar och incidenter.
+- **Integrerad säkerhetslösningar** – samla in, söka och analysera säkerhetsdata från olika källor, till exempel anslutna partnerlösningar.
 
-![Översikt](./media/security-center-intro/security-center-intro-fig1.png)
+Den **Security Center - översikt** ger en snabb överblick över säkerhetstillståndet på Azure och Azure-arbetsbelastningar, vilket gör det lättare att identifiera och utvärdera säkerheten för dina arbetsbelastningar och att identifiera och minimera risker. Inbyggda instrumentpanelen innehåller omedelbara insikter om säkerhetsaviseringar och säkerhetsproblem som kräver uppmärksamhet.
 
-## <a name="why-use-security-center"></a>Varför ska man använda Security Center?
+![Översikt][1]
 
-**Enhetlig synlighet och kontroll**
+## <a name="centralized-policy-management"></a>Centraliserad hantering av principer
+En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastningarna och hjälper till att säkerställa efterlevnaden av företagets eller bestämmelsemässiga säkerhetskrav. I Security Center Definiera principer och anpassa dem till din typ av arbetsbelastning eller känslighet för dina data.
 
-- **Förstå säkerhetstillstånd över hybrid arbetsbelastningar**. Hantera säkerhet i alla dina hybrid cloud arbetsbelastningar – lokalt, Azure och andra molnplattformar – i en enda konsol. Inbyggda instrumentpaneler ange omedelbara insikter om säkerhetsproblem som kräver uppmärksamhet.
-- **Inblick i molnarbetsbelastningar**. Hålla jämna steg med snabbt ändra molnarbetsbelastningar. Identifiera automatiskt och publicera nya resurser som skapats i Azure-prenumerationer.
-- **Centraliserad hantering av**. Kontrollera efterlevnad av företaget eller reglerande säkerhetskrav genom att hantera principer centralt över alla dina hybrid cloud arbetsbelastningar.
-- **Säkerhetsdata från flera källor**. Samla in, söka och analysera säkerhetsdata från olika källor, till exempel anslutna partnerlösningar som nätverkets brandväggar och andra Microsoft-tjänster. 
-- **Integrering med befintliga säkerhet arbetsflöden**. Komma åt, integrera och analysera säkerhetsinformation med hjälp av REST API: er för att ansluta befintliga verktyg och processer.
-- **Rapportering av kompatibilitet**. Använda säkerhetsdata och insikter för att demonstrera efterlevnad och enkelt skapa bevis för granskare.
+Security Center-principer innehåller följande komponenter:
 
-**Anpassningsbar hot förebyggande**
+- **Datainsamling**: avgör agent etablering och säkerhet [datainsamling](security-center-enable-data-collection.md) inställningar.
+- **Säkerhetsprincip**: avgöra vilka styr Security Center Övervakare och rekommenderar genom att redigera den [säkerhetsprincip](security-center-policies.md).
+- **E-postmeddelanden**: Anger säkerhet kontakter och [meddelanden via e-](security-center-provide-security-contact-details.md) inställningar.
+- **Prisnivån**: definierar lediga eller Standard [priser markeringen](security-center-pricing.md). Den nivå som du väljer avgör vilka Security Center-funktioner är tillgängliga för resurser i sitt omfång.
 
-- **Kontinuerlig security assessment**. Övervakar säkerheten för datorer, nätverk och Azure-tjänster med hjälp av inbyggda säkerhet bedömningar hundratals eller skapa egna. Identifiera programvara och konfigurationer som är sårbar för attacker.
-- **Rekommenderade åtgärder**. Åtgärda säkerhetsproblem innan de kan utnyttjas av angripare med prioriterade, tillämplig säkerhetsrekommendationer och inbyggda automation playbooks.
-- **Anpassningsbar programkontroller**. Blockera skadlig kod och andra oönskade program genom att använda vitlistning rekommendationer anpassade till din specifika Azure arbetsbelastningar och drivs av maskininlärning. 
-- **Nätverkssäkerhet åtkomst**. Minska nätverket risken för angrepp med just-in-time, kontrollerad åtkomst till hanteringsportar på Azure Virtual Machines, vilket drastiskt minskar risken för brute force och andra nätverksattacker.
+![Säkerhetsprincip][2]
 
-**Intelligent hotidentifiering och -svar**
+Se [principer Säkerhetsöversikt](security-center-policies-overview.md) för mer information.
 
-- **Branschens mest omfattande hot intelligence**. Utnyttja Microsoft Intelligent säkerhet Graph, som använder BILJONTALS signaler från Microsoft-tjänster och system över hela världen för att identifiera nya och utvecklande hot.
-- **Avancerade hotidentifiering**. Använda inbyggda beteendeanalys och maskininlärning att identifiera attacker och noll-dagars kryphål. Övervaka nätverk, datorer och molntjänster för att se inkommande attacker och aktiviteter efter intrång.
-- **Prioritera aviseringar och incidenter**. Fokusera på de mest kritiska hot först med prioritetssorterade säkerhetsaviseringar och incidenter som mappa aviseringar av olika typer i en enda attack kampanj. Skapa egna anpassade säkerhetsaviseringar samt.
-- **Effektiv undersökningen**. Snabbt bedöma omfång och effekten av en attack med en visuell, interaktiva upplevelse. Använda fördefinierade eller ad hoc-frågor för ingående undersökning av säkerhetsdata. 
-- **Kontextuella hotinformation**. Visualisera källan för attacker mot en interaktiv world-mappning. Använda inbyggda hot intelligence rapporter för att få värdefulla insikter i de tekniker och målen för kända skadliga aktörer.
+## <a name="continuous-security-assessment"></a>Kontinuerlig security assessment
+Security Center analyserar säkerhetstillståndet hos dina beräkningsresurser, virtuella nätverk, lagring och datatjänster och program. Kontinuerlig kontroll hjälper dig att identifiera potentiella säkerhetsproblem, till exempel system som saknar säkerhetsuppdateringar eller exponerade nätverksportar. Välj en panel i avsnittet förebyggande om du vill visa mer information, inklusive en lista över resurser och eventuella säkerhetsproblem har identifierats.
 
-## <a name="get-started"></a>Kom igång
-Om du vill komma igång med Security Center, måste en prenumeration på Microsoft Azure. Security Center aktiveras genom Azure-prenumerationen. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/). 
+![Övervakning av säkerhetshälsa][3]
 
-[Komma igång med Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) snabbt får du hjälp-säkerhetsövervakning och principhantering komponenterna i Security Center. 
+Se [övervakning av säkerhetshälsa](security-center-monitoring.md) för mer information.
 
+## <a name="actionable-recommendations"></a>Rekommenderade åtgärder
+Security Center analyserar säkerhetsläget för Azure och Azure-resurser för att identifiera potentiella säkerhetsrisker. En lista med prioriterade säkerhetsrekommendationer guidar dig genom processen för adressering säkerhetsproblem.
+
+![Rekommendationer][4]
+
+Se [hantera säkerhetsrekommendationer](security-center-recommendations.md) för mer information.
+
+## <a name="just-in-time-vm-access"></a>Just-in-time-åtkomst till virtuell dator
+Minska risken för angrepp nätverk med precis i tid, kontrollerad åtkomst till hanteringsportar på Azure Virtual Machines, vilket drastiskt minskar risken för brute force och andra nätverksattacker.
+
+![Just-in-time-åtkomst till virtuell dator][5]
+
+Ange regler för hur användare kan ansluta till virtuella datorer. Vid behov, kan åtkomst begäras från Security Center eller via PowerShell. Förutsatt att begäran uppfyller reglerna, beviljas automatiskt åtkomst för den begärda tiden.
+
+Se [hantera virtuella åtkomst med hjälp av precis i tid](security-center-just-in-time.md) för mer information.
+
+## <a name="adaptive-application-controls"></a>Anpassningsbara programkontroller
+Blockera skadlig kod och andra oönskade program genom att använda vitlistning rekommendationer anpassade till din specifika Azure arbetsbelastningar och drivs av maskininlärning.
+
+![Anpassningsbara programkontroller][6]
+
+Granska och klicka om du vill tillämpa de rekommenderade vitlistning av regler som genereras av Security Center eller redigera regler som redan har konfigurerats.
+
+Se [anpassningsbar programkontroller](security-center-adaptive-application.md) för mer information.
+
+## <a name="prioritized-alerts-and-incidents"></a>Prioritetsklassade aviseringar och incidenter
+Security Center använder avancerade analyser och globala hotinformation att upptäcka inkommande attacker och bryter mot aktivitet efter. Aviseringar är prioriteras och grupperade i incidenter, hjälpa du fokusera på de mest kritiska hot först. Du kan skapa egna anpassade säkerhetsaviseringar samt.
+
+![Prioritetsklassade aviseringar och incidenter][7]
+
+Du kan snabbt bedöma omfattningen och konsekvenserna av en attack med en undersökning visual, interaktiva upplevelse och använder fördefinierade eller ad hoc-frågor för ingående undersökning av säkerhetsdata.
+
+Se [hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md) för mer information.
+
+## <a name="integrate-your-security-solutions"></a>Integrera din säkerhetslösningar
+Du kan samla in, söka och analysera säkerhetsdata från olika källor, till exempel anslutna partnerlösningar som nätverkets brandväggar och andra Microsoft-tjänster i Security Center.
+
+![Integrera säkerhetslösningar][8]
+
+Se [integrera säkerhetslösningar](security-center-partner-integration.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du fått lära dig grunderna om Security Center, de viktigaste funktionerna och hur du kommer igång. Mer information finns i följande resurser:
 
-* [Planerings- och operations guide i Azure Security Center](security-center-planning-and-operations-guide.md) – Lär dig hur du optimerar användningen av Security Center utifrån din organisations säkerhetskrav och molnhanteringsmodell.
-* [Ställa in säkerhetsprinciper](https://docs.microsoft.com/azure/security-center/security-center-policies) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
-* [Hantera säkerhetsrekommendationer](https://docs.microsoft.com/azure/security-center/security-center-recommendations) – Lär dig rekommendationer för att skydda dina Azure och Azure-resurser.
-* [Övervakning av säkerhetshälsa](https://docs.microsoft.com/azure/security-center/security-center-monitoring) – Lär dig att övervaka hälsotillståndet för Azure och Azure-resurserna.
-* [Hantera och åtgärda säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar](https://docs.microsoft.com/azure/security-center/security-center-partner-solutions) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor om Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq) – finns vanliga frågor om hur du använder Security Center.
+- Om du vill komma igång med Security Center, måste en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+- Security Center kostnadsfria prisnivån aktiveras med din Azure-prenumeration. Om du vill dra nytta av avancerad säkerhet hanterings- och hot identifiering, måste du uppgradera till Standard prisnivån. Standard-nivån är kostnadsfri de första 60 dagarna. Finns det [Security Center sida med priser](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
+- Om du är redo att aktivera Security Center Standard nu den [Snabbstartsguide: publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) vägleder dig genom stegen.
 
 
+<!--Image references-->
+[1]: ./media/security-center-intro/overview.png
+[2]: ./media/security-center-intro/security-policy.png
+[3]: ./media/security-center-intro/compute.png
+[4]: ./media/security-center-intro/recommendations.png
+[5]: ./media/security-center-intro/just-in-time-vm-access.png
+[6]: ./media/security-center-intro/adaptive-app-controls.png
+[7]: ./media/security-center-intro/security-alerts.png
+[8]: ./media/security-center-intro/security-solutions.png

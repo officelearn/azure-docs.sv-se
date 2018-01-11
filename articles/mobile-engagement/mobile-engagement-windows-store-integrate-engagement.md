@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows Universal-appar Engagement SDK-Integration
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Om du vill ange vid körning i stället kan du anropa metoden följande innan En
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-Anslutningssträngen för ditt program visas på den klassiska Azure-portalen.
+Anslutningssträngen för ditt program visas på Azure Portal.
 
 ### <a name="engagement-initialization"></a>Initieringen av engagement
 När du skapar ett nytt projekt, en `App.xaml.cs` -filen har genererats. Den här klassen som ärver från `Application` och innehåller många viktiga metoder. Den också används för att initiera Engagement SDK.

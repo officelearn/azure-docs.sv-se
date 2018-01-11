@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Säkerhetskopiera virtuella Linux-datorer i Azure
 
@@ -45,7 +45,7 @@ När dataöverföringen har slutförts ögonblicksbilden tas bort och skapa en �
 ## <a name="create-a-backup"></a>Skapa en säkerhetskopia
 Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-valv. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Virtuella datorer** på menyn till vänster. 
 3. Välj en virtuell dator som du vill säkerhetskopiera i listan.
 4. På VM-blad i den **inställningar** klickar du på **säkerhetskopiering**. Den **Aktivera säkerhetskopiering** blad öppnas.
@@ -62,7 +62,7 @@ Den första säkerhetskopieringen tar ungefär 20 minuter. När säkerhetskopier
 
 ## <a name="restore-a-file"></a>Återställa en fil
 
-Om du tar bort av misstag eller göra ändringar i en fil, kan du använda filåterställning för att återställa filen från din säkerhetskopieringsvalvet. Filåterställning använder ett skript som körs på den virtuella datorn att montera återställningspunkten som lokal enhet. Dessa enheter förblir monterade 12 timmar så att du kan kopiera filer från återställningspunkten och återställa dem till den virtuella datorn.  
+Om du tar bort av misstag eller göra ändringar i en fil, kan du använda filåterställning för att återställa filen från din säkerhetskopieringsvalvet. Filåterställning använder ett skript som körs på den virtuella datorn att montera återställningspunkten som en lokal enhet. Dessa enheter förblir monterade 12 timmar så att du kan kopiera filer från återställningspunkten och återställa dem till den virtuella datorn.  
 
 I det här exemplet visar vi hur du återställer standard nginx webbsida /var/www/html/index.nginx-debian.html. Offentliga IP-adressen för våra VM i det här exemplet är *13.69.75.209*. Du kan hitta IP-adressen för din virtuella datorn med hjälp av:
 
@@ -157,7 +157,7 @@ I det här exemplet visar vi hur du återställer standard nginx webbsida /var/w
 
     ![Standard nginx-webbsida](./media/tutorial-backup-vms/nginx-working.png)
 
-18. På den lokala datorn, gå tillbaka till fliken för Azure-portalen och i **steg3: demontera diskarna efter återställningen** klickar du på den **demontera diskar** knappen. Om du glömmer att göra det här steget är anslutningen till monteringspunkt Stäng automatiskt efter 12 timmar. Du måste hämta ett nytt skript om du vill skapa en ny monteringspunkt efter dessa 12 timmar.
+18. På den lokala datorn, gå tillbaka till fliken för Azure-portalen och i **steg3: demontera diskarna efter återställningen** klickar du på den **demontera diskar** knappen. Om du glömmer att göra det här steget stängs anslutningen till monteringspunkt automatiskt efter 12 timmar. Du måste hämta ett nytt skript om du vill skapa en ny monteringspunkt efter dessa 12 timmar.
 
 
 ## <a name="next-steps"></a>Nästa steg

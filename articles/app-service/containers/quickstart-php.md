@@ -15,21 +15,25 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 4d0cbe09b1482221f88e57eed249fc2b56eec10d
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Skapa en PHP-webbapp i App Service on Linux
 
-Med [App Service on Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service on Linux. Du skapar webbappen med inbyggd avbildning med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-koden till webbappen.
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en PHP-webbapp i Azure](../app-service-web-get-started-php.md).
+>
+
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service on Linux. Du skapar webbappen med inbyggd avbildning med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-koden till webbappen.
 
 ![Exempelapp som körs i Azure]](media/quickstart-php/hello-world-in-browser.png)
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -55,7 +59,7 @@ Kör programmet lokalt genom att öppna ett terminalfönster och använda komman
 php -S localhost:8080
 ```
 
-Öppna webbläsaren och navigera till exempelappen på `http://localhost:8080`.
+Öppna en webbläsare och navigera till exempelappen på `http://localhost:8080`.
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
@@ -75,7 +79,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt  _&lt;appnamn >_ med namnet på din webbapp.
+Gå till webbplatsen för att se din nya webbapp med den inbyggda avbildningen. Ersätt _&lt;app name>_ med namnet på din webbapp.
 
 ```bash
 http://<app_name>.azurewebsites.net

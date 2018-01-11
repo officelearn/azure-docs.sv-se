@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 Den här artikeln beskriver hur du kör en disaster recovery-gå till Azure, med ett redundanstest för Site Recovery.  
 
-Du kan köra ett redundanstest för att verifiera dina replikering och strategi för katastrofåterställning reecovery utan avbrott eller dataförlust. Testa redundans påverkar inte pågående replikering eller din produktionsmiljö. Du kan köra ett redundanstest på en specifik virtuell dator (VM), eller på en [återställningsplanen](site-recovery-create-recovery-plans.md) som innehåller flera virtuella datorer. 
+Du kan köra ett redundanstest för att verifiera dina replikering och strategi för katastrofåterställning utan avbrott eller dataförlust. Testa redundans påverkar inte pågående replikering eller din produktionsmiljö. Du kan köra ett redundanstest på en specifik virtuell dator (VM), eller på en [återställningsplanen](site-recovery-create-recovery-plans.md) som innehåller flera virtuella datorer. 
 
 
 ## <a name="run-a-test-failover"></a>Köra ett redundanstest

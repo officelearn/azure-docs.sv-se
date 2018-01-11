@@ -3,8 +3,8 @@ title: "Arbeta med Apptjänst Mobilappar hanterade klientbiblioteket (Windows | 
 description: "Lär dig hur du använder en .NET-klient för Azure Apptjänst Mobilappar med Windows och Xamarin-appar."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),

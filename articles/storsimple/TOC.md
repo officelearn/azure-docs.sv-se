@@ -1,6 +1,7 @@
 # StorSimple virtuell matris
 
 ## Översikt
+
 ### [Vad är lösningen?](storsimple-ova-overview.md)
 ### [Regional tillgänglighet](storsimple-regions.md)
 
@@ -38,7 +39,6 @@
 #### [Hantera ACR:er](storsimple-virtual-array-manage-acrs.md)
 #### [Hantera jobb](storsimple-virtual-array-manage-jobs.md)
 #### [Ändra enhetens lösenord](storsimple-virtual-array-change-device-admin-password.md)
-#### [Konfigurera MPIO på Windows Server-värden](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Övervaka med aviseringar](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnostisera och felsöka](storsimple-virtual-array-diagnose-problems.md)
 #### [Logga supportbegäran](storsimple-virtual-array-log-support-ticket.md)
@@ -57,6 +57,7 @@
 # StorSimple 8000-serien (Azure Portal)
 
 ## Översikt
+
 ### [Vad är lösningen?](storsimple-overview.md)
 ### [StorSimple-inlärningskarta](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Säkerhetsöverväganden](storsimple-8000-security.md)
@@ -206,6 +207,7 @@
 # StorSimple Data Manager (privat förhandsgranskning)
 
 ## Översikt
+
 ### [Vad är lösningen?](storsimple-data-manager-overview.md)
 
 ## Kom igång
@@ -219,6 +221,7 @@
 # StorSimple för partner
 
 ## Översikt
+
 ### [Vad är lösningen?](storsimple-partner-csp-overview.md)
 
 ## Kom igång

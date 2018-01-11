@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: 93bd267adfac0d2dd5c22d2d7ac79b0643f5cded
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-java"></a>Slutanvändarens autentisering med Data Lake Store använder Java
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 I den här artikeln får information du om hur du använder Java SDK för att göra slutanvändarens autentisering med Azure Data Lake Store. Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av Java SDK, se [tjänst-till-tjänst-autentisering med Data Lake Store med Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarens autentisering med Data Lake Store med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).

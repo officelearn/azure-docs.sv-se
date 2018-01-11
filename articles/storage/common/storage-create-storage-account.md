@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Om Azure-lagringskonton
 
@@ -99,7 +99,7 @@ När du har skapat ditt lagringskonto kan du ändra kontots konfiguration och ti
 
 Om du ändrar replikeringsalternativ så ändras ditt pris. Mer information finns på sidan med [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-För Blob Storage-konton kan det utgå avgifter för ändringen av åtkomstnivå, förutom prisändringen. Mer information finns i avsnittet om [priser och fakturering för Blob Storage-konton](../blobs/storage-account-options.md#pricing-and-billing).
+För Blob Storage-konton kan det utgå avgifter för ändringen av åtkomstnivå, förutom prisändringen. Mer information finns i avsnittet om [priser och fakturering för Blob Storage-konton](storage-account-options.md#pricing-and-billing).
 
 ### <a name="manage-your-storage-access-keys"></a>Hantera dina åtkomstnycklar för lagring
 När du skapar ett lagringskonto genererar Azure två 512-bitars åtkomstnycklar för lagring, som används för autentisering när lagringskontot används. Eftersom två åtkomstnycklar för lagring genereras kan du återskapa nycklarna utan avbrott i lagringstjänsten eller i åtkomsten till den tjänsten.

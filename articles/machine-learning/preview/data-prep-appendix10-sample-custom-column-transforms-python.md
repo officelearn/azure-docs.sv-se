@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 143031ce804f4a8dcd4e328c413478f5ea669090
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Exempel på anpassade kolumnen transformeringar (Python) 
 Namnet på den här transformeringen i menyn är **Add Column (skript)**.
@@ -54,6 +54,12 @@ Antal sekunder sedan Unix-epok (antagande om Kol1 är redan ett datum):
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
+## <a name="hash-a-column-value-into-a-new-column"></a>Hash-värde i kolumnen till en ny kolumn
+```python
+    import hashlib
+    hash(row["MyColumnToHashCol1"])
+
+```
 
 
 

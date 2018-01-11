@@ -16,7 +16,7 @@ Så här skapar du ett namnområde:
 ### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
 Skapa ett nytt namnområde automatiskt genererar en inledande regel för delad åtkomst signatur (SAS) med en associerad par av primära och sekundära nycklarna varje bevilja fullständig kontroll över alla aspekter av namnområdet. Se [Service Bus-autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) information om hur du skapar ytterligare regler med mer begränsad behörighet för vanliga avsändare och mottagare. Gör så här om du vill kopiera den ursprungliga regeln: 
 
-1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
+1.  Klicka på **alla resurser**, klicka på namnet på nyskapade namnområdet.
 2. I fönstret namnområde klickar du på **principer för delad åtkomst**.
 3. I den **principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
    

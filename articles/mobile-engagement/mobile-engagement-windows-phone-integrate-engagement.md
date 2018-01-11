@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Windows Phone Silverlight Engagement SDK-Integration
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Om du vill ange vid körning i stället kan du anropa metoden följande innan En
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-Anslutningssträngen för ditt program visas på den klassiska Azure-portalen.
+Anslutningssträngen för ditt program visas på Azure Portal.
 
 ### <a name="engagement-initialization"></a>Initieringen av engagement
 När du skapar ett nytt projekt, en `App.xaml.cs` -filen har genererats. Den här klassen som ärver från `Application` och innehåller många viktiga metoder. Den också används för att initiera Engagement SDK.

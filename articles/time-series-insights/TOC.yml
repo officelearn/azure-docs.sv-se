@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: Skala din miljö
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: Hantera resurser med hjälp av mallar
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: Referens
   items:
     - name: Fråge-API

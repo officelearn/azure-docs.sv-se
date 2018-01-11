@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
 ms.author: bradsev;ankarlof;garye
-ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 16442a30f130e7cc9b60d2d9ae9c86d7282471ff
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Skapa anpassade R-moduler i Azure Machine Learning
 Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Det förklarar anpassade R-moduler är och vilka filer som används för att definiera dessa. Det visar hur du skapar filer som definierar en modul och att registrera modulen för distribution i en Machine Learning-arbetsytan. Element och attribut som används i definitionen av den anpassa modulen sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utflöden diskuteras också. 
@@ -28,7 +28,7 @@ Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul 
 ## <a name="what-is-a-custom-r-module"></a>Vad är en anpassad R-modul?
 En **anpassad modul** är en användardefinierad modul som kan överföras till din arbetsyta och köras som en del av en Azure Machine Learning-experiment. En **anpassad R-modul** är en anpassad modul som kör en användardefinierad R-funktion. **R** är ett programmeringsspråk för statistisk databehandling och bilder som ofta används av forskare statistiker och data för att implementera algoritmer. R är för närvarande det enda språk som stöds i anpassade moduler, men stöd för ytterligare språk är schemalagd för framtida versioner.
 
-Anpassade moduler har **förstklassigt status** i Azure Machine Learning i den mening att de kan användas som en annan modul. De kan köras med andra moduler som ingår i publicerade experiment eller visualiseringar. Du har kontroll över den algoritm som implementeras av modulen, indata och utdata portarna som ska användas, modellering parametrar och andra olika runtime-funktioner. Ett experiment som innehåller anpassade moduler kan också publiceras i Cortana Intelligence Gallery lättare att dela.
+Anpassade moduler har **förstklassigt status** i Azure Machine Learning i den mening att de kan användas som en annan modul. De kan köras med andra moduler som ingår i publicerade experiment eller visualiseringar. Du har kontroll över den algoritm som implementeras av modulen, indata och utdata portarna som ska användas, modellering parametrar och andra olika runtime-funktioner. Ett experiment som innehåller anpassade moduler kan också publiceras i Azure AI-galleriet för att enkelt dela.
 
 ## <a name="files-in-a-custom-r-module"></a>Filer i en anpassad R-modul
 En anpassad R-modul har definierats som en .zip-fil som innehåller minst två filer:

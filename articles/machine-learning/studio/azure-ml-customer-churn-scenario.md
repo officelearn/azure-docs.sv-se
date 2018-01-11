@@ -12,39 +12,39 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver en för referensimplementering av en omsättning analys kundprojekt som skapats med hjälp av Azure Machine Learning. I den här artikeln tar vi upp associerade allmänna modeller för att lösa problemet med industriella kunden omsättning helhetsmässigt. Vi mäter också riktighet modeller som har skapats med hjälp av Machine Learning och vi bedöma anvisningarna för ytterligare utveckling.  
+Den här artikeln beskriver en för referensimplementering av en omsättning analys kundprojekt som skapats med hjälp av Azure Machine Learning. I den här artikeln tar vi upp associerade allmänna modeller för att lösa problemet med industriella kunden omsättning helhetsmässigt. Vi också mäta riktighet modeller som har skapats med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 
 ### <a name="acknowledgements"></a>Bekräftelser
 Experimentet har utvecklats och testats av Serge Berger och huvudnamn Data forskare på Microsoft Roger Barga, tidigare produkten Manager för Microsoft Azure Machine Learning. Dokumentation för Azure-teamet om sina kunskaper mycket och tack dem för att dela den här rapporten.
 
 > [!NOTE]
-> Data som används för experimentet är inte tillgänglig. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys finns: [Retail omsättningsuppdateringar modellen mallen](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Data som används för experimentet är inte tillgänglig. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys finns: [Retail omsättningsuppdateringar modellen mallen](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Problemet med kunden omsättning
-Företag i konsumentmarknaden och i alla enterprise sektorer måste hantera omsättning. Ibland omsättningen är för lång tid och påverkar förpolicybeslut. Traditionell lösning är att förutsäga hög benägenheten churners och deras behov via en concierge tjänst, marknadsföringskampanjer, eller genom att tillämpa särskilda dispens. Dessa metoder kan variera från branschen industrin samt även från ett visst konsumenten kluster till ett annat inom samma bransch (till exempel telekommunikation).
+Företag i konsumentmarknaden och i alla enterprise sektorer måste hantera omsättning. Ibland omsättningen är för lång tid och påverkar förpolicybeslut. Traditionell lösning är att förutsäga hög benägenheten churners och deras behov via en concierge tjänst, marknadsföringskampanjer, eller genom att tillämpa särskilda dispens. Dessa metoder kan variera från bransch till bransch. De kan även variera från ett visst konsumenten kluster till ett annat inom samma bransch (till exempel telekommunikation).
 
-Vanliga faktorn är att företag behöver för att minimera dessa ansträngningar för kvarhållning av särskilda kunden. Därför är en fysisk metod att poängsätta varje kund med sannolikheten för omsättning och åtgärda de översta N de. De främsta kunderna kanske de mest lönsamma; i mer avancerade scenarier, till exempel används en vinst funktion under valet av kandidater för särskilda dispens. Dessa överväganden är dock endast en del av heltäckande strategin för att hantera omsättning. Företag måste också ta risken för kontot (och associerade risktolerans) till nivå och kostnaden för åtgärder och rimligt kunden segmentering.  
+Vanliga faktorn är att företag behöver för att minimera dessa ansträngningar för kvarhållning av särskilda kunden. Därför är en fysisk metod att poängsätta varje kund med sannolikheten för omsättning och åtgärda de översta N de. De främsta kunderna kanske de mest lönsamma. En vinst-funktion är till exempel anställd under valet av kandidater för särskilda dispens i mer avancerade scenarier. Dessa överväganden är dock endast en del av fullständig strategin för att hantera omsättning. Företag måste också ta risken för kontot (och associerade risktolerans) till nivå och kostnaden för åtgärder och rimligt kunden segmentering.  
 
 ## <a name="industry-outlook-and-approaches"></a>Branschen outlook och metoder
 Avancerad hantering av omsättning är ett tecken på en mogen bransch. Klassiska exemplet är telekommunikation bransch där prenumeranter kallas ofta växla från en leverantör till en annan. Den här frivilliga omsättning är ett särskilda problem. Dessutom providers skett betydande kunskap om *omsättningsuppdateringar drivrutiner*, som är de faktorer som enheten kunder att växla.
 
-Till exempel är luren eller enhet valet en välkänd kärnan i mobiltelefon business-drivrutin. Därför är en populär princip att subventionera priset på en luren om nya prenumeranter och dra en fullständig pris till befintliga kunder för en uppgradering. Den här principen har tidigare lett till kunder hopping från en leverantör till en annan för att få en ny rabatt som i sin tur har uppmanas leverantörer att förfina sina strategier.
+Till exempel är luren eller enhet valet en välkänd kärnan i mobiltelefon business-drivrutin. Därför är en populär princip att subventionera priset på en luren om nya prenumeranter och debiterar ett fullständig pris till befintliga kunder för en uppgradering. Den här principen har tidigare lett till kunder hopping från en leverantör till en annan för att få en ny rabatt. Det har i sin tur uppmanas leverantörer att förfina sina strategier.
 
-Hög volatil i luren erbjudanden är en faktor som snabbt upphäver modeller av omsättning som baseras på den aktuella luren modeller. Dessutom är mobiltelefoner inte bara telekommunikation enheter; de är också sätt rapporter (Överväg att iPhone) och dessa sociala predictors ligger utanför omfånget för vanliga telekommunikation datauppsättningar.
+Hög volatil i luren erbjudanden är en faktor som snabbt upphäver modeller av omsättning som baseras på den aktuella luren modeller. Dessutom mobiltelefoner är inte bara telekommunikation enheter, de är också sätt rapporter (Överväg att iPhone). Dessa sociala predictors ligger utanför omfånget för vanliga telekommunikation datauppsättningar.
 
 Resultatet för modellering är att du kan utforma en sund princip genom att eliminera kända orsaker till omsättning. Faktum är en kontinuerlig modellering strategi, inklusive klassiska modeller som kvantifiera kategoriska variabler (till exempel beslutsträd) är **obligatoriska**.
 
@@ -109,7 +109,7 @@ Följande diagram visar de data som har använts.
  
 
 > Observera att dessa data är privat och därför modellen och data kan inte delas.
-> Men en liknande modell med offentligt tillgängliga data, finns i det här exemplet experiment i den [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [anger kunden Omsättningsuppdateringar](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Men en liknande modell med offentligt tillgängliga data, finns i det här exemplet experiment i den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/): [anger kunden Omsättningsuppdateringar](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Mer information om hur du kan implementera en modell för analys av omsättning med hjälp av Cortana Intelligence Suite vi rekommenderar också att [den här videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av programchef Wee Hyong Tok. 
 > 
@@ -208,19 +208,9 @@ En spännande funktion kommer i Azure Machine Learning är möjligheten att läg
 Vi hoppas att fortsätta det här avsnittet i framtiden, särskilt rör analyser av stordata.
   
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Det här dokumentet beskriver en sensible metod för att lösa vanliga problem med kunden omsättning med hjälp av ett allmänt ramverk. Vi anses vara en prototyp för resultatfunktioner modeller och implementeras med hjälp av Azure Machine Learning. Slutligen vi för att utvärdera prestanda prototyp lösningens avseende jämförbara algoritmer i SAS.  
 
-**Mer information:**  
-
-Det här dokumentet hjälpa dig? Ge oss din feedback. Berätta för oss på en skala från 1 (dåligt) till 5 (utmärkt), vilket omdöme ger du det här dokumentet och varför har du gett den nivån? Exempel:  
-
-* Är du klassificeringen av den höga på grund av att ha bra exempel, utmärkt skärmdumpar, rensa skrivs, eller en annan orsak?
-* Är du betygsätta det låga på grund av dålig exempel, fuzzy skärmdumpar eller oklart skrivning?  
-
-Denna feedback hjälper oss att förbättra kvaliteten på faktablad vi versionen.   
-
-[Skicka feedback](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Referenser
@@ -232,7 +222,7 @@ Denna feedback hjälper oss att förbättra kvaliteten på faktablad vi versione
 
 [4] [Stordata marknadsföring: engagera kunderna mer effektivt och enheten värde](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [anger omsättningsuppdateringar modellen mallen](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) i [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [anger omsättningsuppdateringar modellen mallen](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) i [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Bilaga

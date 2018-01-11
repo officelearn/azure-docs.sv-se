@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Distribuera ett program med CI/CD: N till ett Service Fabric-kluster
 Den här kursen ingår tre av en serie och beskriver hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-program med Visual Studio Team Services.  Behövs för ett befintligt Service Fabric-program, programmet skapas i [skapar ett .NET-program](service-fabric-tutorial-create-dotnet-app.md) används som exempel.
@@ -44,12 +44,11 @@ Innan du börjar den här kursen:
 - Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installera Visual Studio 2017](https://www.visualstudio.com/) och installera den **Azure-utveckling** och **ASP.NET och web development** arbetsbelastningar.
 - [Installera Service Fabric SDK](service-fabric-get-started.md)
-- Skapa ett Service Fabric-program, till exempel genom [följa de här självstudierna](service-fabric-tutorial-create-dotnet-app.md). 
 - Skapa ett Windows Service Fabric-kluster i Azure, till exempel med [följa de här självstudierna](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Skapa en [Team Services-konto](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet röst
-Om du inte att skapa exempelprogrammet röst [ingår i den här självstudiekursen serie](service-fabric-tutorial-create-dotnet-app.md), du kan ladda ned den. Kör följande kommando för att klona exempel app lagringsplatsen till den lokala datorn i ett kommandofönster.
+Om du inte att skapa exempelprogrammet röst [ingår i den här självstudiekursen serie](service-fabric-tutorial-create-dotnet-app.md), du kan ladda ned den. Kör följande kommando i ett kommandofönster för att klona databasen för exempelappen till den lokala datorn.
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
@@ -83,39 +82,49 @@ En definition av Team Services build beskriver ett arbetsflöde som består av e
 En definition av Team Services versionen beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. Köra i hela arbetsflödet som börjar med källfiler som slutar med ett program som körs i klustret när de används tillsammans build definitionen och versionen definition. Mer information om Team Services [viktiga definitioner](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Skapa en build-definition
-Öppna en webbläsare och gå till det nya projektet för team på: https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting. 
+Öppna en webbläsare och gå till det nya projektet för team på: [https://&lt;MITTKONTO&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Välj den **Skapa & släpper** sedan fliken **bygger**, sedan **+ ny definition**.  I **Välj en mall**, Välj den **Azure Service Fabric-programmet** mall och klicka på **tillämpa**. 
 
 ![Välj build-mall][select-build-template] 
 
-Röstning programmet innehåller ett .NET Core-projekt, så Lägg till en uppgift som återställer beroenden. I den **uppgifter** väljer **+ Lägg till aktivitet** i nedre vänstra hörnet. Sök på ”kommandoraden” för att hitta kommandoradsaktiviteten och klicka sedan på **Lägg till**. 
+I **uppgifter**, anger du ”värd VS2017” som den **Agent kön**. 
 
-![Lägg till aktivitet][add-task] 
+![Välj uppgifter][save-and-queue]
 
-I den nya aktiviteten, anger du ”kör dotnet.exe” i **visningsnamn**, ”dotnet.exe” i **verktyget**, och ”återställa” i **argument**. 
+Under **utlösare**, aktivera kontinuerlig integration genom att ange **utlösa status**.  Välj **spara och kö** manuellt starta en version.  
 
-![Ny aktivitet][new-task] 
+![Välj utlösare][save-and-queue2]
 
-I den **utlösare** klickar du på den **aktivera den här utlösaren** växla **kontinuerlig Integration**. 
-
-Välj **Spara & kö** och anger ”värd VS2017” som den **Agent kön**. Välj **kön** manuellt starta en version.  Bygger också utlösare på push eller incheckning.
-
-Om du vill kontrollera förloppet build växla till den **bygger** fliken.  När du har kontrollerat att bygga körs korrekt kan du definiera en definition av versionen som distribuerar programmet till ett kluster. 
+Bygger också utlösare på push eller incheckning. Om du vill kontrollera förloppet build växla till den **bygger** fliken.  När du har kontrollerat att bygga körs korrekt kan du definiera en definition av versionen som distribuerar programmet till ett kluster. 
 
 ### <a name="create-a-release-definition"></a>Skapa en definition för versionen  
 
-Välj den **Skapa & släpper** sedan fliken **versioner**, sedan **+ ny definition**.  I **skapa versionen definition**, Välj den **Azure Service Fabric-distribution** mall från listan och klickar på **nästa**.  Välj den **skapa** källa, kontrollera den **kontinuerlig distribution** och på **skapa**. 
+Välj den **Skapa & släpper** sedan fliken **versioner**, sedan **+ ny definition**.  I **Välj en mall**, Välj den **Azure Service Fabric-distribution** mall från listan och sedan **tillämpa**.  
 
-I den **miljöer** klickar du på **Lägg till** till höger om **klustret anslutning**.  Ange ett anslutningsnamn ”mysftestcluster”, en klusterslutpunkten för ”tcp://mysftestcluster.westus.cloudapp.azure.com:19000” och Azure Active Directory eller certifikatet autentiseringsuppgifter för klustret. Definiera de autentiseringsuppgifter som du vill använda för att ansluta till klustret i Azure Active Directory-autentiseringsuppgifter för den **användarnamn** och **lösenord** fält. Definiera för certifikatbaserad autentisering Base64-kodning av certifikatfilen klient i den **klientcertifikat** fältet.  Hjälpen popup på fältet för information om hur du hämtar det värdet.  Om certifikatet är lösenordsskyddad, ange lösenordet i den **lösenord** fältet.  Klicka på **spara** att spara versionen-definitionen.
+![Välj versionsmall][select-release-template]
 
-![Lägga till kluster-anslutning][add-cluster-connection] 
+Välj **uppgifter**->**miljö 1** och sedan **+ ny** att lägga till en ny anslutning för klustret.
 
-Klicka på **körs på agent**och välj **finns VS2017** för **distribution kön**. Klicka på **spara** att spara versionen-definitionen.
+![Lägga till kluster-anslutning][add-cluster-connection]
 
-![Körs på agent][run-on-agent]
+I den **lägga till ny Service Fabric-anslutning** Visa Välj **certifikatbaserad** eller **Azure Active Directory** autentisering.  Ange ett anslutningsnamn ”mysftestcluster” och en klusterslutpunkten för ”tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000” (eller slutpunkt i klustret som du distribuerar till). 
 
-Välj **+ släpper** -> **skapa släpper** -> **skapa** att manuellt skapa en version.  Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen i det här exemplet är det ”1.0.0.20170616.3”. 
+För certifikatbaserad autentisering, lägga till den **Server certifikatets tumavtryck** för certifikatet används för att skapa klustret.  I **klientcertifikat**, lägga till Base64-kodning av klienten certifikatfilen. Om fältet för information om hur du hämtar den Base64-kodade representationen av certifikatet finns i Hjälp popup-fönstret. Också lägga till den **lösenord** för certifikatet.  Du kan använda certifikat för kluster eller server om du inte har ett separat klientcertifikat. 
+
+Azure Active Directory-autentiseringsuppgifter för att lägga till den **Server certifikatets tumavtryck** för certifikatet används för att skapa klustret och autentiseringsuppgifterna som du vill använda för att ansluta till klustret i den **användarnamn** och **lösenord** fält. 
+
+Klicka på **Lägg till** spara kluster-anslutningen.
+
+Lägg sedan till ett build-artefakt pipeline så versionen definitionen kan hitta utdata från versionen. Välj **Pipeline** och **artefakter**->**+ Lägg till**.  I **källa (Build definition)**, Välj definitionen för den version som du skapade tidigare.  Klicka på **Lägg till** spara build-artefakt.
+
+![Lägg till artefakt][add-artifact]
+
+Aktivera en utlösare för kontinuerlig distribution så att en version skapas automatiskt när versionen har slutförts. Klicka på ikonen blixtsnabb i artefakten, aktivera utlösaren och på **spara** att spara versionen-definitionen.
+
+![Aktivera utlösare][enable-trigger]
+
+Välj **+ släpper** -> **skapa släpper** -> **skapa** att manuellt skapa en version.  Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen i det här exemplet är det ”1.0.0.20170616.3”. 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Bekräfta och skicka ändringar kan utlösa en Versionspost
 Kontrollera att kontinuerlig integration pipeline fungerar genom att kontrollera kod ändrar till Team Services.    
@@ -134,7 +143,7 @@ Skicka ändringar till Team Services automatiskt utlöser en version.  När buil
 
 Om du vill kontrollera förloppet build växla till den **bygger** fliken i **Team Explorer** i Visual Studio.  När du har kontrollerat att bygga körs korrekt kan du definiera en definition av versionen som distribuerar programmet till ett kluster.
 
-Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till [http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.westus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen i det här exemplet är det ”1.0.0.20170815.3”.
+Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observera programversionen i det här exemplet är det ”1.0.0.20170815.3”.
 
 ![Service Fabric Explorer][sfx1]
 
@@ -168,10 +177,13 @@ Gå vidare till nästa kurs:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
-[add-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddTask.png
-[new-task]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewTask.png
+[save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
+[save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png
+[select-release-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectReleaseTemplate.png
 [set-continuous-integration]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SetContinuousIntegration.png
 [add-cluster-connection]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddClusterConnection.png
+[add-artifact]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/AddArtifact.png
+[enable-trigger]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/EnableTrigger.png
 [sfx1]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX1.png
 [sfx2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX2.png
 [sfx3]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SFX3.png
@@ -182,4 +194,3 @@ Gå vidare till nästa kurs:
 [continuous-delivery-with-VSTS]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/VSTS-Dialog.png
 [new-service-endpoint]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpoint.png
 [new-service-endpoint-dialog]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewServiceEndpointDialog.png
-[run-on-agent]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/RunOnAgent.png

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Skala instansantalet manuellt eller automatiskt
 I den [Azure Portal](https://portal.azure.com/), du kan ange instansantal av tjänsten manuellt eller, du kan ange parametrar för att det automatiskt skala baserat på begäran. Detta är vanligtvis kallas *skala ut* eller *skala i*.
@@ -26,11 +26,6 @@ I den [Azure Portal](https://portal.azure.com/), du kan ange instansantal av tj�
 Innan skalning baserat på instansantal, bör du tänka skalning påverkas av **prisnivå** förutom instansantal. Olika prisnivåer kan ha olika antal kärnor och minne, och så de får bättre prestanda för samma antal instanser (vilket är *skala upp* eller *skala*). Den här artikeln innehåller *skala i* och *ut*.
 
 Du kan skala i portalen och du kan också använda den [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) eller [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) att justera skalan manuellt eller automatiskt.
-
-> [!NOTE]
-> Den här artikeln beskriver hur du skapar en autoskalningsinställning i portalen på [http://portal.azure.com](http://portal.azure.com). Autoskala inställningar skapas i den här portalen måste redigeras den klassiska portalen ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Skalning manuellt
 1. I den [Azure Portal](https://portal.azure.com/), klickar du på **Bläddra**, gå sedan till den resurs som du vill skala, till exempel en **programtjänstplanen**.

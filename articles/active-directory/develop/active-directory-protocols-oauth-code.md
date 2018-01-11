@@ -1,12 +1,11 @@
 ---
-title: "Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD | Microsoft Docs"
+title: "Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD"
 description: "Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Auktorisera åtkomst till webbprogram med OAuth 2.0 och Azure Active Directory
 Azure Active Directory (AD Azure) använder OAuth 2.0 för att du ska bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här guiden är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra bibliotek med öppen källkod.
@@ -34,7 +33,7 @@ På en hög nivå hela auktorisering flödet för ett program ser ut så här:
 ![Flödet för OAuth-Auth-kod](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Begära ett auktoriseringskod
-Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här förfrågan anger klienten de behörigheter som behövs för att hämta från användaren. Du kan hämta OAuth 2.0-slutpunkter från ditt program sida i klassiska Azure-portalen i den **visa slutpunkter** knapp i nedre lådan.
+Auktoriseringskodflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här förfrågan anger klienten de behörigheter som behövs för att hämta från användaren. Du kan hämta OAuth 2.0-slutpunkten för din klient genom att välja **App registreringar > slutpunkter** i Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -50,7 +49,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure Portal. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
 | response_type |Krävs |Måste innehålla `code` för auktoriseringskodflödet. |
 | redirect_uri |Rekommenderas |Redirect_uri för din app, där autentisering svar kan skickas och tas emot av din app.  Den måste matcha en redirect_uris som du har registrerat i portalen, förutom det måste vara url-kodade.  Du bör använda standardvärdet för interna & mobila appar, `urn:ietf:wg:oauth:2.0:oob`. |
@@ -132,8 +131,8 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| Klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i den klassiska Azure-portalen. Klicka på **Active Directory**, klickar du på katalogen, Välj programmet och klicka på **konfigurera** |
+| klient |Krävs |Den `{tenant}` i sökvägen för begäran kan användas för att styra vem som kan logga in på programmet.  Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
+| client_id |Krävs |Program-Id som tilldelats din app när du har registrerat med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för appregistrering.  |
 | grant_type |Krävs |Måste vara `authorization_code` för auktoriseringskodflödet. |
 | Koden |Krävs |Den `authorization_code` som du har införskaffade i föregående avsnitt |
 | redirect_uri |Krävs |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
@@ -151,7 +150,7 @@ Ett lyckat svar kan se ut så här:
 
 ```
 {
-  "access_token": " eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ",
   "token_type": "Bearer",
   "expires_in": "3600",
   "expires_on": "1388444763",
@@ -165,7 +164,7 @@ Ett lyckat svar kan se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda åtkomst-token. Appen kan använda denna token för autentisering till skyddade resursen, till exempel ett webb-API. |
+| access_token |Den begärda åtkomst-token som en signerad JSON-Webbtoken (JWT). Appen kan använda denna token för autentisering till skyddade resursen, till exempel ett webb-API. |
 | token_type |Anger värdet för token-typer. Den enda typen som har stöd för Azure AD är ägar. Mer information om ägar-token finns [OAuth2.0 auktorisering Framework: ägar-Token användning (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Tiden då den åtkomst-token upphör att gälla. Representeras som antalet sekunder från 1970-01-01T0:0:0Z UTC tills förfallotid. Det här värdet används för att fastställa livslängden för cachelagrade token. |

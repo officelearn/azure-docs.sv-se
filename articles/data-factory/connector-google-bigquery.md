@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory (Beta)
 
@@ -48,8 +48,8 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **GoogleBigQuery** | Ja |
-| projektet | Standard BigQuery projekt vid frågor mot.  | Ja |
-| additionalProjects | En kommaavgränsad lista över offentliga BigQuery projekt till åtkomst.  | Nej |
+| projektet | Projekt-ID för BigQuery standardprojektet vid frågor mot.  | Ja |
+| additionalProjects | En kommaavgränsad lista över projekt-ID: N av offentliga BigQuery projekt till åtkomst.  | Nej |
 | requestGoogleDriveScope | Om du vill begära åtkomst till Google Drive. Google Drive åtkomst aktiverar stöd för externa tabeller som kombinerar BigQuery data med data från Google Drive. Standardvärdet är false.  | Nej |
 | AuthenticationType | OAuth 2.0 autentiseringsmekanism som används för autentisering. ServiceAuthentication kan bara användas på själva värdbaserade IR. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
 | refreshToken | Den uppdateringstoken som hämtats från Google för att ge åtkomst till BigQuery för UserAuthentication. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
@@ -66,13 +66,13 @@ Följande egenskaper stöds för Google BigQuery länkade tjänsten:
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }

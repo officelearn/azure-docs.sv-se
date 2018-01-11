@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -900,7 +900,7 @@ Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK. B
 
 [Lägga till egenskaper](app-insights-api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer`. Du kan till exempel lägga till versionsnummer eller värden som beräknats från andra egenskaper.
 
-[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan den skickas från SDK genom att implementera `ITelemetryProcesor`. Du styr vilka skickas eller tas bort, men du behöver för effekten på din mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
+[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan den skickas från SDK genom att implementera `ITelemetryProcessor`. Du styr vilka skickas eller tas bort, men du behöver för effekten på din mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
 
 [Provtagning](app-insights-api-filtering-sampling.md) är en paketerad lösning för att minska mängden data som skickas från din app på portalen. Detta sker utan att påverka mätvärdena som visas. Och detta sker utan att påverka möjligheterna att diagnostisera problem genom att navigera mellan relaterade objekt som undantag, förfrågningar och sidvyer.
 

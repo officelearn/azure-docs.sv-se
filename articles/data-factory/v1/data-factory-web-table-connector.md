@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Flytta data från en webbadress för tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Data factory stöder för närvarande endast flytta data från en webbserver tab
 
 > [!IMPORTANT]
 > Den här Web connector stöder för närvarande endast extrahera innehållet från en HTML-sida. Använd för att hämta data från en HTTP/s-slutpunkt [HTTP-anslutningen](data-factory-http-connector.md) i stället.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill använda den här tabellen Web-anslutningen måste du ställa in en Self-hosted integrering Runtime (aka Data Management Gateway) och konfigurera den `gatewayName` egenskap i sink länkade tjänsten. Till exempel för att kopiera från webben tabellen till Azure Blob storage, konfigurera länkad Azure Storage-tjänsten som följande:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från en lokal Cassandra data store med hjälp av olika verktyg/API: er. 
@@ -86,8 +103,8 @@ Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåll
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ |Typ av datauppsättningen. måste anges till **WebTable** |Ja |
-| Sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används den URL som angavs i definitionen länkade tjänsten. |
-| Index |Index för tabellen i resursen. Se [Get-index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet steg för att få index för en tabell i en HTML-sida. |Ja |
+| sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används den URL som angavs i definitionen länkade tjänsten. |
+| index |Index för tabellen i resursen. Se [Get-index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet steg för att få index för en tabell i en HTML-sida. |Ja |
 
 **Exempel:**
 
@@ -156,7 +173,8 @@ I följande exempel visas hur du kopierar data från en webbserver-tabell till e
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -189,7 +207,7 @@ I följande exempel visas hur du kopierar data från en webbserver-tabell till e
 ```
 
 
-**Azure Blob utdatauppsättningen**
+**Utdatauppsättning för Azure-blob**
 
 Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1).
 

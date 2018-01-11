@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av övervakning och hantering av appen
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Om du inte har ett Data Factory-program för att testa dessa steg med, gör kurs
 ## <a name="understand-the-monitoring-and-management-app"></a>Förstå övervakning och Management-appen
 Det finns tre flikar till vänster: **Resursläsaren**, **övervakning vyer**, och **aviseringar**. Den första fliken (**Resursläsaren**) väljs som standard.
 
-### <a name="resource-explorer"></a>Resource Explorer
+### <a name="resource-explorer"></a>Resursläsaren
 Du ser följande:
 
 * Resursläsaren **trädvy** i den vänstra rutan.
@@ -77,7 +77,7 @@ I resursutforskaren visas alla resurser (pipelines, datauppsättningar, länkade
 * Egenskaper för det markerade objektet visas i fönstret Egenskaper i den högra rutan.
 * JSON-definitionen för det markerade objektet visas, om tillämpligt. Exempel: en länkad tjänst, ett dataset eller en pipeline.
 
-![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+![Resursläsaren](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
 Finns det [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikel detaljerad konceptuell information om aktiviteten windows.
 
@@ -189,13 +189,13 @@ Aktiviteten windows kan vara i något av följande status:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Verifiera</td><td>Verifiering pågår.</td>
+<td rowspan="2">Pågår</td><td>Verifierar</td><td>Verifiering pågår.</td>
 </tr>
 <td>-</td>
 <td>Aktivitetsfönstret bearbetas.</td>
 </tr>
 <tr>
-<td rowspan="4">Det gick inte</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
+<td rowspan="4">Misslyckad</td><td>För lång tid</td><td>Aktivitetskörningen tog längre tid än vad som tillåts av aktiviteten.</td>
 </tr>
 <tr>
 <td>Avbrutna</td><td>Aktivitetsfönstret avbröts av en användare.</td>
@@ -206,10 +206,10 @@ Aktiviteten windows kan vara i något av följande status:
 <tr>
 <td>-</td><td>Det gick inte att genereras eller verifiera Aktivitetsfönstret.</td>
 </tr>
-<td>Redo</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
+<td>Klar</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
 </tr>
 <tr>
-<td>Hoppades över</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>
+<td>Överhoppad</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>En aktivitetsfönstret brukade finnas med en annan status, men har återställts.</td>
@@ -324,10 +324,10 @@ Följande tabell innehåller en lista över tillgängliga händelser och status 
 
 | händelsenamnet | Status | Substatus |
 | --- | --- | --- |
-| Aktiviteten kör igång |Igång |Startar |
+| Aktiviteten kör igång |Startad |Startar |
 | Aktiviteten kör klar |Lyckades |Lyckades |
-| Aktiviteten kör klar |Det gick inte |Misslyckade resursallokering<br/><br/>Misslyckade körning<br/><br/>Tidsgränsen uppnåddes<br/><br/>Inte kunde verifieras<br/><br/>Avbrutna |
-| På begäran HDI-klustret skapa igång |Igång |-|
+| Aktiviteten kör klar |Misslyckad |Misslyckade resursallokering<br/><br/>Misslyckade körning<br/><br/>Tidsgränsen uppnåddes<br/><br/>Inte kunde verifieras<br/><br/>Avbrutna |
+| På begäran HDI-klustret skapa igång |Startad |-|
 | På begäran HDI-klustret har skapats |Lyckades |-|
 | På begäran HDI-klustret tas bort |Lyckades |-|
 

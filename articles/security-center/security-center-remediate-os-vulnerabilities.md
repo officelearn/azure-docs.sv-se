@@ -1,6 +1,6 @@
 ---
-title: "Åtgärda OS-säkerhetsproblem i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center ** reparera OS säkerhetsrisker **."
+title: "Åtgärda säkerhetskonfigurationer i Azure Security Center | Microsoft Docs"
+description: "Det här dokumentet beskrivs hur du implementerar rekommenderar Azure Security Center **reparera säkerhetskonfigurationer**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Åtgärda OS-säkerhetsproblem i Azure Security Center
-Azure Security Center analyserar dagligen operativsystem (OS) på virtuella datorer (VM) och för en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommenderade konfigurationen reglerna och rekommenderar konfigurationsändringar för att åtgärda dessa problem.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
+Azure Security Center analyserar dagligen operativsystem (OS) på virtuella datorer (VM) och för en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommenderade konfigurationen säkerhetsreglerna och rekommenderar konfigurationsändringar för att åtgärda dessa problem.
 
-> [!NOTE]
-> Läs mer om vilka inställningar som övervakas av [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Läs mer om vilka inställningar som övervakas av [lista över rekommenderade konfigurationsregler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Se [anpassa OS säkerhetskonfigurationer](security-center-customize-os-security-config.md) att lära dig hur du anpassar security configuration bedömningar i Security Center.
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-Åtgärda OS säkerhetsrisker presenteras som en rekommendation i Security Center. Denna rekommendation visas **rekommendationer** och under **Compute**.
+Åtgärda säkerhet konfigurationer matchningsfel presenteras som en rekommendation i Security Center. Denna rekommendation visas **rekommendationer** och under **Compute**.
 
-I det här exemplet ska vi titta på den **reparera OS-säkerhetsrisker (med Microsoft)** rekommendation under **Compute**.
+I det här exemplet ska vi titta på den **reparera säkerhetskonfigurationer** rekommendation under **Compute**.
 1. Välj **Compute** under huvudmenyn Security Center.
 
-   ![Åtgärda sårbarheter i operativsystem][1]
+   ![Åtgärda säkerhetskonfigurationer][1]
 
-2. Under **Compute**väljer **reparera OS-säkerhetsrisker (med Microsoft)**. Den **OS-säkerhetsrisker (med Microsoft) matchningsfel** instrumentpanelen öppnas.
+2. Under **Compute**väljer **reparera säkerhetskonfigurationer**. **Säkerhetskonfigurationer** öppnas.
 
-   ![Åtgärda sårbarheter i operativsystem][2]
+   ![Säkerhetskonfigurationer][2]
 
   Överst i instrumentpanelen innehåller:
 
@@ -77,11 +74,11 @@ I det här exemplet ska vi titta på den **reparera OS-säkerhetsrisker (med Mic
   - FAKTISKT värde - Värde returnerades efter analys av VM OS konfigurationen mot regeln
   - --REGELN regeln åtgärden används av Security Center under analys av VM OS konfigurationen mot regeln
 
-4. Välj den **Sök** ikon på menyfliken översta. Sök öppnas lista arbetsytor som har virtuella datorer och datorer med det valda OS-säkerhetsproblemet. Det här bladet för val av arbetsytan visas bara om den markerade regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
+4. Välj den **Sök** ikon på menyfliken översta. Sök öppnas lista arbetsytor som har virtuella datorer och datorer med matchningsfel för valda säkerhet konfigurationer. Det här bladet för val av arbetsytan visas bara om den markerade regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
 
   ![Listan arbetsytor][4]
 
-5. Välj en arbetsyta. En sökfråga logganalys öppnas filtrerade till arbetsytan med OS-säkerhetsproblem.
+5. Välj en arbetsyta. En sökfråga logganalys öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
 
   ![Med OS-problem][5]
 
@@ -90,7 +87,9 @@ I det här exemplet ska vi titta på den **reparera OS-säkerhetsrisker (med Mic
   ![Filtrerade för datorn][6]
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln visades hur du implementerar Security Center-rekommendationen ”reparera OS säkerhetsproblem”. Du kan granska uppsättning konfigurationsregler [här](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center använder CCE (Common Configuration uppräkning) för att tilldela unika identifierare för konfigurationsregler. Besök den [CCE](https://nvd.nist.gov/cce/index.cfm) webbplats för mer information.
+Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”reparera säkerhetskonfigurationer”. Se [anpassa OS säkerhetskonfigurationer](security-center-customize-os-security-config.md) att lära dig hur du anpassar security configuration bedömningar i Security Center.
+
+Du kan granska uppsättning konfigurationsregler [här](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center använder CCE (Common Configuration uppräkning) för att tilldela unika identifierare för konfigurationsregler. Besök den [CCE](https://nvd.nist.gov/cce/index.cfm) webbplats för mer information.
 
 Mer information om Security Center finns i följande resurser:
 

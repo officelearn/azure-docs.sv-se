@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae97045c27f3ad8b62e7798b2060ea59ccd66ac5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 52a45f1b67e3194739fe97daad56de2d3515dee3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -32,13 +32,13 @@ Den här artikeln beskrivs hur du skickar meddelanden med hjälp av [Twilio](htt
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#c-example)
-* [C#-skript](#c-script-example)
+* [C#](#c-example)
+* [C#-skript (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
 
 ### <a name="c-example"></a>C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som skickar ett SMS när aktiveras av ett meddelande i kön.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar ett SMS när aktiveras av ett meddelande i kön.
 
 ```cs
 [FunctionName("QueueTwilio")]
@@ -195,7 +195,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="attributes"></a>Attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribut som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
 Information om egenskaper för attribut som du kan konfigurera finns [Configuration](#configuration). Här är en `TwilioSms` attributet exempel i en signatur:
 
@@ -213,7 +213,7 @@ public static SMSMessage Run(
 }
  ```
 
-En komplett exempel finns [förkompilerat C#-exempel](#c-example).
+En komplett exempel finns [C#-exempel](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 

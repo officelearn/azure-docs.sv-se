@@ -3,7 +3,7 @@ title: "Skapa en anpassad avbildning i Azure DevTest Labs från en virtuell dato
 description: "Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en allokerad virtuell dator med hjälp av Azure portal"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
-## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
+## <a name="step-by-step-instructions"></a>Stegvisa anvisningar
 
 Du kan skapa en anpassad avbildning från en allokerad virtuell dator och därefter använda den anpassade bilden för att skapa identiska virtuella datorer. Följande steg visar hur du skapar en anpassad avbildning från en virtuell dator:
 
@@ -59,4 +59,4 @@ Du kan skapa en anpassad avbildning från en allokerad virtuell dator och däref
 
 ##<a name="next-steps"></a>Nästa steg
 
-- [Lägga till en virtuell dator i labbet](./devtest-lab-add-vm-with-artifacts.md)
+- [Lägga till en virtuell dator i labbet](devtest-lab-add-vm.md)

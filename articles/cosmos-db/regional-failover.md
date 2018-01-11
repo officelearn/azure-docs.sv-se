@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Automatisk regional växling vid fel för kontinuitet i Azure Cosmos DB
 Azure Cosmos-DB förenklar globala fördelning av data genom att erbjuda fullständigt hanterade [flera regioner databasen konton](distribute-data-globally.md) som ger tydliga kompromisser mellan konsekvens, tillgänglighet och prestanda, alla med motsvarande garanterar. Cosmos DB konton ger hög tillgänglighet, siffra ms latens [väldefinierade konsekvensnivåer](consistency-levels.md), transparent regional växling vid fel med flera API: er och möjligheten att skala Elastiskt genomflöde och lagring på globalt. 
@@ -141,6 +141,6 @@ Den här artikeln har granskat hur manuell och automatisk redundans arbete i Cos
 ## <a id="NextSteps"></a>Nästa steg
 * Lär dig mer om hur Cosmos DB stöder [global distributionsplatsen](distribute-data-globally.md)
 * Lär dig mer om [global konsekvens med Azure Cosmos DB](consistency-levels.md)
-* Utveckla med flera områden med Azure Cosmos DB [SQL API](tutorial-global-distribution-documentdb.md)
+* Utveckla med flera områden med Azure Cosmos DB [SQL API](tutorial-global-distribution-sql-api.md)
 * Lär dig hur du skapar [flera regioner writer arkitekturer](multi-region-writers.md) med Azure Cosmos DB
 

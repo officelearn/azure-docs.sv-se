@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -200,7 +200,6 @@ Stöder följande typer av gälla:
 * **Lägg till**: lägger till en definierad uppsättning fält i begäran
 * **AuditIfNotExists**: aktiverar granskning om en resurs inte finns
 * **DeployIfNotExists**: distribuerar en resurs om den inte redan finns. Detta stöds för närvarande endast via inbyggda principer.
-* **DenyIfNotExists**: nekar skapandet av ett finns om det inte finns
 
 För **bifoga**, måste du ange följande information:
 
@@ -216,7 +215,7 @@ För **bifoga**, måste du ange följande information:
 
 Värdet kan vara en sträng eller ett JSON-format-objekt.
 
-Med **AuditIfNotExists**, **DeployIfNotExists**, och **DenyIfNotExists**, du kan utvärdera förekomsten av en underordnad resurs och tillämpa en regel och en motsvarande effekt När den här resursen finns inte. Du kan till exempel kräva att en nätverksbevakaren distribueras för alla virtuella nätverk.
+Med **AuditIfNotExists** och **DeployIfNotExists** du kan utvärdera förekomsten av en underordnad resurs och tillämpa en regel och en motsvarande effekt när resursen inte finns. Du kan till exempel kräva att en nätverksbevakaren distribueras för alla virtuella nätverk.
 Ett exempel på granskning när ett tillägg för virtuell dator inte har distribuerats, se [granska om tillägg inte finns](scripts/audit-ext-not-exist.md).
 
 

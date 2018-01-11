@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Kom igång med den förkonfigurerade lösningen Ansluten fabrik
 
@@ -27,20 +27,18 @@ Azure IoT Suites [förkonfigurerade lösningar][lnk-preconfigured-solutions] kom
 
 Den här självstudiekursen visar hur du etablerar den förkonfigurerade lösningen Ansluten fabrik. Vi går också igenom de grundläggande funktionerna i den förkonfigurerade lösningen. Du kan komma åt många av dessa funktioner från *instrumentpanelen* för lösningen som distribueras som en del av den förkonfigurerade lösningen:
 
-![instrumentpanel för den förkonfigurerade lösningen ansluten fabrik][img-cf-home]
+![Instrumentpanel för den förkonfigurerade lösningen Ansluten fabrik][img-cf-home]
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.
 
 > [!NOTE]
 > Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure][lnk_free_trial].
-> 
-> 
 
 ## <a name="provision-the-solution"></a>Etablera lösningen
 
 1. Logga in på azureiotsuite.com med din Azure-kontoinformation och skapa en lösning genom att klicka på **+**.
 2. Klicka på **Välj** på panelen **Ansluten fabrik**.
-3. Ange ett **lösningsnamn** för den förkonfigurerade anslutna fabriken för fjärrövervakning.
+3. Ange ett **lösningsnamn** för den förkonfigurerade lösningen Ansluten fabrik.
 4. Välj den **prenumeration** och **region** som du vill använda för att etablera lösningen.
 5. Klicka på **Skapa lösning** för att påbörja etableringen. Den här processen tar normalt flera minuter.
 
@@ -62,13 +60,13 @@ När du distribuerar den förkonfigurerade lösningen Ansluten fabrik innehålle
 
 * Övervaka fabrik, produktionslinjer, station OEE och KPI-värden
 * Analysera telemetridata som genereras av dessa enheter med hjälp av Azure Time Series Insights
-* Åtgärda problem vid aviseringar
+* Åtgärda larm för att lösa problem
 
 En viktig egenskap i detta scenario är att du kan utföra alla dessa åtgärder via fjärranslutning från instrumentpanelen med lösningar. Du behöver inte fysisk åtkomst till enheterna.
 
 ## <a name="view-the-solution-dashboard"></a>Visa instrumentpanelen för lösningen
 
-På instrumentpanelen för lösningen kan du hantera den distribuerade lösningen. Det här är en hierarkisk representation av en global fabrikskonfiguration. Du kan till exempel se OEE och KPI:er, publicera nya noder för telemetri och åtgärdsaviseringar.
+På instrumentpanelen för lösningen kan du hantera den distribuerade lösningen. Det här är en hierarkisk representation av en global fabrikskonfiguration. Du kan till exempel se OEE och KPI:er, publicera nya noder för telemetri och åtgärdslarm.
 
 1. När etableringen har slutförts och panelen för din förkonfigurerade lösning visar statusen **Klar** klickar du på **Starta**. Därmed öppnas portalen för lösningen Ansluten fabrik på en ny flik.
 
@@ -80,17 +78,17 @@ På instrumentpanelen för lösningen kan du hantera den distribuerade lösninge
 
 Följande information visas på instrumentpanelen:
 
-* En panel med en **fabrikslista** som visar status, plats och aktuell produktionskonfiguration i lösningen. Första gången du kör lösningen finns det fyra simulerade enheter. Produktionslinjesimuleringen består av tre verkliga OPC UA-servrar per produktionslinje. Dessa utför simulerade uppgifter och delar data. Mer information om OPC UA finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
+* En panel med **fabriksplatser** som visar status, plats och aktuell produktionskonfiguration i lösningen. Första gången du kör lösningen finns det fyra simulerade enheter. Produktionslinjesimuleringen består av tre verkliga OPC UA-servrar per produktionslinje. Dessa utför simulerade uppgifter och delar data. Mer information om OPC UA finns i [Vanliga frågor och svar om ansluten fabrik](iot-suite-faq-cf.md).
 * En **karta** visar platsen för alla enheter som är kopplade till lösningen. Lösningen kan använda Bing Maps-API:t för att rita information på kartan. Om Bing Maps Enterprise API är aktiverat för din prenumeration används den här funktionen automatiskt. I annat fall kan du se [vanliga frågor och svar][lnk-faq] för information om hur du gör kartan dynamisk.
-* En panel för **aviseringar** som visar aviseringar som genereras när ett telemetri- eller OEE/KPI-värde överskrider ett visst tröskelvärde.
+* En panel för **larm** som visar de larm som genereras när ett telemetri- eller OEE/KPI-värde överskrider ett visst tröskelvärde.
 * En panel för **OEE** (Overall Equipment Efficiency) som visar OEE-värdena för hela företaget eller den fabrik, produktionslinje eller station du tittar på. Det här värdet sammanställs från stationsvyn till företagsnivån. OEE-bilden och dess beståndsdelar kan analyseras ytterligare.
 * Panelen för **KPI:er** som visar antalet enheter som producerats och energi som förbrukas av hela företaget eller den fabrik, produktionslinje eller station som du visar. Dessa värden sammanställs från stationsvyn till företagsnivån.
 
 ## <a name="view-factories"></a>Visa fabriker
 
-Panelen för *fabriker* visar den geografiska platsen för alla fabriker i lösningen, deras status och den aktuella produktionskonfigurationen. Från listan över platser kan du navigera till andra nivåer i lösningshierarkin. Raderna i listan är hyperlänkar till information om produktionslinjerna på den platsen. Du kan söka vidare i informationen om produktionslinjen ned till vyn på stationsnivå. Du kan också använda ett filter för listan.
+Panelen för *fabriksplatser* visar den geografiska platsen för alla fabriker i lösningen, deras status och den aktuella produktionskonfigurationen. Från listan över platser kan du navigera till andra nivåer i lösningshierarkin. Raderna i listan är hyperlänkar till information om produktionslinjerna på den platsen. Du kan söka vidare i informationen om produktionslinjen ned till vyn på stationsnivå. Du kan också använda ett filter för listan.
 
-![Fabriker för den förkonfigurerade lösningen Ansluten fabrik][cf-img-factories] 
+![Fabriker för den förkonfigurerade lösningen Ansluten fabrik][cf-img-factories]
 
 1. På **fabrikspanelen** visas fabrikslistan för lösningen.
 
@@ -110,31 +108,31 @@ Om din prenumeration ger åtkomst till Bing Maps-API:t visar *fabrikskartan* geo
 
 ![Karta för den förkonfigurerade lösningen Ansluten fabrik][cf-img-map]
 
-## <a name="view-alerts"></a>Visa aviseringar
+## <a name="view-alarms"></a>Visa larm
 
-**Aviseringspanelen** visar aviseringar som genererats på grund av ett rapporterat värde eller ett beräknat OEE/KPI-värde som överstiger dess konfigurerade tröskelvärde. Den här panelen visar aviseringar på varje nivå i hierarkin, från vyn på stationsnivå till vyn på global nivå. Aviseringarna innehåller en beskrivningen av aviseringen, datum, tid, plats och antal förekomster. Du kan få information om vad som orsakat aviseringen med hjälp av Time Series Insights-data. Time Series Insights-data visualiseras i aviseringar (om tillämpligt). Om du är administratör kan vidta du standardåtgärder för aviseringar, till exempel:
+**Larmpanelen** visar de larm som genererats på grund av ett rapporterat värde eller ett beräknat OEE/KPI-värde som överstiger det konfigurerade tröskelvärdet. Den här panelen visar larm på varje nivå i hierarkin, från vyn på stationsnivå till vyn på global nivå. Larmen innehåller en beskrivning av larmet, datum, tid, plats och antal förekomster. Du kan få information om vad som orsakat larmet med hjälp av Time Series Insights-data. Time Series Insights-data visualiseras i larmen (om tillämpligt). Om du är administratör kan du vidta standardåtgärder för larm, till exempel:
 
-* Stänga aviseringen.
-* Bekräfta aviseringen.
+* Stäng larmet.
+* Bekräfta larmet.
 
 Du kan också kan du utföra mer komplexa åtgärder. För Pressure OPC UA-noden i sammansättningen kan du till exempel:
 
 * Visa mer information på en webbsida i ett nytt webbläsarfönster.
-* Förebygg orsaken till aviseringen genom att anropa en OPC UA-metod på enheten.
+* Förebygg orsaken till larmet genom att anropa en OPC UA-metod på enheten.
 * Välja att standardåtgärderna inte ska vara tillgängliga.
 
-    ![Aviseringar för den förkonfigurerade lösningen Ansluten fabrik][cf-img-alerts]
+    ![Larm för den förkonfigurerade lösningen Ansluten fabrik][cf-img-alerts]
 
 > [!NOTE]
-> De här aviseringarna genereras av regler som har angetts i en konfigurationsfil i den förinställda lösningen. Dessa regler kan generera aviseringar när OEE- eller KPI-värdena eller OPC UA-nodvärden överskrider de angivna tröskelvärdena.
+> De här larmen genereras av regler som har angetts i en konfigurationsfil i den förinställda lösningen. Dessa regler kan generera larm när OEE- eller KPI-värden eller OPC UA-nodvärden överskrider de angivna tröskelvärdena.
 
-1. **Aviseringspanelen** visar de aviseringar som genererats i den här lösningen.
+1. **Larmpanelen** visar de larm som genererats i den här lösningen.
 
-2. Klicka på en avisering på aviseringspanelen om du vill se mer information om aviseringen.
+2. Om du vill visa information om ett larm klickar du på larmet i larmpanelen.
 
-3. Du kan analysera aviseringsinformation mer i detalj genom att klicka på diagrammet på aviseringspanelen för att öppna Time Series Insights-utforskarmiljön.
+3. Du kan analysera larminformationen mer i detalj genom att klicka på diagrammet på larmpanelen för att öppna Time Series Insights-utforskarmiljön.
 
-4. På aviseringspanelen finns flera åtgärder du kan vidta för aviseringen. Välj ett lämpligt alternativ och klicka på knappen för att utföra åtgärden.
+4. På larmpanelen finns flera åtgärder som du kan vidta för larmet. Välj ett lämpligt alternativ och klicka på knappen för att utföra åtgärden.
 
 ## <a name="view-overall-equipment-efficiency"></a>Visa OEE (Overall Equipment Efficiency)
 
@@ -148,7 +146,7 @@ OEE är nyckeltal för att mäta produktionseffektivitet. OEE är ett branschsta
 
     ![TSI-visualisering för den förkonfigurerade lösningen Ansluten fabrik][cf-img-tsi-visualization]
 
-3. Om du vill analysera aviseringsdata mer i detalj klickar du på diagrammet på aviseringspanelen. Den här åtgärden öppnar Time Series Insights-utforskarmiljön.
+3. Om du vill analysera larmdata mer i detalj klickar du på diagrammet på larmpanelen. Den här åtgärden öppnar Time Series Insights-utforskarmiljön.
 
     ![TSI-utforskaren för den förkonfigurerade lösningen Ansluten fabrik][cf-img-tsi-explorer]
 
@@ -160,11 +158,11 @@ Lösningen innehåller två KPI:er: *units per hour* (enheter per timme) och *en
 
 1. Om du vill visa enheter per timme eller energi som används för någon nivå i hierarkin navigerar du till den vy som du vill visa. Enheter per timme och energi som används visas på panelen.
 
-2. Om du vill analysera enheter per timme eller förbrukad energi för en nivå i hierarkin i mer detalj klickar du på mätaren på panelen **KPI:er**. En kontextpanel visas med Time Series Insights-visualiseringar som visar data från den senaste timmen, de senaste 24 timmarna och de senaste sju dagarna.
+2. Om du vill analysera enheter per timme eller förbrukad energi för en nivå i hierarkin klickar du på mätaren på panelen **KPI:er**. En kontextpanel visas med Time Series Insights-visualiseringar som visar data från den senaste timmen, de senaste 24 timmarna och de senaste sju dagarna.
 
 ## <a name="scenario-review"></a>Scenariogranskning
 
-I det här scenariot övervakade du OEE- och KPI-värden på instrumentpanelen. Sedan använde du Time Series Insights för att visa mer information och detaljerade telemetridata för OEE och KPI:er för att kunna identifiera avvikelser. Du använde också aviseringspanelen för att visa problem med dina fabriker och du använde tillgängliga alternativ för att åtgärda orsaken till aviseringen.
+I det här scenariot övervakade du OEE- och KPI-värden på instrumentpanelen. Sedan använde du Time Series Insights för att visa mer information och detaljerade telemetridata för OEE och KPI:er för att kunna identifiera avvikelser. Du använde också larmpanelen för att visa problem med dina fabriker och du använde tillgängliga alternativ för att åtgärda orsaken till larmet.
 
 ## <a name="other-features"></a>Andra funktioner
 
@@ -172,28 +170,28 @@ I följande avsnitt beskrivs några ytterligare funktioner i lösningen Ansluten
 
 ## <a name="apply-filters"></a>Använda filter
 
-1. Klicka på **sparren** för att visa en lista över tillgängliga filter på panelen med fabriksplatser eller på panelen med aviseringar.
+1. Klicka på **tratten** för att visa en lista över tillgängliga filter på panelen med fabriksplatser eller på larmpanelen.
 
-2. Filterpanelen visas. 
+2. Filterpanelen visas.
 
     ![Filter för den förkonfigurerade lösningen Ansluten fabrik][cf-img-alert-filter]
 
 3. Välj önskat filter. Du kan också skriva fritext i filterfälten.
 
-4. Sedan tillämpas filtret. Filterläget visas i instrumentpanelen med hjälp av en tratt som visas i tabellerna för fabriker och aviseringar.
+4. Sedan tillämpas filtret. Filterläget visas i instrumentpanelen med hjälp av en tratt som visas i tabellerna för fabriker och larm.
 
     ![Filter för den förkonfigurerade lösningen Ansluten fabrik][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Ett aktivt filter påverkar inte de OEE och KPI-värden som visas. Det filtrerar bara listinnehållet.
 
-5. Om du vill ta bort ett filter klickar du på tratten och på filtret på kontextpanelen för filtret. Texten **Alla** visas i tabellerna för fabriker och aviseringar.
+5. Om du vill ta bort ett filter klickar du på tratten och på filtret på kontextpanelen för filtret. Texten **Alla** visas i tabellerna för fabriker och larm.
 
 ## <a name="browse-an-opc-ua-server"></a>Navigera i en OPC UA-serverläsare
 
 När du distribuerar den förkonfigurerade lösningen etableras automatiskt simulerade OPC UA-servrar som du kan navigerar i via serverläsaren. Dessa servrar är *simulerade OPC UA-servrar*. Med simulerade servrar kan du enkelt experimentera med den förkonfigurerade lösningen utan att du behöver distribuera verkliga, fysiska servrar. Om du vill ansluta en verklig OPC UA-server till lösningen kan du läsa självstudiekursen [Connect your OPC UA device to the connected factory preconfigured solution][lnk-connect-cf] (Ansluta OPC UA-enheten till den förkonfigurerade lösningen Ansluten fabrik).
 
-1. Klicka på **fabriksikonen** i navigeringsfältet i instrumentpanelen.
+1. Klicka på **bläddringsikonen** i navigeringsfältet i instrumentpanelen.
 
     ![Serverläsare för den förkonfigurerade lösningen Ansluten fabrik][cf-img-server-browser]
 
@@ -223,11 +221,11 @@ När du navigerar i en *simulerad OPC UA-server* kan du välja att publicera nya
 
 4. En kontextpanel visas som anger att publiceringen är klar. Noden visas i vyn på stationsnivå med en bock bredvid den.
 
-    ![Slutförd publicering i den förkonfigurerade lösningen Ansluten fabrik][cf-img-publish-success]
+    ![Lyckad publicering av den förkonfigurerade lösningen Ansluten fabrik][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Kommando och kontroll
 
-Med den anslutna fabriken kan du styra dina industriella enheter direkt från molnet. Du kan använda funktionen till att vidta åtgärder vid aviseringar som genereras av enheten. Du kan till exempel skicka ett kommando till enheten från molnet. Tillgängliga kommandon finns i noden **StationCommands** i OPC UA-serverläsarträdet. I det här scenariot öppnar du en övertrycksventil på en monteringsstation i en produktionslinje i München. För att kunna styra funktioner måste du ha rollen **Administratör** för distributionen av den förkonfigurerade lösningen.
+Med lösningen Ansluten fabrik kan du styra dina industriella enheter direkt från molnet. Du kan använda funktionen till att vidta åtgärder vid larm som genereras av enheten. Du kan till exempel skicka ett kommando till enheten från molnet. Tillgängliga kommandon finns i noden **StationCommands** i OPC UA-serverläsarträdet. I det här scenariot öppnar du en övertrycksventil på en monteringsstation i en produktionslinje i München. För att kunna styra funktioner måste du ha rollen **Administratör** för distributionen av den förkonfigurerade lösningen.
 
 1. Bläddra till noden **StationCommands** i OPC UA-serverläsarträdet.
 
@@ -248,7 +246,6 @@ Med den anslutna fabriken kan du styra dina industriella enheter direkt från mo
 7. Kontextpanelen uppdateras för att informera dig att metodanropet har slutförts. Du kan verifiera att anropet har slutförts genom att läsa av värdet för trycknoden som uppdaterades av anropet.
 
     ![Slutfört anrop för den förkonfigurerade lösningen Ansluten fabrik][cf-img-call-success]
-
 
 ## <a name="behind-the-scenes"></a>I bakgrunden
 

@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/01/2017
 ms.author: mimig
-ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c3d4637871ed56bd32e514c9de4374257e55d844
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med .NET och Azure Cosmos DB 
 
-Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i Java och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
+Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i .NET och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -60,9 +60,9 @@ Du kan nu lägga till data till den nya tabellen med datautforskaren.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
+Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till en mapp där du vill installera exempelappen. 
+1. Öppna ett Git-terminalfönster, t.ex. Git Bash, och använd kommandot `cd` för att ändra till en mapp där du vill installera exempelappen. 
 
     ```bash
     cd "C:\git-samples"
@@ -73,8 +73,15 @@ Nu ska vi klona en Table-app från github, ange anslutningssträngen och köra a
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
+## <a name="open-the-sample-application-in-visual-studio"></a>Öppna exempelappen i Visual Studio
 
-3. Öppna därefter lösningsfilen TableStorage i Visual Studio. 
+1. I Visual Studio: Välj **Öppna** på **Arkiv**-menyn och välj sedan **Projekt/lösning**. 
+
+   ![Öppna lösningen](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+
+2. Navigera till mappen där du klonade exempelappen och öppna filen TableStorage.sln.
+
+   ![Öppna den klonade appen](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
@@ -82,62 +89,76 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I [Azure-portalen](http://portal.azure.com/) klickar du på **Anslutningssträng**. 
 
-    Använd knapparna på höger sida av skärmen för att kopiera PRIMÄR ANSLUTNINGSSTRÄNG.
+    Använd knapparna på höger sida av fönstret för att kopiera **PRIMÄR ANSLUTNINGSSTRÄNG**.
 
     ![Visa och kopiera PRIMÄR ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng](./media/create-table-dotnet/connection-string.png)
 
 2. Öppna filen App.config i Visual Studio. 
 
-3. Ta bort kommentarerna för StorageConnectionString på rad 8 och StorageConnectionString på rad 7 eftersom den här självstudien inte använder Storage-emulatorn. Rad 7 och 8 bör nu se ut så här:
+3. Ta bort kommentarerna för StorageConnectionString på rad 8 och StorageConnectionString på rad 7 eftersom den här självstudien inte använder Azure SDK Storage-emulatorn. Rad 7 och 8 bör nu se ut så här:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Klistra in PRIMÄR ANSLUTNINGSSTRÄNG från portalen i värdet StorageConnectionString på rad 8. Klistra in strängen innanför citattecknen. 
+4. Klistra in **PRIMÄR ANSLUTNINGSSTRÄNG** från portalen i värdet StorageConnectionString på rad 8. Klistra in strängen innanför citattecknen. 
 
     > [!IMPORTANT]
     > Om slutpunkten använder documents.azure.com innebär det att du har ett förhandsversionskonto, och du måste skapa ett [nytt tabell-API-konto](#create-a-database-account) för att kunna arbeta med den allmänt tillgängliga SDK:n för tabell-API. 
     > 
 
-    Rad 8 bör nu se ut ungefär som:
+    Rad 8 bör nu se ut ungefär så här:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Spara filen App.config.
+5. Tryck på CTRL+S för att spara filen App.config.
 
-Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Skapa och distribuera appen
 
 1. I Visual Studio högerklickar du på projektet **TableStorage** i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
 
-2. Skriv *Microsoft.Azure.CosmosDB.Table* i rutan **Bläddra** i NuGet.
+   ![Hantera NuGet-paket](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+2. Skriv *Microsoft.Azure.CosmosDB.Table* i rutan **Bläddra** i NuGet. Därmed hittas klientbiblioteket Cosmos DB Table API.
+   
+   ![Fliken Bläddra i NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. Från resultatet installerar du **Microsoft.Azure.CosmosDB.Table**-biblioteket. Det här installerar tabell-API-paketet i Azure Cosmos DB samt alla beroenden.
+3. Klicka på **Installera** för att installera **Microsoft.Azure.CosmosDB.Table**-biblioteket. Därmed installeras Azure Cosmos DB Table API-paketet och alla beroenden.
 
-4. Öppna BasicSamples.cs och lägg till en brytpunkt på raderna 30 och 52.
+    ![Klicka på Installera](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-5. Tryck på Ctrl + F5 för att köra programmet.
+4. Öppna BasicSamples.cs. Högerklicka på rad 52, välj **Brytpunkt** och välj **Infoga brytpunkt**. Infoga en annan brytpunkt på rad 55.
 
-    Konsolfönstret visar de data som läggs till i den nya tabelldatabasen i Azure Cosmos DB. 
+   ![Lägga till en brytpunkt](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+
+5. Tryck på F5 för att köra appen.
+
+    Konsolfönstret visar namnet på den nya tabelldatabasen (i det här fallet demo91ab4) i Azure Cosmos DB. 
     
+    ![Konsolutdata](media/create-table-dotnet/azure-cosmosdb-console.png)
+
     Se [Felsökning](table-sdk-dotnet.md#troubleshooting) om du får ett felmeddelande om beroenden.
 
-    När du kommer till den första brytpunkten går du tillbaka till Datautforskaren i Azure-portalen, expanderar demotabellen* och klickar på **Entiteter**. Fliken **Entiteter** till höger visar den nya entiteten som har lagts till. Lägg märke till att telefonnumret för användaren är 425-555-0101.
+    När du kommer till den första brytpunkten går du tillbaka till Datautforskaren i Azure Portal. Klicka på **Uppdatera**, expandera demotabellen* och klicka på **Entiteter**. Fliken **Entiteter** till höger visar den nya entiteten som har lagts till för Walter Harp. Lägg märke till att telefonnumret för den nya entiteten är 425-555-0101.
+
+    ![Ny entitet](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
-6. Stäng fliken Entiteter i Datautforskaren.
+6. Stäng fliken **Entiteter** i Datautforskaren.
     
-7. Fortsätta att köra appen till nästa brytpunkt.
+7. Tryck på F5 för att köra appen till nästa brytpunkt. 
 
-    När du kommer till brytpunkten växlar du tillbaka till portalen och klickar på Entiteter igen för att öppna fliken Entiteter. Du kan nu se att telefonnumret har uppdaterats till 425-555-0105.
+    När du kommer till brytpunkten växlar du tillbaka till Azure Portal och klickar på **Entiteter** igen för att öppna fliken **Entiteter**. Du kan nu se att telefonnumret har uppdaterats till 425-555-0105.
 
-8. När du är tillbaka i konsolfönstret trycker du på CTRL + C för att avsluta körningen av appen. 
+8. Tryck på F5 för att köra appen. 
+ 
+   Appen lägger till entiteter som kan användas i en avancerad exempelapp som tabell-API:t inte stöder för närvarande. Appen tar sedan bort tabellen som skapats av exempelappen.
 
-    Du kan nu gå tillbaka till Datautforskaren för att lägga till eller ändra entiteterna och skicka frågor till data.
+9. I konsolfönstret trycker du på Retur för att avsluta körningen av appen. 
+  
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 

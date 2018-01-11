@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Hantera priser och data volym i Application Insights
 
@@ -90,7 +90,7 @@ Som [presenterade nyligen](https://blogs.technet.microsoft.com/msoms/2017/05/19/
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Granska prisnivå planer och uppskatta kostnader
 
-Applicaition Insights gör det enkelt att förstå de prisnivå tillgängliga planerna och vad kostnaderna sannolikt baseras på senaste användningsmönster. Starta genom att öppna den **funktioner + priser** bladet i Application Insights-resurs i Azure-portalen:
+Application Insights gör det enkelt att förstå de prisnivå tillgängliga planerna och vad kostnaderna sannolikt baseras på senaste användningsmönster. Starta genom att öppna den **funktioner + priser** bladet i Application Insights-resurs i Azure-portalen:
 
 ![Välj prisnivå.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Här följer några saker du kan göra för att minska datavolymen:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Hantera maximala dagliga datavolym
 
-Du kan använda daglig volym fästpunkten för att begränsa de data som samlas in, men om fästpunkten är uppfyllt, kommer det resultera i förlust av alla telemetery som skickas från ditt program för resten av dagen. Det är **inte tillrådligt** har programmet att träffa dagliga fästpunkten eftersom det inte går att spåra hälsotillstånd och prestanda för programmet när det med samma namn. 
+Du kan använda daglig volym fästpunkten för att begränsa de data som samlas in, men om fästpunkten är uppfyllt, det leder till förlust av all telemetri som skickas från ditt program för resten av dagen. Det är **inte tillrådligt** har programmet att träffa dagliga fästpunkten eftersom det inte går att spåra hälsotillstånd och prestanda för programmet när det med samma namn. 
 
-Använd i stället [provtagning](app-insights-sampling.md) för att justera datavolym till nivån som du skulle och dagliga fästpunkten endast som en ”sista utväg” om ditt program börjar skicka mycket större mängder telemetery oväntat. 
+Använd i stället [provtagning](app-insights-sampling.md) för att justera datavolym till nivån som du skulle och dagliga fästpunkten endast som en ”sista utväg” om ditt program börjar skicka mycket större mängder telemetri oväntat. 
 
-Om du vill ändra dagliga fästpunkten i avsnittet Konfigurera av ditt program Insihgts resurs, klickar du på **volym datahantering** sedan **dagliga Cap**.
+Om du vill ändra dagliga fästpunkten i avsnittet Konfigurera av Application Insights-resurs klickar du på **volym datahantering** sedan **dagliga Cap**.
 
 ![Justera dagliga telemetri volym fästpunkten](./media/app-insights-pricing/daily-cap.png) 
 

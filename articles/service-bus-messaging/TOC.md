@@ -6,7 +6,6 @@
 
 # Kom igång
 ## [Skapa ett namnområde](service-bus-create-namespace-portal.md)
-### [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 ## Använda köer
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -26,6 +25,8 @@
 
 # Gör så här för att
 ## Planera och designa
+### [Hanterad tjänstidentitet (förhandsgranskning)](service-bus-managed-service-identity.md)
+### [Rollbaserad åtkomstkontroll (förhandsgranskning)](service-bus-role-based-access-control.md)
 ### [Premium-meddelandetjänster](service-bus-premium-messaging.md)
 ### [Jämför Azure-köer och Service Bus-köer](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimera prestanda](service-bus-performance-improvements.md)
@@ -35,6 +36,7 @@
 
 ## Utveckla
 ### Meddelandehantering
+#### [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 #### [Meddelanden, nyttolaster och serialisering](service-bus-messages-payloads.md)
 #### [Överföringar av meddelanden, lås och uppgörelser](message-transfers-locks-settlement.md)
 #### [Ordningsföljd och tidsstämplar för meddelanden](message-sequencing.md)
@@ -62,6 +64,7 @@
 #### [Chain-enheter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
 #### [Transaktionsbearbetning](service-bus-transactions.md)
 #### [Implementering av kopplat namnområde](service-bus-paired-namespaces.md)
+### [Slutpunkt till slutpunkt – spårning och diagnostik](service-bus-end-to-end-tracing.md)
 ## Hantera
 ### [Övervaka Service Bus med Azure-övervakning](service-bus-metrics-azure-monitor.md)
 ### [Service Bus-hanteringsbibliotek](service-bus-management-libraries.md)

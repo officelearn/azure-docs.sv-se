@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Integrera Azure Active Directory med program komma igång
 ## <a name="overview"></a>Översikt
@@ -56,7 +56,7 @@ Det är viktigt att veta var du är och där du vill gå innan du hoppa i att in
 
 Kanske du har inte svaren på alla frågor direkt, men det är OK.  Den här guiden hjälper dig besvara vissa av dessa frågor och göra vissa välgrundade beslut.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration och en Azure Active Directory-katalog.  Om du inte redan har en Azure-prenumeration, kan du prova Azure kostnadsfritt i 30 dagar. [Prova!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Programmet integrering med Azure AD
@@ -88,8 +88,8 @@ Följande artiklar beskriver hur du kan hantera åtkomst till program när de ha
 ## <a name="integrating-custom-applications"></a>Integrera anpassade program
 Om du skriver ett nytt program och vill utnyttja kraften Azure AD hjälpa utvecklare finns [Guiding utvecklare](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Om du vill lägga till anpassade program till Azure-Programgalleriet [”anpassa din egen app” Azure AD Self-Service SAML-konfiguration](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Om du vill lägga till anpassade program till Azure-Programgalleriet [”anpassa din egen app” Azure AD Self-Service SAML-konfiguration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Artikelindex för programhantering i Azure Active Directory](active-directory-apps-index.md)
 

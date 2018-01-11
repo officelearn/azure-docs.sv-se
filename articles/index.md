@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
 featureFlags: clicktale
-ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/10/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,13 +102,16 @@ ms.lasthandoff: 12/13/2017
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Hantera resurser</h3>
+                                                <h3> Säkerhet och resurshantering</h3>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -177,6 +180,7 @@ ms.lasthandoff: 12/13/2017
                                                 <h4>Relationsdatabaser</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL-databas som en tjänst</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse som en tjänst</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL-databas som en tjänst</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL-databas som en tjänst</a></li>
                                                 </ul>
@@ -597,7 +601,7 @@ ms.lasthandoff: 12/13/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Azure Bot Service</p>
                                             </a>
@@ -653,7 +657,7 @@ ms.lasthandoff: 12/13/2017
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                                <p>Språkförståelse (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -840,7 +844,7 @@ ms.lasthandoff: 12/13/2017
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
+                                                <p>Webbplatsåterställning</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1190,7 +1194,7 @@ ms.lasthandoff: 12/13/2017
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Säkerhetskopiering</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1689,7 +1693,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
+                                                    <h3>Lagring</h3>
                                                     <p>Hållbar, högtillgänglig och massivt skalbar molnlagring</p>
                                                 </div>
                                             </div>
@@ -2343,7 +2347,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2562,7 +2566,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2669,7 +2673,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Stavningskontroll i Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Språkförståelse (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Språklig analys&nbsp;<sup style="font-size:70%">FÖRHANDSVERSION</sup></span></a>
@@ -2725,7 +2729,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Söka</h3>
+                                                        <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing-nyheter</a>
@@ -3590,7 +3594,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Säkerhetskopiering</h3>
+                                                    <h3>Backup</h3>
                                                     <p>Enkel och tillförlitlig säkerhetskopiering av servern till molnet</p>
                                                 </div>
                                             </div>
@@ -4158,6 +4162,34 @@ Azure CLI </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Ladda ned</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+SQL-verktyg </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>FÖRHANDSVERSION</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Se alla SQL-verktyg</a>
                                                 </p>
                                             </div>
                                         </div>

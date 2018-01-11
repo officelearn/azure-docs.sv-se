@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
 ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med hjälp av Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure-portalen](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)

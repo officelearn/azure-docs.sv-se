@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
+
 Det här avsnittet beskriver hur du konfigurerar en web app med hjälp av den [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -33,7 +34,7 @@ Det här avsnittet beskriver hur du konfigurerar en web app med hjälp av den [A
 
 Den **programinställningar** bladet har inställningar som är grupperade under flera kategorier.
 
-### <a name="general-settings"></a>Allmänna inställningar
+### <a name="general-settings"></a>Allmänna ändringar
 **Versioner av Framework**. Ange dessa alternativ om din app använder alla dessa ramverk: 
 
 * **.NET framework**: Ange .NET framework-version. 
@@ -45,6 +46,8 @@ Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen f
 
 <a name="platform"></a>
 **Plattform**. Anger om ditt webbprogram kör i en 32-bitars eller 64-bitars miljö. 64-bitars miljö kräver Basic eller Standard-läge. Frigör och delade lägen köras alltid i en 32-bitars-miljö.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Sockets**. Ange **ON** att WebSocket-protokollet, till exempel om ditt webbprogram använder [ASP.NET SignalR] eller [socket.io](https://socket.io/).
 
@@ -58,7 +61,7 @@ Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen f
 ### <a name="debugging"></a>Felsökning
 **Fjärrfelsökning**. Aktiverar fjärrfelsökning. När aktiverat, kan du använda fjärråtkomst felsökaren i Visual Studio för att ansluta direkt till ditt webbprogram. Fjärrfelsökning förblir aktiverat för 48 timmar. 
 
-### <a name="app-settings"></a>App-inställningar
+### <a name="app-settings"></a>Appinställningar
 Det här avsnittet innehåller namn/värde-par som du web app läser in vid start. 
 
 * För .NET-appar de här inställningarna är injekteras i konfigurationen av .NET `AppSettings` vid körning kan åsidosätta befintliga inställningar. 
@@ -120,7 +123,7 @@ Om du vill visa loggfilerna måste du skapa FTP-autentiseringsuppgifter, enligt 
 
 ![Ange autentiseringsuppgifter för distribution][configure03]
 
-Det fullständiga namnet för FTP-användare är ”app\username” där *app* är namnet på ditt webbprogram. Användarnamnet visas i bladet webbapp, under **Essentials**.  
+Det fullständiga namnet för FTP-användare är ”app\username” där *app* är namnet på ditt webbprogram. Användarnamnet visas i bladet webbapp, under **Essentials**.
 
 ![Autentiseringsuppgifter för FTP-distribution][configure02]
 
@@ -147,7 +150,7 @@ Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter från upp till 
 Mer information finns i [så här: övervaka status för web endpoint].
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst]. Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service]. Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 > 
 > 
 
@@ -168,7 +171,7 @@ Mer information finns i [så här: övervaka status för web endpoint].
 [Övervakning grunderna för Web Apps i Azure App Service]: ./web-sites-monitor.md
 [pipelineläge]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en webbapp i Azure App Service]: ./web-sites-scale.md
-[Prova Apptjänst]: https://azure.microsoft.com/try/app-service/
+[Prova App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

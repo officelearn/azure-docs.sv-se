@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 Den här kursen visar hur du distribuerar appen till [Azure Web Apps](app-service-web-overview.md) från en Git-lagringsplats på den lokala datorn. Apptjänst har stöd för den här metoden med den **lokala Git** distributionsalternativ i den [Azure Portal].  
 Många av Git-kommandon som beskrivs i den här artikeln ska utföras automatiskt när du skapar en Apptjänst-app med den [Azure-kommandoradsgränssnittet] enligt [här](app-service-web-get-started-dotnet.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här kursen behöver du:
 
 * Git. Du kan hämta binära installationen [här](http://www.git-scm.com/downloads).  
@@ -32,7 +32,7 @@ För att slutföra den här kursen behöver du:
 * Ett Microsoft Azure-konto. Om du inte har ett konto kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial) eller [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
 > [!NOTE]
-> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto går du till [prova App Service](https://azure.microsoft.com/try/app-service/), där kan du direkt skapa en tillfällig startapp i App Service. Inget kreditkort krävs, och du gör inga åtaganden.  
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto går du till [prova App Service](https://azure.microsoft.com/try/app-service/), där kan du direkt skapa en tillfällig startapp i App Service. Inga kreditkort krävs. Inga åtaganden.  
 > 
 > 
 
@@ -72,7 +72,7 @@ Utför följande steg om du vill aktivera en Git-lagringsplats för din Apptjän
 2. I bladet för din Apptjänst-app, klickar du på **Inställningar > distributionskälla**. Klicka på **Välj källa**, klicka på **lokal Git-lagringsplats**, och klicka sedan på **OK**.  
    
     ![Lokal Git-lagringsplats](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Om det här är första gången du upp en databas i Azure måste du skapa autentiseringsuppgifter för inloggning för den. Du använder dem för att logga in på Azure-databasen och push ändringarna från din lokala Git-lagringsplats. Från din app-bladet, klickar du på **Inställningar > autentiseringsuppgifter för distribution**, konfigurera distributionen användarnamn och lösenord. När du är klar klickar du på **spara**.
+3. Om det här är första gången du upp en databas i Azure måste du skapa autentiseringsuppgifter för inloggning för den. Du använder dem för att logga in på Azure-databasen och push ändringarna från din lokala Git-lagringsplats. Från din app-bladet, klickar du på **Deployment > autentiseringsuppgifter för distribution**, konfigurera distributionen användarnamn och lösenord. När du är klar klickar du på **spara**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 312f8d6038718991a563dcf6214aaab4c5f2cd9a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a77e214c1138ce936b2ec6c521950704e5beb3ff
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Använd utkast med Azure Container Service (AKS)
 
@@ -25,7 +25,7 @@ Det här dokumentet beskriver med ett Kubernetes kluster på AKS utkast.
 
 Stegen som beskrivs i det här dokumentet förutsätter att du har skapat ett AKS-kluster och har upprättat en kubectl-anslutning med klustret. Om du behöver dessa objekt finns i [AKS quickstart][aks-quickstart].
 
-Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Snabbstart] [acr-Snabbstart].
+Du måste också ett privat Docker-register i Azure Container registret (ACR). Anvisningar om hur du distribuerar en ACR-instans finns i [Azure Container registret Quickstart][acr-quickstart].
 
 ## <a name="install-helm"></a>Installera Helm
 
@@ -109,7 +109,7 @@ Draft has been installed into your Kubernetes Cluster.
 Happy Sailing!
 ```
 
-## <a name="run-an-application"></a>Köra ett program
+## <a name="run-an-application"></a>Kör ett program
 
 Utkast till databasen innehåller flera exempelprogram som kan användas för demo utkast. Skapa en klonad kopia av lagringsplatsen.
 
@@ -312,5 +312,5 @@ Mer information om hur du använder ett utkast till dokumentationen i utkast på
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 
 <!-- LINKS - internal -->
-[acr-quicstart]: ../container-registry/container-registry-get-started-azure-cli.md
+[acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-quickstart]: ./kubernetes-walkthrough.md

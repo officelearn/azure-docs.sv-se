@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrera från Azure Active Directory Access Control Service till signatur för delad åtkomst auktorisering
 
-Service Bus program tidigare hade ett val av två olika auktorisering modeller: den [delade signatur åtkomst (SAS)](service-bus-sas.md) token direkt från Service Bus-modell och en federerad modell där hanteringen av auktoriseringsregler hanteras i av den [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), och token som hämtades från ACS skickas till Service Bus för att auktorisera åtkomst till de önskade funktionerna.
+Service Bus-program har tidigare hade ett val av två olika auktorisering modeller: den [delade signatur åtkomst (SAS)](service-bus-sas.md) token direkt från Service Bus-modell och en federerad modell där hanteringen av auktoriseringsregler hanteras i av den [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), och token som hämtades från ACS skickas till Service Bus för att auktorisera åtkomst till de önskade funktionerna.
 
 ACS-auktoriseringsmodellen länge har ersatts av [SAS-auktorisering](service-bus-authentication-and-authorization.md) som den önskade modellen och all dokumentation, anvisningar och exempel uteslutande använder SAS idag. Det är dessutom inte längre möjligt att skapa nya Service Bus-namnområden som har parats ihop med ACS.
 

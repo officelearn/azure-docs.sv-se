@@ -1,24 +1,25 @@
-1. Logga in på [Azure portal][Azure portal].
-2. I det vänstra navigationsfältet i portalen klickar du på **Nytt**, på **Enterprise Integration** och sedan på **Relay**.
-3. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-5. I fältet **[Resursgrupp](../articles/azure-resource-manager/resource-group-portal.md)** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
+1. Logga in på [Azure Portal][Azure portal].
+2. Välj **+ Skapa en resurs** på menyn till vänster. Välj sedan **Enterprise-integration** > **Relay**.
+3. Under **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+4. I rutan **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
+5. I rutan [Resursgrupp](../articles/azure-resource-manager/resource-group-portal.md) väljer du en befintlig resursgrupp där namnområdet ska placeras eller skapar en ny.  
 6. I **Plats** väljer du land eller region där namnområdet ska finnas.
    
     ![Skapa namnområde][create-namespace]
-7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Efter ett par minuter etableras resurser för ditt konto i systemet.
+7. Välj **Skapa**. Systemet skapar namnområdet och aktiverar det. Efter ett par minuter etableras resurser för ditt konto i systemet.
 
-### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
-1. I listan över namnområden, klickar du på det nyligen skapade namnområdet.
-2. På namnområdesbladet klickar du på **Principer för delad åtkomst**.
-3. På bladet **Principer för delad åtkomst** klickar du på **RootManageSharedAccessKey**.
+### <a name="get-management-credentials"></a>Få autentiseringsuppgifter för hantering
+
+1. Välj **Alla resurser** och välj sedan den nyligen skapade namnrymden.
+2. Under Relay-namnrymden väljer du **Principer för delad åtkomst**.  
+3. Under **Principer för delad åtkomst** väljer du **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. På bladet **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen bredvid **Anslutningssträng – Primärnyckel** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. Under **Princip: RootManageSharedAccessKey** väljer du knappen **Kopiera** bredvid **Anslutningssträng – Primär nyckel**. Anslutningssträngen kopieras då till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
     ![connection-string][connection-string]
 
-5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.  
+5. Upprepa föregående steg för att kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.  
 
 <!--Image references-->
 

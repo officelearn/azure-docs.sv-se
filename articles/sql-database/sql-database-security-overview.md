@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 14a7fdb304e90aec10bee9167817f564870cd6c1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="securing-your-sql-database"></a>Säkra din SQL Database
 
@@ -42,7 +42,7 @@ För andra sätt att kryptera dina data, kan du överväga:
 SQL Database skyddar dina data genom att begränsa åtkomsten till databasen med hjälp av brandväggsregler, autentiseringsmekanismer som kräver att användare bevisar sin identitet och auktorisering till data via rollbaserade medlemskap och behörigheter, såväl som säkerhet på radnivå och dynamisk datamaskering. En beskrivning av åtkomstkontrollfunktionerna i SQL Database finns i [Kontrollera åtkomst](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Hantering av databaser och logiska servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om det här avsnittet finns i [Rollbaserad åtkomstkontroll i Azure Portal](../active-directory/role-based-access-control-what-is.md).
+> Hantering av databaser och logiska servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om det här avsnittet finns [rollbaserad åtkomstkontroll i Azure-portalen](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Brandvägg och brandväggsregler

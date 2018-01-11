@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 91aab896dd5f06c950ee0ed8f36cc6a953d91611
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 281aac8229c55cde1f36857a8f1042aa08f7e372
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatisk säkerhetskopiering för SQL Server 2014 virtuella datorer (Resource Manager)
 
@@ -31,7 +31,7 @@ Automatisk säkerhetskopiering konfigurerar automatiskt [hanterad säkerhetskopi
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Överväg följande krav för att använda automatisk säkerhetskopiering:
 
 **Operativsystemet**:
@@ -129,11 +129,14 @@ Du bör se den visas som ”SqlIaaSAgent” eller ”SQLIaaSExtension” om till
 Om det inte är installerat eller inte fungerar som ska etableras, kan du installera det med följande kommando. Utöver VM namn och resursen gruppen, måste du också ange regionen (**$region**) som den virtuella datorn finns i.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 ```
+
+> [!IMPORTANT]
+> Om filnamnstillägget inte har installerats, installerar tillägget startar om SQL Server-tjänsten.
 
 ### <a id="verifysettings"></a>Kontrollera aktuella inställningar
 

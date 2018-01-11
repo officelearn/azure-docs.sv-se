@@ -8,19 +8,19 @@ manager: carmonm
 editor: 
 tags: 
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: ac89562a5156282bb0fe8a6aa6761d6acb97f785
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Översikt över tillgänglighet zoner i Azure (förhandsversion)
 
@@ -45,13 +45,6 @@ Azure-tjänster som stöder tillgänglighet zoner är:
 - Belastningsutjämnare
 - Offentlig IP-adress
 
-## <a name="supported-virtual-machine-size-families"></a>Virtuella datorer storlek familjer
-
-- Av2
-- Dv2
-- DSv2
-
-
 ## <a name="get-started-with-the-availability-zones-preview"></a>Komma igång med tillgänglighet zoner preview
 
 Tillgänglighet zoner förhandsgranskningen är tillgängligt i östra USA 2, västra Europa och Frankrike centrala områden för specifika Azure-tjänster. 
@@ -61,7 +54,7 @@ Tillgänglighet zoner förhandsgranskningen är tillgängligt i östra USA 2, v�
 3. Välj en region som stöder tillgänglighet zoner.
 4. Använd någon av följande länkar för att börja använda tillgänglighet zoner med din tjänst. 
     - [Skapa en virtuell dator](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Skapa en zonal virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Skapa en skaluppsättning för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Lägga till en hanteras med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Belastningsutjämnare](../load-balancer/load-balancer-standard-overview.md)
 

@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="split-column-by-example-transformation"></a>Delad kolumn av exempel omvandling
 Den här transformeringen delar predictively innehållet i en kolumn i meningsfulla gränser utan indata från användaren. Dela algoritmen väljer gränserna när du har analyserat innehållet i kolumnen. Dessa gränser kan definieras av
@@ -127,14 +127,14 @@ Hämtar upp på:
 
 |logtext_1|logtext_2|logtext_3|logtext_4|logtext_5|logtext_6|logtext_7|logtext_8|logtext_9|logtext_10|logtext_11|logtext_12|logtext_13|logtext_14|logtext_15|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|192.128.138.20|Dessa/16/2016|16:22:33|-0200|HÄMTA|Images/Picture.gif|HTTP|1.1|234|343|www.Yahoo.com|http://www.example.com/|Mozilla|4.0|kompatibla. MSIE 4|
-|10.128.72.213|2016-17-dessa|12:43:12|+0300|HÄMTA|News/stuff.HTML|HTTP|1.1|200|6233|www.AOL.com|http://www.Sample.com/|Mozilla|5.0|MSIE|
-|192.165.71.165|2016/12/Nov|14:22:44|-0500|HÄMTA|Sample.ico|HTTP|1.1|342|7342|www.Facebook.com|-|Mozilla|5.0|Windows. U; Windows NT 5.1; rv:1.7.3|
-|10.166.64.165|2016-Nov-23|01:52:45|-0800|HÄMTA|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|192.167.1.193|2017-16/Jan|22:34:56|+0200|HÄMTA|js/ADS.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
-|192.147.76.193|2017-28/Jan|26:36:16|+0800|HÄMTA|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|kompatibla. MSIE 6.0; Windows NT 5.1|
-|192.166.64.165|2017-23/Mar|01:55:25|-0800|HÄMTA|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|11.167.1.193|2017-16/april|11:34:36|+0200|HÄMTA|js/ADS.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.128.138.20|Dessa/16/2016|16:22:33|-0200|GET|Images/Picture.gif|HTTP|1.1|234|343|www.Yahoo.com|http://www.example.com/|Mozilla|4.0|kompatibla. MSIE 4|
+|10.128.72.213|2016-17-dessa|12:43:12|+0300|GET|News/stuff.HTML|HTTP|1.1|200|6233|www.AOL.com|http://www.Sample.com/|Mozilla|5.0|MSIE|
+|192.165.71.165|2016/12/Nov|14:22:44|-0500|GET|Sample.ico|HTTP|1.1|342|7342|www.Facebook.com|-|Mozilla|5.0|Windows. U; Windows NT 5.1; rv:1.7.3|
+|10.166.64.165|2016-Nov-23|01:52:45|-0800|GET|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
+|192.167.1.193|2017-16/Jan|22:34:56|+0200|GET|js/ADS.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.147.76.193|2017-28/Jan|26:36:16|+0800|GET|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|kompatibla. MSIE 6.0; Windows NT 5.1|
+|192.166.64.165|2017-23/Mar|01:55:25|-0800|GET|Style.CSS|HTTP|1.1|200|2552|www.Google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
+|11.167.1.193|2017-16/april|11:34:36|+0200|GET|js/ADS.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.HTML|Mozilla|5.0|Windows|
 
 ## <a name="examples-of-splitting-without-delimiters"></a>Exempel på Dela utan avgränsare
 I vissa fall finns ingen faktisk avgränsare och datafält kan inträffa kontinuerligt bredvid varandra. I det här fallet upptäcker dela transformeringen mönster i data för att härleda förmodligen brytpunkter. Till exempel i följande scenario vill vi separata beloppet från currency-typen och dela härleder automatiskt gränsen mellan numeriska och icke-numeriska data som delad punkt.

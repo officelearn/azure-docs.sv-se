@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modeling dokumentdata för NoSQL-databaser
 Medan schemafria databaser som Azure Cosmos DB gör det super enkelt att omfatta ändringar i datamodellen du bör fortfarande tillbringar vissa tid tro om dina data. 
@@ -39,7 +39,7 @@ När du startar modellerar data i ett dokumentarkiv, till exempel Azure Cosmos D
 
 Innan vi fördjupa dig för mycket mer Låt oss ta ett par steg tillbaka och ta en titt på hur vi kan modellen något i en relationsdatabas, ett ämne som många av oss redan är bekant med. I följande exempel visas hur en person kan lagras i en relationsdatabas. 
 
-![Relationsdatabas modellen](./media/documentdb-modeling-data/relational-data-model.png)
+![Relationsdatabas modellen](./media/sql-api-modeling-data/relational-data-model.png)
 
 När du arbetar med relationsdatabaser vi har blivit vilka undervisning förekommer i år att normalisera, normalisera, normalisera.
 
@@ -290,7 +290,7 @@ I exemplet ovan har vi bort samlingen unbounded på utgivaren dokumentet. I stä
 ### <a name="how-do-i-model-manymany-relationships"></a>Hur jag för att modellera många: många-relationer?
 I en relationsdatabas *många: många* relationer ofta modelleras med anslutning till tabeller som bara ansluta poster från andra tabeller tillsammans. 
 
-![Koppla tabeller](./media/documentdb-modeling-data/join-table.png)
+![Koppla tabeller](./media/sql-api-modeling-data/join-table.png)
 
 Du kanske tro att replikera samma sak med hjälp av dokument och skapa en datamodell som liknar följande.
 
@@ -395,4 +395,4 @@ Precis som det är inte ett enskilt sätt att representera en bit data på en sk
 
 Om du vill veta mer om Azure Cosmos DB kan referera till tjänstens [dokumentationen](https://azure.microsoft.com/documentation/services/cosmos-db/) sidan. 
 
-Att förstå hur till Fragmentera data över flera partitioner avser [partitionering Data i Azure Cosmos DB](documentdb-partition-data.md). 
+Att förstå hur till Fragmentera data över flera partitioner avser [partitionering Data i Azure Cosmos DB](sql-api-partition-data.md). 

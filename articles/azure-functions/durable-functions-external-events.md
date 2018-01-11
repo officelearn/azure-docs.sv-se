@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i varaktiga funktioner (Azure-funktioner)
 
@@ -26,7 +26,7 @@ Orchestrator-funktioner har möjlighet att vänta och lyssna efter externa händ
 
 ## <a name="wait-for-events"></a>Vänta tills händelser
 
-Den [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoden gör att en orchestrator funktion asynkront vänta och lyssna efter en extern händelse. Anroparen förklarar den *namn* för händelsen och *form av data* den förväntar sig att ta emot.
+Den [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) metoden gör att en orchestrator funktion asynkront vänta och lyssna efter en extern händelse. Funktionen lyssnande orchestrator förklarar den *namn* för händelsen och *form av data* den förväntar sig att ta emot.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Föregående exempel lyssnar efter en händelse och vidtar åtgärder när den tas emot.
+Föregående exempel lyssnar efter en viss händelse och vidtar åtgärder när den tas emot.
 
 Du kan lyssna efter flera händelser samtidigt, precis som i följande exempel som väntar på en av tre möjliga händelsemeddelanden.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) väntar på obestämd tid för indata.  Funktionsapp kan tas bort från minnet väntan på ett säkert sätt. Om och när en händelse anländer för den här orchestration-instansen är aktiveras automatiskt och omedelbart bearbetar händelsen.
 
 > [!NOTE]
-> Inga faktureringskostnader medan en orchestrator-funktion väntar på en aktivitet från `WaitForExternalEvent`, oavsett hur länge den väntar.
+> Om funktionen appen använder förbrukning planera, inga faktureringskostnader medan en orchestrator-funktion väntar på en aktivitet från `WaitForExternalEvent`, oavsett hur länge den väntar.
 
 Om händelsenyttolasten inte kan konverteras till den förväntade typen `T`, genereras ett undantag.
 

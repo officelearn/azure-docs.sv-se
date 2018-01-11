@@ -3,7 +3,7 @@ title: "Publicera Fjärrskrivbord med Azure AD App Proxy | Microsoft Docs"
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: kgremban
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: f2d7387f03757afb0b51105f02068d4aada8f9f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -90,7 +90,7 @@ Anslut till RDS-distribution som administratör och byta namn på RD Gateway-ser
 
    **Exempel:**
    ```
-   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://gateway.contoso.msappproxy.net/`nrequire pre-authentication:i:1"
+   Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
 
 9. Om du vill bekräfta ändringen av de anpassade egenskaperna i RDP samt visa innehållet för RDP-filen som ska hämtas från RDWeb för den här samlingen, kör du följande kommando:

@@ -4,7 +4,7 @@ description: "Lär dig hur du installerar och konfigurerar fjärrskrivbord (xrdp
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux VM i Azure
 Linux virtuella datorer (VM) i Azure som oftast hanteras från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya Linux eller för snabb felsökning scenarier kan användningen av fjärrskrivbord vara enklare. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för dina Linux VM med hjälp av Resource Manager-distributionsmodellen.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en säkerhetsgrupp för nätverk-regel för Remote Desktop-trafik
 För att tillåta trafik för fjärrskrivbord till din Linux VM en nätverkssäkerhet grupp regeln måste skapas som tillåter TCP på port 3389 till den virtuella datorn. Mer information om regler för nätverkssäkerhetsgrupper finns [vad är en Nätverkssäkerhetsgrupp?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure portal för att skapa en grupp för nätverkssäkerhetsregeln](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Följande exempel skapar en grupp nätverkssäkerhetsregeln med [az nätverket nsg regeln skapa](/cli/azure/network/nsg/rule#create) med namnet *myNetworkSecurityGroupRule* till *Tillåt* trafik på *tcp* port *3389*.
+I följande exempel skapas en grupp nätverkssäkerhetsregeln med [az vm öppna port](/cli/azure/vm#open-port) på port *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Om tjänsten xrdp inte lyssnar på en Ubuntu VM startar du om tjänsten enligt följande:
+Om den *xrdp sesman* tjänsten inte lyssnar, på en Ubuntu VM startar du om tjänsten enligt följande:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Granska loggar in */var/log*Thug på din Ubuntu VM för uppgifter om varför tjänsten svarar inte. Du kan också övervaka syslog under en anslutning till fjärrskrivbord försöker visa eventuella fel:
+Granska loggar in */var/log* på din Ubuntu VM för uppgifter om varför tjänsten svarar inte. Du kan också övervaka syslog under en anslutning till fjärrskrivbord försöker visa eventuella fel:
 
 ```bash
 tail -f /var/log/syslog

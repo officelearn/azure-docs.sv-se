@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
 Den här artikeln beskriver de olika källorna av aviseringar i Microsoft Azure, vilka syften för dessa aviseringar, sina fördelar och hur du kommer igång med att använda dem. Den specifikt gäller för Azure-Monitor, men ger aviseringar samt länkar till andra tjänster. Aviseringar erbjuder en metod för att övervaka i Azure som gör att du kan konfigurera villkor över data och bli meddelad när villkoren matchas senaste övervakningsdata.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Taxonomi för Azure-aviseringar
 Azure använder följande termer för att beskriva aviseringar och deras funktioner:
@@ -32,10 +33,15 @@ Azure använder följande termer för att beskriva aviseringar och deras funktio
 * **Meddelande** - åtgärd baserat på en avisering som blir aktiv.
 * **Åtgärden** -ett specifikt anrop som skickas till en mottagare av ett meddelande (till exempel e-posta en adress eller bokföring till en Webhooksadressen). Meddelanden kan vanligtvis utlösa flera åtgärder.
 
+    > [!NOTE]
+    > En ny enhetlig miljö är tillgängliga i förhandsversionen under utvecklingen av aviseringar i Azure. Den nya upplevelsen aviseringar (förhandsgranskning) använder en annan taxonomi. Lär dig mer om [aviseringar (förhandsgranskning)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>Aviseringar i olika Azure-tjänster
 Aviseringar är tillgänglig över flera Azure övervaka tjänster. Information om hur och när du använder dessa tjänster [finns i den här artikeln](./monitoring-overview.md). Här är en uppdelning av aviseringstyperna i Azure:
 
-| Tjänst | Typ av avisering | Tjänster som stöds | Beskrivning |
+
+| Tjänst | Aviseringstyp | Tjänster som stöds | Beskrivning |
 |---|---|---|---|
 | Azure Monitor | [Mått aviseringar](./insights-alerts-portal.md) | [Stöds mått från Azure-Monitor](./monitoring-supported-metrics.md) | Ett meddelande när någon plattform nivå mått uppfyller ett visst villkor (till exempel processor i procent på en virtuell dator är större än 90 för senaste 5 minuter). |
 |Azure Monitor | [Nära realtid mått aviseringar (förhandsgranskning)](./monitoring-near-real-time-metric-alerts.md)| [Stöds resurser från Azure-Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Ett meddelande snabbare än mått aviseringar när ett eller flera mått för plattformen nivå uppfyller angivna villkor (till exempel processor i procent på en virtuell dator är större än 90 och nätverket i är större än 500 MB för senaste 5 minuter). |
@@ -50,10 +56,10 @@ Det finns tre typer av aviseringar från data från Azure övervakaren--mått av
 * **Mått aviseringar** -den här aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar. Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärdet skärs och avisering villkoret är uppfyllt) som när den är ”löst” (när tröskelvärdet skärs igen och den är inte längre uppfyllt). En växande lista över tillgängliga mått som stöds av Azure-monitor finns [listan över mått stöds på Azure-Monitor](monitoring-supported-metrics.md).
 * **Nära realtid mått aviseringar (förhandsgranskning)** - aviseringarna liknar mått aviseringar men skiljer sig på flera sätt. Det första som namnet antyder kan dessa aviseringar utlösas i nära realtid (så snabbt som 1 min.). De också stöd för övervakning av flera (för närvarande två) mått.  Aviseringen genererar ett meddelande när aviseringen är ”aktiverad” (när tröskelvärden för varje mått passeras samtidigt och avisering villkoret är uppfyllt) samt när ”löses” (när minst en måttet överskrider tröskelvärdet igen och villkoret är ingen längre uppfyllt).
 
-> [!NOTE]
-> Nära realtid måttet är aviseringar för närvarande i förhandsversion. Funktioner och användarupplevelse kan ändras.
->
->
+    > [!NOTE]
+    > Nära realtid måttet är aviseringar för närvarande i förhandsversion. Funktioner och användarupplevelse kan ändras.
+    >
+    >
 
 * **Loggen Aktivitetsaviseringar** -en strömmande log-avisering som utlöses när en aktivitetsloggen-händelse genereras som matchar filtervillkor som du har tilldelat. Dessa aviseringar har endast en tillstånd ”aktiverad” eftersom aviseringen motorn gäller bara filtervillkoren för alla nya händelser. Dessa aviseringar kan användas för att bli meddelad när en ny incident tjänstens hälsa inträffar eller när en användare eller program utför en åtgärd i din prenumeration, till exempel ”ta bort virtuell dator”.
 
@@ -91,3 +97,4 @@ Hämta information om Varningsregler och konfigurerar dem med hjälp av:
 * Lär dig mer om [nära realtid mått aviseringar](monitoring-near-real-time-metric-alerts.md)
 * Lär dig mer om [tjänstmeddelanden](monitoring-service-notifications.md)
 * Lär dig mer om [åtgärdsgrupper](monitoring-action-groups.md)
+* Konfigurera [aviseringar via aviseringar (förhandsgranskning)](monitor-alerts-unified-usage.md)

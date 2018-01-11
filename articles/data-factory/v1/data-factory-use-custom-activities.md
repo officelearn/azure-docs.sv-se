@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 0794952fdfbcc49cc66273be2d46484014ae1677
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,16 +36,15 @@ Det finns två typer av aktiviteter som du kan använda i ett Azure Data Factory
 
 Om du vill flytta data till/från ett dataarkiv som Data Factory inte har stöd för, skapa en **anpassad aktivitet** med dina egna data movement logik och Använd aktiviteten i en pipeline. På samma sätt för att transformera/bearbeta data på ett sätt som inte stöds av Data Factory, skapa en anpassad aktivitet med dina egna data transformation logik och använda aktiviteten i en pipeline. 
 
-Du kan konfigurera en anpassad aktivitet ska köras på en **Azure Batch** poolen med virtuella datorer eller en Windows-baserad **Azure HDInsight** klustret. När du använder Azure Batch kan använda du endast en befintlig Azure Batch-pool. När du använder HDInsight kan du använda ett befintligt HDInsight-kluster eller ett kluster som skapas automatiskt för du på-begäran vid körning.  
+Du kan konfigurera en anpassad aktivitet ska köras på en **Azure Batch** pool för virtuella datorer. När du använder Azure Batch kan använda du endast en befintlig Azure Batch-pool.
 
-Den här genomgången innehåller stegvisa instruktioner för att skapa en anpassad .NET-aktivitet och använda den anpassade aktiviteten i en pipeline. Den här genomgången använder en **Azure Batch** länkade tjänsten. Att använda en Azure HDInsight länkade tjänsten i stället skapar du en länkad tjänst av typen **HDInsight** (egna HDInsight-kluster) eller **HDInsightOnDemand** (Data Factory skapar ett HDInsight-kluster på begäran). Konfigurera sedan anpassad aktivitet om du vill använda HDInsight länkade tjänsten. Se [Använd Azure HDInsight länkade tjänster](#use-hdinsight-compute-service) information om hur du använder Azure HDInsight för att köra den anpassade aktiviteten.
+Den här genomgången innehåller stegvisa instruktioner för att skapa en anpassad .NET-aktivitet och använda den anpassade aktiviteten i en pipeline. Den här genomgången använder en **Azure Batch** länkade tjänsten. 
 
 > [!IMPORTANT]
-> - Anpassad .NET-aktiviteter körs bara på Windows-baserade HDInsight-kluster. En lösning för den här begränsningen är att använda aktiviteten mappa minska för att köra anpassad Java-kod på en Linux-baserade HDInsight-kluster. Ett annat alternativ är att använda en Azure Batch-pool för virtuella datorer för att köra anpassade aktiviteter i stället för ett HDInsight-kluster.
 > - Det går inte att använda en Data Management Gateway från en anpassad aktivitet för att få åtkomst till lokala datakällor. För närvarande [Data Management Gateway](data-factory-data-management-gateway.md) stöder endast kopieringsaktiviteten och aktiviteten lagrad procedur i Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Genomgång: skapa en anpassad aktivitet
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012/2013/2015
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
@@ -113,7 +112,9 @@ Metoden returnerar en ordlista som kan användas för att kedja anpassade aktivi
      <li>Välj <b>C:\ADFGetStarted</b> för den <b>plats</b>.</li>
      <li>Klicka på <b>OK</b> för att skapa projektet.</li>
    </ol>
-2.Klicka på **verktyg**, peka på **NuGet Package Manager**, och klicka på **Pakethanterarkonsolen**.
+   
+2. Klicka på **Verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager Console**.
+
 3. I Package Manager-konsolen kör du följande kommando för att importera **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -479,8 +480,6 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 
        För den **poolName** egenskap, du kan också ange ID för poolen i stället för namnet på poolen.
 
-      > [!IMPORTANT]
-      > Data Factory-tjänsten stöder inte ett alternativ på begäran för Azure Batch som för HDInsight. Du kan bara använda din egen Azure Batch-pool i ett Azure data factory.   
     
 
 ### <a name="step-3-create-datasets"></a>Steg 3: Skapa datauppsättningar
@@ -555,7 +554,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
 
     En blob/utdatafil genereras för varje inkommande segment. Här är hur en utdatafil heter för varje segment. Alla utdatafiler som skapas i en utdatamapp: **adftutorial\customactivityoutput**.
 
-   | Sektorn | Starttid | Utdatafil |
+   | Sektor | Starttid | Utdatafil |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
@@ -786,115 +785,6 @@ Se [automatiskt skala compute-noder i en Azure Batch-pool](../../batch/batch-aut
 
 Om poolen använder standard [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), Batch-tjänsten kan ta 15 30 minuter att förbereda den virtuella datorn innan du kör den anpassade aktiviteten.  Om poolen använder en annan autoScaleEvaluationInterval, kan Batch-tjänsten ta autoScaleEvaluationInterval + 10 minuter.
 
-## <a name="use-hdinsight-compute-service"></a>Använda HDInsight beräknings-tjänst
-I den här genomgången används Azure Batch beräkning för att köra den anpassade aktiviteten. Du kan också använda egna Windows-baserade HDInsight-kluster eller har Data Factory skapar på-begäran-Windows-baserade HDInsight-kluster och har den anpassade aktiviteten körs på HDInsight-klustret. Här följer anvisningar för att använda ett HDInsight-kluster.
-
-> [!IMPORTANT]
-> Anpassad .NET-aktiviteter körs bara på Windows-baserade HDInsight-kluster. En lösning för den här begränsningen är att använda aktiviteten mappa minska för att köra anpassad Java-kod på en Linux-baserade HDInsight-kluster. Ett annat alternativ är att använda en Azure Batch-pool för virtuella datorer för att köra anpassade aktiviteter i stället för ett HDInsight-kluster.
- 
-
-1. Skapa en Azure HDInsight länkad tjänst.   
-2. Använd HDInsight länkade tjänsten i stället för **AzureBatchLinkedService** i pipeline-JSON.
-
-Om du vill testa den med den här genomgången, ändra **starta** och **end** tidsgränsen för pipeline så att du kan testa scenariot med tjänsten Azure HDInsight.
-
-#### <a name="create-azure-hdinsight-linked-service"></a>Skapa en Azure HDInsight-länkad tjänst
-Azure Data Factory-tjänsten stöder skapandet av ett kluster på begäran och använda den för att behandla indata för att gav inga utdata. Du kan också använda ditt eget kluster för att utföra samma. När du använder HDInsight-kluster på begäran, skapas ett kluster för varje segment. Om du använder egna HDInsight-kluster i klustret är redo att utföra sektorn omedelbart. Därför när du använder kluster på begäran måste kanske du inte visas utdata så snabbt som när du använder ditt eget kluster.
-
-> [!NOTE]
-> Vid körning körs en instans av en .NET-aktiviteten bara på en worker-nod i HDInsight-klustret; den kan inte skalas för att köras på flera noder. Flera instanser av .NET-aktiviteten kan köras parallellt på olika noder i HDInsight-klustret.
->
->
-
-##### <a name="to-use-an-on-demand-hdinsight-cluster"></a>Att använda ett HDInsight-kluster på begäran
-1. I den **Azure-portalen**, klickar du på **författare och distribution** i Data Factory-startsidan.
-2. I den Data Factory-redigeraren, klicka på **nya beräkning** kommandofältet och välj **på begäran HDInsight-kluster** på menyn.
-3. Gör följande ändringar i JSON-skriptet:
-
-   1. För den **clusterSize** -egenskapen anger storleken på HDInsight-klustret.
-   2. För den **timeToLive** -egenskapen anger hur länge kunden kan vara inaktiv innan den tas bort.
-   3. För den **version** egenskap, ange HDInsight-version som du vill använda. Om du utesluter den här egenskapen används den senaste versionen.  
-   4. För den **linkedServiceName**, ange **AzureStorageLinkedService**.
-
-        ```JSON
-        {
-           "name": "HDInsightOnDemandLinkedService",
-           "properties": {
-               "type": "HDInsightOnDemand",
-               "typeProperties": {
-                   "clusterSize": 4,
-                   "timeToLive": "00:05:00",
-                   "osType": "Windows",
-                   "linkedServiceName": "AzureStorageLinkedService",
-               }
-           }
-        }
-        ```
-
-    > [!IMPORTANT]
-    > Anpassad .NET-aktiviteter körs bara på Windows-baserade HDInsight-kluster. En lösning för den här begränsningen är att använda aktiviteten mappa minska för att köra anpassad Java-kod på en Linux-baserade HDInsight-kluster. Ett annat alternativ är att använda en Azure Batch-pool för virtuella datorer för att köra anpassade aktiviteter i stället för ett HDInsight-kluster.
-
-4. Klicka på **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
-
-##### <a name="to-use-your-own-hdinsight-cluster"></a>Använda din egen HDInsight-kluster:
-1. I den **Azure-portalen**, klickar du på **författare och distribution** i Data Factory-startsidan.
-2. I den **Data Factory-redigeraren**, klickar du på **nya beräkning** kommandofältet och välj **HDInsight-kluster** på menyn.
-3. Gör följande ändringar i JSON-skriptet:
-
-   1. För den **clusterUri** egenskap, ange URL för din HDInsight. Till exempel: https://<clustername>.azurehdinsight.net/     
-   2. För den **användarnamn** egenskap, ange namnet på användaren som har åtkomst till HDInsight-klustret.
-   3. För den **lösenord** egenskap, ange lösenordet för användaren.
-   4. För den **LinkedServiceName** egenskap, ange **AzureStorageLinkedService**.
-4. Klicka på **Distribuera** i kommandofältet för att distribuera den länkade tjänsten.
-
-Se [Compute länkade tjänster](data-factory-compute-linked-services.md) mer information.
-
-I den **pipeline-JSON**, använda HDInsight (på begäran eller egna) länkade tjänsten:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## <a name="create-a-custom-activity-by-using-net-sdk"></a>Skapa en anpassad aktivitet med hjälp av .NET SDK
 I den här genomgången i den här artikeln skapa en datafabrik med en pipeline som använder den anpassade aktiviteten med hjälp av Azure portal. Följande kod visar hur du skapar datafabriken med hjälp av .NET SDK i stället. Du hittar mer information om hur du använder SDK för att skapa programmässigt pipelines i den [skapar en pipeline med kopieringsaktiviteten med hjälp av .NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md) artikel. 

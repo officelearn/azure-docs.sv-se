@@ -1,0 +1,31 @@
+- name: Dokumentation om Microsoft Genomics
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är Microsoft Genomics?
+      href: overview-what-is-genomics.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Kör ett Genomics-exempelarbetsflöde
+      href: quickstart-run-genomics-workflow-portal.md
+    - name: Använd olika format för indatafiler
+      items:
+        - name: Flera FASTQ-filer
+          href: quickstart-input-pair-fastq.md
+        - name: BAM-fil
+          href: quickstart-input-bam.md
+        - name: Flera FASTQ- eller BAM-filer
+          href: quickstart-input-multiple.md
+- name: Resurser
+  items:
+    - name: Vanliga frågor
+      href: frequently-asked-questions-genomics.md
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/genomics/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Supportalternativ
+      href: 'https://azure.microsoft.com/support/options/'

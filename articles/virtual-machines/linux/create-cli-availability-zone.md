@@ -10,17 +10,17 @@ tags:
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 232c2cf1ba0a7de23da10357de9a6e6ad9a0d41d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Skapa en virtuell Linux-dator i en zon för tillgänglighet med Azure CLI
 
@@ -29,6 +29,35 @@ Den här artikeln steg genom att använda Azure CLI för att skapa en Linux-VM i
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Kontrollera att du har installerat senast [Azure CLI 2.0](/cli/azure/install-az-cli2) och inloggade på en Azure-konto med [az inloggningen](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Kontrollera tillgänglighet för VM-SKU
+Tillgängligheten för VM-storlek eller SKU: er, kan varierar beroende på region och zon. När du planerar för användningen av tillgänglighet zoner, kan du visa de tillgängliga VM SKU: er av Azure-region och zon. Den här möjligheten ser till att du väljer en lämplig VM-storlek och hämta önskade återhämtning i zoner. Läs mer på VM av olika typer och storlekar, [VM-storlekar översikt](sizes.md).
+
+Du kan visa de tillgängliga VM SKU: er med den [az vm lista-SKU](/cli/azure/vm#az_vm_list_skus) kommando. I följande exempel visar en lista över tillgängliga VM-SKU: er i den *eastus2* region:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+Utdata liknar följande komprimerad exempel som visar tillgänglighet zonerna där varje VM-storleken är tillgänglig:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 

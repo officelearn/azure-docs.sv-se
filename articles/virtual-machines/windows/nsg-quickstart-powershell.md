@@ -4,7 +4,7 @@ description: "Lär dig hur du öppnar en port / skapa en slutpunkt på din Windo
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 9dea128456988cf13881987b5db440e77445b8a0
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: d9918992ef1ac46b3b000480b6be7e984f0858e1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Hur du öppnar portar och slutpunkter till en virtuell dator i Azure med hjälp av PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -32,7 +32,7 @@ Logga in på ditt Azure-konto:
 Login-AzureRmAccount
 ```
 
-Ersätt exempel parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNetworkSecurityGroup*, och *myVnet*.
+Ersätt parameternamn med egna värden i följande exempel. Exempel parameternamn ingår *myResourceGroup*, *myNetworkSecurityGroup*, och *myVnet*.
 
 Skapa en regel med [ny AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* så att *tcp* trafik på port *80*:
 

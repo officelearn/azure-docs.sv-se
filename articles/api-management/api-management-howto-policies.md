@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Principer i Azure API Management
 
@@ -74,7 +74,7 @@ Se [princip prover](policy-samples.md) fler kodexempel.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Appliy principer vid olika omfång
+### <a name="apply-policies-specified-at-different-scopes"></a>Tillämpa principer som anges på olika omfång
 
 Om du har en princip på global nivå och en princip som konfigurerats för ett API som sedan tillämpas varje gång det specifika API används båda principerna. API Management gör deterministiska sorteringen av kombinerade hanteringsprinciper via baselementet. 
 

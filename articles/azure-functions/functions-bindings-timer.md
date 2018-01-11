@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer som utlösare för Azure Functions 
 
@@ -33,14 +33,14 @@ Den här artikeln förklarar hur du arbetar med timer utlösare i Azure Function
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som körs var femte minut:
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som körs var femte minut:
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 Attributets konstruktorn har ett CRON-uttryck som visas i följande exempel:
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Du kan ange en `TimeSpan` i stället för ett CRON-uttryck om funktionen appen körs i en apptjänstplan (inte en plan för förbrukning).
 
-En komplett exempel finns [förkompilerat C#-exempel](#c-example).
+En komplett exempel finns [C#-exempel](#c-example).
 
 ## <a name="configuration"></a>Konfiguration
 

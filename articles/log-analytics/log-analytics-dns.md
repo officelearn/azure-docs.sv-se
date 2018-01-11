@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in insikter om din DNS-infrastruktur med DNS-Analytics Preview-lösning
 
@@ -42,7 +42,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 | **Ansluten datakälla** | **Support** | **Beskrivning** |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen inte samlar in DNS-information direkt Linux-agenter. |
 | [System Center Operations Manager-hanteringsgruppen](log-analytics-om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager-agenten till Operations Management Suite krävs inte. Data skickas från hanteringsgruppen till Operations Management Suite-databasen. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure-lagring används inte av lösningen. |
@@ -55,7 +55,7 @@ Lösningen samlar in DNS-inventerings- och DNS-händelse-relaterade data från D
 
 Använd följande information för att konfigurera lösningen:
 
-- Du måste ha en [Windows](log-analytics-windows-agents.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
+- Du måste ha en [Windows](log-analytics-windows-agent.md) eller [Operations Manager](log-analytics-om-agents.md) agenten på varje DNS-server som du vill övervaka.
 - Du kan lägga till DNS-Analytics lösningen till Operations Management Suite-arbetsyta från den [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Du kan också använda processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
 
 Lösningen börjar samla in data utan behov av ytterligare konfiguration. Du kan dock använda följande konfiguration för att anpassa datainsamling.

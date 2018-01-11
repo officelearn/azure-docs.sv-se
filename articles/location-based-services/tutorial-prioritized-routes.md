@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3631bab8e5cb505689e92d2862c6863bcd56404d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Hitta vägar för olika lägen för resa med hjälp av Azure baserad platstjänster
 
@@ -26,7 +26,7 @@ Den här kursen visar hur du använder Azure plats Services-konto och väg Servi
 > * Konfigurera Route Service-fråga
 > * Återge vägar prioriteras av läget för resa
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter, kontrollera att [skapa Azure baserad platstjänster kontot](./tutorial-search-location.md#createaccount), och [hämta nyckel för prenumerationen för ditt konto](./tutorial-search-location.md#getkey). Du kan också se hur du använder Kartkontrollen och API: er för Search-tjänsten enligt beskrivningen i självstudierna [Sök Närliggande intressant med hjälp av Azure baserad platstjänster](./tutorial-search-location.md), samt Lär dig grundläggande användning av flödet Service API: er som beskrivs i kursen [väg till en plats med hjälp av Azure baserad platstjänster intressanta](./tutorial-route-location.md).
 
@@ -65,12 +65,12 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
             }
         </style>
     </head>
+    
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -78,88 +78,87 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
     Observera att HTML-huvudet bäddar in resursplatser för CSS- och JavaScript-filer för Azure baserad platstjänster-biblioteket. Notera också den *skriptet* segment som lagts till i brödtexten för HTML-format, som innehåller infogat JavaScript-kod för åtkomst till Azure kartan kontroll-API.
 3. Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel.
 
-    ```HTML
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     Den **atlas. Kartan** ger kontrollen för en visual och interaktiva webb och är en komponent i Azure kartan kontroll-API: et.
 
 4. Lägg till följande JavaScript-kod till den *skriptet* block, att lägga till det flöde som visningen på trafik till kartan:
 
-    ```HTML
-            // Add Traffic Flow to the Map
-            map.setTraffic({
-                flow: "relative"
-            });
+    ```JavaScript
+    // Add Traffic Flow to the Map
+    map.setTraffic({
+        flow: "relative"
+    });
     ```
     Den här koden anger flödet i nätverkstrafiken till `relative`, vilket är hastigheten på vägen i förhållande till kostnadsfri flödet. Du kan också ange den till `absolute` hastigheten på väg, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från kostnadsfri flöde. 
 
 5. Lägg till följande JavaScript-kod för att skapa de PIN-koderna för start- och slutpunkterna för vägen:
 
-    ```HTML
-            // Create the GeoJSON objects which represent the start and end point of the route
-            var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
-            var startPin = new atlas.data.Feature(startPoint, {
-                title: "Fabrikam, Inc.",
-                icon: "pin-round-blue"
-            });
+    ```JavaScript
+    // Create the GeoJSON objects which represent the start and end point of the route
+    var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
+    var startPin = new atlas.data.Feature(startPoint, {
+        title: "Fabrikam, Inc.",
+        icon: "pin-round-blue"
+    });
 
-            var destinationPoint = new atlas.data.Point([-122.130137, 47.644702]);
-            var destinationPin = new atlas.data.Feature(destinationPoint, {
-                title: "Microsoft",
-                icon: "pin-blue"
-            });
+    var destinationPoint = new atlas.data.Point([-122.130137, 47.644702]);
+    var destinationPin = new atlas.data.Feature(destinationPoint, {
+        title: "Microsoft",
+        icon: "pin-blue"
+    });
     ```
     Den här koden skapar två [GeoJSON objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för vägen. 
 
 6. Lägg till följande JavaScript-kod för att lägga till lager i *linestrings* att Kartkontrollen att visa rutter baserat på transportsätt, till exempel _bilen_ och _lastbil_.
 
-    ```HTML
-            // Place route layers on the map
-            var carRouteLayerName = "car-route";
-            map.addLinestrings([], {
-                name: carRouteLayerName,
-                color: "#B76DAB",
-                width: 5,
-                cap: "round",
-                join: "round",
-                before: "labels"
-            });
-    
-            var truckRouteLayerName = "truck-route";
-            map.addLinestrings([], {
-                name: truckRouteLayerName,
-                color: "#2272B9",
-                width: 9,
-                cap: "round",
-                join: "round",
-                before: carRouteLayerName
-            });
+    ```JavaScript
+    // Place route layers on the map
+    var carRouteLayerName = "car-route";
+    map.addLinestrings([], {
+        name: carRouteLayerName,
+        color: "#B76DAB",
+        width: 5,
+        cap: "round",
+        join: "round",
+        before: "labels"
+    });
+
+    var truckRouteLayerName = "truck-route";
+    map.addLinestrings([], {
+        name: truckRouteLayerName,
+        color: "#2272B9",
+        width: 9,
+        cap: "round",
+        join: "round",
+        before: carRouteLayerName
+    });
     ```
 
 7. Lägg till följande JavaScript-kod för att lägga till start- och slutpunkter på kartan:
 
-    ```HTML
-            // Fit the map window to the bounding box defined by the start and destination points
-            var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 100
-            });
+    ```JavaScript
+    // Fit the map window to the bounding box defined by the start and destination points
+    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    map.setCameraBounds({
+        bounds: [swLon, swLat, neLon, neLat],
+        padding: 100
+    });
 
-            // Add pins to the map for the start and end point of the route
-            map.addPins([startPin, destinationPin], {
-                name: "route-pins",
-                textFont: "SegoeUi-Regular",
-                textOffset: [0, -20]
-            });
+    // Add pins to the map for the start and end point of the route
+    map.addPins([startPin, destinationPin], {
+        name: "route-pins",
+        textFont: "SegoeUi-Regular",
+        textOffset: [0, -20]
+    });
     ``` 
     API: et **map.setCameraBounds** justerar fönstret kartan enligt koordinaterna för start- och slutpunkter. API: et **map.addPins** lägger till punkterna i kartkontrollen som visuella komponenter.
 
@@ -173,78 +172,78 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
 
 1. Öppna den **MapTruckRoute.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block, att hämta flödet för en lastbil med hjälp av tjänsten vägen.
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting truck route on the map
-            var xhttpTruck = new XMLHttpRequest();
-            xhttpTruck.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
+    ```JavaScript
+    // Perform a request to the route service and draw the resulting truck route on the map
+    var xhttpTruck = new XMLHttpRequest();
+    xhttpTruck.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                        name: truckRouteLayerName
-                    });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
+                name: truckRouteLayerName
+            });
+        }
+    };
 
-            var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-            truckRouteUrl += "&api-version=1.0";
-            truckRouteUrl += "&subscription-key=" + subscriptionKey;
-            truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-            truckRouteUrl += "&travelMode=truck";
-            truckRouteUrl += "&vehicleWidth=2";
-            truckRouteUrl += "&vehicleHeight=2";
-            truckRouteUrl += "&vehicleLength=5";
-            truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
+    var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
+    truckRouteUrl += "&api-version=1.0";
+    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+    truckRouteUrl += "&travelMode=truck";
+    truckRouteUrl += "&vehicleWidth=2";
+    truckRouteUrl += "&vehicleHeight=2";
+    truckRouteUrl += "&vehicleLength=5";
+    truckRouteUrl += "&vehicleLoadType=USHazmatClass2";
 
-            xhttpTruck.open("GET", truckRouteUrl, true);
-            xhttpTruck.send();
+    xhttpTruck.open("GET", truckRouteUrl, true);
+    xhttpTruck.send();
     ```
     Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Den skapar en matris med koordinater för det flöde som returneras för ett lyckat svar och lägger till den på kartan `truckRouteLayerName` lager. 
     
-    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Följande valfria parametrar används för att ange flödet för en tung lastbil:-parametern `travelMode=truck` anger läget för resa som *lastbil*. Andra former av resa som stöds är *taxi*, *bus*, *van*, *motorcykel*, och standardvärdet *bilen* . 
-        -Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` ange dimensionerna för programuppdatering i mätare och anses endast om läget för resa är *lastbil*. 
-        - `vehicleLoadType` Klassificerar last som farliga och begränsade på vissa vägar. Detta betraktas som för närvarande endast för den *lastbil* läge. 
+    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Följande valfria parametrar används för att ange flödet för en tung lastbil:-parametern `travelMode=truck` anger läget för resa som *lastbil*. Andra former av resa som stöds är *taxi*, *bus*, *van*, *motorcykel*, och standardvärdet *bilen* .  
+        -Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` ange dimensionerna för programuppdatering i mätare och anses endast om läget för resa är *lastbil*.  
+        - `vehicleLoadType` Klassificerar last som farliga och begränsade på vissa vägar. Detta betraktas som för närvarande endast för den *lastbil* läge.  
 
 2. Lägg till följande JavaScript-kod för att få flödet för en bil med hjälp av tjänsten väg:
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting car route on the map
-            var xhttpCar = new XMLHttpRequest();
-            xhttpCar.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
+    ```JavaScript
+    // Perform a request to the route service and draw the resulting car route on the map
+    var xhttpCar = new XMLHttpRequest();
+    xhttpCar.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
-                        name: carRouteLayerName
-                    });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], {
+                name: carRouteLayerName
+            });
+        }
+    };
 
-            var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
-            carRouteUrl += "&api-version=1.0";
-            carRouteUrl += "&subscription-key=" + subscriptionKey;
-            carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+    var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
+    carRouteUrl += "&api-version=1.0";
+    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
-            xhttpCar.open("GET", carRouteUrl, true);
-            xhttpCar.send();
+    xhttpCar.open("GET", carRouteUrl, true);
+    xhttpCar.send();
     ```
     Det här kodstycket skapar en annan [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Den skapar en matris med koordinater för det flöde som returneras för ett lyckat svar och lägger till den på kartan `carRouteLayerName` lager. 
     

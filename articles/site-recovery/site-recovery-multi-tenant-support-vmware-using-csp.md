@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/14/2017
 ms.author: manayar
-ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Stöd för flera innehavare i Azure Site Recovery för att replikera virtuella VMware-datorer till Azure via CSP
 
-Azure Site Recovery har stöd för miljöer med flera innehavare för klient-prenumerationer. Det stöder också flera innehavare för klient-prenumerationer som skapas och hanteras via programmet Microsoft Cloud Solution Providers (CSP). Den här artikeln beskrivs vägledning för att implementera och hantera flera innehavare VMware-Azure-scenarier. Den omfattar också skapa och hantera innehavare prenumerationer via CSP.
+Azure Site Recovery har stöd för miljöer med flera innehavare för klient-prenumerationer. Det stöder också flera innehavare för klient-prenumerationer som skapas och hanteras via programmet Microsoft Cloud Solution Providers (CSP). Den här artikeln beskrivs vägledning för att implementera och hantera flera innehavare VMware-Azure-scenarier. Mer information om att skapa och hantera innehavare prenumerationer finns [hanterar flera innehavare med CSP](site-recovery-manage-multi-tenancy-with-csp.md) .
 
 Den här vägledningen ritar kraftigt från den befintliga dokumentationen för att replikera virtuella VMware-datorer till Azure. Mer information finns i [replikera VMware-datorer till Azure med Site Recovery](site-recovery-vmware-to-azure.md).
 
@@ -31,7 +31,7 @@ Det finns tre huvudsakliga modeller för flera innehavare:
 
 * **Delade värd Services Provider (HSP)**: partnern som äger den fysiska infrastrukturen och använder delade resurser (vCenter, Datacenter, fysisk lagring och så vidare) som värd för flera innehavare virtuella datorer på samma infrastruktur. Partnern kan tillhandahålla katastrofåterställning hantering som en hanterad tjänst eller klienten kan äga katastrofåterställning som en lösning för självbetjäning.
 
-* **Dedikerad värd tjänsteleverantör**: partnern som äger den fysiska infrastrukturen men använder dedicerade resurser (flera Vcenter fysiska datastores och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning hantering som en hanterad tjänst eller klienten kan äga som en lösning för självbetjäning.
+* **Dedikerad värd tjänsteleverantör**: partnern som äger den fysiska infrastrukturen, men använder dedicerade resurser (flera Vcenter fysiska datastores och så vidare) som värd för varje klient virtuella datorer på en separat infrastruktur. Partnern kan tillhandahålla katastrofåterställning hantering som en hanterad tjänst eller klienten kan äga som en lösning för självbetjäning.
 
 * **Hanterade Services Provider (MSP)**: kunden äger den fysiska infrastrukturen som är värd för de virtuella datorerna och partnern tillhandahåller katastrofåterställning aktivering och hantering.
 
@@ -45,9 +45,9 @@ Arkitekturen visas i följande diagram:
 ![Delad HSP med en vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
 **Delade scenario med en vCenter**
 
-Som visas i föregående diagram har varje kund en separat hanteringsserver. Denna konfiguration begränsar klient har åtkomst till klient-specifika virtuella datorer och aktiverar klientisolering. Ett scenario med VMware replikeringen av den virtuella datorn använder konfigurationsservern för att hantera konton för att identifiera virtuella datorer och installera agenter. Vi följer samma principer för miljöer med flera innehavare, med tillägget för att begränsa VM identifiering via vCenter-åtkomstkontroll.
+Som visas i föregående diagram har varje kund en separat hanteringsserver. Denna konfiguration begränsar klient har åtkomst till klient-specifika virtuella datorer och aktiverar klientisolering. Ett scenario med VMware replikeringen av den virtuella datorn använder konfigurationsservern för att hantera konton för att identifiera virtuella datorer och installera agenter. Samma principer som gäller för miljöer med flera innehavare med tillägget för att begränsa VM identifiering via vCenter-åtkomstkontroll.
 
-Krav för isolering av data kräver att alla infrastruktur för känslig information (till exempel autentiseringsuppgifter) hålla hemlig till innehavare. Därför rekommenderar vi att alla komponenter i hanteringsservern förblir under exklusiv kontroll av partnern. Management server-komponenter är:
+Krav för isolering av data kräver att alla känsliga infrastruktur (till exempel autentiseringsuppgifter) förblir hemlig till innehavare. Därför rekommenderar vi att alla komponenter i hanteringsservern förblir under exklusiv kontroll av partnern. Management server-komponenter är:
 * Konfigurationsservern (CS)
 * Processervern (PS)
 * Huvudmålservern (Huvudmålservern)
@@ -58,7 +58,7 @@ En skalbar PS är också under partnerns kontroll.
 
 - **konto för vCenter**: använda det här kontot för att identifiera klienten virtuella datorer. Den har vCenter åtkomstbehörigheter (som beskrivs i nästa avsnitt). För att undvika läckage av oavsiktlig åtkomst, rekommenderar vi att partner anger autentiseringsuppgifterna sig själva i konfigurationsverktyget.
 
-- **Virtuella åtkomstkonto**: Använd det här kontot för att installera mobility-agenten på de virtuella klientdatorerna via en automatisk push. Det är vanligtvis ett domänkonto som en klient kan ge en partner eller att du kan också partnern kan hantera direkt. Om en klient inte vill dela information med partnern direkt, kan han eller hon tillåtas att ange autentiseringsuppgifter via tidsbegränsade åtkomst till CS eller partnerns hjälp att installera mobility agenter manuellt.
+- **Virtuella åtkomstkonto**: Använd det här kontot för att installera mobility-agenten på de virtuella klientdatorerna via en automatisk push. Det är vanligtvis ett domänkonto som en klient kan ge en partner eller en som partner kan hantera direkt. Om en klient inte vill dela information med partnern direkt, kan de tillåtet att ange autentiseringsuppgifter via tidsbegränsade åtkomst till CS eller partnerns hjälp att installera mobility agenter manuellt.
 
 ### <a name="requirements-for-a-vcenter-access-account"></a>Krav för ett konto för vCenter
 
@@ -100,7 +100,7 @@ VCenter-kontoåtkomst procedur är följande:
 >| Värd- och -värdkluster | Azure_Site_Recovery | Nytt garanterar att åtkomst på objektnivå, så att endast tillgängliga värdar har klient virtuella datorer före redundans och efter återställning efter fel. |
 >| DataStore-kluster med datalagret | Azure_Site_Recovery | Samma som föregående. |
 >| Nätverk | Azure_Site_Recovery |  |
->| Hanteringsserver | Azure_Site_Recovery | Ger tillgång till alla komponenter (CS PS och Huvudmålservern) om några utanför CS-datorn. |
+>| Hanteringsserver | Azure_Site_Recovery | Ger tillgång till alla komponenter (CS PS och Huvudmålservern) utanför CS-datorn. |
 >| Klient virtuella datorer | Azure_Site_Recovery | Säkerställer att alla nya innehavaren virtuella datorer i en viss klient också få åtkomst eller inte är tillgängligt via Azure-portalen. |
 
 VCenter-kontoåtkomst är slutförd. Det här steget uppfyller krav på lägsta behörighet att slutföra åtgärder för återställning efter fel. Du kan också använda dessa åtkomstbehörigheter med din befintliga principer. Ändra bara din befintliga behörigheter att inkludera rollbehörigheter från steg 2, detaljerad tidigare.
@@ -125,98 +125,7 @@ I följande diagram visas den arkitektoniska skillnaden i en hanterad tjänst-l�
 ![arkitektur för delade hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Hanterad service scenario med flera Vcenter**
 
-## <a name="csp-program-overview"></a>Översikt över CSP-programmet
-Den [CSP-programmet](https://partner.microsoft.com/en-US/cloud-solution-provider) bättre tillsammans artiklar som erbjuder partners alla Microsoft-molntjänster, inklusive Office 365 Enterprise Mobility Suite och Microsoft Azure kan åstadkomma. Med CSP våra samarbetspartners äger slutpunkt till slutpunkt-relation med kunder och blir den primära relation kontaktpunkten. Partners kan distribuera Azure-prenumerationer för kunder och kombinera prenumerationer med sina egna mervärde, anpassade erbjudanden.
+## <a name="next-steps"></a>Nästa steg
+[Lär dig mer](site-recovery-role-based-linked-access-control.md) om rollbaserad åtkomstkontroll hantera distributioner av Azure Site Recovery.
 
-Med Azure Site Recovery kan partners hantera den kompletta lösningen för katastrofåterställning för kunder direkt via CSP. Eller CSP kan använda för att ställa in Site Recovery-miljöer och informera kunderna hantera sina egna katastrofåterställning behov på ett sätt för självbetjäning. I båda fallen är partners samverkan mellan Site Recovery och sina kunder. Partners tjänsten customer relationship och debitera kunder för användning i Site Recovery.
-
-## <a name="create-and-manage-tenant-accounts"></a>Skapa och hantera innehavarens konton
-
-### <a name="step-0-prerequisite-check"></a>Steg 0: Kontrollen av förutsättningar
-
-VM-krav är densamma som beskrivs i den [dokumentation för Azure Site Recovery](site-recovery-vmware-to-azure.md). Förutom dessa krav bör du ha de tidigare nämnda åtkomstkontroller på plats innan du fortsätter med klient-hantering via CSP. Skapa en separat hanteringsserver som kan kommunicera med de virtuella klientdatorerna och partnerns vCenter för varje klient. Endast partnern som har behörighet till den här servern.
-
-### <a name="step-1-create-a-tenant-account"></a>Steg 1: Skapa ett klient-konto
-
-1. Via [Microsoft Partner Center](https://partnercenter.microsoft.com/), logga in på CSP-konto.
-
-2. På den **instrumentpanelen** väljer du **kunder**.
-
-    ![Länken Microsoft Partner Center-kunder](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
-
-3. På sidan som öppnas i **Lägg till kunden** knappen.
-
-    ![Knappen Lägg till kund](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
-
-4. På den **ny kund** sidan, Fyll i informationen kontoinformation för klienten och klicka sedan på **nästa: prenumerationer**.
-
-    ![Sidan kontoinformation](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
-
-5. På valsidan av prenumerationer väljer du den **Microsoft Azure** kryssrutan. Du kan lägga till andra prenumerationer nu eller vid ett senare tillfälle.
-
-    ![Kryssrutan för Microsoft Azure-prenumeration](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
-
-6. På den **granska** sidan Bekräfta klient informationen och klicka sedan på **skicka**.
-
-    ![Sidan Granska](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
-
-    När du har skapat kontot klienten en bekräftelse visas med information om standardkontot och lösenordet för den prenumerationen.
-
-7. Spara informationen och ändra lösenord senare vid behov via Azure portal-inloggningssidan.  
-
-    Du kan dela information med innehavaren som är eller du kan skapa och dela ett särskilt konto om det behövs.
-
-### <a name="step-2-access-the-tenant-account"></a>Steg 2: Komma åt kontot klient
-
-Du kan använda klientens prenumerationen via Microsoft Partner Center Dashboard som beskrivs i ”steg 1: skapa ett klient-konto”.
-
-1. Gå till den **kunder** , och klickar sedan på namnet på klient-konto.
-
-2. På den **prenumerationer** sidan för klient-konto kan du övervaka de befintliga prenumerationerna för kontot och lägga till flera prenumerationer efter behov. Om du hanterar klientens disaster recovery-åtgärder, välja **alla resurser (Azure portal)**.
-
-    ![Länken alla resurser](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-
-    Klicka på **alla resurser** ger dig åtkomst till klientens Azure-prenumerationer. Du kan verifiera åtkomst genom att klicka på Azure Active Directory-länken längst upp i Azure-portalen.
-
-    ![Azure Active Directory-länk](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
-
-Du kan nu utföra alla site recovery-åtgärder för klient via Azure portal och hantera åtgärder för katastrofåterställning. Följ beskrivits tidigare processen för klient-prenumerationen via CSP för hanterade katastrofåterställning.
-
-### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Steg 3: Distribuera resurser till klientprenumeration
-1. Skapa en resursgrupp i Azure-portalen och sedan distribuera Recovery Services-valvet vanliga processer.
-
-2. Ladda ned valvregistreringsnyckeln.
-
-3. Registrera CS för klienten med hjälp av valvregistreringsnyckeln.
-
-4. Ange autentiseringsuppgifterna för de två kontona: vCenter åtkomstkonto och virtuell dator åtkomst till kontot.
-
-    ![Serverkonton med configuration Manager](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
-
-### <a name="step-4-register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>Steg 4: Registrera Site Recovery-infrastruktur till Recovery Services-valvet
-1. I Azure-portalen på valvet som du skapade tidigare, registrerar vCenter-servern till CS som du har registrerat i ”steg 3: distribuera resurser till klientprenumeration”. Använd vCenter åtkomstkonto för det här ändamålet.
-2. Avsluta ”Förbered infrastruktur”-processen för Site Recovery vanliga processer.
-3. De virtuella datorerna är nu redo att replikeras. Kontrollera att endast klientorganisationens virtuella datorer som visas på den **Välj virtuella datorer** bladet under den **replikera** alternativet.
-
-    ![Klient VMs lista på bladet välj virtuella datorer](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
-
-### <a name="step-5-assign-tenant-access-to-the-subscription"></a>Steg 5: Tilldela klienten åtkomst till prenumerationen
-
-För självbetjäning katastrofåterställning förse klienten Kontodetaljer som anges i steg 6 i den ”steg 1: skapa ett klient-konto” avsnittet. Utföra denna åtgärd när partnern som har konfigurerat infrastrukturen för katastrofåterställning. Om katastrofåterställning är hanterade eller självbetjäning måste partners åtkomst till klient prenumerationer via CSP-portalen. De konfigurera ägs av partner-valvet och registrera infrastruktur för klient-prenumerationer.
-
-Partners kan också lägga till en ny användare klientprenumeration CSP-portalen genom att göra följande:
-
-1. Gå till prenumerationssidan för klientens CSP och välj sedan den **användare och licenser** alternativet.
-
-    ![Klientens CSP prenumerationssidan](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
-
-    Du kan nu skapa en ny användare genom att ange relevant information och välja behörigheter eller genom att ladda upp en lista över användare i en CSV-fil.
-
-2. När du har skapat en ny användare gå tillbaka till Azure portal och klickar sedan på den **prenumeration** bladet väljer du den relevanta prenumerationen.
-
-3. På bladet som öppnas väljer **Access Control (IAM)**, och klicka sedan på **Lägg till** att lägga till en användare med relevanta åtkomstnivå.      
-    Användare som har skapats via portalen CSP visas automatiskt i bladet som öppnas när du klickar på åtkomstnivå.
-
-    ![Lägga till en användare](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
-
-    För de flesta hanteringsåtgärder på *deltagare* roll är tillräckliga. Användare med den här åtkomstnivån kan göra allt på en prenumeration förutom ändra åtkomstnivåerna (som *ägare*-åtkomst krävs). Du kan även finjustera åtkomstnivåer som krävs.
+[Hantera flera innehavare med CSP](site-recovery-manage-multi-tenancy-with-csp.md)

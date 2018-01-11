@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
-Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnotics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
+Du kan övervaka [Microsoft Azure Cloud-tjänstapparnas](https://azure.microsoft.com/services/cloud-services/) tillgänglighet, prestanda, fel och användning med [Application Insights][start] genom att kombinera data från Application Insights SDK:er med data från [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från Cloud Services. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
 
 ![Exempel](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ Lägg till mer telemetri – se avsnitten nedan – och publicera sedan appen f�
 * Mer information finns i [Felsökning][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Visa Azure Diagnostics-händelser
-Här hittar du informationen om [Azure Diagnostics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) i Application Insights:
+Här hittar du informationen om [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) i Application Insights:
 
 * Prestandaräknare visas som anpassade mått. 
 * Windows-händelseloggar visas som spårningar och anpassade händelser.

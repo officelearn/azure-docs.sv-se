@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera SQL-miljön med SQL Server Health Check-lösningen i logganalys
 
@@ -52,7 +52,7 @@ När du har lagt till lösningen och en bedömning är slutförd, Sammanfattning
 
 Om du vill utföra hälsokontroll mot SQL Server-servrar, kräver de en agent och anslutningen till logganalys med någon av följande metoder:
 
-1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) om servern inte är redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
+1. Installera den [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) om servern inte är redan övervakas av System Center 2016 - Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 - Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen inte är integrerad med Log Analytics-tjänsten, är att servern multihomed med logganalys samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
 3. Annars om hanteringsgruppen för Operations Manager är integrerat med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten följande under [lägga till datorer som hanteras med agent](log-analytics-om-agents.md#connecting-operations-manager-to-oms) när du har aktiverat lösning på arbetsytan.  
 
@@ -64,7 +64,7 @@ Om SQL Server övervakas av Operations Manager, måste du konfigurera en Operati
 SQL Health Check samlar in data från följande källor med agenten som du har aktiverat: 
 
 * Windows Management Instrumentation (WMI) 
-* Registret 
+* Register 
 * Prestandaräknare
 * SQL Server hantering av dynamiska visa resultat 
 
@@ -163,8 +163,8 @@ Innan du kan använda en lösning i logganalys, måste du ha lösningen installe
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com). 
-2. I Azure-portalen klickar du på **fler tjänster** hittades i det nedre vänstra hörnet. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **logga Analytics**.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
+2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
 4. På den **översikt** klickar du på den **SQL Health Check** panelen. 
 5. På den **Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
@@ -245,7 +245,7 @@ Om du har rekommendationer som du vill ignorera, kan du skapa en textfil som OMS
 
 * Följande typer av data samlas in:
   * WMI
-  * Registret
+  * Register
   * Prestandaräknare
   * SQL dynamiska hanteringsvyer (DMV).
 

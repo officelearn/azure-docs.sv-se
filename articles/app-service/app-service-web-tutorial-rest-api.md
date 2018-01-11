@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 81d08e047a3689d110195f2325b52c6c0457e644
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Skapa en Node.js RESTful-API och distribuera den till en API-app i Azure
 
 I den här snabbstarten visas hur du skapar ett [Express](http://expressjs.com/)-ramverk med REST API för Node.js från en [Swagger](http://swagger.io/)-definition och distribuerar det på Azure. Du skapar appen med hjälp av kommandoradsverktyg, konfigurerar resurser med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och distribuerar appen med Git.  När du är klar har du ett fungerande exempel-REST-API som körs på Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Git](https://git-scm.com/)
 * [Node.js och NPM](https://nodejs.org/)
@@ -84,7 +84,7 @@ Använd *ContactList* när du uppmanas ange projektnamn.
 1. Kopiera mappen *lib* till mappen *Kontaktlista* som skapats av `yo swaggerize` och ändra sedan katalogen till *Kontaktlista*.
 
     ```bash
-    cp -r lib/ ContactList/
+    cp -r lib ContactList/
     cd ContactList
     ```
 
@@ -209,7 +209,7 @@ Använd *ContactList* när du uppmanas ange projektnamn.
 
 I det här avsnittet använder du Azure CLI 2.0 för att skapa de resurser som behövs när Azure App Service ska vara värd för ditt API. 
 
-1.  Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/#login) och följ anvisningarna på skärmen.
+1.  Logga in på Azure-prenumerationen med kommandot [az login](/cli/azure/?view=azure-cli-latest#az_login) och följ anvisningarna på skärmen.
 
     ```azurecli-interactive
     az login
@@ -246,14 +246,22 @@ Distribuera din kod till API-appen genom att skicka incheckningar från din loka
     node_modules/
     ```
     Bekräfta att mappen `node_modules` ignoreras med `git status`.
+    
+4. Lägg till följande rader i `package.json`. Den kod som genereras av Swaggerize Ange inte en version för Node.js-motor. Utan specifikationen version använder Azure standardversionen av `0.10.18`, som inte är kompatibel med den genererade koden.
 
-4. Checka in ändringarna till lagringsplatsen.
+    ```javascript
+    "engines": {
+        "node": "~0.10.22"
+    },
+    ```
+
+5. Checka in ändringarna till lagringsplatsen.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+6. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
  
 ## <a name="test-the-api--in-azure"></a>Testa API:et i Azure
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl är standardslutpunkten som Azure AD tillbaka till använ
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [klassiska Azure-portalen][azure-classic-portal], bör du se två nya poster:
+Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du loggar in skapar skriptet webb- och interna program för att representera Service Fabric-klustret. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
 
    * *Klusternamn*\_kluster
    * *Klusternamn*\_klienten
@@ -615,17 +615,22 @@ Om du stöter på problem och få kryptiskt meddelanden, Använd ”-Debug” so
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Tilldela användare till roller
-När du har skapat de program som ska representera klustret tilldelar användarna till de roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela roller med hjälp av den [klassiska Azure-portalen][azure-classic-portal].
+När du har skapat de program som ska representera klustret tilldelar användarna till de roller som stöds av Service Fabric: skrivskyddade och administratör. Du kan tilldela roller med hjälp av den [Azure-portalen][azure-portal].
 
-1. Gå till din klient i Azure-portalen och väljer sedan **program**.
-2. Välj webbprogram som har ett namn som `myTestCluster_Cluster`.
-3. Klicka på den **användare** fliken.
-4. Välj en användare att tilldela och klicka sedan på den **tilldela** längst ned på skärmen.
+1. Välj din klient i det övre högra hörnet i Azure-portalen.
 
-    ![Tilldela användare till roller knappen][assign-users-to-roles-button]
-5. Välj rollen för att tilldela användaren.
+    ![Markera knappen för klient][select-tenant-button]
+2. Välj **Azure Active Directory** på den vänstra fliken och väljer ”företagsprogram”.
+3. Välj ”alla program” och sedan söka efter och välj webbprogram som har ett namn som `myTestCluster_Cluster`.
+4. Klicka på den **användare och grupper** fliken.
 
-    ![”Tilldela användare” dialogrutan][assign-users-to-roles-dialog]
+    ![Användare och grupper][users-and-groups-tab]
+5. Klicka på den **Lägg till användare** på den nya sidan, Välj en användare och rollen för att tilldela och klicka sedan på den **Välj** längst ned på sidan.
+
+    ![Tilldela användare till roller sida][assign-users-to-roles-page]
+6. Klicka på den **tilldela** längst ned på sidan.
+
+    ![Lägg till tilldelning bekräftelse][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > Mer information om roller i Service Fabric finns [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).
@@ -665,7 +670,7 @@ När du försöker logga in på Azure AD i Service Fabric Explorer sidan returne
 Klustret (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD och som en del av begäran ger den returnera omdirigerings-URL. Men URL-Adressen ingår inte i Azure AD-programmet **REPLY URL** lista.
 
 #### <a name="solution"></a>Lösning
-På den **konfigurera** fliken i klustret (webb)-programmet att lägga till URL: en för Service Fabric Explorer till den **REPLY URL** listan eller ersätta ett av objekten i listan. När du är klar kan du spara ändringen.
+Välj ”App registreringar” i AAD-sidan, Välj klustret programmet och välj sedan den **Reply URL: er** knappen. På sidan ”Reply URL: er” Lägg till URL: en för Service Fabric Explorer i listan eller ersätta ett av objekten i listan. När du är klar kan du spara ändringen.
 
 ![Url till webbprogram svar][web-application-reply-url]
 
@@ -693,7 +698,7 @@ Du har nu en säker kluster med Azure Active Directory med management-autentiser
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
@@ -703,13 +708,15 @@ Du har nu en säker kluster med Azure Active Directory med management-autentiser
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#Create-a-Service-Fabric-cluster- Resource-Manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

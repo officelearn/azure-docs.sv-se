@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: Vanliga frågor (FAQ)
 Den här sidan svar på vanliga frågor om Azure Active Directory Domain Services. Hålla kontroll för uppdateringar.
@@ -31,7 +31,7 @@ Referera till den [felsökningsguide](active-directory-ds-troubleshooting.md) ef
 Nej. Du kan bara skapa en enda hanterad domän som underhålls av Azure AD Domain Services för en enda Azure AD-katalog.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett virtuellt nätverk med Azure Resource Manager?
-Ja. Azure AD Domain Services kan aktiveras i ett virtuellt nätverk med Azure Resource Manager. Den här funktionen är för närvarande under förhandsgranskning.
+Ja. Azure AD Domain Services kan aktiveras i ett virtuellt nätverk med Azure Resource Manager. Klassiska virtuella Azure-nätverk stöds inte längre för att skapa nya hanterade domäner.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan jag migrera Mina befintliga hanterade domänen från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för Resource Manager?
 För närvarande inte. Microsoft levererar en mekanism för att migrera din befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt nätverk för hanteraren för filserverresurser i framtiden.
@@ -47,9 +47,6 @@ Själva tjänsten stöder inte det här scenariot. Din hanterade domän finns i 
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan jag aktivera Azure AD Domain Services med hjälp av PowerShell?
 Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Finns Azure AD Domain Services på den nya Azure portalen?
-Ja. Azure AD Domain Services kan konfigureras med den [Azure-portalen](https://portal.azure.com). Den [klassiska Azure-portalen](https://manage.windowsazure.com) stöds inte längre.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan jag aktivera Azure AD Domain Services med hjälp av en Resource Manager-mall?
 Ja. Se [så att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md).

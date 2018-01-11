@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure-portalen](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -96,7 +96,7 @@ Kretsägaren skapar tillstånd. Detta resulterar i att skapa auktoriseringsnycke
 
 1. I ExpressRoute-bladet klickar du på **tillstånd** och skriv sedan ett **namn** för auktorisering och klickar på **spara**.
 
-    ![Tillstånd](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+    ![Auktoriseringar](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. När konfigurationen har sparats kan du kopiera den **resurs-ID** och **Auktoriseringsnyckeln**.
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Hantera statistik på tabellerna i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/07/2017
 > 
 > 
 
-Ju mer SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot dina data.  Hur du se SQL Data Warehouse om dina data är genom att samla in statistik om dina data.  Med statistik om dina data är en av de viktigaste sakerna som du kan göra för att optimera dina frågor.  Statistik kan SQL Data Warehouse och skapa den mest optimala planen för dina frågor.  Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnaden baserat optimering.  Det vill säga jämför kostnaden för olika frågeplaner och väljer plan med lägst kostnad som bör också vara planen som utför snabbast.
+Ju mer SQL Data Warehouse medveten om dina data, desto snabbare den kan köra frågor mot dina data.  Hur du se SQL Data Warehouse om dina data är genom att samla in statistik om dina data. Med statistik om dina data är en av de viktigaste sakerna som du kan göra för att optimera dina frågor. Detta beror på att Frågeoptimeringen SQL Data Warehouse är en kostnad-baserade optimering. Den jämför kostnaden för olika frågeplaner och väljer plan med lägst kostnad som bör också vara planen som utför snabbast. Till exempel optimering uppskattar att datumet du filtrerar i frågan returnerar 1 rad, det kan välja väldigt annorlunda planera än om den beräknar de datum du har valt kommer returnerar 1 miljon rader.
 
-Statistik kan skapas på en kolumn, flera kolumner eller i ett index i en tabell.  Statistik lagras i ett histogram som samlar in intervall och selektivitet värden.  Detta är särskilt intressanta när optimering behöver utvärdera kopplingar, GROUP BY, HAVING och WHERE-satser i en fråga.  Till exempel optimering uppskattar att datumet du filtrerar i frågan returnerar 1 rad, det kan välja väldigt annorlunda planera än om den beräknar de datum du har valt kommer returnerar 1 miljon rader.  Även om det är mycket viktigt att statistik skapas, är det lika viktigt att statistik *korrekt* återger det aktuella tillståndet för tabellen.  Uppdaterad statistik försäkrar du dig om att en bra plan är markerade som optimering.  Planer som skapats av optimering är bättre statistik på dina data.
-
-Processen för att skapa och uppdatera statistik för närvarande är en manuell process, men det är mycket enkelt att göra.  Detta skiljer sig från SQL Server som automatiskt skapar och uppdaterar statistik på enskild kolumner och index.  Du kan avsevärt automatisera hanteringen av statistik på dina data med hjälp av informationen nedan. 
+Processen för att skapa och uppdatera statistik för närvarande är en manuell process, men det är mycket enkelt att göra.  Youw kommer snart att kunna skapa och uppdatera statistik på enskild kolumner och index automatiskt.  Du kan avsevärt automatisera hanteringen av statistik på dina data med hjälp av informationen nedan. 
 
 ## <a name="getting-started-with-statistics"></a>Komma igång med statistik
- Provade statistik skapas för varje kolumn är ett enkelt sätt att komma igång med statistik.  Eftersom det är även viktigt att hålla statistik uppdaterade kanske en försiktig metod att uppdatera statistiken varje dag eller efter varje inläsningen. Det finns alltid kompromisser mellan prestanda och kostnaden för att skapa och uppdatera statistik.  Om du tycker att det tar för lång tid att underhålla all statistik kanske du vill prova att vara mer selektiv när du väljer vilka kolumner som ska innehålla statistik eller vilka kolumner som ska uppdateras regelbundet.  Du kanske vill uppdatera datumkolumnerna dagliga som nya värden kan läggas till i stället för efter varje inläsningen. Igen, får du den mest nytta av med statistik om kolumner som ingår i kopplingar, GROUP BY, HAVING och WHERE-satser.  Om du har en tabell med kolumner som används bara i SELECT-satsen mycket statistik på dessa kolumner kan inte hjälpa och utgifter lite mer arbete för att identifiera de kolumner som där statistik hjälper kan minska tiden för att underhålla din statistik.
+Provade statistik skapas för varje kolumn är ett enkelt sätt att komma igång med statistik. Inaktuella statistik leder till bästa möjliga prestanda. Det kan dock använda minne för att uppdatera statistik på alla kolumner eftersom dina data växer. 
 
-## <a name="multi-column-statistics"></a>Flera kolumnstatistik
-Förutom att skapa statistik på enskild kolumner kan vara att dina frågor att dra nytta av flera kolumnstatistik.  Flera kolumnstatistik är statistik skapas på en lista med kolumner.  De innehåller kolumnstatistik på den första kolumnen i listan, plus vissa mellan kolumnen korrelation information kallas densitet.  Till exempel om du har en tabell som ansluter till en annan på två kolumner kan vara att SQL Data Warehouse bättre kan optimera planen om den förstår relationen mellan två kolumner.   Flera kolumnstatistik kan förbättra frågeprestanda för vissa åtgärder, till exempel sammansatta kopplingar och gruppera efter.
+Här följer några rekommendationer för olika scenarier:
+| **Scenarier** | Rekommendation |
+|:--- |:--- |
+| **Kom igång** | Uppdatera alla kolumner när du har migrerat till SQL DW |
+| **De viktigaste kolumn för statistik** | Hash-fördelningsnyckel |
+| **Andra viktigaste kolumn för statistik** | Partitionsnyckel |
+| **Andra viktiga kolumner för statistik** | Datum, ofta kopplingar, gruppera efter, HAVING och var |
+| **Frekvens av statistik uppdateringar**  | Konservativ: varje dag <br></br> När du läser in eller Transformera data |
+| **Sampling** |  Nedan 1 B rader, använder du standard provtagning (20%) <br></br> Med mer än 1 B rader tabeller är statistik på ett intervall för % 2 bra |
 
 ## <a name="updating-statistics"></a>Uppdatera statistik
-Uppdaterar statistiken är en viktig del av din databas management rutinen.  När fördelning av data i databasen ändras måste statistik uppdateras.  Inaktuella statistik leder till bästa möjliga prestanda.
 
-Ett bra tips är att uppdatera statistik i datumkolumnerna varje dag som nya datum har lagts till.  Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och gör uppgifterna inaktuella. Däremot behöva statistik i ett land-kolumn i en kundtabell aldrig uppdateras när fördelningen av värden i allmänhet inte ändra. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse endast innehåller ett land och du hämta data från ett nytt land, måste vilket resulterar i data från flera länder lagras, definitivt du uppdatera statistik i kolumnen land.
+Ett bra tips är att uppdatera statistik i datumkolumnerna varje dag som nya datum har lagts till. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och gör uppgifterna inaktuella. Däremot behöva statistik i ett land-kolumn i en kundtabell aldrig uppdateras när fördelningen av värden i allmänhet inte ändra. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse endast innehåller ett land och du hämta data från ett nytt land, måste vilket resulterar i data från flera länder lagras, definitivt du uppdatera statistik i kolumnen land.
 
-En av de första frågorna när du felsöker en fråga är ”är uppdaterad statistik”?
+En av de första frågorna när felsökning av en fråga är **”är statistik uppdaterade”?**
 
-Den här frågan är inte en som kan betjänas av du åldern på data. Objektets aktuella statistik kan vara mycket gamla om det inte har ingen väsentlig ändring i underliggande data. När antalet rader som har ändrats betydligt eller så finns det en väsentlig förändring fördelningen av värden för en viss kolumn *sedan* är det dags att uppdatera statistik.  
-
-Referens **SQL Server** (inte SQL Data Warehouse) uppdateras automatiskt statistik för dessa situationer:
-
-* Om du har noll rader i tabellen, när du lägger till rader, får du en automatisk uppdatering av statistik
-* När du lägger till mer än 500 rader i en tabell som börjar med färre än 500 rader (t.ex. vid start du har 499 och Lägg sedan till 500 rader totalt 999 rader), får du en automatisk uppdatering 
-* När du är än 500 rader som du behöver lägga till 500 ytterligare rader + 20 procent av storleken på tabellen innan du ser en automatisk uppdatering på statistik
+Den här frågan är inte en som kan betjänas av du åldern på data. Objektets aktuella statistik kan vara mycket gamla om det inte har ingen väsentlig ändring i underliggande data. När antalet rader som har ändrats betydligt eller så finns det en väsentlig förändring fördelningen av värden för en viss kolumn *sedan* är det dags att uppdatera statistik.
 
 Eftersom det inte finns några DMV att avgöra om data i tabellen har ändrats sedan de senaste statistik har uppdaterats, kan vet du åldern på din statistik ge dig med en del av bilden.  Följande fråga kan användas för att fastställa senast statistiken där uppdateras vid varje tabell.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Datumkolumnerna i datalagret, till exempel måste vanligtvis frekventa uppdateringar av statistik. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och gör uppgifterna inaktuella.  Däremot behöva aldrig statistik på kolumnen kön för en kundtabellen uppdateras. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse bara innehåller en kön och en ny krav resulterar i flera könen måste definitivt du uppdatera statistik i kolumnen kön.
+**Datum kolumner** i datalagret, till exempel vanligtvis måste frekventa uppdateringar av statistik. Varje gång nya rader läses in i datalagret, nya belastningen datum eller datum har lagts till. Dessa ändra Datadistributionen och gör uppgifterna inaktuella.  Däremot behöva aldrig statistik på kolumnen kön för en kundtabellen uppdateras. Under förutsättning att distributionen är konstant mellan kunder, ska lägga till nya rader i tabellen variationen inte du ändra fördelningen data. Men om ditt data warehouse bara innehåller en kön och en ny krav resulterar i flera könen måste definitivt du uppdatera statistik i kolumnen kön.
 
 Ytterligare förklaring finns [statistik] [ Statistics] på MSDN.
 
@@ -122,7 +120,7 @@ De här exemplen visar hur du använder olika alternativ för att skapa statisti
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Skapa statistik för en kolumn med standardalternativ
 Om du vill skapa statistik på en kolumn, bara ange ett namn för objektet statistik och namnet på kolumnen.
 
-Den här syntaxen använder alla standardalternativ. Som standard prover SQL Data Warehouse 20 procent av tabellen när den skapar statistik.
+Den här syntaxen använder alla standardalternativ. Som standard SQL Data Warehouse **exempel 20 procent** i tabellen när den skapar statistik.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Om du vill skapa flera kolumnstatistik att helt enkelt använda föregående exe
 > 
 > 
 
-I det här exemplet är histogrammet på *produkten\_kategori*. Statistik för Cross-kolumnen beräknas på *produkten\_kategori* och *produkten\_sub_c\ategory*:
+I det här exemplet är histogrammet på *produkten\_kategori*. Statistik för Cross-kolumnen beräknas på *produkten\_kategori* och *produkten\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;

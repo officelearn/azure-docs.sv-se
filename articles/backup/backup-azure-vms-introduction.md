@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planera din infrastruktur för VM-säkerhetskopiering i Azure
-Den här artikeln innehåller prestanda och resursen förslag på hur du planerar din infrastruktur för säkerhetskopiering av VM. Den definierar även viktiga aspekter av säkerhetskopieringstjänsten; dessa aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förbereda din miljö](backup-azure-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i [virtuella datorer dokumentationen](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Den här artikeln innehåller prestanda och resursen förslag på hur du planerar din infrastruktur för säkerhetskopiering av VM. Den definierar även viktiga aspekter av säkerhetskopieringstjänsten; dessa aspekter kan vara avgörande för att fastställa din arkitektur kapacitetsplanering och schemaläggning. Om du har [förbereda din miljö](backup-azure-arm-vms-prepare.md), planering är nästa steg innan du börjar [att säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md). Om du behöver mer information om virtuella Azure-datorer finns i [virtuella datorer dokumentationen](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Hur fungerar Azure säkerhetskopiera virtuella datorer?
 När tjänsten Azure Backup initierar en säkerhetskopiering på den schemalagda tiden, utlöser reservanknytning för att ta en ögonblicksbild i tidpunkt. Azure Backup-tjänsten används den _VMSnapshot_ tillägget i Windows, och _VMSnapshotLinux_ tillägget Linux. Tillägget installeras under den första säkerhetskopieringen. Om du vill installera tillägget måste du köra den virtuella datorn. Om inte den virtuella datorn körs, tar en ögonblicksbild av det underliggande lagringsutrymmet i Backup-tjänsten (eftersom inga program skrivningar inträffar när den virtuella datorn stoppas).
@@ -97,7 +97,7 @@ För varje disk som ska säkerhetskopieras, Azure Backup läser block på disken
 ## <a name="total-vm-backup-time"></a>Total tid för säkerhetskopiering av VM
 När säkerhetskopieringen oftast används till att läsa och kopiera data, andra åtgärder att bidra till den totala tiden som krävs för att säkerhetskopiera en virtuell dator:
 
-* Tid som krävs för att [installera eller uppdatera säkerhetskopiering tillägget](backup-azure-vms.md).
+* Tid som krävs för att [installera eller uppdatera säkerhetskopiering tillägget](backup-azure-arm-vms.md).
 * Snapshot-tid, vilket är den tid det tar att utlösa en ögonblicksbild. Ögonblicksbilder utlöses nära schemalagd tid för säkerhetskopiering.
 * Kötid. Eftersom Backup-tjänsten bearbetar säkerhetskopior från flera kunder, kanske kopiera säkerhetskopierade data från ögonblicksbilden till säkerhetskopiering eller Recovery Services-valvet inte startar omedelbart. Läsa i tidpunkter för belastning, Väntetid kan sträcka ut på grund av hur många säkerhetskopior som bearbetas av upp till åtta timmar. Total tid för VM-säkerhetskopiering är dock mindre än 24 timmar för principer för daglig säkerhetskopiering.
 * Dataöverföringstid, tid som krävs för säkerhetskopieringstjänsten för att beräkna inkrementella ändringar från tidigare säkerhetskopia och överför ändringarna till valvet lagring.
@@ -144,11 +144,11 @@ Faktureringen startar inte förrän den första lycka säkerhetskopieringen har 
 
 Faktureringen för en angiven virtuell dator slutar endast om skyddet har stoppats *och* alla säkerhetskopierade data tas bort. När skydd stanna och det finns inga aktiva jobb för säkerhetskopiering, storleken på den senaste lyckade säkerhetskopieringen blir skyddade-instansstorleken används för varje månad.
 
-## <a name="questions"></a>Frågor?
+## <a name="questions"></a>Har du några frågor?
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Säkerhetskopiera virtuella datorer](backup-azure-vms.md)
+* [Säkerhetskopiera virtuella datorer](backup-azure-arm-vms.md)
 * [Hantera säkerhetskopiering av virtuella datorer](backup-azure-manage-vms.md)
-* [Återställa virtuella datorer](backup-azure-restore-vms.md)
+* [Återställa virtuella datorer](backup-azure-arm-restore-vms.md)
 * [Felsökning av problem med backup VM](backup-azure-vms-troubleshoot.md)

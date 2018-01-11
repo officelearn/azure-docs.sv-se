@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Så här: övervaka appar i Azure App Service
 [Apptjänst](http://go.microsoft.com/fwlink/?LinkId=529714) har inbyggda funktioner som övervakning för den [Azure-portalen](https://portal.azure.com).
@@ -29,6 +29,8 @@ Azure portal innehåller möjligheten att granska **kvoter** och **mått** för 
 ## <a name="understanding-quotas-and-metrics"></a>Förstå kvoter och mått
 ### <a name="quotas"></a>Kvoter
 Program som finns i App Service regleras vissa *gränser* för de resurser som de kan använda. Gränserna som definieras av den **programtjänstplanen** associerat med appen.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Om programmet finns i en **lediga** eller **delade** planera sedan gränser för de resurser som kan använda appen definieras av **kvoter**.
 
@@ -152,7 +154,7 @@ Mätvärden för en App eller App Service-plan kan vara kopplad till aviseringar
 Apptjänst-appar som finns i basic, standard och premium stöd för App Service-planer **Autoskala**. Autoskalningsfunktionen kan du konfigurera regler som övervakar App Service-plan mått. Regler kan öka eller minska instansantalet att tillhandahålla ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när programmet konfigureras felaktigt. Du kan lära dig mer om automatisk skalning här: [så skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och här [bästa praxis för Azure-Monitor autoskalning](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 > 
 > 
 

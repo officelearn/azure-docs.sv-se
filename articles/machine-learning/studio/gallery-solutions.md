@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Gallery lösningar | Microsoft Docs"
-description: "Upptäck lösningar i Cortana Intelligence Gallery."
+title: "Azure AI-galleriet lösningar | Microsoft Docs"
+description: "Upptäck lösningar i Azure AI-galleriet."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Upptäck lösningar i Cortana Intelligence Gallery
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Upptäck lösningar i Azure AI-galleriet
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Lösningar

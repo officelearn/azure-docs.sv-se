@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -131,7 +131,7 @@ Om du vill inaktivera hårddiskkryptering för IaaS-VM utför du följande anvis
  > Om du inaktiverar kryptering för OS-disk för Linux stöds inte. Steget dekryptering är endast tillåtna för dataenheter i virtuella Linux-datorer.
 Inaktivera disk datakryptering för Linux stöds inte om OS-enheten är krypterad.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som stöds som beskrivs i avsnittet ”Översikt”, se följande krav:
 
 * Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
@@ -199,7 +199,7 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
   > [!NOTE]
   > Om din säkerhetsprincip begränsar åtkomst från Azure virtuella datorer till Internet, kan du matcha föregående URI: N och konfigurera en specifik regel som tillåter utgående anslutningar till IP-adresser.
   >
-  >Att konfigurera och komma åt Azure Key Vault bakom en brandvägg (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >Att konfigurera och komma åt Azure Key Vault bakom en brandvägg (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Använd den senaste versionen av Azure PowerShell SDK-version för att konfigurera Azure Disk Encryption. Hämta den senaste versionen av [versionen av Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +218,9 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 * BitLocker-principen på domänanslutna virtuella datorer med anpassade Grupprincip måste innehålla följande inställning: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption misslyckas när anpassade grupprincipinställningarna för Bitlocker är inkompatibla. På datorer som inte har rätt princip kan inställningen, tillämpa den nya principen, tvingar den nya principen för att uppdatera (gpupdate.exe/Force) och starta sedan om krävas.  
 * För att skapa ett Azure AD-program, skapa nyckelvalvet, eller konfigurera en befintlig nyckelvalv och aktivera kryptering, finns det [PowerShell-skript för Azure Disk Encryption nödvändiga](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Om du vill konfigurera krav för disk-kryptering med hjälp av Azure CLI, se [Bash skriptet](https://github.com/ejarvi/ade-cli-getting-started).
-* Om du vill använda Azure Backup-tjänsten för att säkerhetskopiera och återställa krypterade VMs när kryptering är aktiverat med Azure Disk Encryption, kryptera dina virtuella datorer med hjälp av Azure Disk Encryption key konfigurationen. Backup-tjänsten har stöd för virtuella datorer som krypteras med Nej KEK eller KEK konfigurationer. Se [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup kryptering](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Om du vill använda Azure Backup-tjänsten för att säkerhetskopiera och återställa krypterade VMs när kryptering är aktiverat med Azure Disk Encryption, kryptera dina virtuella datorer med hjälp av Azure Disk Encryption key konfigurationen. Backup-tjänsten har stöd för virtuella datorer som krypteras med Nej KEK eller KEK konfigurationer. Se [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup kryptering](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* När du krypterar en Linux OS-volym, Observera att en VM-omstart krävs för närvarande i slutet av processen. Detta kan göras via portalen, powershell eller CLI.   Om du vill spåra förloppet för kryptering, regelbundet avsöka det statusmeddelande som returneras av Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  När kryptering är klar, det statusmeddelande som returneras av det här kommandot visar detta.  Till exempel ”ProgressMessage: OS-disken har krypterats, starta om den virtuella datorn” nu kan den virtuella datorn startas om och användas.  
+* När du krypterar en Linux OS-volym, Observera att en VM-omstart krävs för närvarande i slutet av processen. Detta kan göras via portalen, powershell eller CLI.   Om du vill spåra förloppet för kryptering, regelbundet avsöka det statusmeddelande som returneras av Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  När kryptering är klar, det statusmeddelande som returneras av det här kommandot visar detta.  Till exempel ”ProgressMessage: OS-disken har krypterats, starta om den virtuella datorn” nu kan den virtuella datorn startas om och användas.  
 
 * Azure Disk Encryption för Linux kräver datadiskar för att ha ett anslutet filsystem i Linux före kryptering
 
@@ -396,7 +396,7 @@ Om du vill skapa ett nyckelvalv med någon av följande alternativ:
 * [”101-nyckel-valvet-skapa” Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Azure PowerShell nyckelvalv-cmdlets](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* Så här [Secure nyckelvalvet](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* Så här [Secure nyckelvalvet](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Om du redan har installerat en nyckelvalv för din prenumeration, vidare till nästa avsnitt.
@@ -851,7 +851,7 @@ Kryptering av en OS-enhet på en Linux-VM som körs stöds på följande distrib
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Innan du startar om rekommenderar vi att du sparar [starta diagnostik](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) av den virtuella datorn.
+Innan du startar om rekommenderar vi att du sparar [starta diagnostik](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) av den virtuella datorn.
 
 #### <a name="monitoring-os-encryption-progress"></a>Övervaka förloppet för OS-kryptering
 Du kan övervaka förloppet för OS-kryptering på tre sätt:
@@ -885,7 +885,7 @@ Du kan övervaka förloppet för OS-kryptering på tre sätt:
 
  ![VM-instansvyn](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Titta på [starta diagnostik](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Meddelanden från tillägget ADE prefixet `[AzureDiskEncryption]`.
+* Titta på [starta diagnostik](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Meddelanden från tillägget ADE prefixet `[AzureDiskEncryption]`.
 
 * Logga in på den virtuella datorn via SSH och hämta tillägget loggen:
 
@@ -917,7 +917,7 @@ Konfigurera kryptering under installationen av distributionsplatsen genom att g�
 
  ![Ubuntu 16.04 installationen](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Förbereda den virtuella datorn för överföring till Azure med hjälp av [instruktionerna](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Kör inte det sista steget (avetablering VM) ännu.
+6. Förbereda den virtuella datorn för överföring till Azure med hjälp av [instruktionerna](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Kör inte det sista steget (avetablering VM) ännu.
 
 Konfigurera krypteringen ska fungera med Azure genom att göra följande:
 
@@ -995,7 +995,7 @@ Om du vill konfigurera kryptering under installationen av distributionsplatsen, 
 
  ![Konfigurera openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Förbereda den virtuella datorn för överföring till Azure genom att följa instruktionerna i [förbereda en virtuell dator SLES eller openSUSE för Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Kör inte det sista steget (avetablering VM) ännu.
+3. Förbereda den virtuella datorn för överföring till Azure genom att följa instruktionerna i [förbereda en virtuell dator SLES eller openSUSE för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Kör inte det sista steget (avetablering VM) ännu.
 
 Om du vill konfigurera krypteringen ska fungera med Azure, gör du följande:
 1. Redigera /etc/dracut.conf och Lägg till följande rad:
@@ -1071,7 +1071,7 @@ Om du vill konfigurera kryptering under installationen av distributionsplatsen, 
 
  ![CentOS 7 installationen](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Förbereda den virtuella datorn för överföring till Azure med hjälp av anvisningarna i ”CentOS 7.0 +” [förbereda en CentOS-baserad virtuell dator för Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Kör inte det sista steget (avetablering VM) ännu.
+5. Förbereda den virtuella datorn för överföring till Azure med hjälp av anvisningarna i ”CentOS 7.0 +” [förbereda en CentOS-baserad virtuell dator för Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Kör inte det sista steget (avetablering VM) ännu.
 
 6. Nu kan du ta bort etableringen den virtuella datorn och [överför den virtuella Hårddisken](#upload-encrypted-vhd-to-an-azure-storage-account) till Azure.
 

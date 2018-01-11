@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bfe4ab71bb7311d1bbca27f8de196b2297c2a994
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 65ddd1efac11bd7f4795e7319e0f66c17f8d5a4f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,8 +50,8 @@ Följande egenskaper stöds för SFTP länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Sftp**. |Ja |
-| värden | Namn eller IP-adress till SFTP-server. |Ja |
-| port | Port som avlyssnas SFTP-servern.<br/>Tillåtna värden är: heltal, maxstorleken värdet är **22**. |Nej |
+| värd | Namn eller IP-adress till SFTP-server. |Ja |
+| port | Port som avlyssnas SFTP-servern.<br/>Tillåtna värden är: heltal, standardvärdet är **22**. |Nej |
 | skipHostKeyValidation | Ange om du vill hoppa över värden viktiga validering.<br/>Tillåtna värden är: **SANT**, **FALSKT** (standard).  | Nej |
 | hostKeyFingerprint | Ange fingeravtryck för värdnyckeln. | Ja om ”skipHostKeyValidation” är inställd på false.  |
 | AuthenticationType | Ange autentiseringstypen.<br/>Tillåtna värden är: **grundläggande**, **SshPublicKey**. Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |

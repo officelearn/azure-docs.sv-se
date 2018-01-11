@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Följande tabeller innehåller de högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Arbetsbelastningshantering
-| Kategori | Beskrivning | Maximalt |
+| Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Max DWU för en enskild SQL Data Warehouse | Optimerad för elasticitet [prestandanivån](performance-tiers.md): DW6000<br></br>Optimerad för beräkning [prestandanivån](performance-tiers.md): DW30000c |
 | [Informationslagerenheter (DWU)][Data Warehouse Units (DWU)] |Standard DTU per server |54,000<br></br>Varje SQLServer (till exempel myserver.database.windows.net) har en DTU-kvot för 54 000, vilket gör att upp till DW6000c som standard. Kvoten är helt enkelt en säkerhetsgräns. Du kan öka din kvot genom [skapat ett supportärende] [ creating a support ticket] och välja *kvot* som den Begärandetypen.  Att beräkna dina DTU behöver, multiplicerar 7.5 med det totala antalet DWU behövs eller 9.0 att multiplicera den totala cDWU som behövs. Exempel:<br></br>DW6000 x 7.5 = 45,000 dtu: er<br></br>DW600c x 9.0 = 54 000 dtu: er.<br></br>Du kan visa din aktuella DTU-förbrukning från SQL server-alternativ i portalen. Både pausas och hävs räknas in i DTU-kvot. |
@@ -35,7 +35,7 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 | [TempDB][Tempdb] |Maximal GB |399 GB per DW100. Därför vid DWU1000, även tempdb storlek till 3,99 TB |
 
 ## <a name="database-objects"></a>objekt i databasen
-| Kategori | Beskrivning | Maximalt |
+| Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | Databas |Maxstorlek |240 TB komprimerat på disk<br/><br/>Här är oberoende av utrymme i tempdb- eller loggfil och därför detta utrymme har reserverats för permanenta tabeller.  Det grupperade columnstore-komprimering uppskattas till 5 X.  Den här komprimeringen låter databasen växa till ungefär 1 PB när alla tabeller som är grupperade columnstore (standard tabelltyp). |
 | Tabell |Maxstorlek |60 TB komprimerat på disk |
@@ -56,12 +56,12 @@ Följande tabeller innehåller de högsta värden som tillåts för olika kompon
 | Visa |Kolumner per vy |1,024 |
 
 ## <a name="loads"></a>Belastningar
-| Kategori | Beskrivning | Maximalt |
+| Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | Polybase belastningar |MB per rad |1<br/><br/>Polybase läser in endast för rader som är mindre än 1 MB och det går inte att läsa in VARCHAR(MAX), NVARCHAR(MAX) eller VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Frågor
-| Kategori | Beskrivning | Maximalt |
+| Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | Fråga |Köade frågor om användartabeller. |1000 |
 | Fråga |Samtidiga frågor om systemvyer. |100 |

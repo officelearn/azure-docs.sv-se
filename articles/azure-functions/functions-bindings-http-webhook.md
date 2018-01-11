@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -41,14 +41,14 @@ Som standard svarar ett HTTP-utlösaren på begäran med ett 200 OK HTTP-statusk
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtext för HTTP-begäran.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#webhook---c-example)
-* [C#-skript](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C#-skript (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - C#-exempel
 
-Följande exempel visar en [förkompilerat C#-funktionen](functions-dotnet-class-library.md) som skickar en HTTP-200 som svar på en allmän JSON-begäran.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar en HTTP-200 som svar på en allmän JSON-begäran.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
 
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut som definierats i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Du kan ange tillståndet nivå och tillåten HTTP-metoderna i attributet konstruktorparametrarna och det finns webhook typ och väg mall. Mer information om dessa inställningar finns [utlösaren - konfiguration](#trigger---configuration). Här är ett `HttpTrigger` attribut i en signatur:
 
@@ -377,18 +377,19 @@ public static HttpResponseMessage Run(
 }
  ```
 
-En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Utlösaren - konfiguration
 
 I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `HttpTrigger` attribut.
+
 
 |Egenskapen Function.JSON | Egenskap |Beskrivning|
 |---------|---------|----------------------|
 | **typ** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
 | **riktning** | Saknas| Krävs – måste vara inställd på `in`. |
 | **Namn** | Saknas| Obligatoriskt - variabelnamnet som används i Funktionskoden för begäran eller begärandetexten. |
-| **authLevel** |  **AuthLevel** |Anger vad nycklar, eventuella måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen anges.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktorisering nycklar](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anger vad nycklar, eventuella måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen anges.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktorisering nycklar](#authorization-keys). |
 | **metoder** |**Metoder** | En matris med HTTP-metoderna som funktionen svarar. Om inget annat anges, svarar funktionen alla HTTP-metoderna. Se [anpassa http-slutpunkten](#trigger---customize-the-http-endpoint). |
 | **väg** | **Väg** | Definierar flödesmallen styra som begära webbadresserna din funktion svarar. Standardvärdet om ingen anges är `<functionname>`. Mer information finns i [anpassa http-slutpunkten](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Konfigurerar HTTP-utlösaren ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En generell webhook slutpunkt utan logik för en specifik provider. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen besvarar [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen besvarar [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
@@ -405,7 +406,7 @@ För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlös
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Ett exempel finns [skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
+Ett exempel finns i [Skapa en funktion som utlöses av en GitHub-webhook](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="slack-webhooks"></a>Slack webhooks
 
@@ -539,7 +540,7 @@ Använd HTTP-utdata bindning svarar på http-begäran avsändaren. Den här bind
 
 ## <a name="output---configuration"></a>Output - konfiguration
 
-För förkompilerade C# finns inga egenskaper för konfiguration av utdata-specifik bindning. Om du vill skicka ett HTTP-svar, kontrollera funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`.
+C#-klassbibliotek finns det inga egenskaper för konfiguration av utdata-specifik bindning. Om du vill skicka ett HTTP-svar, kontrollera funktionen returtyp `HttpResponseMessage` eller `Task<HttpResponseMessage>`.
 
 För andra språk, en HTTP-utdatabindning har definierats som ett JSON-objekt i den `bindings` matris med function.json som visas i följande exempel:
 

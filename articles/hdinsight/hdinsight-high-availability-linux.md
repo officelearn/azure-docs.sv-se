@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 
@@ -60,7 +60,7 @@ Nimbus-noder är tillgängliga med Storm-kluster. Nimbus-noder ger liknande funk
 
 Arbetarnoder analysera den faktiska data när ett jobb som skickas till klustret. Om en arbetsnod misslyckas, skickas uppgiften som den utförde till en annan worker-nod. Som standard skapar HDInsight fyra arbetsnoderna. Du kan ändra det här numret så att de passar dina behov både under och efter klustret skapas.
 
-### <a name="edge-node"></a>Kantnod
+### <a name="edge-node"></a>Gränsnod
 
 En kantnod deltar inte aktivt i dataanalys i klustret. Den används av utvecklare eller datavetare när du arbetar med Hadoop. Kantnoden bor i Azure samma virtuella nätverk som de andra noderna i klustret och direkt åtkomst till alla andra noder. Kantnoden kan användas utan att göra resurser från kritiska Hadoop-tjänster eller analys jobb.
 

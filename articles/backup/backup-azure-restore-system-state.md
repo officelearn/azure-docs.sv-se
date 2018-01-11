@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa systemtillståndet till Windows Server
 
@@ -89,9 +89,6 @@ De termer som används i dessa steg omfattar:
 1. Öppna den **Microsoft Azure Backup** snapin-modulen på den *måldatorn*.
 2. Se till att den *måldatorn* och *källdatorn* är registrerade på samma Recovery Services-valvet.
 3. Klicka på **återställa Data** att starta arbetsflödet.
-
-    ![Återställa Data](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Välj **en annan server**
 
     ![En annan Server](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,12 +96,9 @@ De termer som används i dessa steg omfattar:
 5. Ange valvautentiseringsfilen som motsvarar den *exempel valvet*. Om valvautentiseringsfilen är ogiltig (eller har upphört att gälla), hämta en ny valvautentiseringsfil från den *exempel valvet* i Azure-portalen. Recovery Services-valvet som är kopplade till valvautentiseringsfilen visas när valvautentiseringsfilen har angetts.
 
 6. I fönstret Välj Server för säkerhetskopiering markerar du den *källdatorn* från listan över visade datorer.
-
-    ![Lista över datorer](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. I fönstret Välj återställningsläge väljer **systemtillstånd** och på **nästa**. 
 
-    ![Söka](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. I kalendern i den **Välj volym och datum** pekar du väljer en återställning. Du kan återställa från valfri återställningspunkt i tid. Datum i **fetstil** indikerar tillgängligheten för minst en återställningspunkt. När du har valt ett datum, om det finns flera återställningspunkter, Välj specifik återställningspunkt från den **tid** nedrullningsbara menyn. 
 

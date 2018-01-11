@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Etablering enheter med Azure IoT-hubb Device etablering Service (förhandsgranskning)
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Etablering enheter med Azure IoT Hub etablering av tjänst
 Microsoft Azure tillhandahåller en omfattande uppsättning integrerad offentliga molntjänster för alla dina IoT-lösningen behov. IoT-hubb Device etablering Service är en helper-tjänsten för IoT-hubb som möjliggör zero touch, just-in-time etablering till rätt IoT-hubben utan mänsklig inblandning aktiverar kunder att etablera miljoner enheter i en säker och skalbar sätt.
 
 ## <a name="when-to-use-device-provisioning-service"></a>När du ska använda etablering av tjänst
@@ -111,12 +111,12 @@ Upprätthåller vi ett 99,9% serviceavtal för etablering av tjänst, och du kan
 ## <a name="quotas"></a>Kvoter
 Varje Azure-prenumeration har standard kvotgränser som kan påverka omfånget för IoT-lösningen. Den aktuella gränsen på grundval av per prenumeration är 10 enhet Provisioning Services per prenumeration.
 
-Mer information om kvotgränserna:
+Mer information om kvotgränser:
 
-* [Tjänstbegränsningarna för Azure-prenumeration](../azure-subscription-service-limits.md)
+* [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Relaterade Azure-komponenter
-Enheten Etableringstjänsten automatiserar enhetsetableringen med Azure IoT-hubben. Lär dig mer om [IoT-hubb](https://docs.microsoft.com/en-us/azure/iot-hub/).
+Enheten Etableringstjänsten automatiserar enhetsetableringen med Azure IoT-hubben. Lär dig mer om [IoT-hubb](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu har du en översikt över etablering IoT-enheter i Azure. Nästa steg är att testa en slutpunkt till slutpunkt IoT-scenariot.

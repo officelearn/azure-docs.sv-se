@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 938304efe5e4a13736a50348bd0531c475149aec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7bd5b8c0534a51c6b6c9e8871be513194d38788
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager-mallar
 Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI 2.0. Du kan också utföra dessa steg med [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
@@ -30,31 +30,33 @@ Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure
 Azure Resource Manager-mallarna är JSON-filer som definierar infrastrukturen och konfigurationen av din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Läs mer om formatet för mallen och hur du skapar i [skapa din första Azure Resource Manager-mallen](../../azure-resource-manager/resource-manager-create-first-template.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/) (Definiera resurser i Azure Resource Manager-mallar).
 
 
-## <a name="create-resource-group"></a>Skapa resursgrupp
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator. I följande exempel skapas en resursgrupp med namnet *myResourceGroupVM* i den *eastus* region:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Skapa en virtuell dator
-I följande exempel skapas en virtuell dator från [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) med [az distribution skapa](/cli/azure/group/deployment#create). Ange värdet för egna SSH offentlig nyckel, till exempel innehållet i *~/.ssh/id_rsa.pub*. Om du behöver skapa en SSH-nyckel finns [hur du skapar och använder en SSH-nyckel för Linux virtuella datorer i Azure](mac-create-ssh-keys.md).
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+I följande exempel skapas en virtuell dator från [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) med [az distribution skapa](/cli/azure/group/deployment#create). SSH-autentisering tillåts. När du uppmanas, ange värdet för egna SSH offentlig nyckel, till exempel innehållet i *~/.ssh/id_rsa.pub*. Om du behöver skapa en SSH-nyckel finns [hur du skapar och använder en SSH-nyckel för Linux virtuella datorer i Azure](mac-create-ssh-keys.md).
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
-  --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-I det här exemplet anges en mall som lagras i GitHub. Du kan också hämta eller skapa en mall och ange en lokal sökväg med samma `--template-file` parameter.
+I föregående exempel angav du en mall som lagras i GitHub. Du kan också hämta eller skapa en mall och ange en lokal sökväg med den `--template-file` parameter.
 
-Hämta den offentliga IP-adressen till SSH till den virtuella datorn, [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#show):
+
+## <a name="connect-to-virtual-machine"></a>Ansluta till den virtuella datorn
+Hämta den offentliga IP-adressen till SSH till den virtuella datorn, [az vm visa](/cli/azure/vm#show):
 
 ```azurecli
-az network public-ip show \
+az vm show \
     --resource-group myResourceGroup \
-    --name sshPublicIP \
-    --query [ipAddress] \
+    --name sshvm \
+    --show-details \
+    --query publicIps \
     --output tsv
 ```
 

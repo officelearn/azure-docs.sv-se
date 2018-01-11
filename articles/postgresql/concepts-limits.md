@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Begränsningar i Azure-databas för PostgreSQL
 Azure-databasen för PostgreSQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet och funktionella gränser i databastjänsten för.
@@ -27,12 +27,12 @@ Det finns ett maximalt antal anslutningar, enheter för beräkning och lagring i
 | | |
 | :------------------------- | :---------------- |
 | **Högsta antal anslutningar**        |                   |
-| Grundläggande 50 beräknings-enheter     | 50-anslutningar    |
-| Grundläggande 100 beräknings-enheter    | 100-anslutningar   |
-| Standardenheter 100 beräkning | 200-anslutningar   |
-| Standardenheter 200 beräkning | 300 anslutningar   |
-| Standardenheter 400 beräkning | 400-anslutningar   |
-| Standard 800 beräknings-enheter | 500-anslutningar   |
+| Grundläggande 50 beräknings-enheter     | 55 anslutningar    |
+| Grundläggande 100 beräknings-enheter    | 105 anslutningar   |
+| Standardenheter 100 beräkning | 150 anslutningar   |
+| Standardenheter 200 beräkning | 250 anslutningar   |
+| Standardenheter 400 beräkning | 480 anslutningar   |
+| Standard 800 beräknings-enheter | 950 anslutningar   |
 | **Max beräknings-enheter**      |                   |
 | Grundläggande tjänstenivå         | 100 enheter för beräkning |
 | Standardtjänstenivå      | 800 beräknings-enheter |
@@ -40,8 +40,9 @@ Det finns ett maximalt antal anslutningar, enheter för beräkning och lagring i
 | Grundläggande tjänstenivå         | 1 TB              |
 | Standardtjänstenivå      | 1 TB              |
 
-När för många anslutningar har uppnåtts, får du följande fel:
+Azure systemet kräver fem anslutningar till övervaka Azure-databas för PostgreSQL-servern. När för många anslutningar har uppnåtts, får du följande fel:
 > Oåterkalleligt fel: Det gick tyvärr redan för många klienter
+
 
 ## <a name="preview-functional-limitations"></a>Funktionella begränsningar i förhandsversionen
 ### <a name="scale-operations"></a>Skalningsåtgärder

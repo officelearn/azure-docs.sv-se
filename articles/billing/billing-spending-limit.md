@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Förstå Azure utgifter gränsen och borttagning
 
@@ -48,8 +48,10 @@ Om du vill ta bort utgiftsgränsen följer du dessa anvisningar:
 
 1. Logga in på den [Kontocenter](https://account.windowsazure.com/Subscriptions).
 1. Välj en prenumeration.
-1. Om prenumerationen har inaktiverats på grund av utgiftsgränsen nås, klickar du på det här meddelandet: ”prenumerationen uppnåtts utgiftsgräns och har inaktiverats för att förhindra avgifter”. Annars klickar du på **ta bort utgiftsgränsen** i den **PRENUMERATIONSSTATUS** område.
+. Om prenumerationen har inaktiverats på grund av utgiftsgränsen nås, klickar du på det här meddelandet: ”prenumerationen uppnåtts utgiftsgräns och har inaktiverats för att förhindra avgifter”. Annars klickar du på **ta bort utgiftsgränsen** i den **PRENUMERATIONSSTATUS** område.
 1. Välj ett alternativ som passar dig.
+
+![Att välja ett alternativ för att ta bort utgiftsgränsen](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Alternativ|Verkan|
 |-------|-----|
@@ -80,8 +82,10 @@ Vi har inte anpassade tillbringar gränser idag. Dock kan du välja att [använd
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Hindrar utgiftsgränsen alla kostnader från Azure?
 
-Vissa [Microsoft-tjänster och tredje parts märkta services](billing-understand-your-azure-marketplace-charges.md) kan avgifter under betalningsmetoden även om utgiftsgränsen anges. Exempel Visual Studio licenser, Azure Active Directory premium, supportplaner och de flesta från tredje part märkta tjänster säljs via den [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Vissa externa tjänster publiceras i Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) kan inte användas med din prenumerationskrediter och kan debiteras separat även när din utgiftsgräns har angetts. Exempel inkluderar Visual Studio licenser, Azure Active Directory premium, supportplaner och de flesta från tredje part märkta tjänster. När du etablerar en ny extern tjänst, visas en varning så att du vet tjänsterna faktureras separat:
 
-## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
+![Marketplace köpa varning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
 Om du fortfarande behöver hjälp [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) få snabbt lösa problemet.

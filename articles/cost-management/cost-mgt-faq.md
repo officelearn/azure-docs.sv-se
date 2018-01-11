@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Vanliga frågor om Azure kostnaden Management
 
@@ -46,6 +46,29 @@ Innan du kan generera Azure Enterprise-avtal API-nyckel att ställa in Cloudyn, 
 
 Kan du behöva ge avdelning administratörer, kontot ägare och enterprise administratörer behörighet till _visa debiteringar_ med fakturerings-API.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Varför ser jag optimering rekommendationer
+
+Rekommendation information är bara tillgängligt för konton som är aktiverade. Visas inte någon rekommendation information i **optimering** rapportera kategorier för konton som är *inaktiverade*, inklusive:
+
+- Optimering Manager
+- Storlek för optimering
+- Ineffektiviteter
+
+Om du inte ser några optimering rekommendation data, troligen har du konton som är inaktiverade. Om du vill aktivera ett konto som du behöver registrera den med dina autentiseringsuppgifter för Azure.
+
+Aktivera ett konto:
+
+1.  I Cloudyn-portalen klickar du på **inställningar** i övre högra och välj **moln konton**.
+2.  Gå till Microsoft Azure-konton och leta efter konton som har en **inaktiverade** prenumeration.
+3.  Klicka till höger för ett konto som är inaktiverade i **redigera** symbol som liknar en penna.
+4.  Din klient-ID och hastighet identifieras automatiskt. Klicka på **Nästa**.
+5.  Du ska omdirigeras till Azure-portalen. Logga in på portalen och auktorisera Cloudyn insamlaren åtkomst till Azure data.
+6.  Sedan du ska omdirigeras till sidan för hantering av Cloudyn konton och din prenumeration har uppdaterats med **active** kontostatus. Här visas en grön bock symbol.
+7.  Om du inte ser en grön bockmarkering symbol för en eller flera av prenumerationerna, innebär det att du inte har behörighet att skapa reader-appen (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste du upprepa steg 3 och 4.  
+
+När du har slutfört ovanstående steg kan du visa optimering rekommendationer inom en till två dagar. Dock kan det ta upp till fem dagar innan fullständig optimering data blir tillgängliga.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Hur aktiverar pausat eller utelåst användare?
 
 Om du får en avisering med en begäran om att tillåta åtkomst för en användare måste du aktivera användarkontot.
@@ -66,10 +89,7 @@ Om du ändrar din e-postadress i Cloudyn från standardadressen i Azure, ditt ko
 
 Vi rekommenderar att du skapar minst två Cloudyn administratörskonton om ett konto blir låst.
 
-Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Använd någon av följande webbadresser:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#Blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Se till att du använder rätt Azure kostnaden Management URL: en för att logga in på Cloudyn om du inte logga in till Cloudyn-portalen. Använd [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Undvik att använda Cloudyn direkt URL https://app.cloudyn.com.
 

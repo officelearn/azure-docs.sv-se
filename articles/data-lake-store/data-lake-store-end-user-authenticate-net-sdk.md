@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/12/2017
 
 I den här artikeln får du lära dig hur du använder .NET SDK för att göra slutanvändarens autentisering med Azure Data Lake Store. Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK, se [tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Visual Studio 2013, 2015 eller 2017**. Anvisningarna nedan använder Visual Studio 2017.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

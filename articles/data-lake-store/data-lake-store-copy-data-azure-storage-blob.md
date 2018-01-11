@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Kopiera data från Azure Storage-blobar till Data Lake Store
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Du kan också använda verktyget AdlCopy i två olika lägen:
 * **Fristående**, där verktyget använder Data Lake Store-resurser för att utföra åtgärden.
 * **Med ett Data Lake Analytics-konto**, där enheter som tilldelats till ditt Data Lake Analytics-konto som används för att utföra kopieringen. Du kanske vill använda det här alternativet när du behöver utföra uppgifter kopiera förutsägbart.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -60,7 +60,7 @@ Parametrarna i syntaxen beskrivs nedan:
 | SourceKey |Anger lagringsåtkomstnyckel för Azure storage blob-källa. Detta krävs endast om källan är en blob-behållare eller en blob. |
 | Konto |**Valfritt**. Använd det här alternativet om du vill använda Azure Data Lake Analytics-konto för att köra jobbet kopia. Om du använder alternativet /Account syntaxen men inte anger ett Data Lake Analytics-konto, använder AdlCopy ett standardkonto för att köra jobbet. Även om du använder det här alternativet måste du lägga källa (Azure Storage Blob) och mål (Azure Data Lake Store) som datakällor för Data Lake Analytics-kontot. |
 | Enheter |Anger antalet Data Lake Analytics-enheter som ska användas för Kopiera projekt. Det här alternativet är obligatoriskt om du använder den **/kontot** alternativet för att ange Data Lake Analytics-kontot. |
-| Mönstret |Anger ett regex-mönster som anger vilka blobbar eller filer som ska kopieras. AdlCopy använder skiftlägeskänsliga matchar. Det Standardmönster som används när inga mönster har angetts används för att kopiera alla objekt. Ange flera filen mönster stöds inte. |
+| Mönster |Anger ett regex-mönster som anger vilka blobbar eller filer som ska kopieras. AdlCopy använder skiftlägeskänsliga matchar. Det Standardmönster som används när inga mönster har angetts används för att kopiera alla objekt. Ange flera filen mönster stöds inte. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Använd AdlCopy (som fristående) för att kopiera data från ett Azure Storage-blob
 1. Öppna en kommandotolk och gå till den katalog där AdlCopy installeras normalt `%HOMEPATH%\Documents\adlcopy`.
@@ -72,7 +72,7 @@ Parametrarna i syntaxen beskrivs nedan:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] Ovanstående syntax anger den fil som ska kopieras till en mapp i Data Lake Store-konto. AdlCopy verktyget skapar en mapp om namnet på angivna mappen inte finns.
+    >[AZURE.NOTE]Ovanstående syntax anger den fil som ska kopieras till en mapp i Data Lake Store-konto. AdlCopy verktyget skapar en mapp om namnet på angivna mappen inte finns.
 
     Du uppmanas att ange autentiseringsuppgifter för Azure-prenumerationen som du har ditt Data Lake Store-konto. Du kommer se utdata som liknar följande:
 

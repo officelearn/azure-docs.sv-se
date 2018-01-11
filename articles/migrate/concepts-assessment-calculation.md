@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -47,10 +47,11 @@ Datorer som du vill migrera till Azure måste uppfylla kraven för Azure och beg
 
 När en dator har markerats som lämpar sig för Azure, mappar Azure migrera den till en VM-storlek i Azure, med följande villkor:
 
-- **Kontroll av lagring**: Azure migrera försöker mappa alla diskar som är anslutna till datorn till en disk i Azure:-Azure migrera multiplicerar i/o per sekund (IOPS) med bekvämlighet faktorn. Den också multiplar dataflöde (i Mbit/s) för varje disk med bekvämlighet faktor. Detta ger faktiska IOPS och genomflöde. Baserat på den här mappar Azure migrera på disken till en standard eller premium i Azure.
-    - Om tjänsten inte kan hitta en disk med nödvändiga IOPS & genomströmning, markerar datorn som lämpar sig inte för Azure.
-    - Om den hittar en uppsättning lämpliga diskar väljer Azure migrera de som stöd för redundans lagringsmetod och den plats som anges i inställningarna för utvärdering.
-    - Om det finns flera tillgängliga diskar, väljs med lägst kostnad.
+- **Kontroll av lagring**: Azure migrera försöker mappa alla diskar som är anslutna till datorn till en disk i Azure:
+    - Azure migrera multiplicerar i/o per sekund (IOPS) med bekvämlighet faktorn. Den också multiplar dataflöde (i Mbit/s) för varje disk med bekvämlighet faktor. Detta ger faktiska IOPS och genomflöde. Baserat på den här mappar Azure migrera på disken till en standard eller premium i Azure.
+      - Om tjänsten inte kan hitta en disk med nödvändiga IOPS & genomströmning, markerar datorn som lämpar sig inte för Azure.
+      - Om den hittar en uppsättning lämpliga diskar väljer Azure migrera de som stöd för redundans lagringsmetod och den plats som anges i inställningarna för utvärdering.
+      - Om det finns flera tillgängliga diskar, väljs med lägst kostnad.
 - **Diskgenomflödet**: [mer](../azure-subscription-service-limits.md#storage-limits) om Azure begränsar per disk- och VM.
 - **Disktyp**: Azure migrera har stöd för hanterade diskar.
 - **Nätverk Kontrollera**: Azure migrera försöker hitta en virtuell Azure-dator som har stöd för antalet nätverkskort på den lokala datorn.

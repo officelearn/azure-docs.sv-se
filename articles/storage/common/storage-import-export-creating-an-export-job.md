@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Skapa ett exportjobb för tjänsten Azure Import/Export
 Skapa ett exportjobb för tjänsten Microsoft Azure Import/Export med hjälp av REST API omfattar följande steg:
@@ -57,7 +57,7 @@ Innan du skapar ett exportjobb, måste du skaffa ett leverans platsnamn och adre
 
 Följ stegen nedan för att hämta leveransplatsen för:
 
--   Identifiera namnet på platsen för ditt lagringskonto. Det här värdet kan hittas den **plats** på storage-konto **instrumentpanelen** i klassiskt portalen eller efterfrågade för med hjälp av service management API-åtgärd [hämta lagring Kontot egenskaper](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identifiera namnet på platsen för ditt lagringskonto. Det här värdet kan hittas den **plats** på storage-konto **instrumentpanelen** i Azure portal eller efterfrågade för med hjälp av service management API-åtgärd [hämta Lagringskontoegenskaperna](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Hämta platsen för att utföra det här lagringskontot genom att anropa den `Get Location` igen.
 

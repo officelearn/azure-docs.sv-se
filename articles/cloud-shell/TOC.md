@@ -17,7 +17,7 @@
 # Exempel
 ## [Distribuera Azure-resurser med Terraform i Bash](example-terraform-bash.md)
 
-# [Prissättning](pricing.md)
+# [Bädda in Cloud Shell](embed-cloud-shell.md)
 
 # [Felsökning](troubleshooting.md)
 

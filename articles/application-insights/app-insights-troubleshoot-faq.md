@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -242,7 +242,7 @@ Detta beroende inte där Application Insights-resursen finns. Det beror på dist
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan jag skicka telemetri till Application Insights-portalen?
 
-Vi rekommenderar att du använder våra SDK: er och SDK-API: n (app-insights-api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](app-insights-platforms.md). Dessa SDK hantera buffring, komprimering, begränsning, återförsök och så vidare. Dock den [införandet schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentlig.
+Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](app-insights-api-custom-events-metrics.md). Det finns olika varianter av SDK för olika [plattformar](app-insights-platforms.md). Dessa SDK hantera buffring, komprimering, begränsning, återförsök och så vidare. Dock den [införandet schemat](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [endpoint protokollet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentlig.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Övervakar jag en intranät-webbserver?
 

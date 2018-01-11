@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Vad är programåtkomst och enkel inloggning med Azure Active Directory?
 Enkel inloggning innebär att kunna komma åt alla program och resurser som du behöver göra affärer, genom att logga in bara en gång med ett enda användarkonto. När du är inloggad du har åtkomst till alla program som du behöver, utan som krävs för att autentisera (t.ex. Ange ett lösenord) en andra gång.
@@ -54,7 +54,7 @@ När en användare har autentiserats med ett program, de måste också ha en kon
  Mer information om dessa lägen för enkel inloggning och etablerar nedan.
 
 ### <a name="federated-single-sign-on"></a>Federerad enkel inloggning
-Gör att användare i din organisation kan loggas in automatiskt till en tredje parts SaaS-program med Azure AD med hjälp av informationen om användarkontot från Azure AD federerad enkel inloggning möjliggör inloggning.
+Gör att användare i din organisation kan loggas in automatiskt till en tredje parts SaaS-program med Azure AD med hjälp av informationen om användarkontot från Azure AD federerad enkel inloggning.
 
 I det här scenariot när du redan har loggats i Azure AD och du vill komma åt resurser som styrs av en tredje parts SaaS-program eliminerar federation behovet av att en användare autentiseras igen.
 

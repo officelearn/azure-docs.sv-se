@@ -1,6 +1,6 @@
 ---
-title: "Säkerhet trimning med Azure Search"
-description: "Implementera trimning på säkerhet med hjälp av Azure Search filter."
+title: "Säkerhetsfilter trimning resultat i Azure Search | Microsoft Docs"
+description: "Åtkomstkontroll på Azure Search-innehåll med hjälp av säkerhetsfilter och användaridentiteter."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Säkerhet trimning med Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Säkerhetsfilter trimning resultat i Azure Search
 
-Du kan använda säkerhetsfilter på sökresultat för att begränsa åtkomsten för dokument baserat på användarens identitet. Den här sökinställningar kräver vanligtvis jämföra identiteten hos den som begär sökningen mot ett fält som innehåller de principer som har behörighet till dokumentet. När en matchning hittas, har användaren eller säkerhetsobjekt (till exempel en grupp eller roll) åtkomst till dokumentet.
+Du kan använda säkerhetsfilter Beskär sökresultat i Azure Search baserat på användarens identitet. Den här sökinställningar kräver vanligtvis jämföra identiteten hos den som begär sökningen mot ett fält som innehåller de principer som har behörighet till dokumentet. När en matchning hittas, har användaren eller säkerhetsobjekt (till exempel en grupp eller roll) åtkomst till dokumentet.
 
 Ett sätt att uppnå säkerhet filtrering är via en komplicerad disjunktion på likheten uttryck: till exempel `Id eq 'id1' or Id eq 'id2'`, och så vidare. Den här metoden är problematiskt, svårt att underhålla, och i fall där listan innehåller hundratals eller tusentals värden långsammare svarstid för frågor med många sekunder. 
 
@@ -108,13 +108,13 @@ Om du behöver uppdatera ett befintligt dokument med listan över grupper som du
 }
 ```
 
-Mer information om att lägga till eller uppdatera dokument, kan du läsa [redigera dokument](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Mer information om att lägga till eller uppdatera dokument, kan du läsa [redigera dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Tillämpa säkerhetsfiltret
 
 För att kunna ta bort dokument baserat på `group_ids` åtkomst, ska du utfärda en sökfråga med en `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, där 'group_id1 group_id2... ”de grupper som sökningen begäran utfärdaren tillhör.
 Det här filtret matchar alla dokument som den `group_ids` fältet innehåller en av de angivna identifierarna.
-Fullständig information om sökning dokument med Azure Search kan du läsa [Sök dokument](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Fullständig information om sökning dokument med Azure Search kan du läsa [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Observera att det här exemplet visas hur du söker dokument med hjälp av en POST-begäran.
 
 Skicka en HTTP POST-begäran:
@@ -155,3 +155,8 @@ Du bör få dokumenten tillbaka där `group_ids` innehåller ”group_id1” ell
 
 Detta är hur du kan filtrera resultatet baserat på användarens identitet och Azure Search `search.in()` funktion. Du kan använda den här funktionen för att skicka in huvudnamn identifierare för den begärande användaren för matchning mot huvudnamn identifierare som är kopplade till varje måldokument som. När en sökbegäran hanteras den `search.in` funktionen filtreras sökresultatet för vilka ingen av användarens säkerhetsobjekt har läsbehörighet. De huvudsakliga identifierarna kan representera säkerhetsgrupper, roller eller även användarens identitet.
  
+## <a name="see-also"></a>Se även
+
++ [Active Directory identitetsbaserade åtkomstkontroll med Azure Search filter](search-security-trimming-for-azure-search-with-aad.md)
++ [Filter i Azure Search](search-filters.md)
++ [Data säkerhet och åtkomstkontroll i Azure-sökningar](search-security-overview.md)

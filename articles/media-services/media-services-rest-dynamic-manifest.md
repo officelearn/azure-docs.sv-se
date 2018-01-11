@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Skapa filter med Azure Media Services REST API
 > [!div class="op_single_selector"]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Från och med 2.11 kan Media Services du definiera filter för dina tillgångar. Dessa filter är server sida regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället alla återgivningar som är kopplade till tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
+Från och med 2.17 kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som tillåter kunderna välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
 
 Mer detaljerad information som rör filter och dynamiska Manifest finns [dynamiska visar en översikt över](media-services-dynamic-manifest-overview.md).
 
-Det här avsnittet visar hur du använder REST API: er för att skapa, uppdatera och ta bort filter. 
+Den här artikeln visar hur du använder REST API: er för att skapa, uppdatera och ta bort filter. 
 
 ## <a name="types-used-to-create-filters"></a>Typer som används för att skapa filter
 Följande typer används när du skapar filter:  
@@ -49,9 +49,6 @@ Följande typer används när du skapar filter:
 
 Information om hur du ansluter till AMS API: et finns [åtkomst till Azure Media Services-API med Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->När du har anslutit till https://media.windows.net, får du en 301 omdirigering att ange en annan Media Services-URI. Du måste göra följande anrop till en ny URI.
-
 ## <a name="create-filters"></a>Skapa filter
 ### <a name="create-global-filters"></a>Skapa globala filter
 Använd följande HTTP-begäranden för att skapa ett globalt Filter:  
@@ -66,11 +63,11 @@ Huvuden för begäran
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
-Begärandetexten 
+Brödtext i begäran 
 
     {  
        "Name":"GlobalFilter",
@@ -119,11 +116,11 @@ Huvuden för begäran
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
-Begärandetexten 
+Brödtext i begäran 
 
     {   
        "Name":"AssetFilter", 
@@ -169,7 +166,7 @@ Om du vill visa filter använder du följande HTTP-begär:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>Hämta **AssetFilter**s som är kopplade till en tillgång
@@ -180,7 +177,7 @@ Om du vill visa filter använder du följande HTTP-begär:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -192,14 +189,14 @@ Om du vill visa filter använder du följande HTTP-begär:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
 
 ## <a name="update-filters"></a>Uppdatera filter
-Använd KORRIGERA PUT eller koppling att uppdatera ett filter med nya värden.  Mer information om dessa åtgärder finns [korrigering, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Använd korrigering, PUT- eller MERGE för att uppdatera ett filter med nya värden.  Mer information om dessa åtgärder finns [korrigering, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
 
-Om du uppdaterar ett filter kan ta det upp till 2 minuter för strömmande slutpunkten att uppdatera reglerna. Om innehållet behandlades med filtret (och cachelagras i proxyservrar och CDN cacheminnen), kan uppdatera det här filtret resultera i player-fel. Det rekommenderas att rensa cachen när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du använda ett annat filter.  
+Om du uppdaterar ett filter kan ta det upp till två minuter för strömmande slutpunkten att uppdatera reglerna. Om innehållet behandlades med filtret (och cachelagras i proxyservrar och CDN cacheminnen), kan uppdatera det här filtret resultera i player-fel. Rensa cachen när du har uppdaterat filtret. Om det här alternativet inte är möjligt bör du använda ett annat filter.  
 
 ### <a name="update-global-filters"></a>Uppdatera globala filter
 Uppdatera ett globalt filter med följande HTTP-begäranden: 
@@ -214,7 +211,7 @@ Huvuden för begäran:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
@@ -254,7 +251,7 @@ Huvuden för begäran:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -292,7 +289,7 @@ Använd följande HTTP-begäranden för att ta bort ett globalt Filter:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 
@@ -306,7 +303,7 @@ Använd följande HTTP-begäranden för att ta bort en lokal AssetFilter:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Skapa strömning URL: er som använder filter

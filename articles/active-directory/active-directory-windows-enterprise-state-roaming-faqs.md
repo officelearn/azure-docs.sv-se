@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Enterprise tillstånd centrala inställningar för windows-moln, vanliga frågor och svar för enterprise tillstånd centrala"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
 Det här avsnittet besvarar några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
@@ -72,7 +72,7 @@ I November 2015 eller senare versioner av Windows 10 stöds Enterprise tillstån
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Inställningar synkroniseras för Azure AD-konton från flera klienter?
 När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, måste du uppdatera enhetens registret för att kommunicera med Azure Rights Management (Azure RMS) för varje Azure AD-klient.  
 
-1. Hitta GUID för varje Azure AD-klient. Öppna den klassiska Azure-portalen och välj en Azure AD-klient. GUID för klienten är i Webbadressen i adressfältet i webbläsaren. Exempel: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Hitta GUID för varje Azure AD-klient. Öppna Azure-portalen och välj en Azure AD-klient. GUID för klienten är på egenskapssidan för den valda klientorganisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) med etiketten **katalog-ID**. 
 2. När du har GUID som du behöver lägga till registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klient-ID-GUID >**.
    Från den **klient-ID-GUID** nyckeln, skapa ett nytt flersträngsvärde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**. Ange licensiering distribution point URL: er i Azure klienter som ansluter till enheten för sina data.
 3. Du kan hitta licensiering distribution point URL: er genom att köra den **Get-AadrmConfiguration** cmdlet. Om värdena för den **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** är olika, ange båda värdena. Om värdena är samma, värdet anges en gång.

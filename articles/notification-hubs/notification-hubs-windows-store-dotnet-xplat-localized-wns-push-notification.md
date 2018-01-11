@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Använda Notification Hubs för att skicka lokaliserade senaste nyheterna
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Det finns två delar i det här scenariot:
 * Windows Store-appen kan klienten enheter för att ange ett språk och prenumerera på olika senaste nyheterna kategorier.
 * backend-skickar meddelanden med hjälp av den **taggen** och **mallen** feautres i Azure Notification Hubs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste redan har slutfört den [använda Notification Hubs för att skicka de senaste nyheterna] självstudier och har kod som är tillgängliga, eftersom den här kursen bygger direkt på koden.
 
 Du måste också Visual Studio 2012 eller senare.

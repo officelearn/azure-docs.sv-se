@@ -1,5 +1,5 @@
 ---
-title: "Säkerhetsmetoder för virtuell dator i Azure | Microsoft Docs"
+title: "Säkerhetsmetoder för virtuell Azure-dator"
 description: "Den här artikeln innehåller en mängd olika säkerhetsmetoder som ska användas i virtuella datorer i Azure."
 services: security
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Metodtips för Virtuella Azure-säkerhet
 
-I de flesta infrastruktur som en tjänst (IaaS)-scenarier [Azure virtuella datorer (VM)](https://docs.microsoft.com/en-us/azure/virtual-machines/) är huvudsakliga arbetsbelastningen för organisationer som använder cloud computing. Detta är särskilt tydligt i [hybridscenarion](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) där organisationer som vill migrera långsamt arbetsbelastningar till molnet. I sådana fall kan du följa den [allmänna säkerhetsaspekter för IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), och gäller rekommenderade säkerhetsmetoder för dina virtuella datorer.
+I de flesta infrastruktur som en tjänst (IaaS)-scenarier [Azure virtuella datorer (VM)](https://docs.microsoft.com/azure/virtual-machines/) är huvudsakliga arbetsbelastningen för organisationer som använder cloud computing. Detta är särskilt tydligt i [hybridscenarion](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) där organisationer som vill migrera långsamt arbetsbelastningar till molnet. I sådana fall kan du följa den [allmänna säkerhetsaspekter för IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), och gäller rekommenderade säkerhetsmetoder för dina virtuella datorer.
 
 Den här artikeln beskrivs olika VM säkerhetsmetoder, var och en härledd från våra kunder och vår egen direkt upplevelser med virtuella datorer.
 
@@ -51,7 +51,7 @@ Det första steget för att skydda den virtuella datorn är att se till att enda
 
 Virtuella datorer som tillhör en resursgrupp naturligt ärver dess principer. Även om vi rekommenderar den här metoden för att hantera virtuella datorer, kan du också styra åtkomsten till enskilda VM-principer med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-När du aktiverar Resource Manager principer och RBAC för åtkomstkontroll för virtuell dator kan förbättra du övergripande VM-säkerhet. Vi rekommenderar att du sammanställa virtuella datorer med samma livscykel i samma resursgrupp. Med resursgrupper kan du distribuera, övervaka och dyker upp fakturering kostnaderna för dina resurser. Om du vill att användarna ska få åtkomst till och konfigurera virtuella datorer, Använd en [minsta privilegium metoden](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Och när du tilldelar behörigheter till användare som planerar att använda följande inbyggda Azure roller:
+När du aktiverar Resource Manager principer och RBAC för åtkomstkontroll för virtuell dator kan förbättra du övergripande VM-säkerhet. Vi rekommenderar att du sammanställa virtuella datorer med samma livscykel i samma resursgrupp. Med resursgrupper kan du distribuera, övervaka och dyker upp fakturering kostnaderna för dina resurser. Om du vill att användarna ska få åtkomst till och konfigurera virtuella datorer, Använd en [minsta privilegium metoden](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Och när du tilldelar behörigheter till användare som planerar att använda följande inbyggda Azure roller:
 
 - [Virtual Machine-deltagare](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): hantera virtuella datorer, men inte den virtuella nätverks- eller konto som de är anslutna.
 - [Klassiska Virtual Machine-deltagare](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): hantera virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen, men inte den virtuella nätverks- eller konto som de virtuella datorerna är anslutna.
@@ -80,7 +80,7 @@ Organisationer som inte framtvingar åtkomst till nätverket begränsningar för
 
 Du kan använda Disk Encryption för att skydda dina data för att uppfylla organisationens säkerhets- och efterlevnadskrav. Företaget bör överväga att använda kryptering för att minska riskerna rör obehörig dataåtkomst. Vi rekommenderar också att du krypterar enheter innan du skriver känsliga data till dem.
 
-Glöm inte att kryptera din VM datavolymer för att skydda dem i vila i Azure storage-konto. Skydda krypteringsnycklar och hemligheten med hjälp av [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Glöm inte att kryptera din VM datavolymer för att skydda dem i vila i Azure storage-konto. Skydda krypteringsnycklar och hemligheten med hjälp av [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Organisationer som inte behöver använda datakryptering exponeras mer att dataintegritet problem. Till exempel obehöriga eller icke-registrerade användare stjäla data i avslöjade konton eller få obehörig åtkomst till data som har kodats i ClearFormat. Förutom på sådana risker, för att uppfylla industrins föreskrifter måste företag bekräfta att de är utöva fordringar och använda rätt säkerhetsåtgärder för att förbättra sina datasäkerhet.
 
@@ -114,7 +114,7 @@ Security Center kan övervaka aktivt för hot och potentiella hot som exponeras 
 
 Titta på följande videoklipp för att förstå hur Security Center kan hjälpa dig att identifiera potentiella hot i dina virtuella datorer finns i Azure:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 Organisationer som inte framtvingar ett starkt säkerhetstillståndet för sina virtuella datorer vara medveten om eventuella försök av obehöriga användare att kringgå upprättade säkerhetsåtgärder.
 
@@ -122,7 +122,7 @@ Organisationer som inte framtvingar ett starkt säkerhetstillståndet för sina 
 
 Missbruk av resursen kan vara ett problem när VM processer använder mer resurser än de ska. Prestandaproblem med en virtuell dator kan leda till avbrott i tjänsten, som bryter mot säkerhetsprincipen för tillgänglighet. Därför är det viktigt att övervaka VM åtkomst inte bara reaktivt när ett problem uppstår, men även proaktivt mot baslinjeprestanda mätt under normal drift.
 
-Genom att analysera [Azure diagnostikloggfiler](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), kan du övervaka dina VM-resurser och identifiera potentiella problem som kan påverka datorns prestanda och tillgänglighet. Azure Diagnostics tillägget innehåller övervakning och diagnostikfunktionerna för Windows-baserade virtuella datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
+Genom att analysera [Azure diagnostikloggfiler](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), kan du övervaka dina VM-resurser och identifiera potentiella problem som kan påverka datorns prestanda och tillgänglighet. Azure Diagnostics tillägget innehåller övervakning och diagnostikfunktionerna för Windows-baserade virtuella datorer. Du kan aktivera dessa funktioner genom att inkludera tillägget som en del av den [Azure Resource Manager-mall](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Du kan också använda [Azure-Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) insyn i din resurs hälsa.
 

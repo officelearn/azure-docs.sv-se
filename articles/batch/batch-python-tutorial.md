@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Kom igång med Batch SDK för Python
 
@@ -112,7 +112,7 @@ Följande diagram illustrerar de primära åtgärderna som utförs av klient- oc
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Varje aktivitet hämtar sina indata från Azure Storage och börjar sedan köra.<br/>
 [**Steg 6.**](#step-6-monitor-tasks) Övervaka aktiviteter.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Allt eftersom aktiviteterna slutförs överför de sina utdata till Azure Storage.<br/>
-[**Step 7.**](#step-7-download-task-output) Hämta aktiviteternas utdata från Storage.
+[**Steg 7.**](#step-7-download-task-output) Hämta aktiviteternas utdata från Storage.
 
 Som vi nämnt utför inte alla Batch-lösningar exakt dessa steg, och många kan innehålla fler, men det här exemplet demonstrerar vanliga processer i en Batch-lösning.
 

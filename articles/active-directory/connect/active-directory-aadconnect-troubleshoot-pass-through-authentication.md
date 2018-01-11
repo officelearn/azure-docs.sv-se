@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory direkt-autentisering
 
@@ -71,7 +71,7 @@ Gå till **Azure Active Directory** -> **inloggningar** på den [Azure Active Di
 
 ## <a name="authentication-agent-installation-issues"></a>Problem med installationen av autentisering
 
-### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
+### <a name="an-unexpected-error-occurred"></a>Det uppstod ett oväntat fel
 
 [Samla in agenten loggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
 
@@ -85,7 +85,7 @@ Kontrollera att servern där autentisering-agenten har installerats kan kommunic
 
 Kontrollera att du använder ett globalt administratörskonto endast molnbaserad för alla Azure AD Connect eller fristående autentiseringsagent installation och registrering åtgärder. Det finns ett känt problem med MFA-aktiverade globala administratörskonton; inaktivera MFA tillfälligt (endast för att slutföra åtgärder) som en lösning.
 
-### <a name="an-unexpected-error-occurred"></a>Ett oväntat fel uppstod
+### <a name="an-unexpected-error-occurred"></a>Det uppstod ett oväntat fel
 
 [Samla in agenten loggar](#collecting-pass-through-authentication-agent-logs) från servern och kontakta Microsoft Support med ditt problem.
 
@@ -165,7 +165,7 @@ Om granskningsloggning är aktiverad, kan ytterligare information finns i säker
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Prestandaräknare
+## <a name="performance-monitor-counters"></a>Prestandaräknare
 
 Ett annat sätt att övervaka autentisering agenter är att spåra specifika prestandaräknare på varje server där autentisering-agenten är installerad. Använd följande globala räknare (**# Tereftalsyra autentiseringar**, **#PTA misslyckades autentiseringar** och **#PTA lyckade autentiseringar**) och fel räknare (**# Tereftalsyra autentiseringsfel**):
 

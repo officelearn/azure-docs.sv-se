@@ -1,5 +1,5 @@
 ---
-title: "Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet (förhandsversion) | Microsoft Docs"
+title: "Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet | Microsoft Docs"
 description: "Anvisningar och supportinformation för att uppgradera din Azure Backup-valv till Recovery Services-valvet."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
 
@@ -34,7 +34,7 @@ När du uppgraderar ett säkerhetskopieringsvalv till Recovery Services-valvet, 
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Ändringar i dina automation och verktyget efter uppgraderingen
 
 När du förberedde din infrastruktur för valvet uppgraderingen, måste du uppdatera din befintliga automation eller verktygsuppsättning så att den fortsätter att fungera efter uppgraderingen.
-Finns i PowerShell-cmdlets referenser för den [Service Manager-distributionsmodellen](backup-client-automation-classic.md) och [Resource Manager-distributionsmodellen](backup-client-automation.md).
+Finns i PowerShell-cmdlets referenser för den [Resource Manager-distributionsmodellen](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Innan du uppgraderar
@@ -120,7 +120,7 @@ När du uppgraderar till Recovery Services-valvet, konfigurera rapporter för Az
 Nej. Säkerhetskopiorna pågående fortsätta utan avbrott under och efter uppgraderingen.
 
 **Vad händer med min valv om jag inte uppgradera snart kan?**</br>
-Eftersom alla nya funktioner som gäller endast för Recovery Services-valv, bör du uppgradera ditt valv. Microsoft kommer så småningom inaktualisera den klassiska portalen. Startar den 1 September 2017 börjar Microsoft automatiskt uppgradera säkerhetskopieringsvalv till Recovery Services-valv. Efter November 30,2017, kan du inte längre skapa säkerhetskopieringsvalv med hjälp av PowerShell. Ditt valv kan uppgraderas automatiskt i mellan. Microsoft rekommenderar att du uppgraderar ditt valv så snart som möjligt.
+Eftersom alla nya funktioner som gäller endast för Recovery Services-valv, bör du uppgradera ditt valv. Startar den 1 September 2017 börjar Microsoft automatiskt uppgradera säkerhetskopieringsvalv till Recovery Services-valv. Efter November 30,2017, kan du inte längre skapa säkerhetskopieringsvalv med hjälp av PowerShell. Ditt valv kan uppgraderas automatiskt i mellan. Microsoft rekommenderar att du uppgraderar ditt valv så snart som möjligt.
 
 **Vad betyder det här uppgradering för Mina befintliga verktygsuppsättning?**</br>
 Uppdatera din verktygsuppsättning till Resource Manager-distributionsmodellen. Recovery Services-valv skapades för använder i Resource Manager-distributionsmodellen. Det är viktigt att planera för Resource Manager-distributionsmodellen och redovisning för skillnaden i ditt valv. 
@@ -133,9 +133,6 @@ Nej. Återställning stöds inte när resurserna har uppgraderats.
 
 **Kan jag verifiera min prenumeration eller resurser för att se om de är kompatibelt med uppgraderingen?**</br>
 Ja. Det första steget i uppgraderingen validerar att resurserna för uppgraderingen. Om det inte går att valideringen av förutsättningar, kan du få meddelanden på grund av alla inte går att slutföra uppgraderingen.
-
-**Vilka behörigheter som ska ha till att utlösa valvet uppgraderingen?**</br>
-Om du vill uppgradera valvet, måste du läggas till som medadministratör för prenumerationen på den klassiska Azure-portalen. Detta krävs även om du redan anges som ägare i Azure-portalen. Försök att lägga till en medadministratör för prenumerationen i Azure klassiska portalen för att ta reda på om du är medadministratör för prenumerationen. Om du inte kan lägga till en medadministratör kontakta en administratör eller medadministratör för prenumerationen som kan lägga till dig som medadministratör.
 
 **Kan jag uppgradera min CSP-baserade Backup-valvet?**</br>
 Nej. För närvarande kan uppgradera du inte CSP-baserade säkerhetskopieringsvalv. Vi lägger till stöd för uppgradering av CSP-baserade säkerhetskopieringsvalv i nästa versioner.

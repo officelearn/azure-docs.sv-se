@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage bindningar för Azure Functions
 
@@ -35,13 +35,13 @@ Använd kö utlösaren för att starta en funktion när ett nytt objekt tas emot
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#trigger---c-example)
-* [C#-skript](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C#-skript (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Utlösaren - C#-exempel
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som avsöker den `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som avsöker den `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Utlösaren - exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen avsökningar i `myqueue-items` kö och skriver en logg varje gång ett köobjekt bearbetas.
 
 Här är den *function.json* fil:
 
@@ -153,7 +153,7 @@ Den [användning](#trigger---usage) förklaras `myQueueItem`, som är namngiven 
 
 ## <a name="trigger---attributes"></a>Utlösaren - attribut
  
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd följande attribut för att konfigurera en kö-utlösare:
+I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en kö-utlösare:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd f�
   }
   ```
  
-  En komplett exempel finns [utlösaren - förkompilerade C#-exempel](#trigger---c-example).
+  En komplett exempel finns [utlösaren - C#-exempel](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -266,13 +266,13 @@ Använda Azure Queue storage utdata bindning för att skriva meddelanden till en
 
 Finns i det språkspecifika:
 
-* [Förkompilerade C#](#output---c-example)
-* [C#-skript](#output---c-script-example)
+* [C#](#output---c-example)
+* [C#-skript (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Utdata - C#-exempel
 
-Följande exempel visar [förkompilerat C#](functions-dotnet-class-library.md) kod som skapar ett kömeddelande för alla HTTP-begäranden tas emot.
+Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skapar ett kömeddelande för alla HTTP-begäranden tas emot.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Utdata - exempel på C#-skript
 
-I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C# skript för](functions-reference-csharp.md) kod som använder bindningen. Funktionen skapar ett köobjekt med en POCO-nyttolasten för alla HTTP-begäranden tas emot.
+I följande exempel visas en blob-utlösare bindning i en *function.json* fil och [C#-skript (.csx)](functions-reference-csharp.md) kod som använder bindningen. Funktionen skapar ett köobjekt med en POCO-nyttolasten för alla HTTP-begäranden tas emot.
 
 Här är den *function.json* fil:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Utdata - attribut
  
-För [förkompilerat C#](functions-dotnet-class-library.md) funktion, Använd den [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), som har definierats i NuGet-paketet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Attributet gäller för en `out` parametern eller returvärdet för funktionen. Attributets konstruktorn har namnet på kö som det visas i följande exempel:
 
@@ -418,16 +418,16 @@ Du kan ange den `Connection` att ange storage-konto du använder, enligt följan
 
 ```csharp
 [FunctionName("QueueOutput")]
-[return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
+[return: Queue("myqueue-items", Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 {
     ...
 }
 ```
 
-En komplett exempel finns [utdata - förkompilerade C#-exempel](#output---c-example).
+En komplett exempel finns [utdata - C#-exempel](#output---c-example).
 
-Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attributes-for-precompiled-c).
+Du kan använda den `StorageAccount` -attribut som anger storage-konto på klass, metoden eller parametern-nivå. Mer information finns i [utlösaren - attribut](#trigger---attribute).
 
 ## <a name="output---configuration"></a>Output - konfiguration
 

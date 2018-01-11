@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -42,18 +42,22 @@ Status: 12 December 2017
 >Det här är en säkerhet relaterade snabbkorrigeringar för Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-När du installerar Azure AD Connect, kan ett nytt konto skapas som används för att köra tjänsten Azure AD Connect. Kontot har skapats med inställningar som tillåts användare med lösenord adminsitrator rättigheter möjligheten att ändra lösenordet till ett värde som känner till dem före den här versionen.  Detta gör att du kan logga in med det här kontot och detta skulle innebära en höjning av privilegier säkerhetsintrång. Den här versionen intensifierar inställningen på det konto som har skapats och tar bort den här säkerhetsrisken.
+Förbättra har lagts till Azure AD Connect version 1.1.654.0 (och när) så att den rekommenderade behörighetsändringar beskrivs under avsnittet [Lås åtkomst till AD DS-konto](#lock) tillämpas automatiskt när Azure AD Ansluta skapar AD DS-konto. 
+
+- När du konfigurerar Azure AD Connect kan installera administratören ange ett befintligt AD DS-konto, eller låta Azure AD Connect automatiskt skapa kontot. Behörighetsändringar tillämpas automatiskt AD DS-konto som skapas under installationen av Azure AD Connect. De som inte tillämpas på befintliga AD DS-konto som tillhandahålls av administratören installera.
+- För kunder som har uppgraderat från en äldre version av Azure AD Connect till 1.1.654.0 (eller efter) behörigheten används ändringar retroaktivt inte för befintliga AD DS-konton som skapats före uppgraderingen. De kan bara tillämpas på nya AD DS-konton som skapas efter uppgraderingen. Detta inträffar när du lägger till nya AD-skogar som ska synkroniseras till Azure AD.
 
 >[!NOTE]
->Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. Exisating installationer eller i fall där du skapar kontot själv kan du sould Kontrollera att problemet inte finns.
+>Den här versionen tar endast bort säkerhetsproblem för nya installationer av Azure AD Connect när kontot skapas av installationsprocessen. För befintliga installationer, eller i fall där du skapar kontot själv, bör du kontrollera att problemet inte finns.
 
-Att öka inställningarna för det tjänstkonto som du kan köra [detta PowerShell-skript](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Den kommer att öka inställningarna på tjänstkontot för att ta bort sårbarhet för den under värden:
+#### <a name="lock"></a>Låsa åtkomst till AD DS-konto
+Lås åtkomst till AD DS-konto genom att implementera följande behörighetsändringar i lokalt AD:  
 
 *   Inaktivera arv på det angivna objektet
 *   Ta bort alla ACE: er för specifika objekt, förutom ACE: er som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill behålla standardbehörigheterna intakt när det gäller till sig SJÄLVT.
 *   Tilldela specifika behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller
+Typ     | Namn                          | Access               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
@@ -64,10 +68,13 @@ Tillåt    | Företagets domänkontrollanter | Läsa alla egenskaper  | Det här
 Tillåt    | Företagets domänkontrollanter | Läsbehörighet     | Det här objektet  |
 Tillåt    | Autentiserade användare           | Lista innehåll        | Det här objektet  |
 Tillåt    | Autentiserade användare           | Läsa alla egenskaper  | Det här objektet  |
+Tillåt    | Autentiserade användare           | Läsbehörighet     | Det här objektet  |
+
+Att öka inställningarna för AD DS-konto du kan köra [detta PowerShell-skript](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell-skriptet kommer tilldela de behörigheter som nämns ovan till AD DS-konto.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>PowerShell-skript för att öka ett befintligt tjänstkonto
 
-Du använder PowerShell-skript för att tillämpa de här inställningarna till ett befintligt tjänstkonto (ether som tillhandahålls av din organisation eller skapats med en tidigare installation av Azure AD Connect, ladda ned skriptet från den angivna länken ovan.
+Du använder PowerShell-skript för att tillämpa de här inställningarna till en befintlig AD DS-konto (ether som tillhandahålls av din organisation eller skapats med en tidigare installation av Azure AD Connect, ladda ned skriptet från den angivna länken ovan.
 
 ##### <a name="usage"></a>Användning:
 
@@ -77,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 där 
 
-$ObjectDN = Active Directory-konto som behörigheter behöver höjas.
-$Credential = autentiseringsuppgifter som används för att autentisera klienten när kommunicerar med Active Directory. Detta är normalt de autentiseringsuppgifter som företagsadministratör används för att skapa kontot vars behörigheter krävs tätare.
+**$ObjectDN** = Active Directory-konto som behörigheter behöver höjas.
+
+**$Credential** = autentiseringsuppgifter för administratör som har den behörighet som krävs för att begränsa behörigheten för $ObjectDN-kontot. Detta är vanligtvis administratören Enterprise eller domän. Använd det fullständigt kvalificerade domännamnet för administratörskontot för att undvika konto sökning fel. Exempel: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Användarnamnet ska ha formatet domän\användarnamn.  
+>$credential. Användarnamnet ska ha formatet FQDN\username. Exempel: contoso.com\admin 
 
 ##### <a name="example"></a>Exempel:
 
@@ -92,13 +100,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 För att se om den här säkerhetsrisken användes för att kompromettera din Azure AD återställa Connect konfiguration bör du kontrollera det senaste lösenordet datum för tjänstkontot.  Om tidsstämpeln i oväntade, ytterligare undersökning via i händelseloggen för händelsen som lösenordsåterställning bör göras.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Status: Oktober 27 2017
-
->[!NOTE]
->Den här versionen är inte tillgängligt för kunder via funktionen Azure AD Connect automatiskt uppgradera
+Mer information finns i [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Status: Oktober 27 2017

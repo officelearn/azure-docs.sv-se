@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: f68239b2f4f7a2ba0617023d9397184c483a4d99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Tjänst-till-tjänst-autentisering med Data Lake Store använder Java
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 I den här artikeln får information du om hur du använder Java SDK för att göra service to service autentisering med Azure Data Lake Store. Slutanvändarens autentisering med Data Lake Store med hjälp av Java SDK stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Skapa ett program för Azure Active Directory ”Web”**. Du måste ha slutfört stegen i [tjänst-till-tjänst-autentisering med Data Lake Store med Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).

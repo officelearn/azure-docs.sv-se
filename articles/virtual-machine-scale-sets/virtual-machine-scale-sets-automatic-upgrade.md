@@ -3,7 +3,7 @@ title: Den automatiska OS uppgraderingar med virtuella Azure-datorn skala anger 
 description: "Lär dig hur man automatiskt uppgraderar Operativsystemet på VM-instanser i en skaluppsättning"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: guybo
-ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: negat
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Automatiska OS-uppgraderingar skaluppsättning för virtuell Azure-dator
 
@@ -152,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 I följande exempel används Azure CLI (2.0.20 eller senare) att konfigurera automatiska uppgraderingar för skaluppsättningen namngivna *myVMSS* i resursgrupp med namnet *myResourceGroup*:
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -172,11 +172,11 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 I följande exempel används Azure CLI (2.0.20 eller senare) att kontrollera status för skaluppsättningen namngivna *myVMSS* i resursgrupp med namnet *myResourceGroup*:
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel används REST API för att kontrollera status för skaluppsättningen namngivna *myVMSS* i resursgrupp med namnet *myResourceGroup*:
 
 ```

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Skapa Azure portal användargränssnittet för det hanterade programmet
 Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa en hanterad App.
@@ -38,7 +38,7 @@ Det här dokumentet introducerar grundbegrepp i filen createUiDefinition.json. A
 En CreateUiDefinition innehåller alltid tre egenskaper: 
 
 * hanterare
-* Version
+* version
 * parameters
 
 För hanterade program hanterare ska alltid vara `Microsoft.Compute.MultiVm`, och den senaste versionen är `0.1.2-preview`.
@@ -55,8 +55,20 @@ Om ett element beteende beror på användarens prenumeration, resursgrupp eller 
 ## <a name="steps"></a>Steg
 Egenskapen steg kan innehålla noll eller flera ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll- eller nivå för det program som distribueras. Lägg exempelvis till ett steg för indata för de överordnade noderna och ett steg för arbetarnoder i ett kluster.
 
-## <a name="outputs"></a>utdata
+## <a name="outputs"></a>Utdata
 Azure-portalen använder den `outputs` egenskap som ska mappas element från `basics` och `steps` till parametrar i mallen för distribution av Azure Resource Manager. Nycklar för den här ordlistan är namnen i mallparametrarna och värdena är egenskaper för utdata-objekt från de refererade element.
+
+Om du vill ange resursnamnet hanterade program, måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelas ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som begär ett namn för användaren.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
 
 ## <a name="functions"></a>Funktioner
 Liksom Mallfunktioner i Azure Resource Manager (både i syntax och funktioner), CreateUiDefinition tillhandahåller funktioner för att arbeta med elementens indata och utdata, samt funktioner, till exempel villkorlig sats.
@@ -67,6 +79,6 @@ Filen createUiDefinition.json har ett enkelt schema. Den verkliga djup kommer fr
 - [Element](create-uidefinition-elements.md)
 - [Funktioner](create-uidefinition-functions.md)
 
-En aktuell JSON-schema för createUiDefinition finns här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+En aktuell JSON-schema för createUiDefinition finns här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Senare kommer att vara tillgänglig på samma plats. Ersätt den `0.1.2-preview` -delen i Webbadressen och `version` värdet med versions-ID som du tänker använda. Version som för närvarande stöds identifierare är `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, och `0.1.2-preview`.
+En användare gränssnittet exempelfil, se [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

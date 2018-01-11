@@ -3,7 +3,7 @@ title: "Azure DevTest Labs vanliga frågor och svar | Microsoft Docs"
 description: "Få svar på vanliga frågor om Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -226,11 +226,11 @@ Ett sätt är att din virtuella nätverksnamnet innehåller punkter. I så fall,
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Varför visas ett ”överordnade resursen hittades inte”-fel när jag etablera en virtuell dator från PowerShell?
 När en resurs är en överordnad till en annan resurs, måste överordnade resursen finnas innan du kan skapa underordnade resursen. Om den överordnade resursen inte finns, visas en **ParentResourceNotFound** meddelande. Om du inte anger ett beroende på den överordnade resursen, kan den underordnade resursen distribueras innan överordnat.
 
-Virtuella datorer som är underordnade resurser under ett labb i en resursgrupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell, ska resursgruppens namn anges i PowerShell-skript resursgruppens namn labbet. Mer information finns i [Felsök vanliga fel i Azure-distribution](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Virtuella datorer som är underordnade resurser under ett labb i en resursgrupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell, ska resursgruppens namn anges i PowerShell-skript resursgruppens namn labbet. Mer information finns i [Felsök vanliga fel i Azure-distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Var hittar jag mer information om fel om inte en distribution av Virtuella datorer?
 VM-distributionsfel fångas i aktivitetsloggar. Du kan hitta lab VM aktivitetsloggar under **granskningsloggar** eller **diagnostik för virtuell dator** på menyn resurs på den testmiljön VM bladet (bladet visas när du har valt den virtuella datorn från den **min virtuella datorer** listan).
 
-Ibland inträffar distribution felet innan du påbörjar distribution av Virtuella datorer. Ett exempel är när gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet fångas felinformationen i labb-nivå aktivitetsloggar. Aktivitetsloggar finns längst ned i den **konfiguration och principer** inställningar. Mer information om hur du använder aktiviteten loggar i Azure, finns [visa aktivitetsloggar granska åtgärder på resurser](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Ibland inträffar distribution felet innan du påbörjar distribution av Virtuella datorer. Ett exempel är när gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet fångas felinformationen i labb-nivå aktivitetsloggar. Aktivitetsloggar finns längst ned i den **konfiguration och principer** inställningar. Mer information om hur du använder aktiviteten loggar i Azure, finns [visa aktivitetsloggar granska åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

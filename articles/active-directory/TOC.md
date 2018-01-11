@@ -44,6 +44,7 @@
 ### [Hantera användarprofiler](active-directory-users-profile-azure-portal.md)
 ### [Dela konton](active-directory-sharing-accounts.md)
 ### [Tilldela användare administrativa roller](active-directory-users-assign-role-azure-portal.md)
+### [Återställa en borttagen användare](active-directory-users-restore.md)
 ### [Lägga till gästanvändare från annan katalog (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Administratörer som lägger till B2B-användare](active-directory-b2b-admin-add-users.md)
 #### [Informationsarbetare som lägger till B2B-användare](active-directory-b2b-iw-add-users.md)
@@ -58,6 +59,7 @@
 #### [Lägg till en B2B-användare till en roll](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamiska grupper och B2B-användare](active-directory-b2b-dynamic-groups.md)
 #### [Granskning och rapporter](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B för hybridorganisationer](active-directory-b2b-hybrid-organizations.md)
 #### [Extern delning av B2B och Office 365](active-directory-b2b-o365-external-user.md)
 #### [B2B-licensiering](active-directory-b2b-licensing.md)
 #### [Aktuella begränsningar](active-directory-b2b-current-limitations.md)
@@ -72,7 +74,7 @@
 
 ## [Hantera grupper och medlemmar](active-directory-manage-groups.md)
 ### Hantera grupper
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure-portalen](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Hantera gruppmedlemmar](active-directory-groups-members-azure-portal.md)
 ### [Hantera gruppägare](active-directory-accessmanagement-managing-group-owners.md)
@@ -92,7 +94,7 @@
 #### [Azure-portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdletar](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Skapa avancerade regler
-#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Azure-portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Konfigurera självbetjäningsgrupper](active-directory-accessmanagement-self-service-group-management.md)
 ### [Felsöka](active-directory-accessmanagement-troubleshooting.md)
 
@@ -139,7 +141,7 @@
 ### [SSPR-datakrav](active-directory-passwords-data.md)
 ### [SSPR-rapportering](active-directory-passwords-reporting.md)
 ### IT-administratörer: Återställ lösenord
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure-portal](active-directory-users-reset-password-azure-portal.md)
 ### [Licensiera SSPR](active-directory-passwords-licensing.md)
 ### [Tillbakaskrivning av lösenord](active-directory-passwords-writeback.md)
 ### [Felsöka](active-directory-passwords-troubleshoot.md)
@@ -184,7 +186,7 @@
 ##### [Enkel inloggning med KCD](active-directory-application-proxy-sso-using-kcd.md)
 ##### [Enkel inloggning med rubriker](application-proxy-ping-access.md)
 ##### [Enkel inloggning med lösenordsvalv](application-proxy-sso-azure-portal.md)
-#### Koncept
+#### Begrepp
 ##### [Anslutningsappar](application-proxy-understand-connectors.md)
 ##### [Säkerhet](application-proxy-security-considerations.md)
 ##### [Nätverk](application-proxy-network-topology-considerations.md)
@@ -265,6 +267,7 @@
 #### [Tilldela administratörsroller](active-directory-users-assign-role-azure-portal.md)
 ### [Administrativa enheter](active-directory-administrative-units-management.md)
 ### [Konfigurera livslängd för token](active-directory-configurable-token-lifetimes.md)
+### [Hantera åtkomst till administratörskonton vid akutfall](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Åtkomstgranskningar
 ### [Översikt över åtkomstgranskningar](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -280,7 +283,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
-#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
@@ -301,7 +304,7 @@
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kom igång](active-directory-certificate-based-authentication-get-started.md)
+#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)

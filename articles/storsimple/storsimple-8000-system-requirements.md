@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-serien programvara, hög tillgänglighet och nätverkskrav
 
@@ -95,7 +95,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster | Komponenten/funktioner | IP-adresser för enhet |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple enheten Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
 | `https://*.backup.windowsazure.com` |Enhetsregistrering |DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |
@@ -107,7 +107,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster | Komponenten/funktioner | IP-adresser för enhet |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |StorSimple enheten Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
 | `https://*.backup.windowsazure.us` |Enhetsregistrering |DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |

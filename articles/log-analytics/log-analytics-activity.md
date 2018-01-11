@@ -1,5 +1,5 @@
 ---
-title: Visa Azure aktivitetsloggar med Log Analytics | Microsoft Docs
+title: Samla in och analysera Azure aktivitetsloggar i Log Analytics | Microsoft Docs
 description: "Du kan använda Azure aktivitetsloggar lösningen för att analysera och söka Azure aktivitetsloggen i alla dina Azure-prenumerationer."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Visa Azure aktivitetsloggar
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure aktivitetsloggar i logganalys
 
 ![Azure aktivitetsloggar symbol](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -52,12 +52,12 @@ Till skillnad från de flesta andra logganalys-lösningar kan inte samlas in fö
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Windows-agenter](log-analytics-windows-agents.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
+| [Windows-agenter](log-analytics-windows-agent.md) | Nej | Lösningen samlar inte in information från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej | Lösningen samlar inte in information från Linux-agenter. |
 | [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Nej | Lösningen samlar inte in information från agenter i en ansluten SCOM-hanteringsgrupp. |
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Lösningen samlar inte in information från Azure storage. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en Azure-prenumeration för att komma åt Azure aktivitet logginformation.
 
@@ -88,7 +88,7 @@ Klicka på den **Azure aktivitetsloggar** öppna den **Azure aktivitetsloggar** 
 
 Loggdata för aktivitet visas bara *när* du har konfigurerat din aktivitetsloggar att gå till lösning, så att du kan visa data innan.
 
-| Bladet | Beskrivning |
+| Blad | Beskrivning |
 | --- | --- |
 | Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
 | Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |

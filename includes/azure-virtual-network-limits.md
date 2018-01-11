@@ -32,7 +32,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Nätverksgränssnitt (NIC) |350 |20000 |
 | Nätverkssäkerhetsgrupper (NSG) |100 |5000 |
 | NSG-regler per NSG |200 |500 |
-| IP-adresser och intervall som angetts för källan eller målet i en säkerhetsregel |2000 |4000 |
+| IP-adresser och intervall som angetts för källan eller målet i en säkerhetsgrupp |2000 |4000 |
 | Programsäkerhetsgrupper |200 |500 |
 | Programmet säkerhetsgrupper per IP-konfiguration per NIC |10 |20 |
 | IP-konfigurationer per program säkerhetsgrupp |1000 |4000 |
@@ -48,7 +48,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Belastningsutjämnare | 100 | 1000 |
+| Belastningsutjämning | 100 | 1000 |
 | Regler per resurs, Basic | 150 | 250 |
 | Regler per resurs, Standard | 1250 | 1500 |
 | Regler per IP-konfiguration | 299 |299 |

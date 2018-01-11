@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 I den här artikeln får information du om hur du använder REST API för att göra slutanvändarens autentisering med Azure Data Lake Store. Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av REST-API, se [tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 

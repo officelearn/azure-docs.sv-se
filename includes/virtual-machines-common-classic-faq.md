@@ -96,7 +96,7 @@ Azure erbjuder flera alternativ för antiviruslösningar, men det är upp till d
 * [Distribuera lösningar för skydd mot skadlig kod i Azure Virtual Machines](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Vad har jag för alternativ för säkerhetskopiering och återställning?
-Azure Backup finns som förhandsversion i vissa regioner. Mer information finns i [Säkerhetskopiera virtuella Azure-datorer](../articles/backup/backup-azure-vms.md). Det finns andra lösningar från certifierade partner. Om du vill ta reda på vad som finns för närvarande kan du söka på Azure Marketplace.
+Azure Backup finns som förhandsversion i vissa regioner. Mer information finns i [Säkerhetskopiera virtuella Azure-datorer](../articles/backup/backup-azure-arm-vms.md). Det finns andra lösningar från certifierade partner. Om du vill ta reda på vad som finns för närvarande kan du söka på Azure Marketplace.
 
 Ett ytterligare alternativ är att använda funktionerna för ögonblicksbilder för blob-lagring. Om du vill göra det måste du stänga av den virtuella datorn före en åtgärd som är beroende av en blob-ögonblicksbild. Det sparar väntande dataskrivningar och sätter filsystemet i ett konsekvent tillstånd.
 

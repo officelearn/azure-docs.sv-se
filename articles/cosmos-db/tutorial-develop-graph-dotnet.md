@@ -12,19 +12,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ab2ee7dc91dbcb5c933554eea6cd239750885e22
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Utveckla med Graph API i .NET
-Azure Cosmos-DB är Microsofts globalt distribuerade flera modellen database-tjänsten. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och hur du skapar ett diagram databas och en behållare. Sedan skapar ett enkelt sociala nätverk med fyra personer som använder den [Graph API](graph-sdk-dotnet.md) (förhandsversion) och sedan passerar och frågar diagrammet med Gremlin.
+Den här kursen visar hur du skapar ett Azure DB som Cosmos-konto med Azure-portalen och hur du skapar ett diagram databas och en behållare. Sedan skapar ett enkelt sociala nätverk med fyra personer som använder den [Graph API](graph-sdk-dotnet.md), sedan passerar och frågar diagrammet med Gremlin.
 
 Den här kursen ingår följande uppgifter:
 
@@ -40,7 +40,7 @@ Du kan använda Azure Cosmos DB att skapa, uppdatera och fråga diagram med hjä
 
 Gremlin är en funktionell programmeringsspråk som stöder skriva åtgärder (DML) och fråga och traversal-åtgärder. Vi igenom några exempel i den här artikeln för att få din igång med Gremlin. Se [Gremlin frågor](gremlin-support.md) en detaljerad genomgång av Gremlin av funktionerna i Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att du har följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Skapa en databas 
 
-Nu skapa en Azure-Cosmos-DB [databasen](documentdb-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](documentdb-sdk-dotnet.md).  
+Nu skapa en Azure-Cosmos-DB [databasen](sql-api-resources.md#databases) med hjälp av den [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metod eller [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metod för den  **DocumentClient** klass från den [SQL .NET SDK](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

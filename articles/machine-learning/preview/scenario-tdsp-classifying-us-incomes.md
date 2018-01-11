@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Intäkter klassificering med Team Data vetenskap processen (TDSP)-projekt
 
@@ -47,7 +48,7 @@ Se [Team datavetenskap processen (TDSP) livscykel](https://github.com/Azure/Micr
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="required-subscription-hardware-software"></a>Obligatoriskt: prenumeration, maskinvara, programvara
 1. En Azure [prenumeration](https://azure.microsoft.com). Du kan få en [kostnadsfri prenumeration](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) att köra det här exemplet också.
 2. En [Azure Data vetenskap virtuell dator (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM-storlek: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), med 4 virtuella processorer och 14 Gb RAM-minne). Även om testats på en Azure-DSVM kommer att fungera på en Windows 10-dator.
@@ -160,7 +161,7 @@ Information om de olika avsnitten ovan finns i rapporten kompileras slutliga pro
 Projektet rapporten tillsammans med innehållet i hela projektmappen och version för källkontrollen levereras till klienten.
 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 I det här exemplet visade nu för att använda TDSP struktur och mallar i Azure Machine Learning. Via de dokument och artefakt mallarna kan du:
 1. Definiera korrekt syfte och omfånget för ett projekt

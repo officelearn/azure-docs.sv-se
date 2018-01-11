@@ -1,7 +1,7 @@
 ---
 title: "Använda en anpassad Docker-avbildning för webbprogrammet för behållare - Azure | Microsoft Docs"
 description: "Hur du använder en anpassad Docker-avbildning för webbprogrammet för behållare."
-keywords: "Azure apptjänst, webbprogram, linux, docker, behållare"
+keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda en anpassad Docker-avbildning för webbprogrammet för behållare
 
@@ -192,13 +192,13 @@ Du kan vara värd för interna Linux-program i molnet med hjälp av Azure Web Ap
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp#create). Glöm inte att ersätta `<app_name>` med ett unikt appnamn och < docker-ID > med Docker-ID.
+I Cloud Shell skapar du en [webbapp](app-service-linux-intro.md) i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Glöm inte att ersätta `<app_name>` med ett unikt appnamn och < docker-ID > med Docker-ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-När webbappen har skapats visas Azure CLI utdata liknar följande exempel:
+När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
 
 ```json
 {
@@ -219,7 +219,7 @@ När webbappen har skapats visas Azure CLI utdata liknar följande exempel:
 
 De flesta Docker-bilder har miljövariabler som måste konfigureras. Om du använder en befintlig Docker-avbildning som skapats av någon annan kan Avbildningen använda en annan port än 80. Azure berätta den port som används av avbildningen med hjälp av den `WEBSITES_PORT` appinställningen. GitHub-sidan för den [Python-exempel i den här självstudiekursen](https://github.com/Azure-Samples/docker-django-webapp-linux) visar att du måste ange `WEBSITES_PORT` till _8000_.
 
-Ange app-inställningar i [az webapp config appsettings uppdatera](/cli/azure/webapp/config/appsettings#update) i molnet Shell. Appinställningar är skiftlägeskänsliga och avgränsade med blanksteg.
+Ange app-inställningar i [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i molnet Shell. Appinställningar är skiftlägeskänsliga och avgränsade med blanksteg.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -294,10 +294,15 @@ SSH kan säker kommunikation mellan en behållare och en klient. För en anpassa
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* Se till att [starta den ssh-tjänsten](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) genom att använda ett kommandoskript i katalogen/BIN.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till behållaren
 
 Web App för behållare tillåter inte externa anslutningar till behållaren. SSH är endast tillgängliga från Kudu-plats som är tillgängliga i `https://<app_name>.scm.azurewebsites.net`.
@@ -335,7 +340,7 @@ Grattis! Du har konfigurerat en anpassad Docker-avbildning för en Webbapp för 
 
 I [skapa en webbapp](#create-a-web-app), du har angett en bild på Docker-hubben i den `az webapp create` kommando. Det här är bra för en offentlig avbildning. Om du vill använda en privat avbildning måste du konfigurera ditt Docker konto-ID och lösenord i Azure-webbapp.
 
-Molnet Shell, så den `az webapp create` med [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container#az_webapp_config_container_set). Ersätt  *\<appnamn >*, och även _< docker-id >_ och  _<password>_  med Docker-ID och lösenord.
+Molnet Shell, så den `az webapp create` med [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Ersätt  *\<appnamn >*, och även _< docker-id >_ och  _<password>_  med Docker-ID och lösenord.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -375,7 +380,7 @@ Azure-behållaren registret är en hanterad Docker-tjänst från Azure som värd
 
 ### <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
-I gränssnittet molnet använder den [az acr skapa](https://docs.microsoft.com/cli/azure/acr#az_acr_create) kommando för att skapa ett Azure Container registret. Ange namn, resursgruppens namn och `Basic` för SKU: N. Tillgängliga SKU: er är `Classic`, `Basic`, `Standard`, och `Premium`.
+I gränssnittet molnet använder den [az acr skapa](/cli/azure/acr?view=azure-cli-latest#az_acr_create) kommando för att skapa ett Azure Container registret. Ange namn, resursgruppens namn och `Basic` för SKU: N. Tillgängliga SKU: er är `Classic`, `Basic`, `Standard`, och `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -413,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Logga in på Azure-behållaren registret
 
-För att kunna trycka på en bild i registret, måste du ange autentiseringsuppgifter så registret godkänner push-meddelandet. Du kan hämta dessa autentiseringsuppgifter genom att använda den [az acr visa](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) i molnet Shell. 
+För att kunna trycka på en bild i registret, måste du ange autentiseringsuppgifter så registret godkänner push-meddelandet. Du kan hämta dessa autentiseringsuppgifter genom att använda den [az acr visa](/cli/azure/acr?view=azure-cli-latest#az_acr_show) i molnet Shell. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -477,7 +482,7 @@ Visar en lista över bilder i registret bekräftar att `mydockerimage` i registr
 
 Du kan konfigurera webbprogrammet för behållare så att det körs en behållare som lagras i registret för Azure-behållare. Använda registret för Azure-behållare är precis som med alla privata registret, så om du behöver använda egna privata registret, steg för att slutföra den här uppgiften är liknande.
 
-Molnet Shell, kör [az acr autentiseringsuppgifter visa](/cli/azure/acr/credential#az_acr_credential_show) att visa användarnamn och lösenord för Azure-behållare registret. Kopiera användarnamn och ett lösenord så att du kan använda för att konfigurera webbprogrammet i nästa steg.
+Molnet Shell, kör [az acr autentiseringsuppgifter visa](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) att visa användarnamn och lösenord för Azure-behållare registret. Kopiera användarnamn och ett lösenord så att du kan använda för att konfigurera webbprogrammet i nästa steg.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -499,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Molnet Shell och kör den [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container#az_webapp_config_container_set) kommando för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt  *\<appnamn >*,  *\<docker-registret-server-url >*,  _\<register-username >_, och  _\<lösenord >_. För Azure-behållare registernyckeln  *\<docker-registret-server-url >* är i formatet `https://<azure-container-registry-name>.azurecr.io`. 
+Molnet Shell och kör den [az webapp konfigurationsuppsättning behållaren](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) kommando för att tilldela den anpassade Docker-avbildningen till webbappen. Ersätt  *\<appnamn >*,  *\<docker-registret-server-url >*,  _\<register-username >_, och  _\<lösenord >_. För Azure-behållare registernyckeln  *\<docker-registret-server-url >* är i formatet `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

@@ -1,5 +1,5 @@
 ---
-title: Skapa en ASP.NET-webbapp i Azure | Microsoft Docs
+title: Skapa en ASP.NET Core-webbapp i Azure | Microsoft Docs
 description: "Distribuera standard-ASP.NET-webbappen och lär dig att köra webbappar i Azure App Service."
 services: app-service\web
 documentationcenter: 
@@ -15,21 +15,25 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a6a785b739697a94fcbd7cc8e3163f142887e1b9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-an-aspnet-web-app-in-azure"></a>Skapa en ASP.NET-webbapp i Azure
+# <a name="create-an-aspnet-core-web-app-in-azure"></a>Skapa en ASP.NET Core-webbapp i Azure
 
-Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till Azure Web Apps. När du är klar har du en resursgrupp som består av en App Service-plan och en Azure-webbapp med en distribuerad webbapp.
+> [!NOTE]
+> I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core-webbapp i App Service på Linux](./containers/quickstart-dotnetcore.md).
+>
 
-Titta på videon som beskriver den här snabbstarten och följ sedan stegen för att publicera din första .NET-app i Azure.
+Med [Azure Web Apps](app-service-web-overview.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst.  Den här snabbstarten visar hur du distribuerar din första ASP.NET Core-webbapp till Azure Web Apps. När du är klar har du en resursgrupp som består av en App Service-plan och en Azure-webbapp med en distribuerad webbapp.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+> [!NOTE]
+> Om du vill veta hur man skapar och distribuerar en ASP.NET Framework-webbapp finns den artikeln [här](app-service-web-get-started-dotnet-framework.md). 
+>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
@@ -41,37 +45,41 @@ För att slutföra den här självstudien behöver du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
+## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
 Skapa ett nytt projekt i Visual Studio genom att välja **Arkiv > Nytt > Projekt**. 
 
-I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET-webbtillämpningsprogram (.NET Framework)**.
+I dialogrutan **Nytt projekt** väljer du **Visual C# > Webb > ASP.NET Core-webbtillämpningsprogram**.
 
 Ge programmet namnet _myFirstAzureWebApp_ och välj **OK**.
    
 ![Dialogrutan Nytt projekt](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Du kan distribuera alla typer av ASP.NET-webbappar till Azure. I den här snabbstarten väljer du **MVC**-mallen och ser till att autentiseringen är inställd på **Ingen autentisering**.
+Du kan distribuera alla typer av ASP.NET Core-webbappar till Azure. I den här snabbstarten väljer du mallen **Webbprogram** och ser till att autentiseringen är inställd på **Ingen autentisering**.
       
 Välj **OK**.
 
-![Dialogrutan Nytt ASP.NET-projekt](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+![Dialogrutan Nytt ASP.NET-projekt](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+
+När ASP.NET Core-projektet har skapats visas välkomstsidan för ASP.NET Core med ett antal länkar till resurser som hjälper dig att komma igång. 
+
+![Välkomstsida](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 På menyn väljer du **Felsöka > Starta utan felsökning** för att köra webbappen lokalt.
 
-![Kör appen lokalt](./media/app-service-web-get-started-dotnet/local-web-app.png)
+![Kör appen lokalt](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
 Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera**.
 
-![Publicera från Solution Explorer](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
+![Publicera från Solution Explorer](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
 Se till att **Microsoft Azure App Service** är markerat och välj **Publicera**.
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Då öppnas dialogrutan **Skapa App Service** där du får hjälp med att skapa alla Azure-resurser du behöver för att köra ASP.NET-webbappen i Azure.
+Dialogrutan **Create App Service** (Skapa apptjänst) öppnas, där du kan skapa alla Azure-resurser som du behöver för att köra ASP.NET Core-webbappen i Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -118,19 +126,19 @@ Välj **Skapa** för att börja skapa Azure-resurser.
 
 ![Ange webbappnamn](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-När guiden slutförs publiceras ASP.NET-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.
+När guiden slutförs publiceras ASP.NET Core-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.
 
-![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
+![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 Webbprogramnamnet som anges i steget [skapa och publicera](#create-and-publish-the-web-app) används som URL-prefixet i formatet `http://<app_name>.azurewebsites.net`.
 
-Grattis, din ASP.NET-webbapp körs live i Azure App Service.
+Grattis, din ASP.NET Core-webbapp körs live i Azure App Service.
 
 ## <a name="update-the-app-and-redeploy"></a>Uppdatera och distribuera om appen
 
-Öppna _Views\Home\Index.cshtml_ från **Solution Explorer**.
+Öppna _Pages/Index.cshtml_ från **Solution Explorer**.
 
-Leta reda på HTML-taggen `<div class="jumbotron">` längst upp på sidan och ersätt hela elementet med följande kod:
+Leta reda på HTML-taggen `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` längst upp på sidan och ersätt hela elementet med följande kod:
 
 ```HTML
 <div class="jumbotron">
@@ -145,7 +153,7 @@ Välj **Publicera** på publiceringssidan.
 
 När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
 
-![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
 ## <a name="manage-the-azure-web-app"></a>Hantera Azure-webbappen
 

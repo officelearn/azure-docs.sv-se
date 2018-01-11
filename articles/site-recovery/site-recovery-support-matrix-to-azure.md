@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery stöd matrix för replikering från lokal till Azure
 
@@ -33,9 +33,9 @@ Den här artikeln beskriver konfigurationer som stöds och komponenter för Azur
 
 **Distribution** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)** |
 --- | --- | ---
-**Azure Portal** | Lokala virtuella VMware-datorer till Azure-lagring med Azure Resource Manager eller klassiska lagring och nätverk.<br/><br/> Växling till Resource Manager-baserade eller klassiska virtuella datorer. | Lokal Hyper-V virtuella datorer till Azure-lagring med Resource Manager eller klassiska lagring och nätverk.<br/><br/> Växling till Resource Manager-baserade eller klassiska virtuella datorer.
+**Azure-portalen** | Lokala virtuella VMware-datorer till Azure-lagring med Azure Resource Manager eller klassiska lagring och nätverk.<br/><br/> Växling till Resource Manager-baserade eller klassiska virtuella datorer. | Lokal Hyper-V virtuella datorer till Azure-lagring med Resource Manager eller klassiska lagring och nätverk.<br/><br/> Växling till Resource Manager-baserade eller klassiska virtuella datorer.
 **Klassisk portal** | Underhållsläge. Det går inte att skapa nya valv. | Underhållsläge.
-**PowerShell** | Stöds inte för närvarande. | Stöds
+**PowerShell** | Stöds | Stöds
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Stöd för datacenter hanteringsservrar
@@ -155,8 +155,8 @@ Följande tabeller sammanfattar stöd för konfiguration av lagringsutrymme i ol
 
 **Konfiguration** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Ja för VMware<br/><br/> Nej för fysiska servrar | Saknas
-SMB 3.0 | Saknas | Ja
+NFS | Ja för VMware<br/><br/> Nej för fysiska servrar | Gäller inte
+SMB 3.0 | Gäller inte | Ja
 SAN (ISCSI) | Ja | Ja
 Multipath (MPIO)<br></br>Testats med: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM för CLARiiON | Ja | Ja
 
@@ -164,15 +164,15 @@ Multipath (MPIO)<br></br>Testats med: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC 
 
 **Konfiguration** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Ja | Saknas
-VHD-ELLER VHDX | Saknas | Ja
-Generation 2 VM | Saknas | Ja
+VMDK | Ja | Gäller inte
+VHD-ELLER VHDX | Gäller inte | Ja
+Generation 2 VM | Gäller inte | Ja
 EFI/UEFI| Nej | Ja
 Delad klusterdisk | Nej | Nej
 Krypterade disk | Nej | Nej
-NFS | Nej | Saknas
+NFS | Nej | Gäller inte
 SMB 3.0 | Nej | Nej
-RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar | Saknas
+RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar | Gäller inte
 Disk > 1 TB | Ja<br/><br/>Upp till 4095 GB | Ja<br/><br/>Upp till 4095 GB
 Disk med 4K logisk och 4 k fysisk sektorstorlek | Ja | Stöds inte för Generation 1 virtuella datorer<br/><br/>Stöds inte för Generation 2 virtuella datorer.
 Disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja |  Ja
@@ -180,7 +180,7 @@ Volymen med stripe disk > 1 TB<br/><br/> Hantering av LVM logiska volymer | Ja |
 Lagringsutrymmen | Nej | Ja
 Varm Lägg till/ta bort disken | Nej | Nej
 Uteslut disk | Ja | Ja
-Multipath (MPIO) | Saknas | Ja
+Multipath (MPIO) | Gäller inte | Ja
 
 **Azure Storage** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
@@ -194,6 +194,7 @@ Kryptering i rest(SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Import/export service | Nej | Nej
 Virtuella nätverksslutpunkter (Azure Storage brandväggar och virtuella nätverk) konfigurerats på mål-lagringskontot konto eller cachelagra storage-konto som används för att lagra data för replikering | Nej | Nej
+Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej | Nej
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Stöd för Azure compute-konfiguration

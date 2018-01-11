@@ -12,21 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Klassisk](backup-azure-vms-classic-automation.md)
->
->
 
 Den här artikeln visar hur du använder Azure PowerShell-cmdlets för att säkerhetskopiera och återställa en Azure virtuell dator (VM) från en Recovery Services-valvet. Används för att skydda data och tillgångar i både Azure Backup och Azure Site Recovery services Recovery Services-valvet eftersom det är en Azure Resource Manager-resurs. Du kan använda en Recovery Services-valvet för att skydda Azure Service Manager-distribuerade virtuella datorer och Azure Resource Manager distribuerade virtuella datorer.
 
@@ -37,7 +32,7 @@ Den här artikeln visar hur du använder Azure PowerShell-cmdlets för att säke
 
 Den här artikeln vägleder dig genom att använda PowerShell för att skydda en virtuell dator och återställa data från en återställningspunkt.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 Om du inte är bekant med Azure Backup-tjänsten för en översikt över tjänsten, kolla [vad är Azure Backup?](backup-introduction-to-azure-backup.md) Innan du börjar se till att du täcka essentials om kraven som krävs för att arbeta med Azure Backup och begränsningar i aktuell lösning för VM-säkerhetskopiering.
 
 Om du vill använda PowerShell effektivt, är det nödvändigt att förstå hierarkin med objekt och från där du vill börja.
@@ -85,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. Logga in på ditt Azure-konto med hjälp av **Login-AzureRmAccount**. Denna cmdlet öppnar en webbsida uppmanar dig att dina autentiseringsuppgifter: 
+    - Alternativt kan du inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Login-AzureRmAccount** cmdlet, med hjälp av den **-autentiseringsuppgifter** parameter.
+    - Om du är CSP-partner som arbetar för en klient måste du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller klienten. Till exempel: **Login-AzureRmAccount-klient ”fabrikam.com”**
+4. Koppla den prenumeration som du vill använda med konto, eftersom ett konto kan ha flera prenumerationer:
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. Om du använder Azure Backup för första gången, måste du använda den  **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  för att registrera providern Azure Recovery-tjänsten med din prenumeration.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. Du kan kontrollera att de registrerats, med följande kommandon:
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+Kommandots utdata den **RegistrationState** ställas in på **registrerade**. Om inte, bara kör den  **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet som visas ovan.
 
 Följande aktiviteter kan automatiseras med PowerShell:
 
@@ -98,22 +114,17 @@ Följande aktiviteter kan automatiseras med PowerShell:
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 Följande steg leder dig genom att skapa ett Recovery Services-valvet. Recovery Services-valvet skiljer sig en Backup-valvet.
 
-1. Om du använder Azure Backup för första gången, måste du använda den  **[registrera AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  för att registrera providern Azure Recovery-tjänsten med din prenumeration.
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
+1. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera det inom en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. Använd den  **[ny AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  för att skapa Recovery Services-valvet. Se till att ange samma plats för valvet som användes för resursgruppen.
+2. Använd den  **[ny AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  för att skapa Recovery Services-valvet. Se till att ange samma plats för valvet som användes för resursgruppen.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
+3. Ange vilken typ av lagring redundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) eller [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"

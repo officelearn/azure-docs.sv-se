@@ -1,5 +1,5 @@
 ---
-title: "Azure AD .NET komma igång | Microsoft Docs"
+title: "Azure AD .NET skrivbordet (WPF) komma igång | Microsoft Docs"
 description: "Hur du skapar ett program i .NET Windows-skrivbordet som kan integreras med Azure AD för inloggning och Azure AD-anrop skyddade API: er som använder sig av OAuth."
 services: active-directory
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integrera Azure AD i en Windows-skrivbord WPF-program
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET skrivbordet (WPF) komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Leta reda på `Search(...)` metod som ska anropas när användaren cliks ”Sök” knappen i appens användargränssnitt.  Den här metoden gör en GET-begäran till Azure AD Graph API frågan för användare vars UPN-namnet börjar med den angivna söktermen.  Men om du vill fråga Graph API, måste du inkludera ett access_token i den `Authorization` huvud för begäran - detta är där ADAL kommer in.
+* Leta reda på `Search(...)` metod som ska anropas när användaren klickar på knappen ”Sök” i appens användargränssnitt.  Den här metoden gör en GET-begäran till Azure AD Graph API frågan för användare vars UPN-namnet börjar med den angivna söktermen.  Men om du vill fråga Graph API, måste du inkludera ett access_token i den `Authorization` huvud för begäran - detta är där ADAL kommer in.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

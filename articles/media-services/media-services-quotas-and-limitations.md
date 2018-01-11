@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Kvoter och begränsningar
 Den här artikeln beskrivs kvoter och begränsningar som är associerade med Microsoft Azure Media Services.
@@ -29,17 +29,8 @@ Den här artikeln beskrivs kvoter och begränsningar som är associerade med Mic
 Om du vill begära ändringar i standard kvoterna som skapar du ett supportärende. Ange detaljerad information i begäran för önskad kvoten ändringar, användningsfall scenarier och regioner som krävs.
 
 ### <a name="how-to-open-a-support-ticket"></a>Hur du skapar ett supportärende
-Öppna ett supportärende genom att göra följande:
+I Azure-portalen går du till [hjälp + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Om du inte är inloggad på Azure, uppmanas du att ange dina autentiseringsuppgifter.
 
-1. Klicka på [få Support](https://manage.windowsazure.com/?getsupport=true). Om du inte är inloggad uppmanas du att ange dina autentiseringsuppgifter.
-2. Välj din prenumeration.
-3. Markera under stöd typ ”Technical”.
-4. Klicka på ”Skapa biljett”.
-5. Välj ”Azure Media Services” i produktlistan över visas på nästa sida.
-6. Välj ”typ” som passar ditt problem.
-7. Klicka på Fortsätt.
-8. Följ instruktionerna på nästa sida och anger sedan information om problemet.
-9. Klicka på Skicka för att öppna biljetten.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

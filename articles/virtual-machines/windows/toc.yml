@@ -1,6 +1,6 @@
 - name: Dokumentation för virtuella Windows-datorer
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Virtual Machines
       href: overview.md
@@ -49,7 +49,7 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -191,6 +191,10 @@
           href: agent-user-guide.md
         - name: Planerat underhåll
           href: maintenance-notifications.md
+        - name: Minimera spekulativ körning
+          href: mitigate-se.md
+        - name: Vanliga frågor och svar om accelererat underhåll
+          href: accelerated-maintenance.md
         - name: Schemalagda händelser
           href: scheduled-events.md
         - name: Övervaka metadata
@@ -304,6 +308,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Använda flera nätverkskort
           href: multiple-nics.md
+        - name: Använda accelererat nätverk
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Tilldela offentligt DNS-namn
           href: portal-create-fqdn.md
         - name: DNS-upplösning

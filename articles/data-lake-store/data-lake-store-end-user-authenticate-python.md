@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Slutanvändarens autentisering med Data Lake Store använder Python
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ I den här artikeln får information du om hur du använder Python SDK för att 
 
 Båda dessa alternativ beskrivs i den här artikeln. Tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av Python, se [tjänst-till-tjänst-autentisering med Data Lake Store med hjälp av Python](data-lake-store-service-to-service-authenticate-python.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

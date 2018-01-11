@@ -51,9 +51,9 @@ Låt oss ta en närmare titt på dessa.
 
 Här är storlekar för diskar som är tillgängliga för en hanterad premium-disk:
 
-| **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P 50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Diskstorlek        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P 50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Diskstorlek        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Här är storlekar för diskar som är tillgängliga för en standard hanterade diskar:

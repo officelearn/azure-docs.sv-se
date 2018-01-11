@@ -1,6 +1,6 @@
 ---
-title: "Kopiera data från Apache Impala med hjälp av Azure Data Factory (Beta) | Microsoft Docs"
-description: "Lär dig hur du kopierar data från Apache Impala till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
+title: "Kopiera data från Impala med hjälp av Azure Data Factory (Beta) | Microsoft Docs"
+description: "Lär dig hur du kopierar data från Impala till stöds sink datalager med hjälp av en kopia aktivitet i ett Azure Data Factory-pipelinen."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 4766e19b1823bdb737be8a90b3e2e2bfe4e48ab9
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ff6d970b8d4bb5328eb958acc652ba05e1c8be5f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-data-from-apache-impala-using-azure-data-factory-beta"></a>Kopiera data från Apache Impala med hjälp av Azure Data Factory (Beta)
+# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Kopiera data från Impala med hjälp av Azure Data Factory (Beta)
 
-Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Apache Impala. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Factory för att kopiera data från Impala. Den bygger på den [kopiera aktivitet översikt](copy-activity-overview.md) artikel som presenterar en allmän översikt över kopieringsaktiviteten.
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Kopieringsaktiviteten i V1](v1/data-factory-data-movement-activities.md).
@@ -31,7 +31,7 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Apache Impala till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Impala till alla stöds sink-datalagret. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, måste du därför inte att manuellt installera en drivrutin med den här anslutningen.
 
@@ -39,19 +39,19 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter i Apache Impala koppling.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Impala connector.
 
 ## <a name="linked-service-properties"></a>Länkad tjänstegenskaper
 
-Följande egenskaper stöds för Apache Impala länkade tjänsten:
+Följande egenskaper stöds för Impala länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type måste anges till: **Apache Impala** | Ja |
-| värden | IP-adressen eller värdnamnet namnet på servern Apache Impala. (som är 192.168.222.160)  | Ja |
-| port | TCP-porten som använder Apache Impala servern att lyssna efter anslutningar. Standardvärdet är 21050.  | Nej |
+| typ | Egenskapen type måste anges till: **Impala** | Ja |
+| värd | IP-adressen eller värdnamnet namnet på servern Impala. (som är 192.168.222.160)  | Ja |
+| port | TCP-porten som används av Impala-server för att lyssna efter anslutningar. Standardvärdet är 21050.  | Nej |
 | AuthenticationType | Autentiseringstypen som ska användas. <br/>Tillåtna värden är: **anonym**, **SASLUsername**, **UsernameAndPassword** | Ja |
-| användarnamn | Användarnamnet som används för åtkomst till Apache Impala-servern. Standardvärdet är anonym när du använder SASLUsername.  | Nej |
+| användarnamn | Användarnamnet som används för åtkomst till Impala-servern. Standardvärdet är anonym när du använder SASLUsername.  | Nej |
 | lösenord | Det lösenord som motsvarar namnet när du använder UsernameAndPassword. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är false.  | Nej |
 | trustedCertPath | Den fullständiga sökvägen till PEM-filen som innehåller certifikat för betrodda Certifikatutfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara anges när du använder SSL på själva värdbaserade IR. Standardvärdet är filen cacerts.pem installeras med IR.  | Nej |
@@ -64,9 +64,9 @@ Följande egenskaper stöds för Apache Impala länkade tjänsten:
 
 ```json
 {
-    "name": "Apache ImpalaLinkedService",
+    "name": "ImpalaLinkedService",
     "properties": {
-        "type": "Apache Impala",
+        "type": "Impala",
         "typeProperties": {
             "host" : "<host>",
             "port" : "<port>",
@@ -87,19 +87,19 @@ Följande egenskaper stöds för Apache Impala länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Apache Impala dataset.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns på [datauppsättningar](concepts-datasets-linked-services.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Impala dataset.
 
-Ange typegenskapen för dataset för att kopiera data från Apache Impala, **Apache ImpalaObject**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
+Ange typegenskapen för dataset för att kopiera data från Impala, **ImpalaObject**. Det finns ingen ytterligare typspecifika egenskap i den här typen av datauppsättningen.
 
 **Exempel**
 
 ```json
 {
-    "name": "Apache ImpalaDataset",
+    "name": "ImpalaDataset",
     "properties": {
-        "type": "Apache ImpalaObject",
+        "type": "ImpalaObject",
         "linkedServiceName": {
-            "referenceName": "<Apache Impala linked service name>",
+            "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
         }
     }
@@ -108,15 +108,15 @@ Ange typegenskapen för dataset för att kopiera data från Apache Impala, **Apa
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Apache Impala källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md) artikel. Det här avsnittet innehåller en lista över egenskaper som stöds av Impala källa.
 
-### <a name="apache-impalasource-as-source"></a>Apache ImpalaSource som källa
+### <a name="impala-as-source"></a>Impala som källa
 
-Om du vill kopiera data från Apache Impala, anger du datakällan i kopieringsaktiviteten till **Apache ImpalaSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
+Om du vill kopiera data från Impala, anger du datakällan i kopieringsaktiviteten till **ImpalaSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnitt:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **Apache ImpalaSource** | Ja |
+| typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **ImpalaSource** | Ja |
 | DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Ja |
 
 **Exempel:**
@@ -124,11 +124,11 @@ Om du vill kopiera data från Apache Impala, anger du datakällan i kopieringsak
 ```json
 "activities":[
     {
-        "name": "CopyFromApache Impala",
+        "name": "CopyFromImpala",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Apache Impala input dataset name>",
+                "referenceName": "<Impala input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -140,7 +140,7 @@ Om du vill kopiera data från Apache Impala, anger du datakällan i kopieringsak
         ],
         "typeProperties": {
             "source": {
-                "type": "Apache ImpalaSource",
+                "type": "ImpalaSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b30a444150c6ace87e9d506da9335373b5e017af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb62a82f351502b5067367b2306f296272b6575b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Använda PlayReady och/eller Widevine Dynamic Common Encryption
 
@@ -27,7 +27,12 @@ ms.lasthandoff: 12/07/2017
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >
->
+
+> [!NOTE]
+> Information om hur du hämtar den senaste versionen av Java SDK och börjar utveckla med Java finns i [Komma igång med Java-klient-SDK för Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+
+## <a name="overview"></a>Översikt
 
 Med Microsoft Azure Media Services kan du leverera MPEG-DASH-, Smooth Streaming- och HTTP-Live-Streaming-dataströmmar som skyddas med [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Du kan också leverera krypterade DASH-dataströmmar med Widevine DRM-licenser. Både PlayReady och Widevine krypteras enligt den gemensamma  krypteringsspecifikationen (ISO/IEC 23001 7 CENC). Du kan använda [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (från och med version 3.5.1) eller REST API för att konfigurera din AssetDeliveryConfiguration för att använda Widevine.
 
@@ -39,7 +44,7 @@ Media Services stöder flera olika sätt att auktorisera användare som begär n
 
 För att dra fördel av dynamisk kryptering behöver du en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Du måste också konfigurera leveransprinciperna för tillgången (beskrivs senare i det här avsnittet). Sedan, baserat på det format som anges i strömnings-URL:en, kommer  servern för strömning på begäran att säkerställa att dataströmmen levereras i det protokoll som du har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services skapar och ger lämplig HTTP-respons baserat på varje begärande från en klient.
 
-Det här avsnittet kan vara användbart för utvecklare som arbetar på appar som levererar media som skyddas av flera DRM:er, som PlayReady och Widevine. Avsnittet visar hur du konfigurerar  PlayReadys licensleveranstjänst med auktoriseringsprinciper så att endast auktoriserade klienter kan få PlayReady- eller Widevine-licenser. Det visar även hur du använder dynamiska kryptering med PlayReady eller Widevine DRM över DASH.
+Den här artikeln kan vara användbar för utvecklare som arbetar med appar som levererar media som skyddas av flera DRM:er, som PlayReady och Widevine. Artikeln visar hur du konfigurerar PlayReadys licensleveranstjänst med auktoriseringsprinciper så att endast auktoriserade klienter kan få PlayReady- eller Widevine-licenser. Den visar även hur du använder dynamisk kryptering med PlayReady eller Widevine DRM över DASH.
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
@@ -64,13 +69,13 @@ Nedan följer allmänna steg som du behöver utföra när du skyddar dina tillg�
 
 6. Skapa en OnDemand-lokaliserare för att få en strömnings-URL.
 
-Du hittar ett komplett .NET-exempel i slutet av avsnittet.
+Du hittar ett komplett .NET-exempel i slutet av artikeln.
 
 Följande bild visar arbetsflödet som beskrivs ovan. Här används aktuellt token för autentisering.
 
 ![Skydda med PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Resten av det här avsnittet innehåller detaljerade förklaringar, kodexempel och länkar till ämnen som visar hur du utför de uppgifter som beskrivs ovan.
+Resten av den här artikeln innehåller detaljerade förklaringar, kodexempel och länkar till ämnen som visar hur du utför de uppgifter som beskrivs ovan.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 Om du lägger till eller uppdaterar en tillgångsleveransprincip måste du ta bort den associerade lokaliseraren (om sådan finns) och skapa en ny.
@@ -83,7 +88,7 @@ För att hantera, koda och strömma videor måste du först överföra innehåll
 Utförlig information finns i [Överföra filer till ett Media Services-konto](media-services-dotnet-upload-files.md).
 
 ## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Koda den tillgång som innehåller filen för MP4-uppsättningen med anpassad bithastighet
-Med dynamisk kryptering behöver du bara skapa en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Därefter, baserat på det format som anges i manifestet och i fragmentbegäran, kommer servern för strömning på begäran att säkerställa att du får den dataström i protokollet som du har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. Mer information finns i ämnet [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
+Med dynamisk kryptering behöver du bara skapa en tillgång som innehåller en uppsättning MP4-filer eller Smooth Streaming-källfiler i multibithastighet. Därefter, baserat på det format som anges i manifestet och i fragmentbegäran, kommer servern för strömning på begäran att säkerställa att du får den dataström i protokollet som du har valt. Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient. Mer information finns i artikeln [Översikt över dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 Mer information om att koda finns i [Koda en tillgång med Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -104,7 +109,7 @@ Konfigurera leveransprincipen för din tillgång. Tillgångsleveransprincipen in
 * Protokollet för tillgångsleverans (t.ex. MPEG DASH, HLS, jämn direktuppspelning eller alla).
 * Typen av dynamisk kryptering (i det här fallet Common Encryption).
 
-Detaljerad information finns i [Konfigurera tillgångsleveransprincip ](media-services-rest-configure-asset-delivery-policy.md).
+Detaljerad information finns i [Konfigurera tillgångsleveransprincip.
 
 ## <a id="create_locator"></a>Skapa en lokaliserare för OnDemand-strömning för att få en strömnings-URL
 Du måste förse din användare med strömnings-URL:en för Smooth, DASH eller HLS.
@@ -148,31 +153,36 @@ I följande exempel visas de funktioner som introducerades i Azure Media Service
 Skriv över koden i Program.cs-filen med koden som visas i det här avsnittet.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [detta](media-services-dotnet-manage-entities.md#limit-access-policies) avsnitt.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Se till att uppdatera variablerna så att de pekar på mappar där dina indatafiler finns.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
-    using Newtonsoft.Json;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
+using Newtonsoft.Json;
 
-    namespace DynamicEncryptionWithDRM
+namespace DynamicEncryptionWithDRM
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -190,7 +200,11 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -210,9 +224,9 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
             Console.WriteLine();
 
             if (tokenRestriction)
-            tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
             else
-            AddOpenAuthorizationPolicy(key);
+                AddOpenAuthorizationPolicy(key);
 
             Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
             Console.WriteLine();
@@ -223,19 +237,19 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-            // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
-            // back into a TokenRestrictionTemplate class instance.
-            TokenRestrictionTemplate tokenTemplate =
-                TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // back into a TokenRestrictionTemplate class instance.
+                TokenRestrictionTemplate tokenTemplate =
+                    TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
-            Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-            string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
-                                        DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-            Console.WriteLine();
+                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Note, you need to pass the key id Guid because we specified
+                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
+                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
+                                            DateTime.UtcNow.AddDays(365));
+                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+                Console.WriteLine();
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
@@ -251,8 +265,8 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
         {
             if (!File.Exists(singleFilePath))
             {
-            Console.WriteLine("File does not exist.");
-            return null;
+                Console.WriteLine("File does not exist.");
+                return null;
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
@@ -465,8 +479,8 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
         {
             var template = new WidevineMessage
             {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+                allowed_track_types = AllowedTrackTypes.SD_HD,
+                content_key_specs = new[]
             {
                     new ContentKeySpecs
                     {
@@ -475,12 +489,12 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
                     track_type = "SD"
                     }
                 },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
-            }
+                policy_overrides = new
+                {
+                    can_play = true,
+                    can_persist = true,
+                    can_renew = false
+                }
             };
 
             string configuration = JsonConvert.SerializeObject(template);
@@ -570,14 +584,14 @@ Se till att uppdatera variablerna så att de pekar på mappar där dina indatafi
             using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
             {
-            rng.GetBytes(returnValue);
+                rng.GetBytes(returnValue);
             }
 
             return returnValue;
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

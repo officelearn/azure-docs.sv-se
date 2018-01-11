@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera drivrutiner för NVIDIA GPU på N-serien virtuella datorer som kör Linux
 
@@ -32,6 +32,150 @@ N-serien VM specifikationerna, lagringskapacitet, och diskinformation finns [GPU
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Installera CUDA drivrutiner för NC, NCv2 och ND virtuella datorer
+
+Här följer stegen för att installera drivrutinerna på Linux NC virtuella datorer från NVIDIA CUDA Toolkit. 
+
+C och C++ utvecklare kan välja att installera fullständig Toolkit för att skapa GPU-snabbare program. Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats.
+>
+
+Om du vill installera CUDA Toolkit gör du en SSH-anslutning på varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
+
+```bash
+lspci | grep -i NVIDIA
+```
+Du kommer se utdata som liknar följande exempel (visar ett NVIDIA Tesla K80-kort):
+
+![lspci kommandoutdata](./media/n-series-driver-setup/lspci.png)
+
+Sedan kör installationskommandon som är specifika för din distribution.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Hämta och installera drivrutiner för CUDA.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  Installationen kan ta flera minuter.
+
+2. Vill du installera komplett CUDA verktyg skriver du:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
+
+#### <a name="cuda-driver-updates"></a>CUDA drivrutinsuppdateringar
+
+Vi rekommenderar att du regelbundet uppdatera CUDA drivrutiner efter distributionen.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS-baserade 7.3 eller Red Hat Enterprise Linux 7.3
+
+1. Installera de senaste Linux integreringstjänsterna för Hyper-V.
+
+  > [!IMPORTANT]
+  > Om du har installerat en CentOS-baserade HPC-avbildning på en virtuell dator NC24r vidare till steg3. Eftersom Azure RDMA drivrutiner och Linux-integreringstjänster är förinstallerade i HPC-avbildningen LIS uppgraderas inte och kernel-uppdateringar är inaktiverad som standard.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Anslut till den virtuella datorn och fortsätta installationen med följande kommandon:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  Installationen kan ta flera minuter. 
+
+4. Vill du installera komplett CUDA verktyg skriver du:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
+
+
+### <a name="verify-driver-installation"></a>Verifiera installation av drivrutiner
+
+
+Fråga Enhetsstatus GPU SSH till den virtuella datorn och kör den [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyg som installeras med drivrutinen. 
+
+Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar 0% om du använder en GPU arbetsbelastning på den virtuella datorn. Din version av drivrutinen och information GPU kan skilja sig från de som visas.
+
+![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
+
+RDMA-nätverksanslutning kan aktiveras på RDMA-kompatibla N-serien virtuella datorer som NC24r distribueras i samma tillgänglighetsuppsättning. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
+
+### <a name="distributions"></a>Distributioner
+
+Distribuera RDMA-kompatibla N-serien virtuella datorer från en av följande avbildningar i Azure Marketplace som stöder RDMA-anslutningar:
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel hämta Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **CentOS-baserade HPC** -CentOS-baserade 7.3 HPC. RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Installera drivrutiner för rutnät för NV virtuella datorer
 
@@ -95,10 +239,6 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS-baserade 7.3 eller Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Kör inte `sudo yum update` att uppdatera versionen på CentOS 7.3 eller Red Hat Enterprise Linux 7.3 kernel. För närvarande fungerar installation av drivrutiner och uppdateringar inte om kernel uppdateras.
->
-
 1. Uppdatera kernel och DKMS.
  
   ```bash  
@@ -122,9 +262,9 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 3. Starta om den virtuella datorn, återansluta och installera de senaste Linux integreringstjänsterna för Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ Att installera drivrutiner för NVIDIA RUTNÄTET på NV VMs, göra en SSH-anslut
 
 Fråga Enhetsstatus GPU SSH till den virtuella datorn och kör den [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyg som installeras med drivrutinen. 
 
-Visas utdata som liknar följande. Din version av drivrutinen och information GPU kan skilja sig från de som visas.
+Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar 0% om du använder en GPU arbetsbelastning på den virtuella datorn. Din version av drivrutinen och information GPU kan skilja sig från de som visas.
 
 ![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,152 +342,6 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Den här filen kan anropas som rot på Start genom att skapa en post för den i `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>Installera CUDA drivrutiner för NC virtuella datorer
-
-Här följer stegen för att installera drivrutinerna på Linux NC virtuella datorer från NVIDIA CUDA Toolkit. 
-
-C och C++ utvecklare kan välja att installera fullständig Toolkit för att skapa GPU-snabbare program. Mer information finns i [CUDA installationsguiden](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> CUDA drivrutinen länkar som anges här aktuella vid tiden för publikationen. De senaste drivrutinerna för CUDA, finns det [NVIDIA](https://developer.nvidia.com/cuda-zone) webbplats.
->
-
-Om du vill installera CUDA Toolkit gör du en SSH-anslutning på varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
-
-```bash
-lspci | grep -i NVIDIA
-```
-Du kommer se utdata som liknar följande exempel (visar ett NVIDIA Tesla K80-kort):
-
-![lspci kommandoutdata](./media/n-series-driver-setup/lspci.png)
-
-Sedan kör installationskommandon som är specifika för din distribution.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Hämta och installera drivrutiner för CUDA.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  Installationen kan ta flera minuter.
-
-2. Vill du installera komplett CUDA verktyg skriver du:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
-
-#### <a name="cuda-driver-updates"></a>CUDA drivrutinsuppdateringar
-
-Vi rekommenderar att du regelbundet uppdatera CUDA drivrutiner efter distributionen.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS-baserade 7.3 eller Red Hat Enterprise Linux 7.3
-
-1. Installera de senaste Linux integreringstjänsterna för Hyper-V.
-
-  > [!IMPORTANT]
-  > Om du har installerat en CentOS-baserade HPC-avbildning på en virtuell dator NC24r vidare till steg3. Eftersom Azure RDMA drivrutiner och Linux-integreringstjänster är förinstallerade i HPC-avbildningen LIS uppgraderas inte och kernel-uppdateringar är inaktiverad som standard.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. Anslut till den virtuella datorn och fortsätta installationen med följande kommandon:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  Installationen kan ta flera minuter. 
-
-4. Vill du installera komplett CUDA verktyg skriver du:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
-
-
-### <a name="verify-driver-installation"></a>Verifiera installation av drivrutiner
-
-
-Fråga Enhetsstatus GPU SSH till den virtuella datorn och kör den [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyg som installeras med drivrutinen. 
-
-Det visas utdata som liknar följande:
-
-![NVIDIA Enhetsstatus](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA-nätverk för virtuella datorer NC24r
-
-RDMA-nätverksanslutning kan aktiveras på NC24r virtuella datorer som distribueras i samma tillgänglighetsuppsättning. RDMA-nätverket har stöd för Message Passing Interface (MPI) trafik för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav som följer:
-
-### <a name="distributions"></a>Distributioner
-
-Distribuera NC24r virtuella datorer från en av följande avbildningar i Azure Marketplace som stöder RDMA-anslutningar:
-  
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Konfigurera RDMA drivrutiner på den virtuella datorn och registrera med Intel hämta Intel MPI:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **CentOS-baserade HPC** -CentOS-baserade 7.3 HPC. RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn. 
-
-
 ## <a name="troubleshooting"></a>Felsökning
 
 * Det finns ett känt problem med CUDA drivrutiner på Azure N-serien virtuella datorer som kör Linux-kärnan 4.4.0-75 på Ubuntu 16.04 LTS. Om du uppgraderar från en tidigare version av kernel kan uppgradera till minst 4.4.0-77 för kernel-version.
@@ -356,9 +350,5 @@ Distribuera NC24r virtuella datorer från en av följande avbildningar i Azure M
 
 
 ## <a name="next-steps"></a>Nästa steg
-
-* Mer information om NVIDIA GPU-kort på virtuella datorer N-serien finns i:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (för Azure NC virtuella datorer)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (för Azure NV virtuella datorer)
 
 * För att avbilda en Linux-VM-avbildning med din installerade drivrutinerna finns [så att generalisera och avbilda en virtuell Linux-dator](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

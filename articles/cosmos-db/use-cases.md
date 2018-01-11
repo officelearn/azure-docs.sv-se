@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsområden för Azure Cosmos DB
 Den här artikeln innehåller en översikt över flera vanliga användningsområden för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungera som en startpunkt som du utvecklar programmet med Cosmos DB.   
@@ -105,7 +105,7 @@ JSON, ett format som stöds av Cosmos DB är en effektiv format för att represe
 ![Azure DB Cosmos web app Referensarkitektur](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill komma igång med Azure Cosmos DB, Följ våra [snabbstarter](create-documentdb-dotnet.md), som hjälper dig att skapa ett konto och komma igång med Cosmos DB. 
+Om du vill komma igång med Azure Cosmos DB, Följ våra [snabbstarter](create-sql-api-dotnet.md), som hjälper dig att skapa ett konto och komma igång med Cosmos DB. 
 
 Eller, om du vill läsa mer om kunder som använder Cosmos DB, följande kunden artiklar som är tillgängliga:
 

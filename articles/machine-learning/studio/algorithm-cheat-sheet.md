@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 2ee58d5235e4d6954a21349d7b7714ee364c8854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Facit för Machine Learning-algoritm i Microsoft Azure Machine Learning Studio
 Den **Microsoft Azure Machine Learning algoritmen Cheat blad** hjälper dig att välja rätt algoritmen för en förutsägelseanalysmodell.
@@ -53,7 +53,7 @@ Hämta och skriva Machine Learning algoritmen Cheat ut i tabloidformat för att 
 
 * Förslag som erbjuds i den här algoritmen fusklapp är ungefärliga regler för USB. Vissa kan böjas och vissa kan vara flagrantly bröt mot. Detta är avsett att föreslå en startpunkt. Är bara att köra en jämförelse konkurrensen mellan flera algoritmer på dina data. Det är bara ingen ersättning för att förstå principerna för varje algoritm och förstå system som genererats av dina data.
 
-* Varje maskininlärningsalgoritmen har sin egen formatmall eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt problem och en algoritm kan vara en passar bättre än andra. Men det är inte alltid möjligt att i förväg veta vilka som är bäst. I sådana fall visas flera algoritmer tillsammans i fusklapp. En lämplig strategi för att en algoritm och om resultatet inte är tillräckliga, försök övriga. Här är ett exempel från den [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämför flera klassen klassificerare: enhetsbokstaven recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Varje maskininlärningsalgoritmen har sin egen formatmall eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt problem och en algoritm kan vara en passar bättre än andra. Men det är inte alltid möjligt att i förväg veta vilka som är bäst. I sådana fall visas flera algoritmer tillsammans i fusklapp. En lämplig strategi för att en algoritm och om resultatet inte är tillräckliga, försök övriga. Här är ett exempel från den [Azure AI-galleriet](http://gallery.cortanaintelligence.com/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [jämför flera klassen klassificerare: enhetsbokstaven recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Det finns tre huvudsakliga kategorier av machine learning: **övervakad inlärning**, **oövervakad inlärning**, och **förstärkning learning**.
 

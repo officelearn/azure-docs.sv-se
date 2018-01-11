@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarhandbok för Azure Functions Java
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Java-kommentarer ingår i den `azure-functions-java-core` paketet binda indata o
 
 Bindning | Anteckningen
 ---|---
-CosmosDB | Saknas
+CosmosDB | Gäller inte
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | Saknas
-Notification Hubs | Saknas
+Mobile Apps | Gäller inte
+Notification Hubs | Gäller inte
 Lagringsblob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Lagringskö | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabell för lagring | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Saknas
+Twilio | Gäller inte
 
 Utlösaren indata och utdata kan också definieras i den [function.json](/azure/azure-functions/functions-reference#function-code) för ditt program.
 
@@ -276,7 +276,7 @@ En funktion måste ibland har detaljerad kontroll över indata och utdata. Särs
 | `HttpResponseMessage<T>` | Utdata för HTTP-bindning | Returstatus än 200   |
 
 > [!NOTE] 
-> Du kan också använda `@BindingName` anteckningen att hämta HTTP-huvuden och frågor. Till exempel `@Bind("name") String query` itererar HTTP-huvuden för begäran och frågor och skickar det värdet till metoden. Till exempel `query` blir `"test"` om URL: en för begäran är `http://example.org/api/echo?name=test`.
+> Du kan också använda `@BindingName` anteckningen att hämta HTTP-huvuden och frågor. Till exempel `@BindingName("name") String query` itererar HTTP-huvuden för begäran och frågor och skickar det värdet till metoden. Till exempel `query` blir `"test"` om URL: en för begäran är `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadata
 

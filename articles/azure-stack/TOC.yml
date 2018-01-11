@@ -4,6 +4,18 @@
   items:
     - name: Vad är Azure Stack?
       href: azure-stack-poc.md
+    - name: Viktig information
+      items:
+        - name: Development kit viktig information
+          href: azure-stack-asdk-release-notes.md
+        - name: Integrerat system viktig information
+          items:
+            - name: 1712 uppdatering
+              href: azure-stack-update-1712.md
+            - name: 1711 uppdatering
+              href: azure-stack-update-1711.md
+            - name: 1710 uppdatering
+              href: azure-stack-update-1710.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -17,22 +29,12 @@
       href: azure-stack-tutorial-sql-server.md
     - name: Web Apps-erbjudande
       href: azure-stack-tutorial-app-service.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera överväganden
       href: azure-stack-planning-considerations.md
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
-    - name: Viktig information
-      items:
-        - name: Development kit viktig information
-          href: azure-stack-asdk-release-notes.md
-        - name: Integrerat system viktig information
-          items:
-            - name: 1711 uppdatering
-              href: azure-stack-update-1711.md
-            - name: 1710 uppdatering
-              href: azure-stack-update-1710.md
     - name: Huvudfunktioner och koncept
       href: azure-stack-key-features.md
     - name: Development kit arkitektur
@@ -43,7 +45,7 @@
   items:
     - name: Distribuera
       items:
-        - name: Krav
+        - name: Förutsättningar
           href: azure-stack-deploy.md
         - name: Telemetri
           href: azure-stack-telemetry.md
@@ -107,6 +109,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Hantera lagringsresurser
           href: azure-stack-manage-storage-accounts.md
+        - name: Hantera lagringskapacitet
+          href: azure-stack-manage-storage-shares.md
         - name: Hantera virtuella Windows Azure Pack-datorer
           href: azure-stack-manage-windows-azure-pack.md
         - name: Ersätta maskinvara
@@ -119,6 +123,21 @@
               href: azure-stack-replace-disk.md
             - name: Ersätt komponent
               href: azure-stack-replace-component.md
+        - name: Säkerhetskopiera Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Aktivera säkerhetskopiering för Azure-Stack från administrationskonsolen
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Aktivera säkerhetskopiering för Azure-stacken med PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Säkerhetskopiera Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Återställa från oåterkallelig dataförlust
+              href: azure-stack-backup-recover-data.md
+            - name: Metodtips för säkerhetskopiering
+              href: azure-stack-backup-best-practices.md
+            - name: Referens för säkerhetskopiering
+              href: azure-stack-backup-reference.md
     - name: 'Säkerhet, efterlevnad och identitet'
       items:
         - name: Säkerhetsöversikt
@@ -193,6 +212,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Använd verktyget marketplace publishing
               href: azure-stack-marketplace-publisher.md
+            - name: Gästoperativsystem stöds för Azure-Stack
+              href: azure-stack-supported-os.md
             - name: Lägg till en anpassad avbildning av virtuell dator
               href: azure-stack-add-vm-image.md
             - name: Lägg till skalningsuppsättningar för virtuell dator

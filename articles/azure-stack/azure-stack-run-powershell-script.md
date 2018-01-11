@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Distribuera Azure Stack Development Kit
 
@@ -104,7 +104,7 @@ När du har förberett ASDK värddatorn, kan ASDK distribueras till CloudBuilder
 1. När värddatorn startar i CloudBuilder.vhdx avbildningen, logga in med administratörsbehörighet som anges i föregående steg. 
 2. Öppna en upphöjd PowerShell-konsolen och kör den **\AzureStack_Installer\asdk-installer.ps1** skript (som kan vara på en annan enhet i CloudBuilder.vhdx bilden). Klicka på **Installera**.
 3. I den **typen** listrutan, Välj **Azure-molnet** eller **AD FS**.
-    - **Azure-molnet**: konfigurerar Azure Active Directory (AD Azure) som identitetsleverantören. Om du vill använda det här alternativet om du behöver en Internetanslutning, det fullständiga namnet på en Azure AD directory-klient i form av *domainname*. onmicrosoft.com och autentiseringsuppgifter som global administratör för den angivna katalogen. 
+    - **Azure-molnet**: konfigurerar Azure Active Directory (AD Azure) som identitetsleverantören. Om du vill använda det här alternativet om du behöver en Internetanslutning, det fullständiga namnet på en Azure AD directory-klient i form av *domainname*. onmicrosoft.com eller en Azure AD verifiera domänen namn och en global administratörsautentiseringsuppgifter för den angiven katalog. 
     - **AD FS**: standard stämpeln katalogtjänsten kommer att användas som identitetsleverantören. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet är det du angav som en del av installationen.
 4. Under **lokala administratörslösenordet**i den **lösenord** rutan skriver du det lokala administratörslösenordet (som måste matcha det aktuella konfigurerade lokala administratörslösenordet) och klicka sedan på **Nästa**.
 5. Välj ett nätverkskort som ska användas för development kit och klicka sedan på **nästa**.
@@ -206,7 +206,7 @@ Om din Azure AD-identitet är associerat med **större än ett** Azure AD-katalo
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Om din miljö **inte** har DHCP aktiverat och sedan måste du inkludera följande ytterligare parametrar till något av alternativen ovan (exempel på användning tillhandahålls): 
@@ -219,7 +219,7 @@ Om din miljö **inte** har DHCP aktiverat och sedan måste du inkludera följand
 |Parameter|Nödvändiga/valfria|Beskrivning|
 |-----|-----|-----|
 |AdminPassword|Krävs|Anger det lokala administratörskontot och alla andra användarkonton för alla virtuella datorer som skapats som en del av development kit distribution. Lösenordet måste överensstämma med det aktuella lösenordet för lokal administratör på värden.|
-|InfraAzureDirectoryTenantName|Krävs|Anger klientkatalogen. Använd den här parametern om du vill ange en specifik katalog där AAD-konto har behörighet att hantera flera kataloger. Fullständigt namn på en AAD Directory-klient i formatet. onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Krävs|Anger klientkatalogen. Använd den här parametern om du vill ange en specifik katalog där AAD-konto har behörighet att hantera flera kataloger. Fullständigt namn på en AAD Directory-klient i formatet. onmicrosoft.com eller en Azure AD verifierat domännamn.|
 |TimeServer|Krävs|Använd den här parametern om du vill ange en viss tidpunkt-server. Den här parametern måste anges som en giltig tid serverns IP-adress. Servernamn stöds inte.|
 |InfraAzureDirectoryTenantAdminCredential|Valfri|Anger det Azure Active Directory-användarnamn och lösenord. Dessa autentiseringsuppgifter för Azure måste vara ett Org ID.|
 |InfraAzureEnvironment|Valfri|Välj den Azure-miljön som du vill registrera den här Azure Stack-distributionen. Till exempel offentlig Azure, Azure - Kina, Azure - som tillhör amerikanska myndigheter.|

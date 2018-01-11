@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -32,7 +32,7 @@ Den här självstudien är del tre i en serie med tre delar. I den här delen av
 
  Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Gå igenom de första två delarna i självstudieserien:
 
    * Gå igenom [självstudien Förbereda data](tutorial-classifying-iris-part-1.md), där du får skapa Machine Learning-resurser och installera Azure Machine Learning Workbench.
@@ -161,6 +161,9 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
    Den tredje utdataraden visar **"registrationState": "Registering"**. Vänta en stund och upprepa **visningskommandot** tills utdata visar **"registrationState": "Registered"**.
 
+   >[!NOTE] 
+   Om du distribuerar till en ACS-kluster, måste du registrera den **Microsoft.ContainerService** resursprovidern samt med exakt samma metod.
+
 3. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
 
    Observera att följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
@@ -206,7 +209,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
 1. Använd följande kommando för att skapa en realtidswebbtjänst:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Det här kommandot genererar ett webbtjänst-ID som du kan använda senare.
 
@@ -216,6 +219,7 @@ Nu är du redo att skapa realtidswebbtjänsten.
    * `--model-file`: Modellfilen. I det här fallet är det pickle-filen model.pkl.
    * `-r`: Typ av modell. I det här fallet är det en Python-modell.
    * `--collect-model-data true`: Det här aktiverar datainsamling.
+   * `-c`: Sökvägen till filen conda-beroenden där ytterligare paket har angetts.
 
    >[!IMPORTANT]
    >Tjänstnamnet, som även är namnet på den nya Docker-avbildningen, måste skrivas med små bokstäver. Annars får du ett felmeddelande. 
@@ -254,10 +258,10 @@ Registrera först modellen. Generera sedan manifestet, skapa Docker-avbildningen
 
 3. Skapa en Docker-avbildning.
 
-   Använd följande kommando för att skapa en Docker-avbildning och ange manifest-ID:t från föregående steg:
+   Använd följande kommando för att skapa en Docker-avbildning och ange manifest-ID:t från föregående steg. Du kan även inkludera conda-beroenden med hjälp av växeln `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    Det här kommandot genererar ett Docker-avbildnings-ID.
    

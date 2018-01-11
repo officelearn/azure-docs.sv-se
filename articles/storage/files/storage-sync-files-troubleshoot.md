@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -42,6 +42,9 @@ Granska installer.log om du vill ta reda på orsaken till att installationen mis
 
 > [!Note]  
 > Agentinstallationen misslyckas om datorn har konfigurerats att använda Microsoft Update och Windows Update-tjänsten körs inte.
+
+<a id="agent-installation-websitename-failure"></a>**Agentinstallationen misslyckas med felet: ”lagring Sync Agent guiden avslutades för tidigt”**  
+Det här problemet kan inträffa om standardnamnet för IIS-webbplatsen har ändrats. Undvik det här problemet Byt namn på standardwebbplatsen för IIS som ”Default Web Site” och försök installera igen. Problemet korrigeras i en kommande uppdatering av agenten. 
 
 <a id="server-registration-missing"></a>**Servern visas under registrerade servrar i Azure-portalen**  
 Om en server inte visas **registrerade servrar** för en tjänst för synkronisering av lagring:
@@ -208,7 +211,7 @@ Om problemet kvarstår kör du verktyget AFSDiag:
 5. Återskapa problemet. När du är klar kan du ange **D**.
 6. En .zip-fil som innehåller loggfiler och spårningsfiler sparas i den angivna katalogen som du angav.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 - [Vanliga och frågor svar om Azure-filer](storage-files-faq.md)
 - [Felsökning av problem med Azure-filer i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Felsökning av problem med Azure-filer i Linux](storage-troubleshoot-linux-file-connection-problems.md)

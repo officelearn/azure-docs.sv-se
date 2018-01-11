@@ -10,16 +10,16 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Använda MySQL Workbench för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -69,7 +69,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
         En ny SQL-flik öppnas med en tom redigerare där du kan ange dina frågor.
     
         > [!NOTE]
-        > SSL-anslutningssäkerhet krävs som standard och framtvingas på Azure Database for MySQL-servern. Vanligtvis krävs ingen ytterligare konfiguration med SSL-certifikat för att MySQL Workbench ska ansluta till servern. Mer information om SSL finns i [Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database for MySQL](./howto-configure-ssl.md).  Om du behöver inaktivera SSL öppnar du Azure Portal, klickar på sidan Anslutningssäkerhet och inaktiverar alternativet Framtvinga SSL-anslutning.
+        > SSL-anslutningssäkerhet krävs som standard och framtvingas på Azure Database for MySQL-servern. Men vanligtvis krävs ingen ytterligare konfiguration med SSL-certifikat för att MySQL Workbench ska ansluta till servern. Vi rekommenderar att du binder ihop SSL CA-certifieringen med MySQL Workbench. Se [Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database for MySQL](./howto-configure-ssl.md) för mer information om hur du laddar ned och binder certifieringen.  Om du behöver inaktivera SSL öppnar du Azure Portal, klickar på sidan Anslutningssäkerhet och inaktiverar alternativet Framtvinga SSL-anslutning.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Skapa en tabell, infoga data, läsa data, uppdatera data, ta bort data
 1. Kopiera och klistra in SQL-exempelkoden på en tom SQL-flik för att visa exempeldata.

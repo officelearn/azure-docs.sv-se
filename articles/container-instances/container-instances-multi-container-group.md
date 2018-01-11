@@ -6,28 +6,29 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-a-container-group"></a>Distribuera en behållare grupp
 
-Azure Behållarinstanser stöd för distribution av flera behållare till en enda värd med en *behållargruppen*. Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process.
+Azure Behållarinstanser stöder distribution av flera behållare till en enda värd med en [behållargruppen](container-instances-container-groups.md). Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller någon annan konfiguration där en tjänst behöver en andra anslutna process.
 
-Det här dokumentet går igenom kör en enkel flera behållare sidovagn konfiguration med en Azure Resource Manager-mall.
+Det här dokumentet vägleder dig genom att köra en enkel flera behållare sidovagn konfiguration genom att distribuera en Azure Resource Manager-mall.
+
+> [!NOTE]
+> Flera behållare grupper är för närvarande begränsad till Linux-behållare. När vi arbetar för att göra alla funktioner till Windows-behållare, hittar du den aktuella plattformen skillnader i [kvoter och regional tillgänglighet för Azure-Behållarinstanser](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
-Skapa en fil med namnet `azuredeploy.json` och kopierar följande json till den.
+Skapa en fil med namnet `azuredeploy.json` och kopierar följande JSON till den.
 
-I det här exemplet definieras en behållare grupp med två behållare och en offentlig IP-adress. Första behållare för gruppen kör ett Internetriktade Internetprogram. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
-
-Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det tog emot en HTTP-svarskoden än 200 OK.
+I det här exemplet definieras en behållare grupp med två behållare och en offentlig IP-adress. Första behållaren i gruppen körs ett mot internet-program. Behållaren andra sidvagn, gör en HTTP-begäran till webbprogrammet huvudsakliga via gruppens lokala nätverk.
 
 ```json
 {
@@ -101,7 +102,7 @@ Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det t
   }
 ```
 
-Om du vill använda ett privat behållaren image register att lägga till ett objekt i json-dokumentet med följande format.
+Om du vill använda ett privat behållaren image register att lägga till ett objekt i JSON-dokumentet med följande format.
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +116,91 @@ Om du vill använda ett privat behållaren image register att lägga till ett ob
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create).
+Skapa en resursgrupp med kommandot [az group create][az-group-create].
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med den [az distribution skapa](/cli/azure/group/deployment#create) kommando.
+Distribuera mallen med den [az distribution skapa] [ az-group-deployment-create] kommando.
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Inom några sekunder får du ett första svar från Azure.
+Du bör få ett inledande svar från Azure inom några sekunder.
 
 ## <a name="view-deployment-state"></a>Visa status för distributionen
 
-Du kan visa statusen för distributionen av `az container show` kommando. Detta returnerar etablerade offentliga IP-adressen som programmet kan användas.
+Du kan visa statusen för distributionen av [az behållaren visa] [ az-container-show] kommando. Detta returnerar etablerade offentliga IP-adressen som programmet kan användas.
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-Resultat:
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>Visa loggfiler
-
-Visa loggutdata från en behållare med hjälp av den `az container logs` kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet.
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 Resultat:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>Visa loggfiler
+
+Visa loggutdata från en behållare med hjälp av den [az behållaren loggar] [ az-container-logs] kommando. Den `--container-name` argumentet anger behållaren som hämtar loggarna. Den första behållaren har angetts i det här exemplet.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+Resultat:
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Om du vill se loggar för behållaren sida bilen köra samma kommando anger andra behållarens namn.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Resultat:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-Som du kan se göra sidovagn regelbundet en HTTP-begäran till huvudsakliga webb-applikationen via gruppens lokala nätverk så att den körs.
+Som du kan se göra sidovagn regelbundet en HTTP-begäran till huvudsakliga webb-applikationen via gruppens lokala nätverk så att den körs. Det här exemplet sidovagn kan expanderas för att utlösa en avisering om det tog emot en HTTP-svarskoden än 200 OK.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här dokumentet beskrivs de steg som krävs för att distribuera en instans av flera behållare Azure-behållaren. En slutpunkt till slutpunkt Azure Behållarinstanser upplevelse finns i Azure Container instanser kursen.
+Den här artikeln beskrivs de steg som krävs för att distribuera en instans av flera behållare Azure-behållaren. En slutpunkt till slutpunkt Azure Behållarinstanser upplevelse finns i Azure Container instanser kursen.
 
 > [!div class="nextstepaction"]
-> [Azure Behållarinstanser kursen]:./container-instances-tutorial-prepare-app.md
+> [Azure Behållarinstanser självstudiekursen][aci-tutorial]
+
+<!-- LINKS - Internal -->
+[aci-tutorial]: ./container-instances-tutorial-prepare-app.md
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

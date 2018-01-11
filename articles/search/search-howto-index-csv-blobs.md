@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexering CSV blobbar med Azure Search blob indexeraren
 Som standard [Azure blob sökindexeraren](search-howto-indexing-azure-blob-storage.md) Parsar avgränsade text blobbar som ett enda segment av text. Men med blobbar som innehåller CSV-data, vill du ofta behandla varje rad i blob som ett separat dokument. Till exempel anges avgränsad följande: 
@@ -32,7 +32,7 @@ Du kanske vill parsa till 2 dokument, var och en som innehåller ”id”, ”da
 I den här artikeln får du lära dig hur du Parsar CSV blobbar med en indexerare för Azure Search-blob. 
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande under förhandsgranskning. Det är bara tillgängliga i REST-API som använder version **2015-02-28-Preview**. Kontrollera komma ihåg, förhandsgranska API: er är avsedd för testning och utvärdering och ska inte användas i produktionsmiljöer. 
+> Den här funktionen finns för närvarande i en förhandsversion. Det är bara tillgängliga i REST-API som använder version **2015-02-28-Preview**. Kontrollera komma ihåg, förhandsgranska API: er är avsedd för testning och utvärdering och ska inte användas i produktionsmiljöer. 
 > 
 > 
 
@@ -52,7 +52,12 @@ Om BLOB får inte innehålla en inledande rubrikraden, anges sidhuvuden i indexe
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-För närvarande stöds endast UTF-8-kodning. Också endast komma `','` tecken stöds som avgränsare. Om du behöver stöd för andra kodningar eller avgränsare berätta på [våra UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).
+Du kan anpassa den avgränsare tecken med hjälp av den `delimitedTextDelimiter` konfigurationsinställning. Exempel:
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> För närvarande stöds endast UTF-8-kodning. Om du behöver stöd för andra kodningar berätta på [våra UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > När du använder avgränsad text parsning läge förutsätter Azure Search att alla blobbar i datakällan kommer att CSV. Om du behöver stöd för en blandning av CSV- och icke-CSV-blobbar i samma datakälla berätta på [våra UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).

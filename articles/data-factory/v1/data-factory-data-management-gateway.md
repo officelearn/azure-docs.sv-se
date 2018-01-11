@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -68,7 +68,7 @@ Här är den övergripande dataflödet för och översikt över stegen för att 
 * Du måste **använda gateway** även om datalagret finns i molnet på ett **Azure IaaS-VM**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Den stöds **operativsystemet** versioner är Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation av data management gateway på en domänkontrollant stöds inte för närvarande.
 * .NET framework 4.5.1 eller senare krävs. Om du installerar gateway på en Windows 7-dator, installerar du .NET Framework 4.5 eller senare. Se [systemkrav för .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) mer information.
 * Den rekommenderade **configuration** för gateway-datorn och är minst 2 GHz, 4 kärnor, 8 GB RAM-minne och 80 GB-disk.
@@ -323,6 +323,9 @@ Sidan Inställningar kan du göra följande:
 * **Status för** för slutpunkten
 * Visa **SSL-certifikat** används för SSL-kommunikation mellan portalen och gateway för att ange autentiseringsuppgifter för datakällor.  
 
+### <a name="remote-access-from-intranet"></a>Fjärråtkomst från intranätet  
+Den här funktionen aktiveras i framtiden. I kommande uppdateringar (v3.4 eller senare) vi kan du aktivera / inaktivera alla fjärranslutningar idag händer använder port 8050 (se ovan) när du använder PowerShell eller Autentiseringshanteraren program för att kryptera autentiseringsuppgifterna. 
+
 ### <a name="diagnostics-page"></a>Sidan diagnostik
 Sidan diagnostik kan du göra följande:
 
@@ -374,9 +377,9 @@ Status  | Kommentarer-scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory-tjänsten.
 Offline | Noden är offline.
-Uppgradera | Noden håller på att uppdateras automatiskt.
+Uppgraderar | Noden håller på att uppdateras automatiskt.
 Begränsad | På grund av anslutningsproblem. Kan bero på http-porten 8050 problemet, service bus-anslutningsproblem eller autentiseringsuppgifter synkroniseringsproblem. 
-Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
+Inaktiv | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
 
 
 Följande tabell innehåller olika statusar av en **logiska gateway**. Gatewayens status beror på statusen för gateway-noder. 

@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
 ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
 Den här artikeln hjälper dig att länka virtuella nätverk (Vnet) för Azure ExpressRoute-kretsar med hjälp av CLI. Om du vill länka med Azure CLI, måste de virtuella nätverken skapas med Resource Manager-distributionsmodellen. De kan antingen vara i samma prenumeration, eller en del av en annan prenumeration. Om du vill använda en annan metod för att ansluta ditt VNet till en ExpressRoute-krets kan du välja en artikel från följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure-portalen](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)

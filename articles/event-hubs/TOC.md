@@ -22,6 +22,8 @@
 
 # Gör så här för att
 ## Planera och designa
+### [Hanterad tjänstidentitet (förhandsgranskning)](event-hubs-managed-service-identity.md)
+### [Rollbaserad åtkomstkontroll (förhandsgranskning)](event-hubs-role-based-access-control.md)
 ### [Geo-haveriberedskap och geo-replikering](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Översikt över autentisering och säkerhetsmodell](event-hubs-authentication-and-security-model-overview.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: ab1d48188d4e0ef1274eb175b49bafd1d63b8480
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter-anteckningsböcker i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -36,18 +36,18 @@ Lär dig använda Script Actions för att konfigurera ett Apache Spark-kluster i
 > 
 > 
 
-Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som är tillgängliga via [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) eller [conda bedömningar](https://conda-forge.github.io/feedstocks.html).
+Du kan söka i [paketindexet](https://pypi.python.org/pypi) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som är tillgängliga via [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) eller [conda bedömningar](https://conda-forge.org/feedstocks/).
 
 I den här artikeln får du lära dig hur du installerar den [TensorFlow](https://www.tensorflow.org/) paketet med skriptåtgärder på klustret och använda den via Jupyter-anteckningsboken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Instruktioner finns i [skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
    > [!NOTE]
-   > Om du inte redan har ett Spark-kluster i HDInsight Linux kan du köra skriptåtgärder när klustret skapas. Finns i dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+   > Om du inte redan har ett Spark-kluster i HDInsight Linux kan du köra skriptåtgärder när klustret skapas. Finns i dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
    > 
    > 
 
@@ -55,7 +55,7 @@ Du måste ha följande:
 
 1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
 
-2. Klicka på bladet Spark-kluster **skriptåtgärder** i den vänstra rutan. Kör den anpassade åtgärden som installerar TensorFlow i huvudnoderna och arbetsnoderna. Bash-skript kan refereras från: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh finns i dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. Klicka på bladet Spark-kluster **skriptåtgärder** i den vänstra rutan. Kör den anpassade åtgärden som installerar TensorFlow i huvudnoderna och arbetsnoderna. Bash-skript kan refereras från: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh finns i dokumentationen på [hur du använder anpassade skriptåtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
    > Det finns två python installationer i klustret. Spark använder Anaconda python installationen finns på `/usr/bin/anaconda/bin`. Referera till den installationen i din anpassade åtgärder via `/usr/bin/anaconda/bin/pip` och `/usr/bin/anaconda/bin/conda`.

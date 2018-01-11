@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Klassisk](backup-client-automation-classic.md)
->
->
-
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
 
 ## <a name="install-azure-powershell"></a>Installera Azure PowerShell
@@ -111,7 +105,7 @@ Detta installerar agent med alla standardalternativ. Installationen tar några m
 
 Listan över installerade program, gå till **Kontrollpanelen** > **program** > **program och funktioner**.
 
-![Agenten är installerad](./media/backup-client-automation/installed-agent-listing.png)
+![Agenten har installerats](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Installationsalternativ
 Om du vill se alla alternativ som är tillgängliga via kommandoraden använder du följande kommando:
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Behåll informationen lösenfras säkert när den har angetts. Du är inte att återställa data från Azure utan lösenfras.
+> Behåll informationen lösenfras säkert när den har angetts. Du kan inte återställa data från Azure utan lösenfras.
 >
 >
 
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Du kan visa information om en befintlig princip för säkerhetskopiering med hjälp av den [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. Du kan gå nedåt ytterligare med den [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) för schemat för säkerhetskopiering och [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet för bevarandeprinciper
+Du kan visa information om en befintlig princip för säkerhetskopiering med hjälp av den [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. Du kan öka detaljnivån ytterligare med den [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) för schemat för säkerhetskopiering och [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet för bevarandeprinciper
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -506,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Om du väljer en plats för säkerhetskopia för återställning
-Hämta en lista över säkerhetskopiering punkter genom att köra den [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdleten med lämpliga parametrar. I vårt exempel väljer du den senaste säkerhetskopieringskälla tidpunkten för källvolymen *D:* och använda den för att återställa en viss fil.
+Du kan hämta en lista över säkerhetskopiering punkter genom att köra den [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdleten med lämpliga parametrar. I vårt exempel väljer du den senaste säkerhetskopieringskälla tidpunkten för källvolymen *D:* och använda den för att återställa en viss fil.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

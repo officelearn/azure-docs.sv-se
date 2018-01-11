@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera HBase-kluster-replikering i Azure-nätverk
 
@@ -43,7 +43,7 @@ Följande är HBase replikering användning fall för två virtuella nätverk:
 
 Du kan replikera kluster med hjälp av [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Konfigurera miljöerna
@@ -119,7 +119,7 @@ Vissa hårdkodade värden i mallen:
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
 | Klusternamn | &lt;ClusterNamePrefix > 1 |
-| Kluster av version | 3.6 |
+| Klusterversion | 3.6 |
 | Typ av kluster | hbase |
 | Antalet för kluster worker nod | 2 |
 
@@ -141,7 +141,7 @@ Vissa hårdkodade värden i mallen:
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
 | Klusternamn | &lt;ClusterNamePrefix > 2 |
-| Kluster av version | 3.6 |
+| Klusterversion | 3.6 |
 | Typ av kluster | hbase |
 | Antalet för kluster worker nod | 2 |
 
@@ -283,4 +283,4 @@ I kursen får du har lärt dig hur du ställer in HBase-replikering i ett virtue
 * [Kom igång med Apache HBase i HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Översikt över HDInsight HBase](./apache-hbase-overview.md)
 * [Skapa HBase-kluster i Azure-nätverk](./apache-hbase-provision-vnet.md)
-* [Analysera sensordata med Storm och HBase i HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

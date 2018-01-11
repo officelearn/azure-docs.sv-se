@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3459e8a62386a94938aa52792b94e87315a48ab
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automatisk uppdatering av SQL Server i Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Automatisk korrigering upprättar en underhållsperiod för en Azure-dator som k
 
 Den klassiska versionen av den här artikeln finns [automatisk uppdatering för SQL Server i Azure virtuella datorer klassiska](../classic/sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda automatisk uppdatering, Överväg följande krav:
 
 **Operativsystemet**:
@@ -109,6 +109,9 @@ I följande exempel används PowerShell för att konfigurera automatisk uppdater
     $aps = AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+
+> [!IMPORTANT]
+> Om filnamnstillägget inte har installerats, installerar tillägget startar om SQL Server-tjänsten.
 
 Baserat på det här exemplet beskrivs i följande tabell i praktiken på målet virtuella Azure-datorn:
 

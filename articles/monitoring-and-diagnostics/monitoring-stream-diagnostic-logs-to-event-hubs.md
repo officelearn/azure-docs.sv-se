@@ -1,6 +1,6 @@
 ---
-title: "Strömma Azure diagnostiska loggar till en Event Hubs Namespace | Microsoft Docs"
-description: "Lär dig mer om att strömma Azure diagnostiska loggar till ett namnområde för Händelsehubbar."
+title: "Strömma Azure diagnostiska loggar till en händelsehubb | Microsoft Docs"
+description: "Lär dig mer om att strömma Azure diagnostiska loggar till en händelsehubb."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Strömma Azure diagnostiska loggar till en Event Hubs Namespace
-**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Service Bus regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Azure strömmen diagnostiska loggar till en händelsehubb
+**[Azure diagnostikloggar](monitoring-overview-of-diagnostic-logs.md)**  kan strömmas i nära realtid för alla program med alternativet inbyggda ”exportera till Händelsehubbar” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i diagnostikinställningen via Azure PowerShell-Cmdlets eller Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Vad du kan göra med diagnostik loggar och Händelsehubbar
 Här följer några olika sätt som du kan använda den strömmande kapaciteten för diagnostikloggar:
 
-* **Strömma loggar till 3 loggning och telemetri part** – över tiden, Händelsehubbar strömning och kommer att bli en mekanism för att skicka dina diagnostikloggar i till Siem från tredje part och logga Analyslösningar.
+* **Strömma loggar till 3 loggning och telemetri part** – kan du strömma alla dina diagnostikloggar till en enda event hub pipe logga data till en SIEM- eller log analytics tredjepartsverktyg.
 * **Visa tjänstens hälsa med streaming ”varm path” data till PowerBI** – med Händelsehubbar, Stream Analytics och PowerBI, kan du enkelt transformera diagnostikdata i till nära realtidsinsikter på Azure-tjänster. [Den här dokumentationen artikeln ger en bra överblick över hur du ställer in Händelsehubbar, bearbeta data med Stream Analytics och använder PowerBI som utdata](../stream-analytics/stream-analytics-power-bi-dashboard.md). Här följer några tips om att hämta inställd med diagnostikloggar:
   
   * En händelsehubb för diagnostikloggar skapas automatiskt när du markerar alternativet i portalen eller aktivera via PowerShell, så att du vill välja händelsehubben i namnområdet med namn som börjar med **insights -**.
@@ -52,7 +52,7 @@ Du kan aktivera strömning av diagnostikloggar programmässigt via portalen elle
 > 
 > 
 
-Namnområdet för Service Bus eller Händelsehubbar behöver inte finnas i samma prenumeration som resursen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
+Namnområdet Händelsehubbar behöver inte finnas i samma prenumeration som resursen avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC åtkomst till båda prenumerationer.
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Dataströmmen diagnostikloggar med hjälp av portalen
 1. Gå till Azure-Monitor i portalen och klicka på **diagnostikinställningar**
@@ -73,11 +73,11 @@ Namnområdet för Service Bus eller Händelsehubbar behöver inte finnas i samma
    
    ![Lägg till diagnostikinställningen - befintliga inställningar](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   Det namnområde som valts kommer att där händelsehubben skapas (om det här är din första gången strömmande diagnostikloggar) eller strömmas till (om det finns redan resurser som direktuppspelas loggen kategorin för att det här namnområdet), och principen definierar vilka behörigheter som har mekanismen för strömning. Idag kräver strömning till en händelsehubb behörighet att hantera, skicka och lyssna. Du kan skapa eller ändra principer för Händelsehubbar namnområde delad åtkomst i portalen under fliken Konfigurera för namnområdet. Om du vill uppdatera en av dessa diagnostikinställningar måste klienten ha behörigheten ListKey på Händelsehubbar auktoriseringsregeln.
+   Det namnområde som valts kommer att där händelsehubben skapas (om det här är din första gången strömmande diagnostikloggar) eller strömmas till (om det finns redan resurser som direktuppspelas loggen kategorin för att det här namnområdet), och principen definierar vilka behörigheter som har mekanismen för strömning. Idag kräver strömning till en händelsehubb behörighet att hantera, skicka och lyssna. Du kan skapa eller ändra principer för Händelsehubbar namnområde delad åtkomst i portalen under fliken Konfigurera för namnområdet. Om du vill uppdatera en av dessa diagnostikinställningar måste klienten ha behörigheten ListKey på Händelsehubbar auktoriseringsregeln. Du kan också ange en händelsehubbens namn. Om du anger ett händelsehubbens namn, dirigeras loggar till den event hub i stället för en nyligen skapade händelsehubb per loggen kategori.
 
 4. Klicka på **Spara**.
 
-Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till att lagringskontot när nya händelsedata genereras.
+Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till den event hub så snart nya händelsedata genereras.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-Cmdlets
 Strömning den [Azure PowerShell-Cmdlets](insights-powershell-samples.md), du kan använda den `Set-AzureRmDiagnosticSetting` med följande parametrar:
@@ -86,7 +86,7 @@ Strömning den [Azure PowerShell-Cmdlets](insights-powershell-samples.md), du ka
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-Regel-ID för Service Bus är en sträng med formatet: `{Service Bus resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+Regel-ID för Service Bus är en sträng med formatet: `{Service Bus resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Du välja för närvarande inte en viss händelse hubbnamn med PowerShell.
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
 Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den `insights diagnostic set` kommandot så här:
@@ -95,7 +95,7 @@ Strömning den [Azure CLI](insights-cli-samples.md), du kan använda den `insigh
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Använd samma format för Service Bus regel-ID som förklaras för PowerShell-cmdleten.
+Använd samma format för Service Bus regel-ID som förklaras för PowerShell-cmdleten. För närvarande kan du välja en viss händelse hubbnamn med Azure CLI.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Hur jag för att använda loggdata från Event Hubs?
 Här är exempel utdata från Händelsehubbar:
@@ -163,7 +163,7 @@ Här är exempel utdata från Händelsehubbar:
 
 | Elementnamn | Beskrivning |
 | --- | --- |
-| Poster |En matris med alla händelser i den här nyttolasten. |
+| poster |En matris med alla händelser i den här nyttolasten. |
 | time |Tid då händelsen inträffade. |
 | category |Loggen kategorin för den här händelsen. |
 | resourceId |Resurs-ID för den resurs som genereras av den här händelsen. |

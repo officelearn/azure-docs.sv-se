@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Konfigurera nätverket Prestandaövervakaren för ExpressRoute (förhandsgranskning)
 
@@ -109,7 +109,7 @@ Om du redan använder Network Performance Monitor för att övervaka andra objek
 Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutning (d.v.s. lokalt, Azure Vnet) för redundans. Använd följande steg för att installera agenter:
 
 1. Kör **installationsprogrammet** att installera agenten på varje server som du vill använda för att övervaka ExpressRoute. Den server du använder för att övervaka kan antingen vara en virtuell dator eller lokalt och måste ha tillgång till Internet. Du måste installera minst en agent lokalt och en agent på varje nätverkssegment som du vill övervaka i Azure.
-2. På den **Välkommen** klickar du på **nästa**.
+2. På sidan **Välkommen** klickar du på **Nästa**.
 3. På den **licensvillkoren** sidan, Läs licensvillkoren och klicka sedan på **jag accepterar**.
 4. På den **målmappen** , ändra eller behålla standardinstallationsmappen, och klickar sedan på **nästa**.
 5. På den **installationsalternativ för Agent** sidan kan du ansluta agenten till Azure logganalys (OMS) eller Operations Manager. Eller lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina selection(s) klickar du på **nästa**.
@@ -124,12 +124,12 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
 
     ![Konto](.\media\how-to-npm\10.png)
 6. På den **klar att installera** sidan Granska dina val och klicka sedan på **installera**.
-7. På den **konfigurationen slutförts** klickar du på **Slutför**.
+7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
 8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen av det och kontrollera att agenten är ansluten till Operational Insights (OMS). När du är ansluten till OMS agenten visas ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite**.
 
 ### <a name="proxy"></a>2.3: konfigurera proxyinställningar (valfritt)
 
-Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [konfigurera proxyinställningar för Microsoft Monitoring Agent använder ett skript för](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [konfigurera proxyinställningar för Microsoft Monitoring Agent använder ett skript för](../log-analytics/log-analytics-windows-agent.md).
 
 Konfigurera proxyinställningar för Microsoft Monitoring Agent via Kontrollpanelen:
 
@@ -200,7 +200,7 @@ När du har fyllt i föregående avsnitt och kontrollera att du blivit godkända
   ![Installationsprogram för](.\media\how-to-npm\npm2.png)
 3. Gå till fliken 'ExpressRoute Peerings' på panelen vänster på konfigurationssidan. Klicka på **identifiera nu**.
 
-  ![Identifiera](.\media\how-to-npm\13.png)
+  ![upptäck](.\media\how-to-npm\13.png)
 4. När identifieringen har slutförts kan du se regler för unik krets och VNet namn. Inledningsvis har reglerna inaktiverats. Aktivera regler, och välj sedan övervakningsagenter och tröskelvärden.
 
   ![regler](.\media\how-to-npm\14.png)

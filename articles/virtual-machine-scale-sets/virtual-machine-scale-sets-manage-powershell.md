@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 39836b207a84911d4749da8a084779d93949846b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en virtuell dator-skala med Azure PowerShell
 Du kan behöva köra en eller flera administrativa uppgifter i hela livscykeln för en skaluppsättning för virtuell dator. Dessutom kanske du vill skapa skript som automatiserar olika livscykel-uppgifter. Den här artikeln beskrivs några vanliga Azure PowerShell-cmdlets som gör att du kan utföra dessa uppgifter.
 
-För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information om hur du installerar och använder den senaste versionen finns [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-portal-create.md).
+För att slutföra dessa hanteringsaktiviteter, behöver du den senaste Azure PowerShell-modulen. Mer information om hur du installerar och använder den senaste versionen finns [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps). Om du behöver skapa en skaluppsättning för virtuell dator kan du [skapa en skala som angetts i Azure portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visa information om en skaluppsättning
@@ -60,7 +60,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
 ```
 
 Om tar några minuter att uppdatera kapaciteten för din skala har angetts. Om du minskar kapaciteten för en skala ange de virtuella datorerna med högsta instans-ID tas bort först.

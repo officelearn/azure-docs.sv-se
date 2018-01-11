@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Lägga till, inaktivera, aktivera eller ta bort slutpunkter
 
@@ -39,7 +39,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
     1. Klicka på **Azure-slutpunkt** för **Typ**.
     2. Ange ett **Namn** som du vill använda för att identifiera den här slutpunkten.
     3. För **Målresurstyp** väljer du en lämplig resurstyp från listrutan.
-    4. För **Målresurs** väljer du en lämplig målresurs från listrutan för att visa resurserna i listan under samma prenumeration på **Resursbladet**. På bladet för **Resurser** som visas väljer du den tjänst som du vill lägga till som den första slutpunkten.
+    4. För **Målresurs** klickar du på **Välj...** för att visa resurser i samma prenumeration på **bladet Resurser**. På bladet för **Resurser** som visas väljer du den tjänst som du vill lägga till som den första slutpunkten.
     5. För **Prioritet**väljer du **1**. Detta resulterar i all trafik går igenom den här slutpunkten, förutsatt att den är felfri.
     6. Behåll **Lägg till som inaktiverad** som avmarkerat.
     7. Klicka på **OK**

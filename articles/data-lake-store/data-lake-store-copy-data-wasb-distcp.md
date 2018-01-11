@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Använd Distcp för att kopiera data mellan Azure Storage-blobbar och Data Lake Store
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Om du har ett HDInsight-kluster med åtkomst till Data Lake Store kan du använda Hadoop-ekosystemet verktyg som Distcp för att kopiera data **till och från** ett HDInsight-kluster storage (WASB) till ett Data Lake Store-konto. Den här artikeln innehåller instruktioner om hur du använder verktyget Distcp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Store-konto**. Anvisningar om hur du skapar en finns [Kom igång med Azure Data Lake Store](data-lake-store-get-started-portal.md)
@@ -114,7 +114,7 @@ När storleken på datamängden som ska flyttas är stor (till exempel > 1 TB) e
  
 * Om du kopierar från ett Azure Blob Storage-konto, att kopiera-projekt begränsas på blob storage-sida. Detta försämrar prestanda för Kopiera projekt. Mer information om gränserna för Azure Blob Storage finns Azure Lagringsgränser på [Azure-prenumeration och tjänstbegränsningarna](../azure-subscription-service-limits.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kopiera data från Azure Storage-Blobbar till Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

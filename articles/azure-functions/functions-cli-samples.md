@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6a86c931134ddfeb17ca540a299a369482d47370
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -34,12 +34,17 @@ Följande tabell innehåller länkar till bash skript för Azure-funktioner som 
 | | |
 |**Integrera**||
 | [Skapa en funktionsapp och Anslut till ett lagringskonto](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Skapa en funktionsapp och ansluta till ett lagringskonto. |
-| [Skapa en funktionsapp och ansluta till en Azure-Cosmos-databas](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Skapa en funktionsapp och ansluter till en Azure-Cosmos-databas |
+| [Skapa en funktionsapp och ansluta till en Azure-Cosmos-databas](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Skapa en funktionsapp och ansluta till en Azure-Cosmos-databas. |
+| | |
+|**Kontinuerlig distribution**||
+| [Distribuera från GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Skapa en funktionsapp som distribuerar från en GitHub-databas.  |
+| [Distribuera från VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en funktionsapp som distribuerar från en Visual Studio Team Services VSTS ()-databas.  |
 | | |
 |**Konfigurera appen**||
 | [Mappa en anpassad domän till en funktionsapp](scripts/functions-cli-configure-custom-domain.md) | Definiera en anpassad domän för dina funktioner.  |
 | [Binda ett SSL-certifikat till en funktionsapp](scripts/functions-cli-configure-ssl-certificate.md)  |  Överför SSL-certifikat för funktioner i en anpassad domän. |
-<!--
+
+<!---
 
 |**Scale app**||
 

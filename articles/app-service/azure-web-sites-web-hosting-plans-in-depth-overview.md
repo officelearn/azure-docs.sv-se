@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt av Azure App Service-plan
 
-I App Service är en app som körs i en _programtjänstplanen_. En apptjänstplan definierar en uppsättning beräkningsresurser för ett webbprogram ska köras. Dessa beräkna resurser kan jämföras med den [ _servergruppen_ ](https://wikipedia.org/wiki/Server_farm) i konventionella webbhotell. En eller flera appar kan konfigureras för att köras på samma dataresurser (eller i samma programtjänstplan). 
+I App Service är en app som körs i en _programtjänstplanen_. En apptjänstplan definierar en uppsättning beräkningsresurser för ett webbprogram ska köras. Dessa beräkna resurser kan jämföras med den [ _servergruppen_ ](https://wikipedia.org/wiki/Server_farm) i konventionella webbhotell. En eller flera appar kan konfigureras för att köras på samma dataresurser (eller i samma programtjänstplan).
 
 När du skapar en apptjänstplan i en viss region (till exempel västra Europa) skapas en uppsättning beräkningsresurser för planen i den regionen. De appar du lägga till i den här programtjänstplanen som körs på de beräkningsresurser som definierats av din programtjänstplan. Varje App Service-plan definierar:
 
@@ -38,6 +38,8 @@ Den _prisnivån_ av en App Service plan avgör vilken App Service-funktioner som
 - **Dedikerad beräkning**: den **grundläggande**, **Standard**, **Premium**, och **PremiumV2** nivåer köra appar på dedikerade Azure Virtuella datorer. Endast appar i samma programtjänstplanen delar samma beräkningsresurser. Ju högre nivån mer VM-instanser är tillgängliga för skalbar.
 - **Isolerade**: det här skiktet körs dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk, vilket ger nätverksisolering ovanpå beräkning isolering till dina appar. Det ger högsta skalbar funktionerna.
 - **Förbrukning**: det här skiktet är bara tillgänglig för [fungerar appar](../azure-functions/functions-overview.md). Skalningen av funktioner dynamiskt beroende på arbetsbelastningen. Mer information finns i [Azure Functions värd planer jämförelse](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Varje nivå innehåller också en delmängd av App Service-funktioner. Dessa funktioner inkluderar anpassade domäner och SSL-certifikat, autoskalning, distributionsplatser, säkerhetskopiering, Traffic Manager-integrering med mera. Ju högre nivån fler funktioner är tillgängliga. Om du vill veta vilka funktioner som stöds i varje prisnivå [information för App Service-plan](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

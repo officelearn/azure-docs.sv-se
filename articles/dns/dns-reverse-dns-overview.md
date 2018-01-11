@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Översikt över omvänd DNS- och support i Azure
 
@@ -34,7 +34,7 @@ Omvänd DNS-poster finns i särskilda DNS-zoner, kallas ”ARPA-zoner.  Dessa zo
 
 Till exempel implementeras DNS-poster ”www.contoso.com” med hjälp av DNS-A-post med namnet www i zonen contoso.com.  Den här A-posten pekar på den motsvarande IP-adressen i det här fallet 64.4.6.100.  Omvänd sökning implementeras separat, med hjälp av en 'PTR-post med namnet '100' i zonen '6.4.64.in-addr.arpa' (Observera att IP-adresser återförs i ARPA-zoner.)  Den här PTR-post pekar om den har konfigurerats på rätt sätt, på namnet www.contoso.com.
 
-När en organisation tilldelas ett IP-Adressblock måste hämta de också behörighet för att hantera motsvarande ARPA-zon. ARPA-zoner som motsvarar IP-Adressblock som används av Azure på och hanteras av Microsoft. Leverantören kan vara värd för zonen ARPA för din egen IP-adresser som du eller kan tillåta att du vara värd för zonen ARPA i en DNS-tjänsten du väljer, till exempel Azure DNS.
+När en organisation tilldelas ett IP-Adressblock måste hämta de också behörighet för att hantera motsvarande ARPA-zon. ARPA-zoner som motsvarar IP-Adressblock som används av Azure på och hanteras av Microsoft. Leverantören kan vara värd för zonen ARPA för din egen IP-adresser för dig, eller kanske kan vara värd för zonen ARPA i en DNS-tjänsten du väljer, till exempel Azure DNS.
 
 > [!NOTE]
 > Vanliga DNS-sökningar och omvänd DNS-sökning implementeras i separata, parallella DNS-hierarkier. Omvänd sökning för ”www.contoso.com” är **inte** finns i zonen ”contoso.com”, i stället den finns i zonen ARPA för motsvarande IP-adressintervall. Separata zoner används för IPv4 och IPv6-Adressblock.

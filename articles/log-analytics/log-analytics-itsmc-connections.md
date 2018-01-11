@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Anslut ITSM produkter och tjänster med IT Service Management-anslutningstjänsten (förhandsgranskning)
 Den här artikeln innehåller information om hur du ansluter din ITSM produkter eller tjänster till IT Service Management koppling (ITSMC) i OMS och centralt hantera din arbetsobjekt. Läs mer om ITSMC [översikt](log-analytics-itsmc-overview.md).
@@ -33,7 +33,7 @@ Följande produkter och tjänster i ITSM stöds. Välj produkt att visa detaljer
 
 Följande avsnitt innehåller information om hur du ansluter din System Center Service Manager-produkten till ITSMC i OMS.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -90,7 +90,7 @@ Använd det automatiska [skriptet](log-analytics-itsmc-service-manager-script.md
 Kör skript genom att tillhandahålla följande obligatoriska uppgifter:
 
 - Information om Azure-prenumeration
-- Resursgruppens namn
+- Resursgruppsnamn
 - Plats
 - Information om Service Manager (servernamnet, domän, användarnamn och lösenord)
 - Platsen namnprefixet för ditt webbprogram
@@ -170,18 +170,22 @@ Följande exempel bilden visar information om anslutningen lyckas:
 
 Följande avsnitt innehåller information om hur du ansluter ServiceNow-produkten till ITSMC i OMS.
 
-### <a name="prerequisites"></a>Krav
-
+### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
-
 - ITSMC installerad. Mer information: [att lägga till IT-tjänsten hanteringslösning Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow stöds versioner – Fuji, Geneva, Helsingfors.
+- ServiceNow-versioner som stöds: Djakarta, Istanbul, Helsingfors, Geneva
 
-ServiceNow Admins måste göra följande i sina ServiceNow-instans:
-- Generera klient-ID och klienthemlighet för ServiceNow-produkten. Mer information om hur du skapar klient-ID och Hemlig finns [OAuth-installationen](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Installera appen användaren för Microsoft OMS-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**ServiceNow Admins måste göra följande i sina instansen av ServiceNow**:
+- Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och Hemlig, finns följande information som krävs:
+
+    - [Konfigurera OAuth för Djakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurera OAuth för Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurera OAuth för Helsingfors](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Konfigurera OAuth för Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Installera appen användaren för Microsoft OMS-integrering (ServiceNow-app). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Skapa integration användarroll för användaren appen är installerad. Information om hur du skapar användarrollen integration [här](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Proceduren för anslutning**
 Använd följande procedur för att skapa en ServiceNow-anslutning:
@@ -263,7 +267,7 @@ När användaren har skapats, status för **Kontrollera installationschecklista*
 Följande avsnitt innehåller information om hur du ansluter Provance produkten till ITSMC i OMS.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -309,7 +313,7 @@ Mer information: [skapa ITSM arbetsobjekt för aviseringar OMS](log-analytics-it
 
 Följande avsnitt innehåller information om hur du ansluter Cherwell produkten till ITSMC i OMS.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 

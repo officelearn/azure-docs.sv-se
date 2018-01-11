@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Connected Service (förhandsversion)
 
@@ -33,7 +33,7 @@ Du kan även använda Datautforskaren i Connected Service för att skapa lagrade
 Se till att du har följande objekt:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
-* Ett Azure Cosmos DB-konto. Om du inte redan har ett följer du anvisningarna för hur du [skapar ett Azure Cosmos DB-konto](create-documentdb-dotnet.md) för att skapa ett i Azure-portalen eller läs [Create an Azure Cosmos DB account in the Connected Service tool](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) (Skapa ett Azure Cosmos DB i Connected Service-verktyget). 
+* Ett Azure Cosmos DB-konto. Om du inte redan har ett följer du anvisningarna för hur du [skapar ett Azure Cosmos DB-konto](create-sql-api-dotnet.md) för att skapa ett i Azure-portalen eller läs [Create an Azure Cosmos DB account in the Connected Service tool](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) (Skapa ett Azure Cosmos DB i Connected Service-verktyget). 
 * Om du vill använda en lokal miljö i utvecklingssyfte kan du använda [Azure Cosmos DB-emulatorn](local-emulator.md). Miljön emulerar Azure Cosmos DB-tjänsten.
 * [Visual Studio](http://www.visualstudio.com/).
 * De senaste Azure Cosmos DB Connected Service-bitarna. Du kan ladda ned Azure Cosmos DB Connected Service från Visual Studio Marketplace enligt följande skärmbild. Öppna **Visual Studio** på datorn. På menyn **Tools** (Verktyg) väljer du **Extensions and update...** (Tillägg och uppdatering...) och väljer sedan **Online** / **Visual Studio Marketplace**. Ange **cosmosdb** för att söka efter bitarna.
@@ -119,8 +119,8 @@ I det här dokumentet har du lärt dig följande:
 
 När du nu har fått igång Connected Services med ditt Azure Cosmos DB-konto fortsätter du till någon av självstudiekurserna för att börja utveckla din lösning:
 
-* [Utveckla med DocumentDB API i .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: Självstudiekurs för att komma igång med DocumentDB-API:et](documentdb-get-started.md).
+* [Utveckla med SQL API i .NET](tutorial-develop-sql-api-dotnet.md).
+* [Azure Cosmos DB: Självstudiekurs för att komma igång med API för SQL](sql-api-get-started.md).
 * Vill du testa skalning och prestanda med Azure Cosmos DB? Mer information finns i avsnittet om hur du [testar prestanda och skalning med Azure Cosmos DB](performance-testing.md).
 * Lär dig hur du [övervakar ett Azure Cosmos DB-konto](monitor-accounts.md).
 

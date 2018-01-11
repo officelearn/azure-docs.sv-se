@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Hantera Azure Cosmos DB i Azure Lagringsutforskaren (förhandsversion)
 
-Med hjälp av Azure Cosmos DB i Azure Lagringsutforskaren kan du hantera Azure Cosmos DB-enheter, manipulera data och uppdatera lagrade procedurer och utlösare tillsammans med andra Azure entiteter som Storage-blobbar och köer. Nu kan du använda samma verktyg för att hantera dina Azure olika enheter i ett och samma ställe. För tillfället stöder Azure Lagringsutforskaren SQL och MongoDB-konton. Azure Lagringsutforskaren fungerar inte med Azure Cosmos DB lokala emulatorn. 
+Med hjälp av Azure Cosmos DB i Azure Lagringsutforskaren kan du hantera Azure Cosmos DB-enheter, manipulera data och uppdatera lagrade procedurer och utlösare tillsammans med andra Azure entiteter som Storage-blobbar och köer. Nu kan du använda samma verktyg för att hantera dina Azure olika enheter i ett och samma ställe. Just nu är Azure Lagringsutforskaren stöder SQL <!--and MongoDB--> konton. Azure Lagringsutforskaren fungerar inte med Azure Cosmos DB lokala emulatorn. 
 
 I den här artikeln får du lära dig hur du använder Lagringsutforskaren för att hantera Azure Cosmos DB.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Ett Azure DB som Cosmos-konto för SQL API eller MongoDB-API. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: skapa en SQL-API-webbprogram med .NET och Azure portal](create-documentdb-dotnet.md).
+Ett Azure DB som Cosmos-konto för SQL-API <!--or MongoDB API-->. Om du inte har ett konto kan du skapa en i Azure-portalen, enligt beskrivningen i [Azure Cosmos DB: skapa en SQL-API-webbprogram med .NET och Azure portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installation
 
@@ -70,7 +70,7 @@ Ett alternativt sätt att ansluta till en Azure-Cosmos-databas är att använda 
 
     ![ansluta till Azure Cosmos-databas med anslutningssträngen](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Välj lämplig **standard upplevelse** för vilken typ av konto antingen **DocumentDB** eller **MongoDB**, klistra in i din **anslutningssträngen**, och klicka sedan på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Välj lämplig **standard upplevelse** för vilken typ av konto <!--either--> **DocumentDB** <!--or **MongoDB**-->, klistra in i din **anslutningssträngen**, och sedan Klicka på **OK** att ansluta till Azure DB som Cosmos-konto. Information om hur du hämtar anslutningssträngen finns [hämta anslutningssträngen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![anslutningssträng](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -137,7 +137,7 @@ Om du vill skapa ett nytt dokument öppna **dokument** i det vänstra fönstret 
 #### <a name="delete-a-document"></a>Ta bort ett dokument
 Klicka på den **ta bort** för att ta bort det valda dokumentet.
 #### <a name="query-for-documents"></a>Frågan för dokument
-Redigera dokumentfilter genom att ange en [SQL-frågan](documentdb-sql-query.md) och klicka sedan på **tillämpa**.
+Redigera dokumentfilter genom att ange en [SQL-frågan](sql-api-sql-query.md) och klicka sedan på **tillämpa**.
 
 ![Filter](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: e9ac97aa31e9909584bfc5debdfba927d4884114
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 642b02b06caaa7f2c5df71227d75281c0778a483
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Köra Hive-frågor med HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -30,7 +30,7 @@ Lär dig mer om att skicka Hive-frågor med HDInsight .NET SDK. Du skriva ett C#
 > [!NOTE]
 > Stegen i den här artikeln måste utföras från en Windows-klient. Använd flikväljaren visas överst i artikeln för information om hur du använder en Linux-, OS X- eller Unix-klient ska fungera med Hive.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här artikeln, måste du ha följande:
 
 * **Ett Hadoop-kluster i HDInsight**. Se [komma igång med Linux-baserade Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md).

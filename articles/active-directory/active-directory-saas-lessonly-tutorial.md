@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68ada2da62958948dbf232b5f83f69d7942b9c10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Självstudier: Azure Active Directory-integrering med Lesson.ly
 
@@ -31,7 +31,7 @@ Integrera Lesson.ly med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Lesson.ly, behöver du följande:
 
@@ -142,7 +142,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | ---------------  | ----------------|
     | urn: oid:2.5.4.42 |User.givenName |
     | urn: oid:2.5.4.4  |User.surname |
-    | urn: oid:0.9.2342.19200300.1001.3 |User.Mail |
+    | urn: oid:0.9.2342.19200300.100.1.3 |User.Mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.ObjectId |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 

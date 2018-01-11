@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure IoT Edge
       href: how-iot-edge-works.md
@@ -26,13 +26,29 @@
       href: tutorial-deploy-function.md
 - name: Instruktionsguider
   items:
-    - name: Skapa en transparent gateway
-      href: how-to-create-transparent-gateway.md
+    - name: Skapa gatewayer
+      items:
+        - name: Skapa en transparent gateway
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus-gateway
+          href: deploy-modbus-gateway.md
     - name: Distribuera och övervaka i skala
       href: how-to-deploy-monitor.md
     - name: Etablera en IoT Core-enhet
       href: how-to-install-iot-core.md
-- name: Koncept
+    - name: Använda VS-kod för att utveckla IoT Edge-lösningar
+      items:
+        - name: 'Utveckla och distribuera en C#-modul'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'Felsöka C#-modulen'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Utveckla och distribuera Azure Functions
+          href: how-to-vscode-develop-azure-function.md
+        - name: Felsöka Azure Functions
+          href: how-to-vscode-debug-azure-function.md
+    - name: Felsöka
+      href: troubleshoot.md
+- name: Begrepp
   items:
     - name: IoT Edge-moduler
       href: iot-edge-modules.md

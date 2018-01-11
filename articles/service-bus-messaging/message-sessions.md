@@ -11,51 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>Meddelande sessioner / först in, först ut (FIFO) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>Meddelande sessioner: först in, först ut (FIFO) 
 
-Service Bus-sessioner aktivera gemensamma och beställda hantering av unbounded sekvenser av relaterade meddelanden. Du måste använda sessioner för att använda en FIFO säkerhet i Service Bus. Service Bus är inte normativ om vilken typ av relationen mellan meddelanden och även definierar inte en viss modell för att fastställa om en meddelandet följd börjar eller slutar.
+Microsoft Azure Service Bus-sessioner aktivera gemensamma och beställda hantering av unbounded sekvenser av relaterade meddelanden. Använda sessioner för att använda en FIFO säkerhet i Service Bus. Service Bus är inte normativ om vilken typ av relationen mellan meddelanden och även definierar inte en viss modell för att fastställa om en meddelandet följd börjar eller slutar.
 
-Alla avsändarens kan skapa en session när skickar meddelanden till ett ämne eller en kö genom att ange den [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) broker egenskapen till vissa tillämpningsdefinierad identifierare som är unik för sessionen. På nivån AMQP 1.0-protokollet värdet mappar till den *grupp-id* egenskapen.
+Alla avsändarens kan skapa en session när skickar meddelanden till ett ämne eller en kö genom att ange den [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) egenskapen till vissa tillämpningsdefinierad identifierare som är unik för sessionen. På nivån AMQP 1.0-protokollet värdet mappar till den *grupp-id* egenskapen.
 
 I session-medvetna köer eller prenumerationer sessioner uppstå om det finns minst ett meddelande sessionens [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). När en session finns, det finns ingen angiven tidpunkt eller API för när sessionen upphör att gälla eller tas bort. Teoretiskt, kan ett meddelande tas emot för en session idag nästa meddelande i ett år tid, och om den **SessionId** matchar, sessionen är samma ur ett Service Bus.
 
-Vanligtvis har ett program dock Radera begreppet där en uppsättning relaterade meddelanden börjar och slutar. men anger inte några särskilda regler i Service Bus.
+Vanligtvis har ett program dock Radera begreppet där en uppsättning relaterade meddelanden börjar och slutar. Särskilda regler som angetts för Service Bus.
 
-Ett exempel på hur du avgränsa en sekvens för att överföra en fil är att ange den **etikett** -egenskapen för det första meddelandet till **starta**, för mellanliggande meddelanden till **innehåll**, och för det sista meddelandet till **end**. Den relativa positionen för innehåll meddelanden kan beräknas som aktuella meddelandet *SequenceNumber* delta från den **starta** meddelandets *SequenceNumber*.
+Ett exempel på hur du avgränsa en sekvens för att överföra en fil är att ange den **etikett** -egenskapen för det första meddelandet till **starta**, för mellanliggande meddelanden till **innehåll**, och för det sista meddelandet till **end**. Den relativa positionen för innehåll meddelanden kan beräknas som det aktuella meddelandet *SequenceNumber* delta från den **starta** meddelandet *SequenceNumber*.
 
 Funktionen session i Service Bus gör en specifik mottagningsåtgärd, i form av [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) i C# och Java API: er. Du aktiverar funktionen genom att ange den [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) -egenskapen i kö eller prenumeration via Azure Resource Manager eller genom att ange flaggan i portalen. Detta krävs innan du försöker använda de relaterade API-operationerna.
 
-I portalen anges flaggan med följande kryssruta:
+Ställ in flaggan med följande kryssruta i portalen:
 
 ![][2]
 
-API: er för sessioner finns på klienter i kön och prenumeration. Det finns en tvingande modell där du kan bestämma när sessioner och meddelanden som tas emot och en hanterare-baserade modell, liknar *OnMessage*, att döljer komplexiteten med att hantera tar emot slinga.
+API: er för sessioner finns på klienter i kön och prenumeration. Det finns en tvingande modell som styr när sessioner och meddelanden som tas emot och en hanterare-baserade modell, liknar *OnMessage*, att döljer komplexiteten med att hantera tar emot slinga.
 
 ## <a name="session-features"></a>Sessionen funktioner
 
-Ger sessioner samtidigt som demultiplexera överlagrad meddelandeströmmar samtidigt bevara och garanterar leverans.
+Sessioner ange samtidiga Frigör multiplexering av överlagrad meddelandeströmmar samtidigt bevara och garanterar leverans.
 
 ![][1]
 
-En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) mottagaren har skapats av klienten accepterar en session. Imperatively, klientanrop [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I modellen reaktiv återanrop registreras en session-hanterare som beskrivs senare.
+En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) mottagaren har skapats av klienten accepterar en session. Klienten anropar [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I modellen reaktiv återanrop registreras en session-hanterare som beskrivs senare.
 
-När den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) accepteras och när den hålls av en klient att klientdatorer har ett exklusivt lås på alla meddelanden med den aktuella sessionen [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) befintliga i kön eller prenumeration, samt även på alla meddelanden med **SessionId** som fortfarande tas emot medan sessionen lagras.
+När den [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objekt accepteras och när den hålls av en klient att klientdatorer har ett exklusivt lås på alla meddelanden med den aktuella sessionen [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kön eller prenumeration, och även om alla meddelanden med som **SessionId** som fortfarande tas emot medan sessionen hålls.
 
-Låset frigörs när **Stäng** eller **CloseAsync** kallas, eller när låset upphör att gälla i fall där programmet inte finns. Låset session ska behandlas som ett exklusivt lås på en fil, vilket innebär att programmet ska stänga sessionen när den inte längre behöver den och/eller förväntar sig inte några fler meddelanden.
+Låset frigörs när **Stäng** eller **CloseAsync** kallas, eller när låset upphör att gälla i fall där programmet kan inte utföra close-åtgärd. Låset session ska behandlas som ett exklusivt lås på en fil, vilket innebär att programmet ska stänga sessionen när den inte längre behöver den och/eller förväntar sig inte några fler meddelanden.
 
 När flera samtidiga mottagare hämtar från kön, skickas de meddelanden som tillhör en viss session till specifika mottagare som för närvarande innehar låset för den aktuella sessionen. Med åtgärden, en överlagrad meddelandeströmmen som finns i en kö eller prenumeration är klar Frigör multiplex till olika mottagare och dessa mottagare kan också live på olika klientdatorer, eftersom Lås management händer tjänsten på klientsidan, inuti Service Bus.
 
 En kö är dock fortfarande en kö: det finns inga direktåtkomst. Om flera samtidiga mottagare väntetiden för att acceptera specifika sessioner eller vänta tills meddelanden från specifika sessioner och det finns ett meddelande längst upp i en kö som hör till en session som har ingen mottagare ännu gällande håller leveranser tills en session mottagare anspråk som sessionen.
 
-I föregående bild visas tre samtidiga session mottagare, som aktivt måste vidta meddelanden från kön för varje mottagare fortsätta. Den senaste sessionen med *SessionId*= 4 har inga aktiva, ägande klienten, vilket innebär att inga meddelanden levereras till någon tills meddelandet har tagits äger sessionen mottagare av ett nyligen skapade.
+I föregående bild visas tre samtidiga session mottagare, som aktivt måste vidta meddelanden från kön för varje mottagare fortsätta. Den senaste sessionen med `SessionId` = 4 har inga aktiva, ägande klienten, vilket innebär att inga meddelanden levereras till någon tills meddelandet har tagits av en nyligen skapade äger sessionen mottagare.
 
 Medan som visas för att begränsa kan en enda mottagare process hantera många samtidiga sessioner enkelt, särskilt när de skrivs med strikt asynkron kod. Samtidig användning av flera dussin samtidiga sessioner är effektivt automatisk med återanrop modellen.
 
@@ -79,7 +79,7 @@ Sessionens tillstånd lagras i en kö eller i en prenumeration räknar mot lagri
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [En komplett exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) köer med hjälp av .NET standardbibliotek skicka och ta emot sessionsbaserade meddelanden från Service Bus.
+- [En komplett exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) köer med hjälp av .NET standardbibliotek skicka och ta emot sessionsbaserade meddelanden från Service Bus.
 - [Ett exempel på en](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) som använder .NET Framework-klienten för att hantera sessions-anpassade meddelanden. 
 
 Om du vill lära dig mer om Service Bus-meddelanden, finns i följande avsnitt:

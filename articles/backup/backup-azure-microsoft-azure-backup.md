@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Förbereder för att säkerhetskopiera arbetsbelastningar med Azure Backup Server
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Om du inte vill köra grundläggande server i Azure kan du köra servern på en 
 
 | Operativsystem | Plattform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 och senaste Service Pack |64-bitars |Standard, Datacenter, Essentials (MABS v2 och senare) |
 | Windows Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Datacenter, Foundation |
 | Windows Server 2012 och senaste Service Pack |64-bitars |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 och senaste Service Pack |64-bitars |Standard, Workgroup |
@@ -113,7 +114,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ## <a name="3-software-package"></a>3. Programpaket
 ### <a name="downloading-the-software-package"></a>Hämta programpaket
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Om du redan har ett öppet för Recovery Services-valvet vidare till steg 3. Om inget Recovery Services-valv är öppet, men du befinner dig på Azure-portalen klickar du på **Bläddra** på navmenyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -239,11 +240,11 @@ När du vet att anslutningen Azure och Azure-prenumerationen kan använda du tab
 
 | Tillstånd för anslutning | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disken |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåtna |Tillåtna |Tillåtna |Tillåtna |
-| Ansluten |Upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
+| Ansluten |Active |Behörig |Behörig |Behörig |Behörig |
+| Ansluten |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
-| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Tillåtna |Tillåtna |
-| Förlorade anslutningen > 15 dagar |Upphört att gälla |Stoppad |Stoppad |Tillåtna |Tillåtna |
+| Förlorade anslutningen > 15 dagar |Active |Stoppad |Stoppad |Behörig |Behörig |
+| Förlorade anslutningen > 15 dagar |Har upphört att gälla |Stoppad |Stoppad |Behörig |Behörig |
 | Förlorade anslutningen > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppad och Azure återställningspunkter tas bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställa från anslutningsproblem

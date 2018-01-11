@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matris som stöds för den här versionen 
 När koden läser in data med hjälp av Azure Machine Learning-datakällor eller Azure Machine Learning Data förberedelser, komma antingen Pandas eller Spark dataframe, följande kombinationer av experimentet compute miljöer och data platser stöds:
@@ -37,4 +37,4 @@ Azure Data Lake Store stöds inte för varje compute-mål.
 
 ** Använder SQL Server för Maven JDBC-drivrutinen 6.2.1. Du måste se till att det här paketet (eller en kompatibel) ingår i filen spark_dependencies.yml för beräknings-miljö.
 
-Har stöd för Azure SQL Database, Azure SQL Data Warehouse eller SQL Server har angetts i databasen kan nås från beräknings-miljön. 
+Har stöd för Azure SQL Database eller SQL Server har angetts i databasen kan nås från beräknings-miljön. 

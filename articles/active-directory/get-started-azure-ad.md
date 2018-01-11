@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Kom igång med Azure AD
 Moderna Identitetshantering kräver skalbart och konsekvent reliablity att kontrollera tillgänglighet för program och tjänster till endast autentiserade användare. För att stödja identity management behoven hos användare, IT-behov rätt ett sätt att ge åtkomst till offentliga godkända program som en tjänst (SaaS)-appar, ett sätt att värden interna branschspecifika appar och även kan förbättra lokalt app-utveckling och användning. Alla dessa krav peka behovet av en molnbaserad identitetshanteringslösning.      
 
 Azure Active Directory (AD Azure) är Microsofts flera innehavare, molnbaserade katalog och identity management-tjänsten. Azure AD kombinerar core katalogtjänster, avancerade identitet styrning och hantering av åtkomst. Flera innehavare, fördelade hög tillgänglighet utformning av Azure AD-innebär att du kan använda det för dina viktigaste affärsbehov.
 
-Azure AD innehåller en fullständig uppsättning identitetshanteringsfunktionerna inklusive möjligheten att synkronisera lokala resursinformation, anpassa företagsinformation, enkla licenshantering och även självbetjäning lösenordshantering.  Dessa enkla att ställa in funktioner hjälper dig komma igång med Azure AD för att säkra molnbaserade program, effektivisera IT-processer, minska kostnaderna och säkerställer att företagsefterlevnad mål är uppfyllda.
+Azure AD innehåller en fullständig uppsättning identitetshanteringsfunktionerna inklusive möjligheten att synkronisera lokala resursinformation, anpassa företagsinformation, enkla licenshantering och även självbetjäning lösenordshantering. Dessa enkelt att distribuera funktioner kan hjälpa dig att komma igång med Azure AD för att skydda molnbaserade program, effektivisera IT-processer, minska kostnaderna och säkerställer att företagsefterlevnad mål är uppfyllda.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -80,7 +80,7 @@ Du kan använda gruppbaserade licenstilldelning ställa in regler som i följand
 ### <a name="verification-step"></a>Verifieringssteg
 Granska tilldelade och tillgängliga licenser under **Azure Active Directory** > **licenser** > **alla produkter**.
 
-## <a name="configure-self-service-password-reset"></a>Konfigurera lösenordsåterställning via självbetjäning
+## <a name="configure-self-service-password-reset"></a>Konfigurera självbetjäning vid återställning av lösenord
 [Självbetjäning för lösenordsåterställning (SSPR)](active-directory-passwords-getting-started.md) erbjuder ett enkelt sätt för IT-administratörer så att användarna kan återställa eller låsa upp sitt lösenord eller konton. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
 ### <a name="verification-step"></a>Verifieringssteg
@@ -88,6 +88,6 @@ Granska aktiverat SSPR egenskaper under **Azure Active Directory** > **lösenord
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Produktsida för Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+[Azure Active Directory service-sidan](https://azure.microsoft.com/services/active-directory/)
 
 [Azure Active Directory information prissättningssidan](https://azure.microsoft.com/pricing/details/active-directory/)

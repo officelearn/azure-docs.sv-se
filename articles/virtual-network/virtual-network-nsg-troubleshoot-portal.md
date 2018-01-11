@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Felsöka Nätverkssäkerhetsgrupper i Azure Portal
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-nsg-troubleshoot-portal.md)
+> * [Azure-portalen](virtual-network-nsg-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
 > 
 > 
@@ -46,7 +46,7 @@ Utför följande steg för att felsöka NSG: er för en virtuell dator:
 
 Du kan visa en fullständig lista över giltiga säkerhetsregler på ett nätverkskort från Virtuellt datorn. Du kan också lägga till, ändra och ta bort både nätverkskort och undernät NSG-regler från bladet effektiva regler om du har behörighet att utföra dessa åtgärder.
 
-1. Logga in på Azure-portalen på https://portal.azure.com.
+1. Logga in på Azure-portalen på https://portal.azure.com med ett Azure-konto. Ditt konto ha tilldelats den *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* åtgärden för nätverksgränssnittet. Information om hur du tilldelar åtgärder till konton finns [skapa anpassade roller för rollbaserad åtkomstkontroll i](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Klicka på **fler tjänster**, klicka på **virtuella datorer** som visas i listan.
 3. Välj en virtuell dator för att felsöka i listan som visas och en VM-bladet med alternativ visas.
 4. Klicka på **diagnostisera & lösa problem** och välj sedan ett vanligt problem. I det här exemplet **jag kan inte ansluta till en virtuell dator Windows** är markerad. 

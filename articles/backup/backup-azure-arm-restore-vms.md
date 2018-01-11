@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
-> [!div class="op_single_selector"]
-> * [Återställa virtuella datorer i den klassiska portalen](backup-azure-restore-vms.md)
-> * [Återställa virtuella datorer i Azure-portalen](backup-azure-arm-restore-vms.md)
->
->
-
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
 
 * Skapa en ny virtuell dator, som är en tidpunkt i representation av säkerhetskopierade-VM.
@@ -48,7 +42,7 @@ Den här artikeln beskriver hur du återställer en virtuell dator till en ny vi
 * Välj typ av återställning, skapa en ny virtuell dator eller återställa diskar och ange de obligatoriska parametrarna. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Välj en återställningspunkt för återställning
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure-portalen](http://portal.azure.com/).
 
 2. Välj på menyn Azure **Bläddra**. I listan över tjänster, skriver **återställningstjänster**. Listan över tjänster justerar du anger. När du ser **Recovery Services-valv**, markerar du den.
 

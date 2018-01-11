@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>Expandera JSON omvandling
 Den **Expandera JSON** transformeringen kan du expandera en befintlig kolumn som innehåller giltig JSON-texten till flera kolumner.
@@ -33,7 +33,7 @@ Nya kolumner läggs till bredvid källkolumnen. Dessa kolumner innehåller egens
 
 Källan columnn *kunden* utökats till två kolumner *Customer.Name* och *Customer.Phone*.
 
-| Kunden                                                | Customer.Name   | Customer.Phone |
+| Kund                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|
 | {”Name”: ”Carrie Dodson”, ”Phone”: ”123-4567-890”}   | Carrie Dodson   | 123-4567-890   |
 | {”Name”: ”Leonard Robledo”, ”Phone”: ”123-456-7890”} | Leonard Robledo | 456-7890-123   |

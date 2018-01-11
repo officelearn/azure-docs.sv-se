@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Anropa en funktion från Microsoft Flow
 
@@ -39,7 +39,7 @@ I det här avsnittet lär du dig hur du:
 > * Skapa ett flöde för att skicka e-post om en reparation är kostnadseffektiv.
 > * Kör flödet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En aktiv [Microsoft Flow konto](https://flow.microsoft.com/documentation/sign-up-sign-in/) med samma tecken i autentiseringsuppgifter som din Azure-konto. 
 + SharePoint, som du använder som en datakälla för det här flödet. Registrera dig för [en utvärderingsversion av Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) om du inte redan har SharePoint.

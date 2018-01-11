@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Uppdatera ett program i Azure Container Service (AKS)
 
@@ -33,7 +33,7 @@ I efterföljande självstudiekurser är Operations Management Suite konfigurerad
 
 I föregående självstudier, ett program som har paketerats i en behållare avbildning, bilden överförs till registret för Azure-behållaren och ett Kubernetes kluster skapas. Programmet körs sedan Kubernetes klustret. 
 
-En program-databas har också klona som innehåller programmets källkod och en förskapad Docker Compose-fil som används i den här kursen. Kontrollera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger till katalogen klonade. I är en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yml`.
+En program-databas har också klona som innehåller programmets källkod och en förskapad Docker Compose-fil som används i den här kursen. Kontrollera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger till katalogen klonade. I är en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yaml`.
 
 Om du inte har utfört stegen och vill följa med, gå tillbaka till [kursen 1 – skapa behållaren bilder][aks-tutorial-prepare-app]. 
 

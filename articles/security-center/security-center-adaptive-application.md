@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Anpassningsbara programkontroller i Azure Security Center (förhandsversion)
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -33,18 +33,14 @@ Med hjälp av anpassningsbara programkontroller kan du kontrollera vilka program
 - Förhindra vissa verktyg som inte tillåts i din organisation.
 - Aktivera IT för att kontrollera åtkomsten till känsliga data via appanvändning.
 
-> [!NOTE]
-> Anpassningsbara programkontroller är tillgängliga för Azure Security Center Standard-kunder som en begränsad offentlig förhandsversion. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_appcontrol@microsoft.com) för att ta del av förhandsversionen.
-
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hur fungerar anpassningsbara programkontroller?
 Anpassningsbara programkontroller hjälper dig att definiera en uppsättning program som ska tillåtas att köras på konfigurerade resursgrupper. Den här funktionen är endast tillgänglig för Windows-datorer (alla versioner, klassisk eller Azure Resource Manager). Följ stegen nedan för att konfigurera listan över tillåtna program i Security Center:
 
-1.  Öppna instrumentpanelen **Security Center** och klicka på **Översikt**.
-2.  Under **Avancerat molnskydd** visar panelen för **anpassningsbara programkontroller** hur många virtuella datorer som för närvarande har kontroll på plats jämfört med alla virtuella datorer. Det visar också antalet ärenden som har identifierats föregående vecka: 
+1.  Öppna instrumentpanelen för **Security Center** och klicka på **Anpassningsbara programkontroller** under avsnittet **Avancerat molnskydd** i det vänstra navigeringsfönstret.
 
-    ![Anpassningsbara programkontroller](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Klicka på panelen för **anpassningsbara programkontroller** för att se fler alternativ.
+2. Sidan **Anpassningsbara programkontroller** visas.
 
     ![kontroller](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -72,7 +68,7 @@ I **Välj virtuella datorer** läser du listan med rekommenderade virtuella dato
 
 - **NAMN**: den fullständiga programsökvägen
 - **PROCESSER**: Hur många program som finns på varje sökväg
-- **VANLIG**: sant anger att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen.
+- **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorerna i den här resursgruppen.
 - **EXPLOATERBAR**: En varningsikon anger om programmen skulle kunna användas av en angripare för att kringgå listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem. 
 
 När du är klar med dina val klickar du på knappen **Skapa**. Som standard aktiverar Security Center alltid programkontroll i läget *Granska*. När du har validerat att listan inte har haft någon negativ inverkan på din arbetsbelastning kan du ändra till läget *Tvinga*.

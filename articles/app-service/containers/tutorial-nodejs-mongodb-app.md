@@ -15,15 +15,19 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Skapa en Node.js och MongoDB-webbapp i Azure App Service på Linux
 
-[Apptjänst i Linux](app-service-linux-intro.md) ger en mycket skalbar, automatisk uppdatering värdtjänst med Linux-operativsystem. Den här kursen visar hur du skapar en Node.js-webbapp, ansluta lokalt till MongoDB-databasen och sedan distribuera till Azure som är ansluten till en CosmosDB-databas med hjälp av MongoDB-API. När du är klar har du ett medelvärde program (MongoDB, snabb, AngularJS och Node.js) körs i Apptjänst i Linux. För enkelhetens skull exempelprogrammet använder den [MEAN.js webbramverk](http://meanjs.org/).
+> [!NOTE]
+> Den här artikeln distribuerar en app till App Service på Linux. Du distribuerar till App Service på _Windows_, se [skapa en Node.js och MongoDB-webbapp i Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
+
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här kursen visar hur du skapar en Node.js-webbapp, ansluta lokalt till MongoDB-databasen och sedan distribuera till Azure som är ansluten till en CosmosDB-databas med hjälp av MongoDB-API. När du är klar har du ett medelvärde program (MongoDB, snabb, AngularJS och Node.js) körs i Apptjänst i Linux. För enkelhetens skull exempelprogrammet använder den [MEAN.js webbramverk](http://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -126,7 +130,7 @@ Den här kursen används för MongoDB, [Azure Cosmos DB](/azure/documentdb/). Co
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos-DB-konto
 
-Molnet Shell, skapa ett Cosmos-DB-konto med den [az cosmosdb skapa](/cli/azure/cosmosdb#create) kommando.
+Molnet Shell, skapa ett Cosmos-DB-konto med den [az cosmosdb skapa](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) kommando.
 
 I följande kommando i stället använda ett unikt Cosmos-databasnamn för den  *\<cosmosdb_name >* platshållare. Det här namnet används som en del av Cosmos-DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos-DB-konton i Azure. Namnet måste innehålla endast små bokstäver, siffror och bindestreck (-) och måste vara mellan 3 och 50 tecken.
 
@@ -160,7 +164,7 @@ I det här steget kan ansluta du MEAN.js exempelprogrammet till Cosmos-DB-databa
 
 ### <a name="retrieve-the-database-key"></a>Hämta databasens nyckel
 
-För att ansluta till databasen Cosmos DB, måste databasnyckeln för. I gränssnittet molnet använder den [az cosmosdb lista nycklar](/cli/azure/cosmosdb#list-keys) kommando för att hämta den primära nyckeln.
+För att ansluta till databasen Cosmos DB, måste databasnyckeln för. I gränssnittet molnet använder den [az cosmosdb lista nycklar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) kommando för att hämta den primära nyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ I det här steget kan distribuera du MongoDB-anslutna Node.js-programmet till Az
 
 Som standard sparas projektet MEAN.js _config/env/local-production.js_ utanför Git-lagringsplats. Så för din Azure-webbapp använder du appinställningar för att definiera anslutningssträngen MongoDB.
 
-Ange app-inställningar i [az webapp config appsettings uppdatera](/cli/azure/webapp/config/appsettings#update) i molnet Shell.
+Ange app-inställningar i [az webapp konfigurationsuppsättning appsettings](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) i molnet Shell.
 
 I följande exempel konfigureras en `MONGODB_URI` appinställningen i ditt Azure webbapp. Ersätt den  *\<appnamn >*,  *\<cosmosdb_name >*, och  *\<primary_master_key >* platshållare.
 

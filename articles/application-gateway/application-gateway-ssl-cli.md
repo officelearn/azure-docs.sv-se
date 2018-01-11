@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
 ms.openlocfilehash: 4bdca33dae2ce52fdeccdae9a67abb6667593f9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Konfigurera en Programgateway för SSL-avlastning med hjälp av Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-ssl-portal.md)
+> * [Azure-portalen](application-gateway-ssl-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure klassiska PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)

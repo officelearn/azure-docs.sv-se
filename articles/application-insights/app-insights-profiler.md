@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilen live Azure-webbappar med Application Insights
 
@@ -227,6 +227,82 @@ När du konfigurerar profileraren görs uppdateringar till webbappens inställni
 7. Välj på webbplatsen Kudu **plats tillägg**.
 8. Installera __Programinsikter__ från galleriet Azure Web Apps.
 9. Starta om webbprogrammet.
+
+## <a id="profileondemand"></a>Utlösa profiler manuellt
+När vi har utvecklat profileraren vi har lagt till ett kommandoradsgränssnitt så att vi kan testa profileraren på apptjänster. Med det här gränssnittet användare kan också anpassa hur profileraren startar. På en hög nivå använder profileraren App Service Kudu System för att hantera profilering i bakgrunden. När du installerar Application Insights Extension kan vi skapa ett webbjobb jobb som är värd för profileraren. Vi använder samma tekniken för att skapa ett nytt jobb för webbprogram som du kan anpassa efter dina behov.
+
+Det här avsnittet beskrivs hur du:
+
+1.  Skapa ett webb-jobb som kan starta profileraren i två minuter med en knapp.
+2.  Skapa ett webb-jobb som kan schemalägga profiler ska köras.
+3.  Ange argument för profileraren.
+
+
+### <a name="set-up"></a>Konfigurera
+Första vi bekanta dig med jobbet web instrumentpanelen. Under inställningar klickar du på fliken WebJobs.
+
+![webjobs-bladet](./media/app-insights-profiler/webjobs-blade.png)
+
+Som du ser den här instrumentpanelen visar alla web jobb som är installerade på din plats. Du kan se ApplicationInsightsProfiler2 web jobbet som har profiler jobbet körs. Detta är där vi kommer att få vår nya web jobb skapas för manuell och schemalagd profilering.
+
+Första ska få binärfiler som vi behöver.
+
+1.  Först gå till webbplatsen kudu. Under utveckling verktygsflik Klicka på ”Avancerad” verktygsfliken med Kudu-logotypen. Klicka på ”Gå”. Detta leder till en ny plats och logga in dig automatiskt.
+2.  Nästa vi behöver hämta profileraren binärfiler. Gå till Utforskaren via Felsökningskonsolen -> CMD längst upp på sidan.
+3.  Klicka på webbplats -> wwwroot -> App_Data -> jobb -> kontinuerlig. Du bör se en mapp ”ApplicationInsightsProfiler2”. Klicka på ikonen ladda ned till vänster om mappen. Detta hämtas en ”ApplicationInsightsProfiler2.zip”-fil.
+4.  Detta laddar ned alla filer som behöver du går vidare. Jag rekommenderar att du skapar en Rensa katalog för att flytta den här zip-arkivet till innan du fortsätter.
+
+### <a name="setting-up-the-web-job-archive"></a>Konfigurera jobbet webbarkiv
+När du lägger till ett nytt jobb web azure-webbplatsen i grunden skapar du ett zip-arkiv med en run.cmd i. Run.cmd Anger web jobbet vad du ska göra när du kör jobbet för webbprogram. Det finns andra alternativ som du kan läsa från i dokumentationen till jobbet men exemplet vi behöver inte något annat.
+
+1.  Så här startar du skapa en ny mapp, som har det namnet utvinna ”RunProfiler2Minutes”.
+2.  Kopiera filerna från den extraherade mappen ApplicationInsightProfiler2 till den nya mappen.
+3.  Skapa en ny run.cmd-fil. (Jag har öppnat den här arbetsmapp i vs-kod innan du startar i informationssyfte)
+4.  Lägg till kommando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`, och spara filen.
+a.  Den `start` kommandot, anger profileraren att starta.
+b.  `--engine-mode immediate`Anger profileraren vi vill starta direkt profilering.
+c.  `--single`innebär att köra och sedan stoppa automatiskt d.  `--immediate-profiling-duration 120`innebär att profileraren kör för 120 sekunder eller 2 minuter.
+5.  Spara filen.
+6.  Arkivera mappen, kan du högerklicka på mappen och välj Skicka till -> komprimerad mapp. Detta skapar en .zip-fil med namnet på mappen.
+
+![Starta profileraren kommando](./media/app-insights-profiler/start-profiler-command.png)
+
+Nu har vi ett web jobbet .zip som vi kan använda för att ställa in webjobs på vår webbplats.
+
+### <a name="add-a-new-web-job"></a>Lägg till ett nytt web-jobb
+Nästa vi lägger till ett nytt jobb web vår webbplats. Det här exemplet visas hur du lägger till en manuell utlösta web-jobbet. När du ska kunna göra det är processen nästan exakt samma för schemalagd. Du kan läsa mer om schemalagda utlösta jobb på egen hand.
+
+1.  Gå till instrumentpanelen för web-jobb.
+2.  Klicka på kommandot Lägg till i verktygsfältet.
+3.  Namnge ditt webb-jobb, du har valt den att matcha namnet på mitt Arkiv för tydlighetens skull och för att öppna upp till med olika versioner av run.cmd.
+4.  Överför en del av formuläret klicka på ikonen Öppna filen i filen och leta upp ZIP-filen som du gjorde ovan.
+5.  Välj Triggered för typen.
+6.  Välj Manuell för utlösare.
+7.  Tryck på OK för att spara.
+
+![Starta profileraren kommando](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Kör profileraren
+
+Nu när vi har ett nytt webbprogram jobb som vi kan utlösa manuellt försöker vi du köra den.
+
+1.  Du kan bara ha en ApplicationInsightsProfiler.exe process som körs på en dator samtidigt avsiktligt. Så för att börja med måste du inaktivera kontinuerlig web jobbet från den här instrumentpanelen. Klicka på raden och tryck på ”Stoppa”. Uppdatera i verktygsfältet och bekräfta att status bekräftar jobbet har stoppats.
+2.  Klicka på raden med det nya webb-projektet som du har lagt till och klicka på Kör.
+3.  Raden fortfarande markerat klickar på kommandot loggar i verktygsfältet leder detta till en webbtjänst jobb-instrumentpanel för web jobbet har startat. Den visar en lista över senaste körs och deras resultat.
+4.  Klicka på kör du just har börjat.
+5.  Du bör se vissa diagnostikloggar som kommer från profileraren bekräftar profilering av vi har startats om alla gått bra.
+
+### <a name="things-to-consider"></a>Saker att tänka på
+
+Även om den här metoden är relativt enkla finns det vissa saker att tänka på.
+
+1.  Eftersom detta inte hanteras av vår tjänst har vi inga sätt för att uppdatera agenten binärfilerna för web-jobbet. Vi har för närvarande inte en stabil hämtningssidan för våra binärfiler så att det enda sättet att hämta senast är genom att uppdatera din anknytning och ta tag den i mappen kontinuerlig som vi gjorde ovan.
+2.  Eftersom detta är att använda kommandoradsargument som ursprungligen har utformats för utvecklare använda i stället för slutanvändarens användning, de här argumenten kan ändra i framtiden, så bara vara medveten om som när du uppgraderar. Det får inte vara en stor del av ett problem Eftersom du kan lägga till en webbtjänst jobb, kör och kontrollera att den fungerar. Slutligen bygger vi vidare gränssnitt för att göra detta utan den manuella processen men det är något att tänka på.
+3.  Funktionen Web jobb för Apptjänster är unikt i den när den körs jobbet web ser till att processen har samma miljövariabler och appinställningar som din webbplats kommer att få med. Detta innebär att du inte behöver skicka nyckeln instrumentation via kommandoraden till profileraren det bör bara välja instrumentation nyckeln från miljön. Men om du vill köra profileraren på dev-rutan eller på en dator utanför Apptjänster måste ange en instrumentation nyckel. Du kan göra detta genom att passera i ett argument `--ikey <instrumentation-key>`. Observera att det här värdet måste matcha instrumentation nyckeln med hjälp av ditt program. I loggutdata från profileraren profilering den får du veta vilka ikey profileraren igång med och om vi har upptäckt aktivitet från instrumentation nyckeln när vi.
+4.  Manuellt utlösta web-jobb kan faktiskt aktiveras via webben Hook. Du kan hämta denna url från högerklickning på webben jobbet från instrumentpanelen och visa egenskaperna eller välja egenskaper i verktygsfältet när du har valt web jobbet från tabellen. Det finns flera artiklar som du hittar online om detta så att vi inte kommer gå till mycket information om den, men detta öppnar möjligheten att utlösa profileraren från din CI/CD-pipeline (till exempel VSTS) eller liknande Microsoft Flow (https://flow.microsoft.com/en-us/). Beroende på hur avancerad som du vill göra din run.cmd som kan vara en run.ps1 av hur, du kan använda omfattande.  
+
+
+
 
 ## <a id="aspnetcore"></a>ASP.NET Core-stöd
 

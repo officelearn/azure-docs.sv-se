@@ -1,7 +1,6 @@
 > [!TIP]
 > 
-> **Hantera Azure Blob Storage-resurser med Microsoft Azure Lagringsutforskaren**
-> 
-> [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är en kostnadsfri, fristående app från Microsoft som du kan använda för att [hantera Azure Blob Storage-resurser](../articles/vs-azure-tools-storage-explorer-blobs.md). Med Microsoft Azure Storage Explorer kan du visuellt skapa, läsa, uppdatera och ta bort blobbehållare och blobar, och hantera åtkomst till dina blobbehållare och blobar.
+> Hantera Azure-blobblagringsresurser med Lagringsutforskaren för Azure. 
+> [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/) är en gratis, fristående app från Microsoft som gör det möjligt att [hantera Azure-blobblagringsresurser](../articles/vs-azure-tools-storage-explorer-blobs.md). Med Azure Lagringsutforskaren, du kan visuellt skapa, läsa, uppdatera, och ta bort blobbbehållare och blobbar, samt hantera åtkomst till ditt BLOB-behållare och blobbar.
 
 

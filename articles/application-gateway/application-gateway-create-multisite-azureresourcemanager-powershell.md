@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Skapa en Programgateway som värd för flera webbprogram
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-multisite-portal.md)
+> * [Azure-portalen](application-gateway-create-multisite-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
 Värd för flera plats kan du distribuera flera webbprogram på samma programgatewayen. Det är beroende av förekomsten av värdhuvudet i den inkommande HTTP-begäranden att avgöra vilka lyssnare skulle ta emot trafik. Lyssnaren dirigerar sedan trafik till lämplig serverdelspool som konfigurerats i regler definitionen av gatewayen. I SSL aktiverat webbprogram Programgateway förlitar sig på servern Servernamnsindikation (SNI)-tillägg för att välja rätt lyssnaren för Internet-trafik. Ett vanligt användningsområde för värd för flera plats är att belastningsutjämna förfrågningar för olika webbdomäner till olika backend-serverpooler. På samma sätt kan flera underdomäner på samma rotdomänen också finnas på samma programgatewayen.

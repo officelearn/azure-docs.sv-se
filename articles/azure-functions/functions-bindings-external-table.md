@@ -1,5 +1,5 @@
 ---
-title: "Azure Functions extern tabell bindning (förhandsversion) | Microsoft Docs"
+title: "Den externa tabellen bindningen för Azure Functions (försök)"
 description: "Använda extern tabell bindningar i Azure Functions"
 services: functions
 documentationcenter: 
@@ -14,26 +14,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Azure Functions extern tabell bindning (förhandsgranskning)
-Den här artikeln visar hur du hanterar tabelldata på SaaS-providers (t.ex. Sharepoint, Dynamics) i din funktion med inbyggda bindningar. Azure Functions stöder inkommande och utgående bindningar för externa tabeller.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Den externa tabellen bindningen för Azure Functions (försök)
+
+Den här artikeln förklarar hur du arbetar med data i tabellformat på SaaS-leverantörer, till exempel Sharepoint och Dynamics i Azure Functions. Azure Functions stöder indata och utdata bindningar för externa tabeller.
+
+> [!IMPORTANT]
+> Extern tabell bindningen är experiment och kanske aldrig når vanligtvis tillgänglighet (GA) status. Den är inkluderad i Azure Functions 1.x och det finns inga planer på att lägga till den i Azure Functions 2.x. Överväg att använda för scenarier som kräver åtkomst till data i SaaS-providers [logikappar som anropar funktioner](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>API-anslutningar
 
-Tabell bindningar utnyttja externa API anslutningar för att autentisera med 3 part SaaS-providers. 
+Tabell bindningar utnyttja externa API-anslutningar för att autentisera med SaaS leverantörer. 
 
-När du tilldelar en bindning kan du antingen skapa en ny API-anslutning eller använda en befintlig anslutning API inom samma resursgrupp
+När du tilldelar en bindning kan du skapa en ny API-anslutning eller använda en befintlig anslutning API inom samma resursgrupp.
 
-### <a name="supported-api-connections-tables"></a>Stöds API-anslutningar (tabellen) s
+### <a name="available-api-connections-tables"></a>Tillgängliga API-anslutningar (tabeller)
 
-|Koppling|Utlösare|Indata|Resultat|
+|Anslutning|Utlösare|Indata|Resultat|
 |:-----|:---:|:---:|:---:|
 |[DB2](https://docs.microsoft.com/azure/connectors/connectors-create-api-db2)||x|x
 |[Dynamics 365 för åtgärder](https://ax.help.dynamics.com/wiki/install-and-configure-dynamics-365-for-operations-warehousing/)||x|x
@@ -52,26 +56,35 @@ När du tilldelar en bindning kan du antingen skapa en ny API-anslutning eller a
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Den externa tabellen anslutningar kan också användas i [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list)
+> Den externa tabellen anslutningar kan också användas i [Azure Logikappar](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Skapa en API-anslutning: steg-för-steg
+## <a name="creating-an-api-connection-step-by-step"></a>Skapa en API-anslutning: steg-för-steg
 
-1. Skapa en funktion > egen funktion ![skapa en egen funktion](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Scenariot `Experimental`  >  `ExternalTable-CSharp` mall > Skapa en ny `External Table connection` 
- ![Välj mall för inkommande](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Välj din SaaS-provider > Välj/Skapa en anslutning ![konfigurera SaaS-anslutning](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Välj API-anslutning > Skapa funktionen ![skapa tabellfunktion](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Välj`Integrate` > `External Table`
-    1. Konfigurera anslutningen om du vill använda din måltabellen. De här inställningarna kommer mycket mellan SaaS-providers. De är disposition nedan i [inställningar för datakälla](#datasourcesettings)
-![konfigurera tabell](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Klicka på plustecknet på Azure portal sidan för din funktionsapp (**+**) att skapa en funktion.
 
-## <a name="usage"></a>Användning
+1. I den **scenariot** väljer **Experimental**.
+
+1. Välj **extern tabell**.
+
+1. Välj ett språk.
+
+2. Under **extern tabell anslutning**väljer du en befintlig anslutning eller **nya**.
+
+1. Konfigurera inställningar för en ny anslutning och väljer **auktorisera**.
+
+1. Välj **skapa** skapa funktionen.
+
+1. Välj **integrera > extern tabell**.
+
+1. Konfigurera anslutningen om du vill använda din måltabellen. Inställningarna varierar mellan SaaS-providers. Exempel finns i följande avsnitt.
+
+## <a name="example"></a>Exempel
 
 Det här exemplet ansluter till en tabell med namnet ”kontakta” med Id, efternamn och förnamn kolumner. Koden visar kontaktenheter i tabellen och loggar första och sista namnen.
 
-### <a name="bindings"></a>Bindningar
+Här är den *function.json* fil:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ Det här exemplet ansluter till en tabell med namnet ”kontakta” med Id, efte
   "disabled": false
 }
 ```
-`entityId`måste vara tom för tabell-bindningar.
 
-`ConnectionAppSettingsKey`identifierar appinställningen som lagrar anslutningssträngen API. Appinställningen skapas automatiskt när du lägger till en API-anslutning i integrera Användargränssnittet.
-
-En tabell koppling innehåller datauppsättningar och varje datamängd innehåller tabeller. Namnet på datamängden som standard är ”standard”. Rubrikerna för en datauppsättning och en tabell i olika SaaS-providers visas nedan:
-
-|Koppling|Datauppsättning|Tabell|
-|:-----|:---|:---| 
-|**SharePoint**|Webbplats|SharePoint-lista
-|**SQL**|Databas|Tabell 
-|**Google-blad**|Kalkylblad|Kalkylblad 
-|**Excel**|Excel-fil|Blad 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Användning i C# #
+Här är skriptkod C#:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -139,7 +131,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>SQL Server-datakälla
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-##Inställningar för datakälla
-
-### <a name="sql-server"></a>SQL Server
-
-Skript för att skapa och fylla i tabellen Kontakt är nedan. dataSetName är ”standard”.
+Här är ett skript för att skapa en tabell i SQL Server som ska användas med det här exemplet. `dataSetName`”standard”.
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Google-blad
-Skapa ett kalkylblad i Google-dokument med ett kalkylblad med namnet `Contact`. Anslutningen kan inte använda visningsnamnet kalkylblad. Internt namn (i fetstil) behöver användas som dataSetName, till exempel: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  lägga till kolumnnamnen `Id`, `LastName`, `FirstName` till den första raden och fyll sedan i data på efterföljande rader.
+### <a name="google-sheets-data-source"></a>Datakälla för Google-blad
+
+Skapa ett kalkylblad för att skapa en tabell som ska användas med det här exemplet i Google-dokument, med ett kalkylblad med namnet `Contact`. Anslutningen kan inte använda visningsnamnet kalkylblad. Internt namn (i fetstil) behöver användas som dataSetName, till exempel: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  lägga till kolumnnamnen `Id`, `LastName`, `FirstName` till den första raden och fyll sedan i data på efterföljande rader.
 
 ### <a name="salesforce"></a>Salesforce
-dataSetName är ”standard”.
+
+Du använder det här exemplet med Salesforce, `dataSetName` är ”standard”.
+
+## <a name="configuration"></a>Konfiguration
+
+I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger i den *function.json* fil.
+
+|Egenskapen Function.JSON | Beskrivning|
+|---------|----------------------|
+|**typ** | måste anges till `apiHubTable`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Namnet på variabeln som representerar händelsen i funktionskoden. | 
+|**anslutning**| Identifierar appinställningen som lagrar anslutningssträngen API. Appinställningen skapas automatiskt när du lägger till en API-anslutning i integrera Användargränssnittet.|
+|**dataSetName**|Namnet på den datamängd som innehåller tabellen om du vill läsa.|
+|**tableName**|Namnet på tabellen|
+|**ID för entiteterna**|Måste vara tom för tabell-bindningar.
+
+En tabell koppling innehåller datauppsättningar och varje datamängd innehåller tabeller. Namnet på datamängden som standard är ”standard”. Rubrikerna för en datauppsättning och en tabell i olika SaaS-providers visas nedan:
+
+|Anslutning|Datauppsättning|Tabell|
+|:-----|:---|:---| 
+|**SharePoint**|Webbplats|SharePoint-lista
+|**SQL**|Databas|Tabell 
+|**Google-blad**|Kalkylblad|Kalkylblad 
+|**Excel**|Excel-fil|Blad 
 
 ## <a name="next-steps"></a>Nästa steg
 

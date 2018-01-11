@@ -1,6 +1,6 @@
 - name: Azure Storage-dokumentation
   href: /azure/storage/
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Introduktion
       href: storage-blobs-introduction.md
@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Arbeta med blobar – Python
       href: storage-quickstart-blobs-python.md
+    - name: Arbeta med blobar – Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Arbeta med blobar – Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: Arbeta med blobar – Storage Explorer
@@ -44,8 +46,20 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simulera ett fel med RA-GRS-lagring
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrera lokala data till molnet med AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Sök efter ostrukturerade data i molnlagringen
       href: storage-unstructured-search.md
+    - name: Optimera prestanda och skalbarhet för lagringsprogram
+      items:
+        - name: Skapa en virtuell dator och ett lagringskonto
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Ladda upp stora datamängder till ett Azure-lagringskonto
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Ladda ned stora datamängder från ett Azure-lagringskonto
+          href: storage-blob-scalable-app-download-files.md
+        - name: Verifiera mått för dataflöde och svarstid
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Exempel
   items:
     - name: .NET
@@ -56,14 +70,14 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera och designa
       items:
+        - name: Alternativ för lagringskontot
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replikering
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Alternativ för lagringskontot
-          href: storage-account-options.md
         - name: 'Nivåerna Frekvent, Lågfrekvent och Arkiv'
           href: storage-blob-storage-tiers.md
         - name: Reagerar på händelser

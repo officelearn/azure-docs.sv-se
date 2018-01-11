@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Beständiga översikt över Functions (förhandsgranskning)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -235,7 +235,7 @@ I bakgrunden tillägget varaktiga funktioner är byggt ovanpå det [beständiga 
 
 Orchestrator-funktioner på ett tillförlitligt sätt underhålla sina körningstillstånd med hjälp av en molndesignmönstret kallas [händelse källa](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Istället för att lagra direkt den *aktuella* tillståndet för en orchestration varaktiga tillägget använder en endast append-Arkiv för att registrera den *fullständig serie åtgärder* genom funktionen orchestration. Detta har många fördelar, inklusive förbättrar prestanda, skalbarhet och tillgänglighet jämfört med ”dumpning” fullständig runtime-tillståndet. Andra fördelar är att tillhandahålla slutliga konsekvensen för transaktionsdata och underhålla fullständig granskningshistorik och historik. Granskningshistoriken själva Aktivera tillförlitliga kompenserande åtgärder.
 
-Användning av händelse ursprung med det här tillägget är transparent. Under försättsbladen, den `await` operator i en orchestrator-funktion ger kontroll över orchestrator-tråd tillbaka till den beständiga aktiviteten Framework dispatcher. Dispatcher sedan genomför alla nya åtgärder som funktionen orchestrator schemalagda (till exempel anropar en eller flera underordnade funktioner eller schemalägga en beständig timer) till lagring. Den här transparent commit-åtgärden läggs till i *körningstiden* av orchestration-instansen. Historiken lagras i beständig. Commit-åtgärden sedan lägger till meddelanden till en kö för att schemalägga det faktiska arbetet. Funktionen orchestrator kan nu vara från minnet. Fakturering för det avbryts om du använder Azure Functions förbrukning planera.  När det är mer arbete att göra, funktionen startas och dess tillstånd rekonstrueras.
+Användning av händelse ursprung med det här tillägget är transparent. Under försättsbladen, den `await` operator i en orchestrator-funktion ger kontroll över orchestrator-tråd tillbaka till den beständiga aktiviteten Framework dispatcher. Dispatcher sedan genomför alla nya åtgärder som funktionen orchestrator schemalagda (till exempel anropar en eller flera underordnade funktioner eller schemalägga en beständig timer) till lagring. Den här transparent commit-åtgärden läggs till i *körningstiden* av orchestration-instansen. Historiken lagras i en tabell för lagring. Commit-åtgärden sedan lägger till meddelanden till en kö för att schemalägga det faktiska arbetet. Funktionen orchestrator kan nu vara från minnet. Fakturering för det avbryts om du använder Azure Functions förbrukning planera.  När det är mer arbete att göra, funktionen startas och dess tillstånd rekonstrueras.
 
 När en orchestration-funktion får mer arbete att göra (till exempel ett svarsmeddelande tas emot eller en beständig timer upphör att gälla) orchestrator väcker igen och kör funktionen hel från början igen för att återskapa lokala tillstånd. Om under den här replay koden försöker anropa en funktion (eller göra andra asynkrona arbete), beständiga aktiviteten Framework tittar med den *körningstiden* för den aktuella orchestration. Om den hittar som aktiviteten funktionen redan har körts och gav några resultat den spelar upp som funktionsresultat orchestrator-koden fortsätter att köras. Detta fortsätter tills Funktionskoden kommer till en plats där den är klar eller har schemalagt nya asynkrona arbete som händer.
 
@@ -249,7 +249,7 @@ För närvarande är C# det enda språket som stöds för beständig funktioner.
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Tillägget varaktiga funktioner genererar automatiskt strukturerade spårningsdata till [Programinsikter](functions-monitoring.md) när funktionen appen är konfigurerad med en nyckel för Application Insights. Dessa spårningsdata kan användas för att övervaka förloppet för din orkestreringarna och beteende.
+Tillägget varaktiga funktioner genererar automatiskt strukturerade spårningsdata till [Programinsikter](functions-monitoring.md) när funktionen appen är konfigurerad med en nyckel för Application Insights instrumentation. Dessa spårningsdata kan användas för att övervaka förloppet för din orkestreringarna och beteende.
 
 Här är ett exempel på hur funktionerna varaktiga spårningshändelser se ut i Application Insights portal med [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 

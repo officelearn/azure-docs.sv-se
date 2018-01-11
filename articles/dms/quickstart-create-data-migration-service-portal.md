@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.openlocfilehash: 7fc4f8521afa41f21cda6576459a0794bef9ad3b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.date: 12/13/2017
+ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Skapa en instans av Azure Database Migration Service med hjälp av Azure-portalen
 I den här snabbstarten använder du Azure-portalen för att skapa en instans av Azure Database Migration Service.  När du har skapat tjänsten kan du använda den för att migrera data från en lokal SQL Server till en Azure SQL-databas.
@@ -23,7 +23,9 @@ I den här snabbstarten använder du Azure-portalen för att skapa en instans av
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
-Öppna webbläsaren och gå till [Microsoft Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
+Öppna webbläsaren, gå till [Microsoft Azure-portalen](https://portal.azure.com/) och logga in genom att ange dina autentiseringsuppgifter.
+
+Standardvyn är instrumentpanelen.
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 Registrera resursprovidern Microsoft.DataMigration innan du skapar din första instans av Database Migration Service.

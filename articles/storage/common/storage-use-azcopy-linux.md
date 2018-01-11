@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 28/9/2017
+ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy på Linux
-AzCopy på Linux är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob och fillagring med enkla kommandon med optimal prestanda. Du kan kopiera data från ett objekt till en annan inom ditt lagringskonto eller mellan lagringskonton.
+
+AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure Blob-, fil- och Table storage med hjälp av enkla kommandon som utformats för optimala prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.  
 
 Det finns två versioner av AzCopy som du kan hämta. AzCopy på Linux är byggd med .NET Core Framework, som riktar sig till Linux-plattformar som erbjuder POSIX format kommandoradsalternativ. [AzCopy på Windows](../storage-use-azcopy.md) har skapats med .NET Framework och erbjuder kommandoradsalternativ för Windows-formatet. Den här artikeln beskriver AzCopy på Linux.
 
@@ -30,7 +31,7 @@ Det finns två versioner av AzCopy som du kan hämta. AzCopy på Linux är byggd
 
 Artikeln innehåller kommandon för olika versioner av Ubuntu.  Använd den `lsb_release -a` kommando för att bekräfta distributionsversion och kodnamnet. 
 
-AzCopy på Linux kräver .NET Core framework (version 1.1.x) på plattformen. Finns i installationsanvisningarna på den [.NET Core](https://www.microsoft.com/net/download/linux) sidan.
+AzCopy på Linux kräver .NET Core framework (version 2.0) på plattformen. Finns i installationsanvisningarna på den [.NET Core](https://www.microsoft.com/net/download/linux) sidan.
 
 Exempelvis kan vi installera .NET Core på Ubuntu 16.04. Senaste installationsguiden finns [.NET Core på Linux](https://www.microsoft.com/net/download/linux) installationssidan.
 
@@ -40,7 +41,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 När du har installerat .NET Core, hämta och installera AzCopy.
@@ -68,22 +69,20 @@ Följande exempel visar olika scenarier för att kopiera data till och från Mic
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-Om mappen `/mnt/myfiles` finns inte, AzCopy skapar den och hämtar `abc.txt ` till den nya mappen.
+Om mappen `/mnt/myfiles` finns inte, AzCopy skapar den och hämtar `abc.txt ` till den nya mappen. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Hämta en enda blob från sekundär region
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad.
@@ -189,10 +188,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 Om den angivna Målbehållaren inte finns, skapar den AzCopy och överför filen till den.
@@ -201,10 +199,9 @@ Om den angivna Målbehållaren inte finns, skapar den AzCopy och överför filen
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 Om den angivna virtuella katalogen inte finns, AzCopy överför filen så att den virtuella katalogen i blob-namnet (*t.ex.*, `vd/abc.txt` i exemplet ovan).
@@ -315,11 +312,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
@@ -328,11 +324,10 @@ När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan kopiera](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) åtgärden utförs.
@@ -341,11 +336,10 @@ När du kopierar en blobb utan--synkroniserad kopia alternativet en [serversidan
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad.
@@ -354,8 +348,8 @@ Observera att du måste ha läsbehörighet geo-redundant lagring aktiverad.
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -392,10 +386,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Om den angivna källan är en Azure-filresurs och sedan måste du antingen ange det exakta filnamnet (*t.ex.* `abc.txt`) att hämta en fil eller ange alternativet `--recursive` att ladda ned alla filer i resursen rekursivt. Försök att ange både filmönstret och alternativet `--recursive` tillsammans resulterar i ett fel.
@@ -417,10 +410,9 @@ Observera att alla tomma mappar inte laddas ned.
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.windows.net/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>Ladda upp alla filer
@@ -543,11 +535,10 @@ AzCopy misslyckas om du vill dela parametern på två rader som visas här för 
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 Du kan också ange en SAS för URI-behållaren:
@@ -558,8 +549,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-Observera att AzCopy stöder för närvarande endast den [kontots SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Ändringsjournalen mapp
 Varje gång du utfärda ett kommando till AzCopy, kontrollerar den om en journal-fil finns i standardmappen eller om den finns i en mapp som du har angett via det här alternativet. Om journalfilen inte finns på någon plats, behandlar åtgärden som nya AzCopy och genererar en ny journalfil.
@@ -609,47 +598,12 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Ange antalet samtidiga åtgärder att starta
 Alternativet `--parallel-level` anger antalet samtidiga kopieringsåtgärd. Som standard startar AzCopy antalet samtidiga åtgärder att öka genomflödet data transfer. Antalet samtidiga åtgärder är lika åtta gånger antalet processorer som du har. Om du använder AzCopy över ett nätverk med låg bandbredd, kan du ange ett lägre värde--parallell-nivå för att undvika misslyckades på grund av konkurrens om resurser.
 
-[!TIP]
+>[!TIP]
 >Om du vill visa en fullständig lista över AzCopy parametrar kolla 'azcopy--Hjälp-menyn.
 
 ## <a name="known-issues-and-best-practices"></a>Kända problem och bästa praxis
-### <a name="error-net-core-is-not-found-in-the-system"></a>Fel: .NET Core finns inte i systemet.
-Om du får ett felmeddelande om att .NET Core inte är installerat i systemet, SÖKVÄGEN till .NET Core binär `dotnet` kanske saknas.
-
-Hitta .NET Core binära i systemet för att lösa problemet:
-```bash
-sudo find / -name dotnet
-```
-
-Detta returnerar sökvägen till dotnet binär. 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-Lägg nu till denna sökväg i PATH-variabeln. För sudo, redigera secure_path innehåller sökvägen till den binära dotnet:
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-I det här exemplet läser secure_path variabeln som:
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-Redigera.bash_profile/.profile om du vill ta med sökvägen till dotnet binära i PATH-variabeln för den aktuella användaren 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-Kontrollera att .NET Core finns i SÖKVÄGEN:
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Fel: .NET SDK 2.0 är inte hittas i systemet.
+AzCopy är beroende av .NET SDK 2.0 från och med version 7.0 för AzCopy. Innan den här versionen används AzCopy .NET Core 1.1. Om du får ett felmeddelande om att .NET Core 2.0 inte är installerat i systemet, kan du behöva installera eller uppgradera med hjälp av den [.NET Core Installationsinstruktioner](https://www.microsoft.com/net/learn/get-started/linuxredhat).
 
 ### <a name="error-installing-azcopy"></a>Fel vid installation av AzCopy
 Om du får problem med installation av AzCopy kan du försöker köra AzCopy använda bash-skript på den extraherade `azcopy` mapp.

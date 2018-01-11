@@ -1,6 +1,8 @@
 # Översikt
 
+
 ## [Om SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Översiktsblad](cheat-sheet.md)
 
 # Snabbstarter
 
@@ -9,7 +11,7 @@
 # Självstudier
 ## [1 – Läs in data från blob](load-data-from-azure-blob-storage-using-polybase.md)
 
-# Koncept
+# Begrepp
 ## Tjänstfunktioner
 ### [MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
 ### [Prestandanivåer](performance-tiers.md)
@@ -26,14 +28,13 @@
 
 ## Migrera till SQL Data Warehouse
 ### [Översikt](sql-data-warehouse-overview-migrate.md)
-### [Migreringsverktyg](sql-data-warehouse-migrate-migration-utility.md)
 ### [Migrera schema](sql-data-warehouse-migrate-schema.md)
 ### [Migrera kod](sql-data-warehouse-migrate-code.md)
 ### [Migrera data](sql-data-warehouse-migrate-data.md)
 
 ## Läsa in och flytta data
 ### [Översikt](design-elt-data-loading.md)
-### [Riktlinjer](guidance-for-loading-data.md)
+### [Bästa praxis](guidance-for-loading-data.md)
 
 
 ## Integrera
@@ -90,12 +91,11 @@
 
 
 ## Läsa in och flytta data
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Offentliga Contoso-data](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase från Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase från SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Maskininlärning Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -44,15 +44,15 @@ Avvikelseidentifiering erbjudandet ingår användbara verktyg för att komma ig�
 >
 
 ## <a name="api-deployment"></a>API-distribution
-För att kunna använda API: et, måste du distribuera den till din Azure-prenumeration där den kommer att finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två AzureML-webbtjänster (och deras relaterade resurser) till Azure-prenumeration - en för avvikelseidentifiering med säsongsvärdet identifiering och utan säsongsvärdet identifiering.  När distributionen är klar, kommer du att kunna hantera dina API: er från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Du kommer att kunna hitta din slutpunkt platser, API-nycklar, samt kodexempel för att anropa API: et för den här sidan.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+För att kunna använda API: et, måste du distribuera den till din Azure-prenumeration där den kommer att finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två AzureML-webbtjänster (och deras relaterade resurser) till Azure-prenumeration - en för avvikelseidentifiering med säsongsvärdet identifiering och utan säsongsvärdet identifiering.  När distributionen är klar, kommer du att kunna hantera dina API: er från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Du kommer att kunna hitta din slutpunkt platser, API-nycklar, samt kodexempel för att anropa API: et för den här sidan.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalning API: et
 Som standard har distributionen ett ledigt utveckling och testning faktureringsavtal som innehåller 1 000 transaktioner per månad och 2 beräkning timmar per månad.  Du kan uppgradera till en annan plan enligt dina behov.  Information om priser av olika planer finns [här](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) under ”priser för produktion webb-API”.
 
 ## <a name="managing-aml-plans"></a>Hantera AML-planer 
-Du kan hantera faktureringsavtalet [här](https://services.azureml.net/plans/).  Namn för energischema kommer att baseras på resursgruppens namn du väljer när du distribuerar API: et plus en sträng som är unik för din prenumeration.  Instruktioner för hur du uppgraderar din plan finns [här](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) under avsnittet ”Hantera fakturering planer”.
+Du kan hantera faktureringsavtalet [här](https://services.azureml.net/plans/).  Namn för energischema kommer att baseras på resursgruppens namn du väljer när du distribuerar API: et plus en sträng som är unik för din prenumeration.  Instruktioner för hur du uppgraderar din plan finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under avsnittet ”Hantera fakturering planer”.
 
-## <a name="api-definition"></a>API-Definition
+## <a name="api-definition"></a>API-definition
 Webbtjänsten innehåller ett REST-baserad API över HTTPS som kan användas på olika sätt, inklusive en webbplats eller ett mobilt program, R, Python, Excel, osv.  Tid seriens data skickas till den här tjänsten via ett REST API-anrop och den körs en kombination av tre avvikelseidentifiering typer som beskrivs nedan.
 
 ## <a name="calling-the-api"></a>Anropar API: et
@@ -108,7 +108,7 @@ Poäng API används för att köra avvikelseidentifiering på icke-säsongsbaser
 ### <a name="detectors"></a>Detektorerna
 Avvikelseidentifiering API stöder detektorerna i 3 kategorier. Information om specifika indataparametrar och utdata för varje detektor finns i följande tabell.
 
-| Detektor kategori | Detektor | Beskrivning | Indataparametrar | utdata |
+| Detektor kategori | Detektor | Beskrivning | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
 | Topp detektorerna |TSpike detektor |Identifiera toppar och korta baserat på långt värdena kommer från första och tredje Kvartiler |*tspikedetector.sensitivity:* tar heltal i intervallet 1-10 standard: 3; Högre värden ska fånga mer extrema värden, vilket gör det mindre känsliga |TSpike: binära värden – '1' om topp/dip upptäcks, '0' annars |
 | Topp detektorerna | ZSpike detektor |Identifiera toppar och korta baserat på hur långt datapoints är medelvärdet för |*zspikedetector.sensitivity:* ta heltal i intervallet 1-10 standard: 3; Högre värden ska fånga mer extrema värden, vilket gör det mindre känsliga |ZSpike: binära värden – '1' om topp/dip upptäcks, '0' annars | |
@@ -121,17 +121,17 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | Indataparametrar | Beskrivning | Standardinställningen | Typ | Giltigt intervall | Föreslagna intervallet |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
-| detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Båda |Räkna upp |Båda toppar, korta |Båda |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| trenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
-| postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Saknas |
+| postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
 
 ### <a name="output"></a>Resultat
 API: et körs alla detektorerna på gång series-data och returnerar avvikelseidentifiering resultat och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et. 
 
-| utdata | Beskrivning |
+| Utdata | Beskrivning |
 | --- | --- |
 | Tid |Tidsstämplar från rådata och aggregerade (eller) beräknade data om aggregering (eller) saknas data uppräkning tillämpas |
 | Data |Värden från rådata och aggregerade (eller) beräknade data om aggregering (eller) saknas data uppräkning tillämpas |
@@ -157,24 +157,24 @@ Mer detaljerad information om dessa indataparametrar anges i tabellen nedan:
 | Indataparametrar | Beskrivning | Standardinställningen | Typ | Giltigt intervall | Föreslagna intervallet |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Aggregeringsintervall i sekunder för sammanställningen indata tidsserier |0 (Ingen aggregering utförs) |heltal |0: annars hoppa över aggregering, > 0 |5 minuter till 1 dag, tidsserier beroende |
-| preprocess.aggregationFunc |Funktionen som används för att sammanställa data i den angivna AggregationInterval |medelvärde |Räkna upp |medelvärde, sum, längd |Saknas |
-| preprocess.replaceMissing |Värden som används för att sedan imputera data som saknas |lkv (senaste kända värdet) |Räkna upp |noll, lkv, medelvärde |Saknas |
+| preprocess.aggregationFunc |Funktionen som används för att sammanställa data i den angivna AggregationInterval |medelvärde |Räkna upp |medelvärde, sum, längd |Gäller inte |
+| preprocess.replaceMissing |Värden som används för att sedan imputera data som saknas |lkv (senaste kända värdet) |Räkna upp |noll, lkv, medelvärde |Gäller inte |
 | detectors.historyWindow |Historik (i antal datapunkter) som används för avvikelseidentifiering poäng beräkning |500 |heltal |10-2000 |Tidsserie beroende |
-| detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Båda |Räkna upp |Båda toppar, korta |Båda |
-| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
-| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |dubbla |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| detectors.spikesdips | Om du vill identifiera endast ger spikar i diagrammet, endast korta eller båda |Både |Räkna upp |Båda toppar, korta |Både |
+| bileveldetector.sensitivity |Känslighet för dubbelriktad nivå ändra detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| postrenddetector.sensitivity |Känslighet för positivt trend detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
+| negtrenddetector.sensitivity |Känslighet för negativa utvecklingen detektor. |3.25 |dubbel |Ingen |3,25 5 (färre värden innebär mer känslig) |
 | tspikedetector.sensitivity |Känslighet för TSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
 | zspikedetector.sensitivity |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (färre värden innebär mer känslig) |
-| seasonality.enable |Om säsongsvärdet analys ska utföras |SANT |Booleskt värde |SANT, FALSKT |Tidsserie beroende |
+| seasonality.enable |Om säsongsvärdet analys ska utföras |sant |boolesk |SANT, FALSKT |Tidsserie beroende |
 | seasonality.numSeasonality |Maximalt antal periodiska cykler ska identifieras |1 |heltal |1, 2 |1-2 |
-| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |Ingen, deseason deseasontrend |Saknas |
-| postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Saknas |
+| seasonality.transform |Om säsongsbaserade (och) trend komponenter bör tas bort innan du tillämpar avvikelseidentifiering |deseason |Räkna upp |Ingen, deseason deseasontrend |Gäller inte |
+| postprocess.tailRows |Antal senaste datapunkter som ska behållas i resultatet |0 |heltal |0 (Håll alla datapunkter), eller ange antalet punkter som ska behållas i resultaten |Gäller inte |
 
 ### <a name="output"></a>Resultat
 API: et körs alla detektorerna på gång series-data och returnerar avvikelseidentifiering resultat och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et. 
 
-| utdata | Beskrivning |
+| Utdata | Beskrivning |
 | --- | --- |
 | Tid |Tidsstämplar från rådata och aggregerade (eller) beräknade data om aggregering (eller) saknas data uppräkning tillämpas |
 | OriginalData |Värden från rådata och aggregerade (eller) beräknade data om aggregering (eller) saknas data uppräkning tillämpas |

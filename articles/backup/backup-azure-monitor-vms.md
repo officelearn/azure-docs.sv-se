@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Övervaka varningar vid säkerhetskopiering av virtuella Azure-datorer
 Aviseringar är svar från tjänsten för att en händelse tröskelvärdet har uppnåtts eller överskridits. Att veta när problem start kan vara viktigt att som företag kostnaderna hålls nere. Aviseringar, vanligtvis sker inte enligt ett schema och därför är det bra att känna så snart som möjligt efter aviseringar. När en säkerhetskopiering eller återställning av jobbet misslyckas, till exempel visas en varning inom fem minuter till felet. I instrumentpanelen för valvet visas panelen Backup aviseringar kritiskt och varningsnivå händelser. Du kan visa alla händelser i inställningarna för säkerhetskopiering aviseringar. Men vad gör du om en varning visas när du arbetar på ett separat problem? Om du inte vet när aviseringen händer, kan det bero på en mindre besvär eller det kan äventyra data. Kontrollera att rätt personer är medvetna om en avisering - när det uppstår genom att konfigurera tjänsten för att skicka aviseringar via e-post. Mer information om hur du konfigurerar e-postaviseringar finns [konfigurera meddelanden](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,7 +70,7 @@ Att ställa in e-postmeddelanden för aviseringar
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Vilka aviseringstyper är tillgängliga för Azure IaaS-VM säkerhetskopiering?
    | Aviseringsnivå | Aviseringar skickas |
    | --- | --- |
-   | kritiska |Säkerhetskopieringen har misslyckats, Återställningsfel |
+   | Kritiskt |Säkerhetskopieringen har misslyckats, Återställningsfel |
    | Varning |Ingen |
    | Information |Ingen |
 
@@ -147,7 +147,7 @@ Med hjälp av den **kolumner** knappen, kan du aktivera ytterligare händelse at
 | Resurs |URL-adress som identifierar resursen. kallas även resurs-ID |
 | Tid |Tid, mätt från den aktuella tiden när händelsen inträffade |
 | Anropare |Vem eller vad kallas eller utlöste händelsen; kan vara systemet eller en användare |
-| tidsstämpel |Den tid när händelsen har utlösts |
+| Tidsstämpel |Den tid när händelsen har utlösts |
 | Resursgrupp |Associerade resursgruppen. |
 | Resurstyp |Den interna resurstyp som används av Resource Manager |
 | Prenumerations-ID:t |Associerade prenumerations-ID |
@@ -171,7 +171,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 * Registrera dig <br/>
 * Avregistrera <br/>
 * ConfigureProtection <br/>
-* Säkerhetskopiering <br/>
+* Backup <br/>
 * Återställ <br/>
 * StopProtection <br/>
 * DeleteBackupData <br/>
@@ -213,4 +213,4 @@ Händelseloggar aktivera bra post före och gransknings-och stöd för säkerhet
 
 En bred beskrivning av händelser och åtgärder och granskningsloggar i Azure-tjänster finns i artikeln [visa händelser och granskningsloggar](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Information om hur du skapar en virtuell dator från en återställningspunkt igen kolla [återställa virtuella Azure-datorer](backup-azure-restore-vms.md). Om du behöver information om hur du skyddar virtuella datorer, se [förhandstitt: Säkerhetskopiera virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Lär dig mer om hanteringsaktiviteter för VM-säkerhetskopieringar i artikeln [hantera Azure-säkerhetskopiering för virtuella datorer](backup-azure-manage-vms.md).
+Information om hur du skapar en virtuell dator från en återställningspunkt igen kolla [återställa virtuella Azure-datorer](backup-azure-arm-restore-vms.md). Om du behöver information om hur du skyddar virtuella datorer, se [förhandstitt: Säkerhetskopiera virtuella datorer till ett Recovery Services-valv](backup-azure-vms-first-look-arm.md). Lär dig mer om hanteringsaktiviteter för VM-säkerhetskopieringar i artikeln [hantera Azure-säkerhetskopiering för virtuella datorer](backup-azure-manage-vms.md).

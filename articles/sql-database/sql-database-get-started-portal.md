@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 8ea4f39ced17a7a6de63c544157c5f1793042c0e
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7b84e6f001f9d485c1d92b5d017daa96321eaab6
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Skapa en Azure SQL-databas på Azure Portal
 
@@ -51,7 +51,7 @@ Följ de här stegen om du vill skapa en SQL-databas som innehåller Adventure W
    | **Databasnamn** | mySampleDatabase | För giltiga databasnamn, se [databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
    | **Resursgrupp**  | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Källa källa** | Exempel: (AdventureWorksLT) | Läser in AdventureWorksLT-schemat och data i den nya databasen |
+   | **Välj källa** | Exempel: (AdventureWorksLT) | Läser in AdventureWorksLT-schemat och data i den nya databasen |
 
    > [!IMPORTANT]
    > Du måste välja exempeldatabasen i det här formuläret eftersom den används i resten av snabbstarten.
@@ -179,7 +179,7 @@ Nu när du har en databas kan du ansluta och söka med dina favoritverktyg. Lär
 
 - [SQL Server Management Studio](sql-database-connect-query-ssms.md)
 - [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [NET](sql-database-connect-query-dotnet.md)
+- [.NET](sql-database-connect-query-dotnet.md)
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)

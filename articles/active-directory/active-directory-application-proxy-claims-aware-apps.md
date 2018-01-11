@@ -3,7 +3,7 @@ title: "Anspråksmedvetna appar – Azure AD App Proxy | Microsoft Docs"
 description: "Så här publicerar du en lokal ASP.NET-program som accepterar AD FS-anspråk för säker fjärråtkomst av användare."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
-ms.openlocfilehash: 4546f194e570282d331dde98cab98dd2f0981b72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: daveba
+ms.openlocfilehash: 9cf6c5aedbf1062922e755c962449253e49f8013
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i Application Proxy
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till den säkerhet säkerhetstokentjänst (STS). STS begär autentiseringsuppgifter från användare mot en token och omdirigeras användaren till programmet. Det finns några sätt att aktivera Application Proxy ska fungera med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna program. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att STS som appen anspråksmedvetna omdirigerar till är tillgängligt utanför ditt lokala nätverk. Du kan göra STS tillgängliga genom att exponera den via en proxyserver eller genom att tillåta externa anslutningar. 
 
 ## <a name="publish-your-application"></a>Publicera programmet

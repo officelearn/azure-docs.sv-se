@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure Virtual Machines med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]
@@ -46,7 +45,7 @@ SQL Server IaaS Agent tillägget stöder följande administrationsuppgifter:
 
 När installerad och körs, gör SQL Server IaaS Agent tillägget dessa funktioner för administration tillgängliga i SQL Server-panelen på den virtuella datorn i Azure-portalen och via Azure PowerShell för SQL Server marketplace-bilder och via Azure PowerShell för manuella installationer av tillägget. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Krav för att använda SQL Server IaaS Agent tillägget på den virtuella datorn:
 
 **Operativsystemet**:
@@ -71,6 +70,9 @@ Tillägget SQL Server IaaS-Agent installeras automatiskt när du etablerar en ga
 ```powershell
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
+
+> [!IMPORTANT]
+> Om filnamnstillägget inte har installerats, installerar tillägget startar om SQL Server-tjänsten.
 
 Det är också möjligt att installera tillägget SQL Server IaaS-Agent på en virtuell dator bara Operativsystemet Windows Server. Detta stöds endast om du har installerat SQL Server manuellt på den datorn. Installera tillägget manuellt med hjälp av samma **Set AzureVMSqlServerExtension** PowerShell-cmdlet.
 

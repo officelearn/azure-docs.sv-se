@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: aec3f107cc94fba2e9b478d86a848c762f1f8b0e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Skapa en Azure-datafabrik med hjälp av PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,27 @@ Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Az
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+#### <a name="log-in-to-powershell"></a>Logga in på PowerShell
+
+1. Starta **PowerShell** på din dator. Låt PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
+2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen:
+       
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+3. Kör följande kommando för att visa alla prenumerationer för det här kontot:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+4. Om du har flera Azure-prenumerationer associerade till ditt konto kör du följande kommando för att välja den prenumeration du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    ```
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
@@ -46,7 +66,7 @@ Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Az
 2. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
     ``` 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$ResourceGroupName` ett annat värde och kör kommandot igen. 
 3. Definiera en variabel för datafabrikens namn. 
@@ -55,7 +75,7 @@ Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Az
     >  Uppdateringen av datafabrikens namn måste vara unikt globalt. Till exempel ADFTutorialFactorySP1127. 
 
     ```powershell
-    $DataFactoryName = "ADFQuickStartFactory";
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 
 5. För att skapa datafabriken kör du följande **Set-AzureRmDataFactoryV2**-cmdlet med hjälp av platsen och egenskapen ResourceGroupName från variabeln $ResGrp: 
@@ -100,10 +120,9 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
     Om du använder Anteckningar ska du välja **Alla filer** för det **filformat** som anges i dialogrutan **Spara som**. Annars kan tillägget `.txt` läggas till för filen. Till exempel `AzureStorageLinkedService.json.txt`. Om du skapar en fil i Utforskaren innan du öppnar den i Anteckningar kanske du inte ser tillägget `.txt` eftersom alternativet för att **dölja tillägg för alla kända filtyper** är valt som standard. Ta bort tillägget `.txt` innan du fortsätter till nästa steg.
 2. I **PowerShell** växlar du till mappen **ADFv2QuickStartPSH**.
 
-```powershell
-Set-Location 'C:\ADFv2QuickStartPSH'
-```
-
+    ```powershell
+    Set-Location 'C:\ADFv2QuickStartPSH'
+    ```
 3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. 
 
     ```powershell
@@ -130,10 +149,7 @@ I det här steget definierar du en datamängd som representerar data som ska kop
         "properties": {
             "type": "AzureBlob",
             "typeProperties": {
-                "folderPath": {
-                    "value": "@{dataset().path}",
-                    "type": "Expression"
-                }
+                "folderPath": "@{dataset().path}"
             },
             "linkedServiceName": {
                 "referenceName": "AzureStorageLinkedService",
@@ -236,7 +252,7 @@ I den här snabbstarten skapar du en pipeline med en aktivitet som tar två para
 
 ## <a name="create-a-pipeline-run"></a>Skapa en pipelinekörning
 
-I det här steget anger du värden för pipelineparametrarna: **inputPath** och **outputPath** med faktiska värden för sökväg till käll- och mottagar-blob. Sedan skapar du en pipelinekörning med dessa argument. 
+I det här steget anger du värden för pipelineparametrarna:  **inputPath** och **outputPath** med faktiska värden för sökväg till käll- och mottagar-blob. Sedan skapar du en pipelinekörning med dessa argument. 
 
 1. Skapa en JSON-fil med namnet **PipelineParameters.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 

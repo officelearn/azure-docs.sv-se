@@ -16,10 +16,10 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera din Azure Search-tjänst med PowerShell
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 Det här avsnittet beskrivs de PowerShell-kommandona för att utföra många av de administrativa uppgifterna för Azure Search-tjänster. Vi kommer att gå igenom hur du skapar en söktjänst, skalning och hantera dess API-nycklar.
 Dessa kommandon parallell vilka hanteringsalternativ som finns tillgängliga i den [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du måste ha Azure PowerShell 1.0 eller senare. Instruktioner finns i [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * Du måste vara inloggad på Azure-prenumerationen i PowerShell som beskrivs nedan.
 

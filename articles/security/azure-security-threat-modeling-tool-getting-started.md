@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med verktyget Modeling hot
 
@@ -29,13 +29,13 @@ Den här artikeln bygger på befintliga kunskaper i SDL-hotet modeling metod. F�
 
 Sammanfattningsvis snabbt, innebär tillvägagångssättet att skapa ett diagram, identifiera hot, minimera dem och verifiera varje lösning. Här är ett diagram som visar den här processen:
 
-![SDL-processen](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![SDL-processen](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Starta hotet modellera processen
 
 När du startar verktyget Modeling hot, Lägg märke till några saker som visas i bilden:
 
-![Tom startsida](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Tom startsida](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Hot modellen avsnitt
 
@@ -70,7 +70,7 @@ De ska genom processen att utveckla sina första hotmodell.
 > Cristina: absolut. Låt oss ta en titt.
 > Ricardo delar sina skärmen med Cristina öppnar verktyget.
 
-![Grundläggande Hotmodell](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Grundläggande Hotmodell](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok, verkar enkla, men kan du hjälpa mig via den?
 > Ricardo: till! Här är en uppdelning:
@@ -89,17 +89,17 @@ När han klickar på analysvyn från ikonen menyalternativet (fil med förstorin
 
 Den här metoden fungerar som säkra hemmet genom att säkerställa att varje dörr- och har en mekanism för låsning på plats innan du lägger till ett larmsystem eller jaga efter tjuven.
 
-![Grundläggande hot](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Grundläggande hot](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo börjar genom att välja det första objektet i listan. Här är vad som händer:
 
 Först förbättrad interaktionen mellan de två stencilerna
 
-![Interaktion](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interaktion](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Andra, ytterligare information om hot visas i fönstret Egenskaper för hot
 
-![Interaktion Info](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Interaktion Info](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 Det genererade hotet hjälper honom förstå potentiella design-fel. STRIDE kategorisering får han eller hon en uppfattning om potentiella angreppsmetoder, medan ytterligare beskrivning anger att exakt vad som är fel, tillsammans med potentiella sätt att minska den. Han kan använda redigerbart fält för att skriva anteckningar i motivering information eller ändra prioritet klassificeringar beroende på företagets bugg fältet.
 
@@ -116,7 +116,7 @@ Hot kan inte användas på designen på grund av befintliga åtgärder eller sä
 
 När Ricardo går igenom listan med Cristina och lägger till viktiga anteckningar, åtgärder/skäl, prioritet och status ändras, he väljer rapporter -> Skapa fullständig rapport -> Spara rapporten, som skriver ut en bra rapport för att gå igenom med kollegor Se till att rätt säkerhet fungerar implementeras.
 
-![Interaktion Info](./media/azure-security-threat-modeling-tool/report.png)
+![Interaktion Info](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Om Ricardo vill dela filen i stället göra han enkelt det genom att spara i sin organisation OneDrive-konto. När han har som han kopiera länken dokument och dela den med sin kollegor. 
 

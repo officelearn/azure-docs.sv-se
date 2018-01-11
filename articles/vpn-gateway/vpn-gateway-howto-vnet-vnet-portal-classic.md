@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera VNet-till-VNet-anslutning (klassisk)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/06/2017
 Den här artikeln visar hur du skapar en VPN-gatewayanslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Stegen i den här artikeln gäller för den klassiska distributionsmodellen och Azure portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)

@@ -16,87 +16,53 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="understanding-the-azure-active-directory-application-manifest"></a>Förstå Azure Active Directory-programmanifestet
-Program som integreras med Azure Active Directory (AD) måste vara registrerad med en Azure AD-klient som tillhandahåller en permanent identitet konfiguration för programmet. Den här konfigurationen samråd vid körning, aktivera scenarier som gör att ett program för att flytta ut och broker autentisering/auktorisering via Azure AD. Mer information om Azure AD-programmodell finns i [att lägga till, uppdatera och ta bort ett program] [ ADD-UPD-RMV-APP] artikel.
+# <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-programmanifestet
+Appar som integreras med Azure AD måste vara registrerad med Azure AD-klient. Den här appen kan konfigureras med appmanifestet (under Azure AD-bladet) i den [Azure-portalen](https://portal.azure.com).
 
-## <a name="updating-an-applications-identity-configuration"></a>Uppdatera konfigurationen för ett program identitet
-Det finns faktiskt flera alternativ för uppdatering av egenskaper på identity-konfigurationen för ett program där olika funktioner och frihetsgrader problem, inklusive följande:
+## <a name="manifest-reference"></a>Manifestet referens
 
-* Den  **[Azure portal] [ AZURE-PORTAL] webbanvändargränssnitt** kan du uppdatera de vanligaste egenskaperna för ett program. Detta är det snabbaste och minst fel felbenägna sättet att uppdatera egenskaperna för ditt program, men ger inte dig fullständig åtkomst till alla egenskaper, t.ex. följande två metoder.
-* För mer avancerade scenarier där du behöver uppdatera egenskaper som inte exponeras i den klassiska Azure-portalen, kan du ändra den **programmanifestet**. Detta är fokus för den här artikeln som beskrivs i detalj i nästa avsnitt.
-* Det är också möjligt att **skriva ett program som använder den [Graph API] [ GRAPH-API]**  att uppdatera ditt program som kräver mest arbete. Detta kan vara ett bra alternativ om, om du skriver hanteringsprogramvara eller uppdatera programegenskaper regelbundet i obevakat läge.
-
-## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Med hjälp av applikationsmanifestet för att uppdatera konfigurationen för ett program identitet
-Via den [Azure-portalen][AZURE-PORTAL], du kan hantera identitet programkonfigurationen genom att uppdatera applikationsmanifestet med redigeraren infogade manifestet. Du kan också hämta och överföra programmanifestet som en JSON-fil. Inga faktiska filen lagras i katalogen. Programmanifestet är bara en HTTP GET-åtgärd på Azure AD Graph API-program entiteten och överföringen är en korrigering av HTTP-åtgärd på entiteten för programmet.
-
-Därför för att förstå format och egenskaperna för programmanifestet måste du referera Graph API [programmet entiteten] [ APPLICATION-ENTITY] dokumentation. Exempel på uppdateringar som kan utföras om programmets manifest överför:
-
-* **Deklarera behörighetsomfattningen (oauth2Permissions)** visas av ditt webb-API. I avsnittet ”exponera API: er till andra webbprogram” i [integrera program med Azure Active Directory] [ INTEGRATING-APPLICATIONS-AAD] information om hur du implementerar personifiering med hjälp av oauth2Permissions delegerad behörighet omfång. Som tidigare nämnts programmet Entitetsegenskaper dokumenteras i Graph API [entitetstyper och komplexa typen] [ APPLICATION-ENTITY] referensartikeln, inklusive egenskapen oauth2Permissions som är en mängd av typen [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-* **Deklarera programroller (appRoles) som exponeras av din app**. Programmet entitetens appRoles egenskapen är en mängd av typen [AppRole][APPLICATION-ENTITY-APP-ROLE]. Finns det [rollbaserad åtkomstkontroll i molnprogram med Azure AD] [ RBAC-CLOUD-APPS-AZUREAD] artikel exempel implementering.
-* **Deklarera kända klienten program (knownClientApplications)**, vilket gör att du kan koppla logiskt medgivande på de angivna klient program i resursen/webb-API.
-* **Begäran om Azure AD för att utfärda medlemskap gruppanspråk** för den inloggade användaren (groupMembershipClaims).  Detta kan också konfigureras för att utfärda anspråk om användarens directory roller medlemskap. Finns det [auktorisering i molnprogram med hjälp av AD-grupper] [ AAD-GROUPS-FOR-AUTHORIZATION] artikel exempel implementering.
-* **Ditt program stöder OAuth 2.0 Implicit bevilja** flöden (oauth2AllowImplicitFlow). Den här typen av bevilja flödet används med inbäddade JavaScript-webbsidor eller enda sidan program (SPA). Mer information om implicit auktorisering beviljande finns [förstå OAuth2 implicit bevilja flödet i Azure Active Directory][IMPLICIT-GRANT].
-* **Aktivera användning av X509 certifikat som den hemliga nyckeln** (keyCredentials). Finns det [skapa tjänsten och daemon appar i Office 365] [ O365-SERVICE-DAEMON-APPS] och [Developer's guide för autentisering med Azure Resource Manager API] [ DEV-GUIDE-TO-AUTH-WITH-ARM] artiklar för exempel på implementering.
-* **Lägg till en ny App-ID URI** för programmet (identifierURIs[]). URI: er för App-ID används för att unikt identifiera ett program i sin Azure AD-klient (eller över flera Azure AD-innehavare för scenarier med flera innehavare när kvalificerat via verifierad domän). De används när du begär behörighet till ett resursprogram eller skaffa en åtkomst-token för en resursprogram. När du uppdaterar det här elementet görs samma uppdatering till motsvarande tjänstens huvudnamn servicePrincipalNames [] samling, som finns i programmets hem-klient.
-
-Applikationsmanifestet innehåller också ett bra sätt att spåra status för programmet registreringen. Eftersom den är tillgänglig i JSON-format kan filen representation kontrolleras i source-kontroll, tillsammans med ditt programs källkod.
-
-## <a name="step-by-step-example"></a>Steg för steg-exempel
-Nu kan du gå igenom de steg som krävs för att uppdatera ditt programs identitet konfigurationen med hjälp av programmanifestet. Vi betona något av föregående exempel visar hur du deklarera ett nytt behörighet scope på en resursprogram:
-
-1. Logga in på [Azure Portal][AZURE-PORTAL].
-2. När du har autentiserats, väljer du din Azure AD-klient genom att välja den i det övre högra hörnet på sidan.
-3. Välj **Azure Active Directory** tillägget från den vänstra navigeringsfönstret och klicka på **App registreringar**.
-4. Sök efter programmet som du vill uppdatera i listan och klicka på den.
-5. Program-sidan klickar du på **Manifest** att öppna redigeraren infogade manifestet. 
-6. Du kan redigera manifestet med den här redigeraren direkt. Observera att manifestet följer schemat för den [programmet entiteten] [ APPLICATION-ENTITY] som vi nämnt tidigare: till exempel antar vi vill implementera/exponera en ny behörighet som kallas ”Employees.Read.All” på vår resursprogram (API), bara och Lägg till ett nytt/sekund element samlingen oauth2Permissions ie:
-   
-        "oauth2Permissions": [
-        {
-        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-        "adminConsentDisplayName": "Access MyWebApplication",
-        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-        "userConsentDisplayName": "Access MyWebApplication",
-        "value": "user_impersonation"
-        },
-        {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-        }
-        ],
-   
-    Posten måste vara unikt och därför måste du generera en ny globalt unikt ID (GUID) för den `"id"` egenskapen. I det här fallet eftersom vi har angetts `"type": "User"`, den här behörigheten kan vara godkänt för med ett konto som autentiseras av Azure AD-klient där resursen/API-program är registrerat. Detta ger klienten programmet behörighet att komma åt den för kontots räkning. De beskrivning och visa namnet strängarna används under medgivande och för att visas i Azure-portalen.
-6. När du är klar uppdaterar manifestet klickar du på **spara** spara manifestet.  
-   
-Nu när manifestet sparas, kan du ge en registrerad ansökan klientåtkomst till den nya behörigheten vi lades till ovan. Nu kan du använda Azure portal Webbgränssnittet i stället för att redigera klienten programmanifestet:  
-
-1. Först gå till den **inställningar** klickar du på bladet av klientprogram som du vill lägga till åtkomst till den nya API: T **nödvändiga behörigheter** och välj **väljer en API**.
-2. Sedan visas med en lista över registrerade resursprogram-API: er i klienten. Klicka på resursprogram att välja den eller Skriv namnet på programmet sökrutan. När du har hittat programmet, klickar du på **Välj**.  
-3. Detta tar du det **Välj behörigheter** sidan som visar listan med behörigheter för program och delegerade behörigheter för resursprogrammet. Välj ny behörighet för att lägga till den begärda listan för klientens behörigheter. Den här nya behörigheten lagras i client-program identitet konfigurationen i egenskapen ”requiredResourceAccess” samling.
-
-
-Det var allt. Nu körs programmen med sina nya identity-konfigurationen.
+>[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
+|Nyckel  |Värdetyp |Exempelvärde  |Beskrivning  |
+|---------|---------|---------|---------|
+|appID     |  Strängen för meddelandealternatividentifieraren       |""|  Den unika identifieraren för det program som har tilldelats en app av Azure AD.|
+|appRoles     |    Typ av matris     |[{<br>&emsp;”allowedMemberTypes”: [<br>&emsp;&nbsp;&nbsp;&nbsp;”Användare”<br>&emsp;],<br>&emsp;”Beskrivning”: ”Läs åtkomsten endast till enhetsinformation”,<br>&emsp;”Visningsnamn”: ”Read Only”,<br>&emsp;”id”: guid,<br>&emsp;”isEnabled”: true<br>&emsp;”värde”: ”ReadOnly”<br>}]|Roller som ett program kan förklara samling. Rollerna kan tilldelas användare, grupper eller tjänstens huvudnamn.|
+|AvailableToOtherTenants|Booleskt värde|true|Om det här värdet anges till true, programmet är tillgängligt för andra klienter.  Den är registrerad i om inställt på false, appen är bara tillgängliga för klienten.  Läs mer: [loggar in alla Azure Active Directory (AD)-användare med flera innehavare programmönster](active-directory-devhowto-multi-tenant-overview.md). |
+|Visningsnamn     |sträng         |MyRegisteredApp         |Visningsnamn för programmet. |
+|errorURL     |sträng         |http:<i></i>//MyRegisteredAppError         |URL till fel påträffades i ett program. |
+|GroupMembershipClaims     |    sträng     |    1     |   En bitmask som konfigurerar ”grupper”-anspråket utfärdat i en användare eller OAuth 2.0-åtkomsttoken som programmet förväntas. Värdena är: 0: ingen 1: säkerhetsgrupper och Azure AD-roller, 2: reserverade och 4: reserverat. Ange bitmask till 7 får alla säkerhetsgrupper, distributionsgrupper och Azure AD directory roller som den inloggade användaren är medlem i.      |
+|optionalClaims     |  sträng       |     null    |    Valfria anspråk i token som returnerades av säkerhetstokentjänsten för den här specifika appen.     |
+|acceptMappedClaims    |      Booleskt värde   | true        |    Om det här värdet anges till true, kan ett program att använda anspråk mappning utan att ange en anpassad signeringsnyckeln.|
+|Startsida     |  sträng       |http:<i></i>//MyRegistererdApp         |    URL till programmets startsida.     |
+|identifierUris     |  Strängmatris       | http:<i></i>//MyRegistererdApp        |   Användardefinierade URI(s) som unikt identifierar ett webbprogram i sin Azure AD-klient eller i en anpassad domän för verifierade om programmet är flera innehavare.      |
+|keyCredentials     |   Typ av matris      |   [{<br>&nbsp;”customKeyIdentifier”: null.<br>”endDate” ”: 2018-09-13T00:00:00Z”,<br>”keyId” ”:\<guid >”,<br>”startDate” ”: 2017-09-12T00:00:00Z”,<br>”typ”: ”AsymmetricX509Cert”<br>”användning”: ”Verifiera”<br>”värde”: null<br>}]      |   Den här egenskapen innehåller referenser till programmet tilldelade autentiseringsuppgifter, string-baserade delade hemligheter och X.509-certifikat.  Dessa autentiseringsuppgifter komma till användning när du begär åtkomst-token (när appen fungerar som en klient i stället som som resurs).     |
+|knownClientApplications     |     Typ av matris    |    [guid]     |     Värdet används för sammanföra medgivande om du har en lösning som innehåller två delar, ett klientprogram och en anpassad webbplats API-program. Om du anger appID av klientprogrammet i det här värdet kan måste användaren bara godkänna en gång till klientprogrammet. Azure AD vet att principer för klienten innebär implicit principer för webb-API och kommer automatiskt att etablera tjänstens huvudnamn för både klient- och webb-API på samma gång (både klienten och webb-API-program måste vara registrerad i samma innehavaren).|
+|logoutUrl     |   sträng      |     http:<i></i>//MyRegisteredAppLogout    |   Logga ut från programmet URL-adress.      |
+|oauth2AllowImplicitFlow     |   Booleskt värde      |  false       |       Anger om det här webbprogrammet kan begära OAuth2.0 implicita flödet för token. Standardvärdet är FALSKT. Det här används för webbläsarbaserade appar som Javascript-ensidesappar. |
+|oauth2AllowUrlPathMatching     |   Booleskt värde      |  false       |   Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta sökvägsmatchning för omdirigerings-URI mot programmets replyUrls. Standardvärdet är FALSKT.      |
+|oauth2Permissions     | Typ av matris         |      [{<br>”adminConsentDescription”: ”Tillåt programmet åtkomst till resurser å den inloggade användaren vägnar”.,<br>”adminConsentDisplayName”: ”åtkomst resource1”<br>”id” ”:\<guid >”,<br>”isEnabled”: true<br>”typ”: ”användare”<br>”userConsentDescription”: ”Tillåt programmet åtkomst resource1 å dina vägnar”.,<br>”userConsentDisplayName”: ”komma åt resurser”<br>”värde”: ”user_impersonation”<br>}]   |  Insamling av behörighetsomfattningen för OAuth 2.0 som webb-API (resurs)-program visar för klientprogram. Klientprogram kan bevilja dessa behörighetsomfattningen under medgivande. |
+|oauth2RequiredPostResponse     | Booleskt värde        |    false     |      Anger om, Azure AD som en del av OAuth 2.0 token-förfrågningar, ska tillåta POST-begäranden, till skillnad från GET-begäranden. Standardvärdet är FALSKT, vilket innebär att GET-begäranden ska tillåtas.   
+|objekt-ID     | Strängen för meddelandealternatividentifieraren        |     ""    |    Unik identifierare för programmet i katalogen.  Detta är inte det ID som används för att identifiera appen i någon transaktion för protokollet.  Användaren är refererar till objektet i directory-frågor.|
+|passwordCredentials     | Typ av matris        |   [{<br>”customKeyIdentifier”: null.<br>”endDate” ”: 2018-10-19T17:59:59.6521653Z”,<br>”keyId” ”:\<guid >”,<br>”startDate” ”: 2016-10-19T17:59:59.6521653Z”,<br>”värde”: null<br>}]      |    Se beskrivningen för egenskapen keyCredentials.     |
+|PublicClient     |  Booleskt värde       |      false   | Anger om ett program är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). Standardvärdet är false.        |
+|supportsConvergence     |  Booleskt värde       |   false      | Den här egenskapen bör inte redigeras.  Acceptera standardvärdet.        |
+|replyUrls     |  Strängmatris       |   http:<i></i>//localhost     |  Flera värden egenskapen innehåller listan över registrerade redirect_uri värden som Azure AD tar emot som mål när returining token. |
+|RequiredResourceAccess     |     Typ av matris    |    [{<br>”resourceAppId”: ”00000002-0000-0000-c000-000000000000”<br>”resourceAccess”: [{<br>&nbsp;&nbsp;&nbsp;&nbsp;”id”: ”311a71cc-e848-46a1-bdf8-97ff7156d8e6”<br>&nbsp;&nbsp;&nbsp;&nbsp;”typ”: ”omfång”<br>&nbsp;&nbsp;}]<br>}]     |   Anger resurser som det här programmet kräver åtkomst till och uppsättning behörighetsomfattningen för OAuth och roller för programmet som krävs under var och en av dessa resurser. Den här före konfiguration av nödvändiga resursåtkomst enheter medgivande-upplevelse.|
+|resourceAppId     |    Strängen för meddelandealternatividentifieraren     |  ""      |   Den unika identifieraren för den resurs som programmet kräver åtkomst till. Det här värdet ska vara lika med appId som deklarerats i målprogrammet för resursen.     |
+|resourceAccess     |  Typ av matris       | Se exempelvärdet för egenskapen requiredResourceAccess.        |   Listan över OAuth2.0 behörighetsomfattningen och app-roller som programmet kräver för den angivna resursen (innehåller värdena ID och typ av de angivna resurserna)        |
+|samlMetadataUrl|sträng|http:<i></i>//MyRegisteredAppSAMLMetadata|URL för SAML-metadata för programmet.| 
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om förhållandet mellan program och tjänstens huvudnamn objekt i ett program finns [program och tjänstens huvudnamn objekt i Azure AD][AAD-APP-OBJECTS].
+* Läs mer om förhållandet mellan ett program program och tjänstens huvudnamn objekt [program och tjänstens huvudnamn objekt i Azure AD][AAD-APP-OBJECTS].
 * Finns det [Azure AD-utvecklare ordlista] [ AAD-DEVELOPER-GLOSSARY] definitioner av vissa grundbegrepp för utvecklare i Azure Active Directory (AD).
 
-Använd kommentaravsnittet nedan för att ge feedback och hjälp oss att förfina och utforma innehållet.
+Använd följande kommentarer avsnitt för att ge feedback som hjälper dig att förfina och formar innehållet.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

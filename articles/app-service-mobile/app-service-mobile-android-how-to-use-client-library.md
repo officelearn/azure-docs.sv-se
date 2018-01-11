@@ -3,8 +3,8 @@ title: "Hur du använder Azure Mobile Apps-SDK för Android | Microsoft Docs"
 description: "Hur du använder Azure Mobile Apps-SDK för Android"
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: crdun
+ms.openlocfilehash: d992a3e29e3fc7b7186fd6ee533d0da8bebbd419
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
 

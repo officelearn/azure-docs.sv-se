@@ -1,6 +1,6 @@
 ---
-title: "Snabbstart: Kör ett jobb med Spark på Azure Databricks med hjälp av Azure portal | Microsoft Docs"
-description: "Snabbstart visar hur du använder Azure-portalen för att skapa en arbetsyta för Azure Databricks, ett Apache Spark-kluster och köra ett Spark-jobb."
+title: "Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Portal | Microsoft Docs"
+description: "Snabbstarten visar hur du använder Azure-portalen för att skapa en arbetsyta för Azure Databricks och ett Apache Spark-kluster och kör ett Spark-jobb."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -10,96 +10,97 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Kör ett jobb med Spark på Azure Databricks med Azure-portalen
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
-Den här snabbstarten visar hur du skapar en arbetsyta för Azure Databricks och ett Apache Spark-kluster i den arbetsytan. Dessutom får du lära dig hur du kör ett Spark-jobb på Databricks klustret. Läs mer på Azure Databricks [vad är Azure Databricks?](what-is-azure-databricks.md)
+Den här snabbstarten visar hur du skapar en arbetsyta för Azure Databricks och ett Apache Spark-kluster i den arbetsytan. Dessutom får du lära dig hur du kör ett Spark-jobb på Databricks-klustret. Mer information om Azure Databricks finns i [Vad är Azure Databricks?](what-is-azure-databricks.md)
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på den [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-databricks-workspace"></a>Skapa en Databricks-arbetsyta
 
-I det här avsnittet skapar du en Azure Databricks arbetsyta med Azure-portalen. 
+I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen. 
 
-1. I Azure-portalen klickar du på  **+** , klickar du på **Data + analys**, och klicka sedan på **Databricks Azure (förhandsversion)**. 
+1. I Azure-portalen klickar du på **+**, på **Data och analys** och sedan på **Azure Databricks (Preview)** (Azure Databricks (förhandsversion)). 
 
     ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
-2. Under **Databricks Azure (förhandsversion)**, klickar du på **skapa**.
+2. Under **Azure Databricks (Preview)** (Azure Databricks (förhandsversion)) klickar du på **Skapa**.
 
     > [!NOTE]
-    > Azure Databricks genomgår förhandsgranskning för närvarande begränsad. Om du vill att din Azure-prenumeration för vitlistning för förhandsgranskningen så måste du fylla i [registreringsformuläret](https://databricks.azurewebsites.net/).
+    > Azure Databricks finns för närvarande i en begränsad förhandsversion. Om du vill att din Azure-prenumeration ska vitlistas för förhandsversionen måste du fylla i [registreringsformuläret](https://databricks.azurewebsites.net/).
 
-2. Under **Azure Databricks Service**, ange följande värden:
+2. Under **Azure Databricks Service** (Azure Databricks-tjänst) skriver du följande värden:
 
-    ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "skapa en arbetsyta för Azure Databricks")
+    ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
-    * För **Arbetsytenamn**, ange ett namn för din Databricks arbetsyta.
-    * För **prenumeration**, i listrutan, Välj din Azure-prenumeration.
-    * För **resursgruppen**, ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikt över Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
-    * För **plats**väljer **östra USA 2**. Andra tillgängliga regioner finns [Azure tjänster som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
+    * För **Namn på arbetsyta** anger du ett namn på din Databricks-arbetsyta.
+    * Vid **Prenumeration** i listrutan väljer du din Azure-prenumeration.
+    * För **Resursgrupp** anger du om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md).
+    * För **Plats** väljer du **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
 3. Klicka på **Skapa**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
-1. Gå till arbetsytan Databricks som du skapade i Azure-portalen och klicka sedan på **initiera arbetsytan**.
+1. I Azure-portalen går du till arbetsytan Databricks som du skapade och klickar sedan på **Initiera arbetsyta**.
 
-2. Du omdirigeras till Databricks Azure-portalen. Från portalen, klickar du på **klustret**.
+2. Du omdirigeras till Azure Databricks-portalen. Från portalen klickar du på **Kluster**.
 
     ![Databricks på Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks på Azure")
 
-3. I den **nytt kluster** anger värden för att skapa ett kluster.
+3. På sidan **Nytt kluster** anger du värdena för att skapa ett kluster.
 
-    ![Skapa Databricks Spark-kluster i Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "skapa Databricks Spark-kluster i Azure")
+    ![Skapa Databricks Spark-kluster på Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
 
     * Ange ett namn för klustret.
-    * Kontrollera att du väljer den **Avsluta efter ___ minuter för aktiviteten** kryssrutan. Ange en varaktighet (i minuter) för att avsluta klustret, om klustret inte används.
-    * Acceptera alla övriga standardvärdena. 
-    * Klicka på **Skapa kluster**. När klustret körs kan du ansluta datorer till klustret och köra Spark-jobb.
+    * Se till att markera kryssrutan **Avsluta efter ___ minuters aktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+    * Acceptera alla övriga standardvärden. 
+    * Klicka på **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-Mer information om hur du skapar kluster finns [skapar ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## <a name="run-a-spark-sql-job"></a>Kör ett Spark SQL-jobb
+## <a name="run-a-spark-sql-job"></a>Köra ett Spark SQL-jobb
 
-Innan du börjar med det här avsnittet måste du utföra följande:
+Innan du börjar med det här avsnittet måste du slutföra följande:
 
-* [Skapa ett Azure storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Hämta en exempelfil JSON [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Överför JSON exempelfilen till Azure storage-konto som du skapade. Du kan använda [Microsoft Azure Lagringsutforskaren](../vs-azure-tools-storage-manage-with-storage-explorer.md) att överföra filer.
+* [Skapa ett Azure Storage-konto](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* Ladda ned en exempel-JSON-fil [från Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
+* Ladda upp exempel-JSON-filen till det Azure-lagringskonto du har skapat. Du kan använda [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filer.
 
-Utför följande steg för att skapa en bärbar dator i Databricks, konfigurera anteckningsboken för att läsa data från ett Azure Blob storage-konto och kör sedan ett Spark SQL-jobb på data.
+Utför följande steg för att skapa en anteckningsbok i Databricks, konfigurera den för att läsa data från ett Azure Blob Storage-konto och kör ett Spark SQL-jobb på data.
 
-1. I den vänstra rutan klickar du på **arbetsytan**. Från den **arbetsytan** listrutan, klickar du på **skapa**, och klicka sedan på **anteckningsboken**.
+1. Klicka på **Arbetsyta** i det vänstra fönstret. Från listrutan **Arbetsyta** klickar du på **Skapa** och sedan på **Anteckningsbok**.
 
-    ![Skapa anteckningsboken i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "skapa anteckningsboken i Databricks")
+    ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
-2. I den **skapa anteckningsboken** dialogrutan, ange ett namn, väljer **Scala** som språk och välj Spark-klustret som du skapade tidigare.
+2. I dialogrutan **Skapa anteckningsbok** anger du ett namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa anteckningsboken i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "skapa anteckningsboken i Databricks")
+    ![Skapa anteckningsbok i Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
 
     Klicka på **Skapa**.
 
-3. I följande fragment ersätter `{YOUR STORAGE ACCOUNT NAME}` med Azure storage-kontonamn som du skapade och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med din åtkomstnyckel för lagring. Klistra sammandraget i en tom cell i anteckningsboken och sedan trycka på SKIFT + RETUR för att köra kodcellen. Den här fragment konfigurerar anteckningsboken för att läsa data från ett Azure blob storage.
+3. I följande kodfragment ersätter du `{YOUR STORAGE ACCOUNT NAME}` med namnet på Azure-lagringskontot som du skapade och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med din åtkomstnyckel för lagringskontot. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen. Kodfragmentet konfigurerar anteckningsboken för att läsa data från et Azure Blob Storage.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
-    Instruktioner om hur du hämtar lagringskontots åtkomstnyckel finns [hantera åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
+    Om du vill få instruktioner om hur du hämtar åtkomstnyckeln för lagringskontot läser du [Hantera dina åtkomstnycklar för lagring](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > Du kan också använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använd Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
+    > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
-4. Kör en SQL-instruktion för att skapa en tillfällig tabell med hjälp av data från den JSON Exempeldatafilen **small_radio_json.json**. I följande fragment ersätta platshållarvärdena med behållarens namn och namnet på lagringskontot. Klistra sammandraget cellredigering koden i anteckningsboken och sedan trycka på SKIFT + RETUR. I fragment, `path` anger platsen för exempel JSON-filen som du överfört till ditt Azure Storage-konto.
+4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din behållares namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
 
     ```sql
     %sql 
@@ -110,53 +111,53 @@ Utför följande steg för att skapa en bärbar dator i Databricks, konfigurera 
     )
     ```
 
-    När kommandot har slutförts, har alla data från JSON-filen som en tabell i Databricks kluster.
+    När kommandot har slutförts har du alla data från JSON-filen som en tabell i Databricks-klustret.
 
-    Den `%sql` språk magiskt kommandot kan du köra en SQL-kod från bärbara datorer, även om den bärbara datorn tillhör en annan typ. Mer information finns i [blanda språk i en bärbar dator](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+    Med det magiska språkkommandot `%sql` kan du köra en SQL-kod från anteckningsboken även om anteckningsboken är av en annan typ. Mer information finns i [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook) (Blanda språk i en anteckningsbok).
 
-5. Nu ska vi titta på en ögonblicksbild av JSON exempeldata att bättre förstå den fråga som körs. Klistra in följande kodavsnitt i koden cell och trycka på **SKIFT + RETUR**.
+5. Nu ska vi titta på en ögonblicksbild av JSON-exempeldata för att bättre förstå den fråga som körs. Klistra in följande kodfragment i kodcellen och tryck på **SKIFT + RETUR**.
 
     ```sql
     %sql 
     SELECT * from radio_sample_data
     ```
 
-6. Du ser en tabellvy utdata som visas i följande skärmbild (endast vissa kolumner visas):
+6. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-    ![Exempeldata JSON](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "exempel JSON-data")
+    ![Exempel-JSON-data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel-JSON-data")
 
-    Bland andra uppgifter exempeldata fångar kön för målgruppen för en alternativknapp kanal (kolumnnamn **kön**) och om prenumerationen är kostnadsfria eller betalda (kolumnnamn **nivå**).
+    Bland annat fångar exempeldata in könet på en radiokanals målgrupp (kolumnnamn, **kön**)  och om deras prenumeration är kostnadsfri eller om den betalas (kolumnnamn, **nivå**).
 
-7. Nu kan du skapa en bild av dessa data att visa för varje kön, hur många användare har kostnadsfria konton och hur många är betalda prenumeranter. Längst ned i tabellform utdata klickar du på den **stapeldiagram** ikonen och klickar sedan på **Rita alternativ**.
+7. Nu skapar du en visuell representation av dessa data för att visa hur många användare av varje kön som har kostnadsfria konton och hur många som är betalande prenumeranter. Längst ned i tabellvyn klickar du på ikonen **Stapeldiagram** och sedan på **Ritalternativ**.
 
-    ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "skapa stapeldiagram")
+    ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
 
-8. I **anpassa Rita**, dra och släpp värden som visas i skärmbilden.
+8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 
-    ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "anpassa liggande stapeldiagram")
+    ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
-    * Ange **nycklar** till **kön**.
-    * Ange **seriegrupperingar** till **nivå**.
-    * Ange **värden** till **nivå**.
-    * Ange **aggregering** till **antal**.
+    * Ställ in **Nycklar** på **kön**.
+    * Ställ in **Seriegrupperingar** på **nivå**.
+    * Ställ in **Värden** på **nivå**.
+    * Ställ in **Sammansättning** på **COUNT** (Antal).
 
     Klicka på **Använd**.
 
-9. Utdata visar bild som visas i följande skärmbild:
+9. Utdata visar den visuella representationen som visas i följande skärmbild:
 
-     ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "anpassa liggande stapeldiagram")
+     ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Anpassa stapeldiagram")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du skapar Spark-kluster om du markerade kryssrutan **Avsluta efter ___ minuter för aktiviteten**, klustret avslutas automatiskt om det har varit inaktiv under den angivna tiden.
+Klustret avslutas automatiskt om det har varit inaktivt under den angivna tiden om du har markerat kryssrutan **Avsluta efter ___ minuters aktivitet**.
 
-Om du inte valde kryssrutan, måste du manuellt avsluta klustret. Om du vill göra det, från arbetsytan Azure Databricks i den vänstra rutan klickar du på **kluster**. För det kluster som du vill avsluta markören över de tre punkterna under **åtgärder** och på den **avsluta** ikon.
+Om du inte har markerat kryssrutan måste du avsluta klustret manuellt. Det gör du genom att klicka på via **Kluster** i den vänstra rutan i Azure Databricks-arbetsytan. För klustret du vill avsluta för du markören över de tre punkterna under kolumnen **Actions** (Åtgärder) och klickar på ikonen **Avsluta**.
 
-![Avsluta Databricks klustret](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "avsluta Databricks kluster")
+![Avsluta Databricks-kluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Avsluta Databricks-kluster")
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln, skapa ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data i Azure-lagring. Du kan också titta på [Väck datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) att lära dig hur du importerar data från andra datakällor till Azure Databricks. Gå vidare till nästa artikeln lär du dig hur du använder Azure Data Lake Store med Azure Databricks.
+I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med data i Azure Storage. Du kan också titta på [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Fortsätt till nästa artikel om du vill lära dig att använda Azure Data Lake Store med Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Använd Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)

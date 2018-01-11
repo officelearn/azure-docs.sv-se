@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -47,7 +47,11 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     a. Logga in på den fysiska värden på Azure Stack Development Kit (ASDK)-installationer.
 
-    b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten.
+    b. På datorer med flera noder, måste värden vara ett system som kan komma åt den privilegierade slutpunkten. 
+    
+    >[!NOTE]
+    > System där skriptet körs *måste* vara en Windows 10 eller Windows Server 2016 system med den senaste versionen av .NET-körningsmiljön installerad. Annars misslyckas installationen. ASDK värden uppfyller kriterierna.
+
 
 3. Hämta SQL resursprovidern binära och köra Self-Extractor extrahera innehållet till en tillfällig katalog.
 
@@ -56,16 +60,20 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     | Azure-stacken Build | SQL RP installer |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP version 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.180102.3 | **Vänta ytterligare information, aktuella versioner kan inte installeras, men fortsätter att köras på flera noder efter en uppgradering för Azure-stacken.** |
+    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
-    Om du måste ange ditt eget certifikat, måste följande certifikat:
+    Om du måste ange ditt eget certifikat, måste en PFX-fil placeras i den **DependencyFilesLocalPath** (se nedan) enligt följande:
 
-    Ett jokerteckencertifikat för \*.dbadapter.\< region\>.\< externa fqdn\>. Det här certifikatet måste vara betrott, utfärdats som av en certifikatutfärdare. Det vill säga måste förtroendekedja för finnas utan mellanliggande certifikat. En enda platscertifikat kan användas med explicit VM namn [sqladapter] används under installationen.
+    - Antingen ett jokerteckencertifikat för \*.dbadapter.\< region\>.\< externa fqdn\> eller en enda platscertifikat med ett eget namn för sqladapter.dbadapter.\< region\>.\< externa fqdn\>
+    - Det här certifikatet måste vara betrott, utfärdats som av en certifikatutfärdare. Det vill säga måste förtroendekedja för finnas utan mellanliggande certifikat.
+    - En enda certifikatfil finns i DependencyFilesLocalPath.
+    - Filnamnet får inte innehålla specialtecken.
 
 
 5. Öppna en **nya** utökade (administratör) PowerShell-konsolen och ändra till katalogen där du extraherade filerna. Använd ett nytt fönster för att undvika problem som kan uppstå i felaktigt PowerShell-moduler som redan har lästs in i systemet.
@@ -158,6 +166,73 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
 2. Kontrollera att distributionen har slutförts. Bläddra efter **resursgrupper** &gt;, klicka på den **system.\< plats\>.sqladapter** resurs gruppen och kontrollera att alla fyra distributioner lyckades.
 
       ![Kontrollera distributionen av SQL-RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Uppdatera SQL Resource Provider nätverkskort (med flera noder bara versioner 1710 och senare)
+När Azure Stack build uppdateras släpps ett nytt SQL Resource Provider-kort. När befintliga nätverkskortet kan fortsätta att fungera, rekommenderas du att uppdatera till den senaste versionen så snart som möjligt efter den Azure-stacken har uppdaterats. Uppdateringsprocessen påminner om installationen som beskrivs ovan. En ny virtuell dator skapas med den senaste RP-koden och inställningarna ska migreras till den här nya instansen inklusive databas och värd-serverinformation, samt nödvändiga DNS-posten.
+
+Använda skriptet UpdateSQLProvider.ps1 med samma argument som ovan. Du måste ange det här certifikatet samt.
+
+> [!NOTE]
+> Uppdatering stöds bara på datorer med flera noder.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parametrar
+Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon parameter valideringen misslyckas, uppmanas du att ange de nödvändiga.
+
+| Parameternamn | Beskrivning | Kommentar eller standardvärde |
+| --- | --- | --- |
+| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _krävs_ |
+| **AzCredential** | Ange autentiseringsuppgifter för Azure-administratörskonto Stack-tjänsten. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure-stacken). | _krävs_ |
+| **VMLocalCredential** | Definiera autentiseringsuppgifter för det lokala administratörskontot för SQL-resursprovidern VM. | _krävs_ |
+| **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på slutpunkten Privleged. |  _krävs_ |
+| **DependencyFilesLocalPath** | Certifikatets PFX-fil måste placeras i den här katalogen samt. | _valfria_ (_obligatoriska_ för flera noder) |
+| **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat | _krävs_ |
+| **MaxRetryCount** | Ange hur många gånger som du vill försöka utföra varje åtgärd om det finns ett fel.| 2 |
+| **RetryDuration** | Definiera tidsgräns mellan försök i sekunder. | 120 |
+| **Avinstallera** | Ta bort resursprovidern och alla associerade resurser (se nedan) | Nej |
+| **DebugMode** | Förhindrar automatisk rensning vid fel | Nej |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Ta bort SQL Resource Provider-kort

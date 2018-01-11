@@ -1,33 +1,25 @@
 ---
-title: "Översikt över Azure Container Instances | Azure Docs"
+title: "Översikt över Azure Container Instances"
 description: "Förstå Azure Container Instances"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6e614f1120b3dc54871b393ac0a2703c21b30ae8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 Behållare är på väg att bli det bästa sättet att paketera, distribuera och hantera molnprogram. Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure utan att man behöver etablera några virtuella datorer och utan att använda en tjänst på högre nivå.
 
-Azure Container Instances är en bra lösning för alla scenarier som kan fungera i isolerade behållare, däribland enkla program, automatisering av uppgifter och att skapa jobb. För scenarier där du behöver fullständig behållarsamordning, inklusive tjänstidentifiering för flera behållare, automatisk skalning och koordinerade programuppgraderingar rekommenderar vi [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
+Azure Container Instances är en bra lösning för alla scenarier som kan fungera i isolerade behållare, däribland enkla program, automatisering av uppgifter och att skapa jobb. För scenarier där du behöver fullständig behållarsamordning, inklusive tjänstidentifiering för flera behållare, automatisk skalning och koordinerade programuppgraderingar rekommenderar vi [Azure Container Service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Snabba starttider
 
@@ -47,7 +39,7 @@ Med Azure Container Instances kan du exponera dina behållare direkt för intern
 
 ## <a name="persistent-storage"></a>Beständig lagring
 
-Vi erbjuder direkt montering av Azure-filresurser för att hämta och bevara tillstånd med Azure Container Instances.
+Vi erbjuder direkt [montering av Azure Files-resurser](container-instances-mounting-azure-files-volume.md) för att hämta och bevara tillstånd med Azure Container Instances.
 
 ## <a name="linux-and-windows-containers"></a>Linux- och Windows-behållare
 
@@ -55,7 +47,7 @@ Med Azure Container Instances kan du schemalägga både Windows- och Linux-behå
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 
-Azure Container Instances stöder schemaläggning av grupper med flera behållare som delar en värddator, lokalt nätverk, lagring och livscykel. Det gör att du kan kombinera ditt huvudprogram med andra som fungerar som en stödjande roll som loggning.
+Azure Container Instances stöder schemaläggning av [grupper med flera behållare](container-instances-container-groups.md) som delar en värddator, lokalt nätverk, lagring och livscykel. Det gör att du kan kombinera ditt huvudprogram med andra som fungerar som en stödjande roll som loggning.
 
 ## <a name="next-steps"></a>Nästa steg
 

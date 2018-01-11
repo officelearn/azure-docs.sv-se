@@ -1,40 +1,42 @@
 ---
 title: "Azure Behållarinstanser tutorial – distribuera appen"
-description: "Azure Behållarinstanser tutorial – distribuera appen"
+description: "Självstudiekurs för Azure Behållarinstanser del 3 av 3 – distribuera program"
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a6b36349c7fae09e70178ae7e7c2b6c15c0c26d4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Distribuera en behållare till Behållarinstanser som Azure
 
-Det här är sist av tre delar självstudiekursen. I föregående avsnitt [en behållare avbildningen skapades](container-instances-tutorial-prepare-app.md) och [pushas till ett Azure Container registret](container-instances-tutorial-prepare-acr.md). Det här avsnittet Slutför kursen genom att distribuera behållaren till Azure-Behållarinstanser. Slutfört stegen innefattar:
+Det här är sista kurs i en serie i tre delar. Tidigare i serien [en behållare avbildningen skapades](container-instances-tutorial-prepare-app.md) och [pushas till ett Azure Container registret](container-instances-tutorial-prepare-acr.md). Den här artikeln Slutför kursen serien genom att distribuera behållaren till Behållarinstanser som Azure.
+
+I den här kursen har du:
 
 > [!div class="checklist"]
 > * Distribuera behållare från Azure-behållare registret med hjälp av Azure CLI
-> * Visar programmet i webbläsaren
+> * Visa program i webbläsaren
 > * Visa loggar för behållaren
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här kursen kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
+Den här kursen kräver att du använder Azure CLI version 2.0.23 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI 2.0][azure-cli-install].
 
-För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+Den här kursen behöver en Docker-utvecklingsmiljö installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på någon [Mac][docker-mac], [Windows][docker-windows], eller [Linux] [ docker-linux] system.
 
-Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. Därför rekommenderar vi en lokal installation av Azure CLI och Docker-utvecklingsmiljö.
+Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. På den lokala datorn för att slutföra den här guiden måste du installera Azure CLI och Docker-utvecklingsmiljö.
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Distribuera behållare med hjälp av Azure CLI
 
-Azure CLI gör det möjligt för distribution av en behållare till Azure-Behållarinstanser i ett enda kommando. Eftersom bilden behållaren finns i registret för privat Azure-behållare, måste du inkludera de autentiseringsuppgifter som krävs för att komma åt den. Om det behövs kan du fråga dem enligt nedan.
+Azure CLI gör det möjligt för distribution av en behållare till Azure-Behållarinstanser i ett enda kommando. Eftersom bilden behållaren finns i registret för privat Azure-behållare, måste du inkludera de autentiseringsuppgifter som krävs för att komma åt den. Hämta autentiseringsuppgifter med hjälp av följande Azure CLI-kommandona.
 
 Behållaren registret inloggningsserver (uppdatera ditt namn i registret):
 
@@ -51,23 +53,23 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 Kör följande kommando för att distribuera avbildningen behållare från behållaren registret med en resursbegäran av 1 processorkärna och 1 GB minne. Ersätt `<acrLoginServer>` och `<acrPassword>` med värden som du fick från föregående två kommandon.
 
 ```azurecli
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80 -g myResourceGroup
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
 ```
 
-Inom några sekunder bör du få ett inledande svar från Azure Resource Manager. Du kan visa statusen för distributionen [az behållaren visa](/cli/azure/container#az_container_show):
+Inom några sekunder bör du få ett inledande svar från Azure Resource Manager. Du kan visa statusen för distributionen [az behållaren visa][az-container-show]:
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Upprepa den `az container show` kommandot förrän tillståndet ändras från *väntande* till *kör*, vilka som ska ha under en minut. När behållaren är *kör*, Fortsätt till nästa steg.
+Upprepa den [az behållaren visa] [ az-container-show] kommandot förrän tillståndet ändras från *väntande* till *kör*, vilka som ska ha under en minut. När behållaren är *kör*, Fortsätt till nästa steg.
 
 ## <a name="view-the-application-and-container-logs"></a>Kontrollera händelseloggarna för programmet och en behållare
 
-När distributionen lyckas, visa behållarens offentliga IP-adressen med den [az behållaren visa](/cli/azure/container#az_container_show) kommando:
+När distributionen lyckas, visa behållarens offentliga IP-adressen med den [az behållaren visa] [ az-container-show] kommando:
 
 ```bash
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
 ```
 
 Exempel på utdata:`"13.88.176.27"`
@@ -79,7 +81,7 @@ Navigera till den offentliga IP-adressen i webbläsaren om du vill se programmet
 Du kan också visa loggutdata på behållaren:
 
 ```azurecli
-az container logs --name aci-tutorial-app -g myResourceGroup
+az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
 Resultat:
@@ -92,7 +94,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du behöver inte längre någon av de resurser som du skapade i den här självstudiekursen serien, kan du köra den [ta bort grupp az](/cli/azure/group#delete) kommando för att ta bort resursgruppen och alla resurser som den innehåller. Det här kommandot tar bort registernyckeln behållare som du skapade samt körs behållaren och alla relaterade resurser.
+Om du behöver inte längre någon av de resurser som du skapade i den här självstudiekursen serien, kan du köra den [ta bort grupp az] [ az-group-delete] för att ta bort resursgruppen och alla resurser som den innehåller. Det här kommandot tar bort registernyckeln behållare som du skapade samt körs behållaren och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -104,11 +106,22 @@ I kursen får slutfört du processen för att distribuera din behållare till Be
 
 > [!div class="checklist"]
 > * Distribuera behållare från Azure-behållare registret med hjälp av Azure CLI
-> * Visar programmet i webbläsaren
+> * Programmet visas i webbläsaren
 > * Visa loggar för behållaren
-
-<!-- LINKS -->
-[prepare-app]: ./container-instances-tutorial-prepare-app.md
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[azure-cli-install]: /cli/azure/install-azure-cli
+[prepare-app]: ./container-instances-tutorial-prepare-app.md

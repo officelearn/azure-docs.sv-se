@@ -54,7 +54,7 @@ Gå till Azure-portalen i webbläsaren för att hitta de autentiseringsuppgifter
 
 1. Leta upp resursgruppen som innehåller Azure-tjänster använder din fjärranslutna övervakningslösning. Resursgruppen har samma namn som den fjärranslutna övervakningslösning som du har etablerats.
 
-1. Navigera till IoT-hubben i den här resursgruppen. Välj **enheten explorer**:
+1. Navigera till IoT-hubben i den här resursgruppen. Välj **IoT-enheter**:
 
     ![Enheten explorer](media/iot-suite-selector-connecting/deviceexplorer.png)
 

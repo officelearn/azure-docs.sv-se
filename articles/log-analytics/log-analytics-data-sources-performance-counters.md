@@ -1,6 +1,6 @@
 ---
 title: "Samla in och analysera prestandaräknare i Azure Log Analytics | Microsoft Docs"
-description: "Prestandaräknarna samlas in av logganalys att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i OMS-databasen och analysera dem i OMS-portalen."
+description: "Prestandaräknarna samlas in av logganalys att analysera prestanda på Windows och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestandaräknare för både Windows och Linux-agenter, information om de lagras i arbetsytan och analysera dem i Azure-portalen."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows- och Linux prestanda datakällor i logganalys
 Prestandaräknare i Windows och Linux ger kunskaper om prestandan för maskinvarukomponenter, operativsystem och program.  Logganalys kan samla in prestandaräknare med återkommande intervall för analys i nära realtid (NRT) utöver sammanställa prestandadata för längre sikt analys och rapportering.
@@ -26,9 +26,9 @@ Prestandaräknare i Windows och Linux ger kunskaper om prestandan för maskinvar
 ![Prestandaräknare](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurera prestandaräknare
-Konfigurera prestandaräknare i OMS-portalen från den [Data-menyn i logganalys-inställningar](log-analytics-data-sources.md#configuring-data-sources).
+Konfigurera prestandaräknare från den [Data-menyn i logganalys-inställningar](log-analytics-data-sources.md#configuring-data-sources).
 
-När du först konfigurera räknare för Windows eller Linux-prestanda för en ny OMS-arbetsyta möjlighet du att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att räknare du vill skapa inledningsvis är markerade och klickar sedan på **Lägg till valda prestandaräknare**.
+När du först konfigurera räknare för Windows eller Linux-prestanda för en ny logganalys-arbetsyta möjlighet du att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att räknare du vill skapa inledningsvis är markerade och klickar sedan på **Lägg till valda prestandaräknare**.
 
 Du kan välja en specifik instans för varje prestandaräknare för Windows-prestandaräknare. För Linux-prestandaräknare gäller instansen av varje räknare som du väljer alla underordnade räknare för den överordnade räknaren. I följande tabell visas vanliga instanser som är tillgängliga för både Linux och Windows prestandaräknare.
 
@@ -65,7 +65,7 @@ Gör så här för att lägga till en ny Linux prestandaräknare för att samla 
 5. När du är klar att lägga till räknare klickar du på den **spara** längst upp på skärmen för att spara konfigurationen.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Konfigurera Linux prestandaräknare i konfigurationsfilen
-I stället för att konfigurera Linux prestandaräknare med OMS-portalen kan ha du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestandamått för att samla in styrs av konfigurationen i **/etc/opt/microsoft/omsagent/\<arbetsyte-id\>/conf/omsagent.conf**.
+I stället för att konfigurera Linux prestandaräknare i Azure Portal har du möjlighet att redigera konfigurationsfiler på Linux-agenten.  Prestandamått för att samla in styrs av konfigurationen i **/etc/opt/microsoft/omsagent/\<arbetsyte-id\>/conf/omsagent.conf**.
 
 Varje objekt eller kategori för prestandavärden att samla in ska vara definierat i konfigurationsfilen som en enda `<source>` element. Syntaxen följer mönstret nedan.
 
@@ -96,10 +96,10 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Logisk Disk | Ledigt utrymme i procent |
 | Logisk Disk | % Användai |
 | Logisk Disk | Använt utrymme i procent |
-| Logisk Disk | Disk-lästa byte/sek |
+| Logisk Disk | Disk – lästa byte/sek |
 | Logisk Disk | Diskläsningar/sek |
 | Logisk Disk | Disköverföringar/sek |
-| Logisk Disk | Disk-skrivna byte/s |
+| Logisk Disk | Disk – skrivna byte/sek |
 | Logisk Disk | Diskskrivningar/sek |
 | Logisk Disk | Ledigt utrymme i MB |
 | Logisk Disk | Logisk Disk byte/sek |
@@ -126,10 +126,10 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Fysisk Disk | Genomsn. Disk sek/disköverföring |
 | Fysisk Disk | Genomsn. Disk sek/skrivning |
 | Fysisk Disk | Fysisk Disk byte/sek |
-| Processen | PCT privilegierad tid |
-| Processen | PCT användartid |
-| Processen | Använt minne Kbyte |
-| Processen | Virtuella delat minne |
+| Process | PCT privilegierad tid |
+| Process | PCT användartid |
+| Process | Använt minne Kbyte |
+| Process | Virtuella delat minne |
 | Processor | % DPC-tid |
 | Processor | Inaktivitetstid i procent |
 | Processor | Avbrottstid i procent |
@@ -182,7 +182,7 @@ Följande är standardkonfigurationen för prestandavärden.
     </source>
 
 ## <a name="data-collection"></a>Datainsamling
-Logganalys samlar in alla angivna prestandaräknare på sina angivna provintervallet i alla agenter som har som räknaren installerad.  Informationen sammanställs inte och rådata är tillgänglig i alla loggen Sök vyer för den tid som anges av din OMS-prenumeration.
+Logganalys samlar in alla angivna prestandaräknare på sina angivna provintervallet i alla agenter som har som räknaren installerad.  Informationen sammanställs inte och rådata är tillgänglig i alla loggen Sök vyer för den tid som anges av din prenumeration.
 
 ## <a name="performance-record-properties"></a>Prestanda post egenskaper
 Prestanda poster har en typ av **Perf** och ha egenskaper i följande tabell.
@@ -220,12 +220,7 @@ Följande tabell innehåller olika exempel på loggen sökningar som hämtar upp
 | Perf &#124; Om CounterName == ”% processortid” och InstanceName == ”_Total” och datorn == ”den här datorn” &#124; Sammanfatta [”min(CounterValue)”] = min(CounterValue), [”avg(CounterValue)”] = avg(CounterValue), [”percentile75(CounterValue)”] = percentil (CounterValue 75), [”max(CounterValue)”] = max(CounterValue) av bin (TimeGenerated 1 tim), datorn |Varje timme medelvärde, lägsta, högsta och 75 percentil CPU-användning för en specifik dator |
 | Perf &#124; där ObjectName == ”MSSQL$ INST2: databaser” och InstanceName == ”master” | Alla prestandadata från databasen prestandaobjekt för master-databasen från den namngivna SQL Server-instansen INST2.  
 
-## <a name="viewing-performance-data"></a>Visar prestandadata
-När du kör en logg sökning efter prestandadata, den **listan** visas som standard.  Om du vill visa data i grafisk form, klickar du på **mått**.  En detaljerad grafisk vy klickar du på den  **+**  bredvid en räknare.  
 
-![Mått Visa dolda](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Att sammanställa prestandadata i loggen sökningar finns [på begäran mått aggregering och visualisering i OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Nästa steg

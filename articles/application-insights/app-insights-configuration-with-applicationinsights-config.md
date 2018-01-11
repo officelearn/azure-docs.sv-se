@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ange telemetri *moduler* och *initierare* för automatiskt spåra telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ange parametrar för några av dem.
 
-Konfigurationsfilen har namnet `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på vilken typ av ditt program. Läggs automatiskt till ditt projekt när du [installera de flesta versioner av SDK][start]. Läggs också till en webbapp med [Status Monitor på en IIS-server][redfield], eller när du väljer Appplication Insights [tillägg för Azure-webbplats eller VM](app-insights-azure-web-apps.md).
+Konfigurationsfilen har namnet `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på vilken typ av ditt program. Läggs automatiskt till ditt projekt när du [installera de flesta versioner av SDK][start]. Läggs också till en webbapp med [Status Monitor på en IIS-server][redfield], eller när du väljer Application Insights [tillägg för Azure-webbplats eller VM](app-insights-azure-web-apps.md).
 
 Det finns inte en motsvarande fil att styra den [SDK på en webbsida][client].
 
@@ -125,7 +125,6 @@ Standard initierare anges alla antingen genom webb- eller WindowsServer NuGet-pa
 * `SyntheticTelemetryInitializer`eller `SyntheticUserAgentTelemetryInitializer` uppdateringar av `User`, `Session` och `Operation` kontexter egenskaper för alla objekt i telemetri spåras vid hantering av en begäran från en syntetisk källa, t.ex. en tillgänglighet testa eller Sök motorn bot. Som standard [Metrics Explorer](app-insights-metrics-explorer.md) visar inte syntetiska telemetri.
 
     Den `<Filters>` ange identifierar egenskaperna för begäranden.
-* `UserAgentTelemetryInitializer`uppdateringar av `UserAgent` -egenskapen för den `User` kontexten för alla telemetri objekt baserat på den `User-Agent` HTTP-huvudet i begäran.
 * `UserTelemetryInitializer`uppdateringar av `Id` och `AcquisitionDate` egenskaper för `User` kontext för alla telemetri objekt med värden som extraheras från den `ai_user` cookie som genererats av Application Insights JavaScript instrumentation koden körs i användarens webbläsare.
 * `WebTestTelemetryInitializer`Anger användar-id, sessions-id och syntetiska datakällans egenskaper för HTTP-begäranden som kommer från [tillgänglighetstester](app-insights-monitor-web-app-availability.md).
   Den `<Filters>` ange identifierar egenskaperna för begäranden.

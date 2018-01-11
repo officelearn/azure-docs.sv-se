@@ -3,7 +3,7 @@ Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du b
 
 1. Gå till din Mobile Engagement-portal. Se till att du befinner dig i rätt och klicka sedan på **Engage**-knappen längst ned:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Klicka på **Inställningar**-sidan i din Engagement-portal. Därifrån klickar du på avsnittet **Systemspecifik push-avisering** för att överföra ditt p12-certifikat:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

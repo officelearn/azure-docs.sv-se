@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 473b8d1a735f4b6b1dfd0935f9d6950431f3d245
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -33,32 +33,34 @@ Agenten kan installeras på något av följande metoder. De flesta installatione
 * PowerShell-skript.
 * Resource Manager-mall för virtuella datorer som kör Windows på plats i Azure-stacken.  
 
-## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans id och nyckel
-Innan du installerar Microsoft Monitoring Agent för Windows, måste det arbetsyte-ID och nyckel för logganalys-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys korrekt.  
+För att förstå kraven för Nätverks- och distribuera Windows-agenten ska granska [samla in data från din miljö med Azure logganalys](log-analytics-concept-hybrid.md#prerequisites).
+
+## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
+Innan du installerar Microsoft Monitoring Agent för Windows behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna konfigurera agenten och se till att den kan kommunicera med logganalys korrekt.  
 
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj arbetsytan som du tänker på Konfigurera agenten rapporterar till i din lista över logganalys arbetsytor.
 3. Välj **Avancerade inställningar**.<br><br> ![Avancerade inställningar i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
-4. Välj **anslutna källor**, och välj sedan **Windows-servrar**.   
-5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i ditt favoritredigeringsprogram.   
+4. Välj **Anslutna källor** och välj sedan **Windows-servrar**.   
+5. Värdet till höger om **Id för arbetsyta** och **Primär nyckel**. Kopiera och klistra in båda två i det redigeringsprogram du föredrar.   
    
 ## <a name="install-the-agent-using-setup"></a>Installera agenten med hjälp av installationsprogrammet
-Följande steg installera och konfigurera agenten för Log Analytics i Azure och Azure Government molnet med hjälp av installationsprogrammet för Microsoft Monitoring Agent på datorn.  Installationsprogrammet för agenten finns i den hämta filen och måste extraheras för att 
+Följande steg installerar och konfigurerar agenten för Log Analytics i Azure och Azure Government-molnet med hjälp av installationsprogrammet för Microsoft Monitoring Agent på datorn.  Installationsprogrammet för agenten finns i den hämta filen och måste extraheras för att 
 
-1. På den **Windows-servrar** väljer rätt **ladda ned Windows Agent** versionen för att hämta beroende på processorarkitektur av Windows-operativsystemet.
+1. På sidan **Windows-servrar** väljer du lämplig version för **Ladda ned Windows-agent** som ska laddas ned, beroende på processorarkitekturen för Windows-operativsystemet.
 2. Kör installationsprogrammet för att installera agenten på datorn.
-2. På den **Välkommen** klickar du på **nästa**.
-3. På den **licensvillkoren** , Läs licensvillkoren och klickar sedan på **jag accepterar**.
-4. På den **målmappen** , ändra eller behålla standardinstallationsmappen och klickar sedan på **nästa**.
-5. På den **installationsalternativ för Agent** väljer Anslut agenten till Azure logganalys (OMS) och klicka sedan på **nästa**.   
-6. På den **Azure logganalys** utför följande:
-   1. Klistra in den **arbetsyte-ID** och **Arbetsytenyckel (primärnyckel)** som du kopierade tidigare.  Om datorn ska rapportera till logganalys-arbetsytan i Azure Government molnet, väljer **Azure som tillhör amerikanska myndigheter** från den **Azure-molnet** listrutan.  
-   2. Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten klickar du på **Avancerat** och ange en URL och portnummer för proxyservern.  Om proxyservern kräver autentisering, skriver du användarnamn och lösenord för att autentisera med proxyservern och klicka sedan på **nästa**.  
-7. Klicka på **nästa** när du har slutfört att tillhandahålla de nödvändiga konfigurationsinställningarna.<br><br> ![Klistra in arbetsyte-ID och primärnyckel](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
-8. På den **klar att installera** granskar du dina val och klicka sedan på **installera**.
-9. På den **konfigurationen slutförts** klickar du på **Slutför**.
+2. På sidan **Välkommen** klickar du på **Nästa**.
+3. På sidan **Licensvillkor** läser du licensen och klickar sedan på **Jag accepterar**.
+4. På sidan **Målmapp** ändrar du eller behåller standardinstallationsmappen och klickar sedan på **Nästa**.
+5. På sidan **Installationsalternativ för agent** väljer du att ansluta agenten till Azure Log Analytics (OMS) och klickar sedan på **Nästa**.   
+6. På sidan **Azure Log Analytics** gör du följande:
+   1. Klistra in **Id för arbetsyta** och **Arbetsytenyckel (primär nyckel)** som du kopierade tidigare.  Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**.  
+   2. Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten klickar du på **Avancerat** och anger URL och portnummer för proxyservern.  Om proxyservern kräver autentisering anger du användarnamn och lösenord för att autentisera hos proxyservern och klickar sedan på **Nästa**.  
+7. Klicka på **Nästa** när du har gjort de konfigurationsinställningar som krävs.<br><br> ![klistra in ID för arbetsyta och primär nyckel](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. På sidan **Klar att installera** kontrollerar du valen och klickar sedan på **Installera**.
+9. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
 
-När du är färdig den **Microsoft Monitoring Agent** visas i **Kontrollpanelen**. För att bekräfta att den rapporterar till logganalys, granska [verifiera agenten anslutning till logganalys](#verify-agent-connectivity-to-log-analytics). 
+När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. För att bekräfta att den rapporterar till logganalys, granska [verifiera agenten anslutning till logganalys](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Installera agenten med hjälp av kommandoraden
 Den hämta filen för agenten är ett fristående installationsprogram som skapats med IExpress.  Installationsprogrammet för agenten och stödfilerna finns i paketet och behöver extraheras för att kunna installera med hjälp av kommandoraden som visas i följande exempel.  Den här metoden stöder konfiguration av agenten ska rapportera till Azure kommersiella och moln som tillhör amerikanska myndigheter.  
@@ -154,7 +156,7 @@ Om du vill hämta den här koden från installera agenten direkt, kan du använd
 
 När instalaltion av agenten är klar, verifiera att den är ansluten och rapportering kan du göra på två sätt.  
 
-Från datorn i **Kontrollpanelen**, söka efter artikeln **Microsoft Monitoring Agent**.  Markera den och på den **Azure logganalys (OMS)** fliken agenten ska visa ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA anslutningsstatusen till logganalys](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Från datorn i **Kontrollpanelen**, söka efter artikeln **Microsoft Monitoring Agent**.  Markera den och på den **Azure logganalys (OMS)** fliken agenten ska visa ett meddelande om: **i Microsoft Monitoring Agent har lyckats ansluta till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Du kan också utföra en enkel logg sökning i Azure-portalen.  
 

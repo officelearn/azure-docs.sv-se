@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Direktuppspelning Azure-diagnostik i varm sökvägen med hjälp av Händelsehubbar
 Azure Diagnostics tillhandahåller flexibelt sätt för att samla in mått och loggar från cloud services virtuella maskiner (VMs) och överföra resultaten till Azure Storage. Från och med mars 2016 (SDK 2.9) tidsintervall du skickar diagnostik till anpassade datakällor och överför varm sökväg data i sekunder med hjälp av [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ Händelsehubbar sink måste också deklareras och definieras i den **PrivateConf
 }
 ```
 
-Den `SharedAccessKeyName` värdet måste matcha en delad signatur åtkomst (SAS) nyckel och en princip som har definierats i den **Händelsehubbar** namnområde. Bläddra till Händelsehubbar instrumentpanelen i den [Azure-portalen](https://manage.windowsazure.com), klicka på den **konfigurera** fliken och skapa en namngiven princip (till exempel ”SendRule”) som har *skicka* behörigheter. Den **StorageAccount** också har deklarerats i **PrivateConfig**. Det finns inget behov av att ändra här värden om de fungerar. I det här exemplet lämnar vi värdena tomt, vilket är ett tecken som att den underordnade resursen kommer att ange värden. Till exempel den *ServiceConfiguration.Cloud.cscfg* miljö konfigurationsfil anger miljö som är lämpliga namn och nycklar.  
+Den `SharedAccessKeyName` värdet måste matcha en delad signatur åtkomst (SAS) nyckel och en princip som har definierats i den **Händelsehubbar** namnområde. Bläddra till Händelsehubbar instrumentpanelen i den [Azure-portalen](https://portal.azure.com), klicka på den **konfigurera** fliken och skapa en namngiven princip (till exempel ”SendRule”) som har *skicka* behörigheter. Den **StorageAccount** också har deklarerats i **PrivateConfig**. Det finns inget behov av att ändra här värden om de fungerar. I det här exemplet lämnar vi värdena tomt, vilket är ett tecken som att den underordnade resursen kommer att ange värden. Till exempel den *ServiceConfiguration.Cloud.cscfg* miljö konfigurationsfil anger miljö som är lämpliga namn och nycklar.  
 
 > [!WARNING]
 > Event Hubs SAS-nyckeln lagras i klartext i den *.wadcfgx* fil. Ofta den här nyckeln är markerad för källkodskontroll eller är tillgänglig som en tillgång i build-servern så bör du skydda den efter behov. Vi rekommenderar att du använder SAS-nyckeln här med *Skicka bara* behörigheter så att en obehörig användare inte kan skriva till händelsehubben, men lyssna på den eller hantera den.

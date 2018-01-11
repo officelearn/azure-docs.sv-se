@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 Du kan skapa Azure-säkerhetskopior via Azure Portal. Med den här metoden får du ett webbläsarbaserat användargränssnitt för att skapa och konfigurera Azure-säkerhetskopior och alla relaterade resurser. Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som kan lagras i geo-redundanta återställningsvalv. Den här artikeln beskriver hur du säkerhetskopierar en virtuell dator med Azure Portal. 
 
-I den här snabbguiden sker säkerhetskopieringen på en befintlig virtuell Azure-dator. Om du behöver skapa en virtuell dator kan du [skapa en virtuell dator med Azure Portal](../virtual-machines/windows/quick-create-portal.md).
+I den här snabbstarten sker säkerhetskopieringen på en befintlig virtuell Azure-dator. Om du behöver skapa en virtuell dator kan du [skapa en virtuell dator med Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -36,13 +36,13 @@ Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-
 
 1. Välj **Virtuella datorer** på menyn till vänster. 
 2. Välj en virtuell dator som du vill säkerhetskopiera i listan. Om du skapade en virtuell dator med exempelkommandona i snabbstarten heter den virtuella datorn *myVM*, och resursgruppen som den finns i *myResourceGroup*.
-3. Välj **Säkerhetskopiering** i avsnittet **Inställningar**. Fönstret **Aktivera säkerhetskopiering** öppnas.
+3. Välj **Säkerhetskopiering** i avsnittet **Åtgärder**. Fönstret **Aktivera säkerhetskopiering** öppnas.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Aktivera säkerhetskopiering på en virtuell dator
 Recovery Services-valvet är en logisk behållare som lagrar säkerhetskopierade data för varje skyddad resurs, till exempel virtuella Azure-datorer. När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
-1. Välj **Skapa nytt** och ange ett namn för det nya valvet, till exempel **myRecoveryServicesVault**.
+1. Välj **Skapa nytt** och ange ett namn för det nya valvet, till exempel *myRecoveryServicesVault*.
 2. Välj **Använd befintlig** (om det inte redan har markerats) och sedan resursgruppen för din virtuella dator på den nedrullningsbara menyn.
 
     ![Aktivera säkerhetskopiering av virtuell dator i Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Recovery Services-valvet är en logisk behållare som lagrar säkerhetskopierade
     Du skapar och använder principer för att definiera när ett säkerhetskopieringsjobb ska köras och hur länge återställningspunkterna ska sparas. Med standardskyddsprincipen körs ett säkerhetskopieringsjobb varje dag och återställningspunkterna sparas i 30 dagar. Du kan använda standardvärdena för att snabbt skydda din virtuella dator. 
 
 3. Om du godkänner standardvärdena för säkerhetskopieringsprincipen väljer du **Aktivera säkerhetskopiering**.
+
+Det tar en stund att skapa Recovery Services-valvet.
 
 
 ## <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb

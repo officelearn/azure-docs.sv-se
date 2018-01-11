@@ -9,24 +9,24 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Konfigurera och åtkomst loggas i Azure-portalen
 
 Du kan konfigurera, visa och hämta den [Azure-databas för PostgreSQL serverloggen](concepts-server-logs.md) från Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att gå igenom den här instruktioner:
 - [Azure-databas för PostgreSQL-server](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 Konfigurera åtkomst till frågeloggar och i felloggarna. 
 
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure-portalen](http://portal.azure.com/).
 
 2. Välj din Azure-databas för PostgreSQL-servern.
 
@@ -53,7 +53,7 @@ Konfigurera åtkomst till frågeloggar och i felloggarna.
 ## <a name="view-list-and-download-logs"></a>Visa lista och hämta loggar
 När loggningen börjar kan du visa en lista över tillgängliga loggar och hämta individuella loggfiler i rutan i serverloggen. 
 
-1. Öppna Azure-portalen.
+1. Öppna Azure Portal.
 
 2. Välj din Azure-databas för PostgreSQL-servern.
 
@@ -75,5 +75,5 @@ När loggningen börjar kan du visa en lista över tillgängliga loggar och häm
 ## <a name="next-steps"></a>Nästa steg
 - Se [Access Server-loggar i CLI](howto-configure-server-logs-using-cli.md) att lära dig hur du hämtar loggarna programmässigt.
 - Lär dig mer om [serverloggen](concepts-server-logs.md) i Azure DB för PostgreSQL. 
-- Mer information om parameterdefinitioner och PostgreSQL loggning finns i dokumentationen för PosgreSQL på [felrapportering och loggning](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Mer information om parameterdefinitioner och PostgreSQL loggning finns i dokumentationen för PostgreSQL på [felrapportering och loggning](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

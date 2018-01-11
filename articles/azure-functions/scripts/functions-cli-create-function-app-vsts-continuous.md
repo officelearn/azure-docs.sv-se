@@ -1,32 +1,32 @@
 ---
-title: "Skapa en Funktionsapp och distribuera Funktionskoden från Visual Studio Team Services | Microsoft Docs"
+title: "Skapa en funktion i Azure som distribueras från Visual Studio Team Services | Microsoft Docs"
 description: "Skapa en Funktionsapp och distribuera Funktionskoden från Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Skapa en App Service
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Skapa en funktion i Azure som distribueras från Visual Studio Team Services
 
-I det här scenariot beskrivs hur du skapar en funktionsapp som använder den [förbrukning plan](../functions-scale.md#consumption-plan) och du ställer in kontinuerlig distribution från Visual Studio Team Services VSTS ()-databasen. För det här exemplet behöver du:
+Det här avsnittet beskrivs hur du använder Azure Functions för att skapa en [serverlösa](https://azure.microsoft.com/overview/serverless-computing/) funktionen app med hjälp av den [förbrukning plan](../functions-scale.md#consumption-plan). Funktionen appen, som är en behållare för dina funktioner distribueras kontinuerligt från en Visual Studio Team Services VSTS ()-databas. För att slutföra det här avsnittet måste du ha:
 
-* En VSTS databas med funktioner kod som du har administrativa behörigheter för.
-* En [personlig åtkomst-Token (PATRIK)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) för ditt GitHub-konto.
+* En VSTS databas som innehåller ditt funktionen app-projekt och som du har administrativ behörighet.
+* En [personlig åtkomsttoken (PATRIK)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) att komma åt databasen VSTS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du föredrar att använda Azure CLI lokalt, måste du installera och använda version 2.0 eller senare. För att avgöra versionen av Azure CLI kör `az --version`. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -38,7 +38,7 @@ Det här exemplet skapar en app i Azure-funktion och distribuerar Funktionskoden
 
 ## <a name="script-explanation"></a>Skriptet förklaring
 
-Det här skriptet använder följande kommandon för att skapa en resursgrupp, webbprogram, documentdb och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp, storage-konto, funktionsapp och alla relaterade resurser. Varje kommando i tabellen länkar till kommandot viss dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|

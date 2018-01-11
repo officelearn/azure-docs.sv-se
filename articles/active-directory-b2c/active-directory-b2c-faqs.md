@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (FAQ) 
 Den här sidan svar på vanliga frågor om Azure Active Directory (AD Azure) B2C. Hålla kontroll för uppdateringar.
@@ -105,7 +105,7 @@ Nej, stöder inte Azure AD B2C samma uppsättning rapporter som Azure AD Premium
 Visst!  Läs mer om [språk anpassning](active-directory-b2c-reference-language-customization.md), som är tillgänglig som förhandsversion.  Vi ger översättningar för 36 språk och du kan åsidosätta valfri sträng så att de passar dina behov.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Kan jag använda min egen URL: er på sidorna registrering och inloggning som hanteras av Azure AD B2C? Till exempel ändrar URL: en från login.microsoftonline.com till login.contoso.com?
-För närvarande inte. Den här funktionen finns på vår översikt. Verifiera din domän i den **domäner** fliken på den klassiska Azure-portalen inte utför det här målet.
+För närvarande inte. Den här funktionen finns på vår översikt. Verifiera din domän i den **domäner** fliken i Azure-portalen inte utför det här målet.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Hur tar jag bort min Azure AD B2C-klient?
 Följ dessa steg för att ta bort din Azure AD B2C-klient:

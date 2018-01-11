@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -75,8 +75,8 @@ Följande miljöer stöds:
 
 1. [Aktivera Application Insights i ditt webbprogram för ASP.NET Core](app-insights-asp-net-core.md), om du inte gjort det ännu.
 
-> [!NOTE]
-> Vara säker på att tillämpningsprogrammet refererar till version 2.1.1 eller nyare Microsoft.ApplicationInsights.AspNetCore paketets.
+    > [!NOTE]
+    > Vara säker på att tillämpningsprogrammet refererar till version 2.1.1 eller nyare Microsoft.ApplicationInsights.AspNetCore paketets.
 
 2. Inkludera den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 För program som är _inte_ finns i App Service, överföring loggarna finns i samma mapp som minidumpar: `%TEMP%\Dumps\<ikey>` (där `<ikey>` är instrumentation-nyckel).
 
-För roller i molntjänster kanske tillfälliga standardmappen för liten för minidumpfiler. I så fall kan du ange en annan mapp via egenskapen TempFolder i ApplicationInsights.config.
+### <a name="troubleshooting-cloud-services"></a>Felsökning av molntjänster
+För roller i molntjänster kanske tillfälliga standardmappen för liten för minidumpfiler, vilket leder till förlorade ögonblicksbilder.
+Utrymmet som krävs beror på totalt arbetsminnet för ditt program och antalet samtidiga ögonblicksbilder.
+Arbetsminnet för en 32-bitars ASP.NET-webbroll är vanligtvis mellan 200 MB och 500 MB.
+Du ska tillåta för minst två samtidiga ögonblicksbilder.
+Till exempel om 1 GB totala arbetsminnet används i ditt program bör du kontrollera att det finns minst 2 GB diskutrymme för lagring av ögonblicksbilder.
+Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikerad lokal resurs för ögonblicksbilder.
 
+1. Lägga till en ny lokal resurs i din molntjänst genom att redigera Cloud Service-definitionsfil (.csdf). I följande exempel definieras en resurs med namnet `SnapshotStore` med en storlek på 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Ändra din roll `OnStart` metod för att lägga till en miljövariabel som pekar på den `SnapshotStore` lokal resurs.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Uppdatera din roll ApplicationInsights.config-filen om du vill åsidosätta den temporära mapp finns som används av`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Använd Application Insights Sök efter undantag med ögonblicksbilder

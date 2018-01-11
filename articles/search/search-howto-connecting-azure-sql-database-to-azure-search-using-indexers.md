@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ansluta Azure SQL Database till Azure Search med indexerare
 
@@ -26,7 +26,7 @@ Innan du kan fråga en [Azure Search index](search-what-is-an-index.md), måste 
 
 Den här artikeln omfattar säkerhetsnivån med [indexerare](search-indexer-overview.md), men även beskriver funktionerna kan endast användas med Azure SQL-databaser (till exempel integrerad ändringsspårning). 
 
-Utöver Azure SQL-databaser innehåller Azure Search indexerare för [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), och [Azure-tabellagring](search-howto-indexing-azure-tables.md). Om du vill begära stöd för andra datakällor ge din feedback på den [Azure Search Feedbackforum](https://feedback.azure.com/forums/263029-azure-search/).
+Utöver Azure SQL-databaser innehåller Azure Search indexerare för [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), och [Azure-tabellagring](search-howto-indexing-azure-tables.md). Om du vill begära stöd för andra datakällor ge din feedback på den [Azure Search Feedbackforum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexerare och datakällor
 
@@ -44,7 +44,7 @@ Du kan installera och konfigurera en Azure SQL indexeraren med:
 
 * Guiden Importera Data i den [Azure-portalen](https://portal.azure.com)
 * Azure Search [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Search [REST-API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* Azure Search [REST-API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 I den här artikeln använder vi REST API för att skapa **indexerare** och **datakällor**.
 
@@ -294,16 +294,16 @@ Den **softDeleteMarkerValue** måste vara en sträng – Använd strängrepresen
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geografisk plats |Edm.GeographyPoint |Stöds endast geografi instanser av typen plats med SRID 4326 (som är standard) |
-| ROWVERSION |Saknas |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
-| tid, timespan, binary, varbinary, image, xml, geometry, CLR-typer |Saknas |Stöds inte |
+| ROWVERSION |Gäller inte |Radversioner kolumner kan inte lagras i sökindexet, men de kan användas för ändringsspårning |
+| tid, timespan, binary, varbinary, image, xml, geometry, CLR-typer |Gäller inte |Stöds inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 SQL-indexeraren visar flera konfigurationsinställningar:
 
 | Inställning | Datatyp | Syfte | Standardvärde |
 | --- | --- | --- | --- |
-| queryTimeout |Sträng |Anger timeout för körning av SQL-fråga |5 minuter (”00: 05:00”) |
-| disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |FALSKT |
+| queryTimeout |sträng |Anger timeout för körning av SQL-fråga |5 minuter (”00: 05:00”) |
+| disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |falskt |
 
 De här inställningarna används i den `parameters.configuration` objekt i indexeraren definitionen. Om du vill ange timeout-värde till 10 minuter, till exempel skapa eller uppdatera indexeraren med följande konfiguration:
 

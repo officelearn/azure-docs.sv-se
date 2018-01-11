@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Lägga till Google + som en OAuth2-identitetsleverantör anpassade principer
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Den här guiden visar hur du aktiverar inloggning för användare från Google +-konto med [anpassade principer](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
@@ -175,7 +175,7 @@ Identitetsleverantören har ställts in.  Det är dock inte tillgänglig i alla 
 1.  Öppna filen grundläggande av principen (till exempel TrustFrameworkBase.xml).
 2.  Hitta de `<UserJourneys>` element och kopiera hela innehållet i `<UserJourneys>` nod.
 3.  Öppna tilläggsfilen (till exempel TrustFrameworkExtensions.xml) och Sök efter den `<UserJourneys>` element. Om elementet inte finns, kan du lägga till en.
-4.  Klistra in hela innehållet i `<UserJournesy>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
+4.  Klistra in hela innehållet i `<UserJourney>` nod som du kopierade som underordnad till den `<UserJourneys>` element.
 
 ### <a name="display-the-button"></a>Visa knappen
 Den `<ClaimsProviderSelections>` elementet definierar en lista över alternativ för val av anspråk providern och deras inbördes ordning.  `<ClaimsProviderSelection>`elementet är detsamma som knappen identity-providern på en sign-upp/inloggningssidan. Om du lägger till en `<ClaimsProviderSelection>` element för Google + konto, en ny knapp visas när en användare de hamnar på sidan. Lägg till det här elementet:
@@ -243,6 +243,14 @@ Du kanske vill lägga till Google + konto identitetsleverantören också till di
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Ladda upp principen till din klient
+1.  I den [Azure-portalen](https://portal.azure.com), växla till den [kontext för din Azure AD B2C-klient](active-directory-b2c-navigate-to-b2c-context.md), och öppna den **Azure AD B2C** bladet.
+2.  Välj **identitet upplevelse Framework**.
+3.  Öppna den **alla principer** bladet.
+4.  Välj **överföra princip**.
+5.  Kontrollera den **skriva över principen om den finns** rutan.
+6.  **Överför** TrustFrameworkExtensions.xml och se till att inte misslyckas verifieringen.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testa en anpassad profil-Redigera princip genom att använda Kör nu
 

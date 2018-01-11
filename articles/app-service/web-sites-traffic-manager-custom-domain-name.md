@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Om du vill associera din anpassade domän med en webbapp i Azure App Service må
 Medan egenskaperna för varje domän provider variera mappa *från* ditt domännamn (t.ex **contoso.com**) *till* Traffic Manager-domännamn ( **Contoso.trafficmanager.NET**) som är integrerad med ditt webbprogram.
    
 > [!NOTE]
-> Om en post används redan och du måste binda pre-emptively dina appar till den, kan du skapa en ytterligare CNAME-post. Till exempel för att binda pre-emptively **www.contoso.com** till ditt webbprogram, skapa en CNAME-post från **awverify.www** till **contoso.trafficmanager.net**. Du kan sedan lägga till ”www.contoso.com” ditt webbprogram utan att ändra ”www” CNAME-post. Mer information finns i [skapa DNS-poster för ett webbprogram i en anpassad domän][CREATEDNS].
+> Om en post används redan och du måste binda förebyggande syfte dina appar till den, kan du skapa en ytterligare CNAME-post. Till exempel för att binda förebyggande syfte **www.contoso.com** till ditt webbprogram, skapa en CNAME-post från **awverify.www** till **contoso.trafficmanager.net**. Du kan sedan lägga till ”www.contoso.com” ditt webbprogram utan att ändra ”www” CNAME-post. Mer information finns i [skapa DNS-poster för ett webbprogram i en anpassad domän][CREATEDNS].
 > 
 > 
 

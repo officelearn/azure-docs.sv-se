@@ -3,8 +3,8 @@ title: "Förstå utgående anslutningar i Azure | Microsoft Docs"
 description: "Den här artikeln förklarar hur Azure kan användas för virtuella datorer att kommunicera med offentliga Internet-tjänster."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Förstå utgående anslutningar i Azure
 
@@ -46,7 +46,7 @@ Du kan använda [Log Analytics för belastningsutjämnaren](load-balancer-monito
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>Utjämning av nätverksbelastning virtuell dator med ingen offentlig IP på instansnivå adress
 
-I det här fallet är den virtuella datorn tillhör en pool med Azure belastningsutjämnare.  Den virtuella datorn har inte en offentlig IP-adress som tilldelats. Resursen belastningsutjämnaren måste konfigureras med en regel för att länka den offentliga IP-klientdelen med serverdelspoolen.  Om du inte slutföra den här konfigurationen, beteendet är enligt beskrivningen i föregående avsnitt för [Standalone VM med ingen offentlig IP på instansnivå](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+I det här fallet är den virtuella datorn tillhör en pool med Azure belastningsutjämnare.  Den virtuella datorn har inte en offentlig IP-adress som tilldelats. Resursen belastningsutjämnare måste konfigureras med en regel för belastningsutjämnare för att skapa en länk mellan den offentliga IP-klientdelen med serverdelspoolen. Om du inte slutföra den här konfigurationen, beteendet är enligt beskrivningen i föregående avsnitt för [Standalone VM med ingen offentlig IP på instansnivå](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 När den belastningsutjämnade virtuella datorn skapar ett utgående flöde, översätter Azure privata källans IP-adress för utgående offentliga belastningsutjämnare klientdel offentliga IP-adressen. Azure använder källa Network Address Translation (SNAT) för att utföra den här funktionen. Tillfälliga portar för Belastningsutjämnarens offentliga IP-adressen används för att särskilja enskilda flöden av den virtuella datorn har sitt ursprung. SNAT tilldelas tillfälliga portar när utgående flöden skapas. I den här kontexten kallas tillfälliga portarna som används för SNAT SNAT portar.
 

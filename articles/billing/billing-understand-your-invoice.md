@@ -1,5 +1,5 @@
 ---
-title: "Förstå fakturan Azure | Microsoft Docs"
+title: "Förstå fakturan Azure"
 description: "Lär dig hur du läser och förstår användningen och fakturan för Azure-prenumerationen"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkor på fakturan Microsoft Azure
+
 Fakturan innehåller en sammanfattning av dina debiteringar och innehåller instruktioner för betalning. Den är tillgänglig för nedladdning i Portable Document-Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller kan skickas via e-post. Mer information finns i [få dina Azure billing faktura och dagligen användningsdata](billing-download-azure-invoice-daily-usage-date.md).
 
 Några saker att Observera:
@@ -31,9 +32,7 @@ Några saker att Observera:
 
 -   Avgifterna som visas på fakturering instruktioner för internationella kunder är endast för beräkning av. Banker kan ha olika kostnader för konvertering priser.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Detaljerade villkor och beskrivningar av fakturan
 Följande avsnitt listar de viktiga termer som du ser på din faktura och beskrivningar av varje term.

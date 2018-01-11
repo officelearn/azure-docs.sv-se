@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure-säkerhetskopiering har flera inbyggda effektivitet som sparar kostnader för nätverk och lagring under de första fullständiga säkerhetskopieringarna av data till Azure. Första fullständiga säkerhetskopieringar vanligtvis överför stora mängder data och kräver större nätverksbandbredd jämfört med efterföljande säkerhetskopieringar som överför bara går/varje. Azure-säkerhetskopiering komprimerar inledande säkerhetskopieringar. Genom processen att dirigera offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.  
@@ -46,7 +46,7 @@ När överföringen av säkerhetskopieringsdata till Azure är klar, Azure Backu
   * Ett Azure Backup-valvet har skapats.
   * Valvautentiseringsuppgifter som har hämtats.
   * Azure Backup-agenten har installerats på antingen Windows Server/Windows klient- eller System Center Data Protection Manager och datorn har registrerats med Azure Backup-valvet.
-* [Hämta Azure filen publiceringsinställningarna](https://manage.windowsazure.com/publishsettings) på den dator från vilken du planerar att säkerhetskopiera dina data.
+* [Hämta Azure filen publiceringsinställningarna](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) på den dator från vilken du planerar att säkerhetskopiera dina data.
 * Förbered en fristående plats, som kan vara en nätverksresurs eller en ytterligare enhet på datorn. Mellanlagringsplatsen är tillfälliga lagringen och används tillfälligt under det här arbetsflödet. Kontrollera att mellanlagringsplatsen har tillräckligt med diskutrymme för din första kopian. Om du vill se till att säkerhetskopiera en 500 GB filserver är mellanlagringsområdet minst 500 GB. (Färre används på grund av komprimering.)
 * Kontrollera att du använder en enhet som stöds. Endast 2,5 tum SSD eller 2,5 eller 3,5-tums SATA II/III interna hårddiskar stöds för användning med Import/Export-tjänsten. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [Azure Import/Export service dokumentationen](../storage/common/storage-import-export-service.md#hard-disk-drives) för den senaste uppsättningen enheter som har stöd för tjänsten.
 * Aktivera BitLocker på den dator som skrivaren SATA-enhet är ansluten.
@@ -67,7 +67,7 @@ Informationen i det här avsnittet hjälper dig att slutföra offlinesäkerhetsk
 
     * **Plats för mellanlagring**: temporär lagringsplats som den första säkerhetskopian skrivs. Detta kan bero på en nätverksresurs eller en lokal dator. Om datorn kopia och källdatorn är olika, rekommenderar vi att du anger den fullständiga nätverkssökvägen för mellanlagringsplatsen.
     * **Azure Importjobbets namn**: det unika namnet för vilka Azure Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
-    * **Azure Publiceringsinställningar**: en XML-fil som innehåller information om din prenumeration profil. Den innehåller också säkra referenser som är associerade med prenumerationen. Du kan [hämta filen](https://manage.windowsazure.com/publishsettings). Ange den lokala sökvägen till filen publicera.
+    * **Azure Publiceringsinställningar**: en XML-fil som innehåller information om din prenumeration profil. Den innehåller också säkra referenser som är associerade med prenumerationen. Du kan [hämta filen](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Ange den lokala sökvägen till filen publicera.
     * **Prenumerations-ID för Azure**: Azure prenumerations-ID för den prenumeration där du planerar att starta Azure-importjobbet. Om du har flera Azure-prenumerationer, använder du ID för den prenumeration som du vill associera med importjobbet.
     * **Azure Storage-konto**: storage-konto i Azure-prenumerationen som är associerade med Azure-importjobbet.
     * **Azure Storage-behållare**: namnet på målet lagringsblob i Azure storage-konto där det här jobbet data importeras.

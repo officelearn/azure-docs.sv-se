@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Leta upp och välj mallen **Azure CosmosDBTrigger** för önskat språk.
+2. Skriv `cosmos` i sökfältet och välj sedan önskat språk för utlösarmallen för Azure Cosmos DB.
 
-    ![Skapa en funktion som utlöses av Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Välj Azure Cosmos DB-utlösaren](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Konfigurera den nya utlösaren med inställningar enligt tabellen under bilden.
 
@@ -60,10 +60,10 @@ Därefter skapar du en funktion i den nya funktionsappen.
     
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Namnge din funktion** | Standard | Använd det standardfunktionsnamn som föreslås av mallen. |
-    | **Databasnamn** | Uppgifter | Namnet på databasen med den samling som ska övervakas. |
+    | **Namn** | Standard | Använd det standardfunktionsnamn som föreslås av mallen. |
     | **Samlingsnamn** | Objekt | Namnet på samlingen som ska övervakas. |
     | **Skapa en lånsamling om ingen finns** | Markerad | Samlingen finns inte redan, så du måste skapa den. |
+    | **Databasnamn** | Uppgifter | Namnet på databasen med den samling som ska övervakas. |
 
 4. Välj **Nytt** bredvid etiketten **Azure Cosmos DB-kontoanslutning** och välj ett befintligt Cosmos DB-konto eller **+ Skapa nytt**. 
  

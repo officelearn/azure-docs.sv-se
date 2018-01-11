@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Ansluta IoT DevKit AZ3166 till Azure IoT-hubb i molnet
 
@@ -104,7 +104,7 @@ Standard-appar som körs på DevKit kontrollerar den senaste versionen av den in
 > [!NOTE] 
 > Eftersom v1.1 gör DevKit ST säkert i startprogrammet. Du måste uppgradera inbyggda programvara om du kör under v1.1 för att göra det fungerar förmodligen.
 
-Om du behöver en uppgradering av inbyggd programvara, visar skärmen aktuella och senaste firmware-versioner. Om du vill uppgradera, följer du de [uppgradera inbyggda programvara](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) guide.
+Om du behöver en uppgradering av inbyggd programvara, visar skärmen aktuella och senaste firmware-versioner. Om du vill uppgradera, följer du de [uppgradera inbyggda programvara](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) guide.
 
 ![Visning av aktuella och senaste firmware-versioner](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -186,7 +186,7 @@ ZIP-filen som du hämtar innehåller alla nödvändiga verktyg och paket för De
 ZIP-filen innehåller följande verktyg och paket. Skriptet identifierar och hoppa över dem om du redan har några komponenter vara installerade.
 
 * Node.js och Yarn: Runtime för installationsskriptet och automatiserade åtgärder.
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): plattformsoberoende kommandoradsverktyget upplevelse för att hantera Azure-resurser.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): plattformsoberoende kommandoradsverktyget upplevelse för att hantera Azure-resurser.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS-kod): Lightweight redigerare för DevKit utveckling.
 * [Visual Studio Code-tillägget för Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): tillägg som gör att Arduino utveckling i Visual Studio-koden.
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): verktyg som tillägget för Arduino bygger på.

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0fcd25183617de879ada6d1f7d2a8fcf9551d6de
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Starta en interaktiv kartsökning som demonstration med Azure Location Based Services (förhandsversion)
 
@@ -44,7 +44,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Spara innehållet i filen lokalt som **AzureMapDemo.html** och öppna den i ett textredigeringsprogram.
-3. Sök efter strängen **<insert-key>** och ersätt den med värdet för **Primär nyckel** som hämtades i föregående avsnitt. 
+3. Sök efter strängen **&#60;insert-key&#62;** och ersätt den med värdet för **Primär nyckel** som hämtades i föregående avsnitt. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Starta demonstrationsprogrammet för Azure Maps

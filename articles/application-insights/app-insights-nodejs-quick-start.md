@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c8b8cab312f581a9ceb14179a0a7cab94516d6
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Börja övervaka Node.js-webbappen
 
@@ -28,7 +28,7 @@ För att slutföra den här snabbstarten behöver du:
 
 - Du behöver en Azure-prenumeration och en befintlig Node.js-webbapp.
 
-Om du inte har en Node.js-webbapp kan du skapa en genom att följa [snabbstarten för att skapa en Node.js webbapp](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
+Om du inte har en Node.js-webbapp kan du skapa en genom att följa [snabbstarten för att skapa en Node.js webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs).
  
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -67,11 +67,11 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    npm install applicationinsights --save
    ```
 
-3. Redigera appens första .js-fil och lägg till de två raderna under den översta delen av skriptet. Om du använder [appen Node.js-snabbstart](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs) ändrar du filen index.js. 
+3. Redigera appens första .js-fil och lägg till de två raderna under den översta delen av skriptet. Om du använder [appen Node.js-snabbstart](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs) ändrar du filen index.js. Ersätt &lt;instrumentation_key&gt; med ditt programs instrumentationsnyckel. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
-   appInsights.setup('<instrumentation_key').start();
+   appInsights.setup('<instrumentation_key>').start();
    ```
 
 4. Starta om appen.
@@ -135,4 +135,4 @@ Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Hitta och diagnostisera prestandaproblem](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

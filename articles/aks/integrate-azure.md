@@ -8,26 +8,26 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 18d082a1cd07e0b3572c93ea24b4e1edd92cad2a
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 339e600f18613e8cf4e5529c759ad33076d48654
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
-Tillsammans med [Kubernetes-tjänstkatalogen](https://github.com/kubernetes-incubator/service-catalog) gör Open Service Broker for Azure (OSBA) att utvecklare kan utnyttja Azure-hanterade tjänster i Kubernetes. Den här guiden fokuserar på att distribuera-tjänstkatalogen, Open Service Broker for Azure (OSBA) och program som använder Azure-hanterade tjänster med Kubernetes.
+Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör Open Service Broker for Azure (OSBA) att utvecklare kan utnyttja Azure-hanterade tjänster i Kubernetes. Den här guiden fokuserar på att distribuera-tjänstkatalogen, Open Service Broker for Azure (OSBA) och program som använder Azure-hanterade tjänster med Kubernetes.
 
 ## <a name="prerequisites"></a>Krav
 * En Azure-prenumeration
 
-* Azure CLI 2.0: Du kan [installera det lokalt](/cli/azure/install-azure-cli) eller använda det i [Azure Cloud Shell](../cloud-shell/overview.md).
+* Azure CLI 2.0: Du kan [installera det lokalt][azure-cli-install] eller använda det i [Azure Cloud Shell][azure-cloud-shell].
 
-* Azure CLI 2.7+: Du kan [installera det lokalt](kubernetes-helm.md#install-helm-cli) eller använda det i [Azure Cloud Shell](../cloud-shell/overview.md).
+* Azure CLI 2.7+: Du kan [installera det lokalt][helm-cli-install] eller använda det i [Azure Cloud Shell][azure-cloud-shell].
 
 * Behörigheter för att skapa tjänstens huvudnamn med deltagarrollen på din Azure-prenumeration
 
-* Ett befintligt Azure Container Service-kluster (AKS). Om du behöver ett AKS-kluster följer du snabbstarten [Skapa ett AKS-kluster](kubernetes-walkthrough.md).
+* Ett befintligt Azure Container Service-kluster (AKS). Om du behöver ett AKS-kluster följer du snabbstarten [Skapa ett AKS-kluster][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Installera tjänstkatalogen
 
@@ -68,7 +68,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Installera Open Service Broker for Azure
 
-Nästa steg är att installera [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), vilket inkluderar katalogen för de Azure-hanterade tjänsterna. Exempel på tillgängliga Azure-tjänster är Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database med flera.
+Nästa steg är att installera [Open Service Broker for Azure][open-service-broker-azure], vilket inkluderar katalogen för de Azure-hanterade tjänsterna. Exempel på tillgängliga Azure-tjänster är Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database med flera.
 
 Vi börjar med att lägga till Open Service Broker for Azure Helm-lagringsplatsen:
 
@@ -76,7 +76,7 @@ Vi börjar med att lägga till Open Service Broker for Azure Helm-lagringsplatse
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Skapa [Tjänstens huvudnamn](kubernetes-service-principal.md) med följande Azure CLI-kommando:
+Skapa [Tjänstens huvudnamn][create-service-principal] med följande Azure CLI-kommando:
 
 ```azurecli-interactive
 az ad sp create-for-rbac
@@ -124,7 +124,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-När OSBA-distributionen är klar installerar du [CLI för tjänstkatalogen](https://github.com/Azure/service-catalog-cli), ett lättanvänt kommandoradsgränssnitt för att fråga service broker, tjänstklasser, tjänstplaner med mera.
+När OSBA-distributionen är klar installerar du [CLI för tjänstkatalogen][service-catalog-cli], ett lättanvänt kommandoradsgränssnitt för att fråga service broker, tjänstklasser, tjänstplaner med mera.
 
 Kör följande kommandon för att installera CLI-binary för tjänstkatalog:
 
@@ -184,4 +184,18 @@ kubectl get secrets -n wordpress -o yaml
 
 Genom att följa den här artikeln har du distribuerat Tjänstkatalog till ett AKS-kluster (Azure Container Service). Du har använt Open Service Broker for Azure för att distribuera en WordPress-installation som använder Azure-hanterade tjänster, i det här fallet Azure Database for MySQL.
 
-På lagringsplatsen [Azure/helm-charts](https://github.com/Azure/helm-charts) kan du få åtkomst till andra uppdaterade OSBA-baserade Helm-diagram. Om du är intresserad av att skapa egna diagram som fungerar med OSBA kan du läsa [Skapa ett nytt diagram](https://github.com/Azure/helm-charts#creating-a-new-chart).
+På lagringsplatsen [Azure/helm-charts][helm-charts] kan du få åtkomst till andra uppdaterade OSBA-baserade Helm-diagram. Om du är intresserad av att skapa egna diagram som fungerar med OSBA kan du läsa [Skapa ett nytt diagram][helm-create-new-chart].
+
+<!-- LINKS - external -->
+[helm-charts]: https://github.com/Azure/helm-charts
+[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
+[kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
+[open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure
+[service-catalog-cli]: https://github.com/Azure/service-catalog-cli
+
+<!-- LINKS - internal -->
+[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-cloud-shell]: ../cloud-shell/overview.md
+[create-aks-cluster]: ./kubernetes-walkthrough.md
+[create-service-principal]: ./kubernetes-service-principal.md

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Skapa en funktion som utlöses av Azure Queue Storage
 
@@ -52,13 +52,16 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Välj en mall för **Kö-utlösare** för önskat språk och använd inställningarna som angetts i tabellen.
+2. Skriv `queue` i sökfältet och välj sedan önskat språk för utlösarmallen för Queue Storage.
 
-    ![Skapa funktionen som utlöses av lagringskön.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Välj utlösarmallen för lagringskö.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Använd inställningarna som anges i tabellen nedanför bilden.
+    ![Konfigurera lagringsköfunktionen som utlöses.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Namnge din funktion** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
+    | **Namn** | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
     | **Könamn**   | myqueue-items    | Namnet på den kö som ska anslutas till i ditt Storage-konto. |
     | **Lagringskontoanslutning** | AzureWebJobStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |    
 

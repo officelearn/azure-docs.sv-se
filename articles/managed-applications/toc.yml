@@ -12,6 +12,8 @@
   items:
     - name: Skapa hanterade programfiler
       href: publish-service-catalog-app.md
+    - name: Använda marknadsplatsprogram
+      href: publish-marketplace-app.md
 - name: Exempel
   items:
     - name: Azure CLI

@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
-  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Med Azure-hanterade program kan du erbjuda dina molnlösningar till interna och externa kunder. Du definierar infrastrukturen för lösningen samt villkoren för kontinuerlig hantering av lösningen. Faktureringen för lösningen hanteras genom Azure-fakturering."
 sections:
@@ -37,10 +37,10 @@ sections:
   - type: paragraph
     text: "Lär dig hur du utvecklar och hanterade program och erbjuder dem via Azure Marketplace."
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: ordered
     items:
     - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Publicera ett hanterat program för interna användare</a>"
+    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Publicera ett hanterat program för externa användare</a>"
 - title: Referens
   items:
   - type: list

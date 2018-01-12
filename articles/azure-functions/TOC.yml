@@ -1,6 +1,6 @@
 - name: Dokumentation om Functions
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Functions
       href: functions-overview.md
@@ -85,11 +85,11 @@
       href: functions-best-practices.md
     - name: Functions-proxyservrar
       href: functions-proxies.md
-    - name: Functions-körning
+    - name: Lokala funktioner
       href: functions-runtime-overview.md
     - name: Bestående funktioner
       items:
-        - name: "Översikt\r\n"
+        - name: Översikt
           href: durable-functions-overview.md
         - name: Bindningar
           href: durable-functions-bindings.md
@@ -182,7 +182,7 @@
         - name: Blob Storage
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Händelsehubbar
           href: functions-bindings-event-hubs.md
         - name: Extern fil

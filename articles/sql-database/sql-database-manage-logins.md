@@ -4,7 +4,7 @@ description: "Lär dig mer om SQL Database säkerhetshantering, särskilt hur du
 keywords: "sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.author: carlrab
+ms.openlocfilehash: 4963e67317f22140c318e29bcd03bce4b9f57ab6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Kontrollera och att bevilja åtkomst till databasen
 

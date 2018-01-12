@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paketera och distribuera behållare som ett Service Fabric-program
 
@@ -34,7 +34,7 @@ Den här kursen ingår två i en serie. I den här självstudiekursen används e
 > * Distribuera och köra programmet 
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Behållaren bilder pushas till Azure-behållare registret som skapats i [del 1](service-fabric-tutorial-create-container-images.md) serie som används i den här kursen.
 - Linux-utvecklingsmiljö är [konfigurera](service-fabric-tutorial-create-container-images.md).
@@ -65,10 +65,11 @@ Service fabric innehåller scaffold-teknik för verktyg för att skapa program f
     ```bash
     yo azuresfcontainer
     ```
-2. Namnge programmet ”TestContainer” och namnge programmet service ”azurevotefront”.
-3. Ange den behållare avbildningssökvägen i ACR för klientdel lagringsplatsen – till exempel 'test.azurecr.io/azure-vote-front:v1'. 
-4. Tryck på RETUR för att avsluta kommandona avsnittet tomt.
-5. Ange ett instansantal på 1.
+2. Skriv in ”TestContainer” för att namnge ditt program
+3. Ange ”azurevotefront” för att namnge din programtjänsten.
+4. Ange avbildning behållare i ACR för frontend-lagringsplatsen - till exempel '\<acrName >.azurecr.io / azure-röst-fram: v1'. Den \<acrName > fältet måste vara detsamma som värdet som användes i tidigare kursen.
+5. Tryck på RETUR för att avsluta kommandona avsnittet tomt.
+6. Ange ett instansantal på 1.
 
 Följande visar indata och utdata för körs den yo kommando:
 
@@ -86,12 +87,12 @@ Följande visar indata och utdata för körs den yo kommando:
    create TestContainer/uninstall.sh
 ```
 
-Om du vill lägga till en till behållartjänst till ett program som redan har skapats med hjälp av yeoman utför du följande steg:
+Utför följande steg för att lägga till en annan behållartjänst till ett program som redan har skapats med hjälp av Yeoman:
 
-1. Gå till katalogen för den **TestContainer** directory
+1. Ändra katalogen en nivå till den **TestContainer** directory, till exempel *. / TestContainer*
 2. Kör `yo azuresfcontainer:AddService` 
 3. Name service azurevoteback
-4. Ange avbildning behållare i ACR för backend-lagringsplatsen – till exempel 'test.azurecr.io/azure-vote-back:v1'
+4. Ange sökvägen till bilden för Redis - ' alpine: redis'
 5. Tryck på RETUR för att avsluta kommandona avsnittet tom
 6. Ange ett instansantal på ”1”.
 
@@ -99,7 +100,7 @@ Posterna för att lägga till den tjänst som används visas alla:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
+? Input the Image Name: alpine:redis
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -107,13 +108,16 @@ Posterna för att lägga till den tjänst som används visas alla:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Vi arbetar för resten av den här kursen den **TestContainer** directory.
+Vi arbetar för resten av den här kursen den **TestContainer** directory. Till exempel *./TestContainer/TestContainer*. Så här ska innehållet i katalogen.
+```bash
+$ ls
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
+```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Konfigurera applikationsmanifestet med autentiseringsuppgifter för Azure-behållare registret
 Vi behöver ange autentiseringsuppgifter i för Service Fabric och hämtar behållaren bilder från registret för Azure-behållaren i **ApplicationManifest.xml**. 
 
-
-Logga in på din ACR-instans. Använd den [az acr inloggning](/cli/azure/acr#az_acr_login) kommando för att slutföra åtgärden. Ange unika namnet på behållaren registret när den skapades.
+Logga in på din ACR-instans. Använd den **az acr inloggning** kommando för att slutföra åtgärden. Ange unika namnet på behållaren registret när den skapades.
 
 ```bash
 az acr login --name <acrName>
@@ -127,7 +131,7 @@ Kör följande kommando för att hämta lösenordet för behållaren registret. 
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-I den **ApplicationManifest.xml**, Lägg till kodstycke under den **ServiceManifestImport** element för varje tjänst. Infoga din **acrName** för den **AccountName** fältet och lösenordet som returnerades från föregående kommando används för den **lösenord** fältet. En fullständig **ApplicationManifest.xml** har angetts i slutet av det här dokumentet. 
+I den **ApplicationManifest.xml**, Lägg till kodstycke under den **ServiceManifestImport** element för frontend-tjänsten. Infoga din **acrName** för den **AccountName** fältet och lösenordet som returnerades från föregående kommando används för den **lösenord** fältet. En fullständig **ApplicationManifest.xml** har angetts i slutet av det här dokumentet. 
 
 ```xml
 <Policies>
@@ -140,7 +144,7 @@ I den **ApplicationManifest.xml**, Lägg till kodstycke under den **ServiceManif
 
 ### <a name="configure-communication-port"></a>Konfigurera kommunikationsport
 
-Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst.  Öppna den *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* filen och deklarera en slutpunkt-resurs i den **ServiceManifest** element.  Lägg till protokollet, porten och namnet. Tjänsten lyssnar på port 80 för den här självstudiekursen. 
+Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst. Öppna den *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* filen och deklarera en slutpunkt-resurs i den **ServiceManifest** element.  Lägg till protokollet, porten och namnet. Tjänsten lyssnar på port 80 för den här självstudiekursen. Följande kodavsnitt placeras under den *ServiceManifest* tagg i resursen.
   
 ```xml
 <Resources>
@@ -154,21 +158,21 @@ Konfigurera en HTTP-slutpunkt så att klienter kan kommunicera med din tjänst. 
 
 ```
   
-På liknande sätt kan ändra Service Manifest för backend-tjänsten. Den här självstudien bevaras 6379 redis standardvärdet.
+På liknande sätt kan ändra Service Manifest för backend-tjänsten. Öppna den *./TestContainer/azurevotebackPkg/ServiceManifest.xml* och deklarera en slutpunkt-resurs i den **ServiceManifest** element. Den här självstudien bevaras 6379 redis standardvärdet. Följande kodavsnitt placeras under den *ServiceManifest* tagg i resursen.
+
 ```xml
 <Resources>
   <Endpoints>
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+    <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
   </Endpoints>
 </Resources>
 ```
 Att tillhandahålla den **UriScheme**automatiskt registreras behållaren slutpunkten med namngivning av Service Fabric-tjänsten för synlighet. En fullständig ServiceManifest.xml-exempelfil för serverdelstjänsten tillhandahålls som ett exempel i slutet av den här artikeln. 
 
 ### <a name="map-container-ports-to-a-service"></a>Mappa behållaren portar till en tjänst
-    
 För att exponera behållare i klustret, behöver vi också skapa en port-bindning i ApplicationManifest.xml. Den **PortBinding** principen refererar till den **slutpunkter** vi har definierat i den **ServiceManifest.xml** filer. Inkommande begäranden till dessa slutpunkter hämta mappas till behållaren portarna som öppnats och avgränsas här. I den **ApplicationManifest.xml** lägger du till följande kod för att binda port 80 och 6379 till slutpunkterna. En fullständig **ApplicationManifest.xml** är tillgängliga i slutet av det här dokumentet. 
   
 ```xml
@@ -195,13 +199,13 @@ För Service Fabric att tilldela den här DNS-namn till serverdelstjänsten namn
 </Service>
 ```
 
-Frontend-tjänsten läser en miljövariabel för att känna till DNS-namnet för Redis-instansen. Miljövariabeln har definierats i Dockerfile som visas:
+Frontend-tjänsten läser en miljövariabel för att känna till DNS-namnet för Redis-instansen. Den här miljövariabeln har redan definierats i Dockerfile som användes för att skapa Docker-bilden och ingen åtgärd behöver inte vidta här.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-Python-skriptet som återger front end använder den här DNS-namn att matcha och ansluta till arkivet backend redis som visas:
+Följande kodavsnitt illustrerar hur frontend Python-kod hämtar miljövariabeln som beskrivs i Dockerfile. Ingen åtgärd behöver inte vidta här. 
 
 ```python
 # Get DNS Name
@@ -218,15 +222,15 @@ Om du vill distribuera programmet till ett kluster i Azure kan du antingen anvä
 
 Partykluster är kostnadsfria, tidsbegränsade Service Fabric-kluster som finns på Azure. Den hanteras av Service Fabric-teamet där alla kan distribuera program och lär dig mer om plattformen. [Följ dessa instruktioner](http://aka.ms/tryservicefabric) för att få åtkomst till ett partykluster. 
 
-Information om hur du skapar ditt eget kluster finns i [skapa ett Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Information om hur du skapar ett eget kluster finns i [Skapa ditt första Service Fabric-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Skapa och distribuera programmet till klustret
 Du kan distribuera programmet Azure klustret med hjälp av Service Fabric-CLI. Om Service Fabric CLI inte installerat på datorn, följer du anvisningarna [här](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) att installera den. 
 
-Anslut till Service Fabric-klustret i Azure.
+Anslut till Service Fabric-klustret i Azure. Ersätt platshållaren slutpunkten med din egen. Slutpunkten måste vara en fullständig Webbadress som liknar den nedan.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
+sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
 ```
 
 Använd installationsskriptet som anges i den **TestContainer** directory för att kopiera programpaketet till klustrets avbildningsarkivet registrera programtypen och skapa en instans av programmet.
@@ -269,7 +273,6 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
       <Policies> 
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
       </Policies>
@@ -303,7 +306,7 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>acrName.azurecr.io/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -316,7 +319,7 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
 
@@ -337,7 +340,7 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -349,7 +352,7 @@ Använd avinstallationsskriptet som medföljer mallen för att ta bort programin
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+      <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>

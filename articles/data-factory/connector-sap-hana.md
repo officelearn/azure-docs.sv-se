@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Mer specifikt stöder den här SAP HANA-anslutningen:
 > [!NOTE]
 > Att kopiera data **till** SAP HANA data lagras, använder allmän ODBC-anslutningen. Se [SAP HANA sink](connector-odbc.md#sap-hana-sink) med information. Observera de länkade tjänsterna för SAP HANA-koppling och ODBC-anslutningen med annan typ, kan vilket inte återanvändas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna SAP HANA-anslutning måste du:
 
@@ -50,7 +50,8 @@ Om du vill använda denna SAP HANA-anslutning måste du:
 - Installera SAP HANA ODBC-drivrutinen på Integration Runtime-datorn. Du kan hämta SAP HANA ODBC-drivrutinen från den [SAP Software Download Center](https://support.sap.com/swdc). Sökning med nyckelordet **SAP HANA-klienten för Windows**.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till SAP HANA-anslutningen.
 
@@ -169,16 +170,16 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 | BLOB | byte] |
 | BOOLESKT VÄRDE | Mottagna byte |
 | CLOB | byte] |
-| DATUM | Datum och tid |
+| DATE | DateTime |
 | DECIMAL | Decimal |
-| DUBBEL | Enskild |
+| DUBBEL | Ogift |
 | INT | Int32 |
 | NVARCHAR | Sträng |
-| VERKLIG | Enskild |
-| SECONDDATE | Datum och tid |
+| VERKLIG | Ogift |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TID | TimeSpan |
-| TIDSSTÄMPEL | Datum och tid |
+| TIDSSTÄMPEL | DateTime |
 | TINYINT | Mottagna byte |
 | VARCHAR | Sträng |
 

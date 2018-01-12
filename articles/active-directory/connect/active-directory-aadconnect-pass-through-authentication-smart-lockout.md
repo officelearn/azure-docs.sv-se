@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>: Azure Active Directory direkt Smart Autentiseringsutelåsning
 
@@ -36,7 +36,7 @@ Smart kontoutelåsning skiljer också inloggningar från äkta användare och in
 Direkt-autentisering vidarebefordrar begäranden för verifiering av lösenord till lokala Active Directory, så du behöver förhindra angripare från att låsa ute användarnas Active Directory-konton. Active Directory har sin egen kontoutelåsningsprinciper specifikt [tröskelvärde för kontoutelåsning](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) och [Återställ räknaren för kontoutelåsning efter](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) principer. Konfigurera Azure AD kontoutelåsning tröskelvärde och kontoutelåsning varaktighetsvärden på lämpligt sätt för att filtrera ut attacker i molnet innan de når lokala Active Directory.
 
 >[!NOTE]
->Funktionen för Smart kontoutelåsning är ledig och är _på_ som standard för alla kunder. Men om du vill ändra Azure AD kontoutelåsning tröskelvärde och kontoutelåsning varaktighetsvärden med Graph API din klient måste ha minst en Azure AD Premium P2-licens. Du behöver en Azure AD Premium P2-licens _per användare_ att hämta funktionen smarta kontoutelåsning med direkt-autentisering.
+>>Funktionen för Smart kontoutelåsning är ledig och är _på_ som standard för alla kunder. Ändra Azure AD tröskelvärde för kontoutelåsning och kontoutelåsning Duration-värden med hjälp av Graph API måste emellertid din klient som ska aktiveras för Azure AD Premium P2. 
 
 För att säkerställa att skyddas också användarnas lokala Active Directory-konton, måste du se till att:
 

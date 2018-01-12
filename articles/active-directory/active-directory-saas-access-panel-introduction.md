@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Vad är åtkomstpanelen?
 
@@ -85,9 +85,11 @@ Tillägget krävs för användare att logga in på lösenordsbaserade enkel inlo
 - Användare kan logga in på appar direkt genom att gå till appens **inloggnings-URL**. När användaren navigerar till appens inloggnings-URL tillägget identifierar detta och göra möjligt för användare att logga in på den från tillägget.
 - Användare kan också starta en av sina appar från Kontrollpanelen åtkomst med den **Snabbsökning** funktion i tillägget. 
 - Tillägget visas även användare de sista tre program som de startats under **nyligen använda** avsnitt.
-> [!NOTE]
-> Ytterligare funktioner är bara tillgängliga för gräns, Chrome, Firefox.
 
+> [!NOTE]
+> Ytterligare funktioner är endast tillgängligt för gräns, Chrome och Firefox.
+>
+>
 
 Om du använder en annan Mina appar URL än https://myapps.microsoft.com måste du konfigurera standard-URL genom följande steg:
 1. Medan inte loggat in på tillägget **Högerklicka** ikonen tillägg.

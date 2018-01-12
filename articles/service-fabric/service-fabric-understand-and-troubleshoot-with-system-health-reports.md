@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter ger systemhälsa rapporter om alla entiteter i klustret direkt ur lådan. Den [hälsoarkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort enheter baserat på systemrapporter. Även ordnar dem i en hierarki som samlar in entiteten interaktioner.
@@ -100,7 +100,7 @@ HealthEvents          :
 ```
 
 
-### <a name="certificate-expiration"></a>Certifikatet upphör att gälla
+### <a name="certificate-expiration"></a>Certifikatet löper ut
 **System.FabricNode** rapporterar en varning när certifikat som används av noden närmar sig förfallodatum. Det finns tre certifikat per nod: **Certificate_cluster**, **Certificate_server**, och **Certificate_default_client**. När upphör att gälla är minst två veckor, är hälsotillståndet för rapporten OK. När upphör att gälla inom två veckor är rapporttypen en varning. TTL-värde på dessa händelser är oändligt och de tas bort när en nod lämnar klustret.
 
 * **SourceId**: System.FabricNode

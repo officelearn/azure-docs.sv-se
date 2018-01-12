@@ -1,5 +1,5 @@
 ---
-title: 'Licensiering: Azure AD SSPR | Microsoft Docs'
+title: "Licens Självbetjäning för återställning av lösenord – Azure Active Directory"
 description: "Azure AD Självbetjäning för lösenordsåterställning licenskrav"
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställ Licensieringskrav för självbetjäning Azure AD-lösenord
 
 För lösenordsåterställning till funktionen, Azure Active Directory (AD Azure) du *måste ha minst en licens för i din organisation*. Vi framtvingar inte per användare-licensiering om återställning av lösenord. Du måste tilldela licenser till användare som använder premiumfunktioner för att bibehålla kompatibilitet med ditt Microsoft-licensavtalet.
 
 * **Endast molnbaserad användare**: Office 365 någon betald SKU eller Azure AD Basic
-* **Molnet** eller **lokala användare**: Azure AD Premium P1 eller P2, Enterprise Mobility + Security (EMS) eller säker produktiva Enterprise (a)
+* **Molnet** eller **lokala användare**: Azure AD Premium P1 eller P2, Enterprise Mobility + Security (EMS) eller Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licenser som krävs för tillbakaskrivning av lösenord
 
@@ -42,6 +42,7 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 
 > [!WARNING]
 > Fristående Office 365-licensiering planer *tillbakaskrivning av lösenord stöder inte* och kräver att du har något av föregående planer för den här funktionen ska fungera.
+>
 
 Ytterligare licensinformation, inklusive kostnader, kan hittas på följande sidor:
 
@@ -69,4 +70,3 @@ Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en anv�
 * [Vad är alla alternativ i SSPR och vad betyder de?](active-directory-passwords-how-it-works.md)
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
-

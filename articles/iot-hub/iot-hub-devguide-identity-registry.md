@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitetsregistret i din IoT-hubb
 
@@ -84,7 +84,7 @@ Detaljerad information om import och export API: er finns [IoT-hubb resursprovid
 
 Enhetsdata som lagras i en viss IoT-lösningen är beroende av de särskilda kraven i lösningen. Men minst en lösning måste lagra enheten identiteter och autentiseringsnycklar. Azure IoT-hubb innehåller en identitetsregistret som kan lagra värdena för varje enhet, t.ex ID, autentiseringsnycklar och statuskoder. En lösning kan använda andra Azure-tjänster, till exempel tabellagring eller blob-lagring Cosmos-databas för att lagra alla övriga data.
 
-*Enhetsetableringen* är processen att lägga till den första enhetsdata lagras i din lösning. Om du vill aktivera en ny enhet att ansluta till din hubb, måste du lägga till en enhets-ID och nycklar identitetsregistret IoT-hubb. Som en del av etableringsprocessen kan behöva du initiera enhetsspecifika data i andra lösning Arkiv.
+*Enhetsetableringen* är processen att lägga till den första enhetsdata lagras i din lösning. Om du vill aktivera en ny enhet att ansluta till din hubb, måste du lägga till en enhets-ID och nycklar identitetsregistret IoT-hubb. Som en del av etableringsprocessen kan behöva du initiera enhetsspecifika data i andra lösning Arkiv. Du kan också använda Azure IoT-hubb Device etablering Service för att aktivera zero touch, just-in-time etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i [etablering dokumentation för tjänsten][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Enheten pulsslag
 
@@ -149,10 +149,10 @@ Enheten identiteter representeras som JSON-dokument med följande egenskaper:
 | deviceId |krävs, skrivskyddad på uppdateringar |En skiftlägeskänslig sträng (upp till 128 tecken) av ASCII-7-bitars alfanumeriska tecken samt vissa specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | ID för virtuella datorer |krävs, skrivskyddad |En IoT hub-genererade, skiftlägeskänsliga sträng upp till 128 tecken. Det här värdet används för att skilja mellan enheter med samma **deviceId**, när de har tagits bort och återskapas. |
 | ETag |krävs, skrivskyddad |En sträng som representerar en svag ETag för enhetens identitet enligt [RFC7232][lnk-rfc7232]. |
-| auth |Valfria |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
-| auth.symkey |Valfria |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
+| auth |valfri |En sammansatt objekt som innehåller information och säkerhet material för autentisering. |
+| auth.symkey |valfri |En sammansatt objekt som innehåller en primär och en sekundär nyckel lagrad i base64-format. |
 | status |Krävs |En åtkomst-indikator. Kan vara **aktiverad** eller **inaktiverade**. Om **aktiverad**, enheten kan ansluta. Om **inaktiverad**, den här enheten har inte åtkomst till valfri enhet riktade slutpunkt. |
-| statusReason |Valfria |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
+| statusReason |valfri |En 128 tecken lång sträng som lagrar Statusanledning för enhetens identitet. Alla UTF-8-tecken tillåts. |
 | statusUpdateTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för uppdateringen. |
 | connectionState |Skrivskyddad |Ett fält som anger status för användaranslutning: antingen **ansluten** eller **frånkopplad**. Det här fältet visar vyn IoT-hubb för enhetens anslutningsstatus. **Viktiga**: det här fältet bör användas endast för utveckling/felsökning. Om anslutningens status uppdateras bara för enheter med hjälp av MQTT eller AMQP. Dessutom baseras på protokollnivå pingar (MQTT pingar eller AMQP ping) och den kan ha en maximal fördröjning på endast 5 minuter. Därmed behöver kan det finnas falska positiva identifieringar, t.ex enheter rapporteras som är ansluten men som inte är ansluten. |
 | connectionStateUpdatedTime |Skrivskyddad |En temporal indikator som visar datum och tid för senaste status för anslutningen har uppdaterats. |
@@ -184,6 +184,11 @@ Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du ä
 
 * [Kom igång med Azure IoT-hubb][lnk-getstarted-tutorial]
 
+Om du vill utforska använda Etableringstjänsten IoT-hubb enheten för att aktivera zero touch se just-in-time-etablering: 
+
+* [Azure IoT-hubb enheten etablering av tjänst][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -205,3 +210,4 @@ Om du vill testa vissa av de begrepp som beskrivs i den här artikeln får du ä
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

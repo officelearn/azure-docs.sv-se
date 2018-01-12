@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure-stacken  
 
@@ -31,7 +31,7 @@ Den här artikeln har detaljerade anvisningar för att installera PowerShell fö
 > [!NOTE]
 > Följande steg kräver PowerShell 5.0. Kontrollera din version genom att köra $PSVersionTable.PSVersion och jämföra ”” huvudversionen.
 
-PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Regiser PSGallery databasen, öppnar du en upphöjd PowerShell-session från development kit eller från en extern Windows-baserad klient om du är ansluten via VPN-anslutning och kör följande kommando:
+PowerShell-kommandon för Azure-stacken installeras via PowerShell-galleriet. Om du vill registrera PSGallery databasen, öppna en upphöjd PowerShell-session från development kit eller från en extern klient för Windows-baserade om du är ansluten via VPN-anslutning och kör följande kommando:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Kontrollera att avinstallera några befintliga Azure PowerShell-moduler innan du
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Logga in i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Ta bort alla mappar som börjar med ”Azure” från den `C:\Program Files (x86)\WindowsPowerShell\Modules` och `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappar. Tar bort dessa mappar tar bort några befintliga PowerShell-moduler från ”AzureStackAdmin” och ”global” användare scope. 
+* Logga in i development kit eller för att den externa Windows-baserad klienten om du planerar att upprätta en VPN-anslutning. Ta bort alla mappar som börjar med ”Azure” från den `C:\Program Files\WindowsPowerShell\Modules` och `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappar. Tar bort dessa mappar tar bort några befintliga PowerShell-moduler från ”AzureStackAdmin” och ”global” användare scope. 
 
 I följande avsnitt beskrivs de steg som krävs för att installera PowerShell för Azure-stacken. PowerShell kan installeras på Azure-stacken som körs i ansluten, delvis ansluten eller i ett scenario med frånkopplade. 
 
@@ -126,7 +126,6 @@ I ett frånkopplat scenario måste du först ladda ned PowerShell-moduler för e
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

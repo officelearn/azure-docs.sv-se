@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,13 +39,14 @@ Den här Amazon Redshift anslutningen har stöd hämtar data från Redshift med 
 > [!TIP]
 > Om du vill uppnå bästa prestanda vid kopiering av stora mängder data från Redshift, Överväg att använda den inbyggda Redshift INAKTIVERAS via Amazon S3. Se [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) information.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du kopierar data till en lokal data lagra med [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md), ge åtkomst till Amazon Redshift kluster för integrering Runtime (Använd IP-adress för datorn). Se [auktorisera åtkomst till klustret](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) anvisningar.
 * Om du kopierar data till ett Azure datalager, se [Azure Data Center IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653) för Compute IP-adressen och SQL-adressintervall som används av Azure data datacenter.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Amazon Redshift connector.
 
@@ -214,7 +215,7 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | BIGINT |Int64 |
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
-| Datum |DateTime |
+| DATE |DateTime |
 | DECIMAL |Decimal |
 | DUBBEL PRECISION |dubbla |
 | HELTAL |Int32 |

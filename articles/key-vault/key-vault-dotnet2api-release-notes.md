@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - viktig information och Migreringsguide
 Följande information och vägledning är för utvecklare som arbetar med Azure Key Vault .NET / C#-biblioteket. I övergången från version 1.0 till version 2.0 kan ett antal uppdateringar har gjorts som kräver migrering arbete i koden för att du kan dra nytta av de funktionella förbättringarna och funktion som tillägg kommer **Key Vault-certifikat**  stöder.
@@ -36,10 +36,11 @@ Stöd för Key Vault-certifikat ger hantering av din x509 certifikat och följan
 
 ## <a name="net-support"></a>Stöd för .NET
 
-* **.NET 4.0** stöds inte av version 2.0 av Azure Key Vault .NET / C#-biblioteket
-* **.NET core** stöds av version 2.0 av Azure Key Vault .NET / C#-biblioteket
+* **.NET 4.0** stöds inte av version 2.0 av Azure Key Vault .NET-bibliotek
+* **.NET framework 4.5.2** stöds av version 2.0 av Azure Key Vault .NET-bibliotek
+* **.NET standard 1.4** stöds av version 2.0 av Azure Key Vault .NET-bibliotek
 
-## <a name="namespaces"></a>namnområden
+## <a name="namespaces"></a>Namnområden
 
 * Namnområdet för **modeller** ändras från **Microsoft.Azure.KeyVault** till **Microsoft.Azure.KeyVault.Models**.
 * Den **Microsoft.Azure.KeyVault.Internal** namnområde har släppts.

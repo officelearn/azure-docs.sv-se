@@ -1,26 +1,23 @@
 ---
 title: Konfigurera Azure Active Directory - SQL-autentisering | Microsoft Docs
-description: "Lär dig hur du ansluter till SQL Database och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering."
+description: "Lär dig hur du ansluter till SQL Database och SQL Data Warehouse med hjälp av Azure Active Directory-autentisering - när du har konfigurerat Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse
 
@@ -32,33 +29,14 @@ Den här artikeln visar hur du skapar och fylla i Azure AD och sedan använda Az
 ## <a name="create-and-populate-an-azure-ad"></a>Skapa och fylla i en Azure AD
 Skapa en Azure AD och fylla det med användare och grupper. Azure AD kan vara den första Azure AD hanterad domän. Azure AD kan också vara en lokal Active Directory Domain Services som är federerat med Azure AD.
 
-Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](https://msdn.microsoft.com/library/azure/hh967611.aspx) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../active-directory/active-directory-aadconnect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
+Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../active-directory/active-directory-administer.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](..//active-directory/connect/active-directory-aadconnect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Valfritt: Koppla eller ändra active directory som associeras med din Azure-prenumeration
-Koppla databasen till Azure AD-katalogen för din organisation genom att skapa katalogen en betrodda katalog för Azure-prenumerationen värd för databasen. Mer information finns i [Hur Azure-prenumerationer är associerade med Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppla eller lägga till en Azure-prenumeration i Azure Active Directory
 
-**Ytterligare information:** var Azure-prenumerationen har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Du kan se vilken katalog som är betrodd av din prenumeration på den **inställningar** högst [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns [förstå resursåtkomst i Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Koppla dina Azure-prenumeration i Azure Active Directory genom att göra katalogen som en betrodd katalog för Azure-prenumerationen värd för databasen. Mer information finns i [hur Azure-prenumerationer är associerade med Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Använd directory switcher i Azure-portalen för att växla till prenumerationen som är kopplade till domänen.
 
-Följande procedurer visar hur du ändrar den associera katalogen för en viss prenumeration.
-1. Ansluta till din [klassiska Azure-portalen](https://manage.windowsazure.com/) med hjälp av en administratör för Azure-prenumeration.
-2. På den vänstra banderollen väljer **inställningar**.
-3. Dina prenumerationer visas på skärmen. Om den önskade prenumerationen inte visas, klickar du på **prenumerationer** överst listrutan den **FILTER av DIRECTORY** och välj den katalog som innehåller dina prenumerationer och sedan på **Tillämpa**.
-   
-    ![Välj prenumeration][4]
-4. I den **inställningar** området klickar du på din prenumeration och klicka sedan på **redigera katalog** längst ned på sidan.
-   
-    ![AD-inställningar-portal][5]
-5. I den **redigera katalog** , Välj Azure Active Directory som är associerad med din SQL Server eller SQL Data Warehouse, och klicka på pilen för nästa.
-   
-    ![Redigera katalog val][6]
-6. I den **BEKRÄFTA** directory mappning dialogrutan Bekräfta att ”**alla medadministratörer tas bort.**”
-   
-    ![Redigera katalog bekräfta][7]
-7. Klicka på Sök för att läsa in på portalen.
-
-   > [!NOTE]
-   > När du ändrar katalogen, åtkomst till medadministratörer, Azure AD-användare och grupper och resource backas upp av directory användarna tas bort och de inte längre har åtkomst till den här prenumerationen eller dess resurser. Endast kan du, som en tjänstadministratör Konfigurera åtkomst för säkerhetsobjekt som baseras på den nya katalogen. Den här ändringen kan ta en stor mängd sprids till alla resurser. Ändra katalogen, även ändras i Azure AD-administratör för SQL Database och SQL Data Warehouse och neka åtkomst till databasen för alla befintliga Azure AD-användare. Azure AD-administratör måste vara återställning (som beskrivs nedan) och nya Azure AD-användare måste skapas.
-   >  
+   **Ytterligare information:** var Azure-prenumerationen har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Den här förtroenderelationen mellan en prenumeration och en katalog skiljer sig från relationen mellan en prenumeration och alla andra resurser i Azure (webbplatser, databaser och så vidare), som är mer som underordnade resurser till en prenumeration. Om en prenumeration går ut stoppas även åtkomsten till de resurser som är associerade med prenumerationen. Men katalogen finns kvar i Azure och du kan associera en annan prenumeration med katalogen och fortsätta hantera kataloganvändarna. Mer information om resurser finns [förstå resursåtkomst i Azure](../active-directory/active-directory-b2b-admin-add-users.md). Läs mer om det här betrodd relation finns [hur koppla eller lägga till en Azure-prenumeration i Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Skapa en Azure AD-administratör för Azure SQL server
 Varje Azure SQL-server (som värd för en SQL Database eller SQL Data Warehouse) börjar med ett administratörskonto för enskild server som är administratör i hela Azure SQL-servern. En andra SQL Server-administratören måste skapas, som är en Azure AD-kontot. Detta säkerhetsobjekt skapas som en innesluten databasanvändare i master-databasen. Som administratör, server-administratörskonton som är medlemmar i den **db_owner** roll i varje användare databasen och ange varje användardatabas som den **dbo** användare. Mer information om server-administratörskonton finns [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
@@ -251,7 +229,7 @@ Använd den här metoden om du är inloggad Windows med Azure Active Directory-a
 
     ![Välj databasnamnet][13]
 
-## <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
+## <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
 
 Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp av Azure AD hanterade domän. Du kan också använda det för federerat konto utan åtkomst till domänen, till exempel när du arbetar via fjärranslutning.
 
@@ -283,7 +261,7 @@ conn.Open();
 
 Nyckelordet för anslutningssträngen ``Integrated Security=True`` stöds inte för att ansluta till Azure SQL Database. När du gör en ODBC-anslutning, behöver du ta bort blanksteg och ange autentisering till 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
+### <a name="active-directory-password-authentication"></a>Autentisering av Active Directory-lösenord
 
 Nyckelordet autentisering måste anges till Active Directory-lösenord för att ansluta till en databas med integrerad autentisering och en Azure AD-identitet. Anslutningssträngen måste innehålla användar-ID: T/UID och lösenord/PWD nyckelord och värden. Följande C# kodexempel använder ADO .NET.
 

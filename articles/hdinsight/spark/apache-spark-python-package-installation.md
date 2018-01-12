@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e9983cb29c59ebf29dd247c2e6f70cc052eab39d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använd skriptåtgärd till att installera externa Python-paket för Jupyter-anteckningsböcker i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -82,8 +82,6 @@ Du måste ha följande:
     Resultatet ser ut så här:
     
     ![TensorFlow kodkörning](./media/apache-spark-python-package-installation/execution.png "köra TensorFlow kod")
-
-
 
 ## <a name="seealso"></a>Se även
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)

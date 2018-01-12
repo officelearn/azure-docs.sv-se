@@ -1,5 +1,5 @@
 ---
-title: 'Princip: Azure AD SSPR | Microsoft Docs'
+title: "Självbetjäning för lösenordsåterställning principer - Azure Active Directory"
 description: "Alternativ för återställning av lösenord för självbetjäning av Azure AD"
 services: active-directory
 keywords: "Hantering av Active directory-lösenord, lösenordshantering, Azure AD self service för lösenordsåterställning"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -38,18 +38,18 @@ Med en princip för två-gate inte administratörer möjligheten att använda s�
   * Supportavdelningen administratör
   * Tjänstsupportadministratör
   * Faktureringsadministratör
-  * Support för partner Tier1
-  * Support för partner Tier2
-  * Tjänstadministratör för Exchange
-  * Lync tjänstadministratör
+  * Partnersupport, nivå 1
+  * Partnersupport, nivå 2
+  * Exchange-tjänstadministratör
+  * Lync-tjänstadministratör
   * Kontoadministratör för användaren
-  * Directory-skrivare
+  * Katalogskrivare
   * Global administratör eller företagsadministratör
   * Tjänstadministratör för SharePoint
-  * Kompatibilitet administratör
+  * Efterlevnadsadministratör
   * Programadministratör
   * Säkerhetsadministratör
-  * Administratör av Privilegierade roller
+  * Privilegierad rolladministratör
   * Microsoft Intune-tjänstadministratören
   * Tjänstadministratör för Application proxy
   * CRM-tjänstadministratör

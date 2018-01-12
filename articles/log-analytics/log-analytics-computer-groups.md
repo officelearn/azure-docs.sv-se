@@ -1,5 +1,5 @@
 ---
-title: "Datorgrupper i logganalys logga sökningar | Microsoft Docs"
+title: "Datorgrupper i Azure Log Analytics logga sökningar | Microsoft Docs"
 description: "Datorgrupper i logganalys kan du omfång loggen sökningen till en viss uppsättning datorer.  Den här artikeln beskriver de olika metoder som du kan använda för att skapa datorgrupper och hur de används i en sökning i loggen."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Datorgrupper i logganalys logga sökningar
 
@@ -83,7 +83,7 @@ Du konfigurerar Log Analytics för att importera Active Directory-säkerhetsgrup
 När grupper har importerats visas på menyn hur många datorer med gruppmedlemskap har identifierats och antalet grupper som importeras.  Du kan klicka på någon av dessa länkar för att returnera den **ComputerGroup** poster med den här informationen.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-När du konfigurerar logganalys importera WSUS-gruppmedlemskap, analyserar målobjekt gruppmedlemskap för alla datorer med OMS-agent.  Om du använder klientsidan har målobjekt för alla datorer som är ansluten till OMS och ingår i alla WSUS riktad grupper dess gruppmedlemskap importeras till logganalys. Om du använder serversidan ska inriktning på OMS agenten installeras på WSUS-servern för information som ska importeras till OMS gruppmedlemskap.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
+När du konfigurerar logganalys importera WSUS-gruppmedlemskap, analyserar målobjekt gruppmedlemskap för alla datorer med OMS-agent.  Om du använder klientsidan har målobjekt för alla datorer som är ansluten till logganalys och ingår i alla WSUS riktad grupper dess gruppmedlemskap importeras till logganalys. Om du använder serversidan ska inriktning på OMS agenten installeras på WSUS-servern för information som ska importeras till logganalys gruppmedlemskap.  Det här medlemskapet uppdateras kontinuerligt var fjärde timme. 
 
 Du konfigurerar Log Analytics för att importera WSUS-grupper från logganalys **avancerade inställningar** i Azure-portalen.  Välj **datorgrupper**, **WSUS**, och sedan **importera WSUS-gruppmedlemskap**.  Det krävs ingen ytterligare konfiguration.
 
@@ -145,7 +145,7 @@ Följande fråga returnerar UpdateSummary poster för endast datorer i Domändat
 
 
 ## <a name="computer-group-records"></a>Gruppen datorposter
-En post har skapats i OMS-databasen för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och ha egenskaper i följande tabell.  Poster skapas inte för datorgrupper baserat på loggen sökningar.
+En post har skapats i logganalys-arbetsytan för varje datorgruppmedlemskap som skapats från Active Directory eller WSUS.  Dessa poster har en typ av **ComputerGroup** och ha egenskaper i följande tabell.  Poster skapas inte för datorgrupper baserat på loggen sökningar.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |

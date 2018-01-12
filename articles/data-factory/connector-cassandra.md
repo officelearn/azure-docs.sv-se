@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,12 +39,13 @@ Mer specifikt stöder den här Cassandra-anslutningen:
 - Cassandra **versioner 2.X**.
 - Kopiera data med hjälp av **grundläggande** eller **anonym** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill kopiera data från en Cassandra-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel mer information. Integration Runtime innehåller en inbyggd Cassandra drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till Cassandra.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Cassandra connector.
 
@@ -55,7 +56,7 @@ Följande egenskaper stöds för Cassandra länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ |Egenskapen type måste anges till: **Cassandra** |Ja |
-| värden |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| värd |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-porten som används av Cassandra-server för att lyssna efter anslutningar. |Nej (standard är 9042) |
 | AuthenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **grundläggande**, och **anonym**. |Ja |
 | användarnamn |Ange användarnamnet för användarkontot. |Ja, om authenticationType anges till Basic. |
@@ -173,14 +174,14 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 | ASCII |Sträng |
 | BIGINT |Int64 |
 | BLOB |byte] |
-| BOOLESKT VÄRDE |Booleskt värde |
+| BOOLESKT VÄRDE |Boolesk |
 | DECIMAL |Decimal |
 | DUBBEL |dubbla |
-| FLYTTAL |Enskild |
+| FLYTTAL |Ogift |
 | INET |Sträng |
 | INT |Int32 |
 | TEXT |Sträng |
-| TIDSSTÄMPEL |Datum och tid |
+| TIDSSTÄMPEL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Sträng |

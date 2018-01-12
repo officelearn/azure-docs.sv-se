@@ -5,7 +5,7 @@ De virtuella hårddiskarna i Azure är .vhd-filer som lagras som sidblobar i sta
 
 Azure stöder det fasta formatet för virtuella hårddiskar (VHD). Det fasta format lägger ut den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver den virtuella hårddiskens egenskaper. Det fasta formatet slösar ofta med utrymme eftersom de flesta diskar har stora utrymmen som är oanvända. Men Azure lagrar .vhd-filer i ett begränsat format så att du kan dra nytta av fördelarna med både fasta och dynamiska diskar på samma gång. Mer information finns i [Komma igång med virtuella hårddiskar](https://technet.microsoft.com/library/dd979539.aspx).
 
-Alla .vhd-filer i Azure som du vill använda som källa för att skapa diskar eller avbildningar är skrivskyddade. När du skapar en disk eller avbildning gör Azure kopior av .vhd-filerna. Dessa kopior kan vara skrivskyddade eller läs och skriv, beroende på hur du använder den virtuella hårddisken.
+VHD-filer i Azure som du vill använda som källa för att skapa diskar eller avbildningar är skrivskyddade, utom VHD-filer har överförts eller kopieras till Azure-lagring av användaren (som kan vara skrivskyddad eller skrivskyddad). När du skapar en disk eller avbildning gör Azure kopior av källan VHD-filer. Dessa kopior kan vara skrivskyddade eller läs och skriv, beroende på hur du använder den virtuella hårddisken.
 
 När du skapar en virtuell dator från en avbildning skapar Azure en disk för den virtuella datorn som är en kopia av .vhd-filen som används som källa. För att skydda dig mot att du råkar radera dem av misstag placerar Azure en livslängd på alla .vhd-filer som används som källor för att skapa en avbildning, en operativsystemdisk eller en datadisk.
 

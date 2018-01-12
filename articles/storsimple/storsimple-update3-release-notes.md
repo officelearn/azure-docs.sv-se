@@ -4,7 +4,7 @@ description: "Beskriver nya funktioner, problem och lösningar för StorSimple 8
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 282383f0887e546c7d569494eeab42805f789fb2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Uppdatera 3 viktig information för enheten StorSimple 8000-serien
 > [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Översikt
@@ -42,7 +42,7 @@ Granska informationen som finns i viktig information innan du distribuerar uppda
 ## <a name="whats-new-in-update-3"></a>Vad är nytt i uppdatering 3
 Följande viktiga förbättringar och felkorrigeringar har gjorts i uppdatering 3.
 
-* **Automatisk frigöring adressutrymmesändringarna** – starta uppdatering 3 utrymme återvinning av algoritmer som körs på vänteläge styrenheten för systemet som resulterar i snabbare körning. Mer information om vilka portar som krävs för att arbeta med utrymmesåtertagning avser den [StorSimple nätverkskrav](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* **Automatisk frigöring adressutrymmesändringarna** – starta uppdatering 3 utrymme återvinning av algoritmer som körs på vänteläge styrenheten för systemet som resulterar i snabbare körning. Mer information om vilka portar som krävs för att arbeta med utrymmesåtertagning avser den [StorSimple nätverkskrav](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Prestandaförbättringar** – uppdatering 3 har bättre prestanda för Läs-och skrivbehörighet till molnet.
 * **Förbättringar av migreringsrelaterade** – i den här versionen flera programfel korrigeringar och förbättringar som gjordes för funktionen för migrering från 5000/7000-serien enheter till enheter i 8000-serien. Mer information om hur du använder funktionen migreringen går du till [migrering från enheten 5000/7000-serien 8000-serien enheten](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Övervaka relaterade korrigeringar** – i den här versionen buggar som rör övervakning diagram, service-instrumentpanelen, och enheten instrumentpanelen har lösts.
@@ -56,7 +56,7 @@ Följande tabeller innehåller en översikt över problem som har åtgärdats i 
 | 2 |Lokalt fästa volymer |Det fanns problem relaterade till i/o-fel, volym Konverteringsfel och datapath fel för lokalt fästa volymer i den tidigare versionen. De här problemen var roten orsakade och fast i den här versionen. |Ja |Nej |
 | 3 |Övervakning |Det fanns flera problem som rör rapportering enheter och övervaka samt enheten instrumentpanelen diagram där felaktig information visades för lokalt fästa volymer. De här problemen har lösts i den här versionen. |Ja |Nej |
 | 4 |Tunga skrivningar i/o |När du använder StorSimple för arbetsbelastningar som involverar tunga skrivningar körs användaren i ett ovanligt fel där arbetsminne har som nivåer i molnet. Det här felet är åtgärdat i den här versionen. |Ja |Ja |
-| 5 |Säkerhetskopiering |I vissa sällsynta fall kan i tidigare versioner av programvaran, när användaren har gjort en säkerhetskopia av en fjärransluten klon klickar de skulle stöter på Molnfel och åtgärden skulle fel ut. I den här versionen är problemet är löst och åtgärden slutförs. |Ja |Ja |
+| 5 |Backup |I vissa sällsynta fall kan i tidigare versioner av programvaran, när användaren har gjort en säkerhetskopia av en fjärransluten klon klickar de skulle stöter på Molnfel och åtgärden skulle fel ut. I den här versionen är problemet är löst och åtgärden slutförs. |Ja |Ja |
 | 6 |Princip för säkerhetskopiering |I vissa sällsynta fall i tidigare versioner av programvaran, det uppstod ett fel som rör borttagningen av princip för säkerhetskopiering. Det här problemet löses i den här versionen. |Ja |Ja |
 
 ## <a name="known-issues-in-update-3"></a>Kända problem i uppdatering 3
@@ -69,7 +69,7 @@ Följande tabell innehåller en översikt över kända problem i den här versio
 | 3 |Lagringskonton |Använder Storage-tjänsten för att ta bort lagringskontot är ett scenario som inte stöds. Detta leder till en situation där användardata inte kan hämtas. | |Ja |Ja |
 | 4 |Enheten växling vid fel |Flera redundans av en volymbehållare från samma källa enheten till olika målenheter stöds inte. Växling från en inaktiv enhet till flera enheter gör volymbehållarna på den första redundansväxlats enhet förlorar dataägarskap. Efter en växling, ska behållarna volymen visas eller fungera annorlunda när de visas i den klassiska Azure-portalen. | |Ja |Nej |
 | 5 |Installation |Under StorSimple-kort för SharePoint-installation måste du ange en IP-adress för enheten för att slutföra installationen. | |Ja |Nej |
-| 6 |Webbproxy |Om din webbproxykonfigurationen har det angivna protokollet HTTPS, enhet-till-tjänst-kommunikation kommer att påverkas och enheten ska försättas i offlineläge. Stöd för paket skapas också i process förbrukar betydande resurser på enheten. |Kontrollera att URL: en för web proxy har det angivna protokollet HTTP. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-configure-web-proxy.md). |Ja |Nej |
+| 6 |Webbproxy |Om din webbproxykonfigurationen har det angivna protokollet HTTPS, enhet-till-tjänst-kommunikation kommer att påverkas och enheten ska försättas i offlineläge. Stöd för paket skapas också i process förbrukar betydande resurser på enheten. |Kontrollera att URL: en för web proxy har det angivna protokollet HTTP. Mer information finns i [Konfigurera en webbproxy för din enhet](storsimple-8000-configure-web-proxy.md). |Ja |Nej |
 | 7 |Webbproxy |Om du konfigurerar och aktiverar webbproxy på en registrerad enhet, måste du starta om den aktiva styrenheten på enheten. | |Ja |Nej |
 | 8 |Hög molnet latens och hög i/o-arbetsbelastning |När din StorSimple-enhet påträffar en kombination av mycket hög molnet latens (ordning sekunder) och höga i/o-arbetsbelastning, enheten volymer som ingår i ett degraderat tillstånd och I/o kan misslyckas med felet ”enheten är inte klar”. |Du måste starta om styrenheterna eller utför en växling vid fel med enheten för att återställa från den här situationen manuellt. |Ja |Nej |
 | 9 |Azure PowerShell |När du använder cmdleten StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - först 1 - vänta** du väljer det första objektet så att du kan skapa en ny **VolumeContainer** objekt, returnerar cmdleten alla objekt. |Omsluta cmdlet inom parentes på följande sätt: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - först 1 - vänta** |Ja |Ja |

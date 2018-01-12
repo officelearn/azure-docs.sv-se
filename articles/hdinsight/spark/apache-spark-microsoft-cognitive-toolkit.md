@@ -3,7 +3,7 @@ title: "Microsoft kognitiva Toolkit med Azure HDInsight Spark för djup learning
 description: "Lär dig hur en tränad modell Microsoft kognitiva Toolkit djup learning kan tillämpas på en datamängd med Spark Python API i ett Azure HDInsight Spark-kluster."
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: e4bf0b176817daf3c128f26f407cde2ce1adba4c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.author: jgao
+ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft kognitiva Toolkit djup Lär modell med Azure HDInsight Spark-kluster
 
@@ -29,7 +29,7 @@ Gör följande steg i den här artikeln.
 
 2. Överför en Jupyter-anteckningsbok till Spark-kluster för att se hur du använder en tränad modell Microsoft kognitiva Toolkit djup learning till filer i en Azure Blob Storage-konto med hjälp av den [Spark Python-API (PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Innan du börjar följa de här självstudierna måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free).
 
@@ -91,7 +91,7 @@ Om du vill använda Microsoft kognitiva Toolkit med Azure HDInsight Spark-kluste
 
 5. När den bärbara datorn har överförts klickar du på namnet på den bärbara datorn och följ sedan anvisningarna i den bärbara datorn sig själv att läsa in datauppsättningen och genomföra kursen.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett stödpaket för StorSimple 8000-serien
 
@@ -147,6 +147,6 @@ I följande exempel visar hur du dekryptera, redigera och kryptera ett supportpa
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om den [information som samlas in i paketet stöd](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Lär dig hur du [använder paket och enhetsloggar för att felsöka enheten distributionen](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Lär dig hur du [använder paket och enhetsloggar för att felsöka enheten distributionen](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Lär dig hur du [använda Enhetshanteraren för StorSimple-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

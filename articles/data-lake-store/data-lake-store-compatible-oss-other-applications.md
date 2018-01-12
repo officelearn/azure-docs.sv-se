@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Öppna ett stort källdata program som fungerar med Azure Data Lake Store
 Den här artikeln visar öppen källkod stordataprogram som fungerar med Azure Data Lake Store. Endast versionerna som är tillgängliga med den angivna distributionsplatsen stöd för program i tabellen nedan. Information om vilka versioner av dessa program är tillgängliga med HDInsight finns [HDInsight component-versioning](../hdinsight/hdinsight-component-versioning.md).
@@ -38,6 +38,6 @@ Den här artikeln visar öppen källkod stordataprogram som fungerar med Azure D
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 och 3.5 3,6 |
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Store](data-lake-store-overview.md)
 

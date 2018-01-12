@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Mallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet i developer portalens sidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, t.ex [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [String resurser](api-management-template-resources.md#strings), [glyf resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), du har stor flexibilitet för att konfigurera innehåll för sidorna som du vill använda dessa mallar.  
@@ -108,16 +108,16 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
 ### <a name="sample-template-data"></a>Mallen exempeldata  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a>Registrera sig  
@@ -225,11 +225,11 @@ Azure API Management ger dig möjlighet att anpassa innehållet i developer port
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|referenceCode|Sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|Felkod|Sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|emailBody|Sträng|E-brödtext genereras om den här sidan visas som ett resultat av ett internt fel.|  
-|requestedUrl|Sträng|Den URL som begärts när sidan inte hittades.|  
-|referrerUrl|Sträng|Referent URL till begärd URL.|  
+|referenceCode|sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
+|Felkod|sträng|Koden genereras om den här sidan visas som ett resultat av ett internt fel.|  
+|emailBody|sträng|E-brödtext genereras om den här sidan visas som ett resultat av ett internt fel.|  
+|requestedUrl|sträng|Den URL som begärts när sidan inte hittades.|  
+|referrerUrl|sträng|Referent URL till begärd URL.|  
   
 ### <a name="sample-template-data"></a>Mallen exempeldata  
   

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Använd Tjänstkarta lösningen i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Tjänstkartan, kan du visa dina servrar på samma sätt som du betrakta dem: som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar över en TCP-ansluten arkitektur med ingen konfiguration krävs för andra än installation av en agent.
@@ -333,34 +333,34 @@ Poster med en typ av *ServiceMapProcess_CL* har inventeringsdata för TCP-anslut
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
 ### <a name="list-all-known-machines"></a>Visa en lista över alla kända datorer
-Typ = ServiceMapComputer_CL | dedupliceringen ResourceId
+ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Visa en lista med fysiskt minneskapaciteten för alla hanterade datorer.
-Typ = ServiceMapComputer_CL | Välj PhysicalMemory_d ComputerName_s | Dedupliceringen ResourceId
+ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Lista över datornamn, DNS, IP- och OS.
-Typ = ServiceMapComputer_CL | Välj ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s | dedupliceringen ResourceId
+ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med ”sql” i kommandoraden
-Typ = ServiceMapProcess_CL CommandLine_s = \*sql\* | dedupliceringen ResourceId
+ServiceMapProcess_CL | där CommandLine_s contains_cs ”sql” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste post) efter resursnamn
-Typ = ServiceMapComputer_CL ”m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | dedupliceringen ResourceId
+Sök i (ServiceMapComputer_CL) ”m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Hitta en dator (senaste post) med IP-adress
-Typ = ServiceMapComputer_CL ”10.229.243.232” | dedupliceringen ResourceId
+Sök i (ServiceMapComputer_CL) ”10.229.243.232” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Visa en lista över alla kända processer på en angiven dator
-Typ = ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | dedupliceringen ResourceId
+ServiceMapProcess_CL | där MachineResourceName_s == ”m-559dbcd8-3130-454d-8d1d-f624e57961bc” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="list-all-computers-running-sql"></a>Lista med alla datorer som kör SQL
-Typ = ServiceMapComputer_CL ResourceName_s IN {typ = ServiceMapProcess_CL \*sql\* | Distinkta MachineResourceName_s} | dedupliceringen ResourceId | Distinkta ComputerName_s
+ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) ”\*sql\*” | distinkta MachineResourceName_s)) | distinkta ComputerName_s
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Lista över alla unika versioner av curl i min datacenter
-Typ = ServiceMapProcess_CL ExecutableName_s = curl | Distinkta ProductVersion_s
+ServiceMapProcess_CL | där ExecutableName_s == ”curl” | distinkta ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Skapa en datorgrupp för alla datorer som kör CentOS
-Typ = ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinkta ComputerName_s
+ServiceMapComputer_CL | där OperatingSystemFullName_s contains_cs ”CentOS” | distinkta ComputerName_s
 
 
 ## <a name="rest-api"></a>REST-API

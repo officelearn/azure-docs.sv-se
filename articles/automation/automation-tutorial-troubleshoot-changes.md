@@ -6,14 +6,14 @@ keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -30,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Utlösa en händelse
 > * Visa ändringar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -158,7 +158,7 @@ När ändringsspårningen och inventeringslösningen har aktiverats kan du visa 
 
 Från din virtuella dator väljer du **Ändringsspårning** under **ÅTGÄRDER**.
 
-![Skapa en avisering på den klassiska OMS-portalen](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Skärmbild som visar en lista över ändringar i den virtuella datorn](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Diagrammet visar ändringar som har skett över tid.
 När du har lagt till en aktivitetslogganslutning visar linjediagrammet högst upp händelser i Azure-aktivitetsloggen.

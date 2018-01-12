@@ -4,7 +4,7 @@ description: "Skapa ett Apache Spark streaming exempel på hur du skickar en dat
 keywords: Apache spark streaming, spark streaming, spark-exemplet, apache spark streaming exempel event hub azure exempel, spark-exempel
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Apache Spark strukturerade strömning på HDInsight för att bearbeta händelser från Event Hubs
 
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig att bearbeta realtid telemetri med Spark s
 1. Kompilera och köra på din lokala arbetsstationen ett exempelprogram händelse producenten som genererar händelser som du skickar till Händelsehubbar.
 2. Använd den [Spark Shell](apache-spark-shell.md) att definiera och kör ett enkelt program Spark strukturerade strömning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -189,7 +189,7 @@ Ditt HDInsight-kluster ska vara klar med den här punkten. Om inte, måste du v�
 
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Översikt över Spark streaming](apache-spark-streaming-overview.md)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Du kan kopiera data från PostgreSQL-databas till alla stöds sink-datalagret. E
 
 Mer specifikt stöder den här PostgreSQL-anslutningen PostgreSQL **version 7.4 och högre**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna PostgreSQL-anslutning måste du:
 
@@ -44,7 +44,8 @@ Om du vill använda denna PostgreSQL-anslutning måste du:
 - Installera den [Ngpsql dataprovider för PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på Integration Runtime-datorn.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till PostgreSQL-anslutningen.
 
@@ -56,7 +57,7 @@ Följande egenskaper stöds för PostgreSQL länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **PostgreSql** | Ja |
 | server | Namnet på PostgreSQL-server. |Ja |
-| Databasen | Namnet på PostgreSQL-databas. |Ja |
+| databas | Namnet på PostgreSQL-databas. |Ja |
 | Schemat | Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | användarnamn | Ange användarnamn för att ansluta till PostgreSQL-databasen. |Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString. |Ja |

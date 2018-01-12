@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 62b302a3c2a561a866d70da060f2f962de609234
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Kopiera data från Azure-databas för MySQL med Azure Data Factory
 
@@ -34,7 +34,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Azure-databas för MySQL-anslutningen.
 

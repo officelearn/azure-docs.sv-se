@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa ditt lösenord för arbetet eller skolan
 
@@ -122,7 +122,7 @@ Du bör nu kunna komma åt ditt konto. Om inte, kontakta din organisations IT-av
 
 | Fel-fall| Vilka fel ser du?| Lösning |
 | --- | --- | --- |
-| Det finns ett fel när jag försöker ändra lösenordet. | Lösenordet innehåller tyvärr ett ord, en fras eller en mönster som gör att enkelt fjärråtkomstlösning ditt lösenord. Försök igen med ett annat lösenord. | Välj ett lösenord som är mer difficlt att gissa. |
+| Det finns ett fel när jag försöker ändra lösenordet. | Lösenordet innehåller tyvärr ett ord, en fras eller en mönster som gör att enkelt fjärråtkomstlösning ditt lösenord. Försök igen med ett annat lösenord. | Välj ett lösenord som är svårare att gissa. |
 | En ”Kontakta din administratör” sida kommer när du har angett mitt användar-ID | Kontakta administratören. <br> <br> Vi har upptäckt att lösenordet till ditt användarkonto inte hanteras av Microsoft. Vi kan därför inte att återställa lösenordet automatiskt. <br> <br> Du måste kontakta din IT-personal för ytterligare hjälp. | Du se detta meddelande eftersom din IT-personal hanterar lösenordet i din lokala miljö. Du kan inte återställa ditt lösenord från länken ”det går inte att komma åt ditt konto”. <br> <br> Kontakta din IT-personal direkt för att få hjälp om du vill återställa ditt lösenord och meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig.|
 | Jag felmeddelandet ”ditt konto har inte aktiverats för lösenordsåterställning” när du har angett mitt användar-ID | Ditt konto har inte aktiverats för återställning av lösenord. <br> <br> Vi beklagar, men din IT-personal inte har lagt upp ditt konto att använda tjänsten. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du se detta meddelande eftersom din IT-personal inte har aktiverats för din organisation från ”det går inte att komma åt ditt konto” länken för återställning av lösenord eller har inte licensierats du om du vill använda funktionen. <br> <br> Välj om du vill återställa ditt lösenord ”kontakta en administratör länken” att skicka ett e-postmeddelande till ditt företag har IT-personal och meddela dem om du vill återställa ditt lösenord så att de kan du aktivera funktionen för dig. |
 | Jag felmeddelandet ”Det gick inte att verifiera ditt konto” när du har angett mitt användar-ID | Det gick inte att verifiera ditt konto. <br> <br> Om du vill att kan vi kontakta en administratör i din organisation som återställer lösenordet åt dig. | Du se detta meddelande eftersom du har aktiverat för återställning av lösenord, men du har inte registrerats för att använda tjänsten. Registrera för återställning av lösenord genom att gå till http://aka.ms/ssprsetup när du har återupprättats åtkomst till ditt konto. <br> <br> Om du vill återställa ditt lösenord, Välj länken ”kontakta en administratör” om du vill skicka ett e-postmeddelande till ditt företags IT-personal. |
@@ -141,4 +141,3 @@ Du bör nu kunna komma åt ditt konto. Om inte, kontakta din organisations IT-av
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Länken för Windows 10 faller skapare Update inloggningen skärmen återställning av lösenord"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Kontrollera dina autentiseringsdata"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Ändra ditt lösenord"
-

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera agenten Application Proxy Connector
 
@@ -37,9 +37,9 @@ När installationen av en anslutning misslyckas är den grundläggande orsaken v
 
 **Mål:** Kontrollera att connector-datorn kan ansluta till slutpunkt för registrering av AAD Application Proxy samt Microsoft inloggningssidan.
 
-1.  Öppna en webbläsare och gå till följande webbsida: <https://aadap-portcheck.connectorporttest.msappproxy.net> , och kontrollera att anslutningen till centrala USA och östra USA datacenter med portarna 9090 och 9091 fungerar.
+1.  Öppna en webbläsare och gå till följande webbsida: <https://aadap-portcheck.connectorporttest.msappproxy.net> , och kontrollera att anslutningen till centrala USA och östra USA datacenter med portarna 80 och 443 fungerar.
 
-2.  Om någon av dessa portar inte lyckas (om du inte har en grön bock), kontrollera att brandväggen eller backend-proxy har \*. msappproxy.net med portarna 9090 och 9091 definierats korrekt.
+2.  Om någon av dessa portar inte lyckas (om du inte har en grön bock), kontrollera att brandväggen eller backend-proxy har \*. msappproxy.net med portarna 80 och 443 definierats korrekt.
 
 3.  Öppna en webbläsare (separat flik) och gå till följande webbsida: <https://login.microsoftonline.com>, se till att du kan logga in på sidan.
 

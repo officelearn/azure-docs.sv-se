@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Skapa avbildningar av behållare för Service Fabric
 
@@ -40,7 +40,7 @@ I den här självstudiekursen serien lär du dig hur du:
 > * [Skapa och köra ett Service Fabric-program med behållare](service-fabric-tutorial-package-containers.md)
 > * [Hur redundans och skalning hanteras i Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Linux-utvecklingsmiljö ställas in för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) att konfigurera Linux-miljö. 
 - Den här kursen kräver att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-Katalogen 'självstudie om behållaren' innehåller en mapp med namnet ”azure-röst'. Mappen 'azure-röst' innehåller frontend källkoden och en Dockerfile att skapa klientdelen. Katalogen 'självstudie om behållaren' innehåller också 'redis'-katalogen som har Dockerfile att skapa redis-bild. Dessa kataloger som innehåller nödvändiga resurser för den här självstudiekursen. 
+Lösningen innehåller två mappar och en ' docker-compse.yml-filen. Mappen ”azure-röst' innehåller tjänsten Python klientdel tillsammans med Dockerfile som används för att skapa avbildningen. 'Röstningsdatabasen'-katalogen innehåller Service Fabric-programpaket som distribueras till klustret. Dessa kataloger som innehåller de nödvändiga resurserna för den här självstudiekursen.  
 
 ## <a name="create-container-images"></a>Skapa avbildningar av behållare
 
-Kör följande kommando för att skapa avbildningen för komponenten frontend-webbservrar i katalogen 'azure-röst'. Detta kommando använder Dockerfile i den här katalogen för att skapa avbildningen. 
+I den **azure röst** directory, kör följande kommando för att skapa avbildningen för komponenten frontend-webbservrar. Detta kommando använder Dockerfile i den här katalogen för att skapa avbildningen. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Insidan katalogen 'redis', kör följande kommando för att skapa avbildningen för redis-serverdel. Detta kommando använder Dockerfile i katalogen för att skapa avbildningen. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-När du är klar, kan du använda den [docker bilder](https://docs.docker.com/engine/reference/commandline/images/) kommandot för att se bilderna som har skapats.
+Det här kommandot kan ta lite tid eftersom de nödvändiga beroendena behöver ska hämtas från Docker-hubben. När du är klar, kan du använda den [docker bilder](https://docs.docker.com/engine/reference/commandline/images/) kommandot för att se bilderna som har skapats.
 
 ```bash
 docker images
 ```
 
-Observera att fyra bilder har hämtat eller skapat. Den *azure rösten sista* bilden innehåller programmet. Det har härletts från en *python* avbildningen från Docker-hubben. Redis-avbildningen hämtades från Docker-hubben.
+Observera att två bilder har hämtat eller skapat. Den *azure rösten sista* bilden innehåller programmet. Det har härletts från en *python* avbildningen från Docker-hubben.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
 
-Kör först den [az inloggningen](/cli/azure/login) kommando för att logga in på ditt Azure-konto. 
+Kör först den **az inloggningen** kommando för att logga in på ditt Azure-konto. 
 
-Använd sedan den [az konto](/cli/azure/account#set) kommando för att välja din prenumeration för att skapa Azure-behållare registernyckel. 
+```bash
+az login
+```
+
+Använd sedan den **az konto** kommando för att välja din prenumeration för att skapa Azure-behållare registernyckel. Du måste ange prenumerations-ID för din Azure-prenumeration i stället för < PRENUMERATIONSID >. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 När du distribuerar ett Azure Container registret, måste du först en resursgrupp. En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#create). I det här exemplet en resursgrupp med namnet *myResourceGroup* skapas i den *westus* region. Välj resursgruppen i en region nära dig. 
+Skapa en resursgrupp med kommandot **az group create**. I det här exemplet en resursgrupp med namnet *myResourceGroup* skapas i den *westus* region.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Skapa en Azure-behållare registret med den [az acr skapa](/cli/azure/acr#create) kommando. Namnet på en behållare registret **måste vara unika**.
+Skapa en Azure-behållare registret med den **az acr skapa** kommando. Ersätt \<acrName > med namnet på behållaren registret som du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unika. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-I resten av den här kursen använder vi ”acrname” som platshållare för registret behållarnamn som du har valt.
+I resten av den här kursen använder vi ”acrName” som platshållare för registret behållarnamn som du har valt. Lägg märke till det här värdet. 
 
 ## <a name="log-in-to-your-container-registry"></a>Logga in på behållaren registret
 
-Logga in på din ACR-instansen innan du skickar bilder till den. Använd den [az acr inloggning](/cli/azure/acr?view=azure-cli-latest#az_acr_login) kommando för att slutföra åtgärden. Ange unika namnet på behållaren registret när den skapades.
+Logga in på din ACR-instansen innan du skickar bilder till den. Använd den **az acr inloggning** kommando för att slutföra åtgärden. Ange unika namnet på behållaren registret när den skapades.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ Resultat:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ För att få namnet loginServer, kör du följande kommando:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Tagga nu den *azure rösten sista* avbildningen med loginServer av registret i behållaren. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger den bildversionen.
+Detta matar ut en tabell med följande resultat. Resultatet för den här kommer att användas för att tagga din **azure rösten sista** bilden innan du skickar till behållaren registret i nästa steg.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-Tagga sedan den *azure rösten tillbaka* avbildningen med loginServer av registret i behållaren. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger den bildversionen.
+Tagga nu den *azure rösten sista* avbildningen med loginServer behållare registret. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger den bildversionen.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 När taggade, köra docker-bilder att bekräfta åtgärden.
@@ -172,11 +168,8 @@ Resultat:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Push den *azure rösten sista* avbildningen till registret.
 Med följande exempel ersätta ACR loginServer namn med loginServer från din miljö.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Push den *azure rösten tillbaka* avbildningen till registret. 
-
-Med följande exempel ersätta ACR loginServer namn med loginServer från din miljö.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Kommandona docker push ta ett par minuter att slutföra.
@@ -214,7 +199,6 @@ Resultat:
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 

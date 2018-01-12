@@ -1,6 +1,6 @@
 ---
 title: "Aktivera säkerhetskopiering för Azure-stacken med PowerShell | Microsoft Docs"
-description: "Aktivera infrastruktur tillbaka tjänsten med Windows PowerShell så att Azure-stacken kan återställas om det uppstår ett fel."
+description: "Aktivera tjänsten infrastruktur säkerhetskopiering med Windows PowerShell så att Azure-stacken kan återställas om det uppstår ett fel."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Aktivera säkerhetskopiering för Azure-stacken med PowerShell
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Aktivera infrastruktur tillbaka tjänsten med Windows PowerShell så att Azure-stacken kan återställas om det uppstår ett fel. Du kan öppna PowerShell-cmdlets för att aktivera säkerhetskopiering, starta säkerhetskopiering och få säkerhetskopierad information via hanteringsslutpunkten operator.
+Aktivera tjänsten infrastruktur säkerhetskopiering med Windows PowerShell så att Azure-stacken kan återställas om det uppstår ett fel. Du kan öppna PowerShell-cmdlets för att aktivera säkerhetskopiering, starta säkerhetskopiering och få säkerhetskopierad information via hanteringsslutpunkten operator.
 
 ## <a name="download-azure-stack-tools"></a>Hämta Azure Stack-verktyg
 
@@ -90,6 +90,9 @@ Kör följande kommandon i samma PowerShell-session:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> Du måste använda AzureStack-verktyg för att generera nyckeln.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Ange reservnyckel för resursen, autentiseringsuppgifter och kryptering för att aktivera säkerhetskopiering
 
 Redigera följande PowerShell-skript i samma PowerShell-session genom att lägga till variabler för din miljö. Kör skriptet uppdaterade för att förse infrastruktur säkerhetskopieringstjänsten reservnyckel resursen, autentiseringsuppgifter och kryptering.
@@ -101,15 +104,15 @@ Redigera följande PowerShell-skript i samma PowerShell-session genom att lägga
 | $sharepath      | Ange sökvägen till den **säkerhetskopiera lagringsplats**. Du måste använda en Universal Naming Convention (UNC)-sträng för sökväg till en filresurs som finns på en separat enhet. En UNC-sträng Anger platsen för resurser, till exempel delade filer eller enheter. Enheten måste vara i en annan plats för att säkerställa tillgängligheten för säkerhetskopierade data. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Bekräfta inställningarna för säkerhetskopiering
 
 Kör följande kommandon i samma PowerShell-session:

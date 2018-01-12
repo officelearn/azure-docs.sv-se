@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus med hjälp av Azure portal
 
@@ -41,7 +41,7 @@ kanaler | Ett av följande värden: **Admin** eller **åtgärden**.
 correlationId | Vanligtvis ett GUID i strängformatet. Händelser som hör till samma åtgärd vanligtvis delar samma correlationId.
 eventDataId | Den unika identifieraren för en händelse.
 EventName | Rubrik på en händelse.
-nivå | Nivån i en händelse. Ett av följande värden: **kritisk**, **fel**, **varning**, **informations**, eller **utförlig** .
+nivå | Nivån i en händelse. Ett av följande värden: **kritisk**, **fel**, **varning** eller **informations**.
 resourceProviderName | Namnet på resursprovidern för resursen påverkas.
 resourceType| Typ av resurs för resursen påverkas.
 subStatus | Vanligtvis HTTP-statuskoden motsvarande rest anropa, men kan även innehålla andra strängar som beskriver en sådan. Till exempel: OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), det gick inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409), intern Server Fel (HTTP-statuskod: 500), tjänsten inte tillgänglig (HTTP-statuskod: 503), och Gateway-Timeout (HTTP-statuskod: 504).

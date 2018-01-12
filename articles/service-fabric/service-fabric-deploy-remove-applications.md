@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuera och ta bort program med hjälp av PowerShell
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 När en [programtyp har paketerats][10], den är klar för distribution till Azure Service Fabric-kluster. Distributionen omfattar följande tre steg:
 
-1. Ladda upp programpaketet image store
-2. Registrera programtypen
-3. Skapa programinstansen
+1. Ladda upp programpaketet image store.
+2. Registrera programtypen med image store relativ sökväg.
+3. Skapa programinstansen.
 
-När ett program distribueras och en instans som körs i klustret kan du ta bort programinstansen och dess programtyp. Om du vill ta bort ett program från klustret omfattar följande steg:
+När det distribuerade programmet inte längre behövs, kan du ta bort programinstansen och dess programtyp. Om du vill ta bort ett program från klustret omfattar följande steg:
 
-1. Ta bort (eller ta bort) för att köra programinstansen
-2. Avregistrera programtypen om du inte längre behöver
-3. Ta bort programmet paketet från avbildningsarkivet
+1. Ta bort (eller ta bort) för att köra programinstansen.
+2. Avregistrera programtypen om du inte längre behöver.
+3. Ta bort programmet paketet från avbildningsarkivet.
 
 Om du använder Visual Studio för att distribuera och felsöka program i klustret lokal utveckling, hanteras de föregående stegen automatiskt via ett PowerShell-skript.  Det här skriptet finns i den *skript* mappen i projektet för konsolprogrammet. Den här artikeln innehåller bakgrundsinformation om vad skriptet gör så att du kan utföra samma åtgärder utanför Visual Studio. 
+
+Ett annat sätt att distribuera ett program är att använda externa etablera. Programpaketet kan vara [paketerade som `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) och överförs till en extern butik. I det här fallet behövs inte överföra image store. Distributionen måste följande steg:
+
+1. Överför den `sfpkg` till en extern butik. Den externa lagringen kan vara en butik som Exponerar en REST http eller https-slutpunkt.
+2. Registrera programtyp av som använder externa hämtning URI och informationen om programmet.
+2. Skapa programinstansen.
+
+Ta bort programmet instanserna för rensning och avregistrera programtypen. Eftersom paketet inte har kopierats till image store, finns det ingen tillfällig plats att rensa. Etablering från extern butik är tillgängliga från och med Service Fabric version 6.1.
+
+>[!NOTE]
+> Visual Studio stöder för närvarande inte externa etablera.
+
  
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 Innan du kör PowerShell-kommandon i den här artikeln måste alltid starta med hjälp av [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) att ansluta till Service Fabric-kluster. För att ansluta till lokal utveckling klustret, kör du följande:
@@ -123,7 +135,7 @@ Här är till exempel komprimering statistik för vissa paket som visar första 
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-När ett paket har komprimerats, kan de överföras till en eller flera Service Fabric-kluster efter behov. Mekanism för distribution är samma för komprimerade och okomprimerade paket. Om paketet har komprimerats, lagras som sådana i klustret image store och den är okomprimerade på noden innan programmet körs.
+När ett paket har komprimerats, kan de överföras till en eller flera Service Fabric-kluster efter behov. Mekanism för distribution är samma för komprimerade och okomprimerade paket. Komprimerade paket lagras som sådana i klustret image store. Paketen är okomprimerade på noden, innan programmet körs.
 
 
 I följande exempel laddar upp paketet i bildarkivet för i en mapp med namnet ”MyApplicationV1”:
@@ -162,17 +174,27 @@ Programtypen och versionen har deklarerats i programmanifestet blir tillgänglig
 
 Kör den [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) för att registrera programtypen i klustret och gör den tillgänglig för distribution:
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Registrera programpaketet kopieras till avbildningsarkivet
+När ett paket har tidigare har kopierats till image store, anger den relativa sökvägen i image store registrera igen.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 ”MyApplicationV1” är mappen i image store där programpaketet finns. Programtyp med namnet ”MyApplicationType” och versionen ”1.0.0” (båda finns i programmanifestet) har nu registrerats i klustret.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Registrera programpaketet kopieras till en extern butik
+Från och med Service Fabric version 6.1 kan etablera stöder Hämta paketet från en extern butik. Hämta URI representerar sökvägen till den [ `sfpkg` programpaket](service-fabric-package-apps.md#create-an-sfpkg) varifrån programpaketet kan hämtas med hjälp av HTTP eller HTTPS-protokoll. Paketet måste ha överförts tidigare till den här extern plats. URI: N måste tillåta läsåtkomst så Service Fabric kan hämta filen. Den `sfpkg` filen måste ha filnamnstillägget ”.sfpkg”. Etableringsåtgärd ska omfatta programinformationen för typ, som du hittar i programmanifestet.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 Den [registrera ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) kommando returnerar bara när systemet har registrerat programpaketet. Hur länge registrering tar beror på storleken och innehållet i programpaketet. Om det behövs, de **- TimeoutSec** parametern kan användas för att ange en längre tidsgräns (standardvärdet är 60 sekunder).
 
-Om du har en stor program paketet eller om du har tidsgränser, använda den **- asynkrona** parameter. Kommandot returnerar när klustret accepterar registreringskommandot och bearbetningen fortsätter efter behov.
-Den [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kommando visar alla registrerades typen programversioner och deras registreringsstatus. Du kan använda det här kommandot för att avgöra när registreringen är klar.
+Om du har en stor program paketet eller om du har tidsgränser, använda den **- asynkrona** parameter. Kommandot returnerar när klustret accepterar registreringskommandot. Registrera igen fortsätter efter behov.
+Den [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kommando visar typen programversioner och deras registreringsstatus. Du kan använda det här kommandot för att avgöra när registreringen är klar.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Ta bort ett programpaket från avbildningsarkivet
-Vi rekommenderar att du tar bort programpaketet när programmet har registrerats.  Ta bort programpaket från avbildningsarkivet frigör systemresurser.  Att hålla oanvända programpaket förbrukar disklagring och leder till problem med prestanda.
+Om ett paket kopierades till image store du bör ta bort den från den tillfälliga platsen när programmet har registrerats. Ta bort programpaket från avbildningsarkivet frigör systemresurser. Att hålla oanvända programpaket förbrukar disklagring och leder till problem med prestanda.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Avregistrera en programtyp
-När en viss version av en typ av program inte längre behövs, bör du avregistrera den typ som använder den [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Avregistrerar oanvända typer versioner lagringsutrymme används av image store genom att ta bort binärfilerna för programmet. Avregistrering av programtyp tas inte bort programpaketet. En typ av program kan avregistreras så länge inga program instansieras mot det och inte väntar programmet uppgraderingar hänvisar till den.
+När en viss version av en typ av program inte längre behövs, bör du avregistrera den typ som använder den [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. Avregistrera oanvända programtyper Frigör lagringsutrymme som används av image store genom att ta bort programfiler för typen. Avregistrering av programtyp tas inte bort programpaketet kopieras till tillfällig plats image store om Kopiera till image store användes. En typ av program kan avregistreras så länge inga program instansieras mot det och inte väntar programmet uppgraderingar hänvisar till den.
 
 Kör [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) att se vilka programtyper som är registrerade i klustret:
 
@@ -334,6 +356,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+[Paketera ett program](service-fabric-package-apps.md)
+
 [Uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md)
 
 [Service Fabric hälsa introduktion](service-fabric-health-introduction.md)

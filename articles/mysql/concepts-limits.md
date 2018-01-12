@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 12/09/2017
-ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/11/2018
+ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure-databas för MySQL
 Azure-databasen för MySQL-tjänsten är tillgänglig som förhandsversion. I följande avsnitt beskrivs kapacitet, stödet för lagring, privilegium support, stöd för data manipulation instruktionen och funktionella gränser i databastjänsten för. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) avser MySQL database engine.
@@ -87,7 +87,7 @@ När för många anslutningar har uppnåtts, får du följande fel:
 ### <a name="subscription-management"></a>Prenumerationshantering
 - Dynamiskt flytta förskapade servrar över prenumeration och resursgrupp stöds inte för närvarande.
 
-## <a name="current-known-issues"></a>Aktuella kända problem:
+## <a name="current-known-issues"></a>Aktuella kända problem
 - MySQL-serverinstans visar fel serverversionen efter anslutningen har upprättats. För att få rätt server-instans versionshantering, använder du väljer version(); kommandot MySQL i Kommandotolken.
 
 ## <a name="next-steps"></a>Nästa steg

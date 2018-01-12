@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ff008b6fdfe9e248a0588f24a1cb87b39ca8d90c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Mer specifikt stöder den här Sybase-anslutningen:
 - Sybase **version 16 och högre**.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna Sybase-anslutning måste du:
 
@@ -46,7 +46,8 @@ Om du vill använda denna Sybase-anslutning måste du:
 - Installera den [dataprovider för Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 eller senare på Integration Runtime-datorn.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Sybase-anslutningen.
 
@@ -58,7 +59,7 @@ Följande egenskaper stöds för Sybase länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Sybase** | Ja |
 | server | Namnet på Sybase-servern. |Ja |
-| Databasen | Namnet på Sybase-databasen. |Ja |
+| databas | Namnet på Sybase-databasen. |Ja |
 | Schemat | Namnet på schemat i databasen. |Nej |
 | AuthenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **grundläggande**, och **Windows**. |Ja |
 | användarnamn | Ange användarnamn för att ansluta till Sybase-databasen. |Ja |

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7df9fc58ac06ffde81df88ffd698c2527583f18f
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Använda externa paket med Jupyter notebooks i Apache Spark-kluster i HDInsight
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ Du kan söka i [Maven databasen](http://search.maven.org/) för en fullständig 
 
 I den här artikeln får du lära dig hur du använder den [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) paket med Jupyter-anteckningsboken.
 
-
-
 ## <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande:
 
@@ -44,6 +42,7 @@ Du måste ha följande:
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Använda externa paket med Jupyter-anteckningsböcker
 1. På startsidan i [Azure-portalen](https://portal.azure.com/) klickar du på panelen för ditt Spark-kluster (om du har fäst det på startsidan). Du kan också navigera till ditt kluster under **Bläddra bland alla** > **HDInsight-kluster**.   
+
 2. Klicka på **Snabblänkar** på Spark-klusterbladet och sedan på **Jupyter Notebook** på **Klusterinstrumentpanel**-bladet. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
     > [!NOTE]
@@ -51,8 +50,6 @@ Du måste ha följande:
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
     > 
-
-   
 
 3. Skapa en ny anteckningsbok. Klicka på **ny**, och klicka sedan på **Spark**.
    
@@ -130,4 +127,3 @@ Du måste ha följande:
 ### <a name="manage-resources"></a>Hantera resurser
 * [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)
-

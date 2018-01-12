@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Använd verktyget StorSimple diagnostik för felsökning av problem med 8000 series-enheter
 
@@ -32,15 +32,15 @@ Diagnostikverktyget är främst avsett för StorSimple 8000-serien lokala enhete
 
 Det här verktyget kan köras via Windows PowerShell-gränssnittet för din StorSimple-enhet. Det finns två sätt att få åtkomst till det lokala gränssnittet av enheten:
 
-* [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Fjärransluta till verktyget via Windows PowerShell för StorSimple](storsimple-remote-connect.md).
+* [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Fjärransluta till verktyget via Windows PowerShell för StorSimple](storsimple-8000-remote-connect.md).
 
 I den här artikeln förutsätter vi att du har anslutit till enhetens seriekonsol via PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Du kan köra verktyget Nätverksdiagnostik
 
 Utför följande steg för att köra cmdlet när du har anslutit till Windows PowerShell-gränssnittet för enheten.
-1. Logga in på enhetens seriekonsol genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Logga in på enhetens seriekonsol genom att följa stegen i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Ange följande kommando:
 
@@ -85,11 +85,11 @@ Det här testet status för maskinvarukomponenter, över firmware och den inbygg
 * De maskinvarukomponenter som rapporterats är de komponenter som misslyckats testet eller finns inte i systemet.
 * De över inbyggd programvara och disk versionerna av inbyggd rapporteras för styrenhet 0, 1 domänkontrollant, och delade komponenter i systemet. En fullständig lista över maskinvarukomponenter finns:
 
-    * [Komponenter i primära hölje](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Komponenter i EBOD hölje](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Komponenter i primära hölje](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Komponenter i EBOD hölje](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Om testet maskinvara rapporterar misslyckade komponenter, [logga in en tjänstbegäran med Microsoft-supporten](storsimple-contact-microsoft-support.md).
+> Om testet maskinvara rapporterar misslyckade komponenter, [logga in en tjänstbegäran med Microsoft-supporten](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Exempel på utdata av maskinvarutest som körs på en 8100-enhet
 
@@ -210,7 +210,7 @@ Det här testet rapporterar systeminformationen, tillgängliga uppdateringar, kl
 * Systeminformationen omfattar modellen, enhetens serienummer, tidszon, status för domänkontrollanten och detaljerad programvaruversionen körs på systemet. För att förstå de olika systemparametrar som rapporteras som utdata, gå till [tolka Systeminformation](#appendix-interpreting-system-information).
 
 * Uppdatera tillgänglighet rapporter om lägena regular och underhåll är tillgängliga och deras associerade paketnamn. Om `RegularUpdates` och `MaintenanceModeUpdates` är `false`, detta indikerar att uppdateringarna inte är tillgängliga. Enheten är uppdaterad.
-* Klusterinformationen innehåller information om olika logiska komponenter till alla HCS klustergrupper och deras respektive status. Om du ser ett offline klustergrupp i det här avsnittet i rapporten, [kontaktar Microsoft Support](storsimple-contact-microsoft-support.md).
+* Klusterinformationen innehåller information om olika logiska komponenter till alla HCS klustergrupper och deras respektive status. Om du ser ett offline klustergrupp i det här avsnittet i rapporten, [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * Tjänstinformation innehåller namn och status för alla HCS och CiS tjänster som körs på enheten. Den här informationen är användbar för Microsoft-supporten felsökning av problem med enheten.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Exempel på utdata från system-test som körs på en 8100-enhet
@@ -417,9 +417,9 @@ Här är en tabell som beskriver vilka olika Windows PowerShell parametrar i kar
 |-------------------------|------------------|
 | Instans-ID             | Varje domänkontrollant har en unik identifierare eller ett GUID som är kopplade till den.|
 | Namn                    | Det egna namnet på enheten som konfigurerats via Azure portal under distributionen av enheten. Eget standardnamnet är enhetens serienummer. |
-| Modellen                   | Modell för enheten StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
+| Modell                   | Modell för enheten StorSimple 8000-serien. Modellen kan vara 8100 eller 8600.|
 | Serienummer            | Enhetens serienummer som tilldelas på fabriken och 15 tecken. Exempelvis anger 8600-SHX0991003G44HT:<br> 8600 – är enhetsmodellen.<br>SHX – är platsen manufacturing.<br> 0991003 - är en specifik produkt. <br> G44HT--de 5 senaste siffrorna ökas för att skapa unika serienummer. Det får inte vara en sekventiell uppsättning.|
-| Tidszon                | Den enhet tidszonen som konfigurerats i Azure portal under distributionen av enheten.|
+| TimeZone                | Den enhet tidszonen som konfigurerats i Azure portal under distributionen av enheten.|
 | CurrentController       | Den domänkontrollant som du är ansluten till via Windows PowerShell-gränssnittet för din StorSimple-enhet.|
 | ActiveController        | Den domänkontrollant som är aktiv på enheten och kontrollerar alla nätverks- och åtgärder. Detta kan vara styrenhet 0 eller 1 för domänkontrollanten.  |
 | Controller0Status       | Status för styrenhet 0 på enheten. Status för domänkontrollanten kan vara vanligt i återställningsläge eller kan inte nås.|

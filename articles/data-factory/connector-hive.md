@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: af9050d41502f55b0426b858654b8af6985b93ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Kopiera data från Hive med Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för Hive-anslutningen.
 
@@ -45,7 +45,7 @@ Följande egenskaper stöds för Hive länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Hive** | Ja |
-| värden | IP-adressen eller värdnamnet namnet på servern Hive åtskilda av ';' för flera värdar (endast när serviceDiscoveryMode har aktiverats).  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på servern Hive åtskilda av ';' för flera värdar (endast när serviceDiscoveryMode har aktiverats).  | Ja |
 | port | TCP-porten som Hive-servern använder för att lyssna efter anslutningar.  | Nej |
 | Servertyp | Typ av Hive-server. <br/>Tillåtna värden är: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, ** HTTP ** | Nej |

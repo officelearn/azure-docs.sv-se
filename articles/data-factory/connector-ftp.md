@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 925171ab00bcf2e36e1f8109dceac72ad33be51e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Mer specifikt stöder den här FTP-anslutningen:
 - Filer som kopieras-är eller parsning filer med den [filformat och komprimering codec stöds](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Kom igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](create-self-hosted-integration-runtime.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för FTP.
 
@@ -50,7 +51,7 @@ Följande egenskaper stöds för FTP-länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **FtpServer**. | Ja |
-| värden | Ange namn eller IP-adressen till FTP-servern. | Ja |
+| värd | Ange namn eller IP-adressen till FTP-servern. | Ja |
 | port | Ange den port som FTP-servern lyssnar.<br/>Tillåtna värden är: heltal, standardvärdet är **21**. | Nej |
 | enableSsl | Ange om du använder FTP över SSL/TLS-kanalen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT**. | Nej |
 | enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT**. | Nej |

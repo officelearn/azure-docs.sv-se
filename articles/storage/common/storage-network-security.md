@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsgranskning)
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
@@ -39,6 +39,10 @@ Nätverksregler kan tillämpas på befintliga lagringskonton och kan tillämpas 
 När Nätverksregler tillämpas tillämpas de för alla begäranden.  SAS-token som ger åtkomst till en specifik IP-adress tjänst ut till **gränsen** åtkomst innehavarens token, men de stöder inte bevilja nya åtkomst utanför konfigurerade regler. 
 
 Disk för virtuell dator-trafik (inklusive montera och demontera åtgärder och disk-i/o) **inte** påverkas av Nätverksregler.  REST-åtkomst till sidblobbar skyddas av Nätverksregler.
+
+> [!NOTE]
+> Säkerhetskopiering och återställning av virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk stöds inte för närvarande.  Mer information finns i [begränsningar när du säkerhetskopierar och återställer en virtuell dator](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 Klassiska lagringskonton **inte** stöd för brandväggar och virtuella nätverk.
 

@@ -4,7 +4,7 @@ description: "Skapa ett Apache Spark streaming exempel på hur du skickar en dat
 keywords: Apache spark streaming, spark streaming, spark-exemplet, apache spark streaming exempel event hub azure exempel, spark-exempel
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: d0678388fea79797c3cb4cd84deeab827981ebff
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: jgao
+ms.openlocfilehash: 43ae956ca284485cc68f8120a31af1c493c0b254
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark streaming: bearbetning av data från Azure Event Hubs med Spark-kluster i HDInsight
 
@@ -33,7 +33,7 @@ I den här artikeln får skapa du ett Apache Spark streaming exempel som omfatta
 
 3. Du skapa analytiska pipelines för att spara data till olika lagringssystem för strömning eller kunskap genom statistik från data direkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 

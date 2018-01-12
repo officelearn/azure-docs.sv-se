@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Azure-plats-baserade tjänster - Geokodning täckning
-Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för att söka efter adresser, platser och andra geografiska enheter runtom i världen. Detta är viktigt för kunder som vill ha där de kan och inte förväntar dig att hitta olika nivåer av återgivning när du söker för adresser i Search-tjänsten. När du söker regioner som har låg återgivning täckning, kan du förväntar dig lägre förtroende sökresultat. Följande tabell innehåller information om täckning för Azure kg Sök Geokodning.
+Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för att söka efter adresser, platser och andra geografiska enheter runtom i världen. Detta är viktigt för kunder som vill ha där de kan och inte förväntar dig att hitta olika nivåer av återgivning när du söker för adresser i Search-tjänsten. Du kan förvänta dig lägre förtroende sökresultat när du söker regioner som har låg återgivning täckning. Följande tabell innehåller information om täckning för Azure kg Sök Geokodning.
 
 
 |Region  |Adress punkter  |House siffror |Gatuadress nivå|
@@ -160,7 +160,7 @@ Azure plats baserat tjänster (PUND) ger detaljerad geokodning information för 
 |Gabon    |         |         |✓         |
 |Ghana     |         |         |✓         |
 |Guinea     |         |         |✓         |
-|Guinea-Bissau     |         |         |✓         |
+|Guinea Bissau     |         |         |✓         |
 |Irak     |         |         |✓         |
 |Jordanien     |✓         |         |✓         |
 |Kenya     |         |         |✓         |
@@ -236,7 +236,7 @@ Azure kg innehåller nivån Stad precision när du söker i följande områden:
 |     |Kokosöarna         |
 |     |Komorerna         |
 |     |Cooköarna         |
-|     |Östtimor         |
+|     |Timor-Leste         |
 |     |Fiji         |
 |     |Franska Polynesien         |
 |     |Heardön och McDonaldöarna         |

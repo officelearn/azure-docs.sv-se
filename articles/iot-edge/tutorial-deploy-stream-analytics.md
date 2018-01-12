@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuera Azure Stream Analytics som en gräns för IoT-modul - förhandsgranskning
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 > * Anslut det nya Azure Stream Analytics-jobbet med andra IoT kant-moduler.
 > * Distribuera Azure Stream Analytics-jobbet till en IoT-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En IoT-hubb. 
 * Den enhet som du skapat och konfigurerat i Snabbstart eller i artiklar om hur du distribuerar Azure IoT kanten på en simulerad enhet i [Windows] [ lnk-tutorial1-win] eller i [Linux] [ lnk-tutorial1-lin]. Du behöver veta anslutningsnyckel enhet och enheten-ID. 
@@ -153,7 +153,7 @@ Du är nu redo att distribuera Azure Stream Analytics-jobbet på enheten IoT kan
 
     ![set-modul][6]
 
-6. Kopiera det namn som har genererats automatiskt för Azure Stream Analytics-modulen. 
+6. Kopiera namnet på Azure Stream Analytics-modul. 
 
     ![temperatur-modul][11]
 
@@ -227,9 +227,9 @@ I kursen får du har konfigurerat en Azure storage-behållare och en Streaming A
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/en-us/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/en-us/azure/storage/
-[azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
+[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
+[azure-storage]: https://docs.microsoft.com/azure/storage/
+[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

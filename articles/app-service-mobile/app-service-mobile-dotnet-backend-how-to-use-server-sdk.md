@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Du kan lägga till autentisering i serverprojektet genom att utöka den **Mobile
 Läs om hur du autentiserar klienter till din Mobile Apps-serverdel i [Lägg till autentisering i appen](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Så här: Använd anpassad autentisering för ditt program
+> [!IMPORTANT]
+> För att aktivera anpassad autentisering måste du först aktivera App Service-autentisering utan att välja en provider för din Apptjänst i Azure-portalen. Detta aktiverar miljövariabeln WEBSITE_AUTH_SIGNING_KEY när finns.
+> 
+> 
 Du kan implementera inloggningen systemet om du inte vill använda en av leverantörerna för autentisering/auktorisering i Apptjänst. Installera den [Microsoft.Azure.Mobile.Server.Login] paketet för att underlätta autentisering-token generering.  Ange egen kod vid verifiering av autentiseringsuppgifter. Du kan exempelvis kontrollera mot saltat och hashformaterats lösenord i en databas. I exemplet nedan är de `isValidAssertion()` metod (definierat någon annanstans) ansvarar för dessa kontroller.
 
 Anpassad autentisering exponeras genom att skapa en ApiController och exponera `register` och `login` åtgärder. Klienten bör använda ett anpassat gränssnitt för att samla in information från användaren.  Informationen skickas sedan till API: et med ett standard HTTP POST-anrop. När servern verifierar kontrollen, ett token utfärdas med hjälp av den `AppServiceLoginHandler.CreateToken()` metoden.  ApiController **bör inte** använder den `[MobileAppController]` attribut.

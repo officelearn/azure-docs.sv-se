@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system*
 
 Den här artikeln beskriver hur du visar status för en skalningsenhet och dess associerade noder och hur du använder de tillgängliga nod åtgärderna. Inkludera slå på strömmen av noden åtgärder tömmer återuppta och reparera. Normalt använder du åtgärderna nod under fältet ersättning av delar eller för noden återställningsscenarier.
+
+> [!Important]  
+> Alla nod åtgärder som beskrivs i den här artikeln ska endast mål en nod i taget.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visa status för en skalningsenhet och noder
 
@@ -75,13 +79,17 @@ Driftstatus för noden avgör vilka alternativ som är tillgängliga.
 
 Den **stängs** stängs av noden. Det är samma som om du trycker på strömknappen. Det gör **inte** skicka en avstängningssignal till operativsystemet. Kontrollera du tömmer en scale unit nod först planerad stänga av åtgärder.
 
-Den här åtgärden används vanligtvis när en nod är i låst tillstånd och inte längre svarar på förfrågningar.  
+Den här åtgärden används vanligtvis när en nod är i låst tillstånd och inte längre svarar på förfrågningar.
+
+> [!Important] 
+> Den här funktionen är bara tillgängliga via PowerShell. Den blir tillgänglig i Azure Stack-administratörsportalen igen vid ett senare tillfälle.
+
 
 Så här kör du stänga av åtgärden med hjälp av PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 Använd webbgränssnitt BMC i stället förmodan som inte fungerar stänga av åtgärden.
 
@@ -89,11 +97,14 @@ Använd webbgränssnitt BMC i stället förmodan som inte fungerar stänga av å
 
 Den **slå på strömmen** stängs på noden. Det är samma som om du trycker på strömknappen. 
 
+> [!Important] 
+> Den här funktionen är bara tillgängliga via PowerShell. Den blir tillgänglig i Azure Stack-administratörsportalen igen vid ett senare tillfälle.
+
 Att köra kraften på åtgärden med hjälp av PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 Använd webbgränssnitt BMC i stället förmodan som slå på åtgärden inte fungerar.
 

@@ -4,7 +4,7 @@ description: Beskriver hur du packa upp, rackmontera och kabelanslut din 8600 St
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rackmontera, och kabelanslut din 8600 StorSimple-enhet
 ## <a name="overview"></a>Översikt
@@ -38,7 +38,7 @@ Granska följande information innan du packar upp din enhet.
 Därefter utför följande steg för att packa upp din enhet.
 
 #### <a name="to-unpack-your-device"></a>Att packa upp din enhet
-1. Granska rutan och paketering skummet för crushes delar, vattenstämplar skador eller andra uppenbara skador. Om rutan eller paketering är allvarligt skadat kan inte öppna rutan. Kontrollera [kontaktar Microsoft Support](storsimple-contact-microsoft-support.md) som hjälper dig att bedöma om enheten är i gott skick.
+1. Granska rutan och paketering skummet för crushes delar, vattenstämplar skador eller andra uppenbara skador. Om rutan eller paketering är allvarligt skadat kan inte öppna rutan. Kontrollera [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md) som hjälper dig att bedöma om enheten är i gott skick.
 2. Öppna rutan yttre och sedan ta ut i två rutor som motsvarar den primära servern och EBOD höljen. Du kan nu packa upp den primära servern och EBOD höljen. Följande bild visar den uppackade en höljena.
    
     ![Packa upp lagringsenheten](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Därefter utför följande steg för att packa upp din enhet.
    * 2 rack montera kits (4 sida spår med montera maskinvara, 2 för den primära höljet och EBOD hölje), 1 i respektive ruta
    * Komma igång-dokumentationen
      
-     Om du inte tog emot något av objekten i listan ovan, [kontaktar Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Om du inte tog emot något av objekten i listan ovan, [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 Nästa steg är att rackmonterade enheten.
 
@@ -167,7 +167,7 @@ Nästa steg är att kabelanslut din enhet till ström, nätverk och serieåtkoms
 ## <a name="cable-your-storsimple-8600-device"></a>Kabelanslut din 8600 StorSimple-enhet
 Följande procedurer beskriver hur du kabelanslut din 8600 StorSimple-enhet till ström, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar kabelanslut din enhet, behöver du:
 
 * Din primära höljet och höljet EBOD helt Uppackad
@@ -234,7 +234,7 @@ När kablar enheten kräver den lägsta konfigurationen:
 Kom ihåg för hög tillgänglighet och prestanda:
 
 * Konfigurera ett par med nätverksgränssnittet för molnåtkomst (1 GbE) och en annan par för iSCSI (10 GbE rekommenderas) på varje domänkontrollant när det är möjligt.
-* När det är möjligt ansluta nätverksgränssnitt från varje domänkontrollant till två olika växlar för att garantera mot en switch-fel. Bilden visar två 10 GbE nätverksgränssnitt, DATA 2 och DATA 3 från varje domänkontrollant som är ansluten till två olika växlar. Mer information finns i den **nätverksgränssnitt** under den [krav på hög tillgänglighet för din StorSimple-enhet](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* När det är möjligt ansluta nätverksgränssnitt från varje domänkontrollant till två olika växlar för att garantera mot en switch-fel. Bilden visar två 10 GbE nätverksgränssnitt, DATA 2 och DATA 3 från varje domänkontrollant som är ansluten till två olika växlar. Mer information finns i den **nätverksgränssnitt** under den [krav på hög tillgänglighet för din StorSimple-enhet](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Om använder SFP + mottagarna med din 10 GbE-nätverkskort, använder den angivna QSFP-SFP + nätverkskort. Mer information finns på [maskinvara som stöds för 10 GbE-nätverkskort på StorSimple-enheten](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -266,5 +266,5 @@ Utför följande steg för att kabelanslut din serieport.
 Du har slutfört kablar enheten till ström, nätverksåtkomst och seriell anslutning. Nästa steg är att konfigurera programvaran på din enhet.
 
 ## <a name="next-steps"></a>Nästa steg
-Du är nu redo att [distribuera och konfigurera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
+Du är nu redo att [distribuera och konfigurera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
 

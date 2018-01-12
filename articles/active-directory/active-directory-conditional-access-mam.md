@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory app-baserad villkorlig åtkomst  
 
@@ -64,7 +64,7 @@ Det här avsnittet förutsätter att du är bekant med:
 - Den [migrering av principer för villkorlig åtkomst](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en princip för app-baserad villkorlig åtkomst, du måste ha ett Enterprise Mobility + Security eller ett Azure Active Directory premium-prenumeration och användarna måste ha licens för EMS eller Azure AD. 
 
@@ -389,9 +389,9 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
     - **Kräv godkända klientappen (förhandsgranskning)**
 
-    - **Kräv en av de markerade kontrollerna**   
+    - **Kräv de markerade kontrollerna**   
  
-    ![Villkorlig åtkomst](./media/active-directory-conditional-access-mam/11.png)
+    ![Villkorlig åtkomst](./media/active-directory-conditional-access-mam/13.png)
 
 
 

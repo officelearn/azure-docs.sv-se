@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: HT
+ms.openlocfilehash: 74d363be48972b40ba6a50b845acea78e1b5cc20
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uppdatera autentiseringen av ditt Automation-konto med Kör som-konton 
 Du kan uppdatera ditt befintliga Automation-konto från Azure Portal eller med PowerShell om:
@@ -40,7 +40,7 @@ Följande objekt skapas i ditt Automation-konto.
 * Skapar en Automation-certifikattillgång med namnet *AzureClassicRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
 * Skapar en Automation-anslutningstillgång med namnet *AzureClassicRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller prenumerationsnamnet, subscriptionId och certifikattillgångens namn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Om du väljer att [use PowerShell to create the Run As accounts](#create-run-as-account-using-powershell) (använda PowerShell för att skapa Kör-som-konton). Den här processen kräver:
 
 * Windows 10 och Windows Server 2016 med Azure Resource Manager-moduler med version 3.4.1 och senare. PowerShell-skriptet stöds inte i tidigare versioner av Windows.
@@ -225,7 +225,7 @@ Det här PowerShell-skriptet har stöd för följande konfigurationer:
               $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
               $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
               $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
-                      "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                      "Log in to the Microsoft Azure portal (https://portal.azure.com) and select Subscriptions -> Management Certificates." + [Environment]::NewLine +
                       "Then click Upload and upload the .cer format of #CERT#"
 
                if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
@@ -277,7 +277,7 @@ Det här PowerShell-skriptet har stöd för följande konfigurationer:
 
 Notera följande när skriptet har körts:
 * Om du skapade ett klassiskt Kör som-konto med ett självsignerat offentligt certifikat (CER-fil) skapas och sparas det av skriptet i mappen för tillfälliga filer på datorn under användarprofilen *%USERPROFILE%\AppData\Local\Temp*, som du använde för att köra PowerShell-sessionen.
-* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ anvisningarna för hur du [laddar upp ett hanterings-API-certifikat till den klassiska Azure-portalen](../azure-api-management-certs.md) och verifiera sedan konfigurationen av autentiseringsuppgifterna med de klassiska distributionsresurserna med hjälp av [exempelkoden för autentisering med klassiska Azure-distributionsresurser](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Om du skapade ett klassiskt Kör som-konto med ett offentligt företagscertifikat (CER-fil) använder du det här certifikatet. Följ instruktionerna för [ladda upp ett hanteringscertifikat API till Azure portal](../azure-api-management-certs.md), och sedan Validera konfigurationen för serveradministratörsautentisering med klassisk distributionsresurser med hjälp av den [exempelkod för autentisering med Azure klassiska distributionsresurser](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Om du *inte* skapade ett klassiskt Kör som-konto autentiserar du med Resource Manager-resurser och verifierar konfigurationen av autentiseringsuppgifterna med hjälp av [exempelkoden för autentisering med Service Management-resurser](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>Nästa steg

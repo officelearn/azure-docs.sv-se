@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT-hubb enheten identiteter i grupp
 
@@ -27,6 +27,8 @@ Varje IoT-hubben har en identitetsregistret som du kan använda för att skapa p
 Import och export-åtgärder sker i samband med *jobb* som gör att du kan köra tjänsten massåtgärder mot en IoT-hubb.
 
 Den **RegistryManager** klassen innehåller den **ExportDevicesAsync** och **ImportDevicesAsync** metoder som använder den **jobbet** framework. Dessa metoder kan du exportera, importera och synkronisera identitetsregistret en IoT-hubb i sin helhet.
+
+Det här avsnittet beskrivs med hjälp av den **RegistryManager** klass och **jobbet** systemet att utföra bulk import och export av enheter till och från en IoT-hubb identitetsregistret. Du kan också använda Azure IoT-hubb Device etablering Service för att aktivera zero touch, just-in-time etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i [etablering dokumentation för tjänsten][lnk-dps].
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 
@@ -405,10 +407,16 @@ I den här artikeln har du lärt dig hur du utför massåtgärder mot identitets
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
+
+Om du vill utforska använda Etableringstjänsten IoT-hubb enheten för att aktivera zero touch se just-in-time-etablering: 
+
+* [Azure IoT-hubb enheten etablering av tjänst][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

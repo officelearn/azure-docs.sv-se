@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 40e343ab75a2c2508d64ec0aeb293f5154813135
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 4696f3b9602c1da01d9706f15f38cdf5bc0f3372
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrera System Center Configuration Manager med OMS-uppdateringshantering
 
@@ -26,7 +26,7 @@ Kunder som har investerat i System Center Configuration Manager för att hantera
 
 Utifrån den befintliga integrering du idag har mellan OMS och Configuration Manager kan du rapportera och uppdatera hanterade Windows-servrar genom att skapa och förinstallera programuppdateringsdistributioner i Configuration Manager, och du får detaljerad status för slutförda uppdateringsdistributioner med [lösningen för uppdateringshantering](../operations-management-suite/oms-solution-update-management.md). Om du använder Configuration Manager för uppdatering av efterlevnadsrapportering men inte för att hantera uppdateringsdistributioner med dina Windows-servrar kan du fortsätta att rapportera till Configuration Manager, och säkerhetsuppdateringar hanteras med OMS-lösningen för uppdateringshantering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha [lösningen för uppdateringshantering](../operations-management-suite/oms-solution-update-management.md) i din Log Analytics-arbetsyta och sammanlänkad med ditt Automation-konto i samma resursgrupp och region.   
 * Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till arbetsytan Log Analytics som även har lösningen för uppdateringshantering aktiverad.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>Paketera ett program
 Den här artikeln beskriver hur du paketerar ett Service Fabric-program och förbereda för distribution.
@@ -115,11 +115,11 @@ Om programmet har [applikationsparametrarna](service-fabric-manage-multiple-envi
 
 Om du vet klustret där programmet ska distribueras, bör du skicka in den `ImageStoreConnectionString` parameter. I det här fallet kontrolleras också paketet gentemot tidigare versioner av programmet som körs i klustret. Till exempel valideringen kan känna av om ett paket med samma version men olika innehåll har redan distribuerats.  
 
-När programmet levereras på rätt sätt och har klarat valideringen kan utvärdera baserat på storleken och antalet filer som eventuellt komprimering.
+När programmet levereras på rätt sätt och har klarat valideringen, Överväg att komprimera paketet för snabbare distributionsåtgärder.
 
 ## <a name="compress-a-package"></a>Komprimera ett paket
 Om ett paket är stora eller många filer, kan du komprimera den för snabbare distribution. Komprimeringen minskar antalet filer och paketstorleken.
-För en komprimerad programpaket [ladda upp programpaketet](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan ta längre tid jämfört med överför okomprimerade paketet (särskilt om komprimering tid är inberäknade), men [registrerar](service-fabric-deploy-remove-applications.md#register-the-application-package) och [avregistrerades programtypen](service-fabric-deploy-remove-applications.md#unregister-an-application-type) är snabbare för ett komprimerade programpaket.
+För en komprimerad programpaket [ladda upp programpaketet](service-fabric-deploy-remove-applications.md#upload-the-application-package) kan ta längre tid jämfört med överför okomprimerade paketet, särskilt om komprimering görs som en del av kopia. Med komprimering, [registrerar](service-fabric-deploy-remove-applications.md#register-the-application-package) och [avregistrerades programtypen](service-fabric-deploy-remove-applications.md#unregister-an-application-type) är snabbare.
 
 Mekanism för distribution är samma för komprimerade och okomprimerade paket. Om paketet har komprimerats, lagras som sådana i klustret image store och den är okomprimerade på noden innan programmet körs.
 Komprimeringen ersätter giltigt Service Fabric-paket med den komprimerade versionen. Mappen måste tillåta skrivbehörighet. Kör komprimering på en redan komprimerade paketet ger inga ändringar.
@@ -127,8 +127,7 @@ Komprimeringen ersätter giltigt Service Fabric-paket med den komprimerade versi
 Du kan komprimera ett paket genom att köra Powershell-kommando [kopiera ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) med `CompressPackage` växla. Du kan expandera paketet med samma kommando med `UncompressPackage` växla.
 
 Följande kommando komprimerar paketet utan att kopiera den till image store. Du kan kopiera komprimerade paketet till en eller flera Service Fabric-kluster, efter behov, med [kopiera ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) utan den `SkipCopy` flaggan.
-Paketet innehåller nu komprimerade filer för den `code`, `config`, och `data` paket. Applikationsmanifestet och service manifest är inte zippade, eftersom de behövs för många interna åtgärder (t.ex. paketet fildelning, program namn och version Extraheringen av anslutningstyp för vissa verifieringar).
-Komprimerar manifesten gör dessa åtgärder ineffektiv.
+Paketet innehåller nu komprimerade filer för den `code`, `config`, och `data` paket. Applikationsmanifestet och service manifest är inte zippade, eftersom de behövs för många interna åtgärder. Till exempel delning av paket, program namn och version Extraheringen av anslutningstyp behöver för vissa alla verifieringar åtkomst till manifesten. Komprimerar manifesten gör dessa åtgärder ineffektiv.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ Om paketet är stort, ange en tillräckligt hög tidsgräns för både paketet k
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Internt, beräknar Service Fabric kontrollsummor för programpaket för verifiering. När du använder komprimering beräknas av kontrollsummor i komprimerade versioner av varje paket.
-Om du kopierade en okomprimerad version av ditt programpaket och du vill använda komprimering för samma paket, måste du ändra versionerna av den `code`, `config`, och `data` paket för att undvika felaktig matchning av kontrollsumma. Om paketen är desamma, istället för att ändra versionen, kan du använda [diff etablering](service-fabric-application-upgrade-advanced.md). Med det här alternativet inte är oförändrad paketet i stället referera till den från service manifest.
+Internt, beräknar Service Fabric kontrollsummor för programpaket för verifiering. När du använder komprimering beräknas av kontrollsummor i komprimerade versioner av varje paket. Generera en ny zip från samma paket som programmet skapar olika kontrollsummor. För att förhindra valideringsfel använda [diff etablering](service-fabric-application-upgrade-advanced.md). Med det här alternativet ingår inte oförändrat paket i den nya versionen. I stället referera till dem direkt från det nya service manifestet.
 
-Om du har överfört en komprimerad version av paketet och du vill använda en okomprimerad paketet, på samma sätt måste du uppdatera versioner för att undvika den felaktig matchning av kontrollsumma.
+Om diff-etablering inte är ett alternativ och du måste inkludera paketen, skapa nya versioner för den `code`, `config`, och `data` paket för att undvika felaktig matchning av kontrollsumma. Det är nödvändigt att generera nya versioner för oförändrade paket när komprimerade paketet används, oavsett om tidigare version använder komprimering eller inte.
 
 Paketet är nu paketeras korrekt verifieras och komprimerade (vid behov), så att den är klar för [distribution](service-fabric-deploy-remove-applications.md) till en eller flera Service Fabric-kluster.
 
@@ -186,6 +184,26 @@ Du kan instruera Visual Studio för att komprimera paket för distribution, geno
         <CopyPackageParameters CompressPackage="true"/>
     </PublishProfile>
 ```
+
+## <a name="create-an-sfpkg"></a>Skapa en sfpkg
+Från och med version 6.1, kan Service Fabric etablera från en extern butik.
+Med det här alternativet behöver programpaketet inte kopieras till image store. Skapa i stället en `sfpkg` och överföra den till en extern butik och sedan ge Service Fabric nedladdningen URI vid etablering. Samma paket kan etableras för flera kluster. Etablering från externa store sparar tid för att kopiera paketet till varje kluster.
+
+Den `sfpkg` filen är en zip som innehåller det första programpaketet och har tillägget ”.sfpkg”.
+I zip programpaketet komprimerad eller okomprimerad. Komprimering av programpaket inuti zip görs på kod, konfiguration och data paketet nivåer som [ovan](service-fabric-package-apps.md#compress-a-package).
+
+Så här skapar du en `sfpkg`, börja med en mapp som innehåller det ursprungliga programpaketet, komprimerade eller inte. Använd sedan alla verktyg för att zip-mapp med tillägget ”.sfpkg”. Till exempel använda [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+Den `sfpkg` måste överföras till extern butik out of band utanför Service Fabric. Den externa lagringen kan vara en butik som Exponerar en REST http eller https-slutpunkt. Under etableringen, Service Fabric kör en GET-åtgärd för att hämta den `sfpkg` programpaket, så arkivet måste tillåta läsåtkomst för paketet.
+
+Använda externa etablera som kräver hämtning URI och informationen om programmet för att etablera paketet.
+
+>[!NOTE]
+> För närvarande inte stöd för etablering baserat på relativ sökväg för image store `sfpkg` filer. Därför kan den `sfpkg` inte ska ha kopierats till image store.
 
 ## <a name="next-steps"></a>Nästa steg
 [Distribuera och ta bort program] [ 10] beskriver hur du använder PowerShell för att hantera programinstanser

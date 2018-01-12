@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till en Azure Search-index med Azure Data Factory
 
@@ -35,7 +35,8 @@ Den här artikeln beskrivs hur du använder aktiviteten kopiera i Azure Data Fac
 Du kan kopiera data från alla datalager stöds källa till Azure Search-index. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten, finns det [stöds datalager](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera entiteter i Data Factory för Azure Search-anslutningen.
 
@@ -46,7 +47,7 @@ Följande egenskaper stöds för Azure Search länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **AzureSearch** | Ja |
-| URL: en | URL för Azure Search-tjänsten. | Ja |
+| url | URL för Azure Search-tjänsten. | Ja |
 | key | Admin-nyckel för Azure Search-tjänsten. Markera det här fältet som en SecureString. | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 

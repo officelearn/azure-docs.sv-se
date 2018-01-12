@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka Felaktig gateway-fel i Programgateway
 
@@ -80,8 +80,8 @@ Se till att DNS-servern kan matcha backend poolmedlem FQDN korrekt om den finns.
 
 | Avsökningen egenskapen | Värde | Beskrivning |
 | --- | --- | --- |
-| URL för webbavsökning |http://127.0.0.1/ |URL-sökväg |
-| intervall |30 |Avsökningsintervall i sekunder |
+| Avsökningswebbadress |http://127.0.0.1/ |URL-sökväg |
+| Intervall |30 |Avsökningsintervall i sekunder |
 | Timeout |30 |Avsökningen tidsgräns i sekunder |
 | Tröskelvärde för ohälsosamt värde |3 |Avsökning för antal nya försök. Backend-server markeras när efterföljande avsökningen Felberäkning når tröskelvärde för ohälsosamt värde. |
 
@@ -106,7 +106,7 @@ Anpassade hälsoavsökningar ger ytterligare flexibilitet till standardvärdet s
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen används protokollet som definieras i backend-HTTP-inställningar |
 | Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har konfigurerats på Application Gateway. Detta skiljer sig från den virtuella datorns värdnamn. |
 | Sökväg |Avsökningen relativ sökväg. Ogiltig sökväg startar från '/'. Avsökningen skickas till \<protokollet\>://\<värden\>:\<port\>\<sökväg\> |
-| intervall |Avsökning intervall i sekunder. Detta är tidsintervallet mellan två på varandra följande avsökningar. |
+| Intervall |Avsökning intervall i sekunder. Detta är tidsintervallet mellan två på varandra följande avsökningar. |
 | Timeout |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte emot inom denna tidsgräns, markeras avsökningen som misslyckad. |
 | Tröskelvärde för ohälsosamt värde |Avsökning för antal nya försök. Backend-server markeras när efterföljande avsökningen Felberäkning når tröskelvärde för ohälsosamt värde. |
 
@@ -118,8 +118,7 @@ Verifiera att avsökning för anpassad hälsa är korrekt konfigurerad som tabel
 * Om Application Gateway har konfigurerats för en viss plats, som standard värden ska namn anges som 127.0.0.1, såvida inte annat konfigurerade i anpassade avsökning.
 * Se till att ett anrop till http://\<värden\>:\<port\>\<sökväg\> returnerar ett HTTP-Resultatkod 200.
 * Kontrollera att intervallet, timeout och UnhealtyThreshold är inom intervallen som är godkända.
-* Om du använder en HTTPS-avsökning ska du se till att kräver backend-servern SNI genom att konfigurera ett fallback-certifikatet på själva backend-servern. 
-* Kontrollera att intervallet, timeout och UnhealtyThreshold är inom intervallen som är godkända.
+* Om du använder en HTTPS-avsökning ska du se till att kräver backend-servern SNI genom att konfigurera ett fallback-certifikatet på själva backend-servern.
 
 ## <a name="request-time-out"></a>Tidsgräns för begäran
 

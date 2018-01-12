@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverk-gränssnitt
 
@@ -138,9 +138,9 @@ Som standard tilldelar Azure DHCP-servrar privat IPv4-adress för den [primära 
 > [!WARNING]
 > Om IPv4-adressen som angetts som primär IP-adressen för ett nätverksgränssnitt i en virtuell dators operativsystem är allt annat än privat IPv4-adress som tilldelats den primära IP-adresskonfigurationen för det primära nätverksgränssnittet som är kopplad till en virtuell dator i Azure, förlora anslutningen till den virtuella datorn.
 
-Det finns scenarier där det är nödvändigt att ange IP-adressen för ett nätverksgränssnitt på den virtuella datorns operativsystem manuellt. Du måste till exempel manuellt ange primära och sekundära IP-adresser för en Windows-operativsystemet när du lägger till flera IP-adresser till en virtuell Azure-dator. För en virtuell Linux-dator, kan behöver du bara ange manuellt sekundära IP-adresser. Se [lägga till IP-adresser till ett VM-operativsystem](virtual-network-multiple-ip-addresses-portal.md#os-config) mer information. När du manuellt ange IP-adress inom operativsystemet rekommenderas att du alltid tilldela adresser till IP-konfiguration för ett nätverksgränssnitt med metoden tilldelningen av statiska (i stället för dynamiska). Tilldela den adress använder den statiska metoden garanterar att adressen inte ändras i Azure. Om du behöver ändra den adress som tilldelats en IP-konfiguration, rekommenderar vi som du:
+Det finns scenarier där det är nödvändigt att ange IP-adressen för ett nätverksgränssnitt på den virtuella datorns operativsystem manuellt. Du måste till exempel manuellt ange primära och sekundära IP-adresser för en Windows-operativsystemet när du lägger till flera IP-adresser till en virtuell Azure-dator. För en virtuell Linux-dator, kan behöver du bara ange manuellt sekundära IP-adresser. Se [lägga till IP-adresser till ett VM-operativsystem](virtual-network-multiple-ip-addresses-portal.md#os-config) mer information. Om du behöver ändra den adress som tilldelats en IP-konfiguration, rekommenderar vi som du:
 
-1. Ändra tilldelning av IP-adressen till DHCP i operativsystemet för att säkerställa att den virtuella datorn tar emot en adress från Azure DHCP-servrar, och starta om den virtuella datorn.
+1. Se till att den virtuella datorn tar emot en adress från Azure DHCP-servrar. När du har kan ändra tilldelningen av IP-adressen till DHCP i operativsystemet och starta om den virtuella datorn.
 2. Stoppa (frigöra) den virtuella datorn.
 3. Ändra IP-adress för IP-konfiguration i Azure.
 4. Startar den virtuella datorn.

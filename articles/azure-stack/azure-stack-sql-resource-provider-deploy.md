@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/09/2018
 ms.author: JeffGo
-ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: e2f29a1686d0f4baa88b9d37bac0261952f4caa6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Använda SQL-databaser på Microsoft Azure-stacken
 
@@ -60,11 +60,10 @@ Du måste skapa en (eller flera) SQL-servrar och/eller ge åtkomst till externa 
 
     | Azure-stacken Build | SQL RP installer |
     | --- | --- |
-    | 1.0.180102.3 | **Vänta ytterligare information, aktuella versioner kan inte installeras, men fortsätter att köras på flera noder efter en uppgradering för Azure-stacken.** |
-    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp) |
+    |1.0.180102.3 eller 1.0.180106.1 (med flera noder) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
-    | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
-   
+  
 
 4. Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 

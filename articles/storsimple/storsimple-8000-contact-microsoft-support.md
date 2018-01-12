@@ -4,7 +4,7 @@ description: "Lär dig hur du loggar begäran och starta en session med stöd p�
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Kontakta Microsofts support
 
@@ -30,7 +30,7 @@ Enhetshanteraren StorSimple ger möjlighet att **logga en ny supportförfrågan*
 
 Granska de [StorSimple 8000-serien stöd SLA och information](https://msdn.microsoft.com/library/mt433077.aspx) innan du skapar en supportbegäran.
 
-## <a name="create-a-support-request"></a>Skapa en supportförfrågan
+## <a name="create-a-support-request"></a>Skapa en supportbegäran
 
 Beroende på din [supportavtal](https://azure.microsoft.com/support/plans/), du kan skapa supportärenden på ett problem på din StorSimple-enhet direkt från bladet StorSimple Enhetshanteraren service sammanfattning. Utför följande steg för att skapa en supportförfrågan:
 
@@ -79,15 +79,15 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 1. Gå till sidan Hjälp och support, gå till **Bläddra > hjälp + support**.
 
-    ![Hantera supportärenden](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
+    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport1.png)
 
 2. En tabell lista över alla supportärenden visas i den **hjälp + support** bladet.
 
-    ![Hantera supportärenden](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Välj och klicka på en supportbegäran. Du kan visa status och detaljer för denna begäran. Klicka på **+ nytt meddelande** om du vill följa upp denna begäran.
 
-    ![Hantera supportärenden](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Hantera supportförfrågningar](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Starta en session med stöd i Windows PowerShell för StorSimple
 
@@ -97,7 +97,7 @@ Utför följande steg för att starta en supportsession:
 
 #### <a name="to-start-a-support-session"></a>Starta en supportsession
 
-1. Komma åt enheten direkt via seriekonsolen eller via en telnet-session från en fjärrdator. Om du vill göra detta, följer du anvisningarna i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Komma åt enheten direkt via seriekonsolen eller via en telnet-session från en fjärrdator. Om du vill göra detta, följer du anvisningarna i [Använd PuTTY för att ansluta till enhetens seriekonsol](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. I sessionen som öppnas, trycker du på den **RETUR** för att få fram en kommandotolk.
 3. Välj alternativ 1, i menyn för seriekonsolen **logga in med fullständig åtkomst**.
 4. I Kommandotolken skriver du följande lösenord:
@@ -115,4 +115,4 @@ Utför följande steg för att starta en supportsession:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [diagnostisera och lösa problem som rör enheten StorSimple 8000-serien](storsimple-troubleshoot-deployment.md)
+Lär dig hur du [diagnostisera och lösa problem som rör enheten StorSimple 8000-serien](storsimple-8000-troubleshoot-deployment.md)

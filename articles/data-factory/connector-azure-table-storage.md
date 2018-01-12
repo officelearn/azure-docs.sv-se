@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 9aa0a1ed7bb07609e087e82d64f5f1c80bb590d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Kopiera data till och från Azure-tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,8 @@ Du kan kopiera data från alla datalager stöds källa till Azure Table eller ko
 Mer specifikt den här Azure Table-anslutningen har stöd för kopiering av data med hjälp av både **kontonyckel** och **Service SAS** autentiseringar (signatur för delad åtkomst).
 
 ## <a name="get-started"></a>Kom igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Azure Table Storage.
 

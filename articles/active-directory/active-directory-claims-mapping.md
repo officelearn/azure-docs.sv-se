@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Anspråk mappning i Azure Active Directory (förhandsversion)
 
@@ -56,7 +56,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |_claim_sources|
 |access_token|
 |account_type|
-|ACR|
+|acr|
 |aktören|
 |actortoken|
 |AIO|
@@ -101,7 +101,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |EXP|
 |expires_on|
 |grant_type|
-|Diagrammet|
+|graf|
 |group_sids|
 |grupper|
 |hasgroups|
@@ -118,7 +118,7 @@ Begränsat anspråk kan inte ändras med hjälp av Grupprincip. Datakällan kan 
 |identityprovider|
 |IDP|
 |in_corp|
-|Instans|
+|instans|
 |ADR|
 |isbrowserhostedapp|
 |ISS|
@@ -285,7 +285,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |Användare|Efternamn|Efternamn|
 |Användare|givenName|Förnamn|
 |Användare|visningsnamn|Visningsnamn|
-|Användare|objekt-ID|Objekt-ID|
+|Användare|objekt-ID|ObjectId|
 |Användare|E-post|E-postadress|
 |Användare|userPrincipalName|Användarens huvudnamn|
 |Användare|Avdelning|Avdelning|
@@ -322,7 +322,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 |Användare|EmployeeID|Anställnings-ID|
 |Användare|facsimiletelephonenumber|Fax telefonnummer|
 |program, resurs, målgrupp|visningsnamn|Visningsnamn|
-|program, resurs, målgrupp|objekt|Objekt-ID|
+|program, resurs, målgrupp|objekt|ObjectId|
 |program, resurs, målgrupp|tags|Tjänstens huvudnamn tagg|
 |Företag|tenantcountry|Klientens land|
 
@@ -419,7 +419,7 @@ Anspråk Mappa principer kan endast tilldelas service principal objekt.
 
 Många scenarier är möjliga i Azure AD när du kan anpassa anspråk som hänvisas till i token för specifika tjänstens huvudnamn. I det här avsnittet kommer vi att gå igenom några vanliga scenarier som kan hjälpa dig tag i hur du använder anspråk mappning principtypen.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 I följande exempel du skapa, uppdatera, länkar och ta bort principer för tjänstens huvudnamn. Om du har använt Azure AD, rekommenderar vi att du lär dig mer om hur du hämtar en Azure AD-klient innan du fortsätter med de här exemplen. 
 
 Utför följande steg för att komma igång:
@@ -490,7 +490,7 @@ I det här exemplet skapar du en princip som genererar ett anpassat anspråk ”
     1. Om du vill skapa principen, kör du kommandot: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Se din nya principen och be om principen ObjectId, kör du följande kommando: 

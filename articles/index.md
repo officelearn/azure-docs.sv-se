@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
 featureFlags: clicktale
-ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 56e50d633b29d2a5ce14fb50515407ac9d3bd821
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/11/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,7 +102,7 @@ ms.lasthandoff: 01/10/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3> Säkerhet och resurshantering</h3>
+                                                <h3>Skydda och hantera resurser</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>

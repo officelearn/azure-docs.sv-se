@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Lägg till Windows Server 2016 VM-avbildning i Azure-stacken Marketplace
 
@@ -34,15 +34,15 @@ Som standard finns inga avbildningar av virtuella datorer i Azure-stacken Market
 
 2. Välj **fler tjänster** > **Marketplace Management** > **Lägg till från Azure**. 
 
-3. Hitta eller Sök efter den **Windows Server 2016 Datacenter – Eval** bild och välj sedan **hämta**.
+3. Hitta eller Sök efter den **Windows Server 2016 Datacenter** bild och välj sedan **hämta**.
 
    ![Ladda ned avbildningen från Azure](media/azure-stack-add-default-image/download-image.png)
 
-När hämtningen är slutförd bilden är tillgänglig under **Marketplace Management**. Bilden är också tillgängligt under **virtuella datorer**.
+När hämtningen är slutförd bilden är tillgänglig under **Marketplace Management**. Bilden är också tillgängligt under **Compute** och är tillgänglig för att skapa nya virtuella datorer.
 
 ## <a name="add-the-image-by-using-powershell"></a>Lägga till avbildningen med hjälp av PowerShell
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 
 Kör följande krav, antingen från den [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) eller från en Windows-baserad extern klient om du är [anslutna via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -113,7 +113,7 @@ Kör följande krav, antingen från den [development kit](azure-stack-connect-az
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,7 +137,7 @@ Kontrollera att Windows Server 2016 VM-avbildning har den senaste kumulativa upp
 
 ## <a name="parameters"></a>Parametrar
 
-|Nya AzsServer2016VMImage parametrar|Krävs?|Beskrivning|
+|Nya AzsServer2016VMImage parametrar|Krävs|Beskrivning|
 |-----|-----|------|
 |ISOPath|Ja|Den fullständiga sökvägen till den hämtade 2016 ISO-Avbildningen för Windows Server.|
 |Net35|Nej|Installerar .NET 3.5-körningsmiljön på Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
@@ -145,7 +145,7 @@ Kontrollera att Windows Server 2016 VM-avbildning har den senaste kumulativa upp
 |VHDSizeInMB|Nej|Anger storleken (i MB) för VHD-avbildningen som ska läggas till din Azure Stack-miljö. Det här värdet anges till 40 960 MB som standard.|
 |CreateGalleryItem|Nej|Anger om en Marketplace-objektet ska skapas för Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
 |location |Nej |Anger platsen där Windows Server 2016 avbildningen ska publiceras.|
-|IncludeLatestCU|Nej|Gäller den senaste kumulativa uppdateringen för Windows Server 2016 för den nya virtuella Hårddisken.|
+|IncludeLatestCU|Nej|Gäller den senaste kumulativa uppdateringen för Windows Server 2016 för den nya virtuella Hårddisken (kontrollera skriptet för att säkerställa att den pekar på den senaste uppdateringen eller Använd ett av följande två alternativ). |
 |CUUri |Nej |Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en specifik URI. |
 |CUPath |Nej |Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en lokal sökväg. Det här alternativet är användbart om du har distribuerat Azure Stack-instans i en frånkopplad miljö.|
 

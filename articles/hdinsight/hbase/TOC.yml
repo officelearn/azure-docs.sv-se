@@ -121,6 +121,8 @@
         - name: Överföra data för Hadoop-jobb
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Massinläsning av data till Phoenix med psql
+          href: apache-hbase-phoenix-psql.md
         - name: Flera HDInsight-kluster med Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

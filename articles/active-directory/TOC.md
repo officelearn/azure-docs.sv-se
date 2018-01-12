@@ -217,7 +217,7 @@
 #### [Hantera användarens kontoetablering](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Hantera enkel inloggning för företagsappar](active-directory-enterprise-apps-manage-sso.md)
 #### [Avancerad certifikatsignering för SAML-appar](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Dölja en tredjepartsapp för en användare](active-directory-coreapps-hide-third-party-app.md)
+#### [Dölja ett program från en användarmiljö](active-directory-coreapps-hide-third-party-app.md)
 ### [Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Hantera åtkomst till appar](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Skydda dina identiteter
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
+#### [Platsvillkor](active-directory-conditional-access-locations.md)
 #### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)

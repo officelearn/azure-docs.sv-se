@@ -16,6 +16,7 @@
 ### [Skapa virtuella datorer](devtest-lab-add-vm.md)
 ### [Skapa och hantera tillgängliga virtuella datorer](devtest-lab-add-claimable-vm.md)
 ### [Skapa och hantera virtuella datorer med Azure CLI](devtest-lab-vmcli.md)
+### [Skapa en virtuell dator från en resurshanteringsmall](devtest-lab-use-resource-manager-template.md)
 ### [Starta om en virtuell dator](devtest-lab-restart-vm.md)
 
 ## Använd miljöer i ett labb
@@ -46,7 +47,6 @@
 
 ## Hantera återanvändbara mallar
 ### [Lägg till en Git-lagringsplats för artefakter och mallar](devtest-lab-add-artifact-repo.md)
-### [Använd en Resource Manager-mall](devtest-lab-use-resource-manager-template.md)
 ### [Hantera formler](devtest-lab-manage-formulas.md)
 
 ## Hantera artefakter
@@ -69,7 +69,7 @@
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Skapa eller ändra labb automatiskt](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-## [REST-API](https://docs.microsoft.com/rest/api/dtl/)
+## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager-mallar](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
 
 

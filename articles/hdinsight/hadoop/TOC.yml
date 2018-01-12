@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop på HDInsight
   items:
-    - name: "Översikt\r\n"
+    - name: Översikt
       href: apache-hadoop-introduction.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Utveckla
       items:
+        - name: Köra anpassade MapReduce-program
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Utveckla strömmande C#-MapReduce-program'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Utveckla Java MapReduce-program
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Extrahering, transformering i inläsning i stor skala'
+          href: apache-hadoop-etl-at-scale.md
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Analysera loggar i Application Insights Telemetry
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Avancerade analyser för HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap
@@ -335,7 +343,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: "Översikt\r\n"
+        - name: Översikt
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet
@@ -378,6 +386,8 @@
         - name: Övervaka klusterprestanda
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Analysera Hadoop-loggar
+          href: apache-hadoop-debug-jobs.md
 - name: Referens
   items:
     - name: Kodexempel

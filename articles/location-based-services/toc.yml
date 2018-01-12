@@ -17,7 +17,7 @@
       href: tutorial-route-location.md
     - name: 3 – Flera vägar efter färdsätt
       href: tutorial-prioritized-routes.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Täckning för geokodning
       href: geocoding-coverage.md
@@ -33,9 +33,9 @@
       href: how-to-search-for-address.md
 - name: Referens
   items:
-    - name: Funktions-API – REST
+    - name: Funktionellt API
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: API för hantering – REST
+    - name: Hanterings-API
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: API för kartkontroll – Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'

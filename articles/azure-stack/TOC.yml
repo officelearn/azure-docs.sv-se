@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Aktivera flera innehavare
               href: azure-stack-enable-multitenancy.md
+        - name: Rotera hemligheter
+          href: azure-stack-rotate-secrets.md
     - name: Erbjuda tjänster
       items:
         - name: Översikt över erbjudna tjänster
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostik i Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Verifieringen av Azure-stacken
+          href: azure-stack-diagnostic-test.md
         - name: Distribuera om Azure Stack Development Kit
           href: azure-stack-redeploy.md
 - name: Referens

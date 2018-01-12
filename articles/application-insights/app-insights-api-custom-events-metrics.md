@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -414,32 +414,34 @@ Du kan också anropa den själv om du vill simulera begäranden i ett sammanhang
 Det rekommenderade sättet att skicka begärandetelemetri om är dock där begäran fungerar som en <a href="#operation-context">åtgärdssammanhang</a>.
 
 ## <a name="operation-context"></a>Åtgärden kontext
-Koppla ihop telemetri objekt genom att koppla till dem en gemensam åtgärds-ID. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Sök](app-insights-diagnostic-search.md) och [Analytics](app-insights-analytics.md), du kan använda ID för att enkelt hitta alla händelser som är kopplad till begäran.
+Du kan jämföra telemetri objekt tillsammans genom att associeras med operationen kontext. Modulen standard spårning av förfrågningar sker för undantag och andra händelser som sänds när en HTTP-begäran bearbetas. I [Sök](app-insights-diagnostic-search.md) och [Analytics](app-insights-analytics.md), kan du lätt hitta eventuella händelser som är kopplad till begäran med hjälp av dess åtgärd Id.
 
-Det enklaste sättet att ange ID är att ange en kontext för åtgärden med hjälp av det här mönstret:
+Se [korrelation telemetri i Application Insights](application-insights-correlation.md) för mer information om korrelation.
+
+När spårning telemetri manuellt, det enklaste sättet att se till att telemetri korrelation med hjälp av det här mönstret:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Tillsammans med inställningen en åtgärdssammanhang `StartOperation` skapar ett telemetri objekt av typen som du anger. Den skickar telemetri objektet automatiskt när igen, eller om du explicit anropa `StopOperation`. Om du använder `RequestTelemetry` som telemetri typ, varaktigheten har angetts till tidsintervall mellan start och stopp.
 
-Åtgärden kontexter kan inte kapslas. Om det finns redan en kontext för åtgärden, så att dess ID är associerad med alla objekten, inklusive objekt som skapats med `StartOperation`.
+Telemetri objekt som rapporterats inom en omfattning åtgärden bli underordnade om du för denna åtgärd. Åtgärden kontexter kan vara kapslade. 
 
 I sökning, kontext för åtgärden för att skapa den **relaterade objekt** lista:
 
@@ -900,7 +902,7 @@ Du kan skriva kod för att bearbeta din telemetri innan den skickas från SDK. B
 
 [Lägga till egenskaper](app-insights-api-filtering-sampling.md#add-properties) till telemetri genom att implementera `ITelemetryInitializer`. Du kan till exempel lägga till versionsnummer eller värden som beräknats från andra egenskaper.
 
-[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan den skickas från SDK genom att implementera `ITelemetryProcessor`. Du styr vilka skickas eller tas bort, men du behöver för effekten på din mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
+[Filtrering](app-insights-api-filtering-sampling.md#filtering) kan ändra eller ta bort telemetri innan den skickas från SDK genom att implementera `ITelemetryProcesor`. Du styr vilka skickas eller tas bort, men du behöver för effekten på din mått. Beroende på hur du ta bort objekt, kan du förlora möjligheten att navigera mellan relaterade objekt.
 
 [Provtagning](app-insights-api-filtering-sampling.md) är en paketerad lösning för att minska mängden data som skickas från din app på portalen. Detta sker utan att påverka mätvärdena som visas. Och detta sker utan att påverka möjligheterna att diagnostisera problem genom att navigera mellan relaterade objekt som undantag, förfrågningar och sidvyer.
 

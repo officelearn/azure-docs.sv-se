@@ -1,6 +1,6 @@
 - name: Event Grid
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Event Grid
       href: overview.md
@@ -38,6 +38,8 @@
       href: event-grid-event-hubs-integration.md
     - name: Mallar för händelseprenumerationer
       href: event-subscription-template.md
+    - name: Övervaka händelseleverans
+      href: monitor-event-delivery.md
 - name: Referens
   items:
     - name: Azure CLI

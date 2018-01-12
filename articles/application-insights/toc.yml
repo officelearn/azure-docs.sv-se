@@ -31,7 +31,7 @@
       href: app-insights-tutorial-users.md
     - name: Skapa anpassade instrumentpaneler
       href: app-insights-tutorial-dashboards.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Övervaka Azure
       items:
@@ -162,7 +162,7 @@
           items:
             - name: Instrumentpaneler
               href: app-insights-dashboards.md
-            - name: Söka
+            - name: Search
               href: app-insights-diagnostic-search.md
             - name: Mått
               href: app-insights-metrics-explorer.md
@@ -265,6 +265,10 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: Referens
   items:
     - name: Analytics-frågespråk

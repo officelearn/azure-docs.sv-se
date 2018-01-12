@@ -1,6 +1,6 @@
 - name: Dokumentation för virtuella Windows-datorer
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Virtual Machines
       href: overview.md
@@ -125,7 +125,11 @@
         - name: 'Använda C#'
           href: csharp.md
         - name: Använda specialiserad disk
-          href: create-vm-specialized.md
+          items:
+            - name: Portalen
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Använda en mall med C#'
           href: csharp-template.md
         - name: Skapa en virtuell dator med Chef

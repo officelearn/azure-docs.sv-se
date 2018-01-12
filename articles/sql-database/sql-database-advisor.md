@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="performance-recommendations"></a>Rekommendationer
+# <a name="performance-recommendations"></a>Prestandarekommendationer
 
 Azure SQL Database lär sig och anpassar sig med ditt program och ger anpassade rekommendationer så att du maximera prestandan för SQL-databaser. Prestandan utvärderas kontinuerligt genom att analysera din användningshistorik för SQL-databas. De rekommendationer som tillhandahålls baserat på ett mönster för databasen unika arbetsbelastning och förbättra prestandan.
 
@@ -36,7 +36,7 @@ Index som skapats med hjälp av rekommendationer flaggas alltid som auto_created
 
 När indexrekommendationen skapa används, kommer Azure SQL Database jämföra prestanda för frågorna med en baslinje-prestanda. Om nytt index föras förbättringar av prestanda, rekommendation flaggas lyckas och rapporten blir tillgängliga. Om indexet inte sätta fördelarna, kommer den att återställas automatiskt. Det här sättet Azure SQL Database ser till att använda rekommendationer endast förbättras databasens prestanda.
 
-Alla **skapa index** rekommendation har en tillbaka av princip som inte tillåter att tillämpa rekommendationen om DTU-användningen databas eller pool översteg 80% i sista 20 minuter eller om lagringen är över 90% av användning. I det här fallet ska rekommendationen skjutas upp.
+Alla **skapa index** rekommendation har en tillbaka av princip som inte tillåter att tillämpa rekommendationen om resursanvändningen för en databas eller poolen är hög. Tillbaka av principen tas till kontot CPU, Data-i/o, logg-i/o och tillgängligt lagringsutrymme. Om CPU-, Data-i/o- eller logg-i/o är högre än 80% i de senaste 30 minuterna skapa ska index skjutas upp. Om tillgängligt lagringsutrymme kan vara under 10% när indexet har skapats kan att rekommendation försättas i feltillstånd. Om efter några dagar automatisk justering fortfarande anser index är lämplig startar processen igen. Den här processen upprepas tills det finns tillräckligt med lagringsutrymme för att skapa ett index eller index visas inte längre som bra.
 
 ## <a name="drop-index-recommendations"></a>DROP index-rekommendationer
 Förutom identifiering av ett index som saknas, analyserar Azure SQL Database kontinuerligt prestanda för katastrofåterställning. Om inte index används rekommenderar Azure SQL Database släpper den. Du bör släppa ett index i två fall:

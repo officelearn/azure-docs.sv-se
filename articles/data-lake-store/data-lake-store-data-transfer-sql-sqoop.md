@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2611b50114a9fae003fe6e77300780a9af0698cc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Kopiera data mellan Data Lake Store och Azure SQL database med Sqoop
 Lär dig hur du använder Apache Sqoop för att importera och exportera data mellan Azure SQL Database och Data Lake Store.
@@ -28,7 +28,7 @@ Stordataprogram är en fysisk val för bearbetning av Ostrukturerade och halvstr
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan relationsdatabaser och en lagringsplats för stordata, till exempel Data Lake Store. Du kan använda den för att importera data från ett relationella databashanteringssystem (RDBMS), till exempel Azure SQL Database till Data Lake Store. Du kan sedan transformera och analysera data med stordataarbetsbelastningar och exportera data till en RDBMS. I den här kursen använder du en Azure SQL Database som relationell databas för att importera och exportera från.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -138,7 +138,7 @@ Ett HDInsight-kluster har redan de Sqoop paket som är tillgängliga. Om du har 
 
 Prestandajustering Sqoop jobbet för att kopiera data till Data Lake Store, se [Sqoop prestanda dokumentet](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kopiera data från Azure Storage-Blobbar till Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Säkra data i Data Lake Store](data-lake-store-secure-data.md)
 * [Använd Azure Data Lake Analytics med Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

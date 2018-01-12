@@ -4,7 +4,7 @@ description: "Skapa en ny Windows virtuell dator genom att koppla en särskild h
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -13,23 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 39cbd30102813a4502cd25811589d04a9adb0aa5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk"></a>Skapa en virtuell Windows-dator från en särskild disk
+# <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med hjälp av PowerShell
 
-Skapa en ny virtuell dator genom att koppla en särskild hanterade diskar som OS-disk med hjälp av Powershell. En specialiserad disk är en kopia av virtuell hårddisk (VHD) från en befintlig virtuell dator som hanterar användarkonton, program och andra tillståndsdata från den ursprungliga virtuella datorn. 
+Skapa en ny virtuell dator genom att koppla en särskild hanterade diskar som OS-disk. En specialiserad disk är en kopia av virtuell hårddisk (VHD) från en befintlig virtuell dator som hanterar användarkonton, program och andra tillståndsdata från den ursprungliga virtuella datorn. 
 
 När du använder en särskild virtuell Hårddisk för att skapa en ny virtuell dator, behåller datornamnet för den ursprungliga virtuella datorn i den nya virtuella datorn. Andra datorspecifik information sparas också och i vissa fall kan den här dubblettinformation kan orsaka problem. Ta reda på vilka typer av information om datorn dina program förlitar sig på när du kopierar en virtuell dator.
 
-Du kan välja mellan två alternativ:
-* [Överföra en virtuell hårddisk](#option-1-upload-a-specialized-vhd)
-* [Kopiera en befintlig virtuell Azure-dator](#option-2-copy-an-existing-azure-vm)
+Har du flera alternativ:
+* [Använd en befintlig hanterade disk](#option-1-use-an-existing-disk). Detta är användbart om du har en virtuell dator som inte fungerar korrekt. Du kan ta bort VM återanvändning hanterade disken för att skapa en ny virtuell dator. 
+* [Överföra en virtuell hårddisk](#option-2-upload-a-specialized-vhd) 
+* [Kopiera en befintlig Azure-dator med hjälp av ögonblicksbilder](#option-3-copy-an-existing-azure-vm)
+
+Du kan också använda Azure portal och [skapa en ny virtuell dator från en särskild virtuell Hårddisk](create-vm-specialized-portal.md).
 
 Det här avsnittet visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att du använder ett lagringskonto, se [skapa en virtuell dator från en särskild virtuell Hårddisk i ett lagringskonto](sa-create-vm-specialized.md)
 
@@ -41,8 +44,20 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 Mer information finns i [Azure PowerShell versionshantering](/powershell/azure/overview).
 
+## <a name="option-1-use-an-existing-disk"></a>Alternativ 1: Använd en befintlig disk
 
-## <a name="option-1-upload-a-specialized-vhd"></a>Alternativ 1: Ladda upp en särskild virtuell Hårddisk
+Om du har en virtuell dator som du har tagit bort och du vill återanvända OS-disk om du vill skapa en ny virtuell dator använda [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+
+```powershell
+$resourceGroupName = 'myResourceGroup'
+$osDiskName = 'myOsDisk'
+$osDisk = Get-AzureRmDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $osDiskName
+```
+Nu kan du koppla den här disken som OS-disk till en [ny virtuell dator](#create-the-new-vm).
+
+## <a name="option-2-upload-a-specialized-vhd"></a>Alternativ 2: Ladda upp en särskild virtuell Hårddisk
 
 Du kan överföra den virtuella Hårddisken från en särskild virtuell dator som skapats med ett lokalt virtualisering verktyg, som Hyper-V eller en virtuell dator som har exporterats från ett annat moln.
 
@@ -76,14 +91,20 @@ Följ dessa steg om du behöver skapa ett lagringskonto:
     Så här skapar du en resursgrupp med namnet *myResourceGroup* i den *västra USA* region, typ:
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
+    New-AzureRmResourceGroup `
+       -Name myResourceGroup `
+       -Location "West US"
     ```
 
 2. Skapa ett lagringskonto med namnet *mittlagringskonto* i den här resursgruppen med hjälp av den [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
-        -SkuName "Standard_LRS" -Kind "Storage"
+    New-AzureRmStorageAccount `
+       -ResourceGroupName myResourceGroup `
+       -Name mystorageaccount `
+       -Location "West US" `
+       -SkuName "Standard_LRS" `
+       -Kind "Storage"
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Överför den virtuella Hårddisken till ditt lagringskonto 
@@ -92,8 +113,9 @@ Använd den [Lägg till AzureRmVhd](/powershell/module/azurerm.compute/add-azure
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploadedVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+   -Destination $urlOfUploadedVhd `
+   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
 
@@ -121,7 +143,8 @@ Skapa en ny resursgrupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 Skapa den nya OS-disken från den överförda virtuella Hårddisken. 
@@ -130,12 +153,13 @@ Skapa den nya OS-disken från den överförda virtuella Hårddisken.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-2-copy-an-existing-azure-vm"></a>Alternativ 2: Kopiera en befintlig virtuell Azure-dator
+## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: Kopiera en befintlig virtuell Azure-dator
 
 Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicksbild av den virtuella datorn och sedan med den ögonblicksbilden för att skapa en ny hanterade disken och en ny virtuell dator.
 
@@ -156,24 +180,33 @@ $snapshotName = 'mySnapshot'
 Hämta det Virtuella datorobjektet.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName `
+   -ResourceGroupName $resourceGroupName
 ```
 Hämta OS-diskens namn.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+   -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 Skapa en ögonblicksbild av konfigurationen. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+$snapshotConfig =  New-AzureRmSnapshotConfig `
+   -SourceUri $disk.Id `
+   -OsType Windows `
+   -CreateOption Copy `
+   -Location $location 
 ```
 
 Ta ögonblicksbilden.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+$snapShot = New-AzureRmSnapshot `
+   -Snapshot $snapshotConfig `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName
 ```
 
 
@@ -187,7 +220,8 @@ Skapa en ny resursgrupp för den nya virtuella datorn.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 Ange namnet på OS-disk. 
@@ -218,15 +252,20 @@ Skapa undernätet. Det här exemplet skapar ett undernät med namnet **mySubNet*
    
 ```powershell
 $subnetName = 'mySubNet'
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+   -Name $subnetName `
+   -AddressPrefix 10.0.0.0/24
 ```
 
 Skapa vNet. Det här exemplet anger det virtuella nätverksnamnet ska **myVnetName**, platsen för **västra USA**, och adressprefixet för det virtuella nätverket till **10.0.0.0/16**. 
    
 ```powershell
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$vnet = New-AzureRmVirtualNetwork `
+   -Name $vnetName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -AddressPrefix 10.0.0.0/16 `
+   -Subnet $singleSubnet
 ```    
 
 
@@ -242,8 +281,10 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzureRmNetworkSecurityGroup `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -Name $nsgName -SecurityRules $rdpRule
     
 ```
 
@@ -256,7 +297,9 @@ Skapa offentlig IP. I det här exemplet anges det offentliga IP-adress namnet ti
    
 ```powershell
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress `
+   -Name $ipName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
    -AllocationMethod Dynamic
 ```       
 
@@ -264,8 +307,11 @@ Skapa nätverkskortet. I det här exemplet NIC-namnet har angetts **myNicName**.
    
 ```powershell
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name $nicName `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location -SubnetId $vnet.Subnets[0].Id `
+   -PublicIpAddressId $pip.Id `
+   -NetworkSecurityGroupId $nsg.Id
 ```
 
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med den privilegierade slutpunkten i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-Du bör använda administratörsportal PowerShell eller Azure Resource Manager API: erna för de flesta dagliga hanteringsuppgifter som operatör Azure stacken. Men för vissa mindre vanliga åtgärder, måste du använda den *Privilegierade endpoint*. Den här slutpunkten är en förkonfigurerad PowerShell fjärrkonsolen som ger dig bara tillräckligt med kapacitet för att utföra en obligatorisk uppgift. Slutpunkten utnyttjar PowerShell JEA (Just tillräckligt Administration) för att visa en begränsad uppsättning cmdlets för. Ett lågprivilegierat konto används för att komma åt den privilegierade slutpunkten och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
+Du bör använda administratörsportal PowerShell eller Azure Resource Manager API: erna för de flesta dagliga hanteringsuppgifter som operatör Azure stacken. Men för vissa mindre vanliga åtgärder, måste du använda den *Privilegierade endpoint* (program). Den här slutpunkten är en förkonfigurerad PowerShell fjärrkonsolen som ger dig bara tillräckligt med kapacitet för att utföra en obligatorisk uppgift. Slutpunkten utnyttjar PowerShell JEA (Just tillräckligt Administration) för att visa en begränsad uppsättning cmdlets för. Ett lågprivilegierat konto används för att komma åt den privilegierade slutpunkten och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
 
 Du kan använda Privilegierade slutpunkten för att utföra uppgifter, till exempel följande:
 
@@ -98,6 +98,7 @@ Vi rekommenderar att du ansluter till Privilegierade slutpunkten endast från ma
     - Ta bort CloudAdminUser
     - Select-Object
     - Ange CloudAdminUserPassword
+    - Testa AzureStack
     - Stoppa AzureStack
     - Get-ClusterLog
 

@@ -3,7 +3,7 @@ title: Azure-stacken 1712 Update | Microsoft Docs
 description: "Lär dig mer om vad som finns i 1712 uppdateringen för Azure-stacken integrerat system, kända problem och var du kan hämta uppdateringen."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure-stacken 1712 uppdatering
 
@@ -58,7 +58,7 @@ Den här uppdateringen innehåller följande förbättringar och korrigeringar f
 - AzureStack test-cmdlet för att validera moln för Azure-stacken tillgängliga via Privilegierade slutpunkt
 - Möjligheten att registrera en frånkopplad distribution av Azure-stacken
 - Övervaka aviseringar för certifikatet och användaren kontots giltighetstid
-- Tillagda uppdatering BMCCredential cmdlet i program för BMC lösenord rotation
+- Tillagda Set-BmcPassword cmdlet i program för BMC lösenord rotation
 - Loggning av nätverk uppdateringar till stöd för loggning på begäran
 - Stöd för avbildningsåterställning åtgärden för Virtual Machine skalor uppsättningar (VMSS)
 - Aktivera helskärmsläge på ERCS VM för CloudAdmin inloggning

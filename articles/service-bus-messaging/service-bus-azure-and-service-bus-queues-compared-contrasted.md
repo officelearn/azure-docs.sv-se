@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer - skillnad från och med
 Den här artikeln analyserar skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: lagringsköer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -107,7 +107,7 @@ Det här avsnittet jämför avancerade funktioner som tillhandahålls av lagring
 | Uppdatering på plats |**Ja** |**Ja** |
 | Transaktionsloggen för serversidan |**Ja** |**Nej** |
 | Storage-mätvärden |**Ja**<br/><br/>**Minuters mått**: innehåller realtid mått för tillgänglighet, Transaktionsprogram, API antal fel antal och mer i realtid (sammanställs per minut och rapporterats inom några minuter från vad hände bara i produktion. Mer information finns i [om Storage Analytics mätvärden](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Ja**<br/><br/>(Massredigera frågor genom att anropa [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Hantering av tillstånd |**Nej** |**Ja**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Hantering av tillstånd |**Nej** |**Ja**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Automatisk vidarebefordring av meddelande |**Nej** |**Ja** |
 | Rensa kön funktion |**Ja** |**Nej** |
 | Meddelande-grupper |**Nej** |**Ja**<br/><br/>(genom att använda messaging sessioner) |
@@ -132,7 +132,7 @@ Det här avsnittet jämför lagringsköer och Service Bus-köer ur [kapacitet oc
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
 | Största köstorlek |**500 TB**<br/><br/>(begränsat till en [enkel kapacitet för lagringskonton](../storage/common/storage-introduction.md#queue-storage)) |**1 GB till 80 GB**<br/><br/>(definieras när du skapar en kö och [aktiverar partitionering](service-bus-partitioning.md) – finns i avsnittet ”Mer Information”) |
-| Maximal meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
+| Största meddelandestorlek |**64 KB**<br/><br/>(48 KB när du använder **Base64** kodning)<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – nu kan du sätta upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både sidhuvud och brödtext, högsta huvudstorlek: 64 KB).<br/><br/>Beror på den [tjänstnivån](service-bus-premium-messaging.md). |
 | Maximal meddelande-TTL |**7 dagar** |**TimeSpan.Max** |
 | Maximalt antal köer |**Obegränsat** |**10,000**<br/><br/>(per namnområde för tjänsten) |
 | Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidiga anslutningsgränsen gäller endast för TCP-protokoll-baserad kommunikation) |
@@ -182,7 +182,7 @@ Det här avsnittet beskrivs de autentisering och auktorisering funktioner som st
 * Alla begäranden om något av de Meddelandeköer teknikerna måste autentiseras. Offentliga köer med anonym åtkomst stöds inte. Med hjälp av [SAS](service-bus-sas.md), du kan åtgärda det här scenariot genom att publicera en lässkyddad SAS, skrivskyddad SAS eller även en full åtkomst SAS.
 * Autentiseringsschema som anges av lagring köer innebär användning av en symmetrisk nyckel, vilket är en hashbaserad meddelandeautentiseringskod (HMAC), beräknas med SHA-256-algoritmen och kodad som en **Base64** sträng. Mer information om respektive-protokollet finns [autentisering för Azure Storage-tjänster](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). Service Bus-köer stöder en liknande modell med symmetriska nycklar. Mer information finns i [signatur autentisering för delad åtkomst med Service Bus](service-bus-sas.md).
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Få en djupare förståelse för de två teknikerna du ska kunna göra välgrundade beslut om vilken kö-teknik som ska användas, och när. Beslutet om när du ska använda Service Bus-köer eller lagringsköer tydligt beror på ett antal faktorer. Dessa faktorer kan kraftigt beroende programmet och dess arkitektur enskilda behov. Om programmet redan använder grundfunktionerna i Microsoft Azure måste överväga du att välja köer för lagring, särskilt om du kräver grundläggande kommunikation och skickar meddelanden mellan tjänster eller behöver köer som kan vara större än 80 GB i storlek.
 
 Eftersom Service Bus-köer ger ett antal avancerade funktioner, till exempel sessioner, transaktioner, dubblettidentifiering, automatisk dead-lettering och varaktig Publicera/prenumerera funktioner, de kan vara ett önskade alternativ om du skapar en hybrid programmet eller om programmet annars kräver dessa funktioner.

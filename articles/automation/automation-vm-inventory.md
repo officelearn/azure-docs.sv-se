@@ -6,13 +6,13 @@ keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -23,7 +23,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Om du inte har en virtuell Azure-dator ska du skapa en [virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Aktivera inventeringssamling via en virtuell dators resurssida
 

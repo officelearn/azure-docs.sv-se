@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7cd86922b0445fc81766ca54080e2fd3e64a6c61
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Kopiera data från/till Salesforce med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,8 @@ Salesforce har begränsningar för både förfrågningarna API och samtidiga API
 Du kan också få ”REQUEST_LIMIT_EXCEEDED”-fel i båda scenarierna. Se avsnittet ”API Begärandebegränsningar” i den [Salesforce Developer gränser](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) artikeln för information.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Salesforce-anslutningsprogrammet.
 

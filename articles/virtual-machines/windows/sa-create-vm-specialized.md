@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en särskild virtuell Hårddisk i ett lagringskonto
 
 Skapa en ny virtuell dator genom att koppla en särskild ohanterade disk som OS-disk med hjälp av Powershell. En specialiserad disk är en kopia av VHD från en befintlig virtuell dator som hanterar användarkonton, program och andra tillståndsdata från den ursprungliga virtuella datorn. 
 
 Du kan välja mellan två alternativ:
-* [Överföra en virtuell hårddisk](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Kopiera VHD från en befintlig virtuell Azure-dator](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Överföra en virtuell hårddisk](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Kopiera VHD från en befintlig virtuell Azure-dator](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Om du använder PowerShell kan du kontrollera att du har den senaste versionen av AzureRM.Compute PowerShell-modulen. Kör följande kommando för att installera den.

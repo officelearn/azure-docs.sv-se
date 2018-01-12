@@ -4,7 +4,7 @@ description: "Lär dig hur du använder Windows PowerShell för StorSimple för 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -126,8 +126,8 @@ Visningsspråket är oberoende av det språk som du ställer in med den **ändra
 
 Du kan använda HTTP eller HTTPS för att ansluta via Windows PowerShell-fjärrkommunikation. Följ instruktionerna i följande kurser:
 
-* [Fjärransluta via HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Fjärransluta via HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Fjärransluta via HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Fjärransluta via HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Säkerhetsaspekter för anslutning
 
@@ -184,5 +184,5 @@ Du kan enkelt uppdatera hjälp i Windows PowerShell-gränssnittet. Utför följa
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du får problem med din StorSimple-enhet när du utför en av de ovanstående arbetsflödena, se [StorSimple distributioner felsökningsverktyg](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Om du får problem med din StorSimple-enhet när du utför en av de ovanstående arbetsflödena, se [StorSimple distributioner felsökningsverktyg](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

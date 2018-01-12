@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Du kan kopiera data från ODBC-datakällan till alla stöds sink-datalagret elle
 
 Mer specifikt denna ODBC-anslutning har stöd för kopiering av data från/till **alla ODBC-kompatibel datalager** med **grundläggande** eller **anonym** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna ODBC-anslutning måste du:
 
@@ -43,7 +43,8 @@ Om du vill använda denna ODBC-anslutning måste du:
 - Installera ODBC-drivrutinen för datalagret på Integration Runtime-datorn.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till ODBC-anslutningen.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: funktioner referens
 I Azure AD Connect för funktioner att ändra ett attributvärde under synkroniseringen.  
@@ -155,12 +155,6 @@ Returnerar ett datetime-värde baserat på medarbetarens starttid
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Returnerar en DateTime som representerar ”2013-01-11 12:00:00”
-
-
-
-
-
-
 
 
 - - -
@@ -546,7 +540,7 @@ Funktionen DNComponent returnerar värdet för en angiven DN-komponent från vä
 * ComponentNumber: Komponenten i DN ska returneras
 
 **Exempel:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 Om dn är ”cn = Johan, ou =...”, returneras Joe
 
 - - -
@@ -564,8 +558,8 @@ Funktionen DNComponentRev returnerar värdet för en angiven DN-komponent från 
 
 **Exempel:**  
 Om dn är ”cn = Joe, ou = Atlanta, ou = GA, ou = US, dc = contoso, dc = com” sedan  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Returnerar båda oss.
 
 - - -
@@ -879,7 +873,7 @@ Funktionen LCase konverterar alla tecken i en textsträng till gemener.
 Returnerar ”test”.
 
 - - -
-### <a name="left"></a>vänster
+### <a name="left"></a>Vänster
 **Beskrivning:**  
 Funktionen vänster returnerar ett angivet antal tecken från vänster i en sträng.
 
@@ -1248,7 +1242,7 @@ Värdet kan också vara funktionen fel som returnerar en anpassad sträng.
 Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
 
 - - -
-### <a name="trim"></a>Trimma
+### <a name="trim"></a>Rensa
 **Beskrivning:**  
 Funktionen Rensa tar bort inledande och avslutande blanksteg från en sträng.
 

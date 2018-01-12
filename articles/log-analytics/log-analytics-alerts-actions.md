@@ -1,6 +1,6 @@
 ---
-title: "Svar på aviseringar i OMS Log Analytics | Microsoft Docs"
-description: "Aviseringar i Log Analytics kan identifiera viktig information i OMS-databasen och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta."
+title: "Svar på aviseringar i Azure Log Analytics | Microsoft Docs"
+description: "Aviseringar i Log Analytics kan identifiera viktig information på din arbetsyta för Azure och proaktivt meddelar dig om problem eller anropa åtgärder om du vill försöka åtgärda.  Den här artikeln beskriver hur du skapar en aviseringsregel och information om olika åtgärder som de kan ta."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Lägg till åtgärder i Varningsregler i logganalys
 När en [avisering skapas i logganalys](log-analytics-alerts.md), har möjlighet att [konfigurera varningsregeln](log-analytics-alerts.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika åtgärder som är tillgängliga och information om hur du konfigurerar varje slag.
@@ -39,7 +39,7 @@ E-post-åtgärder kräver egenskaperna i följande tabell.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Ämne |Ämne för e-postmeddelandet.  Du kan inte ändra innehållet i e-postmeddelandet. |
-| mottagare |Tar med alla e-postmottagare.  Om du anger fler än en adress sedan Avgränsa adresserna med semikolon (;). |
+| Mottagare |Tar med alla e-postmottagare.  Om du anger fler än en adress sedan Avgränsa adresserna med semikolon (;). |
 
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
@@ -57,7 +57,7 @@ Webhook-åtgärder kräver egenskaperna i följande tabell.
 Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som skickas till externa-tjänsten.  Som standard innehåller nyttolasten värdena i tabellen nedan.  Du kan välja att ersätta den här nyttolasten med ett anpassat egen.  Du kan i så fall använda variabler i tabellen för var och en av parametrarna ta sina värdet i din anpassade nyttolast.
 
 >[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan webook-nyttolasten har ändrats.  Information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.
+> Om din arbetsyta har uppgraderats till [det nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md) har webhook-nyttolasten ändrats.  Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.
 
 | Parameter | Variabel | Beskrivning |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Webhooks är en URL och en nyttolast som har formaterats i JSON som är data som
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Starttid för frågan i UTC-format. |
 | searchQuery |#searchquery |Loggen sökfråga används av regeln. |
 | SearchResults |Nedan finns |Poster som returneras av frågan i JSON-format.  Begränsad till de första 5 000 posterna. |
-| WorkspaceID |#workspaceid |ID för din OMS-arbetsyta. |
+| WorkspaceID |#workspaceid |ID för logganalys-arbetsytan. |
 
 Du kan till exempel ange följande anpassad nyttolast som innehåller en enda parameter med namnet *text*.  Den tjänst som denna webhook anropar skulle förväntas den här parametern.
 
@@ -97,11 +97,11 @@ Om du vill skapa en anpassad nyttolast som innehåller bara aviseringsnamn och s
     }
 
 
-Du kan gå igenom en komplett exempel på hur du skapar en aviseringsregel med en webhook att starta en extern tjänst på [skapar en avisering webhook-åtgärd i OMS Log Analytics för att skicka meddelanden till Slack](log-analytics-alerts-webhooks.md).
+Du kan gå igenom en komplett exempel på hur du skapar en aviseringsregel med en webhook att starta en extern tjänst på [skapar en avisering webhook-åtgärd i logganalys att skicka meddelande till Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Runbook-åtgärder
-Runbook-åtgärder startar en runbook i Azure Automation.  För att kunna använda den här typen av åtgärden, måste du ha den [automatiseringslösning](log-analytics-add-solutions.md) installeras och konfigureras i OMS-arbetsyta.  Du kan välja från runbooks i automation-kontot som du konfigurerade i Automation-lösningen.
+Runbook-åtgärder startar en runbook i Azure Automation.  För att kunna använda den här typen av åtgärden, måste du ha den [automatiseringslösning](log-analytics-add-solutions.md) installeras och konfigureras i logganalys-arbetsytan.  Du kan välja från runbooks i automation-kontot som du konfigurerade i Automation-lösningen.
 
 Runbook-åtgärder kräver egenskaperna i följande tabell.
 
@@ -115,7 +115,7 @@ Runbook-åtgärder starta en runbook med hjälp av en [webhook](../automation/au
 Direkt kan du fylla i parametrar av runbook, men [$WebhookData parametern](../automation/automation-webhooks.md) innehåller information om aviseringen, inklusive resultaten av den logg som den skapades.  Runbook måste du definiera **$WebhookData** som en parameter att komma åt egenskaper för aviseringen.  Aviseringen data är tillgängliga i json-format i en enda egenskap som kallas **SearchResult** (för runbook-åtgärder och webhook-åtgärder med standard nyttolast) eller **SearchResults** (webhook-åtgärder med anpassade nyttolasten inklusive **IncludeSearchResults ”: true**) i den **RequestBody** -egenskapen för **$WebhookData**.  Detta har med egenskaper i följande tabell.
 
 >[!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan runbook-nyttolasten har ändrats.  Information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.  
+> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), och sedan runbook-nyttolasten har ändrats.  Mer information om formatet finns i [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  Du kan se ett exempel i [exempel](#sample-payload) nedan.  
 
 | Node | Beskrivning |
 |:--- |:--- |

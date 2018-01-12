@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Skapa en management lösningsfilen i Operations Management Suite (OMS) (förhandsgranskning)
 > [!NOTE]
@@ -39,7 +39,7 @@ Du kan använda valfri textredigerare för att arbeta med lösningsfiler, men vi
 
 
 ## <a name="structure"></a>struktur
-Den grundläggande strukturen i en fil för management-lösning är detsamma som en [Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md#template-format) som är som följer.  Var och en av nedanstående avsnitt beskrivs de översta elementen och och innehållet i en lösning.  
+Den grundläggande strukturen i en fil för management-lösning är detsamma som en [Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md#template-format), vilket är som följer.  Var och en av nedanstående avsnitt beskrivs de översta elementen och innehållet i en lösning.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -86,12 +86,12 @@ I följande tabell visas standardparametrar för alla hanteringslösningar för.
 
 | Parameter | Typ | Beskrivning |
 |:--- |:--- |:--- |
-| Kontonamn |Sträng |Azure Automation-kontonamn. |
-| pricingTier |Sträng |Prisnivån för både logganalys-arbetsytan och Azure Automation-konto. |
-| regionId |Sträng |Region i Azure Automation-konto. |
-| SolutionName |Sträng |Namnet för lösningen.  Om du distribuerar din lösning med snabbstartsmallar bör sedan du definiera solutionName som en parameter där du kan definiera en sträng i stället att användaren måste ange en. |
-| workspaceName |Sträng |Log Analytics arbetsytans namn. |
-| workspaceRegionId |Sträng |Region i logganalys-arbetsytan. |
+| Kontonamn |sträng |Azure Automation-kontonamn. |
+| pricingTier |sträng |Prisnivån för både logganalys-arbetsytan och Azure Automation-konto. |
+| regionId |sträng |Region i Azure Automation-konto. |
+| SolutionName |sträng |Namnet för lösningen.  Om du distribuerar din lösning med snabbstartsmallar bör sedan du definiera solutionName som en parameter där du kan definiera en sträng i stället att användaren måste ange en. |
+| workspaceName |sträng |Log Analytics arbetsytans namn. |
+| workspaceRegionId |sträng |Region i logganalys-arbetsytan. |
 
 
 Följande är standard parametrar som du kan kopiera och klistra in i din lösningsfilen struktur.  
@@ -176,7 +176,7 @@ Varje lösning kräver att en resurs i den **resurser** element som definierar s
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Varje lösning kräver att en resurs i den **resurser** element som definierar s
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -225,8 +225,8 @@ Den **plan** entiteten av lösningen resursen har egenskaper i följande tabell.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | namn |Namnet för lösningen. |
-| Version |Version av lösningen som bestäms av författaren. |
-| Produkten |Unik sträng som identifierar lösningen. |
+| version |Version av lösningen som bestäms av författaren. |
+| produkt |Unik sträng som identifierar lösningen. |
 | Publisher |Utgivaren av lösningen. |
 
 

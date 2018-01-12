@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,12 +48,13 @@ Mer specifikt DB2-koppling har stöd för följande IBM DB2-plattformar och vers
 > - DB2 för i (AS400): låta användare skapa samling för användarens inloggning innan du använder kopieringsaktiviteten. Kommandot:`create collection <username>`
 > - DB2 för z/OS eller LUW: Använd ett konto för privilegierade - privilegierad användare eller administratör med paketet myndigheter och BIND BINDADD, BEVILJA EXECUTE till offentliga behörigheter - för att köra kopieringsaktiviteten en gång och sedan nödvändiga paketet skapas automatiskt under kopia. Därefter kan du växla tillbaka till normal användare för efterföljande kopia-körs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda data från en DB2-databas som inte är offentligt tillgänglig, måste du ställer in en Self-hosted integrering Runtime. Mer information om automatisk värdbaserade integration körningar, se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel. Integration Runtime innehåller en inbyggd DB2-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från DB2.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till DB2-koppling.
 
@@ -65,7 +66,7 @@ Följande egenskaper stöds för DB2 länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Db2** | Ja |
 | server |Namnet på DB2-server. |Ja |
-| Databasen |Namnet på DB2-databasen. |Ja |
+| databas |Namnet på DB2-databasen. |Ja |
 | Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värde är: **grundläggande**. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till DB2-databasen. |Ja |
@@ -181,7 +182,7 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Blob |byte] |
 | Char |Sträng |
 | CLOB |Sträng |
-| Date |Datum och tid |
+| Date |DateTime |
 | DB2DynArray |Sträng |
 | DbClob |Sträng |
 | Decimal |Decimal |
@@ -194,10 +195,10 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
 | numeriskt |Decimal |
-| Real |Enskild |
+| Real |Ogift |
 | SmallInt |Int16 |
 | Tid |TimeSpan |
-| tidsstämpel |Datum och tid |
+| Tidsstämpel |DateTime |
 | VarBinary |byte] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |

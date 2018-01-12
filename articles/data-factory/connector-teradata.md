@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Mer specifikt stöder den här Teradata-anslutningen:
 - Teradata **version 12 och högre**.
 - Kopiera data med hjälp av **grundläggande** eller **Windows** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna Teradata-anslutning måste du:
 
@@ -46,7 +46,8 @@ Om du vill använda denna Teradata-anslutning måste du:
 - Installera den [.NET Data Provider för Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 eller senare på Integration Runtime-datorn.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Teradata-anslutningen.
 
@@ -171,7 +172,7 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
-| Date |Datum och tid |
+| Date |DateTime |
 | Decimal |Decimal |
 | dubbla |dubbla |
 | Bild |Sträng |
@@ -198,7 +199,7 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | SmallInt |Int16 |
 | Tid |TimeSpan |
 | Tid med tidszon |Sträng |
-| tidsstämpel |Datum och tid |
+| Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
 | VarByte |byte] |
 | VarChar |Sträng |

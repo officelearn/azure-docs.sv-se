@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ Mer specifikt stöder den här Azure SQL Database-anslutningen:
 - Som mottagare, bifoga data måltabellen eller anropa en lagrad procedur med egen kod vid kopiering.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Azure SQL Database-anslutningen.
 
@@ -452,11 +453,11 @@ När du kopierar data från/till Azure SQL Database, används följande mappning
 |:--- |:--- |
 | bigint |Int64 |
 | Binär |byte] |
-| bitar |Booleskt värde |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
@@ -468,9 +469,9 @@ När du kopierar data från/till Azure SQL Database, används följande mappning
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
+| Verklig |Ogift |
 | ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |

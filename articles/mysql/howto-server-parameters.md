@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Konfigurera parametrar för server i Azure-databas för MySQL med hjälp av Azure portal
 
@@ -32,8 +32,7 @@ Azure-databas för MySQL stöder konfiguration av vissa serverparametrar. Det h�
 Listan över parametrar stöds server växer ständigt. Använd fliken server parametrar i Azure-portalen för att hämta definitionen och konfigurera parametrar för server baserat på kraven för application. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Nonconfigurable serverparametrar
-
-Följande parametrar inte är konfigurerbar och bundet till din [prisnivån](concepts-service-tiers.md). 
+InnoDB buffertpool och högsta antal anslutningar är inte kan konfigureras och bundet till din [prisnivån](concepts-service-tiers.md). 
 
 | **prisnivå** | **InnoDB buffertpool (MB)** | **Högsta antal anslutningar** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ Följande parametrar inte är konfigurerbar och bundet till din [prisnivån](con
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
- Innodb_file_per_table i grundläggande nivån: av
+Dessa ytterligare parametrar finns nonconfigurable i systemet <br>
+ Innodb_file_per_table i grundläggande nivån: av<br>
+ innodb_flush_log_at_trx_commit = 1<br>
+ sync_binlog = 1<br>
+ innodb_log_file_size = 512MB<br>
  
-Alla andra server som inte listas i föregående tabell har angetts till sina standardvärden för versioner [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) och [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Andra server som inte listas här har angetts till MySQL out-of-box standardvärdena för versioner [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) och [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Anslutningsbibliotek för Azure-databas för MySQL](concepts-connection-libraries.md).

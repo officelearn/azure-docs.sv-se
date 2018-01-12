@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,12 +40,13 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 - Hämtar data med hjälp av SQL-fråga eller en lagrad procedur som källa.
 - Som mottagare, bifoga data måltabellen eller anropa en lagrad procedur med egen kod vid kopiering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ställa in en Self-hosted integrering Runtime om du vill använda data från en SQL Server-databas som inte är allmänt tillgänglig. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikeln för information. Integration Runtime innehåller en inbyggd drivrutin för SQL Server-databasen, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till SQL Server-databas.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för anslutning av SQL Server-databas.
 
@@ -482,11 +483,11 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 |:--- |:--- |
 | bigint |Int64 |
 | Binär |byte] |
-| bitar |Booleskt värde |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attributet (varbinary(max)) |byte] |
@@ -498,9 +499,9 @@ När du kopierar data från/till SQL Server, används följande mappning från S
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
+| Verklig |Ogift |
 | ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Skapa Multifaktorautentisering i anpassade appar (SDK)
 
@@ -38,7 +38,7 @@ Eftersom API: erna inte har åtkomst till användare som har registrerats i Azur
 
 
 ## <a name="download-the-sdk"></a>Ladda ned SDK
-Hämta SDK för Azure Multi-Factor kräver en [Azure leverantör av Multifaktorautent](multi-factor-authentication-get-started-auth-provider.md).  Detta kräver en fullständig Azure-prenumeration, även om Azure MFA, Azure AD Premium eller Enterprise Mobility Suite licenser äger. De offentliga metoderna för att hämta SDK har decomissioned eftersom SDK är föråldrad. Du måste öppna ett supportärende med Microsoft om du behöver hämta SDK.
+Hämta SDK för Azure Multi-Factor kräver en [Azure leverantör av Multifaktorautent](multi-factor-authentication-get-started-auth-provider.md).  Detta kräver en fullständig Azure-prenumeration, även om Azure MFA, Azure AD Premium eller Enterprise Mobility Suite licenser äger. De offentliga metoderna för att hämta SDK har inaktiverats eftersom SDK är föråldrad. Du måste öppna ett supportärende med Microsoft om du behöver hämta SDK. SDK tillhandahålls endast för kunder som redan använder SDK. Nya kunder kommer inte att publicera.
 
 ## <a name="whats-in-the-sdk"></a>Vad är i SDK
 SDK innehåller följande:

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för Azure aktiviteten Logga varningar
 Som en del av definitionen för en grupp, kan du konfigurera webhook slutpunkter för att ta emot aviseringar för aktiviteten loggen. Du kan använda webhooks, för att vidarebefordra meddelandena till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolasten för HTTP POST till en webhook ser ut.
@@ -145,16 +145,16 @@ Information om specifika schemat på alla andra aktiviteten loggen aviseringar f
 | resourceId |Resurs-ID för resursen påverkas. |
 | resourceGroupName |Namnet på resursgruppen för resursen påverkas. |
 | properties |En uppsättning `<Key, Value>` par (det vill säga `Dictionary<String, String>`) som innehåller information om händelsen. |
-| Händelse |Element som innehåller metadata om händelsen. |
+| händelse |Element som innehåller metadata om händelsen. |
 | Auktorisering |Rollbaserad åtkomstkontroll egenskaperna för händelsen. Dessa egenskaper innehåller vanligtvis åtgärden rollen och omfång. |
 | category |Kategori för händelsen. Värden som stöds omfattar administrativa, varning, säkerhet, ServiceHealth och rekommendation. |
-| Anroparen |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
+| uppringare |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
 | correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis delar en correlationId. |
 | eventDescription |Statisk textbeskrivning av händelsen. |
 | eventDataId |Unik identifierare för händelsen. |
 | eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
 | httpRequest |Begäran innehåller vanligtvis clientRequestId, clientIpAddress och HTTP-metoden (till exempel PLACERA). |
-| nivå |Ett av följande värden: kritisk, fel, varning, information och utförlig. |
+| nivå |Ett av följande värden: kritisk, fel, varningar och information. |
 | Åtgärds-ID |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Namnet på åtgärden. |
 | properties |Egenskaper för händelsen. |

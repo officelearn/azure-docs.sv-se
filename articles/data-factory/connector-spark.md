@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: b422b3a721511a25b976586cd324d65f383ad140
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ba25bb71857ee91cc078fd87de074f0ea954b558
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
 
@@ -35,7 +35,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Spark-anslutningen.
 
@@ -46,7 +46,7 @@ Följande egenskaper stöds för länkad Spark-tjänst:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Spark** | Ja |
-| värden | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
 | port | TCP-porten som Spark-servern använder för att lyssna efter anslutningar.  | Ja |
 | Servertyp | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **binära**, **SASL**, ** HTTP ** | Nej |

@@ -10,17 +10,17 @@ keywords: automation security, secure automation; automation authentication
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introduktion till autentisering i Azure Automation  
 Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS).  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.
@@ -31,10 +31,6 @@ Den här artikeln täcker de olika autentiseringsscenarier som stöds av Azure A
 När du startar Azure Automation för första gången måste du skapa minst ett Automation-konto. Automation-konton gör att du kan isolera dina Automation-resurser (runbooks, tillgångar, konfigurationer) från resurserna som finns i andra Automation-konton. Du kan använda Automation-konton för att hålla resurser åtskilda i separata logiska miljöer. Du kan exempelvis använda ett konto för utveckling, ett annat för produktion och ett annat för din lokala miljö.  Ett Azure Automation-konto skiljer sig från ditt eller dina Microsoft-konton som skapats i Azure-prenumerationen.
 
 Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Huvudskälet till att skapa Automation-konton i olika regioner är om du har principer som kräver att data och resurser är isolerade i en specifik region.
-
-> [!NOTE]
-> Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
->
 
 Alla aktiviteter som du utför mot resurser med hjälp av Azure Resource Manager och Azure-cmdletar i Azure Automation måste autentisera till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Certifikatbaserad autentisering var den ursprungliga autentiseringsmetoden i klassisk Azure men det var svårt att konfigurera.  Autentisering i Azure med Azure AD-användare infördes igen 2014 inte bara för att förenkla processen att konfigurera ett autentiseringskonto, men även för att ge stöd för icke-interaktiv autentisering i Azure med ett enda användarkonto som fungerade med både Azure Resource Manager- och klassiska resurser.   
 

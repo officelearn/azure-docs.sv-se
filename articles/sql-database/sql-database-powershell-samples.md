@@ -9,18 +9,18 @@ editor: tysonn
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview-samples
+ms.custom: overview-samples, mvc
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 1d1692cc43a7a5ec50c0689706d93a784a5fed88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure PowerShell-exempel för Azure SQL Database
 
@@ -47,5 +47,5 @@ Följande tabell innehåller länkar till exempel Azure PowerShell-skript för A
 | **Synkronisera data mellan databaser**||
 | [Synkronisera data mellan SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar datasynkronisering ska synkroniseras mellan flera Azure SQL-databaser. |
 | [Synkronisera data mellan SQL-databas och SQL Server lokalt](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Det här PowerShell-skriptet konfigurerar datasynkronisering ska synkroniseras mellan en Azure SQL-databas och en lokal SQL Server-databas. |
-|||
+| [Uppdatera schema för datasynkronisering för SQL-synkronisering](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Detta PowerShell-skript som lägger till eller tar bort objekt från synkroniseringsschema för datasynkronisering. |
 |||

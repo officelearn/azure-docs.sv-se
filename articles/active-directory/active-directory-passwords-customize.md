@@ -1,5 +1,5 @@
 ---
-title: 'Anpassa: Azure AD SSPR | Microsoft Docs'
+title: "Självbetjäning för lösenordsåterställning anpassning - Azure Active Directory"
 description: "Återställa anpassade alternativ för lösenordsåterställning för självbetjäning av Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -100,7 +100,7 @@ Med den **Håll mig inloggad inaktiverats** alternativet användare kan förbli 
 
 Vissa funktioner i SharePoint Online och Office 2010 är beroende av användarnas möjlighet att markera den här kryssrutan. Om du dölja det här alternativet kan användarna få ytterligare och oväntat inloggning anvisningarna.
 
-### <a name="directory-name"></a>Katalognamnet
+### <a name="directory-name"></a>Katalognamn
 
 Du kan ändra directory namnattributet under **Azure Active Directory** > **egenskaper**. Du kan visa ett eget organisationsnamn som visas i portalen och automatiserade meddelanden. Det här alternativet är det mest synliga i automatisk e-postmeddelanden i formulär som följer:
 

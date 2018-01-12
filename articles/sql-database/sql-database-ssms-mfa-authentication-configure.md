@@ -3,8 +3,8 @@ title: Konfigurera Multi-Factor authentication - Azure SQL | Microsoft Docs
 description: "Lär dig hur du använder Multi-Factored autentisering med SSMS för SQL Database och SQL Data Warehouse."
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
-ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.author: mireks
+ms.openlocfilehash: fe056288fbc04db0a6892c9a501c58ed85967734
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor authentication för SQL Server Management Studio och Azure AD
 
@@ -67,7 +67,7 @@ När verifieringen är klar ansluter SSMS normalt förutsatt att giltiga autenti
 - En översikt över Azure SQL Database multifaktorautentisering finns i Universal autentisering med [SQL Database och SQL Data Warehouse (SSMS stöd för MFA)](sql-database-ssms-mfa-authentication.md).  
 - Ge andra användare åtkomst till databasen: [SQL Database-autentisering och auktorisering: bevilja åtkomst](sql-database-manage-logins.md)  
 - Kontrollera att andra kan ansluta genom brandväggen: [konfigurera en Azure SQL Database servernivå brandväggsregel med Azure-portalen](sql-database-configure-firewall-settings.md)  
-- När du använder **Active Directory - Universal med MFA** autentisering, ADAL spårning är tillgängliga från och med [SSMS 17,3 tum](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Inaktiverar som standard, du kan aktivera ADAL spårning med hjälp av den **verktyg**, **alternativ** menyn under **Azure Services**, **Azure-molnet**,  **ADAL utdata fönstret spårningsnivån**följt genom att aktivera **utdata** i den **visa** menyn. Spåren är tillgängliga i utdatafönstret när du väljer **Azure Active Directory-alternativet**.   
+- När du använder **Active Directory - Universal med MFA** autentisering, ADAL spårning är tillgängliga från och med [SSMS 17,3 tum](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Inaktiverar som standard, du kan aktivera ADAL spårning med hjälp av den **verktyg**, **alternativ** menyn under **Azure Services**, **Azure-molnet**,  **ADAL utdata fönstret spårningsnivån**följt genom att aktivera **utdata** i den **visa** menyn. Spåren är tillgängliga i utdatafönstret när du väljer **Azure Active Directory-alternativet**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

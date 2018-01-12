@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Lägg till/ta bort en Azure-filsynkronisering (förhandsgranskning) serverslutpunkt
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -27,12 +27,12 @@ En *serverslutpunkt* representerar en specifik plats på en *registrerad server*
 
 Se [hur du distribuerar Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) information om hur du distribuerar Azure filsynkronisering slutpunkt till slutpunkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att skapa en serverslutpunkt för, måste du först se till att följande villkor är uppfyllda: 
 - Servern filsynkronisering för Azure-agenten har installerats och registrerats. Anvisningar för att installera Azure File Sync-agenten finns i den [registrera/avregistrera en server med Azure filsynkronisering (förhandsgranskning)](storage-sync-files-server-registration.md) artikel. 
 - Se till att en lagring Sync-tjänsten har distribuerats. Se [hur du distribuerar Azure filsynkronisering (förhandsgranskning)](storage-sync-files-deployment-guide.md) mer information om hur du distribuerar en tjänst för synkronisering av lagring. 
 - Se till att en grupp för synkronisering har distribuerats. Lär dig hur du [skapar du en synkronisering grupp](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Kontrollera att servern är ansluten till internet och att Azure är tillgänglig.
+- Kontrollera att servern är ansluten till internet och att Azure är tillgänglig. Vi använder port 443 för all kommunikation mellan servern och vår tjänst.
 
 ## <a name="add-a-server-endpoint"></a>Lägg till en serverslutpunkt
 Om du vill lägga till en serverslutpunkt för, navigerar du till gruppen önskade synkronisering och välj ”Lägg till server endpoint”.

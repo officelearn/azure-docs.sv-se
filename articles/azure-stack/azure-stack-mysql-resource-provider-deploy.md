@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Du kan distribuera en MySQL-resursprovidern på Azure-stacken. När du har distribuerat resursprovidern du skapa MySQL-servrar och databaser via Azure Resource Manager-mallar för distribution och ger MySQL-databaser som en tjänst. MySQL-databaser som är vanliga på webbplatser, stöd för flera olika plattformar webbplats. Exempelvis när du har distribuerat resursprovidern, kan du skapa WordPress webbplatser från Azure Web Apps-plattform som en tjänst (PaaS)-tillägg för Azure-stacken.
 
-Om du vill distribuera MySQL-providern på ett system som inte har tillgång till internet, kan du kopiera filen [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) till en lokal resurs. Ange att resursnamnet när du tillfrågas. Du måste också installera Azure och Azure-stacken PowerShell-moduler.
+Om du vill distribuera MySQL-providern på ett system som inte har tillgång till internet, kan du kopiera filen [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) till en lokal resurs. Ange att resursnamnet när du tillfrågas. Du måste också installera Azure och Azure-stacken PowerShell-moduler.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>MySQL Server Resource Provider Adapter-arkitektur
@@ -71,10 +71,9 @@ System-kontot måste ha följande behörigheter:
 
     | Azure-stacken Build | MySQL RP installer |
     | --- | --- |
-    | 1.0.180102.3 | **Vänta ytterligare information, aktuella versioner kan inte installeras, men fortsätter att köras på flera noder efter en uppgradering för Azure-stacken.** |
-    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 eller 1.0.180106.1 (med flera noder) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [MySQL RP version 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [MySQL RP version 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Azure-stacken rotcertifikatet hämtas från Privilegierade slutpunkten. För ASDK skapas ett självsignerat certifikat som en del av den här processen. Du måste ange ett lämpligt certifikat för flera noder.
 
@@ -165,7 +164,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
 | **AzCredential** | Ange autentiseringsuppgifter för Azure-administratörskonto Stack-tjänsten. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure-stacken). | _krävs_ |
 | **VMLocalCredential** | Definiera autentiseringsuppgifter för det lokala administratörskontot för resursprovidern MySQL VM. | _krävs_ |
 | **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på den privilegierade slutpunkten. |  _krävs_ |
-| **DependencyFilesLocalPath** | Sökvägen till en lokal resurs som innehåller [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Om du har angett en placeras certifikatfilen i den här katalogen samt. | _valfria_ (_obligatoriska_ för flera noder) |
+| **DependencyFilesLocalPath** | Sökvägen till en lokal resurs som innehåller [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Om du har angett en placeras certifikatfilen i den här katalogen samt. | _valfria_ (_obligatoriska_ för flera noder) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat | _krävs_ |
 | **MaxRetryCount** | Ange hur många gånger som du vill försöka utföra varje åtgärd om det finns ett fel.| 2 |
 | **RetryDuration** | Definiera tidsgräns mellan försök i sekunder. | 120 |

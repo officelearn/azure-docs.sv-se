@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Med hjälp av Azure Storage REST-API
+# <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
 Den här artikeln visar hur du använder den Blob Storage Service REST API: er och hur du autentiserar anropet till tjänsten. De skrivs från synsätt på den person som vet ingenting om REST och aning göra ett REST-anrop, men är en utvecklare. Vi titta på referensdokumentationen för ett REST-anrop och se hur att översätta det till ett verkligt REST-anrop – vilka fält gå var? Du kan använda denna kunskap om du vill använda någon av de andra Storage Service REST API: er när du lär dig hur du ställer in ett REST-anrop.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Programmet visar behållarna i blob storage för ett lagringskonto. Om du vill prova koden i den här artikeln behöver du följande: 
 
@@ -32,7 +32,7 @@ Programmet visar behållarna i blob storage för ett lagringskonto. Om du vill p
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Ett allmänt lagringskonto. Om du inte har någon storage-konton, kan du skapa en med hjälp av den [Azure-portalen](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), eller [Azure CLI](storage-quickstart-create-storage-account-cli.md).
+* Ett allmänt lagringskonto. Om du ännu inte har ett lagringskonto, se [skapa ett lagringskonto](storage-quickstart-create-account.md).
 
 * Exemplet i den här artikeln visar hur du listar behållare i ett lagringskonto. Lägga till vissa behållare för blob storage i storage-konto innan du startar om du vill se utdata.
 
@@ -40,13 +40,13 @@ Programmet visar behållarna i blob storage för ett lagringskonto. Om du vill p
 
 Exempelprogrammet är ett konsolprogram som skrivits i C#.
 
-Använd [git](https://git-scm.com/) att hämta en kopia av programmet till din utvecklingsmiljö. 
+Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Det här kommandot klonar databasen till din lokala git-mapp. Öppna Visual Studio-lösning, letar du upp mappen storage-dotnet-rest-api-with-auth, öppna det och dubbelklicka på StorageRestApiAuth.sln. 
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösning, letar du upp mappen storage-dotnet-rest-api-with-auth, öppna det och dubbelklicka på StorageRestApiAuth.sln. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Varför måste kunna REST?
 

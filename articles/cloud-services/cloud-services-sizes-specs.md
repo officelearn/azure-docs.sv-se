@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för molntjänster
 Det här avsnittet beskrivs tillgängliga storlekar och alternativ för Molntjänsten rollinstanser (webb- och arbetsroller). Det ger också överväganden vid distribution för att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du lägger till i din [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priser för varje storlek är tillgängliga på den [Cloud Services priser](https://azure.microsoft.com/pricing/details/cloud-services/) sidan.
@@ -32,7 +32,7 @@ Det här avsnittet beskrivs tillgängliga storlekar och alternativ för Molntjä
 Du kan välja mellan flera standardstorlekar i Azure. Det finns några saker som du bör tänka på när du väljer storlek:
 
 * Virtuella datorer i D-serien är utformade för att köra program som kräver högre beräkningskraft och tillfälliga diskprestanda. Virtuella datorer i D-serien erbjuder snabbare processorer, högre ”minne till kärna”-förhållande och en Solid State-hårddisk (SSD) för den tillfälliga disken. Mer information finns i inlägget om [nya storlekar för virtuella datorer i D-serien](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) i Azure-bloggen.
-* Dv2-serien, en uppföljare till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den baseras på den senaste generationens 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell) och kan uppnå 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+* Dv3-serien, Dv2-serien, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor. Processorn i Dv2-serien är cirka 35 % snabbare än den i D-serien. Den baseras på den senaste generationens 2,4 GHz Intel Xeon® E5-2673 v3-processor (Haswell) och kan uppnå 3,1 GHz med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 * Virtuella datorer i G-serien erbjuder mest minne och körs på värdar som är utrustade med processorer i Intel Xeon E5 V3-familjen.
 * A-series virtuella datorer kan distribueras på olika maskinvarutyper och processorer. Storleken begränsas baserat på vilken maskinvara, att erbjuda konsekvent processorprestanda för instansen som körs, oavsett maskinvara som den har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 * A0-storleken har för hög andel prenumerationer på den fysiska maskinvaran. För just den här storleken kan andra kunddistributioner påverka prestanda för arbetsbelastningen som körs. Nedan beskrivs relativa prestanda som den förväntade baslinjen, som har en ungefärlig variation på 15 procent.
@@ -42,7 +42,7 @@ Storleken på den virtuella datorn påverkar priset. Storleken påverkar också 
 Följande information kan hjälpa dig att välja storlek:
 
 * Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz. Detaljerad information och överväganden om hur du använder dessa storlekar finns [högpresterande compute VM-storlekar](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Dv2-serien, D-serien, G-serien, lämpar sig för program som kräver snabbare processorer, bättre lokal disk prestanda eller har högre krav på minne. De utgör en kraftfull kombination för många program i företagsklass.
+* Dv3-serien, Dv2-serien, D-serien, G-serien, lämpar sig för program som kräver snabbare processorer, bättre prestanda för lokal disk eller har högre krav på minne. De utgör en kraftfull kombination för många program i företagsklass.
 * Vissa av de fysiska värdarna i Azure-datacenter kanske inte stöder större storlekar för virtuell dator, till exempel A5–A11. Därför kan det hända att felmeddelandet **det gick inte att konfigurera den virtuella datorn {datornamnet}** eller **det gick inte att skapa den virtuella datorn {datornamnet}** när du ändrar storlek på en befintlig virtuell dator till en ny storlek; Skapa en ny virtuell dator i ett virtuellt nätverk som skapats före 16 April 2013; eller lägga till en ny virtuell dator till en befintlig molntjänst. Se [fel: ”Det gick inte att konfigurera den virtuella datorn”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) på Supportforum för lösningar för varje scenario för distribution.
 * Din prenumeration kan även begränsa hur många kärnor som du kan distribuera i vissa storleksfamiljer. Kontakta Azure-supporten om du vill öka en kvot.
 
@@ -61,12 +61,13 @@ Vi har skapat konceptet för den Azure Compute-enhet (ACU) att ge ett sätt för
 | [ExtraSmall](#a-series) |50 |
 | [Liten Extrastora](#a-series) |100 |
 | [A5 7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [En v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [E-v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda. Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
@@ -142,6 +143,29 @@ Mer information och överväganden om hur du använder dessa storlekar finns [h�
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremt hög |
 | Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremt hög |
 
+## <a name="dv3-series"></a>Dv3-serien
+
+| Storlek            | Processorkärnor | Minne: GiB   | Lokal SSD: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2 / måttlig |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2 / hög |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4 / hög |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremt hög |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremt hög |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremt hög |
+
+## <a name="ev3-series"></a>Ev3-serien
+
+| Storlek            | Processorkärnor | Minne: GiB   | Lokal SSD: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2 / måttlig |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2 / hög |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4 / hög |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremt hög |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremt hög |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremt hög |
+
+
 ## <a name="g-series"></a>G-serien
 | Storlek            | Processorkärnor | Minne: GiB  | Lokal SSD: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Som typ av arbetsbelastning ändringar eller nya VM-storlekar som blir tillgäng
 >
 
 ## <a name="get-a-list-of-sizes"></a>Hämta en lista över storlekar
-Du kan använda PowerShell eller REST API för att hämta en lista över storlekar. REST API dokumenteras [här](https://msdn.microsoft.com/library/azure/dn469422.aspx). Följande kod är ett PowerShell-kommando som visar en lista över alla storlekar för en viss plats. 
+Du kan använda PowerShell eller REST API för att hämta en lista över storlekar. REST API dokumenteras [här](https://msdn.microsoft.com/library/azure/dn469422.aspx). Följande kod är ett PowerShell-kommando som visar en lista över alla storlekar avaialble för molntjänster. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Nästa steg

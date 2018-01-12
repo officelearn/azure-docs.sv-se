@@ -4,7 +4,7 @@ description: "Beskriver hur du tar bort, ersätta och underhålla batterimodulen
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Ersätt batterimodulen säkerhetskopiering på din StorSimple-enhet
 
@@ -67,7 +67,7 @@ Batterimodulen säkerhetskopiering för din StorSimple-enhet är en-fältutbytba
    | 4 |PCM OK |
    | 5 |DC strömavbrott |
    | 6 |Batteri felfri |
-3. Om du vill ta bort PCM med en misslyckad batteri, följer du stegen i [ta bort en PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Om du vill ta bort PCM med en misslyckad batteri, följer du stegen i [ta bort en PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Med PCM tas bort, lyfter rotera modulreferens batteri uppåt som anges i följande bild och hämtar upp till ta bort batteriet.
    
     ![Ta bort batteri från PCM](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ Utför följande steg för att installera modulen ersättning batteri i PCM i pr
 #### <a name="to-install-the-battery-module"></a>Installera batterimodulen
 1. Placera batterimodulen säkerhetskopiering med rätt orientering i PCM.
 2. Tryck ned modulreferens batteri ända till plats kopplingen.
-3. Ersätt PCM i primära höljet genom att följa riktlinjerna i [ersätta en ström och kylning modulen på StorSimple-enheten](storsimple-power-cooling-module-replacement.md).
+3. Ersätt PCM i primära höljet genom att följa riktlinjerna i [ersätta en ström och kylning modulen på StorSimple-enheten](storsimple-8000-power-cooling-module-replacement.md).
 4. När ersättningen är klar, gå till din enhet och gå sedan till **övervakaren** > **maskinvara hälsa** i Azure-portalen. Kontrollera statusen för batteri och kontrollera att installationen har lyckats. Grön status anger att batteriet är felfri.
 
 ## <a name="maintain-the-backup-battery-module"></a>Underhåll batterimodulen säkerhetskopiering

@@ -1,5 +1,5 @@
 ---
-title: Hur fungerar Azure AD SSPR | Microsoft Docs
+title: "Självbetjäning för lösenordsåterställning hur fungerar – Azure Active Directory"
 description: "Azure AD Självbetjäning för lösenordsåterställning ingående"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Självbetjäning för återställning av lösenord i Azure AD ingående
 

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Med hjälp av operatorn ANOMALYDETECTION
 
@@ -89,7 +89,7 @@ Ett fel av en viss typ har identifierats när något av dessa avvikelseidentifie
 
 **ANOMALYDETECTION** använder glidande fönstret semantik, vilket innebär att beräkningen kör per händelse som anger funktionen och en poäng skapas för den händelsen. Beräkningen baseras på utbyte Martingales som fungerar genom att kontrollera om distribution av händelsevärden har ändrats. I så fall, har potentiella avvikelseidentifiering upptäckts. Det returnerade resultatet är en indikation på konfidensnivån för den avvikelseidentifiering. Som en intern optimering **ANOMALYDETECTION** beräknar avvikelseidentifiering poängen för en händelse baserat på *d* till *2d* händelser, där *d*är storleken på angivna identifiering.
 
-**ANOMALYDETECTION** förväntar sig indata tidsserien vara enhetligt. En händelseström kan göras enhetlig genom att sammanställa över en rullande eller hopping fönster. I scenarier där mellanrummet mellan händelser alltid är mindre än fönstret aggregering, är en rullande fönster tillräcklig för att tidsserien lika. När mellanrummet kan vara större, kan du fylla i luckorna genom att upprepa det sista värdet i ett Hoppande fönster. Båda dessa scenarier kan hanteras av följande exempel. För närvarande den `FillInMissingValuesStep` steg kan hoppas över. Inte med det här steget resulterar i ett kompileringsfel.
+**ANOMALYDETECTION** förväntar sig indata tidsserien vara enhetligt. En händelseström kan göras enhetlig genom att sammanställa över en rullande eller hopping fönster. I scenarier där mellanrummet mellan händelser alltid är mindre än fönstret aggregering, är en rullande fönster tillräcklig för att tidsserien lika. När mellanrummet kan vara större, kan du fylla i luckorna genom att upprepa det sista värdet i ett Hoppande fönster. Båda dessa scenarier kan hanteras av följande exempel.
 
 ## <a name="performance-guidance"></a>Prestandaråd
 
@@ -105,8 +105,6 @@ Ett fel av en viss typ har identifierats när något av dessa avvikelseidentifie
 
 Följande fråga kan användas för att skicka en avisering om ett fel upptäcks.
 När Indataströmmen inte uniform hjälper steget aggregering omvandla det till en enhetlig tidsserier. I exemplet används **AVG** men den speciella typ av aggregering beroende på Användarscenario. Dessutom, när en tidsserie har luckor som är större än fönstret aggregering, det blir inga händelser i tidsserien till utlösaren avvikelseidentifiering (enligt glidande fönstret semantik). Därför bryts antagandet om enhetlighet när nästa händelse tas emot. I så fall behöver vi ett sätt att fylla i luckorna i tidsserien. En möjlig metod är att ta den sista händelsen i alla hopp fönster som visas nedan.
-
-Som nämnts innan Hoppa inte över den `FillInMissingValuesStep` steg för tillfället. Om du utesluter steget resulterar i ett kompileringsfel.
 
     WITH AggregationStep AS 
     (

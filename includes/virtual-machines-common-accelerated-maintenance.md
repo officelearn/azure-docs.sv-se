@@ -24,7 +24,7 @@ De flesta omstarter tar cirka **30 minuter**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Stöder gästen OS behöver uppdateras? 
 
-Uppdateringen Azure-infrastrukturen adresserar säkerhetsrisk på nivån hypervisor och kräver inte en uppdatering för Windows eller Linux VM-avbildningar. Dock bör du fortsätta att tillämpa rekommenderade säkerhetsmetoder för VM-avbildningar som vanligt. Kontakta med leverantören av din operativsystem för uppdateringar och instruktioner, vid behov. Vägledning för Windows Server VM kunder nu har publicerats och är tillgänglig [här](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Uppdateringen Azure-infrastrukturen adresserar säkerhetsrisk på nivån hypervisor och kräver inte en uppdatering för Windows eller Linux VM-avbildningar. Dock bör du fortsätta att tillämpa rekommenderade säkerhetsmetoder för VM-avbildningar som vanligt. Kontakta med leverantören av din operativsystem för uppdateringar och instruktioner, vid behov. Vägledning för Windows Server VM kunder nu har publicerats och är tillgänglig [här](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Kommer det att påverka prestanda på grund av hur du löser den här uppdateringen?
 

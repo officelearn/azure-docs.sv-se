@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuera Azure-resurser till mer än en prenumeration eller resursgrupp
 
@@ -121,7 +121,7 @@ I följande exempel distribuerar två lagringskonton - en i resursgruppen som an
 
 Om du ställer in `resourceGroup` till namnet på en resursgrupp som inte finns misslyckas distributionen.
 
-Om du vill distribuera mallen exempel Använd en version av Azure PowerShell eller Azure CLI från maj 2017 eller senare.
+Om du vill distribuera mallen exempel använda Azure PowerShell 4.0.0 eller senare, eller Azure CLI 2.0.0 eller senare.
 
 ## <a name="use-the-resourcegroup-function"></a>Använd funktionen resourceGroup()
 

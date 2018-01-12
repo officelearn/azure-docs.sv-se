@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,12 +39,13 @@ Mer specifikt stöder den här MongoDB-anslutningen:
 - MongoDB **version 2.4, 2.6, 3.0 och 3.2**.
 - Kopiera data med hjälp av **grundläggande** eller **anonym** autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill kopiera data från en MongoDB-databas som inte är offentligt tillgänglig, måste du konfigurera en Self-hosted integrering Runtime. Se [Self-hosted integrering Runtime](create-self-hosted-integration-runtime.md) artikel mer information. Integration Runtime innehåller en inbyggd MongoDB-drivrutin, därför behöver du inte installera en drivrutin manuellt när du kopierar data från/till MongoDB.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till MongoDB-anslutningen.
 
@@ -177,12 +178,12 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | Binär |byte] |
-| Booleskt värde |Booleskt värde |
-| Date |Datum och tid |
+| Boolesk |Boolesk |
+| Date |DateTime |
 | NumberDouble |dubbla |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Objekt-ID |Sträng |
+| ObjectId |Sträng |
 | Sträng |Sträng |
 | UUID |GUID |
 | Objekt |Renormalized förenkla i kolumner med ”_” som kapslad avgränsare |

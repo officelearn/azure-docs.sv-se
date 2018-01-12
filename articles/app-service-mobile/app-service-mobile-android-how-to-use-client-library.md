@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: d992a3e29e3fc7b7186fd6ee533d0da8bebbd419
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f04f3fc7d2ff2e01baa78571b2ba267f8e4905c6
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Hur du använder Azure Mobile Apps-SDK för Android
 
@@ -821,7 +821,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 Ett online tabell kan du använda `.getTable()`.  För en offline-tabell, använder du `.getSyncTable()`:
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 De metoder som är tillgängliga för online-tabeller (inklusive filtrering, sortering, växling, infoga data, uppdatera data och ta bort data) fungerar lika bra på tabellerna online och offline.

@@ -4,7 +4,7 @@ description: "Beskriver hur du aktiverar en ny StorSimple-enhet, aktivera en enh
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Aktivera eller inaktivera enheten StorSimple 8000-serien
 
@@ -147,16 +147,16 @@ En aktiv virtuell StorSimple-enhet kan behöva stängas om den flyttas, tas bort
 * [Enhet med EBOD hölje](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Enhet med primär enhet<a name="8100a">
-Om du vill stänga av enheten på ett korrekt och kontrollerat sätt kan du göra det via den klassiska Azure-portalen eller via Windows PowerShell för StorSimple. 
+Om du vill stänga av enheten på ett korrekt och kontrollerat sätt kan du göra det via Azure-portalen eller via Windows PowerShell för StorSimple. 
 
 > [!IMPORTANT]
 > Stäng inte av en enhet som körs med hjälp av strömknappen på baksidan av enheten.
 > 
-> Kontrollera att alla enhetens komponenter är felfria innan du stänger av enheten. I den klassiska Azure-portalen går du till **enheter** > **Underhåll** > **maskinvarustatus**, och kontrollera att status för alla komponenter är grön. Detta gäller endast för ett felfritt system. Om systemet stängs ned till ersätter en felaktig komponent, du ser en misslyckad (röd) eller vara försämrad (gul) status för respektive komponent i den **maskinvarustatus**.
+> Kontrollera att alla enhetens komponenter är felfria innan du stänger av enheten. I Azure-portalen går du till **enheter** > **övervakaren** > **maskinvara hälsa**, och kontrollera att status för alla komponenter är grön. Detta gäller endast för ett felfritt system. Om systemet stängs ned till ersätter en felaktig komponent, du ser en misslyckad (röd) eller vara försämrad (gul) status för respektive komponent i den **maskinvarustatus**.
 > 
 > 
 
-När du har åtkomst till Windows PowerShell för StorSimple eller den klassiska Azure-portalen, följer du stegen i [stänga av en StorSimple-enhet](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+När du har åtkomst till Windows PowerShell för StorSimple eller Azure-portalen, följer du stegen i [stänga av en StorSimple-enhet](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Enhet med EBOD hölje<a name="8600a">
 > [!IMPORTANT]

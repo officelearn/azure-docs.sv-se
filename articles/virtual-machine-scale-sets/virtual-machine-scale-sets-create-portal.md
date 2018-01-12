@@ -1,5 +1,5 @@
 ---
-title: "Skapa en Linux skaluppsättningen för virtuell dator i Azure portal | Microsoft Docs"
+title: Skapa en Virtual Machine Scale Set i Azure portal | Microsoft Docs
 description: "Lär dig att snabbt skapa en virtuell dator skala i Azure-portalen"
 keywords: "Skaluppsättningar för den virtuella datorn"
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skapa en Virtual Machine Scale Set i Azure-portalen
-En skaluppsättning för virtuell dator kan du distribuera och hantera en uppsättning identiska, automatisk skalning virtuella datorer. Du kan skala antalet virtuella datorer i skaluppsättning manuellt eller definiera regler för att kunna Autoskala baserat på Resursanvändning t.ex CPU, minne begäran eller nätverkstrafik. I den här komma igång artikel skapar du en virtuell dator skaluppsättningen i Azure-portalen. Du kan också skapa en skala som anges med den [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) eller [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I den här komma igång artikel skapar du en virtuell dator skaluppsättningen i Azure-portalen. Du kan också skapa en skala som anges med den [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) eller [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -76,8 +76,8 @@ När det inte längre behövs, ta bort resursgruppen, skalan och alla relaterade
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här komma igång artikeln skapat du en grundläggande skaluppsättningen i Azure-portalen. För större skalbarhet och automatisering expandera din skala med följande artiklar:
+I den här komma igång artikeln skapat du en grundläggande skaluppsättningen i Azure-portalen. Du kan få bättre skalbarhet och automatisering genom att utöka skalningsuppsättningarna med hjälp av följande instruktionsartiklar:
 
-- [Distribuera programmet på virtuella datorer](virtual-machine-scale-sets-deploy-app.md)
-- Skala automatiskt med [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), eller [Azure-portalen](virtual-machine-scale-sets-autoscale-portal.md)
-- [Använda automatiska uppgraderingar av Operativsystemet för scale set VM-instanser](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Distribuera din app på VM-skalningsuppsättningar](virtual-machine-scale-sets-deploy-app.md)
+- Skala automatiskt med [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) eller [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Använda automatiska uppgraderingar av operativsystemet för VM-instanser i skalningsuppsättningar](virtual-machine-scale-sets-automatic-upgrade.md)

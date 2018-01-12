@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 2bfc59931bbbb08ad1cd0328cf624b7350f92ec0
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon enkla lagringstjänsten med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Du kan kopiera data från alla datalager stöds källa till Azure Data Lake Stor
 
 Mer specifikt stöder den här Amazon S3-anslutningen kopierar filer som-är eller parsning filer med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
@@ -42,7 +42,8 @@ Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följa
 Mer information om en fullständig lista över Amazon S3 behörigheter finns [att ange behörigheter i en princip](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter för Amazon S3.
 
@@ -95,7 +96,7 @@ Ange typegenskapen för dataset för att kopiera data från Amazon S3, **AmazonS
 | bucketName | S3-Bucketnamn. |Ja |
 | key | S3 objekt nyckeln. Gäller bara när prefix har inte angetts. |Nej |
 | prefix | Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller bara när nyckeln har inte angetts. |Nej |
-| Version | Versionen av objektet S3 om S3 versionshantering är aktiverad. |Nej |
+| version | Versionen av objektet S3 om S3 versionshantering är aktiverad. |Nej |
 | Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 

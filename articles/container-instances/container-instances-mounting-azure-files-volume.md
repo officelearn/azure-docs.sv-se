@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Montera en filresurs som Azure med Azure Container instanser
 
@@ -92,6 +92,46 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 ```
 
 Du kan använda den [Azure-portalen] [ portal] eller ett verktyg som den [Microsoft Azure Lagringsutforskaren] [ storage-explorer] att hämta och granska filen skrivs till filresursen.
+
+## <a name="mount-multiple-volumes"></a>Montera flera volymer
+
+Om du vill montera flera volymer i en behållare instans, måste du distribuera med hjälp av en [Azure Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
+
+Först innehåller dela information och definiera volymer genom att fylla i `volumes` matris i den `properties` avsnitt i mallen. Till exempel om du har skapat två Azure filresurser med namnet *share1* och *share2* i lagringskonto *Mittlagringskonto*, `volumes` matris visas liknar följande:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+Därefter för varje behållare i behållargruppen där du vill montera volymerna fylla den `volumeMounts` matris i den `properties` avsnitt i definition av behållare. Till exempel detta monterar två volymer *myvolume1* och *myvolume2*, tidigare definierad:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Ett exempel på distribution av behållare-instans med en Azure Resource Manager-mall finns i [distribuera flera behållare grupper i Azure Behållarinstanser](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

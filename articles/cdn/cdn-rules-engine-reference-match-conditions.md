@@ -1,6 +1,6 @@
 ---
-title: "Matchar villkoren för innehållsleveransnätverk regelmotor | Microsoft Docs"
-description: "I referensdokumentationen för Azure Content Delivery Network regler motorn matchar villkoren och funktioner."
+title: "Matchar villkoren för Azure CDN regelmotor | Microsoft Docs"
+description: "I referensdokumentationen för Azure Content Delivery Network regler motorn matchar villkoren."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Matchar villkoren för innehållsleveransnätverk regelmotor
-Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure innehållsleveransnätverk [regelmotor](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Matchar villkoren för Azure CDN regelmotor
+Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchar villkoren för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
 
 Den andra delen av en regel är matchar villkoret. En matchar villkoret identifierar vissa typer av begäranden som en uppsättning funktioner kommer att utföras.
 
@@ -106,7 +106,7 @@ URL: en fråga med jokertecken | Jämför det angivna värdet mot frågestränge
 
 Alltid matchar villkoret gäller en standarduppsättning med funktioner för alla begäranden.
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,7 +141,7 @@ Viktig information:
  - Innehålls åtkomstpunkt identifierar den tjänst som ska användas för det begärda innehållet.
  - Använd ett uttryck och om för att kombinera vissa villkor matchar inte. Kombinera ett villkor för matchning av CDN ursprung med en kund ursprung matchar villkoret skulle till exempel skapa ett matchningsmönster som inte kunde matchas. Därför kan inte två CDN ursprung matchar villkor kombineras via ett uttryck och om.
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -164,7 +164,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Viktig information:
   - En kant CNAME-konfiguration
 - Använd ett uttryck och om för att kombinera vissa villkor matchar inte. Till exempel skapar kombinera en kund ursprung matchar villkoret med ett villkor för matchning av CDN ursprung ett matchningsmönster som inte kunde matchas. Därför kan inte två kunden ursprung matchar villkor kombineras via ett uttryck och om.
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Utgivningsdatum | % {wurfl_cap_release_date} | En sträng som anger år och mån
 Lösning höjd | % {wurfl_cap_resolution_height} | Ett heltal som anger enhetens höjd i bildpunkter. | 768
 Lösning bredd | % {wurfl_cap_resolution_width} | Ett heltal som anger enhetens bredd i bildpunkter. | 1024
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell 
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Viktig information:
   - Ignorera ursprung No-Cache
   - Internt Max-inaktuell
 
-[Överst på sidan](#azure-cdn-rules-engine-match-conditions)
+[Överst på sidan](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

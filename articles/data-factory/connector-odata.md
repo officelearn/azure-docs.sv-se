@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Kopiera data från OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Mer specifikt stöder denna OData-koppling:
 - Kopiera data med hjälp av följande autentiseringar: **anonym**, **grundläggande**, och **Windows**.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till OData-anslutningen.
 
@@ -50,7 +51,7 @@ Följande egenskaper stöds för länkad OData-tjänst:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **OData** |Ja |
-| URL: en | Rot-URL för OData-tjänsten. |Ja |
+| url | Rot-URL för OData-tjänsten. |Ja |
 | AuthenticationType | Typ av autentisering som används för att ansluta till OData-källan.<br/>Tillåtna värden är: **anonym**, **grundläggande**, och **Windows**. Observera OAuth inte stöds. | Ja |
 | Användarnamn | Ange användarnamnet om du använder grundläggande eller Windows-autentisering. | Nej |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som SecureString. | Nej |
@@ -132,7 +133,7 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från OD
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **ODataResource** | Ja |
-| Sökväg | Sökvägen till OData-resurs. | Nej |
+| sökväg | Sökvägen till OData-resurs. | Nej |
 
 **Exempel**
 
@@ -208,10 +209,10 @@ När du kopierar data från OData, används följande mappningar från OData-dat
 | Edm.Binary | byte] |
 | Edm.Boolean | bool |
 | Edm.Byte | byte] |
-| Edm.DateTime | Datum och tid |
+| Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | dubbla |
-| Edm.Single | Enskild |
+| Edm.Single | Ogift |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Mer specifikt stöder den här SAP Business Warehouse-anslutningen:
 - Kopiera data från **InfoCubes och QueryCubes** (inklusive BEx frågar) med hjälp av MDX-frågor.
 - Kopierar data med hjälp av grundläggande autentisering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda denna SAP Business Warehouse-anslutning måste du:
 
@@ -50,7 +50,8 @@ Om du vill använda denna SAP Business Warehouse-anslutning måste du:
 > Placera DLL: er som extraheras från NetWeaver RFC SDK i mappen system32.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till SAP Business Warehouse-anslutningen.
 
@@ -166,7 +167,7 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 
 | Datatypen för SAP BW | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| ACCP | int |
+| ACCP | Int |
 | CHAR | Sträng |
 | CLNT | Sträng |
 | AKTUELLT DATUM | Decimal |
@@ -175,7 +176,7 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 | FLTP | dubbla |
 | INT1 | Mottagna byte |
 | INT2 | Int16 |
-| INT4 | int |
+| INT4 | Int |
 | LANG | Sträng |
 | LCHR | Sträng |
 | LRAW | byte] |

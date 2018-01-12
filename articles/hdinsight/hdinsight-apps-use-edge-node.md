@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Använda tom edge noder på Hadoop-kluster i HDInsight
 
@@ -64,7 +64,7 @@ Edge virtuella nodstorlek måste uppfylla HDInsight-kluster worker nod vm storle
 När du har skapat en kantnod kan du ansluta till kantnoden med SSH och kör klientverktyg för att komma åt Hadoop-kluster i HDInsight.
 
 > [!WARNING] 
-> Använda en tom kantnod med HDInsight är för närvarande under förhandsgranskning. Anpassade komponenter som är installerade på kantnoden få kommersiellt rimliga support från Microsoft. Detta kan resultera i att lösa eventuella problem. Du kan vara enligt eller community-resurser för ytterligare hjälp. Följande är några av de mest aktiva platser för att få hjälp i communityn:
+> Anpassade komponenter som är installerade på kantnoden få kommersiellt rimliga support från Microsoft. Detta kan resultera i att lösa eventuella problem. Du kan vara enligt eller community-resurser för ytterligare hjälp. Följande är några av de mest aktiva platser för att få hjälp i communityn:
 >
 > * [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://StackOverflow.com](http://stackoverflow.com).

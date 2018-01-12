@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 7e489526fd1b6a7d38172d147df1f30d74119e95
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Klassificera Iris del 2: Skapa en modell
 Azure Machine Learning (förhandsversion) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -345,7 +345,8 @@ Om du vill köra skriptet i en Docker-behållare på en fjärrdator med Linux m�
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Köra skript i ett HDInsight-kluster
 Du kan också köra skriptet i ett faktiskt HDInsight Spark-kluster. Lär dig [att skapa HDInsight Spark-kluster som ska användas i Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
->[Obs!] HDInsight-klustret måste använda Azure Blob som primär lagring. Användning av Azure Data Lake-lagring stöds inte ännu.
+>[!NOTE] 
+>HDInsight-klustret måste använda Azure Blob som primär lagring. Användning av Azure Data Lake-lagring stöds inte ännu.
 
 1. Om du har tillgång till ett Spark for Azure HDInsight-kluster kan du generera ett kommando för konfiguration av HDInsight-körningen på det sätt som visas här. Ange HDInsight-klusternamnet samt ditt användarnamn och lösenord för HDInsight som parametrar. Ange följande kommando:
 

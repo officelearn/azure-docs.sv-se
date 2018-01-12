@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 98f160a17d459bd8bfcc299c3a10d3ec4f5f6106
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c92b4ce8827087e5e978d7fb43165ba93e1956d9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-beta"></a>Kopiera data från Jira med hjälp av Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Jira connector.
 
@@ -48,7 +48,7 @@ Följande egenskaper stöds för Jira länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Jira** | Ja |
-| värden | IP-adressen eller värdnamnet namnet på tjänsten Jira. (till exempel jira.example.com)  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på tjänsten Jira. (till exempel jira.example.com)  | Ja |
 | port | TCP-porten som används av Jira-server för att lyssna efter anslutningar. Standardvärdet är 443 om ansluter via HTTPS eller 8080 om ansluter via HTTP.  | Nej |
 | användarnamn | Det användarnamn som du använder för att komma åt Jira Service.  | Ja |
 | lösenord | Det lösenord som motsvarar det användarnamn som du angav i fältet för användarnamn. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Ja |

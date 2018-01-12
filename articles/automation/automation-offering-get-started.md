@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Komma igång med Azure Automation
 
@@ -41,7 +41,7 @@ Runbooks som körs på en HRW körs i kontexten för det lokala systemkontot på
 
 DSC-konfigurationer som lagras i Azure Automation kan tillämpas direkt på virtuella datorer i Azure. Andra fysiska och virtuella datorer kan begära konfigurationer från Azure Automation DSC-hämtningsservern.  När det gäller hantering av konfigurationer för dina lokala fysiska eller virtuella Windows- och Linux-system behöver du inte distribuera någon infrastruktur för att kunna använda Automation DSC-hämtningsservern, endast utgående Internet-åtkomst från varje system som ska hanteras av Automation DSC med kommunikation via port 443 (TCP) till OMS-tjänsten.   
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="automation-dsc"></a>Automation DSC
 Azure Automation DSC kan användas för att hantera olika datorer:
@@ -87,10 +87,6 @@ Alla automatiseringsaktiviteter som du utför mot resurser med hjälp av Azure-c
 * **Runbooks** – är en uppsättning uppgifter som kör automatiserade processer i Azure Automation baserat på Windows PowerShell.    
 
 Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Skapa Automation-konton i olika regioner om du har principer som kräver att data och resurser är isolerade i en specifik region.
-
-> [!NOTE]
-> Automation-konton, och de resurser som de innehåller, som skapats på Azure-portalen kan inte nås på den klassiska Azure-portalen. Om du vill hantera dessa konton eller deras resurser med Windows PowerShell måste du använda Azure Resource Manager-modulerna.
-> 
 
 När du skapar ett Automation-konto på Azure Portal skapar du automatiskt två autentiseringsenheter:
 

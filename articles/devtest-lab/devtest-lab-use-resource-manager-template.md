@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: v-craic
-ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 97822d5fb11c5c106c67aaaab0b8972e1ec8deee
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Använd Azure Resource Manager-mall för en virtuell dator
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Skapa virtuella datorer med en Azure Resource Manager-mall 
 
 När du skapar en virtuell dator (VM) i DevTest Labs via den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), du kan visa Azure Resource Manager-mallen innan du sparar den virtuella datorn. Mallen kan användas som grund för att skapa mer labb virtuella datorer med samma inställningar.
 
-Den här artikeln beskriver hur du visar Resource Manager-mallen när du skapar en virtuell dator och hur du distribuerar den senare om du vill automatisera genereringen av samma virtuella dator.
+Den här artikeln beskriver Multi-VM kontra enskild VM Resource Manager-mallar och visar hur du visa och spara en mall när du skapar en virtuell dator.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>Flera Virtuella kontra enskild VM Resource Manager-mallar
-Det finns två sätt att skapa virtuella datorer i DevTest Labs med hjälp av en Resource Manager-mall: etablera Microsoft.DevTestLab/labs/virtualmachines resurs eller etablera Microsoft.Commpute/virtualmachines resursen. Varje används i olika scenarier och kräver olika behörigheter.
+Det finns två sätt att skapa virtuella datorer i DevTest Labs med hjälp av en Resource Manager-mall: etablera Microsoft.DevTestLab/labs/virtualmachines resurs eller etablera Microsoft.Commpute/virtualmachines resursen. Var används i olika scenarier och kräver olika behörigheter.
 
 - Resource Manager-mallar som använder en resurstyp i Microsoft.DevTestLab/labs/virtualmachines (som deklarerats i egenskapen ”resurser” i mallen) kan etablera enskilda lab virtuella datorer. Varje virtuell dator visas sedan som ett enstaka objekt i listan DevTest Labs virtuella datorer:
 
@@ -53,18 +53,15 @@ Resten av den här artikeln beskrivs Resource Manager-mallar som använder Miros
    ![Visa knappen för ARM-mall](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Kopiera och spara Resource Manager-mall att använda senare för att skapa en annan virtuell dator.
 
-   ![Resource manager-mall för att spara för senare användning](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Resource Manager-mall för att spara för senare användning](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 När du har sparat Resource Manager-mall, måste du uppdatera avsnittet parametrar i mallen innan du kan använda den. Du kan skapa en parameter.json som anpassar bara parametrar, utanför den faktiska Resource Manager-mallen. 
 
-![Anpassa parametrar med hjälp av en JSON-fil](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Anpassa parametrar med en JSON-fil](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Distribuera en Resource Manager-mall för att skapa en virtuell dator
-När du har sparat en Resource Manager-mall och anpassas efter dina behov, kan du använda den till att automatisera genereringen av en virtuell dator. [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) beskriver hur du använder Azure PowerShell med Resource Manager-mallar för att distribuera resurserna till Azure. [Distribuera resurser med Resource Manager-mallar och Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) beskriver hur du använder Azure CLI med Resource Manager-mallar för att distribuera resurserna till Azure.
-
-> [!NOTE]
-> Endast en användare med lab ägare behörighet kan skapa virtuella datorer från en Resource Manager-mall med hjälp av Azure PowerShell. Om du vill automatisera genereringen av en virtuell dator med en Resource Manager-mall och du endast har behörighet, kan du använda den [ **az lab vm skapa** i CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+Resource Manager-mallen är nu redo att använda att [skapa en virtuell dator](devtest-lab-create-environment-from-arm.md).
 
 ### <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [skapa flera Virtuella miljöer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
-* Utforska mer Snabbkurs Resource Manager-mallar för DevTest Labs automation från den [offentliga DevTest Labs GitHub-repo-](https://github.com/Azure/azure-quickstart-templates).
+* [Distribuera en Resource Manager-mall för att skapa en virtuell dator](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
+* Utforska mer Resource Manager-snabbstartsmallar för DevTest Labs automation från den [offentliga DevTest Labs GitHub-repo-](https://github.com/Azure/azure-quickstart-templates).

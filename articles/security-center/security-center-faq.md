@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Det här avsnittet får du svar frågor om Azure Security Center, en tjänst som hjälper dig att förebygga, upptäcka och åtgärda hot med bättre överblick och kontroll över säkerheten för din Microsoft Azure-resurser.
@@ -61,6 +61,10 @@ Du kan aktivera datainsamling för din Azure-prenumeration i säkerhetsprincipen
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Vad händer när datainsamling har aktiverats?
 När datainsamling har aktiverats, Microsoft Monitoring Agent etableras automatiskt på alla befintliga och nya kompatibla virtuella datorer som distribueras i prenumerationen.
+
+Agenten kan processen att skapa händelsen 4688 och *CommandLine* fältet inuti 4688-händelse. Nya processer som skapats på den virtuella datorn registreras av händelseloggen och övervakas av Security Center identifieringstjänster. Mer information om de information som registrerats för varje ny process finns [beskrivningsfält i 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agenten samlar in 4688 händelser som skapats på den virtuella datorn också och lagrar dem i sökningen.
+
+När Security Center upptäcker misstänkt aktivitet på den virtuella datorn, meddelas kunden via e-post om [säkerhet kontaktinformation](security-center-provide-security-contact-details.md) har angetts. En avisering visas i instrumentpanelen för Security Center säkerhet aviseringar.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent påverka prestandan för Mina servrar?
 Agenten förbrukar en nominell mängd systemresurser och bör har liten inverkan på prestanda. Mer information om inverkan på prestanda och agent och tillägg finns i [planerings-och operations](security-center-planning-and-operations-guide.md#data-collection-and-storage).

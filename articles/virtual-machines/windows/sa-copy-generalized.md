@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure VM
 
@@ -27,7 +28,7 @@ Den här artikeln täcker storage-konton. Vi rekommenderar att du använder hant
 
 Den här artikeln visar hur du använder Azure PowerShell för att skapa en avbildning av en generaliserad virtuell Azure-dator med hjälp av ett lagringskonto. Du kan sedan använda avbildningen för att skapa en annan virtuell dator. Bilden innehåller operativsystemdisken och datadiskar som är kopplade till den virtuella datorn. Bilden innehåller inga virtuella nätverksresurser, så du måste ange dessa resurser när du skapar den nya virtuella datorn. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver ha Azure PowerShell version 1.0.x eller nyare. Om du inte redan har installerat PowerShell, läsa [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för installationssteg.
 
 ## <a name="generalize-the-vm"></a>Generalisera den virtuella datorn 

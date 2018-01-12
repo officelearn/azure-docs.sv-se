@@ -4,7 +4,7 @@ description: "Konfigurera MPIO på StorSimple som är ansluten till en Linux-vä
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvägar I/O (MPIO) på värdservern Centos 6.6. Värdservern är ansluten till din Microsoft Azure StorSimple-enhet för hög tillgänglighet via iSCSI-initierare. Det beskrivs i detalj automatisk identifiering av multipath enheter och de specifika inställningarna endast för StorSimple-volymer.
@@ -26,9 +26,8 @@ Den här artikeln beskrivs de steg som krävs för att konfigurera flera sökvä
 Den här proceduren gäller för alla modeller av StorSimple 8000-serien enheter.
 
 > [!NOTE]
-> Den här proceduren kan inte användas för en virtuell StorSimple-enhet. Mer information finns i så här konfigurerar du värdservrar för din virtuella enhet.
-> 
-> 
+> Den här proceduren kan inte användas för en StorSimple-enhet för molnet. Mer information finns i så här konfigurerar du värdservrar för din enhet i molnet.
+
 
 ## <a name="about-multipathing"></a>Om flera sökvägar
 MPIO-funktionen kan du konfigurera flera i/o-sökvägar mellan en värdserver och en lagringsenhet. Dessa i/o-sökvägar är fysiska SAN-anslutningar som kan innehålla olika kablar, växlar, nätverksgränssnitt och domänkontrollanter. Multipathing aggregerar i/o-sökvägar, om du vill konfigurera en ny enhet som är associerad med alla sammanställda sökvägar.
@@ -67,7 +66,7 @@ En StorSimple-enhet som är ansluten till en Linux-värd kan konfigureras för h
 
 Följande procedur beskriver hur du konfigurerar MPIO när en StorSimple-enhet med två nätverksgränssnitt som är ansluten till en värd med två nätverksgränssnitt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här avsnittet beskrivs konfigurationskraven för CentOS server och din StorSimple-enhet.
 
 ### <a name="on-centos-host"></a>På CentOS värden
@@ -298,7 +297,7 @@ Belastningsutjämning algoritmen använder alla tillgängliga multipaths till de
 
     Om du ser en enda värdgränssnitt och här två sökvägar, måste du aktivera båda gränssnitten på iSCSI-värden. Du kan följa den [detaljerade instruktioner i dokumentationen för Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. En volym är exponerad för CentOS servern från StorSimple-enhet. Mer information finns i [steg 6: skapa en volym](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via den klassiska Azure-portalen på StorSimple-enheten.
+2. En volym är exponerad för CentOS servern från StorSimple-enhet. Mer information finns i [steg 6: skapa en volym](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal på StorSimple-enheten.
 
 3. Kontrollera de tillgängliga sökvägarna. Ange:
 
@@ -341,7 +340,7 @@ A. Om du har gjort ändringar i `multipath.conf` fil, du måste starta om tjäns
 
 FRÅGOR. Jag har aktiverat två nätverksgränssnitt på StorSimple-enheten och två nätverkskort på värden. När jag listar de tillgängliga sökvägarna visas bara två sökvägar. Det förväntas finns fyra tillgängliga sökvägar.
 
-A. Se till att de två sökvägarna är i samma undernät och dirigerbara. Om nätverksgränssnitten som finns på olika VLAN och inte dirigeras visas bara två sökvägar. Ett sätt att kontrollera detta är att se till att du kan nå båda värden gränssnitten från ett nätverksgränssnitt på StorSimple-enheten. Du behöver [kontaktar Microsoft Support](storsimple-contact-microsoft-support.md) som den här kontrollen kan bara göras via en supportsession.
+A. Se till att de två sökvägarna är i samma undernät och dirigerbara. Om nätverksgränssnitten som finns på olika VLAN och inte dirigeras visas bara två sökvägar. Ett sätt att kontrollera detta är att se till att du kan nå båda värden gränssnitten från ett nätverksgränssnitt på StorSimple-enheten. Du behöver [kontaktar Microsoft Support](storsimple-8000-contact-microsoft-support.md) som den här kontrollen kan bara göras via en supportsession.
 
 FRÅGOR. När jag Listar tillgängliga sökvägar syns inte några utdata.
 

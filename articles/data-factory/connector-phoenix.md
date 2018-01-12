@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2f8c3ff941a7d9bf2442f3bff166f07a153ae607
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 746519d3a450aca6efdf20c0ae57602d480bf86e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa en pipeline med kopieringsaktiviteten använder .NET SDK, Python SDK, Azure PowerShell, REST-API eller Azure Resource Manager-mall. Se [kopiera aktivitet kursen](quickstart-create-data-factory-dot-net.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Phoenix connector.
 
@@ -45,7 +45,7 @@ Följande egenskaper stöds för Phoenix länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Phoenix** | Ja |
-| värden | IP-adressen eller värdnamnet namnet på Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
 | port | TCP-porten som Phoenix-servern använder för att lyssna efter anslutningar. Standardvärdet är 8765.  | Nej |
 | httpPath | Partiell URL som motsvarar Phoenix-server. (det vill säga /gateway/sandbox/phoenix/version). Standardvärdet är `hbasephoenix` om du använder WindowsAzureHDInsightService.  | Nej |
 | AuthenticationType | Den autentiseringsmetod som används för att ansluta till servern Phoenix. <br/>Tillåtna värden är: **anonym**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |

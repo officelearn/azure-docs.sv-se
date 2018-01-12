@@ -60,7 +60,7 @@ Här följer några av funktionerna i Premium-lagring:
     Azure använder ditt lagringskonto som en behållare för ohanterade diskarna. När du skapar Azure DS-serien, DSv2-serien GS-serien, eller Fs-serien virtuell dator med ohanterad diskar, och du väljer ett premiumlagringskonto, operativsystemet och datadiskar lagras i detta lagringskonto.
 
 ## <a name="supported-vms"></a>Virtuella datorer som stöds
-Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien och Fs-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
+Premium-lagring stöder DS-serien, DSv2-serien GS-serien, Ls-serien, Fs-serien och B-serien virtuella datorer. Du kan använda standard och premium-lagringsdiskar med dessa VM-typer. Du kan inte använda premium lagringsdiskar med VM-serien som inte är Premium Storage-kompatibel.
 
 Information om VM-typer och storlekar i Azure för Windows finns [Windows VM-storlekar](../articles/virtual-machines/windows/sizes.md). Information om VM-typer och storlekar i Azure för Linux finns [Linux VM-storlekar](../articles/virtual-machines/linux/sizes.md).
 

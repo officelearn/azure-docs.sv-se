@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Kompletterande lektion – Ojämna hierarkier
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 I den här kompletterande lektionen löser du ett vanligt problem vid pivotering i hierarkier som innehåller tomma värden (medlemmar) på olika nivåer. Det kan till exempel förekomma i en organisation där en chef på hög nivå har både avdelningschefer och personer som inte är chefer som direkt underställda. Eller i geografiska hierarkier som består av land-region-ort, där vissa orter saknar en överordnad delstat eller provins, till exempel Washington D.C. och Vatikanstaten. När en hierarki har tomma medlemmar har den ofta olika, eller ojämna, underordnade nivåer.
 
@@ -33,7 +31,7 @@ Tabellmodeller på kompatibilitetsnivån 1400 har en extra **Dölj medlemmar**-e
   
 Uppskattad tidsåtgång för den här lektionen: **20 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Den här kompletterande lektionen ingår i en självstudiekurs om tabellmodeller. Innan du utför uppgifterna i den här kompletterande lektionen måste du ha slutfört alla föregående lektioner eller ha ett slutfört Adventure Works Internet Sales-exempelmodellprojekt. 
 
 Om du har skapat projektet AW Internet Sales som en del i självstudiekursen innehåller inte din modell några data eller ojämna hierarkier ännu. För att slutföra den här kompletterande lektionen måste du först skapa problemet genom att lägga till ytterligare tabeller, skapa relationer, beräknade kolumner, ett mått och en ny organisationshierarki. Det tar cirka 15 minuter. Sedan tar det bara några minuter att lösa problemet.  

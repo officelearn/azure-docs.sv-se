@@ -14,17 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Komma igång med Notification Hubs för Xamarin.Android-appar
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Översikt
-
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin.Android-app. Du skapar en tom Xamarin.Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM). När du är klar kan du använda meddelandehubben för att sända push-meddelanden till alla enheter som kör appen. Den färdiga koden finns tillgänglig i exemplet [NotificationHubs-app][GitHub].
 
 I den här självstudiekursen visas ett enkelt scenario för sändning med Notification Hubs.
@@ -34,7 +33,7 @@ I den här självstudiekursen visas ett enkelt scenario för sändning med Notif
 
 Den färdiga koden för den här självstudiekursen hittar du på GitHub [här][GitHub].
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För den här kursen behöver du följande:
 
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
@@ -305,7 +304,7 @@ I det här enkla exemplet skickade du meddelanden till alla dina Android-enheter
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio med Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio med Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio för Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [Azure Portal]: https://portal.azure.com/

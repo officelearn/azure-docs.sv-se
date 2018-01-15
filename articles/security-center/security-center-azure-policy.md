@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrera Security Center-säkerhetsprinciper med Azure Policy
-Den här artikeln hjälper dig att konfigurera Azure Security Center-säkerhetsprinciper som tillhandahålls av Azure Policy. 
+Den här artikeln hjälper dig att konfigurera Azure Security Center-säkerhetsprinciper som tillhandahålls av Azure Policy.
 
 ## <a name="how-security-policies-work"></a>Hur fungerar säkerhetsprinciper?
 Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. Du kan redigera principer i Security Center eller använda [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) för att göra följande:
@@ -51,7 +51,7 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 5. Välj **Ta bort** under **Principer och parametrar** bredvid definitionen som du vill ta bort för att ta bort en principdefinition.
 
 6. Klicka på **Spara**.  
-    Fönstret **Available Definitions** (Tillgängliga definitioner) öppnas och visar standardprincipen som har tilldelats till Security Center via Azure Policy. 
+    Fönstret **Available Definitions** (Tillgängliga definitioner) öppnas och visar standardprincipen som har tilldelats till Security Center via Azure Policy.
 
 7. (Valfritt) I fönstret **Available Definitions** (Tillgängliga definitioner) gör du något av följande:
 
@@ -68,12 +68,12 @@ Du kan redigera standardsäkerhetsprincipen för var och en av dina Azure-prenum
 
 ## <a name="available-security-policy-definitions"></a>Tillgängliga säkerhetsprincipdefinitioner
 
-Använd följande tabell som referens för att förstå de principdefinitioner som finns tillgängliga i standard-säkerhetsprincipen: 
+Använd följande tabell som referens för att förstå de principdefinitioner som finns tillgängliga i standard-säkerhetsprincipen:
 
 | Princip | Vad den aktiverade principen gör |
 | --- | --- |
 | Systemuppdateringar |Hämtar en daglig lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services. Den hämtade listan beror på vilken tjänst som har konfigurerats för de virtuella datorerna och den rekommenderar att saknade uppdateringar tillämpas. I Linux-system använder principen pakethanteringssystemet med distribution för att se vilka paket som har tillgängliga uppdateringar. Den söker också efter säkerhetsuppdateringar och viktiga uppdateringar från virtuella datorer i [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Sårbarheter i operativsystem |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
+| Säkerhetskonfigurationer |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
 | Slutpunktsskydd |Rekommendationer om att slutpunktsskydd ska installeras på alla virtuella datorer (VM) med Windows så att virus, spionprogram och annan skadlig programvara kan identifieras och tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
 | Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |

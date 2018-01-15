@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Använda länkade mallar när du distribuerar Azure-resurser
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använder länkade och kapslade mallar när du distribuerar Azure-resurser
 
-För att distribuera lösningen måste använda du en mall eller en Huvudmall med flera länkade mallar. För små till medelstora lösningar är en mall lättare att förstå och hantera. Du kan se alla resurser och värden i en enda fil. För avancerade scenarier länkade mallar kan du bryta ned lösningen till riktade komponenter och återanvända mallar.
+Om du vill distribuera lösningar kan du använda en mall eller en Huvudmall med flera relaterade mallar. Relaterade mallen kan vara en separat fil som är länkad till från den huvudsakliga mallen, eller en mall som är kapslad i den huvudsakliga mallen.
+
+För små till medelstora lösningar är en mall lättare att förstå och hantera. Du kan se alla resurser och värden i en enda fil. För avancerade scenarier länkade mallar kan du bryta ned lösningen till riktade komponenter och återanvända mallar.
 
 När använder länkad mall, skapar du en Huvudmall som tar emot parametervärden under distributionen. Den huvudsakliga mallen innehåller alla länkade mallar och skickar värden till dessa mallar efter behov.
 
 ![länkade mallar](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Länka till en mall
+## <a name="link-or-nest-a-template"></a>Länka eller kapsla en mall
 
 Om du vill länka till en annan mall, lägger du till en **distributioner** resurs den huvudsakliga mallen.
 
@@ -40,17 +42,17 @@ Om du vill länka till en annan mall, lägger du till en **distributioner** resu
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-De egenskaper som du anger för resursen distribution variera beroende på om du länkar till en extern mall eller bädda in en mall för infogad i mallen huvudsakliga.
+De egenskaper som du anger för resursen distribution variera beroende på om du länkar till en extern mall eller kapsla en infogad mall i huvudsakliga mallen.
 
-### <a name="inline-template"></a>Infogade mall
+### <a name="nested-template"></a>Kapslad mall
 
-Om du vill bädda in länkade mallen använder den **mallen** egenskapen och inkludera mallen.
+Om du vill kapsla mallen i huvudsakliga mallen använder den **mallen** egenskap och ange mallens syntax.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Om du vill bädda in länkade mallen använder den **mallen** egenskapen och ink
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Om du vill bädda in länkade mallen använder den **mallen** egenskapen och ink
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Du kan inte använda parametrar och variabler som definieras i den kapslade mallen för kapslade mallar. Du kan använda parametrar och variabler från den huvudsakliga mallen. I föregående exempel `[variables('storageName')]` hämtar ett värde från den huvudsakliga mallen, inte den kapslade mallen. Den här begränsningen gäller inte för externa mallar.
 
 ### <a name="external-template-and-external-parameters"></a>Externa mall och externa parametrar
 
@@ -176,7 +177,7 @@ Följande exempel visar hur du refererar till en länkad mall och hämta ett utd
 }
 ```
 
-Den överordnade mallen distribuerar mallen länkade och hämtar värdet som returneras. Observera att den refererar till resursen distribution av namn och namnet på egenskapen som returnerades av länkade mallen används.
+Den huvudsakliga mallen distribuerar mallen länkade och hämtar värdet som returneras. Observera att den refererar till resursen distribution av namn och namnet på egenskapen som returnerades av länkade mallen används.
 
 ```json
 {
@@ -309,9 +310,9 @@ Om du vill använda offentliga IP-adress från den föregående mallen när du d
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Länkade mallar i distributionshistoriken
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Länkade och kapslade mallar i distributionshistoriken
 
-Hanteraren för filserverresurser bearbetar alla länkade mallar som en separat distribution i distributionshistoriken. Därför visas en överordnad mapp med tre länkade mallar i distributionshistoriken som:
+Hanteraren för filserverresurser bearbetar varje mall som en separat distribution i distributionshistoriken. Därför visas en Huvudmall med tre länkade eller kapslade mallar i distributionshistoriken som:
 
 ![Distributionshistorik](./media/resource-group-linked-templates/deployment-history.png)
 

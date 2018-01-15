@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure tid serien Insights?
 
 Tid serien insikter är utformat för att lagra, visualisera och fråga stora mängder tid serie data, till exempel som genererats av IoT-enheter.  Om du vill lagra, hantera, fråga och visualisera tid series-data i molnet, sannolikt tid serien insikter rätt för dig.  
 
-Om du skapar ett program för internt bruk eller för externa kunder att använda, kan tid serien insikter användas som en serverdel för indexering, lagring och aggregering tid series-data.  Du kan skapa en anpassad visualisering och användarupplevelse längst upp.  Tid serien insikter exponerar REST frågan API: er för att aktivera det här scenariot.  
+Tid serien insikter har fyra viktiga jobb:
+
+- Först, den är helt integrerade med molnet gateways som Azure IoT Hub och Händelsehubbar i Azure. Enkelt ansluter till dessa händelsekällor och Parsar JSON från meddelanden och strukturer som innehåller data i ren rader och kolumner. Den ansluter till metadata med telemetri och indexerar dina data i en kolumn store.
+- Tid serien insikter hanterar andra, lagring av dina data. För att säkerställa att data alltid är lätt tillgängliga, lagras data i minnet och SSDS i upp till 400 dagar. Du kan interaktivt fråga miljarder händelser i sekunder – på begäran.
+- Det tredje ger tid serien insikter out box visualiseringen via TSD explorer.  
+- Fjärde, tid serien insikter får du en fråga, både i TSD explorer och genom att använda API: er som är enkel att integrera för inbäddning tid series-data i anpassade program.  
+
+Om du utvecklar ett program för internt bruk eller för externa kunder att använda, kan tid serien insikter användas som en serverdel för indexering, lagring och aggregering tid series-data. Du kan skapa en anpassad visualisering och användarupplevelse längst upp.  Tid serien insikter visar frågan API: er för att aktivera det här scenariot.  
 
 Om du är osäker på om dina data är tidsserier är här vad du bör känna till.  Serien tidsdata representerar hur en process eller ändras med tiden.  Det är unikt i att den har en tidsstämpel och tid är mest användbar som en axel.  Serien tidsdata normalt anländer i tid ordning och brukar betraktas som en insert i stället för en uppdatering till din databas.  Eftersom tiden serien Insights samlar in och lagrar varje ny händelse som en rad, mäts ändras över tiden, vilket gör det lättare att söka bakåt och för att förutsäga framtida ändring.  I stora volymer, kan det vara svårt att lagra, indexering, frågor, analysera och visualisera tid series-data.  
 

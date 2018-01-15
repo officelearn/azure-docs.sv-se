@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Verkligt scenario med förutsägande underhåll.
 
@@ -32,11 +32,11 @@ Följande är en länk till den offentliga GitHub-lagringsplatsen: [https://gith
 
 Ett stort problem för företag i tillgångsinformation frekventa branscher är betydande kostnader som är associerade med fördröjningar mekaniskt problem. De flesta företag är intresserad av att förutsäga när problemen uppstår för att proaktivt hindra dem innan de inträffar. Målet är att minska kostnaderna genom att minska driftstopp och eventuellt ökar säkerheten. 
 
-Det här scenariot tar idéer från den [förutsägande Underhåll playbook](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) att demonstrera bygga en förutsägelsemodell för en simulerad datauppsättning. Exempeldata härleds från vanliga element som observerats vid många förutsägande Underhåll användningsfall.
+Det här scenariot tar idéer från den [förutsägande Underhåll playbook](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) att demonstrera bygga en förutsägelsemodell för en simulerad datauppsättning. Exempeldata härleds från vanliga element som observerats vid många förutsägande Underhåll användningsfall.
 
 Problem i verksamheten för den här simulerade data är att förutsäga problem på grund av fel. Företag frågan är därför ”*vad är sannolikheten att en dator stängs av på grund av fel på en komponent*”? Det här problemet formateras som ett multiklass-baserad klassificeringsproblem (flera komponenter per dator) och en maskininlärningsalgoritmen används för att skapa förutsägelsemodellen. Modellen har tränats på historiska data som samlas in från datorer. I det här scenariot går användaren igenom de olika stegen för att implementera en sådan modell i Azure Machine Learning arbetsstationen-miljön.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En [Azure-konto](https://azure.microsoft.com/en-us/free/) (gratisutvärderingar finns).
 * En installerad kopia av [Azure Machine Learning arbetsstationen](./overview-what-is-azure-ml.md) följande den [quickstart installationsguiden](./quickstart-installation.md) att installera programmet och skapa en arbetsyta.
@@ -119,7 +119,7 @@ Den [viktigt](https://github.com/Azure/MachineLearningSamples-PredictiveMaintena
     
  Anteckningsboken testar funktioner med modelldefinitionen av innan du paketerar operationalization tillgångar för distribution. Instruktioner för distribution ingår i slutet av den bärbara datorn.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Det här scenariot ger läsaren en översikt över hur du skapar en slutpunkt till slutpunkt förutsägande Underhåll lösning med hjälp av PySpark i Jupyter-anteckningsbok miljön i Azure ML-arbetsstationen. Det här exemplet beskrivs också modellen distribution via Azure Machine Learning modellen Management-miljö för att göra realtid utrustning fel förutsägelser.
 

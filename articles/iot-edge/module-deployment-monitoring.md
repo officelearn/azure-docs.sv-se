@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Förstå IoT kant distributioner för enstaka enheter eller i skala - förhandsgranskning
 
@@ -59,7 +59,7 @@ Av konfigurationsmetadata för varje modul omfattar:
 
 Målvillkoren utvärderas kontinuerligt för att inkludera nya enheter som uppfyller kraven eller ta bort enheter som inte längre gör via livslängden för distributionen. Distributionen ska återaktiveras om tjänsten identifierar ändringar mål villkor. Exempelvis kan du har en distribution A som har ett mål villkoret tags.environment = 'prod'. När du startar distributionen, finns det 10 produktprenumeration enheter. Modulerna som är installerat i dessa 10 enheter. IoT kant agentens Status visas som 10 Totalt antal enheter, 10 har svar, 0 fel svar och 0 väntar på svar. Nu du lägga till 5 flera enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och Agentstatus för IoT-Edge blir 15 totalt antal enheter, 10 har svar, 0 fel svar och 5 väntande svar när den försöker distribuera till fem nya enheter.
 
-Använd booleskt villkor på enheten twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar som du behöver lägga till ”taggar” :{} i avsnittet enheten dubbla under samma nivå som egenskaper. [Mer information om taggar i enheten dubbla](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+Använd booleskt villkor på enheten twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar som du behöver lägga till ”taggar” :{} i avsnittet enheten dubbla under samma nivå som egenskaper. [Mer information om taggar i enheten dubbla](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Exempel på mål villkor:
 * deviceId = 'linuxprod1'

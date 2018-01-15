@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 1496e4523154ba791bf55a0708a1a77132f5257c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-11-create-roles"></a>Lektion 11: Skapa roller
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-roles"></a>Skapa roller
 
 Under den här lektionen skapar du roller. Roller skyddar modelldatabasobjekt och data genom att begränsa åtkomsten till endast de användare som är rollmedlemmar. Varje roll definieras med en enskild behörighet: Ingen, Läsa, Läsa och bearbeta, Bearbeta eller Administratör. Roller kan definieras vid modellredigering med hjälp av rollhanteraren. När en modell har distribuerats kan du hantera roller med SQL Server Management Studio (SSMS). Mer information finns i [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
@@ -42,7 +40,7 @@ Eftersom Windows-användarkonton och -gruppkonton i din organisation är unika k
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 10: Skapa partitioner](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Skapa roller  

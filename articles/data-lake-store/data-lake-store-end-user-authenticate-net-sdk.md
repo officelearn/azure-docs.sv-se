@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ad9a66e02318ad4a84d65062114c916721047888
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Slutanvändarens autentisering med Data Lake Store med hjälp av .NET SDK
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ I den här artikeln får du lära dig hur du använder .NET SDK för att göra s
         ![Lägg till en NuGet-källa](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Skapa ett nytt Azure Data Lake-konto")
    4. Stäng **NuGet Package Manager**.
 
-6. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
+6. Öppna **Program.cs**
+7. Replease den med hjälp av rapporter med följande rader:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Lägg till följande kodutdrag i .NET-klientprogrammet. Ersätta platshållarvärdena med värden som hämtats från en intern Azure AD-program (visas en förutsättning). Den här fragment låter dig autentisera ditt program **interaktivt** med Data Lake Store, vilket innebär att du uppmanas att ange dina autentiseringsuppgifter för Azure.
 
 Lätt att använda använder följande kodavsnitt standardvärden för klient-ID och omdirigerings-URI som är giltiga för alla Azure-prenumerationer. I följande fragment behöver du bara ange värdet för klient-ID. Du kan hämta klient-ID med hjälp av anvisningarna i [hämta klient-ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Ersätt Main()-funktionen med följande kod:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Lätt att använda använder följande kodavsnitt standardvärden för klient-ID
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Några saker du behöver veta om föregående fragment:
 

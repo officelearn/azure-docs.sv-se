@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 4f3a388e95d3689cafcd2462e821cb361c46989a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure virtuella aktivering
 
@@ -40,7 +40,7 @@ I allmänhet inträffa Azure VM aktiveringsproblem om den virtuella Windows-dato
 >[!NOTE]
 >Om du använder en plats-till-plats-VPN och Tvingad tunneltrafik finns [Använd Azure anpassade vägar som ska aktiveras KMS-aktivering med Tvingad tunneltrafik](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Om du använder ExpressRoute och du har publicerat en standardväg, se [virtuella Azure-datorn kanske inte kan aktivera via ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>Om du använder ExpressRoute och du har publicerat en standardväg, se [virtuella Azure-datorn kanske inte kan aktivera via ExpressRoute](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Steg 1 konfigurera lämplig KMS-klientinstallationsnyckel (för Windows Server 2016 och Windows Server 2012 R2)
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 61d59f3d02a3fd12f251486e76228e67b28e6275
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Använd en Användartilldelad hanteras Service identitet (MSI) på en Linux-VM för att få åtkomst till Azure Storage
 
@@ -134,10 +134,10 @@ Eftersom filer kräver blob-lagring, måste du skapa en blob-behållare där fil
 
 Med hjälp av en MSI hämta koden åtkomsttoken att autentisera till resurser som stöder Azure AD-autentisering. I den här kursen använder du Azure Storage.
 
-Först bevilja MSI identitet åtkomst till en Azure Storage-behållare. I det här fallet kan du använda den behållare som skapats tidigare. Uppdatera värdena för `<MSI CLIENTID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, och `<CONTAINER NAME>` som passar din miljö. Ersätt `<CLIENT ID>` med den `clientId` egenskap som returneras av den `az identity create` i [skapa en Användartilldelad MSI](#create-a-user-assigned-msi):
+Först bevilja MSI identitet åtkomst till en Azure Storage-behållare. I det här fallet kan du använda den behållare som skapats tidigare. Uppdatera värdena för `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, och `<CONTAINER NAME>` som passar din miljö. Ersätt `<CLIENT ID>` med den `clientId` egenskap som returneras av den `az identity create` i [skapa en Användartilldelad MSI](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI CLIENTID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 Svaret innehåller information för rolltilldelning skapas:
@@ -189,7 +189,7 @@ Du behöver en SSH-klient för att slutföra de här stegen. Om du använder Win
 4. Nu använda åtkomsttoken att få åtkomst till Azure Storage, till exempel för att läsa innehållet i exempelfilen som du tidigare har överförts till behållaren. Ersätt värdena för `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, och `<FILE NAME>` med de värden du angav tidigare, och `<ACCESS TOKEN>` med den token som returneras i föregående steg.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Svaret innehåller innehållet i filen:

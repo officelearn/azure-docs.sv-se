@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Store med hjälp av Python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Lär dig hur du använder Python SDK för Azure Data Lake Store för att utföra grundläggande kontohanteringsåtgärder som att skapa Data Lake Store-konto, lista Data Lake Store-konto osv. Anvisningar för att utföra filsystemsåtgärder på Data Lake Store med Python finns i [Filsystemsåtgärder på Data Lake Store med Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 

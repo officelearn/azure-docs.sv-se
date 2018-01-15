@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Azure Active Directory-integrering finns i den [Developer- och Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) endast nivåer.
+> Azure Active Directory-integrering finns i den [utvecklare, Standard och Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) endast nivåer.
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Så här auktoriserar developer konton med hjälp av Azure Active Directory i Azure API Management
 ## <a name="overview"></a>Översikt
@@ -110,7 +110,7 @@ Växla tillbaka till publisher-portalen och klistra in nyckeln till den **Klient
 
 **Tillåtna hyresgäster** anger vilka kataloger har åtkomst till API: er för API Management service-instans. Ange domäner i Azure Active Directory-instanser som du vill bevilja åtkomst. Du kan avgränsa flera domäner med radmatningar bäddas, mellanslag eller semikolon.
 
-![Tillåtna klienter][api-management-client-allowed-tenants]
+![Tillåtna klientorganisationer][api-management-client-allowed-tenants]
 
 
 När du önskad konfiguration har angetts, klickar du på **spara**.

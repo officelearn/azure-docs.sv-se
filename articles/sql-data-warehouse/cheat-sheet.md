@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 12/14/2017
 ms.author: acomet
-ms.openlocfilehash: dc55f4333bef1c609978887f293539bbee8b1c29
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 2d17385ff255ddf7b85baa81600a2af60d015540
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Cheat blad för Azure SQL Data Warehouse
 Den här sidan bör hjälpa dig att utforma för används huvudsakligen fall din data warehouse-lösning. Den här fusklapp ska vara en bra stöd i din resa att skapa ett världsklass data warehouse men vi rekommenderar att lära dig mer om varje steg i information. Först bör läsa den här artikeln som är bra om vilka SQL Data Warehouse  **[är och inte]**.
@@ -157,8 +157,8 @@ Distribuera i en klickar du på din ekrar i SQL DB-databaser från SQL DW:
 [vanliga arkitekturer som utnyttjar SQL DW]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [är och inte]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [datamigrering]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-[replikerade tabeller]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables
-[distribuerade tabeller]:https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
-[till ADLS]: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+[replikerade tabeller]:https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables
+[distribuerade tabeller]:https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute
+[till ADLS]: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store
+[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
+[sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

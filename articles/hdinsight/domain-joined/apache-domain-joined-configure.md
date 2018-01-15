@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurera domänanslutna HDInsight begränsat läge
 
@@ -27,11 +27,18 @@ Lär dig hur du ställer in ett Azure HDInsight-kluster med fristående Active D
 
 Utan domänanslutna HDInsight-kluster, kan varje kluster bara ha ett konto för Hadoop HTTP-användare och en SSH-användarkontot.  Autentisering av flera användare kan uppnås med hjälp av:
 
--   En fristående Active Directory körs på Azure IaaS
--   Azure Active Directory
+-   En fristående Active Directory körs på Azure IaaS.
+-   Azure Active Directory.
 -   Active Directory som körs på kundens lokala miljö.
 
-Använder en fristående Active Directory ingår körs på Azure IaaS i den här artikeln. Det är den enklaste arkitektur som en kund kan följa för att få stöd för flera användare på HDInsight. 
+Använder en fristående Active Directory ingår körs på Azure IaaS i den här artikeln. Det är den enklaste arkitektur som en kund kan följa för att få stöd för flera användare på HDInsight. Den här artikeln beskrivs två sätt för den här konfigurationen:
+
+- Alternativ 1: Använd en mall för hantering av Azure-resurs för att skapa både fristående active directory och HDInsight-klustret.
+- Alternativ 2: Hela processen är uppdelad i följande steg:
+    - Skapa en Active Directory med hjälp av en mall.
+    - Konfigurera LDAPS.
+    - Skapa AD-användare och grupper
+    - Skapa HDInsight-kluster
 
 > [!IMPORTANT]
 > Oozie har inte aktiverats på domänanslutna HDInsight.
@@ -39,7 +46,50 @@ Använder en fristående Active Directory ingår körs på Azure IaaS i den här
 ## <a name="prerequisite"></a>Krav
 * Azure-prenumeration
 
-## <a name="create-an-active-directory"></a>Skapa en Active Directory
+## <a name="option-1-one-step-approach"></a>Alternativ 1: ett enda metod
+I det här avsnittet öppna en mall för Azure-resurs management från Azure-portalen. Mallen används för att skapa en fristående Active Directory, och ett HDInsight-kluster. För närvarande kan du skapa domänanslutna Hadoop-kluster, Spark-kluster och interaktiva frågan kluster.
+
+1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure QuickStart mallar](https://azure.microsoft.com/resources/templates/).
+   
+    Skapa ett Spark-kluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Att skapa ett kluster för interaktiva fråga:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Skapa ett Hadoop-kluster:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Ange värden, Välj **jag samtycker till villkoren som anges ovan**väljer **fäst på instrumentpanelen**, och klicka sedan på **inköp**. Håller du markören över förklaring tecknet bredvid fälten finns beskrivningar. De flesta av värdena är ifyllda. Du kan använda standardvärdena eller egna värden.
+
+    - **Resursgruppen**: Ange ett gruppnamn för Azure-resurs.
+    - **Plats**: Välj en plats som är nära dig.
+    - **Nytt Lagringskontonamn**: Ange namnet på ett Azure Storage-konto. Den här nya lagringskonto används av den primära domänkontrollanten och BDC: HDInsight-klustret som standardkontot för lagring.
+    - **Admin Username**: Ange användarnamn för administratör i domänen.
+    - **Administratörslösenordet**: Ange administratörslösenordet för domänen.
+    - **Domännamn**: standardnamnet är *contoso.com*.  Om du ändrar namnet på en domän måste du uppdatera den **säker LDAP-certifikat** fält och **organisatorisk enhet DN** fältet.
+    - **Klusternamn**: Ange namn för HDInsight-kluster.
+    - **Klustret typen**: det här värdet ändras inte. Om du vill ändra typen av klustret använder du specifika mall i det sista steget.
+
+    Vissa värden är hårdkodat i mallen, till exempel instansantalet worker nod är två.  Så här ändrar du hårdkodade värden **redigera mallen**.
+
+    ![HDInsight-domänansluten klustret Redigera mall](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+När mallen är klar finns 23 resurser som skapades i resursgruppen.
+
+## <a name="option-2-multi-step-approach"></a>Alternativ 2: flera steg metod
+
+Det finns fyra steg i det här avsnittet:
+
+1. Skapa en Active Directory med hjälp av en mall.
+2. Konfigurera LDAPS.
+3. Skapa AD-användare och grupper
+4. Skapa HDInsight-kluster
+
+### <a name="create-an-active-directory"></a>Skapa en Active Directory
 
 Azure Resource Manager-mall gör det enklare att skapa Azure-resurser. I det här avsnittet kan du använda en [Azure QuickStart mallen](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) att skapa en ny skog och domän med två virtuella datorer. Två virtuella datorer fungera som en primär domänkontrollant och en sekundär domänkontrollant.
 
@@ -69,7 +119,7 @@ Azure Resource Manager-mall gör det enklare att skapa Azure-resurser. I det hä
 
 Det tar ungefär 20 minuter för att skapa resurser.
 
-## <a name="setup-ldaps"></a>Installationsprogrammet LDAPS
+### <a name="setup-ldaps"></a>Installationsprogrammet LDAPS
 
 Lightweight Directory Access Protocol (LDAP) används för att läsa och skriva till AD.
 
@@ -102,11 +152,11 @@ Lightweight Directory Access Protocol (LDAP) används för att läsa och skriva 
 
     ![HDInsight domänanslutna konfigurerar AD-certifikat](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Klicka på ** rolltjänster till vänster, Välj **certifikatutfärdare**, och klicka sedan på **nästa**.
+2. Klicka på **rolltjänster** till vänster, Välj **certifikatutfärdare**, och klicka sedan på **nästa**.
 3. Följ guiden använder standardinställningarna för resten av proceduren (klicka på **konfigurera** på det sista steget).
 4. Stäng guiden genom att klicka på **Stäng**.
 
-## <a name="optional-create-ad-users-and-groups"></a>(Valfritt) Skapa AD-användare och grupper
+### <a name="optional-create-ad-users-and-groups"></a>(Valfritt) Skapa AD-användare och grupper
 
 **Att skapa användare och grupper i AD**
 1. Ansluta till den primära domänkontrollanten med hjälp av fjärrskrivbord
@@ -122,7 +172,7 @@ Lightweight Directory Access Protocol (LDAP) används för att läsa och skriva 
 > [!IMPORTANT]
 > PDC-virtuella datorn måste startas om innan du skapar en domänansluten HDInsight-kluster.
 
-## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Skapa ett HDInsight-kluster i virtuella nätverk
+### <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Skapa ett HDInsight-kluster i virtuella nätverk
 
 I det här avsnittet använder du Azure-portalen för att lägga till ett HDInsight-kluster till det virtuella nätverket som du skapat med hjälp av Resource Manager-mallen tidigare i kursen. Den här artikeln beskriver bara specifik information om domänanslutna klusterkonfigurationen.  Allmän information, se [skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

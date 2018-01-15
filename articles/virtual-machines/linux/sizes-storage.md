@@ -4,7 +4,7 @@ description: "Listar de olika optimerade lagringsstorlekar tillgängligt för Li
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 01/11/2018
 ms.author: jonbeck
-ms.openlocfilehash: 0d972e8b9ffb8bfe158ec394baf237ef65333026
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 48830f72d2ed7774a0ee4492bc9a52ba6a1fb502
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Storage optimerat storlekar för virtuella datorer
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 
 ## <a name="other-sizes"></a>Andra storlekar
-- [Generellt syfte](../windows/sizes-general.md)
-- [Beräkningsoptimerad](../windows/sizes-compute.md)
-- [Minnesoptimerad](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [Databehandling med höga prestanda](../windows/sizes-hpc.md)
+- [Generellt syfte](sizes-general.md)
+- [Beräkningsoptimerad](sizes-compute.md)
+- [Minnesoptimerad](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [Databehandling med höga prestanda](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure compute-enheter (ACU)](../windows/acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.
+Läs mer om hur [Azure compute-enheter (ACU)](acu.md) kan hjälpa dig att jämföra beräkning prestanda över Azure SKU: er.

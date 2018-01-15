@@ -6,27 +6,31 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Snabbstart: Distribuera din första IoT kant modulen från Azure portal till en enhet för Linux - förhandsgranskning
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Snabbstart: Distribuera din första IoT kant-modulen till en enhet med Linux- eller Mac - Förhandsgranska
 
 Azure IoT-Edge flyttar kraften i molnet till Internet of Things-enheter. I det här avsnittet lär dig att använda molnet gränssnittet för att distribuera färdiga kod via en fjärranslutning till en IoT-enhet.
 
 Om du inte har en aktiv Azure-prenumeration kan du skapa en [kostnadsfritt konto] [ lnk-account] innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Använd din dator eller en virtuell dator för att åstadkomma detta för att simulera en Sakernas Internet-enhet. Följande tjänster krävs för att distribuera en IoT-enhet:
+Denna Snabbstart använder din dator eller virtuell dator som en Sakernas Internet-enhet. Om du vill göra din dator till en IoT-enhet, krävs följande tjänster:
 
-- [Installera Docker på Linux] [ lnk-docker-ubuntu] och se till att den körs. 
-- De flesta Linux-distributioner, inklusive Ubuntu, har redan Python 2.7 installerad. Använder du följande kommando för att se till att pip är installerad: `sudo apt-get install python-pip`.
+* Python pip att installera IoT kant-körningsmiljön.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker att köra IoT-Edge moduler
+   * [Installera Docker för Linux] [ lnk-docker-ubuntu] och se till att den körs. 
+   * [Installera Docker för Mac] [ lnk-docker-mac] och se till att den körs. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Skapa en IoT-hubb med Azure CLI
 
@@ -135,6 +139,7 @@ Du har lärt dig hur du distribuerar en IoT-Edge-modul till en IoT-enhet. Prova 
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

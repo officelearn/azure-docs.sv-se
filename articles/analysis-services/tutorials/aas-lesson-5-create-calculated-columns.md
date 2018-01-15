@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b491af1e5c9da03f48335f5793ed71ddaf644fb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-5-create-calculated-columns"></a>Lektion 5: Skapa beräknade kolumner
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-calculated-columns"></a>Skapa beräknade kolumner
 
 Under den här lektionen skapar du data i modellen genom att lägga till beräknade kolumner. Du kan skapa beräknade kolumner (som anpassade kolumner) när du använder Hämta Data med hjälp av frågeredigeraren, eller senare i modelldesignern, på samma sätt som du gör här. Läs mer i [Skapa beräknade kolumner](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns).
   
@@ -33,7 +31,7 @@ Det är även den här lektionen där du först använder dataanalysuttryck (DAX
   
 Uppskattad tidsåtgång för den här lektionen: **15 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 4: Skapa relationer](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Skapa beräknade kolumner  

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Hantera åtkomst nödsituation administrativa konton i Azure AD 
 
@@ -48,11 +48,11 @@ Ett alternativ är att göra användarna permanenta medlemmar i den *global admi
 
 Om du vill minska risken för angrepp som härrör från en komprometterad lösenord rekommenderar Azure AD som du vill ha Multifaktorautentisering för alla enskilda användare. Den här gruppen ska innehålla administratörer och alla andra (till exempel finansiella polis) vars komprometterat konto skulle ha en betydande inverkan. 
 
-Men om organisationen inte har delade enheter kanske Multifaktorautentisering inte möjligt för dessa konton för nödåtkomst. Om du konfigurerar en princip för villkorlig åtkomst att kräva [Multi-Factor Authentication-registrering för varje admin](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) för Azure AD och andra anslutet programvara som en tjänst (SaaS)-appar du kan behöva konfigurera en princip undantag för att utesluta konton för nödåtkomst från det här kravet.
+Men om organisationen inte har delade enheter kanske Multifaktorautentisering inte möjligt för dessa konton för nödåtkomst. Om du konfigurerar en princip för villkorlig åtkomst att kräva [Multi-Factor Authentication-registrering för varje admin](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) för Azure AD och andra anslutet programvara som en tjänst (SaaS)-appar du kan behöva konfigurera en princip undantag för att utesluta konton för nödåtkomst från det här kravet.
 
 ### <a name="initial-configuration-with-approvals"></a>Inledande konfiguration med godkännanden
 
-Ett annat alternativ är att konfigurera dina användare som kvalificerade och godkännare att aktivera den *global administratör* roll. Det här alternativet kräver din organisation har Azure AD Premium P2-prenumerationer. Kräver också ett alternativ för Multifaktorautentisering som är lämpliga för delade bland flera personer och nätverksmiljön. Dessa krav är eftersom aktivering av den *global administratör* rollen kräver att användare tidigare har utfört Multifaktorautentisering. Mer information finns i [kräva Multifaktorautentisering i Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Ett annat alternativ är att konfigurera dina användare som kvalificerade och godkännare att aktivera den *global administratör* roll. Det här alternativet kräver din organisation har Azure AD Premium P2-prenumerationer. Kräver också ett alternativ för Multifaktorautentisering som är lämpliga för delade bland flera personer och nätverksmiljön. Dessa krav är eftersom aktivering av den *global administratör* rollen kräver att användare tidigare har utfört Multifaktorautentisering. Mer information finns i [kräva Multifaktorautentisering i Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 Vi rekommenderar inte använda Multifaktorautentisering som är associerad med personliga enheter för konton för nödåtkomst. I nödfall faktiska kanske inte den person som behöver åtkomst till en Multi-Factor Authentication-registrerad enhet som också har den personliga enheten. 
 
@@ -60,7 +60,7 @@ Vi rekommenderar inte använda Multifaktorautentisering som är associerad med p
 
 ## <a name="ongoing-monitoring"></a>Kontinuerlig övervakning
 
-Övervaka den [Azure AD-inloggning och granska loggar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) för alla inloggningar och granska aktivitet från nödsituation åtkomstkonton. Normalt bör inte logga in dessa konton och bör inte göra ändringar, så att användning av dem kommer troligen att vara avvikande och kräver säkerhet undersökning.
+Övervaka den [Azure AD-inloggning och granska loggar](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) för alla inloggningar och granska aktivitet från nödsituation åtkomstkonton. Normalt bör inte logga in dessa konton och bör inte göra ändringar, så att användning av dem kommer troligen att vara avvikande och kräver säkerhet undersökning.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Kontokontroll verifiering måste ske med jämna mellanrum
 

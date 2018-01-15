@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery stöd matrix för replikering från lokal till Azure
 
@@ -68,34 +68,34 @@ I följande tabell sammanfattas replikerade operativsystem i olika distributions
 
  **VMware/fysisk server** | **Hyper-V (med eller utan VMM)** |
 --- | --- |
-64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1<br/><br/> Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.3 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.) | Alla gästoperativsystemet [stöds av Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1<br/><br/> Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4<br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.) | Alla gästoperativsystemet [stöds av Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server stöds inte.
-
->[!IMPORTANT]
->(Gäller för VMware/fysiska servrar som replikerar till Azure)
 >
-> Red Hat Enterprise Linux Server 7 + och CentOS 7 + servrar stöds kernel version 3.10.0-514 på version 9.8 av Azure Site Recovery mobilitetstjänsten från.<br/><br/>
-> Kunder med en version av mobilitetstjänsten som är lägre än versionen 9,8 3.10.0-514 kernel krävs för att inaktivera replikering, uppdatera versionen av mobilitetstjänsten till version 9.8 och sedan aktivera replikering igen.
+> På Linux-distributioner stöds bara lager kernlar som är en del av delversion versionen/uppdatering av distributionen.
+>
+> Uppgraderingar i större versioner av Linux-distribution på en Azure Site Recovery skyddad virtuell VMware-dator eller fysisk server stöds inte. Inaktivera replikering för datorn vid uppgradering av operativsystemet över viktiga versioner (till exempel CentOS 6.* till CentOS 7.*), uppgradera operativsystemet på datorn och sedan aktivera replikering igen.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Ubuntu kernel-versioner som stöds för VMware/fysiska servrar
 
 **Versionen** | **Mobilitetstjänstversionen** | **Kernel-version** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic till 3.13.0-117-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-128-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic till 3.13.0-132-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic till 3.13.0-137-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic till 4.4.0-81-generic,<br/>4.8.0-34-Generic till 4.8.0-56-generic,<br/>4.10.0-14-Generic till 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic till 4.4.0-91-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic till 4.4.0-96-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic till 4.4.0-104-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Filsystem som stöds och Gäst lagringskonfigurationer på Linux (VMware/fysiska servrar)
 
-Följande fil system och lagring configuration programvaran stöds på Linux-servrar som körs på VMware eller fysiska servrar:
+Följande filsystem och program för konfiguration av lagring stöds på Linux-servrar som körs på VMware eller fysiska servrar:
 * Filsystem: ext3 ext4, ReiserFS (Suse Linux Enterprise Server bara), XFS
 * Volymhanterare: LVM2
 * Programvara för flera sökvägar: enheten Mapper
@@ -105,8 +105,7 @@ Flera kön blockera-i/o-enheter stöds inte.<br/>
 Fysiska servrar med lagringsstyrenheten HP CCISS stöds inte.<br/>
 
 >[!Note]
-> På Linux-servrar till följande kataloger (om konfigurerad som separata partitioner /-filsystem) måste vara på samma disk (OS-disk) på källservern: / (rot)-/ Boot/usr, /usr/local, /var, / etc<br/><br/>
-> XFSv5 funktioner på XFS filsystem, till exempel kontrollsumma metadata stöds från och med version 9.10 av mobilitetstjänsten. Om du använder XFSv5 funktioner, se till att du använder Mobilitetstjänsten version 9.10 eller senare. Du kan använda verktyget xfs_info för att kontrollera XFS superblock för partitionen. Om ftype har angetts till 1, sedan XFSv5 funktionerna används.
+> På Linux-servrar till följande kataloger (om konfigurerad som separata partitioner /-filsystem) måste vara på samma disk (OS-disk) på källservern: / (rot), / Boot/usr, /usr/local, /var, / etc; / Boot bör och på en diskpartition inte vara en LVM volym<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ NIC-teamindelning | Nej | Nej
 IPv4 | Ja | Ja
 IPv6 | Nej | Nej
 Statisk IP-adress (Windows) | Ja | Ja
-Statisk IP-adress (Linux) | Ja <br/><br/>Virtuella datorer är konfigurerade för DHCP på återställning efter fel  | Nej
+Statisk IP-adress (Linux) | Ja <br/><br/>Virtuella datorer är konfigurerade för att använda DHCP på återställning efter fel  | Nej
 Flera nätverkskort | Ja | Ja
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Det gick inte över Azure VM nätverkskonfigurationen

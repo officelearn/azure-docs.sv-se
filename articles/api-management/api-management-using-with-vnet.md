@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
@@ -28,7 +28,7 @@ Azure API Management kan distribueras i det virtuella nätverket (VNET), så att
 > Azure API Management stöder både klassiska och Azure Resource Manager Vnet.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
@@ -108,11 +108,9 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 | Källan / målet portar | Riktning | Transportprotokoll | Källan / målet | Syfte (*) | Typ för virtuella nätverk |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Klientkommunikation till API-hantering|Extern |
-| * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Intern |
+| * / 3443 |Inkommande |TCP |INTERNET / VIRTUAL_NETWORK|Hanteringsslutpunkten för Azure-portalen och Powershell |Interna |
 | * / 80, 443 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende på Azure Storage, Azure Service Bus och Azure Active Directory (om tillämplig).|Externa och interna | 
 | * / 1433 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Åtkomst till Azure SQL-slutpunkter** |Externa och interna |
-| * / 11000 - 11999 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Åtkomst till V12 Azure SQL** |Externa och interna |
-| * / 14000 - 14999 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|**Åtkomst till V12 Azure SQL** |Externa och interna |
 | * / 5671, 5672 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende för inloggning till Event Hub-principen och övervakningsagent |Externa och interna |
 | * / 445 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Beroende på Azure-filresursen för GIT |Externa och interna |
 | * / 25028 |Utgående |TCP |VIRTUAL_NETWORK / INTERNET|Ansluta till SMTP-Relay för att skicka e-post |Externa och interna |

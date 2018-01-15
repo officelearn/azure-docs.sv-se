@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 452d0a9d0231e54df2a7f1df76c3c2c0fcd94d87
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="memory-leak-detection-preview"></a>Identifiering av minnesläcka (förhandsgranskning)
 
 Application Insights automatiskt analyserar minnesförbrukning för varje process i ditt program och varna dig om potentiella minnesläckor eller ökad minnesförbrukning.
 
-Den här funktionen kräver några särskilda inställningar än [konfigurera prestandaräknare](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) för din app. Det är aktivt när din app genererar tillräckligt med minne prestandaräknare telemetri (till exempel privata byte).
+Den här funktionen kräver några särskilda inställningar än [konfigurera prestandaräknare](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) för din app. Det är aktivt när din app genererar tillräckligt med minne prestandaräknare telemetri (till exempel privata byte).
 
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När ska jag den här typen av meddelande för smart identifiering?

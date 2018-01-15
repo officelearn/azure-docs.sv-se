@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa82f5d8a909121c42742bb5261d6c9b8570de
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
  
@@ -29,7 +29,7 @@ Kompatibilitetsnivån ser till att befintliga jobb körs utan några fel. När d
  
 ## <a name="set-a-compatibility-level"></a>Ange en kompatibilitetsnivå 
 
-Kompatibilitetsnivån styr beteende under körning av ett stream analytics-jobbet. Du kan ange kompatibilitetsnivån för ett Stream Analytics-jobb med hjälp av portalen eller med hjälp av den [jobbet REST API-anropet för att skapa](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics stöder för närvarande två kompatibilitet nivåer-”1.0” och ”1.1”. Kompatibilitetsnivån är som standard ”1.0”, som introducerades vid allmän tillgänglighet för Azure Stream Analytics. Om du vill uppdatera standardvärdet, navigera till din befintliga Stream Analytics-jobbet > Välj den **kompatibilitetsnivå** alternativet i **konfigurera** avsnittet och ändra värdet. 
+Kompatibilitetsnivån styr beteende under körning av ett stream analytics-jobbet. Du kan ange kompatibilitetsnivån för ett Stream Analytics-jobb med hjälp av portalen eller med hjälp av den [jobbet REST API-anropet för att skapa](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics stöder för närvarande två kompatibilitet nivåer-”1.0” och ”1.1”. Kompatibilitetsnivån är som standard ”1.0”, som introducerades vid allmän tillgänglighet för Azure Stream Analytics. Om du vill uppdatera standardvärdet, navigera till din befintliga Stream Analytics-jobbet > Välj den **kompatibilitetsnivå** alternativet i **konfigurera** avsnittet och ändra värdet. 
 
 Kontrollera att du stoppa jobbet innan du uppdaterar kompatibilitetsnivå. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i körningstillstånd. 
 

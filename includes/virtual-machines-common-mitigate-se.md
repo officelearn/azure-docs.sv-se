@@ -1,5 +1,7 @@
 
-**Dokumentera senaste uppdatering**: 6 januari 6:30 PM PST.
+
+
+**Dokumentera senaste uppdatering**: 12 januari 3:00 PM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  
 
@@ -43,9 +45,7 @@ Om du kör Linux och värd icke betrodd kod kan uppdatera du även Linux till en
 
 
 
-
-
-
+Vi kommer att fortsätta att uppdatera tipsen som vi får mikrokod uppdateringar från maskinvarutillverkare. Kontrollera uppdaterade riktlinjer för.
 
 
 ## <a name="next-steps"></a>Nästa steg

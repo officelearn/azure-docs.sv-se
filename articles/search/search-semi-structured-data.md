@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Söka efter halvstrukturerade data i molnet
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Del 2: Sök halvstrukturerade data i molnet
 
-Lär dig hur du söker delvis strukturerade och Ostrukturerade data med Azure search i den här självstudiekursen serien i två delar. Den här kursen visar hur du söker halvstrukturerade data, till exempel JSON som lagras i Azure BLOB. Halvstrukturerade data innehåller taggar eller märkning som separerar innehållet i data. Den skiljer sig från strukturerade data att det inte formellt strukturerat enligt en datamodell, till exempel en relationsdatabas schemat.
+I en serie med två delar självstudiekursen dig du att söka delvis strukturerade och Ostrukturerade data med Azure search. [Del 1](../storage/blobs/storage-unstructured-search.md) gått du igenom Sök över Ostrukturerade data, men också tas med viktiga krav för den här självstudiekursen, som att skapa lagringskontot. 
 
-I den här delen vi upp hur du:
+I en del 2 fokus till halvstrukturerade data, till exempel JSON som lagras i Azure BLOB. Halvstrukturerade data innehåller taggar eller märkning som separerar innehållet i data. Skillnaden mellan Ostrukturerade data som måste vara indexera wholistically och formellt strukturerade data som stämmer överens med en datamodell, till exempel en relationsdatabas-schemat, vilket kan crawlas på grundval av per fältet delas.
+
+I en del 2 lär du dig hur du:
 
 > [!div class="checklist"]
-> * Skapa och fylla i ett index i en Azure Search-tjänsten
-> * Använda Azure Search-tjänsten för att söka ditt index
+> * Konfigurera en Azure Search-datakälla för ett Azure blob-behållare
+> * Skapa och fylla i en Azure Search index och indexeraren crawlas behållaren och extrahera sökbara innehåll
+> * Sök det index som du just har skapat
 
 > [!NOTE]
-> ”Stöd för JSON-matris är en förhandsvisningsfunktion i Azure Search. Det finns för närvarande inte i portalen. Därför använder vi förhandsversionen av REST-API som ger den här funktionen och en REST-klientverktyg att anropa API: et ”.
+> Den här kursen använder JSON-matris stöd som för närvarande är en förhandsvisningsfunktion i Azure Search. Det är inte tillgänglig i portalen. Därför använder vi förhandsversionen av REST-API som ger den här funktionen och en REST-klientverktyg att anropa API: et.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
-* Slutför den [tidigare självstudiekursen](../storage/blobs/storage-unstructured-search.md)
-    * Den här kursen använder kontot och Sök lagringstjänsten skapade i föregående kursen
-* Installera en REST-klient och förstå hur du skapar en HTTP-begäran
+* Slutförandet av den [tidigare kursen](../storage/blobs/storage-unstructured-search.md) att tillhandahålla tjänsten storage-konto och Sök skapade i föregående kursen.
 
+* Installation av en REST-klient och en förståelse för hur du skapar en HTTP-begäran. Vid tillämpningen av den här kursen använder vi [Postman](https://www.getpostman.com/). Du kan använda en annan REST-klient om du är nöjd med en viss.
 
-## <a name="set-up-the-rest-client"></a>Konfigurera REST-klient
+## <a name="set-up-postman"></a>Ställ in Postman
 
-Den här kursen behöver en REST-klient. Vid tillämpningen av den här kursen använder vi [Postman](https://www.getpostman.com/). Du kan använda en annan REST-klient om du är nöjd med en viss.
+Starta Postman och ställa in en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med hjälp av Fiddler eller Postman](search-fiddler.md) för mer information.
 
-Starta den när du har installerat Postman.
-
-Om det här är första gången du REST-anrop till Azure här är en kort introduktion av viktiga komponenter för den här självstudiekursen: begäran-metoden för varje anrop i den här kursen är ”POST”. Rubrik-nycklar är ”Content-type” och ”api-nyckel”. Värden i huvudet nycklar är ”application/json” och din ”administrationsnyckeln” (admin-nyckel är en platshållare för sökning primärnyckel) respektive. Innehållet är placerar du det faktiska innehållet i samtalet. Det kan finnas vissa varianter på hur du utformar din fråga beroende på klienten som du använder, men de används grunderna.
+Begäran-metoden för varje anrop i den här kursen är ”POST”. Rubrik-nycklar är ”Content-type” och ”api-nyckel”. Värden i huvudet nycklar är ”application/json” och din ”administrationsnyckeln” (admin-nyckel är en platshållare för sökning primärnyckel) respektive. Innehållet är placerar du det faktiska innehållet i samtalet. Det kan finnas vissa varianter på hur du utformar din fråga beroende på klienten som du använder, men de används grunderna.
 
   ![Halvstrukturerade sökning](media/search-semi-structured-data/postmanoverview.png)
 

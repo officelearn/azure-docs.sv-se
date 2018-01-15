@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuera Azure Machine Learning som en gräns för IoT-modul - förhandsgranskning
 
@@ -30,12 +30,12 @@ I den här guiden får du lära dig hur man:
 Azure Machine Learning-modul som du skapar i den här kursen läser temperatur data som genereras av enheten och endast skickar meddelanden uppströms till Azure IoT Hub när den beräknar ett fel (kallas en avvikelseidentifiering). 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
 * IoT-hubb anslutningssträngen för IoT-hubb som din IoT insticksenhet ansluter till.
 * Ett Azure Machine Learning-konto. Om du vill skapa ett konto, följ instruktionerna i [skapa Azure Machine Learning-konton och installera Azure Machine Learning arbetsstationen](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Du behöver inte installera programmet arbetsstationen för den här självstudiekursen. 
-* Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* Hantering av modulen för Azure ML på din dator. Om du vill konfigurera din miljö och skapa ett konto, följ instruktionerna i [installation av hantering av modellen](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Skapa Azure ML-behållare
 I det här avsnittet hämta trained modellfilerna och konvertera dem till en Azure ML-behållare.  

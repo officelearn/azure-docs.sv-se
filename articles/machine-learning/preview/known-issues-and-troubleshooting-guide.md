@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning arbetsstationen - kända problem och felsökningsguide 
 Den här artikeln hjälper dig att hitta och korrigera fel eller fel uppstod som en del av använder i Azure Machine Learning Workbench. 
@@ -118,7 +118,7 @@ När du loggar in kan appen arbetsstationen fastna på ett tomt fönster med ett
 3. Starta om appen.
 
 ## <a name="cant-delete-experimentation-account"></a>Det går inte att ta bort experiment konto
-Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor. I annat fall visas ett fel.
+Du kan använda CLI för att ta bort ett experiment konto, men du måste först ta bort underordnade arbetsytorna och underordnade projekt i dessa underordnade arbetsytor. Annars kan se du felet ”inte kan ta bort resursen innan kapslade resurser tas bort”.
 
 ```azure-cli
 # delete a project
@@ -145,6 +145,8 @@ Om du startar ett experiment som körs med `az ml experiment submit` eller `az m
 - I macOS, använda Ctrl-C.
 
 Observera att detta avbryter utdataströmmen i fönstret CLI. Det faktiskt inte att stoppa ett jobb som körs. Om du vill avbryta en pågående jobbet använder `az ml experiment cancel -r <run_id> -t <target name>` kommando.
+
+På Windows-datorer med tangentbord som inte har Break-nyckel, omfattar möjliga alternativ Fn B, Ctrl-Fn-B eller Fn + Esc. Din maskinvaruleverantören dokumentationen för en specifik tangentkombinationen.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker fel ”läsa: anslutningen avslogs”
 När körs mot en lokal dockerbehållare kan ibland du se följande fel: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 Du kan också lägga till en datadisk och konfigurera Docker-motorn om du vill använda datadisken för lagring av bilder. Här är [hur du lägger till en datadisk](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Du kan sedan [ändra där avbildningar lagras i Docker](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Du kan expandera OS-disken och du behöver inte touch Docker-konfigurationen för motorns. Här är [hur du kan expandera OS-disken](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

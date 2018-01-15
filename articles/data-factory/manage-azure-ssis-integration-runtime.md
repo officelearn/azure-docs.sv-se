@@ -13,40 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: spelluru
-ms.openlocfilehash: 19a81917ade977a0d04934b77e8213ef6d9e0f12
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="reconfigure-an-azure-ssis-integration-runtime"></a>Konfigurera om en Azure-SSIS-integrering körning
-Den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md) artikeln visar hur du skapar en Azure-SSIS-integrering körning med hjälp av Azure Data Factory. Den här artikeln innehåller information om hur du konfigurerar om en befintlig Azure-SSIS-integrering körning.  
+# <a name="manage-an-azure-ssis-integration-runtime"></a>Hantera en Azure-SSIS-integrering körning
+Den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md) artikeln visar hur du skapar en Azure-SSIS-integrering körning (IR) med hjälp av Azure Data Factory. Den här artikeln innehåller information om hur du konfigurerar om en befintlig Azure-SSIS-integrering körning.  
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
-När du etablera och starta en instans av Azure-SSIS-integrering körning kan du konfigurera om den genom att köra en sekvens av `Stop`  -  `Set`  -  `Start` PowerShell-cmdlets i följd. Till exempel ändrar följande PowerShell-skript antalet noder som allokerats för Azure-SSIS-integrering runtime-instans till 5.
+När du etablera och starta en instans av Azure-SSIS-integrering körning kan du konfigurera om den genom att köra en sekvens av `Stop`  -  `Set`  -  `Start` PowerShell-cmdlets i följd. Till exempel ändrar följande PowerShell-skript antalet noder som allokerats för Azure-SSIS-integrering runtime-instans till fem.
 
-## <a name="stop-azure-ssis-ir"></a>Stoppa Azure SSIS-IR
-Först stoppa körningen Azure SSIS-integrering med hjälp av [stoppa AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Det här kommandot släpper alla dess noder och stoppar fakturering.
+## <a name="reconfigure-an-azure-ssis-ir"></a>Konfigurera om en Azure-SSIS-IR
 
-```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
-```
+1. Först stoppa körningen Azure SSIS-integrering med hjälp av [stoppa AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Det här kommandot släpper alla dess noder och stoppar fakturering.
 
-## <a name="reconfigure-azure-ssis-ir"></a>Konfigurera om Azure-SSIS-IR
-Konfigurera om Azure-SSIS-IR med hjälp av den [Set AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Följande exempelkommando skalas ut en Azure-SSIS-integrering körning till fem noder.
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    ```
+2. Konfigurera Azure SSIS-IR med hjälp av den [Set AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Följande exempelkommando skalas ut en Azure-SSIS-integrering körning till fem noder.
 
-```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
-```  
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    ```  
+3. Starta körningen Azure SSIS-integrering med hjälp av den [Start AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Det här kommandot allokerar alla dess noder för att köra SSIS-paket.   
 
-## <a name="start-azure-ssis-ir"></a>Starta Azure-SSIS-IR
-Starta körningen Azure SSIS-integrering med hjälp av den [Start AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Det här kommandot allokerar alla dess noder för att köra SSIS-paket.   
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    ```
 
-```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
-```
+## <a name="delete-an-azure-ssis-ir"></a>Ta bort en Azure-SSIS-IR
+1. Lista över alla befintliga Azure SSIS IRs under din data factory först.
+
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    ```
+2. Därefter stoppa alla befintliga Azure SSIS IRs i din data factory.
+
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+3. För att ta bort alla befintliga Azure SSIS IRs i din data factory i taget.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+4. Slutligen ska du ta bort din data factory.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    ```
+5. Om du har skapat en ny resursgrupp kan du ta bort resursgruppen.
+
+    ```powershell
+    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure-SSIS runtime finns i följande avsnitt: 

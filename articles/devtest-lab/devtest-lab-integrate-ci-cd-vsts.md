@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrera Azure DevTest Labs i din VSTS kontinuerlig integrering och leverans pipeline
 Du kan använda den *Azure DevTest Labs uppgifter* som är installerad i Visual Studio Team Services (VSTS) att enkelt integrera din CI/CD-version och utgåva pipeline med Azure DevTest Labs. Tillägget installeras tre uppgifter: 
@@ -111,7 +111,7 @@ Nästa steg i distributionen är att skapa den virtuella datorn ska användas so
    > [!NOTE]
    > För att skapa den virtuella datorn ska användas för efterföljande distributioner, se [Azure DevTest Labs uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure-prenumeration RM**, Välj en anslutning i den **tillgängliga Azure Service anslutningar** listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure-prenumeration RM**, Välj en anslutning i den **tillgängliga Azure Service anslutningar** listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. För **Labbnamnet**, Välj namnet på den instans som du skapade tidigare.
 
@@ -141,7 +141,7 @@ Nästa steg i distributionen är att skapa den virtuella datorn ska användas so
 
    a. För **Azure anslutningstypen**väljer **Azure Resource Manager**.
 
-   b. För **Azure-prenumeration RM**, Välj en anslutning i listan under **tillgängliga Azure Service anslutningar**, eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. För **Azure-prenumeration RM**, Välj en anslutning i listan under **tillgängliga Azure Service anslutningar**, eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. För **skripttypen**väljer **skriptfilen**.
  
@@ -168,7 +168,7 @@ Nästa steg är att skapa en avbildning av den nyligen distribuerade virtuella d
    > [!NOTE]
    > För att skapa avbildningen Se [Azure DevTest Labs uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure-prenumeration RM**i den **tillgängliga Azure Service anslutningar** listan, Välj en anslutning från listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure-prenumeration RM**i den **tillgängliga Azure Service anslutningar** listan, Välj en anslutning från listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. För **Labbnamnet**, Välj namnet på den instans som du skapade tidigare.
 
@@ -189,7 +189,7 @@ Det sista steget är att ta bort den virtuella datorn som du distribuerade i Azu
       > [!NOTE]
       > Om du vill ta bort den virtuella datorn finns [Azure DevTest Labs uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. För **Azure-prenumeration RM**, Välj en anslutning i den **tillgängliga Azure Service anslutningar** listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. För **Azure-prenumeration RM**, Välj en anslutning i den **tillgängliga Azure Service anslutningar** listan eller skapa en mer begränsad behörighet för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstslutpunkten](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. För **Lab VM-ID**, om du har ändrat standardnamnet för miljövariabeln som var fylls automatiskt med ID labbet VM av en tidigare aktivitet redigera den här. Standardvärdet är **$(labVMId)**.
 

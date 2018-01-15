@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -40,9 +40,9 @@ Virtuella datorer är en på begäran, skalbara datorresurser som erbjuds av Azu
 |Tillgänglighetsuppsättningar för virtuell dator|Flera feldomäner (2 eller 3 per region)<br>Flera domäner för uppdatering<br>Hantering av disk|Enkel feldomän<br>Domän för enskild uppdatering<br>Inget stöd för hanterade diskar|
 |Skalningsuppsättningar för virtuella datorer|Autoskala som stöds|Autoskala stöds inte.<br>Lägga till fler instanser i en skala som anges med portalen, Resource Manager-mallar eller PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer 
+## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
 
-Azure-stacken Development Kit stöder följande storlekar: 
+Azure-stacken stöder följande storlekar:
 
 | Typ | Storlek | Rad storlekar som stöds |
 | --- | --- | --- |
@@ -55,9 +55,9 @@ Azure-stacken Development Kit stöder följande storlekar:
 |Minnesoptimerad|DS-serien|DS11 - DS14|
 |Minnesoptimerad |DSv2-serien|DS11_v2 - DS14_v2|
 
-Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Detta inkluderar till exempel hur mycket minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
+Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämmer överens mellan Azure-stacken och Azure. Den här konsekvenskontroll innehåller till exempel hur mycket minne, antal kärnor och nummer eller storlek för datadiskar som kan skapas. Prestanda i samma VM-storlek i Azure-stacken beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 
-## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator 
+## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
  Azure-stacken Development Kit stöder följande virtuella tillägget versioner:
 
@@ -65,15 +65,15 @@ Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämme
 
 Använd följande PowerShell-skript för att hämta listan över tillägg för virtuell dator som är tillgängliga i Azure Stack-miljö:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>API-versioner 
+## <a name="api-versions"></a>API-versioner
 
 Funktioner på virtuella datorer i Azure-stacken Development Kit stöder följande API-versioner:
 
@@ -81,7 +81,7 @@ Funktioner på virtuella datorer i Azure-stacken Development Kit stöder följan
 
 Du kan använda följande PowerShell-skript för att hämta API-versioner för virtuell dator-funktioner som är tillgängliga i Azure Stack-miljö:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

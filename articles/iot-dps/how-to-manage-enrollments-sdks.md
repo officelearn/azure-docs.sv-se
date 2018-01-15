@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 82da49924e71a38ca557f244f2830e1da45826b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Så här hanterar du enhetsregistrering med Azure enheten etablering Service-SDK: er
 En *enhetsregistrering* skapas en post för en enstaka enhet eller en grupp av enheter som kan vid något tillfälle registrera med enheten Etableringstjänsten. Registreringspost innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskade IoT-hubben. Den här artikeln visar hur du hanterar enhetsregistreringar för etablering tjänsten genom programmering med Azure IoT etablering Service SDK: erna.  SDK: erna är tillgängliga på GitHub i samma databas som Azure IoT-SDK.
@@ -29,18 +29,18 @@ Den här artikeln går igenom hög nivå begrepp för att hantera enhetsregistre
 ## <a name="prerequisites"></a>Förutsättningar
 * Anslutningssträng från en enhet etablering tjänstinstans
 * Enheten säkerhet artefakter:
-    * [**TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
+    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Registrering av enskilda: registrerings-ID och TPM-bekräftelsenyckel från en fysisk enhet eller TPM-simulatorn.
         * Registrering grupp gäller inte för attestering av TPM.
-    * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Registrering av enskilda: den [lövcertifikatet](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) från fysisk enhet eller RAPPORTANVÄNDARNA emulatorn.
-        * Grupp för registrering: den [rotcertifikat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), som används för att skapa certifikat på en fysisk enhet.  Det kan också genereras från RAPPORTANVÄNDARNA emulatorn.
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Registrering av enskilda: den [lövcertifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) från fysisk enhet eller RAPPORTANVÄNDARNA emulatorn.
+        * Grupp för registrering: den [rotcertifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), som används för att skapa certifikat på en fysisk enhet.  Det kan också genereras från RAPPORTANVÄNDARNA emulatorn.
 
 ## <a name="create-a-device-enrollment"></a>Skapa en registrering av enheter
 
 Det finns två sätt som du kan registrera dina enheter med tjänsten etablering:
 
-* En **registrering grupp** finns en post för en grupp av enheter som delar en gemensam attestering mekanismen för X.509-certifikat som signerats av den [rotcertifikat](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat ](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). Vi rekommenderar en grupp för registrering för ett stort antal enheter som delar en önskad inledande konfiguration eller för enheter alla kommer att samma klientorganisation. Observera att du bara kan registrera enheter som använder mekanismen för attestering X.509 som *registrering grupper*. 
+* En **registrering grupp** finns en post för en grupp av enheter som delar en gemensam attestering mekanismen för X.509-certifikat som signerats av den [rotcertifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Vi rekommenderar en grupp för registrering för ett stort antal enheter som delar en önskad inledande konfiguration eller för enheter alla kommer att samma klientorganisation. Observera att du bara kan registrera enheter som använder mekanismen för attestering X.509 som *registrering grupper*. 
 
     Du kan skapa en grupp för registrering med SDK: erna efter det här arbetsflödet:
 
@@ -67,7 +67,7 @@ Det här arbetsflödet visar den [exempel](#samples).
 När du har skapat en post för registrering, kanske du vill uppdatera registreringen.  Möjliga scenarier är uppdatering av önskad egenskap, uppdatera metoden attestering eller återkalla Enhetsåtkomst.  Det finns olika API: er för enskilda registrering och gruppen registrering, men ingen åtskillnad för attestering mekanism.
 
 Du kan uppdatera en post för registrering efter det här arbetsflödet:
-* **Registrering av enskilda**:
+* **Enskild registrering**:
     1. Hämta den senaste registreringen från tjänsten etablering första med tjänsten SDK API ```getIndividualEnrollment```.
     2. Ändra parametern till den senaste registreringen vid behov. 
     3. Med den senaste registreringen anropa tjänsten SDK API ```createOrUpdateIndividualEnrollment``` att uppdatera inmatningen registrering.

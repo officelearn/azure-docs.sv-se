@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric och behållare
 > [!NOTE]
-> Distribuera behållare till ett Service Fabric-kluster i Windows 10 stöds inte ännu. 
+> Distribuera behållare till ett Service Fabric-kluster i Windows 10 eller med Docker CE stöds inte. 
 >   
+
+> [!NOTE]
+> Service Fabric version 6.1 har preview stöd för Windows Server version 1709. Öppna nätverks- och DNS-Fabric-tjänsten fungerar inte med Windows Server version 1709. 
+> 
 
 ## <a name="introduction"></a>Introduktion
 Azure Service Fabric är en [orchestrator](service-fabric-cluster-resource-manager-introduction.md) av tjänster i ett kluster på datorer med års användnings- och optimering i massiv skala tjänster på Microsoft. Tjänster kan utvecklas på många sätt, från att använda den [Service Fabric programmeringsmodeller](service-fabric-choose-framework.md) till att distribuera [gäst körbara filer](service-fabric-deploy-existing-app.md). Som standard Service Fabric distribuerar och aktiverar de här tjänsterna som processer. Processer ger snabbast aktivering och den högsta densitet användning av resurser i ett kluster. Service Fabric kan också distribuera tjänster i behållaren bilder. Allt kan du blanda tjänster i processer och tjänster i behållare i samma program.   
@@ -61,7 +65,7 @@ Följande bild visar de olika typerna av virtualisering och isolering som finns 
 ## <a name="scenarios-for-using-containers"></a>Scenarier för användning av behållare
 Här följer vanliga exempel där en behållare är ett bra alternativ:
 
-* **IIS lyfta och flytta**: Om du har befintliga [ASP.NET MVC](https://www.asp.net/mvc) appar som du vill fortsätta att använda, placera dem i en behållare i stället för att migrera dem till ASP.NET Core. Apparna ASP.NET MVC beror på Internet Information Services (IIS). Du kan paketera programmen i behållaren bilder från precreated IIS-avbildning och distribuera dem med Service Fabric. Se [behållare bilder på Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) information om Windows-behållare.
+* **IIS lyfta och flytta**: Om du har befintliga [ASP.NET MVC](https://www.asp.net/mvc) appar som du vill fortsätta att använda, placera dem i en behållare i stället för att migrera dem till ASP.NET Core. Apparna ASP.NET MVC beror på Internet Information Services (IIS). Du kan paketera programmen i behållaren bilder från precreated IIS-avbildning och distribuera dem med Service Fabric. Se [behållare bilder på Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) information om Windows-behållare.
 * **Blanda behållare och Service Fabric mikrotjänster**: Använd en befintlig behållare avbildning för en del av ditt program. Du kan till exempel använda den [NGINX-behållaren](https://hub.docker.com/_/nginx/) för webbklientservern för programmet och tillståndskänsliga tjänster för mer intensiva backend-beräkningen.
 * **Minska påverkan av ”störningar grannar” services**: du kan använda resursen styrning möjligheten för behållare för att begränsa de resurser som en tjänst används på en värd. Om services kan använda många resurser och påverka prestanda för andra (till exempel en tidskrävande, fråga-liknande åtgärd) kan du placera dessa tjänster i behållare som har resurs styrning.
 
@@ -90,6 +94,6 @@ I den här artikeln har du lärt dig om behållare, Service Fabric är en behål
 
 [Skapa din första Service Fabric-behållarprogram på Linux](service-fabric-get-started-containers-linux.md)
 
-[Mer information om Windows-behållare](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Mer information om Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

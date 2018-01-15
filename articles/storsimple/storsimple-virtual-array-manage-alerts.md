@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple enheten Manager för att hantera aviseringar för den virtuella StorSimple-matrisen
 
@@ -125,7 +125,6 @@ I tabellerna nedan listas vissa av StorSimple-aviseringar som kan uppstå, samt 
 * [Jobbet aviseringar](#job-failure-alerts)
 * [Prestandavarningar](#performance-alerts)
 * [Säkerhetsaviseringar](#security-alerts)
-* [Uppdatera aviseringar](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Molnet anslutningsvarningar
 
@@ -164,13 +163,6 @@ I tabellerna nedan listas vissa av StorSimple-aviseringar som kan uppstå, samt 
 | Varningstexten | Händelse | Mer information / rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Lösenordet för <*enhetsnamn*> upphör att gälla om <*nummer*> dagar. |Varning för lösenord. |Ditt lösenord upphör att gälla om < nummer < dagar. Överväg att ändra ditt lösenord. Mer information finns på [ändra StorSimple virtuell matris enhetens administratörslösenord](storsimple-virtual-array-change-device-admin-password.md). |
-
-### <a name="update-alerts"></a>Uppdatera aviseringar
-
-| Varningstexten | Händelse | Mer information / rekommenderade åtgärder |
-|:--- |:--- |:--- |
-| Det finns nya uppdateringar för din enhet. |Uppdateringar för den virtuella StorSimple-matrisen är tillgängliga. |Du kan installera nya uppdateringar från den **Underhåll** sidan. |
-| Kunde inte söka efter nya uppdateringar på <*enhetsnamn*>. |Uppdatera fel. |Ett fel uppstod när du installerar nya uppdateringar. Du kan installera uppdateringarna manuellt. Om problemet kvarstår kontaktar du [Microsoft-supporten](storsimple-contact-microsoft-support.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 

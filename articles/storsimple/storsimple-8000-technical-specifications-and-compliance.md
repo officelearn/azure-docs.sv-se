@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och kompatibilitet för StorSimple-enhet
 
@@ -35,7 +35,7 @@ Primär höljet används en 764 W PCM EBOD höljet använder en 580 W PCM. I tab
 | Specifikationen | 580 W PCM (EBOD) | 764 W PCM (primär) |
 | --- | --- | --- |
 | Maximal utgående power |580 W |764 |
-| frekvens |50/60 Hz |50/60 Hz |
+| Frekvens |50/60 Hz |50/60 Hz |
 | Intervallet spänning |Automatisk allt: 90 – 264 V AC, 47/63 Hz |Automatisk allt: 90-264 V AC, 47/63 Hz |
 | Maximal översvämning aktuella |20 A |20 A |
 | Power faktor korrigering |> 95% nominell ingångsspänning |> 95% nominell ingångsspänning |
@@ -80,7 +80,7 @@ StorSimple-enheter har en blandning av hårddiskar och SSD-enheter för både 81
 | Totalt antal användbara kapacitet * |~ 15 TB |~ 38 TB |
 | Lösning för maximal kapacitet (inklusive moln) |200 TB |500 TB |
 
-<sup>* </sup>- *Den totala användbara kapaciteten inkluderar den tillgängliga kapaciteten för data, metadata och buffertar.*
+<sup>* </sup>- *Den totala användbara kapaciteten inkluderar den tillgängliga kapaciteten för data, metadata och buffertar. Du kan etablera lokalt fästa volymer upp till 8.5 TB på 8100-enhet eller upp till 22,5 TB på den större 8600-enheten. Mer information finns på [StorSimple lokalt fästa volymer](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Höljet dimensioner och vikt specifikationer
 
@@ -116,7 +116,7 @@ Det här avsnittet innehåller de specifikationer som rör hölje-miljö. Temper
 
 | Höljet | Temperaturintervall | Den omgivande relativa fuktighet | Maximal våt termometern |
 | --- | --- | --- | --- |
-| Använd |5 OC - 35° C (41° F - 95° F) |20% till 80% icke-kondenserande- |28° C (82° F) |
+| I drift |5 OC - 35° C (41° F - 95° F) |20% till 80% icke-kondenserande- |28° C (82° F) |
 | Kan inte användas |-40° C - 70 OC 40° F - 158° F |5-100% icke-kondenserande |29 OC (84° F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luftflödet, höjd, undanröjs, vibrationer, orientering, säkerhet och EMC

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och Azure-datorer att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent som läser olika säkerhetsrelaterade konfigurationer och händelseloggar på datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Microsoft Monitoring Agent kopieras också kraschdumpfiler till arbetsytan.
@@ -90,7 +90,7 @@ Security Center kan minska mängden händelser samtidigt tillräckligt med händ
 
 Att fastställa de händelser som hör till den **vanliga** och **Minimal** händelse anger vi arbetat med kunder och standarder för att lära dig om ofiltrerade frekvensen för varje händelse och deras användning. Vi använde följande riktlinjer i den här processen:
 
-- **Minimal** -Kontrollera att den här uppsättningen omfattar händelser som kan indikera en lyckad överträdelse och viktiga händelser som har mycket låg. Till exempel den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID: N 4624 4625), men det innehåller inte logga ut som är viktiga för granskning men inte användbar för att identifiera och har relativt hög volym. De flesta av datavolymen i den här uppsättningen är inloggningshändelser och processen att skapa händelsen (händelse-ID 4688 finns i Security Center [vanliga frågor och svar](security-center-faq.md#what-happens-when-data-collection-is-enabled) mer information om processen att skapa händelsen 4688).
+- **Minimal** -Kontrollera att den här uppsättningen omfattar händelser som kan indikera en lyckad överträdelse och viktiga händelser som har mycket låg. Till exempel den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID: N 4624 4625), men det innehåller inte logga ut som är viktiga för granskning men inte användbar för att identifiera och har relativt hög volym. De flesta av datavolymen i den här uppsättningen är inloggningshändelser och process skapas händelser (händelse-ID 4688).
 - **Vanliga** -ange en fullständig användaren verifieringskedja i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och användarutloggning (händelse-ID 4634). Vi inkludera granskning åtgärder som ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
 
 Händelser som har mycket små volymer ingick i uppsättningen som huvudsakliga syfte att välja det över alla händelser är att minska volymen och inte för att filtrera ut specifika händelser.
@@ -108,6 +108,11 @@ Här är en fullständig uppdelning av den säkerhet och AppLocker händelsen-ID
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Om du använder grupprincipobjekt (GPO), rekommenderas att du aktiverar granskningsprinciper processen att skapa händelsen 4688 och *CommandLine* fältet inuti 4688-händelse. Mer information om processen att skapa händelsen 4688 finns i Security Center [vanliga frågor och svar](security-center-faq.md#what-happens-when-data-collection-is-enabled). Mer information om dessa granskningsprinciper, se [Granska principrekommendationer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Välja din princip för filtrering:
 1. På den **inställningar för säkerhetsprincip &** bladet Välj din filtrering princip under **säkerhetshändelser**.

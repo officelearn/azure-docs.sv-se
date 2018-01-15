@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Misstänkta autentiseringsuppgifter för dokument**: Den här varningen anger att ett misstänkt, vanligt förberäknat lösenords-hash som används av skadlig kod har använts för att köra en fil.
 * **Konstruktion av dynamisk PS-skript**: Den här varningen anger att ett PowerShell-skript har skapats dynamiskt. Angripare använder den här metoden för att progressivt skapa ett skript för att kunna komma undan ID-system.
 * **Metaploit-indikatorer**: Den här varningen anger en aktivitet som associeras med Metasploit-ramverket, vilket innehåller en mängd angriparfunktioner och -verktyg.
-* **SENSE-manipulation**: Den här varningen anger ett försök att inaktivera SENSE, Windows Defender ATP:s tjänst för säkerhetsövervakning.
 * **Misstänkt kontoaktivitet**: Den här varningen anger ett försök att ansluta till en dator med ett konto som nyligen har komprometterats.
 * **Möjlig misstänk schemalagd åtkomst**: Den här varningen anger att ett cron-jobb har utförts, som kan användas av angripare för att köra skadliga program enligt ett schema.
 * **Möjlig misstänkt åtkomst av kommandohistorikfil**: Den här varningen anger onormal åtkomst till kommandohistorikfilen.
@@ -189,7 +188,7 @@ Hotidentifieringen i nätverk av Security Center sker genom automatisk insamling
 
 Resursanalysen i Security Center fokuserar på PaaS-tjänster (platform as a service), till exempel integration med funktionen [Hotidentifiering i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). Baserat på analysresultatet från dessa områden utlöser Security Center en relaterad resursavisering.
 
-* **Möjlig SQL-inmatning**: SQL-inmatning är en attack där skadlig kod matas in i strängar som senare skickas till en instans av SQL Server för parsning och körning. Sårbarhet för den här typen av inmatning bör granskas för alla procedurer som konstruerar SQL-instruktioner eftersom SQL Server kör alla syntaktiskt giltiga frågor som den tar emot. SQL-hotidentifiering använder Machine Learning, beteendeanalys och avvikelseidentifiering för att hitta misstänkta händelser i Azure SQL-databaserna. Exempel: 
+* **Möjlig SQL-inmatning**: SQL-inmatning är en attack där skadlig kod matas in i strängar som senare skickas till en instans av SQL Server för parsning och körning. Sårbarhet för den här typen av inmatning bör granskas för alla procedurer som konstruerar SQL-instruktioner eftersom SQL Server kör alla syntaktiskt giltiga frågor som den tar emot. SQL-hotidentifiering använder Machine Learning, beteendeanalys och avvikelseidentifiering för att hitta misstänkta händelser i Azure SQL-databaserna. Till exempel: 
     * Försök till databasåtkomst av en tidigare anställd
     * SQL-inmatningsattacker
     * Onormal åtkomst till en produktionsdatabas från en användare hemifrån

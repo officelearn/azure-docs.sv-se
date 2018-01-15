@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 46b0cf3666088175372b6a2e73b3dd421a4bff8b
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Hämta stora mängder slumpmässiga data från Azure storage
 
@@ -31,7 +31,7 @@ I del tre av serien får du lära dig hur du:
 > * Köra programmet
 > * Validera antalet anslutningar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen du måste ha slutfört föregående lagring kursen: [överför stora datamängder slumpmässiga parallellt med Azure storage][previous-tutorial].
 
@@ -63,7 +63,7 @@ public static void Main(string[] args)
         UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // initially to support the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files.
         // DownloadFilesAsync().GetAwaiter().GetResult();
     }
     catch (Exception ex)
@@ -74,7 +74,7 @@ public static void Main(string[] args)
     finally
     {
         // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // As the tutorial at https://docs.microsoft.com/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
         if (!exception)
         {
             // DeleteExistingContainersAsync().GetAwaiter().GetResult();
@@ -106,8 +106,8 @@ I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.windowsaz
 
 |Egenskap|Värde|Beskrivning|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Den här egenskapen inaktiverar kontrollerar MD5-hash för det innehåll som överförs. Inaktiverar MD5 validering producerar en snabbare överföring. Men inte bekräftar giltigheten eller integriteten för filer som överförs. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Den här egenskapen anger om en MD5-hash är beräknad och lagras.   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| sant| Den här egenskapen inaktiverar kontrollerar MD5-hash för det innehåll som överförs. Inaktiverar MD5 validering producerar en snabbare överföring. Men inte bekräftar giltigheten eller integriteten för filer som överförs. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| falskt| Den här egenskapen anger om en MD5-hash är beräknad och lagras.   |
 
 Den `DownloadFilesAsync` aktiviteten visas i följande exempel:
 

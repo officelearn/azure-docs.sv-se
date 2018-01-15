@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>Lektion 4: Skapa relationer
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>Skapa relationer
 
 I den här lektionen verifierar du relationerna som skapades automatiskt när du importerade data och lägger till nya relationer mellan olika tabeller. En relation är en koppling mellan två tabeller som anger hur data i tabellerna ska vara korrelerade. Tabellen DimProduct och tabellen DimProductSubcategory har till exempel en relation baserat på det faktum att varje produkt tillhör en underkategori. Mer information finns i [Relationer](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna i den här lektionen måste du ha slutfört föregående lektion: [Lektion 3: Markera som datumtabell](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Granska befintliga relationer och lägga till nya relationer  

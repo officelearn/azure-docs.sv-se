@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Filsystemsåtgärder på Data Lake Store med hjälp av Java SDK
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Läs hur man använder Azure Data Lake Store Java-SDK:n för att utföra grundl�
 
 Du kommer åt Java SDK API-dokumentation för Azure Data Lake Store på [Azure Data Lake Store Java API-dokumentation](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Java Development Kit (JDK 7 eller senare, med Java version 1.7 eller senare)
 * Azure Data Lake Store-konto. Följ instruktionerna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Den här självstudien använder Maven för bygg- och projektberoenden. Även om det är möjligt att skapa utan att använda ett build-system som Maven eller Gradle, gör de här systemen det mycket enklare att hantera beroenden.

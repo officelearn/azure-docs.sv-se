@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Maximalt antal lagringsalternativ per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas |
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte |
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -26,7 +26,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Ingår lagringsutrymme per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | Saknas | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | 
 | Maximalt antal databaser per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Maximalt antal samtidiga inloggningar per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
@@ -42,7 +42,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Ingår lagringsutrymme per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Maximalt antal lagringsalternativ per pool (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Saknas | Saknas | Saknas | Saknas | Saknas | 
+| Max Minnesintern OLTP lagringsutrymme per pool (GB) | Gäller inte | Gäller inte | Gäller inte | Gäller inte | Gäller inte | 
 | Maximalt antal databaser per pool | 500 | 500 | 500 | 500 | 500 | 
 | Maximalt antal samtidiga arbetare (begäranden) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Maximalt antal samtidiga inloggningar per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \*Lagringsstorlekar som är större än mängden lagringsutrymme som ingår finns i förhandsversionen, och extra kostnader tillkommer. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/). Lagringsstorlekar större än mängden lagringsutrymme som ingår finns i förhandsgranskningen och tillämpa extra kostnader. Mer information finns i [SQL-databas sida med priser](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \*I Premium-nivån finns för närvarande mer än 1 TB lagringsutrymme i följande regioner: Östra USA 2, USA, västra, Virginia (USA-förvaltad region), Europa, västra, Centrala Tyskland, Sydostasien, Östra Japan, Australien, östra, Centrala Kanada och Östra Kanada. 
+> \*Premium-nivån mer än 1 TB lagringsutrymme är tillgängliga i följande regioner: Östra Australien, sydost, Kanada Central, Kanada Öst, Frankrike Central, Tyskland centrala östra Japan, centrala Korea södra centrala USA, södra Östasien, USA East2 , USA, västra USA Gov Virginia och västra Europa. 
 >
 >\*\*Min/max edtu: er per databas startar 200 edtu: er och högre **Standard** pooler finns i förhandsgranskningen.
 >

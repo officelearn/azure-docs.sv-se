@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
-Lär dig hur du skapar eller etablera ett Azure Search-tjänsten i portalen. PowerShell instruktioner finns i [hantera Azure Search med PowerShell](search-manage-powershell.md).
+Lär dig hur du skapar eller etablera ett Azure Search-tjänsten i portalen. 
+
+Använda PowerShell? Använd Azure Resource Manager [tjänstmall](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Hjälp att komma igång, se [hantera Azure Search med PowerShell](search-manage-powershell.md) för bakgrunden.
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (ledigt eller betald)
 
@@ -30,7 +32,7 @@ Lär dig hur du skapar eller etablera ett Azure Search-tjänsten i portalen. Pow
 Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). En MSDN-prenumeration ger dig krediter varje månad som du kan använda för Azure-betaltjänster. 
 
 ## <a name="find-azure-search"></a>Hitta Azure Search
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på plustecknet (”+”) i det övre vänstra hörnet.
 3. Välj **webb + mobilt** > **Azure Search**.
 

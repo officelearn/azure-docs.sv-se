@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Djupgående utbildning för förutsägande Underhåll verkliga scenarier
 
@@ -28,7 +28,7 @@ I scenarier med förutsägande Underhåll samlas data över tid för att överva
 
 I den här självstudiekursen kommer vi bygga en LSTM nätverk för datauppsättningen och scenario som beskrivs i [förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Vi kan använda nätverket för att förutsäga flygplan motorer återstående livslängd. Mallen använder simulerade flygplan sensor värden för att förutsäga när ett flygplan motorn misslyckas i framtiden. Med den här förutsägelse kan Underhåll planeras i förväg för att förhindra fel.
 
-Den här kursen använder den [Keras](https://keras.io/) djup bibliotek och Microsoft kognitiva Toolkit [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) som en serverdel.
+Den här kursen använder den [Keras](https://keras.io/) djup bibliotek och Microsoft kognitiva Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) som en serverdel.
 
 Offentliga GitHub-lagret med exemplen i den här självstudien är på [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Vi rekommenderar att du undersöker dataformatet och slutföra alla tre stegen f
 
 - En [Azure-konto](https://azure.microsoft.com/free/) (gratisutvärderingar finns).
 - Azure Machine Learning arbetsstation med en arbetsyta skapas.
-- För modellen operationalization: Azure Machine Learning Operationalization, med en lokal distributionsmiljö ställer in, och en [konto i Azure Machine Learning modellen Management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- För modellen operationalization: Azure Machine Learning Operationalization, med en lokal distributionsmiljö ställer in, och en [konto i Azure Machine Learning modellen Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Skapa ett nytt projekt arbetsstationen
 
@@ -128,7 +128,7 @@ Du kan redigera relevanta delar av det här scenariot och Använd olika problem 
 
 ## <a name="references"></a>Referenser
 
-- [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Förutsägande Underhåll Lösningsmall](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Guide för Hotmodellering i förutsägande Underhåll](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Förutsägande Underhåll Modeling guiden Python-anteckningsbok](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Förutsägande Underhåll med hjälp av PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

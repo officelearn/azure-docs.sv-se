@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Prognostisering av serverns arbetsbelastning i terabyte med data
 
@@ -51,7 +51,7 @@ Förutsättningar för att kunna köra det här exemplet är följande:
 * Windows 10 (instruktionerna i det här exemplet är vanligtvis samma för macOS system).
 * En Data vetenskap virtuell dator (DSVM) för Linux (Ubuntu), helst i östra USA region där data söker efter. Du kan etablera ett Ubuntu DSVM genom att följa [instruktionerna](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du kan också se [denna Snabbstart](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Vi rekommenderar att du använder en virtuell dator med minst 8 kärnor och 32 GB minne. 
 
-Följ den [instruktion](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) att aktivera lösenord mindre sudoer åtkomst på den virtuella datorn för AML arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML arbetsstationen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord att komma åt den virtuella datorn.  Spara i följande tabell med DSVM information senare stegen:
+Följ den [instruktion](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) att aktivera lösenord mindre sudoer åtkomst på den virtuella datorn för AML arbetsstationen.  Du kan välja att använda [SSH-nyckel-baserad autentisering för att skapa och använda den virtuella datorn i AML arbetsstationen](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). I det här exemplet använder vi lösenord att komma åt den virtuella datorn.  Spara i följande tabell med DSVM information senare stegen:
 
  Fältnamn| Värde |  
  |------------|------|

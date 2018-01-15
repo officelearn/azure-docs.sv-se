@@ -13,23 +13,21 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-13-deploy"></a>Lektion 13: Distribuera
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>Distribuera
 
 Under den här lektionen konfigurerar du distributionsegenskaper, anger en Analysis Services-server i Azure att distribuera till och ett namn för modellen. Distribuera sedan modellen till den instansen. När modellen har distribuerats kan användarna ansluta till den med hjälp av ett rapporteringsklientprogram. Läs mer i [Distribuera till Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
 Uppskattad tidsåtgång för den här lektionen: **5 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 12: Analysera i Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
@@ -69,7 +67,7 @@ Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör s
   
 3. När distributionen är klar kan du klicka på **Stäng**.  
   
-## <a name="conclusion"></a>Slutsats  
+## <a name="conclusion"></a>Sammanfattning  
 Grattis! Du är färdig med att redigera och distribuera din första Analysis Services Tabular-modell. Den här självstudien har hjälpt dig att slutföra de vanligaste uppgifterna för att skapa en tabellmodell. Nu när Adventure Works Internet Sales-modellen har distribuerats kan du använda SQL Server Management Studio för att hantera modellen, skapa processkript och en säkerhetskopieringsplan. Användare kan nu även ansluta till modellen med ett rapportklientprogram, till exempel Microsoft Excel eller Power BI.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)

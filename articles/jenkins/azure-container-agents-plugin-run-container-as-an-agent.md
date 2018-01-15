@@ -14,11 +14,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Skapa ett projekt i Azure med hjälp av Jenkins och instanser för Azure-behållare
 
@@ -30,7 +30,7 @@ Lär dig att:
 > * Installera och konfigurera Azure-behållare agenter plugin-programmet för Jenkins
 > * Använd Azure Container instanser för att skapa den [Vårversionen PetClinic exempelprogrammet](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration** – du lär dig mer om köpalternativ för Azure finns [köpa Azure](https://azure.microsoft.com/pricing/purchase-options/) eller [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -329,4 +329,4 @@ az group delete -n <resourceGroup>
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Besök Jenkins på Azure-hubb för att se de senaste artiklar och exempel](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Besök Jenkins på Azure-hubb för att se de senaste artiklar och exempel](https://docs.microsoft.com/azure/jenkins/)

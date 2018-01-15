@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 7a1dc5d755303d12aa070308a19ab81ef2b911fb
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och hantering av problem för Azure Cloud Services: vanliga frågor (FAQ)
 
@@ -105,8 +105,8 @@ Den **Get-AzurePublishSettingsFile** skapar ett nytt certifikat i **prenumeratio
 Du kan automatisera den här uppgiften med hjälp av ett startskript (PowerShell-batch/cmd) och registrera det startskriptet i tjänstdefinitionsfilen. Lägga till både startskript och certifikat (.p7b-fil) i projektmappen i samma katalog för startskriptet.
 
 Mer information finns i följande artiklar:
-- [Konfigurera och köra startade uppgifter för en tjänst i molnet](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Vanliga uppgifter för start av Molntjänsten](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Konfigurera och köra startade uppgifter för en tjänst i molnet](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Vanliga uppgifter för start av Molntjänsten](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Övervakning och loggning
 

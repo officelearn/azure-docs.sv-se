@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: ec5463a785c9afe53ebae558d15027e541a60f6a
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4d1a30b046c0c398d934291a907af891e9ac7fdf
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Ange säkerhetsprinciper i Azure Security Center
-Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Center. 
+Den här artikeln hjälper dig att ställa in säkerhetsprinciper i Security Center.
 
 ## <a name="how-security-policies-work"></a>Hur fungerar säkerhetsprinciper?
-Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. I Security Center kan du redigera principer och övervaka efterlevnaden av principer. 
+Security Center skapar automatiskt en standardsäkerhetsprincip för var och en av dina Azure-prenumerationer. I Security Center kan du redigera principer och övervaka efterlevnaden av principer.
 
 > [!NOTE]
 > Nu kan du även utöka Security Center-principerna med hjälp av Azure Policy, som nu finns i en begränsad förhandsversion. Gå till [Registrera dig för Azure Policy](https://aka.ms/getpolicy) för att ansluta dig till förhandsversionen. Mer information finns i [Integrera Security Center-säkerhetsprinciper med Azure Policy](security-center-azure-policy.md).
@@ -52,7 +52,7 @@ Använd följande tabell som referens för att förstå de principdefinitioner s
 | Princip | Vad principen gör |
 | --- | --- |
 | Systemuppdateringar |Hämtar en daglig lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services. Den hämtade listan beror på vilken tjänst som har konfigurerats för de virtuella datorerna och den rekommenderar att saknade uppdateringar tillämpas. I Linux-system använder principen pakethanteringssystemet med distribution för att se vilka paket som har tillgängliga uppdateringar. Den söker också efter säkerhetsuppdateringar och viktiga uppdateringar från virtuella datorer i [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Sårbarheter i operativsystem |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
+| Säkerhetskonfigurationer |Analyserar dagligen konfigurationer av operativsystemet för att fastställa problem som kan göra den virtuella datorn sårbar för angrepp. Principen rekommenderar också konfigurationsändringar för att åtgärda dessa sårbarheter. Se [listan med rekommenderade baslinjer](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för mer information om vilka konfigurationer som övervakas. (Just nu stöds inte Windows Server 2016 fullt ut.) |
 | Slutpunktsskydd |Rekommendationer om att slutpunktsskydd ska installeras på alla virtuella datorer (VM) med Windows så att virus, spionprogram och annan skadlig programvara kan identifieras och tas bort. |
 | Diskkryptering |Rekommenderar att aktivera diskkryptering på alla virtuella datorer för att förbättra skydd av data i vila. |
 | Nätverkssäkerhetsgrupper |Rekommenderar att [nätverkssäkerhetsgrupper](../virtual-network/virtual-networks-nsg.md) ska konfigureras för kontroll av inkommande och utgående trafik till virtuella datorer med offentliga slutpunkter. Nätverkssäkerhetsgrupper som konfigureras för ett undernät ärvs av alla VM-nätverksgränssnitt om inget annat anges. Förutom att kontrollera om en nätverkssäkerhetsgrupp har konfigurerats kontrollerar även den här principen att inkommande säkerhetsregler för att se om det finns några regler som tillåter inkommande trafik. |

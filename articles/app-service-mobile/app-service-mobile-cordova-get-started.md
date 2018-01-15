@@ -3,8 +3,8 @@ title: "Skapa en Cordova-app i Azure Apptjänst Mobile Apps | Microsoft Docs"
 description: "Följ den här kursen och kom igång med att använda mobilappserverdelar i Azure för Apache Cordova-utveckling"
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 tags: 
 keywords: cordova, javascript, mobil, klient
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
-ms.author: glenga
-ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-an-apache-cordova-app"></a>Skapa en Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -31,7 +31,7 @@ I den här kursen får du lära dig hur du lägger till en molnbaserad serverdel
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * En PC-dator med [Visual Studio Community 2017] eller senare.

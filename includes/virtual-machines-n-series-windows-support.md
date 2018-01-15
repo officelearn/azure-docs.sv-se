@@ -16,8 +16,8 @@
 
 | Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016 | [RUTNÄTET 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [RUTNÄTET 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
 > [!NOTE]
 > Microsoft distribuerar NVIDIA RUTNÄTET drivrutinen installationsprogram för NV virtuella datorer. Installera endast drivrutinerna RUTNÄTET på NV virtuella Azure-datorer. De här drivrutinerna inkluderar licensiering för RUTNÄTET virtuella GPU-programvara i Azure.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: ca16a7fe424e9c50ce87b150442dd18ff0d6ce91
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -80,7 +80,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
    <a id="max-connection"></a>
 3. **Öka MaxPoolSize per värd när du använder läget för Gateway**
 
-    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxPoolSize till ett högre värde (200-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK, standardvärdet för [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) är 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) att ändra värdet.
+    Azure Cosmos-DB-begäranden görs över HTTPS/RESTEN när du använder Gateway-läge och är föremål för standard anslutningsgränsen per värdnamn eller IP-adress. Du kan behöva ange MaxPoolSize till ett högre värde (200-1000) så att klientbiblioteket kan använda flera samtidiga anslutningar till Azure Cosmos DB. I Java SDK, standardvärdet för [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) är 100. Använd [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) att ändra värdet.
 
 4. **Justera parallella frågor för partitionerade samlingar**
 
@@ -96,7 +96,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
 5. **Implementera backoff med getRetryAfterInMilliseconds intervall**
 
-    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Stöd för återförsök Grupprincip ingår i Version 1.8.0 och senare av den [Java SDK](documentdb-sdk-java.md). Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [getRetryAfterInMilliseconds](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Under prestandatester, bör du öka belastningen tills en liten andel begäranden hämta begränsas. Om begränsas, bör klientprogrammet backoff på begränsning för intervallet-server har angetts. Respektera backoff garanterar att du ägnar minimal mängd väntetid mellan försöken. Stöd för återförsök Grupprincip ingår i Version 1.8.0 och senare av den [Java SDK](documentdb-sdk-java.md). Mer information finns i [Exceeding reserverat dataflöde gränser](request-units.md#RequestRateTooLarge) och [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
 6. **Skala upp din klient arbetsbelastning**
 
     Om du testar på hög genomströmning nivåer (> 50 000 RU/s), klientprogrammet kan bli en flaskhals på grund av den datorn tak som skall ut på processor eller användning. Om du når den här punkten kan kan du fortsätta att skicka ytterligare Azure Cosmos DB kontot genom att skala ut ditt klientprogram på flera servrar.
@@ -112,7 +112,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     För att minska antalet nätverket förfrågningar krävs för att hämta alla tillämpliga resultat, kan du öka sidan storlek med den [x-ms-max--antal objekt](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) huvudet i begäran till upp till 1000. I fall där du vill visa endast några resultat, till exempel om ditt användar-gränssnittet eller programmet API returnerar bara 10 resulterar en tid, du kan också minska sidstorleken till 10 för att minska den används för läsning och frågor.
 
-    Du kan också ange sidan storlek med den den [setPageSize metoden](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Du kan också ange sidan storlek med den den [setPageSize metoden](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Indexeringspolicy
  
@@ -143,7 +143,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     Komplexiteten i en fråga påverkar hur många enheter som begäran används för en åtgärd. Antalet predikat, predikat, antalet UDF: er och storleken på alla källa datauppsättningen påverkar kostnaden för frågor.
 
-    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) eller [FeedResponse<T> ](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_response) att mäta antalet begäran enheter som används av dessa åtgärder.
+    För mätning av alla åtgärder (skapa, uppdatera eller ta bort) inspektera den [x-ms-begäran-kostnad](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) huvud (eller motsvarande RequestCharge-egenskapen i [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) eller [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) att mäta antalet begäran enheter som används av dessa åtgärder.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -163,7 +163,7 @@ Så om du begär ”hur kan jag förbättra Mina databasprestanda”? Överväg 
 
     SDK: erna alla implicit catch-svaret respektera server angetts försök igen efter rubriken och försöka. Om ditt konto används samtidigt av flera klienter, lyckas nästa försök.
 
-    Om du har mer än ett klientoperativsystem kumulativt konsekvent över den begärt frekvensen standard antal försök som för närvarande inställd på 9 internt av klienten inte finns tillräckligt; i så fall måste klienten genererar ett [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) med statusen code 429 till programmet. Standardvärdet för antal återförsök kan ändras med hjälp av [setRetryOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) på den [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) instans. Som standard returneras DocumentClientException med statuskoden 429 efter en kumulativ väntetid på 30 sekunder om begäran fortsätter att fungera över frekvensen med begäran. Detta inträffar även när det aktuella antalet nya försök är mindre än det högsta antal försök antalet måste vara den standardvärdet 9 eller ett användardefinierat värde.
+    Om du har mer än ett klientoperativsystem kumulativt konsekvent över den begärt frekvensen standard antal försök som för närvarande inställd på 9 internt av klienten inte finns tillräckligt; i så fall måste klienten genererar ett [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) med statusen code 429 till programmet. Standardvärdet för antal återförsök kan ändras med hjälp av [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) på den [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) instans. Som standard returneras DocumentClientException med statuskoden 429 efter en kumulativ väntetid på 30 sekunder om begäran fortsätter att fungera över frekvensen med begäran. Detta inträffar även när det aktuella antalet nya försök är mindre än det högsta antal försök antalet måste vara den standardvärdet 9 eller ett användardefinierat värde.
 
     När automatiska försök beteendet hjälper oss för att förbättra återhämtning och användbarhet för de flesta program, kan det ha följt emot varandra när du gör prestandatester, särskilt när mätning av svarstiden.  Svarstid för klient-observerade kommer ökar om experimentet träffar server-begränsning och orsakar klient-SDK ska försöka utföra tyst. För att undvika svarstidsspikar under prestanda experiment mäta kostnad som returneras av varje åtgärd och se till att begäranden fungerar nedan reserverade förfrågningar. Mer information finns i [programbegäran](request-units.md).
 3. **Design för mindre dokument för högre genomströmning**

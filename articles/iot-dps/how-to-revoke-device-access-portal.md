@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Hur du återkalla Enhetsåtkomst till din etablering tjänst i Azure Portal
 
 Rätt hantering av enheten autentiseringsuppgifter är avgörande för hög profil system som IoT-lösningar. Bästa praxis för sådana system är att ha en tydlig plan på hur du återkalla åtkomst för enheter i fall där sina autentiseringsuppgifter, om en SAS-token eller ett X.509-certifikat kan ha skadats. Den här artikeln beskriver hur du återkalla Enhetsåtkomst etablering steget.
 
-Mer information om att återkalla Enhetsåtkomst till en IoT-hubb när enheten har etablerats. Se [inaktivera enheter](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Mer information om att återkalla Enhetsåtkomst till en IoT-hubb när enheten har etablerats. Se [inaktivera enheter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Tänk på återförsöksprincip för enheter som du har återkallat åtkomst för. Exempelvis kan en enhet med en oändlig återförsöksprincip kontinuerligt försök att registrera med tjänsten etablering, förbrukar resurser och eventuellt påverka prestanda.

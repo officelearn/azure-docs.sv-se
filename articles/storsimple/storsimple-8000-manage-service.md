@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuera StorSimple enheten Manager-tjänsten för StorSimple 8000-serien enheter
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 StorSimple Device Manager-tjänsten körs i Microsoft Azure och ansluter till flera StorSimple-enheter. När du har skapat tjänsten kan den använda och hantera alla enheter som är anslutna till StorSimple enheten Manager-tjänsten från en enda central plats, vilket minimerar administrativa belastningen.
 
 Den här självstudiekursen beskriver de steg som krävs för att skapa, borttagning, migrering av tjänsten och hantering av nyckel för tjänstregistrering. Informationen i den här artikeln gäller endast StorSimple 8000-serien enheter. Mer information om virtuella StorSimple-matriser, gå till [distribuera StorSimple enheten Manager-tjänsten för din virtuella StorSimple-matrisen](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Alla klassiska StorSimple enheten chefer flyttades automatiskt till den nya Azure-portalen. Om du har några frågor, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md). Azure Service Management (ASM) PowerShell cmdlets stöds inte efter övergången till den nya Azure-portalen. Uppdatera skript för att hantera dina enheter och gå sedan till den [Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter](storsimple-8000-automation-azurerm-scripts.md) för mer information. Den nya Azure portalen stöder enheter som kör uppdatering 5.0 eller senare. Installera uppdatering 5 omedelbart om enheten inte är uppdaterad. Mer information finns på [installera uppdatering 5](storsimple-8000-install-update-5.md). Du kan inte uppdatera en moln-installation om du använder en StorSimple moln installation (8010/8020). Använd den senaste versionen av programvaran för att skapa en ny installation av moln med uppdatering 5.0 och sedan växla över till den nya molntjänster installationen skapas. Alla enheter som kör uppdatering 4.0 eller tidigare får [minskas hanteringsfunktioner](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Skapa en tjänst
 Om du vill skapa en StorSimple Device Manager-tjänst måste du ha:
@@ -57,86 +60,6 @@ För varje tjänst StorSimple Enhetshanteraren finns följande attribut:
 * **Status för** – status för tjänsten, som kan vara **Active**, **skapa**, eller **Online**.
 * **Plats** – den geografiska plats där StorSimple-enheten ska distribueras.
 * **Prenumerationen** – faktureringsadministratör prenumerationen som är associerad med din tjänst.
-
-## <a name="move-a-service-to-azure-portal"></a>Flytta en tjänst till Azure-portalen
-StorSimple 8000-serien kan nu hanteras i Azure-portalen. Om du har en befintlig tjänst för att hantera StorSimple-enheter, rekommenderar vi att du flyttar din tjänst till Azure-portalen. Den klassiska Azure-portalen för StorSimple Manager-tjänsten stöds inte efter den 30 September 2017. Om du vill flytta till den nya Azure portalen läser [överväganden för övergången](#considerations-for-transition). 
-
-> [!NOTE]
-> Från 5 oktober 2017 flyttas din klassiska StorSimple-enhetshanterare automatiskt till den nya Azure-portalen. Detta är en stegvis distribution och vi kommer att uppdatera du om flytten via e-post och portalen meddelanden. Om du har några frågor, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Överväganden för övergång
-
-Granska effekten av migreringen till den nya Azure-portalen innan du flyttar tjänsten.
-
-> [!NOTE]
-> De befintliga Azure Service Management (ASM) PowerShell-cmdletarna stöds inte när du flyttar till den nya Azure-portalen. Uppdatera skript för att hantera dina enheter via Azure Resource Manager SDK. Mer information finns i [Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter](storsimple-8000-automation-azurerm-scripts.md).
-> Den nya Azure portalen stöder enheter som kör uppdatering 3.0 eller senare. Om enheten inte är uppdaterad, rekommenderar vi att du installerar uppdatering 5 så snart som möjligt.
-
-#### <a name="before-you-transition"></a>Innan du övergår
-
-* Enheten är Kör uppdatering 3.0 eller senare. Om enheten kör en äldre version, rekommenderar vi att du installerar uppdatering 5 via metoden snabbkorrigering. Mer information finns på [installera uppdatering 5](storsimple-8000-install-update-5.md). Om du använder en StorSimple moln installation (8010/8020), kan du inte uppdatera en moln-installation. Använd den senaste versionen av programvaran för att skapa en ny installation av moln med uppdatering 5.0 och sedan växla över till den nya molntjänster installationen skapas.
-
-* När du har gått över till den nya Azure-portalen, kan du inte använda den klassiska Azure-portalen för att hantera din StorSimple-enhet.
-
-* Övergången utan avbrott och det finns inget driftstopp för enheten.
-
-* Alla StorSimple-enhet chefer under den angivna prenumerationen överförs.
-
-#### <a name="during-the-transition"></a>Under övergången
-
-* Du kan inte hantera din enhet från portalen.
-* Åtgärder som till exempel lagringsnivåer och schemalagda säkerhetskopieringar fortsätta ska ske.
-* Ta inte bort de gamla StorSimple enheten chefer medan övergången pågår.
-
-#### <a name="after-the-transition"></a>Efter övergången
-
-* Du kan inte längre hantera dina enheter från den klassiska portalen.
-
-* De befintliga Azure Service Management (ASM) PowerShell-cmdletarna stöds inte. Uppdatera skript för att hantera dina enheter via Azure Resource Manager. Exempel på skript med hjälp av hanteraren för filserverresurser SDK, finns det [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* Konfigurationen av tjänsten och bevaras. Alla volymer och säkerhetskopieringar överförs till Azure-portalen.
-
-### <a name="begin-transition"></a>Börja övergång
-
-Utför följande steg om du vill överföra din tjänst till Azure-portalen.
-
-1. Gå till befintlig StorSimple Manager-tjänsten i den nya Azure-portalen.
-    ![Fler tjänster](./media/storsimple-8000-manage-service/service-browse01.png) ![väljer Enhetshanteraren](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. Du ser ett meddelande som informerar dig om att StorSimple enheten Manager-tjänsten är tillgänglig i Azure-portalen. I Azure-portalen kallas tjänsten StorSimple enheten Manager-tjänsten.
-    ![Meddelande för migrering](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Se till att du har granskat fullständig effekten av migreringen.
-    2. Granska listan över StorSimple enhetshanterare som kommer att flyttas från den klassiska portalen.
-
-3. Klicka på **migrera**. Övergången börjar och tar några minuter att slutföra.
-
-När övergången är klar kan hantera du dina enheter via tjänsten StorSimple Enhetshanteraren i Azure-portalen. Om du inte ser ett alternativ för att migrera till Azure-portalen, men du vill flytta, kan du [skicka en begäran om](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Stöd för åtgärder på enheter som kör versioner före uppdateringen 3.0
-I Azure portal stöds bara på StorSimple-enheter som kör uppdatering 3.0 och senare. De enheter som kör äldre versioner har begränsat stöd. När du har migrerat till Azure portal, Använd följande tabell för att förstå vilka åtgärder som stöds på enheter som kör versioner före uppdateringen 3.0.
-
-| Åtgärd                                                                                                                       | Stöds      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registrera en enhet                                                                                                               | Ja            |
-| Konfigurera inställningar för enheter, till exempel Allmänt, nätverk och säkerhet                                                                | Ja            |
-| Skanna, hämta och installera uppdateringar                                                                                             | Ja            |
-| Inaktivera enhet                                                                                                               | Ja            |
-| Ta bort enhet                                                                                                                   | Ja            |
-| Skapa, ändra och ta bort en volymbehållare                                                                                   | Nej             |
-| Skapa, ändra och ta bort en volym                                                                                             | Nej             |
-| Skapa, ändra och ta bort en princip för säkerhetskopiering                                                                                      | Nej             |
-| Gör en manuell säkerhetskopia                                                                                                            | Nej             |
-| Ta en schemalagd säkerhetskopiering                                                                                                         | Inte tillämpligt |
-| Återställa från en säkerhetskopieuppsättningen                                                                                                        | Nej             |
-| Klona till en enhet som kör uppdatering 3.0 och senare <br> På källenheten kör version före uppdateringen 3.0.                                | Ja            |
-| Klona till en enhet som kör versioner före uppdateringen 3.0                                                                          | Nej             |
-| Redundans som källenhet <br> (från en enhet som kör version före uppdateringen 3.0 till en enhet som kör uppdatering 3.0 och senare)                                                               | Ja            |
-| Redundans som målenhet <br> (för att en enhet som kör programvaruversion före uppdateringen 3.0)                                                                                   | Nej             |
-| Ta bort en avisering                                                                                                                  | Ja            |
-| Visa principer för säkerhetskopiering, säkerhetskopieringskatalogen, volymer, volymbehållare, övervakning diagram, jobb och aviseringar som skapats i klassiska portalen | Ja            |
-| Aktivera och inaktivera styrenheter                                                                                              | Ja            |
-
 
 ## <a name="delete-a-service"></a>Ta bort en tjänst
 
@@ -262,6 +185,31 @@ Utför följande steg för att uppdatera tjänsten datakryptering på enheten.
 2. Öppna PowerShell och Skriv vid kommandotolken:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Det här skriptet säkerställer att krypteringsnyckel för tjänstdata är inställd på 8010/8020 moln installationer under Enhetshanteraren.
+
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Stöd för åtgärder på enheter som kör versioner före uppdateringen 5.0
+I Azure portal stöds bara på StorSimple-enheter som kör uppdatering 5.0 och senare. De enheter som kör äldre versioner har begränsat stöd. När du har migrerat till Azure portal, Använd följande tabell för att förstå vilka åtgärder som stöds på enheter som kör versioner före uppdateringen 5.0.
+
+| Åtgärd                                                                                                                       | Stöds      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Registrera en enhet                                                                                                               | Ja            |
+| Konfigurera inställningar för enheter, till exempel Allmänt, nätverk och säkerhet                                                                | Ja            |
+| Skanna, hämta och installera uppdateringar                                                                                             | Ja            |
+| Inaktivera enhet                                                                                                               | Ja            |
+| Ta bort enhet                                                                                                                   | Ja            |
+| Skapa, ändra och ta bort en volymbehållare                                                                                   | Nej             |
+| Skapa, ändra och ta bort en volym                                                                                             | Nej             |
+| Skapa, ändra och ta bort en princip för säkerhetskopiering                                                                                      | Nej             |
+| Gör en manuell säkerhetskopia                                                                                                            | Nej             |
+| Ta en schemalagd säkerhetskopiering                                                                                                         | Inte tillämpligt |
+| Återställa från en säkerhetskopieuppsättningen                                                                                                        | Nej             |
+| Klona till en enhet som kör uppdatering 3.0 och senare <br> På källenheten kör version före uppdateringen 3.0.                                | Ja            |
+| Klona till en enhet som kör versioner före uppdateringen 3.0                                                                          | Nej             |
+| Redundans som källenhet <br> (från en enhet som kör version före uppdateringen 3.0 till en enhet som kör uppdatering 3.0 och senare)                                                               | Ja            |
+| Redundans som målenhet <br> (för att en enhet som kör programvaruversion före uppdateringen 3.0)                                                                                   | Nej             |
+| Ta bort en avisering                                                                                                                  | Ja            |
+| Visa principer för säkerhetskopiering, säkerhetskopieringskatalogen, volymer, volymbehållare, övervakning diagram, jobb och aviseringar som skapats i klassiska portalen | Ja            |
+| Aktivera och inaktivera styrenheter                                                                                              | Ja            |
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om den [StorSimple distributionsprocessen](storsimple-8000-deployment-walkthrough-u2.md).

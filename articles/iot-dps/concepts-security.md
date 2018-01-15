@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT-hubb enheten Etableringstjänsten säkerhetsbegrepp 
 
@@ -56,13 +56,13 @@ Lagringsrotnyckel lagras i TPM och används för att skydda TPM-nycklar som skap
 
 ## <a name="x509-certificates"></a>X.509-certifikat
 
-Med X.509-certifikat som en mekanism för attestering är en utmärkt sätt att skala produktion och förenkla enhetsetableringen. X.509-certifikat är vanligtvis ordnade i en certifikatkedja med förtroenden där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikat och så vidare, avslutar i ett självsignerat rotcertifikat. Detta skapar en delegerad förtroendekedja för från rotcertifikatet som genererats av en betrodd rotcertifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare certifikatet på enheten. Läs mer i [autentisering med X.509-certifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). 
+Med X.509-certifikat som en mekanism för attestering är en utmärkt sätt att skala produktion och förenkla enhetsetableringen. X.509-certifikat är vanligtvis ordnade i en certifikatkedja med förtroenden där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikat och så vidare, avslutar i ett självsignerat rotcertifikat. Detta skapar en delegerad förtroendekedja för från rotcertifikatet som genererats av en betrodd rotcertifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare certifikatet på enheten. Läs mer i [autentisering med X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Certifikatkedjan representerar ofta vissa logisk eller fysisk hierarki har associerats med enheter. Till exempel kan en tillverkare utfärda ett självsignerat rotcertifikat, använda certifikatet för att generera en unik mellanliggande CA-certifikat för varje factory, använder certifikat för varje factory för att generera en unik mellanliggande CA-certifikat för varje produktion rad i anläggningen och slutligen använder certifikatet produktionen för att generera ett unikt enhets (slutenhet)-certifikat för varje enhet som tillverkats på raden. Läs mer i [grundläggande förståelse för X.509-certifikat i branschen IoT](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
+Certifikatkedjan representerar ofta vissa logisk eller fysisk hierarki har associerats med enheter. Till exempel kan en tillverkare utfärda ett självsignerat rotcertifikat, använda certifikatet för att generera en unik mellanliggande CA-certifikat för varje factory, använder certifikat för varje factory för att generera en unik mellanliggande CA-certifikat för varje produktion rad i anläggningen och slutligen använder certifikatet produktionen för att generera ett unikt enhets (slutenhet)-certifikat för varje enhet som tillverkats på raden. Läs mer i [grundläggande förståelse för X.509-certifikat i branschen IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Rotcertifikat
 
-Ett rotcertifikat är ett självsignerat X.509-certifikat som representerar en certifikatutfärdare (CA). Det är terminus eller förtroendeankare av certifikatkedjan. Rotcertifikat kan själva är utfärdat av en organisation eller köpts från en rotcertifikatutfärdare. Läs mer i [hämta X.509-certifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rotcertifikatet kan också kallas en Certifikatutfärdares rotcertifikat.
+Ett rotcertifikat är ett självsignerat X.509-certifikat som representerar en certifikatutfärdare (CA). Det är terminus eller förtroendeankare av certifikatkedjan. Rotcertifikat kan själva är utfärdat av en organisation eller köpts från en rotcertifikatutfärdare. Läs mer i [hämta X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Rotcertifikatet kan också kallas en Certifikatutfärdares rotcertifikat.
 
 ### <a name="intermediate-certificate"></a>Mellanliggande certifikat
 
@@ -70,7 +70,7 @@ En mellanliggande certifikat är ett X.509-certifikat som har signerats av rotce
 
 ### <a name="leaf-certificate"></a>Lövcertifikatet
 
-Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedja samt noll eller flera mellanliggande certifikat. Lägsta certifikatet används inte för att signera andra certifikat. Unikt identifierar enheten till tjänsten etablering och ibland kallas enhetens certifikat. Under autentiseringen använder enheten den privata nyckeln som associeras med det här certifikatet ska svara på ett bevis på tillgång challenge från tjänsten. Läs mer i [autentisera enheter signerad med X.509-certifikat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Lövcertifikatet eller slutentitetscertifikat, identifierar certifikatinnehavarens. Den har rotcertifikat i dess certifikatkedja samt noll eller flera mellanliggande certifikat. Lägsta certifikatet används inte för att signera andra certifikat. Unikt identifierar enheten till tjänsten etablering och ibland kallas enhetens certifikat. Under autentiseringen använder enheten den privata nyckeln som associeras med det här certifikatet ska svara på ett bevis på tillgång challenge från tjänsten. Läs mer i [autentisera enheter signerad med X.509-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Kontrollera Enhetsåtkomst till tjänsten etablering med X.509-certifikat
 

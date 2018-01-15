@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Replikera och redundansväxla virtuella VMware-datorer till Azure med Azure Site Recovery PowerShell
 
@@ -109,7 +109,7 @@ Använd hämtade valvregistreringsnyckeln och följ stegen i artiklar som anges 
 ## <a name="set-the-vault-context"></a>Ange valvet-kontext
 
 > [!TIP]
-> Azure Site Recovery PowerShell-modulen (AzureRm.RecoveryServices.SiteRecovery modul) levereras med lättanvända alias för de flesta cmdlets. Cmdletar i modulen vara i formatet  *\<åtgärden >-**AzureRmRecoveryServicesAsr**\<objekt >* och har motsvarande alias som utformas  *\<åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för att underlätta läsning.
+> Azure Site Recovery PowerShell-modulen (AzureRm.RecoveryServices.SiteRecovery modul) levereras med lättanvända alias för de flesta cmdlets. Cmdletar i modulen vara i formatet  *\<åtgärden >-**AzureRmRecoveryServicesAsr**\<objekt >* och ha motsvarande alias som utformas  *\<Åtgärden >-**ASR**\<objekt >*. Den här artikeln använder cmdlet-alias för att underlätta läsning.
 
 Ange valvet samband med cmdlet Set-ASRVaultContext. När utförs efterföljande Azure Site Recovery-åtgärder i PowerShell-sessionen i kontexten för det valda valvet. I exemplet nedan, valvet information från $vault används variabeln för att ange valvet kontexten för PowerShell-session.
  ```azurepowershell
@@ -329,7 +329,7 @@ Det tar ungefär 15-20 minuter för virtuella datorer som ska identifieras från
 Du behöver följande information för att skydda en identifierad virtuell dator:
 * Skyddsobjekt replikeras.
 * Lagringskontot för att replikera den virtuella datorn till. Dessutom kan behövs en logg lagring för att skydda virtuella datorer till ett premiumlagringskonto.
-* Process-Server som ska användas för replikering. Listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]****(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.  
+* Process-Server som ska användas för replikering. Listan över tillgängliga servrar har hämtats och sparats i den ***$ProcessServers [0]****(ScaleOut-process)* och ***$ProcessServers [1]*** *(ConfigurationServer)* variabler.
 * Kontot du använder för att push-installation Mobility service programvara på datorerna. Listan med tillgängliga konton har hämtats och lagras i den ***$AccountHandles*** variabeln.
 * Skyddsbehållare för replikeringsprincip som ska användas för replikering.
 * Resursgruppen där virtuella datorer måste skapas för växling vid fel.

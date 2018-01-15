@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
@@ -132,7 +132,7 @@ Logga in risknivå är en indikation (hög, medel eller låg) på sannolikheten 
 
 En lösning är en åtgärd för att begränsa möjligheten för en angripare som utnyttjar en komprometterad identitet eller en enhet utan att återställa identitet eller enhet till ett säkert tillstånd. En lösning kan inte matchas tidigare inloggning riskhändelser som associeras med identiteten eller enhet.
 
-Du kan konfigurera inloggning risk säkerhet policicies för att minimera riskfyllda inloggningar automatiskt. Med dessa principer kan du risknivån för användaren eller logga in att blockera riskfyllda inloggningar eller kräver att användaren utför Multi-Factor authentication. Dessa åtgärder kan hindra en angripare från att en stulen identitet för att orsaka skada och ge lite tid att skydda identitet.
+Du kan konfigurera säkerhetsprinciper för inloggning risk för att minimera riskfyllda inloggningar automatiskt. Med dessa principer kan du risknivån för användaren eller logga in att blockera riskfyllda inloggningar eller kräver att användaren utför Multi-Factor authentication. Dessa åtgärder kan hindra en angripare från att en stulen identitet för att orsaka skada och ge lite tid att skydda identitet.
 
 ### <a name="sign-in-risk-security-policy"></a>Logga in risk säkerhetsprincip
 Logga in riskprincipen är en princip för villkorlig åtkomst som utvärderar risken för en specifik inloggning och tillämpar åtgärder baserat på fördefinierade villkor och regler.

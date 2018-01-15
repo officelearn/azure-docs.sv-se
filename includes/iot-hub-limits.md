@@ -27,7 +27,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 | Maximalt antal leveranser för feedbackmeddelanden <br/> som svar på ett moln-till-enhet-meddelande |100 |
 | Maximalt TTL-värde för meddelanden som <br/> svar på ett moln-till-enhet-meddelande |2 dagar |
 | Maximal storlek för enhetstvilling <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |
-| Maximal storlek för strängvärde för enhetstvilling | 512 byte |
+| Maximal storlek för strängvärde för enhetstvilling | 4 KB |
 | Maximalt djup för objekt i enhetstvilling | 5 |
 | Maximal storlek på nyttolast för direkt metod | 8 kB |
 | Maximal kvarhållning för jobbhistorik | 30 dagar |

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importera data till Azure Search med hjälp av portalen
 Med guiden **Importera data** i instrumentpanelen för Azure Search på Azure Portal kan du läsa in data i ett index. 
@@ -113,7 +113,7 @@ Guiden skapade även ett **index**. Om det görs strukturella uppdateringar av e
 Använd dessa länkar om du vill veta mer om indexerare:
 
 * [Indexera Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexera Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indexera Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexera Table Storage](search-howto-indexing-azure-tables.md)
 

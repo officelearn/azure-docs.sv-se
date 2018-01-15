@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 06e8d99aa2ad4eb11e594a729c6dab39d5cd1eb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Flytta StorSimple enheten Manager-tjänsten från klassiska Azure-portalen: vanliga frågor (FAQ)
 
@@ -38,7 +38,7 @@ Frågor och svar ordnas i följande kategorier:
 
 ### <a name="once-i-have-moved-to-azure-portal-can-i-still-create-a-storsimple-manager-service-in-the-classic-portal"></a>En gång I flyttats till Azure-portalen kan jag fortfarande skapa StorSimple Manager-tjänsten i den klassiska portalen?
 
-Nej. När du har migrerat StorSimple Manager-tjänsten till Azure-portalen, kan du inte skapa en ny tjänst i den klassiska portalen. Du kan också hantera enheten via den klassiska portalen. Mer information finns på [flytta tjänsten till Azure-portalen](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Nej. När du har migrerat StorSimple Manager-tjänsten till Azure-portalen, kan du inte skapa en ny tjänst i den klassiska portalen. Dessutom [den klassiska portalen är inte tillgängligt från 8 januari 2018](https://azure.microsoft.com/updates/azure-portal-updates-for-classic-portal-users). 
 
 ### <a name="i-have-multiple-storsimple-managers-running-in-the-classic-portal-can-i-choose-which-ones-to-move-to-the-azure-portal"></a>Jag har flera StorSimple chefer som körs i den klassiska portalen. Kan jag välja vilka som ska flyttas till Azure portal?
 
@@ -67,14 +67,14 @@ Ja. De virtuella datorerna som är associerad med befintliga installationer av 8
 
 Om du har skapat StorSimple moln installationer modellen 8010/8020 kör Update 3.0 och senare, du påverkas inte av tjänsten flytta till den nya Azure-portalen. Du bör kunna hantera dina molntjänster installationer utan problem. 
 
-Om du har molnet enheter som kör versioner före uppdateringen 3.0 i den klassiska portalen, sedan du endast har begränsad funktionalitet som är tillgängliga. Mer information finns i [lista över åtgärder som inte stöds för enheter som kör tidigare versioner än uppdatering 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Om du har molnet enheter som kör versioner före uppdateringen 3.0 i den klassiska portalen, sedan du endast har begränsad funktionalitet som är tillgängliga. Mer information finns i [lista över åtgärder som inte stöds för enheter som kör tidigare versioner än uppdatering 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Du kan inte uppdatera en molninstallation. Använd den senaste versionen av programvaran för att skapa en ny installation av molnet och växlar sedan över befintliga volymbehållarna till nya molntjänster enhet skapas. Mer information finns på [växla över till molnet-enhet](storsimple-8000-cloud-appliance-u2.md#fail-over-to-the-cloud-appliance)
 
 
 ### <a name="my-storsimple-8000-series-device-is-running-update-20-i-migrated-my-service-to-new-azure-portal-my-device-connected-successfully-but-it-seems-that-i-am-not-able-to-fully-manage-my-device-how-do-i-resolve-this-behavior"></a>Enheten StorSimple 8000-serien med uppdatering 2.0. Jag migrerade min tjänst till nya Azure-portalen. Min enhet ansluten men det verkar som att jag inte kan för att hantera enheten. Hur löser problemet?
 
-Den nya Azure-portalen är stöds endast för StorSimple-enheter som kör uppdatering 3.0 och senare. Om enheten körs Update 2.0 bör har du endast begränsad funktioner som är tillgängliga för den här enheten. Mer information finns i [lista över åtgärder som inte stöds för enheter som kör tidigare versioner än uppdatering 3](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Den nya Azure-portalen är stöds endast för StorSimple-enheter som kör uppdatering 3.0 och senare. Om enheten körs Update 2.0 bör har du endast begränsad funktioner som är tillgängliga för den här enheten. Mer information finns i [lista över åtgärder som inte stöds för enheter som kör tidigare versioner än uppdatering 3](storsimple-8000-manage-service.md##supported-operations-on-devices-running-versions-prior-to-update-50).
 
 Om du vill hantera din enhet måste du installera den senaste uppdateringen på enheten. Mer information finns på [installera uppdatering 5](storsimple-8000-install-update-5.md).
 
@@ -130,11 +130,9 @@ Nej. Med din tjänst som flyttar till nya Azure-portalen, skall ingen inverkan p
 
 ## <a name="moving-storsimple-data-manager-service"></a>Flytta StorSimple Data Manager-tjänsten
 
-### <a name="i-am-using-storsimple-data-manager-service-how-should-i-proceed-with-this-move"></a>Jag använder StorSimple Data Manager-tjänsten. Hur ska fortsätta med den här flytta?
+### <a name="i-am-using-storsimple-data-manager-service-in-classic-azure-portal-how-should-i-proceed-with-this-move"></a>Jag använder StorSimple Data Manager-tjänsten i klassiska Azure-portalen. Hur ska fortsätta med den här flytta?
 
-Om du använder StorSimple Data Manager-tjänsten måste du flytta din StorSimple-enhetshanterare först till Azure-portalen. När övergången är klar, kan du skapa nya StorSimple Data chefer i Azure-portalen. StorSimple Data chefer som skapades före flyttningen fungerar inte.
-
-Mer information om migrering av StorSimple Enhetshanteraren, gå till [flytta tjänsten till Azure-portalen](storsimple-8000-manage-service.md#move-a-service-to-azure-portal). Mer information om skapandet av StorSimple Data Manager går du till [skapar en StorSimple Data Manager-tjänst](storsimple-data-manager-ui.md).
+Om du använder StorSimple Data Manager-tjänsten kan flyttats du automatiskt till Azure-portalen.
 
 ## <a name="miscellaneous"></a>Övrigt
 
@@ -148,7 +146,7 @@ Nej. Du kan byta namn på enheter, volymer, volymbehållare eller principer för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig steg för steg hur du [flytta StorSimple Device Manager-tjänsten på Azure-portalen](storsimple-8000-manage-service.md#move-a-service-to-azure-portal).
+Lär dig mer om [stöds åtgärder på enheter som kör versioner före uppdateringen 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 
 
 

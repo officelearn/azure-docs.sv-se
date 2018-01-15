@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Lektion 6: Skapa mått
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Skapa mått
 
 Under den här lektionen skapar du mått som ingår i din modell. Precis som de beräknade kolumnerna som du skapat är ett mått en beräkning som skapats med hjälp av en DAX-formel. Men till skillnad från beräknade kolumner utvärderas mått baserat på ett *filter* som en användare har valt. Ett exempel är en viss kolumn eller ett utsnitt som lagts till i fältet radetiketter i en pivottabell. Ett värde för varje cell i filtret beräknas sedan med det tillämpade måttet. Mått är kraftfulla och flexibla beräkningar som du vill ha med i nästan alla tabellmodeller för att utföra dynamiska beräkningar på numeriska data. Läs mer i [Mått](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
   
@@ -35,7 +33,7 @@ Under den här lektionen skapar du mått både genom att ange en DAX-formel i fo
   
 Uppskattad tidsåtgång för den här lektionen: **30 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 5: Skapa beräknade kolumner](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Skapa mått  

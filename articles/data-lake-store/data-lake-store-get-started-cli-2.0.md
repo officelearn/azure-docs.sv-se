@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 976ddf25a57dd1eff66e121c5a66bc31f664a9dc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Komma igång med Azure Data Lake Store med hjälp av Azure CLI 2.0
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
+> * [Portalen](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 >
@@ -33,7 +33,7 @@ Lär dig hur du använder Azure CLI 2.0 för att skapa ett Azure Data Lake Store
 Azure CLI 2.0 är Azures nya kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). En fullständig lista över kommandon och syntax finns i [Azure Data Lake Store CLI 2.0-referensen](https://docs.microsoft.com/cli/azure/dls).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

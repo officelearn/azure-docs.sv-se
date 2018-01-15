@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -37,7 +37,7 @@ Den måste veta instrumentation nyckeln för en instans av Application Insights 
 
 * [Skapa en ansluten Application Insights-instans när du skapar appen funktionen](#new-function-app).
 * [Ansluta en Application Insights-instans till en befintlig funktionsapp](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Ny funktionsapp
 
 Aktivera Application Insights i funktionen appen **skapa** sidan:
@@ -65,6 +65,14 @@ Hämta instrumentation nyckeln och spara den i en funktionsapp:
    ![Lägg till nyckel för instrumentation appinställningar](media/functions-monitoring/add-ai-key.png)
 
 1. Klicka på **Spara**.
+
+## <a name="disable-built-in-logging"></a>Inaktivera inbyggda loggning
+
+Om du aktiverar Application Insights, rekommenderar vi att du inaktiverar den [inbyggd loggning som använder Azure storage](#logging-to-storage). Inbyggd loggning är användbart för testning med lätta arbetsbelastningar men är inte avsedd för hög belastning produktion. Application Insights rekommenderas för övervakning av produktionen. Om du använder inbyggd loggning i produktion kan loggning posten vara ofullständiga på grund av begränsningar i Azure Storage.
+
+Om du vill inaktivera inbyggda loggning genom att ta bort den `AzureWebJobsDashboard` appinställningen. Information om hur du tar bort app-inställningar i Azure portal finns det **programinställningar** avsnitt i [hur du hanterar en funktionsapp](functions-how-to-use-azure-function-app-settings.md#settings).
+
+När du aktiverar Application Insights och inaktivera inbyggda loggning, den **övervakaren** för en funktion i Azure-portalen går du till Application Insights.
 
 ## <a name="view-telemetry-data"></a>Visa telemetridata
 
@@ -464,58 +472,41 @@ Rapportera ett problem med Application Insights integrering i funktioner och ge 
 
 ## <a name="monitoring-without-application-insights"></a>Övervakning utan Application Insights
 
-Vi rekommenderar Application Insights för övervakningsfunktionerna eftersom det ger mer data och bättre sätt att analysera data. Men du kan också hitta telemetri och loggningsdata på Azure portal-sidorna för en funktionsapp. 
+Vi rekommenderar Application Insights för övervakningsfunktionerna eftersom det ger mer data och bättre sätt att analysera data. Men du kan också hitta loggar och telemetridata på Azure portal-sidorna för en funktionsapp.
 
-Välj den **övervakaren** fliken för en funktion och du hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
+### <a name="logging-to-storage"></a>Loggning till lagring
 
-> [!IMPORTANT]
-> När du använder den [förbrukning som värd för planen](functions-overview.md#pricing) för Azure Functions i **övervakning** sida vid sida i appen funktionen visas inte några data. Detta beror på att plattformen dynamiskt skalar och hanterar compute-instanser för dig. De här måtten är inte meningsfull på en plan för användning.
+Inbyggd loggning använder storage-konto som anges av anslutningssträngen i den `AzureWebJobsDashboard` appinställningen. Om inställningen appen är konfigurerad, visas loggningsdata i Azure-portalen. Välj en funktion i en funktion app-sida, och välj sedan den **övervakaren** fliken och hämta en lista över funktionen körningar. Välj en funktion körning ska granska varaktighet, indata, fel och associerade loggfilerna.
+
+Om du använder Application Insights och har [inbyggd loggning har inaktiverats](#disable-built-in-logging), **övervakaren** fliken tar dig till Application Insights.
 
 ### <a name="real-time-monitoring"></a>Realtidsövervakning
 
-Realtidsövervakning är tillgänglig genom att klicka på **Live Händelseströmmen** på funktionen **övervakaren** fliken. Dataströmmen direktsänd händelse visas i ett diagram i en ny webbläsarflik.
+Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation med hjälp av den [Azure kommandoradsgränssnittet (CLI) 2.0](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Det finns ett känt problem som kan orsaka att data ska kunna fyllas i. Du kan behöva stänga fliken som innehåller dataströmmen direktsänd händelse och klicka sedan på **direktsänd händelse dataström** igen för att göra det möjligt att fylla i din händelsedata dataströmmen korrekt. 
-
-Statistiken är realtid men den faktiska grafiska Körningsdata kanske cirka 10 sekunder svarstid.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Övervaka loggfilerna från en kommandorad
-
-Du kan strömma loggfiler till en kommandorad session på en lokal arbetsstation med Azure kommandoradsgränssnittet (CLI) 1.0 eller PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Övervaka funktionen app-loggfiler med Azure CLI 1.0
-
-Du kommer igång [installera Azure CLI 1.0](../cli-install-nodejs.md) och [logga in på Azure](/cli/azure/authenticate-azure-cli).
-
-Använd följande kommandon för att aktivera klassiska Service Management-läge, väljer din prenumeration och strömma loggfiler:
+Använd följande kommandon för Azure CLI 2.0 att logga in, väljer din prenumeration och dataströmmen loggfiler:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Övervaka funktionen app-loggfiler med PowerShell
-
-Du kommer igång [installera och konfigurera Azure PowerShell](/powershell/azure/overview).
-
-Använd följande kommandon för att lägga till ditt Azure-konto, väljer din prenumeration och strömma loggfiler:
+För Azure PowerShell använder du följande kommandon för att lägga till ditt Azure-konto, väljer din prenumeration och dataströmmen loggfiler:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Mer information finns i [så här: strömma loggar för web apps](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Mer information finns i [så att strömma loggar](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Mer information om Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Mer information finns i följande resurser:
 
-> [!div class="nextstepaction"]
-> [Mer information om loggning ramen som använder funktioner](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [ASP.NET Core loggning](/aspnet/core/fundamentals/logging/)

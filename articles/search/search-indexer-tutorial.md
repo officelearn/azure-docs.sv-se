@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Crawla en Azure SQL-databas med Azure Search-indexerare
 
@@ -38,7 +38,7 @@ I den här kursen får du utföra följande uppgifter med hjälp av [Azure Searc
 > * Söka i indexet
 > * Visa indexerarkonfiguration i portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). 
 
@@ -119,7 +119,7 @@ Du kan använda Azure Portal och filen *hotels.sql* från exemplet för att skap
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). 
+1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 
 2. Klicka på **Ny** > **SQL Database** och skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
@@ -286,7 +286,7 @@ Om du inte tänker använda dessa tjänster längre följer du stegen nedan för
 Mer information och specifika uppgifter för andra datakällor som stöds finns i följande artiklar:
 
 * [Azure SQL Database (eller SQL Server på en virtuell Azure-dator)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexera CSV-blobbar med Azure Search Blob-indexeraren](search-howto-index-csv-blobs.md)

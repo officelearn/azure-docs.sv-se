@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Hantera domänanslutna HDInsight-kluster
 Läs om användarna och roller för domänanslutna HDInsight och hur du hanterar domänanslutna HDInsight-kluster.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Åtkomst till kluster med Enterprise säkerhetspaketet.
+
+Enterprise-säkerhetspaketet (tidigare kallat HDInsight Premium) ger flera användare åtkomst till klustret, där autentisering görs av Active Directory och auktorisering av Apache Ranger och lagring ACL: er (ADLS-ACL: er). Auktorisering tillhandahåller säker gränser mellan flera användare och gör att enbart behöriga användare har åtkomst till data baserat på auktoriseringsprinciper.
+
+Säkerhets- och isolering är viktiga för ett HDInsight-kluster med Enterprise säkerhetspaketet. SSH-åtkomst till klustret med Enterprise-säkerhetspaketet har blockerats för att uppfylla kraven. I följande tabell visas de rekommenderade åtkomstmetoder för varje typ av kluster:
+
+|Arbetsbelastning|Scenario|Åtkomstmetod|
+|--------|--------|-------------|
+|Hadoop|Hive – interaktiva jobb-frågor |<ul><li>[Beeline](#beeline)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Powerbi](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Interaktiva jobb/frågor PySpark interaktiva|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin med Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Powerbi](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Batch-scenarier – Spark skicka PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Interaktiva fråga (LLAP)|Interaktiv|<ul><li>[Beeline](#beeline)</li><li>[Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Powerbi](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Alla|Installera anpassade program|<ul><li>[Skriptåtgärder](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Om du använder standard-API: er kan från säkerhetsperspektiv. Dessutom kan få du följande fördelar:
+
+1.  **Hantering av** – du kan hantera din kod och automatisera jobb med hjälp av standard-API: er – Livius HS2 osv.
+2.  **Granska** – med SSH, det går inte att granska vilka användare SSH hade till klustret. Detta skulle vara fallet när jobb skapas via standard-slutpunkter som de kan verkställas i kontexten för användaren. 
+
+
+
+### <a name="beeline"></a>Använd Beeline 
+Installera Beeline på din dator och ansluter via det offentliga internet kan använda följande parametrar: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Om du har installerat lokalt Beeline och ansluta via ett virtuellt Azure-nätverk, kan du använda följande parametrar: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Använd informationen i de hantera HDInsight med Ambari REST API-dokumentet för att hitta det fullständigt kvalificerade domännamnet för en headnode.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Användare av domänanslutna HDInsight-kluster
 Ett HDInsight-kluster som inte är ansluten till domänen har två konton som skapas när klustret skapas:
 
-* **Ambari admin**: det här kontot kallas även *Hadoop användare* eller *HTTP användaren*. Det här kontot kan användas för att logga in på Ambari när https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (d.v.s. PowerShell, Templeton, Visual Studio) och autentisera med ODBC-drivrutinen och BI-verktyg (d.v.s. Excel, PowerBI eller Tableau).
+* **Ambari admin**: det här kontot kallas även *Hadoop användare* eller *HTTP användaren*. Det här kontot kan användas för att logga in på Ambari när https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med ODBC-drivrutinen och BI-verktyg (till exempel Excel, PowerBI eller Tableau).
 * **SSH-användare**: det här kontot kan användas med SSH och köra sudo-kommandon. Det har rot behörigheter till den virtuella Linux-datorer.
 
 En domänansluten HDInsight-kluster har tre nya användare utöver Ambari Admin och SSH-användare.
@@ -43,7 +95,7 @@ En domänansluten HDInsight-kluster har tre nya användare utöver Ambari Admin 
     Observera de AD-användarna ha dessa privilegier.
 
     Det finns några slutpunkter i klustret (till exempel Templeton) som inte hanteras av Ranger och därför inte är säker. De här slutpunkterna är låsta för alla användare utom klustret domän administratörsanvändare.
-* **Vanliga**: du kan ange flera active directory-grupper när klustret skapas. Användare i dessa grupper kommer att synkroniseras till Ranger och Ambari. Dessa användare har åtkomst till endast hanterade Ranger slutpunkter (till exempel Hiveserver2) är domänanvändare. Alla RBAC principer och granskning kommer att användas på dessa användare.
+* **Vanliga**: du kan ange flera active directory-grupper när klustret skapas. Användare i dessa grupper synkroniseras till Ranger och Ambari. Dessa användare har åtkomst till endast hanterade Ranger slutpunkter (till exempel Hiveserver2) är domänanvändare. Alla RBAC principer och granskning kommer att användas på dessa användare.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Roller för domänanslutna HDInsight-kluster
 Domänanslutna HDInsight har följande roller:
@@ -63,8 +115,9 @@ Domänanslutna HDInsight har följande roller:
     ![Behörigheter för domänanslutna HDInsight-roller](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Öppna hanteringsgränssnittet för Ambari
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Öppna ditt HDInsight-kluster i ett blad. Se [listan och visa](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Öppna ditt HDInsight-kluster. Se [listan och visa](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Klicka på **instrumentpanelen** på den översta menyn för att öppna Ambari.
 4. Logga in på Ambari med klustrets administratör domänanvändarnamn och lösenord.
 5. Klicka på den **Admin** listrutan från längst upp till höger hörnet och klicka sedan på **hantera Ambari**.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Centralt hantera ITSM arbetsobjekt med hjälp av IT Service Management-anslutningstjänsten (förhandsgranskning)
 
@@ -106,7 +106,7 @@ ServiceDeskWorkItemType_s = ”Incident”
 - Kategori
 - Rubrik
 - Beskrivning
-- Skapat datum
+- Skapad
 - Stängningsdatum
 - Lösningsdatum
 - Ändrades senast datum
@@ -135,7 +135,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 - Risk
 - Påverkan
 - Tilldelat till
-- Skapat datum
+- Skapad
 - Stängningsdatum
 - Ändrades senast datum
 - Begärt datum
@@ -156,7 +156,7 @@ ServiceDeskWorkItemType_s = ”ändra begäran”
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
 | CreatedBy_s | Öppnas av |
-| ResolvedBy_s | Löst av|
+| ResolvedBy_s | Matchad av|
 | ClosedBy_s  | Stängts av |
 | Source_s| Kontakta typ |
 | AssignedTo_s | Tilldelad till  |
@@ -292,11 +292,11 @@ När du skapar/redigerar en Azure aviseringsregel, använda en grupp, som har en
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Felsöka ITSM anslutningar i OMS
 1.  Om anslutningen misslyckas från anslutna datakällan gränssnitt med en **fel spara anslutningen** visas, gör du följande:
- - För ServiceNow, Cherwell och Provance-anslutningar  
-        -Kontrollera du korrekt angav användarnamn, lösenord, klient-ID och klienthemlighet för anslutning.  
-        -Kontrollera att du har tillräckliga privilegier i motsvarande ITSM produkten för att ansluta.  
- - För Service Manager-anslutningar  
-        -Kontrollera att webbappen har distribuerats och hybridanslutningen har skapats. För att verifiera anslutningen upprättas har med Service Manager-datorn lokalt, gå Webbappens URL som anges i dokumentationen för att göra den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- För ServiceNow, Cherwell och Provance-anslutningar  
+       -Kontrollera du korrekt angav användarnamn, lösenord, klient-ID och klienthemlighet för anslutning.  
+       -Kontrollera att du har tillräckliga privilegier i motsvarande ITSM produkten för att ansluta.  
+- För Service Manager-anslutningar  
+       -Kontrollera att webbappen har distribuerats och hybridanslutningen har skapats. För att verifiera anslutningen upprättas har med Service Manager-datorn lokalt, gå Webbappens URL som anges i dokumentationen för att göra den [hybridanslutning](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instansen inte är i viloläge. ServiceNow Dev instanser försättas ibland i viloläge vid inaktivitet under lång tid. Annars rapportera problemet.
 3.  Om OMS aviseringar eller men fungerar objekt skapas inte i ITSM produkten eller konfigurationsobjekt inte skapats/kopplad till arbetsobjekt eller allmän information, se på följande platser:

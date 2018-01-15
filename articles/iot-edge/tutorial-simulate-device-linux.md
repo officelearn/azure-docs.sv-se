@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Linux - förhandsgranskning
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuera Azure IoT kanten på en simulerad enhet i Linux eller MacOS - förhandsgranskning
 
 Azure IoT-gräns kan du utföra analyser och databehandling på dina enheter utan att behöva skicka alla data till molnet. IoT kant självstudiekurser visar hur du distribuerar olika typer av moduler som skapats från Azure-tjänster eller anpassad kod, men du måste först en enhet för att testa. 
 
@@ -31,12 +31,16 @@ I den här självstudiekursen får du lära du dig att:
 
 Den simulerade enheten som du skapar i den här kursen är en Övervakare som genererar temperatur, fuktighet och tryck data. Andra kurser i Azure IoT kant bygger på det arbete som du gör här genom att distribuera moduler som analyserar data för affärsinsikter. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här kursen förutsätter att du använder en dator eller virtuell dator som kör Linux för att simulera en Sakernas Internet-enhet. Följande tjänster krävs för att distribuera en IoT-enhet:
+Den här kursen använder din dator eller virtuell dator som en Sakernas Internet-enhet. Om du vill göra din dator till en IoT-enhet, krävs följande tjänster:
 
-- [Installera Docker för Linux] [ lnk-docker-ubuntu] och se till att den körs. 
-- De flesta Linux-distributioner, inklusive Ubuntu, har redan Python 2.7 installerad. Använder du följande kommando för att se till att pip är installerad: `sudo apt-get install python-pip`.
+* Python pip att installera IoT kant-körningsmiljön.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker att köra IoT-Edge moduler
+   * [Installera Docker för Linux] [ lnk-docker-ubuntu] och se till att den körs. 
+   * [Installera Docker för Mac] [ lnk-docker-mac] och se till att den körs. 
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -130,4 +134,5 @@ Den här kursen är förutsättning för alla andra kurser i IoT kant. Du kan fo
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

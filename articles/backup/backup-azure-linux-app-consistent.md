@@ -1,6 +1,6 @@
 ---
 title: "Azure-säkerhetskopiering: programkonsekvent säkerhetskopiering av virtuella Linux-datorer | Microsoft Docs"
-description: "Använda skript för att garantera en programkonsekvent säkerhetskopiering till Azure för Linux virtuella datorer. Skripten gäller endast för Linux virtuella datorer i en Resource Manager distribution; skripten gäller inte för virtuella Windows-datorer eller service manager-distributioner. Den här artikeln tar dig igenom stegen för att konfigurera skript, inklusive felsökning."
+description: "Skapa programkonsekventa säkerhetskopior av din virtuella Linux-datorer till Azure. Den här artikeln förklarar hur du konfigurerar skript framework att säkerhetskopiera Azure distribuerade virtuella Linux-datorer. Den här artikeln innehåller information om felsökning."
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,35 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Programkonsekvent säkerhetskopiering av virtuella Azure Linux-datorer (förhandsgranskning)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhetskopiering av virtuella Azure Linux-datorer
 
-Den här artikeln pratar om Linux skript före och efter skript framework och hur det kan användas för att göra programkonsekventa säkerhetskopior av virtuella Azure Linux-datorer.
-
-> [!Note]
-> Skript före och efter skript framework stöds bara för Azure Resource Manager distribuerade Linux virtuella datorer. Skript för programkonsekvens stöds inte för Service Manager-distribuerade virtuella datorer eller Windows-datorer.
->
+När du tar ögonblicksbilder av säkerhetskopior av dina virtuella datorer innebär programkonsekvens dina program startar när de virtuella datorerna startar efter återställs. Du kan föreställa dig är programkonsekvens mycket viktigt. Din virtuella Linux-datorer är för att säkerställa konsekvent, du kan använda ramverket för Linux-skript före och efter skript för att göra säkerhetskopior av programkonsekventa program. Skript före och efter skript framework stöder Azure Resource Manager distribuerade Linux virtuella datorer. Skript för programkonsekvens har inte stöd för Service Manager-distribuerade virtuella datorer eller Windows-datorer.
 
 ## <a name="how-the-framework-works"></a>Så här fungerar ramen
 
-Ramen innehåller ett alternativ för att köra skript före och efter skript när du tar med VM-ögonblicksbilder. Före skript körs innan du vidtar VM-ögonblicksbild och efter skript körs omedelbart efter att du skapar VM-ögonblicksbild. Detta ger dig flexibiliteten att styra dina program och miljö när du tar med VM-ögonblicksbilder.
+Ramen innehåller ett alternativ för att köra skript före och efter skript när du tar med VM-ögonblicksbilder. Före skript körs precis innan du utför VM-ögonblicksbild och efter skript körs omedelbart efter att du skapar VM-ögonblicksbild. Skript före och efter skript ger flexibilitet för att styra dina program och din miljö, när du tar med VM-ögonblicksbilder.
 
-I det här fallet är det viktigt att kontrollera programkonsekvent säkerhetskopiering. Skriptet före kan anropa programmet enhetligt API: er att inaktivera IOs och rensa innehållet i minnet till disken. Detta säkerställer att ögonblicksbilden programkonsekventa (det vill säga som programmet kommer upp när den virtuella datorn startas efter återställning). Efter skript kan användas för att låsas upp IOs. Detta sker med hjälp av programmet enhetligt API: er så att programmet kan återupptas normal drift post VM-ögonblicksbild.
+Före skript och anropa programspecifika API: er, vilka inaktivera IOs och rensa innehållet i minnet till disken. De här åtgärderna Kontrollera ögonblicksbilden är program som är konsekventa. Efter skript använder API: er för det ursprungliga programmet låsas upp IOs, vilket gör att programmet kan återuppta normal drift efter VM-ögonblicksbild.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Steg för att konfigurera skript före och efter skript
 
 1. Logga in som rotanvändare för Linux-VM som du vill säkerhetskopiera.
 
-2. Hämta **VMSnapshotScriptPluginConfig.json** från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), och sedan kopiera den till den **/etc/azure** mapp på alla virtuella datorer som du vill säkerhetskopiera. Skapa den **/etc/azure** directory om den inte redan finns.
+2. Från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig), hämta **VMSnapshotScriptPluginConfig.json** och kopiera den till den **/etc/azure** mapp för alla virtuella datorer som du vill säkerhetskopiera. Om den **/etc/azure** mappen inte finns, skapar du den.
 
-3. Kopiera skript före och efter skriptet för ditt program på alla virtuella datorer som du planerar att säkerhetskopiera. Du kan kopiera skripten till valfri plats på den virtuella datorn. Se till att uppdatera den fullständiga sökvägen till skriptfilerna i den **VMSnapshotScriptPluginConfig.json** fil.
+3. Kopiera skript före och efter skriptet för programmet på alla virtuella datorer som du planerar att säkerhetskopiera. Du kan kopiera skripten till valfri plats på den virtuella datorn. Se till att uppdatera den fullständiga sökvägen till skriptfilerna i den **VMSnapshotScriptPluginConfig.json** fil.
 
 4. Se till att följande behörigheter för dessa filer:
 
@@ -51,8 +47,8 @@ I det här fallet är det viktigt att kontrollera programkonsekvent säkerhetsko
    - **Efter skriptet** behörigheten ”700”. Till exempel bara ”rot” användaren ska ha ”läsa”, ”skriva” och ”kör”-behörighet till den här filen.
 
    > [!Important]
-   > Ramen ger mycket ström. Det är viktigt att den är skyddad och ”rot” användare har åtkomst till viktiga skript och JSON-filer.
-   > Om tidigare krav inte uppfylls köra inte skriptet. Detta resulterar i systemkrasch/konsekvent säkerhetskopiering.
+   > Ramen ger mycket ström. Skydda ramen och se till att endast ”rot” användare har åtkomst till viktiga JSON och skriptfiler.
+   > Om kraven inte uppfylls körs skriptet inte, vilket resulterar i en fil systemkrasch och inkonsekvent säkerhetskopiering.
    >
 
 5. Konfigurera **VMSnapshotScriptPluginConfig.json** enligt nedan:
@@ -62,9 +58,9 @@ I det här fallet är det viktigt att kontrollera programkonsekvent säkerhetsko
 
     - **postScriptLocation**: Ange den fullständiga sökvägen för skriptet efter på den virtuella datorn som ska säkerhetskopieras.
 
-    - **preScriptParams**: Ange valfria parametrar som ska skickas till skriptet före. Alla parametrar ska vara inom citattecken och måste vara avgränsade med kommatecken om det finns flera parametrar.
+    - **preScriptParams**: Ange valfria parametrar som ska skickas till skriptet före. Alla parametrar ska vara inom citattecken. Om du använder flera parametrar, avgränsa parametrarna med kommatecken.
 
-    - **postScriptParams**: Ange valfria parametrar som ska skickas till skriptet efter avslutad. Alla parametrar ska vara inom citattecken och måste vara avgränsade med kommatecken om det finns flera parametrar.
+    - **postScriptParams**: Ange valfria parametrar som ska skickas till skriptet efter avslutad. Alla parametrar ska vara inom citattecken. Om du använder flera parametrar, avgränsa parametrarna med kommatecken.
 
     - **preScriptNoOfRetries**: Ange antalet gånger som skriptet före ska göras om det uppstår något fel innan försöket avbryts. Noll innebär bara en försök och inget nytt försök om det uppstår ett fel.
 

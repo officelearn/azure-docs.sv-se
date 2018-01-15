@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Aktivera enkel inloggning mellan appar på iOS använder ADAL
 Tillhandahåller enkel inloggning (SSO) så att användarna behöver bara ange sina autentiseringsuppgifter en gång och dessa autentiseringsuppgifter automatiskt fungerar över förväntade program nu av kunder. Svårt att ange sina användarnamn och lösenord på en liten skärm, ofta gånger kombineras med ytterligare en faktor (2FA) som ett telefonsamtal eller en textläge kod leder till att snabbt klagomål om en användare har att göra det mer än en gång till produkten.
@@ -294,10 +294,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Steg 4: iOS9: Lägg till en konfigurationsparameter i appen
 ADAL använder – canOpenURL: Kontrollera om Service broker är installerad på enheten. I iOS låsta 9 Apple scheman ett program kan fråga efter. Du behöver lägga till ”msauth” i avsnittet LSApplicationQueriesSchemes i din `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array> <string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>Du har konfigurerat SSO!
 Nu Microsoft Identity SDK automatiskt både dela autentiseringsuppgifter i dina program och anropa Service broker om den finns på sin enhet.

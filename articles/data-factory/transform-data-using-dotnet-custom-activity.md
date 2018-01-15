@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -331,7 +331,7 @@ Om du vill använda innehållet i stdout.txt i underordnade aktiviteter kan du f
    - Det krävs inte längre Microsoft.Azure.Management.DataFactories NuGet-paketet. 
    - Kompilera koden, överför körbara filer och beroenden till Azure Storage och definiera sökvägen i folderPath egenskap. 
 
-Ett komplett exempel på hur slutpunkt till slutpunkt-DLL och pipeline exempel som beskrivs i Data Factory V1 dokumentet [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) kan vara omarbetning till anpassad aktivitet för Data Factory-V2-format. Referera till en [Data Factory V2 anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Ett komplett exempel på hur slutpunkt till slutpunkt-DLL och pipeline exempel som beskrivs i Data Factory V1 dokumentet [använda anpassade aktiviteter i ett Azure Data Factory-pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan vara omarbetning till anpassad aktivitet för Data Factory-V2-format. Referera till en [Data Factory V2 anpassad aktivitet exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning av Azure Batch
 Du kan också skapa en Azure Batch-pool med **Autoskala** funktion. Du kan till exempel skapa en azure batch-pool med 0 dedikerade virtuella datorer och en Autoskala formel baserat på antalet väntande åtgärder. 

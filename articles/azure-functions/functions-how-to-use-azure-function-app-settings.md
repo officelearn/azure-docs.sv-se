@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Så här hanterar du en funktionsapp i Azure-portalen 
 
@@ -70,7 +70,7 @@ Mer information om hur du arbetar med App Service-inställningar finns [konfigur
 
 | | |
 |-|-|
-| ![Funktionen app programinställningar.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **programinställningar** bladet är där du kan konfigurera och hantera framework-versioner, fjärrfelsökning, app-inställningar och anslutningssträngar. Du kan ändra de här inställningarna när du integrerar dina funktionsapp med andra Azure och tjänster från tredje part. |
+| ![Funktionen app programinställningar.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | App Service **programinställningar** bladet är där du kan konfigurera och hantera framework-versioner, fjärrfelsökning, app-inställningar och anslutningssträngar. Du kan ändra de här inställningarna när du integrerar dina funktionsapp med andra Azure och tjänster från tredje part. Om du vill ta bort en inställning, bläddra till höger och markera den **X** längst till höger på raden (visas inte i följande bild).
 
 ![Konfigurera programinställningar](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 

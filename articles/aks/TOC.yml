@@ -1,6 +1,6 @@
 - name: Azure Container Service (AKS)
   href: ./index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om AKS
       href: intro-kubernetes.md
@@ -35,6 +35,8 @@
       href: scale-cluster.md
     - name: Uppgradera ett AKS-kluster
       href: upgrade-cluster.md
+    - name: Autentisera med ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
     - name: Köra program med Helm
       href: kubernetes-helm.md
     - name: Utveckla program med Draft

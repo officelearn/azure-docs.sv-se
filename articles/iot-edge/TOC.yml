@@ -1,18 +1,18 @@
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
-- name: "Översikt\r\n"
+- name: Översikt
   items:
     - name: Om Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Snabbstarter
   items:
-    - name: Distribuera till Edge – Linux
+    - name: Distribuera till Edge – Linux/Mac
       href: quickstart-linux.md
     - name: Distribuera till Edge – Windows
       href: quickstart.md
 - name: Självstudier
   items:
-    - name: Simulera en Edge-enhet – Linux
+    - name: Simulera en Edge-enhet – Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simulera en Edge-enhet – Windows
       href: tutorial-simulate-device-windows.md

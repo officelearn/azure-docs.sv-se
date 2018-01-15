@@ -19,6 +19,9 @@
       href: apache-spark-resource-manager.md
     - name: Felsöka Spark-jobb
       href: apache-spark-job-debugging.md
+    - name: Installera HDInsight-appar
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
@@ -28,23 +31,6 @@
           maintainContext: true
         - name: Använda Azure Data Lake Store
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
-    - name: Använda kluster med flera användare
-      items:
-        - name: Översikt
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: Planera domänansluten HDInsight
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: Konfigurera domänansluten HDInsight
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Konfigurera Hive-principer
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: Hantera kluster med flera användare
-          href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
     - name: Utveckla
       items:
@@ -130,17 +116,11 @@
           href: apache-spark-analyze-application-insight-logs.md
     - name: Utöka kluster
       items:
-        - name: 'Använda ett säkert, aktiverat lagringskonto'
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Anpassa kluster med Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Anpassa kluster med skriptåtgärd
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Ansluta HDInsight till det lokala nätverket
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Utveckla skriptåtgärder
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -166,17 +146,11 @@
         - name: Använd Solr
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
-        - name: Använd Virtual Network
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
         - name: Skapa HDInsight-program
           items:
-            - name: Installera HDInsight-appar
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Installera anpassade appar
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -246,9 +220,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optimera kluster med Ambari-webbgränssnittet
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Använda Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Hantera loggar för ett HDInsight-kluster
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Lägga till lagringskonton
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -295,22 +275,11 @@
         - name: OS-korrigering för HDInsight-kluster
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Övervaka
-      items:
-        - name: Använda Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Klusterspecifika instrumentpaneler
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Använda frågor med Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Övervaka klusterprestanda
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Felsöka
       items:
+        - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Felsökning för Spark
           href: apache-troubleshoot-spark.md
         - name: Felsökning för HDFS
@@ -347,6 +316,53 @@
             - name: Optimera Hive-frågor
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: Företagsberedskap
+  items:
+    - name: Företagssäkerhet
+      items:
+        - name: Översikt
+          href: ../domain-joined/apache-domain-joined-introduction.md
+          maintainContext: true
+        - name: Planera för företagssäkerhet
+          href: ../domain-joined/apache-domain-joined-architecture.md
+          maintainContext: true
+        - name: Konfigurera företagssäkerhet i HDInsight
+          href: ../domain-joined/apache-domain-joined-configure.md
+          maintainContext: true
+        - name: Konfigurera företagssäkerhet i HDInsight med Azure AD DS
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+          maintainContext: true
+        - name: Konfigurera Hive-principer
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+          maintainContext: true
+        - name: Hantera kluster med företagssäkerhet
+          href: ../domain-joined/apache-domain-joined-manage.md
+          maintainContext: true
+    - name: Skydda data
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Nätverksåtkomst
+      items:
+        - name: HDInsight i ett virtuellt Azure-nätverk
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Ansluta HDInsight till det lokala nätverket
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Övervaka med OMS
+      items:
+        - name: Använda Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Klusterspecifika instrumentpaneler
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Använda frågor med Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Övervaka klusterprestanda
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Referens
   items:
     - name: Kodexempel
@@ -359,7 +375,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: .NET (Avro)
       href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
-    - name: REST API
+    - name: REST-API
       href: /rest/api/hdinsight/
     - name: REST-API (Spark)
       href: /rest/api/hdinsightspark/

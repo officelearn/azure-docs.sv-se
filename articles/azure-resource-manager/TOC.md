@@ -16,7 +16,7 @@
 #### [Variabler](resource-manager-templates-variables.md)
 #### [Resurser](resource-manager-templates-resources.md)
 #### [Utdata](resource-manager-templates-outputs.md)
-### [Länk till andra mallar](resource-group-linked-templates.md)
+### [Länkade och kapslade mallar](resource-group-linked-templates.md)
 ### [Definiera beroendet mellan resurser](resource-group-define-dependencies.md)
 ### [Skapa flera instanser](resource-group-create-multiple.md)
 ### [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -43,7 +43,7 @@
 ## Hantera
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [Azure-portalen](resource-group-portal.md)
 ### [REST API](resource-manager-rest-api.md)
 ### [Använd taggar för att organisera resurser](resource-group-using-tags.md)
 ### [Flytta resurser till ny grupp eller prenumeration](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Skapa tjänstens huvudnamn
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure Portal](resource-group-create-service-principal-portal.md)
+#### [Azure-portalen](resource-group-create-service-principal-portal.md)
 ### [Autentiserings-API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md)
 ### [Lås resurser](resource-group-lock-resources.md)
 
@@ -92,7 +92,7 @@
 ### [Strängfunktioner](resource-group-template-functions-string.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
-## [NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [REST](/rest/api/resources/)

@@ -10,7 +10,7 @@ På första start uppmanas molnet Shell du att associera en ny eller befintlig f
 ### <a name="create-new-storage"></a>Skapa nya lagringsenheter
 
 När du använder grundläggande inställningar och välj endast en prenumeration skapar molnet Shell tre resurser å dina vägnar i stöds region som ligger närmast du:
-* Resursgrupp:`cloud-shell-storage-<region>`
+* Resursgrupp: `cloud-shell-storage-<region>`
 * Storage-konto:`cs<uniqueGuid>`
 * Filresurs:`cs-<user>-<domain>-com-<uniqueGuid>`
 

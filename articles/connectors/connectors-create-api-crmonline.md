@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Anslut till Dynamics 365 från logik app arbetsflöden
 
@@ -30,7 +30,7 @@ Du kan ansluta till Dynamics 365 (online) och skapa användbart business-flöden
 
 Det här avsnittet visar hur du skapar en logikapp som skapar en uppgift i Dynamics 365 när en ny lead skapas i Dynamics 365.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Ett Azure-konto.
 * En Dynamics 365 (online)-konto.
 
@@ -113,7 +113,7 @@ Du kan till exempel använda filterfråga för att hämta endast aktiva konton o
 
 När du lägger till ett värde till ett fält måste du matcha fälttypen om du skriver ett värde eller välj ett värde från listan över dynamiskt innehåll.
 
-Typ av fält  |Hur du ska använda detta  |Var du hittar  |Namn  |Datatyp  
+Fälttyp  |Hur du ska använda detta  |Var du hittar  |Namn  |Datatyp  
 ---------|---------|---------|---------|---------
 Textfält|Textfält kräver en rad med text eller dynamiskt innehåll som är ett fält av typen text. Exempel inkluderar fälten kategori och underkategori.|Inställningar > anpassningar > Anpassa systemet > enheter > aktivitet > fält |category |Rad med Text        
 Heltalsfält | Vissa fält kräver heltal eller dynamiskt innehåll som är av typen Integer. Exempel: procent färdigt och varaktighet. |Inställningar > anpassningar > Anpassa systemet > enheter > aktivitet > fält |värdet |Heltal         

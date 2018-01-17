@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Komma igång med Azure Multi-Factor Authentication Server
 
@@ -94,7 +94,7 @@ Om du inte använder funktionen Händelsebekräftelse och om användarna inte an
 Följ de här stegen för att ladda ned Azure Multi-Factor Authentication-servern från Azure-portalen:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Välj **Active Directory** > **Multi-Factor Authentication**.
+2. Välj **Active Directory** > **MFA Server**.
 3. Välj **serverinställningar**.
 4. Välj **hämta** och följ instruktionerna på hämtningssidan för att spara installationsprogrammet. 
 

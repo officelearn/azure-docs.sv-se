@@ -1,5 +1,5 @@
 ---
-title: "Distributionshanteraren för Azure Site Recovery för VMware till Azure| Microsoft Docs"
+title: "Azure Site Recovery-kapacitetsplaneraren för VMware till Azure| Microsoft Docs"
 description: "I den här artikeln beskrivs hur du kör Distributionshanteraren för Azure Site Recovery för scenariot VMware till Azure."
 services: site-recovery
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Köra Distributionshanteraren för Azure Site Recovery för VMware till Azure
-Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery för produktionsdistribution av VMware till Azure.
+Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Lägen för att köra distributionshanteraren
@@ -34,7 +34,7 @@ Du kan köra kommandoradsverktyget (ASRDeploymentPlanner.exe) i något av följa
 Först kör du verktyget i profileringsläge för att samla in uppgifter om den virtuella datorns dataomsättning och IOPS. Kör sedan en rapportgenerering så att du ser kraven på nätverksbandbredd och lagring samt kostnaden för haveriberedskap.
 
 ## <a name="profile-vmware-vms"></a>Profilera virtuella VMware-datorer
-I profileringsläge ansluter distributionshanteraren till vCenter-servern/vSphere ESXi-värden och samlar in prestandadata om den virtuella datorn.
+I profileringsläge ansluter distributionskapacitetsplaneraren till vCenter-servern/vSphere ESXi-värden och samlar in prestandadata om den virtuella datorn.
 
 * Profilering påverkar inte prestanda hos de virtuella produktionsdatorerna eftersom ingen direktanslutning upprättas till dem. Alla prestandadata samlas in från vCenter-servern/vSphere ESXi-värden.
 * Verktyget skickar frågor till vCenter-servern/vSphere EXSi-värden var 15:e minut, så att servern ska påverkas minimalt av profileringen. Frågeintervallet äventyrar dock inte profileringens noggrannhet eftersom verktyget lagrar prestandaräknardata varje minut.
@@ -52,7 +52,7 @@ Du behöver först en lista över de virtuella datorer som ska profileras. Du ka
  
             Add-PSSnapin VMware.VimAutomation.Core 
 
-5. Kör de två kommandona i listan här för att hämta alla namnen på virtuella datorer på en vCenter-server/vSphere ESXi-värd och spara den i en txt-fil.
+5. Kör de två kommandona i listan här för att hämta alla namnen på virtuella datorer på en vCenter-server/sShere ESXi-värd och spara den i en txt-fil.
 Ersätt &lsaquo;servernamn&rsaquo;, &lsaquo;användarnamn&rsaquo;, &lsaquo;lösenord&rsaquo; och &lsaquo;utdatafil.txt&rsaquo; med egna värden.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
@@ -61,8 +61,9 @@ Ersätt &lsaquo;servernamn&rsaquo;, &lsaquo;användarnamn&rsaquo;, &lsaquo;löse
 
 6. Öppna utdatafilen i Anteckningar och kopiera sedan namnen på alla virtuella datorer som du vill profilera till en annan fil (till exempel ProfileVMList.txt), med ett namn på en virtuell dator per rad. Den här filen används som indata för parametern *-VMListFile* i kommandoradsverktyget.
 
-    ![Lista med namn på virtuella datorer i distributionshanteraren
+    ![Lista med namn på virtuella datorer i kapacitetsplaneraren
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Starta profilering
 När du har skapat listan med virtuella datorer att profilera kan du köra verktyget i profileringsläge. Här är listan med obligatoriska och valfria parametrar när du ska köra verktyget i profileringsläge.
 
@@ -94,6 +95,17 @@ Vi rekommenderar att du profilerar dina virtuella datorer under minst 7 dagar. O
 Under profileringen kan du välja att skicka namn och nyckel för ett lagringskonto om du vill se vilket dataflöde som Site Recovery kan uppnå för replikeringen från konfigurationsservern/processervern till Azure. Om du inte skickar namn och nyckel för ett lagringskonto under profileringen beräknar inte verktyget det dataflöde som kan uppnås.
 
 Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen av virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av namnen på de virtuella datorerna från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
+
+Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av ASR-distributionsplaneraren, en med VMList1.txt och en med VMList2.txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna. 
+
+Vi har märkt att åtgärden kan misslyckas med otillräckligt minne baserat på maskinvarukonfigurationen. Det gäller i synnerhet RAM-storleken på servern varifrån verktyget körs för att generera rapporten. Om du har bra maskinvara kan du ändra MaxVMsSupported till ett högre värde.  
+
+Om du har flera vCenter-servrar måste du köra en instans av ASRDeploymentPlanner för varje vCenter-server när du ska profilera.
 
 Den virtuella datorns konfiguration inhämtas en gång i början av profileringsåtgärden och lagras i en fil med namnet VMDetailList.xml. Den här informationen används när rapporten genereras. Ändringar i den virtuella datorkonfigurationen (till exempel ett ökat antal kärnor, diskar och nätverkskort) från början till slutet av profileringen registreras inte. Om konfigurationen för en profilerad virtuell dator ändrats under profileringen finns det en lösning i den offentliga förhandsutgåvan för att hämta den senaste virtuella datorinformationen när rapporten ska genereras:
 
@@ -158,6 +170,12 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 |-TargetRegion|(Valfritt) Azure-regionen som är mål för replikeringen. Eftersom Azure har olika kostnader för olika regioner ska du använda den här parametern till att generera en rapport för en specifik Azure-region.<br>Standard är usavästra2 eller den senast använda målregionen.<br>Läs mer i listan med [målregioner som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Valfritt) Erbjudandet som är associerat med den angivna prenumerationen. Standard är MS-AZR-0003P (Betala per användning).|
 |-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exempel 1: Generera en rapport med standardvärden när profileringsdata ligger på den lokala enheten
 ```
@@ -230,7 +248,7 @@ Den genererade rapporten i Microsoft Excel innehåller följande information:
 * [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms) (Inkompatibla virtuella datorer)
 * [Kostnadsuppskattning](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
-![Distributionshanteraren](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
+![Kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 
 ## <a name="get-throughput"></a>Beräkna dataflöde
 

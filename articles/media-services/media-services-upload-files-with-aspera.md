@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Överföra filer till ett Media Services-konto med hjälp av tjänsten Aspera Server On Demand på Azure
 
@@ -33,15 +33,15 @@ Den här kursen visar hur du överför filer till ett lagringskonto som är asso
 Ett exempel som visar hur du använder Azure-funktioner med Aspera och Media Services finns [här](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Det finns en gräns för maximal filstorlek för bearbetning med Azure Media Services-mediebearbetare (MP:er). Information om filstorleksbegränsningen finns i [det här](media-services-quotas-and-limitations.md) avsnittet.
+>Det finns en gräns för maximal filstorlek för bearbetning med Azure Media Services-mediebearbetare (MP:er). Information om filstorleksbegränsningen finns i [den här](media-services-quotas-and-limitations.md) artikeln.
 >
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 För att slutföra den här kursen behöver du:
 
 * Ett Windows Live ID
-* Ett [Azure-konto](https://azure.microsoft.com). Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Ett [Azure-konto](https://azure.microsoft.com). Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Ett [Azure Media Services-konto](media-services-portal-create-account.md).
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Köpa Aspera On Demand för Azure

@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – Självstudiekurs för Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Den här självstudien tillhandahåller lektioner om hur du skapar och distribuerar en tabellmodell på kompatibilitetsnivån 1400 genom att använda Visual Studio med [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Den här självstudien tillhandahåller lektioner om hur du skapar och distribuerar en tabellmodell på kompatibilitetsnivån 1400 genom att använda [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Om du inte har använt Analysis Services eller tabellmodellering tidigare är den här självstudien det snabbaste sättet att lära dig hur du skapar och distribuerar en grundläggande tabellmodell. Om du uppfyller förhandskraven bör det ta mellan två och tre timmar att slutföra självstudien.  
+Om du inte har använt Analysis Services eller tabellmodellering tidigare är den här självstudien det snabbaste sättet att lära dig hur du skapar och distribuerar en grundläggande tabellmodell med Visual Studio. Om du uppfyller förhandskraven bör det ta mellan två och tre timmar att slutföra självstudien.  
   
 ## <a name="what-you-learn"></a>Detta får du får lära dig   
   
--   Hur du skapar ett nytt projekt för tabellmodeller på **kompatibilitetsnivån 1400** i SSDT.
+-   Hur du skapar ett nytt projekt för tabellmodeller på **kompatibilitetsnivån 1400** i Visual Studio med SSDT.
   
--   Hur du importerar data från en relationsdatabas till ett tabellmodellprojekt.  
+-   Så här importerar du data från en relationsdatabas till arbetsytedatabasen i ett tabellmodellprojekt.  
   
 -   Hur du skapar och hanterar relationer mellan tabeller i modellen.  
   
@@ -47,16 +45,16 @@ Om du inte har använt Analysis Services eller tabellmodellering tidigare är de
   
 -   Hur du distribuerar en tabellmodell till en **Azure Analysis Services**-server eller en lokal SQL Server 2017 Analysis Services-server.  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 För att slutföra den här kursen behöver du:  
   
--   En Azure Analysis Services- eller SQL Server 2017 Analysis Services-instans att distribuera modellen till. Registrera dig för en kostnadsfri [utvärderingsversion av Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) och [skapa en server](../analysis-services-create-server.md). Eller registrera dig och ladda ned [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   En Analysis Services-server i Azure. Registrera dig för en kostnadsfri [utvärderingsversion av Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) och [skapa en server](../analysis-services-create-server.md). 
 
--   SQL Server Data Warehouse eller Azure SQL Data Warehouse med [AdventureWorksDW2014-exempeldatabasen](http://go.microsoft.com/fwlink/?LinkID=335807). Den här exempeldatabasen omfattar alla data som behövs för att slutföra den här självstudien. Ladda ned [kostnadsfria versioner av SQL Server Data Tools](https://www.microsoft.com/sql-server/sql-server-downloads). Eller registrera dig för en kostnadsfri [Azure SQL Database-utvärderingsversion](https://azure.microsoft.com/services/sql-database/). 
+-   Ett [Azure SQL Server Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) med **AdventureWorksDW-exempeldatabasen** eller ett SQL Server Data Warehouse med [Adventure Works-exempeldatabasen](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Viktigt:** Om du installerar exempeldatabasen på en lokal SQL-server och distribuerar din modell till en Azure Analysis Services-server så krävs en [lokal datagateway](../analysis-services-gateway.md).
+    **Viktigt:** Om du installerar exempeldatabasen på ett lokalt SQL Server Data Warehouse och distribuerar din modell till en Azure Analysis Services-server så krävs en [lokal datagateway](../analysis-services-gateway.md).
 
--   Den senaste versionen av [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   Den senaste versionen av [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) för Visual Studio.
 
 -   Den senaste versionen av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 

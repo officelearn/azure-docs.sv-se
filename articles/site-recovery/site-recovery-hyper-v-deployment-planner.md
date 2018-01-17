@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0baf595266e71fad2df16996d63af3ba7d23a6ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure
 Den här artikeln är användarhandboken för Distributionshanteraren för Azure Site Recovery för produktionsdistribution av Hyper-V till Azure.
@@ -28,7 +28,7 @@ Innan du börjar skydda virtuella Hyper-V-datorer med hjälp av Site Recovery m�
 
 Du måste också skapa rätt typ och antal Azure-mållagringskonton. Du skapar antingen Standard Storage- eller Premium Storage-konton, och väger in tillväxt på källproduktionsservrarna på grund av ökad användning under en viss tid. Du väljer lagringstyp per virtuell dator baserat på arbetsbelastningens egenskaper, exempelvis läs- och skrivbehörighet, i/o-åtgärder per sekund (IOPS) eller dataomsättningen, och Azure Site Recovery-begränsningarna. 
 
-Distributionshanteraren för Azure Site Recovery (version 2) är ett kommandoradsverktyg som är tillgängligt för haveriberedskapsscenarier för både Hyper-V till Azure och VMware till Azure. Du kan profilera dina virtuella Hyper-V-datorer på flera olika Hyper-V-värdar via fjärranslutning med det här verktyget (utan att produktionen påverkas alls), så att du får en uppfattning om vilken bandbredd och vilket Azure-lagringsutrymme som kommer att behövas för replikering och redundanstest. Du kan köra verktyget utan att installera några Azure Site Recovery-komponenter lokalt. För att få korrekta resultat för dataflödet rekommenderar vi dock att du kör planeringsverktyget på en Windows Server som har samma maskinvarukonfiguration som en av de Hyper-V-servrar du kommer att använda när du ska aktivera haveriberedskapen till Azure. 
+Distributionshanteraren för Azure Site Recovery är ett kommandoradsverktyg för både haveriberedskapsscenarier för Hyper-V till Azure och VMware till Azure. Du kan profilera dina virtuella Hyper-V-datorer på flera olika Hyper-V-värdar via fjärranslutning med det här verktyget (utan att produktionen påverkas alls), så att du får en uppfattning om vilken bandbredd och vilket Azure-lagringsutrymme som kommer att behövas för replikering och redundanstest. Du kan köra verktyget utan att installera några Azure Site Recovery-komponenter lokalt. För att få korrekta resultat för dataflödet rekommenderar vi dock att du kör planeringsverktyget på en Windows Server som har samma maskinvarukonfiguration som en av de Hyper-V-servrar du kommer att använda när du ska aktivera haveriberedskapen till Azure. 
 
 Du kan se följande information i verktyget:
 
@@ -85,7 +85,7 @@ Antalet servrar som kan profileras per körningsinstans av Distributionshanterar
 
 * Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, utför profilering och generera rapporten. Det finns också ett fjärde alternativ som endast beräknar dataflödet. I följande tabell visas kraven för den server där de olika faserna ska köras:
 
 | Serverkrav | Beskrivning |
@@ -121,9 +121,9 @@ Den rekommenderade konfigurationen för de virtuella datorerna: 8 virtuella proc
 3.  Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR Deployment Planner_v2.0.zip
+Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 Om du har en tidigare version av distributionshanteraren gör du något av följande:
@@ -136,6 +136,11 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
   >När du startar profilering med den nya versionen skickar du samma sökväg för utdatakatalogen så att verktyget lägger till profildata i de befintliga filerna. En fullständig uppsättning profilerade data används för att generera rapporten. Om du skickar en annan utdatakatalog kommer nya filer att skapas och gamla profildata använda inte för att skapa rapporten.
   >
   >Varje ny kapacitetsplanerare är en ackumulerad uppdatering av .zip-filen. Du behöver inte kopiera de senaste filerna till föregående mapp. Du kan skapa och använda en ny mapp.
+
+## <a name="version-history"></a>Versionshistorik
+Den senaste versionen av ASR-distributionshanteraren är 2.1.
+Läs sidan med [versionshistorik för ASR-distributionsplaneraren](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) för information om korrigeringarna som har lagts till i varje uppdatering.
+
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör distributionshanteraren](site-recovery-hyper-v-deployment-planner-run.md).

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introduktion till Machine Learning i Azure-molnet
 
@@ -33,7 +33,7 @@ För en kortfattad översikt rekommenderar vi videoserien [Data Science for Begi
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Vad är Machine Learning i Microsoft Azure-molnet?
 Azure Machine Learning är en molnbaserad tjänst för förutsägelseanalys som gör det möjligt att snabbt skapa och distribuera förutsägelsemodeller som analyslösningar.
 
-Du kan utgå från ett färdigt bibliotek med algoritmer, använda dem för att skapa modeller på en Internetansluten dator och snabbt distribuera din förutsägelselösning. Börja från färdiga exempel och lösningar i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com/).
+Du kan utgå från ett färdigt bibliotek med algoritmer, använda dem för att skapa modeller på en Internetansluten dator och snabbt distribuera din förutsägelselösning. Börja från färdiga exempel och lösningar i [Azure AI-galleriet](https://gallery.cortanaintelligence.com/).
 
 ![Vad är maskininlärning? Grundläggande arbetsflöde för att operationalisera förutsägelseanalyser i Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning har allt du behöver för att skapa heltäckande föruts�
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Skapa förutsägelsemodeller
 I [Machine Learning Studio](what-is-ml-studio.md) kan du snabbt skapa förutsägelsemodeller genom att dra, släppa och ansluta moduler. Du kan experimentera med olika kombinationer och [prova kostnadsfritt](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* I [Cortana Intelligence-galleriet](gallery-how-to-use-contribute-publish.md) kan du prova analyslösningar som skapats av andra eller bidra med dina egna. Skicka frågor eller kommentarer om experiment till communityn eller dela länkar till experiment via sociala nätverk, till exempel LinkedIn och Twitter.
+* I [Azure AI-galleriet](gallery-how-to-use-contribute-publish.md) kan du prova analyslösningar som skapats av andra eller bidra med dina egna. Skicka frågor eller kommentarer om experiment till communityn eller dela länkar till experiment via sociala nätverk, till exempel LinkedIn och Twitter.
 
-  ![Prova förutsägelseexperiment eller bidra med egna i Azure Cortana Intelligence-galleriet](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Prova förutsägelseexperiment eller bidra med egna i Azure AI-galleriet](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Kom snabbt igång med dina förutsägelsemodeller genom att dra nytta av det stora biblioteket med [algoritmer och moduler för maskininlärning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) i Machine Learning Studio. Välj bland exempelexperiment, R- och Python-paket och algoritmer av högsta klass från Xbox och Bing med flera. Utöka Studio-modulerna med dina egna anpassade [R](extend-your-experiment-with-r.md)- och [Python](execute-python-scripts.md)-skript.
 
   ![Vad är förutsägelseanalyser: Exempel på ett förutsägelseanalysexperiment i Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

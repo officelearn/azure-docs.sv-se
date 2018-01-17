@@ -13,30 +13,28 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>Lektion 1: Skapa ett projekt för tabellmodeller
+# <a name="create-a-tabular-model-project"></a>Skapa ett projekt för tabellmodeller
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Under den här lektionen använder du SQL Server Data Tools (SSDT) för att skapa ett nytt projekt för tabellmodeller på kompatibilitetsnivå 1400. När det nya projektet har skapats kan du börja lägga till data och redigera din modell. Den här lektionen ger dig också en kort introduktion till redigeringsmiljön för tabellmodeller i SSDT.  
+Under den här lektionen använder du Visual Studio med SQL Server Data Tools (SSDT) för att skapa ett nytt projekt för tabellmodeller på kompatibilitetsnivå 1400. När det nya projektet har skapats kan du börja lägga till data och redigera din modell. Den här lektionen ger dig också en kort introduktion till redigeringsmiljön för tabellmodeller i Visual Studio.  
   
 Uppskattad tidsåtgång för den här lektionen: **10 minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet är den första lektionen i en självstudie om redigering av tabellmodeller. Det finns flera förutsättningar som måste uppfyllas för att slutföra den här lektionen. Läs mer i [Azure Analysis Services – Självstudiekurs för Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Skapa ett nytt projekt för tabellmodeller  
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Så här skapar du ett nytt projekt för tabellmodeller  
   
-1.  På **Arkiv**-menyn i SSDT klickar du på **Nytt** > **Projekt**.  
+1.  På **Arkiv**-menyn i Visual Studio klickar du på **Nytt** > **Projekt**.  
   
 2.  I dialogrutan **Nytt projekt** expanderar du **Installerad** > **Business Intelligence** > **Analysis Services**, och klickar sedan på **Analysis Services-tabellprojekt**.  
   
@@ -48,7 +46,7 @@ Det här avsnittet är den första lektionen i en självstudie om redigering av 
   
 5.  I dialogrutan **Tabellmodelldesigner** väljer du **Integrerad arbetsyta**.  
   
-    Arbetsytan har en databas för tabellmodeller med samma namn som projektet under redigeringen av modellen. Integrerad arbetsyta innebär att SSDT använder en inbyggd instans vilket eliminerar behovet att installera en separat Analysis Services-serverinstans för redigering av modellen.
+    Arbetsytan har en databas för tabellmodeller med samma namn som projektet under redigeringen av modellen. Integrerad arbetsyta innebär att Visual Studio använder en inbyggd instans vilket eliminerar behovet att installera en separat Analysis Services-serverinstans för redigering av modellen.
       
 6.  I **Kompatibilitetsnivå** väljer du **SQL Server 2017 / Azure Analysis Services (1400)**.   
  
@@ -58,9 +56,9 @@ Det här avsnittet är den första lektionen i en självstudie om redigering av 
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Tolka redigeringsmiljön för SSDT-tabellmodellen  
-Nu när du har skapat ett nytt projekt för tabellmodeller kan vi börja utforska redigeringsmiljön för tabellmodellen i SSDT.  
+Nu när du har skapat ett nytt projekt för tabellmodeller kan vi börja utforska redigeringsmiljön för tabellmodellen i Visual Studio.  
   
-När projektet har skapats öppnas det i SSDT. Till höger i **Tabellmodellutforskaren** visas en trädvy över objekten i modellen. Eftersom du inte har importerat data ännu är mapparna tomma. Du kan högerklicka på en mapp för objekt för att utföra åtgärder, precis som på menyraden. När du går igenom den här självstudien kan du använda tabellmodellutforskaren för att navigera mellan olika objekt i ditt modellprojekt.
+När projektet har skapats öppnas det i Visual Studio. Till höger i **Tabellmodellutforskaren** visas en trädvy över objekten i modellen. Eftersom du inte har importerat data ännu är mapparna tomma. Du kan högerklicka på en mapp för objekt för att utföra åtgärder, precis som på menyraden. När du går igenom den här självstudien kan du använda tabellmodellutforskaren för att navigera mellan olika objekt i ditt modellprojekt.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

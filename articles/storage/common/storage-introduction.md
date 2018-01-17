@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -35,9 +35,7 @@ I den här artikeln får du veta mer om följande:
 * överföring av data till och från lagring
 * de många lagringsklientbiblioteken som finns tillgängliga.
 
-Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av följande snabbstartsguider:
-* [Skapa ett lagringskonto med PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Skapa ett lagringskonto med CLI](storage-quickstart-create-storage-account-cli.md)
+Kom igång med Azure Storage genom att läsa [Skapa ett lagringskonto](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Introduktion till Azure Storage-tjänsterna
 
@@ -219,9 +217,7 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 * [Mer information om File Storage](../storage-files-introduction.md)
 * [Mer information om Queue Storage](../queues/storage-queues-introduction.md)
 
-Om du vill komma igång med Azure Storage snabbt kan du ta en titt på någon av följande snabbstartsguider:
-* [Skapa ett lagringskonto med PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Skapa ett lagringskonto med CLI](storage-quickstart-create-storage-account-cli.md)
+Kom igång med Azure Storage genom att läsa [Skapa ett lagringskonto](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

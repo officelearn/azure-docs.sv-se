@@ -1,5 +1,5 @@
 ---
-title: "Azure Site Recovery-kapacitetsplaneraren för Hyper-V till Azure| Microsoft Docs"
+title: "Distributionshanteraren för Azure Site Recovery för Hyper-V till Azure| Microsoft Docs"
 description: "I den här artikeln beskrivs läget för att köra Azure Site Recovery-kapacitetsplaneraren för Hyper-V till Azure-scenariot."
 services: site-recovery
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Kör Azure Site Recovery-kapacitetsplaneraren för Hyper-V till Azure
 
@@ -94,18 +94,27 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfMinutesToProfile|Antal minuter som profileringen ska köras. Minimum är 30 minuter.|
 |-NoOfHoursToProfile|Antal timmar som profileringen ska köras.|
 |-NoOfDaysToProfile |Antal dagar som profileringen ska köras. Du bör köra profileringen i minst 7 dagar så att du fångar upp mönster för arbetsbelastningen i din miljö och kan generera korrekta rekommendationer.|
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 |-Directory|(Valfritt) UNC (Universal Naming Convention) eller lokal katalogsökväg för lagring av de profildata som genereras under profileringen. Om du inte anger något värde används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
 |-Password|(Valfritt) Lösenordet för att ansluta till Hyper-V-värden. Om du inte anger ett lösenord uppmanas du att göra det senare när kommandot körs.|
 |-StorageAccountName|(Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas.|
 |-StorageAccountKey|(Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <Storage account name> > Inställningar > Åtkomstnycklar > Key1 (eller primär åtkomstnyckel för det klassiska lagringskontot).|
 |-Environment|(Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina.|
 
-Vi rekommenderar att du profilerar dina virtuella datorer under minst 7 dagar. Om omsättningsmönstret varierar under en månad rekommenderar vi att du profilerar under veckan när du ser den maximala omsättningen. Det bästa är att profilera i 31 dagar för att få bättre rekommendation. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. Om du vill göra ett snabbtest av verktyget eller för konceptbevis kan du profilera i några timmar eller minuter. Minsta tillåtna profileringstid är 30 minuter. 
+Vi rekommenderar att du profilerar dina virtuella datorer under minst 7 dagar. Om omsättningsmönstret varierar under en månad rekommenderar vi att du profilerar under veckan när omsättningen är som störst. Det bästa är att profilera i 31 dagar för att få en bättre rekommendation. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. För ett snabbtest av verktyget eller ett konceptbevis kan du profilera i några timmar eller minuter. Minsta tillåtna profileringstid är 30 minuter. 
 
 Under profileringen kan du välja att skicka namn och nyckel för ett lagringskonto om du vill se vilket dataflöde som Azure Site Recovery kan uppnå för replikeringen från Hyper-V-servern till Azure. Om du inte skickar namn och nyckel för ett lagringskonto under profileringen beräknar inte verktyget det dataflöde som kan uppnås.
 
 Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen av virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av namnen på de virtuella datorerna från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig. 
+
+Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av ASR-distributionsplaneraren, en med VMList1.txt och en med VMList2.txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna. 
+
+Vi har märkt att åtgärden kan misslyckas med otillräckligt minne baserat på maskinvarukonfigurationen. Det gäller i synnerhet RAM-storleken på servern varifrån verktyget körs för att generera rapporten. Om du har bra maskinvara kan du ändra MaxVMsSupported till ett högre värde.  
 
 Den virtuella datorns konfiguration inhämtas en gång i början av profileringsåtgärden och lagras i en fil med namnet VMDetailList.xml. Den här informationen används när rapporten genereras. Ändringar i den virtuella datorkonfigurationen (till exempel ett ökat antal kärnor, diskar och nätverkskort) från början till slutet av profileringen registreras inte. Om konfigurationen för en profilerad virtuell dator ändrats under profileringen finns det en lösning för att hämta den senaste virtuella datorinformationen när rapporten ska genereras:
 
@@ -125,7 +134,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User contoso\HypreVUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer under 60 minuter för ett snabbtest av verktyget
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer i 60 minuter för ett snabbtest av verktyget
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60 -User Contoso\HyperVUser1
 ```
@@ -154,7 +163,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | Den fil som innehåller listan över profilerade virtuella datorer som rapporten ska genereras för. Filsökvägen kan vara absolut eller relativ. För Hyper-V är den här filen utdatafilen för åtgärden GetVMList. Om du förbereder manuellt ska filen innehålla ett servernamn eller en IP-adress följt av VM-namnet, angränsat med ett \ per rad. Namnen på de virtuella datorerna i filen ska vara samma som VM-namnen på Hyper-V-värden.<ul>Filen ”VMList.txt” innehåller exempelvis följande virtuella datorer:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 |-Directory|(Valfritt) UNC (universal naming convention) eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om inget namn är angivet används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
 | -User | (Valfritt) Användarnamn för att ansluta till Hyper-V-värden eller Hyper-V-klustret. Användaren måste ha administratörsbehörighet.<br>Användare och lösenord används till att hämta den senaste konfigurationsinformationen för de virtuella datorerna som ska användas i rapporten, som antal diskar, antal kärnor och antal nätverkskort. Om du inte anger något värde så används den konfigurationsinformation som samlades in under profileringen.|
 |-Password|(Valfritt) Lösenordet för att ansluta till Hyper-V-värden. Om du inte anger ett lösenord uppmanas du att göra det senare när kommandot körs.|
@@ -164,10 +173,16 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
 | -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
 | -UseManagedDisks | (Valfritt) UseManagedDisks - Ja/Nej. Standardvärdet är Ja. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas utifrån om redundans/redundanstest för virtuella datorer görs på en hanterad disk istället för en ohanterad disk. |
-|-SubscriptionId |(Valfritt) Prenumerations-GUID. Använd den här parametern för att generera rapporten Kostnadsuppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-målregion i den angivna valutan.|
-|-TargetRegion|(Valfritt) Azure-regionen där replikeringen är angiven som mål. Eftersom Azure har olika kostnader per region ska du använda den här parametern för att generera en rapport med specifik Azure-region.<br>Standard är WestUS2 eller den senast använda målregionen.<br>Titta på listan över [målregioner som stöds](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
+|-SubscriptionId |(Valfritt) GUID för prenumerationen. Använd den här parametern för att generera rapporten Kostnadsuppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med prenumerationen och för din specifika Azure-målregion i den angivna valutan.|
+|-TargetRegion|(Valfritt) Azure-regionen som är mål för replikeringen. Eftersom Azure har olika kostnader för olika regioner ska du använda den här parametern till att generera en rapport för en specifik Azure-region.<br>Standard är usavästra2 eller den senast använda målregionen.<br>Läs mer i listan med [målregioner som stöds](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Valfritt) Erbjudandet som är associerat med den angivna prenumerationen. Standard är MS-AZR-0003P (Betala per användning).|
-|-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Titta på listan över [valutor som stöds](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+|-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Som standard är verktyget konfigurerat för att profilera och generera rapporter för upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 ### <a name="examples"></a>Exempel
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exempel 1: Generera en rapport med standardvärden när profileringsdata ligger på den lokala enheten
@@ -202,10 +217,11 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för Azure-regionen Indien, södra med indiska rupier och specifikt erbjudande-ID
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för Azure-regionen indiensödra med indiska rupier och ett specifikt erbjudande-ID
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Percentilvärdet som används för beräkningen
 **Vilket standardvärde för percentilen för resultatmåtten som samlas in under profileringen använder verktyget när en rapport genereras?**
@@ -256,10 +272,10 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
  Parameternamn | Beskrivning |
 |---|---|
 | -Operation | GetThroughtput |
-|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 |-Directory|(Valfritt) UNC (universal naming convention) eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om inget namn är angivet används katalogen ProfiledData under den aktuella sökvägen som standardkatalog.|
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. |
-| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> > Inställningar > Åtkomstnycklar > Key1.|
+| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*lagringskontots namn*> > Inställningar > Åtkomstnycklar > Key1.|
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. För Hyper-V är den här filen utdatafilen för åtgärden GetVMList. Om du förbereder manuellt ska filen innehålla ett servernamn eller en IP-adress följt av VM-namnet, angränsat med ett \ per rad. Namnen på de virtuella datorerna i filen ska vara samma som VM-namnen på Hyper-V-värden.<ul>Filen ”VMList.txt” innehåller exempelvis följande virtuella datorer:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina|
 

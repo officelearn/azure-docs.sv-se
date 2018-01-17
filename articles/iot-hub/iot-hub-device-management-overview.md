@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Översikt över enhetshantering med IoT Hub
 ## <a name="introduction"></a>Introduktion
@@ -57,7 +57,7 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
     *Mer information*: [Kom igång med enhetstvillingar][lnk-twins-getstarted], [Förstå enhetstvillingar][lnk-twins-devguide], [How to use device twin properties ][lnk-twin-properties] (Använda egenskaper för enhetstvillingar).
 * **Etablera**: Etablera säkert nya enheter i IoT Hub där operatörerna kan se enhetens funktioner direkt.  Använd IoT Hub-identitetsregistret för att skapa flexibla enhetsidentiteter och autentiseringsuppgifter och utför åtgärden gruppvis med hjälp av ett jobb. Skapa enheter om du vill rapportera deras kapacitet och villkor via enhetens egenskaper i enhetstvillingen.
   
-    *Mer information*: [Hantera enhetsidentiteter][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity] (Masshantering av enhetsidentiteter), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar).
+    *Mer information*: [Hantera enhetsidentiteter][lnk-identity-registry], [Bulk management of device identities][lnk-bulk-identity] (Masshantering av enhetsidentiteter), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Azure IoT Hub Device Provisioning-tjänst][lnk-dps].
 * **Konfigurera**: underlätta massinläsning av konfigurationsändringar och uppdaterad enhetsprogramvara utan att förlora funktion eller säkerhet. Utför dessa åtgärder för enhetshantering gruppvis genom att använda önskade egenskaper eller med direkta metoder och sändningsjobb.
   
     *Mer information*:  [Använda direkta metoder][lnk-c2d-methods], [Invoke a direct method on a device][lnk-methods-devguide] (Anropa en direkt metod på en enhet), [How to use device twin properties][lnk-twin-properties] (Använda egenskaper för enhetstvillingar), [Schemalägga och sända jobb][lnk-jobs], [Schemalägga jobb på flera enheter][lnk-jobs-devguide] (Schemalägga jobb på flera enheter).
@@ -113,3 +113,4 @@ Om du vill lära dig mer om enhetshanteringsfunktionerna i IoT Hub går du själ
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

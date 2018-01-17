@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Komma igång med Microsoft Power BI Embedded
 
@@ -46,6 +46,9 @@ Vi har några exempel som hjälper dig att komma igång. En genomgång av exempl
 ## <a name="get-capacity-and-move-to-production"></a>Hämta kapacitet och gå till produktion
 
 Skapa kapacitet för Power BI Embedded i Microsoft Azure för att flytta programmet till produktion. Information om hur du skapar kapacitet finns i [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Skapa Power BI Embedded-kapacitet på Azure Portal).
+
+> [!IMPORTANT]
+> Eftersom inbäddade token enbart är avsedda för utvecklingstestning är antalet inbäddade token som ett Power BI-huvudkonto kan generera begränsat. En [kapacitet måste köpas](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) för produktionens inbäddningsscenarier. Det finns ingen gräns för att bädda in tokengenerering när en kapacitet har köpts.
 
 Hantera kapaciteten i administrationsportalen för Power BI. Utse en tilldelare för arbetsyta som hjälper dig med appens arbetsytor. Mer information finns i [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/) (Hantera kapacitet i Power BI Premium och Power BI Embedded).
 

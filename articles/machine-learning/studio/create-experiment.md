@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Självstudie om Machine Learning: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ Den här självstudiekursen om Machine Learning består av fem grundläggande st
 [Steg 5: Förutsäga nya bilpriser]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> En arbetskopia av följande experiment finns i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com). Gå till **[ditt första datavetenskapsexperiment – Förutsägelse av bilpriser](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Open in Studio** (Öppna i Studio) för att hämta en kopia av experimentet till din Machine Learning Studio-arbetsyta.
+> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.cortanaintelligence.com). Gå till **[ditt första datavetenskapsexperiment – Förutsägelse av bilpriser](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Open in Studio** (Öppna i Studio) för att hämta en kopia av experimentet till din Machine Learning Studio-arbetsyta.
 
 
 ## <a name="step-1-get-data"></a>Steg 1: Hämta data
@@ -327,7 +327,7 @@ Det slutliga experimentet bör se ut ungefär så här:
 Nu när du har slutfört en första självstudie om Machine Learning och skapat ett experiment kan du fortsätta att förbättra modellen och sedan distribuera den som en förutsägbar webbtjänst.
 
 - **Iterera om du vill förbättra modellen** – Du kan till exempel ändra de funktioner du använder i din förutsägelse. Du kan också ändra egenskaperna för algoritmen för [Linjär regression][linear-regression] eller prova med en helt annan algoritm. Du kan också lägga till flera Machine Learning-algoritmer i experimentet samtidigt och jämföra två av dem med hjälp av modulen [Utvärdera modell][evaluate-model].
-Ett exempel på hur du kan jämföra flera modeller i ett enda experiment finns [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Jämför regressorer) i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com).
+Ett exempel på hur du kan jämföra flera modeller i ett enda experiment finns i informationen om att [jämföra regressorer](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Kopiera eventuella iterationer av experimentet genom att använda knappen **SPARA SOM** längst ned på sidan. Du kan visa alla iterationer av experimentet genom att klicka på **VISA KÖRNINGSHISTORIK** längst ned på sidan. Mer information finns i [Hantera iterationer av experiment i Azure Machine Learning Studio][runhistory].

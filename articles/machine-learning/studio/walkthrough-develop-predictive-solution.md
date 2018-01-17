@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea5274f6bfd2d6c68509f52d93b6875d3a43a5a0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Genomgång: Utveckla en förutsägelseanalys för kreditriskbedömning i Azure Machine Learning
 
@@ -55,6 +55,6 @@ Vi skapar lösningen för kreditriskbedömning genom att följa dessa steg:
 6. [Få åtkomst till webbtjänsten](walkthrough-6-access-web-service.md)
 
 > [!TIP] 
-> Du hittar en fungerande kopia av experimentet som vi skapar i den här genomgången i [Cortana Intelligence-galleriet](https://gallery.cortanaintelligence.com). Gå till **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Genomgång –kreditriskbedömning) och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet till din Machine Learning Studio-arbetsyta.
+> Du hittar en fungerande kopia av experimentet som vi skapar i den här genomgången i [Azure AI-galleriet](https://gallery.cortanaintelligence.com). Gå till **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** (Genomgång –kreditriskbedömning) och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet till din Machine Learning Studio-arbetsyta.
 > 
 > Den här genomgången baseras på en förenklad version av exempelexperimentet [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Binär klassificering: kreditriskbedömning), som också finns i [galleriet](http://gallery.cortanaintelligence.com/).

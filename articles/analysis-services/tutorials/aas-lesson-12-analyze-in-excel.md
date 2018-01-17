@@ -13,25 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>Lektion 12: Analysera i Excel
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Analysera i Excel
 
 Under den här lektionen använder du funktionen Analysera för att öppna Microsoft Excel, automatiskt skapa en anslutning till modellens arbetsyta och automatiskt lägga till en pivottabell i kalkylbladet. Funktionen Analysera i Excel är avsedd att tillhandahålla ett snabbt och enkelt sätt att testa effektiviteten av modelldesignen innan du distribuerar modellen. Du utför inte någon dataanalys under den här lektionen. Syftet med den här lektionen är du, modellskaparen, ska kunna bekanta dig med de verktyg du kan använda för att testa modelldesignen.   
   
-För att slutföra den här lektionen måste Excel vara installerat på samma dator som SSDT.
+För att slutföra den här lektionen måste Excel vara installerat på samma dator som Visual Studio.
   
 Uppskattad tidsåtgång för den här lektionen: **Fem minuter**  
   
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Det här avsnittet ingår i självstudiekursen för tabellmodellering som bör slutföras i rätt ordning. Innan du utför uppgifterna under den här lektionen bör du ha slutfört föregående lektion: [Lektion 11: Skapa roller](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Bläddra med hjälp av standard- och Internet-försäljningsperspektiven  

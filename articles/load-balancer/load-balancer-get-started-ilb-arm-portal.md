@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Skapa en intern belastningsutjämnare i Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure-portalen](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Mall](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -43,7 +43,7 @@ Använd följande steg för att skapa en intern belastningsutjämnare från Azur
 1. Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
 2. Längst upp till vänster på skärmen klickar du på **Nytt** > **Nätverk** > **Belastningsutjämnare**.
 3. På bladet **Skapa belastningsutjämnare** skriver du ett **namn** för belastningsutjämnaren.
-4. Under **Schema** klickar du på **Intern**.
+4. Under **Typ** klickar du på **Intern**.
 5. Klicka på **Virtuellt nätverk** och välj sedan det virtuella nätverket där du vill skapa belastningsutjämnaren.
 
    > [!NOTE]
@@ -66,16 +66,16 @@ Konfigurera en serverdelsadresspool och en avsökning innan du konfigurerar en b
 ### <a name="step-1-configure-a-backend-pool"></a>Steg 1: Konfigurera en serverdelspool
 
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
-2. På bladet **Inställningar** klickar du på **Serverdelspooler**.
-3. På bladet **Serverdelspooler** klickar du på **Lägg till**.
+2. På sidan **Inställningar** klickar du på **Serverdelspooler**.
+3. På sidan **Serverdelspooler** klickar du på **Lägg till**.
 4. På bladet **Lägg till serverdelspool** anger du ett **namn** för serverdelspoolen och sedan klickar du på **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Steg 2: Konfigurera en avsökning
 
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
-2. På bladet **Inställningar** klickar du på **Avsökningar**.
-3. På bladet **Avsökningar** klickar du på **Lägg till**.
-4. På bladet **Lägg till avsökning** anger du ett **namn** för avsökningen.
+2. På sidan **Inställningar** klickar du på **Hälsoavsökningar**.
+3. På sidan **Hälsoavsökningar** klickar du på **Lägg till**.
+4. På bladet **Lägg till hälsoavsökning** anger du ett **namn** för avsökningen.
 5. Under **Protokoll** väljer du **HTTP** (för webbplatser) eller **TCP** (för andra TCP-baserade program).
 6. Under **Port** anger du porten som ska användas vid åtkomst till avsökningen.
 7. Under **Sökväg** (endast för HTTP-avsökningar) anger du sökvägen som används som avsökning.
@@ -86,10 +86,10 @@ Konfigurera en serverdelsadresspool och en avsökning innan du konfigurerar en b
 ### <a name="step-3-configure-load-balancing-rules"></a>Steg 3: Konfigurera belastningsutjämningsregler
 
 1. Klicka på **Bläddra** > **Belastningsutjämnare** i Azure-portalen och klicka sedan på belastningsutjämnaren som du skapade tidigare.
-2. På bladet **Inställningar** klickar du på **Belastningsutjämningsregler**.
-3. På bladet **Belastningsutjämningsregler** klickar du på **Lägg till**.
-4. På bladet **Add load balancing rule** (Lägg till belastningsutjämningsregel) anger du ett **namn** för regeln.
-5. Under **Protokoll** väljer du **HTTP** (för webbplatser) eller **TCP** (för andra TCP-baserade program).
+2. På sidan **Inställningar** klickar du på **Belastningsutjämningsregler**.
+3. På sidan **Belastningsutjämningsregler** klickar du på **Lägg till**.
+4. På sidan **Add load balancing rule** (Lägg till belastningsutjämningsregel) anger du ett **namn** för regeln.
+5. Under **Protokoll** väljer du **TCP** eller **UDP**.
 6. Under **Port** anger du den port som klienter ansluter till i belastningsutjämnaren.
 7. Under **Serverdelsport** anger du porten som ska användas i serverdelspoolen (vanligtvis är belastningsutjämnarporten och serverdelsporten densamma).
 8. Under **Serverdelspool** väljer du den serverdelspool du skapade tidigare.

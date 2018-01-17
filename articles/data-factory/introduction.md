@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,9 +119,9 @@ För närvarande kan du skapa datafabriker i regionerna USA, västra, USA, östr
 
 Azure Data Factory lagrar inte själv några data. Du kan använda den för att skapa datadrivna arbetsflöden som samordnar flödet av data mellan datalager som stöds och bearbetning av data med hjälp av beräkningstjänster i andra regioner eller i en lokal miljö. Du kan också övervaka och hantera arbetsflöden med både program- och användargränssnittsmetoder.
 
-Även om Data Factory bara är tillgängligt i regionerna USA, östra, USA, östra 2, och Europa, västra, så finns tjänsten som driver dataförflyttning i Data Factory tillgänglig globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en gateway för datahantering som installerats i din lokala miljö flytta data i stället.
+Även om Data Factory bara är tillgängligt i regionerna USA, östra, USA, östra 2, och Europa, västra, så finns tjänsten som driver dataförflyttning i Data Factory tillgänglig globalt i flera regioner. Om ett datalager finns bakom en brandvägg kan en Integration Runtime med egen värd som installerats i din lokala miljö flytta data i stället.
 
-Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i norra Europa och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
+Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-kluster och Azure Machine Learning, körs utanför regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i USA, östra eller USA, östra 2 och använda den för att schemalägga jobb i dina beräkningsmiljöer i Västeuropa. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
 
 ## <a name="compare-with-version-2"></a>Jämför med version 2
 En lista över skillnaderna mellan version 1 och version 2 av Data Factory-tjänsten finns i [Jämför med version 1](compare-versions.md). 

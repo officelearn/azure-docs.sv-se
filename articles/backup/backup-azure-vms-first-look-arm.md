@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
-> [!div class="op_single_selector"]
-> * [Skydda virtuella datorer med ett Recovery Services-valv](backup-azure-vms-first-look-arm.md)
-> * [Skydda virtuella datorer med ett säkerhetskopieringsvalv](backup-azure-vms-first-look.md)
->
->
 
 Den här självstudiekursen beskriver steg för steg hur du skapar ett Recovery Services-valv och säkerhetskopierar en virtuell Azure-dator (VM). Recovery Services-valv skyddar:
 
@@ -48,15 +43,13 @@ Mer information om vad du kan säkerhetskopiera finns [här](backup-azure-arm-vm
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Beroende på hur många virtuella datorer du vill skydda kan du börja från olika startpunkter. Om du vill säkerhetskopiera flera virtuella datorer i en enda åtgärd går du till Recovery Services-valvet och [initierar säkerhetskopieringsjobbet från valvets instrumentpanel](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Om du vill säkerhetskopiera en virtuell dator kan du initiera säkerhetskopieringsjobbet från bladet VM-hantering.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Konfigurera säkerhetskopieringsjobbet från bladet VM-hantering
 
-Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet för hantering av virtuella datorer i Azure Portal. Dessa steg gäller inte för virtuella datorer på den klassiska portalen.
+Gör så här när du ska konfigurera säkerhetskopieringsjobbet från bladet för hantering av virtuella datorer i Azure Portal. Stegen som följer gäller enbart virtuella datorer i Azure-portalen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **Fler tjänster** på navmenyn och skriv **Virtuella datorer** i dialogrutan Filter. När du skriver filtreras listan med resurser. När du ser Virtuella datorer väljer du det alternativet.
 
   ![Öppna textdialogrutan genom att klicka på Fler tjänster på navmenyn och skriv Virtuella datorer](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
@@ -339,8 +332,8 @@ Backup-tjänsten installerar tillägget för säkerhetskopiering även om den vi
 ## <a name="troubleshooting-information"></a>Felsökningsinformation
 Om du har problem med att utföra vissa uppgifter i den här artikeln läser du [felsökningsanvisningarna](backup-azure-vms-troubleshoot.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 Kostnaden för att säkerhetskopiera virtuella datorer i Azure baseras på hur många instanser som skyddas. I [Vad är en skyddad instans](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) definieras begreppet skyddad instans. I avsnittet om att [beräkna skyddade instanser](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances) ges ett exempel på hur du kan beräkna kostnaden för säkerhetskopiering av en virtuell dator. På sidan med prissättning för Azure-säkerhetskopiering finns information om [priser för säkerhetskopiering](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>Frågor?
+## <a name="questions"></a>Har du några frågor?
 Om du har frågor eller om du saknar en funktion är du välkommen att [lämna feedback](http://aka.ms/azurebackup_feedback).

@@ -1,5 +1,6 @@
 # [Dokumentation om Service Fabric](/azure/service-fabric)
 # Översikt
+
 ## [Vad är Service Fabric?](service-fabric-overview.md)
 
 # Snabbstarter
@@ -39,7 +40,7 @@
 ## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
 
-# Koncept
+# Begrepp
 ## [Förstå mikrotjänster](service-fabric-overview-microservices.md)
 ## [Helhetsbild](service-fabric-content-roadmap.md)
 ## [Programscenarier](service-fabric-application-scenarios.md)
@@ -96,6 +97,7 @@
 ##### [Programuppgraderingsparametrar](service-fabric-application-upgrade-parameters.md)
 ##### [Dataserialisering i programuppgraderingar](service-fabric-application-upgrade-data-serialization.md)
 ##### [Programuppgraderingar: avancerade ämnen](service-fabric-application-upgrade-advanced.md)
+#### [Hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testa appar med felanalys](service-fabric-testability-overview.md)
 #### [ImageStoreConnectionString-inställningen](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +228,6 @@
 ## Arbeta i en Windows/VS-utvecklarmiljö
 ### [Hantera program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Konfigurera säkra anslutningar i Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Konfigurera ditt program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Felsöka en .NET-tjänst i VS](service-fabric-debugging-your-application.md)
 ### [Vanliga fel och undantag](service-fabric-errors-and-exceptions.md)
 ### [Övervaka och diagnostisera lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +245,9 @@
 
 ## Hantera programlivscykel
 ### [Paketera ett program](service-fabric-package-apps.md)
+### [Använda parametrar med konfigurationsfiler](service-fabric-how-to-parameterize-configuration-files.md)
+### [Ange portnummer med parametrar](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Ange miljövariabler](service-fabric-how-to-specify-environment-variables.md)
 
 ### Distribuera eller ta bort program
 #### [Distribuera program i ett lokalt kluster](service-fabric-get-started-with-a-local-cluster.md)
@@ -273,7 +277,7 @@
 ## Skapa och hantera kluster
 ### Kluster i Azure
 #### Skapa
-##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure-portalen](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Skala
 ##### [Manuellt](service-fabric-cluster-scale-up-down.md)
@@ -328,6 +332,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [XML-schema för tjänstmodell](service-fabric-service-model-schema.md)
+## [Miljövariabler](service-fabric-environment-variables-reference.md)
 
 # Resurser
 ## [Azure-översikt](https://azure.microsoft.com/roadmap/)

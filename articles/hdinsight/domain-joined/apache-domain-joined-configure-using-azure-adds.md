@@ -3,7 +3,7 @@ title: "Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory 
 description: "Lär dig hur du skapar och konfigurerar domänanslutna HDInsight-kluster med Azure Active Directory Domain Services"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig hur du konfigurerar en domänansluten HDIn
 Du måste skapa en Azure AD DS innan du kan skapa ett HDInsight-kluster. För att skapa ett Azure lägger till, se [aktivera Azure Active Directory Domain Services med Azure-portalen](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Endast innehavaradministratörer har behörighet att skapa domain services. 
+> Endast innehavaradministratörer har behörighet att skapa domain services. Vid lagring av Azure Data Lake - AAD-klient var >> du aktiverar AADDS måste vara standard innehavare för prenumerationen där du kan skapa Azure Data Lake storage-konto och kluster.
 
 När tjänsten domän har etablerats, måste du skapa ett tjänstkonto i den **Azure AD-DC-administratörer** gruppen för att skapa HDInsight-klustret. Kontot måste vara en global administratör för Azure AD.
 

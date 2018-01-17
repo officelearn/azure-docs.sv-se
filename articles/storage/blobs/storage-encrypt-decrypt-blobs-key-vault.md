@@ -2,23 +2,17 @@
 title: "Självstudier: Kryptera och dekryptera blobbar i Azure Storage med hjälp av Azure Key Vault | Microsoft Docs"
 description: "Hur du krypterar och dekrypterar en blob med kryptering på klientsidan för Microsoft Azure Storage med Azure Key Vault."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med hjälp av Azure Key Vault
 ## <a name="introduction"></a>Introduktion
@@ -30,7 +24,7 @@ Mer information om Azure Key Vault finns [vad är Azure Key Vault?](../../key-va
 
 Mer information om klientens kryptering för Azure Storage finns [kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett Azure Storage-konto
@@ -167,10 +161,6 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
-
-Följande är en skärmbild från den [klassiska Azure-portalen](https://manage.windowsazure.com) för en blob som har krypterats med hjälp av klientsidan kryptering med en nyckel som lagras i Nyckelvalvet. Den **KeyId** egenskapen är URI: N för nyckeln i Nyckelvalvet som fungerar som KEK. Den **EncryptedKey** -egenskapen innehåller den krypterade versionen av CEK.
-
-![Skärmbild som visar Blob-metadata som innehåller krypteringsmetadata](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
 
 > [!NOTE]
 > Om du tittar på konstruktorn BlobEncryptionPolicy visas att den kan acceptera en nyckel och/eller en DNS-matchare. Tänk som nu har du inte använda en DNS-matchare för kryptering eftersom den har för närvarande inte stöder en standard-nyckel.

@@ -15,28 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 53a241f12373acdb5d40575915d8d6c2f3c86b9a
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 53adef0f512c54e036a981dbaa0d08453db6b194
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Med hjälp av tillägget för anpassat skript för Azure med Linux virtuella datorer
-Tillägget för anpassat skript hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan hämtas från Azure-lagring eller andra tillgängliga Internetplats eller som tillägget körtiden. Tillägget för anpassat skript kan integreras med Azure Resource Manager-mallar och kan också köras med hjälp av Azure CLI, PowerShell, Azure-portalen eller Azure Virtual Machine REST API.
+# <a name="use-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Använda tillägget för anpassat skript på Azure med Linux virtuella datorer
+Tillägget för anpassat skript hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för efter distributionen konfiguration, installation av programvara eller andra uppgifter konfiguration och hantering. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller kan du ge dem till tillägget körningsmiljön. 
 
-Det här dokumentet beskrivs hur du använder tillägget för anpassat skript från Azure CLI och en Azure Resource Manager-mall och även detaljer felsökningssteg för Linux-datorer.
+Tillägget för anpassat skript integreras med Azure Resource Manager-mallar. Du kan också köra det med hjälp av Azure CLI, PowerShell, Azure portal eller REST API för Azure-virtuella datorer.
+
+Den här artikeln beskrivs hur du använder tillägget för anpassat skript från Azure CLI och hur du kör tillägget med hjälp av en Azure Resource Manager-mall. Den här artikeln innehåller även felsökningssteg för Linux-system.
 
 ## <a name="extension-configuration"></a>Tilläggets konfiguration
-Tillägget för anpassat skript konfigurationen anger sådant som skriptets placering och kommandot ska köras. Den här konfigurationen kan lagras i konfigurationsfiler, anges på kommandoraden eller i en Azure Resource Manager-mall. Känsliga data kan lagras i en skyddad konfiguration, som krypteras och dekrypteras endast inuti den virtuella datorn. Skyddade konfigurationen är användbar när kommandot körningen innehåller hemligheter, till exempel ett lösenord.
+Tillägget för anpassat skript konfigurationen anger sådant som skriptets placering och kommandot ska köras. Du kan lagra den här konfigurationen i konfigurationsfiler, ange på kommandoraden eller ange i en Azure Resource Manager-mall. 
+
+Du kan lagra känsliga data i en skyddad konfiguration, som krypteras och dekrypteras endast inuti den virtuella datorn. Skyddade konfigurationen är användbar när kommandot körningen innehåller hemligheter, till exempel ett lösenord.
 
 ### <a name="public-configuration"></a>Offentliga konfiguration
-Schema:
+Schemat för den offentliga konfigurationen är som följer.
 
-**Obs** -dessa egenskapsnamn är skiftlägeskänsliga. Använda namnen som visas nedan för att undvika distributionsproblem.
+>[!NOTE]
+>Dessa egenskapsnamn är skiftlägeskänsliga. Du undviker problem med distribution genom att använda namnen som visas här.
 
-* **commandToExecute**: (krävs, string) post punkt att köra skript
-* **fileUris**: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
-* **tidsstämpel** (valfritt, heltal) använda det här fältet bara för att utlösa en kör av skriptet genom att ändra värdet för det här fältet.
+* **commandToExecute** (krävs, string): post punkt skriptet ska köras.
+* **fileUris** (valfritt, Strängmatrisen): på URL: er för filer som ska hämtas.
+* **tidsstämpel** (valfritt, heltal): tidsstämpeln för skriptet. Ändra värdet för det här fältet bara om du vill ska utlösa en kör av skriptet.
 
 ```json
 {
@@ -46,13 +51,14 @@ Schema:
 ```
 
 ### <a name="protected-configuration"></a>Skyddade konfiguration
-Schema:
+Schemat för den skydda konfigurationen är som följer.
 
-**Obs** -dessa egenskapsnamn är skiftlägeskänsliga. Använda namnen som visas nedan för att undvika distributionsproblem.
+>[!NOTE]
+>Dessa egenskapsnamn är skiftlägeskänsliga. Du undviker problem med distribution genom att använda namnen som visas här.
 
-* **commandToExecute**: (valfritt, string) att posten punkt skriptet körs. Använd det här fältet i stället om kommandot innehåller hemligheter, till exempel lösenord.
-* **storageAccountName**: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagring, måste alla fileUris vara URL: er för Azure-BLOB.
-* **storageAccountKey**: (valfritt, string) åtkomstnyckeln för lagringskontot.
+* **commandToExecute** (valfritt, string): post punkt skriptet ska köras. Använd det här fältet om ditt kommando innehåller hemligheter, till exempel lösenord.
+* **storageAccountName** (valfritt, string): namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagring, måste alla filen URI: er vara URL: er för Azure BLOB.
+* **storageAccountKey** (valfritt, string): åtkomstnyckeln för lagringskontot.
 
 ```json
 {
@@ -63,13 +69,13 @@ Schema:
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-När du använder Azure CLI för att köra tillägget för anpassat skript, skapa en konfigurationsfil eller filer som innehåller åtminstone uri för filen och köra skriptkommandot.
+Skapa en konfigurationsfil eller filer när du använder Azure CLI för att köra tillägget för anpassat skript. Åtminstone innehålla konfigurationsfiler filen URI och köra skriptkommandot.
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-Inställningarna kan du kan också anges i kommandot som en JSON-formaterad sträng. På så sätt kan konfigurationen anges under körning och utan en separat fil.
+Alternativt kan ange du inställningarna i kommandot som en JSON-formaterad sträng. På så sätt kan konfigurationen anges under körning och utan en separat fil.
 
 ```azurecli
 az vm extension set '
@@ -82,7 +88,7 @@ az vm extension set '
 
 ### <a name="azure-cli-examples"></a>Azure CLI-exempel
 
-**Exempel 1** -offentliga konfiguration med skriptfilen.
+#### <a name="public-configuration-with-script-file"></a>Offentliga konfiguration med skriptfilen
 
 ```json
 {
@@ -97,7 +103,7 @@ Azure CLI-kommando:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Exempel 2** -offentliga konfiguration med ingen skriptfilen.
+#### <a name="public-configuration-with-no-script-file"></a>Offentliga konfiguration med ingen skriptfilen
 
 ```json
 {
@@ -111,7 +117,9 @@ Azure CLI-kommando:
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
 ```
 
-**Exempel 3** – en offentlig konfigurationsfil används för att ange skriptfil URI och en skyddad fil används för att ange kommandot som ska köras.
+#### <a name="public-and-protected-configuration-files"></a>Offentliga och skyddade konfigurationsfiler
+
+Du kan använda en offentlig konfigurationsfil för att ange skriptfil URI. Du kan använda en skyddad fil för att ange kommandot som ska köras.
 
 Offentliga konfigurationsfil:
 
@@ -136,10 +144,11 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 ```
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
-Tillägget för Azure anpassat skript kan köras vid tidpunkten för distribution för virtuell dator med en Resource Manager-mall. Gör du genom att lägga till korrekt formaterad JSON i mallen för distribution.
+Du kan köra tillägget för anpassat skript på Azure vid tidpunkten för distribution av virtuell dator med hjälp av en Resource Manager-mall. Gör du genom att lägga till korrekt formaterad JSON i mallen för distribution.
 
 ### <a name="resource-manager-examples"></a>Resource Manager-exempel
-**Exempel 1** -offentliga konfiguration.
+
+#### <a name="public-configuration"></a>Offentliga konfiguration
 
 ```json
 {
@@ -168,7 +177,7 @@ Tillägget för Azure anpassat skript kan köras vid tidpunkten för distributio
 }
 ```
 
-**Exempel 2** -körning av kommandot i skyddade konfiguration.
+#### <a name="execution-command-in-protected-configuration"></a>Körning av kommandot i skyddade konfiguration
 
 ```json
 {
@@ -199,22 +208,22 @@ Tillägget för Azure anpassat skript kan köras vid tidpunkten för distributio
 }
 ```
 
-Se .net Core musik Store demonstration för en komplett exempel - [musik Store Demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+En komplett exempel finns i [.NET musik Store demo](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="troubleshooting"></a>Felsökning
-När tillägget för anpassat skript körs skriptet skapas eller hämtas i en katalog som liknar följande exempel. Kommandoutdata sparas i den här katalogen i `stdout` och `stderr` fil.
+När tillägget för anpassat skript körs skriptet skapas eller hämtas i en katalog som liknar följande exempel. Kommandoutdata sparas i den här katalogen i `stdout` och `stderr` filer.
 
 ```bash
 /var/lib/waagent/custom-script/download/0/
 ```
 
-Tillägget för Azure-skript skapar en logg som finns här.
+Tillägget för Azure-skript resulterar i en logg som finns här:
 
 ```bash
 /var/log/azure/custom-script/handler.log
 ```
 
-Körningstillståndet för tillägget för anpassat skript kan också hämtas med Azure CLI.
+Du kan också hämta Körningstillståndet för tillägget för anpassat skript med hjälp av Azure CLI:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -233,5 +242,5 @@ info:    vm extension get command OK
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Information om andra skript VM-tillägg finns [översikt över Azure skript tillägget för Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Information om andra skript VM-tillägg finns [översikt över Azure-skript tillägget för Linux](extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

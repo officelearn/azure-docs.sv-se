@@ -1,10 +1,10 @@
 ---
-title: "Visualisera ditt kluster med hjälp av Service Fabric Explorer | Microsoft Docs"
-description: "Service Fabric Explorer är ett webbaserat verktyg för att kontrollera och hantera molnprogram och noder i ett Microsoft Azure Service Fabric-kluster."
+title: "Visualisera ditt kluster med hjälp av Azure Service Fabric Explorer | Microsoft Docs"
+description: "Service Fabric Explorer är ett program för att kontrollera och hantera molnprogram och noder i ett Microsoft Azure Service Fabric-kluster."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: mikkelhegn
+manager: msfussell
 editor: 
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
@@ -12,25 +12,58 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
-ms.author: ryanwi
-ms.openlocfilehash: 965ffc0f8cec26cccbe6e6459731afc234111f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/08/2018
+ms.author: mikhegn
+ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
-Service Fabric Explorer är ett webbaserat verktyg för att kontrollera och hantera program och noderna i Azure Service Fabric-klustret. Service Fabric Explorer ligger direkt på klustret, så att det alltid är tillgängliga, oavsett om klustret körs.
+
+Service Fabric Explorer (SFX) är ett verktyg med öppen källkod för att kontrollera och hantera Azure Service Fabric-kluster. Service Fabric Explorer är ett skrivbordsprogram för Windows och Linux. Stöd för MacOS kommer snart.
+
+## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer hämtning
+
+Använd följande länkar för att hämta Service Fabric Explorer som ett skrivbordsprogram:
+
+- Windows
+  - https://aka.ms/sfx-windows
+
+- Linux
+  - https://aka.ms/sfx-linux-x86
+  - https://aka.ms/sfx-linux-x64
+
+> [!NOTE]
+> Skrivbordsversionen av Service Fabric Explorer kan ha fler eller färre funktioner än stöd för kluster. Du kan återgå till Service Fabric Explorer-versionen som distribuerats till klustret för att säkerställa kompatibilitet för alla funktioner.
+>
+>
+
+### <a name="running-service-fabric-explorer-from-the-cluster"></a>Kör Service Fabric Explorer från klustret
+
+Service Fabric Explorer finns också i Service Fabric-klustret HTTP management-slutpunkten. Bläddra till klustrets HTTP-slutpunkt för hantering i valfri webbläsare – till exempel https://clusterFQDN:19080 om du vill starta SFX i en webbläsare.
+
+För utvecklare arbetsstation installationen kan du starta Service Fabric-Utforskaren på din lokala klustret genom att gå till http://localhost:19080/Explorer. Titta på den här artikeln [förbereda din utvecklingsmiljö](service-fabric-get-started.md).
+
+## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
+Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”ansluta till localhost” för att ansluta till det lokala klustret på din arbetsstation.
+
+### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
+Du kan kontrollera klientåtkomst till Service Fabric-kluster med certifikat eller med hjälp av Azure Active Directory (AAD).
+
+Om du försöker ansluta till en säker kluster blir sedan beroende på klustrets konfiguration du ombedd att ange ett klientcertifikat eller logga in med AAD.
 
 ## <a name="video-tutorial"></a>Videosjälvstudie
 
 Information om hur du använder Service Fabric Explorer, se följande Microsoft Virtual Academy video:
 
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
+> [!NOTE]
+> Den här videon visar Service Fabric Explorer finns i ett Service Fabric-kluster, inte klientversionen.
+>
+>
 
-## <a name="connect-to-service-fabric-explorer"></a>Ansluta till Service Fabric Explorer
-Om du har följt anvisningarna för att [förbereda din utvecklingsmiljö](service-fabric-get-started.md), kan du starta Service Fabric-Utforskaren på din lokala klustret genom att gå till http://localhost:19080/Explorer.
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>Förstå Service Fabric Explorer-layout
 Du kan bläddra igenom Service Fabric Explorer med hjälp av trädet till vänster. Roten i trädet innehåller en översikt över klustret, inklusive en sammanfattning av program och noden hälsa i instrumentpanelen för klustret.
@@ -68,25 +101,6 @@ Exempelvis för att ta bort en instans av programmet, Välj programmet från tr�
 > [!TIP]
 > Du kan utföra samma åtgärder genom att klicka på knappen bredvid varje element.
 >
->
-
-I följande tabell visas åtgärderna som är tillgängliga för varje entitet:
-
-| **Entitet** | **Åtgärd** | **Beskrivning** |
-| --- | --- | --- |
-| Programtyp |Avetablera typ |Tar bort programpaketet från avbildningsarkivet i klustret. Kräver att alla program av den typen som ska tas bort först. |
-| Program |Ta bort program |Ta bort program, inklusive alla tjänster och deras tillstånd (eventuella). |
-| Tjänst |Ta bort tjänsten |Ta bort tjänsten och dess tillstånd (eventuella). |
-| Node |Aktivera |Aktivera noden. |
-| Node | Inaktivera (paus) | Pausa noden i det aktuella tillståndet. Tjänster fortsätter att köras men Service Fabric flyttas proaktivt inte något på eller inaktivera den om det är nödvändigt för att förhindra att en inkonsekvens nätverksavbrott eller om data. Den här åtgärden används vanligtvis för att aktivera felsökning services på en viss nod så att de inte flytta under kontroll. | |
-| Node | Inaktivera (omstart) | Flytta alla InMemory-tjänster av en nod och Stäng beständiga tjänster på ett säkert sätt. Används vanligtvis när värdprocesser eller datorn måste startas om. | |
-| Node | Inaktivera (ta bort data) | Stäng alla tjänster som körs på noden när du har skapat tillräckligt ledig repliker på ett säkert sätt. Används vanligtvis när en nod (eller åtminstone dess lagring) som permanent tas utanför kommissionen. | |
-| Node | Ta bort nodens tillstånd | Ta bort kunskap om repliker för en nod från klustret. Används vanligtvis när en redan felaktiga noden bedöms oåterkalleligt. | |
-| Node | Starta om | Simulera ett nodfel genom att starta om noden. Mer information [här](/powershell/module/servicefabric/restart-servicefabricnode?view=azureservicefabricps) | |
-
-Eftersom många åtgärder är skadliga, kan du bli ombedd att bekräfta din avsikt innan åtgärden har slutförts.
-
-> [!TIP]
 > Varje åtgärd som kan utföras via Service Fabric Explorer kan också utföras via PowerShell eller REST-API för att aktivera automatisering.
 >
 >
@@ -96,27 +110,11 @@ Du kan också använda Service Fabric Explorer för att skapa instanser av progr
 ![Skapa en programinstans i Service Fabric Explorer][sfx-create-app-instance]
 
 > [!NOTE]
-> Programinstanser som skapats via Service Fabric Explorer kan för närvarande parameteriseras. De skapas med hjälp av standardparametervärden.
+> Service Fabric Explorer stöder inte parametrar när du skapar instanser av programmet. Programinstanser använder standardvärden för parametern.
 >
 >
-
-## <a name="connect-to-a-remote-service-fabric-cluster"></a>Ansluta till en fjärransluten Service Fabric-kluster
-Om du känner klustrets slutpunkt och den behörighet som du har åtkomst till Service Fabric Explorer från en webbläsare. Detta beror på att Service Fabric Explorer är en tjänst som körs i klustret.
-
-### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Identifiera Service Fabric Explorer-slutpunkt för ett kluster
-Peka webbläsaren för att nå Service Fabric Explorer för ett kluster:
-
-http://&lt;din klusterslutpunkten&gt;: 19080/Explorer
-
-För Azure-kluster finns också hela Webbadressen i rutan klustret essentials i Azure-portalen.
-
-### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
-Du kan kontrollera klientåtkomst till Service Fabric-kluster med certifikat eller med hjälp av Azure Active Directory (AAD).
-
-Om du försöker ansluta till Service Fabric-Utforskaren på ett säkert kluster ska sedan beroende på klustrets konfiguration du behöva ange ett klientcertifikat eller logga in med AAD.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Möjlighet att testa översikt](service-fabric-testability-overview.md)
 * [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric-programdistribution med hjälp av PowerShell](service-fabric-deploy-remove-applications.md)
 

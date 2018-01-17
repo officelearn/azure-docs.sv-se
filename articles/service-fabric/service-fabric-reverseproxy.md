@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Omvänd proxy i Azure Service Fabric
 Omvänd proxy som är inbyggda i Azure Service Fabric hjälper mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har HTTP-slutpunkter.
@@ -39,11 +39,13 @@ Omvänd proxy Exponerar en eller flera slutpunkter på lokala noden för klientt
 
 ![Intern kommunikation][1]
 
+> [!NOTE]
 > **Plattformar som stöds**
 >
 > Omvänd proxy i Service Fabric stöder för närvarande följande plattformar
 > * *Windows-kluster*: Windows 8 och senare eller Windows Server 2012 och senare
 > * *Linux-kluster*: omvänd Proxy är inte tillgänglig för Linux-kluster
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Nå mikrotjänster från utanför klustret
 Standardmodell för extern kommunikation för mikrotjänster är en opt-in-modell där varje tjänst inte kan nås direkt från externa klienter. [Azure belastningsutjämnare](../load-balancer/load-balancer-overview.md), vilket är en nätverksgräns mellan mikrotjänster och externa klienter utför nätverksadresser och vidarebefordrar externa begäranden till interna IP:port slutpunkter. Om du vill göra en mikrotjänster endpoint direkt tillgänglig för externa klienter, måste du först konfigurera belastningsfördelning, så att vidarebefordra trafik till varje port som tjänsten använder i klustret. De flesta mikrotjänster, särskilt tillståndskänslig mikrotjänster Direktmigrering inte dessutom på alla noder i klustret. Mikrotjänster kan flytta mellan noder på redundanskluster. I sådana fall kan inte belastningsutjämnaren effektivt fastställa platsen för målnoden repliker som den ska vidarebefordra trafik.

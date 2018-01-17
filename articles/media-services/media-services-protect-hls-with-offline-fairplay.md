@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 15f6d422f3171ae5161e0d4d4bcd8ec98529c766
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="offline-fairplay-streaming"></a>Offline FairPlay strömning
+# <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay strömning för iOS 
  Azure Media Services innehåller en uppsättning väl utformad [innehåll skyddstjänsterna](https://azure.microsoft.com/services/media-services/content-protection/) som omfattar:
 
 - Microsoft PlayReady
-- Google Widevines
+- Google Widevine
 - Apple FairPlay
 - AES-128-kryptering
 

@@ -2,4 +2,4 @@
 
 Den här vägledningen har flyttats till docs.microsoft.com interna deltagares guide.
 
-[https://aka.MS/PR-Comments](https://aka.ms/pr-comments)
+[https://aka.ms/pr-comments](https://aka.ms/pr-comments)

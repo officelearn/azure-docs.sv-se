@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f633e76ea7c0df456bff41c450eb136809de12a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e227d6e15789b29b40197a9ff71b2116312da78
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-registry-settings-for-proxy-services"></a>Cloud App Discovery-registerinställningar för Proxy-tjänster
 Syftet med det här avsnittet är att information om hur du utför för att ange den nödvändiga porten på datorer som kör Cloud App Discovery-agenten. Cloud App Discovery-agenten har konfigurerats för att använda endast portarna 80 eller 443 som standard. Om du planerar att installera Cloud App Discovery i en miljö med en proxyserver som använder en anpassad port (varken 80 eller 443), måste du konfigurera dina agenter för att använda den här porten. Konfigurationen är baserad på en registernyckel.

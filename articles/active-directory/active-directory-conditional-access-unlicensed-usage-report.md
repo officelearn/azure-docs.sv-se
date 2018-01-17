@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Olicensierad användningsrapporten
 Olicensierad användning rapporten kan du identifiera ej licensierade användare som använder betald Azure AD-funktioner. Detta gör att du kan göra bättre användning av licenser som du har köpt och för att identifiera du vet när du eventuellt ytterligare licenser. 
@@ -41,7 +41,7 @@ Ej licensierade användare flaggas när de har åtkomst till en tjänst som har 
 
 Detta gäller för MFA / plats principer samt enheten principer som använder Intune.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Använda villkorlig åtkomst med Office 365 och andra Azure Active Directory anslutna appar](active-directory-conditional-access-azure-portal.md)
 * [Komma igång med villkorlig åtkomst till Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

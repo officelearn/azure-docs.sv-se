@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Använda tjänsten Microsoft Azure Import/Export för att överföra data till Azure Storage
 I den här artikeln får stegvisa instruktioner om hur du använder Azure Import/Export service att säkert överföra stora mängder data till Azure Blob storage och Azure filer av leverans diskenheterna till ett Azure-datacenter. Den här tjänsten kan också användas för att överföra data från Azure storage hårddiskar och levereras till dina lokala platser. Du kan importera data från en enskild interna SATA-disk till Azure Blob storage eller Azure-filer. 
@@ -35,12 +35,12 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
 2.  Beroende på storleken på data anskaffa antalet krävs 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III hårddiskar.
 3.  Koppla hårddiskar direkt med SATA eller med adaptrar för externa USB till en windows-dator.
 4.  Skapa en NTFS-volym på varje hårddisk och tilldela en enhetsbeteckning till volymen. Inga monteringspunkter.
-5.  Aktivera säker plats-bitarskryptering på NTFS-volym. Följ instruktionerna på https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine.
+5.  Aktivera säker plats-bitarskryptering på volymen om du vill aktivera kryptering på windows-dator. Följ instruktionerna på https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 6.  Helt kopiera data till dessa krypterade enda NTFS-volymer på diskar med hjälp av kopiera och klistra in eller dra & släppa eller Robocopy eller något sådant verktyg.
 7.  Hämta WAImportExport V1 från https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Packa upp till standard mappen waimportexportv1. Till exempel C:\WaImportExportV1  
 9.  Kör som administratör och öppna ett PowerShell eller kommandoraden och ändra katalogen till mappen uppackade. Till exempel cd C:\WaImportExportV1
-10. Kopiera den nedan kommandoraden till en anteckningar och redigera det för att skapa en kommandorad.
+10. Kopiera följande kommandorad till en anteckningar och redigera det för att skapa en kommandorad.
   ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session #1 /sk:***== /t:D /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
     
     /j: namnet på en fil som kallas journal-fil med tillägget .jrn. En journal-fil genereras per enhet och därför rekommenderas att använda disk serienumret som namn på filen.
@@ -57,10 +57,10 @@ Följ de nedanstående steg om data på disken som ska importeras till Azure Sto
 
 2. Grunderna under Välj ”Import i Azure”, ange en sträng för jobbnamn, välja en prenumeration, ange eller välj en resursgrupp. Ange ett beskrivande namn för importjobbet. Observera att det namn som du anger kan innehålla endast små bokstäver, siffror, bindestreck och understreck, måste börja med en bokstav och får inte innehålla blanksteg. Du använder det namn du väljer att spåra dina jobb när de pågår och när de har slutförts.
 
-3. I informationsavsnittet jobbet överför journalfiler för enheten som du fick vid förberedelsen av enheten. Om waimportexport.exe version1 användes måste överföra en fil för varje enhet som du har förberett. Välj lagringskonto som data ska importeras till i avsnittet ”Importera mål” Storage-konto. Samlingsbibliotek platsen fylls automatiskt i baserat på regionens lagringskonto som valts.
+3. I informationsavsnittet jobbet överför journalfiler för enheten som du fick vid förberedelsen av enheten. Om waimportexport.exe version1 används, måste du överföra en fil för varje enhet som du har förberett. Välj lagringskonto som data ska importeras till i avsnittet ”Importera mål” Storage-konto. Samlingsbibliotek platsen fylls i automatiskt baserat på regionen som det lagringskonto som valts.
    
    ![Skapa importjobb - steg3](./media/storage-import-export-service/import-job-03.png)
-4. I RETUR leverans avsnittet info, Välj en operatör i nedrullningsbara listrutan och ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder det här kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, stat/proviince och land/region.
+4. I RETUR leverans avsnittet info, Välj en operatör från den nedrullningsbara listrutan och ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, stat/proviince och land/region.
    
 5. I avsnittet Sammanfattning tillhandahålls Azure-DataCenter leveransadress som ska användas för att leverera diskar till Azure-Domänkontrollant. Se till att Jobbnamn och fullständig adress nämns på etiketten leverans. 
 
@@ -83,8 +83,8 @@ Du kan använda den här tjänsten i scenarier såsom:
 * Säkerhetskopiering: Ta säkerhetskopior av lokala data ska lagras i Azure Storage.
 * Återställning av data: återställa stora mängder data som lagras i lagring och dem till din lokala plats.
 
-## <a name="prerequisites"></a>Krav
-I det här avsnittet listas vi kraven för att använda den här tjänsten. Granska dem noggrant innan du levererar dina enheter.
+## <a name="prerequisites"></a>Förutsättningar
+I det här avsnittet listas vi kraven för att använda den här tjänsten. Läs dem noga innan du levererar dina enheter.
 
 ### <a name="storage-account"></a>Lagringskonto
 Du måste ha en befintlig Azure-prenumeration och en eller flera lagringskonton för att använda tjänsten Import/Export. Varje jobb kan användas för att överföra data till eller från en enda storage-konto. Med andra ord kan inte ett enda import/export-jobb vara över flera lagringskonton. Information om hur du skapar ett nytt lagringskonto finns [hur du skapar ett Lagringskonto](storage-create-storage-account.md#create-a-storage-account).
@@ -96,13 +96,16 @@ Du kan använda tjänsten Azure Import/Export för att kopiera data till **Block
 Om du vill påbörja processen att importeras till eller exporteras från lagring skapa du först ett jobb. Ett jobb kan vara ett importjobb eller ett exportjobb:
 
 * Skapa ett importjobb när du vill överföra data du har lokala till Azure storage-konto.
-* Skapa ett exportjobb när du vill överföra data som lagras i ditt lagringskonto till hårddiskar som levereras till oss. När du skapar ett jobb kan meddela du tjänsten Import/Export att du kommer att leverera en eller flera hårddiskar till ett Azure-datacenter.
+* Skapa ett exportjobb när du vill överföra data som lagras i ditt lagringskonto till hårddiskar som levereras till Microsoft. När du skapar ett jobb kan meddela du tjänsten Import/Export att du kommer att leverera en eller flera hårddiskar till ett Azure-datacenter.
 
 * För ett importjobb ska du leverera hårddiskar som innehåller dina data.
 * För ett exportjobb ska du leverera tomt hårddiskar.
 * Du kan leverera upp till 10 hårddiskar per jobb.
 
 Du kan skapa en importera eller exportera jobb med hjälp av Azure-portalen eller [Azure Storage Import/Export REST API](/rest/api/storageimportexport).
+
+> [!Note]
+> RDFE-API: er stöds inte 28 februari 2018 och senare. Om du vill fortsätta använda tjänsten, migrera till den [ARM Import/Export REST API: er](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). 
 
 ### <a name="waimportexport-tool"></a>WAImportExport-verktyget
 Det första steget i att skapa en **importera** jobbet är att förbereda dina enheter som ska levereras för import. För att förbereda dina enheter, måste du ansluta till en lokal server och kör verktyget WAImportExport på den lokala servern. Verktyget WAImportExport underlättar kopiera dina data från enheten, kryptera data på enheten med BitLocker och generera journalfiler enhet.
@@ -114,28 +117,28 @@ Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsys
 Hämta den senaste versionen av den [WAImportExport verktyget](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Mer information om hur du använder verktyget WAImportExport finns i [med hjälp av verktyget WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**Tidigare Version:** kan du [hämta WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versionen av verktyget och referera till [WAImportExpot V1 användning guiden](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versionen av verktyget ger stöd för **förbereda diskar när data redan före skrivs till disken**. Dessutom behöver du använda WAImportExpot V1-verktyget om endast nyckeln tillgängliga SAS-nyckel.
+>**Tidigare Version:** kan du [hämta WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versionen av verktyget och referera till [WAImportExpot V1 användning guiden](storage-import-export-tool-how-to-v1.md). WAImportExpot V1-versionen av verktyget ger stöd för **förbereda diskar när data redan före skrivs till disken**. Om nyckeln endast tillgängliga SAS-nyckel som du behöver använda WAImportExpot V1-verktyget.
 
 >
 
 ### <a name="hard-disk-drives"></a>Hårddiskar
 Endast 2,5 tum SSD eller 2,5-tums eller 3,5-tums SATA II eller III interna HDD stöds för användning med Import/Export-tjänsten. Ett enda import/export-jobb kan ha högst 10 Hårddisk/SSD och varje enskild Hårddisk/SSD-enheter kan vara av valfri storlek. Stort antal enheter går att sprida över flera jobb och det finns inga begränsningar för antalet jobb som kan skapas. 
 
-Endast den första datavolymen på enheten för Importera projekt, kommer att bearbetas. Datavolym måste vara formaterad med NTFS.
+För importjobb bearbetas bara den första datavolymen på enheten. Datavolym måste vara formaterad med NTFS.
 
 > [!IMPORTANT]
 > Externa hårddiskar som levereras med en inbyggd USB-adapter stöds inte av den här tjänsten. Disk i versaler och gemener i en extern Hårddisk kan inte användas; Skicka inte externa hårddiskar.
 > 
 > 
 
-Nedan visas en lista över externa USB-adaptrar används för att kopiera data till interna hårddiskar. Anker 68UPSATAA - 02 för Anker 68UPSHHDS för Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serien) Thermaltake BlacX frekvent växlingen SATA externa hårddisken enhet dockningsstation (USB 2.0 & eSATA)
+Nedan följer en lista över externa USB-adaptrar används för att kopiera data till interna hårddiskar. Anker 68UPSATAA - 02 för Anker 68UPSHHDS för Startech SATADOCK22UE Orico 6628SUS3 C BK (6628-serien) Thermaltake BlacX frekvent växlingen SATA externa hårddisken enhet dockningsstation (USB 2.0 & eSATA)
 
 ### <a name="encryption"></a>Kryptering
-Data på enheten måste krypteras med BitLocker-diskkryptering. Detta skyddar dina data när den är i överföringen.
+Data på enheten måste krypteras med BitLocker-diskkryptering. Den här kryptering skyddar dina data när den är i överföringen.
 
 Importera jobb finns det två sätt att utföra krypteringen. Det första sättet är att ange alternativet när du använder dataset CSV-fil när du kör verktyget WAImportExport vid förberedelsen av enheten. Det andra sättet är att aktivera BitLocker-kryptering manuellt på enheten och ange krypteringsnyckeln i driveset CSV när du kör kommandoraden i WAImportExport verktyget vid förberedelsen av enheten.
 
-För exportjobb när data kopieras till enheterna tjänsten kommer att kryptera enheten med BitLocker innan leverans till dig. Krypteringsnyckeln ska anges till dig via Azure portal.  
+För exportjobb när data kopieras till enheterna tjänsten kommer att kryptera enheten med BitLocker innan leverans till dig. Krypteringsnyckeln tillhandahålls via Azure portal.  
 
 ### <a name="operating-system"></a>Operativsystem
 Du kan använda något av följande 64-bitars operativsystem för att förbereda hårddisken med hjälp av verktyget WAImportExport innan enheten till Azure:
@@ -143,7 +146,7 @@ Du kan använda något av följande 64-bitars operativsystem för att förbereda
 Windows 7 Enterprise, Windows 7 Ultimate Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Alla dessa operativsystem stöder BitLocker-diskkryptering.
 
 ### <a name="locations"></a>Platser
-Tjänsten Azure Import/Export stöder kopiering av data till och från alla offentliga Azure storage-konton. Du kan leverera hårddiskar till någon av följande platser. Om ditt lagringskonto är i en offentlig Azure-plats som inte anges här är en alternativ leveransplats anges när du skapar jobbet med Azure-portalen eller Import/Export REST API.
+Tjänsten Azure Import/Export stöder kopiering av data till och från alla offentliga Azure storage-konton. Du kan leverera hårddiskar till något av de angivna platserna. Om ditt lagringskonto är i en offentlig Azure-plats som inte anges här är en alternativ leveransplats anges när du skapar jobbet med Azure-portalen eller Import/Export REST API.
 
 Leverans platser som stöds:
 
@@ -180,10 +183,10 @@ Leverans platser som stöds:
 * Centrala Tyskland
 * Nordöstra Tyskland
 
-### <a name="shipping"></a>Leverans
+### <a name="shipping"></a>Fraktas
 **Leverans enheter till datacentret:**
 
-När du skapar ett jobb som importeras eller exporteras, kommer du angav en leveransadress för en av platserna som stöds för att leverera dina enheter. Leveransadressen som beror på platsen för ditt lagringskonto, men den får inte vara samma som din lagringsplats för kontot.
+När du skapar ett jobb som importeras eller exporteras, kommer du angav en leveransadress för en av platserna som stöds för att leverera dina enheter. Leveransadress som beror på platsen för ditt lagringskonto, men får inte vara samma som din lagringsplats för kontot.
 
 FedEx, UPS eller DHL kan användas för att leverera dina enheter till leveransadressen.
 
@@ -191,19 +194,19 @@ FedEx, UPS eller DHL kan användas för att leverera dina enheter till leveransa
 
 Du måste ange en avsändaradress för att Microsoft ska använda vid leverans enheterna tillbaka när jobbet har slutförts när du skapar ett jobb som importeras eller exporteras. Kontrollera att du anger en giltig avsändaradress för att undvika fördröjningar i bearbetning.
 
-En operatör ska ha rätt spårning för att upprätthålla spårbarhet. Du måste ange en giltig FedEx, UPS eller DHL operatör kontonummer som ska användas av Microsoft för att leverera enheter tillbaka. En FedEx, UPS eller DHL kontonummer krävs för leverans enheter tillbaka från USA och Europa. En DHL kontonummer krävs för leverans enheter tillbaka från Asien och Australien platser. Du kan skapa en [FedEx](http://www.fedex.com/us/oadr/) (för USA och Europa) eller [DHL](http://www.dhl.com/) (Asien och Australien) operatör konto om du inte har någon. Om du redan har en operatör kontonummer, kontrollerar du att den är giltig.
+En operatör ska ha rätt spårning för att upprätthålla spårbarhet. Du måste ange en giltig FedEx UPS, eller DHL operatör konto som ska användas av Microsoft för att leverera enheterna igen. En FedEx, UPS eller DHL kontonummer krävs för leverans enheter tillbaka från USA och Europa. En DHL kontonummer krävs för leverans enheter tillbaka från Asien och Australien platser. Om du inte har någon kan du skapa en [FedEx](http://www.fedex.com/us/oadr/) (för USA och Europa) eller [DHL](http://www.dhl.com/) (Asien och Australien) operatör-konto. Om du redan har en operatör kontonummer, kontrollerar du att den är giltig.
 
 I leverans dina paket, måste du följa villkor på [licensvillkor för Microsoft Azure Service](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Observera att fysiska media som du levererar kan behöva korsa internationella gränser. Du ansvarar för att säkerställa att din fysiska media och dina data importeras eller exporteras enligt tillämplig lagstiftning. Kontrollera med din rådgivare att kontrollera att dina media och data enligt lag kan levereras till identifierade datacentret innan levereras det fysiska mediet. Detta hjälper för att säkerställa att den når Microsoft inom rimlig tid. Alla paket som ska passera internationella gränser måste till exempel en faktura åtföljas med paketet (utom om passerar gränser inom EU). Du kan skriva ut en fylld kopia av fakturan från operatör webbplats. Exempel på fakturor är [DHL faktura](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) och [FedEx faktura](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Kontrollera att Microsoft inte har angetts som Exportverktyget.
+> Observera att fysiska media som du levererar kan behöva korsa internationella gränser. Du ansvarar för att säkerställa att din fysiska media och dina data importeras eller exporteras enligt tillämplig lagstiftning. Kontrollera med din rådgivare att kontrollera att dina media och data enligt lag kan levereras till identifierade datacentret innan levereras det fysiska mediet. Detta ser till att den når Microsoft inom rimlig tid. Alla paket som passerar internationella gränser måste till exempel en faktura åtföljas med paketet (utom om passerar gränser inom EU). Du kan skriva ut en fylld kopia av fakturan från operatör webbplats. Exempel på fakturor är [DHL faktura](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) och [FedEx faktura](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Kontrollera att Microsoft inte har angetts som Exportverktyget.
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Hur fungerar Azure Import/Export-tjänsten?
 Du kan överföra data mellan lokal plats och Azure storage med hjälp av tjänsten Azure Import/Export av jobb och leverera hårddiskar till ett Azure-datacenter. Varje hårddisk som du levererar är associerad med ett enda jobb. Varje jobb är associerat med ett enda storage-konto. Granska de [förutsättningar avsnittet](#pre-requisites) noggrant mer information om egenskaperna för den här tjänsten, till exempel vilka datatyper, disk-typer, platser och leverans.
 
-I det här avsnittet beskrivs på en hög nivå tillvägagångssättet för att importera och exportera jobben. Senare i den [Snabbstart avsnittet](#quick-start), vi tillhandahåller stegvisa instruktioner för att skapa en import och export av jobb.
+I det här avsnittet beskrivs hög nivå steg som ingår i import och export av jobb. Senare i den [Snabbstart avsnittet](#quick-start), stegvisa anvisningar för att skapa en importera och exportera jobbet har angetts.
 
 ### <a name="inside-an-import-job"></a>I ett importjobb
 Ett importjobb omfattar följande steg på en hög nivå:
@@ -251,11 +254,11 @@ Du ser något av följande jobbstatus beroende på om enheten är i processen.
 | Jobbstatus | Beskrivning |
 |:--- |:--- |
 | Skapar | När ett jobb skapas, är dess status inställd på att skapa. Jobbet är i läget Skapa, förutsätter tjänsten Import/Export av enheterna som inte har levererats till datacentret. Ett jobb kan vara i läget Skapa upp till två veckor, efter vilken bort automatiskt av tjänsten. |
-| Leverans | När du levererar paketet ska du uppdatera spårningsinformation i Azure-portalen.  Detta kommer att stänga jobbet i ”leverans”. Jobbet kommer att finnas kvar i tillståndet leverans i upp till två veckor. 
+| Fraktas | När du levererar paketet ska du uppdatera spårningsinformation i Azure-portalen.  Detta kommer att stänga jobbet i ”leverans”. Jobbet kommer att finnas kvar i tillståndet leverans i upp till två veckor. 
 | Mottagning | När alla enheter har tagits emot på Datacenter anges jobbets status till mottagen. |
-| Överför | När minst en enhet har startat bearbetning visas anges jobbets status till överföra. Se avsnittet enhet tillstånd under detaljerad information. |
-| Paketering | När alla enheter har bearbetat kommer jobbet att placeras i tillståndet paketering tills enheterna som har levererats till dig. |
-| Slutfört | När alla enheter har levererats till kunden, om jobbet har slutförts utan fel, kommer jobbet anges till slutfört tillstånd. Jobbet tas automatiskt bort efter 90 dagar i slutfört tillstånd. |
+| Överförs | När minst en enhet har startat bearbetning visas anges jobbets status till överföra. Se avsnittet enhet tillstånd under detaljerad information. |
+| Packas | När alla enheter har bearbetat kommer jobbet att placeras i tillståndet paketering tills enheterna som har levererats till dig. |
+| Slutförd | När alla enheter har levererats till kunden, om jobbet har slutförts utan fel, kommer jobbet anges till slutfört tillstånd. Jobbet tas automatiskt bort efter 90 dagar i slutfört tillstånd. |
 | Stängd | När alla enheter har levererats till kunden, om det fanns några fel under bearbetning av jobbet, kommer jobbet anges till tillståndet Closed. Jobbet tas automatiskt bort efter 90 dagar i tillståndet Closed. |
 
 I tabellen nedan beskrivs livscykeln för en enskild enhet som den övergår till ett jobb som importeras eller exporteras. Det aktuella tillståndet för varje enhet i ett jobb visas nu i Azure Portal.
@@ -266,8 +269,8 @@ I följande tabell beskrivs varje tillstånd varje enhet i ett jobb kan passera.
 | Angivna | För ett importjobb är ursprungligt tillstånd för en enhet angivna tillstånd när jobbet har skapats från Azure-portalen. För ett exportjobb eftersom ingen enhet anges när jobbet skapas första enhet tillstånd är tillståndet Received. |
 | Mottagning | Enheten övergår till tillståndet Received när operatorn Import/Export service har bearbetat de enheter som har tagits emot från företaget leverans för importen. Tillstånd för första enhet är ett exportjobb tillståndet Received. |
 | NeverReceived | Enheten flyttas till tillståndet NeverReceived när paketet för ett jobb kommer, men paketet innehåller inte enheten. En enhet kan också flytta detta tillstånd om det har två veckor eftersom tjänsten har tagit emot leveransinformation, men paketet har inte kommit på datacenter. |
-| Överför | En enhet flyttas till överföra tillstånd när tjänsten startar att överföra data från enheten till Windows Azure Storage. |
-| Slutfört | En enhet flyttas till slutfört tillstånd när tjänsten har överförts alla data utan fel.
+| Överförs | En enhet flyttas till överföra tillstånd när tjänsten startar att överföra data från enheten till Windows Azure Storage. |
+| Slutförd | En enhet flyttas till slutfört tillstånd när tjänsten har överförts alla data utan fel.
 | CompletedMoreInfo | En enhet flyttas till CompletedMoreInfo tillstånd när tjänsten några problem uppstod vid kopiering av data från eller till enheten. Informationen kan omfatta fel, varningar och informationsmeddelanden om överskrivning blobbar.
 | ShippedBack | Enheten flyttas till ShippedBack tillstånd när den har levererats från data center tillbaka avsändaradressen. |
 
@@ -280,7 +283,7 @@ I följande tabell beskrivs enhet fel tillstånd och åtgärder som vidtas för 
 | Enhetsstatus | Händelse | Lösning / nästa steg |
 |:--- |:--- |:--- |
 | NeverReceived | En enhet som har markerats som NeverReceived (eftersom den inte skickades som en del av det jobbet leveransen) tas emot i en annan leveransen. | Driftteamet flyttar du enheten till tillståndet Received. |
-| Saknas | En enhet som inte är en del av jobb som anländer på datacenter som en del av ett annat jobb. | Enheten kommer att markeras som en extra enhet och returneras till kunden när jobbet som är associerade med det ursprungliga paketet har slutförts. |
+| Gäller inte | En enhet som inte är en del av jobb som anländer på datacenter som en del av ett annat jobb. | Enheten kommer att markeras som en extra enhet och returneras till kunden när jobbet som är associerade med det ursprungliga paketet har slutförts. |
 
 ### <a name="time-to-process-job"></a>Tid för att bearbeta jobb
 Hur lång tid det tar att bearbeta en import-/ exportjobb varierar beroende på olika faktorer, till exempel leveranstid jobbet typ, typen och storleken på data som kopieras och storleken på de diskar som angetts. Import/Export-tjänsten har inte ett SLA men när diskarna har tagits emot tjänsten strävar efter att slutföra kopian i 7 till 10 dagar. Du kan använda REST API för att spåra jobbförloppet närmare. Det finns en procent fullständig parameter i listan jobb åtgärden som ger en indikation på Kopiera pågår. Nå ut till oss om du behöver en uppskattning att slutföra en kritisk import/export av jobbet.
@@ -404,7 +407,7 @@ Inledande kontroller i följande rekommenderas för att förbereda dina enheter 
 1. Om du vill skapa ett exportjobb navigerar du till fler tjänster -> STORAGE -> ”Import/export jobb” på Azure-portalen. Klicka på **skapa Import-/ exportjobb**.
 2. I steg 1 grunderna Välj ”Exportera från Azure”, ange en sträng för jobbnamn, välja en prenumeration, ange eller välj en resursgrupp. Ange ett beskrivande namn för importjobbet. Observera att det namn som du anger kan innehålla endast små bokstäver, siffror, bindestreck och understreck, måste börja med en bokstav och får inte innehålla blanksteg. Du använder det namn du väljer att spåra dina jobb när de pågår och när de har slutförts. Ange kontaktinformation för personen som ansvarar för den här exportjobb. 
 
-3. I steg 2 jobbinformation, väljer du lagringskontot som data ska exporteras från i avsnittet Storage-konto. Samlingsbibliotek platsen att automatiskt fylls baserat på regionens lagringskonto som valts. Ange vilka blob-data som du vill exportera från ditt lagringskonto till tomma enheten eller enheter. Du kan välja att exportera alla blob-data i lagringskontot eller kan du ange vilket blobbar eller anger blobbposter att exportera.
+3. I steg 2 jobbinformation, väljer du lagringskontot som data ska exporteras från i avsnittet Storage-konto. Samlingsbibliotek platsen fylls automatiskt i baserat på regionens lagringskonto som valts. Ange vilka blob-data som du vill exportera från ditt lagringskonto till tomma enheten eller enheter. Du kan välja att exportera alla blob-data i lagringskontot eller kan du ange vilket blobbar eller anger blobbposter att exportera.
    
    Om du vill ange en blob att exportera den **lika med** selector, och ange den relativa sökvägen till blob, från och med behållarens namn. Använd *$root* ange root-behållaren.
    
@@ -420,13 +423,13 @@ Inledande kontroller i följande rekommenderas för att förbereda dina enheter 
    | Börjar med |/Music/ |Exporterar alla blobbar i behållaren **musik** |
    | Börjar med |/ musik/kärlek |Exporterar alla blobbar i behållaren **musik** som börjar med prefixet **gillar** |
    | Lika med |$root/logo.bmp |Export blob **logo.bmp** i behållaren rot |
-   | Lika med |videos/Story.mp4 |Export blob **story.mp4** i behållaren **videor** |
+   | Lika med |videos/story.mp4 |Export blob **story.mp4** i behållaren **videor** |
    
    Du måste ange blob-sökvägar i giltigt format för att undvika fel under bearbetning, som visas i den här skärmbilden.
    
    ![Skapa exportjobb - steg3](./media/storage-import-export-service/export-job-03.png)
 
-4. Välj en operatör i nedrullningsbara listan i steg 3 returnera leverans info, och ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder det här kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. Ange fullständig och giltig kontaktperson, telefon, e-post, gatuadress, stad, zip, stat/proviince och land/region...
+4. I steg 3 returnera leverans info, väljer du en operatör från den nedrullningsbara listrutan och ange en giltig operatör kontonummer som du har skapat med den operatör. Microsoft använder det här kontot för att leverera enheter tillbaka till dig när importjobbet har slutförts. Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, stat/proviince och land/region.
    
  5. På sidan Sammanfattning tillhandahålls leveransadress för Azure-DataCenter som ska användas för att leverera diskar till Azure-Domänkontrollant. Se till att Jobbnamn och fullständig adress nämns på etiketten leverans. 
 
@@ -454,7 +457,7 @@ Gå igenom avsnittet med vanliga frågor och svar nedan som det täcker de vanli
 
 **Kan jag kopiera Azure File storage med hjälp av tjänsten Azure Import/Export?**
 
-Ja, stöder tjänsten Azure Import/Export import till Azure-filen Storge. Det stöder inte export av Azure-filer just nu.
+Ja, stöder tjänsten Azure Import/Export import till Azure File Storage. Det stöder inte export av Azure-filer just nu.
 
 **Finns tjänsten Azure Import/Export för CSP-prenumerationer?**
 
@@ -495,7 +498,7 @@ Nej. Behöver du levererar egna enheter för både import och export av jobb.
 
 ** Hur kan jag komma åt data som importeras av den här tjänsten **
 
-Informationen under Azure storage-konto kan nås via Azure-portalen eller med ett fristående verktyg som kallas Lagringsutforskaren. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Informationen under Azure storage-konto kan nås via Azure-portalen eller med ett fristående verktyg som kallas Lagringsutforskaren. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **När importjobbet slutförs vad kommer Mina data ut i storage-konto? Min kataloghierarkin bevaras?**
 

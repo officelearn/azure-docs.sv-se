@@ -4,8 +4,8 @@ description: "Komma igång-kursen för Stream Analytics IoT-lösningen på ett s
 keywords: "IOT-lösningen, fönstrets funktioner"
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med hjälp av Stream Analytics
+
 ## <a name="introduction"></a>Introduktion
 I kursen får du lära dig hur du använder Azure Stream Analytics för att få realtidsinsikter från dina data. Utvecklare kan enkelt kombinera dataströmmar, till exempel klicka på dataströmmar, loggar och händelser som genereras av enheten med historisk poster eller referensdata att härleda insikter som företag. Azure Stream Analytics ger inbyggd återhämtning, låg latens och skalbarhet för att hämta du upp och körs i minuter som en helt hanterad, realtid dataströmmen beräkning tjänst som finns i Microsoft Azure.
 
@@ -33,7 +34,7 @@ När du har slutfört den här självstudiekursen kommer du att kunna:
 * Utveckla strömning lösningar för kunderna genom att använda Stream Analytics med förtroende.
 * Använd övervakning och loggning upplevelse för att felsöka problem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande förutsättningar för att kunna slutföra den här självstudiekursen:
 
 * Den senaste versionen av [Azure PowerShell](/powershell/azure/overview)
@@ -54,14 +55,14 @@ Den här kursen fungerar med två dataströmmar. Sensorer som installerats i ing
 ### <a name="entry-data-stream"></a>Posten dataström
 Dataströmmen posten innehåller information om bilar då de anträder avgift stationer.
 
-| TollID | EntryTime | LicensePlate | Status | Kontrollera | Modellen | VehicleType | VehicleWeight | Avgift | Tagga |
+| TollID | EntryTime | LicensePlate | Status | Kontrollera | Modell | VehicleType | VehicleWeight | Avgift | Tagga |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |DATAFÄLT |Ford |Taurus |1 |0 |5 |456789123 |
-| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |DATAFÄLT |Toyota |Corolla |1 |0 |4 | |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
+| 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Här är en kort beskrivning av kolumnerna:
 
@@ -72,7 +73,7 @@ Här är en kort beskrivning av kolumnerna:
 | LicensePlate |Licens skylt antalet för programuppdatering |
 | Status |Ett tillstånd i USA |
 | Kontrollera |Tillverkaren av bil |
-| Modellen |Modellnumret för bilen |
+| Modell |Modellnumret för bilen |
 | VehicleType |Antingen 1 för fordon eller 2 för kommersiella fordon |
 | WeightType |Vehicle vikt i ton; 0 för fordon |
 | Avgift |Värdet i USD avgift |
@@ -101,11 +102,11 @@ Här är en kort beskrivning av kolumnerna:
 ### <a name="commercial-vehicle-registration-data"></a>Kommersiellt fordon registreringsdata
 I självstudiekursen använder en statisk ögonblicksbild av en databas för registrering av kommersiellt fordon.
 
-| LicensePlate | RegistrationId | Upphört att gälla |
+| LicensePlate | RegistrationId | Har upphört att gälla |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
-| SÄKERHETS 1005 |876133137 |1 |
+| BAC 1005 |876133137 |1 |
 | RIV 8632 |992711956 |0 |
 | SNY 7188 |592133890 |0 |
 | ELH 9896 |678427724 |1 |
@@ -116,7 +117,7 @@ Här är en kort beskrivning av kolumnerna:
 | --- | --- |
 | LicensePlate |Licens skylt antalet för programuppdatering |
 | RegistrationId |Registrerings-ID för programuppdatering |
-| Upphört att gälla |Registreringstillstånd för för programuppdatering: 0 om vehicle registrering är aktiv, 1 om registreringen har upphört att gälla |
+| Har upphört att gälla |Registreringstillstånd för för programuppdatering: 0 om vehicle registrering är aktiv, 1 om registreringen har upphört att gälla |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Ställa in miljön för Azure Stream Analytics
 Den här kursen behöver ett Microsoft Azure-prenumeration. Microsoft erbjuder kostnadsfri utvärderingsversion för Microsoft Azure-tjänster.
@@ -175,24 +176,11 @@ Ett annat fönster som liknar följande skärmbild visas också. Det här progra
 Du ska kunna se dina resurser i Azure-portalen nu. Gå till <https://portal.azure.com>, och logga in med autentiseringsuppgifterna för ditt konto. Observera att för närvarande vissa funktioner använder den klassiska portalen. De här stegen att tydligt anges.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
-I Azure-portalen klickar du på **fler tjänster** längst ned i fönstret vänstra management. Typen **händelsehubbar** i fältet och klickar på **händelsehubbar**. Detta startar ett nytt webbläsarfönster för att visa den **SERVICE BUS** område i den **klassiska portalen**. Här kan du se Händelsehubben som skapats av skriptet Setup.ps1.
 
-![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Klicka på det som börjar med *tolldata*. Klicka på den **HÄNDELSEHUBBAR** fliken. Du ser två händelsehubbar med namnet *post* och *avsluta* skapas i det här namnområdet.
-
-![Event Hubs fliken i den klassiska portalen](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Azure-portalen klickar du på **fler tjänster** längst ned i fönstret vänstra management. Typen **händelsehubbar** i fältet, ser du ett nytt Event Hub-namnområde som börjar med **tolldata**. Den här namesapce skapas med skriptet Setup.ps1. Du ser två händelsehubbar med namnet **post** och **avsluta** skapas i det här namnområdet.
 
 ### <a name="azure-storage-container"></a>Azure Storage-behållare
-1. Gå tillbaka till fliken i din webbläsare öppen på Azure-portalen. Klicka på **lagring** på vänster sida av Azure portal och se Azure Storage-behållare som används i självstudiekursen.
-   
-    ![Menyalternativet för lagring](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Klicka på det som börjar med *tolldata*. Klicka på den **behållare** fliken för att se skapade behållaren.
-   
-    ![Fliken behållare i Azure-portalen](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Klicka på den **tolldata** behållare för att se den överförda JSON-filen som har vehicle registreringsdata.
-   
-    ![Skärmbild av filen registration.json i behållaren](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+Bläddra till storage-konton från Azure-portalen, bör du se ett lagringskonto som börjar med **tolldata**. Klicka på den **tolldata** behållare för att se den överförda JSON-filen som har vehicle registreringsdata.
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 1. Gå tillbaka till Azure portal på den första fliken som har öppnats i webbläsaren. Klicka på **SQL-databaser** på vänster sida av Azure portal och se SQL-databasen som ska användas i guiden och klicka på **tolldatadb**.
@@ -323,9 +311,9 @@ Nu när du har skrivit ditt första Azure Stream Analytics-fråga, är det dags 
 
 Den här mappen innehåller följande filer:
 
-* Entry.JSON
-* Exit.JSON
-* Registration.JSON
+* Entry.json
+* Exit.json
+* Registration.json
 
 ## <a name="question-1-number-of-vehicles-entering-a-toll-booth"></a>Fråga 1: Antal fordon att ange en avgift monter
 1. Öppna Azure-portalen och gå till skapade Azure Stream Analytics-jobbet. Klicka på den **FRÅGAN** fliken och klistra in frågan från föregående avsnitt.
@@ -424,7 +412,7 @@ Den **ÖVERVAKAREN** innehåller statistik om jobb som körs. Första gången ko
 Du kan komma åt **aktivitetsloggar** från instrumentpanelen jobbet **inställningar** samt område.
 
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Den här självstudiekursen introducerade du till Azure Stream Analytics-tjänsten. Det visas hur du konfigurerar indata och utdata för Stream Analytics-jobbet. Med avgift Data scenariot beskrivs kursen vanliga problem som uppstår i utrymmet för data i rörelse och hur de kan lösas med den enkla SQL-liknande frågor i Azure Stream Analytics. Kursen beskrivs SQL tillägget konstruktioner för att arbeta med temporala data. Den visade hur du kopplar dataströmmar, så att utöka dataströmmen med statiska referensdata och hur du skala ut en fråga för att uppnå högre genomströmning.
 
 Även om den här kursen ger en bra introduktion, är det inte fullständig på något sätt. Du kan hitta mer frågemönster med SAQL språket på [fråga exempel för vanliga Stream Analytics användningsmönster](stream-analytics-stream-analytics-query-patterns.md).

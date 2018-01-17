@@ -2,4 +2,4 @@
 
 Den här vägledningen har flyttats till docs.microsoft.com interna deltagares guide.
 
-[https://aka.MS/Azure-File-Names](https://aka.ms/azure-file-names)
+[https://aka.ms/azure-file-names](https://aka.ms/azure-file-names)

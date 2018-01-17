@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 01/16/2018
 ms.author: terrylan
-ms.openlocfilehash: 2fa63515d290e6700fbe4a90ae509f4635b19f29
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 3af59e1b38e70494dd9dc17e2682d31cf7b7d361
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customizing-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS säkerhetskonfigurationer i Azure Security Center [förhandsgranskning]
 
@@ -97,7 +97,7 @@ Varje kategori har en egen uppsättning attribut. För befintliga regler kan du 
 
 - expectedValue: det här attributet har datatypen måste matcha värdena som stöds per varje regeltyp, till exempel:
 
-  - baselineRegistryRules: värdet måste matcha [regValueType] (https://msdn.microsoft.com/library/windows/desktop/ms724884 (v=vs.85) definieras i regeln.
+  - baselineRegistryRules: värdet måste matcha den [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) definierats i regeln.
 
   - baselineAuditPolicyRules: värdet måste vara ett strängvärde, något av följande:
 
@@ -119,7 +119,7 @@ Dessa är de enda fält som kan konfigureras. Om du bryter mot filformatet eller
 
 Se [felkoder](#error-codes) lista över eventuella fel.
 
-Nedan finner du exempel på dessa regler och attribut (i fetstil) som kan ändras:
+Nedan finner du några exempel på dessa regler. Attribut 'expectedValue' och 'state' kan ändras:
 
 **Regler avsnitt:** baselineRegistryRules
 ```
@@ -136,11 +136,11 @@ Nedan finner du exempel på dessa regler och attribut (i fetstil) som kan ändra
     "ruleName": "Network access: Restrict anonymous access to Named Pipes and
     Shares",
     "ruleType": "Registry",
-    "**expectedValue**": "1",
+    "expectedValue": "1",
     "severity": "Warning",
     "analyzeOperation": "Equals",
     "source": "Microsoft",
-    "**state**": "Disabled"
+    "state": "Disabled"
 
 }
 ```
@@ -154,11 +154,11 @@ Nedan finner du exempel på dessa regler och attribut (i fetstil) som kan ändra
 "cceId": "CCE-11001-5",
 "ruleName": "Audit Policy: Account Management: Other Account Management Events",
 "ruleType": "AuditPolicy",
-"**expectedValue**": "Success and Failure",
+"expectedValue": "Success and Failure",
 "severity": "Critical",
 "analyzeOperation": "Equals",
 "source": "Microsoft",
-"**state**": "Enabled"
+"state": "Enabled"
 },
 ```
 
@@ -172,10 +172,11 @@ Nedan finner du exempel på dessa regler och attribut (i fetstil) som kan ändra
 "cceId": "CCE-10548-6",
 "ruleName": "Increase a process working set",
 "ruleType": "SecurityPolicy",
-"**expectedValue**": "Administrators, Local Service",
+"expectedValue": "Administrators, Local Service",
 "severity": "Warning",
 "analyzeOperation": "Equals",
-"source": "Microsoft", "**state**": "Enabled"
+"source": "Microsoft",
+"state": "Enabled"
 },
 ```
 

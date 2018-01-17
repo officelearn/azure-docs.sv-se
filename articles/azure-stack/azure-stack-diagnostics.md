@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnosverktyg
 
@@ -121,9 +121,9 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CERTIFIKATUTFÄRDARE                     | CPI                |
-   | CERTIFIKATREGISTRERINGSPLATS                     | DeploymentMachine      | DHCP               |
-   | Domän                  | FN                    | ECESeedRing        | 
+   | BRP                     | CA                     | CPI                |
+   | CRP                     | DeploymentMachine      | DHCP               |
+   | Domän                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | HRP                |   
    | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
@@ -131,11 +131,11 @@ if($s)
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
    | SRP                     | Lagring                | StorageController  |
-   | URP                     | UsageBridge            | virtuella datorer    |  
-   | VAR                     | WASPUBLIC              | WDS                |
+   | URP                     | UsageBridge            | VirtualMachines    |  
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Samla in loggar med ett grafiskt användargränssnitt
+### <a name="bkmk_gui"></a>Samla in loggar med ett grafiskt användargränssnitt
 Du kan utnyttja de tillgängliga öppna källkod Azure Stack verktyg som finns i den huvudsakliga Azure Stack verktyg GitHub verktyg lagringsplatsen på http://aka.ms/AzureStackTools i stället för att tillhandahålla de obligatoriska parametrarna för cmdleten Get-AzureStackLog att hämta Azure Stack-loggar.
 
 Den **ERCS_AzureStackLogs.ps1** PowerShell-skriptet lagras i databasen för GitHub-verktyg och uppdateras regelbundet. För att säkerställa att du har den senaste versionen, bör du hämta den direkt från http://aka.ms/ERCS. Starta från en administrativ PowerShell-session skriptet ansluter till Privilegierade slutpunkten och kör Get-AzureStackLog med angivna parametrar. Om inga parametrar har angetts standardvärden skriptet för att fråga efter parametrar via ett grafiskt användargränssnitt.
@@ -159,3 +159,4 @@ Om du vill veta mer om ERCS_AzureStackLogs.ps1 PowerShell-skriptet kan du titta 
 
 ## <a name="next-steps"></a>Nästa steg
 [Felsökning av Microsoft Azure-stacken](azure-stack-troubleshooting.md)
+

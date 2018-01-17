@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0dbd3bbb9a45b206d9c89a1083b62852c1b2285a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50534fd1fd94eeb4eec7748857a0b7baf93cb9d2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Implementera Lösenordssynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information som du behöver att synkronisera användarlösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.

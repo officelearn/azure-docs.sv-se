@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Appar, behörigheter och godkännande i Azure Active Directory
-I Azure Active Directory kan du lägga till program i din katalog.  Programmen kan variera beroende på typen av program.  Om du vill visa program på den klassiska portalen markerar du en katalog och väljer program.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+I Azure Active Directory kan du lägga till program i din katalog.  Programmen kan variera beroende på typen av program.  Om du vill visa program på portalen markerar du en katalog och väljer program.
 
 > [!IMPORTANT]
-> Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via den klassiska Azure-portalen som nämns i den här artikeln.
+> Microsoft rekommenderar att du hanterar Azure AD via [Azure AD administratörscenter](https://aad.portal.azure.com) på Azure Portal istället för via Azure-portalen som nämns i den här artikeln.
 
 ## <a name="types-of-apps"></a>Typer av appar
 
@@ -73,9 +71,7 @@ Sammanfattningsvis:
 
 ## <a name="controls"></a>Kontroller
 
-Följande är en lista över de olika administratörskontroller som är tillgängliga för detta beteende. Administratörskontrollerna kan användas på den klassiska portalen från Konfigurera under katalogen.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Följande är en lista över de olika administratörskontroller som är tillgängliga för detta beteende.
 
 På Azure Portal, under **Hantera**, **Användarinställningar**.
 
@@ -85,18 +81,14 @@ På Azure Portal, under **Hantera**, **Användarinställningar**.
 
 - Du kan styra om användare kan godkänna appar eller inte:
 
-På den klassiska portalen väljer du **Users may give applications permissions to access their data (Användare kan ge program behörighet att komma åt deras data).**
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 På Azure Portal väljer du **Användare kan bevilja appar åtkomst till sina data**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Du kan styra om användare kan registrera sina egna LOB-appar för en enda klient: På den klassiska portalen väljer du **Users may add integrated applications (Användare kan lägga till integrerade program).**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Du kan kontrollera om användare kan registrera sina egna appar för en enda klient:
 
-På Azure Portal väljer du **Användare kan bevilja appar åtkomst till sina data**.
+I Azure-portalen väljer du **användare kan registrera program**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ På Azure Portal väljer du **Användare kan bevilja appar åtkomst till sina da
 >- När användare registrerar LOB-appar för en enda klient kan de inte begära delegerade behörigheter till andra appar om dessa behörigheter kräver administratörens godkännande.
 >- Användare kan inte göra ändringar i appar som de inte äger.
 
-
-
-- Du kan styra om användare kan lägga till förintegrerade appar som använder lösenord för enkel inloggning (SSO eller lösenordsvalv) ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Du kan styra när program kan nås, så kallad ”villkorlig åtkomst”. Tänk på att detta gäller både klientappen och resursappen. Anta till exempel att du skapar en princip för villkorlig åtkomst som anger att appen ”Office 365 Exchange Online” endast kan nås från datorer som följer standard.  Den här principen tillämpas också när en användare försöker använda en klientapp som begär behörighet till Exchange Online.
-
-
-
-- Du kan se vilka appar som har godkänts och vilka som används.
-
-1.  När en användare godkänner en app skapas ett ServicePrincipal-objekt i klientorganisationen. Genereringen av ServicePrincipal-objektet visas i granskningsrapporten.
-2.  I rapporterna över användarnas inloggningsaktivitet kan du se vilken app som användaren är inloggad i. 
 
 ## <a name="example"></a>Exempel
 

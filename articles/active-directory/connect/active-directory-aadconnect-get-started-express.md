@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Komma igång med Azure AD Connect med standardinställningar
 **Standardinställningar** för Azure AD Connect används om du har en topologi med en enda skog och om du använder [lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) för autentisering. **Standardinställningar** är standardalternativet och används i de vanligaste distributionsscenarierna. Du är bara några få klick bort från att utöka din lokala katalog till molnet.
@@ -36,7 +36,8 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
 4. På skärmen Standardinställningar klickar du på **Använd standardinställningar**.  
    ![Välkommen till Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. På sidan Anslut till Azure AD anger du användarnamnet och lösenordet för en global administratör för din Azure AD. Klicka på **Nästa**.  
-   ![Anslut till Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Anslut till Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   Om du får ett fel och har problem med anslutningen läser du [Felsöka anslutningsproblem](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. På skärmen Anslut till AD DS anger du användarnamnet och lösenordet för ett företagsadministratörskonto. Du kan ange domändelen i NetBios- eller FQDN-format, d.v.s. FABRIKAM\administrator eller fabrikam.com\administrator. Klicka på **Nästa**.  
    ![Anslut till AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. Sidan [**Konfigurera Azure AD-inloggning**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) visas bara om du inte slutförde [domänverifieringen](../active-directory-domains-add-azure-portal.md) under [kravfasen](active-directory-aadconnect-prerequisites.md).
@@ -53,8 +54,8 @@ Du kan se dessa steg i praktiken i avsnittet med [videoklipp](#videos).
 Här finns ett videoklipp om snabbinstallationer:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när Azure AD Connect är installerat kan du [verifiera installationen och tilldela licenser](active-directory-aadconnect-whats-next.md).
@@ -66,10 +67,10 @@ Läs mer om [schemaläggaren och hur du utlöser synkronisering](active-director
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Relaterad dokumentation
-| Avsnitt |
-| --- | --- |
-| Översikt över Azure AD Connect |
-| Installera med anpassade inställningar |
-| Uppgradera från DirSync |
-| Konton som används för installation |
 
+| Avsnitt | Länk |
+| --- | --- |
+| Översikt över Azure AD Connect | [Integrerar dina lokala kataloger med Azure Active Directory](active-directory-aadconnect.md)
+| Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyget (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| Konton som används för installation | [Mer information om Azure AD Connect-autentiseringsuppgifter och -behörigheter](active-directory-aadconnect-accounts-permissions.md) |

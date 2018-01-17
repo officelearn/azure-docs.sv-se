@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 Om din organisation är federerad med Azure Active Directory använder du Azure Multi-Factor Authentication eller Active Directory Federation Services (AD FS) för att skydda dessa resurser. Skydda dina resurser i Azure Active Directory med Azure Multi-Factor Authentication eller Active Directory Federation Services genom att använda följa steg.
@@ -83,16 +83,13 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Konfigurera tillförlitliga IP-adresser med federerade användare i Azure Multi-Factor Authentication
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
-1. Logga in på den [klassiska Azure-portalen](https://manage.windowsazure.com).
-2. Klicka på **Active Directory** till vänster.
-3. Under Katalog väljer du den katalog där du vill ställa in tillförlitliga IP-adresser.
-4. Klicka på **Konfigurera** för den katalog som du har valt.
-5. Klicka på **Hantera tjänstinställningar** i avsnittet Multi-Factor Authentication.
-6. På sidan Tjänstinställningar väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
+1. Logga in på [Azure-portalen](https://portal.com).
+2. Välj **Azure Active Directory** > **Villkorlig åtkomst** > **Namngivna platser**.
+3. På bladet **Villkorlig åtkomst – namngivna platser** väljer du **Konfigurera betrodda MFA IP-adresser**
 
-   ![Molnet](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Klicka på **Spara**.
-8. Klicka på **Stäng**när uppdateringarna har tillämpats.
+   ![Azure AD, Villkorlig åtkomst – namngivna platser, Konfigurera betrodda MFA IP-adresser](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
+5. Klicka på **Spara**.
 
 Klart! I det här läget behöver federerade Office 365-användare endast  använda MFA när ett anspråk kommer utifrån företagets intranät.

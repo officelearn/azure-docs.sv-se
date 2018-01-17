@@ -4,7 +4,7 @@ description: "Så här använder du Fiddler eller Postman för att skicka HTTP-b
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Utforska REST-API:er för Azure Search med hjälp av Fiddler eller Postman
 
-Ett av de enklaste sätten att utforska den [REST-API:er för Azure Search](https://docs.microsoft.com/rest/api/searchservice) är att använda Fiddler eller Postman för att formulera HTTP-begäranden och granska svaren. I den här artikeln får du läsa mer om hur man kan experimentera med begäranden och nyttolast för svar utan att behöva skriva någon kod.
+Ett av de enklaste sätten att utforska den [REST-API:er för Azure Search](https://docs.microsoft.com/rest/api/searchservice) är att använda Fiddler eller Postman för att formulera HTTP-begäranden och granska svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
 
 > [!div class="checklist"]
 > * Ladda ned ett testverktyg för webb-API
@@ -32,7 +32,7 @@ Ett av de enklaste sätten att utforska den [REST-API:er för Azure Search](http
 > * Läs in ett index
 > * Sök i ett index
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. Passa på att [registrera dig för Azure Search](search-create-service-portal.md).
+Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
 
 ## <a name="download-and-install-tools"></a>Ladda ned och installera verktyg
 
@@ -53,7 +53,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 Varje verktyg håller kvar begärandehuvuden för sessionen, vilket innebär att du bara behöver ange URL-slutpunkt, API-version, API-nyckel och innehållstyp en enda gång.
 
-Den fullständiga webbadressen ska se ut som i exemplet nedan, men i din adress bör du ha en giltig ersättning för platshållaren **`my-app`**:`https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+Den fullständiga webbadressen ska se ut som i exemplet nedan, men i din adress bör du ha en giltig ersättning för platshållarens namn **`my-app`**:`https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
 
 Webbadressen för tjänsten består av följande element:
 
@@ -88,7 +88,7 @@ Begärandetexten innehåller en indexdefinition. När du lägger till begärande
 
 Den viktigaste komponenten i en begäran utöver indexnamnet, är fältsamlingen. Fältsamlingen definierar indexschemat. Ange typ för varje fält. Strängfälten används vid fulltextsökningar, så det kan vara en bra idé att konvertera numeriska data till strängar om du vill att innehållet ska vara sökbart.
 
-Vilka åtgärder som tillåts fastställs av fältattributen. REST-API:erna gör många åtgärder till standardåtgärder. Alla strängar blir till exempel sökbara, hämtningsbara, filtrerbara och fasettbara som standard. Oftast behöver du bara ange attribut när du vill inaktivera ett beteende. Mer information om attribut finns i [Skapa ett index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Vilka åtgärder som tillåts fastställs av fältattributen. Med REST API:er kan du använda standardåtgärder i stor utsträckning. Alla strängar blir till exempel sökbara, hämtningsbara, filtrerbara och fasettbara som standard. Oftast behöver du bara ange attribut när du vill inaktivera ett beteende. Mer information om attribut finns i [Skapa ett index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
           {
          "name": "hotels",  
@@ -108,7 +108,7 @@ Vilka åtgärder som tillåts fastställs av fältattributen. REST-API:erna gör
          }
 
 
-När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen dyker upp.
+När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen uppdateras.
 
 Om HTTP 504 returneras kontrollerar du att HTTPS används i URL:en. Om HTTP 400 eller 404 returneras kontrollerar du att alla fält har kopierats och klistrats in korrekt i begärandetexten. HTTP 403 tyder vanligen på problem med API-nyckeln (antingen en ogiltig nyckel eller ett syntaxproblem när API-nyckeln angavs).
 

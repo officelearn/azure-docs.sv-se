@@ -1,5 +1,5 @@
 ---
-title: "Vad är Azure Analysis Services? | Microsoft Docs"
+title: "Översikt över Azure Analysis Services | Microsoft Docs"
 description: "Få en helhetsbild av Analysis Services i Azure."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Översikt över Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services innehåller modeller med företagsklassdata i molnet. Det här är en fullständigt hanterad plattform som en tjänst (PaaS), integrerad med Azure-dataplattformstjänsterna. 

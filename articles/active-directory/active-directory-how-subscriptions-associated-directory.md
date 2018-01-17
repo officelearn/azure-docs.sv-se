@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Så här associerar du eller lägger till en prenumeration i din Azure Active Directory
 
@@ -46,7 +46,7 @@ Alla användare har en enda arbetskatalog som autentiserar dem, men de kan även
 
     ![Skärmbild som visar användargränssnitt för den ändrade katalogen](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Klicka på **Ändra**.
-6. Lyckades! Använd katalogväxlaren för att gå till den nya katalogen.
+6. Lyckades! Använd katalogväxlaren för att gå till den nya katalogen. Det kan ta upp till 10 minuter innan allt visas korrekt.
 
     ![Skärmbild som visar meddelande om att katalogändringen lyckats](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

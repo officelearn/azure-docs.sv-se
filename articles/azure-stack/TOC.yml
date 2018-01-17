@@ -19,7 +19,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Distribuera Azure Stack
+    - name: Utvärdera Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Självstudier
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Begrepp
   items:
-    - name: Planera överväganden
-      href: azure-stack-planning-considerations.md
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
     - name: Huvudfunktioner och koncept
@@ -43,7 +41,7 @@
       href: azure-stack-manage-basics.md
 - name: Instruktionsguider
   items:
-    - name: Distribuera
+    - name: Distribuera ASDK
       items:
         - name: Förutsättningar
           href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Skapa en virtuell testdator
           href: azure-stack-provision-vm.md
+    - name: Distribuera Azure-stacken integrerat system
+      items:
+        - name: Överväganden vid planering av distribution
+          href: azure-stack-deployment-planning.md
+        - name: Planeringsbeslut för distribution
+          href: azure-stack-deployment-decisions.md
+        - name: Distribuera ansluten till Azure
+          href: azure-stack-connected-deployment.md
+        - name: Distribuera kopplas bort från Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Azure Stack PKI distributionskrav
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Hämta PKI-certifikat för distribution av Azure-stacken
+              href: azure-stack-get-pki-certs.md
+        - name: Registrera Azure Stack
+          href: azure-stack-registration.md
     - name: Datacenter-integrering
       items:
         - name: DNS

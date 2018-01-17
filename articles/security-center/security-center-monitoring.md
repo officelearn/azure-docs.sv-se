@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Övervakning av säkerhetshälsa i Azure Security Center
 I den här artikeln berättar vi hur du använder övervakningsfunktionerna i Azure Security Center för att övervaka att fastställda principer efterlevs.
@@ -48,11 +48,11 @@ Du kan se tre flikar när du klickar på panelen **Beräkna**:
 På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet.
 
 #### <a name="monitoring-recommendations"></a>Rekommendationer för övervakning
-I det här avsnittet visas hur många virtuella datorer och datorer som har initierats för automatisk etablering och deras aktuella status. När du klickar på den här posten öppnas **Övervaka problem med hälsotillstånd**.
+I det här avsnittet visas hur många virtuella datorer och datorer som har initierats för automatisk etablering och deras aktuella status. I det här exemplet finns det en rekommendation, **Övervaka problem med hälsotillstånd**.  Välj den rekommendationen.
 
 ![Övervaka problem med hälsotillstånd](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Virtuella datorer och vanliga datorer som Security Center inte kan övervaka visas i en lista. Välj en virtuell eller vanlig dator för detaljerad information. **Övervakningstillståndet** definierar problemet.
+**Övervaka problem med hälsotillstånd** öppnas. Virtuella datorer och vanliga datorer som Security Center inte kan övervaka visas i en lista. Välj en virtuell eller vanlig dator för detaljerad information. I **ÖVERVAKNINGSTILLSTÅND** finns en orsak till att det inte går att övervaka Security Center. Läs [felsökningsguiden för Security Center](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) och visa en lista över steg för värden, beskrivningar och lösningar för **ÖVERVAKNINGSTILLSTÅND**.
 
 #### <a name="recommendations"></a>Rekommendationer
 I den här delen finns ett antal [rekommendationer för de virtuella datorer och datorer](security-center-virtual-machine-recommendations.md) som övervakas via Azure Security Center. Den första kolumnen visar rekommendationen. Den andra kolumnen visar det totala antalet virtuella datorer och datorer som påverkas av den här rekommendationen. Den tredje kolumnen visar hur allvarligt problemet är, såsom illustreras på följande skärmbild:

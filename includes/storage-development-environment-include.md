@@ -2,15 +2,15 @@
 Konfigurera sedan din utvecklingsmiljö i Visual Studio så att du är redo att testa kodexemplen i den här guiden.
 
 ### <a name="create-a-windows-console-application-project"></a>Skapa ett Windows-konsolprogramprojekt
-Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver hur du skapar ett konsolprogram i Visual Studio 2017, men stegen är liknande i andra versioner av Visual Studio.
+Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsolprogram i Visual Studio 2017. Stegen är ungefär som i andra versioner av Visual Studio.
 
-1. Välj **Arkiv** > **Nytt** > **Projekt**
-2. Välj **Installerat** > **Mallar** > **Visual C#** > **Windows Classic Desktop**
-3. Välj **Konsolprogram (.NET Framework)**
-4. Ange ett namn för ditt program i fältet **Namn**
-5. Välj **OK**
+1. Välj **Arkiv** > **Nytt** > **Projekt**.
+2. Välj **Installerat** > **Mallar** > **Visual C#** > **Windows Classic Desktop**.
+3. Välj **Konsolprogram (.NET Framework)**.
+4. Ange ett namn för ditt program i fältet **Namn**.
+5. Välj **OK**.
 
-![Dialogruta för att skapa projekt i Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Skärmbild av dialogrutan Nytt projekt i Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
 
@@ -25,8 +25,8 @@ Det finns två paket som du måste referera till i ditt projekt för att slutfö
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
 1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
-2. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Storage-klientbiblioteket och alla dess beroenden.
-3. Sök online efter ”WindowsAzure.ConfigurationManager” och klicka på **Installera** för att installera Azure Configuration Manager.
+2. Sök online efter ”WindowsAzure.Storage” och markera **Installera** för att installera Storage-klientbiblioteket och alla dess beroenden.
+3. Sök online efter ”WindowsAzure.ConfigurationManager” och markera på **Installera** för att installera Azure Configuration Manager.
 
 > [!NOTE]
 > Storage-klientbibliotekspaketet finns också inkluderat i [Azure SDK för .NET](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar Storage-klientbiblioteket från NuGet för att säkerställa att du alltid har den senaste versionen av klientbiblioteket.
@@ -39,7 +39,7 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 Du har två miljöalternativ för att köra exemplen i den här guiden:
 
 * Du kan köra din kod mot ett Azure Storage-konto i molnet. 
-* Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använda Azure Storage-emulatorn för utveckling och testning](../articles/storage/common/storage-use-emulator.md)
+* Du kan köra din kod mot en Azure-lagringsemulator. Lagringsemulatorn är en lokal miljö som emulerar ett Azure Storage-konto i molnet. Emulatorn är ett kostnadsfritt alternativ för att testa och felsöka din kod medan ditt program är under utveckling. Emulatorn använder sig av ett välkänt konto och nyckel. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../articles/storage/common/storage-use-emulator.md).
 
 Om målet är ett lagringskonto i molnet kopierar du den primära åtkomstnyckeln för ditt lagringskonto från Azure Portal. Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 

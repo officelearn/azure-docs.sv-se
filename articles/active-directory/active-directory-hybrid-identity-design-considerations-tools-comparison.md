@@ -5,20 +5,19 @@ services: active-directory
 documentationcenter: 
 author: billmath
 manager: mtillman
-editor: curtand
 ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: b26d455d2a0d2c39ca7318e19ebbea46e938c3c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78ca910b4dfd5a706d2f1df7f70291fb48f096f5
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybrididentitet: Jämförelse av katalogintegreringsverktyg
 Katalogintegreringsverktygen har vuxit och utvecklats med åren.  Avsikten med det här dokumentet är att ge dig en samlad vy över dessa verktyg och en jämförelse av de funktioner som är tillgängliga i vart och ett.
@@ -44,13 +43,16 @@ PP = Offentlig granskning
 | Ansluta till en enda lokal AD-skog |● |● |● |● |● |
 | Ansluta till flera lokala AD-skogar |● |● | |● |● |
 | Ansluta till flera lokala Exchange-organisationer |● | | | | |
-| Ansluta till en enda lokal LDAP-katalog |FR | | |● |● |
-| Ansluta till flera lokala LDAP-kataloger |FR | | |● |● |
-| Ansluta till lokalt AD och lokala LDAP-kataloger |FR | | |● |● |
+| Ansluta till en enda lokal LDAP-katalog |●* | | |● |● |
+| Ansluta till flera lokala LDAP-kataloger |●*  | | |● |● |
+| Ansluta till lokalt AD och lokala LDAP-kataloger |●* | | |● |● |
 | Ansluta till anpassade system (SQL, Oracle, MySQL osv.) |FR | | |● |● |
 | Synkronisera kunddefinierade attribut (katalogtillägg) |● | | | | |
 | Ansluta till lokalt HR (SAP, Oracle eBusiness, PeopleSoft osv.) |FR | | |● |● |
 | Stöder FIM-synkroniseringsregler och kopplingar för etablering i lokala system. | | | |● |● |
+&#42; Det finns i nuläget två alternativ för detta som stöds.  De är:
+   1. Du kan använda den allmänna LDAP-anslutningsappen och aktivera den utanför Azure AD Connect.  Det är komplex och kräver en partner för publicering och ett Premier Support-avtal för underhåll.  Det här alternativet kan hantera både enkla och flera LDAP-kataloger.
+   2. Du kan utveckla din egen lösning för att flytta objekt från LDAP till Active Directory.  Synkronisera sedan objekten med Azure AD Connect.  MIM eller FIM kan användas som en möjlig lösning för att flytta objekten.
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Synkronisering molnet till lokalt
 | Funktion | Azure Active Directory Connect | Azure Active Directory Sync Services | Verktyget Azure Active Directory Synchronization (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

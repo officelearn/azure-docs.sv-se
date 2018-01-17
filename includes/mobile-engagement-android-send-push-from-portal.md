@@ -2,7 +2,7 @@
 
 Om du vill låta Mobile Engagement skicka push-meddelanden för dig, måste du bevilja Mobile Engagement åtkomst till din API-nyckel. Detta görs genom att konfigurera och ange nyckeln i Mobile Engagement-portalen.
 
-1. Kontrollera via din klassiska Azure-portal att du befinner dig i appen som vi använder för det här projektet och klicka sedan på **Starta**-knappen längst ned:
+1. Kontrollera via din Azure-portal att du befinner dig i appen som vi använder för det här projektet och klicka sedan på **Starta**-knappen längst ned:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

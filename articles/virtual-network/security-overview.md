@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="network-security"></a>Nätverkssäkerhet
 
@@ -53,7 +53,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 |Källa eller mål| Valfria IP-adresser (eller en enskild IP-adress), CIDR-block (till exempel 10.0.0.0/24), tjänsttagg eller programsäkerhetsgrupp. Läs mer om [tjänsttaggar](#service-tags) och [programsäkerhetsgrupper](#application-security-groups). Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas förhöjda säkerhetsregler. Läs mer om [förstärkta säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen.|
 |Protokoll     | TCP, UDP eller Any (Alla), vilket innefattar TCP, UDP och ICMP. Du kan inte ange ICMP separat, så om du vill använda ICMP, måste du använda Any (Alla). |
 |Riktning| Om regeln gäller för inkommande eller utgående trafik.|
-|Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Möjligheten att ange flera enskilda portar och portintervall i en regel finns som förhandsversion och kallas förhöjda säkerhetsregler. Läs viktig information i [Förhandsversionsfunktioner](#preview-features) innan du använder förhöjda säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
+|Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
 |Åtgärd     | Tillåt eller neka        |
 
 Säkerhetsregler är tillståndskänsliga. Om du till exempel anger en utgående säkerhetsregel till en adress via port 80, behöver du inte ange en inkommande säkerhetsregel för svar på utgående trafik. Du behöver bara ange en inkommande säkerhetsregel om kommunikationen initieras externt. Även det motsatta gäller. Om inkommande trafik tillåts via en port, behöver du inte ange en utgående säkerhetsregel för svar på trafik via porten. Mer information om begränsningar när du skapar säkerhetsregler finns i avsnittet om [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -72,19 +72,19 @@ Om en nätverkssäkerhetsgrupp inte är associerad med ett undernät eller ett n
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Alla|Tillåt|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Alla|Tillåt|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Åtkomst|
+|Prioritet|Källa|Källportar|Mål|Målportar|Protokoll|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Alla|Neka|
 
@@ -92,19 +92,19 @@ Om en nätverkssäkerhetsgrupp inte är associerad med ett undernät eller ett n
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Alla | Tillåt |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Alla | Tillåt |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Alla | Neka |
 
@@ -144,8 +144,7 @@ Mer information om begränsningar när du skapar programsäkerhetsgrupper och hu
 Programsäkerhetsgrupper är tillgängliga som förhandsversion. Funktioner i förhandsversionen har inte samma grad av tillgänglighet och tillförlitlighet som funktioner i en allmän version. Innan du kan använda programsäkerhetsgrupper måste du först registrera dig för att använda dem genom att slutföra steg 1 till 5 i Azure- eller PowerShell-avsnitten i [Skapa en nätverkssäkerhetsgrupp med programsäkerhetsgrupper](create-network-security-group-preview.md). Programmet säkerhetsgrupper har följande begränsningar:
 
 -   Alla nätverksgränssnitt i en säkerhetsgrupp för programmet måste finnas i samma virtuella nätverk. Du kan inte lägga till nätverksgränssnitt från olika virtuella nätverk i säkerhetsgruppen för samma program. Det virtuella nätverket som det första nätverksgränssnittet som tilldelats programsäkerhetsgruppen är i, definierar det virtuella nätverket som alla efterföljande nätverksgränssnitt måste finnas i.
-- Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1. 
-- Endast tillgängligt för användning i regionen Västra centrala USA.
+- Om du anger programsäkerhetsgrupper som källa och mål i en säkerhetsregel måste nätverksgränssnitten i bägge programsäkerhetsgrupperna finnas i samma virtuella nätverk. Om till exempel ASG1 innehåller nätverksgränssnitt från VNet1 och ASG2 innehåller nätverksgränssnitt från VNet2 så går det inte att tilldela ASG1 som källa och ASG2 som mål i en regel. Alla nätverksgränssnitt måste finnas i VNet1.
 
 ## <a name="azure-platform-considerations"></a>Azure-plattformsöverväganden
 
@@ -159,7 +158,7 @@ Programsäkerhetsgrupper är tillgängliga som förhandsversion. Funktioner i f�
 
      - **Enterprise-avtal**: Utgående kommunikation via port 25 tillåts. Du kan skicka utgående e-post direkt från virtuella datorer till externa e-postleverantörer utan begränsningar från Azure-plattformen. 
      - **Betala per användning:** Utgående kommunikation via port 25 blockeras från alla resurser. Om du behöver skicka e-post från en virtuell dator direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du skicka en förfrågan om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande och beviljas endast efter att bedrägerikontroller utförts. Om du vill skicka en förfrågan öppnar du ett supportärende med ärendetypen *Teknisk*, *Virtuell nätverksanslutning*, *Det går inte att skicka e-post (SMTP/Port 25)*. I ditt supportärende anger du information om varför du (din prenumeration) behöver skicka e-post direkt till e-postleverantörer i stället för att gå via ett autentiserat SMTP-relä. Om din prenumeration undantas kan endast virtuella datorer som skapats efter undantagsdatumet använda utgående kommunikation via port 25.
-     - **MSDN, Azure-pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du behöver skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
+     - **Molntjänstleverantör (CSP), MSDN, Azure-pass, Azure i Open, Education, BizSpark och kostnadsfri utvärderingsversion**: Utgående kommunikation via port 25 blockeras från alla resurser. Det går inte att skicka förfrågningar om att ta bort begränsningen eftersom dessa inte beviljas. Om du behöver skicka e-post från din virtuella dator måste du använda en SMTP-relätjänst.
 
   Även om Azure tillåter att du skickar e-post via port 25 kan Microsoft inte garantera att e-postleverantörerna godkänner inkommande e-post från din virtuella dator. Om en viss leverantör avvisar e-post från din virtuella dator måste du kontakta leverantören direkt för att lösa problem med meddelandeleverans eller skräppostfiltrering, eller använda en autentiserad SMTP-relätjänst. 
 

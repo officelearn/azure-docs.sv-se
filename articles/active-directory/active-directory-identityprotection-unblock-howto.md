@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 67fc333a47333fff0cd95aebd0616892cd6c6a42
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab11f27ceed716ba90e9027eee1775c190d2d93f
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - så att avblockera användare
 Med Azure Active Directory identitetsskydd, kan du konfigurera principer för att blockera användare om de konfigurerade villkor är uppfyllda. Normalt en blockerad användare kontakter supportavdelningen att bli blockerad. Detta avsnitt beskrivs de steg som du kan utföra för att låsa upp en blockerad användare.

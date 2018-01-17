@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7953e218614ba259db3cd45220de6b6c880608ad
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Dubbla attribut återhämtning är en funktion i Azure Active Directory som eliminerar friktion som orsakas av **UserPrincipalName** och **ProxyAddress** när du kör någon av Microsofts synkroniseringsverktyg i konflikt.
@@ -168,7 +168,7 @@ Länken för *instruktioner för hur du löser problemet* är felaktig:
 
 Den ska peka på [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
 * [Identifiera directory synkroniseringsfel i Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

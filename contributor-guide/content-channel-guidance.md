@@ -2,4 +2,4 @@
 
 Den här vägledningen har flyttats till docs.microsoft.com interna deltagares guide.
 
-Se [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)
+See [https://aka.ms/content-channel-guidance](https://aka.ms/content-channel-guidance)

@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Köp ett anpassat domännamn för Azure-Webbappar
 
@@ -171,9 +171,9 @@ Välj **lägga till värdnamnet**.
 ### <a name="configure-hostname"></a>Konfigurera värdnamnet
 I den **lägga till värdnamnet** dialogrutan Skriv fullständigt kvalificerade domännamnet för din App Service-domän eller en underdomän. Exempel:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 När du är klar väljer **verifiera**. Hostname-posttypen väljs automatiskt för dig.
 
@@ -226,7 +226,7 @@ Välj i Azure-portalen från den vänstra menyn **fler tjänster** > **App Servi
 
 Välj domänen som ska hantera. 
 
-### <a name="access-dns-zone"></a>Åtkomst till DNS-zonen
+### <a name="access-dns-zone"></a>Access DNS zone
 
 Välj domänens vänstra menyn **DNS-zonen**.
 

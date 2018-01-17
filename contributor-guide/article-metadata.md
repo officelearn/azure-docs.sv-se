@@ -4,4 +4,4 @@
 
 Den här vägledningen har flyttats till docs.microsoft.com interna deltagares guide.
 
-Se [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)
+See [https://aka.ms/azure-docs-metadata](https://aka.ms/azure-docs-metadata)

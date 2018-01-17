@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Identity Protection – ordlista | Microsoft Docs"
-description: "Azure Active Directory Identity Protection – ordlista"
+description: Azure Active Directory Identity Protection Glossary
 services: active-directory
 keywords: "Azure active directory identitetsskydd, cloud app discovery, hantera program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprinciper och ordlista"
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection – ordlista
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary
 ### <a name="at-risk-user"></a>Risk (användare)
 En användare med en eller flera aktiva riskhändelser. 
 
@@ -82,7 +82,7 @@ En åtgärd för att förhindra att organisationen via missbruk av en identitet 
 ### <a name="privileged-user"></a>Privilegierad (användare)
 En användare som vid tidpunkten för en risk händelse hade permanenta eller tillfälliga administratörsbehörigheter till minst en resurs i Azure Active Directory, exempelvis en Global administratör faktureringsadministratör, administratör, Användaradministratör och Lösenordsadministratör. 
 
-### <a name="real-time"></a>Realtidsskydd
+### <a name="real-time"></a>Realtid
 Finns i realtid identifiering.
 
 ### <a name="real-time-detection"></a>Realtid identifiering
@@ -100,7 +100,7 @@ En risk händelsestatus anges manuellt av en användare som identitetsskydd, som
 ### <a name="risk-event-status"></a>Risk händelsestatus
 En egenskap för en risk händelse som anger om händelsen är aktiv och om stängda orsaken till varför den.
 
-### <a name="risk-event-type"></a>Risk händelsetyp
+### <a name="risk-event-type"></a>Typ av riskhändelse
 En kategori för händelsen risk som anger vilken typ av avvikelseidentifiering som orsakade händelsen anses vara riskfyllda.
 
 ### <a name="risk-level-risk-event"></a>Risknivå (risk händelse)
@@ -160,6 +160,6 @@ Användare som har riskhändelser som är aktiva eller reparerade
 ### <a name="vulnerability"></a>Sårbarhet
 En konfiguration eller villkor i Azure Active Directory som gör att katalogen känsligt för kryphål eller hot.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

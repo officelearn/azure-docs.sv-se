@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory audit API-referens
 Det här avsnittet är en del av en samling ämnen om Azure Active Directory reporting API.  
@@ -45,7 +45,7 @@ För:
 * Globala administratörer
 * Alla appar som har behörighet att komma åt API: et (auktorisering i apptjänst kan vara installationen endast baserat på Global administratör behörighet)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha för att komma åt den här rapporten via Reporting-API:
 
 * En [Azure Active Directory ledigt eller bättre edition](active-directory-editions.md)
@@ -203,7 +203,7 @@ Icke skiftlägeskänslig
 Icke skiftlägeskänslig
 
 - - -
-### <a name="targetupn"></a>mål/upn
+### <a name="targetupn"></a>target/upn
 **Stöd för operatörer**: eq, startsWith
 
 **Exempel**:

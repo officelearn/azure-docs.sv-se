@@ -18,7 +18,7 @@ ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Rubrik (maximalt 120 tecken, mål nyckelordet primär)
 *Använd sekundära 2-3-nyckelord i beskrivningen.*
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/15/2018
 *Om det inte är en artikel i fakturering, Använd följande referens:*
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 * *Vilka åtgärder skulle användaren försöker slutföra?*
 * *Vad misslyckades?*
 * *Vilka system- och programvara skulle användaren har använt?*

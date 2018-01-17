@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Så här konfigurerar du hybrid Azure Active Directory anslutna enheter
 
@@ -41,7 +41,7 @@ För att förbättra läsbarhet beskrivningar, används det här avsnittet följ
 
 ### <a name="windows-current-devices"></a>Aktuella Windows-enheter
 
-- För enheter som kör Windows-operativsystemet, bör du använda Windows 10 årsdagar Update (version 1607) eller senare. 
+- För enheter som kör Windows-operativsystemet, versionen som stöds är Windows 10 årsdagar Update (version 1607) eller senare. 
 - Registreringen av aktuella Windows-enheter **är** i ofedererad miljöer, till exempel lösenord hash-synkronisering konfigurationer som stöds.  
 
 
@@ -69,11 +69,11 @@ Azure AD Connect:
 
 Kontrollera att följande URL: er är tillgängliga från datorer i nätverket i din organisation för registrering av datorer till Azure AD:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
 Om ditt företag kräver åtkomst till Internet via en utgående proxy, måste implementera Web Proxy Auto-Discovery (WPAD) för att aktivera Windows 10-datorer att registrera på Azure AD.
 

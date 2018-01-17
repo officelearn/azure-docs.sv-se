@@ -11,6 +11,10 @@
   items:
     - name: Skapa en datafabrik
       items:
+        - name: Användargränssnitt
+          href: quickstart-create-data-factory-portal.md
+        - name: Kopiera data-verktyg
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portalen
-          href: quickstart-create-data-factory-portal.md
         - name: Resource Manager-mall
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Självstudier
   items:
     - name: 1 – Distribuera SSIS-paket till Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Användargränssnitt
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 – Kopiera data i molnet
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Kopiera data-verktyg
+          href: tutorial-copy-data-tool.md
+        - name: Användargränssnitt
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 – Kopiera lokala data i molnet
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Kopiera data-verktyg
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Användargränssnitt
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 – Masskopiera data i molnet
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Användargränssnitt
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 – Kopiera data inkrementellt
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 – Kopiera från en tabell
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Användargränssnitt
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 – Kopiera från flera tabeller
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 – Använd funktionen för användningsspårning
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Användargränssnitt
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Omvandla data i molnet
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Användargränssnitt
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 – Transformera data i virtuellt nätverk
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Användargränssnitt
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 – Kontrollflöde
-      href: tutorial-control-flow.md
+      items:
+        - name: Användargränssnitt
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Instruktionsguider
   items:
+    - name: Skapa datafabriker visuellt
+      href: author-visually.md
     - name: Kopiera data
       items:
-        - name: Kopiera data från källor som stöds till mål
+        - name: Kopiera data med Kopiera aktivitet
           href: copy-activity-overview.md
+        - name: Kopiera data-verktyg
+          href: copy-data-tool.md
         - name: Läsa eller skriva partitionerade data
           href: how-to-read-write-partitioned-data.md
         - name: Anslutningar
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Läs in Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Azure Database for MySQL
               href: connector-azure-database-for-mysql.md
             - name: Azure Database for PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Läs in SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Kör SSIS-paket i Azure
       items:
-        - name: Skapa Azure SSIS Integration Runtime
-          href: create-azure-ssis-integration-runtime.md
         - name: Anslut Azure-SSIS Integration Runtime till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Hantera Azure SSIS Integration Runtime

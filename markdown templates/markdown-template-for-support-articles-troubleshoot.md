@@ -18,7 +18,7 @@ ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Rubrik (maximalt 120 tecken, mål nyckelordet primär)
 *Använd sekundära 2-3-nyckelord i beskrivningen.*

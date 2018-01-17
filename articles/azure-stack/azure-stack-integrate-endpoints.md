@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stacken datacenter integrering – publicera slutpunkter
 
@@ -37,32 +37,32 @@ Intern infrastruktur för VIP visas inte eftersom de inte krävs för att public
 
 |Slutpunkt (VIP)|En post för DNS-värdpost|Protokoll|Portar|
 |---------|---------|---------|---------|
-|AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portalen (administratör)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Azure Resource Manager (administratör)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portalen (användare)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (användare)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Lista över återkallade certifikat|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP OCH UDP|53|
-|Key Vault (användare)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Key Vault (administratör)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Storage-kö|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Tabell för lagring|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Lagringsblob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portalen (administratör)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Azure Resource Manager (administratör)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Portalen (användare)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Lista över återkallade certifikat|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP OCH UDP|53|
+|Key Vault (användare)|*.Vault.*  &lt;region >.&lt; FQDN > *|TCP|443|
+|Key Vault (administratör)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Lagringskö|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Tabell för lagring|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Storage Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>Portar och URL: er (utgående)
 
 Azure-stacken stöder endast transparent proxy-servrar. I en distribution där en transparent proxy överordnade länkar till en traditionell proxyserver måste du tillåta följande portar och URL: er för utgående kommunikation:
 
 
-|Syfte|URL: EN|Protokoll|Portar|
+|Syfte|Webbadress|Protokoll|Portar|
 |---------|---------|---------|---------|
-|Identitet|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Marketplace-syndikeringsfeed|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Korrigering & uppdatering|`https://*.azureedge.net`|HTTPS|443|
-|Registrering|`https://management.azure.com`|HTTPS|443|
-|Användning|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Identitet|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Marketplace-syndikeringsfeed|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Korrigering & uppdatering|https://&#42;.azureedge.net|HTTPS|443|
+|Registrering|https://management.azure.com|HTTPS|443|
+|Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>Brandvägg för publicering
 

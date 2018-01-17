@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory-identitetsskydd playbook
 Den här playbook hjälper dig att:
@@ -50,7 +50,7 @@ Logga in kommer att visas på instrumentpanelen identitetsskydd inom 5 minuter.
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Inloggningar från okända platser
 Okända platser risk är en mekanism för realtid inloggning utvärdering som överväger tidigare inloggning platser (IP, latitud / longitud och ASN) att fastställa nya / okända platser. Systemet lagrar tidigare IP-adresser, latitud / longitud och ASN: er för en användare så att de ska vara bekant platser. Okänd anses vara en inloggning plats om platsen för inloggning inte matchar någon av de befintliga bekanta platserna.
 
-Azure Active Directory identitetsskydd:  
+Azure Active Directory Identity Protection:  
 
 * har en inledande learning-period på 14 dagar då inte flaggas några nya platser som okända platser.
 * ignorerar inloggningar från bekant enheter och platser som är geografiskt nära en befintlig bekant plats.
@@ -134,6 +134,6 @@ Säkerhetsrisker är svagheter i en Azure AD-miljö som kan utnyttjas av en fela
 ![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

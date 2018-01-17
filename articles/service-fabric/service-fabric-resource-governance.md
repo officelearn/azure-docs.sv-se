@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Resurs-styrning 
 
@@ -115,8 +115,7 @@ Gränserna för styrning har angetts i applikationsmanifestet (ServiceManifestIm
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ I det här exemplet tjänstepaketet kallas **ServicePackageA** hämtar en core p
 Därför i det här exemplet CodeA1 hämtar en kärna väger och CodeA2 hämtar en tredjedel av en kärna (och en mjuk garanti reservation av samma). Om CpuShares inte har angetts för koden paket, delas kärnor balanseras mellan Service Fabric.
 
 Minnesgränserna är absolut, så att båda paketen koden är begränsade till 1 024 MB minne (och en mjuk garanti reservation av samma). Koden paket (behållare eller processer) kan inte allokera mer minne än den här gränsen och försök att göra så resulterar i ett undantag i minnet är slut. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+
+### <a name="using-application-parameters"></a>Med hjälp av parametrar för program
+
+När du anger resursen styrning det är möjligt att använda [applikationsparametrarna](service-fabric-manage-multiple-environment-app-configuration.md) att hantera flera konfigurationer för appen. I följande exempel visas användningen av parametrar för program:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+I det här exemplet ställs Standardparametervärden för produktionsmiljön, där varje servicepaket skulle få 4 kärnor och 2 GB minne. Det är möjligt att ändra standardvärdena med parametern programfiler. I det här exemplet kan en parameterfil användas för att testa programmet lokalt, där det skulle få färre resurser än i produktion: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Ange resurs-styrning med parametrar för program är tillgängliga från och med Service Fabric version 6.1.<br> 
+>
+> När programmet parametrar för att ange resurs styrning, kan Service Fabric inte nedgraderas till en tidigare version än version 6.1. 
+
 
 ## <a name="other-resources-for-containers"></a>Andra resurser för behållare
 Förutom CPU och minne är det möjligt att ange andra gränserna för behållare. Dessa värden anges på koden package-nivå och tillämpas när behållaren har startats. Till skillnad från med processor och minne, klustret Resource Manager är inte medveten om dessa resurser, och inte göra några kapacitet-kontroller eller belastningsutjämning för dem. 

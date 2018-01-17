@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: a08e3f3593e1ec04ebf65fef2880c965e02775d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd13ecfc1b92c6c4b2eb0f8665675c6646e469f2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synkronisering: Förstå användare, grupper och kontakter
 Det finns flera olika skäl varför har du flera Active Directory-skogar och det finns flera olika distributionstopologier. Vanliga modeller innehåller en konto-resurs-distribution och GAL sync'ed skogar efter en fusion & förvärv. Men även om det finns endast modeller, hybridmodeller är vanliga samt. Standardkonfigurationen i Azure AD Connect-synkronisering förutsätter inte någon särskild modell men beroende på hur användaren matchar valdes i installationsguiden för olika beteenden kan observeras.

@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Hadoop på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: apache-hadoop-introduction.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Köra med Azure PowerShell
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: Operationalisera en pipeline för dataanalys
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: Använd Oozie för arbetsflöden
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true
@@ -352,7 +355,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: Översikt
+        - name: "Översikt\r\n"
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

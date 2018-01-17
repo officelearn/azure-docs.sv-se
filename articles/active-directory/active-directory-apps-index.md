@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 276997bb6800fda9cb432384ebaaaa717b8426ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Artikelindex för programhantering i Azure Active Directory
 Den här sidan innehåller en omfattande lista över alla dokument som skrivits om de olika program-relaterade funktionerna i Azure Active Directory (AD Azure).
@@ -184,9 +184,9 @@ Azure AD-åtkomstpanelen är där slutanvändarna kan starta sina appar och åtk
 | Artikel Guide |  |
 |:---:| --- |
 | En jämförelse av de olika alternativ som är tillgängliga för distribution av appar för enkel inloggning för användare |[Distribuera Azure AD-integrerade program till användare](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
-| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />– [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| En översikt över åtkomstpanelen och dess mobila motsvarande MyApps |[Introduktion till åtkomstpanelen och MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Hur du kommer åt Azure AD-appar från Office 365-webbplatsen |[Med hjälp av Office 365 App starta](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />– [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />– [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Hur du kommer åt Azure AD-appar från den mobila appen Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Hur du kommer åt Azure AD-appar med djuplänkar för att initiera enkel inloggning |[Hämta inloggning Direktlänkar till dina appar](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Åtkomstpanelen är tillgänglig för [alla utgåvor av Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -203,7 +203,7 @@ Azure Active Directory innehåller flera rapporter och aviseringar för att öve
 
 Att se vilka rapporter inkluderas i olika versioner av Azure Active Directory, [Klicka här](active-directory-view-access-usage-reports.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Vad är Azure Active Directory?](active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)

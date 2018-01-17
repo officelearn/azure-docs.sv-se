@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Kom igång med villkorlig åtkomst i Azure Active Directory
 
@@ -33,7 +33,7 @@ Det här avsnittet innehåller anvisningar för att testa en villkorad tillgång
 Ett vanligt krav i många organisationer är att bara kräver Multi-Factor authentication för åtkomst till appar som inte utförs från företagets intranät. Du kan enkelt göra det här målet genom att konfigurera en princip för plats-baserad villkorlig åtkomst med Azure Active Directory. Det här avsnittet ger detaljerade anvisningar för att konfigurera en relaterad metod. Principen använder [tillförlitliga IP-adresser](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) har alla andra platser i intranätet och för att särskilja åtkomstförsök från företaget.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i det här avsnittet förutsätter att du är bekant med principerna som beskrivs i [villkorlig åtkomst i Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

@@ -2,4 +2,4 @@
 
 Den här vägledningen har flyttats till docs.microsoft.com interna deltagares guide.
 
-[https://aka.MS/Release-Branches](https://aka.ms/release-branches)
+[https://aka.ms/release-branches](https://aka.ms/release-branches)

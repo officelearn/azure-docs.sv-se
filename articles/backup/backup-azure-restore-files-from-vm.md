@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från en säkerhetskopia av virtuell Azure-dator
 
@@ -64,13 +64,16 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
     Om du kör skriptet på en dator med begränsad åtkomst, se till att det finns åtkomst till:
 
-    - Download.microsoft.com
-    - Azure-slutpunkter som används för Virtuella Azure-säkerhetskopieringar
+    - download.microsoft.com
+    - [Azure-slutpunkter som används för Virtuella Azure-säkerhetskopieringar](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - utgående port 3260
 
-   För Linux kräver skriptet 'Öppna iscsi' och 'lshw' komponenter för att ansluta till återställningspunkten. Om komponenterna som inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge ditt medgivande att installera nödvändiga komponenter.  
-         
-   Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Finns det [kompatibel OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om den skyddade virtuella Azure-datorn använder lagringsutrymmen för Windows (för Windows Azure VM: ar) eller LVM/RAID-matriser (för virtuella Linux-datorer), kan du inte köra den körbara filen eller skriptet på samma virtuella dator. I stället köra den körbara filen eller skriptet på en dator med ett kompatibelt operativsystem.
+    För Linux kräver skriptet 'Öppna iscsi' och 'lshw' komponenter för att ansluta till återställningspunkten. Om komponenterna som inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge ditt medgivande att installera nödvändiga komponenter.
+    
+    Åtkomst till download.microsoft.com krävs för att hämta komponenter som används för att skapa en säker kanal mellan den dator där skriptet körs och data i återställningspunkten.         
+
+    Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Finns det [kompatibel OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om den skyddade virtuella Azure-datorn använder lagringsutrymmen för Windows (för Windows Azure VM: ar) eller LVM/RAID-matriser (för virtuella Linux-datorer), kan du inte köra den körbara filen eller skriptet på samma virtuella dator. I stället köra den körbara filen eller skriptet på en dator med ett kompatibelt operativsystem.
+ 
 
 ### <a name="identifying-volumes"></a>Identifiera volymer
 
@@ -166,7 +169,7 @@ Om RAID-disken har en annan LVM som konfigurerats i, ska du använda föregåend
 
 I följande tabell visas kompatibiliteten mellan servern och datorn operativsystem. När du återställer filer, kan du återställa filer till en tidigare eller framtida operativsystemversion. Exempelvis kan du inte återställa en fil från en Windows Server 2016 VM till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator på samma server-operativsystem eller kompatibel klientens operativsystem.   
 
-|Server-OS | Kompatibel klient-OS  |
+|Server OS | Kompatibel klient-OS  |
 | --------------- | ---- |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |

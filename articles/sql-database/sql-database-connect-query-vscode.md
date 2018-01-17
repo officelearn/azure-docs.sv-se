@@ -94,7 +94,7 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | ** Servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | \** Servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver20170313.database.windows.net**. |
    | **Databasnamn** | mySampleDatabase | Namnet på databasen som användaren ska ansluta till. |
    | **Autentisering** | SQL-inloggning| SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
    | **Användarnamn** | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |

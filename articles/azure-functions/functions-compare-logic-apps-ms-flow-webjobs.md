@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Välj mellan Flow, Logic Apps, Functions och WebJobs
 I den här artikeln jämförs molntjänster från Microsoft. Samtliga löser problem med integrering och automatisering av affärsprocesser:
@@ -81,7 +81,7 @@ I följande tabell sammanfattas skillnaderna mellan Functions och WebJobs:
 | Skalning |Skalning utan konfiguration |Skalning med App Service-plan |
 | Prissättning |Betala per användning eller som en del av en App Service-plan |Som del av en App Service-plan |
 | Typ av körning |Utlösare, schemalagda (med timerutlösare) |Utlösare, kontinuerliga, schemalagda |
-| Utlösarhändelser |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage-köer och blobbar](functions-bindings-storage-blob.md), [Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md) |[Azure Storage-köer och blobbar](functions-bindings-storage-blob.md), [Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md) |
+| Utlösarhändelser |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-cosmosdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage-köer och blobbar](functions-bindings-storage-blob.md), [Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md) |[Azure Storage-köer och blobbar](functions-bindings-storage-blob.md), [Azure Service Bus-köer och ämnen](functions-bindings-service-bus.md) |
 | Utveckling i webbläsare |Stöds |Stöds inte |
 | C# |Stöds |Stöds |
 | F# |Stöds |Stöds inte |

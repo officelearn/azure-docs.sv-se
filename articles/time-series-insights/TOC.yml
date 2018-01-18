@@ -1,6 +1,6 @@
 - name: Azure Time Series Insights
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Time Series Insights
       href: time-series-insights-overview.md
@@ -8,7 +8,7 @@
   items:
     - name: Utforska Time Series Insights
       href: time-series-quickstart.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera din miljö
       href: time-series-insights-environment-planning.md
@@ -76,3 +76,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: Supportalternativ
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'

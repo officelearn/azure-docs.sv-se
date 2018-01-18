@@ -1,6 +1,6 @@
 - name: Azure Log Analytics-dokumentation
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Log Analytics?
       href: log-analytics-overview.md
@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Flödesanslutning
           href: log-analytics-flow-tutorial.md
+        - name: Loggsöknings-API
+          href: 'https://dev.loganalytics.io/'
     - name: Äldre loggsökning
       items:
         - name: Översikt över loggsökningar
@@ -122,13 +124,18 @@
           items:
             - name: Reguljära uttryck
               href: log-analytics-log-searches-regex.md
+        - name: Loggsöknings-API
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Analysera data
       items:
         - name: Instrumentpaneler
           href: log-analytics-dashboards.md
         - name: Vydesigner
           items:
-            - name: Översikt
+            - name: "Översikt\r\n"
               href: log-analytics-view-designer.md
             - name: Panelreferens
               href: log-analytics-view-designer-tiles.md
@@ -258,11 +265,6 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Mallar för Resurshanteraren
           href: log-analytics-template-workspace-configuration.md
-        - name: Loggsöknings-API
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: Aviserings-API
           href: log-analytics-api-alerts.md
 - name: Referens

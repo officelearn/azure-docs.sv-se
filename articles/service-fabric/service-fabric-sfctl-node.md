@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>sfctl nod
 Hantera de noder som formar ett kluster.
@@ -27,17 +27,17 @@ Hantera de noder som formar ett kluster.
 
 |Kommando|Beskrivning|
 | --- | --- |
-|    Inaktivera       | Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte.|
-|    Aktivera        | Aktivera en Service Fabric-klusternod som för tillfället inaktiverat.|
-|    Hälsotillstånd        | Hämtar hälsotillståndet för en Service Fabric-nod.|
-|    Info          | Hämtar listan över noder i Service Fabric-klustret.|
+|    inaktivera       | Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte.|
+|    aktivera        | Aktivera en Service Fabric-klusternod som för tillfället inaktiverat.|
+|    hälsa        | Hämtar hälsotillståndet för en Service Fabric-nod.|
+|    info          | Hämtar listan över noder i Service Fabric-klustret.|
 |    lista          | Hämtar listan över noder i Service Fabric-klustret.|
 |    läsa in          | Hämtar belastningen information för en Service Fabric-nod.|
 |    ta bort tillstånd  | Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort.|
-|    rapporten hälsa | Skickar en hälsorapport på Service Fabric-nod.|
+|    report-health | Skickar en hälsorapport på Service Fabric-nod.|
 |    Starta om       | Startar om en klusternod för Service Fabric.|
 |    övergång    | Startar eller stoppar en klusternod.|
-|    övergången-status| Hämtar status för en åtgärd som är igång med StartNodeTransition.|
+|    transition-status| Hämtar status för en åtgärd som är igång med StartNodeTransition.|
 
 
 ## <a name="sfctl-node-disable"></a>sfctl noden inaktivera
@@ -50,14 +50,14 @@ Inaktivera en Service Fabric-klusternod med angivna inaktiveringen syfte. När i
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| --Inaktiveringen avsikt | Beskriver syftet eller anledningen till att inaktivera noden. Möjliga värden följande. -Pause - anger att noden ska pausas. Värdet är 1. -Omstart - anger att avsikten är att noden som ska startas om efter en kort tidsperiod. Värdet är 2. -RemoveData - anger avsikten är att noden för att ta bort data. Värdet är 3. .|
+| --deactivation-intent | Beskriver syftet eller anledningen till att inaktivera noden. Möjliga värden följande. -Pause - anger att noden ska pausas. Värdet är 1. -Omstart - anger att avsikten är att noden som ska startas om efter en kort tidsperiod. Värdet är 2. -RemoveData - anger avsikten är att noden för att ta bort data. Värdet är 3. .|
 | --timeout -t       | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -79,7 +79,7 @@ Aktiverar en Service Fabric-klusternod som för tillfället inaktiverat. När ak
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -95,14 +95,14 @@ Hämtar hälsotillståndet för en Service Fabric-nod. Använd EventsHealthState
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| --händelser-hälsa-tillstånd-filter| Tillåter filtrering objektsamlingen HealthEvent returnerade baseras på hälsotillståndet. De möjliga värdena för den här parametern innehåller heltalsvärdet för något av följande hälsotillstånd. Händelser som matchar filtret returneras. Alla händelser som används för att utvärdera aggregerade hälsotillståndet. Om inget anges returneras alla poster. Värdena är uppräkning med flaggan så värdet kan vara en kombination av dessa värden som erhålls med hjälp av en Bitvis ”OR-operator. Till exempel om det angivna värdet är 6 returneras alla händelser med HealthState värdet OK (2) och varning (4). -Standard - standardvärde. Matchar alla HealthState. Värdet är noll. -Ingen - Filter som inte matchar något värde för HealthState. Används för att returnera resultat på en viss samling av tillstånd. Värdet är 1. -Filtrera ok - som matchar matas in med HealthState värde Ok. Värdet är 2. -Varning - Filter som matchar med HealthState inmatningsvärdet varning. Värdet är 4. -Fel - Filter som matchar indata med HealthState värdet fel. Värdet är 8. -Alla - Filter som matchar indata med ett värde för HealthState. Värdet är 65535.|
+| --events-health-state-filter| Tillåter filtrering objektsamlingen HealthEvent returnerade baseras på hälsotillståndet. De möjliga värdena för den här parametern innehåller heltalsvärdet för något av följande hälsotillstånd. Händelser som matchar filtret returneras. Alla händelser som används för att utvärdera aggregerade hälsotillståndet. Om inget anges returneras alla poster. Värdena är uppräkning med flaggan så värdet kan vara en kombination av dessa värden som erhålls med hjälp av en Bitvis ”OR-operator. Till exempel om det angivna värdet är 6 returneras alla händelser med HealthState värdet OK (2) och varning (4). -Standard - standardvärde. Matchar alla HealthState. Värdet är noll. -Ingen - Filter som inte matchar något värde för HealthState. Används för att returnera resultat på en viss samling av tillstånd. Värdet är 1. -Filtrera ok - som matchar matas in med HealthState värde Ok. Värdet är 2. -Varning - Filter som matchar med HealthState inmatningsvärdet varning. Värdet är 4. -Fel - Filter som matchar indata med HealthState värdet fel. Värdet är 8. -Alla - Filter som matchar indata med ett värde för HealthState. Värdet är 65535.|
 | --timeout -t             | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug                  | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o              | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga                  | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|
@@ -124,7 +124,7 @@ Hämtar information om en viss nod i Service Fabric-klustret. Svaret innehåller
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -139,15 +139,15 @@ Noder slutpunkten returnerar information om noderna i Service Fabric-kluster. Sv
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| --fortsättningstoken| Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar.      När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
-| --noden statusfiltret| Tillåter filtrering noder baserat på NodeStatus. Endast de noder som matchar det angivna filtret värdet returneras. Filtervärdet kan vara något av följande. -default - filtret värdet matchar alla noder excepts dem med status som okänd eller tagits bort. -alla - filtret värdet matchar alla noder. värdet matchar filtret - in - noder som är igång. värdet matchar filtret - ned - noder som är nere. -Aktivera - det här värdet matchar Filternoder som håller på att aktiveras med status som aktiverar. -inaktiverar – det här värdet matchar Filternoder som håller på att inaktiveras med status som inaktiverar. -inaktiverat - det här filtret värdet matchar noder som har inaktiverats. -Okänt - filtret värdet matchar noder vars status är okänd. En nod är okänt tillstånd om Service Fabric saknar auktoritär information om noden. Detta kan inträffa om systemet lär sig en nod vid körning. -ta bort - detta värde matchar Filternoder vars status är inställd på borttagen. Dessa är de noder som tas bort från klustret med RemoveNodeState-API. .      Standard: standard.|
+| --continuation-token| Parametern fortsättning token för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tom värde ingår i svaret API när resultaten från systemet inte ryms i ett enda svar.      När det här värdet skickas till nästa API-anrop till API Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, sedan innehåller fortsättningstoken inte något värde. Värdet för den här parametern får inte vara kodad URL.|
+| --node-status-filter| Tillåter filtrering noder baserat på NodeStatus. Endast de noder som matchar det angivna filtret värdet returneras. Filtervärdet kan vara något av följande. -default - filtret värdet matchar alla noder excepts dem med status som okänd eller tagits bort. -alla - filtret värdet matchar alla noder. värdet matchar filtret - in - noder som är igång. värdet matchar filtret - ned - noder som är nere. -Aktivera - det här värdet matchar Filternoder som håller på att aktiveras med status som aktiverar. -inaktiverar – det här värdet matchar Filternoder som håller på att inaktiveras med status som inaktiverar. -inaktiverat - det här filtret värdet matchar noder som har inaktiverats. -Okänt - filtret värdet matchar noder vars status är okänd. En nod är okänt tillstånd om Service Fabric saknar auktoritär information om noden. Detta kan inträffa om systemet lär sig en nod vid körning. -ta bort - detta värde matchar Filternoder vars status är inställd på borttagen. Dessa är de noder som tas bort från klustret med RemoveNodeState-API. .      Standard: standard.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga          | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -169,7 +169,7 @@ Hämtar belastningen information för en Service Fabric-nod.
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -185,15 +185,15 @@ Startar om en klusternod för Service Fabric som redan har startats.
 |Argumentet|Beskrivning|
 | --- | --- |
 | --nodnamn [krävs]| Namnet på noden.|
-| – Skapa-fabric-dump  | Ange SANT om du vill skapa en dump av processen för fabric-nod. Detta är skiftlägeskänsliga.  Standard: False.|
-| --nod-instans-id | Instans-ID för målnoden. Om instans-ID har angetts noden startas om du bara med den aktuella instansen av noden. Ett standardvärde på ”0” matchar alla instans-ID. Instans-ID kan hämtas med get-noden frågan.  Standard: 0.|
+| --create-fabric-dump  | Ange SANT om du vill skapa en dump av processen för fabric-nod. Detta är skiftlägeskänsliga.  Standard: False.|
+| --node-instance-id | Instans-ID för målnoden. Om instans-ID har angetts noden startas om du bara med den aktuella instansen av noden. Ett standardvärde på ”0” matchar alla instans-ID. Instans-ID kan hämtas med get-noden frågan.  Standard: 0.|
 | --timeout -t       | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug            | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h          | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o        | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga            | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -213,14 +213,14 @@ Ange ”Start” för parametern NodeTransitionType om du vill starta en nod. An
 | --nodnamn [krävs]| Namnet på noden.|
 | ---övergång-nodtyp [krävs]| Anger vilken typ av övergång att utföra.                       NodeTransitionType.Start startar en stoppad nod.                       NodeTransitionType.Stop stoppar en nod som är igång. -Ogiltig - reserverade.  Överför inte till API-gränssnitt. -Start - övergång en stoppad nod till uppåt. -Stop - övergång en uppdaterad nod stoppas. .|
 | --åtgärden-id [krävs]| Ett GUID som identifierar ett detta API-anrop.  Detta är skickades till API: et för motsvarande GetProgress.|
-| --stop-duration-i-sekunder [krävs]| Varaktighet i sekunder, att noden stoppades.  Det lägsta värdet är 600 är maximalt 14400. När denna tid har löpt ut startas noden automatiskt igen.|
+| --stop-duration-in-seconds [Required]| Varaktighet i sekunder, att noden stoppades.  Det lägsta värdet är 600 är maximalt 14400. När denna tid har löpt ut startas noden automatiskt igen.|
 | --timeout -t                      | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug                           | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h                         | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o                       | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.                       Standard: json.|
 | --fråga                           | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|

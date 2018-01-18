@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics IoT kant (förhandsgranskning)
 
@@ -57,7 +57,12 @@ De övergripande stegen beskrivs i följande tabell. Mer information ges i följ
 | 2   | **Skapa en lagringsbehållare**   | Azure Portal       | Behållare för lagring för att spara din jobbdefinitionen där de kan nås av IoT-enheter. <br>  Du kan återanvända eventuella befintliga lagringsbehållaren.     |
 | 3   | **Konfigurera din miljö för IoT kanten på dina enheter**   | Enheter      | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Distribuera ASA på IoT Edge-enheter**   | Azure Portal      |  ASA jobbdefinitionen exporteras till vilken lagringsbehållare som du skapade tidigare.       |
-Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) att distribuera din första ASA jobb på IoT kant.
+Du kan följa [stegvisa självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) att distribuera din första ASA jobb på IoT kant. Följande videoklipp hjälper dig att förstå processen för att köra ett Stream Analytics-jobb på en insticksenhet för IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Skapa ett ASA Edge-jobb
 1. Skapa en ny ”Stream Analytics-jobbet” från Azure-portalen. [Direktlänk så här skapar du en ny ASA här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory-hybrididentitet utformning - Bestäm hanteringsuppgifter för hybrid identity | Microsoft Docs"
+title: Hybridutformning identity - administrationsuppgifter Azure | Microsoft Docs
 description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identity livscykel
 Identiteten är hör till grunderna för enterprise mobility och programmet åtkomststrategi. Om du registrerar din mobila enhet eller SaaS-app, är din identitet avgörande för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering enhetlig och synkroniseringen mellan din identitet databaser som innehåller automatisering och centralisera processen för etablering av resurser. Identitetslösning bör vara en centraliserad identitet i molnet och lokalt och även använda någon form av identitetsfederation att underhålla central autentisering på ett säkert sätt delar och samarbetar med externa användare och företag. Resurser mellan operativsystem och program till personer i eller kopplad till en organisation. Organisationsstruktur kan ändras för att anpassa provisioning principer och procedurer.

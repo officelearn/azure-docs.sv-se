@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och bästa praxis för Azure API Management.
@@ -33,7 +33,6 @@ Få svar på vanliga frågor, mönster och bästa praxis för Azure API Manageme
 * [Kan jag hantera min API Management-instans genom programmering?](#can-i-manage-my-api-management-instance-programmatically)
 * [Hur lägger jag till en användare i gruppen Administratörer?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Varför är den princip som du vill lägga till inte tillgänglig i Redigeraren för grupprincipobjekt?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Hur använder API versionshantering i API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [Hur ställer jag in flera miljöer i ett enda API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Kan jag använda SOAP med API Management?](#can-i-use-soap-with-api-management)
 * [Är IP-adressen konstant för API Management gateway? Kan jag använda den i brandväggsregler?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Du har flera alternativ för att skydda anslutningen mellan API Management gatew
 
 * Använd grundläggande HTTP-autentisering. Mer information finns i [Import och publicera din första API](import-and-publish.md).
 * Använda SSL ömsesidig autentisering som beskrivs i [säkra backend-tjänster med hjälp av klienten certifikatautentisering i Azure API Management](api-management-howto-mutual-certificates.md).
-* Använd IP-vitlistning på backend-tjänst. Om du har en Standard eller Premium-nivån API Management instans konstant IP-adressen för gateway. Du kan ange din godkända så att denna IP-adress. Du kan hämta IP-adressen för din API Management-instans på instrumentpanelen i Azure-portalen.
+* Använd IP-vitlistning på backend-tjänst. I alla nivåer av API-hantering, IP-adressen för gateway konstant, med några [varningar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Du kan ange din godkända så att denna IP-adress. Du kan hämta IP-adressen för din API Management-instans på instrumentpanelen i Azure-portalen.
 * Anslut din API Management-instans till ett Azure Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Hur kopierar min API Management service-instans till en ny instans?
@@ -97,13 +96,6 @@ Den nyligen tillagda deltagaren kan nu använda Azure PowerShell [cmdlets](https
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som du vill lägga till inte tillgänglig i Redigeraren för grupprincipobjekt?
 Om den princip som du vill lägga till visas nedtonat eller skuggade i Redigeraren för grupprincipobjekt, Tänk på att du är i rätt omfattning för principen. Varje Principframställning är utformad att använda specifika omfattningar och principen avsnitt. Om du vill granska princip avsnitt och scope för en princip finns principens användning i [API Management-principer](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Hur använder API versionshantering i API Management?
-Har du några alternativ för att använda API versionshantering i API-hantering:
-
-* Du kan konfigurera API: er som representerar olika versioner i API-hantering. Du kan till exempel ha två olika API: er, MyAPIv1 och MyAPIv2. En utvecklare kan välja den version som utvecklare som vill använda.
-* Du kan också konfigurera din API med en URL som inte innehåller en versionssegment, till exempel https://my.api. Konfigurera sedan ett versionssegment på varje åtgärd [omarbetning URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) mall. 
-* Om du vill ha ett segment för ”default” version i API: er tjänst-URL i valda åtgärder, ange en princip som använder den [ange serverdelstjänst](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) princip för att ändra sökvägen till backend-begäran.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Hur ställer jag in flera miljöer i ett enda API?
 Om du vill konfigurera flera miljöer, till exempel en testmiljö och en produktionsmiljö i ett enda API har du två alternativ. Du kan:
 
@@ -114,7 +106,7 @@ Om du vill konfigurera flera miljöer, till exempel en testmiljö och en produkt
 [SOAP-direkt](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) stöd är nu tillgänglig. Administratörer kan importera WSDL av deras SOAP-tjänst och Azure API Management skapar en SOAP-klientdel. Portalen utvecklardokumentationen, test-konsolen, principer och analytics är tillgängliga för SOAP-tjänster.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>Är IP-adressen konstant för API Management gateway? Kan jag använda den i brandväggsregler?
-På nivåerna Standard och Premium är offentliga IP-adressen (VIP) för API Management-klienten statiska för livslängden för klienten, med vissa undantag. IP-adress ändras under dessa omständigheter:
+I alla nivåer för API Management är offentliga IP-adressen (VIP) för API Management-klienten statiska för livslängden för klienten, med vissa undantag. IP-adress ändras under dessa omständigheter:
 
 * Tjänsten har tagits bort och sedan återskapas.
 * Prenumerationen på tjänsten är [avbruten](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) eller [varnad](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (t.ex, för nonpayment) och sedan återupprättas.
@@ -139,7 +131,7 @@ Ja. Finns det [Azure API Management-tjänsten](http://aka.ms/apimtemplate) snabb
 Ja. Detta kan göras med hjälp av PowerShell eller genom direkt att skicka-API: et. Detta inaktiverar verifiering av certifikatkedjan och gör att du kan använda självsignerat eller privat signerat certifikat vid kommunikation från API-hantering till backend-tjänster.
 
 #### <a name="powershell-method"></a>PowerShell-metoden ####
-Använd den [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (för nya serverdel) eller [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (för befintliga serverdel) PowerShell-cmdlets och ange den `-SkipCertificateChainValidation` parameter till `True`. 
+Använd den [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (för nya serverdel) eller [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (för befintliga serverdel) PowerShell-cmdlets och ange den `-SkipCertificateChainValidation` parameter till `True`. 
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Så här hanterar du enhetsregistrering med Azure enheten etablering Service-SDK: er
 En *enhetsregistrering* skapas en post för en enstaka enhet eller en grupp av enheter som kan vid något tillfälle registrera med enheten Etableringstjänsten. Registreringspost innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskade IoT-hubben. Den här artikeln visar hur du hanterar enhetsregistreringar för etablering tjänsten genom programmering med Azure IoT etablering Service SDK: erna.  SDK: erna är tillgängliga på GitHub i samma databas som Azure IoT-SDK.
@@ -25,6 +25,7 @@ En *enhetsregistrering* skapas en post för en enstaka enhet eller en grupp av e
 Den här artikeln går igenom hög nivå begrepp för att hantera enhetsregistreringar för etablering tjänsten genom programmering med Azure IoT etablering Service SDK: erna.  Exakt API-anrop kan skilja på grund av språkskillnader.  Läs igenom exemplen som vi tillhandahåller på GitHub för ytterligare information:
 * [Exempel på Java-etablering-klienten](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Node.js etablering Tjänstklienten prover](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [-Klienten för etablering i .NET-exempel](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Anslutningssträng från en enhet etablering tjänstinstans

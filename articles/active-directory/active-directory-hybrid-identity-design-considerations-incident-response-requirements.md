@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - fastställa kraven för incident rResponse | Microsoft Docs"
+title: "Identitet hybridutformning - kraven på incidentsvar Azure | Microsoft Docs"
 description: "Fastställa funktioner för övervakning och rapportering för hybrididentitetslösning som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och minska potentiella hot"
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dd612c0634782ed758835b8bf264fcc884c428fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Fastställa kraven på incidentsvar för din hybrididentitetslösning
 Stora eller medelstora organisationer troligen har en [säkerhet incidenter](https://technet.microsoft.com/library/cc700825.aspx) för att hjälpa IT vidta åtgärder i enlighet med detta till nivån för incident. Identity management-systemet är en viktig komponent i incidenter processen eftersom den kan användas för att identifiera vem som utförde en specifik åtgärd mot målet. Hybrididentitetslösning måste kunna tillhandahålla övervakning och rapportering funktioner som kan utnyttjas av IT-avdelningen att vidta åtgärder för att identifiera och åtgärda ett potentiellt hot. I en typisk incidentsvarsplanen har du följande faser som en del av planen:

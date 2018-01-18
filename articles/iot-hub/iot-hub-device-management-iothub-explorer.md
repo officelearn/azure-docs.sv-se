@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Använda iothub explorer för hantering av Azure IoT Hub-enheter
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [iothub explorer](https://github.com/azure/iothub-explorer) är ett CLI-verktyg som du kör på en värd datorn för att hantera enheten identiteter i din IoT-hubb registret. Den innehåller alternativ som du kan använda för att utföra olika uppgifter.
 
 | Hanteringsalternativ          | Aktivitet                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Direkta metoder             | Gör en enhet som agerar som startar eller stoppar skickar meddelanden eller starta om enheten.                                        |
 | Dubbla önskade egenskaper    | Lägga till en enhet i vissa tillstånd, till exempel ange en Indikator till grönt eller inställningen telemetri skicka intervall till 30 minuter.         |
 | Dubbla rapporterade egenskaper   | Hämta rapporterat status för en enhet. Till exempel rapporterar enheten Indikatorn blinkar nu.                                    |
@@ -54,9 +54,9 @@ Kör iothub explorer med olika hanteringsalternativ för.
 ## <a name="what-you-need"></a>Vad du behöver
 
 - Kursen [konfigurera enheten](iot-hub-raspberry-pi-kit-node-get-started.md) slutförts som omfattar följande krav:
-  - En aktiv Azure-prenumeration.
-  - En Azure IoT-hubb i din prenumeration.
-  - Ett klientprogram som skickar meddelanden till din Azure IoT-hubb.
+- En aktiv Azure-prenumeration.
+- En Azure IoT-hubb i din prenumeration.
+- Ett klientprogram som skickar meddelanden till din Azure IoT-hubb.
 - Kontrollera att enheten kör med klientprogrammet under den här kursen.
 - iothub-explorer [installera iothub explorer](https://github.com/azure/iothub-explorer) på utvecklingsdatorn.
 
@@ -114,7 +114,6 @@ Lägga till en roll för fältet = temperatur & fuktighet till enheten genom att
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Använda iothub explorer med meddelanden moln till enhet

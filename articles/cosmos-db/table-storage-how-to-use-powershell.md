@@ -1,24 +1,24 @@
 ---
 title: "Utföra åtgärder för Azure Table storage med PowerShell | Microsoft Docs"
 description: "Utföra åtgärder för Azure Table storage med PowerShell"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Table storage med Azure PowerShell 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Hämta listan över platser
 
-Om du inte vet vilken plats som du vill använda, kan du visa tillgängliga platser. När listan visas hitta det du vill använda. Dessa exempel används **eastus**. Lagra det här värdet i variabeln **plats** för framtida användning.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. Dessa exempel används **eastus**. Lagra det här värdet i variabeln **plats** för framtida användning.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -151,7 +151,7 @@ I den här artikeln du lärt dig om vanliga Azure Table storage-åtgärder med P
 
 Mer information finns i följande artiklar
 
-* [PowerShell-cmdlets för lagring](/powershell/module/azurerm.storage#storage)
+* [Storage PowerShell cmdletar](/powershell/module/azurerm.storage#storage)
 
 * [Arbeta med Azure Storage-tabeller från PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

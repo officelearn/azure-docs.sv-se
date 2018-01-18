@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar i Azure-molnet Shell
 
@@ -56,7 +56,9 @@ Moln-gränssnittet är avsedd för interaktiva användningsfall. Därför kan av
 ### <a name="user-permissions"></a>Användarbehörigheter
 
 Behörigheterna anges som en vanlig användare utan åtkomst till sudo. En installation utanför din `$Home` directory sparas inte.
-Även om vissa kommandon inom den `clouddrive` katalogen som `git clone`, har inte rätt behörighet din `$Home` directory har behörighet.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB begränsad behörighet
+Vissa kommandon inom den `clouddrive` katalogen som `git clone`, har inte behörighet att läsa eller skriva vissa filer. Om du klickar på det här problemet, försök igen från din `$Home` directory som inte har SMB-begränsningar.
 
 ### <a name="editing-bashrc"></a>Redigera .bashrc
 

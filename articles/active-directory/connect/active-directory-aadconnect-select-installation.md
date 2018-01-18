@@ -3,7 +3,7 @@ title: "Azure AD Connect: Välj installationstypen | Microsoft Docs"
 description: "Det här avsnittet vägleder dig igenom hur du Välj installationstyp för Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Välj vilken installationstyp du använder för Azure AD Connect
 Azure AD Connect har två typer av appinstallationer för nyinstallation: Express och anpassas. Det här avsnittet hjälper dig att avgöra vilket alternativ som ska användas under installationen.
@@ -41,7 +41,7 @@ Du får:
 
 Alternativ där du kan fortfarande använda Express:
 
-- Om du inte vill synkronisera alla organisationsenheter du fortfarande kan använda snabb och på den sista sidan avmarkera **starta synkroniseringsprocessen...** *. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
+- Om du inte vill synkronisera alla organisationsenheter du fortfarande kan använda snabb och på den sista sidan avmarkera ** starta synkroniseringsprocessen... ***. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
 - Du vill aktivera en av funktionerna i Azure AD Premium, till exempel tillbakaskrivning av lösenord. Först gå igenom express för att hämta den första installationen slutförts. Kör installationsguiden igen och ändra den [konfigurationsalternativ](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Anpassat

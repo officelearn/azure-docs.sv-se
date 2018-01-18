@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Vanliga frågor om Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos-grunderna
@@ -28,7 +28,7 @@ Azure Cosmos-databas är en tjänst för flera modell globalt replikerad databas
 
 Azure Cosmos-DB är den rätta lösningen för webb-, mobil-, spel- och IoT-appar när förutsägbart dataflöde, hög tillgänglighet, låg latens och en schemafri datamodell är viktiga krav. Det ger schemaflexibilitet och omfattande indexering och innehåller transaktionellt stöd för flera dokument med integrerat JavaScript. 
 
-Flera databasfrågor, svar och instruktioner för att distribuera och använda den här tjänsten finns [Azure Cosmos DB dokumentationen page] ((https://docs.microsoft.com/azure/cosmos-db/).
+Mer databasfrågor, svar och instruktioner för att distribuera och använda den här tjänsten, finns det [dokumentationssidan för Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>Vad hände med DocumentDB-API: et?
 
@@ -74,7 +74,16 @@ Om du är nybörjare på Azure, kan du registrera dig för en [kostnadsfritt Azu
 Du kan också använda den [Azure Cosmos DB emulatorn](local-emulator.md) att utveckla och testa programmet lokalt för gratis, utan att skapa en Azure-prenumeration. När du är nöjd med hur programmet fungerar i Azure Cosmos DB-emulatorn kan växla du till med ett Azure DB som Cosmos-konto i molnet.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Hur kan jag få ytterligare hjälp med Azure Cosmos DB?
-Om du behöver hjälp med något kan nå oss på [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) eller [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), eller schemalägga en one-on-one chatt med teknikteamet Azure Cosmos DB genom att skicka e-post till [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Om du vill ställa en teknisk fråga kan du i en av dessa två fråga och besvara forum:
+* [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Stacken spill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackspill är bäst för programmering frågor. Se till att din fråga [på avsnittet](https://stackoverflow.com/help/on-topic) och [ange så många detaljer som möjligt, göra frågan tydliga och besvaras](https://stackoverflow.com/help/how-to-ask). 
+
+Skapa en ny begäran om du vill begära nya funktioner på [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Om du vill åtgärda ett problem med ditt konto, filen en [supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
+
+Andra frågor kan skickas till teamet på [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); men detta inte är ett alias för teknisk support. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Prova Azure Cosmos DB prenumerationer
@@ -207,7 +216,7 @@ Det finns ett antal slutpunkter/fråga alternativ som inte stöds av Azure Cosmo
 | REST-metoder | REST-slutpunkt/frågealternativet | Doc-URL: er | Förklaring |
 | ------------| ------------- | ---------- | ----------- |
 | HÄMTA OCH PLACERA | /? restype =service@comp= egenskaper| [Ange egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) och [hämta egenskaper för tabellen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Den här slutpunkten används för att ange CORS-regler, analytics lagringskonfiguration och loggningsinställningar. CORS stöds inte för närvarande och analyser och loggning hanteras annorlunda i Azure Cosmos DB än Azure Storage-tabeller |
-| ALTERNATIV | / < resurs-tabellnamn > | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
+| ALTERNATIV | /<table-resource-name> | [Före svarta CORS tabell begäran](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB inte stöder för närvarande. |
 | GET | /? restype =service@comp= statistik | [Hämta Service tabellstatistik](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Innehåller information hur snabbt data replikeras mellan primära och sekundära. Detta är inte behövs i Cosmos DB eftersom replikering är en del av skrivningar. |
 | HÄMTA OCH PLACERA | /mytable? comp = acl | [Hämta tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) och [ange tabellen ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomstprinciper som används för att hantera delade åtkomst signaturer (SAS). Även om SAS stöds de ställs och hanteras annorlunda. |
 
@@ -219,8 +228,8 @@ För .NET SDK i synnerhet finns vissa klasser och metoder som Azure Cosmos DB in
 
 | Klass | Metoden stöds inte |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
+| CloudTableClient | \*ServiceProperties* |
+|                  | \*ServiceStats* |
 | CloudTable | Behörighetsgruppbehörighet * |
 |            | GetPermissions * |
 | TableServiceContext | * (är den här klassen föråldrad faktiskt) |
@@ -235,7 +244,7 @@ Du kan dela din feedback i något av följande sätt:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [StackOverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Stacken spill](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Stackspill är bäst för programmering frågor. Se till att din fråga [på avsnittet](https://stackoverflow.com/help/on-topic) och [ange så många detaljer som möjligt, göra frågan tydliga och besvaras](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Vad är den anslutningssträng som jag behöver använda för att ansluta till tabellen API?
 Anslutningssträngen är:

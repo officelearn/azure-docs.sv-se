@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS) | Microsoft Docs"
+title: "Azure AD Connect - uppdatering SSL-certifikatet för en AD FS-servergrupp | Microsoft Docs"
 description: "Det här dokumentet beskriver steg för att uppdatera SSL-certifikatet för en AD FS-servergrupp med hjälp av Azure AD Connect."
 services: active-directory
 keywords: "Azure ad connect, AD FS ssl-uppdatering, uppdatering för AD FS-certifikat, ändra AD FS-certifikat, nya AD FS-certifikat, adfs certifikat, uppdatera AD FS ssl-certifikat, uppdatera ssl-certifikat adfs, konfigurera AD FS ssl-certifikat, AD FS, ssl, certifikat, adfs-tjänsten certifikat för kommunikation, update-federation, konfigurera federation, aad-anslutning"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS)
 
@@ -33,7 +34,7 @@ Du kan utföra hela åtgärden för att uppdatera SSL-certifikat för AD FS-serv
 >[!NOTE]
 >Mer information om certifikat som används av AD FS finns [Förstå certifikat som används av AD FS](https://technet.microsoft.com/library/cc730660.aspx).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **AD FS-servergrupp**: Kontrollera att AD FS-gruppen är baserade på Windows Server 2012 R2 eller senare.
 * **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatering AD FS SSL-certifikat**.

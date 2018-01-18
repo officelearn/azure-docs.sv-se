@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - definiera en strategi för data protection | Microsoft Docs"
+title: "Identitet hybridutformning - strategin för data protection Azure | Microsoft Docs"
 description: "Du kan definiera data protection strategin för din hybrididentitetslösning att uppfylla kraven som du har definierat."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för din hybrididentitetslösning dataskydd
 I den här uppgiften definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:

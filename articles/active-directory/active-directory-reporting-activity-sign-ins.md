@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 36ff13f94e94df5b5be3645d3c9bd0cdca5cd6f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ad7b1aae4ee14e46a5df6be0ebc29bfd455852d4
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -58,7 +58,7 @@ Med den information som tillhandahålls av rapporten över användarinloggningsa
 Din startpunkt för alla granskningsdata är **Inloggningar** i avsnittet Aktivitet i **Azure Active**.
 
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/61.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/61.png "inloggningsaktivitet")
 
 
 En granskningslogg har en standardlistvy som visar:
@@ -72,11 +72,11 @@ En granskningslogg har en standardlistvy som visar:
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/19.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/19.png "inloggningsaktivitet")
 
 På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/42.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/42.png "inloggningsaktivitet")
 
 När du klickar på ett objekt i listvyn visas all tillgänglig information om det.
 
@@ -93,7 +93,7 @@ Om du vill begränsa de data som rapporteras till en nivå som passar dig kan du
 - Client
 - Inloggningsstatus
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/44.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/44.png "inloggningsaktivitet")
 
 
 Med filtret för **tidsintervall** kan du definiera en tidsram för de data som returneras.  
@@ -139,11 +139,11 @@ Med den information som tillhandahålls av rapporten över användarinloggningsa
 
 Din startpunkt för denna data är användarinloggnings-diagrammet i avsnittet **Översikt** under **Användare och grupper**.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/45.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/45.png "inloggningsaktivitet")
 
 Diagrammet med användarinloggningar visar veckovisa sammanställningar av inloggningar för alla användare under en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/46.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/46.png "inloggningsaktivitet")
 
 När du klickar på en dag i inloggningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna för den dagen.
 
@@ -159,7 +159,7 @@ Varje rad i aktivitetslistan över inloggningar ger dig detaljerad information o
 
 Alternativet **Inloggningar** ger dig en fullständig översikt över alla användarinloggningar.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/51.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/51.png "inloggningsaktivitet")
 
 
 
@@ -173,11 +173,11 @@ Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på f
 
 Din startpunkt för denna data är rapporten över de tre främsta programmen i organisationen under de senaste 30 dagarna avsnittet **Översikt**, under **Företagsprogram**.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/64.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/64.png "inloggningsaktivitet")
 
 Diagram över programanvändning visar veckovisa sammanställning av inloggningar för dina tre främsta program under en given tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/47.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/47.png "inloggningsaktivitet")
 
 Om du vill kan du ange att fokusera på ett visst program.
 
@@ -187,12 +187,12 @@ Om du vill kan du ange att fokusera på ett visst program.
 När du klickar på en dag i programanvändningsdiagrammet kan du få en detaljerad lista över inloggningsaktiviteterna.
 
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/48.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/48.png "inloggningsaktivitet")
 
 
 Alternativet **Inloggningar** ger dig en fullständig översikt över alla inloggningshändelser för dina program.
 
-![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/49.png "Inloggningsaktivitet")
+![Inloggningsaktivitet](./media/active-directory-reporting-activity-sign-ins/49.png "inloggningsaktivitet")
 
 
 

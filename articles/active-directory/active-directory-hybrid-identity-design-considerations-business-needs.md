@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - fastställa identitetskrav | Microsoft Docs"
+title: "Identitetskrav för hybrid cloud identitet design Azure | Microsoft Docs"
 description: "Identifiera företagets affärsbehov som leder dig att fastställa krav för hybrid identity-design."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Ange identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att använda den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och för att lägga till nya och intressanta funktioner som att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity-design.  Dessa tjänster och arbetsbelastningar behöver utnyttja hybrididentitet både lokalt och i molnet.  
@@ -64,7 +65,7 @@ Därefter måste du utvärdera integreringskraven identitet. Det är viktigt att
 
 * Kommer din organisation använder federation, standardautentisering eller båda?
 * Är ett krav för federationen?  På grund av följande:
-  * Kerberos-baserad SSO
+  * Kerberos-based SSO
   * Företaget har ett lokalt program (antingen inbyggd interna eller 3 part) som använder SAML eller liknande funktioner för federation.
   * MFA via smartkort. RSA SecurID osv.
   * Klienten åtkomstregler som löser frågorna nedan:
@@ -106,6 +107,6 @@ Du måste utvärdera användarkraven. Denna utvärdering är viktigt att definie
 ## <a name="next-steps"></a>Nästa steg
 [Ange krav för directory-synkronisering](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](active-directory-hybrid-identity-design-considerations-overview.md)
 

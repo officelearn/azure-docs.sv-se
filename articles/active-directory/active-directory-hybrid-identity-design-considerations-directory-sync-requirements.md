@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - fastställa kraven för directory-synkronisering | Microsoft Docs"
+title: "Identitet hybridutformning - kraven för directory sync Azure | Microsoft Docs"
 description: "Identifiera vilka krav som behövs för att synkronisera alla användare mellan on = lokala och molnbaserade för företaget."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Ange krav för directory-synkronisering
 Synkronisering är att tillhandahålla användare en identitet i molnet baserat på deras lokala identitet. Oavsett om de ska använda synkroniserade kontot för autentisering eller federerad autentisering, behöver användarna fortfarande ha en identitet i molnet.  Den här identiteten behöver underhålls och uppdateras regelbundet.  Uppdateringarna kan ta många formulär från titel ändras till ändring av lösenord.  
@@ -71,6 +72,6 @@ Du måste också bestämma säkerhet kraven och begränsningarna katalogsynkroni
 ## <a name="next-steps"></a>Nästa steg
 [Ange krav för multifaktorautentisering](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](active-directory-hybrid-identity-design-considerations-overview.md)
 

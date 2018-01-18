@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 78b539136971aa282e5447d7882ecb02f73f346b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="embed-azure-cloud-shell"></a>Bädda in Azure-molnet Shell
 
 Bädda in molnet Shell kan utvecklare och innehåll skrivare direkt öppna moln-gränssnittet från en dedikerad URL [shell.azure.com](https://shell.azure.com). Alla fördelar med molnet Shell-autentisering, tooling, nu omedelbart och uppdaterade Azure CLI-/ Azure PowerShell verktyg för användarna.
 
+Vanliga storlek knappen
+
 [![](https://shell.azure.com/images/launchcloudshell.png "Starta Azure-molnet Shell")](https://shell.azure.com)
+
+Stor storlek knapp
+
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Starta Azure-molnet Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Så här gör du
 
@@ -44,9 +50,9 @@ HTML för att bädda in ett popup-gränssnitt för molnet understiger:
 Ange en specifik shell-miljö genom att utöka din URL.
 |Upplevelse   |Webbadress   |
 |---|---|
-|Senast använda shell   |Shell.Azure.com           |
-|Bash                       |Shell.Azure.com/Bash       |
-|PowerShell                 |Shell.Azure.com/PowerShell |
+|Senast använda shell   |shell.azure.com           |
+|Bash                       |shell.azure.com/bash       |
+|PowerShell                 |shell.azure.com/powershell |
 
 ## <a name="next-steps"></a>Nästa steg
 [Bash i molnet Shell-Snabbstart](quickstart.md)<br>

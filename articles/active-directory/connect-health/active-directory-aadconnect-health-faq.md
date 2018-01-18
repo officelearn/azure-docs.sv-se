@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8cbe60ad3eb26aa1152f8eec3bdc36b8006cf242
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bd93b3473143f425b47f141efb3af3007614794f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (AD Azure) Connect Health. Dessa vanliga frågor och svar tar upp frågor om hur du använder tjänsten, som innehåller fakturering modellen, funktioner, begränsningar och support.
@@ -45,6 +45,7 @@ Observera att funktionerna som tillhandahålls av tjänsten kan variera beroende
 * Första Connect Health Agent kräver minst en Azure AD Premium-licens.
 * Varje ytterligare registrerade agent kräver 25 ytterligare Azure AD Premium-licenser.
 * Agentantal motsvarar det totala antalet agenter som registrerats över alla övervakade roller (AD FS, Azure AD Connect och AD DS).
+* AAD Connect Health-licensiering behöver du inte tilldela licensen till specifika användare. Behöver du bara har det nödvändiga antalet giltiga licenser.
 
 Licensieringsinformation finns även på den [priser för Azure AD-sidan](https://aka.ms/aadpricing).
 

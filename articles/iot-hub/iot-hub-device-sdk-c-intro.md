@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhet SDK för C
 
@@ -68,9 +68,9 @@ Nu när du har källa exempelkoden är nästa du behöver göra att hämta en up
 Det finns flera öppen källkod verktyg som hjälper dig att hantera din IoT-hubb.
 
 * Ett Windows-program som kallas [enheten explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Ett plattformsoberoende node.js CLI-verktyg kallas [iothub explorer](https://github.com/azure/iothub-explorer).
+* Ett plattformsoberoende Python CLI-verktyg kallas [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Den här kursen använder den grafiska *enheten explorer* verktyget. Du kan också använda den *iothub explorer* verktyget om du föredrar att använda ett CLI-verktyg.
+Den här kursen använder den grafiska *enheten explorer* verktyget. Du kan också använda den *IoT-tillägget för Azure CLI 2.0* verktyget om du föredrar att använda ett CLI-verktyg.
 
 Verktyget enheten explorer använder bibliotek för Azure IoT-tjänsten för att utföra olika funktioner i IoT Hub, inklusive lägga till enheter. Om du använder verktyget enheten explorer lägga till en enhet får du en anslutningssträng för enheten. Du behöver den här anslutningssträngen för att köra exempelprogrammen.
 
@@ -570,7 +570,7 @@ Mer information om hur du utvecklar för IoT-hubb finns i [Azure IoT SDK][lnk-sd
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

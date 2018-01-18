@@ -3,7 +3,7 @@ title: "Allmän SQL Connector | Microsoft Docs"
 description: "Den här artikeln beskriver hur du konfigurerar Microsofts allmänna SQL-anslutningen."
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Teknisk referens för allmän SQL Connector
 Den här artikeln beskriver allmänna SQL-anslutningen. Artikeln gäller för följande produkter:
@@ -38,7 +38,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 
 | Funktion | Support |
 | --- | --- |
-| Anslutna datakällan |Anslutningen stöds med alla 64-bitars ODBC-drivrutiner. Den har testats med följande: <li>Microsoft SQL Server och SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 11 &10;g</li><li>MySQL 5.x</li> |
+| Anslutna datakällan |Anslutningen stöds med alla 64-bitars ODBC-drivrutiner. Den har testats med följande: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 11 &10;g</li><li>MySQL 5.x</li> |
 | Scenarier |<li>Livscykelhantering för objektet</li><li>Lösenordshantering</li> |
 | Åtgärder |<li>Fullständig Import och Deltaimport, Export</li><li>För Export: Lägga till, ta bort uppdateringen, och Ersätt</li><li>Ange lösenord, ändra lösenord</li> |
 | Schema |<li>Dynamisk identifiering av objekt och attribut</li> |

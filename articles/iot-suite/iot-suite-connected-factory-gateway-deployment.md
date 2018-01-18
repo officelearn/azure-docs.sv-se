@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Distribuera en gräns-gatewayen för anslutna factory förkonfigurerade lösningen på Windows- eller Linux
 
@@ -57,7 +57,7 @@ Välj en enhet på värddatorn delar med Docker under installationen av Docker f
 ![Installera Docker för Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Du kan också utföra det här steget när du har installerat docker från den **inställningar** dialogrutan. Högerklicka på den **Docker** ikonen i systemfältet i Windows och välj **inställningar**.
+> Du kan också utföra det här steget när du har installerat docker från den **inställningar** dialogrutan. Högerklicka på den **Docker** ikonen i systemfältet i Windows och välj **inställningar**. Om viktiga Windows-uppdateringar har distribuerats till systemet, t.ex. Windows faller skapare uppdatera, ta bort delning av enheterna och dela dem igen för att uppdatera åtkomstbehörigheter.
 
 Om du använder Linux, krävs ingen ytterligare konfiguration för att ge åtkomst till filsystemet.
 
@@ -65,7 +65,7 @@ Skapa en mapp på den enhet som du har delat med Docker i Windows, kan skapa en 
 
 När du refererar till den `<SharedFolder>` i en Docker-kommandot måste du använda den korrekta syntaxen för ditt operativsystem. Här är två exempel, en för Windows och en för Linux:
 
-- Om du använder mappen `D:\shared` i Windows som din `<SharedFolder>`, kommandosyntaxen Docker är `//d/shared`.
+- Om du använder mappen `D:\shared` i Windows som din `<SharedFolder>`, kommandosyntaxen Docker är `d:/shared`.
 
 - Om du använder mappen `/shared` på Linux som din `<SharedFolder>`, kommandosyntaxen Docker är `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - Den `<IoTHubOwnerConnectionString>` är den **iothubowner** delad åtkomst princip anslutningssträngen från Azure-portalen. Du har kopierat den här anslutningssträngen i föregående steg. Du behöver bara den här anslutningssträngen för den första körningen av OPC utgivare. På efterföljande körs bör du utelämna den eftersom det utgör en säkerhetsrisk.
 
-- Den `<SharedFolder>` du använder och dess syntaxen beskrivs i avsnittet [installera och konfigurera Docker](#install-and-configure-docker). OPC utgivaren använder den `<SharedFolder>` att läsa konfigurationsfilen OPC utgivare, skriva loggfilen och kontrollera både dessa filer var tillgängliga utanför behållaren.
+- Den `<SharedFolder>` du använder och dess syntaxen beskrivs i avsnittet [installera och konfigurera Docker](#install-and-configure-docker). OPC utgivaren använder den `<SharedFolder>` om du vill läsa och skriva till konfigurationsfilen OPC Publisher, skriva till loggfilen och tillgängliggöra båda dessa filer utanför behållaren.
 
-- OPC Publisher läser konfigurationen från den **publishednodes.json** fil som du bör placera i den `<SharedFolder>/docker` mapp. Den här konfigurationsfilen definierar vilka OPC UA noden data på en server som anges av OPC UA OPC utgivaren ska prenumerera på.
-
-- När servern OPC UA meddelar OPC utgivaren av en ändring av data, skickas det nya värdet till IoT-hubb. Beroende på inställningarna för batching ackumuleras OPC utgivaren först data innan informationen skickas till IoT-hubb i en batch.
-
-- Den fullständiga syntaxen för den **publishednodes.json** filen beskrivs på den [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sidan på GitHub.
-
-    Följande utdrag visar ett enkelt exempel på en **publishednodes.json** fil. Det här exemplet illustrerar hur du publicerar den **CurrentTime** värde från en OPC UA server med värdnamn **win10pc**:
+- OPC Publisher läser konfigurationen från den **publishednodes.json** fil som är läses och skrivs till den `<SharedFolder>/docker` mapp. Den här konfigurationsfilen definierar vilka OPC UA noden data på en server som anges av OPC UA OPC utgivaren ska prenumerera på. Den fullständiga syntaxen för den **publishednodes.json** filen beskrivs på den [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sidan på GitHub. När du lägger till en gateway kan placera en tom **publishednodes.json** till mappen:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    I den **publishednodes.json** -fil, den OPC UA-server har angetts av slutpunkts-URL. Om du anger värdnamnet som använder en etikett för värdnamn (exempelvis **win10pc**) som i föregående exempel i stället för en IP-adress adressmatchning nätverket i behållaren måste kunna matcha värdnamn etiketten till en IP-adress.
+- När servern OPC UA meddelar OPC utgivaren av en ändring av data, skickas det nya värdet till IoT-hubb. Beroende på inställningarna för batching ackumuleras OPC utgivaren först data innan informationen skickas till IoT-hubb i en batch.
 
 - Docker har inte stöd för NetBIOS-namnmatchning, endast DNS-namnmatchning. Om du inte har en DNS-server i nätverket kan använda du den lösning som visas i exemplet ovan kommandoraden. I föregående exempel kommandoraden används den `--add-host` parametern för att lägga till en post i värdfilen behållare. Den här posten gör hostname-sökning för den angivna `<OpcServerHostname>`, lösa den angivna IP-adressen `<IpAddressOfOpcServerHostname>`.
 
@@ -169,11 +155,16 @@ Du kan ansluta till gatewayen nu från molnet och du är redo att lägga till OP
 
 Att lägga till dina egna OPC UA servrar anslutna fabriken förkonfigurerade lösningen:
 
-1. Bläddra till den **ansluta OPC UA servern** sidan på anslutna factory lösning portalen. Följ samma steg som i föregående avsnitt för att upprätta en förtroenderelation mellan anslutna factory-portalen och OPC UA-servern.
+1. Bläddra till den **ansluta OPC UA servern** sidan på anslutna factory lösning portalen.
 
-    ![Lösningsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Starta OPC UA-server som du vill ansluta till. Se till att OPC UA servern kan nås från OPC utgivare och OPC-Proxy som körs i behållaren (se tidigare kommentarer om namnmatchning).
+    1. Ange slutpunkts-URL för OPC UA-server (`opc.tcp://<host>:<port>`) och klicka på **Anslut**.
+    1. Som en del av installationen anslutning kan upprättas en förtroenderelation mellan anslutna factory-portal (OPC UA klienten) och OPC UA-server som du försöker ansluta. I instrumentpanelen för anslutna factory du får en **går inte att verifiera certifikatet på den server som du vill ansluta** varning. När en certifikatvarning, klickar du på **Fortsätt**.
+    1. Svårare att installationen är certifikatkonfigureringen OPC UA-server som du försöker ansluta till. Du kan bara få ett varningsmeddelande i instrumentpanelen som du kan bekräfta för PC-baserade OPC UA-servrar. Inbäddade OPC UA serversystem i dokumentationen för OPC UA att leta upp hur den här uppgiften utförs. Du kanske måste certifikatet för anslutna factory portalens OPC UA klienten för att slutföra den här uppgiften. En administratör kan hämta det här certifikatet på den **ansluta OPC UA servern** sidan:
 
-1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder som du vill skicka till anslutna factory och välj **publicera**.
+        ![Lösningsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Bläddra i OPC UA noder trädet serverns OPC UA, högerklicka på OPC-noder som du vill skicka värden till anslutna factory och välj **publicera**.
 
 1. Telemetri nu flödar från gateway-enheten. Du kan visa telemetri i den **Factory platser** visa anslutna factory portalens under **nya Factory**.
 

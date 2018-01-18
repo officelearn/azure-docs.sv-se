@@ -1,5 +1,5 @@
 ---
-title: "Återställa en borttagen användare i Azure Active Directory | Microsoft Docs"
+title: "Återställ eller permanent ta bort en nyligen borttagna användare i Azure Active Directory | Microsoft Docs"
 description: "Återställa en borttagen användare, visa återställningsbara användare eller permanent ta bort en användare i Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -11,19 +11,35 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 01/12/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c3b7550c2aea0e8bcb7998e0e8c732894b500403
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: d8a1850f8635097364268abdf77394ba592f761b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Återställa en borttagen användare i Azure Active Directory
 
 Den här artikeln innehåller anvisningar för att återställa eller ta bort en användare som tidigare har tagits bort permanent. När du tar bort en användare i Azure Active Directory (AD Azure) bevaras den borttagna användaren i 30 dagar från det datum då tas bort. Under den tiden kan kan användaren och dess egenskaper återställas. 
+
+
+## <a name="how-to-restore-a-recently-deleted-user"></a>Återställa en nyligen borttagna användare
+När en användare har nyligen tagits bort, bevaras all kataloginformation. Om användaren återställs återställs den också.
+
+1. I den [administrationscentret för Azure AD](https://aad.portal.azure.com)väljer **användare och grupper** &gt; **alla användare**. 
+2. Under **visa**, filtrera sidan för att visa **bort användare nyligen**. 
+3. Välj en eller flera användare som nyligen tagits bort.
+4. Välj **återställning användaren**.
+
+## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>Hur man permanent tar bort en nyligen borttagna användare
+
+1. I den [administrationscentret för Azure AD](https://aad.portal.azure.com)väljer **användare och grupper** &gt; **alla användare**. 
+2. Under **visa**, filtrera sidan för att visa **bort användare nyligen**. 
+3. Välj en eller flera användare som nyligen tagits bort.
+4. Välj **ta bort permanent**.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 Följande behörigheter är tillräckliga för att återställa en användare.
@@ -32,15 +48,6 @@ Roll  | Behörigheter
 --------- | ---------
 Företagsadministratör<p>Partnersupport, nivå 1<p>Partnersupport, nivå 2<p>Användarkonto-administratör | Kan återställa borttagna användare 
 Företagsadministratör<p>Partnersupport, nivå 1<p>Partnersupport, nivå 2<p>Användarkonto-administratör | Permanent ta bort användare
-
-## <a name="how-to-restore-a-deleted-user"></a>Återställa en borttagen användare
-
-I Azure-portalen kan du både återställa en borttagen användare och permanent ta bort en borttagen användare.
-
-1. I den [administrationscentret för Azure AD](https://aad.portal.azure.com)väljer **användare och grupper** &gt; **alla användare**. 
-2. Under **visa**, filtrera sidan för att visa **bort användare nyligen**. 
-3. Välj en eller flera användare som nyligen tagits bort.
-4. Välj **återställning användaren** eller **ta bort permanent**.
 
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om hantering av Azure Active Directory-användare.

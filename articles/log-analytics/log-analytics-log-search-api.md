@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Logganalys logga Sök REST API
+
+> [!IMPORTANT]
+> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), läser du bör den [dokumentationen för den nya versionen av loggen sökningen API](https://dev.loganalytics.io/).  Den här äldre API kan fortsätta att arbeta med en uppgraderad arbetsyta, men det kommer snart att depracated.  Du bör ändra några befintliga lösningar för att använda det nya API: T.
+
 Den här guiden innehåller en grundläggande självstudier, inklusive exempel på hur du kan använda Log Analytics Sök REST API. Log Analytics är en del av Operations Management Suite (OMS).
 
-> [!NOTE]
-> Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), läser du bör den [dokumentationen för den nya versionen av loggen sökningen API](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Logganalys kallades tidigare åtgärdsinformation, därför är det namn som används i resursprovidern.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Översikt över loggen sökningen REST-API
 Log Analytics Sök REST API är RESTful och kan nås via Azure Resource Manager API. Den här artikeln innehåller exempel på åtkomst till API via [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient är en av många alternativ för att komma åt Log Analytics Sök-API. Ett annat alternativ är att använda Azure PowerShell-modulen för OperationalInsights som innehåller cmdlets för att komma åt sökningen. Med dessa verktyg kan du använda Azure Resource Manager API för att göra anrop till OMS arbetsytor och utföra sökkommandon i dem. API: et matar ut sökresultat i JSON-format, så att du kan använda sökresultatet på många olika sätt programmässigt.
@@ -138,12 +135,12 @@ I följande tabell beskrivs de egenskaper som är tillgängliga.
 | **Egenskap** | **Beskrivning** |
 | --- | --- |
 | Upp |Maximalt antal resultat ska returneras. |
-| Markera |Innehåller före och efter parametrar, används vanligtvis för syntaxmarkering matchande fält |
+| markera |Innehåller före och efter parametrar, används vanligtvis för syntaxmarkering matchande fält |
 | före |Den angivna strängen till din matchade fält-prefix. |
 | post |Lägger till den angivna strängen till din matchade fält. |
 | DocumentDB |Frågan används för att samla in och returnerar resultat. |
 | start |Början av tidsfönster som du vill att resultatet som ska returneras från. |
-| End |Slutet av tidsperioden som du vill att resultatet som ska returneras från. |
+| slut |Slutet av tidsperioden som du vill att resultatet som ska returneras från. |
 
 **Svar:**
 
@@ -225,7 +222,7 @@ I följande tabell beskrivs de egenskaper som är tillgängliga.
 | --- | --- |
 | Id |Den unika identifieraren. |
 | ETag |**Krävs för korrigeringsfilen**. Uppdateras av servern vid varje skrivning. Värdet måste vara lika med det aktuella lagrade värdet eller ' *' att uppdatera. 409 returneras för gamla/ogiltiga värden. |
-| Properties.Query |**Krävs**. Sökfråga. |
+| properties.query |**Krävs**. Sökfråga. |
 | properties.displayName |**Krävs**. Användardefinierade visningsnamnet för frågan. |
 | Properties.category |**Krävs**. Den användardefinierade kategorin av frågan. |
 
@@ -305,13 +302,13 @@ I följande tabell beskrivs de egenskaper som är tillgängliga.
 | **Egenskap** | **Beskrivning** |
 | --- | --- |
 | namn |Fältnamn. |
-| Visningsnamn |Visningsnamnet för fältet. |
+| displayName |Visningsnamnet för fältet. |
 | typ |Typ av fältvärdet. |
 | facetable |Kombinationen av aktuella 'indexerad', ' lagras ' och 'aspekten' egenskaper. |
 | Visa |Aktuella 'Visa-egenskapen. TRUE om fältet är synligt i sökningen. |
 | ownerType |Minskas till endast typer som hör till publicerats så IP. |
 
-## <a name="optional-parameters"></a>Extraparametrar
+## <a name="optional-parameters"></a>Valfria parametrar
 Följande information beskriver valfria parametrar finns tillgängliga.
 
 ### <a name="highlighting"></a>Markering

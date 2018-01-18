@@ -3,7 +3,7 @@ title: PowerShell Connector | Microsoft Docs
 description: "Den här artikeln beskriver hur du konfigurerar Microsoft Windows PowerShell Connector."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Teknisk referens för Windows PowerShell Connector
 Den här artikeln beskriver Windows PowerShell Connector. Artikeln gäller för följande produkter:
@@ -32,7 +32,7 @@ För MIM2016 och FIM2010R2 kopplingen är tillgänglig för hämtning från den 
 ## <a name="overview-of-the-powershell-connector"></a>Översikt över PowerShell Connector
 PowerShell Connector kan du integrera synkroniseringstjänsten med externa system som tillhandahåller Windows PowerShell-baserade API: er. Anslutningen ger en brygga mellan funktionerna i hanteringsagenten anropsbaserade extensible connectivity 2 (ECMA2) framework och Windows PowerShell. Mer information om ECMA framework finns på [Extensible Connectivity 2.2 Management Agent referens](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du använder anslutningen kan du kontrollera att du har följande på synkroniseringsservern:
 
 * 4.5.2 för Microsoft .NET Framework eller senare
@@ -271,7 +271,7 @@ Skriptet lösenord får följande parametrar från anslutningen:
 | Autentiseringsuppgift |[PSCredential][pscred] |Innehåller alla autentiseringsuppgifter som angetts av administratören på fliken anslutning. |
 | Partition |[Partition][part] |Katalogpartition som CSEntry finns i. |
 | CSEntry |[CSEntry][cse] |Kopplingen utrymme post för objektet som är tog emot en lösenordsändring eller återställning. |
-| Åtgärdstyp |Sträng |Anger om åtgärden har en återställning (**SetPassword**) eller en ändring (**ChangePassword**). |
+| OperationType |Sträng |Anger om åtgärden har en återställning (**SetPassword**) eller en ändring (**ChangePassword**). |
 | PasswordOptions |[PasswordOptions][pwdopt] |Flaggor som anger det avsedda lösenordet återställa beteende. Den här parametern är endast tillgänglig om OperationType är **SetPassword**. |
 | Gammalt lösenord |Sträng |Fylls i med objektets gamla lösenord för ändring av lösenord. Den här parametern är endast tillgänglig om OperationType är **ChangePassword**. |
 | Nytt lösenord |Sträng |Fylls i med objektets nytt lösenord som skriptet ska ange. |
@@ -291,8 +291,8 @@ Bevilja användaren som är personifierad följande behörigheter på synkronise
 
 Läsbehörighet till följande registernycklar:
 
-* HKEY_USERS\\[SynchronizationServiceServiceAccountSID] \Software\Microsoft\PowerShell
-* HKEY_USERS\\[SynchronizationServiceServiceAccountSID] \Environment
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Software\Microsoft\PowerShell
+* HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 Kör följande PowerShell-kommandon för att fastställa den säkerhetsidentifierare (SID) för kontot synkroniseringstjänsten:
 
@@ -303,9 +303,9 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 Läsbehörighet till mapparna system följande fil:
 
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\Extensions
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
-* %ProgramFiles%\Microsoft forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\Extensions
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\ExtensionsCache
+* %ProgramFiles%\Microsoft Forefront Identity Manager\2010\Synchronization Service\MaData\\{ConnectorName}
 
 Ersätt namnet på Windows PowerShell connector för platshållaren {ConnectorName}.
 

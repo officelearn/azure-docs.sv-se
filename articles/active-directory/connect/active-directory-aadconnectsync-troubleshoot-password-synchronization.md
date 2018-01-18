@@ -3,7 +3,7 @@ title: "Felsöka Lösenordssynkronisering med Azure AD Connect-synkronisering | 
 description: "Den här artikeln innehåller information om hur du felsöker problem med synkronisering av lösenord."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Felsöka Lösenordssynkronisering med Azure AD Connect-synkronisering
 Det här avsnittet innehåller anvisningar att felsöka problem med synkronisering av lösenord. Om lösenord inte synkroniseras som förväntat, kan det vara för en delmängd av användare eller för alla användare.
@@ -307,7 +307,7 @@ Du kan enkelt felsöka problem med synkronisering av lösenord genom att granska
 
     ![Övriga information om en användare](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
 
-    Jag. Klicka på **metaversum objektegenskaper** att visa en lista över användarattribut.  
+    i. Klicka på **metaversum objektegenskaper** att visa en lista över användarattribut.  
 
     ![Metaversum-information](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
 

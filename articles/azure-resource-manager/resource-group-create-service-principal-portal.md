@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 89f2f834c84cd5ae50b2d5b9d46e792065080d8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Använda portalen för att skapa ett Azure Active Directory-program och tjänstens huvudnamn som har åtkomst till resurser
 
@@ -29,7 +29,7 @@ När du har ett program som behöver komma åt eller ändra resurser måste du k
 
 Den här artikeln visar hur du utför dessa åtgärder via portalen. Den fokuserar på en enskild klient program där programmet är avsett att köras i en enda organisation. Du använder vanligtvis stöd för en innehavare program för line-of-business-program som körs i din organisation.
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 För att slutföra den här artikeln, måste du har behörighet att registrera ett program med Azure AD-klienten och tilldela program till en roll i din Azure-prenumeration. Vi behöver kontrollera att du har rätt behörighet för att utföra dessa steg.
 

@@ -3,7 +3,7 @@ title: "Kopplingen för Lotus Domino | Microsoft Docs"
 description: "Den här artikeln beskriver hur du konfigurerar Microsofts Lotus Domino-anslutaren."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Teknisk referens för Lotus Domino-koppling
 Den här artikeln beskriver kopplingen för Lotus Domino. Artikeln gäller för följande produkter:
@@ -43,7 +43,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 
 Lotus Domino-kopplingen använder Lotus Notes-klienten för att kommunicera med Lotus Domino-Server. Till följd av detta beroende måste en stöds Lotus Notes-klienten installeras på synkroniseringsservern. Kommunikationen mellan klienten och servern implementeras via gränssnittet Lotus Notes .NET Interop (Interop.domino.dll). Det här gränssnittet underlättar kommunikationen mellan Microsoft.NET plattform och Lotus Notes-klienten och stöder åtkomst till dokument för Lotus Domino och vyer. För Deltaimport är det också möjligt att det interna gränssnittet C++ används (beroende på markerade delta importmetoden).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du använder anslutningen Kontrollera att du har följande krav på synkroniseringsserver:
 
 * 4.5.2 för Microsoft .NET Framework eller senare
@@ -80,10 +80,10 @@ I följande tabell visas de behörigheter som krävs för varje åtgärd:
 
 | Objekt | Skapa | Uppdatering | Ta bort |
 | --- | --- | --- | --- |
-| Person |Saknas |Direkt |Direkt |
+| Person |Gäller inte |Direkt |Direkt |
 | Grupp |Direkt |Direkt |Direkt |
 | MailInDB |Direkt |Direkt |Direkt |
-| Resurs |Saknas |Saknas |Saknas |
+| Resurs |Gäller inte |Gäller inte |Gäller inte |
 
 När en resurs skapas, skapas ett Notes-dokument. När en resurs tas bort tas bort på samma sätt Notes-dokumentet.
 
@@ -119,7 +119,7 @@ På sidan anslutningar måste du ange servernamnet för Lotus Domino och ange au
 
 Egenskapen Domino Server stöder två format för namnet på servern:
 
-* Servernamn
+* ServerName
 * ServerName/DirectoryName
 
 Den **ServerName/DirectoryName** format är formatet för det här attributet eftersom det ger snabbare svar när kopplingen kontaktar Domino-Server.
@@ -155,7 +155,7 @@ Från och med mars 2017 uppdateringen skärmen globala parametrar innehåller al
 #### <a name="import-settings-method"></a>Importera inställningar, metod
 Den **utföra fullständig Import av** finns följande alternativ:
 
-* Söka
+* Search
 * Visa (rekommenderas)
 
 **Sök** är med hjälp av indexering i Domino men det är vanligt att indexen uppdateras inte i realtid och de data som returneras från servern är inte alltid korrekt. För ett system med många ändringar av det här alternativet vanligtvis fungerar inte väl och ger false tas bort i vissa situationer. Dock **Sök** är snabbare än **visa**.
@@ -198,7 +198,7 @@ Om du inte har **directory hjälp** installeras, som innehåller namnet på seku
 #### <a name="multivalued-transformation"></a>Omvandling av flera värden
 Många är i Lotus Domino flera värden. Motsvarande metaversum-attribut är vanligtvis samma värden. Genom att konfigurera Import och Export åtgärden alternativet kan aktivera du kopplingen för att hjälpa dig med krävs vid översättning av de berörda attribut.
 
-**Exportera**  
+**Export**  
 Åtgärden Exportalternativet stöder två lägen:
 
 * Lägg till objekt
@@ -208,25 +208,25 @@ Många är i Lotus Domino flera värden. Motsvarande metaversum-attribut är van
 
 Exempel: Attributet assistent för en person-objektet har följande värden:
 
-* CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Om en ny assistent med namnet **David Alexander** tilldelas till den här personen objekt resultatet är:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Lägga till objektet** – när du väljer det här alternativet kopplingen behåller befintliga värden för attributet i Domino och infoga nya värden överst i listan.
 
 Exempel: Attributet assistent för en person-objektet har följande värden:
 
-* CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Om en ny assistent med namnet **David Alexander** tilldelas till den här personen objekt resultatet är:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Importera**  
 Alternativet Importera åtgärden stöder två lägen:
@@ -240,9 +240,9 @@ Alternativet Importera åtgärden stöder två lägen:
 
 Exempel: Attributet assistent för en person-objektet har följande värden:
 
-* CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = John Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Den senaste uppdateringen till detta attribut är **David Alexander**. Alternativet Importera åtgärden är inställd på Multivalued enskilt värde och importerar connector endast **David Alexander** till anslutningsplatsen.
 
@@ -413,10 +413,10 @@ Det här avsnittet innehåller de attribut som är obligatoriska för varje obje
 | Objekttyp | Obligatoriska attribut |
 | --- | --- |
 | Grupp |<li>ListName</li> |
-| Main i databasen |<li>Fullständigt namn</li><li>MailFile</li><li>E-postserver</li><li>MailDomain</li> |
+| Main i databasen |<li>Fullständigt namn</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Person |<li>Efternamn</li><li>MailFile</li><li>Kort filnamn</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Kontaktpersonen med ingen certifier |<li>\_MMS_IDRegType</li> |
-| Resurs |<li>Fullständigt namn</li><li>ResourceType</li><li>ConfDB</li><li>Resurskapacitet</li><li>Webbplats</li><li>DisplayName</li><li>MailFile</li><li>E-postserver</li><li>MailDomain</li> |
+| Resurs |<li>Fullständigt namn</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Webbplats</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Vanliga problem och frågor
 ### <a name="schema-detection-does-not-work"></a>Schemat identifiering fungerar inte

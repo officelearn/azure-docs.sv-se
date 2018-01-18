@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Anpassa fjärråtkomst övervakning förkonfigurerade lösning
 
@@ -24,6 +24,10 @@ Den här artikeln innehåller information om hur du kan använda källkoden och 
 
 * GitHub-lagringsplatser som innehåller källkoden och för mikrotjänster som utgör den förkonfigurerade lösningen.
 * Vanliga scenarier för anpassning till exempel lägga till en ny typ av enhet.
+
+Följande videoklipp visar en översikt över alternativ för anpassning av fjärråtkomst övervakning förkonfigurerade lösningen:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Översikt över projekt
 
@@ -44,10 +48,10 @@ Den här tabellen sammanfattas aktuella tillgängligheten för varje mikrotjäns
 
 | Mikrotjänster      | Beskrivning | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
-| Webbgränssnittet            | Webbprogrammet för fjärranslutna övervakningslösning. Implementerar Gränssnittet använder React.js framework. | [N/A(react.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(react.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| Hanteraren för IoT-hubb   | Hanterar kommunikation med IoT-hubben.        | [Tillgängliga](https://github.com/Azure/iothub-manager-java) | [Tillgängliga](https://github.com/Azure/iothub-manager-dotnet)   |
+| Webbgränssnittet            | Webbprogrammet för fjärranslutna övervakningslösning. Implementerar Gränssnittet använder React.js framework. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
+| IoT Hub Manager   | Hanterar kommunikation med IoT-hubben.        | [Tillgängliga](https://github.com/Azure/iothub-manager-java) | [Tillgängliga](https://github.com/Azure/iothub-manager-dotnet)   |
 | Autentisering    |  Hanterar Azure Active Directory-integrering.  | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/pcs-auth-dotnet)   |
-| Enheten simulering | Hanterar en pool av simulerade enheter. | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/device-simulation-dotnet)   |
+| Enhetssimulering | Hanterar en pool av simulerade enheter. | Ännu ej tillgänglig | [Tillgängliga](https://github.com/Azure/device-simulation-dotnet)   |
 | Telemetri         | Gör enhetstelemetrin tillgängliga för Användargränssnittet. | [Tillgängliga](https://github.com/Azure/device-telemetry-java) | [Tillgängliga](https://github.com/Azure/device-telemetry-dotnet)   |
 | Telemetri Agent   | Analyserar telemetri dataströmmen, lagrar meddelanden från Azure IoT Hub och genererar aviseringar enligt definierade regler.  | [Tillgängliga](https://github.com/Azure/telemetry-agent-java) | [Tillgängliga](https://github.com/Azure/telemetry-agent-dotnet)   |
 | UI-konfiguration         | Hanterar konfigurationsdata i användargränssnittet. | [Tillgängliga](https://github.com/azure/pcs-ui-config-java) | [Tillgängliga](https://github.com/azure/pcs-ui-config-dotnet)   |

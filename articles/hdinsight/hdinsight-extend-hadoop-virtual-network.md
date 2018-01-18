@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk
 
@@ -129,8 +129,8 @@ Azure tillhandahåller namnmatchning för Azure-tjänster som är installerade i
 
 * Alla resurser som är i samma Azure virtuella nätverk, med hjälp av den __interna DNS-namnet__ av resursen. Till exempel när du använder standard-namnmatchning är följande exempel interna DNS-namn som tilldelats HDInsight arbetsnoderna:
 
-    * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Båda dessa noder kan kommunicera direkt med varandra och andra noder i HDInsight med hjälp av interna DNS-namn.
 

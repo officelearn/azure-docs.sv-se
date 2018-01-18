@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Överföring Data 2.0 (förhandsgranskning) lösning i logganalys
 
@@ -80,7 +80,7 @@ Om du är en System Center Operations Manager-användare med en hanteringsgrupp 
 
 Om du använder direkt agenten måste du konfigurera OMS själva agenten att ansluta till logganalys eller till din OMS-Gateway. Du kan hämta OMS-Gateway från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kräver den [insikt och Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) lösningen-erbjudandet.
 - Om du använder en tidigare version av lösningen Wire-Data måste du först bort den. Alla data som hämtats via den ursprungliga lösningen Wire-Data är dock fortfarande tillgängliga i överföring Data 2.0 och Sök i loggfilen.
@@ -188,8 +188,8 @@ Följande avsnitt listar operativsystem som stöds för beroende agenten. Wire-D
 
 | **Fil** | **OS** | **Version** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -254,11 +254,11 @@ Filer för Beroendeagent placeras i följande kataloger:
 
 | **Filer** | **Plats** |
 | --- | --- |
-| -Filer | /OPT/Microsoft/Dependency-Agent |
-| Loggfiler | /var/OPT/Microsoft/Dependency-Agent/log |
-| Config-filer | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Tjänsten körbara filer | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br><br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Binära filer | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| -Filer | /opt/microsoft/dependency-agent |
+| Loggfiler | /var/opt/microsoft/dependency-agent/log |
+| Config-filer | /etc/opt/microsoft/dependency-agent/config |
+| Tjänsten körbara filer | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binära filer | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="installation-script-examples"></a>Exempel på skript för installation
 
@@ -375,9 +375,6 @@ Använd följande information för att installera och konfigurera lösningen.
 
 När du har agenter som installerats och du installerar lösningen, visas överföring Data 2.0-panelen på arbetsytan.
 
-> [!NOTE]
-> För närvarande måste du använda OMS-portalen för att visa wire-data. Du kan inte använda Azure-portalen för att visa wire-data.
-
 ![Panelen Wire-Data](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Med lösningen överföring Data 2.0
@@ -441,12 +438,12 @@ En post med en typ av _WireData_ skapas för varje typ av indata. WireData poste
 | LocalPortNumber | Lokala portnumret |
 | RemoteIP | Fjärranslutna IP-adress som används av fjärrdatorn |
 | RemotePortNumber | Portnummer för fjärr-IP-adress |
-| Sessions-ID | Ett unikt värde som identifierar kommunikationssessionen mellan två IP-adresser |
+| SessionID | Ett unikt värde som identifierar kommunikationssessionen mellan två IP-adresser |
 | sentBytes | Antal skickade byte |
 | TotalBytes | Totalt antal byte som skickats under sessionen |
 | ApplicationProtocol | Nätverksprotokoll som används   |
-| Process-ID | Windows process-ID |
-| Processnamn | Sökvägen och filnamnet för processen |
+| ProcessID | Windows process-ID |
+| ProcessName | Sökvägen och filnamnet för processen |
 | RemoteIPLongitude | IP-Longitudvärde |
 | RemoteIPLatitude | IP-latitud värde |
 

@@ -2,23 +2,18 @@
 title: "Azure Site Recovery för felsökning från VMware Azure | Microsoft Docs"
 description: "Felsöka vid replikering av virtuella Azure-datorer"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsökning av problem med installation av Mobilitetstjänsten push
 
@@ -74,7 +69,7 @@ Det här felet kan orsakas av tjänsten av flera skäl. Välj den motsvarande pr
 
 **Felkod** | **Möjliga orsaker** | **Fel-specifika rekommendationer**
 --- | --- | ---
-95108 </br>**Meddelande:** Push-installation av mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0859**. <br>| Antingen autentiseringsuppgifterna för att installera mobilitetstjänsten felaktiga, eller användarkontot har inte behörighet <br>| Se till att de angivna autentiseringsuppgifterna är den **rot** kontots autentiseringsuppgifter. Att [Lägg till/redigera användarautentiseringsuppgifter](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords)går du till konfigurationsservern och klicka på ”Cspsconfigtool” genvägsikon på skrivbordet. Klicka på ”Hantera konto” Lägg till/redigera autentiseringsuppgifter.|
+95108 </br>**Meddelande:** Push-installation av mobilitetstjänsten till källdatorn misslyckades med felkoden **EP0859**. <br>| Antingen autentiseringsuppgifterna för att installera mobilitetstjänsten felaktiga, eller användarkontot har inte behörighet <br>| Se till att de angivna autentiseringsuppgifterna är den **rot** kontots autentiseringsuppgifter. Om du vill lägga till eller redigera användarens autentiseringsuppgifter, gå till konfigurationsservern och klicka på ”Cspsconfigtool” genvägsikon på skrivbordet. Klicka på ”Hantera konto” Lägg till/redigera autentiseringsuppgifter.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Fel 95265 - skydd kan inte vara aktiverad (EP0902)
 
@@ -92,13 +87,14 @@ Det här felet kan orsakas av tjänsten av flera skäl. Välj den motsvarande pr
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Resurs för att felsöka problem med push-installation
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Felsökning av problem med fil- och skrivardelning
-*  [Aktivera eller inaktivera fildelning med Grupprincip](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Hur du aktiverar fil och skrivardelning via Windows-brandväggen](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Aktivera eller inaktivera fildelning med Grupprincip](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Hur du aktiverar fil och skrivardelning via Windows-brandväggen](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Felsökning av problem med WMI
 * [Testa grundläggande WMI](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [WMI-felsökning](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Felsökning av problem med WMI-skript och WMI-tjänster](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [WMI-felsökning](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Felsökning av problem med WMI-skript och WMI-tjänster](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Aktivera replikering för virtuella VMware-datorer](vmware-walkthrough-enable-replication.md)
+
+[Lär dig hur](tutorial-vmware-to-azure.md) konfigurera katastrofåterställning för virtuella VMware-datorer.

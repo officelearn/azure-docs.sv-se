@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -134,37 +134,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
    Kommandotolken öppnas i den aktuella projektmappen **c:\temp\myIris>**.
 
-2. Kontrollera att Azure-resursprovidern **Microsoft.ContainerRegistry** är registrerad för din prenumeration. Du måste registrera den här resursprovidern innan du kan skapa en miljö i steg 3. Du kan kontrollera om den redan är registrerad med följande kommando:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Du bör se utdata som ser ut så här: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Om **Microsoft.ContainerRegistry** inte är registrerad så kan du registrera den med hjälp av följande kommando:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   Registreringen kan ta några minuter. Du kan kontrollera status för den med hjälp av det ovanstående kommandot **az provider list** eller med följande kommando:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   Den tredje utdataraden visar **"registrationState": "Registering"**. Vänta en stund och upprepa **visningskommandot** tills utdata visar **"registrationState": "Registered"**.
-
-   >[!NOTE] 
-   Om du distribuerar till en ACS-kluster, måste du registrera den **Microsoft.ContainerService** resursprovidern samt med exakt samma metod.
-
-3. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
+2. Skapa miljön. Du måste utföra det här steget en gång per miljö. Exempelvis utför du det en gång för utvecklingsmiljön och en gång för produktion. Använd _lokalt läge_ för den här första miljön. Du kan prova med flaggorna `-c` eller `--cluster` i följande kommando om du vill konfigurera en miljö i _klusterläge_ senare.
 
    Observera att följande installationskommando kräver att du har deltagarbehörighet inom ramen för prenumerationen. Om du inte har det, behöver du som minst deltagarbehörighet för resursgruppen som du distribuerar till. Om du vill göra det senare måste du ange resursgruppens namn som en del av installationskommandot med flaggan `-g`. 
 
@@ -176,17 +146,17 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
    
    Klusternamnet är ett sätt att identifiera miljön. Platsen måste vara samma som för modellhanteringskontot som du skapade från Azure Portal.
 
-4. Skapa ett modellhanteringskonto. (Du behöver bara utföra den här konfigurationen en gång.)  
+3. Skapa ett modellhanteringskonto. (Du behöver bara utföra den här konfigurationen en gång.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Konfigurera modellhanteringskontot.  
+4. Konfigurera modellhanteringskontot.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Konfigurera miljön.
+5. Konfigurera miljön.
 
    När installationen är klar använder du följande kommando för att ställa in de miljövariabler som behövs för operationalisering av miljön. Använd samma miljönamn som du använde tidigare i steg 4. Använd samma resursgruppnamn som angavs i kommandofönstret när installationen slutfördes.
 
@@ -194,7 +164,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Ange följande kommando för att kontrollera att du har konfigurerat operationaliseringsmiljön på rätt sätt för distribution av lokala webbtjänster:
+6. Ange följande kommando för att kontrollera att du har konfigurerat operationaliseringsmiljön på rätt sätt för distribution av lokala webbtjänster:
 
    ```azurecli
    az ml env show

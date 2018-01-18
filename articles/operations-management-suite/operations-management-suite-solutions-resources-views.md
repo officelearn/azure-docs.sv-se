@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vyer i Operations Management Suite (OMS) hanteringslösningar (förhandsgranskning)
 > [!NOTE]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med [skapar en lösning för](operations-management-suite-solutions-creating.md) och strukturen för en lösningsfil.
 
 ## <a name="overview"></a>Översikt
@@ -75,11 +75,10 @@ Lägg till följande vy resursen till den **resurser** element i din lösningsfi
 
 Lägg till följande variabler i elementet variabler i lösningsfilen och Ersätt värdena som de för din lösning.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Observera att du kan kopiera hela vyn resursen från din exporterade visa filen, men måste du göra följande ändringar att fungera i din lösning.  
 
@@ -89,6 +88,18 @@ Observera att du kan kopiera hela vyn resursen från din exporterade visa filen,
 * **DisplayName** egenskapen måste läggas till vyn.  Den **Id**, **namn**, och **DisplayName** måste matcha alla.
 * Parameternamn måste ändras för att matcha uppsättningen parametrar som krävs.
 * Variabler ska definieras i lösningen och används i lämpliga egenskaper.
+
+### <a name="log-analytics-api-version"></a>Log Analytics API-version
+Alla logganalys-resurser som definierats i en Resource Manager-mall har en egenskap **apiVersion** som definierar versionen av resursen ska använda API: et.  Den här versionen är olika för vyer med frågor som använder den [äldre och uppgraderade frågespråket](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ I följande tabell anger Log Analytics API-versioner för vyer i äldre och uppgraderade arbetsytor: 
+
+| Arbetsyteversion | API-version | Fråga |
+|:---|:---|:---|
+| V1 (äldre)   | 2015-11-01-preview | Äldre format.<br> Exempel: Skriv = händelse EventLevelName = fel  |
+| v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konvertera till uppgraderade format på installera.<br> Exempel: Skriv = händelse EventLevelName = fel<br>Konvertera till: händelsen &#124; där EventLevelName == ”Error”  |
+| v2 (uppgraderade) | 2017-03-03-preview | Uppgradera format. <br>Exempel: Händelsen &#124; där EventLevelName == ”Error”  |
+
 
 ## <a name="add-the-view-details"></a>Lägg till Visa detaljer
 Visa resursen i filen exporterade vyn innehåller två element i den **egenskaper** element med namnet **instrumentpanelen** och **OverviewTile** som innehåller den detaljerade konfiguration av vyn.  Kopiera dessa två element och innehållet i den **egenskaper** element i vyn resurs i din lösningsfilen.

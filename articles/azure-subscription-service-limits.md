@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränser, som ibland kallas kvoter. Det här dokumentet omfattar inte för närvarande alla Azure-tjänster. Över tiden, kommer i listan att expanderas och uppdateras så att den täcker flera av plattformen.
@@ -46,21 +46,22 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 
 ## <a name="service-specific-limits"></a>Tjänstspecifika gränser
 * [Active Directory](#active-directory-limits)
-* [API-hantering](#api-management-limits)
+* [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
-* [Azure händelse rutnätet](#azure-event-grid-limits)
+* [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
-* [BizTalk-tjänst](#biztalk-services-limits)
+* [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Container Service (AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -72,12 +73,12 @@ I gränserna som nedan, har en ny tabell lagts till återspeglar eventuella skil
 * [Key Vault](#key-vault-limits)
 * [Logga Analytics / Operational Insights](#log-analytics-limits)
 * [Media Services](#media-services-limits)
-* [Mobilt engagemang](#mobile-engagement-limits)
+* [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Övervaka](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Nätverk](#networking-limits)
-* [Nätverksbevakaren](#network-watcher-limits)
+* [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resursgrupp](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
@@ -127,6 +128,9 @@ Följande begränsningar gäller när du använder Azure Resource Manager och Az
 I följande tabell beskrivs funktioner och begränsningar för Basic, Standard och Premium [tjänstnivåer](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Begränsar container Service (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Begränsningar för nätverk
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -313,7 +317,7 @@ SQL-databas gränser, se [gränserna för SQL-databasen](sql-database/sql-databa
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
 SQL Data Warehouse gränser, se [gränserna för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Förstå Azure gränser och ökar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Virtuell dator och Molntjänststorlekar för Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

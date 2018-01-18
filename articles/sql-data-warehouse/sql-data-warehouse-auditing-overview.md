@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Granskning](sql-data-warehouse-auditing-overview.md)
-> * [Hotidentifiering](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-SQL Data Warehouse granskning kan du till post i databasen till en granskningslogg händelselogg i Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. SQL Data Warehouse granskning är integrerat med Microsoft Power BI för nedåt rapportering och analys.
+SQL Data Warehouse granskning kan du till post i databasen till en granskningslogg händelselogg i Azure Storage-konto. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, Förstå Databasaktivitet och få insyn i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser. SQL Data Warehouse granskning är integrerat med Microsoft Power BI för rapportering och analys.
 
 Granskningsverktyg aktivera och underlätta att efterlevnadsstandarder men garantera inte efterlevnad. Mer information om Azure-program som stöd för överensstämmelse med standarder, finns det <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Säkerhetscenter</a>.
 
-* [Grunderna för granskning av databasen]
-* [Konfigurera granskning för databasen]
-* [Analysera granskningsloggar och rapporter]
-
-## <a id="subheading-1"></a>Azure SQL Data Warehouse Database Auditing grunderna
+## <a id="subheading-1"></a>Granskning grunderna
 Granskning av SQL Data Warehouse-databas kan du:
 
 * **Behåll** redovisningsspårning markerade händelser. Du kan definiera typer av databasåtgärder som ska granskas.
@@ -59,19 +50,19 @@ Mer information om aktiviteter och händelser som granskas finns i <a href="http
 
 Granskningsloggar lagras i Azure storage-konto. Du kan definiera en Granska loggen Bevarandeperiod.
 
-En granskningsprincip kan definieras för en viss databas eller som en standardprincip för servern. Granskningsprincip för servern som ska användas som standard gäller för alla databaser på en server som inte har en specifik åsidosättning databasen granskning princip definierad.
+Du kan definiera en granskningsprincip för en viss databas eller som en standardprincip för servern. Granskningsprincip för servern som ska användas som standard gäller för alla databaser på en server som inte har en specifik åsidosättning databasen granskning princip definierad.
 
 Innan du konfigurerar audit granskning kontrollera om du använder en [”meddelandeklienter”.](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Konfigurera granskning för databasen
 1. Starta den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>.
-2. Gå till den **inställningar** bladet för SQL Data Warehouse som du vill granska. I den **inställningar** bladet väljer **Auditing & Threat detection**.
+2. Gå till **inställningar** för SQL Data Warehouse som du vill granska. Välj **Auditing & Threat detection**.
    
     ![][1]
 3. Därefter aktiverar granskning genom att klicka på den **ON** knappen.
    
     ![][3]
-4. I bladet granskning configuration väljer **LAGRINGSINFORMATION** att öppna bladet granska loggarna lagring. Välj Azure storage-konto där loggar sparas och kvarhållningsperioden. 
+4. Välj i panelen granskning configuration **LAGRINGSINFORMATION** att öppna panelen Granska loggarna lagring. Välj Azure storage-konto för loggarna och kvarhållningsperioden. 
 >[!TIP]
 >Använda samma lagringskonto för alla granskad databaser för att få ut mesta av förkonfigurerade rapporter mallar.
    
@@ -91,11 +82,12 @@ Mallen har fiktiva exempeldata i den och du kan ställa in Power Query för att 
 ## <a id="subheading-4"></a>Sessionsnycklar för lagring
 Det är sannolikt att uppdatera din lagringsnycklar regelbundet i produktionen. När du uppdaterar dina nycklar, måste du spara principen. Processen är följande:
 
-1. I bladet granskning konfiguration (beskrivs ovan i inställningarna för granskning avsnitt) växla den **Lagringsåtkomstnyckel** från *primära* till *sekundära* och **spara**.
+1. Granskning Kontrollpanelen konfigurationen som beskrivs i föregående inställningarna granskning avsnitt, ändra den **Lagringsåtkomstnyckel** från *primära* till *sekundära* och  **Spara**.
 
    ![][4]
-2. Gå till bladet storage-konfiguration och **återskapa** den *primära åtkomstnyckeln*.
-3. Gå tillbaka till bladet granskning konfiguration, växlar den **Lagringsåtkomstnyckel** från *sekundära* till *primära* och tryck på **spara**.
+2. Gå till panelen konfiguration för lagring och **återskapa** den *primära åtkomstnyckeln*.
+3. Gå tillbaka till panelen granskning konfiguration 
+4. Växla den **Lagringsåtkomstnyckel** från *sekundära* till *primära* och tryck på **spara**.
 4. Gå tillbaka till lagringen UI och **återskapa** den *sekundära åtkomstnyckel* (som förberedelse för nästa nycklar uppdateringscykel.
 
 ## <a id="subheading-5"></a>Automation (PowerShell/REST API)
@@ -103,18 +95,41 @@ Du kan också konfigurera granskning i Azure SQL Data Warehouse med hjälp av f�
 
 * **PowerShell-cmdlets**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Ta bort AzureRMSqlDatabaseAuditing][103]
-   * [Ta bort AzureRMSqlServerAuditing][104]
-   * [Ange AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Ange AzureRMSqlServerAuditingPolicy][106]
-   * [Använd AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Stöd för äldre klienter för granskning och dynamisk datamaskning
+Granskning fungerar med SQL-klienter som stöder TDS-omdirigering.
+
+Alla klienter som implementerar TDS 7.4 bör också stöd för omdirigering. Undantag till detta inkluderar JDBC 4.0 där funktionen för omdirigering av stöds inte fullt ut och Tedious för Node.JS i vilka omdirigering har inte implementerats.
+
+För ”äldre klienter” som stöder TDS version 7.3 och nedan, ändra serverns FQDN i anslutningssträngen på följande sätt:
+
+- Ursprungliga serverns FQDN i anslutningssträngen: <*servernamn*>. database.windows.net
+- Ändrade serverns FQDN i anslutningssträngen: <*servernamn*> .database. **säker**. windows.net
+
+Innehåller en lista över ”klientversioner”:
+
+* .NET 4.0 och nedan.
+* ODBC-10.0 och nedan.
+* JDBC (medan JDBC stöder TDS 7.4, funktion för TDS-omdirigering fullständigt stöds inte)
+* Tråkigt (för Node.JS)
+
+**Kommentar:** föregående servern FDQN ändring kan vara användbara också för att tillämpa en princip för SQL Server-nivå granskning utan behov av en konfiguration steg i varje databas (tillfällig lösning).     
+
+
+
 
 <!--Anchors-->
-[Grunderna för granskning av databasen]: #subheading-1
-[Konfigurera granskning för databasen]: #subheading-2
-[Analysera granskningsloggar och rapporter]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ Du kan också konfigurera granskning i Azure SQL Data Warehouse med hjälp av f�
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

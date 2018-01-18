@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 23008d3619af4606703bca41f370e14cf020a16a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ordlista IoT-hubb
 Den här artikeln innehåller några av de vanliga termer som används i IoT-hubb-artiklar.
@@ -178,8 +178,8 @@ Du kan använda den [IoT Hub Resource Provider REST API](https://docs.microsoft.
 ## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite-paket tillsammans flera Azure-tjänster med förkonfigurerade lösningar. Dessa förkonfigurerade lösningar kan du komma igång snabbt med slutpunkt till slutpunkt-implementeringar av vanliga IoT-scenarier. Mer information finns i [vad är Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>iothub explorer
-Den [iothub explorer](https://github.com/azure/iothub-explorer) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera dina enheter i den [identitetsregistret](#identity-registry), skicka och motta meddelanden och filer från dina enheter och övervaka dina IoT hub-åtgärder.
+## <a name="the-iot-extension-for-azure-cli-20"></a>IoT-tillägget för Azure CLI 2.0
+[IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) är en plattformsoberoende, kommandorads-verktyget. Verktyget gör det möjligt att hantera dina enheter i den [identitetsregistret](#identity-registry), skicka och motta meddelanden och filer från dina enheter och övervaka dina IoT hub-åtgärder.
 
 ## <a name="job"></a>Jobb
 Din lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att schemalägga och spåra aktiviteter i en uppsättning enheter som registrerats med IoT-hubben. Aktiviteter omfattar uppdatera enheten dubbla [önskade egenskaper](#desired-properties), uppdaterar enheten dubbla [taggar](#tags), och anropar [direkt metoder](#direct-method). [IoT-hubb](#iot-hub) använder också jobb till [att importera och exportera](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) från den [identitetsregistret](#identity-registry).

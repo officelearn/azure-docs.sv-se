@@ -6,19 +6,18 @@ documentationcenter:
 author: brjohnstmsft
 manager: pablocas
 editor: 
-ms.assetid: 0458053a-164e-4682-a802-00097ecde981
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/11/2017
+ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 4b4cb2d168676d52a90942a116905e6669b16639
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a7f5b9c53d3258e5f8eda40401c61a85971d8c7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="api-versions-in-azure-search"></a>API-versioner i Azure Search
 Azure Search samlar funktionen uppdateras regelbundet. Ibland, men inte alltid kräver dessa uppdateringar oss att publicera en ny version av våra API för att bevara bakåtkompatibilitet. En ny version kan du styra hur och när du integrerar tjänstuppdateringar för sökning i koden.
@@ -38,8 +37,8 @@ Nedan en ögonblicksbild av de aktuella versionerna av alla programmeringsgräns
 | [.NET SDK](https://aka.ms/search-sdk) |3.0 |Allmänt tillgänglig, publicerat November 2016 |
 | [Förhandsversion av .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Förhandsgranskning, publicerat maj 2017 |
 | [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Allmänt tillgänglig |
-| [Tjänsten REST API-förhandsgranskning](search-api-2016-09-01-preview.md) |2016-09-01-preview |Förhandsversion |
-| [Hantering av .NET SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Allmänt tillgänglig |
+| [Tjänsten REST API-förhandsgranskning](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Förhandsversion |
+| [Hantering av .NET SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Allmänt tillgänglig |
 | [REST API för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Allmänt tillgänglig |
 
 För REST API: erna, inklusive den `api-version` på varje anrop krävs. Detta gör det enkelt att fokusera på en viss version, till exempel en förhandsgranskning API. Följande exempel visar hur `api-version` parameter har angetts:

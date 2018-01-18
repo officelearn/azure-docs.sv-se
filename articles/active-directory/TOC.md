@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Azure Active Directory?](active-directory-whatis.md)
 ## [Om Azures identitetshantering](identity-fundamentals.md)
 ## [Förstå Azure-identitetslösningar](understand-azure-identity-solutions.md)
@@ -284,10 +285,11 @@
 ### [Villkorlig åtkomst](active-directory-conditional-access-azure-portal.md)
 #### [Kontroller](active-directory-conditional-access-controls.md)
 #### [Platsvillkor](active-directory-conditional-access-locations.md)
-#### [Komma igång](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kom igång](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Bästa praxis](active-directory-conditional-access-best-practices.md)
 #### [Förstå enhetsprinciper för Office 365-tjänster](active-directory-conditional-access-device-policies.md)
 #### [Migrera klassiska principer](active-directory-conditional-access-migration.md)
+#### [Konsekvensverktyg](active-directory-conditional-access-whatif.md)
 #### Uppgifter
 ##### [Migrera en klassisk MFA-princip](active-directory-conditional-access-migration-mfa.md)
 ##### [Konfigurera enhetsbaserad villkorlig åtkomst](active-directory-conditional-access-policy-connected-applications.md)
@@ -305,7 +307,7 @@
 ### Certifikatbaserad autentisering
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Komma igång](active-directory-certificate-based-authentication-get-started.md)
+#### [Kom igång](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Aktivera](active-directory-identityprotection-enable.md)

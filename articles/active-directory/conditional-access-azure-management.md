@@ -3,7 +3,7 @@ title: "Hantera åtkomst till Azure-hantering med villkorlig åtkomst i Azure Ac
 description: "Lär dig mer om hur du använder villkorlig åtkomst i Azure AD för att hantera åtkomst till Azure-hantering."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: bryanla
 ms.assetid: 0adc8b11-884e-476c-8c43-84f9bf12a34b
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2017
 ms.author: skwan
-ms.openlocfilehash: 6b5ca97c0a6360a250bc3e91f6a8ece179a7725f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22d0e53c201853e2c316089479ffbd4d9e5d92be
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
 
@@ -30,7 +30,7 @@ Om du vill skapa en princip för hantering av Azure kan du välja **Microsoft Az
 
 ![Villkorlig åtkomst för hantering av Azure](./media/conditional-access-azure-mgmt.png)
 
-Den princip som du skapar gäller för alla slutpunkter i Azure-hantering, inklusive klassiska Azure-portalen, Azure-portalen, Azure Resource Manager-providern, klassiska Service Management API: er och PowerShell.
+Den princip som du skapar gäller för alla slutpunkter i Azure-hantering, inklusive klassiska Azure-portalen, Azure-portalen, Azure Resource Manager-providern, klassiska Service Management API: er och Azure PowerShell.
 
 > [!CAUTION]
 > Kontrollera att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för att hantera åtkomst till Azure-hantering. Kontrollera att du inte skapa villkor som kan blockera egna åtkomst till portalen.

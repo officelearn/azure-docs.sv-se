@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: dobett
-ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens - IoT-hubb kvoter och begränsning
 
@@ -37,16 +37,18 @@ I följande tabell visas de tvingande begränsas. Värden finns i en enskild hub
 | Begränsning | Ledigt och S1 NAV | S2-hubbar | S3-hubbar | 
 | -------- | ------- | ------- | ------- |
 | Identitet registret åtgärder (skapa, hämta, visa, uppdatera, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
-| Enhetsanslutningar | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
-| Sändningar enhet-till-moln | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sek/enhet | 6000/sek/enhet |
+| Enhetsanslutningar | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sec/unit | 6000/sec/unit |
+| Sändningar enhet-till-moln | Högre 100 per sekund eller enhet-12/sek <br/> Till exempel två S1 enheter är 2\*12 = 24/sek, men du har minst 100 per sekund på dina enheter. Med nio S1 enheter, har du 108 per sekund (9\*12) över dina enheter. | 120/sec/unit | 6000/sec/unit |
 | Sändningar moln-till-enhet | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
 | Mottagningar moln-till-enhet <br/> (endast när enheten använder HTTPS)| 16.67/sec/Unit (1000/min/unit) | 16.67/sec/Unit (1000/min/unit) | 833.33/sec/Unit (unit-50000/min) |
-| Ladda upp filen | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 83.33 filen överför meddelanden/sek/enhet (unit-5000/min) |
-| Direkta metoder | 20/SEK/enhet | a-60/SEK | 3000/sek/enhet | 
-| Läsoperationer för enhetstvilling | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
-| Uppdateringar för enhetstvilling | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
+| Filuppladdning | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 1.67 filen överför meddelanden/sek/enhet (unit/100/min) | 83.33 filen överför meddelanden/sek/enhet (unit-5000/min) |
+| Direkta metoder | Enhet-160KB/sek<sup>1</sup> | 480KB/sek/enhet<sup>1</sup> | 24MB/sek/enhet<sup>1</sup> | 
+| Läsoperationer för enhetstvilling | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
+| Uppdateringar för enhetstvilling | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (unit-100/min) | 1.67/sec/Unit (unit-100/min) | 83.33/sec/Unit (unit-5000/min) |
-| Jobb per enhetsåtgärd, dataflöde | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sek/enhet |
+| Jobb per enhetsåtgärd, dataflöde | 10 per sekund | Högre 10 per sekund eller 1/sek/enhet | 50/sec/unit |
+
+<sup>1</sup>begränsning mätaren storlek är 8 KB
 
 Det är viktigt att tydliggöra att den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* begränsning inte styr det maximala antalet samtidigt anslutna enheter. Begränsningen beror på antalet enheter som tillhandahålls för IoT-hubb.
 
@@ -75,6 +77,7 @@ IoT-hubb tillämpar andra begränsningar:
 | Meddelanden enhet till moln | Maximal meddelandestorlek på 256 KB |
 | Meddelanden moln till enhet | Maximal meddelandestorlek 64 KB |
 | Meddelanden moln till enhet | Maximalt antal väntande meddelanden för leverans är 50 |
+| Direkt metod | Maximal direkta metoden nyttolastens storlek är 128KB |
 
 > [!NOTE]
 > Det maximala antalet enheter som du kan ansluta till en enda IoT-hubben är för närvarande 500 000. Om du vill höja denna gräns Kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/).

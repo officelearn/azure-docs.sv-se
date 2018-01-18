@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: e2e9d93af3889714ade1d0364a6f747c184e6d75
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure-stacken
 
@@ -32,15 +32,36 @@ Huvudkortshanteringskontroller (BMC) övervaka det fysiska tillståndet för din
 
 1. Uppdatera bmc-Styrenheten på fysiska servrar för Azure-stacken genom att följa OEM-instruktioner. Lösenord för varje BMC i din miljö måste vara samma.
 2. Öppna en privilegierad slutpunkt i Azure Stack-sessioner. Anvisningar finns i avsnittet [med Privilegierade slutpunkten i Azure-stacken](azure-stack-privileged-endpoint.md).
-3. När din PowerShell prompten har ändrats till **[IP-adress eller ERCS VM name]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön, kör `Set-BmcPassword` genom att köra `invoke-command`. Skicka dina Privilegierade endpoint sessionsvariabeln som en parameter.  
-Exempel:
+3. När din PowerShell prompten har ändrats till **[IP-adress eller ERCS VM name]: PS >** eller **[azs ercs01]: PS >**, beroende på miljön, kör `Set-BmcPassword` genom att köra `invoke-command`. Skicka dina Privilegierade endpoint sessionsvariabeln som en parameter. Exempel:
+
     ```powershell
-    $PEPSession = New-PSSession -ComputerName <ERCS computer name> -Credential <CloudAdmin credential> -ConfigurationName "PrivilegedEndpoint"  
-    
+    # Interactive Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        param($password)
-        set-bmcpassword -bmcpassword $password
-    } -ArgumentList (<LatestPassword as a SecureString>) 
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
+    ```
+    
+    Du kan också använda statiska PowerShell-version med lösenord som kodraderna:
+    
+    ```powershell
+    # Static Version
+    $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
+    $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+
+    $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
+
+    Invoke-Command -Session $PEPSession -ScriptBlock {
+        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+    }
     ```
 
 ## <a name="next-steps"></a>Nästa steg

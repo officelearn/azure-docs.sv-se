@@ -3,7 +3,7 @@ title: "Skydda din Azure IoT-lösning från grunden in | Microsoft Docs"
 description: "Hur du använder de inbyggda säkerhetsfunktionerna i Microsoft Azure IoT Hub och Suite."
 services: iot-hub
 documentationcenter: 
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
-ms.author: yurid
-ms.openlocfilehash: 5966c2b2a84892a91a6d8a5f18d00e326329e403
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.date: 01/17/2018
+ms.author: dobett
+ms.openlocfilehash: ea9baf61b1335a6240c13c841e41bd7e4346fa6c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 Mer information om hur du skyddar IoT-lösningen finns:
 
 * [IoT-säkerhetsmetoder][lnk-security-best-practices]
@@ -31,7 +31,7 @@ Mer information om hur du skyddar IoT-lösningen finns:
 
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md

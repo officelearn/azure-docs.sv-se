@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Vad är Azure IoT Suite?
 
@@ -62,7 +62,7 @@ Följande tabell visar hur lösningarna mappar till specifika IoT-funktioner:
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Fjärrövervakning](iot-suite-remote-monitoring-explore.md)  |Ja |Ja |Ja |-   |Ja |Ja |-   |
 | [Förebyggande underhåll](iot-suite-predictive-overview.md)   |Ja |Ja |-   |-   |Ja |Ja |Ja |
-| [Ansluten fabrik](iot-suite-connected-factory-overview.md) |Ja |Ja |Ja |Ja |Ja |Ja |-   |
+| [Ansluten fabrik](iot-suite-connected-factory-overview.md) |Ja |- |- |Ja |Ja |Ja |-   |
 
 * *Datainhämtning*: Inhämtning av data till molnet i hög skala.
 * *Enhetsidentitet*: Hantera unika enhetsidentiteter och kontrollera enhetsåtkomst till lösningen.
@@ -83,11 +83,11 @@ När du distribuerar en förkonfigurerad lösning konfigurerar etableringsproces
 | IoT Hub              | Ja                |                        | Ja               |
 | Händelsehubbar           |                    | Ja                    |                   |
 | Time Series Insights |                    |                        | Ja               |
-| Container Services   | Ja                |                        | Ja               |
+| Container Services   | Ja                |                        |                   |
 | Stream Analytics     |                    | Ja                    |                   |
 | Web Apps             | Ja                | Ja                    | Ja               |
-| Cosmos DB            | Ja                | Ja                    | Ja               |
-| Azure-tabeller         |                    | Ja                    | Ja               |
+| Cosmos DB            | Ja                | Ja                    |                    |
+| Azure Storage         |                    | Ja                    | Ja               |
 
 > [!NOTE]
 > Mer information om resurser som har distribuerats i den förkonfigurerade lösningen för fjärrövervakning finns i den här [artikeln](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) på GitHub.

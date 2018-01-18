@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 39129572ac9908429dc9b9ef64930e896afc355f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure-portalen
 
@@ -36,7 +36,7 @@ Med en VPN-gateway med P2S-konfiguration (punkt-till-plats) kan du skapa en säk
 
 Anslutande klienter kan använda följande autentiseringsmetoder:
 
-* RADIUS-server – för närvarande i förhandsversion
+* RADIUS-server
 * Intern Azure-certifikatautentisering med VPN-gateway
 
 Den här artikeln beskriver hur du konfigurerar en P2S-konfiguration med autentisering med hjälp av Azures interna certifikatautentisering. Om du vill använda RADIUS för att autentisera användare som ansluter läser du [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S med RADIUS-autentisering).
@@ -47,7 +47,7 @@ Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig I
 
 * SSTP är en SSL-baserad VPN-tunnel som endast stöds på Windows-klientplattformar. Den kan ta sig förbi brandväggar, vilket gör den till ett utmärkt alternativ för att ansluta till Azure var som helst. På serversidan stöder vi SSTP version 1.0, 1.1 och 1.2. Klienten avgör vilken version som ska användas. För Windows 8.1 och senare, använder SSTP version 1.2 som standard.
 
-* IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare). IKEv2 finns för närvarande i en förhandsversion.
+* IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 
 Punkt-till-plats-anslutningar med intern Azure-certifikatautentisering kräver följande:
 
@@ -139,7 +139,7 @@ När gatewayen har skapats laddar du upp informationen om den offentliga nyckeln
 
 Om du vill skapa en P2S-anslutning från en annan klientdator än den som du använde för att generera klientcertifikat, måste du installera ett klientcertifikat. När du installerar ett klientcertifikat behöver du lösenordet som skapades när klientcertifikatet exporterades.
 
-Kontrollera att klientcertifikatet har exporterats som PFX-fil tillsammans med hela certifikatkedjan (standardinställningen). I annat fall finns inte rotcertifikatuppgifterna på klientdatorn och klienten kan inte autentiseras. 
+Kontrollera att klientcertifikatet har exporterats som PFX-fil tillsammans med hela certifikatkedjan (standardinställningen). I annat fall finns inte rotcertifikatuppgifterna på klientdatorn och klienten kan inte autentiseras.
 
 Installationsanvisningar finns i [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Installera ett klientcertifikat).
 

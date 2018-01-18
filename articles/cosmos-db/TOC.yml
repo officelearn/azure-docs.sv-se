@@ -1,6 +1,6 @@
 - name: Dokumentation om Cosmos DB
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure Cosmos DB
       href: introduction.md
@@ -235,8 +235,6 @@
               items:
                 - name: Facit för SQL-grammatik
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stack Overflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Videoklipp
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Tjänstuppdateringar
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Förklaring av datakonsekvens med hjälp av baseboll
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

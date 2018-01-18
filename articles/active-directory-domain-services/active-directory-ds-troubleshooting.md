@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - guide för felsökning
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera Azure Active Directory (AD) Domain Services.
@@ -111,7 +111,7 @@ if ($sp -ne $null)
 ```
 <br>
 
-### <a name="microsoft-graph-disabled"></a>Microsoft Graph inaktiverad
+### <a name="microsoft-graph-disabled"></a>Microsoft Graph disabled
 **Ett felmeddelande visas:**
 
 Det gick inte att aktivera Domain Services i Azure AD-klient. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med 00000002-0000-0000-c000-000000000000 för program-ID och försök sedan att aktivera Domain Services för din Azure AD-klient.
@@ -121,6 +121,7 @@ Det gick inte att aktivera Domain Services i Azure AD-klient. Programmet Microso
 Kontrollera om du har inaktiverat ett program med identifierare 00000002-0000-0000-c000-000000000000. Det här programmet är Microsoft Azure AD-program och ger Graph API-åtkomst till Azure AD-klienten. Azure AD Domain Services måste det här programmet måste vara aktiverat för att synkronisera din Azure AD-klient till din hanterade domän.
 
 Aktivera det här programmet och försök sedan att aktivera Domain Services för din Azure AD-klient för att lösa det här felet.
+
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Användarna kan inte logga in på den hanterade domänen för Azure AD Domain Services
 Om en eller flera användare i Azure AD-klienten inte kan logga in på den nyligen skapade hanterade domänen, utför du följande felsökningssteg:
@@ -141,9 +142,13 @@ Om en eller flera användare i Azure AD-klienten inte kan logga in på den nylig
   * Beroende på storleken på din katalog kan det ta en stund för användarkonton och autentiseringsuppgifter hash-värden ska vara tillgängliga i Azure AD Domain Services. Se till att du vänta tillräckligt länge innan du försöker autentisering.
   * Om problemet kvarstår efter verifiering av ovanstående steg kan du prova att starta om tjänsten Microsoft Azure AD Sync. Starta en kommandotolk och kör följande kommandon från datorn synkronisering:
 
-    1. net stop ”Microsoft Azure AD Sync'
+    1. net stop 'Microsoft Azure AD Sync'
     2. net start ”Microsoft Azure AD Sync'
 * **Endast molnbaserad konton**: om berörda användarkontot är en molnbaserad användarkonto, ska du kontrollera att användaren har ändrat sitt lösenord när du har aktiverat Azure AD Domain Services. Det här steget gör att de autentiseringshashvärden som krävs för Azure AD Domain Services genereras.
+
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Det finns en eller flera aviseringar på din hanterade domän
+
+Se hur du löser aviseringar på din hanterade domän genom att besöka den [felsöka aviseringar](active-directory-ds-troubleshoot-alerts.md) artikel.
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Användare har tagits bort från Azure AD-klienten tas inte bort från din hanterade domän
 Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar bort ett användarkonto från Azure AD-klienten flyttas motsvarande användarobjekt till papperskorgen. När den här åtgärden synkroniseras till din hanterade domän gör motsvarande användarkonto markeras som inaktiverade. Den här funktionen hjälper dig att återställa eller ångra borttagning användarkontot senare.
@@ -151,6 +156,7 @@ Azure AD skyddar dig mot oavsiktlig borttagning av användarobjekt. När du tar 
 Användarkontot förblir inaktiverad i din hanterade domän, även om du återskapa ett användarkonto med samma UPN i Azure AD-katalogen. Om du vill ta bort användarkontot från den Hantera domänen måste framtvingar ta bort det från din Azure AD-klient.
 
 Om du vill ta bort användarkontot helt från din hanterade domän, ta bort användaren permanent från Azure AD-klienten. Använd den `Remove-MsolUser` PowerShell-cmdlet med den `-RemoveFromRecycleBin` alternativ, enligt beskrivningen i det här [MSDN-artikel](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Kontakta oss
 Kontakta produktteamet Azure Active Directory Domain Services för att [dela feedback eller support](active-directory-ds-contact-us.md).

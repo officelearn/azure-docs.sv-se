@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos-databasen med verktyg för analys av BI med ODBC-drivrutin
 
@@ -38,9 +38,11 @@ Nu kan komma igång med ODBC-drivrutinen.
 
 1. Hämta drivrutiner för din miljö:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) för 64-bitars Windows
-    * [Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) för 32-bitars på Windows 64-bitars
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) för 32-bitars Windows
+    | Installer | Operativsystem som stöds| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) för 64-bitars Windows| 64-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) för 32-bitars på Windows 64-bitars| 64-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 och Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) för 32-bitars Windows|32-bitars versioner av Windows 8.1 eller senare, Windows 8, Windows 7, Windows XP och Windows Vista.|
 
     Kör msi-filen lokalt, som startar den **installationsguiden för Microsoft Azure Cosmos DB ODBC-drivrutinen**. 
 2. Slutför guiden med standardinställningarna som indata för att installera ODBC-drivrutinen.
@@ -58,16 +60,16 @@ Nu kan komma igång med ODBC-drivrutinen.
     ![Azure Cosmos DB ODBC-drivrutinen DSN inställningsfönstret](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Namn på datakälla**: egna eget namn för ODBC DSN. Det här namnet är unikt för ditt Azure DB som Cosmos-konto, så namnet på lämpligt sätt om du har flera konton.
     - **Beskrivning**: en kort beskrivning av datakällan.
-    - **Värden**: URI för Azure DB som Cosmos-konto. Du kan hämta det från bladet Azure Cosmos DB nycklar i Azure-portalen som visas i följande skärmbild. 
-    - **Snabbtangent**: primär eller sekundär, skrivskyddad eller skrivskyddad nyckeln från bladet Azure Cosmos DB nycklar i Azure-portalen som visas i följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddade databehandling och rapportering.
-    ![Azure DB-nycklar för Cosmos-bladet](./media/odbc-driver/odbc-driver-keys.png)
+    - **Värden**: URI för Azure DB som Cosmos-konto. Du kan hämta det från sidan Azure Cosmos DB nycklar i Azure-portalen som visas i följande skärmbild. 
+    - **Snabbtangent**: den primära eller sekundära, skrivskyddad eller skrivskyddad nyckeln från Azure Cosmos DB nycklar sidan i Azure-portalen som visas i följande skärmbild. Vi rekommenderar att du använder den skrivskyddade nyckeln om DSN används för skrivskyddade databehandling och rapportering.
+    ![Azure DB-nycklar för Cosmos-sida](./media/odbc-driver/odbc-driver-keys.png)
     - **Kryptera åtkomstnyckeln för**: Välj det bästa valet baserat på användare för den här datorn. 
 4. Klicka på den **Test** för att kontrollera att du kan ansluta till ditt konto i Azure Cosmos DB. 
 5. Klicka på **avancerade alternativ** och ange följande värden:
     - **Fråga konsekvenskontroll**: Välj den [konsekvensnivå](consistency-levels.md) för din verksamhet. Standardvärdet är Session.
     - **Antal återförsök**: Ange hur många gånger ska försöka utföra en åtgärd om den ursprungliga begäranden inte slutföras på grund av begränsning av tjänsten.
     - **Schemafilen**: du har ett antal alternativ här.
-        - Som standard, lämnar den här posten är (tom) söker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas samlingen mappning. Drivrutinen har att utföra sökningen för varje drivrutin session utan en schemafilen som definierats och kan resultera i en senare tid för ett program med hjälp av DSN att starta. Vi rekommenderar att du alltid associerar en schemafil för en Datakälla.
+        - Som standard, lämnar den här posten är (tom) söker drivrutinen första sidan data för alla samlingar att fastställa schemat för varje samling. Detta kallas samlingen mappning. Drivrutinen har att utföra sökningen för varje drivrutin session utan en schemafilen som definierats och kan resultera i en högre starttiden för ett program med hjälp av DSN. Vi rekommenderar att du alltid associerar en schemafil för en Datakälla.
         - Om du redan har en schemafilen (eventuellt en som du skapat med hjälp av [schemat redigeraren](#schema-editor)), kan du klicka på **Bläddra**, navigera till filen, klicka på **spara**, och klicka sedan på **OK**.
         - Om du vill skapa ett nytt schema, klickar du på **OK**, och klicka sedan på **schemat Editor** i huvudfönstret. Gå sedan vidare till den [schemat Editor](#schema-editor) information. När du skapar den nya schemafilen, Kom ihåg att gå tillbaka till den **avancerade alternativ** fönstret ska omfatta schemafilen nyligen skapade.
 
@@ -148,4 +150,4 @@ Om du får följande fel, se till att den **värden** och **åtkomstnyckeln** v�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Cosmos DB i [vad är Azure Cosmos DB?](introduction.md).
+Läs mer om Azure Cosmos DB i [Välkommen till Azure Cosmos DB](introduction.md).

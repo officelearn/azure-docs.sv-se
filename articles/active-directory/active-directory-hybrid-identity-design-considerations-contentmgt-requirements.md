@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - fastställa kraven för innehållshantering | Microsoft Docs"
+title: "Identitet hybridutformning - krav för innehållshantering Azure | Microsoft Docs"
 description: "Ger kunskaper om hur du fastställer kraven för innehållshantering i ditt företag. Vanligtvis kanske när en användare har sin egen enhet han också flera autentiseringsuppgifter som ska alternerande enligt det program som han använder. Det är viktigt att skilja mellan vilka innehållet har skapats med hjälp av personliga autentiseringsuppgifter jämfört med de som skapas med företagets autentiseringsuppgifter. Identitetslösning bör kunna interagera med cloud services och ger en sömlös upplevelse för slutanvändaren när säkerställa sina sekretess och ökar skyddet mot dataläckage."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Ange krav för innehållshantering för din hybrididentitetslösning
 Förstå kraven för innehållshantering för ditt företag kan direkt påverka ditt beslut om vilken hybrididentitetslösning som ska användas. Med den ökande mängden av flera enheter och göra att användare kan ha sina egna enheter ([BYOD](http://aka.ms/byodcg)), måste företaget skydda egna data men den måste behålla användarens integritet intakta. Vanligtvis kanske när en användare har sin egen enhet han också flera autentiseringsuppgifter som ska alternerande enligt det program som han använder. Det är viktigt att skilja mellan vilka innehållet har skapats med hjälp av personliga autentiseringsuppgifter jämfört med de som skapas med företagets autentiseringsuppgifter. Identitetslösning bör kunna interagera med cloud services och ger en sömlös upplevelse för slutanvändaren när säkerställa sina sekretess och ökar skyddet mot dataläckage. 

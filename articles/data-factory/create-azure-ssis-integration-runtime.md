@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integrering körning i Azure Data Factory
 Den här artikeln innehåller steg för att etablera en Azure-SSIS-integrering körning i Azure Data Factory. Sedan kan du använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera SQL Server Integration Services-paket (SSIS) till den här körningen i Azure.
@@ -44,7 +44,7 @@ Konceptuell information om att ansluta en Azure-SSIS-IR till ett virtuellt nätv
 > [!NOTE]
 > En lista över regioner som stöds av Azure Data Factory V2 och Azure-SSIS Integration Runtime finns i [Tillgängliga produkter efter region](https://azure.microsoft.com/regions/services/). Expandera **Data och analys** för att se **Data Factory V2** och **SSIS Integration Runtime**.
 
-## <a name="use-azure-portal"></a>Använd Azure Portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -142,7 +142,7 @@ Konceptuell information om att ansluta en Azure-SSIS-IR till ett virtuellt nätv
     ![Ange vilken typ av integrering runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Finns det [etablera ett Azure SSIS-integrering runtime](#provision-an-azure-ssis-integration-runtime) för de återstående steg om du vill konfigurera en Azure-SSIS-IR.
 
-## <a name="use-azure-powershell"></a>Använda Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="create-variables"></a>Skapa variabler
 Definiera variabler för användning i skripten i den här självstudien:
@@ -411,7 +411,69 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
+Du kan använda en Azure Resource Manager-mall för att skapa en Azure-SSIS-integrering körning. Här är en exempel-genomgång: 
 
+1. Skapa en JSON-fil med hjälp av följande Resource Manager-mallen. Ersätt värdena i vinkelparenteser (platshållare) med egna värden. 
+
+    ```json
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }
+    ```
+2. Om du vill distribuera Resource Manager-mallen, kör du kommandot New AzureRmResourceGroupDeployment enligt följande exmaple. I det här exemplet är ADFTutorialResourceGroup namnet på resursgruppen. ADFTutorialARM.json är den fil som innehåller en JSON-definition för data factory och Azure-SSIS-IR. 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    Det här kommandot skapar datafabriken och skapar en Azure-SSIS-IR i den, men den startar inte IR. 
+3. Om du vill starta Azure-SSIS-IR, kör du kommandot Start-AzureRmDataFactoryV2IntegrationRuntime: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## <a name="deploy-ssis-packages"></a>Distribuera SSIS-paket
 Använd nu SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera dina SSIS-paket till Azure. Anslut till Azure SQL-servern som är värd för SSIS-katalogen (SSISDB). Namnet på Azure SQL-servern är i formatet: &lt;servername&gt;.database.windows.net (för Azure SQL Database). I artikeln om att [distribuera paket](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) finns det instruktioner. 

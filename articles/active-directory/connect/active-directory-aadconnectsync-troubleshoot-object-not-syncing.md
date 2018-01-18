@@ -3,7 +3,7 @@ title: "Felsökning av ett objekt som inte synkroniseras med Azure AD | Microsof
 description: "Felsöka anledningen till ett objekt inte synkroniseras med Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Felsökning av ett objekt som inte synkroniseras med Azure AD
 
@@ -34,7 +34,7 @@ Starta [Synchronization Service Manager](active-directory-aadconnectsync-service
 
 ## <a name="operations"></a>Åtgärder
 Fliken åtgärder i hanteraren för synkroniseringstjänsten är där du ska starta felsökningen. Fliken åtgärder visar resultaten från de senaste åtgärderna.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
 Den övre delen visar alla kör kronisk. Som standard åtgärderna logga behåller information om de senaste sju dagarna, men den här inställningen kan ändras med den [scheduler](active-directory-aadconnectsync-feature-scheduler.md). Du vill söka efter alla kör som inte visar statusen lyckades. Du kan ändra sortering genom att klicka på rubrikerna.
 
@@ -42,8 +42,8 @@ Den **Status** kolumnen är den viktigaste informationen och visar de svåraste 
 
 | Status | Kommentera |
 | --- | --- |
-| Stoppad-* |Kör kunde inte slutföras. Till exempel om fjärrdatorn är igång och kan inte kontaktas. |
-| stoppats felgränsen |Det finns fler än 5 000 fel. Kör har automatiskt stoppats på grund av det stora antalet fel. |
+| stopped-* |Kör kunde inte slutföras. Till exempel om fjärrdatorn är igång och kan inte kontaktas. |
+| stopped-error-limit |Det finns fler än 5 000 fel. Kör har automatiskt stoppats på grund av det stora antalet fel. |
 | slutförda -\*-fel |Kör slutfördes, men det finns fel (färre än 5 000) som bör undersökas. |
 | slutförda -\*-varningar |Kör slutfördes, men vissa data är inte i det förväntade tillståndet. Om du har fel sedan är det här meddelandet vanligtvis bara ett symtom. Du bör inte undersöka varningar förrän du har åtgärdat felen. |
 | lyckades |Inga problem. |
@@ -51,7 +51,7 @@ Den **Status** kolumnen är den viktigaste informationen och visar de svåraste 
 När du har valt en rad uppdateras längst ned om du vill visa detaljer för som kör. Du kanske har en lista som säger att längst till vänster i längst ned, **steg #**. Den här listan visas bara om du har flera domäner i skogen där varje domän som representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under **Synkroniseringsstatistik**, du kan hitta mer information om antalet ändringar som har bearbetats. Du kan klicka på länkarna för att hämta en lista över de ändrade objekt. Om du har objekt med fel felen visas **synkroniseringsfel**.
 
 ### <a name="troubleshoot-errors-in-operations-tab"></a>Felsöka i fliken åtgärder
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorsync.png)  
 När du har fel är båda objektet i fel och den själva länkar som ger mer information.
 
 Starta genom att klicka på felsträngen (**sync regeln-fel-funktionen-utlöst** i bilden). Först visas en översikt över objektet. Klicka på knappen för att se de faktiska fel **stackspårning**. Den här spårningen ger debug nivån information om felet.
@@ -59,7 +59,7 @@ Starta genom att klicka på felsträngen (**sync regeln-fel-funktionen-utlöst**
 Du kan högerklicka på den **information för anropsstacken** väljer **Markera alla**, och **kopiera**. Du kan kopiera stacken och titta på fel i din favorit redigerare, t.ex Anteckningar.
 
 * Om felet är från **SyncRulesEngine**, och sedan Stackinformation anropet har först en lista över alla attribut för objektet. Bläddra nedåt tills du ser rubriken **InnerException = >**.  
-  ![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
+  ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
   Rad efter visar felet. Felet är från en anpassad Sync regeln Fabrikam som skapats i bilden ovan.
 
 Om felet själva inte ger tillräckligt med information, är det dags att titta på själva informationen. Du kan klicka på länken med objekt-ID och fortsätta felsökningen av [connector utrymme importerade objektet](#cs-import).
@@ -93,7 +93,7 @@ Den **synkroniseringsfel** visas endast om det är problem med objektet. Mer inf
 Fliken härkomst visar hur utrymme kopplingsobjektet är relaterad till metaversum-objekt. Du kan se när anslutningen importeras senast en ändring från det anslutna systemet och vilka regler som används för att fylla i data i metaversum.  
 ![CS härkomst](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineage.png)  
 I den **åtgärd** kolumn och, du kan se en **inkommande** synkroniseringsregel med åtgärden **etablera**. Värde som anger så länge objektet connector utrymme finns kvar metaversum-objekt. Om listan över regler för synkronisering i stället visas en synkroniseringsregel med riktning **utgående** och **etablera**, indikerar det att objektet tas bort när metaversumobjekt tas bort.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 Du kan också se i den **PasswordSync** som inkommande anslutningsplatsen kan bidra ändras till lösenordet eftersom en synkroniseringsregel har värdet **SANT**. Det här lösenordet skickas sedan till Azure AD via den utgående regeln.
 
 På fliken härkomst kan du få till metaversum genom att klicka på [metaversum objektegenskaper](#mv-attributes).
@@ -102,9 +102,9 @@ Längst ned i alla flikar finns två knappar: **Preview** och **loggen**.
 
 ### <a name="preview"></a>Förhandsversion
 Sidan för förhandsgranskning används för att synkronisera ett enda objekt. Det är användbart om du felsöker vissa regler för synkronisering av anpassade och vill se effekten av en ändring i ett enda objekt. Du kan välja mellan **fullständig synkronisering** och **Deltasynkronisering**. Du kan också välja mellan **Generera förhandsgranskning**, som endast behålls ändringen i minnet, och **genomför Preview**, som uppdateras metaversum och skapar etapper alla ändringar till mål-kopplingens utrymmen.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 Du kan inspektera objektet och vilken regel tillämpas för en viss attributflöde.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>Logga
 Sidan logg används för att se status för synkronisering av lösenord och historik. Mer information finns i [Felsöka Lösenordssynkronisering](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
@@ -114,7 +114,7 @@ Det är oftast bättre att börja sökningen från Active Directory-källan [ans
 
 ### <a name="search-for-an-object-in-the-mv"></a>Sök efter ett objekt i MV
 I **Synchronization Service Manager**, klickar du på **metaversumsökningen**. Skapa en fråga som du vet hittar användaren. Du kan söka efter vanliga attribut, till exempel accountName (SAM) och userPrincipalName. Mer information finns i [metaversumsökningen](active-directory-aadconnectsync-service-manager-ui-mvsearch.md).
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvsearch.png)  
 
 I den **sökresultat** fönstret klickar du på objektet.
 
@@ -122,7 +122,7 @@ Om du inte kan hitta objektet, har sedan den ännu inte nått metaversum. Forts�
 
 ### <a name="mv-attributes"></a>MV-attribut
 Du kan se värdena och vilka Connector bidragit den på fliken attribut.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvobject.png)  
 
 Om ett objekt inte synkroniserar titta på följande attribut i metaversum:
 - Är attributet **cloudFiltered** finns och ange **SANT**? Om det är sedan det har filtrerats enligt stegen i [attributet baserat filtrering](active-directory-aadconnectsync-configure-filtering.md#attribute-based-filtering).
@@ -130,7 +130,7 @@ Om ett objekt inte synkroniserar titta på följande attribut i metaversum:
 
 ### <a name="mv-connectors"></a>MV-kopplingar
 Fliken kopplingar visar alla kopplingens utrymmen som har en representation av objektet.  
-![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
+![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/mvconnectors.png)  
 Du bör ha en koppling till:
 
 - Varje Active Directory-skog användaren representeras i. Detta kan inkludera foreignSecurityPrincipals och kontaktobjekt.

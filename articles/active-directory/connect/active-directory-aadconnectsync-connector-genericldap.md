@@ -3,7 +3,7 @@ title: "Allmän LDAP Connector | Microsoft Docs"
 description: "Den här artikeln beskriver hur du konfigurerar Microsofts allmän LDAP Connector."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fe8db8f2a2412a3dfdf31201678c51e4fa0cee30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e2b7d23162673f0c66b1fd6c654336da42b8f6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Teknisk referens för allmän LDAP Connector
 Den här artikeln beskriver allmän LDAP Connector. Artikeln gäller för följande produkter:
@@ -41,7 +41,7 @@ Följande funktioner stöds av den aktuella versionen av kopplingen ur på hög 
 
 | Funktion | Support |
 | --- | --- |
-| Anslutna datakällan |Anslutningen stöds för alla LDAP v3-servrar (RFC 4510-kompatibel). Den har testats med följande: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory-katalogen (AD GC)</li><li>389 katalogserver</li><li>Apache katalogserver</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Öppna DJ</li><li>Öppna DS</li><li>Öppna LDAP (openldap.org)</li><li>Oracle (tidigare Sun) Directory Server Enterprise Edition</li><li>RadiantOne virtuell katalog-Server (VDS)</li><li>Sun en katalogserver</li>**Viktiga kataloger som inte stöds:** <li>Microsoft Active Directory Domain Services (AD DS) [Använd den inbyggda Active Directory-koppling i stället]</li><li>Oracle Internet-katalog (OID)</li> |
+| Anslutna datakällan |Anslutningen stöds för alla LDAP v3-servrar (RFC 4510-kompatibel). Den har testats med följande: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory-katalogen (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Öppna DJ</li><li>Öppna DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (tidigare Sun) Directory Server Enterprise Edition</li><li>RadiantOne virtuell katalog-Server (VDS)</li><li>Sun en katalogserver</li>**Viktiga kataloger som inte stöds:** <li>Microsoft Active Directory Domain Services (AD DS) [Använd den inbyggda Active Directory-koppling i stället]</li><li>Oracle Internet-katalog (OID)</li> |
 | Scenarier |<li>Livscykelhantering för objektet</li><li>Grupphantering</li><li>Lösenordshantering</li> |
 | Åtgärder |Följande åtgärder stöds på alla LDAP-kataloger: <li>Fullständig Import</li><li>Exportera</li>Följande åtgärder stöds bara på angivna kataloger:<li>Deltaimport</li><li>Ange lösenord, ändra lösenord</li> |
 | Schema |<li>Schemat har upptäckts från LDAP-schema (RFC3673 och RFC4512/4.2)</li><li>Stöder strukturella klasser, aux klasser och extensibleObject object-klassen (RFC4512/4.3)</li> |
@@ -55,10 +55,10 @@ Kataloger som stöds för Deltaimport och lösenordshantering:
 * Microsoft Active Directory-katalogen (AD GC)
   * Har stöd för alla åtgärder för Deltaimport
   * Stöder ange ett lösenord
-* 389 katalogserver
+* 389 Directory Server
   * Har stöd för alla åtgärder för Deltaimport
   * Stöder ange lösenordet och ändra lösenord
-* Apache katalogserver
+* Apache Directory Server
   * Stöder inte Deltaimport eftersom den här katalogen inte har en beständig Ändringslogg
   * Stöder ange ett lösenord
 * IBM Tivoli DS
@@ -77,7 +77,7 @@ Kataloger som stöds för Deltaimport och lösenordshantering:
 * Öppna DS
   * Har stöd för alla åtgärder för Deltaimport
   * Stöder ange lösenordet och ändra lösenord
-* Öppna LDAP (openldap.org)
+* Open LDAP (openldap.org)
   * Har stöd för alla åtgärder för Deltaimport
   * Stöder ange ett lösenord
   * Stöder inte ändra lösenord
@@ -92,7 +92,7 @@ Kataloger som stöds för Deltaimport och lösenordshantering:
   * Har stöd för alla åtgärder för Deltaimport
   * Stöder ange lösenordet och ändra lösenord
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Innan du använder anslutningen kan du kontrollera att du har följande på synkroniseringsservern:
 
 * 4.5.2 för Microsoft .NET Framework eller senare
@@ -137,9 +137,9 @@ Kopplingen försöker identifiera alternativ som finns på servern. Om alternati
 ### <a name="delta-import"></a>Deltaimport
 Deltaimport är endast tillgänglig när en katalog för stöd för har upptäckts. Följande metoder används:
 
-* LDAP-Accesslog. Se [http://www.openldap.org/doc/admin24/overlays.html#Access loggning](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
-* LDAP-Changelog. Se [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-* Tidsstämpel. Anslutningen används för Novell/NetIQ eDirectory senaste datum/tid att hämta skapade och uppdaterade objekt. Novell/NetIQ eDirectory ger inte någon motsvarande innebär att hämta borttagna objekt. Det här alternativet kan också användas om ingen annan delta-import-metod är aktiv i LDAP-servern. Det här alternativet kan inte importera borttagna objekt.
+* LDAP-Accesslog. See [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* LDAP-Changelog. See [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* TimeStamp. Anslutningen används för Novell/NetIQ eDirectory senaste datum/tid att hämta skapade och uppdaterade objekt. Novell/NetIQ eDirectory ger inte någon motsvarande innebär att hämta borttagna objekt. Det här alternativet kan också användas om ingen annan delta-import-metod är aktiv i LDAP-servern. Det här alternativet kan inte importera borttagna objekt.
 * USNChanged. Se: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>Stöds inte
@@ -196,11 +196,11 @@ Följande är en lista över standard ändringsloggen DNs:
 | Katalog | Delta Ändringslogg |
 | --- | --- |
 | Microsoft AD LDS och AD GC |Identifieras automatiskt. USNChanged. |
-| Apache katalogserver |Inte tillgängligt. |
+| Apache Directory Server |Inte tillgängligt. |
 | Directory 389 |Ändra logg. Värde som ska användas som standard: **cn = changelog** |
 | IBM Tivoli DS |Ändra logg. Värde som ska användas som standard: **cn = changelog** |
 | Isode Directory |Ändra logg. Värde som ska användas som standard: **cn = changelog** |
-| Novell/NetIQ eDirectory |Inte tillgängligt. Tidsstämpel. Anslutningen använder senast uppdaterad datum/tid för att hämta läggas till och uppdateras poster. |
+| Novell/NetIQ eDirectory |Inte tillgängligt. TimeStamp. Anslutningen använder senast uppdaterad datum/tid för att hämta läggas till och uppdateras poster. |
 | Öppna DJ/DS |Ändra logg.  Värde som ska användas som standard: **cn = changelog** |
 | Öppna LDAP |Åtkomstlogg. Värde som ska användas som standard: **cn = accesslog** |
 | Oracle DSEE |Ändra logg. Värde som ska användas som standard: **cn = changelog** |
@@ -246,16 +246,16 @@ Här följer en lista över LDAP-servrar och ankaret används:
 | Katalog | Fästpunktsattributet |
 | --- | --- |
 | Microsoft AD LDS och AD GC |objectGUID |
-| 389 katalogserver |DN |
-| Apache Directory |DN |
-| IBM Tivoli DS |DN |
-| Isode Directory |DN |
+| 389 Directory Server |dn |
+| Apache Directory |dn |
+| IBM Tivoli DS |dn |
+| Isode Directory |dn |
 | Novell/NetIQ eDirectory |GUID |
-| Öppna DJ/DS |DN |
-| Öppna LDAP |DN |
-| Oracle ODSEE |DN |
-| RadiantOne VDS |DN |
-| Sun en katalogserver |DN |
+| Öppna DJ/DS |dn |
+| Öppna LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Sun en katalogserver |dn |
 
 ## <a name="other-notes"></a>Anmärkningar
 Det här avsnittet innehåller information om aspekter som är specifika för den här anslutningen eller av andra orsaker är viktigt att känna till.

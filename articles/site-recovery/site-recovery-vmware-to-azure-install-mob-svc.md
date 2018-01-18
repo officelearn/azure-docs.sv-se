@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installera Mobilitetstjänsten (VMware eller fysisk till Azure)
 Azure Site Recovery-Mobilitetstjänsten samlar in dataskrivningar på en dator och vidarebefordrar dem till processervern. Distribuera Mobilitetstjänsten till varje dator (VMware VM eller fysiska server) som du vill replikera till Azure. Du kan distribuera Mobilitetstjänsten till servrar som du vill skydda med hjälp av följande metoder:
@@ -34,7 +29,7 @@ Azure Site Recovery-Mobilitetstjänsten samlar in dataskrivningar på en dator o
 >[!IMPORTANT]
 > Från och med version 9.7.0.0, på Windows-datorer (VM), Mobilitetstjänsten installerar installationsprogrammet också den senaste tillgängliga [Virtuella Azure-datoragenten](../virtual-machines/windows/extensions-features.md#azure-vm-agent). När en dator växlar till Azure måste uppfyller datorn installationen av nödvändiga för att använda alla VM-tillägg.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuellt på servern:
 1. Logga in på din server för konfiguration och öppna ett kommandotolksfönster som administratör.
 2. Ändra katalogen till bin-mappen och sedan skapa en lösenfras fil:
@@ -50,16 +45,16 @@ Gör följande förutsättningar innan du installerar Mobilitetstjänsten manuel
 
 | Installer filnamn för mallen| Operativsystem |
 |---|--|
-|Microsoft ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bitars) </br> Windows Server 2012 (64-bitars) </br> Windows Server 2012 R2 (64-bitars) </br> Windows Server 2016 (64-bitars) |
-|Microsoft ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) |
-|Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (endast 64-bitars) </br> CentOS 7.0, 7.1, 7.2, 7.3 (endast 64-bitars) |
-|Microsoft ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (endast 64-bitars)|
-|Microsoft ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (endast 64-bitars)|
-|Microsoft ASR\_UA\*OL6 64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (endast 64-bitars)|
-|Microsoft ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (endast 64-bitars)|
-|Microsoft ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
-|Microsoft-ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7 (endast 64-bitars)|
-|Microsoft-ASR_UA\*DEBIAN8 64\*release.tar.gz | Debian 8 (endast 64-bitars)|
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bitars) </br> Windows Server 2012 (64-bitars) </br> Windows Server 2012 R2 (64-bitars) </br> Windows Server 2016 (64-bitars) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6,9 (endast 64-bitars) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (endast 64-bitars) </br> CentOS 7.0, 7.1, 7.2, 7.3 (endast 64-bitars) |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (endast 64-bitars)|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (endast 64-bitars)|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (endast 64-bitars)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (endast 64-bitars)|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (endast 64-bitars)|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (endast 64-bitars)|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (endast 64-bitars)|
 
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Installera Mobilitetstjänsten manuellt med hjälp av det grafiska Användargränssnittet
@@ -92,7 +87,7 @@ När Mobilitetstjänsten är installerad i Azure portal, väljer du den **+ repl
 ## <a name="update-mobility-service"></a>Uppdatera Mobilitetstjänsten
 
 > [!WARNING]
-> Se till att konfigurationsservern, skalbara servrar och alla Huvudmålet-servrar som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade servrar. Läs mer på [hur du uppdaterar din konfigurationsservern](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) och [hur du uppdaterar din skalbara servrar](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Se till att konfigurationsservern, skalbara servrar och alla Huvudmålet-servrar som är en del av distributionen uppdateras innan du uppdaterar Mobilitetstjänsten på skyddade servrar.
 
 1. På Azure portal Bläddra till <Your Vault> -> Visa replikerade objekt.
 2. Om den **konfigurationsservern** redan har uppdaterats till den senaste versionen och sedan bör du se ett meddelande som läser *ny plats recovery replikering agentuppdatering är tillgänglig. Klicka för att installera*

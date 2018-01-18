@@ -204,7 +204,7 @@
 ### [Windows PowerShell för StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 
-# StorSimple Data Manager (privat förhandsgranskning)
+# StorSimple Data Manager
 
 ## Översikt
 

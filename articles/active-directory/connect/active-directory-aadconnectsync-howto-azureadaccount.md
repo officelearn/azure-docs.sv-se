@@ -4,7 +4,7 @@ description: "Det här avsnittet beskrivs hur du återställer Azure AD-tjänstk
 services: active-directory
 keywords: "AADSTS70002, AADSTS50054, hur du återställer lösenordet för Azure AD Connect-synkronisering Connector-tjänstkontot"
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 096b14f8e64ac288fe6d3956658a4b738993cea9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfd807706ebbf0bfa6ea699129cb197f1c79db8c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect-synkronisering: hur du hanterar Azure AD-tjänstkontot
 Tjänstkontot som används av Azure AD-anslutningen ska vara tjänsten gratis. Om du behöver återställa referenserna är det här avsnittet för dig. Till exempel om en Global administratör har av misstag återställa lösenordet för kontot med hjälp av PowerShell.

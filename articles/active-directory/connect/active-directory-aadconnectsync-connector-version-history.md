@@ -3,7 +3,7 @@ title: Kopplingen versionshistorik | Microsoft Docs
 description: "Det här avsnittet listar alla versioner av kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM)"
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Versionshistorik för anslutningsappen
 Kopplingar för Forefront Identity Manager (FIM) och Microsoft Identity Manager (MIM) uppdateras ofta.
@@ -45,7 +45,7 @@ Relaterade länkar:
 * Lotus Notes:
   * Anpassade certifiers filtreringsalternativ
   * Import av klassen ImportOperations fast definitionen av vilka åtgärder kan köras i läget 'Vyer' och som i ”Sök”-läge.
-* Allmän LDAP:
+* Generic LDAP:
   * OpenLDAP Directory använder DN som ankare i stället för entryUUI. Nya alternativet att GLDAP koppling som gör det möjligt för att ändra ankare
 * Allmän SQL:
   * Fast export till fältet varbinary(max)-typ som har.
@@ -67,7 +67,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Allmän Web Services:
+* Generic Web Services:
   * Ett problem som förhindrar att ett SOAP-projekt som skapas när det finns två eller fler slutpunkter har åtgärdats.
 * Allmän SQL:
   * I åtgärden för import av GSQL inte konvertering av tid korrekt när sparas till anslutningsplatsen. Standardformatet för datum och tid för anslutarplats för GSQL har ändrats från ”åååå-MM-dd: ssZ' till 'yyyy-MM-dd: ssZ'.
@@ -76,7 +76,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Allmän Web Services:
+* Generic Web Services:
   * Verktyget Wsconfig inte att konvertera korrekt Json-matris från ”exempelbegäran” för metoden REST-tjänsten. Detta orsakade problem med serialisering denna Json-matris för REST-begäran.
   * Web Service Connector Configuration Tool stöder inte användning av diskutrymme symboler i JSON-attributnamn 
     * Ett mönster för ersättning kan läggas till manuellt i filen WSConfigTool.exe.config t.ex.```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
@@ -103,7 +103,7 @@ Relaterade länkar:
 
 ### <a name="fixed-issues"></a>Fast problem:
 
-* Allmän Web Services:
+* Generic Web Services:
   * Kan inte importera serverkonfigurationen om WebService koppling finns
   * WebService-anslutningen fungerar inte med flera webbtjänster
 
@@ -130,7 +130,7 @@ Utgiven: 2017 mars
 - Det krävs för att försäkra att namnge är unika mellan objekttyper.
 
 
-* Allmän LDAP:</br>
+* Generic LDAP:</br>
  **Scenario:** när endast några behållare har markerats i en specifik partition, sedan sökningen fortfarande görs i hela partition. Specifika filtreras som synkroniseringstjänsten, men inte av MA vilket kan leda till försämrade prestanda. </br>
 
  **Lösningsbeskrivning av:** ändras GLDAP connector koden och gör det möjligt gå igenom alla behållare som du kan söka efter objekt i var och en av dem, i stället för att söka i hela partitionen.
@@ -142,17 +142,17 @@ Utgiven: 2017 mars
   **Lösning:** konfigurerbara e borttagning stöd för en person tas bort vid en export.
 
 ### <a name="fixed-issues"></a>Fast problem:
-* Allmän Web Services:
+* Generic Web Services:
  * När du ändrar tjänstens Webbadress i SAP wsconfig projekt via webbtjänsten konfigurationsverktyget sedan händer följande fel: Det gick inte att hitta en del av sökvägen
 
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
-* Allmän LDAP:
+* Generic LDAP:
  * GLDAP Connector kan inte se alla attribut i AD LDS
  * Guiden radbrytningar när inga UPN-attribut identifieras från LDAP-directory-schemat
  * Delta importen misslyckas med identifiering av fel som inte finns vid fullständig import när attributet ”objectclass” inte är markerat
  * En ”konfigurera partitioner och hierarkier” konfigurationssidan visar inte alla objekt som är vilken typ som motsvarar partitionen för nya servrar i generiska  
-LDAP-MA. De visade endast objekt från RootDSE partition.
+LDAP MA. De visade endast objekt från RootDSE partition.
 
 
 * Allmän SQL:
@@ -203,7 +203,7 @@ Inledande versionen av den [allmänna SQL Connector](active-directory-aadconnect
 ## <a name="older-releases"></a>Äldre versioner
 Kopplingarna publicerades före mars 2016 som supportfrågor.
 
-**Allmän LDAP**
+**Generic LDAP**
 
 * [KB3078617](https://support.microsoft.com/kb/3078617) -1.0.0597 September 2015
 * [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, 2015 mars

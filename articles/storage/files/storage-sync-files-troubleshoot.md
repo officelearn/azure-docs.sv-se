@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Felsöka Azure filsynkronisering (förhandsgranskning)
 Använda Azure filsynkronisering (förhandsgranskning) för att centralisera din organisations filresurser i Azure-filer, samtidigt som flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure filsynkronisering omvandlar Windows Server till en snabb cache med Azure-filresursen. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt data lokalt, inklusive SMB och NFS FTPS. Du kan ha valfritt antal cacheminnen som du behöver över hela världen.
@@ -28,7 +28,7 @@ Den här artikeln är utformat för att hjälpa dig att felsöka och lösa probl
 1. Avsnittet kommentarer i den här artikeln.
 2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft Support. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="agent-installation-and-server-registration"></a>Agentregistreringen för installation och server
 <a id="agent-installation-failures"></a>**Felsöka agentinstallationsproblem**  
@@ -135,6 +135,8 @@ Om det inte går att synkronisera enskilda filer:
 
     > [!NOTE]
     > Azure filsynkronisering tar regelbundet VSS-ögonblicksbilder för att synkronisera filer som har öppna referenser.
+
+Vi stöder för närvarande inte resursflyttningen till en annan prenumeration eller, flyttar till en annan Azure AD-klient.  Om prenumerationen flyttas till en annan klient, blir Azure-filresursen otillgänglig för vår tjänst ändringen i ägarskap. Om klienten har ändrats, du måste ta bort server-slutpunkter och molnslutpunkt (se synkronisering grupphantering avsnittet anvisningar så här rengör du Azure-filresursen för att återanvändas) och skapa gruppen synkronisering.
 
 ## <a name="cloud-tiering"></a>Lagringsnivåer för moln 
 Det finns två sökvägar för fel i moln skiktning:

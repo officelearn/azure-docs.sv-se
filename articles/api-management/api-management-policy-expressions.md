@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="api-management-policy-expressions"></a>API Management principuttrycken
 Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna implicit [kontexten](api-management-policy-expressions.md#ContextVariables) variabel och ett tillåtna [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework-typer.  
@@ -36,7 +36,7 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 > -   För att hämta principrapporter som används i den här videon, se den [api-hantering-exempel principer](https://github.com/Azure/api-management-samples/tree/master/policies) github-lagringsplatsen.  
   
   
-##  <a name="Syntax"></a>Syntax  
+##  <a name="Syntax"></a> Syntax  
  Uttryck för enskild instruktion innefattas i `@(expression)`, där `expression` är en giltig C#-uttrycket.  
   
  Flera instruktioner uttryck innefattas i `@{expression}`. Alla kodsökvägar inom flera instruktioner uttryck måste avslutas med en `return` instruktion.  
@@ -88,13 +88,13 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |Newtonsoft.Json.Linq.JToken|Alla metoder som stöds|  
 |Newtonsoft.Json.Linq.JTokenType|Alla metoder som stöds|  
 |Newtonsoft.Json.Linq.JValue|Alla metoder som stöds|  
-|System.Collections.Generic.IReadOnlyCollection < T\>|Alla|  
-|System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Alla|  
-|System.Collections.Generic.ISet < TKey, TValue >|Alla|  
-|System.Collections.Generic.KeyValuePair < TKey, TValue >|Nyckel/värde|  
-|System.Collections.Generic.List < TKey, TValue >|Alla|  
-|System.Collections.Generic.Queue < TKey, TValue >|Alla|  
-|System.Collections.Generic.Stack < TKey, TValue >|Alla|  
+|System.Collections.Generic.IReadOnlyCollection<T\>|Alla|  
+|System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Alla|  
+|System.Collections.Generic.ISet<TKey, TValue>|Alla|  
+|System.Collections.Generic.KeyValuePair<TKey,  TValue>|Nyckel/värde|  
+|System.Collections.Generic.List<TKey, TValue>|Alla|  
+|System.Collections.Generic.Queue<TKey, TValue>|Alla|  
+|System.Collections.Generic.Stack<TKey, TValue>|Alla|  
 |System.Convert|Alla|  
 |System.DateTime|Alla|  
 |System.DateTimeKind|UTC|  
@@ -102,15 +102,15 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |System.Decimal|Alla|  
 |System.Double|Alla|  
 |System.Guid|Alla|  
-|System.IEnumerable < T\>|Alla|  
-|System.IEnumerator < T\>|Alla|  
+|System.IEnumerable<T\>|Alla|  
+|System.IEnumerator<T\>|Alla|  
 |System.Int16|Alla|  
 |System.Int32|Alla|  
 |System.Int64|Alla|  
-|System.Linq.Enumerable < T\>|Alla metoder som stöds|  
+|System.Linq.Enumerable<T\>|Alla metoder som stöds|  
 |System.Math|Alla|  
 |System.MidpointRounding|Alla|  
-|System.Nullable < T\>|Alla|  
+|System.Nullable<T\>|Alla|  
 |System.Random|Alla|  
 |System.SByte|Alla|  
 |System.Security.Cryptography. HMACSHA384|Alla|  
@@ -135,13 +135,13 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
 |System.String|Alla|  
 |System.StringSplitOptions|Alla|  
 |System.Text.Encoding|Alla|  
-|System.Text.RegularExpressions.Capture|Längd, indexvärde|  
+|System.Text.RegularExpressions.Capture|Index, Length, Value|  
 |System.Text.RegularExpressions.CaptureCollection|Antal objekt|  
 |System.Text.RegularExpressions.Group|Insamlingar, lyckades|  
 |System.Text.RegularExpressions.GroupCollection|Antal objekt|  
 |System.Text.RegularExpressions.Match|Tom, grupper, resultat|  
 |System.Text.RegularExpressions.Regex|(Konstruktor) IsMatch, matchning, matchar, Ersätt|  
-|System.Text.RegularExpressions.RegexOptions|Kompileras IgnoreCase, IgnorePatternWhitespace, lambda, None, RightToLeft, Singleline|  
+|System.Text.RegularExpressions.RegexOptions|Compiled, IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|  
 |System.TimeSpan|Alla|  
 |System.Tuple|Alla|  
 |System.UInt16|Alla|  
@@ -172,18 +172,18 @@ Principen uttryck syntax är C# 6.0. Varje uttryck har åtkomst till den angivna
   
 |Kontexten variabel|Tillåtna metoder, egenskaper och parametervärden|  
 |----------------------|-------------------------------------------------------|  
-|Kontexten|API: IApi<br /><br /> Distribution<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Produkt<br /><br /> Förfrågan<br /><br /> Begärande-ID: Guid<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Spårning: bool<br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < sträng, objekt ><br /><br /> void Trace(message: string)|  
-|kontexten. API|ID: sträng<br /><br /> IsRevisionCurrent: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: IUrl<br /><br /> Version: sträng |  
-|kontexten. Distribution|Region: sträng<br /><br /> Namn på tjänst: sträng<br /><br /> Certifikat: IReadOnlyDictionary < sträng, X509Certificate2 >|  
-|kontexten. LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontexten. LastError, se [felhantering](api-management-error-handling-policies.md).|  
-|kontexten. Åtgärden|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: sträng|  
-|kontexten. Produkten|API: er: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerad}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
-|kontexten. Begäran|Brödtext: IMessageBody<br /><br /> Certifikat: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Huvuden: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl:IUrl<br /><br /> URL: IUrl|  
+|Kontexten|Api: IApi<br /><br /> Distribution<br /><br /> Förflutna: TimeSpan - tidsintervallet mellan värdet för tidsstämpel och aktuell tid<br /><br /> LastError<br /><br /> Åtgärd<br /><br /> Produkt<br /><br /> Förfrågan<br /><br /> Begärande-ID: Guid - identifierare för unik begäran<br /><br /> Svar<br /><br /> Prenumeration<br /><br /> Tidstämpel: Datum/tid - tidpunkt när en förfrågan togs emot<br /><br /> Spårning: bool - anger om spårning är aktiverad eller inaktiverad <br /><br /> Användare<br /><br /> Variabler: IReadOnlyDictionary < sträng, objekt ><br /><br /> void Trace(message: string)|  
+|context.Api|ID: sträng<br /><br /> IsRevisionCurrent: bool<br /><br />  Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Revision: sträng<br /><br /> ServiceUrl: IUrl<br /><br /> Version: sträng |  
+|context.Deployment|Region: sträng<br /><br /> Namn på tjänst: sträng<br /><br /> Certifikat: IReadOnlyDictionary < sträng, X509Certificate2 >|  
+|context.LastError|Källa: sträng<br /><br /> Orsak: sträng<br /><br /> Meddelande: sträng<br /><br /> Omfång: sträng<br /><br /> Avsnittet: sträng<br /><br /> Sökväg: sträng<br /><br /> PolicyId: sträng<br /><br /> Mer information om kontexten. LastError, se [felhantering](api-management-error-handling-policies.md).|  
+|context.Operation|ID: sträng<br /><br /> Metod: sträng<br /><br /> Namn: sträng<br /><br /> UrlTemplate: sträng|  
+|context.Product|API: er: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> ID: sträng<br /><br /> Namn: sträng<br /><br /> Tillstånd: enum ProductState {NotPublished, publicerad}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
+|context.Request|Brödtext: IMessageBody<br /><br /> Certificate: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Huvuden: IReadOnlyDictionary < string, string [] ><br /><br /> IP-adress: sträng<br /><br /> MatchedParameters: IReadOnlyDictionary < sträng, sträng ><br /><br /> Metod: sträng<br /><br /> OriginalUrl:IUrl<br /><br /> Url: IUrl|  
 |strängkontext. Request.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|headerName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar CSV-begäran huvudvärden eller `defaultValue` om sidhuvudet inte hittas.|  
 |kontexten. Svar|Brödtext: IMessageBody<br /><br /> Huvuden: IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: sträng|  
 |strängkontext. Response.Headers.GetValueOrDefault (headerName: sträng, defaultValue: sträng)|headerName: sträng<br /><br /> Standardvärde: sträng<br /><br /> Returnerar kommaavgränsade svar huvudvärden eller `defaultValue` om sidhuvudet inte hittas.|  
-|kontexten. Prenumerationen|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> StartDate: DateTime?|  
-|kontexten. Användaren|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Grupper: IEnumerable < IGroup\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable < IUserIdentity\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|  
+|context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> ID: sträng<br /><br /> Nyckel: sträng<br /><br /> Namn: sträng<br /><br /> PrimaryKey: sträng<br /><br /> Sekundär nyckel: sträng<br /><br /> StartDate: DateTime?|  
+|context.User|E-post: sträng<br /><br /> Förnamn: sträng<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> ID: sträng<br /><br /> Identiteter: IEnumerable < IUserIdentity\><br /><br /> Efternamn: sträng<br /><br /> Obs: sträng<br /><br /> RegistrationDate: DateTime|  
 |IApi|ID: sträng<br /><br /> Namn: sträng<br /><br /> Sökväg: sträng<br /><br /> Protokoll: IEnumerable < sträng\><br /><br /> ServiceUrl: IUrl<br /><br /> SubscriptionKeyParameterNames: ISubscriptionKeyParameterNames|  
 |IGroup|ID: sträng<br /><br /> Namn: sträng|  
 |IMessageBody|Som < T\>(preserveContent: bool = false): där T: sträng, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Den `context.Request.Body.As<T>` och `context.Response.Body.As<T>` metoder som används för att läsa en begäran och svar meddelandetexten i en viss typ av `T`. Metoden använder den ursprungliga brödtext meddelandeströmmen som standard och gör dem tillgängliga efter att den returnerar. Du undviker som genom att metoden fungerar på en kopia av brödtextströmmen, ange den `preserveContent` parameter till `true`. Gå [här](api-management-transformation-policies.md#SetBody) att se ett exempel.|  

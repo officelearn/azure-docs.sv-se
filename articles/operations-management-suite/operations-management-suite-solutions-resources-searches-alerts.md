@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Lägga till logganalys sparade sökningar och aviseringar till OMS-hanteringslösning (förhandsgranskning)
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 10/17/2017
 > [!NOTE]
 > Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [och skapa lösningar för hantering i Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan är bekant med [skapar en lösning för](operations-management-suite-solutions-creating.md) och strukturen för en [Resource Manager-mall](../resource-group-authoring-templates.md) och lösningsfilen.
 
 
-## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
+## <a name="log-analytics-workspace"></a>Log Analytics Workspace
 Alla resurser i logganalys finns i en [arbetsytan](../log-analytics/log-analytics-manage-access.md).  Enligt beskrivningen i [OMS arbetsytan och Automation-konto](operations-management-suite-solutions.md#oms-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men det måste finnas innan lösningen är installerad.  Om den inte är tillgänglig misslyckas lösning installationen.
 
 Namnet på arbetsytan är namnet på varje logganalys-resurs.  Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel på en savedsearch resurs.
@@ -45,17 +45,14 @@ Namnet på arbetsytan är namnet på varje logganalys-resurs.  Detta görs i lö
 ## <a name="log-analytics-api-version"></a>Log Analytics API-version
 Alla logganalys-resurser som definierats i en Resource Manager-mall har en egenskap **apiVersion** som definierar versionen av resursen ska använda API: et.  Den här versionen är olika för resurser som använder den [äldre och uppgraderade frågespråket](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- I följande tabell anger Log Analytics API-versioner för äldre och uppgraderade arbetsytorna och en exempelfråga för att ange olika syntaxen för varje. 
+ I följande tabell anger Log Analytics API-versioner för sparade sökningar i äldre och uppgraderade arbetsytor: 
 
-| Arbetsyteversion | API-version | Exempelfråga |
+| Arbetsyteversion | API-version | Fråga |
 |:---|:---|:---|
-| V1 (äldre)   | 2015-11-01-preview | Typ = händelse EventLevelName = fel             |
-| v2 (uppgraderade) | 2017-03-15-preview | Händelsen &#124; där EventLevelName == ”Error”  |
+| V1 (äldre)   | 2015-11-01-preview | Äldre format.<br> Exempel: Skriv = händelse EventLevelName = fel  |
+| v2 (uppgraderade) | 2015-11-01-preview | Äldre format.  Konvertera till uppgraderade format på installera.<br> Exempel: Skriv = händelse EventLevelName = fel<br>Konvertera till: händelsen &#124; där EventLevelName == ”Error”  |
+| v2 (uppgraderade) | 2017-03-03-preview | Uppgradera format. <br>Exempel: Händelsen &#124; där EventLevelName == ”Error”  |
 
-Observera följande arbetsytor som stöds av olika versioner.
-
-- Mallar som använder äldre frågespråket kan installeras på en äldre eller uppgraderade arbetsyta.  Om installerade i en arbetsyta för uppgraderade konverteras frågor direkt till det nya språket när de körs av användaren.
-- Mallar som använder det uppgraderade frågespråket kan endast installeras på en uppgraderad arbetsyta.
 
 
 ## <a name="saved-searches"></a>Sparade sökningar
@@ -85,7 +82,7 @@ Varje egenskap för en sparad sökning beskrivs i följande tabell.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enda kategori så att de grupperas tillsammans i konsolen. |
-| visningsnamn | Namnet som visas för den sparade sökningen i portalen. |
+| displayname | Namnet som visas för den sparade sökningen i portalen. |
 | DocumentDB | Frågan ska köras. |
 
 > [!NOTE]
@@ -192,7 +189,7 @@ Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
 | Typ | Ja | Typ av åtgärd.  Detta är **avisering** för aviseringsåtgärder. |
 | Namn | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
 | Beskrivning | Nej | Valfri beskrivning av aviseringen. |
-| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **Kritiska**<br>**Varning**<br>**Information** |
+| Allvarsgrad | Ja | Allvarlighetsgrad för aviseringen posten från följande värden:<br><br> **Kritiska**<br>**Varning**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Tröskelvärde
@@ -200,7 +197,7 @@ Det här avsnittet krävs.  Den definierar egenskaperna för tröskelvärde.
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| Operatorn | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| Operator | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
 | Värde | Ja | Värde att jämföra resultatet. |
 
 
@@ -213,7 +210,7 @@ Det här avsnittet är valfritt.  Inkludera det för ett mått mätning aviserin
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
 | TriggerCondition | Ja | Anger om tröskelvärdet för totala antalet överträdelser eller på varandra följande överträdelser från följande värden:<br><br>**Totalt antal<br>i följd** |
-| Operatorn | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| Operator | Ja | Operator för jämförelse från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
 | Värde | Ja | Antal gånger som villkoret måste uppfyllas för att utlösa en avisering. |
 
 ##### <a name="throttling"></a>Begränsning
@@ -228,12 +225,12 @@ Det här avsnittet är valfritt.  Inkludera det här avsnittet om du vill undert
 
 | Elementnamn | Krävs | Beskrivning |
 |:--|:--|:--|
-| mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka en avisering när en avisering skapas som i följande exempel.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka en avisering när en avisering skapas som i följande exempel.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Ämne | Ja | Ämnesrad i e-postmeddelandet. |
 | Bifogad fil | Nej | Bifogade filer stöds inte för närvarande.  Om det här elementet finns det ska vara **ingen**. |
 
 
-##### <a name="remediation"></a>Reparation
+##### <a name="remediation"></a>Åtgärd
 Det här avsnittet är valfritt att inkludera det om du vill att en runbook att starta som svar på aviseringen. |
 
 | Elementnamn | Krävs | Beskrivning |
@@ -271,7 +268,7 @@ Egenskaper för Webhook åtgärd resurser beskrivs i följande tabeller.
 | typ | Ja | Typ av åtgärd.  Detta är **Webhook** för webhook-åtgärder. |
 | namn | Ja | Visningsnamn för åtgärden.  Detta visas inte i konsolen. |
 | wehookUri | Ja | URI för webhooken. |
-| CustomPayload | Nej | Anpassad nyttolast skickas till webhooken. Formatet beror på vad webhooken förväntas. |
+| customPayload | Nej | Anpassad nyttolast skickas till webhooken. Formatet beror på vad webhooken förväntas. |
 
 
 

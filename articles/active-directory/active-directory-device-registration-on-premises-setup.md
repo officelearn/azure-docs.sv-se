@@ -1,5 +1,5 @@
 ---
-title: "Konfigurera lokal villkorlig åtkomst med enhetsregistrering för Azure Active Directory | Microsoft Docs"
+title: "Konfigurera lokal villkorlig åtkomst i Azure Active Directory | Microsoft Docs"
 description: "Stegvisa instruktioner för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 När du behöver användare till arbetsplatsen på sina personliga enheter till Azure Active Directory (AD Azure) enhetsregistreringstjänsten kan sina enheter markeras som kända för din organisation. Följande är en stegvis guide för att aktivera villkorlig åtkomst till lokala program med hjälp av Active Directory Federation Services (AD FS) i Windows Server 2012 R2.

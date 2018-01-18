@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect-synkronisering: hantera LargeObject fel som orsakats av userCertificate attributet | Microsoft Docs'
+title: Azure AD Connect - LargeObject fel som orsakats av userCertificate attributet | Microsoft Docs
 description: "Det här avsnittet innehåller reparationssteg för LargeObject fel som orsakats av userCertificate attribut."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: hantera LargeObject fel som orsakats av userCertificate attribut
 
@@ -90,8 +91,8 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
     | --- | --- |
     | Riktning |**Utgående** |
     | MV-objekttyp |**Person** |
-    | Koppling |*namnet på Azure AD-koppling* |
-    | Objekttyp för kopplingen |**användaren** |
+    | Anslutning |*namnet på Azure AD-koppling* |
+    | Objekttyp för kopplingen |**user** |
     | MV-attribut |**userCertificate** |
 
 3. Om du använder OOB (out of box) sync regler till Azure AD-koppling för att exportera userCertficiate attribut för användarobjekt du bör få tillbaka det *”ut till AAD – användaren ExchangeOnline”* regeln.
@@ -116,7 +117,7 @@ Den nya regeln synkronisering måste ha samma **målgrupp filter** och **högre 
     | Namn | *Ange ett namn* | T.ex. *”ut till AAD – anpassad åsidosätta för userCertificate”* |
     | Beskrivning | *Ange en beskrivning* | T.ex. *”userCertificate attributet har mer än 15 värden, exportera NULL”.* |
     | Det anslutna systemet | *Välj den Azure AD-koppling* |
-    | Anslutna System objekttyp | **användaren** | |
+    | Anslutna System objekttyp | **user** | |
     | Typ av Metaversumobjekt | **person** | |
     | Länktypen | **Anslut dig** | |
     | Prioritet | *Om du har valt ett tal mellan 1 och 99* | Det antal valt får inte användas av någon befintlig synkroniseringsregel och har ett lägre värde (och därför högre prioritet) än den befintliga sync-regeln. |
@@ -127,7 +128,7 @@ Den nya regeln synkronisering måste ha samma **målgrupp filter** och **högre 
 
     | Attribut | Värde |
     | --- | --- |
-    | Flöde |**Uttryck** |
+    | Flöde |**Expression** |
     | Målattribut |**userCertificate** |
     | Källattributet |*Använd följande uttryck*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Konfigurera webbappar i Azure App Service
 
@@ -62,7 +62,7 @@ Av tekniska skäl inaktiveras när du aktiverar Java för din app alternativen f
 **Fjärrfelsökning**. Aktiverar fjärrfelsökning. När aktiverat, kan du använda fjärråtkomst felsökaren i Visual Studio för att ansluta direkt till ditt webbprogram. Fjärrfelsökning förblir aktiverat för 48 timmar. 
 
 ### <a name="app-settings"></a>Appinställningar
-Det här avsnittet innehåller namn/värde-par som du web app läser in vid start. 
+Det här avsnittet innehåller namn/värde-par som ditt webbprogram ska läsas in vid start av. 
 
 * För .NET-appar de här inställningarna är injekteras i konfigurationen av .NET `AppSettings` vid körning kan åsidosätta befintliga inställningar. 
 * PHP, Python, Java och noden program kan komma åt de här inställningarna som miljövariabler vid körning. Två miljövariabler som skapas för varje appinställning. en med namnet som anges i inställningen som appen och en annan med prefixet APPSETTING_. Båda innehåller samma värde.
@@ -74,9 +74,9 @@ För .NET-appar har dessa anslutningssträngar injekteras i konfigurationen av .
 
 PHP, Python, Java och noden program, ska inställningarna vara tillgänglig som miljövariabler vid körning, föregås av anslutningstypen. Variabeln prefix miljö är följande: 
 
-* SQLServer:`SQLCONNSTR_`
-* MySQL:`MYSQLCONNSTR_`
-* SQL-databas:`SQLAZURECONNSTR_`
+* SQL Server: `SQLCONNSTR_`
+* MySQL: `MYSQLCONNSTR_`
+* SQL Database: `SQLAZURECONNSTR_`
 * Anpassad:`CUSTOMCONNSTR_`
 
 Om exempelvis en MySql-anslutningssträng vid namn `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.

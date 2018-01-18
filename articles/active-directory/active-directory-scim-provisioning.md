@@ -1,5 +1,5 @@
 ---
-title: "Med hjälp av System för Identitetshantering domäner automatiskt etablera användare och grupper från Azure Active Directory till program | Microsoft Docs"
+title: "Automatisera etablering med hjälp av SCIM i Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory kan automatiskt etablera användare och grupper till några program eller identitet butik som är fronted av en webbtjänst med det gränssnitt som definierats i specifikationen av SCIM-protokollet"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för Identitetshantering i domänerna att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -68,7 +68,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
   ![][2]
   *Bild 3: Konfigurera etablering i Azure-portalen*
     
-6. I den **klient URL** , ange Webbadressen till programmets SCIM slutpunkt. Exempel: https://api.contoso.com/scim/v2/
+6. I den **klient URL** , ange Webbadressen till programmets SCIM slutpunkt. Example: https://api.contoso.com/scim/v2/
 7. Om slutpunkten SCIM kräver en OAuth ägar-token från en utfärdare än Azure AD, kopiera nödvändiga OAuth ägar-token till den valfria **hemlighet Token** fältet. Om det här fältet är tomt, med en OAuth ägar-token som utfärdas från Azure AD med varje begäran med Azure AD. Appar som använder Azure AD som en identitetsleverantör kan verifiera den här Azure AD-utfärdade token.
 8. Klicka på den **Testanslutningen** så försöker ansluta till slutpunkten SCIM för Azure Active Directory. Om försöker misslyckas, visas information om felet.  
 9. Om försök att ansluta till program-lyckad klickar **spara** spara administratörsautentiseringsuppgifter.
@@ -248,7 +248,7 @@ Den här tjänsten måste ha en HTTP-adress och servern certifikat för serverau
 * GeoTrust
 * GlobalSign
 * Go Daddy
-* VeriSign
+* Verisign
 * WoSign
 
 Ett certifikat för serverautentisering kan bindas till en port på en Windows-värd med hjälp av verktyget network shell: 
@@ -352,34 +352,34 @@ Resurser för användare identifieras av schema-ID, urn: ietf:params:scim:schema
 Gruppera resurser identifieras av schema-ID, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabell 2 nedan visar standardmappningen attribut för resursgrupper i Azure Active Directory attributen http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabell 1: Standard användaren attributmappning
-| Azure Active Directory-användare | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory-användare | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |aktiv |
-| Visningsnamn |Visningsnamn |
-| Fax TelephoneNumber |phoneNumbers typ eq ”fax” .value |
+| displayName |displayName |
+| Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
-| Befattning |Rubrik |
+| Befattning |rubrik |
 | E-post |e-postmeddelanden typen eq ”arbete” .value |
 | mailNickname |externalId |
-| Manager |Manager |
-| mobila |phoneNumbers typ eq ”mobil” .value |
-| objekt-ID |id |
-| Postnummer |adresser typen eq ”arbete” .postalCode |
-| Proxy-adresser |e-postmeddelanden [Ange eq ”andra”]. Värdet |
-| fysisk-leverans – OfficeName |[Ange eq ”andra”] adresser. Formaterad |
-| StreetAddress |adresser typen eq ”arbete” .streetAddress |
+| manager |manager |
+| mobila |phoneNumbers[type eq "mobile"].value |
+| objectId |id |
+| Postnummer |addresses[type eq "work"].postalCode |
+| proxy-Addresses |e-postmeddelanden [Ange eq ”andra”]. Värdet |
+| physical-Delivery-OfficeName |[Ange eq ”andra”] adresser. Formaterad |
+| streetAddress |adresser typen eq ”arbete” .streetAddress |
 | Efternamn |name.familyName |
-| Telefonnummer |phoneNumbers typ eq ”arbete” .value |
-| användaren huvudkontot |Användarnamn |
+| Telefonnummer |phoneNumbers[type eq "work"].value |
+| user-PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabell 2: Standard grupp attributmappning
 | Azure Active Directory-grupp | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
-| Visningsnamn |externalId |
+| displayName |externalId |
 | E-post |e-postmeddelanden typen eq ”arbete” .value |
-| mailNickname |Visningsnamn |
+| mailNickname |displayName |
 | medlemmar |medlemmar |
-| objekt-ID |id |
+| objectId |id |
 | proxyAddresses |e-postmeddelanden [Ange eq ”andra”]. Värdet |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Användaretablering och avetablering
@@ -442,11 +442,11 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
     }
   ````
   I följande exempel i en fråga för en användare med ett angivet värde för attributet externalId är värden argument som skickas till metoden frågan: 
-  * parametrar. AlternateFilters.Count: 1
-  * parametrar. AlternateFilters.ElementAt(0). AttributePath: ”externalId”
-  * parametrar. AlternateFilters.ElementAt(0). Jämförelseoperator: ComparisonOperator.Equals
-  * parametrar. AlternateFilter.ElementAt(0). ComparisonValue: ”jyoung”
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. Begärande-ID ”] 
+  * parameters.AlternateFilters.Count: 1
+  * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Om svaret på en fråga till webbtjänsten för en användare med ett externalId-attributvärde som matchar mailNickname attributvärdet för en användare inte returnerar några användare, begäranden Azure Active Directory för att etablera tjänsten en användare som motsvarar det i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
   ````
@@ -526,7 +526,7 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
   ````
   I en begäran om att hämta aktuell status för en användare exempelvis är värdena för egenskaperna för objektet som tillhandahålls som värde för argumentet parametrar följande: 
   
-  * ID: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
 4. Om ett referensattribut är uppdateras Azure Active Directory frågar tjänsten för att fastställa huruvida det aktuella värdet för referensattributet i Identitetslagret fronted av tjänsten redan överensstämmer med värdet för attributet i Azure Active Directory. För användare är det enda attributet som efterfrågas det aktuella värdet på det här sättet manager-attribut. Här är ett exempel på en begäran om att avgöra om attributet manager för en viss användare-objektet har ett visst värde: 
@@ -538,14 +538,14 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
 
   Om tjänsten har skapats med vanlig infrastruktur för språk-bibliotek som tillhandahålls av Microsoft för att implementera SCIM tjänster, översätts begäran till ett anrop till metoden fråga i den tjänstleverantören. Värdet för egenskaperna för objektet som tillhandahålls som värde för argumentet parametrar är följande: 
   
-  * parametrar. AlternateFilters.Count: 2
-  * parametrar. AlternateFilters.ElementAt(x). AttributePath: ”id”
-  * parametrar. AlternateFilters.ElementAt(x). Jämförelseoperator: ComparisonOperator.Equals
-  * parametrar. AlternateFilter.ElementAt(x). ComparisonValue: ”54D382A4-2050-4C03-94D1-E769F1D15682”
-  * parametrar. AlternateFilters.ElementAt(y). AttributePath: ”manager”
-  * parametrar. AlternateFilters.ElementAt(y). Jämförelseoperator: ComparisonOperator.Equals
-  * parametrar. AlternateFilter.ElementAt(y). ComparisonValue: ”2819c223-7f76-453a-919d-413861904646”
-  * parametrar. RequestedAttributePaths.ElementAt(0): ”id”
+  * parameters.AlternateFilters.Count: 2
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
+  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.RequestedAttributePaths.ElementAt(0): "id"
   * parametrar. SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
   Här kan värdet för indexet x kan vara 0 och värdet för y indexet kan vara 1, eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttryck för filter Frågeparametern.   
@@ -653,14 +653,14 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
   ````
     I en begäran om att uppdatera en användare exempelvis har det angivna objektet som värde för argumentet korrigering egenskapsvärdena: 
   
-  * ResourceIdentifier.Identifier: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
   * (PatchRequest som PatchRequest2). Operations.Count: 1
-  * (PatchRequest som PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
   * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Path.AttributePath: ”manager”
-  * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.Count: 1
-  * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referens: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-  * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Värde: 2819c223-7f76-453a-919d-413861904646
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
+  * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
 6. Om du vill avetablera en användare från en Identitetslagret fronted av SCIM-tjänsten, skickar Azure AD en begäran som: 
   ````
@@ -679,7 +679,7 @@ Följande bild visar meddelanden att Azure Active Directory skickar till en tjä
   ````
   Objektet som tillhandahålls som värde för argumentet resourceIdentifier har egenskapsvärdena i exemplet med en begäran om att avetablera en användare: 
   
-  * ResourceIdentifier.Identifier: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Gruppen etablering och avetablering

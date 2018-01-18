@@ -3,7 +3,7 @@ title: "Skillnader och överväganden för virtuella datorer i Azure-stacken | M
 description: "Läs mer om skillnader och överväganden när du arbetar med virtuella datorer i Azure-stacken."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Överväganden för virtuella datorer i Azure-stacken
 
@@ -59,7 +59,7 @@ Storlekar för virtuella datorer och deras associerad resurs kvantiteter stämme
 
 ## <a name="virtual-machine-extensions"></a>Tillägg för virtuell dator
 
- Azure-stacken Development Kit stöder följande virtuella tillägget versioner:
+ Azure-stacken stöder följande virtuella tillägget versioner:
 
 ![VM-tillägg](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>API-versioner
 
-Funktioner på virtuella datorer i Azure-stacken Development Kit stöder följande API-versioner:
+Funktioner på virtuella datorer i Azure-stacken stöder följande API-versioner:
 
 ![Resurstyper för VM](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

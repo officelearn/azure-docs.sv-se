@@ -6,14 +6,14 @@ keywords:
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 269f77e5015175e45e0078926ef06699811889a4
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: cad28b4e6d4e46058641da19795cd71efdbd0c92
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-develop-c-module-with-azure-iot-edge"></a>Använd Visual Studio-koden för att utveckla C#-modulen med Azure IoT kant
 Den här artikeln innehåller detaljerade anvisningar för att använda [Visual Studio Code](https://code.visualstudio.com/) som den huvudsakliga utvecklingsverktyg för att utveckla och distribuera IoT kant-moduler. 
@@ -48,21 +48,37 @@ Det finns två sätt att lista IoT hub-enheter i din VS-kod. Du kan välja antin
 1. Skriv i kommandot paletten (F1 eller Ctrl + Skift + P), och välj **Azure: Logga in**. Klicka på  **kopiera* & Öppna** i popup-fönstret. Klistra in (Ctrl + V) kod i webbläsaren och klicka på knappen Fortsätt. Logga sedan in med ditt Azure-konto. Du kan se din kontoinformation i statusfältet för VS-kod.
 2. Skriv i kommandot paletten (F1 eller Ctrl + Skift + P), och välj **IoT: Välj IoT-hubb**. Du först välja den prenumeration där du skapade din IoT-hubb i föregående självstudiekursen. Välj IoT-hubb som innehåller den IoT-enheten.
 
+    ![Enhetslista](./media/how-to-vscode-develop-csharp-module/device-list.png)
 
 #### <a name="set-iot-hub-connection-string"></a>Ange anslutningssträngen för IoT-hubb
-1. Skriv i kommandot paletten (F1 eller Ctrl + Skift + P), och välj **IoT: ange anslutningssträngen för IoT-hubb**. Kontrollera att du klistra in den anslutande strängen under princip **iothubowner** (du hittar den i principer för delad åtkomst i IoT-hubb i Azure-portalen).
+Skriv i kommandot paletten (F1 eller Ctrl + Skift + P), och välj **IoT: ange anslutningssträngen för IoT-hubb**. Kontrollera att du klistra in den anslutande strängen under princip **iothubowner** (du hittar den i principer för delad åtkomst i IoT-hubb i Azure-portalen).
  
-
 Du kan se listan över enheter i IoT Hub-enheter Explorer i vänster sidorutan.
 
 ### <a name="start-your-iot-edge-runtime-and-deploy-a-module"></a>Starta IoT kant-runtime och distribuera en modul
 Installera och starta Azure IoT kant-körningsmiljön på enheten. Och distribuera en simulerad sensor-modul som ska skicka telemetridata till IoT-hubb.
 1. I kommandot paletten väljer **kant: installationsprogrammet Edge** och välj IoT-Edge enhets-ID. Eller högerklicka på Edge enhets-ID i listan över enheter och välj **installationsprogrammet Edge**.
+
+    ![Installationsprogrammet Edge runtime](./media/how-to-vscode-develop-csharp-module/setup-edge.png)
+
 2. I kommandot paletten väljer **kant: starta Edge** att starta Edge-körning. Du kan se motsvarande utdata i integrerad terminal.
+
+    ![Starta Edge runtime](./media/how-to-vscode-develop-csharp-module/start-edge.png)
+
 3. Kontrollera Edge Körningsstatus i Docker explorer. Grönt innebär att den körs. IoT kant-körning har startats.
-4. Nu kant-runtime körs, simulerar vilket innebär att datorn nu en insticksenhet. Nästa steg är att simulera en sensorthing som fortsätter att skicka meddelanden till enheten kant. Skriv i kommandot palett och välj **kant: Generera Edge konfigurationsfilen**. Välja en mapp för att skapa den här filen. Ersätt raden i filen genererade deployment.json ”<registry>/<image>:<tag>” med `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+
+    ![Edge runtime körs](./media/how-to-vscode-develop-csharp-module/edge-runtime.png)
+
+4. Nu kant-runtime körs, simulerar vilket innebär att datorn nu en insticksenhet. Nästa steg är att simulera en sensorthing som fortsätter att skicka meddelanden till enheten kant. Skriv i kommandot palett och välj **kant: Generera Edge konfigurationsfilen**. Välja en mapp för att skapa den här filen. Ersätt innehållet i filen genererade deployment.json `<registry>/<image>:<tag>` med `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` och spara filen.
+
+    ![Temperatursensor modul](./media/how-to-vscode-develop-csharp-module/sensor-module.png)
+
 5. Välj **kant: skapa distribution för gränsenheten** och välj kant enhets-ID att skapa en ny distribution. Du kan högerklicka på Edge enhets-ID i listan över enheter och välj **skapa distribution för gränsenheten**. 
-6. Du bör se din IoT-Edge börja köra i Docker explorer med simulerade sensor. Högerklicka på behållaren i Docker explorer. Du kan titta på docker-loggarna för varje modul.
+
+6. Du bör se din IoT-Edge börja köra i Docker explorer med simulerade sensor. Högerklicka på behållaren i Docker explorer. Du kan titta på docker-loggarna för varje modul. Du kan också visa modullistan i listan över enheter.
+
+    ![Modullista](./media/how-to-vscode-develop-csharp-module/module-list.png)
+
 7. Högerklicka på ditt Edge enhets-ID och du kan övervaka D2C meddelanden i VS-kod.
 8. Om du vill stoppa IoT kant-runtime och sensor-modulen kan du ange och välja **kant: stoppa Edge** i kommandot palett.
 
@@ -97,12 +113,18 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
  
 3. Välj **filen** > **öppna mappen**.
 4. Bläddra till den **FilterModule** mappen och klicka på **Välj mapp** öppna projektet i VS-kod.
-5. Klicka i VS kod explorer **Program.cs** att öppna den.
+5. Klicka i VS kod explorer **Program.cs** att öppna den. Överst i **program.cs**, inkludera nedan namnområden.
+   ```csharp
+   using Microsoft.Azure.Devices.Shared;
+   using System.Collections.Generic;  
+   using Newtonsoft.Json;
+   ```
+
 6. Lägg till den `temperatureThreshold` variabeln i **programmet** klass. Den här variabeln anger det värde som uppmätta temperaturen får överstiga för data som ska skickas till IoT-hubb. 
 
-    ```csharp
-    static int temperatureThreshold { get; set; } = 25;
-    ```
+   ```csharp
+   static int temperatureThreshold { get; set; } = 25;
+   ```
 
 7. Lägg till den `MessageBody`, `Machine`, och `Ambient` klasser till den **programmet** klass. Dessa klasser definierar det förväntade schemat för brödtexten för inkommande meddelanden.
 
@@ -225,16 +247,22 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
     }
     ```
 
-11. Om du vill skapa projektet, högerklicka på den **FilterModule.csproj** filen i Utforskaren och klicka på **skapa IoT kant modulen**. Den här processen kompilerar modulen och exporterar den binära filen och dess beroenden till en mapp som används för att skapa en Docker-avbildning.
+11. Om du vill skapa projektet, högerklicka på den **FilterModule.csproj** filen i Utforskaren och klicka på **skapa IoT kant modulen**. Den här processen kompilerar modulen och exporterar den binära filen och dess beroenden till en mapp som används för att skapa en Docker-avbildning. 
 
+    ![Skapa-modul](./media/how-to-vscode-develop-csharp-module/build-module.png)
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Skapa en Docker-avbildning och publicera den i registret
 
 1. I VS kod explorer expanderar den **Docker** mapp. Expandera mappen för din plattform för behållare, antingen **linux x64** eller **windows nano**.
 2. Högerklicka på den **Dockerfile** fil och klicka på **skapa IoT kant modulen Docker bild**. 
+
+    ![Skapa docker-bild](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
+
 3. I den **Välj mappen** och bläddra till eller ange `./bin/Debug/netcoreapp2.0/publish`. Klicka på **Välj mapp som EXE_DIR**.
 4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filtermodule:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filtermodule:latest`.
-5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg.
+5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg. Läs i loggen för konsolen och kontrollera att avbildningen har aviserats.
+
+    ![Push-docker bild](./media/how-to-vscode-develop-csharp-module/push-image.png) ![intryckt docker-bild](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
 ### <a name="deploy-your-iot-edge-modules"></a>Distribuera din IoT-Edge-moduler
 
@@ -264,21 +292,26 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 
 2. Ersätt den **vägar** avsnitt med nedanför innehållet:
     ```json
-    {
-        "routes": {
-            "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-            "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-        }
-    }
+    "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+    "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
    > Deklarativ regler i körningsmiljön definiera där dessa meddelanden. I den här kursen behöver du två vägar. Första vägen transporter meddelanden från temperatursensorn till filtermodul via slutpunkten ”input1”, vilket är den slutpunkt du konfigurerade med FilterMessages-hanteraren. Andra vägen transporter meddelanden från modulen filter till IoT-hubb. I den här vägen är överordnad en särskild destination som talar om kant-hubb för att skicka meddelanden till IoT-hubb.
 
 3. Spara filen.
 4. I kommandot paletten väljer **kant: skapa distribution för gränsenheten**. Välj IoT kant enhets-ID att skapa en distribution. Eller högerklicka på enhets-ID i listan över enheter och välj **skapa distribution för gränsenheten**.
+
+    ![Skapa distribution](./media/how-to-vscode-develop-csharp-module/create-deployment.png)
+
 5. Välj den `deployment.json` du uppdateras. I utdatafönstret visas motsvarande utdata för din distribution.
+
+    ![Distribueringen lyckades](./media/how-to-vscode-develop-csharp-module/deployment-succeeded.png)
+
 6. Starta Edge-körning i kommandot palett. **Kant: Start kant**
 7. Du kan se din IoT-Edge runtime börja köra i Docker explorer med simulerade sensor och filtermodul.
+
+    ![Gräns för IoT-lösningen körs](./media/how-to-vscode-develop-csharp-module/solution-running.png)
+
 8. Högerklicka på ditt Edge enhets-ID och du kan övervaka D2C meddelanden i VS-kod.
 
 

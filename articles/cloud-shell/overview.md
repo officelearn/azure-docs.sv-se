@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure-molnet Shell
 Azure Cloud-gränssnittet är en interaktiv, webbläsare-tillgängliga shell för att hantera Azure-resurser.
-Den ger dig möjlighet att välja shell-upplevelse som bäst passar arbetet.
+Det ger möjlighet att välja shell-upplevelse som bäst passar arbetet.
 Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
 
 Försök från shell.azure.com med den här knappen.
@@ -52,8 +52,8 @@ Visa fullständig verktygsuppsättning listan för den [Bash upplevelse](feature
 
 ### <a name="multiple-access-points"></a>Flera åtkomstpunkter
 Moln-gränssnittet är ett flexibelt verktyg som kan användas från:
-* [Portal.Azure.com](https://portal.azure.com)
-* [Shell.Azure.com](https://shell.azure.com)
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Azure CLI 2.0 ”försök”-dokumentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Azure mobilappar](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Tillägget för VS kod Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -87,7 +87,7 @@ Klicka på ”Visa avancerade inställningar” i Kommandotolken lagring install
 
 [Lär dig om molnet Shell lagring, uppdatera Azure-filresurser och ladda upp/hämta filer.](persisting-shell-storage.md)
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 * Molnet Shell körs på en tillfällig värd på en per session, per användare
 * Molnet Shell timeout efter 20 minuter utan interaktiva aktivitet
 * Molnet Shell kräver en Azure-filresurs som ska monteras

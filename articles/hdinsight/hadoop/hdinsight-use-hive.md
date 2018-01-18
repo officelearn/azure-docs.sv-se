@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bcaa53ea0a97186b9617ae2ca757e3c806b325e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ecf08b765ba17ac410f45bc3604a2aa0f3b4823e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -47,7 +47,7 @@ Använd följande tabell för att identifiera hur du använder Hive med HDInsigh
 |:--- |:---:|:---:|:--- |:--- |
 | [Hive-vyn](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Alla (webbläsarbaserade) |
 | [Beeline klienten](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X eller Windows |
-| [REST-API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux- eller Windows * |Linux, Unix, Mac OS X eller Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux- eller Windows * |Linux, Unix, Mac OS X eller Windows |
 | [HDInsight tools för Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux- eller Windows * |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux- eller Windows * |Windows |
 

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och pålitlighet för Hadoop-kluster i HDInsight
 
@@ -110,7 +110,7 @@ Du kan ansluta till noder som inte är direkt åtkomliga via internet med hjälp
 
 Använda Ambari-Webbgränssnittet eller Ambari REST API för att kontrollera status för tjänster som körs på huvudnoderna.
 
-### <a name="ambari-web-ui"></a>Ambari-webbgränssnittet
+### <a name="ambari-web-ui"></a>Ambari Web UI
 
 Ambari-Webbgränssnittet kan visas på https://CLUSTERNAME.azurehdinsight.net. Ersätt **CLUSTERNAME** med namnet på klustret. Om du uppmanas ange HTTP-autentiseringsuppgifter för klustret. HTTP-Standardanvändarnamnet är **admin** och lösenordet är det lösenord du angav när du skapar klustret.
 

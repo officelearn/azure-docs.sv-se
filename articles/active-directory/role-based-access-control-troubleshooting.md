@@ -1,9 +1,9 @@
 ---
-title: "Felsöka Azure RBAC | Microsoft Docs"
+title: "Felsöka rollbaserad åtkomstkontroll Azure RBAC | Microsoft Docs"
 description: "Få hjälp med eller frågor om rollbaserad åtkomstkontroll resurser."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Rollbaserad åtkomstkontroll felsökning
+# <a name="troubleshooting-azure-role-based-access-control"></a>Felsökning av rollbaserad åtkomstkontroll i Azure 
 
 Det här dokumentet artikeln innehåller svar på vanliga frågor om särskilda behörigheter som beviljas med roller, så att du vet vad som händer när du använder roller i Azure-portalen och kan felsöka problem med åtkomst till. Dessa roller omfattar alla typer av resurser:
 
@@ -41,7 +42,7 @@ Om du ger en användare läsåtkomst till en enkel webbapp inaktiveras vissa fun
 * Diagnostikloggar konfiguration
 * Konsol (Kommandotolken)
 * Aktiva och senaste distributioner (för kontinuerlig lokal git-distribution)
-* Beräknade kostnader
+* Uppskattade utgifter
 * Webbtest
 * Virtuella nätverk (endast visas för en läsare om ett virtuellt nätverk redan har konfigurerats av en användare med skrivbehörighet).
 
@@ -63,9 +64,9 @@ Dessa artiklar kräver **skriva** åtkomst till den **programtjänstplanen** som
 Dessa artiklar kräver **skriva** åtkomst till hela **resursgruppen** som innehåller din webbplats:  
 
 * SSL-certifikat och bindningar (SSL-certifikat kan delas mellan platser i samma resursgrupp och geografiska plats)  
-* Aviseringsregler  
+* Varningsregler  
 * Autoskala inställningar  
-* Application insights-komponenter  
+* Application Insights-komponenter  
 * Webbtest  
 
 ## <a name="virtual-machine-workloads"></a>Arbetsbelastningar på virtuella datorer
@@ -84,7 +85,7 @@ Dessa kräver **skriva** åtkomst till både den **virtuella**, och **resursgrup
 
 * Tillgänglighetsuppsättning  
 * Belastningsutjämnade uppsättningen  
-* Aviseringsregler  
+* Varningsregler  
 
 Fråga din administratör om du inte kan komma åt någon av dessa paneler för deltagare åtkomst till resursgruppen.
 

@@ -4,7 +4,7 @@ description: "Här avsnittet beskrivs krypteringsnyckeln och hur du avbryta den 
 services: active-directory
 keywords: "Azure AD-synkroniseringstjänstkontot, lösenord"
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e4f143779a33bc2511974884fa16894611050f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra lösenord för tjänstkonto i Azure AD Connect-synkronisering
 Om du ändrar lösenord för tjänstkonto i Azure AD Connect sync kommer synkroniseringstjänsten inte att kunna starta korrekt förrän du har avbrutna krypteringsnyckeln och initieras på nytt lösenord för tjänstkonto i Azure AD Connect-synkronisering. 
@@ -43,7 +43,7 @@ Andra kan vissa villkor kan om lösenordet uppdateras synkroniseringstjänsten i
 Du ser fel som:
 
 - Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”** Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn. Mer information finns i händelseloggen System. Om detta är en icke-Microsoft-tjänst Kontakta leverantören för tjänsten och tjänstspecifika felkoden **-21451857952 *** ”.
-- Under Windows Loggboken i programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”**krypteringsnyckeln server kan inte nås.* *”*
+- Under Windows Loggboken i programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”**krypteringsnyckeln server kan inte nås.**”*
 
 För att säkerställa att du inte får dessa fel, följer du procedurerna i [överges krypteringsnyckeln Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) när du ändrar lösenordet.
  
@@ -82,7 +82,7 @@ Avbryt den befintliga krypteringsnyckeln så att nya krypteringsnyckeln kan skap
 Som de befintliga lösenord som lagrats i databasen kan inte längre dekrypteras så behöver du ge synkroniseringstjänsten lösenordet för AD DS-konto. Synkroniseringstjänsten krypterar lösenord med hjälp av den nya krypteringsnyckeln:
 
 1. Starta hanteraren för synkroniseringstjänsten (START → synkroniseringstjänsten).
-</br>![Synkronisering av Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
+</br>![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)  
 2. Gå till den **kopplingar** fliken.
 3. Välj den **AD-koppling** som motsvarar dina lokala AD. Upprepa följande steg för dem om du har flera AD-koppling.
 4. Under **åtgärder**väljer **egenskaper**.

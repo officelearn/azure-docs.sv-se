@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direkt metoder från IoT-hubb
 IoT-hubb kan du anropa direkt metoder på enheter från molnet. Direkta metoder representerar en request-reply-interaktion med en enhet som liknar ett HTTP-anrop i att de lyckas eller misslyckas omedelbart (efter en användardefinierade timeout). Den här metoden är användbar för scenarier där loppet av omedelbara åtgärder är olika beroende på om enheten har kunna svara, till exempel skicka ett SMS-wake-up till en enhet om en enhet är offline (SMS är dyrare än ett metodanrop).
-
 Varje enhet metod riktar sig till en enda enhet. [Jobb] [ lnk-devguide-jobs] är ett sätt att anropa direkt metoder på flera enheter och schemalägga metodanropet för frånkopplade enheter.
 
 Alla med **tjänsten ansluta** behörigheter för IoT-hubb kan anropa en metod på en enhet.
@@ -44,7 +43,7 @@ Direkta metoder är synkrona och antingen lyckas eller misslyckas när tidsgrän
 
 Dirigera metoder är HTTPS endast från molnet sida och MQTT eller AMQP från enheter-sidan.
 
-Nyttolasten för metodbegäranden och svar är en JSON-dokumentet upp till 8 KB.
+Nyttolasten för metodbegäranden och svar är en JSON-dokumentet upp till 128 KB.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Anropa en metod som är direkt från en backend-app
 ### <a name="method-invocation"></a>Metodanropet

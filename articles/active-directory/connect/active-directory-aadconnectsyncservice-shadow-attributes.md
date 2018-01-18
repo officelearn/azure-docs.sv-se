@@ -3,7 +3,7 @@ title: Azure AD Connect sync shadow attribut | Microsoft Docs
 description: "Beskriver hur shadow attribut fungerar i Azure AD Connect-synkroniseringstjänsten."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync shadow attribut
 De flesta attribut representeras på samma sätt i Azure AD som i din lokala Active Directory. Men vissa attribut har en särskild hantering och attributvärdet i Azure AD kan vara annorlunda än Azure AD Connect synkroniserar.
@@ -39,7 +39,7 @@ En användare har följande attributvärden i en icke-verifierad domän:
 | --- | --- |
 | lokala userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| Azure AD-userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
+| Azure AD userPrincipalName | lee.sperry@fabrikam.onmicrosoft.com |
 
 Attributet userPrincipalName är det värde som visas när du använder PowerShell.
 
@@ -71,6 +71,6 @@ ProxyCalc kan ta lite tid att bearbeta en ändring för en användare och är in
 ### <a name="quarantined-attribute-values"></a>I karantän attributvärden
 Shadow-attribut används också när det finns dubblerade attributvärden. Mer information finns i [dubblettattribut återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).

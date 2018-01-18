@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hög densitet värd i Azure App Service
 När du använder App Service, frikopplas programmet från den kapacitet som tilldelas av två begrepp:
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp. SiteConfig.NumberOfWorkers är olika formulär $newapp. MaxNumberOfWorkers. Per app använder skalning $newapp. SiteConfig.NumberOfWorkers till bestämmer skala egenskaper för appen.
+> $newapp. SiteConfig.NumberOfWorkers skiljer sig från $newapp. MaxNumberOfWorkers. Per app använder skalning $newapp. SiteConfig.NumberOfWorkers till bestämmer skala egenskaper för appen.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Per app skalning med Azure Resource Manager
 

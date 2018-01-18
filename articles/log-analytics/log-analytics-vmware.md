@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/16/2018
 ms.author: banders
-ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware övervakning (förhandsgranskning) lösning i logganalys
 
@@ -26,12 +26,12 @@ ms.lasthandoff: 10/11/2017
 
 Övervakning av VMware-lösning i Log Analytics är en lösning som hjälper dig att skapa en centraliserad loggning och övervakning tillvägagångssätt för stora VMware-loggar. Den här artikeln beskriver hur du kan felsöka, samla in och hantera ESXi-värdar i en enda plats med lösningen. Med lösningen kan se du detaljerad information för alla dina ESXi-värdar i en enda plats. Du kan se översta händelsen antal, status och trender för VM- och ESXi-värdar som tillhandahålls via loggarna ESXi-värd. Du kan felsöka genom att visa och söker efter loggar med centraliserad ESXi-värd. Och du kan skapa varningar baserat på loggen sökfrågor.
 
-Lösningen använder inbyggd syslog-funktionerna i ESXi-värd för pusha data till ett mål VM, som har OMS-Agent. Lösningen skriva inte filer till syslog inom den virtuella datorn. OMS-agenten lyssnar till detta öppnar porten 1514. När den tar emot data skickar OMS-agenten data till OMS.
+Lösningen använder inbyggd syslog-funktionerna i ESXi-värd för pusha data till ett mål VM, som har OMS-Agent. Lösningen skriva inte filer till syslog inom den virtuella datorn. OMS-agenten lyssnar till detta öppnar porten 1514. När den tar emot data skickar OMS-agenten data till logganalys.
 
-## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
+## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Lägg till övervakning av VMware-lösning i OMS-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
+* Lägg till övervakning av VMware-lösning till din prenumeration med hjälp av den process som beskrivs i [lägga till en lösning för](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi-värdar som stöds
 vSphere ESXi 5.5 för värden och 6.0
@@ -66,11 +66,11 @@ Skapa ett Linux-operativsystem VM ta emot alla syslog-data från ESXi-värdar. D
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. I OMS-portalen, söka loggen efter `Type=VMware_CL`. När OMS samlar in syslog-data, behåller den syslog-format. I portalen vissa specifika fält avbildas, t.ex *värdnamn* och *ProcessName*.  
+9. I Azure-portalen, söka loggen efter `VMware_CL`. När logganalys samlar in syslog-data, behåller den syslog-format. I portalen vissa specifika fält avbildas, t.ex *värdnamn* och *ProcessName*.  
 
     ![typ](./media/log-analytics-vmware/type.png)  
 
-    Om sökresultaten Visa loggen liknar bilden ovan, klart att använda instrumentpanelen för övervakning av OMS-VMware-lösning.  
+    Om sökresultaten Visa loggen liknar bilden ovan, klart att använda instrumentpanelen för övervakning av VMware-lösning.  
 
 ## <a name="vmware-data-collection-details"></a>VMware information för samlingen
 Övervakning av VMware-lösningen samlar in olika mått och logga prestandadata från ESXi-värdar som använder OMS-agenter för Linux som du har aktiverat.
@@ -105,7 +105,7 @@ I följande tabell visar exempel på datafält som samlas in av övervakning av 
 | StorageLatency_s |lagring svarstid (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>Övervakning av VMware lösning: översikt
-VMware-ikonen visas i OMS-portalen. Det ger en övergripande bild av eventuella fel. När du klickar på ikonen försättas i en instrumentpanelsvy.
+VMware-ikonen visas i logganalys-arbetsytan. Det ger en övergripande bild av eventuella fel. När du klickar på ikonen försättas i en instrumentpanelsvy.
 
 ![sida vid sida](./media/log-analytics-vmware/tile.png)
 
@@ -124,12 +124,12 @@ I den **VMware** instrumentpanelsvyn blad ordnas efter:
 
 Klicka på ett blad öppna Log Analytics sökfönstret som visar detaljerad information som är specifik för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra för ett specifikt. En självstudiekurs om grunderna i OMS-sökning, ta en titt på [OMS loggen Sök kursen.](log-analytics-log-searches.md)
+Härifrån kan redigera du frågan om du vill ändra för ett specifikt. Mer information om hur du skapar loggen sökningar finns [söka efter data med hjälp av loggen sökningar i logganalys](log-analytics-log-searches.md).
 
 #### <a name="find-esxi-host-events"></a>Sök efter händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, baserat på deras processer. Övervakning av VMware-lösningen centraliserar dem och sammanfattar händelse antal. Centraliserad vyn hjälper dig att förstå vilka ESXi-värd har en stor volym med händelser och vilka händelser inträffar oftast i din miljö.
 
-![Händelse](./media/log-analytics-vmware/events.png)
+![händelse](./media/log-analytics-vmware/events.png)
 
 Du kan gå vidare genom att klicka på ESXi-värd eller en händelsetyp.
 
@@ -155,12 +155,12 @@ Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera
 
 
 #### <a name="save-queries"></a>Spara frågor
-Spara sökningar är en funktion som standard i OMS och kan hjälpa dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som vara användbara sparar du genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare från den [min instrumentpanel](log-analytics-dashboards.md) sida där du kan skapa egna anpassade instrumentpaneler.
+Spara sökningar är en funktion som standard i logganalys och kan hjälpa dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som vara användbara sparar du genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare från den [min instrumentpanel](log-analytics-dashboards.md) sida där du kan skapa egna anpassade instrumentpaneler.
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor, kanske du vill använda frågor för att meddela dig när specifika händelser äger rum. Se [aviseringar i logganalys](log-analytics-alerts.md) information om hur du skapar aviseringar. Exempel på varningar frågor och andra frågan-exempel finns i [övervakaren VMware med OMS logganalys](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
+När du har skapat dina frågor, kanske du vill använda frågor för att meddela dig när specifika händelser äger rum. Se [aviseringar i logganalys](log-analytics-alerts.md) information om hur du skapar aviseringar. Exempel på varningar frågor och andra frågan-exempel finns i [övervakaren VMware med logganalys](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad behöver jag göra på ESXi-värd inställningen? Vilken effekt det har på min aktuella miljön?
@@ -169,16 +169,16 @@ Lösningen använder inbyggd ESXi-värd Syslog-vidarebefordran mekanism. Du beh�
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>Behöver jag startar om ESXi-värd?
 Nej. Den här processen kräver inte omstart. Ibland uppdateras vSphere korrekt inte syslog. I så fall, logga in på ESXi-värd och Läs in syslog. Igen och behöver du starta om värddatorn, så den här processen är inte störande för din miljö.
 
-### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>Kan jag öka eller minska mängden loggdata som skickas till OMS?
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Kan jag öka eller minska mängden loggdata som skickas till Log Analytics?
 Ja, du kan. Du kan använda ESXi-värd loggningsnivån inställningarna i vSphere. Loggsamlingen är baserad på den *info* nivå. Så om du vill granska virtuell dator skapas eller tas bort, måste du behålla den *info* nivån på Hostd. Mer information finns i [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
-### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>Varför Hostd inte tillhandahåller data till OMS? Mina inställningar har angetts till informationen.
+### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Varför Hostd inte tillhandahåller data till Log Analytics? Mina inställningar har angetts till informationen.
 Det uppstod ett ESXi-värd programfel för syslog-tidsstämpel. Mer information finns i [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). När du har installerat lösningen ska Hostd fungera normalt.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Kan jag har flera ESXi-värdar som vidarebefordrar syslog-data till en enda virtuell dator med omsagent?
 Ja. Du kan ha flera ESXi-värdar som vidarebefordrar till en enda virtuell dator med omsagent.
 
-### <a name="why-dont-i-see-data-flowing-into-oms"></a>Varför visas inte data som flödar till OMS?
+### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Varför visas inte data som flödar till Log Analytics?
 Det kan finnas flera anledningar:
 
 * ESXi-värd inte korrekt skicka data till den virtuella datorn kör omsagent. Om du vill testa, utför du följande steg:
@@ -189,15 +189,16 @@ Det kan finnas flera anledningar:
   2. Om syslog-port anslutningen lyckas, men du fortfarande inte ser några data, ladda du syslog på ESXi-värd med hjälp av ssh att köra följande kommando:` esxcli system syslog reload`
 * Den virtuella datorn med OMS-Agent har inte angetts korrekt. Utför följande steg om du vill testa detta:
 
-  1. OMS lyssnar på port 1514 och skickar data till OMS. Kontrollera att den är öppen genom att köra följande kommando:`netstat -a | grep 1514`
+  1. Logganalys lyssnar på port 1514. Kontrollera att den är öppen genom att köra följande kommando:`netstat -a | grep 1514`
   2. Du bör se port `1514/tcp` öppna. Om du inte vill kontrollera att omsagent är korrekt installerad. Syslog-porten är inte öppen på den virtuella datorn om du inte ser portinformationen.
 
-     1. Kontrollera att OMS-Agent körs med hjälp av `ps -ef | grep oms`. Om den inte körs starta processen genom att köra kommandot` sudo /opt/microsoft/omsagent/bin/service_control start`
-     2. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+    a. Kontrollera att OMS-Agent körs med hjälp av `ps -ef | grep oms`. Om den inte körs starta processen genom att köra kommandot` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-         Kontrollera att rätt användare och grupp-inställning är giltigt, liknar:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-         Om filen inte finns eller användare och grupp-inställning är fel, vidta åtgärder av [förbereder en Linux-server](#prepare-a-linux-server).
+    c. Kontrollera att rätt användare och grupp-inställning är giltigt, liknar:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+    d. Om filen inte finns eller användare och grupp-inställning är fel, vidta åtgärder av [förbereder en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [loggen sökningar](log-analytics-log-searches.md) i logganalys att visa detaljerad VMware värd för data.

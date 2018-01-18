@@ -1,49 +1,52 @@
 
-## <a name="create-an-application-express"></a>Skapa ett program (snabb)
-Nu måste du registrera ditt program i den *Microsoft Programregistreringsportalen*:
-1. Registrera ditt program via den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
-2.  Ange ett namn för ditt program och din e-post
-3.  Kontrollera att alternativet för interaktiv installation är markerat
-4.  Följ instruktionerna för att hämta program-ID och klistra in den i din kod
+## <a name="register-your-application"></a>Registrera ditt program
+Du kan registrera ditt program på två sätt som beskrivs i följande två avsnitt.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Lägga till registreringsinformationen program i lösningen (Avancerat)
-Nu måste du registrera ditt program i den *Microsoft Programregistreringsportalen*:
-1. Gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app) registrera ett program
-2. Ange ett namn för ditt program och din e-post 
-3. Kontrollera att alternativet för interaktiv installation är markerat
-4. Klicka på `Add Platform`och välj `Native Application` och tryck på Spara
-5.  Öppna `MainActivity` (under `app`  >  `java`  >   *`{host}.{namespace}`* )
-6.  Ersätt den *[Ange program-Id här]* i rad som börjar med `final static String CLIENT_ID` med program-ID som du just har registrerat:
+### <a name="option-1-express-mode"></a>Alternativ 1: Express-läge
+Du kan snabbt registrera ditt program genom att göra följande:
+1. Gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+2.  I den **programnamn** ange ett namn för ditt program.
 
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+3. Se till att den **interaktiv installation** kryssrutan är markerad och välj sedan **skapa**.
+
+4. Följ instruktionerna för att hämta program-ID och klistra in den i din kod.
+
+### <a name="option-2-advanced-mode"></a>Alternativ 2: Avancerat läge
+För att registrera ditt program och lägga till registreringsinformationen program i lösningen måste du göra följande:
+1. Om du inte redan har registrerat ditt program, gå till den [Microsoft Programregistreringsportalen](https://apps.dev.microsoft.com/portal/register-app).
+2. I den **programnamn** ange ett namn för ditt program. 
+
+3. Se till att den **interaktiv installation** kryssrutan är avmarkerad och välj sedan **skapa**.
+
+4. Välj **lägga till plattformen**väljer **programspecifika**, och välj sedan **spara**.
+
+5. Under **app** > **java** > **{värden}. { Namespace}**öppnar `MainActivity`. 
+
+6.  Ersätt *[Ange program-Id här]* i följande rad med program-ID som du just har registrerat:
+
+    ```java
+    final static String CLIENT_ID = "[Enter the application Id here]";
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="7">
-<li>
-Öppna `AndroidManifest.xml` (under `app`  >  `manifests`) lägger du till att följande aktiviteter `manifest\application` nod. Detta registrerar en `BrowserTabActivity` så att operativsystem och återuppta programmet när autentiseringen har slutförts:
-</li>
-</ol>
+7. Under **app** > **visar**öppnar den *AndroidManifest.xml* fil.
 
-```xml
-<!--Intent filter to capture System Browser calling back to our app after Sign In-->
-<activity
-    android:name="com.microsoft.identity.client.BrowserTabActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        
-        <!--Add in your scheme/host from registered redirect URI-->
-        <!--By default, the scheme should be similar to 'msal[appId]' -->
-        <data android:scheme="msal[Enter the application Id here]"
-            android:host="auth" />
-    </intent-filter>
-</activity>
-```
+8. I den `manifest\application` nod, Lägg till följande aktivitet. Gör så registrerar en `BrowserTabActivity` aktivitet som gör att operativsystem och återuppta programmet när autentiseringen är klar:
+
+    ```xml
+    <!--Intent filter to capture System Browser calling back to our app after sign-in-->
+    <activity
+        android:name="com.microsoft.identity.client.BrowserTabActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            
+            <!--Add in your scheme/host from registered redirect URI-->
+            <!--By default, the scheme should be similar to 'msal[appId]' -->
+            <data android:scheme="msal[Enter the application Id here]"
+                android:host="auth" />
+        </intent-filter>
+    </activity>
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="8">
-<li>
-I den `BrowserTabActivity`, Ersätt `[Enter the application Id here]` med program-ID.
-</li>
-</ol>
+9. I den `BrowserTabActivity` nod, Ersätt `[Enter the application Id here]` med program-ID.

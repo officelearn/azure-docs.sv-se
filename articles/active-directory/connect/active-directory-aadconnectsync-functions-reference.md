@@ -3,7 +3,7 @@ title: 'Azure AD Connect-synkronisering: funktioner referens | Microsoft Docs'
 description: "Referens för uttryck för deklarativ etablering i Azure AD Connect-synkronisering."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: funktioner referens
 I Azure AD Connect för funktioner att ändra ett attributvärde under synkroniseringen.  
@@ -1242,7 +1242,7 @@ Värdet kan också vara funktionen fel som returnerar en anpassad sträng.
 Returnerar det språk som talas i vissa större städer, annars returneras ett fel.
 
 - - -
-### <a name="trim"></a>Rensa
+### <a name="trim"></a>Trimma
 **Beskrivning:**  
 Funktionen Rensa tar bort inledande och avslutande blanksteg från en sträng.
 
@@ -1269,7 +1269,7 @@ Funktionen UCase konverterar alla tecken i en textsträng till versaler.
 Returnerar ”TEST”.
 
 - - -
-### <a name="where"></a>där
+### <a name="where"></a>Där
 
 **Beskrivning:**  
 Returnerar en delmängd av värden från ett med flera värden attribut (eller utdata för ett uttryck) som baserat på specifika villkor.

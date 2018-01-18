@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - definiera en strategi för hybrid identity införande | Microsoft Docs"
+title: "Identitet hybridutformning - införandestrategin Azure | Microsoft Docs"
 description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definiera en strategi för införandet en hybrid identity
 I den här uppgiften definierar du införandestrategin för hybrid identity för din hybrididentitetslösning att uppfylla kraven som beskrivs i:
@@ -189,9 +190,9 @@ Trots att du kan ha regleras på en lösning för din strategi, behöver du fort
 | Användarplats | Alternativet föredragna designen |
 | --- | --- |
 | Azure Active Directory |Flera FactorAuthentication i molnet |
-| Azure AD och lokalt AD med federation med AD FS |Båda |
-| Azure AD och lokala AD med Azure AD Connect inga Lösenordssynkronisering |Båda |
-| Azure AD och lokala med Azure AD Connect med Lösenordssynkronisering |Båda |
+| Azure AD och lokalt AD med federation med AD FS |Både |
+| Azure AD och lokala AD med Azure AD Connect inga Lösenordssynkronisering |Både |
+| Azure AD och lokala med Azure AD Connect med Lösenordssynkronisering |Både |
 | Lokala AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
@@ -210,6 +211,6 @@ Multifaktorautentisering är som standard för globala administratörer som har 
 ## <a name="next-steps"></a>Nästa steg
 [Fastställa kraven på dataskydd](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](active-directory-hybrid-identity-design-considerations-overview.md)
 

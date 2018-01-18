@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Om du vill använda grundläggande autentisering för egenskapen ”authenticati
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
+| userName | Användare som har åtkomst till SFTP-servern. |Ja |
 | lösenord | Lösenord för användare (användarnamn). Markera det här fältet som en SecureString. | Ja |
 
 **Exempel:**
@@ -100,10 +100,10 @@ Om du vill använda autentisering med SSH offentlig nyckel för egenskapen ”au
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användarnamn | Användare som har åtkomst till SFTP-server |Ja |
+| userName | Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till den fil för privat nyckel som har åtkomst till Integration Runtime. Gäller endast när automatisk värdbaserade Integration Runtime har angetts i ”connectVia”. | Ange antingen det `privateKeyPath` eller `privateKeyContent`.  |
 | privateKeyContent | Base64-kodade innehåll för SSH privat nyckel. Privata SSH-nyckeln ska vara OpenSSH-format. Markera det här fältet som en SecureString. | Ange antingen det `privateKeyPath` eller `privateKeyContent`. |
-| Lösenfrasen | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. Markera det här fältet som en SecureString. | Ja om filen för privata nyckeln skyddas av ett lösenord. |
+| passPhrase | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. Markera det här fältet som en SecureString. | Ja om filen för privata nyckeln skyddas av ett lösenord. |
 
 > [!NOTE]
 > SFTP-anslutningen har stöd för OpenSSH-nyckel. Kontrollera att din nyckelfilen är i rätt format. Du kan använda Putty för att konvertera från .ppk till OpenSSH-format.
@@ -177,7 +177,7 @@ Ange typegenskapen för dataset för att kopiera data från SFTP, **filresursen*
 | folderPath | Sökvägen till mappen. Till exempel: mappen/undermappen / |Ja |
 | fileName | Ange namnet på filen i den **folderPath** om du vill kopiera från en viss fil. Om du inte anger något värde för den här egenskapen dataset pekar på alla filer i mappen som källa. |Nej |
 | fileFilter | Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer. Gäller bara när filnamn har inte angetts. <br/><br/>Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1:`"fileFilter": "*.log"`<br/>-Exempel 2:`"fileFilter": 2017-09-??.txt"` |Nej |
-| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
+| format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 **Exempel:**
@@ -219,7 +219,7 @@ Om du vill kopiera data från SFTP, anger du källa i kopieringsaktiviteten till
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
-| Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
+| Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv är inställd på true och mottagare är filbaserad lagring, tom mapp/underåtgärder-folder kommer inte att kopieras/skapas på mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 
 **Exempel:**
 

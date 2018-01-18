@@ -3,7 +3,7 @@ title: "Hantera domänanslutna HDInsight - kluster i Azure | Microsoft Docs"
 description: "Lär dig att hantera domänanslutna HDInsight-kluster"
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
-ms.author: saurinsh
-ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Hantera domänanslutna HDInsight-kluster
 Läs om användarna och roller för domänanslutna HDInsight och hur du hanterar domänanslutna HDInsight-kluster.
@@ -81,9 +81,8 @@ Använd informationen i de hantera HDInsight med Ambari REST API-dokumentet för
 Ett HDInsight-kluster som inte är ansluten till domänen har två konton som skapas när klustret skapas:
 
 * **Ambari admin**: det här kontot kallas även *Hadoop användare* eller *HTTP användaren*. Det här kontot kan användas för att logga in på Ambari när https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med ODBC-drivrutinen och BI-verktyg (till exempel Excel, PowerBI eller Tableau).
-* **SSH-användare**: det här kontot kan användas med SSH och köra sudo-kommandon. Det har rot behörigheter till den virtuella Linux-datorer.
 
-En domänansluten HDInsight-kluster har tre nya användare utöver Ambari Admin och SSH-användare.
+En domänansluten HDInsight-kluster har tre nya användare utöver Ambari Admin.
 
 * **Ranger admin**: det här kontot är lokalt administratörskonto för Apache Ranger. Det är inte en användare för active directory-domän. Det här kontot kan användas för att konfigurera principer och göra andra användare, Administratörer eller delegerade administratörer (så att användarna kan hantera principer). Som standard är användarnamnet *admin* och lösenordet är detsamma som Ambari administratörslösenord. Lösenordet kan uppdateras från sidan Inställningar i Ranger.
 * **Klustret admin domänanvändare**: det här kontot är en active directory-domänanvändare utses Hadoop-kluster administratören inklusive Ambari och Ranger. Du måste ange den här användarens autentiseringsuppgifter när klustret skapas. Den här användaren har följande behörigheter:
@@ -162,4 +161,3 @@ Domänanslutna HDInsight har följande roller:
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa i [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).
 * Om du vill konfigurera Hive-principer och köra Hive-frågor kan du läsa i [Konfigurera Hive-principer för domänanslutna HDInsight-kluster](apache-domain-joined-run-hive.md).
-* För att köra Hive-frågor med SSH på domänanslutna HDInsight-kluster, se [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

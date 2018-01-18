@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-store"></a>sfctl store
 Utföra grundläggande nivån filåtgärder på klustret image store.
@@ -27,8 +27,8 @@ Utföra grundläggande nivån filåtgärder på klustret image store.
 
 |Kommando|Beskrivning|
 | --- | --- |
-|    ta bort| Tar bort befintliga avbildningen lagra innehållet.|
-|    rot-info| Hämtar innehållsinformationen i roten för image store.|
+|    radera| Tar bort befintliga avbildningen lagra innehållet.|
+|    root-info| Hämtar innehållsinformationen i roten för image store.|
 |    stat  | Hämtar innehållsinformation för image store.|
 
 
@@ -48,7 +48,7 @@ Tar bort befintliga image store innehåll som hittas i angivna bilden lagra rela
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -70,7 +70,7 @@ Returnerar information om image store innehållet på den angivna contentPath i 
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug               | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h             | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o           | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga               | JMESPath frågesträngen. Se http://jmespath.org/ för mer information och exempel.|

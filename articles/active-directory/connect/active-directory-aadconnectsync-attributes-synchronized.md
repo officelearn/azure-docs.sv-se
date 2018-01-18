@@ -3,7 +3,7 @@ title: Attribut som synkroniseras med Azure AD Connect | Microsoft Docs
 description: "Visar en lista över de attribut som synkroniseras till Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut synkroniserade till Azure Active Directory
 Det här avsnittet listar de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -39,8 +39,8 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kommentera |
 | --- |:---:| --- |
 | accountEnabled |X |Anger om ett konto har aktiverats. |
-| CN |X | |
-| Visningsnamn |X | |
+| cn |X | |
+| displayName |X | |
 | objectSID |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | pwdLastSet |X |mekanisk egenskap. Används för att veta när ogiltigförklara redan utfärdade token. Används av både Lösenordssynkronisering och federation. |
 | sourceAnchor |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
@@ -54,14 +54,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Installationsassistenten |X |X | | |
 | altRecipient |X | | |Kräver Azure AD Connect build 1.1.552.0 eller efter. |
 | authOrig |X |X |X | |
-| C |X |X | | |
-| CN |X | |X | |
+| c |X |X | | |
+| cn |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| Visningsnamn |X |X |X | |
+| displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
 | extensionAttribute1 |X |X |X | |
@@ -81,14 +81,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | extensionAttribute9 |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| HomePhone |X |X | | |
-| Info |X |X |X |Det här attributet används för närvarande inte för grupper. |
+| homePhone |X |X | | |
+| info |X |X |X |Det här attributet används för närvarande inte för grupper. |
 | Initialer |X |X | | |
-| L |X |X | | |
-| LegacyExchangeDN |X |X |X | |
+| l |X |X | | |
+| legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| Av | | |X | |
-| Manager |X |X | | |
+| managedBy | | |X | |
+| manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
@@ -140,13 +140,13 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
-| msOrg IsOrganizational | | |X | |
+| msOrg-IsOrganizational | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherTelephone |X |X | | |
-| Personsökare |X |X | | |
+| pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | Postnummer |X |X | | |
 | proxyAddresses |X |X |X | |
@@ -158,12 +158,12 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Rubrik |X |X | | |
+| rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
 | userCertificate |X |X | | |
@@ -176,14 +176,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
 | authOrig |X |X |X | |
-| C |X |X | | |
-| CN |X | |X | |
+| c |X |X | | |
+| cn |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| Visningsnamn |X |X |X | |
+| displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
 | extensionAttribute1 |X |X |X | |
@@ -205,14 +205,14 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | givenName |X |X | | |
 | hideDLMembership | | |X | |
 | homephone |X |X | | |
-| Info |X |X |X | |
+| info |X |X |X | |
 | initialer |X |X | | |
 | ipPhone |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
-| Av | | |X | |
-| Manager |X |X | | |
+| managedBy | | |X | |
+| manager |X |X | | |
 | Medlem | | |X | |
 | middleName |X |X | | |
 | mobila |X |X | | |
@@ -228,7 +228,7 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | otherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
-| Personsökare |X |X | | |
+| pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
 | Postnummer |X |X | | |
 | postOfficeBox |X |X | |Det här attributet är för närvarande inte används av SharePoint Online. |
@@ -241,12 +241,12 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Rubrik |X |X | | |
+| rubrik |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
@@ -257,22 +257,22 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| C |X |X | | |
-| CN |X | |X | |
+| c |X |X | | |
+| cn |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | Avdelning |X |X | | |
 | description |X |X |X | |
-| Visningsnamn |X |X |X | |
+| displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
 | homephone |X |X | | |
 | ipPhone |X |X | | |
-| L |X |X | | |
+| l |X |X | | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
-| Av | | |X | |
-| Manager |X |X | | |
+| managedBy | | |X | |
+| manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
@@ -294,10 +294,10 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Rubrik |X |X | | |
+| rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 | wWWHomePage |X |X | | |
@@ -306,8 +306,8 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| CN |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
-| Visningsnamn |X |X |X |En sträng som representerar namnet visas ofta som eget namn (Förnamn Efternamn). |
+| cn |X | |X |Namn eller alias. Oftast prefix för [e] värde. |
+| displayName |X |X |X |En sträng som representerar namnet visas ofta som eget namn (Förnamn Efternamn). |
 | E-post |X |X |X |fullständig e-postadress. |
 | Medlem | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
@@ -322,10 +322,10 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| C |X |X | | |
-| CN |X | |X | |
+| c |X |X | | |
+| cn |X | |X | |
 | description |X |X |X | |
-| Visningsnamn |X |X |X | |
+| displayName |X |X |X | |
 | E-post |X |X |X | |
 | mailNickname |X |X |X | |
 | Medlem | | |X | |
@@ -341,18 +341,18 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| C |X |X | | |
-| CN |X | |X | |
+| c |X |X | | |
+| cn |X | |X | |
 | CO |X |X | | |
 | Företag |X |X | | |
 | CountryCode |X |X | | |
 | description |X |X |X | |
-| Visningsnamn |X |X |X | |
+| displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
-| L |X |X | | |
-| Av | | |X | |
-| Manager |X |X | | |
+| l |X |X | | |
+| managedBy | | |X | |
+| manager |X |X | | |
 | Medlem | | |X | |
 | mobila |X |X | | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
@@ -364,9 +364,9 @@ I så fall måste börja med en lista med attribut i det här avsnittet och iden
 | SN |X |X | | |
 | sourceAnchor |X |X |X |mekanisk egenskap. Oåterkalleliga identifierare att underhålla relationen mellan ADDS och Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| Rubrik |X |X | | |
+| rubrik |X |X | | |
 | usageLocation |X | | |mekanisk egenskap. Användarens land. Används för licenstilldelning. |
 | userPrincipalName |X | | |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |
 
@@ -381,11 +381,11 @@ Den här gruppen är en uppsättning attribut som kan användas om Azure AD-kata
 | Attributnamn | Användare | Kontakt | Grupp | Kommentera |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Anger om ett konto har aktiverats. |
-| CN |X | |X | |
-| Visningsnamn |X |X |X | |
+| cn |X | |X | |
+| displayName |X |X |X | |
 | givenName |X |X | | |
 | E-post |X | |X | |
-| Av | | |X | |
+| managedBy | | |X | |
 | mailNickName |X |X |X | |
 | Medlem | | |X | |
 | objectSID |X | | |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
@@ -403,11 +403,11 @@ En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till 
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
-| Visningsnamn |X | |
-| MS-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
+| displayName |X | |
+| ms-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
 | objectGUID |X |Kallas även deviceID. |
 | objectSID |X |Kallas även onPremisesSecurityIdentifier. |
-| Operativsystemet |X |Kallas även deviceOSType. |
+| operatingSystem |X |Kallas även deviceOSType. |
 | operatingSystemVersion |X |Kallas även deviceOSVersion. |
 | userCertificate |X | |
 
@@ -438,7 +438,7 @@ Dessa attribut synkroniseras från lokala Active Directory till Azure AD när du
 
 | Attributnamn | PublicFolder | Kommentera |
 | --- | :---:| --- |
-| Visningsnamn | X |  |
+| displayName | X |  |
 | E-post | X |  |
 | msExchRecipientTypeDetails | X |  |
 | objectGUID | X |  |
@@ -451,8 +451,8 @@ Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som ä
 | Attributnamn | Enhet | Kommentera |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
-| Visningsnamn |X | |
-| DN |X | |
+| displayName |X | |
+| dn |X | |
 | msDS-CloudAnchor |X | |
 | msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |

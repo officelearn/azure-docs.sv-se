@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 0019858e1142c1f7e7b6fedea5c2ec97518548c9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Komma igång med Azure Table Storage med hjälp av .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +31,7 @@ Du kan använda Table Storage för att lagra flexibla datauppsättningar som anv
 ### <a name="about-this-tutorial"></a>Om den här självstudiekursen
 Den här självstudiekursen beskriver hur du använder [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) i några vanliga Azure Table Storage-scenarier. Dessa scenarier illustreras med C#-exempel och visar hur du skapar och tar bort en tabell och hur du infogar, uppdaterar, tar bort och hämtar data från tabeller.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här kursen:
 

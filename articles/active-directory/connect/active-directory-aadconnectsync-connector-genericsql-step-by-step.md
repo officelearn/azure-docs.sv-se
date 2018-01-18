@@ -3,7 +3,7 @@ title: "Allmän SQL Connector steg-för-steg | Microsoft Docs"
 description: "Den här artikeln är guida dig genom en enkel HR-system steg med hjälp av allmänna SQL-anslutningen."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91eb50a06bbf2e6c5510c42bd1d3ae961fd0bddd
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Stegvisa anvisningar för allmän SQL-anslutningsapp
 Det här avsnittet finns stegvisa instruktioner. Den skapar en enkel HR-exempeldatabas och använda den för att importera vissa användare och deras gruppmedlemskap.
@@ -101,7 +101,7 @@ Fylla lite testdata i din exempeldatabas. När du är klar väljer du **kör** o
 
 Här är en användare med två telefonnummer och en grupp med medlemmar.  
 ![cs1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs1.png)  
-![CS2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
+![cs2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Bilaga A
 **SQL-skript för att skapa exempeldatabasen**

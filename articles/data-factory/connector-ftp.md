@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 36466ffe31a728e3267ef5002e4e69f52889577c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Kopiera data från FTP-servern med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Följande egenskaper stöds för FTP-länkade tjänsten:
 | enableSsl | Ange om du använder FTP över SSL/TLS-kanalen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT**. | Nej |
 | enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT**. | Nej |
 | AuthenticationType | Ange vilken autentiseringstyp.<br/>Tillåtna värden är: **grundläggande**, **anonym** | Ja |
-| Användarnamn | Ange den användare som har åtkomst till FTP-servern. | Nej |
+| userName | Ange den användare som har åtkomst till FTP-servern. | Nej |
 | lösenord | Ange lösenord för användaren (användarnamn). Markera det här fältet som SecureString. | Nej |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller Self-hosted integrering Runtime (om datalager finns i privat nätverk). Om inget anges används standard-Azure Integration Runtime. |Nej |
 
@@ -121,7 +121,7 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från FT
 | folderPath | Sökvägen till mappen. Till exempel: mappen/undermappen / |Ja |
 | fileName | Ange namnet på filen i den **folderPath** om du vill kopiera från en viss fil. Om du inte anger något värde för den här egenskapen dataset pekar på alla filer i mappen som källa. |Nej |
 | fileFilter | Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer. Gäller bara när filnamn har inte angetts. <br/><br/>Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1:`"fileFilter": "*.log"`<br/>-Exempel 2:`"fileFilter": 2017-09-??.txt"` |Nej |
-| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
+| format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill tolka filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 | useBinaryTransfer | Ange om du vill använda binär överföringsläget. Värdena är true för en binär (standard) och FALSKT för ASCII. |Nej |
 
@@ -164,7 +164,7 @@ Om du vill kopiera data från FTP anger källa i kopieringsaktiviteten till **Fi
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
-| Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
+| Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv är inställd på true och mottagare är filbaserad lagring, tom mapp/underåtgärder-folder kommer inte att kopieras/skapas på mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 
 **Exempel:**
 

@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptutveckling med HDInsight
 
@@ -118,7 +118,7 @@ Det bästa sättet är att hämta och arkivera allt innehåll i ett Azure Storag
 > [!IMPORTANT]
 > Storage-konto som används måste vara standardkontot för lagring för klustret eller en offentlig, skrivskyddad behållare för andra storage-konto.
 
-Till exempel exemplen som tillhandahålls av Microsoft lagras i den [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage-konto. Detta är en offentlig, skrivskyddad behållare som underhålls av HDInsight-teamet.
+Till exempel exemplen som tillhandahålls av Microsoft lagras i den [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage-konto. Den här platsen är en offentlig, skrivskyddad behållare som underhålls av HDInsight-teamet.
 
 ### <a name="bPS4"></a>Använda fördefinierade kompilerade resurser
 
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Checklista för distribution av en skriptåtgärd
 
-Här följer de steg som vi har tagit när du förbereder att distribuera dessa skript:
+Här följer stegen ta när du förbereder att distribuera ett skript:
 
 * Placera de filer som innehåller anpassade skript på en plats som kan nås av klusternoder under distributionen. Till exempel standardlagring för klustret. Filer kan också lagras i offentligt läsbar värdtjänster.
 * Kontrollera att skriptet är impotent. På så sätt kan skriptet ska köras flera gånger på samma nod.

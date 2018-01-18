@@ -29,7 +29,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 | Maximal storlek för enhetstvilling <br/> (taggar, rapporterade egenskaper och önskade egenskaper) | 8 kB |
 | Maximal storlek för strängvärde för enhetstvilling | 4 KB |
 | Maximalt djup för objekt i enhetstvilling | 5 |
-| Maximal storlek på nyttolast för direkt metod | 8 kB |
+| Maximal storlek på nyttolast för direkt metod | 128 KB |
 | Maximal kvarhållning för jobbhistorik | 30 dagar |
 | Maximalt antal samtidiga jobb | 10 (för S3), 5 (för S2), 1 (för S1) |
 | Maximalt antal ytterligare slutpunkter | 10 (för S1, S2 och S3) |
@@ -53,7 +53,7 @@ Tjänsten IoT Hub begränsar begärandena om följande kvoter överskrids:
 | Sändningar moln-till-enhet | 83.33/sec/Unit (5000/min/unit) (för S3) 1.67/sec/unit (unit-100/min) (för S1 och S2). |
 | Mottagningar moln-till-enhet |833.33/sec/Unit (50000/min/unit) (för S3) 16.67/sec/unit (1000/min/unit) (för S1 och S2). |
 | Filöverföringsåtgärder |83.33 filen Överför enhet-meddelanden/sek (5000/min/unit) (för S3), 1,67 filen överför meddelanden/sek/enhet (100/min/unit) (för S1 och S2). <br/> 10 000 SAS URI:er kan vara ute för ett Azure Storage-konto i taget.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
-| Direkta metoder | 3000/sek/enhet (för S3) 60/SEK/enhet (för S2) 20/SEK/enhet (för S1) |
+| Direkta metoder | 24MB/sek/enhet (för S3), 480KB/sek/enhet (för S2) 160KB/sek/enhet (för S1)<br/> Baserat på 8KB begränsning mätaren storlek. |
 | Läsoperationer för enhetstvilling | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1) |
 | Uppdateringar för enhetstvilling | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1) |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | 83.33/sec/Unit (5000/min/unit) (för S3) 1.67/sec/unit (unit-100/min) (för S2), 1.67/sec/unit (unit-100/min) (för S1) |

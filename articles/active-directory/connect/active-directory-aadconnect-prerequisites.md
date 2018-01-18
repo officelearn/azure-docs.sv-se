@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Krav och maskinvara | Microsoft Docs'
 description: "Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Krav för Azure AD Connect
 Det här avsnittet beskrivs kraven och maskinvarukraven för Azure AD Connect.
@@ -44,7 +44,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 * Det är **stöds inte** att använda lokala skogar och domäner med ”prickad” (med en punkt i namnet ””.) NetBIOS-namn.
 * Det rekommenderas att [aktivera Active Directory-Papperskorgen](active-directory-aadconnectsync-recycle-bin.md).
 
-### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
+### <a name="azure-ad-connect-server"></a>Azure AD Connect server
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials. Servern måste använda Windows Server standard eller bättre.
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerat. Det är **stöds inte** att installera på server core.
 * Azure AD Connect måste installeras på Windows Server 2008 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när du använder standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
@@ -117,7 +117,7 @@ Mer information om du har problem med anslutningen finns [Felsöka anslutningspr
 ### <a name="powershell-and-net-framework"></a>PowerShell och .net Framework
 Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. Du behöver den här versionen eller en senare version installerad på servern. Beroende på din Windows Server-version, gör du följande:
 
-* Windows Server 2012 R2
+* Windows Server 2012R2
   * Microsoft PowerShell installeras som standard. Ingen åtgärd krävs.
   * .NET framework 4.5.1 eller senare versioner erbjuds via Windows Update. Kontrollera att du har installerat de senaste uppdateringarna till Windows Server på Kontrollpanelen.
 * Windows Server 2008R2 och Windows Server 2012
@@ -186,7 +186,7 @@ Följande är en lista över komponenter som Azure AD Connect installeras på de
 * Microsoft SQL Server 2012-kommandoradsverktyg
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 omfördelning paketet
+* Microsoft Visual C++ 2013 Redistribution Package
 
 ## <a name="hardware-requirements-for-azure-ad-connect"></a>Maskinvarukrav för Azure AD Connect
 Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-dator.

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering (förhandsgranskning)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
 Konfigurationsfiler för VPN-klienten finns i en zip-fil. Konfigurationsfiler ange de inställningar som krävs för en intern Windows- eller Mac IKEv2 VPN-klient ansluta till ett virtuellt nätverk via punkt-till-plats. RADIUS-servern tillhandahåller flera alternativ för autentisering och som sådan VPN-klientkonfiguration varierar för varje alternativ.
 
@@ -161,11 +161,11 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 1. Importera den **VpnServerRoot** och **RadiusServerRoot** root certifikat till datorn. Detta kan göras genom att kopiera filen till din Mac och dubbelklicka på den.  
 Klicka på **Lägg till** att importera.
 
-  **Lägg till VpnServerRoot**
+  **Add VpnServerRoot**
 
   ![Lägg till certifikat](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  **Lägg till RadiusServerRoot**
+  **Add RadiusServerRoot**
 
   ![Lägg till certifikat](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Öppna den **nätverk** dialogrutan under **nätverksinställningar** och på **”+”** att skapa en ny klient för VPN-anslutningsprofil för en P2S-anslutning till Azure VNet.
@@ -175,7 +175,7 @@ Klicka på **Lägg till** att importera.
   ![Nätverk](./media/point-to-site-vpn-client-configuration-radius/network.png)
 3. I den **allmänna** mappen från den **VpnSettings.xml** fil, kopiera den **VpnServer** taggvärde. Klistra in det här värdet i den **serveradress** och **fjärr-ID för** för profilen. Lämna den **lokalt ID** tomt.
 
-  ![serverinformation](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
+  ![server info](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 4. Klicka på **autentiseringsinställningar** och välj **certifikat**. 
 
   ![autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
@@ -187,7 +187,7 @@ Klicka på **Lägg till** att importera.
   ![identity](./media/point-to-site-vpn-client-configuration-radius/identity.png)
 7. I den **lokalt ID** anger namnet på certifikatet (från steg 5). I det här exemplet är det ”ikev2Client.com”. Klicka på **tillämpa** för att spara ändringarna.
 
-  ![tillämpa](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
+  ![använd](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. På den **nätverk** dialogrutan klickar du på **tillämpa** spara alla ändringar. Klicka på **Anslut** att starta P2S-anslutning till Azure VNet.
 
 ## <a name="otherauth"></a>Arbeta med andra typer av autentisering eller protokoll

@@ -12,19 +12,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/2/2017
+ms.date: 01/17/2018
 ms.author: damaerte
-ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: ca11a0db4cdb435aef26e7ae214cca24679c6ea1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Felsöka Azure-molnet Shell
 
 Kända lösningar på problem i Azure Cloud Shell inkluderar:
 
 ## <a name="general-resolutions"></a>Allmän lösningar
+
+### <a name="early-timeouts-in-firefox"></a>Tidig tidsgränser Firefox
+- **Information om**: molnet Shell använder en öppen websocket att skicka in-/ utdata till webbläsaren. FireFox har förinställda principer som kan stänga websocket tidigt orsakar timeout för tidigt i molnet Shell.
+- **Lösning**: öppna FireFox och gå till ”om: config” i rutan URL. Sök efter ”network.websocket.timeout.ping.request” och ändra värdet från 0 till 10.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Lagring dialogruta - fel: 403 RequestDisallowedByPolicy
 - **Information om**: när du skapar ett lagringskonto via molnet Shell, är det misslyckas på grund av en Azure-princip placeras av din administratör. Felmeddelande innehåller:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`

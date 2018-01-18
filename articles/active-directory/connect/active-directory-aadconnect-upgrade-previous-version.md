@@ -3,7 +3,7 @@ title: "Azure AD Connect: Uppgradera från en tidigare version | Microsoft Docs"
 description: "Beskriver olika metoder för att uppgradera till den senaste versionen av Azure Active Directory Connect, inklusive en uppgradering på plats och en öppning migrering."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till den senaste versionen
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera installationen av Azure Active Directory (AD Azure) Anslut till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [svänga migrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.

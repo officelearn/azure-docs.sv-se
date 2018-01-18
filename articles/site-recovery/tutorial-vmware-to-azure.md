@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -46,115 +43,75 @@ Innan du börjar är det bra att [granska arkitekturen](concepts-vmware-to-azure
 
 ## <a name="set-up-the-source-environment"></a>Konfigurera källmiljön
 
-Om du vill konfigurera källmiljön hämta filen Unified installationsprogram för Site Recovery. Du kör installationsprogrammet för att installera lokalt Site Recovery-komponenter, registrera VMware-servrar i valvet och identifiera lokala virtuella datorer.
-
-### <a name="verify-on-premises-site-recovery-requirements"></a>Verifiera lokalt Site Recovery-krav
-
-Behöver du en enda, hög tillgänglighet, lokal VMware VM värden lokalt Site Recovery-komponenter. Komponenter omfattar konfigurationsservern, processervern och huvudmålservern.
+Om du vill konfigurera källmiljön behöver du en enskild hög tillgänglighet, lokala datorn till värden lokalt Site Recovery-komponenter. Komponenter omfattar konfigurationsservern, processervern och huvudmålservern.
 
 - Konfigurationsservern samordnar kommunikationen mellan den lokala miljön och Azure och hanterar datareplikering.
 - Processervern fungerar som en replikerings-gateway. Den tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installeras också mobilitetstjänsten på virtuella datorer du vill replikera, och utför automatisk identifiering av lokala virtuella VMware-datorer.
 - Huvudmålservern hanterar replikeringsdata vid återställning från Azure.
 
-Den virtuella datorn måste uppfylla följande krav.
+Om du vill konfigurera konfigurationsservern som en hög tillgänglighet VMware VM hämtar en förberedd OVF-mall och importera mallen till VMware för att skapa den virtuella datorn. När du skapat konfigurationsservern kan registrera du den i valvet. Site Recovery identifierar lokala virtuella VMware-datorer efter registreringen.
 
-| **Krav** | **Detaljer** |
-|-----------------|-------------|
-| Antal processorkärnor| 8 |
-| RAM | 12 GB |
-| Antal diskar | 3 - OS-disk, disk för processen server cache, kvarhållningsenhetens (för återställning) |
-| Ledigt diskutrymme (processerverns cacheminne) | 600 GB |
-| Ledigt diskutrymme (kvarhållningsdisken) | 600 GB |
-| Operativsystemversion | Windows Server 2012 R2 |
-| Nationella inställningar för operativsystem | Engelska (en-us) |
-| VMware vSphere PowerCLI-version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
-| Windows Server-roller | Aktivera inte dessa roller: Active Directory Domain Services, Internet Information Services Hyper-V |
-| NIC-typ | VMXNET3 |
-| IP-adresstyp | Statisk |
-| Portar | 443 (kontrolkanalsorchestration)<br/>9443 (dataöverföring)|
+### <a name="download-the-vm-template"></a>Hämta mall för virtuell dator
 
-Följande gäller också: 
-- Kontrollera att systemklockan på den virtuella datorn är synkroniserad med en. Tiden måste synkroniseras till inom 15 minuter. Om det är större misslyckas installationen.
-installationen misslyckas.
-- Kontrollera att konfigurationsservern VM kan komma åt dessa webbadresser:
+1. I valvet, går du till **Förbered infrastrukturen** > **källa**.
+2. I **Förbered källa**, klickar du på **+ konfigurationsservern**.
+3. I **Lägg till Server**, kontrollera att **konfigurationsservern för VMware** visas i **servertyp**.
+4. Hämta Open Virtualization Format OVF ()-mall för konfigurationsservern.
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-- Kontrollera att IP-adressbaserade brandväggsregler tillåter kommunikation till Azure.
-    - Tillåt den [IP-adressintervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653)port 443 (HTTPS) och port 9443 (replikering).
-    - Tillåt IP-adressintervall för Azure-regionen för din prenumeration och för USA, västra (används för hantering av kontrollen och identitet).
+  > [!TIP]
+  Den senaste versionen av configuration server-mall kan hämtas direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+
+## <a name="import-the-template-in-vmware"></a>Importera VMware-mallen
+
+1. Logga in på VMware vCenter server eller vSphere ESXi värden med VMWare vSphere klienten.
+2. På den **filen** väljer du **distribuera OVF mallen**, för att starta guiden Distribuera OVF-mall.  
+
+     ![OVF-mall](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+
+3. I **Välj källa**, ange platsen för den hämtade OVF.
+4. I **information**, klickar du på **nästa**.
+5. I **Välj namn och mappen**, och **Select configuration**, accepterar du standardinställningarna.
+6. I **Välj lagring**, för bästa prestanda väljer **tjock etablera gärna nollställs** i **väljer virtuella diskformatet**.
+4. Acceptera standardinställningarna i resten av sidorna i guiden.
+5. I **redo att slutföra**:
+  - Om du vill konfigurera den virtuella datorn med standardinställningarna, Välj **slå på strömmen efter distributionen** > **Slutför**.
+  - Ta bort om du vill lägga till ytterligare ett nätverksgränssnitt **slå på strömmen efter distributionen**, och välj sedan **Slutför**. Mallen configuration server distribueras med ett enda nätverkskort som standard, men du kan lägga till ytterligare nätverkskort efter distributionen.
+
+  
+## <a name="add-an-additional-adapter"></a>Lägg till ytterligare en adapter
+
+Om du vill lägga till en extra NIC konfigurationsservern kan du göra det innan du registrerar servern i valvet. Att lägga till fler nätverkskort stöds inte efter registreringen.
+
+1. I vSphere klienten lagret, högerklicka på den virtuella datorn och välj **redigera inställningar för**.
+2. I **maskinvara**, klickar du på **Lägg till** > **Ethernet-nätverkskort**. Klicka sedan på **Nästa**.
+3. Välj och typ av nätverkskort och ett nätverk. 
+4. Om du vill ansluta det virtuella nätverkskortet när den virtuella datorn är påslagen, Välj **ansluta vid effekt på**. Klicka på **nästa** > **Slutför**, och klicka sedan på **OK**.
 
 
-### <a name="download-the-site-recovery-unified-setup-file"></a>Hämta filen Unified installationsprogram för Site Recovery
+## <a name="register-the-configuration-server"></a>Registrera konfigurationsservern 
 
-1. I valvet > **Förbered infrastrukturen**, klickar du på **källa**.
-1. I **Förbered källa**, klickar du på **+ konfigurationsservern**.
-2. I **Lägg till Server**, kontrollera att **konfigurationsservern** visas i **servertyp**.
-3. Hämta installationsfilen för enhetlig installationsprogram för Site Recovery.
-4. Ladda ned valvregistreringsnyckeln. Du behöver detta när du kör installationsprogrammet för enhetlig. Nyckeln är giltig i fem dagar efter att du har genererat den.
+1. Aktivera den virtuella datorn från konsolen VMWare vSphere-klienten.
+2. Den virtuella datorn startar i en Windows Server 2016-installationsproceduren. Godkänn licensavtalet och ange ett administratörslösenord.
+3. När installationen är klar, inloggning till den virtuella datorn som administratör.
+4. Startar för första gången du loggar in Azure Site Recovery-konfigurationsverktyget.
+5. Ange ett namn som används för att registrera konfigurationsservern med Site Recovery. Klicka sedan på **Nästa**.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats, klickar du på **logga in**, för att logga in på Azure-prenumerationen. Autentiseringsuppgifterna måste ha åtkomst till valvet som du vill registrera konfigurationsservern.
+7. Verktyget utför vissa konfigurationsåtgärder och startar om.
+8. Logga in på datorn igen. Guiden Konfigurera server management startas automatiskt.
 
-   ![Konfigurera källan](./media/tutorial-vmware-to-azure/source-settings.png)
+### <a name="configure-settings-and-connect-to-vmware"></a>Konfigurera inställningar och ansluta till VMware
 
-### <a name="set-up-the-configuration-server"></a>Ställ in konfigurationsservern
+1. I guiden Konfigurera server management > **Konfigurera anslutningen**, markera nätverkskortet som ska ta emot replikeringstrafik. Klicka sedan på **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats.
+2. I **Välj Recovery Services-valvet**, Välj din Azure-prenumeration och relevant resursgrupp och valvet.
+3. I **installera programvara från tredje part**accepterar licensen agreeemtn och klicka på **ladda ned och installera**, för att installera MySQL-servern.
+4. Klicka på **installera VMware PowerLCI**. Kontrollera att alla fönster stängs innan du gör detta. Klicka på **Fortsätt**
+5. I **verifiera installation configuration**, kommer att verifieras krav innan du fortsätter.
+6. I **konfigurera vCenter Server/vSphere ESXi-servern**, anger du FQDN eller IP-adressen för vCenter-servern eller vSphere-värd som du vill replikera på vilka virtuella datorer är placerade. Ange den port som servern lyssnar och ett eget namn som ska användas för VMware-servern i valvet.
+7. Ange autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Klicka på **Lägg till**, och klicka sedan på **Fortsätt**.
+8. I **Konfigurera virtuella autentiseringsuppgifter**, ange användarnamn och lösenord som används för att automatiskt installera mobilitetstjänsten på datorer, om replikering har aktiverats. För Windows-datorer måste kontot lokal administratörsbehörighet på de datorer som du vill replikera. Ange information för Linux för rotkontot.
+9. Klicka på **Slutför konfigurationen** och slutföra registreringen. 
+10. När registreringen är klar i Azure-portalen, kontrollera att konfigurationsservern och VMware-server visas på den **källa** i valvet. Klicka på **OK** att konfigurera inställningar för target.
 
-1. Kör det enhetliga installationsprogrammet.
-2. I **innan du börjar**väljer **installera konfigurationsservern och processervern** Klicka **nästa**.
-
-3. I **licensvillkoren för programvara från tredje part**, klickar du på **jag accepterar** om du vill hämta och installera MySQL, klicka på **nästa**.
-
-4. I **Registration** (Registrering) väljer du den registreringsnyckel som du hämtade från valvet.
-
-5. I **Internet Settings** (Internetinställningar) anger du hur providern som körs på konfigurationsservern ska ansluta till Azure Site Recovery via internet.
-
-   - Om du vill ansluta till proxyservern som för närvarande har ställts in på datorn, väljer **Anslut till Azure Site Recovery via en proxyserver**.
-   - Om du vill att providern ska ansluta direkt väljer **Anslut direkt till Azure Site Recovery utan en proxyserver**.
-   - Om den befintliga proxyservern kräver autentisering, eller om du vill använda en anpassad proxyserver för Provider-anslutning väljer **Anslut med anpassade proxyinställningar**, och ange adress, port och autentiseringsuppgifter.
-
-   ![Brandvägg](./media/tutorial-vmware-to-azure/combined-wiz4.png)
-
-6. I **Kravkontroll** körs en kontroll för att se till att installationen kan köras. Om det visas en varning om **synkroniseringskontrollen för global tid** kontrollerar du att systemklockans tid (inställningarna för **datum och tid**) är samma som tidszonen.
-
-   ![Krav](./media/tutorial-vmware-to-azure/combined-wiz5.png)
-
-7. I **MySQL Configuration** (MySQL-konfiguration) skapar du autentiseringsuppgifter för att logga in på den MySQL-serverinstans som är installerad.
-
-8. I **miljö information**väljer **Ja** att skydda virtuella VMware-datorer. Installationsprogrammet kontrollerar att PowerCLI 6.0 är installerad.
-
-9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
-
-10. I **Val av nätverk** anger du lyssnare (nätverkskort och SSL-port) där konfigurationsservern skickar och tar emot replikeringsdata. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Vi kan också öppna port 443, som används för att samordna replikeringen har. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
-
-11. I **Sammanfattning** granskar du informationen och klickar på **Installera**. Installationsprogrammet installerar konfigurationsservern och registreras med Azure Site Recovery-tjänsten.
-
-    ![Sammanfattning](./media/tutorial-vmware-to-azure/combined-wiz10.png)
-
-    När installationen är klar skapas en lösenfras. Du behöver den när du aktiverar replikering. Kopiera lösenfrasen och förvara den på en säker plats. Servern visas på den **inställningar** > **servrar** rutan i valvet.
-
-### <a name="configure-automatic-discovery"></a>Konfigurera automatisk identifiering
-
-Konfigurationsservern måste ansluta till lokal VMware-servrar för att identifiera virtuella datorer. Lägg till vCenter-servern eller vSphere-värdar, med ett konto som har administratörsbehörighet på servern för den här kursen. Du har skapat det här kontot i den [tidigare kursen](tutorial-prepare-on-premises-vmware.md). 
-
-Lägg till kontot:
-
-1. På konfigurationsservern VM startar **CSPSConfigtool.exe**. Filen finns som en genväg på skrivbordet och även på följande sökväg: *installationsplatsen*\home\svsystems\bin.
-
-2. Klicka på **Hantera konton** > **Lägg till konto**.
-
-   ![Lägg till konto](./media/tutorial-vmware-to-azure/credentials1.png)
-
-3. I **Kontoinformation** lägger du till kontot som ska användas för automatisk identifiering.
-
-   ![Information](./media/tutorial-vmware-to-azure/credentials2.png)
-
-Lägg till VMware-server:
-
-1. Öppna den [Azure-portalen](https://portal.azure.com) och klicka på **alla resurser**.
-2. Klicka på valvet Recovery-tjänsten med namnet **ContosoVMVault**.
-3. Klicka på **Site Recovery** > **förbereda infrastrukturen** > **källa**
-4. Välj **+ vCenter**, för att ansluta till en vCenter server eller vSphere ESXi-värd.
-5. I **lägga till vCenter**, ange ett eget namn för servern. Ange IP-adress eller fullständigt domännamn.
-6. Lämna den port som har angetts till 443, såvida inte VMware-servrar lyssna efter begäranden på en annan port.
-7. Välj kontot som ska användas för att ansluta till servern. Klicka på **OK**.
 
 Site Recovery ansluter till VMware-servrar med hjälp av de angivna inställningarna och identifierar virtuella datorer.
 

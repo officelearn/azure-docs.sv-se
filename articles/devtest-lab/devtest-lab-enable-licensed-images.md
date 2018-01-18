@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Aktivera en licensierad avbildning i ditt labb i Azure DevTest Labs
 
-I Azure DevTest Labs är en licensierad bilden en som innehåller villkor – vanligtvis från en tredje parts – som måste godkännas innan avbildningen är tillgänglig för användare i labbet. I följande avsnitt beskrivs hur du arbetar med licensierade bilder så att de kan användas för att skapa virtuella datorer.
+I Azure DevTest Labs är en licensierad bilden en som innehåller villkor – vanligtvis från en tredje part – som måste godkännas innan avbildningen är tillgänglig för användare i labbet. I följande avsnitt beskrivs hur du arbetar med licensierade bilder så att de kan användas för att skapa virtuella datorer.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Avgöra om en licensierad avbildning är tillgängliga för användare
 Det första steget för att tillåta användare att skapa virtuella datorer från en licensierad avbildning är att se till att de allmänna villkoren har godkänts för licensierade avbildningen. Följande steg visar hur du kan visa status för erbjudande för en licensierad avbildning och, om det behövs, acceptera dess villkor.
@@ -53,12 +53,14 @@ Om du vill kontrollera en licensierad avbildning är tillgänglig för lab-anvä
 
 Du kan aktivera programdistribution för en licensierad avbildning genom att följa dessa steg:
 
-1. I den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040) i listan över **Marketplace-bilder**, identifiera en licensierad avbildning som du vill att användarna ska ha åtkomst, men vars villkoren har inte accepterats. Du kan till exempel se en datavetenskap virtuell dator som visar statusen **accepterat villkoren** eller **termer granska behövs**.
+1. I den [Azure-portalen](http://go.microsoft.com/fwlink/p/?LinkID=525040), gå till listan över **Marketplace-bilder**.
+
+1. Identifiera en licensierad avbildning som du vill att användarna ska ha åtkomst, men vars villkoren har inte accepterats. Du kan till exempel se en datavetenskap virtuell dator som visar statusen **accepterat villkoren** eller **termer granska behövs**.
 
     ![Konfigurera programdistribution fönster](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Data är vetenskap virtuell dator i Azure-avbildningar, förinstallerat, konfiguration och tester med flera populära verktyg som används ofta för dataanalys, machine learning och AI utbildning. [Introduktion till Azure datavetenskap virtuell dator för Linux och Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) ger mycket information om DSVMs.
+   > Data är vetenskap virtuell dator i Azure-avbildningar, förinstallerat, konfigurerats och testats med flera populära verktyg som används ofta för dataanalys, machine learning och AI utbildning. [Introduktion till Azure datavetenskap virtuell dator för Linux och Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) ger mycket information om DSVMs.
    >
    >
 

@@ -3,7 +3,7 @@ title: "Azure AD Connect-synkronisering: Förstå och anpassa synkronisering | M
 description: "Förklarar hur Azure AD Connect synkronisera fungerar och hur du anpassar."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synkronisering: Förstå och anpassa synkronisering
 Azure Active Directory Connect-synkroniseringstjänster (Azure AD Connect sync) är en komponenten i Azure AD Connect. Det hand tar om alla åtgärder som är relaterade till synkronisera identitetsdata mellan din lokala miljö och Azure AD. Azure AD Connect-synkronisering är efterföljaren till DirSync och Azure AD Sync Forefront Identity Manager med Azure Active Directory-kopplingen konfigurerats.
@@ -49,7 +49,7 @@ Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-syn
 | [Implementera Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) |Beskriver så här fungerar Lösenordssynkronisering, hur du implementerar och hur du använder och felsöker. |
 | [Tillbakaskrivning av enhet.](active-directory-aadconnect-feature-device-writeback.md) |Beskriver hur tillbakaskrivning av enheter fungerar i Azure AD Connect. |
 | [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |Beskriver hur du utökar schemat för Azure AD med dina egna anpassade attribut. |
-| **Synkroniseringstjänsten** | |
+| **Sync Service** | |
 | [Azure AD Connect sync-tjänsten-funktioner](active-directory-aadconnectsyncservice-features.md) |Beskriver tjänstsidan synkronisering och hur du ändrar synkroniseringsinställningar i Azure AD. |
 | [Duplicerat attribut återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Beskriver hur du aktiverar och använder **userPrincipalName** och **proxyAddresses** dubblettattribut värden återhämtning. |
 | **Åtgärder och UI** | |

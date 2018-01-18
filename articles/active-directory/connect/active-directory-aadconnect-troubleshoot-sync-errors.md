@@ -3,8 +3,8 @@ title: "Azure AD Connect: Felsökning av fel vid synkronisering | Microsoft Docs
 description: "Beskriver hur du felsöker fel påträffades vid synkronisering med Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 5a319de69c4e142414ab8f2be980a6576acbf8bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsökning av fel under synkroniseringen
 Fel kan inträffa när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och möjliga sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla möjliga fel.
@@ -51,7 +51,7 @@ Azure Active Directory-schemat tillåter inte två eller flera objekt som ska ha
 * ProxyAddresses
 * UserPrincipalName
 * onPremisesSecurityIdentifier
-* objekt-ID
+* ObjectId
 
 > [!NOTE]
 > [Azure AD-attributet duplicera attribut återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) funktion är också på att släppas som standardbeteendet för Azure Active Directory.  Detta minskar antalet synkroniseringsfel ses av Azure AD Connect (samt andra sync-klienter) genom att Azure AD mer robust i hanteringen av den duplicerade ProxyAddresses UserPrincipalName attribut och på lokala AD-miljöer. Den här funktionen löser inte dubblettfel. Så behöver data fortfarande åtgärdas. Men det gör etablering av nya objekt som annars blockeras från tillhandahålls på grund av duplicerade värden i Azure AD. Detta minskar också antalet synkroniseringsfel som returneras till klienten synkronisering.

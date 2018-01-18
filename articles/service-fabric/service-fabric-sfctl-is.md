@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-is"></a>sfctl är
 Fråga efter och skicka kommandon till tjänsten infrastruktur.
@@ -41,14 +41,14 @@ För kluster som har en eller flera instanser av tjänsten infrastruktur som kon
 |Argumentet|Beskrivning|
 | --- | --- |
 | --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.  Standard: är kommando.|
-| --tjänst-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
+| --service-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga          | JMESPath frågesträngen. Mer information och exempel finns i http://jmespath.org/.|
@@ -64,14 +64,14 @@ För kluster som har en eller flera instanser av tjänsten-infrastruktur konfigu
 |Argumentet|Beskrivning|
 | --- | --- |
 | --kommando [krävs]| Texten för kommandot som ska startas. Innehållet i kommandot är infrastruktur-specifika.  Standard: är fråga.|
-| --tjänst-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
+| --service-id     | Identiteten för infrastruktur-tjänst. Detta är det fullständiga namnet på tjänsten infrastruktur utan den ”fabric:' URI-schema. Den här parametern krävs endast för kluster som har mer än en instans av infrastruktur-tjänsten körs.|
 | --timeout -t     | Servern tidsgräns i sekunder.  Standard: 60.|
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argumentet|Beskrivning|
 | --- | --- |
-| – Felsökning          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
+| --debug          | Öka loggning detaljnivå om du vill visa alla debug-loggar.|
 | --hjälp -h        | Visa den här hjälpmeddelandet och avsluta.|
 | --utdata -o      | Format för utdata.  Tillåtna värden: json jsonc, tabell, TVs.  Standard: json.|
 | --fråga          | JMESPath frågesträngen. Mer information finns i http://jmespath.org/.|

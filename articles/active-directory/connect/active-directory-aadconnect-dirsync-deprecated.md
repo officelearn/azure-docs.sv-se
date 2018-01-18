@@ -3,7 +3,7 @@ title: "Uppgradera från DirSync och Azure AD Sync | Microsoft Docs"
 description: "Beskriver hur du uppgraderar från DirSync och Azure AD Sync till Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 36a009b2a185b9ccdc0690014509e5596b4f8b8c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uppgradera Windows Azure Active Directory-synkronisering och Azure Active Directory Sync
 Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det här är en bra tidpunkt för att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och stöds inte längre från och med 13 April 2017.

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory hybrid identity designöverväganden - ange krav för multifaktorautentisering"
+title: "Identitet hybridutformning - krav för multifaktorautentisering Azure | Microsoft Docs"
 description: "Med villkorlig åtkomstkontroll kontrollerar de särskilda villkor som du väljer när du autentiserar användaren och innan du tillåter åtkomst till programmet i Azure Active Directory. När dessa villkor är uppfyllda, autentiserade användaren och få tillgång till programmet."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seohack1
+ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Ange krav för multifaktorautentisering för dina hybrididentitetslösning
 I den här värld mobilitet, med användare som ansluter till data och program i molnet och från valfri enhet, blivit skydda den här informationen ytterst viktigt.  Varje dag är det en ny rubrik om ett intrång.  Även om det är inte säkert mot sådana överträdelser, ger multifaktorautentisering, ett ytterligare lager av säkerhet för att förhindra att dessa överträdelser.
@@ -59,6 +60,6 @@ Efter föregående frågor, kommer du att kunna förstå om multifaktorautentise
 ## <a name="next-steps"></a>Nästa steg
 [Definiera en strategi för införandet en hybrid identity](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 [Översikt över design-överväganden](active-directory-hybrid-identity-design-considerations-overview.md)
 

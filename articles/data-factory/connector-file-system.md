@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 23da57f6c924dcb6290cb2ee17206dc58a2d3e83
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 829a03ddb8b7ed5901ba0f8f882477f7308fdb0e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiera data till eller från ett filsystem med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Ange typegenskapen för dataset för att kopiera data från/till filsystemet, **
 | folderPath | Sökvägen till mappen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
 | fileName | Ange namnet på filen i den **folderPath** om du vill kopiera till/från en viss fil. Om du inte anger något värde för den här egenskapen dataset pekar på alla filer i mappen som källa och genererar automatiskt filnamn.<br/><br/>**Filnamn automatisk generering för sink:** när filnamn har angetts för en datamängd för utdata och **preserveHierarchy** har inte angetts i aktiviteten sink kopieringsaktiviteten genererar filnamnet med följande mönster: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. Exempel: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- eller `[Table name].[format].[compression if configured]` för relationella källa när frågan inte har angetts. Till exempel: MySourceTable.orc. |Nej |
 | fileFilter | Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer. Gäller bara när filnamn har inte angetts. <br/><br/>Tillåtna jokertecken är: `*` (flera tecken) och `?` (valfritt tecken).<br/>-Exempel 1:`"fileFilter": "*.log"`<br/>-Exempel 2:`"fileFilter": 2017-09-??.txt"` |Nej |
-| Format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
+| format | Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa eller generera filer med ett specifikt format format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binära kopiera scenario) |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 
@@ -146,7 +146,7 @@ För att kopiera data från filsystemet, anger du datakällan i kopieringsaktivi
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
-| Rekursiva | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
+| Rekursiva | Anger om data läses rekursivt från de underordnade mapparna eller endast från den angivna mappen. Obs när rekursiv är inställd på true och mottagare är filbaserad lagring, tom mapp/underåtgärder-folder kommer inte att kopieras/skapas på mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
 
 **Exempel:**
 

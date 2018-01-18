@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Överväganden för nätverk för Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Hur du väljer ett virtuellt Azure-nätverk
@@ -74,15 +74,15 @@ Följande portar krävs för Azure AD Domain Services till tjänsten och underh�
 * Det är nödvändigt att ge åtkomst till den här porten i din NSG. Din hanterade domän är inte synkroniserade med Azure AD-katalogen utan åtkomst till den här porten. Användare kan inte logga in eftersom ändringar i sina lösenord inte synkroniseras med din hanterade domän.
 * Du kan begränsa inkommande åtkomst till den här porten till IP-adresser som tillhör Azure IP-adressintervall.
 
-**Port 5986 (PowerShell-fjärrkommunikation)** 
+**Port 5986 (PowerShell-fjärrkommunikation)**
 * Den används för att utföra hanteringsuppgifter med hjälp av PowerShell-fjärrkommunikation på din hanterade domän.
 * Det är obligatoriskt att tillåta åtkomst via den här porten i din NSG. Din hanterade domän får inte vara uppdaterade konfigurerade, säkerhetskopierade eller övervakade utan åtkomst till den här porten.
-* Du kan begränsa inkommande åtkomst till den här porten till följande IP-adresser för källa: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Du kan begränsa inkommande åtkomst till den här porten till följande IP-adresser för källa: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Domänkontrollanterna för din hanterade domän lyssna vanligtvis inte på den här porten. Tjänsten öppnar den här porten på hanterade domänkontrollanter endast när en hanterings- eller åtgärden måste utföras för den hanterade domänen. När åtgärden har slutförts stängs tjänsten av den här porten på hanterade domänkontrollanter.
 
-**Port 3389 (fjärrskrivbord)** 
-* Den används för anslutning till fjärrskrivbord till domänkontrollanter för din hanterade domän. 
-* Öppna den här porten via din NSG är valfritt. 
+**Port 3389 (fjärrskrivbord)**
+* Den används för anslutning till fjärrskrivbord till domänkontrollanter för din hanterade domän.
+* Öppna den här porten via din NSG är valfritt.
 * Detta port finns kvar i stor utsträckning är inaktiverat på din hanterade domän. Den här mekanismen används inte kontinuerligt eftersom hantering och övervakning aktiviteter utförs med hjälp av PowerShell-fjärrkommunikation. Den här porten används endast i sällsynta händelsen som behöver fjärransluta till din hanterade domän för avancerad felsökning. Porten är stängd när felsökning åtgärden har slutförts.
 
 **Port 636 (säker LDAP)**
@@ -99,7 +99,7 @@ I följande tabell visas ett exempel på en NSG som du kan konfigurera för ett 
 
 Dessutom visas NSG: N också hur du låsa säker LDAP-åtkomst via internet. Hoppa över den här regeln om du inte har aktiverat säker LDAP-åtkomst till hanterade domänen via internet. NSG: N innehåller en uppsättning regler som tillåter inkommande LDAPS åtkomst via TCP-port 636 endast från en angiven mängd av IP-adresser. NSG-regel som tillåter LDAPS åtkomst via internet från den angivna IP-adresser har högre prioritet än DenyAll NSG-regeln.
 
-![Exempel NSG till säker LDAPS åtkomst via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Exempel NSG till säker LDAPS åtkomst via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Mer information** - [skapar en Nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Du kan ansluta en Resource Manager-baserat virtuellt nätverk till Azure klassis
     ![Anslutningar för virtuella nätverk med hjälp av peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Mer information om-virtuella nätverk peering](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **VNet-till-VNet-anslutningar med plats-till-plats VPN-anslutningar**: ansluta ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) liknar ansluta ett virtuellt nätverk till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE.
 
     ![Anslutningar för virtuella nätverk med hjälp av VPN-Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

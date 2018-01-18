@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Vanliga frågor och svar för IoT Suite anslutna factory förkonfigurerade lösningen
 
@@ -104,20 +104,20 @@ Du kan också hitta anslutningssträngen med Azure-portalen. Leta upp strängen 
 
 Simuleringen self registrerar följande enheter:
 
-* proxy.Beijing.corp.contoso
+* proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
-* proxy.Mumbai.corp.contoso
+* proxy.mumbai.corp.contoso
 * proxy.munich0.corp.contoso
-* proxy.Rio.corp.contoso
-* proxy.Seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* proxy.rio.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Med hjälp av den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [iothub explorer](https://github.com/azure/iothub-explorer) verktyg, men du kan kontrollera vilka enheter som registreras med IoT-hubben med hjälp av din lösning. Om du vill använda dessa verktyg behöver du anslutningssträngen för IoT-hubben i distributionen.
+Med hjälp av den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) verktyg, men du kan kontrollera vilka enheter som registreras med IoT-hubben med hjälp av din lösning. Om du vill använda enheten explorer, behöver du anslutningssträngen för IoT-hubben i distributionen. Om du vill använda IoT-tillägg för Azure CLI 2.0 måste IoT Hub-namn.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur kan jag loggdata från simuleringen komponenter?
 
@@ -135,20 +135,26 @@ Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/mast
 
 Granska de data som skickas av en enhet som utgivare:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.Rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 Om du ser inga data skickas till IoT-hubben är ett problem med simuleringen. Som ett första steg analys bör du analysera loggfiler simuleringen komponenter. Se [hur kan jag loggdata från simuleringen komponenterna?](#how-can-i-get-log-data-from-the-simulation-components) Försök sedan att stoppa och starta simuleringen och om det finns fortfarande inga data skickas, uppdatera simuleringen helt. Se [hur uppdaterar jag simuleringen i den virtuella datorn?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hur aktiverar en interaktiv karta i min anslutna factory-lösning?
 
-Om du vill aktivera en interaktiv karta i din lösning för anslutna fabriken, måste du ha en befintlig Bing Maps API för Enterprise-plan. Om du har en Bing Maps API för företagsplan när du distribuerar anslutna factory-lösning från www.azureiotsuite.com aktiveras automatiskt interaktiv karta för dig.
+Om du vill aktivera en interaktiv karta i din lösning för anslutna fabriken, måste du ha en befintlig Bing Maps API för Enterprise-plan.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps API för företag-konto?
+När du distribuerar från [www.azureiotsuite.com](http://www.azureiotsuite.com), distributionsprocessen verifierar att prenumerationen har en aktiverad Bing Maps API för företagsplan och distribuerar automatiskt en interaktiv karta till anslutna fabriken. Om detta inte är fallet kan du fortfarande aktivera en interaktiv karta i distributionen på följande sätt:
+
+När du distribuerar med den `build.ps1` skriptet i den anslutna fabriken GitHub-lagringsplats och du har en Bing Maps API för Enterprise-plan kan du ange miljövariabeln `$env:MapApiQueryKey` i fönstret build till Frågenyckeln för planen. Interaktiv karta aktiveras sedan automatiskt.
+
+Om du inte har en Bing Maps API för företagsplan distribuera lösningen för anslutna factory från [www.azureiotsuite.com](http://www.azureiotsuite.com) eller med hjälp av den `build.ps1` skript. Lägg sedan till en Bing Maps API för företagsplan till din prenumeration enligt beskrivningen i [hur skapar jag en Bing Maps API för företag-konto?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Leta upp Frågenyckeln för det här kontot som beskrivs i [skaffa Bing Maps API för Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) och spara den här nyckeln. Gå till Azure-portalen och komma åt resursen Apptjänst i distributionen anslutna fabriken. Gå till **programinställningar**, där du hittar ett avsnitt **appinställningar**. Ange den **MapApiQueryKey** i frågan nyckeln som du fick. Spara inställningarna och gå sedan till **översikt** och starta om tjänsten App.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hur skapar jag en Bing Maps API för företag-konto
 
 Du kan få ett kostnadsfritt *interna transaktioner nivå 1 Bing Maps för Enterprise* plan. Men du kan bara lägga till två energischeman till en Azure-prenumeration. Om du inte har en Bing Maps API för företag-konto kan du skapa en i Azure-portalen genom att klicka på **+ skapa en resurs för**. Sök sedan efter **Bing Maps API för företag** och följ anvisningarna för att skapa den.
 

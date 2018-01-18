@@ -3,7 +3,7 @@ title: "Azure AD Connect sync tjänstens funktioner och konfiguration | Microsof
 description: "Beskriver funktioner för tjänsten på klientsidan för Azure AD Connect-synkroniseringstjänsten."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-tjänsten-funktioner
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -63,7 +63,7 @@ Följande inställningar konfigureras med Azure AD Connect och kan inte ändras 
 ## <a name="duplicate-attribute-resiliency"></a>Duplicerat attribut återhämtning
 I stället för misslyckas att etablera objekt med dubblerade UPN-namn / proxyAddresses, duplicerade attributet ”i karantän” och ett tillfälligt värde är tilldelad. När konflikten löses ändras tillfälliga UPN automatiskt till rätt värde. Mer information finns i [identitet synkronisering och dubblett attributet återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="userprincipalname-soft-match"></a>UserPrincipalName mjuka matchning
+## <a name="userprincipalname-soft-match"></a>UserPrincipalName soft match
 När den här funktionen är aktiverad, mjuk-matcha är aktiverad för UPN förutom den [primära SMTP-adress](https://support.microsoft.com/kb/2641663), som alltid är aktiverat. Soft-matcha används för att matcha befintliga molnanvändare i Azure AD med lokala användare.
 
 Om du behöver matcha lokala AD-konton med befintliga konton som skapats i molnet och du använder inte Exchange Online och sedan den här funktionen är användbart. I det här scenariot kan du vanligtvis inte en orsak till att ange SMTP-attributet i molnet.
@@ -104,7 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 När den här funktionen, befintliga userPrincipalName värden förblir-är. På Nästa ändring av userPrincipalName attributet lokal uppdaterar normal Deltasynkronisering på användare UPN.  
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Azure AD Connect-synkronisering](active-directory-aadconnectsync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
 

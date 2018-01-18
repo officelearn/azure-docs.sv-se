@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4bd20cc9a553952ad86b662fa763e220cb8d8081
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 8ff3c60ea2e0e96a9ade2e1f2d711197bb3252ed
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-behållarapp i Linux
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/11/2018
 
 Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Linux-behållare i ett Service Fabric-kluster. Den här artikeln vägleder dig genom att skapa en Docker-avbildning som innehåller ett Python [Flask](http://flask.pocoo.org/)-program och distribuera den till ett Service Fabric-kluster.  Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/).  Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 * En utvecklingsdator som kör:
   * [Service Fabric SDK och verktyg](service-fabric-get-started-linux.md).
   * [Docker CE för Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -371,17 +371,20 @@ Om du vill lägga till en till behållartjänst till ett program som redan har s
 
 Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan behållaren tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till behållaren.   Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
 
-```xml
+
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
           ...
-          }
         ]
 }
 ```
+
 Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen är dynamisk uppdateras tidsgränsen med en konfigurationsuppdatering på klustret. 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Ställ in exekveringstid för att ta bort behållaravbildningar som inte används
@@ -389,13 +392,18 @@ Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen �
 Du kan ställa in Service Fabric-klustret på att ta bort oanvända behållaravbildningar från noden. Med den här inställningen kan du få tillbaka diskutrymme om det finns för många behållaravbildningar på noden.  Aktivera funktionen genom att uppdatera avsnittet `Hosting` i klustermanifestet enligt följande utdrag: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
           ...
           }
         ]
@@ -406,7 +414,7 @@ Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesT
 
 ## <a name="configure-container-image-download-time"></a>Konfigurera nedladdningstid för behållaravbildning
 
-Service Fabric-körningen tilldelar som standard en tid på 20 minuter för att hämta och extrahera behållaravbildningar, vilket fungerar för de flesta behållaravbildningar. För stora bilder, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Det här går att ange med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, vilket på det sätt som visas i följande kodavsnitt:
+Service Fabric-körningen tilldelar som standard en tid på 20 minuter för att hämta och extrahera behållaravbildningar, vilket fungerar för de flesta behållaravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Det här går att ange med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
 
 ```json
 {

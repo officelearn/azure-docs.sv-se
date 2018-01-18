@@ -1,6 +1,6 @@
 - name: Azure Container Service (AKS)
   href: ./index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om AKS
       href: intro-kubernetes.md
@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 – Uppgradera kluster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Begrepp
+  items:
+    - name: Kvoter och regionala begränsningar
+      href: container-service-quotas.md
 - name: Instruktionsguider
   items:
     - name: Skala ett AKS-kluster
@@ -49,6 +53,8 @@
       href: kubernetes-service-principal.md
     - name: Konfigurera datavolymer
       items:
+        - name: Azure-diskar – permanent volym
+          href: azure-disks-dynamic-pv.md
         - name: Azure Files – permanent volym
           href: azure-files-dynamic-pv.md
         - name: Azure Files – volym

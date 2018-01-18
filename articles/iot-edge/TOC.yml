@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure IoT Edge
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure IoT Edge
       href: how-iot-edge-works.md
@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Distribuera Azure Functions
       href: tutorial-deploy-function.md
+    - name: Skapa en IoT-Edge-distribution med IoT-tillägg för Azure CLI 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Instruktionsguider
   items:
     - name: Skapa gatewayer

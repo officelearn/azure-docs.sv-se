@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure Backup
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Azure Backup?
       href: backup-introduction-to-azure-backup.md
@@ -29,7 +29,7 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       items:
@@ -93,7 +93,7 @@
               href: backup-azure-vms-introduction.md
         - name: Säkerhetskopiera virtuella datorer
           items:
-            - name: Säkerhetskopiera virtuella Azure-datorer till ett Recovery Services-valv
+            - name: Säkerhetskopiera virtuella Azure-datorer till Recovery Services-valv
               href: backup-azure-arm-vms.md
             - name: Säkerhetskopiera krypterade virtuella datorer
               href: backup-azure-vms-encryption.md
@@ -101,13 +101,13 @@
           items:
             - name: Hantera virtuella Azure-säkerhetskopieringar i Azure Portal
               href: backup-azure-manage-vms.md
-            - name: Övervaka aviseringar om virtuella Azure-säkerhetskopieringar i Azure Portal
+            - name: Övervaka aviseringar för virtuella Azure-säkerhetskopieringar
               href: backup-azure-monitor-vms.md
         - name: Återställa data från virtuella datorer
           items:
             - name: Återställa filer från säkerhetskopierade virtuella Azure-datorer
               href: backup-azure-restore-files-from-vm.md
-            - name: Återställa Resource Manager-distribuerade virtuella datorer i Azure Portal
+            - name: Återställa virtuella datorer på Azure Portal
               href: backup-azure-arm-restore-vms.md
             - name: Återställa krypterade virtuella datorer
               href: backup-azure-vms-encryption.md
@@ -125,7 +125,7 @@
       items:
         - name: Förbereda DPM-arbetsbelastningar i Azure Portal
           href: backup-azure-dpm-introduction.md
-        - name: Använda System Center DPM för att säkerhetskopiera Exchange-server
+        - name: Använda DPM för att säkerhetskopiera Exchange-server
           href: backup-azure-backup-exchange-server.md
         - name: Återställa data till en annan DPM-server
           href: backup-azure-alternate-dpm-server.md

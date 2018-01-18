@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6c18debd022f0f233b52d81899e8edd7cf1e0456
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Göra en virtuell datoravbildning tillgängligt i Azure-stacken
 
 *Gäller för: Azure Stack integrerat system och Azure-stacken Development Kit*
 
-I Azure-stacken kan operatörer göra anpassade virtuella datoravbildningar tillgängliga för användarna. Dessa avbildningar kan refereras av Azure Resource Manager-mallar eller lägga till dem i Azure Marketplace-Gränssnittet som ett Marketplace-objekt. 
+I Azure-stacken kan operatörer göra anpassade virtuella datoravbildningar tillgängliga för användarna. Dessa avbildningar kan refereras av Azure Resource Manager-mallar eller lägga till dem i Azure Marketplace-Gränssnittet som ett Marketplace-objekt.
 
 ## <a name="add-a-vm-image-to-marketplace-by-using-powershell"></a>Lägg till en VM-avbildning till Marketplace med hjälp av PowerShell
 
@@ -35,21 +35,27 @@ Kör följande krav, antingen från den [development kit](azure-stack-connect-az
 2. Hämta den [verktyg som krävs för att arbeta med Azure Stack](azure-stack-powershell-download.md).  
 
 3. Förbereda en Windows- eller Linux virtuell hårddisk operativsystemavbildning i VHD-format (Använd inte VHDX-format).
-   
+
    * För Windows-avbildningar för instruktioner om hur du förbereder avbildningen, se [ladda upp en Windows VM-avbildning till Azure för Resource Manager distributioner](../virtual-machines/windows/upload-generalized-managed.md).
-   * Linux-avbildningar, se [distribuera Linux virtuella datorer på Azure-stacken](azure-stack-linux.md). Slutför stegen för att förbereda avbildningen eller Använd en befintlig Azure-stacken Linux-avbildning som beskrivs i artikeln.  
+
+   * Linux-avbildningar, se [distribuera Linux virtuella datorer på Azure-stacken](azure-stack-linux.md). Slutför stegen för att förbereda avbildningen eller Använd en befintlig Azure-stacken Linux-avbildning som beskrivs i artikeln.    
+
+   Azure-stacken stöder fast disk VHD-format. Fast format strukturer den logiska disken linjärt i filen så att disken förskjutningen X lagras på blob-offset X. En liten sidfot i slutet av blobben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är löst kan du använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
+
+   > [!IMPORTANT]
+   >  Azure-stacken stöder inte dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill undvika det här problemet måste du ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blobben i ett lagringskonto. Kan konvertera VHD från en dynamisk disk till en fast disk och skapa den virtuella datorn igen.
 
 Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följande:
 
 1. Importera Connect och ComputeAdmin modulerna:
-   
+
    ```powershell
    Set-ExecutionPolicy RemoteSigned
 
    # Import the Connect and ComputeAdmin modules.
    Import-Module .\Connect\AzureStack.Connect.psm1
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
-   ``` 
+   ```
 
 2. Logga in på Azure Stack-miljö. Kör något av följande skript, beroende på om du har distribuerat Azure Stack-miljö med hjälp av Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS). (Ersätt Azure AD `tenantName`, `GraphAudience` slutpunkt, och `ArmEndpoint` värden för att avspegla din miljö konfiguration.)
 
@@ -61,7 +67,7 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
 
       # For Azure Stack Development Kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
       $GraphAudience = "<GraphAuidence endpoint for your environment>"
-      
+
       # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
       Add-AzureRMEnvironment `
         -Name "AzureStackAdmin" `
@@ -77,11 +83,11 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
 
       Login-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID 
+        -TenantId $TenantID
       ```
 
    * **Active Directory Federation Services**. Använd följande cmdlet:
-    
+
         ```PowerShell
         # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
         $ArmEndpoint = "<Resource Manager endpoint for your environment>"
@@ -101,15 +107,15 @@ Om du vill lägga till bilden på Azure Marketplace för stacken, gör du följa
 
         $TenantID = Get-AzsDirectoryTenantId `
           -ADFS `
-          -EnvironmentName AzureStackAdmin 
+          -EnvironmentName AzureStackAdmin
 
         Login-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID 
+          -TenantId $TenantID
         ```
-    
+
 3. Lägga till VM-avbildning genom att anropa den `Add-AzsVMImage` cmdlet. I den `Add-AzsVMImage` cmdlet, ange `osType` som Windows- eller Linux. Inkludera utgivare, erbjudande, SKU och version för VM-avbildning. Information om tillåtna parametrar finns [parametrar](#parameters). Parametrarna som används av Azure Resource Manager-mallar för att referera till den Virtuella datoravbildningen. I följande exempel anropar skriptet:
-     
+
   ```powershell
   Add-AzsVMImage `
     -publisher "Canonical" `
@@ -129,7 +135,7 @@ Kommandot gör följande:
 
 Kontrollera att kommandot har körts utan problem, i portalen, gå till Marketplace. Verifiera att VM-avbildning är tillgängliga i den **virtuella datorer** kategori.
 
-![VM-avbildning som har lagts till](./media/azure-stack-add-vm-image/image5.PNG) 
+![VM-avbildning som har lagts till](./media/azure-stack-add-vm-image/image5.PNG)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>Ta bort en VM-avbildning med hjälp av PowerShell
 
@@ -147,9 +153,9 @@ Remove-AzsVMImage `
 
 | Parameter | Beskrivning |
 | --- | --- |
-| **Publisher** |Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
-| **erbjudande** |Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
-| **SKU** |SKU namn segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **publisher** |Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **offer** |Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
+| **sku** |SKU namn segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
 | **version** |Versionen av VM-avbildning som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet. |
 | **osType** |OsType bildens måste vara antingen **Windows** eller **Linux**. |
 | **osDiskLocalPath** |Den lokala sökvägen till VHD som överförs som en VM-avbildning till Azure-stacken för OS-disken. |
@@ -170,8 +176,13 @@ Bilder måste kunna refereras av en URI för Blob-lagring. Förbereda en Windows
 
 1. [Ladda upp en Windows VM-avbildning till Azure för Resource Manager distributioner](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) eller för en Linux-avbildning, följ instruktionerna i [distribuera Linux virtuella datorer på Azure-stacken](azure-stack-linux.md). Innan du laddar upp avbildningen är det viktigt att beakta följande faktorer:
 
-   * Det är mer effektivt att ladda upp en bild till Azure-stacken Blob-lagring än till Azure Blob storage eftersom det tar mindre tid att push-avbildningen till Azure-stacken avbildningslagringsplatsen. 
-   
+   * Azure-stacken stöder fast disk VHD-format. Fast format strukturer den logiska disken linjärt i filen så att disken förskjutningen X lagras på blob-offset X. En liten sidfot i slutet av blobben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är löst kan du använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
+
+    > [!IMPORTANT]
+   >  Azure-stacken stöder inte dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill undvika det här problemet måste du ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blobben i ett lagringskonto. Kan konvertera VHD från en dynamisk disk till en fast disk och skapa den virtuella datorn igen.
+
+   * Det är mer effektivt att ladda upp en bild till Azure-stacken Blob-lagring än till Azure Blob storage eftersom det tar mindre tid att push-avbildningen till Azure-stacken avbildningslagringsplatsen.
+
    * När du överför den [Windows VM-avbildning](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), se till att ersätta den **inloggning till Azure** med den [konfigurera operatorn Stack Azure PowerShell-miljö](azure-stack-powershell-configure-admin.md) steg.  
 
    * Anteckna Blob storage URI: N där du laddar upp avbildningen. URI för Blob-lagring har följande format:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
@@ -185,7 +196,7 @@ Bilder måste kunna refereras av en URI för Blob-lagring. Förbereda en Windows
 2. Logga in på Azure-stacken som operator. Välj på menyn **fler tjänster** > **Resursproviders**. Markera **Compute** > **VM-avbildningar** > **Lägg till**.
 
 3. Under **lägga till en VM-avbildning**, ange utgivare, erbjudande, SKU och version för avbildningen av virtuella datorn. Dessa namn segment finns i VM-avbildning i Resource Manager-mallar. Se till att välja den **osType** värdet på rätt sätt. För **OS-diskens Blob-URI**, anger du Blob-URI där bilden överfördes. Markera **skapa** att börja skapa VM-avbildning.
-   
+
    ![Börja skapa avbildningen](./media/azure-stack-add-vm-image/image4.png)
 
    När avbildningen har skapats, VM avbildningen status ändras till **lyckades**.

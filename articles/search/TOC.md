@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Om Azure Search](search-what-is-azure-search.md)
 
 # Snabbstarter
@@ -54,7 +55,10 @@
 ### [Utveckla i .NET](search-howto-dotnet-sdk.md)
 ### [Utveckla i Node.js](search-get-started-nodejs.md)
 ### [Utveckla i Java](search-get-started-java.md)
-### [Uppgradera SDK](search-dotnet-sdk-migration.md)
+### Uppgradera SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [.NET Management SDK](search-dotnet-mgmt-sdk-migration.md)
 ### [Uppgradera REST API](search-api-migration.md)
 ### [Skapa modeller över komplexa datatyper](search-howto-complex-data-types.md)
 ### [Hantera samtidiga uppdateringar](search-howto-concurrency.md)

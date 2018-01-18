@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Kafka på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: apache-kafka-introduction.md
     - name: Versionshantering för komponenter
       href: ../hdinsight-component-versioning.md
@@ -33,6 +33,9 @@
       items:
         - name: Kafka och Spark (Structured Streaming)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+          maintainContext: true
+        - name: Strukturerad direktuppspelning från Kafka till CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka och Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md

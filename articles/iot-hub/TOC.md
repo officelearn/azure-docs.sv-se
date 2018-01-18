@@ -36,6 +36,7 @@
 ### [Datavisualisering med Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Väderprognoser med hjälp av Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Enhetshantering med IoT Hub-utforskaren](iot-hub-device-management-iothub-explorer.md)
+### [Enhetshantering med IoT-tillägg för Azure CLI 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Fjärrövervakning och aviseringar med Logic Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Instruktionsguider

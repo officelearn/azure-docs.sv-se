@@ -1,6 +1,6 @@
 - name: Dokumentation om Site Recovery
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Site Recovery?
       href: site-recovery-overview.md
@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Stödmatris för Azure till Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Stödmatris för lokal till Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Supportmatris för VMware till Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Hyper-V-till-Azure-supportmatris
       href: support-matrix-hyper-v-to-azure.md
+    - name: Stödmatris för lokal till Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Stödmatris för lokal till sekundär plats
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Haveriberedskap för arbetsbelastningar
@@ -181,6 +183,8 @@
           items:
             - name: Källmiljö för VMware till Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Distribuera konfigurationsservern för VMware och fysiska servrar
+              href: how-to-deploy-configuration-server.md
             - name: Källmiljö för fysisk till Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Konfigurera målmiljön

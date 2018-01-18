@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: Spark på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: apache-spark-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -86,7 +86,7 @@
           href: apache-spark-use-with-data-lake-store.md
     - name: Spark-strömning
       items:
-        - name: Översikt
+        - name: "Översikt\r\n"
           href: apache-spark-streaming-overview.md
         - name: Bearbeta strömningshändelser
           href: apache-spark-eventhub-streaming.md
@@ -94,6 +94,9 @@
           href: apache-spark-eventhub-structured-streaming.md
         - name: Structured Streaming med Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+          maintainContext: true
+        - name: Strukturerad direktuppspelning från Kafka till CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Spark-strömning (DStream) med Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
@@ -320,7 +323,7 @@
   items:
     - name: Företagssäkerhet
       items:
-        - name: Översikt
+        - name: "Översikt\r\n"
           href: ../domain-joined/apache-domain-joined-introduction.md
           maintainContext: true
         - name: Planera för företagssäkerhet

@@ -1,6 +1,6 @@
 - name: Application Insights-dokumentation
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Application Insights?
       href: app-insights-overview.md
@@ -182,7 +182,7 @@
               href: app-insights-visual-studio-codelens.md
         - name: Användning
           items:
-            - name: Översikt
+            - name: "Översikt\r\n"
               href: app-insights-usage-overview.md
             - name: Skicka användarkontext
               href: app-insights-usage-send-user-context.md
@@ -198,7 +198,7 @@
               href: app-insights-usage-workbooks.md
         - name: Analys
           items:
-            - name: Översikt
+            - name: "Översikt\r\n"
               href: app-insights-analytics.md
             - name: Importera anpassade loggar
               href: app-insights-analytics-import.md
@@ -265,6 +265,8 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+        - name: Användningsanalys
+          href: app-insights-usage-troubleshoot.md
 - name: Exempel
   items:
     - name: Kodexempel

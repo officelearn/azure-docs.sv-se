@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Är det rätt alternativ för dig?
 ### [Jämför med Windows Server AD](active-directory-ds-comparison.md)
@@ -44,7 +45,12 @@
 ## Felsöka
 ### [Vanliga frågor och svar](active-directory-ds-faqs.md)
 ### [Felsökningsguide](active-directory-ds-troubleshooting.md)
+### [Felsöka aviseringar](active-directory-ds-troubleshoot-alerts.md)
+#### [Åtgärda en bruten NSG-konfiguration](active-directory-ds-troubleshoot-nsg.md)
+#### [Återställa tjänstens huvudnamn som saknas](active-directory-ds-troubleshoot-service-principals.md)
+#### [Säkert LDAP – fel](active-directory-ds-troubleshoot-ldaps.md)
 ### [Lös felmatchade klientfel](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Referens
 ## [Kodexempel](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

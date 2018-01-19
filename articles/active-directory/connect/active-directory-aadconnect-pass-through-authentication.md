@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Direkt-autentisering | Microsoft Docs'
 description: "Den här artikeln beskriver Azure Active Directory (AD Azure) direkt-autentisering och hur det kan Azure AD inloggningar genom att verifiera användarnas lösenord mot lokala Active Directory."
 services: active-directory

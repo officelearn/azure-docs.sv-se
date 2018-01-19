@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Service Bus-meddelanden?](service-bus-messaging-overview.md)
 ## [Service Bus-grunder](service-bus-fundamentals-hybrid-solutions.md)
 ## [Service Bus-arkitektur](service-bus-architecture.md)
@@ -21,7 +22,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Skapa en Service Bus-flernivåapp](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Gör så här för att
 ## Planera och designa
@@ -29,6 +29,7 @@
 ### [Rollbaserad åtkomstkontroll (förhandsgranskning)](service-bus-role-based-access-control.md)
 ### [Premium-meddelandetjänster](service-bus-premium-messaging.md)
 ### [Jämför Azure-köer och Service Bus-köer](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Skapa en Service Bus-flernivåapp](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimera prestanda](service-bus-performance-improvements.md)
 ### [Geo-haveriberedskap och geo-replikering](service-bus-geo-dr.md)
 ### [Asynkrona meddelanden och hög tillgänglighet](service-bus-async-messaging.md)

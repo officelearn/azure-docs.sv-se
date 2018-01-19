@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
 Den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka den [Azure stöder vanliga frågor och svar](http://go.microsoft.com/fwlink/?LinkID=185083) allmän Azure priser och support information.
@@ -48,7 +48,6 @@ Se [bästa praxis för bättre prestanda med hjälp av Service Bus] [ Best pract
 ### <a name="what-should-i-know-before-creating-entities"></a>Vad bör jag veta innan du skapar enheter?
 Följande egenskaper för en kö och avsnittet är oföränderliga. Ta hänsyn till den här begränsningen när du etablerar-enheterna när dessa egenskaper inte kan ändras utan att skapa en ny entitet ersättning.
 
-* Storlek
 * Partitionering
 * Sessioner
 * Identifiering av dubbletter

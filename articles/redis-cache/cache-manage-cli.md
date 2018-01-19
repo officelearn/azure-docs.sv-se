@@ -3,8 +3,8 @@ title: "Hantera Azure Redis-Cache med hjälp av Azure CLI | Microsoft Docs"
 description: "Lär dig hur du installerar Azure CLI på valfri plattform, hur du ansluter till ditt Azure-konto och skapa och hantera ett Redis-cache från Azure CLI."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Skapa och hantera Azure Redis-Cache med hjälp av Azure-kommandoradsgränssnittet (Azure CLI)
 > [!div class="op_single_selector"]
@@ -48,19 +48,19 @@ Följande egenskaper används när du skapar och uppdaterar Redis-Cache-instanse
 | Egenskap | Växel | Beskrivning |
 | --- | --- | --- |
 | namn |-n,--namn |Namnet på Redis-Cache. |
-| Resursgrupp |-g,--resursgruppen. |Namnet på resursgruppen. |
+| Resursgrupp |-g, --resource-group |Namnet på resursgruppen. |
 | location |-l,--plats |Plats för att skapa cache. |
 | storlek |-z,--storlek |Storleken på Redis-Cache. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| SKU |-x,--sku |Redis-SKU. Ska vara någon av: [Basic, Standard, Premium] |
-| enableNonSslPort |e-,--aktivera icke-ssl-port |EnableNonSslPort-egenskapen för Redis-Cache. Lägg till den här flaggan om du vill aktivera icke-SSL-Port för ditt cacheminne |
+| sku |-x, --sku |Redis-SKU. Ska vara någon av: [Basic, Standard, Premium] |
+| EnableNonSslPort |-e, --enable-non-ssl-port |EnableNonSslPort-egenskapen för Redis-Cache. Lägg till den här flaggan om du vill aktivera icke-SSL-Port för ditt cacheminne |
 | Redis-konfiguration |-c,--redis-konfiguration |Redis-konfiguration. Ange en JSON-formaterad sträng konfigurationsnycklar och värden här. Format ”: {” ”:” ””, ””: ”}” |
-| Redis-konfiguration |-f,--redis-konfigurationsfilen |Redis-konfiguration. Ange en sökväg till en fil som innehåller konfigurationsnycklar och värden här. Formatet för posten fil: {””: ”” ”,” ”:”} |
+| Redis-konfiguration |-f, --redis-configuration-file |Redis-konfiguration. Ange en sökväg till en fil som innehåller konfigurationsnycklar och värden här. Formatet för posten fil: {””: ”” ”,” ”:”} |
 | Fragmentera antal |-r,--Fragmentera antal |Antalet delar för att skapa på Premium klustret Cache med kluster. |
-| Virtual Network |-v,--virtuellt nätverk |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Nyckeltyp |-t,--typ av nyckel |Typ av nyckel att förnya. Giltiga värden: [primära, sekundära] |
+| Virtual Network |-v, --virtual-network |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Nyckeltyp |-t, --key-type |Typ av nyckel att förnya. Giltiga värden: [primära, sekundära] |
 | StaticIP |-p,--statiska ip-< statiska IP-> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om inte är en valt i undernätet. |
 | Undernät |t,--undernät<subnet> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du vill distribuera cachen. |
-| VirtualNetwork |-v,--virtuellt nätverk < virtuella nätverk > |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v, --virtual-network <virtual-network> |När värd för ditt cacheminne i ett virtuellt nätverk, anger du exakt ARM resurs-ID för det virtuella nätverket för att distribuera redis-cache i. Exempel på format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Prenumeration |-s, -prenumeration |Prenumerations-ID. |
 
 ## <a name="see-all-redis-cache-commands"></a>Visa alla kommandon som Redis-Cache

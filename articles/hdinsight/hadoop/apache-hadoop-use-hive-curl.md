@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Köra Hive-frågor med Hadoop i HDInsight med hjälp av REST
 
@@ -50,7 +50,9 @@ Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Hadoo
 
     Du får ett svar som liknar följande:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     De parametrar som används i det här kommandot är följande:
 
@@ -65,7 +67,9 @@ Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Hadoo
 
     Denna begäran returnerar ett svar som liknar följande:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Använd följande för att skapa en tabell med namnet **log4jLogs**:
 
@@ -105,7 +109,9 @@ Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Hadoo
 
    Det här kommandot returnerar ett jobb-ID som kan användas för att kontrollera status för jobbet.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Om du vill kontrollera status för jobbet, använder du följande kommando:
 
@@ -122,7 +128,7 @@ Lär dig hur du använder WebHCat REST API för att köra Hive-frågor med Hadoo
 
 4. När status för jobbet har ändrats till **lyckades**, kan du hämta resultatet av jobbet från Azure Blob storage. Den `statusdir` -parameter som överförs med frågan innehåller platsen för utdatafilen; i det här fallet **-exempel curl**. Den här adressen lagrar utdata i den **exempel/curl** katalogen i standardlagring kluster.
 
-    Du kan visa och ladda ned dessa filer med hjälp av den [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [Använd Azure CLI 2.0 med Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentet.
+    Du kan visa och ladda ned dessa filer med hjälp av den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [Använd Azure CLI 2.0 med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) dokumentet.
 
 5. Använd följande instruktioner för att skapa en ny ”interna” tabell med namnet **errorLogs**:
 

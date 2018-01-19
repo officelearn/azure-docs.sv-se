@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Planera hänsynstaganden för Azure-stacken integrerat system
 Om du är intresserad av en Azure-stacken integrerat system, bör du förstå några viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden som hjälper dig att fatta viktiga infrastruktur beslut för ditt system med flera noder Azure stacken. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM när de distribuerar Azure Stack till ditt datacenter.  
@@ -31,12 +31,12 @@ Att distribuera Azure-stacken som det finns en uppsättning beslut som du behöv
 
 Adressintervall upplysningar över nätverk, säkerhet och identitetsinformation med många viktiga beslut som kan kräva att information från många olika områden och beslutsfattare. Därför kanske du måste dra in personer från flera team i din organisation så att du har all nödvändig information som är klar innan du påbörjar distributionen. Det hjälper dig för att tala med din maskinvaruleverantör vid insamling av den här informationen som de kan ha råd bra att fattar ditt beslut.
 
-Du kan behöva göra vissa före distributionen konfigurationsändringar i din nätverksmiljö när du undersöker och samla in nödvändig information. Det kan vara att reservera IP-adressutrymmen för Azure-stacken lösningen, hur du konfigurerar dina routrar, växlar och brandväggar för att förbereda för anslutningen till de nya Azure-stacken lösning växlarna. Se till att ha ämne området experten sida upp till hjälpa dig med planeringen.
+Du kan behöva göra vissa före distributionen konfigurationsändringar i din nätverksmiljö när du undersöker och samla in nödvändig information. Det kan vara att reservera IP-adressutrymmen för Azure Stack-lösningen och konfigurerar dina routrar, växlar och brandväggar för att förbereda för anslutningen till de nya Azure-stacken lösning växlarna. Se till att ha ämne område experten uppradade och arbetar med hela distributionsprojektet för att hjälpa dig med planeringen.
 
 ## <a name="management-considerations"></a>Hanteringsanmärkningar
 Azure-stacken är ett förseglat system där infrastrukturen som är låst både från en behörigheter och perspektiv. Nätverket åtkomstkontrollistor (ACL) används för att blockera all inkommande trafik som obehörig och all onödig kommunikation mellan infrastrukturkomponenter. Detta gör det svårare för obehöriga användare att komma åt systemet.
 
-För dagliga hantering och åtgärder finns det ingen obegränsad administratörsåtkomst till infrastrukturen. Azure Stack-operatorer måste hantera systemet via administratörsportalen eller via Azure Resource Manager (via PowerShell eller REST API). Det finns ingen åtkomst till datorn av andra hanteringsverktyg, till exempel Hyper-V Manager eller hanteraren för redundanskluster. Program från andra tillverkare (till exempel agenter) kan inte installeras i komponenterna i Azure Stack-infrastruktur för att skydda datorn. Samverkan med externa hanterings- och säkerhetsprogramvara görs via PowerShell eller REST API.
+För dagliga hantering och åtgärder finns det ingen obegränsad administratörsåtkomst till infrastrukturen. Azure Stack-operatorer måste hantera systemet via administratörsportalen eller via Azure Resource Manager (via Azure CLI, PowerShell eller REST API). Det finns ingen åtkomst till datorn av andra hanteringsverktyg, till exempel Hyper-V Manager eller hanteraren för redundanskluster. Program från andra tillverkare (till exempel agenter) kan inte installeras i komponenterna i Azure Stack-infrastruktur för att skydda datorn. Samverkan med extern hantering och säkerhetsprogram görs via Azure CLI, PowerShell eller REST API.
 
 När en högre nivå av åtkomst krävs för att felsöka problem som inte är löst aviseringen medling steg måste du arbeta med stöd för. Det finns en metod för att tillhandahålla tillfällig fullständig administratörsåtkomst till systemet för att utföra mer avancerade åtgärder via Support. 
 
@@ -45,7 +45,7 @@ När en högre nivå av åtkomst krävs för att felsöka problem som inte är l
 ### <a name="choose-identity-provider"></a>Välj identitetsleverantören.
 Du behöver överväga vilka identitetsleverantör som du vill använda för distribution av Azure-stacken, Azure AD eller AD FS. Du kan inte växla identitetsleverantörer efter distributionen utan Omdistributionen för hela systemet.
 
-Önskat identity-providern påverkar inte på virtuella datorer, identitet och konton som de använder, om de kan ansluta till en Active Directory-domän, osv. Detta är separat.
+Önskat identity-providern påverkar inte på virtuella datorer, identitetssystem och konton som de använder, om de kan ansluta till en Active Directory-domän, osv. Detta är separat.
 
 Du kan lära dig mer om hur du väljer en identitetsleverantör i den [distributionsbeslut för Azure-stacken integrerade system artikeln](.\azure-stack-deployment-decisions.md).
 
@@ -93,9 +93,9 @@ Mer information om vilka PKI certifikat krävs för att distribuera Azure-stacke
 
 
 ## <a name="time-synchronization"></a>Tidssynkronisering
-Du måste välja en viss tid server med används för att synkronisera Azure stacken.  Tid symbolization är viktigt att Azure-stacken och sin infrastruktur-roller som används för att generera en Kerberos-biljetter som används för att autentisera interna tjänster med varandra.
+Du måste välja en viss tid server med används för att synkronisera Azure stacken.  Tidssynkronisering är viktigt att Azure-stacken och sin infrastruktur-roller som används för att generera en Kerberos-biljetter som används för att autentisera interna tjänster med varandra.
 
-Du måste ange en IP-adress för synkroniseringsserver tid även om de flesta av komponenter i infrastrukturen kan lösa en URL vissa stöder bara IP-adresser. Om du har med distributionsalternativet frånkopplade, måste du ange en tidsserver på företagets nätverk som du är säker kan nås från nätverkets infrastruktur i Azure-stacken.
+Du måste ange en IP-adress för synkroniseringsserver tid som även om de flesta av komponenter i infrastrukturen kan lösa en URL, vissa bara stöder IP-adresser. Om du har med distributionsalternativet frånkopplade, måste du ange en tidsserver på företagets nätverk som du är säker kan nås från nätverkets infrastruktur i Azure-stacken. Det här kan kräva ytterligare övervägande vid planering av nätverket integration delen av projekt för distribution.
 
 
 ## <a name="network-connectivity"></a>Nätverksanslutning
@@ -120,25 +120,25 @@ Nätverkets infrastruktur för Azure-Stack består av flera logiska nätverk som
 ![Logiska nätverksanslutningar för diagram och växel](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### <a name="bmc-network"></a>BMC-nätverk
-Det här nätverket är dedikerad till att ansluta alla nodernas hanteringsstyrenheter för baskort (även kallat service processorer, till exempel iDRAC, iLO, iBMC, etc.) i hanteringsnätverket. Om den finns (HLH) maskinvara livscykel värden finns på nätverket och kan ge OEM-specifik programvara för maskinvara underhåll och övervakning. 
+Det här nätverket är dedikerad till att ansluta alla nodernas hanteringsstyrenheter för baskort (även kallat service processorer, till exempel iDRAC, iLO, iBMC, etc.) i hanteringsnätverket. Om det finns maskinvara livscykel värden (HLH) finns på nätverket och kan ge OEM-specifik programvara för maskinvara underhåll och övervakning. 
 
 #### <a name="private-network"></a>Privat nätverk
-Den här /24 (254 värd-IP)-nätverk är privat för stacken för Azure-region (inte expanderas utöver kantlinje växeln enheter i Azure Stack-region) och är uppdelad i två undernät:
+Den här /24 (254 värd IP-adresser) nätverk är privat för stacken för Azure-region (inte expanderas utöver kantlinje växeln enheter i Azure Stack-region) och är uppdelad i två undernät:
 
-- **Lagringsnätverk**. Direktmigrering för en /25 (126 värd-IP) för att användas med lagringsutrymmen och Server Message Block (SMB) lagringsrelaterad trafik och den virtuella datorn. 
-- **Interna virtuella IP-nätverket**. A/25 nätverket att endast internt VIP för belastningsutjämnare för programvara.
+- **Lagringsnätverk**. /25 (126 värd IP-adresser) används för att användas med Storage Spaces Direct (S2D) och lagringstrafik för Server Message Block (SMB) och Direktmigrering för virtuella nätverk. 
+- **Interna virtuella IP-nätverket**. A/25 nätverket att endast internt VIP för programbelastningsutjämnaren (SLB).
 
 #### <a name="azure-stack-infrastructure-network"></a>Azure Stack infrastruktur för nätverk
-Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men behålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL), den förväntas inte dirigeras utöver kantlinje växlar förutom en liten intervallet samma storlek som en minst/27 nätverk som används av några av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
+Detta/24 nätverk som är dedikerad för interna Azure Stack-komponenter så att de kan kommunicera och utbyta data med varandra. Det här undernätet kräver dirigerbara IP-adresser, men hålls privata till lösningen med hjälp av åtkomstkontrollistor (ACL).  Det är inte förväntas dirigeras utöver kantlinje växlar förutom en liten intervallet samma storlek som en minst/27 nätverket, vilket används av vissa av dessa tjänster när de behöver komma åt externa resurser och/eller internet. 
 
 #### <a name="public-infrastructure-network"></a>Infrastruktur för offentliga nätverk
-Detta/27 nätverk är det mycket små intervallet från Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS), ERCS VM kräver tillgång till internet under registreringen till Azure och ska vara dirigerbara till nätverket för felsökning.
+Detta/27 nätverk är det mycket små intervallet från Azure Stack infrastruktur undernät som tidigare nämnts, kräver inte offentliga IP-adresser, men det kräver tillgång till internet via en NAT-enhet eller en Transparent Proxy. Det här nätverket allokeras för nödfall Recovery konsolen System (ERCS). ERCS VM kräver tillgång till internet under registreringen till Azure och ska vara dirigerbara till nätverket för felsökning.
 
 #### <a name="public-vip-network"></a>Offentligt VIP-nätverk
 Det offentliga VIP-nätverket har tilldelats nätverksstyrenhet i Azure-stacken. Det är inte ett logiskt nätverk på växeln. SLB använder poolen med adresser och tilldelar/32 nätverk för klienternas arbetsbelastningar. På routningstabellen växeln annonseras dessa 32 IP-adresser som en tillgänglig väg via BGP. Det här nätverket innehåller externt tillgänglig eller offentlig IP-adresser. Infrastrukturen i Azure-stacken använder minst 8 adresser från den här offentliga VIP-nätverket medan resten används av klient virtuella datorer. Nätverket storleken på det här undernätet kan variera från minst /26 (64 värdar) till maximalt /22 (1022 värdar) rekommenderar vi att du planerar för ett/24 nätverk.
 
 #### <a name="switch-infrastructure-network"></a>Växeln infrastrukturnätverk
-Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP /30 (2 värd-IP) undernät och loopbacks vilket är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Detta intervall med IP-adresser måste vara dirigerbara externt av Azure Stack-lösningen för att ditt datacenter, kan de vara privat eller offentlig IP-adresser.
+Detta/26 nätverk är det undernät som innehåller dirigerbara point-to-point IP /30 (2 värd-IP) undernät och loopbacks vilket är dedikerade/32 undernät för in-band-växla hanterings- och BGP-router-ID. Detta intervall med IP-adresser måste vara dirigerbara externt av Azure Stack-lösningen för att ditt datacenter och de kan vara privat eller offentlig IP-adresser. Till exempel i flera innehavare tjänstleverantör scenario med en offentlig IP-adresser kan krävas, medan inom en strikt kontrollerad företagsdistribution kan privata IP-adresser vara önskade.
 
 #### <a name="switch-management-network"></a>Växeln hanteringsnätverk
 Den här /29 (6 värd IP-adresser) nätverk är dedikerad till att ansluta hanteringsportar växlar. Den ger out-of-band-åtkomst för distribution, hantering och felsökning. Den beräknas från växeln infrastrukturnätverk som nämns ovan.
@@ -203,7 +203,7 @@ Följande diagram visar ExpressRoute för ett scenario med flera innehavare.
 ## <a name="external-monitoring"></a>Externa övervakning
 Hämta en enda vy av alla aviseringar från dina Azure-stacken distribution och enheter och integrera aviseringar i befintliga IT service management-arbetsflöden för biljetter, kan du integrera Azure stacken med externa datacenter övervakningslösningar.
 
-Maskinvara livscykel värden kan ingår i Azure Stack-lösningen, en dator utanför Azure-stacken som kör OEM-tillverkarens hanteringsverktyg för maskinvara. Du kan använda dessa verktyg eller andra lösningar som kan integreras direkt med befintliga lösningar övervakning i ditt datacenter.
+Ingår i Azure Stack-lösningen, är maskinvara livscykel värden (HLH) en dator utanför Azure-stacken som kör OEM-tillverkarens hanteringsverktyg för maskinvara. Du kan använda dessa verktyg eller andra lösningar som kan integreras direkt med befintliga lösningar övervakning i ditt datacenter.
 
 I följande tabell sammanfattas i listan över tillgängliga alternativ.
 

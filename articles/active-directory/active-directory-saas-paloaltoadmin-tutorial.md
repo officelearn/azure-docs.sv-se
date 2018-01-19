@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Självstudier: Azure Active Directory-integrering med Palo Alto nätverk - Admin UI
 
@@ -32,12 +32,12 @@ Integrera Palo Alto nätverk - Admin UI med Azure AD ger dig följande fördelar
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Palo Alto nätverk - Admin UI, behöver du följande:
 
 - En Azure AD-prenumeration
-- En Palo Alto nätverk – Admin UI enkel inloggning aktiverad prenumeration
+- En Palo Alto nätverk nästa generations brandvägg eller Panorama (centraliserad hanteringssystem för brandväggarna)
 
 > [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
@@ -72,7 +72,7 @@ Du måste lägga till Palo Alto nätverk - Admin UI från galleriet i listan öv
 
 4. I sökrutan skriver **Palo Alto nätverk - Admin UI**väljer **Palo Alto nätverk - Admin UI** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Palo Alto nätverk - Admin UI i resultatlistan](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Palo Alto nätverk - Admin UI i resultatlistan](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
@@ -108,9 +108,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Palo Alto nätverk - domänen för Admin-Användargränssnittet och URL: er enkel inloggning information](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<Customer Firewall URL>/php/login.php`
+    a. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<Customer Firewall URL>/SAML20/SP`
+    b. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [Palo Alto nätverk - Användargränssnittet administratörsklient supportteamet](https://support.paloaltonetworks.com/support) att hämta dessa värden. 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
         
     | Attributnamn | Attributvärde |
     | --- | --- |    
-    | användarnamn | User.userPrincipalName |
+    | användarnamn | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
@@ -151,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning spara](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Öppna Palo Alto-platsen som en administratör i ett nytt webbläsarfönster.
+8. Öppna Palo Alto nätverk brandväggen Admin användargränssnitt som en administratör i ett nytt webbläsarfönster.
 
 9. Klicka på **enhet**.
 

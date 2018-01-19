@@ -8,7 +8,7 @@
 
     ![Aktivera TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Klicka på **SQL Server-tjänster** i konsolfönstret. Högerklicka på **SQL Server (*instansnamnet*)** (standardinstansen är **SQL Server (MSSQLSERVER)**) i informationsfönstret och klicka sedan på **Starta om** för att stoppa och starta om instansen av SQL Server.
+1. Klicka på **SQL Server-tjänster** i konsolfönstret. I informationsfönstret högerklickar du på **SQL Server (*instansnamn*)** (standardinstansen är **SQL Server (MSSQLSERVER)**), och klicka sedan på **starta om**, för att stoppa och starta om SQL Server-instansen.
 
     ![Starta om databasmotorn](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

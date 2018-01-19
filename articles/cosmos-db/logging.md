@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos-diagnostikloggning
 
@@ -414,7 +414,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | operationName | OperationName | Namnet på åtgärden. Det här värdet kan vara något av följande åtgärder: skapa, uppdatera, Läs-, ReadFeed, ta bort, ersätta, Execute, SqlQuery, fråga, JSQuery, Head, HeadFeed eller Upsert.   |
 | properties | Saknas | Innehållet i det här fältet beskrivs i följande rader. |
 | ActivityId | activityId_g | Unikt GUID för den loggade åtgärden. |
-| UserAgent | userAgent_s | En sträng som anger klientanvändaragent begäran utfördes. Formatet är {användarnamn för agenten} / {version}.|
+| userAgent | userAgent_s | En sträng som anger klientanvändaragent begäran utfördes. Formatet är {användarnamn för agenten} / {version}.|
 | resourceType | ResourceType | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: databas, samling, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | statusCode |statusCode_s | Svarsstatus för åtgärden. |
 | requestResourceId | Resurs-ID | Resurs-ID som rör begäran, kan peka databaseRid, collectionRid eller documentRid beroende på den åtgärd som utförs.|

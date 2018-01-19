@@ -2,9 +2,9 @@
 title: Nyckeln valvet .NET-API 2.x viktig information | Microsoft Docs
 description: ".NET-utvecklare använder detta API till kod för Azure Key Vault"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
-editor: bruceper
+editor: alleonar
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,27 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: bruceper
-ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: alleonar
+ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - viktig information och Migreringsguide
-Följande information och vägledning är för utvecklare som arbetar med Azure Key Vault .NET / C#-biblioteket. I övergången från version 1.0 till version 2.0 kan ett antal uppdateringar har gjorts som kräver migrering arbete i koden för att du kan dra nytta av de funktionella förbättringarna och funktion som tillägg kommer **Key Vault-certifikat**  stöder.
+Följande information hjälper till att migrera till version 2.0 av Azure Key Vault-bibliotek för C# och .NET.  Appar som utvecklats för tidigare versioner måste du uppdatera för att stödja den senaste versionen.  De här ändringarna krävs för att fullständigt stöd för nya och förbättrade funktioner som **Key Vault certifikat**.
 
 ## <a name="key-vault-certificates"></a>Key Vault-certifikat
 
-Stöd för Key Vault-certifikat ger hantering av din x509 certifikat och följande:  
+Key Vault certifikat hantera x509 certifikat och har stöd för följande:  
 
-* Gör en certifikat-ägare att skapa ett certifikat via en process för att skapa Nyckelvalvet eller importera ett befintligt certifikat. Detta inkluderar både självsignerat och certifikatutfärdare genereras certifikat.
-* Gör en Key Vault certifikat ägare att implementera säker lagring och hantering av X509 certifikat utan interaktion med material för privat nyckel.  
-* Gör en certifikat-ägare att skapa en princip som leder Key Vault för att hantera livscykeln för ett certifikat.  
-* Gör att certifikatet ägare att tillhandahålla kontaktinformation för meddelande om livscykeln händelser för förfallodatum och förnyelse av certifikat.  
-* Stöder automatisk förnyelse med valda utfärdare - Key Vault partner X509 certifikat providers / certifikatutfärdare.
-  
-  * Observera - ej tillsammans providers/myndigheter kan också, men stöder inte automatisk förnyelse av funktionen.
+* Skapa certifikat via en process för att skapa Nyckelvalvet eller importera befintligt certifikat. Detta inkluderar både självsignerat och certifikatutfärdaren (CA) genereras certifikat.
+* Lagra och hantera x509 säker lagring av certifikat utan interaktion med material för privat nyckel.  
+* Definiera principer som direkt Key Vault för att hantera livscykeln för användarcertifikatet.  
+* Ange kontaktinformation för Livscykelhändelser, som upphör att gälla varningar och meddelanden för förnyelse.  
+* Automatiskt förnya certifikat med valda utfärdare (Key Vault partner X509 certifikatproviders och certifikatutfärdare). * stöd certifikat från en alternativ (icke-partner) ger och certifikatutfärdare (stöder inte automatisk förnyelse).  
 
 ## <a name="net-support"></a>Stöd för .NET
 
@@ -44,7 +42,10 @@ Stöd för Key Vault-certifikat ger hantering av din x509 certifikat och följan
 
 * Namnområdet för **modeller** ändras från **Microsoft.Azure.KeyVault** till **Microsoft.Azure.KeyVault.Models**.
 * Den **Microsoft.Azure.KeyVault.Internal** namnområde har släppts.
-* Azure SDK beroenden namnområdet ändras från **Hyak.Common** och **Hyak.Common.Internals** till **Microsoft.Rest** och  **Microsoft.Rest.Serialization**
+* Följande Azure SDK beroenden namnområden har 
+
+    - **Hyak.Common** är nu **Microsoft.Rest**.
+    - **Hyak.Common.Internals** är nu **Microsoft.Rest.Serialization**.
 
 ## <a name="type-changes"></a>Ändringar av typen
 
@@ -55,8 +56,8 @@ Stöd för Key Vault-certifikat ger hantering av din x509 certifikat och följan
 
 ## <a name="return-types"></a>Returtyper
 
-* **KeyList** och **SecretList** returnerar *IPage<T>*  i stället för *ListKeysResponseMessage*
-* Den genererade **BackupKeyAsync** returnerar *BackupKeyResult* som innehåller *värdet* (säkerhetskopiera blob). Innan metoden har omslutna och returnerar värdet.
+* **KeyList** och **SecretList** returnerar nu *IPage<T>*  i stället för *ListKeysResponseMessage*
+* Den genererade **BackupKeyAsync** returnerar nu *BackupKeyResult*, som innehåller *värdet* (säkerhetskopiera blob). Metoden har tidigare omsluten och returneras bara värdet.
 
 ## <a name="exceptions"></a>Undantag
 
@@ -70,29 +71,29 @@ Stöd för Key Vault-certifikat ger hantering av din x509 certifikat och följan
 
 ## <a name="downloaded-packages"></a>Hämtade paket
 
-När en klient beroende av Key Vault hämtades följande
+När en klient bearbetar ett Key Vault beroende, hämtas följande paket:
 
 ### <a name="previous-package-list"></a>Tidigare paketlistan
 
-* paketet id="Hyak.Common” version = ”1.0.2” targetFramework = ”net45”
-* paketet id="Microsoft.Azure.Common” version = ”2.0.4” targetFramework = ”net45”
-* paketet id="Microsoft.Azure.Common.Dependencies” version = ”1.0.0” targetFramework = ”net45”
-* paketet id="Microsoft.Azure.KeyVault” version = ”1.0.0” targetFramework = ”net45”
-* paketet id="Microsoft.Bcl” version = ”1.1.9” targetFramework = ”net45”
-* paketet id="Microsoft.Bcl.Async” version = ”1.0.168” targetFramework = ”net45”
-* paketet id="Microsoft.Bcl.Build” version = ”1.0.14” targetFramework = ”net45”
-* paketet id="Microsoft.Net.Http” version = ”2.2.22” targetFramework = ”net45”
+* `package id="Hyak.Common" version="1.0.2" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common" version="2.0.4" targetFramework="net45"`
+* `package id="Microsoft.Azure.Common.Dependencies" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Azure.KeyVault" version="1.0.0" targetFramework="net45"`
+* `package id="Microsoft.Bcl" version="1.1.9" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Async" version="1.0.168" targetFramework="net45"`
+* `package id="Microsoft.Bcl.Build" version="1.0.14" targetFramework="net45"`
+* `package id="Microsoft.Net.Http" version="2.2.22" targetFramework="net45"`
 
 ### <a name="current-package-list"></a>Aktuella paketlistan
 
-* paketet id="Microsoft.Azure.KeyVault” version = ”2.0.0-preview” targetFramework = ”net45”
-* paketet id="Microsoft.Rest.ClientRuntime” version = ”2.2.0” targetFramework = ”net45”
-* paketet id="Microsoft.Rest.ClientRuntime.Azure” version = ”3.2.0” targetFramework = ”net45”
+* `package id="Microsoft.Azure.KeyVault" version="2.0.0-preview" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
+* `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
 ## <a name="class-changes"></a>Klassen ändringar
 
-* **UnixEpoch** klass har tagits bort
-* **Base64UrlConverter** klass har bytt namn till **Base64UrlJsonConverter**
+* **UnixEpoch** klass har tagits bort.
+* **Base64UrlConverter** klass har bytt namn till **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Andra ändringar
 
@@ -100,9 +101,9 @@ När en klient beroende av Key Vault hämtades följande
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* För de åtgärder som returnerade en *valvet*, Returtypen har en klass som innehåller en egenskap för valvet. Returtypen är nu *valvet*.
+* För de åtgärder som returnerade en *valvet*, Returtypen har en klass som innehåller en **valvet** egenskapen. Returtypen är nu *valvet*.
 * *PermissionsToKeys* och *PermissionsToSecrets* är nu *Permissions.Keys* och *Permissions.Secrets*
-* Några av de returtyper ändringarna gäller för kontrollen-plan samt.
+* Vissa returtyper ändringarna för kontroll-plan samt.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 

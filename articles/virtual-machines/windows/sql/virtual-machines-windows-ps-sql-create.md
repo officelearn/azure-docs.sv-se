@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Hur du skapar SQL Server-datorer med Azure PowerShell
 
@@ -27,17 +27,17 @@ Den här guiden förklarar alternativen för att skapa Windows SQL Server-datore
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Denna Snabbstart kräver Azure PowerShell Modulversion 3,6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra den **Add-AzureRmAccount** kommando.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Add-AzureRmAccount**.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Du bör se en skärm att ange dina autentiseringsuppgifter. Använd samma e-post och lösenord som du använder för att logga in på Azure-portalen.
+1. Du bör se en inloggningsskärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
 
 ## <a name="define-image-variables"></a>Definiera variabler för avbildning
 Starta genom att definiera ett antal variabler för att förenkla skapande återanvändning och skript. Ändra parametervärden som du vill, men varning för namngivning av restriktioner relaterade till namnet längder och specialtecken när du ändrar de värden som anges.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Den virtuella datorn skapas.
 
 > [!NOTE]
-> Du kan ignorera felet om bot diagnostik. Ett standardlagringskonto skapas för startdiagnostikinställningar, eftersom det angivna lagringskontot för den virtuella disken är ett premiumlagringskonto.
+> Du kan ignorera felet om start-diagnostik. Ett standardlagringskonto skapas för startdiagnostikinställningar, eftersom det angivna lagringskontot för den virtuella disken är ett premiumlagringskonto.
 
-## <a name="install-the-sql-iaas-agent"></a>Installera SQL Iaas-Agent
-Virtuella datorer i SQL Server stöder automatisk hanteringsfunktioner med den [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Kör följande kommando för att installera agenten på den nya virtuella datorn när den har skapats.
+## <a name="install-the-sql-iaas-agent"></a>Installera SQL Iaas-agenten
+Virtuella datorer i SQL Server stöder automatisk hanteringsfunktioner med den [tillägg för SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). När den nya virtuella datorn har skapats kan du installera agenten på den genom att köra följande kommando.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ Virtuella datorer i SQL Server stöder automatisk hanteringsfunktioner med den [
 
 ## <a name="remove-a-test-vm"></a>Ta bort ett test VM
 
-Om du inte behöver den virtuella datorn körs kontinuerligt, kan du undvika onödiga kostnader genom att stoppa den som. Följande kommando stoppar den virtuella datorn men lämnar den tillgänglig för framtida bruk.
+Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Följande kommando stoppar den virtuella datorn men lämnar den tillgänglig för framtida bruk.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Du kan också ta bort alla resurser som är associerade med den virtuella datorn med den **Remove-AzureRmResourceGroup** kommando. Detta tar permanent bort den virtuella datorn, så det här kommandot med försiktighet.
+Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzureRmResourceGroup**. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
 
 ## <a name="example-script"></a>Exempelskriptet
 Följande skript innehåller fullständig PowerShell-skriptet för den här självstudiekursen. Det förutsätts att du har redan installerat Azure-prenumerationen för användning med den **Add-AzureRmAccount** och **Select-AzureRmSubscription** kommandon.

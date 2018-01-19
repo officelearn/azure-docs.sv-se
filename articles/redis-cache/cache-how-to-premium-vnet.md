@@ -3,8 +3,8 @@ title: "Konfigurera ett virtuellt nätverk för Premium Azure Redis-Cache | Micr
 description: "Lär dig hur du skapar och hanterar virtuella nätverk stöd för din Premium-nivån Azure Redis-Cache-instanser"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Så här konfigurerar du stöd för virtuella nätverk för Premium Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner, inklusive funktioner för Premium-nivån, till exempel klustring, beständiga och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en instans av Azure Redis-Cache har konfigurerats med ett VNet, är inte offentligt adresserbara och kan endast nås från virtuella datorer och program inom VNet. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för en premium Azure Redis-Cache-instans.
@@ -33,7 +33,7 @@ Information om andra cache premium-funktioner finns [introduktion till Azure Red
 ## <a name="why-vnet"></a>Varför VNet?
 [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) distribution ger förbättrad säkerhet och isolering för Azure Redis-Cache, samt undernät, principer för åtkomstkontroll och andra funktioner för att ytterligare begränsa åtkomsten.
 
-## <a name="virtual-network-support"></a>Stöd för virtuella nätverk
+## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk
 Stöd för virtuella nätverk (VNet) har konfigurerats på den **nytt Redis-Cache** bladet under skapande av cachen. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
@@ -125,12 +125,12 @@ Det finns åtta inkommande port intervallet krav. Inkommande begäranden i dessa
 
 | Portar | Riktning | Transportprotokoll | Syfte | Lokala IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis Azure belastningsutjämning | (Redis undernät) |Virtuellt nätverk, Azure belastningsutjämnare |
+| 6379, 6380 |Inkommande |TCP |Klientkommunikation till Redis Azure belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 | 8500 |Inkommande |TCP/UDP |Azure belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 10221-10231 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät), Azure belastningsutjämnare |
-| 13000-13999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure belastningsutjämning | (Redis undernät) |Virtuellt nätverk, Azure belastningsutjämnare |
-| 15000-15999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure läsa in belastningsutjämning | (Redis undernät) |Virtuellt nätverk, Azure belastningsutjämnare |
+| 13000-13999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
+| 15000-15999 |Inkommande |TCP |Klientkommunikation till Redis-kluster, Azure läsa in belastningsutjämning | (Redis undernät) |Virtual Network, Azure Load Balancer |
 | 16001 |Inkommande |TCP/UDP |Azure belastningsutjämning | (Redis undernät) |Azure Load Balancer |
 | 20226 |Inkommande |TCP |Intern kommunikation för Redis | (Redis undernät) |(Redis undernät) |
 

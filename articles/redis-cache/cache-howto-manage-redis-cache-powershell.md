@@ -3,8 +3,8 @@ title: Hantera Azure Redis-Cache med Azure PowerShell | Microsoft Docs
 description: "Lär dig mer om att utföra administrativa uppgifter för Azure Redis-Cache med hjälp av Azure PowerShell."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: sdanie
-ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Hantera Azure Redis-Cache med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -126,12 +126,12 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 | --- | --- | --- |
 | Namn |Namnet på cachen | |
 | Plats |Platsen för cachen | |
-| resourceGroupName |Resursgruppens namn att skapa cachen | |
+| ResourceGroupName |Resursgruppens namn att skapa cachen | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Antalet delar för att skapa när du skapar en premium-cache med aktiverad klustring. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Anger SKU av cachen. Giltiga värden är: Basic, Standard, Premium |Standard |
 | RedisConfiguration |Anger inställningar för Redis-konfiguration. Mer information om varje inställning finns i följande [RedisConfiguration egenskaper](#redisconfiguration-properties) tabell. | |
-| enableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
+| EnableNonSslPort |Anger om icke-SSL-porten är aktiverad. |False |
 | MaxMemoryPolicy |Den här parametern är inaktuell - Använd RedisConfiguration i stället. | |
 | StaticIP |När värd för ditt cacheminne i ett virtuellt nätverk, anger du en unik IP-adress i undernätet för cachen. Om inte är en valt i undernätet. | |
 | Undernät |När värd för ditt cacheminne i ett virtuellt nätverk, anger du namnet på undernätet där du vill distribuera cachen. | |
@@ -141,17 +141,17 @@ Följande tabell innehåller egenskaperna och beskrivningar för vanliga paramet
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration egenskaper
 | Egenskap | Beskrivning | Prisnivåer |
 | --- | --- | --- |
-| RDB säkerhetskopiering aktiverad |Om [Redis-datapersistence](cache-how-to-premium-persistence.md) är aktiverad |Endast Premium |
-| RDB---anslutningssträngen för lagring |Anslutningssträngen till lagringskontot för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
-| RDB säkerhetskopieringsfrekvens |Säkerhetskopieringsfrekvensen för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
+| rdb-backup-enabled |Om [Redis-datapersistence](cache-how-to-premium-persistence.md) är aktiverad |Endast Premium |
+| rdb-storage-connection-string |Anslutningssträngen till lagringskontot för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
+| rdb-backup-frequency |Säkerhetskopieringsfrekvensen för [Redis-datapersistence](cache-how-to-premium-persistence.md) |Endast Premium |
 | maxmemory-reserverade |Konfigurerar den [minne som reserverats](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för icke-cache-processer |Standard och Premium |
-| maxmemory-princip |Konfigurerar den [av principen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cachen |Alla prisnivåer |
+| maxmemory-policy |Konfigurerar den [av principen](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) för cachen |Alla prisnivåer |
 | meddela-keyspace-händelser |Konfigurerar [keyspace-meddelanden](cache-configure.md#keyspace-notifications-advanced-settings) |Standard och Premium |
-| hash-max-ziplist-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| hash--ziplist-värdet för maximalt antal |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| set-max-intset-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset-max-ziplist-poster |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
-| zset--ziplist-värdet för maximalt antal |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash-max-ziplist-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| hash-max-ziplist-value |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| set-max-intset-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-entries |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
+| zset-max-ziplist-value |Konfigurerar [minnesoptimering](http://redis.io/topics/memory-optimization) för små sammanställd datatyper |Standard och Premium |
 | databaser |Konfigurerar antalet databaser. Den här egenskapen kan endast konfigureras hos skapa cache. |Standard och Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Så här skapar du ett Redis-Cache

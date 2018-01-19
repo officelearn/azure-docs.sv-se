@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: a684f8bcdefc8e3338fae59e56863dfc37c23f1f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3f73cd65b0ceb3148ce8ceb83d7b4e1be1280077
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-data-lake-store-using-azure-data-factory"></a>Läs in data till Azure Data Lake Store med hjälp av Azure Data Factory
 
@@ -125,7 +125,11 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 
     ![Övervaka aktiviteten körs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-15. Kontrollera att data kopieras till din Azure Data Lake Store. 
+15. Du kan övervaka varje kopieringsaktiviteten körning information ytterligare genom att klicka på den **information** länken under **åtgärder** i aktiviteten övervakningsvyn. Den visar information, inklusive mängden data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande varaktighet och används konfigurationer.
+
+    ![Övervakaraktiviteten kör information](./media/load-data-into-azure-data-lake-store/monitor-activity-run-details.png)
+
+16. Kontrollera att data kopieras till din Azure Data Lake Store. 
 
     ![Kontrollera Data Lake Store-utdata](./media/load-data-into-azure-data-lake-store/adls-copy-result.png)
 

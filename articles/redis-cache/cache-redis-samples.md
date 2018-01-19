@@ -3,8 +3,8 @@ title: Azure Redis-Cache-exempel | Microsoft Docs
 description: "Lär dig hur du använder Azure Redis-Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: 7841fcf0b5f4dcb409abf8bfb804c2e03dad6d3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 0b6f89807d3252b750bd5208a7f758a06c9903d6
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-samples"></a>Azure Redis-Cache-exempel
 Det här avsnittet innehåller en lista över Azure Redis-Cache sampel, som omfattar scenarier, till exempel ansluta till en cache, läsa och skriva data till och från cache och använda Redis-Cache för ASP.NET-providers. Några exempel är nedladdningsbara projekt och vissa steg för steg-vägledning och innehåller kodavsnitt men Länka inte till ett hämtningsbart projekt.

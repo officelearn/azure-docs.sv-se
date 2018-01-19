@@ -3,18 +3,18 @@ ms.assetid:
 title: "Azure Key Vault - hur du använder mjuk borttagning med PowerShell"
 description: "Använda case exempel på mjuk borttagning med PowerShell-kodstyckena"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: bruceper
-ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: 48569e31e6400e3ec8958e0bceda1fd3b72207ea
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -23,7 +23,7 @@ Funktionen för mjuk borttagning av Azure Key Vault kan återställning av bortt
 - Stöd för återställningsbara borttagningen av ett nyckelvalv
 - Stöd för återställningsbara borttagning av objekt i nyckelvalvet. nycklar hemligheter, och certifikat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure PowerShell 4.0.0 eller senare - om du inte redan har gjort det här installationsprogrammet, installera Azure PowerShell och koppla den till din Azure-prenumeration, se [hur du installerar och konfigurerar du Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
@@ -34,7 +34,7 @@ Funktionen för mjuk borttagning av Azure Key Vault kan återställning av bortt
 
 Key Vault specifika refernece information för PowerShell finns i [Azure Key Vault PowerShell-referens](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 Key Vault hanteras separat via rollbaserade behörigheter för åtkomstkontroll (RBAC) enligt följande:
 

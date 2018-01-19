@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använd .net SDK för att initiera DTS
 
@@ -79,7 +79,7 @@ Utför följande steg om du vill starta ett jobb för omvandling av data med hj�
 
         ![Skapa ett projekt 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Lägg till alla DLL: er finns i den [DLL-filer mappen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) som **referenser** i projektet som du skapade. För att hämta dll-filer, utför du följande:
+4.  Lägg till alla DLL: er finns i den [DLL-filer mappen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) som **referenser** i projektet som du skapade. Om du vill lägga till dll-filer, utför du följande:
 
     1. I Visual Studio, gå till **Visa > Solution Explorer**.
     2. Klicka på pilen till vänster om Data Transformation App-projekt. Klicka på **referenser** och högerklicka sedan på att **Lägg till referens**.
@@ -117,19 +117,14 @@ Utför följande steg om du vill starta ett jobb för omvandling av data med hj�
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   När koden klistras skapa lösningen. Här är en skärmbild av kodfragmentet att initiera data-transformation jobbinstans.
-
-   ![Kodfragmentet att initiera data transformation jobb](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Ange parametrar som jobbdefinitionen måste köras
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -159,7 +154,6 @@ Utför följande steg om du vill starta ett jobb för omvandling av data med hj�
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Lägg till följande kod för att utlösa ett jobb för omvandling av data på jobbdefinitionen efter initieringen av. Anslut i rätt **Definition jobbnamn**.
@@ -169,12 +163,17 @@ Utför följande steg om du vill starta ett jobb för omvandling av data med hj�
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    När koden klistras skapa lösningen. Här är en skärmbild av kodfragmentet att initiera data-transformation jobbinstans.
 
-9. Det här jobbet överför matchade filerna finns under rotkatalogen på StorSimple-volym till den angivna behållaren. När en fil har överförts visas har ett meddelande släppts i kön (i samma lagringskonto som behållare) med samma namn som jobbdefinitionen. Det här meddelandet kan användas som en utlösare för att initiera vidare bearbetning av filen.
+   ![Kodfragmentet att initiera data transformation jobb](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Lägg till följande kod för att spåra jobbet för slutförande när jobbet har utlösts.
+9. Det här jobbet omvandlar de data som matchar rotkatalogen och filen filtrerar i StorSimple-volym och placerar dem i den angivna behållare/filresursen. När en fil omvandlas till ett meddelande till en kö med lagring (i samma lagringskonto som behållare/filresursen) med samma namn som jobbdefinitionen. Det här meddelandet kan användas som en utlösare för att initiera vidare bearbetning av filen.
+
+10. Du kan använda följande kod för att spåra jobbet för slutförande när jobbet har utlösts. Det är inte obligatoriskt att lägga till den här koden för jobbet kör.
 
     ```
     Job jobDetails = null;

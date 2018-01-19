@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -99,10 +99,10 @@ Den kan exporteras av dig och dina gruppmedlemmar och kan kopieras till andra pl
 Microsoft använder informationen endast för att tillhandahålla tjänsten till dig.
 
 ## <a name="where-is-the-data-held"></a>Där lagras data?
-* I USA eller Europa. Du kan välja platsen när du skapar en ny Application Insights-resurs. 
+* I USA, Europa eller Sydostasien. Du kan välja platsen när du skapar en ny Application Insights-resurs. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Betyder det min app måste finnas i USA eller Europa?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Betyder det min app måste finnas i USA, Europa eller Sydostasien?
 * Nej. Programmet kan köras var som helst, i din egen lokala värdar eller i molnet.
 
 ## <a name="how-secure-is-my-data"></a>Hur säker är Mina data?
@@ -161,7 +161,7 @@ SDK: erna variera mellan plattformar och det finns flera komponenter som du kan 
 | [Lägg till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknarna<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
 | [Installera statusövervakaren på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknarna |
 | [Lägg till Application Insights SDK för Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
-| [Lägg till JavaScript SDK på webbsidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>AJAX |
+| [Lägg till JavaScript SDK på webbsidan][client] |ClientContext <br/>Härleda<br/>Sida<br/>ClientPerf<br/>Ajax |
 | [Definiera standardegenskaper][apiproperties] |**Egenskaper för** för alla händelser som standard och anpassade |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Anropa spåra *][api] |händelsenamnet<br/>**Egenskaper** |
@@ -183,11 +183,11 @@ För [SDK: er för andra plattformar][platforms], se dokumenten.
 | Händelser |Händelsenamn och värde |
 | PageViews |Sidan och URL eller inloggningsnamn |
 | Klienten perf |URL-sida namn, inläsningstid för webbläsare |
-| AJAX |HTTP-anrop från webbsidan till servern |
+| Ajax |HTTP-anrop från webbsidan till servern |
 | Begäranden |URL: en varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutningssträngen eller URI, sync/asynkrona, varaktighet, lyckas, SQL-uttryck (med Status Monitor) |
 | **Undantag** |Typ, **meddelande**, anropa stackar, käll-fil- och tal, tråd-id |
-| Kraschar |Process-id, överordnade process-id, tråd-id som kraschar. programkorrigering av-id, build;  Undantagstyp, adress, reason; dolda symboler och register, binära start- och adresser, binärt namn och sökväg, cpu-typ |
+| Krascher |Process-id, överordnade process-id, tråd-id som kraschar. programkorrigering av-id, build;  Undantagstyp, adress, reason; dolda symboler och register, binära start- och adresser, binärt namn och sökväg, cpu-typ |
 | Spårning |**Meddelandet** och allvarlighetsgrad |
 | Prestandaräknarna |Processortid, minne, förfrågningar, undantag hastighet, process privata byte, i/o-hastighet, varaktighet för begäran Kölängd för begäran |
 | Tillgänglighet |Web test svarskod, varaktighet för varje steg, namn på testet, timestamp, lyckade, svarstid, test-plats |

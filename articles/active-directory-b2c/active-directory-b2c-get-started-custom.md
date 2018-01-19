@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 86b86c7c670b34b4f3303adbcb55aff8d5edb53a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Komma igång med anpassade principer
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 När du slutför stegen i den här artikeln är en anpassad princip stöder ”lokalt konto” registrering eller inloggning via en e-postadress och lösenord. Du kommer också att förbereda din miljö för att lägga till identitetsleverantörer (till exempel Facebook eller Azure Active Directory). Vi rekommenderar att du ska kunna slutföra de här stegen innan du läsa mer om annan användning av Azure Active Directory (AD Azure) B2C identitet upplevelse Framework.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter bör du kontrollera att du har en Azure AD B2C-klient som är en behållare för alla användare, appar, principer och mer. Om du inte har någon redan, behöver du [skapa en Azure AD B2C-klient](active-directory-b2c-get-started.md). Vi rekommenderar starkt att alla utvecklare att slutföra genomgångar Azure AD B2C inbyggd princip och konfigurera sina program med inbyggt principer innan du fortsätter. Dina program fungerar med båda typer av principer när du gör en mindre ändring i principnamn att anropa den anpassade principen.
 
@@ -55,7 +55,7 @@ Innan du fortsätter bör du kontrollera att du har en Azure AD B2C-klient som �
  e. För **datum**, använda standardinställningarna.<br>
  f. För **nyckelanvändning**, använda **kryptering**.<br>
  g. Välj **Skapa**.<br>
-5. Skapa B2C_1A_FacebookSecret. <br>
+5. Create B2C_1A_FacebookSecret. <br>
 Om du redan har en hemlighet för Facebook-programmet kan lägga till den som en princip för din klient. Annars måste du skapa nyckeln med ett platshållarvärde så att dina principer valideras.<br>
  a. Välj **Lägg till**.<br>
  b. För **alternativ**, använda **manuell**.<br>
@@ -147,7 +147,7 @@ Varje startpaket innehåller:
 
 5. Spara filen.
 6. Öppna TrustFrameworkExtensions.xml. Gör samma två ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient. Gör samma ersättningen i den `<TenantId>` element för totalt tre ändringar. Spara filen.
-7. Öppna SignUpOrSignIn.xml. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser. Spara filen.
+7. Open SignUpOrSignIn.xml. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser. Spara filen.
 8. Öppna lösenordsåterställningen och redigera filer-profilen. Göra samma ändringar genom att ersätta `yourtenant.onmicrosoft.com` med din Azure AD B2C-klient på tre platser i varje fil. Spara filerna.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Lägg till program-ID: N i en anpassad princip
@@ -157,7 +157,7 @@ Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 2. Ersätt båda förekomster av `IdentityExperienceFrameworkAppId` med program-ID för identitet upplevelse Framework-program som du skapade tidigare. Här är ett exempel:
 
    ```xml
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+   <Item Key="IdTokenAudience">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
 3. Ersätt båda förekomster av `ProxyIdentityExperienceFrameworkAppId` med program-ID för Proxy identitet upplevelse Framework-program som du skapade tidigare.
 4. Spara tilläggsfilen.
@@ -173,7 +173,7 @@ Lägg till program-ID i tilläggsfilen (`TrustFrameworkExtensions.xml`):
 
 1. Överför TrustFrameworkBase.xml.
 2. Överför TrustFrameworkExtensions.xml.
-3. Överför SignUpOrSignin.xml.
+3. Upload SignUpOrSignin.xml.
 4. Ladda upp dina övriga principfiler.
 
 När en fil har överförts, namnet på principfilen inledd med `B2C_1A_`.

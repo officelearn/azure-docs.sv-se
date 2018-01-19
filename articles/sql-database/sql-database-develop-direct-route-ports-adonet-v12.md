@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 Det här avsnittet beskriver beteendet för Azure SQL Database-anslutningen för klienter som använder ADO.NET 4.5 eller senare. 
@@ -35,7 +35,7 @@ För anslutningar till Azure SQL-databas måste först ber vi om klientprogramme
 Port 1433 är den enda port som måste vara öppna på den stationära datorn som är värd för ditt SQL Database-klientprogram.
 
 #### <a name="inside-client-runs-on-azure"></a>*Inre:* klienten körs på Azure
-När klienten körs inuti Azure-molnet, används vad vi kan anropa en *vägen* att interagera med SQL Database-servern. När en anslutning har upprättats ytterligare omfattar samverkan mellan klienten och databasen ingen mellanprogram proxy.
+När klienten körs inuti Azure-molnet, används vad vi kan anropa en *vägen* att interagera med SQL Database-servern. När en anslutning har upprättats ytterligare omfattar samverkan mellan klienten och databasen ingen Azure SQL Database-Gateway.
 
 Sekvensen är följande:
 

@@ -13,7 +13,7 @@
 
 # Gör så här för att
 ## Läs in och flytta data
-### [Använda Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Använda Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Använda AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Använda DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Använda Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -67,7 +67,7 @@
 ### [Åtkomst från virtuella datorer i Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Använd tillsammans med Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Använd med Azure Event Hubs](data-lake-store-archive-eventhub-capture.md)
-### [Använd med Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Använd med Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Använd med Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Använd med Power BI](data-lake-store-power-bi.md)
 ### [Använd med Data Catalog](data-lake-store-with-data-catalog.md)

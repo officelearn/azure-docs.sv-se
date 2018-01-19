@@ -1,8 +1,9 @@
 # Översikt
+
 ## [Vad är Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Kom igång
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure-portalen](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -11,7 +12,7 @@
 # Gör så här för att
 
 ## Hantera Data Lake Analytics
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure-portalen](data-lake-analytics-manage-use-portal.md)
 ### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -61,3 +62,4 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)

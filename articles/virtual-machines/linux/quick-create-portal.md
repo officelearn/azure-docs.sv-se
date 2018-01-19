@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Skapa en virtuell Linux-dator med Azure Portal
 
@@ -32,11 +32,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du behöver ett SSH-nyckelpar för att slutföra den här snabbstarten. Om du har ett befintligt SSH-nyckelpar kan du hoppa över det här steget.
 
-Kör det här kommandot från ett Bash-kommandogränssnitt och följ instruktionerna på skärmen. Kommandoutdata innehåller filnamnet för den offentliga nyckeln. Kopiera innehållet i en fil för offentlig nyckel till Urklipp.
+Kör det här kommandot från ett Bash-kommandogränssnitt och följ instruktionerna på skärmen. Kommandoutdata innehåller filnamnet för den offentliga nyckeln. Kopiera innehållet i en fil för offentlig nyckel (`cat ~/.ssh/id_rsa.pub`) till Urklipp. Om du använder Windows-undersystemet för Linux ser du till att du inte kopierar radbrytningstecken från utdata. Notera filnamnet på den privata nyckelfilen för senare användning.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Du hittar mer detaljerad information om den här processen [här](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure 
 
@@ -102,7 +104,7 @@ En nätverkssäkerhetsgrupp (NSG) säkrar ingående och utgående trafik. När e
 2. Välj **nätverkssäkerhetsgruppen**. Du kan identifiera NSG med kolumnen **Typ**. 
 3. På menyn till vänster under inställningarna klickar du på **Ingående säkerhetsregel**.
 4. Klicka på **Lägg till**.
-5. Skriv **http** i fältet **Namn**. Kontrollera att 80 har angetts för **Portintervall** och att **Tillåt** har angetts för **Åtgärd**. 
+5. Skriv **http** i fältet **Namn**. Kontrollera att **Källportsintervall** är inställt på `*`, **Målportsintervall** är inställt på *80* och **Åtgärd** är inställt på *Tillåt*. 
 6. Klicka på **OK**.
 
 

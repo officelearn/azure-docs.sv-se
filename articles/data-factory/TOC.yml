@@ -9,29 +9,27 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en datafabrik
-      items:
-        - name: Användargränssnitt
-          href: quickstart-create-data-factory-portal.md
-        - name: Kopiera data-verktyg
-          href: quickstart-create-data-factory-copy-data-tool.md
-        - name: PowerShell
-          href: quickstart-create-data-factory-powershell.md
-        - name: .NET
-          href: quickstart-create-data-factory-dot-net.md
-        - name: Python
-          href: quickstart-create-data-factory-python.md
-        - name: REST
-          href: quickstart-create-data-factory-rest-api.md
-        - name: Resource Manager-mall
-          href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Skapa datafabrik – användargränssnitt
+      href: quickstart-create-data-factory-portal.md
+    - name: Skapa datafabrik – verktyget för att kopiera data
+      href: quickstart-create-data-factory-copy-data-tool.md
+    - name: Skapa datafabrik – Azure PowerShell
+      href: quickstart-create-data-factory-powershell.md
+    - name: Skapa datafabrik – NET
+      href: quickstart-create-data-factory-dot-net.md
+    - name: Skapa datafabrik – Python
+      href: quickstart-create-data-factory-python.md
+    - name: Skapa datafabrik – REST
+      href: quickstart-create-data-factory-rest-api.md
+    - name: Skapa datafabrik – Resource Manager-mall
+      href: quickstart-create-data-factory-resource-manager-template.md
 - name: Självstudier
   items:
     - name: 1 – Distribuera SSIS-paket till Azure
       items:
         - name: Användargränssnitt
           href: tutorial-create-azure-ssis-runtime-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 – Kopiera data i molnet
       items:
@@ -39,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Användargränssnitt
           href: tutorial-copy-data-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-copy-data-dot-net.md
     - name: 3 – Kopiera lokala data i molnet
       items:
@@ -47,13 +45,13 @@
           href: tutorial-hybrid-copy-data-tool.md
         - name: Användargränssnitt
           href: tutorial-hybrid-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4 – Masskopiera data i molnet
       items:
         - name: Användargränssnitt
           href: tutorial-bulk-copy-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-bulk-copy.md
     - name: 5 – Kopiera data inkrementellt
       href: tutorial-incremental-copy-overview.md
@@ -62,41 +60,41 @@
           items:
             - name: Användargränssnitt
               href: tutorial-incremental-copy-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 – Kopiera från flera tabeller
           items:
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 – Använd funktionen för användningsspårning
           items:
             - name: Användargränssnitt
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: PowerShell
+            - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Omvandla data i molnet
       items:
         - name: Användargränssnitt
           href: tutorial-transform-data-spark-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-spark-powershell.md
     - name: 7 – Transformera data i virtuellt nätverk
       items:
         - name: Användargränssnitt
           href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 – Kontrollflöde
       items:
         - name: Användargränssnitt
           href: tutorial-control-flow-portal.md
-        - name: PowerShell
+        - name: Azure PowerShell
           href: tutorial-control-flow.md
 - name: Exempel
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
-    - name: PowerShell
+    - name: Azure PowerShell
       href: samples-powershell.md
 - name: Begrepp
   items:

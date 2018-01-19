@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure IoT Hub Device Provisioning-tjänsten
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om IoT Device Provisioning
       href: about-iot-dps.md
@@ -55,7 +55,7 @@
       href: tutorial-provision-device-to-hub.md
     - name: 4 - Etablera enheter till flera hubbar
       href: tutorial-provision-multiple-hubs.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Enhetskoncept
       href: concepts-device.md
@@ -77,6 +77,8 @@
       href: use-hsm-with-sdk.md
     - name: Styra åtkomsten till etableringstjänsten
       href: how-to-control-access.md
+    - name: Använd Azure CLI för att hantera enhetsetableringstjänsten
+      href: how-to-manage-dps-with-cli.md
 - name: Referens
   items:
     - name: REST

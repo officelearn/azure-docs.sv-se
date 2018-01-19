@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindningar för Azure Functions
 
@@ -384,7 +384,7 @@ Här är de bindande data den *function.json* fil:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Här är de bindande data den *function.json* fil:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -460,7 +460,7 @@ I följande tabell beskrivs konfigurationsegenskaper för bindning som du anger 
 |**Namn**     || Parameterns namn bindning som representerar dokumentet i funktionen.  |
 |**databaseName** |**DatabaseName** |Den databas som innehåller dokumentet.        |
 |**Samlingsnamn** |**Samlingsnamn** | Namnet på den samling som innehåller dokumentet. |
-|**ID**    | **ID** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
+|**id**    | **Id** | ID för dokumentet ska hämtas. Den här egenskapen stöder bindningar parametrar. Läs mer i [binda till anpassade inkommande egenskaper i ett uttryck för bindning](functions-triggers-bindings.md#bind-to-custom-input-properties). Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen. |
 |**sqlQuery**  |**SqlQuery**  | En Azure Cosmos-Databasens SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i följande exempel: `SELECT * FROM c where c.departmentId = {departmentId}`. Du inte ange både den **id** och **sqlQuery** egenskaper. Om du inte anger någon hämtas hela samlingen.|
 |**anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller Azure Cosmos DB anslutningssträngen.        |
 |**partitionKey**|**PartitionKey**|Anger partitionsnyckelvärde för sökningen. Kan omfatta bindande parametrar.|

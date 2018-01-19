@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Läs in data till Azure SQL Data Warehouse med Azure Data Factory
 
@@ -128,6 +128,10 @@ Den här artikeln visar hur du använder verktyget Data Factory kopieringsdata t
 15. Så här visar aktivitet körs som är kopplade till pipelinen kör **visa aktiviteten körs** länken i den **åtgärder** kolumn. Det finns 10 kopiera aktiviteter i pipelinen, varje kopierar en tabell med data. Växla tillbaka till pipelinen körs vyn klickar du på **Pipelines** längst upp. Klicka på **uppdatera** uppdatera listan. 
 
     ![Övervaka aktiviteten körs](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. Du kan övervaka varje kopieringsaktiviteten körning information ytterligare genom att klicka på den **information** länken under **åtgärder** i aktiviteten övervakningsvyn. Den visar information, inklusive mängden data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande varaktighet och används konfigurationer.
+
+    ![Övervakaraktiviteten kör information](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

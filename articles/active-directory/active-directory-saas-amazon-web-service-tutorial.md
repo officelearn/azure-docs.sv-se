@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -116,8 +116,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn  | Attributvärde | Namnrymd |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://AWS.Amazon.com/SAML/Attributes |
-    | Roll            | User.assignedroles |  https://AWS.Amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Roll            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Du måste konfigurera användaretablering i Azure AD för att hämta alla roller från AWS-konsolen. Läs etablering stegen nedan.
@@ -131,6 +131,8 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. I den **namn** textruta ange attributets namn visas för den raden.
 
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+
+    d. I den **Namespace** textruta skriver namnområdesvärdet som visas för den raden.
     
     d. Klicka på **OK**.
 
@@ -230,19 +232,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Skapar en ny princip](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Skapa din egen policy för att hämta alla roller från AWS-konton. I den **skapa din egen policy** avsnittet klickar du på **Välj** knappen.
-    
+25. Skapa din egen policy för att hämta alla roller från AWS-konton genom att utföra följande steg:
+
     ![Skapar en ny princip](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Definiera den nya principen genom att utföra följande steg:
+    a. I den **”skapa principen”** avsnittet klickar du på **”JSON”** fliken.
 
-    ![Definiera den nya principen](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Ange den **principnamn** som **AzureAD_SSOUserRole_Policy**.
-
-    b. Du kan ange **beskrivning** till principen som **principen tillåter för att hämta rollerna från AWS konton**.
-    
-    c. Lägg till i principdokument i nedan JSON.
+    b. Lägg till i principdokument i nedan JSON.
     
     ```
     
@@ -271,13 +267,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     }
     
     ```
+
+    c. Klicka på **granska princip knappen** att verifiera principen.
+
+    ![Definiera den nya principen](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Definiera den **ny princip** genom att utföra följande steg:
+
+    ![Definiera den nya principen](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Ange den **principnamn** som **AzureAD_SSOUserRole_Policy**.
+
+    b. Du kan ange **beskrivning** till principen som **principen tillåter för att hämta rollerna från AWS konton**.
     
-    d. Kontrollera att du söker på **Använd hjälp för att redigera principen**.
-    
-    e. Klicka på **Validera princip** längst ned.
-    
-    f. När principen har verifierats korrekt kan du klicka på på **skapa princip** knappen.
-    
+    c. Klicka på **”skapa Policy”** knappen.
+        
 27. Skapa ett nytt användarkonto i AWS IAM-tjänsten genom att utföra följande steg:
 
     a. Klicka på **användare** navigering i IAM-AWS-konsolen.

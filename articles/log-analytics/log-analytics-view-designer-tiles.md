@@ -1,6 +1,6 @@
 ---
-title: "Panelen referens för Vydesigner i OMS Log Analytics | Microsoft Docs"
-description: "Vydesigner i logganalys kan du skapa anpassade vyer i OMS-konsol som innehåller olika visuella data i OMS-databasen. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer."
+title: "Panelen referens för Vydesigner i Azure Log Analytics | Microsoft Docs"
+description: "Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data i logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Log Analytics Vydesigner panelen referens
-Vydesigner i logganalys kan du skapa anpassade vyer i OMS-konsol som innehåller olika visuella data i OMS-databasen. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer.
+Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data i logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för vart och ett av rutor tillgänglig för användning i din anpassade vyer.
 
 Andra artiklar som är tillgängliga för Vydesigner är:
 
@@ -33,7 +33,7 @@ Andra artiklar som är tillgängliga för Vydesigner är:
 
 I följande tabell visas de olika typerna av paneler som är tillgängliga i View Designer.  I avsnitten nedan beskrivs varje typ av panelen i detalj och deras egenskaper.
 
-| sida vid sida | Beskrivning |
+| Panel | Beskrivning |
 |:--- |:--- |
 | [Antal](#number-tile) |Tal visar antalet poster från en fråga. |
 | [Två tal](#two-numbers-tile) |Två enda tal visar antalet poster från två olika frågor. |

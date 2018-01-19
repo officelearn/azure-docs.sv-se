@@ -1,24 +1,24 @@
 ---
 title: "Självstudier: Azure Active Directory-integrering med Halosys | Microsoft Docs"
-description: "Lär dig hur du använder Halosys med Azure Active Directory för att aktivera enkel inloggning, Automatisk etablering och mycket mer!"
+description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Halosys."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 6e8167c1152fe80813d5c13706a72badce0a0ce9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f0ea14d5a7b954c08fb37f22d2c2fd8fe0618cde
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Självstudier: Azure Active Directory-integrering med Halosys
 
@@ -26,9 +26,9 @@ I kursen får lära du att integrera Halosys med Azure Active Directory (AD Azur
 
 Integrera Halosys med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Halosys
-- Du kan aktivera användarna att automatiskt hämta loggat in på Halosys (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton i en central plats - Azure-portalen
+- Du kan styra i Azure AD som har åtkomst till Halosys.
+- Du kan aktivera användarna att automatiskt hämta loggat in på Halosys (Single Sign-On) med sina Azure AD-konton.
+- Du kan hantera dina konton i en central plats - Azure-portalen.
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -37,27 +37,21 @@ Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [v
 För att konfigurera Azure AD-integrering med Halosys, behöver du följande:
 
 - En Azure AD-prenumeration
-- En Halosys enkel inloggning på aktiverade prenumeration
+- En Halosys enkel inloggning aktiverad prenumeration
 
-
-> [!NOTE] 
+> [!NOTE]
 > Om du vill testa stegen i den här kursen rekommenderar vi inte med hjälp av en produktionsmiljö.
-
 
 Om du vill testa stegen i den här självstudiekursen, bör du följa dessa rekommendationer:
 
-- Du bör inte använda produktionsmiljön, om det inte är nödvändigt.
-- Om du inte har en utvärderingsversion Azure AD-miljö kan du hämta en utvärderingsversion för en månad [här](https://azure.microsoft.com/pricing/free-trial/).
-
+- Använd inte i produktionsmiljön, om det är nödvändigt.
+- Om du inte har en utvärderingsversion Azure AD-miljö kan du [hämta en utvärderingsversion för en månad](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I kursen får testa du Azure AD enkel inloggning i en testmiljö.
-
-Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
+I kursen får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här kursen består av två huvudsakliga byggblock:
 
 1. Att lägga till Halosys från galleriet
 2. Konfigurera och testa Azure AD enkel inloggning
-
 
 ## <a name="adding-halosys-from-the-gallery"></a>Att lägga till Halosys från galleriet
 Du måste lägga till Halosys från galleriet i listan över hanterade SaaS-appar för att konfigurera integrering av Halosys i Azure AD.
@@ -66,150 +60,150 @@ Du måste lägga till Halosys från galleriet i listan över hanterade SaaS-appa
 
 1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Knappen Nytt program][3]
 
-6. I sökrutan skriver **Halosys**.
+4. I sökrutan skriver **Halosys**väljer **Halosys** resultatet-panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
-    
-7. I resultatfönstret, Välj **Halosys**, och klicka sedan på **Slutför** lägga till programmet.
+    ![Halosys i resultatlistan](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_addfromgallery.png)
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med Halosys baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till användaren i Halosys motsvarighet till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Halosys upprättas.
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Halosys.
+I Halosys, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Halosys, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Halosys](#creating-a-halosys-test-user)**  – du har en motsvarighet för Britta Simon i Halosys som är kopplad till Azure AD-representation av henne.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
+3. **[Skapa en testanvändare Halosys](#create-a-halosys-test-user)**  – du har en motsvarighet för Britta Simon i Halosys som är kopplad till Azure AD-representation av användaren.
+4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  - om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+5. **[Testa enkel inloggning](#test-single-sign-on)**  - om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i portalen och konfigurera enkel inloggning i ditt Halosys program.
-
+I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Halosys program.
 
 **Utför följande steg för att konfigurera Azure AD enkel inloggning med Halosys:**
 
-1. I Azure-portalen på den **SCC livscykel** integreringssidan för programmet, klickar du på **enkel inloggning**.
+1. I Azure-portalen på den **Halosys** integreringssidan för programmet, klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera enkel inloggning länk][4]
 
 2. På den **enkel inloggning** markerar **läge** som **SAML-baserade inloggning** att aktivera enkel inloggning.
  
-    ![Konfigurera enkel inloggning](./media/active-directory-saas-scclifecycle-tutorial/tutorial_scclifecycle_samlbase.png)
+    ![Enkel inloggning dialogrutan](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_samlbase.png)
 
 3. På den **Halosys domän och URL: er** avsnittet, utför följande steg:
-    1. I den **inloggnings-URL** textruta Skriv en URL med följande mönster:`https://<sub-domain>.hs.com/ic7/welcome/customer/PICTtest.aspx`
 
-    2. I den **identifierare** textruta Skriv en URL med följande mönster:
-    | |
-    |--|--|
-    | `https://bs1.hs.com/<entity>`|
-    | `https://lifecycle.hs.com/<entity>`|
-    
+    ![URL: er och Halosys domän med enkel inloggning information](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_url.png)
+
+    a. I den **identifierare** textruta Skriv en URL med följande mönster:`https://<company-name>.halosys.com`
+
+    b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<company-name>.halosys.com/<instance name>`
+
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL och identifierare. Kontakta [SCC livscykel klienten supportteamet](mailto:lifecycle.support@scc.com) att hämta dessa värden. 
-         
-4. På den **SAML-signeringscertifikat** väljer **XML-Metadata för** under **hämta**, och spara sedan metadatafilen på datorn.
-   
-5. För att få enkel inloggning konfigurerats för ditt program, Kontakta supportteamet för Halosys och ge dem med följande:
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifierare och Reply-URL. Kontakta [Halosys supportteam](http://halosys.com/halosys#contact) att hämta dessa värden.
+ 
+4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
-  * Den hämtade **metadatafil**
-  * Den **SAML SSO-URL**
-    
+    ![Länken hämta certifikatet](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_certificate.png) 
 
-  >[!NOTE]
-  >Enkel inloggning måste vara aktiverat Halosys support-teamet.
+5. Klicka på **spara** knappen.
 
+    ![Konfigurera enkel inloggning spara](./media/active-directory-saas-halosys-tutorial/tutorial_general_400.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
-I det här avsnittet kan du skapa en testanvändare i portalen kallas Britta Simon.
+6. På den **Halosys Configuration** klickar du på **konfigurera Halosys** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning Tjänstwebbadress** från den **Snabbreferens avsnitt.**
 
+    ![Halosys konfiguration](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_configure.png) 
 
-![Skapa Azure AD-användare][20]
+7. Konfigurera enkel inloggning på **Halosys** sida, måste du skicka den hämtade **XML-Metadata för** och **SAML enkel inloggning Tjänstwebbadress** till [Halosys stöd team](http://halosys.com/halosys#contact). De kan ange den här inställningen att ha SAML SSO anslutningen korrekt på båda sidor.
+
+> [!TIP]
+> Du kan nu läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du installerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** avsnittet, klickar du på den **enkel inloggning** fliken och få åtkomst till den inbäddade dokumentationen via den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen inbäddade dokumentationen här: [inbäddade dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en testanvändare i Azure AD
+
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+
+   ![Skapa en testanvändare i Azure AD][100]
 
 **Utför följande steg för att skapa en testanvändare i Azure AD:**
 
-1. I den **Azure-portalen**, klicka på det vänstra navigeringsfönstret **Azure Active Directory** ikon.
+1. I Azure-portalen i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory-knappen](./media/active-directory-saas-halosys-tutorial/create_aaduser_01.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och på **alla användare**.
-    
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_02.png) 
+2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_03.png) 
+    ![”Användare och grupper” och ”alla användare” länkar](./media/active-directory-saas-halosys-tutorial/create_aaduser_02.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en testanvändare i Azure AD](./media/active-directory-saas-scclifecycle-tutorial/create_aaduser_04.png) 
+3. Öppna den **användare** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
 
-    a. I den **namn** textruta typen **BrittaSimon**.
+    ![Knappen Lägg till](./media/active-directory-saas-halosys-tutorial/create_aaduser_03.png)
 
-    b. I den **användarnamn** textruta typ av **e-postadress** av BrittaSimon.
+4. I den **användaren** dialogrutan utför följande steg:
 
-    c. Välj **visa lösenordet** och anteckna värdet för den **lösenord**.
+    ![Dialogrutan användare](./media/active-directory-saas-halosys-tutorial/create_aaduser_04.png)
+
+    a. I den **namn** skriver **BrittaSimon**.
+
+    b. I den **användarnamn** Skriv användarens Britta Simon e-postadress.
+
+    c. Välj den **visa lösenordet** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** rutan.
 
     d. Klicka på **Skapa**.
+  
+### <a name="create-a-halosys-test-user"></a>Skapa en testanvändare Halosys
 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Halosys. Arbeta med [Halosys supportteam](http://halosys.com/halosys#contact) att lägga till användare i Halosys-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
 
-### <a name="creating-a-halosys-test-user"></a>Skapa en testanvändare Halosys
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Halosys. Se tillsammans med Halosys supportteamet att lägga till användare i Halosys-plattformen.
+I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Halosys.
 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet kan du aktivera Britta Simon att använda Azure enkel inloggning genom att bevilja sin åtkomst till Halosys.
-
-![Tilldela användare][200] 
+![Tilldela rollen][200] 
 
 **Om du vill tilldela Halosys Britta Simon utför du följande steg:**
 
-1. I Azure-portalen, öppna vyn program och gå till vyn katalog och gå till **företagsprogram** Klicka **alla program.**
+1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** Klicka **alla program**.
 
     ![Tilldela användare][201] 
 
 2. Välj i listan med program **Halosys**.
 
+    ![Länken Halosys i listan med program](./media/active-directory-saas-halosys-tutorial/tutorial_halosys_app.png)  
+
 3. Klicka på menyn till vänster **användare och grupper**.
 
-    ![Tilldela användare][202] 
+    ![Länken ”användare och grupper”][202]
 
-4. Klicka på den **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
+4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg uppdrag** dialogrutan.
 
-    ![Tilldela användare][203]
+    ![Fönstret Lägg till tilldelning][203]
 
 5. På **användare och grupper** markerar **Britta Simon** på listan användare.
 
-6. Klicka på **Välj** knappen på den **användare och grupper** dialogrutan.
+6. Klicka på **Välj** knappen på **användare och grupper** dialogrutan.
 
-7. Klicka på **tilldela** knappen på den **Lägg uppdrag** dialogrutan.
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+7. Klicka på **tilldela** knappen på **Lägg uppdrag** dialogrutan.
+    
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet kan du testa Azure AD enkel inloggning konfigurationen med hjälp av panelen åtkomst.
 
-När du klickar på panelen Halosys på åtkomstpanelen du bör få automatiskt loggat in på ditt Halosys program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md).
-
+När du klickar på panelen Halosys på åtkomstpanelen du bör få automatiskt loggat in på ditt Halosys program.
+Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -217,22 +211,18 @@ När du klickar på panelen Halosys på åtkomstpanelen du bör få automatiskt 
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
+
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
- 
+[200]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-halosys-tutorial/tutorial_general_203.png
+

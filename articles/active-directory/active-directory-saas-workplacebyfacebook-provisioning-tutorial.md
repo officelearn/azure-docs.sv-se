@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för Användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver utföra på arbetsplats av Facebook och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till arbetsplatsen med Facebook.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med arbetsplats av Facebook, behöver du följande:
 
@@ -73,9 +73,9 @@ Azure AD stöder möjligheten att synkronisera automatiskt kontoinformation för
 
 4. Ange den **Etableringsläge** till **automatisk**. 
 
-    ![Etablering](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Under den **administratörsautentiseringsuppgifter** Ange hemlighet-Token och klient-URL för din arbetsplats av Facebook-administratör.
+5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange Token hemligheten för din arbetsplats av Facebook-administratör och ange klient-URL-värdet till `https://www.facebook.com/scim/v1/` .
 
 6. I Azure-portalen klickar du på **Testanslutningen** så Azure AD kan ansluta till din arbetsplats med Facebook-app. Om anslutningen misslyckas, kontrollera din arbetsplats av Facebook-konto har teamet administratörsbehörigheter.
 
@@ -100,4 +100,3 @@ Du kan nu skapa ett testkonto. Vänta i upp till 20 minuter att verifiera att ko
 * [Hantera användare konto-etablering för företag-appar](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Konfigurera enkel inloggning](active-directory-saas-workplacebyfacebook-tutorial.md)
-

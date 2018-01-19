@@ -17,11 +17,11 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: fe3ea6c22fafad0d0dcf611ceb365a2ebca80011
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Använd PolyBase för att läsa data från Azure blobblagring till Azure SQL Data Warehouse
 
@@ -50,15 +50,15 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL data warehouse
 
-Ett Azure SQL data warehouse har skapats med en definierad uppsättning [beräkningsresurser](performance-tiers.md). Databasen har skapats i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](performance-tiers.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Följ dessa steg om du vill skapa en tom SQL data warehouse. 
 
-1. Klicka på den **ny** knappen i det övre vänstra hörnet i Azure-portalen.
+1. Klicka på knappen **Ny** längst upp till vänster i Azure Portal.
 
-2. Välj **databaser** från den **ny** och väljer **SQL Data Warehouse** under **aktuell** på den **ny**sidan.
+2. Välj **Databases** (Databaser) på sidan **New** (nytt) och välj **SQL Data Warehouse** under **Featured** (aktuella) på sidan **New** (nytt).
 
-    ![Skapa ett data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![skapa ett informationslager](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Fyll i formuläret SQL Data Warehouse med följande information:   
 
@@ -69,33 +69,33 @@ Följ dessa steg om du vill skapa en tom SQL data warehouse.
    | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Välj källa** | Tom databas | Anger om du vill skapa en tom databas. Observera att ett informationslager är en typ av databas.|
 
-    ![Skapa ett data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![skapa ett informationslager](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
-4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i den **nytt serverformulär** med följande information: 
+4. Klicka på **Server** för att skapa och konfigurera en ny server för den nya databasen. Fyll i formuläret **Ny server** med följande information: 
 
     | Inställning | Föreslaget värde | Beskrivning | 
     | ------- | --------------- | ----------- |
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och specialtecken. |
+    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
-    ![Skapa database-server](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+    ![skapa databasserver](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. Klicka på **Välj**.
 
 6. Klicka på **prestandanivån** att ange om datalagret har optimerats för elasticitet eller beräkning och antalet data warehouse enheter. 
 
-7. Den här självstudiekursen, Välj den **optimerade för elasticitet** tjänstnivån. Skjutreglaget, som standard är inställt på **DW400**.  Försök att flytta uppåt och nedåt för att se hur det fungerar. 
+7. Den här självstudiekursen, Välj den **optimerade för elasticitet** tjänstnivån. Skjutreglaget är som standard är inställt på **DW400**.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
-    ![Konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
+    ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klicka på **Använd**.
 9. I SQL Data Warehouse-sidan väljer du en **sorteringen** för tom databas. Använd standardvärdet för den här kursen. Mer information om sorteringar finns [sorteringar](/sql/t-sql/statements/collations.md)
 
 11. Nu när du har fyllt i SQL Database-formuläret klickar du på **Skapa** så att databasen etableras. Etableringen tar några minuter. 
 
-    ![Klicka på Skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
+    ![klicka på skapa](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
 12. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
     
@@ -103,13 +103,13 @@ Följ dessa steg om du vill skapa en tom SQL data warehouse.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Tjänsten SQL Data Warehouse skapar en brandvägg på servernivå som förhindrar externa program och verktyg från att ansluta till servern eller en databas på servern. Du kan lägga till brandväggsregler som tillåter anslutning för specifika IP-adresser för att tillåta anslutningar.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för din klients IP-adress. 
+Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindrar externa program och verktyg från att ansluta till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../sql-database/sql-database-firewall-configure.md) för klientens IP-adress. 
 
 > [!NOTE]
-> SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta från ett företagsnätverk kanske utgående trafik via port 1433 inte av ditt nätverks brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
+> SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. På översiktssidan för din databas öppnas och visar fullständigt kvalificerade servernamnet (exempelvis **mynewserver 20171113.database.windows.net**) och innehåller alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (som **mynewserver-20171113.database.windows.net**) och alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Klicka på servernamnet för att öppna serverinställningarna för.
 
@@ -119,7 +119,7 @@ Tjänsten SQL Data Warehouse skapar en brandvägg på servernivå som förhindra
 
     ![serverinställningar](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Klicka på **visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
+5. Klicka på **Visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL Database-servern öppnas. 
 
     ![brandväggsregler för server](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
@@ -129,14 +129,14 @@ Tjänsten SQL Data Warehouse skapar en brandvägg på servernivå som förhindra
 
 6. Klicka på **OK** och stäng sedan sidan **Brandväggsinställningar**.
 
-Nu kan du ansluta till SQLServer och dess datalager med den här IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.  
+Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-adress. Anslutningen fungerar från SQL Server Management Studio eller något annat verktyg du väljer. När du ansluter kan du använda ServerAdmin-kontot som du skapade tidigare.  
 
 > [!IMPORTANT]
-> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **OFF** på den här sidan och klicka sedan på **spara** att inaktivera brandväggen för alla Azure-tjänster.
+> Som standard är åtkomst genom SQL Database-brandväggen aktiverad för alla Azure-tjänster. Klicka på **AV** på den här sidan och klicka sedan på **Spara** för att inaktivera brandväggen för alla Azure-tjänster.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Hämta det fullständigt kvalificerade servernamnet
 
-Hämta det fullständigt kvalificerade servernamnet för SQLServer i Azure-portalen. Senare används det fullständigt kvalificerade namnet när du ansluter till servern.
+Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Senare används det fullständigt kvalificerade namnet när du ansluter till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **SQL-databaser** på den vänstra menyn och klicka på databasen på sidan **SQL-databaser**. 
@@ -144,9 +144,9 @@ Hämta det fullständigt kvalificerade servernamnet för SQLServer i Azure-porta
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
-## <a name="connect-to-the-server-as-server-admin"></a>Anslut till servern som serveradministratör
+## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
-Det här avsnittet använder [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
+I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
 
 1. Öppna SQL Server Management Studio.
 
@@ -154,7 +154,7 @@ Det här avsnittet använder [SQL Server Management Studio](/sql/ssms/download-s
 
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | --------------- | ----------- | 
-    | Servertyp | Databasmotor | Det här värdet krävs |
+    | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara ungefär så här: **mynewserver 20171113.database.windows.net**. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
     | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
@@ -164,13 +164,13 @@ Det här avsnittet använder [SQL Server Management Studio](/sql/ssms/download-s
 
 4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
 
-5. I Object Explorer, expandera **databaser**. Expandera **systemdatabaser** och **master** att visa objekt i master-databasen.  Expandera **mySampleDatabase** visa objekten i den nya databasen.
+5. Expandera **Databaser** i Object Explorer. Expandera **systemdatabaser** och **master** att visa objekt i master-databasen.  Expandera **mySampleDatabase** visa objekten i den nya databasen.
 
-    ![objekt i databasen](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
+    ![databasobjekt](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Administratörskonto server är avsedd att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Data läses in vanligtvis kräver mycket minne. [Minne maxkapacitet](performance-tiers.md#memory-maximums) definieras enligt [prestandanivån](performance-tiers.md), och [resursklassen](resource-classes-for-workload-management.md). 
+Administratörskonto server är avsedd att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Data läses in är minne. [Minne maxkapacitet](performance-tiers.md#memory-maximums) definieras enligt [prestandanivån](performance-tiers.md), och [resursklassen](resource-classes-for-workload-management.md). 
 
 Det är bäst att skapa en inloggning och användaren som är dedikerad för inläsning av data. Lägg till användaren läser in en [resursklassen](resource-classes-for-workload-management.md) som gör att en lämplig maximala minnesallokering.
 
@@ -211,7 +211,7 @@ Första steget mot att data läses in är att logga in som LoaderRC20.
 
     ![Ansluta med ny inloggning](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Ange det fullständiga servernamnet, men nu ange **LoaderRC20** som inloggningen.  Ange lösenordet för LoaderRC20.
+2. Ange det fullständigt kvalificerade servernamnet och ange **LoaderRC20** som inloggningen.  Ange lösenordet för LoaderRC20.
 
 3. Klicka på **Anslut**.
 
@@ -452,6 +452,10 @@ Kör följande SQL anger skript du information om data du vill läsa in. Informa
 
 Det här avsnittet använder externa tabeller som du precis har definierats för att läsa in exempeldata från Azure Storage Blob till SQL Data Warehouse.  
 
+> [!NOTE]
+> Den här kursen läser in data direkt i den slutliga tabellen. I en produktionsmiljö kan använder du vanligtvis CREATE TABLE AS SELECT att läsa in i en mellanlagringstabellen. Du kan utföra alla nödvändiga omformningar när data är i mellanlagringstabellen. Du kan använda Infoga om du vill lägga till data i mellanlagringstabellen till en produktionsmiljö tabell... SELECT-instruktion. Mer information finns i [infogar data i en tabell för produktion](guidance-for-loading-data.md#inserting-data-into-a-production-table).
+> 
+
 Skriptet använder den [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL-instruktion för att läsa in data från Azure Storage Blob till nya tabeller i datalagret. CTAS skapar en ny tabell baserat på resultatet av en select-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När select-instruktionen väljer från en extern tabell, importerar SQL Data Warehouse data i en relationsdatabas tabell i datalagret. 
 
 1. Kör följande skript för att läsa in data till nya tabeller i datalagret.
@@ -567,7 +571,7 @@ Skriptet använder den [Skapa tabell AS Välj (CTAS)](/sql/t-sql/statements/crea
 
 SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att få en hög frågeprestanda är det därför viktigt att skapa statistik för varje kolumn av varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 
-1. Köra dessa kommandon för att skapa statistik på kolumner som sannolikt kommer att användas i kopplingar.
+Köra dessa kommandon för att skapa statistik på kolumner som sannolikt kommer att användas i kopplingar.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -578,22 +582,22 @@ SQL Data Warehouse skapar och uppdaterar inte statistik automatiskt. För att f�
 
 Att debiteras du för beräkningsresurser och data som du har lästs in i ditt data warehouse. Dessa faktureras separat. 
 
-- Om du vill skydda data i lagring kan du pausa beräkning när du inte använder datalagret. Genom att pausa beräkning kommer du bara att kostnad för lagring av data och du kan återuppta beräkningen när du är redo att arbeta med data.
-- Om du vill ta bort framtida avgifter kan du ta bort datalagret. 
+- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning kommer du bara att kostnad för lagring av data och du kan återuppta beräkningen när du är redo att arbeta med data.
+- Om du vill undvika framtida avgifter kan du ta bort informationslagret. 
 
-Följ dessa steg för att rensa resurser som du önskar.
+Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), klicka på ditt informationslager.
 
     ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkning, klickar du på den **pausa** knappen. När datalagret har pausats, visas en **starta** knappen.  Om du vill återuppta databearbetning, klickar du på **starta**.
+2. Om du vill pausa beräkningarna klickar du på knappen **Pausa**. När datalagret har pausats, visas en **starta** knappen.  Klicka på **Starta** om du vill återuppta beräkningarna.
 
 3. Ta bort datalagret så att du inte kommer att debiteras för beräkning och lagring genom att klicka på **ta bort**.
 
-4. Ta bort SQL-server som du har skapat, klicka på **mynewserver 20171113.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig med detta som tar bort servern tas bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-server som du har skapat klickar du på **mynewserver 20171113.database.windows.net** i föregående bild och sedan på **Ta bort**.  Var försiktig med detta som tar bort servern tas bort alla databaser som har tilldelats servern.
 
-5. Ta bort resursgruppen, klicka på **myResourceGroup**, och klicka sedan på **ta bort resursgruppen**.
+5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg 
 I kursen får du har lärt dig hur du skapar ett data warehouse och skapa en användare för att läsa in data. Du har skapat externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och sedan används PolyBase CREATE TABLE AS SELECT-instruktion för att läsa in data till datalagret. 

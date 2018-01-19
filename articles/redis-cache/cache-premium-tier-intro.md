@@ -3,8 +3,8 @@ title: "Introduktion till Azure Redis Cache Premium-nivån | Microsoft Docs"
 description: "Lär dig hur du skapar och hanterar Redis-Persistence Redis-kluster och VNET-stöd för din Premium-nivån Azure Redis-Cache-instanser"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 38a43756678a3628040b1b995966eff6dd9fb363
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introduktion till Azure Redis-cache Premium-nivån
 Azure Redis-Cache är en distribuerad, hanterade cache som hjälper dig att skapa mycket skalbart och dynamisk program genom att tillhandahålla mycket snabb åtkomst till dina data. 
@@ -32,7 +32,7 @@ Nya Premium-nivån är en klar nivå Enterprise, som innehåller alla funktioner
 
 Mer information om storlek, genomflöde och bandbredd med premium cacheminnen finns [Azure Redis-Cache vanliga frågor och svar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
-## <a name="redis-data-persistence"></a>Redis-datapersistence
+## <a name="redis-data-persistence"></a>Redis datapersistence
 Premium-nivån kan du bevara Cachedata i ett Azure Storage-konto. Alla data lagras i en grundläggande/Standard cache endast i minnet. Om underliggande infrastruktur kan problem det vara potentiell dataförlust. Vi rekommenderar att du använder funktionen Redis data beständiga i Premium-nivån för att öka återhämtningsförmågan mot dataförlust. Azure Redis-Cache erbjuder RDB och AOF (kommer snart) alternativ i [Redis-persistence](http://redis.io/topics/persistence). 
 
 Instruktioner om hur du konfigurerar persistence finns i [Konfigurera persistence för premium Azure Redis-cache](cache-how-to-premium-persistence.md).

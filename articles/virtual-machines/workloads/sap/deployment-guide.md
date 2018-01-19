@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.openlocfilehash: 4c06b1c8265a12af6764124e3c753e9456a2be20
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribution av Azure virtuella datorer för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -314,7 +314,7 @@ Azure Virtual Machines är lösningen för organisationer som behöver resurser 
 
 I den här artikeln beskriver vi hur du distribuerar SAP-program på virtuella datorer (VM) i Azure, inklusive alternativ distributionsalternativ och felsökning. Den här artikeln bygger på informationen i [Azure Virtual Machines planering och implementering för SAP NetWeaver][planning-guide]. Den kompletterar SAP dokumentationen och SAP anteckningar, vilka är de primära resurserna för att installera och distribuera program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Konfigurera en virtuell Azure-dator för SAP programdistribution omfattar flera steg och resurser. Innan du börjar bör du kontrollera att du uppfyller kraven för att installera program på virtuella datorer i Azure.
 
 ### <a name="local-computer"></a>Lokal dator
@@ -890,7 +890,7 @@ Du kan använda PowerShell eller Azure CLI för att installera och konfigurera A
 Installera Azure förbättrad övervakning av tillägget för SAP med hjälp av PowerShell:
 
 1. Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdlet. Mer information finns i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].  
-2. Kör följande PowerShell-cmdlet.
+2. Kör följande PowerShell-cmdlet:
     En lista över tillgängliga miljöer, kör `commandlet Get-AzureRmEnvironment`. Om du vill använda globala Azure miljön är **AzureCloud**. Azure i Kina, Välj **AzureChinaCloud**.
 
     ```powershell
@@ -1055,7 +1055,7 @@ Om någon av de här kontrollerna misslyckas och detaljerad information om hur d
 Om några av övervakningen data levereras inte på rätt sätt som anges av prov som beskrivs i [beredskapskontrollen för Azure-förbättrad övervakning för SAP][deployment-guide-5.1]kör den `Test-AzureRmVMAEMExtension` för att kontrollera om Azure övervakning av infrastruktur och övervakning för SAP är korrekt konfigurerade.
 
 1.  Kontrollera att du har installerat den senaste versionen av Azure PowerShell-cmdlet, enligt beskrivningen i [distribution av Azure PowerShell-cmdlets][deployment-guide-4.1].
-2.  Kör följande PowerShell-cmdlet. En lista över tillgängliga miljöer, kör du cmdlet `Get-AzureRmEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
+2.  Kör följande PowerShell-cmdlet: En lista över tillgängliga miljöer, kör du cmdlet `Get-AzureRmEnvironment`. Om du vill använda globala Azure, Välj den **AzureCloud** miljö. Azure i Kina, Välj **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
   Login-AzureRmAccount -Environment $env

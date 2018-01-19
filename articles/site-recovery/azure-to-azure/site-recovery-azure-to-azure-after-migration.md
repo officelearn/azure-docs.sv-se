@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikera virtuella Azure-datorer till en annan region efter migrering till Azure med hjälp av Azure Site Recovery
 
@@ -61,7 +61,7 @@ Följande tabell innehåller ytterligare information om att installera den Virtu
 | **Åtgärd** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installation av VM-agenten |Ladda ned och installera [agentens MSI-fil](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörsbehörighet för att slutföra installationen. |Installera senaste [Linux-agenten](../../virtual-machines/linux/agent-user-guide.md). Du måste ha administratörsbehörighet för att slutföra installationen. Vi rekommenderar att du installerar agenten från databasen för din distribution. Vi *rekommenderar inte* Linux VM-agenten installeras direkt från GitHub.  |
-| Verifiera installationen av VM |1. Bläddra till mappen C:\WindowsAzure\Packages i Azure-VM. Du bör se filen WaAppAgent.exe. <br>2. Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Den **produktversionen** fältet måste innehålla 2.6.1198.718 eller högre. |Saknas |
+| Verifiera installationen av VM |1. Bläddra till mappen C:\WindowsAzure\Packages i Azure-VM. Du bör se filen WaAppAgent.exe. <br>2. Högerklicka på filen, gå till **Egenskaper** och välj fliken **Information**. Den **produktversionen** fältet måste innehålla 2.6.1198.718 eller högre. |Gäller inte |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Steg 3: Ta bort mobilitetstjänsten från den migrerade virtuella datorn

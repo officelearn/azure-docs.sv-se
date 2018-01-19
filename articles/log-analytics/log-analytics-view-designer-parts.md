@@ -1,6 +1,6 @@
 ---
-title: "Del referens för Vydesigner i OMS Log Analytics | Microsoft Docs"
-description: "Vydesigner i logganalys kan du skapa anpassade vyer i OMS-konsol som innehåller olika visuella data i OMS-databasen. Den här artikeln innehåller en referens i inställningarna för var och en av de visualisering delarna som är tillgänglig för användning i din anpassade vyer."
+title: "Del referens för Vydesigner i Azure Log Analytics | Microsoft Docs"
+description: "Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data i logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för var och en av de visualisering delarna som är tillgänglig för användning i din anpassade vyer."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Log Analytics Vydesigner visualiseringen del referens
-Vydesigner i logganalys kan du skapa anpassade vyer i OMS-konsol som innehåller olika visuella data från OMS-databasen. Den här artikeln innehåller en referens i inställningarna för var och en av de visualisering delarna som är tillgänglig för användning i din anpassade vyer.
+Vydesigner i logganalys kan du skapa anpassade vyer i Azure-portalen som innehåller olika visuella data från logganalys-arbetsytan. Den här artikeln innehåller en referens i inställningarna för var och en av de visualisering delarna som är tillgänglig för användning i din anpassade vyer.
 
 Andra artiklar som är tillgängliga för Vydesigner är:
 
@@ -53,7 +53,7 @@ Visar en lista över loggen sökfrågor.  Användaren kan klicka på varje fråg
 | Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
-| Rubrik |Text som visas överst i vyn. |
+| Namn |Text som visas överst i vyn. |
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Förvald filter |Kommaavgränsad lista över egenskaper som ska ingå i den vänstra filterfönstret när användaren väljer en fråga. |
 | Återge läge |Inledande vyn som visas när frågan är markerad.  Användaren kan välja alla vyer som är tillgängliga när du har öppnat frågan. |
@@ -130,8 +130,8 @@ Huvudet visar ett tal sammanfattats från en med en kolumn i en fråga i loggen.
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Ikon |Bild som ska visas bredvid resultatet i huvudet. |
 | Använd ikon |Välj ikonen visas. |
-| **Huvudet** | |
-| Rubrik |Text som visas överst i huvudet. |
+| **Header** | |
+| Namn |Text som visas överst i huvudet. |
 | Underrubrik |Text som visas under rubriken överst i huvudet. |
 | **Ring** | |
 | Fråga |Frågan ska köras för ringen.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde. |
@@ -199,14 +199,14 @@ Huvudet visar statisk text och en valfri länk.  Listan visar ett eller flera ob
 | Gruppnamn |Text som visas överst i panelen. |
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Färg |Bakgrundsfärg för rubriken. |
-| **Huvudet** | |
+| **Header** | |
 | Bild |Bild som ska visas i rubriken. |
 | Etikett |Text som visas i rubriken. |
-| **Huvudet** |**> Länk** |
+| **Header** |**> Link** |
 | Etikett |Länktext. |
 | URL |URL för länken. |
 | **Information som** | |
-| Rubrik |Text som visas i rubriken för varje objekt. |
+| Namn |Text som visas i rubriken för varje objekt. |
 | Innehåll |Text som ska visas för varje objekt. |
 
 ## <a name="line-chart-callout--list-part"></a>Linjediagram, callout & lista del
@@ -221,8 +221,8 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid o
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Ikon |Bild som ska visas bredvid resultatet i huvudet. |
 | Använd ikon |Välj ikonen visas. |
-| **Huvudet** | |
-| Rubrik |Text som visas överst i huvudet. |
+| **Header** | |
+| Namn |Text som visas överst i huvudet. |
 | Underrubrik |Text som visas under rubriken överst i huvudet. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras för linjediagrammet.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat.  Om frågan använder den **intervall** nyckelordet sedan x-axeln i diagrammet används för detta tidsintervall.  Om frågan inte innehåller den **intervall** nyckelord och varje timme sedan intervall används för x-axeln. |
@@ -260,8 +260,8 @@ Huvudet visar ett linjediagram med flera serier från en fråga logg över tid. 
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Ikon |Bild som ska visas bredvid resultatet i huvudet. |
 | Använd ikon |Välj ikonen visas. |
-| **Huvudet** | |
-| Rubrik |Text som visas överst i huvudet. |
+| **Header** | |
+| Namn |Text som visas överst i huvudet. |
 | Underrubrik |Text som visas under rubriken överst i huvudet. |
 | **Linjediagram** | |
 | Fråga |Frågan ska köras för linjediagrammet.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat.  Om frågan använder den **intervall** nyckelordet sedan x-axeln i diagrammet används för detta tidsintervall.  Om frågan inte innehåller den **intervall** nyckelord och varje timme sedan intervall används för x-axeln. |
@@ -294,8 +294,8 @@ Visar tre separata linjediagram med flera serier från en fråga logg över tid.
 | Gruppnamn |Text som visas överst i panelen. |
 | Ny grupp |Välj det här alternativet om du vill skapa en ny grupp i vyn från den aktuella vyn. |
 | Ikon |Bild som ska visas bredvid resultatet i huvudet. |
-| **Diagram 1<br>diagram 2<br>diagram 3** |**> Sidhuvud** |
-| Rubrik |Text som visas överst i diagrammet. |
+| **Diagram 1<br>diagram 2<br>diagram 3** |**> Header** |
+| Namn |Text som visas överst i diagrammet. |
 | Underrubrik |Text som visas under rubriken överst i diagrammet. |
 | **Diagram 1<br>diagram 2<br>diagram 3** |**Linjediagram** |
 | Fråga |Frågan ska köras för linjediagrammet.  Den första egenskapen ska vara ett textvärde och den andra egenskapen ett numeriskt värde.  Detta är vanligtvis en fråga som använder den **mått** nyckelord för att sammanfatta resultat.  Om frågan använder den **intervall** nyckelordet sedan x-axeln i diagrammet används för detta tidsintervall.  Om frågan inte innehåller den **intervall** nyckelord och varje timme sedan intervall används för x-axeln. |

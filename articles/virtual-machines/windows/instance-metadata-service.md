@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Instansen Metadata i Azure-tjänsten
 
@@ -38,8 +38,8 @@ Regioner                                        | Tillgänglighet?              
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Alla allmänt tillgänglig Global Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02
-[Azure Kina](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02
-[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02
+[Azure China](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02
 
 Den här tabellen uppdateras när det finns uppdateringar av tjänsten och eller när nya versioner som stöds är tillgänglig
 
@@ -53,7 +53,7 @@ Tjänsten instans Metadata är en ny version. Versioner är obligatoriska och de
 > [!NOTE] 
 > Tidigare förhandsvisningarna av schemalagda händelser stöds {senaste} som den api-versionen. Det här formatet stöds inte längre och kommer att inaktualiseras i framtiden.
 
-När vi lägger till nya versioner kan äldre versioner fortfarande användas för kompatibilitet om skripten har beroenden på specifika dataformat. Observera dock att tidigare preview version(2017-03-01) inte kanske är tillgänglig när tjänsten är allmänt tillgänglig.
+När nya versioner läggs kan äldre versioner fortfarande användas för kompatibilitet om skripten har beroenden på specifika dataformat. Men kanske den föregående förhandsversionen (2017-03-01) inte tillgänglig när tjänsten är allmänt tillgänglig.
 
 ### <a name="using-headers"></a>Med hjälp av rubriker
 När du frågar instans Metadata tjänsten måste du ange rubriken `Metadata: true` så begäran inte omdirigerades oavsiktligt.
@@ -62,7 +62,7 @@ När du frågar instans Metadata tjänsten måste du ange rubriken `Metadata: tr
 
 Metadata för instansen är tillgängliga för att köra virtuella datorer skapas/hanteras med hjälp av [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Komma åt alla datakategorier för en virtuell dator-instans med följande begäran:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Standardformatet för Data | Andra format
 
 Ange det begärda formatet som en querystring-parameter i begäran för att komma åt en icke-förvalt svarsformat. Exempel:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Säkerhet
 Instansen Metadata tjänstslutpunkten är enbart tillgänglig från den virtuella datorn-instansen som körs på en icke-dirigerbara IP-adress. Dessutom begäran med en `X-Forwarded-For` huvud avvisas av tjänsten.
-Vi behöver också begäranden som innehåller en `Metadata: true` sidhuvud så att den faktiska begäranden var direkt avsedda och inte en del av oavsiktlig omdirigering. 
+Förfrågningar måste också innehålla en `Metadata: true` sidhuvud så att den faktiska begäranden var direkt avsedda och inte en del av oavsiktlig omdirigering. 
 
 ### <a name="error"></a>Fel
 Om det finns en dataelement som inte hittades eller en felaktig begäran, returnerar tjänsten instans Metadata standard HTTP-fel. Exempel:
@@ -98,7 +98,7 @@ HTTP-statuskod | Orsak
 404 Hittades inte | Det begärda elementet finns inte 
 405 Metoden tillåts inte | Endast `GET` och `POST` stöds
 429 för många begäranden | API: et stöder för närvarande högst 5 frågor per sekund
-500 tjänstfel     | Försök igen efter en stund
+500 Service Error     | Försök igen efter en stund
 
 ### <a name="examples"></a>Exempel
 
@@ -109,7 +109,7 @@ HTTP-statuskod | Orsak
 
 **Förfrågan**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > Svaret är en JSON-sträng. Följande exempel svaret är pretty ut för läsbarhet.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Hämta offentlig IP-adress
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Förfrågan**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > Svaret är en JSON-sträng. Följande exempel svaret är pretty ut för läsbarhet.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Instansen metadata kan hämtas i Windows via PowerShell-verktyget `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Eller via den `Invoke-RestMethod` cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > Svaret är en JSON-sträng. Följande exempel svaret är pretty ut för läsbarhet.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -284,8 +284,8 @@ Data | Beskrivning | Version introduceras
 location | Azure-regionen för den virtuella datorn körs i | 2017-04-02 
 namn | Namnet på den virtuella datorn | 2017-04-02
 erbjudande | Tillhandahåller information för VM-avbildning. Det här värdet finns bara för avbildningar som distribueras från Azure-avbildning gallery. | 2017-04-02
-Publisher | Utgivaren av VM-avbildning | 2017-04-02
-SKU | Specifika SKU för VM-avbildning | 2017-04-02
+publisher | Utgivaren av VM-avbildning | 2017-04-02
+sku | Specifika SKU för VM-avbildning | 2017-04-02
 version | Version av VM-avbildning | 2017-04-02
 osType | Linux- eller Windows | 2017-04-02
 platformUpdateDomain |  [Uppdateringsdomän](manage-availability.md) den virtuella datorn körs | 2017-04-02
@@ -296,13 +296,13 @@ subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
 tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
 resourceGroupName | [Resursgruppen](../../azure-resource-manager/resource-group-overview.md) för den virtuella datorn | 2017-08-01
 placementGroupId | [Placering av grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för din virtuella skala ange | 2017-08-01
-IPv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
-IPv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
-undernätet och/eller adress | Undernätsadress av den virtuella datorn | 2017-04-02 
-undernätsprefixet / | Undernätets prefix, exempel 24 | 2017-04-02 
-IPv6/IP-adress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
-MAC-adress | VM mac-adress | 2017-04-02 
-scheduledevents | För närvarande finns i Public Preview finns [scheduledevents](scheduled-events.md) | 2017-03-01
+ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
+ipv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
+subnet/address | Undernätsadress av den virtuella datorn | 2017-04-02 
+subnet/prefix | Undernätets prefix, exempel 24 | 2017-04-02 
+ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
+macAddress | VM mac-adress | 2017-04-02 
+scheduledevents | För närvarande i förhandsversion. Se [schemalagda händelser](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Exempelscenarier för användning  
 
@@ -312,7 +312,7 @@ Du kan behöva hålla reda på antalet virtuella datorer som kör programvaran e
 
 **Förfrågan**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Du kan fråga data direkt via tjänsten instans Metadata.
 
 **Förfrågan**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Som en leverantör får du ett supportsamtal där du vill veta mer om den virtue
 
 **Förfrågan**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > Svaret är en JSON-sträng. Följande exempel svaret är pretty ut för läsbarhet.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -376,24 +376,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Språk | Exempel 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.RB
-Go  | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.CS
-JavaScript | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.SH
-Perl       | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.PL
-Java       | https://github.com/Microsoft/azureimds/BLOB/Master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/BLOB/Master/IMDSSample.VB
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 1. Jag får felet `400 Bad Request, Required metadata header not specified`. Vad innebär det?
    * Instansen Metadata tjänsten kräver huvudet `Metadata: true` som används i begäran. Skicka det här sidhuvudet i REST-anrop tillåter åtkomst till tjänsten instans Metadata. 
 2. Varför inte inträffar beräknings-information för den virtuella datorn?
-   * Tjänsten instans Metadata stöder för närvarande bara instanser som skapats med Azure Resource Manager. I framtiden, kan vi lägga till stöd för virtuella datorer för molnet tjänsten.
+   * Tjänsten instans Metadata stöder för närvarande bara instanser som skapats med Azure Resource Manager. Stöd för virtuella datorer för molnet tjänsten kan läggas till i framtiden.
 3. Jag har skapat Min virtuella dator via Azure Resource Manager en tid sedan. Varför kan jag inte se compute metadatainformation?
    * För alla virtuella datorer som skapats efter Sep 2016, lägga till en [taggen](../../azure-resource-manager/resource-group-using-tags.md) att starta ser compute metadata. För äldre virtuella datorer (som skapats före Sep 2016), Lägg till/ta bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
 4. Jag ser inte alla data som har fyllts i för ny version av 2017-08-01

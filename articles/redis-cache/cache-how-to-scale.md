@@ -3,8 +3,8 @@ title: "Så här skalar du Azure Redis-Cache | Microsoft Docs"
 description: "Lär dig hur du skala Azure Redis-Cache-instanser"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: sdanie
-ms.openlocfilehash: 91b3580491a1e3504a3891b66606a9bd18c0638f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: bee7771c53cfad4a925d5c270569b7a82e45b4d8
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Så här skalar du Azure Redis-Cache
 Azure Redis-Cache har olika cache-erbjudanden som ger flexibilitet vid val av cachestorlek och funktioner. När en cache har skapats kan skala du storlek och prisnivå för cachen om kraven för ditt program ändrar. Den här artikeln visar hur du skala ditt cacheminne i Azure-portalen och använda verktyg som Azure PowerShell och Azure CLI.
@@ -30,7 +30,7 @@ Du kan övervaka följande väden för att bestämma om du behöver skala.
 
 * Redis-serverbelastning
 * Minnesanvändning
-* Nätverkets bandbredd
+* Nätverksbandbredd
 * CPU-användning
 
 Om du finner att ditt cacheminne är inte längre uppfyller kraven för ditt program, kan du skala till ett större eller mindre cacheminne prisnivån som passar ditt program. Mer information om hur du avgör vilken prisnivå du använder cache finns [vilka Redis-Cache erbjudande och vilken storlek ska jag använda](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).

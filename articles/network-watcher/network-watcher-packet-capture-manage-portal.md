@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera paket insamlingar med Azure Nätverksbevakaren med hjälp av portalen
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
+> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Nätverket Watcher paketinsamling kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter har angetts för hämtningens så du fångar upp trafiken som du vill använda. Det hjälper dig för att diagnostisera nätverk avvikelser reaktivt och proaktivt paketinsamling. Andra användningsområden omfattar att samla in nätverksstatistik får information om nätverket intrång felsöka klient-/ serverkommunikation och mycket mer. Genom att via fjärranslutning utlösa paket insamlingar, underlättar den här funktionen för att köra en paketinsamling manuellt och på den önskade datorn, vilket sparar värdefull tid.
 
@@ -83,7 +83,7 @@ De egenskaper som kan definieras på en paketinsamling är:
 - **Lagringskontot** -anger om paketinsamling sparas i ett lagringskonto.
 - **Filen** -avgör om en paketinsamling sparas lokalt på den virtuella datorn.
 - **Storage-konton** – markerat lagringskonto för att spara paketinsamling i. Standardplatsen är name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription https://{storage konto-id} /resourcegroups/ {resursgruppens name}/providers/microsoft.compute/virtualmachines/{virtual datornamn} / {åå} / {MM} / {DD} / packetcapture_ {HH}_{MM}_{SS} _ {XXX} CAP. (Endast aktiverad om **lagring** har valts)
-- **Lokal filsökväg** -lokal sökväg på en virtuell dator för att spara paketinsamling. (Endast aktiverad om **filen** har valts). En giltig sökväg måste anges
+- **Lokal filsökväg** -lokal sökväg på en virtuell dator för att spara paketinsamling. (Endast aktiverad om **filen** har valts). En giltig sökväg måste anges. Sökvägen måste börja med för en virtuell Linux-dator, */var/samlar in*.
 - **Maximalt antal byte per paket** - antalet byte från varje paket som har hämtats avbildas alla byte om värdet är tomt.
 - **Maximalt antal byte per session** – Totalt antal byte som har hämtats när värdet är nådd paket avbilda stoppas.
 - **Tidsgräns (sekunder)** -anger en tidsgräns för paketinsamling att stoppa. Standardvärdet är 18000 sekunder.

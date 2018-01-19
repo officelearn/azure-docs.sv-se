@@ -3,8 +3,8 @@ title: "Så här konfigurerar du Azure Redis-Cache | Microsoft Docs"
 description: "Förstå Redis standardkonfigurationen för Azure Redis-Cache och lära dig hur du konfigurerar Azure Redis-Cache-instanser"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Så här konfigurerar du Azure Redis-Cache
 Det här avsnittet beskriver hur du granska och uppdatera konfigurationen för Azure Redis-Cache-instanser och täcker standardkonfigurationen för Redis-servern för Azure Redis-Cache-instanser.
@@ -86,7 +86,7 @@ Den **åtkomstkontroll (IAM)** avsnittet ger stöd för rollbaserad åtkomstkont
 Den **taggar** avsnitt kan du ordna dina resurser. Mer information finns i [med taggar för att organisera dina Azure-resurser](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Diagnosticera och lösa problem
+### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
 
 Klicka på **diagnostisera och lösa problem** måste anges med vanliga problem och strategier för att lösa dem.
 
@@ -170,7 +170,7 @@ Mer information finns i [Redis Keyspace-meddelanden](http://redis.io/topics/noti
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>Redis-Cache Advisor
+## <a name="redis-cache-advisor"></a>Redis-cache Advisor
 Den **Redis-Cache Advisor** bladet visar rekommendationer för ditt cacheminne. Inga rekommendationer visas under normal drift. 
 
 ![Rekommendationer](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -222,7 +222,7 @@ Om du vill ändra klusterstorleken skjutreglaget eller ange ett tal mellan 1 och
 > 
 
 
-### <a name="redis-data-persistence"></a>Redis-datapersistence
+### <a name="redis-data-persistence"></a>Redis datapersistence
 Klicka på **Redis-datapersistence** för att aktivera, inaktivera eller konfigurera datapersistence för premium-cache. Azure Redis-Cache erbjuder Redis-datapersistence med antingen [RDB beständiga](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF beständiga](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Mer information finns i [hur du konfigurerar persistence för Premium Azure Redis-Cache](cache-how-to-premium-persistence.md).
@@ -290,7 +290,7 @@ Klicka på **egenskaper** att visa information om ditt cacheminne, inklusive cac
 ### <a name="locks"></a>Lås
 Den **låser** avsnitt kan du låsa en prenumeration, resursgrupp eller resurs för att förhindra andra användare i din organisation av misstag tas bort eller ändra viktiga resurser. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Automation-skript
+### <a name="automation-script"></a>Automationsskript
 
 Klicka på **automatiseringsskriptet** att skapa och exportera en mall för dina distribuerade resurser för framtida distributioner. Mer information om hur du arbetar med mallar finns [distribuera resurser med Azure Resource Manager-mallar](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -346,7 +346,7 @@ Den **övervakning** avsnitt kan du konfigurera diagnostik- och övervakning fö
 ### <a name="redis-metrics"></a>Redis-mått
 Klicka på **Redis mått** till [visa mått](cache-how-to-monitor.md#view-cache-metrics) för ditt cacheminne.
 
-### <a name="alert-rules"></a>Aviseringsregler
+### <a name="alert-rules"></a>Varningsregler
 
 Klicka på **Varna regler** att konfigurera aviseringar baserat på Redis-Cache mått. Mer information finns i [aviseringar](cache-how-to-monitor.md#alerts).
 
@@ -362,7 +362,7 @@ Som standard cache i Azure-Monitor är [lagras i 30 dagar](../monitoring-and-dia
 ## <a name="support--troubleshooting-settings"></a>Support och felsökning av inställningar
 Inställningarna i den **stöd + felsökning** avsnittet förse dig med alternativ för att lösa problem med ditt cacheminne.
 
-![Stöd för + felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Support och felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resurshälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Frågor om tjänsten för säkerhetskopiering av virtuella datorer i Azure
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå de komponenter som används i Azure-säkerhetskopieringen av virtuella datorer. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -72,3 +72,13 @@ Ja, du kan använda de säkerhetskopior som har gjorts innan du migrerar diskar 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Vad händer om jag ändrar en säkerhetskopieringspolicy på virtuella datorer?
 När en ny princip tillämpas på virtuella datorer, följs schema och lagring av den nya principen. Om kvarhållning utökas markeras befintliga återställningspunkter för att hålla dem enligt ny princip. Om kvarhållning minskar är de markerad för rensning i nästa rensningsjobbet och därefter tas bort. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hur kan jag flytta en virtuell dator har registrerats i Azure-säkerhetskopiering mellan resursgrupper?
+Följ de nedanstående steg för att flytta den virtuella datorn säkerhetskopierade till målresursgruppen 
+1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
+2. Flytta den virtuella datorn till målresursgruppen
+3. Skydda den på nytt med samma/nytt valv
+
+Användare kan återställa från tillgängliga återställningspunkter som skapats före flyttningen.
+
+

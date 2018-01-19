@@ -3,8 +3,8 @@ title: "Azure Redis-Cache vanliga frågor och svar | Microsoft Docs"
 description: "Läs svaren på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Vanliga frågor och svar för Azure Redis Cache
 Lär dig svar på vanliga frågor, mönster och bästa praxis för Azure Redis-Cache.
@@ -165,16 +165,16 @@ Ja, Azure Redis-Cache är tillgängliga i Azure offentliga moln, Kina Azure-moln
 
 | Molnet   | DNS-Suffix för Redis            |
 |---------|---------------------------------|
-| Offentligt  | *. redis.cache.windows.net       |
-| USA-förvaltad region  | *. redis.cache.usgovcloudapi.net |
-| Tyskland | *. redis.cache.cloudapi.de       |
-| Kina   | *. redis.cache.chinacloudapi.cn  |
+| Offentligt  | *.redis.cache.windows.net       |
+| USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |
+| Tyskland | *.redis.cache.cloudapi.de       |
+| Kina   | *.redis.cache.chinacloudapi.cn  |
 
 Mer information om att tänka på när du använder Azure Redis-Cache med andra moln finns i följande länkar.
 
 - [Azure Government - databaser i Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-redis-cache)
 - [Azure Kina Cloud - Azure Redis-Cache](https://www.azure.cn/documentation/services/redis-cache/)
-- [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Redis-Cache med PowerShell i Azure offentliga moln, Kina Azure-molnet och Microsoft Azure Tyskland finns [hur du ansluter till andra moln - Azure Redis-Cache PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 

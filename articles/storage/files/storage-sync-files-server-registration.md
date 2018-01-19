@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: fcd79f25dee4ccaf674594222a6465fda137fd7a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Hantera registrerade servrar med Azure filsynkronisering (förhandsgranskning)
 Med Azure File Sync (förhandsversionen) kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Detta möjliggörs genom att Windows-servern omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -42,6 +42,26 @@ Om du vill registrera en server med en tjänst för synkronisering av lagring, m
 
     > [!Note]  
     > Vi rekommenderar att du använder den senaste versionen av AzureRM PowerShell-modulen för att registrera/avregistrera en server. Om paketet AzureRM tidigare har installerats på den här servern (och PowerShell-versionen på den här servern är 5.* eller högre), kan du använda den `Update-Module` att uppdatera det här paketet. 
+* Om du använder en proxyserver i din miljö kan du konfigurera proxyinställningar på servern för att synkronisera agenten ska använda.
+    1. Fastställa din IP-adress och port proxynummer
+    2. Redigera dessa två filer:
+        * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
+        * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+    3. Lägg till rader i bild 1 (under det här avsnittet) under /System.ServiceModel i ovanstående två filer som ändrar 127.0.0.1:8888 rätt IP-adress (Ersätt 127.0.0.1) och rätt portnummer (Ersätt 8888):
+    4. Ange WinHTTP-proxyinställningar via kommandoraden:
+        * Visa proxyn: netsh winhttp visa proxy
+        * Ange proxy: netsh winhttp ange proxy 127.0.0.1:8888
+        * Återställ proxyn: netsh winhttp återställa proxy
+        * Om detta är installationen när agenten har installerats startar du om våra sync-agent: net stop filesyncsvc
+    
+```XML
+    Figure 1:
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+    </system.net>
+```    
 
 ### <a name="register-a-server-with-storage-sync-service"></a>Registrera en server med synkroniseringstjänsten för lagring
 Innan en server kan användas som en *serverslutpunkt* i en Azure-filsynkronisering *sync grupp*, måste den vara registrerad med en *lagring synkroniseringstjänsten*. En server kan endast registreras med en synkroniseringstjänsten för lagring i taget.

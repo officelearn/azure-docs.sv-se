@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB standardprotokoll. Den här artikeln visar hur du distribuerar praktiskt taget Azure-filer i din organisation.
 
 Vi rekommenderar starkt att läsa [planera för distribution av en Azure-filer](storage-files-planning.md) innan du följer instruktionerna i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har slutfört följande steg:
 
 - Skapa ett Azure Storage-konto med önskade återhämtning och kryptering alternativ, i den region som du önskar. Se [skapa ett Lagringskonto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för stegvisa anvisningar om hur du skapar ett Lagringskonto.
@@ -145,9 +145,9 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Ett enkelt bash-skript som kombineras med SSH kan ge samma resultat i följande exempel. Den `$computer` variabeln på samma sätt som återstår för att fyllas av användaren:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

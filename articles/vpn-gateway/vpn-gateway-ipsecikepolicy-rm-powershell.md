@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 323c008f7da833d627b35621a24cc29db1283847
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för S2S VPN- eller VNet-till-VNet-anslutningar
 
@@ -54,7 +54,7 @@ Det här avsnittet beskrivs arbetsflödet för att skapa och uppdatera IPsec/IKE
 
 Anvisningarna i den här artikeln hjälper dig att installera och konfigurera IPsec/IKE-principer som visas i diagrammet:
 
-![IPSec-princip](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Del 2 - stöd för kryptografiska algoritmer & viktiga fördelar
 
@@ -64,7 +64,7 @@ I följande tabell visas de kryptografiska algoritmer som stöds och viktiga sty
 | ---  | --- 
 | IKEv2-kryptering | AES256, AES192, AES128, DES3, DES  
 | IKEv2 Integrity  | SHA384, SHA256, SHA1, MD5  |
-| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, ingen |
+| DH-grupp         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | IPsec-kryptering | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Integrity  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS-grupp        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None 
@@ -115,7 +115,7 @@ Se [RFC3526](https://tools.ietf.org/html/rfc3526) och [RFC5114](https://tools.ie
 
 Det här avsnittet vägleder dig genom stegen för att skapa en S2S VPN-anslutning med ett IPsec/IKE-principen. Följande steg skapar anslutningen som visas i diagrammet:
 
-![s2s-princip](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
+![s2s-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/s2spolicy.png)
 
 Se [skapa en S2S VPN-anslutning](vpn-gateway-create-site-to-site-rm-powershell.md) mer detaljerad stegvisa instruktioner för att skapa en S2S VPN-anslutning.
 
@@ -194,21 +194,14 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Följande exempelskript skapar en IPsec/IKE-princip med de följande algoritmer och parametrar:
 
-* IKEv2: AES256, SHA384 DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA livstid 7200 sekunder och 102400000KB
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: AES256, SHA256, PFS None, SA livstid 14400 sekunder och 102400000KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-Om du använder GCMAES för IPsec, måste du använda samma GCMAES algoritmen och nyckellängd för både IPSec-kryptering och integritet, till exempel:
-
-* IKEv2: AES256, SHA384 DHGroup24
-* IPsec: **GCMAES256, GCMAES256**, PFS None, SA livstid 7200 sekunder & 102400000 KB
-
-```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
-```
+Om du använder GCMAES för IPsec, måste du använda samma GCMAES algoritmen och nyckellängd för både IPSec-kryptering och integritet. Till exempel ovan, motsvarande parametrar kommer att ”-IpsecEncryption GCMAES256 - IpsecIntegrity GCMAES256” när du använder GCMAES256.
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Skapa S2S VPN-anslutning med IPsec/IKE-princip
 
@@ -288,10 +281,10 @@ Liknar S2S VPN-anslutningen, skapa en princip för IPsec/IKE sedan gäller princ
 
 Följande exempelskript skapar en annan IPsec/IKE-princip med de följande algoritmer och parametrar:
 * IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA livstid 7200 sekunder och 4096KB
+* IPsec: GCMAES128, GCMAES128, PFS14 SA livstid 14400 sekunder & 102400000KB
 
 ```powershell
-$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 4096
+$ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2. Skapa VNet-till-VNet-anslutningar med IPsec/IKE-princip
@@ -312,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Anslutningen har upprättats på några minuter och du måste följande nätverkets topologi som visas i början när du har slutfört de här stegen:
 
-![IPSec-princip](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>En del 5 - uppdatering IPsec/IKE-princip för en anslutning
@@ -339,11 +332,11 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-Det sista kommandot visar den aktuella IPsec/IKE-principen som konfigurerats på anslutningen, om sådana finns. Följande exempel på utdata är för anslutningen:
+Det sista kommandot visar den aktuella IPsec/IKE-principen som konfigurerats på anslutningen, om sådana finns. Följande är ett exempel på utdata för anslutningen:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
 IpsecEncryption     : AES256
 IpsecIntegrity      : SHA256
 IkeEncryption       : AES256
@@ -363,7 +356,7 @@ $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
-$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup None -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
+$newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
@@ -384,13 +377,13 @@ $connection6.IpsecPolicies
 Du bör se utdata från den sista raden som visas i följande exempel:
 
 ```powershell
-SALifeTimeSeconds   : 3600
-SADataSizeKilobytes : 2048
-IpsecEncryption     : GCMAES128
-IpsecIntegrity      : GCMAES128
+SALifeTimeSeconds   : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
 IkeEncryption       : AES128
 IkeIntegrity        : SHA1
-DhGroup             : DHGroup14--
+DhGroup             : DHGroup14
 PfsGroup            : None
 ```
 

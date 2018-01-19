@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Använda Spark strukturerad strömning med Kafka och Azure Cosmos DB
 
@@ -145,11 +145,11 @@ Använd följande steg för att överföra anteckningsböcker från projektet ti
 
 4. Upprepa steg 1 – 3 för att läsa in den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ bärbar dator.
 
-## <a name="load-tweets-into-kafka"></a>Läs in tweets till Kafka
+## <a name="load-taxi-data-into-kafka"></a>Läs in taxi data i Kafka
 
 När filerna har överförts, välja den __Stream-taxi-data-till-kafka.ipynb__ post för att öppna den bärbara datorn. Följ stegen i anteckningsboken för att läsa in data till Kafka.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Processen tweets med Spark strukturerade strömning
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Processen taxi data med hjälp av Spark strukturerade strömning
 
 Sidan Jupyter-anteckningsbok, Välj den __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ transaktionen. Följ stegen i den bärbara datorn till dataströmmen data från Kafka och i Azure Cosmos-databasen med Spark strukturerade strömning.
 

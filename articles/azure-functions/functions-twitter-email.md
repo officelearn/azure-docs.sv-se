@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logikappar
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig hur man:
 > * Ansluta logikappen till funktionen.
 > * Skicka ett e-post baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En aktiv [Twitter](https://twitter.com/) konto. 
 + En [Outlook.com](https://outlook.com/) konto (för att skicka meddelanden).
@@ -51,7 +51,7 @@ Om du inte redan gjort det, kan du slutföra de här stegen nu för att skapa fu
 
 Kognitiva Services API: er är tillgängliga i Azure som enskilda resurser. Använd Text Analytics API för att identifiera sentiment av tweets som övervakas.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Klicka på knappen **New** (Nytt) i det övre vänstra hörnet i Azure Portal.
 

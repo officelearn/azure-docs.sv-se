@@ -3,8 +3,8 @@ title: Hur man administrerar Azure Redis-Cache | Microsoft Docs
 description: "Lär dig att utföra administrationsuppgifter, till exempel omstart och schema-uppdateringar för Azure Redis-Cache"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Hur man administrerar Azure Redis-Cache
 Det här avsnittet beskriver hur du utför administrationsuppgifter som [omstart](#reboot) och [schemalägga uppdateringar](#schedule-updates) för Azure Redis-Cache-instanser.
@@ -112,9 +112,9 @@ Endast Redis-server uppdateringar har gjorts under den schemalagda underhållspe
 Ja, kan du hantera din schemalagda uppdateringar med följande PowerShell-cmdlets:
 
 * [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [Ny AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [Ny AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Ta bort AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
+* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+* [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Priser för vilka nivåer kan använda funktionen för schema-uppdateringar?
 Den **schemalägga uppdateringar** funktionen är endast tillgänglig i premium-prisnivån.

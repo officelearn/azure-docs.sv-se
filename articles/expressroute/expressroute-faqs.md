@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -72,7 +72,7 @@ Har stöd för ExpressRoute [tre routningsdomäner](expressroute-circuit-peering
 * Dynamics 365 för ekonomi och åtgärder (kallades Dynamics AX Online)
 * De flesta av Azure-tjänster med följande få undantag:
   * CDN
-  * Visual Studio Team Services belastningen testning
+  * Visual Studio Team Services Load Testing
   * Multifaktorautentisering
   * Traffic Manager
 
@@ -89,7 +89,7 @@ Har stöd för ExpressRoute [tre routningsdomäner](expressroute-circuit-peering
   * Dynamics 365 för ekonomi och åtgärder
   * De flesta av Azure-tjänster med följande få undantag:
     * CDN
-    * Visual Studio Team Services belastningen testning
+    * Visual Studio Team Services Load Testing
     * Multifaktorautentisering
     * Traffic Manager
 
@@ -121,11 +121,11 @@ Ja. Varje ExpressRoute-kretsen har ett redundant par mellan anslutningar som kon
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Kommer det att förlora anslutningen om en av länkarna ExpressRoute misslyckas?
 
-Om en av anslutningarna mellan misslyckas kommer du inte förlora anslutningen. En redundant anslutning är för att stödja belastningen på nätverket. Dessutom kan du skapa flera kretsar i en annan peering plats att uppnå återhämtning vid fel.
+Om en av anslutningarna mellan misslyckas kommer du inte förlora anslutningen. En redundant anslutning är tillgänglig för att stödja belastningen på nätverket och ge hög tillgänglighet för ExpressRoute-kretsen. Dessutom kan du skapa en anslutning i en annan peering plats att uppnå krets nivå återhämtning.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutna till ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur jag för att säkerställa hög tillgänglighet i ett virtuellt nätverk som är anslutna till ExpressRoute?
 
-Du kan uppnå hög tillgänglighet genom att ansluta flera ExpressRoute-kretsar i olika peering platser till det virtuella nätverket. Till exempel om en ExpressRoute-plats kraschar växlar anslutningen över till en annan plats för ExpressRoute. Som standard är trafik som lämnar det virtuella nätverket vidarebefordras baserat på lika kostnaden Multipath routning ECMP (). Du kan använda anslutningen vikt för att föredra en anslutning till en annan. Se [optimera ExpressRoute routning](expressroute-optimize-routing.md) för mer information om anslutning vikt.
+Du kan uppnå hög tillgänglighet genom att ansluta ExpressRoute-kretsar i olika peering platser (t.ex. Singapore, Singapore2) till det virtuella nätverket. Om en ExpressRoute-krets kraschar växlar över anslutning till en annan ExpressRoute-krets. Som standard är trafik som lämnar det virtuella nätverket vidarebefordras baserat på lika kostnaden Multipath routning ECMP (). Du kan använda anslutningen vikt för att föredra en krets till en annan. Se [optimera ExpressRoute routning](expressroute-optimize-routing.md) för mer information om anslutning vikt.
 
 ### <a name="onep2plink"></a>Om jag vill inte samordnas på en exchange i molnet och leverantören erbjuder Point-to-point-anslutning, behöver jag beställa två fysiska anslutningar mellan min lokala nätverk och Microsoft?
 
@@ -145,9 +145,12 @@ Ja. Du kan ha fler än en ExpressRoute-krets i din prenumeration. Standardgräns
 
 Ja. Du kan ha ExpressRoute-kretsar med många leverantörer. Varje ExpressRoute-kretsen är associerad med endast en leverantör. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Kan jag har flera ExpressRoute-kretsar på samma plats?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Det finns två ExpressRoute peering platser i samma metro, t.ex. Singapore och Singapore2. Vilka peeringplatsen ska välja att skapa min ExpressRoute-krets?
+Om tjänstleverantören erbjuder ExpressRoute på båda platser kan du arbeta med leverantören av och välj någon av platsernas att ställa in ExpressRoute. 
 
-Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer på samma plats. Men kan inte du länka mer än en ExpressRoute-krets till samma virtuella nätverk från samma plats.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan jag har flera ExpressRoute-kretsar i samma metro? Kan jag koppla dem till samma virtuella nätverk?
+
+Ja. Du kan ha flera ExpressRoute-kretsar med samma eller olika leverantörer. Om metro har flera platser för ExpressRoute-peering och kretsarna skapas på olika peering platser, kan du länka dem till samma virtuella nätverk. Om kretsarna som skapas på samma peering plats, kan du länka dem till samma virtuella nätverk.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hur ansluter mitt virtuella nätverk till en ExpressRoute-krets
 

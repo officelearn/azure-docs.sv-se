@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbered en CentOS-baserad virtuell dator för Azure
 * [Förbered en CentOS 6.x virtuell dator för Azure](#centos-6x)
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har installerat en CentOS (eller liknande derivat) Linux-operativsystem till en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Instruktioner finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
 
 **CentOS installationsinformation**
@@ -331,5 +331,5 @@ Förbereda en virtuell dator för CentOS 7 för Azure liknar CentOS 6, men det f
 14. Klicka på **åtgärd -> stängs ned** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att använda din virtuella hårddisk CentOS Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure finns i steg 2 och 3 i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Nu är du redo att använda din virtuella hårddisk CentOS Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure Se [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](upload-vhd.md#option-1-upload-a-vhd).
 

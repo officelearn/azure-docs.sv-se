@@ -4,7 +4,7 @@ description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Självstudier: Azure Active Directory-integrering med Grovo
 
@@ -32,7 +32,7 @@ Integrera Grovo med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Grovo, behöver du följande:
 
@@ -64,7 +64,7 @@ Du måste lägga till Grovo från galleriet i listan över hanterade SaaS-appar 
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Enterprise-program][2]
+    ![Bladet Enterprise program][2]
     
 3. Om du vill lägga till nya programmet, klickar du på **nytt program** knappen överst i dialogrutan.
 
@@ -82,7 +82,7 @@ Azure AD måste du känna till användaren i Grovo motsvarighet till en använda
 
 I Grovo, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
-Om du vill konfigurera och testa Azure AD för enkel inloggning med Grovo, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Grovo, måste du utföra följande byggblock:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  - om du vill att användarna kan använda den här funktionen.
 2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  - om du vill testa Azure AD enkel inloggning med Britta Simon.
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. I den **Reply URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Kontrollera **visa avancerade inställningar för URL: en**, utför följande steg:  
+4. Kontrollera **visa avancerade inställningar för URL: en**, utföra följande steg:
 
     ![URL: er och Grovo domän med enkel inloggning information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     b. Om du vill konfigurera programmet i **SP** initierade läge, utför följande steg:
 
     ![URL: er och Grovo domän med enkel inloggning information](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     I den **inloggning URL** textruta Skriv en URL med följande mönster:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
@@ -129,31 +129,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
  
 5. Grovo program förväntar SAML-intyg i ett specifikt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värden för attributen från den ”**användarattribut**” avsnitt på sidan för integrering av programmet. Följande skärmbild visar ett exempel för det här.
     
-    ![Konfigurera enkel inloggning attribut](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+    ![Konfigurera enkel inloggning attb](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
 6. I den **användarattribut** avsnitt på den **enkel inloggning** dialogrutan Konfigurera attribut för SAML-token som visas i bilden och utför följande steg:
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
-    | Förnamn              | User.givenName |
-    | Efternamn               | User.surname |
+    | Förnamn          | user.givenname |
+    | Efternamn           | User.surname |
+    | E-postadress       | User.Mail    |
+    | EmployeeID          | User.EmployeeID |
 
     a. Klicka på **Lägg till attributet** att öppna den **lägga till attributet** dialogrutan.
 
-    ![Konfigurera attribut för enkel inloggning](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Konfigurera enkel inloggning Lägg till](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Konfigurera attribut för enkel inloggning](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Konfigurera enkel inloggning Addattb](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. I den **namn** textruta ange attributets namn visas för den raden.
 
     c. Från den **värdet** listan, ange det attributvärde som visas för den raden.
+
+    d. Lämna den **Namespace** tomt.
     
-    d. Klicka på **OK**.
+    e. Klicka på **OK**.
 
 
 7. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Hämta certifikat pennanteckningar](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+    ![Länken hämta certifikatet](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Klicka på **spara** knappen.
 
@@ -163,9 +167,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Grovo konfiguration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. I en annan webbläsarfönster logga in Grovo som administratör.
+10. I en annan webbläsarfönstret, logga in på Grovo som administratör.
 
-11. Gå till **ADMIN** > **integreringar**.
+11. Gå till **Admin** > **integreringar**.
  
     ![Grovo konfiguration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -173,13 +177,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Grovo konfiguration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. I **SP initierade SAML 2.0** popup-fönster, utför följande steg:
+13. I **SP initierade SAML 2.0** popup-fönstret utför följande steg:
 
     ![Grovo konfiguration](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. I den **enhets-id** textruta klistra in värdet för **SAML enhets-ID** som du har kopierat från Azure-portalen.
+    a. I den **enhets-id** textruta klistra in värdet för **SAML enhets-ID**, som du har kopierat från Azure-portalen.
 
-    b. I den **enkel inloggning tjänstslutpunkten** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel** som du har kopierat från Azure-portalen.
+    b. I den **enkel inloggning tjänstslutpunkten** textruta klistra in värdet för **SAML inloggning tjänst-URL för enkel**, som du har kopierat från Azure-portalen.
 
     c. Välj **enkel inloggning på tjänstens slutpunktsbindning** som `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     

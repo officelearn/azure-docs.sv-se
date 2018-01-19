@@ -11,17 +11,17 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
 När du skapar en instans för API Management (APIM) Azure tilldelar den en underdomän till azure-api.net (till exempel `apim-service-name.azure-api.net`). Du kan dock exponera dina APIM slutpunkter med hjälp av ditt eget domännamn, till exempel **contoso.com**. Den här kursen visar hur du mappar en befintlig anpassad DNS-namn till slutpunkter som exponeras av en Azure API Management-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 
@@ -55,7 +55,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 1. Klicka på Använd.
 
     >[!NOTE]
-    >Processen för att ge certifikatet kan ta 15 minuter.
+    >Processen för att ge certifikatet kan ta 15 minuter eller mer beroende på storleken på distributionen. Utvecklare SKU har driftstopp, grundläggande och högre SKU: er har inte driftstopp.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 

@@ -2,18 +2,18 @@
 title: "Azure Key Vault-Guide för utvecklare"
 description: "Utvecklare kan använda Azure Key Vault för att hantera krypteringsnycklar i Microsoft Azure-miljön."
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: bruceper
-ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.author: alleonar
+ms.openlocfilehash: 68a08f1f6e8036b9ca966e8d9596c09f2b2ccf81
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault-Guide för utvecklare
 
@@ -104,7 +104,7 @@ I Node.js är Key Vault management-API och objektet Key Vault API separat. I fö
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell för Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Azure PowerShell för Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### <a name="quick-start-guides"></a>Snabbstartsguide
 

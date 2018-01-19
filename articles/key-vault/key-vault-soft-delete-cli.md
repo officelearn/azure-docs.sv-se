@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "Azure Key Vault - hur du använder mjuk borttagning med CLI"
 description: "Använda case exempel på mjuk borttagning med CLI-kodstyckena"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
 
@@ -22,13 +22,13 @@ Funktionen för mjuk borttagning av Azure Key Vault kan återställning av bortt
 - Stöd för återställningsbara borttagningen av ett nyckelvalv
 - Stöd för återställningsbara borttagning av objekt i nyckelvalvet. nycklar hemligheter, och certifikat
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure CLI 2.0 - om du inte har den här installationen för din miljö finns [hantera Nyckelvalv med hjälp av CLI 2.0](key-vault-manage-with-cli2.md).
 
 Key Vault specifika referensinformation för CLI, se [Azure CLI 2.0 Key Vault referens](https://docs.microsoft.com/cli/azure/keyvault).
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 Key Vault hanteras separat via rollbaserade behörigheter för åtkomstkontroll (RBAC) enligt följande:
 

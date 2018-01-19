@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA enhet (IKEv2/Nej BGP)
 Den här artikeln innehåller exempel konfigurationer för enheter som ansluter Cisco anpassningsbar säkerhet installation (ASA) till Azure VPN-gatewayer. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
@@ -30,7 +30,7 @@ Den här artikeln innehåller exempel konfigurationer för enheter som ansluter 
 | ---                    | ---                               |
 | Leverantören av enheten          | Cisco                             |
 | Enhetsmodell           | ASA                               |
-| Målversionen         | 8.4 och senare                     |
+| Målversion         | 8.4 och senare                     |
 | Testad modellen           | ASA 5505                          |
 | Testad version         | 9.2                               |
 | IKE-version            | IKEv2                             |
@@ -60,7 +60,7 @@ Stegvisa instruktioner för att skapa Azure-konfigurationer, se [enda VPN-tunnel
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Virtuella nätverk och information om VPN-gateway
 Det här avsnittet innehåller parametrar för.
 
-| **Parametern**                | **Värde**                    |
+| **Parameter**                | **Värde**                    |
 | ---                          | ---                          |
 | Adressprefix för virtuellt nätverk        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN gateway-IP         | Azure_Gateway_Public_IP      |
@@ -98,10 +98,7 @@ I följande tabell visas de IPsec/IKE-algoritmer och parametrar som används i e
 
 * Stöd för DH-grupp och PFS-grupp utöver gruppen 5 kräver ASA version 9.x.
 
-* Stöd för IPSec-kryptering med AES-GCM och IPsec integritet med SHA-256, SHA-384 och SHA-512, kräver ASA version 9.x. Detta stöd gäller för den nya ASA enheter.
-
-    > [!NOTE]
-    > Enhetsmodeller ASA 5505 5510, 5520, 5540, 5550 och 5580 stöds inte. Kontakta din VPN-enhetsspecifikationer för att kontrollera vilka algoritmer som stöds för VPN-enhetsmodeller och versioner av inbyggd.
+* Stöd för IPSec-kryptering med AES-GCM och IPsec integritet med SHA-256, SHA-384 och SHA-512, kräver ASA version 9.x. Detta stöd gäller för den nya ASA enheter. ASA modeller 5505 5510, 5520, 5540, 5550 och 5580 stöder inte dessa algoritmer vid tidpunkten för publikationen. Kontakta din VPN-enhetsspecifikationer för att kontrollera vilka algoritmer som stöds för VPN-enhetsmodeller och versioner av inbyggd.
 
 
 ### <a name="sample-device-configuration"></a>Exempel enhetskonfigurationen

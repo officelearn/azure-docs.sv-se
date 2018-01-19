@@ -42,7 +42,7 @@ SQL Server-databasmotorn kan inte använda Windows-autentisering utan domänmilj
 1. När du är ansluten till den virtuella datorn skriver du **SQL Server Management Studio** på startsidan och klickar sedan på den valda ikonen.
    
     Första gången du öppnar Management Studio måste programmet skapa en Management Studio-miljö för användarna. Det kan ta en stund.
-2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering** och lämna ***ditt_VM_namn*\din_lokala_administratör** i rutan **Användarnamn**. Klicka på **Anslut**.
+2. Management Studio presenterar dialogrutan **Anslut till Server**. I rutan **Servernamn** skriver du namnet på den virtuella datorn som ska anslutas till databasmotorn med Object Explorer (i stället för namnet på den virtuella datorn kan du också använda **(lokal)** eller en punkt som **Servernamn**). Välj **Windows-autentisering**, och lämna ***your_VM_name * \your_local_administrator** i den **användarnamn** rutan. Klicka på **Anslut**.
    
     ![Anslut till server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. Högerklicka på instansen av SQL Server (namnet på den virtuella datorn) i Object Explorer i SQL Server Management Studio. Klicka sedan på **Egenskaper**.

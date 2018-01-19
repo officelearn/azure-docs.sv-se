@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Samla in data om virtuella datorer i Azure
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från virtuella datorer i Azure och från andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från virtuella Linux- eller Windows-datorer i Azure med några enkla steg.  
@@ -30,14 +30,14 @@ För den här snabbstarten förutsätts det att du har en befintlig virtuell dat
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br> ![Azure-portalen](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
   * Ange ett namn för den nya **OMS-arbetsytan**, som *DefaultLAWorkspace*. 
   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
-  * För **resursgruppen** ska du välja en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
+  * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).
-  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  För mer information om de olika nivåerna, se [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * Du kan välja mellan tre olika **prisnivåer** i Log Analytics, men för den här snabbstarten ska du välja den **kostnadsfria** nivån.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-01.png)<br>  
 3. När du har angett den nödvändiga informationen i fönsterrutan **OMS-arbetsyta** klickar du på **OK**.  
@@ -50,7 +50,7 @@ För virtuella Windows- och Linux-datorer som redan har distribuerats i Azure in
 >[!NOTE]
 >OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta. 
 
-Du kanske ser en banderoll överst på resurssidan för Log Analytics i portalen som uppmanar dig att uppgradera.  Uppgraderingen behövs inte för den här snabbstarten.<br>
+Om du skapade en arbetsyta i Azure Government-molnet kanske du ser en banderoll överst på resurssidan för Log Analytics i portalen som uppmanar dig att uppgradera.  Uppgraderingen behövs inte för den här snabbstarten.<br>
 
 ![Meddelande om uppgradering av Log Analytics i Azure Portal](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
@@ -87,7 +87,13 @@ Log Analytics kan samla in händelser från Windows-händelseloggar eller Linux 
 Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från de virtuella måldatorerna.  
 
 1. Gå till Azure Portal, navigera till Log Analytics och välj den arbetsyta du skapade tidigare.
-2. Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `Type=Perf` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet.<br> ![Exempel på loggsökningsfråga i Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> Frågan i följande bild returnerar till exempel 78 000 prestandaposter.  Ditt resultatet blir mycket mindre.<br> ![Resultat av loggsökning i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `Perf` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet.<br> ![Exempel på loggsökningsfråga i Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >Om din arbetsyta skapades i Azure Government-molnet så använder du frågan `Type=Perf`.  
+   >
+
+Frågan i följande bild returnerar till exempel 78 000 prestandaposter.  Ditt resultatet blir mycket mindre.<br> ![Resultat av loggsökning i Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort Log Analytics-arbetsytan när den inte längre behövs. Markera i så fall den Log Analytics-arbetsyta du skapade tidigare och klicka på **Ta bort** på resurssidan.<br> ![Ta bort Log Analytics-resurs](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

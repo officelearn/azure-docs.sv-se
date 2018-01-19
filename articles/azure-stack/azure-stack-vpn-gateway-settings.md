@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure-stacken
 
@@ -52,7 +52,7 @@ Azure-stacken erbjuder följande VPN-gatewayen SKU: er:
 
 |   | VPN Gateway-genomströmning |VPN-Gateway, Max. IPsec-tunnlar |
 |-------|-------|-------|
-|**Grundläggande SKU**  | 100 Mbit/s  | 10    |
+|**Basic SKU**  | 100 Mbit/s  | 10    |
 |**Standard-SKU**           | 100 Mbit/s  | 10    |
 |**Högpresterande SKU** | 200 Mbit/s    | 30    |
 
@@ -160,7 +160,7 @@ Till skillnad från Azure, vilket stöder flera erbjudanden för både som initi
 |IKE-version |IKEv2 |
 |Kryptering och hash-algoritmer (kryptering)     | GCMAES256|
 |Kryptering och hash-algoritmer (autentisering) | GCMAES256|
-|SA-livstid (tid)  | 3 600 sekunder |
+|SA-livstid (tid)  | 14 400 sekunder |
 |SA-livstid (byte) | 819,200       |
 |PFS (Perfect Forward Secrecy) |PFS2048 |
 |Utebliven peer-identifiering | Stöds|  

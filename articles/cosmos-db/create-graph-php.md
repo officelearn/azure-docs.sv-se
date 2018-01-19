@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Skapa en grafdatabas med PHP och Azure Portal
 
@@ -137,7 +137,9 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-3. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut så här:
+3. Om grafdatabaskontot skapades den 20 december 2017 eller senare ändrar du `graphs.azure.com` i värdnamnet till `gremlin.cosmosdb.azure.com`.
+
+4. Ändra parametern `username` i parameter i anslutningsobjektet med din databas och ditt grafnamn. Om du använde de rekommenderade värdena `sample-database` och `sample-graph` ska det se ut så här:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-4. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `your_primary_key` i lösenordsparametern.
+5. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `your_primary_key` i lösenordsparametern.
 
     Anslutningsobjektets initiering bör nu se ut så här:
 
@@ -171,7 +173,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     ]);
     ```
 
-5. Spara filen `connect.php`.
+6. Spara filen `connect.php`.
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 

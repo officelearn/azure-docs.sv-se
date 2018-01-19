@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>En introduktion till Azure Location Based Services (förhandsversion)
 Azure Location Based Services är en portfölj med geospatiala tjänster som omfattar tjänst-API:er för kartor, sökning, ruttplanering, trafik och tidszoner. Med portföljen med Azure OneAPI-kompatibla tjänster kan du använda välbekanta utvecklingsverktyg för att snabbt utveckla och skala lösningar som integrerar platsinformation i dina Azure-lösningar. Azure Location Based Services ger utvecklare från alla branscher kraftfulla geospatiala funktioner med nya mappningsdata som krävs för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Location Based Services är en uppsättning REST API:er som är kompatibla med Azure One API och som åtföljs av en webbaserad JavaScript-kontroll som gör utveckling över flera medier enkelt, flexibelt och portabelt. 
@@ -61,9 +61,23 @@ Azure Location Based Services består av fem primära tjänster för att underst
 
 ![Azure Location Based Services Traffic](media/about-location-based-services/Introduction_Traffic.png)
 
-Azure Location Based Services har skapats för rörlighet och fungerar plattformsoberoende eftersom programmeringsmodellen är oberoende och har stöd för JSON-utdata via REST API: er. Dessutom erbjuder Azure LBS en praktisk JavaScript-kartkontroll med en enkel programmeringsmodell för snabb och enkel utvecklingen av både webb- och mobilprogram. 
+Azure Location Based Services har skapats för rörlighet och fungerar plattformsoberoende eftersom programmeringsmodellen är oberoende och har stöd för JSON-utdata via REST API: er. Dessutom erbjuder Azure LBS en praktisk JavaScript-kartkontroll med en enkel programmeringsmodell för snabb och enkel utveckling av både webb- och mobilprogram. 
 
 I Azure Location Based Services används ett nyckelbaserat autentiseringsschema så man kommer åt tjänsterna genom att gå till [Azure-portalen](http://portal.azure.com) och skapa ett Azure Location Based Services-konto. Ditt konto har två nycklar som har genererats åt dig. Börja integrera de här platsfunktioner direkt i dina program med någon av dina nycklar i begäranden till tjänsten Azure Location Based Services.
+
+**Relation med Bing-kartor** – Tänk på att Azure Location Based Services som beskrivs i detta dokument skiljer sig från det som tillhandahålls av Bing-kartor.  Även om de har flera funktioner gemensamt så är de två tjänsterna olika och inte relaterade.  Produkterbjudandet eller vägkartan för Bing-kartor påverkar inte tillgängligheten för den här nya tjänsten i Azure, som hanteras separat.
+
+Microsofts mål är att ge utvecklare ett val när det gäller erbjudanden om platstjänster.  Nedan visas en kort vägledning för utvecklare om vilken tjänst som ska användas för olika användningsscenarier och kundsituationer.  Tänk på att den här vägledningen för närvarande gäller för Azure LBS i den allmänt tillgängliga förhandsversionen, och den kommer att uppdateras när funktionen blir allmänt tillgänglig senare under 2018.
+
+| Kundkriterier | Använd Azure Location Based Services när… | Använd Bing-kartor när… |
+| ------------- | ------------- | ------------- |
+| Utvecklingsmiljö | Bygga i eller använda andra Azure-tjänster | Med en moln- eller utvecklingsmiljö från tredje part |
+| Utvecklingsfas  | Eftersom Azure LBS för närvarande är en allmänt tillgänglig förhandsversion har tjänsten optimerats för tidig testning och Proof of Concept-utveckling | Ett serviceavtal i företagsklass krävs för en produktionsmiljö |
+| Prisalternativ | Preliminära prisalternativ för utvecklare räcker | Anpassad prissättning i företagsklass krävs |
+| Miljö för användningsfall | Användning i fordon krävs | Användning i fordon krävs inte |
+| Geografisk täckning | Indien, Kina, Japan och Sydkorea krävs inte | Karttäckning för Indien, Kina, Japan och Sydkorea krävs |
+| Kartinnehåll | Standardytkartor räcker | Satellit-, flygfoto- och gatubilder krävs |
+| Underliggande kartkälla | TomTom-kartdata föredras | HERE-kartdata föredras |
 
 Registrera dig för ett [Azure Location Based Services-konto i dag!](http://aka.ms/azurelbsportal)
 

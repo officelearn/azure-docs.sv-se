@@ -1,6 +1,6 @@
 - name: Dokumentation om Microsoft Genomics
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Microsoft Genomics?
       href: overview-what-is-genomics.md
@@ -21,6 +21,8 @@
   items:
     - name: Vanliga frågor
       href: frequently-asked-questions-genomics.md
+    - name: Versionshistorik
+      href: version-release-history-genomics.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
     - name: Prissättning

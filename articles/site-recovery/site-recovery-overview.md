@@ -2,37 +2,28 @@
 title: Om Azure Site Recovery? | Microsoft Docs
 description: "Ger en översikt över Azure Site Recovery-tjänsten och sammanfattar distributionsscenarier."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: cfreeman
-editor: 
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: overview
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6ec4b6e468bf03b18c0f26d1c61a17309a83eb2
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
 
-Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en snabb översikt över tjänsten.
+Välkommen till Azure Site Recovery-tjänsten! Den här artikeln innehåller en snabb tjänstöversikt.
 
-## <a name="business-continuity-and-disaster-recovery-bcdr-with-azure-recovery-services"></a>Verksamhetskontinuitet och haveriberedskap (BCDR) med Azure Recovery Services
-
-Som organisation behöver ni veta hur ni ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar.
+Företag måste ha en strategi för affärskontinuitet och haveriberedskap (BCDR) som ser till att data skyddas och att appar och arbetsbelastningar är igång när planerade och oplanerade driftstopp inträffar.
 
 Azure Recovery Services kan ingå i din BCDR-strategi:
 
-- **Site Recovery-tjänsten**: Site Recovery hjälper till att garantera kontinuitet för företag genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.
-- **Säkerhetskopiering**: Dessutom håller [Azure Backup](https://docs.microsoft.com/azure/backup/) dina data säkra och dessa kan återställas genom att säkerhetskopiera till Azure.
+- **Site Recovery-tjänsten**: Site Recovery bidrar till att säkerställa affärskontinuitet genom att se till att appar och arbetsbelastningar körs under driftstopp. Site Recovery replikerar arbetsbelastningar som körs på fysiska och virtuella datorer (VM) från en primär plats till en sekundär plats. När ett driftstopp uppstår på den primära platsen sker redundansväxling till den sekundära platsen, och det går att komma åt apparna därifrån. När den primära platsen körs igen kan du växla tillbaka till den.  
+- **Säkerhetskopiering**: Tjänsten [Azure Backup](https://docs.microsoft.com/azure/backup/) ser till att dina data är säkra och att dessa kan återställas genom att säkerhetskopiera till Azure.
 
 Site Recovery kan hantera replikering för:
 
@@ -42,32 +33,33 @@ Site Recovery kan hantera replikering för:
 
 ## <a name="what-does-site-recovery-provide"></a>Vad tillhandahåller Site Recovery?
 
+
 **Funktion** | **Detaljer**
 --- | ---
-**Distribuera en enkel BCDR-lösning** | Med Site Recovery kan du konfigurera och hantera replikering, redundans och återställning från en enda plats i Azure-portalen.
-**Replikera virtuella Azure-datorer** | Du kan ställa in din BCDR-strategi så att virtuella Azure-datorer replikeras mellan Azure-regioner.
-**Replikera lokala virtuella datorer på annan plats** | Du kan replikera av lokala virtuella datorer och fysiska servrar till Azure eller till en sekundär lokal plats. Replikeringen till Azure besparar dig kostnaden och komplexiteten med att underhålla ett sekundärt datacenter.
-**Replikera alla arbetsbelastningar** | Du kan replikera alla typer av arbetsbelastningar som körs på virtuella Azure-datorer, lokala virtuella Hyper-V-datorer, virtuella VMware-datorer och fysiska Windows- och Linux-servrar som stöds.
-**Skydda data flexibelt och säkert** | Site Recovery dirigerar replikering utan att spärra programdata. Replikerade data lagras flexibelt i Azure Storage. Vid redundans skapas virtuella Azure-datorer utifrån replikerade data.
-**Uppfylla återställningstider och återställningspunkter** | Behåll återställningstiden (RTO) och återställningspunktmål (RPO) inom organisationen gränser. Site Recovery ger ständig replikering för virtuella Azure-datorer och virtuella datorer med VMware med replikeringsfrekvenser så låga som 30 sekunder för Hyper-V. Du kan minska återställningstiden (RTO) ytterligare genom att integrera med [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
-**Bevara appar vid redundansväxling** | Du kan konfigurera återställningspunkter med programkonsekventa skuggkopior. Programkonsekventa skuggkopior sparar hårdiskdata, alla data i minnet och alla pågående transaktioner.
-**Testa utan avbrott** | Du kan enkelt köra redundanstestning för att stödja tester av haveriberedskap, utan att påverka pågående replikering.
-**Kör flexibel redundansväxling** | Du kan köra planerade redundanser för förväntade avbrott med noll dataförlust, eller oplanerade redundanser med minimal dataförlust (beroende på replikeringsfrekvensen) för oväntade haverier. Du kan enkelt återställa till den primära webbplatsen när den är tillgänglig igen.
-**Skapa återställningsplaner** | Du kan anpassa och ordna redundansväxling och återställning av multi-nivåapplikationer på flera virtuella datorer med återställningsplaner. Du kan gruppera datorer i planerna samt lägga till skript och manuella åtgärder. Du kan integrera återställningsplaner med runbooks i Azure Automation.
-**Integrera med befintlig BCDR-teknik** | Site Recovery kan integreras med annan BCDR-teknik. Du kan exempelvis använda Site Recovery för att skydda serverdelen för SQL Server för företagets arbetsbelastningar, inklusive inbyggt stöd för SQL Server AlwaysOn, för att hantera redundans för tillgänglighetsgrupper.
-**Integrera med Automation-bibliotek** | Ett omfattande Azure Automation-bibliotek med produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery.
-**Hantera nätverksinställningar** | Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
+**Enkel BCDR-lösning** | Med Site Recovery kan du konfigurera och hantera replikering, redundans och återställning från en enda plats i Azure-portalen.
+**Replikering av virtuella Azure-datorer** | Du kan konfigurera återställning av virtuella Azure-datorer från en primär region till en sekundär region.
+**Lokal replikering av virtuella datorer** | Du kan replikera lokala virtuella datorer och fysiska servrar till Azure eller till ett sekundärt lokalt datacenter. Replikeringen till Azure besparar dig kostnaden och komplexiteten med att underhålla ett sekundärt datacenter.
+**Replikering av arbetsbelastning** | Du kan replikera alla typer av arbetsbelastningar som körs på virtuella Azure-datorer, lokala virtuella Hyper-V- och VMware-datorer och fysiska Windows- och Linux-servrar som stöds.
+**Dataåterhämtning** | Site Recovery dirigerar replikering utan att spärra programdata. När du replikerar till Azure lagras data flexibelt i Azure Storage. Vid redundans skapas virtuella Azure-datorer utifrån replikerade data.
+**Mål för återställningstid och återställningspunkter (RTO och RPO)** | Behåll mål för återställningstid (RTO) och återställningspunkt (RPO) inom organisationens gränser. Site Recovery ger ständig replikering för virtuella Azure-datorer och virtuella datorer med VMware med replikeringsfrekvenser så låga som 30 sekunder för Hyper-V. Du kan minska målet för återställningstiden (RTO) ytterligare genom att integrera med [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
+**Bevara appar vid redundansväxling** | Du kan replikera med hjälp av återställningspunkter med programkonsekventa skuggkopior. Dessa skuggkopior sparar hårddiskdata, alla data i minnet och alla pågående transaktioner.
+**Testa utan avbrott** | Du kan enkelt köra tester av haveriberedskap, utan att påverka pågående replikering.
+**Flexibel redundansväxling** | Du kan köra planerade redundanser för förväntade avbrott med noll dataförlust, eller oplanerade redundanser med minimal dataförlust (beroende på replikeringsfrekvensen) för oväntade haverier. Du kan enkelt återställa till den primära webbplatsen när den är tillgänglig igen.
+**Anpassningsbara återställningsplaner** | Med hjälp av återställningsplaner kan du anpassa och ordna redundansväxling och återställning av flernivåprogram som körs på flera virtuella datorer. Du kan gruppera datorer i en återställningsplan och välja att lägga till skript och manuella åtgärder. Du kan integrera återställningsplaner med runbooks i Azure Automation.
+**BCDR-integrering** | Site Recovery kan integreras med annan BCDR-teknik. Du kan exempelvis använda Site Recovery för att skydda serverdelen för SQL Server för företagets arbetsbelastningar, med inbyggt stöd för SQL Server AlwaysOn, för att hantera redundans för tillgänglighetsgrupper.
+**Integrering av Azure Automation** | Ett omfattande Azure Automation-bibliotek med produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery.
+**Nätverksintegrering** | Site Recovery och Azure förenklar nätverkskraven för program, inklusive reservation av IP-adresser, konfiguration av belastningsutjämnare och integration av Azure Traffic Manager för effektiv nätverksväxling.
 
 
 ## <a name="what-can-i-replicate"></a>Vad kan jag replikera?
 
 **Stöds** | **Detaljer**
 --- | ---
-**Vad kan jag replikera?** | Virtuella Azure-datorer mellan Azure-regioner.<br/><br/>  Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska Windows- och Linux-servrar.<br/><br/> Lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska servrar till Virtual Machine Manager (VMM).
-**Vilka regioner har stöd för Site Recovery?** | [Regioner som stöds](https://azure.microsoft.com/regions/services/) |
-**Vilka operativsystem behöver replikerade datorer?** | [Virtuella Azure VMware-datorer](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Krav för virtuella VMware-datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> För virtuella Hyper-V-datorer stöds samtliga [gästoperativsystem](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) som kan användas i Azure samt Hyper-V.<br/><br/> [Krav för fysisk server](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**Vilka servrar/värdar för VMware behöver jag?** | Virtuella VMware-datorer kan finnas på [vSphere värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-**Vilka arbetsbelastningar kan jag replikera?** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
+**Replikeringsscenarier** | Replikera virtuella Azure-datorer från en Azure-region till en annan.<br/><br/>  Replikera lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer samt fysiska servrar (Windows och Linux).<br/><br/> Replikera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer som hanteras av System Center VMM och fysiska servrar till en sekundär plats.
+**Regioner** | Kontrollera [regioner som stöds](https://azure.microsoft.com/regions/services/) för Site Recovery. |
+**Replikerade datorer** | Granska replikeringskraven för [virtuella Azure-datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [lokala virtuella datorer](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) och [fysiska servrar](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+**VMware-servrar/-värdar** | De virtuella VMware-datorer du vill replikera kan finnas på [de vSphere-värdar/vCenter-servrar som stöds](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+**Arbetsbelastningar** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Dessutom har Site Recovery-teamet utfört appspecifika tester för ett [antal appar](site-recovery-workload.md#workload-summary).
 
 
 

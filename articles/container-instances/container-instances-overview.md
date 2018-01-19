@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Vi erbjuder direkt [montering av Azure Files-resurser](container-instances-mount
 
 ## <a name="linux-and-windows-containers"></a>Linux- och Windows-behållare
 
-Med Azure Container Instances kan du schemalägga både Windows- och Linux-behållare med samma API. Ange bara grundläggande typ av operativsystem, så är allt annat identiskt.
+Med Azure Container Instances kan du schemalägga både Windows- och Linux-behållare med samma API. Ange typ av operativsystem när du skapar dina [behållargrupper](container-instances-container-groups.md).
+
+Vissa funktioner är för närvarande begränsade till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 

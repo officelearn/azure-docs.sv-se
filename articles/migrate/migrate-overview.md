@@ -4,13 +4,13 @@ description: "Ger en översikt över tjänsten Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -66,7 +66,7 @@ En utvärdering hjälper dig att identifiera Azure-lämpligheten för lokala vir
 3.  Du ansluter till den virtuella datorn med hjälp av konsolanslutningen i vCenter Server. Sedan anger du ett nytt lösenord för den virtuella datorn när du ansluter och kör insamlingsprogrammet i den virtuella datorn för att inleda identifieringen.
 4.  Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
 5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
-6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. Du kan gruppera virtuella datorer på Azure Migrate-portalen eller använda märkning i vCenter Server. Du kan dessutom använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
+6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
 7.  När gruppen har bildats så skapar du en utvärdering för gruppen. 
 8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.
 

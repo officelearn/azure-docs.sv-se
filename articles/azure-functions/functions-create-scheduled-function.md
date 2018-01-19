@@ -13,24 +13,24 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
-Lär dig hur du använder Azure Functions till att skapa en funktion som körs enligt ett schema du definierar.
+Lär dig hur du använder Azure Functions för att skapa en funktion [utan server](https://azure.microsoft.com/overview/serverless-computing/) som körs enligt ett schema som du definierar.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 + Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -71,13 +71,13 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
     ![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Du kan nu ändra funktionens schema så att den körs mindre ofta, till exempel en gång i timmen. 
+Sedan ändrar du funktionens schema så att det körs en gång per timme i stället för varje minut. 
 
 ## <a name="update-the-timer-schedule"></a>Uppdatera timerschemat
 
 1. Expandera funktionen och klicka på **Integrera**. Det är här du definierar in- och utdatabindningar för funktionen och även anger schemat. 
 
-2. Ange det nya **Schema**-värdet `0 0 */1 * * *` och klicka sedan på **Spara**.  
+2. Ange ett nytt **Schema**-värde för `0 0 */1 * * *` så att det körs varje timme och klicka sedan på **Spara**.  
 
 ![Funktioner, uppdatera timerschema i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

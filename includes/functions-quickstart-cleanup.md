@@ -1,5 +1,19 @@
-Andra snabbstarter i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. 
+Andra snabbstarter i den här samlingen bygger på den här snabbstarten. Om du planerar att arbeta med efterföljande snabbstarter, självstudier eller andra tjänster som du skapat i den här snabbstarten så bör du inte rensa resurserna.
 
-Om du inte tänker fortsätta klickar du på **resursgruppen** för funktionsappen på portalen och sedan på **Ta bort**. 
+*Resurser* i Azure refererar till funktionsappar, funktioner, lagringskonton och så vidare. Dessa grupperas i *resursgrupper*. Du kan ta bort allt innehåll i en grupp genom att ta bort gruppen. 
 
-![Välja den resursgrupp som du vill ta bort från funktionsappen.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
+Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
+
+1. Gå till sidan **Resursgrupp** i Azure Portal. 
+
+   För att gå till den sidan från sidan för funktionsappar väljer du fliken **Översikt** och markerar sedan länken under **Resursgrupp**.
+
+   ![Välj den resursgrupp som du vill ta bort från sidan för funktionsappar.](./media/functions-quickstart-cleanup/functions-app-delete-resource-group.png)
+
+   För att komma till den sidan från instrumentpanelen väljer du **Resursgrupper**, och sedan väljer du den resursgrupp som du använde för den här snabbstarten.
+
+2. Granska listan över resurser som ingår och verifiera att det är dem som du vill ta bort på sidan **Resursgrupp**.
+ 
+3. Välj **Ta bort resursgrupp** och följ instruktionerna.
+
+   Borttagningen kan ta några minuter. När du är färdig visas ett meddelande i några sekunder. Du kan även välja klockikonen längst upp på sidan för att se meddelandet.

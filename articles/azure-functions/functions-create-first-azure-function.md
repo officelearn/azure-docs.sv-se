@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
@@ -52,21 +52,25 @@ Därefter skapar du en funktion i den nya funktionsappen.
    
     ![Snabbstart för funktioner i Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion. Du kan köra den nya funktionen genom att skicka en HTTP-begäran.
+En funktion skapas i ditt valda språk med hjälp av mallen för en HTTP-utlöst funktion. Det här avsnittet visar en C#-skriptfunktion i portalen, men du kan skapa en funktion i alla [språk som stöds](supported-languages.md). 
+
+Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Klicka på den nya funktionen **</> Hämta funktions-URL**, välj **Standard (funktionsnyckel)** och klicka sedan på **Kopiera**. 
+1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**. 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngen `&name=<yourname>` till den här URL:en och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Följande är ett exempel på svaret som returnerades av funktionen i Edge-webbläsaren:
+2. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngvärdet `&name=<yourname>` i slutet av den här webbadressen och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Du bör se svaret som returnerades av funktionen som visas i webbläsaren.  
+
+    Följande är ett exempel på svaret i Edge-webbläsaren (andra webbläsare kan även visa XML):
 
     ![Funktionssvar i webbläsaren.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     Begäransadressen innehåller en nyckel som krävs för åtkomst till din funktion över HTTP.   
 
-3. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill visa spårningsinformationen från föregående körning återgår du till funktionen i portalen och klickar på uppåtpilen längst ned på skärmen så att **Loggar** expanderas. 
+3. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill visa spårningsinformationen från föregående körning återgår du till funktionen i portalen och klickar på pilen längst ned på skärmen så att **Loggar** expanderas. 
 
    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

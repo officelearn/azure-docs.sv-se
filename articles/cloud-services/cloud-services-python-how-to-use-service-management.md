@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Hur du använder Service Management från Python
 Den här guiden visar hur du programmässigt utföra vanliga hanteringsuppgifter för tjänsten från Python. Den **ServiceManagementService** klassen i den [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder Programmeringsåtkomst till stor del av service management-relaterade funktioner som är tillgängliga i den [Azure portalen] [ management-portal] (exempelvis **skapa, uppdatera och ta bort molntjänster, distributioner, tjänster för data och virtuella datorer**). Den här funktionen kan vara användbar vid utveckling av program som behöver programmatisk åtkomst till service management.
@@ -394,9 +394,9 @@ Använd för att skapa den virtuella datorn med avbildningen slutligen den **ska
         role_size='Small',
         vm_image_name = image_name)
 
-Mer information om hur du skapar en Linux-dator finns [så här skapar du en virtuell Linux-dator.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Mer information om hur du skapar en Linux-dator finns [så här skapar du en virtuell Linux-dator.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-Mer information om hur du skapar en Windows-dator finns [så här skapar du en virtuell Windows-dator.](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Mer information om hur du skapar en Windows-dator finns [så här skapar du en virtuell Windows-dator.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="What's Next"> </a>Nästa steg
 Nu när du har lärt dig grunderna om service-hantering, kan du komma åt den [fullständig API-referensdokumentationen för Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) och utföra komplicerade uppgifter enkelt om du vill hantera python-programmet.

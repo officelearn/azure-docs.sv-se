@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 026ec3195f9851164a85613f2060b1c282f8bb7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till en Azure Search-index med Azure Data Factory
 
@@ -36,7 +36,7 @@ Du kan kopiera data från alla datalager stöds källa till Azure Search-index. 
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera entiteter i Data Factory för Azure Search-anslutningen.
 
@@ -85,7 +85,7 @@ Om du vill kopiera data till Azure Search, ange egenskapen type för datauppsät
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type för dataset måste anges till: **AzureSearchIndex** | Ja |
-| Indexnamn | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
+| indexName | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
 
 **Exempel:**
 
@@ -130,7 +130,7 @@ AzureSearchSink innehåller följande två upsert beteenden (med hjälp av Azure
 
 Standardbeteendet är **sammanfoga**.
 
-### <a name="writebatchsize-property"></a>Egenskapen WriteBatchSize
+### <a name="writebatchsize-property"></a>WriteBatchSize Property
 
 Azure Search-tjänsten stöder skrivning dokument som en batch. En grupp kan innehålla 1 till 1 000 åtgärder. En åtgärd som hanterar ett dokument för att genomföra överföringen/merge-operation.
 
@@ -175,7 +175,7 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 | Sträng | Y |
 | Int32 | Y |
 | Int64 | Y |
-| dubbla | Y |
+| Dubbel | Y |
 | Boolesk | Y |
 | DataTimeOffset | Y |
 | Strängmatris | N |

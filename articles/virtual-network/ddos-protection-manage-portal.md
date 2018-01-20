@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS-skydd Standard med hjälp av Azure portal
 
@@ -72,7 +72,7 @@ Du kan välja någon av tillgängliga mått för DDoS-skydd att varna när det f
 
     ![Attack avisering](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-Du kan också lära dig mer om [hur du konfigurerar webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) och [logikappar](../logic-apps/logic-apps-what-are-logic-apps.md) för att skapa aviseringar.
+Du kan också lära dig mer om [hur du konfigurerar webhooks](../monitoring-and-diagnostics/insights-webhooks-alerts.md) och [logikappar](../logic-apps/logic-apps-overview.md) för att skapa aviseringar.
 
 ## <a name="configure-logging-on-ddos-protection-standard-metrics"></a>Konfigurera loggning på DDoS-skydd Standard mått
 

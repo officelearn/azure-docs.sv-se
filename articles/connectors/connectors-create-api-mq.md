@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Ansluta till en IBM MQ-server från logikappar med MQ-koppling 
 
@@ -33,7 +33,7 @@ MQ-koppling inkluderar följande åtgärder. Det finns inga utlösare.
 -   Ta emot en grupp med meddelanden och ta bort meddelandena från IBM MQ-Server
 -   Skicka ett meddelande till IBM MQ-Server 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder en lokal MQ-server [installera lokala datagateway](../logic-apps/logic-apps-gateway-install.md) på en server i nätverket. Om MQ-Server är offentligt tillgänglig, eller tillgängliga i Azure, sedan datagateway inte används eller krävs.
 
@@ -71,7 +71,7 @@ MQ-koppling inkluderar följande åtgärder. Det finns inga utlösare.
     1. Välj **Anslut via lokala datagateway**, och ange egenskaperna för MQ-server.  
     För **Server**, du kan ange namnet på MQ-server eller ange IP-adressen följt av ett kolon och portnumret. 
     2. Den **gateway** listan visar alla befintliga gateway-anslutningar som har konfigurerats. Välj din gateway.
-    3. Välj **skapa** när du är klar. Anslutningen ser ut ungefär så här:   
+    3. Välj **Skapa** när du är klar. Anslutningen ser ut ungefär så här:   
     ![Anslutningsegenskaper](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. I Egenskaper för åtgärden kan du:  
@@ -123,4 +123,4 @@ Om det finns inga meddelanden i kön när du gör en Bläddra eller en receive, 
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/mq/).
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).

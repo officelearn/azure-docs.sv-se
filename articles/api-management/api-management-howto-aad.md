@@ -11,168 +11,131 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 01ea39983c4c1ad41692fce31ef6fd9c81461c8e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
-> [!WARNING]
-> Azure Active Directory-integrering finns i den [utvecklare, Standard och Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) endast nivåer.
-
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Så här auktoriserar developer konton med hjälp av Azure Active Directory i Azure API Management
-## <a name="overview"></a>Översikt
+
 Den här guiden visar hur du aktiverar åtkomst till developer-portalen för användare från Azure Active Directory. Den här guiden visar även hur du hanterar grupper med Azure Active Directory-användare genom att lägga till externa grupper som innehåller användare av en Azure Active Directory.
 
-> Du måste ha en Azure Active Directory att skapa ett program för att slutföra stegen i den här guiden.
-> 
+> [!WARNING]
+> Azure Active Directory-integrering finns i den [utvecklare, Standard och Premium](https://azure.microsoft.com/pricing/details/api-management/) endast nivåer.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
+- Importera och publicera en API Management-instans. Mer information finns i [Import och publicera](import-and-publish.md).
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>Så här auktoriserar developer konton med hjälp av Azure Active Directory
-Kom igång genom att klicka på **Publisher portal** i Azure-portalen för API Management-tjänsten. När du gör det kommer du till utgivarportalen för API Management.
 
-![Utgivarportalen][api-management-management-console]
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
+3. Skriv ”api” i sökrutan.
+4. Klicka på **API Management services**.
+5. Välj din APIM tjänstinstansen.
+6. Under **säkerhet**väljer **identiteter**.
 
-> Om du inte har skapat en API Management-tjänstinstans än läser du [Skapa en API Management-tjänstinstans][Create an API Management service instance] i självstudiekursen [Komma igång med Azure API Management][Get started with Azure API Management].
-> 
-> 
+    ![Externa identiteter](./media/api-management-howto-aad/api-management-with-aad001.png)
+7. Klicka på **+ Lägg till** från början.
 
-Klicka på **säkerhet** från den **API Management** menyn till vänster och klicka på **externa identiteter**.
+    Den **Lägg till identitetsleverantör** visas till höger.
+8. Under **providertyp**väljer **Azure Active Directory**.
 
-![Externa identiteter][api-management-security-external-identities]
+    Kontroller som gör det möjligt att andra nödvändig information visas i fönstret. Kontrollerna inkluderar: **klient-ID**, **klienthemlighet** (du får information senare under kursen).
+9. Anteckna den **omdirigerings-URL**.  
+10. Öppna en annan flik i webbläsaren. 
+11. Öppna [Azure-portalen](https://portal.azure.com).
+12. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
+13. Typen ”aktiv” i **Azure Active Directory** visas.
+14. Välj **Azure Active Directory**.
+15. Under **hantera**väljer **appregistrering**.
 
-Klicka på **Azure Active Directory**. Anteckna den **omdirigerings-URL** och växla till Azure Active Directory i den klassiska Azure-portalen.
+    ![Appregistrering](./media/api-management-howto-aad/api-management-with-aad002.png)
+16. Klicka på **Ny programregistrering**.
 
-![Externa identiteter][api-management-security-aad-new]
+    Den **skapa** visas till höger. Det är där du anger AAD app relavent information.
+17. Eneter ett namn för programmet.
+18. Programtyp, Välj **webb-app/API**.
+19. För inloggnings-URL, anger du URL för inloggning av developer-portalen. I det här exemplet är URL inloggning: https://apimwithaad.portal.azure-api.net/signin.
+20. Klicka på **skapa** att skapa programmet.
+21. För att hitta appen, Välj **App registreringar** och Sök efter namn.
 
-Klicka på den **Lägg till** knappen om du vill skapa ett nytt program för Azure Active Directory och välj **Lägg till ett program som min organisation utvecklar**.
+    ![Appregistrering](./media/api-management-howto-aad/find-your-app.png)
+22. När programmet har registrerats kan du gå till **Reply URL** och se till att ”omdirigerings-URL: en” anges till värdet som du har fått från steg 9. 
+23. Om du vill konfigurera ditt program (till exempel ändra **App-ID-URL**) Välj **egenskaper**.
 
-![Lägg till nytt Azure Active Directory-program][api-management-new-aad-application-menu]
+    ![Appregistrering](./media/api-management-howto-aad/api-management-with-aad004.png)
 
-Ange ett namn för programmet, Välj **Web application och/eller webb-API**, och klicka på Nästa.
+    Om flera aktiva Azure-kataloger ska användas för det här programmet, klickar du på **Ja** för **programmet är flera innehavare**. Standardvärdet är **nr**.
+24. Ange behörigheter för program genom att välja **nödvändiga behörigheter**.
+25. Välj den dina program och kontrollera **läsa katalogdata** och **logga in och Läs användarprofil**.
 
-![Nya Azure Active Directory-program][api-management-new-aad-application-1]
+    ![Appregistrering](./media/api-management-howto-aad/api-management-with-aad005.png)
 
-För **inloggnings-URL**, ange Webbadressen för inloggning till developer-portalen. I det här exemplet i **inloggnings-URL** är `https://aad03.portal.current.int-azure-api.net/signin`. 
+    Läs mer om programmet och delegerade behörigheter [åtkomst till Graph API][Accessing the Graph API].
+26. I det vänstra fönstret, kopierar den **program-ID** värde.
 
-För den **App-ID-URL**, ange standarddomänen eller en anpassad domän för Azure Active Directory och lägga till en unik sträng till den. I det här exemplet standarddomän för **https://contoso5api.onmicrosoft.com** används med suffixet för **/api** angivna.
+    ![Appregistrering](./media/api-management-howto-aad/application-id.png)
+27. Växla tillbaka till ditt API Management-program. Den **Lägg till identitetsleverantör** fönstret ska visas. <br/>Klistra in den **program-ID** värde i den **klient-Id** rutan.
+28. Växla tillbaka till Azure Active Directory-konfigurationen och klicka på **nycklar**.
+29. Skapa en ny nyckel genom speicifying ett namn och en varaktighet. 
+30. Klicka på **Spara**. Nyckeln hämtar genereras.
 
-![Nya egenskaper för Azure Active Directory-program][api-management-new-aad-application-2]
+    Kopiera nyckeln till Urklipp.
 
-Klicka på knappen Kontrollera för att spara och skapa programmet och växla till den **konfigurera** att konfigurera det nya programmet.
+    ![Appregistrering](./media/api-management-howto-aad/api-management-with-aad006.png)
 
-![Nya Azure Active Directory-program som skapats][api-management-new-aad-app-created]
+    > [!NOTE]
+    > Anteckna den här nyckeln. När du stänger fönstret Azure Active Directory-konfiguration kan nyckeln inte visas igen.
+    > 
+    > 
+31. Växla tillbaka till ditt API Management-program. <br/>I den **Lägg till identitetsleverantören** och klistra in nyckeln till den **klienthemlighet** textruta.
+32. Den **Lägg till identitetsleverantör** fönstret, innehåller den **tillåtna klienter** textruta i du ange vilka kataloger ska ha åtkomst till API: er för API Management service-instans. <br/>Ange domäner i Azure Active Directory-instanser som du vill bevilja åtkomst. Du kan avgränsa flera domäner med radmatningar bäddas, mellanslag eller semikolon.
 
-Om flera aktiva Azure-kataloger ska användas för det här programmet, klickar du på **Ja** för **programmet är flera innehavare**. Standardvärdet är **nr**.
+    Du kan ange flera domäner i den **tillåtna klienter** avsnitt. Innan en användare kan logga in från en annan domän än den ursprungliga där programmet har registrerats, bevilja en global administratör i domänen annat behörigheten för programmet att komma åt directory data. Om du vill ge behörighet, den globala administratören ska gå att `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent), ange domännamnet för Active Directory-klient som de vill ge åtkomst till och klicka på Skicka. I följande exempel visas en global administratör från `miaoaad.onmicrosoft.com` försöker att ge behörighet till den här viss developer-portalen. 
 
-![Programmet är flera innehavare][api-management-aad-app-multi-tenant]
+33. När du önskad konfiguration har angetts, klickar du på **Lägg till**.
 
-Kopiera den **omdirigerings-URL** från den **Azure Active Directory** avsnitt i den **externa identiteter** i portalen för utgivaren och klistrar in det i den **svar URL: en** textruta. 
+    ![Appregistrering](./media/api-management-howto-aad/api-management-with-aad007.png)
 
-![Svars-URL][api-management-aad-reply-url]
+När ändringarna sparas användare i den angivna Azure Active Directory kan logga in på Developer-portalen genom att följa stegen i [logga in på Developer-portalen med ett konto i Azure Active Directory](#log_in_to_dev_portal).
 
-Bläddra till längst ned på fliken Konfigurera väljer den **programbehörigheter** listrutan, och kontrollera **läsa katalogdata**.
-
-![Programbehörigheter][api-management-aad-app-permissions]
-
-Välj den **delegera behörigheter** listrutan, och kontrollera **aktivera inloggning och läsa användarprofiler**.
-
-![Delegerade behörigheter][api-management-aad-delegated-permissions]
-
-> Läs mer om programmet och delegerade behörigheter [åtkomst till Graph API][Accessing the Graph API].
-> 
-> 
-
-Kopiera den **klient-Id** till Urklipp.
-
-![Klient-ID][api-management-aad-app-client-id]
-
-Växla tillbaka till publisher-portalen och klistra in i den **klient-Id** kopieras från konfigurationen av Azure Active Directory-program.
-
-![Klient-ID][api-management-client-id]
-
-Växla tillbaka till Azure Active Directory-konfigurationen och klicka på den **Markera varaktighet** listrutan i den **nycklar** avsnittet och ange ett intervall. I det här exemplet **1 års** används.
-
-![Nyckel][api-management-aad-key-before-save]
-
-Klicka på **spara** att spara konfigurationen och visa nyckeln. Kopiera nyckeln till Urklipp.
-
-> Anteckna den här nyckeln. När du stänger fönstret Azure Active Directory-konfiguration kan nyckeln inte visas igen.
-> 
-> 
-
-![Nyckel][api-management-aad-key-after-save]
-
-Växla tillbaka till publisher-portalen och klistra in nyckeln till den **Klienthemlighet** textruta.
-
-![Klienthemlighet][api-management-client-secret]
-
-**Tillåtna hyresgäster** anger vilka kataloger har åtkomst till API: er för API Management service-instans. Ange domäner i Azure Active Directory-instanser som du vill bevilja åtkomst. Du kan avgränsa flera domäner med radmatningar bäddas, mellanslag eller semikolon.
-
-![Tillåtna klientorganisationer][api-management-client-allowed-tenants]
-
-
-När du önskad konfiguration har angetts, klickar du på **spara**.
-
-![Spara][api-management-client-allowed-tenants-save]
-
-När ändringarna sparas användare i den angivna Azure Active Directory kan logga in på Developer-portalen genom att följa stegen i [logga in på Developer-portalen med ett konto i Azure Active Directory] [ Log in to the Developer portal using an Azure Active Directory account].
-
-Du kan ange flera domäner i den **tillåtna klienter** avsnitt. Innan en användare kan logga in från en annan domän än den ursprungliga där programmet har registrerats, bevilja en global administratör i domänen annat behörigheten för programmet att komma åt directory data. Om du vill ge behörighet, den globala administratören ska gå att `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent), ange domännamnet för Active Directory-klient som de vill ge åtkomst till och klicka på Skicka. I följande exempel visas en global administratör från `miaoaad.onmicrosoft.com` försöker att ge behörighet till den här viss developer-portalen. 
-
-![Behörigheter][api-management-aad-consent]
+![Behörigheter](./media/api-management-howto-aad/api-management-aad-consent.png)
 
 På nästa skärm uppmanas den globala administratören att bekräfta att ge behörigheten. 
 
-![Behörigheter][api-management-permissions-form]
+![Behörigheter](./media/api-management-howto-aad/api-management-permissions-form.png)
 
-> Om en icke-globala administratör försöker logga in innan behörigheter beviljas av en global administratör i inloggningsförsök misslyckas och ett felmeddelande visas.
-> 
-> 
+Om en icke-globala administratör försöker logga in innan behörigheter beviljas av en global administratör i inloggningsförsök misslyckas och ett felmeddelande visas.
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Hur du lägger till en extern Azure Active Directory-grupp
+
 Du kan lägga till Azure Active Directory-grupper i API-hantering för att lättare hantera associering av utvecklare i gruppen med de önskade produkterna efter att aktivera åtkomst för användare i ett Azure Active Directory.
 
-> Om du vill konfigurera en extern Azure Active Directory-grupp, måste Azure Active Directory först konfigureras på fliken identiteter genom att följa anvisningarna i föregående avsnitt. 
-> 
-> 
+Om du vill konfigurera en extern Azure Active Directory-grupp, måste Azure Active Directory först konfigureras på fliken identiteter genom att följa anvisningarna i föregående avsnitt. 
 
-Externa Azure Active Directory-grupper har lagts till från den **synlighet** fliken av produkten som du vill ge åtkomst till gruppen. Klicka på **produkter**, och klicka sedan på namnet på den önskade produkten.
+Externa Azure Active Directory-grupper har lagts till från den **grupper** för API Management-instans.
 
-![Konfigurera produkten][api-management-configure-product]
+![Grupper](./media/api-management-howto-aad/api-management-with-aad008.png)
 
-Växla till den **synlighet** och på **Lägg till grupper från Azure Active Directory**.
+1. Välj fliken **Grupper**.
+2. Klicka på den **lägga till AAD grupp** knappen.
+3. Välj den grupp som du vill lägga till.
+4. Tryck på **Välj** knappen.
 
-![Lägga till grupper][api-management-add-groups]
-
-Välj den **Azure Active Directory-klient** från nedrullningsbara listan och sedan skriver du namnet på den önskade gruppen i den **grupper** som ska läggas till textrutan.
-
-![Välj grupp][api-management-select-group]
-
-Den här gruppnamn kan hittas i den **grupper** lista för din Azure Active Directory som visas i följande exempel.
-
-![Listan för Azure Active Directory-grupper][api-management-aad-groups-list]
-
-Klicka på **Lägg till** Validera gruppnamnet och lägga till gruppen. I det här exemplet i **Contoso 5 utvecklare** externa gruppen har lagts till. 
-
-![Grupp som har lagts till][api-management-aad-group-added]
-
-Klicka på **spara** att spara den nya grupp markeringen.
-
-När en Azure Active Directory-grupp har konfigurerats från en produkt, den är tillgänglig kontrolleras den **synlighet** för andra produkter i API Management service-instans.
-
-Om du vill granska och konfigurera egenskaper för externa grupper när de har lagts till, klicka på namnet på gruppen från den **grupper** fliken.
-
-![Hantera grupper][api-management-groups]
+När en Azure Active Directory-grupp har skapats, du kan granska och konfigurera egenskaper för externa grupper när de har lagts till, klicka på namnet på gruppen från den **grupper** fliken.
 
 Härifrån kan du redigera den **namn** och **beskrivning** i gruppen.
-
-![Redigera grupp][api-management-edit-group]
-
+ 
 Användare från den konfigurerade Azure Active Directory kan logga in på Developer-portalen och visa och prenumerera på alla grupper som de har insyn genom att följa anvisningarna i följande avsnitt.
 
-## <a name="how-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a>Hur du loggar in på den Developer-portalen med ett Azure Active Directory-konto
+## <a name="a-idlogintodevportalhow-to-log-in-to-the-developer-portal-using-an-azure-active-directory-account"></a><a id="log_in_to_dev_portal"/>Hur du loggar in på den Developer-portalen med ett Azure Active Directory-konto
+
 Om du vill logga in på Developer-portalen med ett Azure Active Directory-konto som har konfigurerats i föregående avsnitt, öppnar du en ny webbläsare med den **inloggnings-URL** från Active Directory-konfigurationen för programmet och klicka på **Azure Active Directory**.
 
 ![Developer-portalen][api-management-dev-portal-signin]
@@ -189,37 +152,10 @@ Dina användare är nu inloggad i developer-portalen för din API Management ser
 
 ![Registreringen har slutförts][api-management-registration-complete]
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
-[api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
-[api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
-[api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
-[api-management-new-aad-application-1]: ./media/api-management-howto-aad/api-management-new-aad-application-1.png
-[api-management-new-aad-application-2]: ./media/api-management-howto-aad/api-management-new-aad-application-2.png
-[api-management-new-aad-app-created]: ./media/api-management-howto-aad/api-management-new-aad-app-created.png
-[api-management-aad-app-permissions]: ./media/api-management-howto-aad/api-management-aad-app-permissions.png
-[api-management-aad-app-client-id]: ./media/api-management-howto-aad/api-management-aad-app-client-id.png
-[api-management-client-id]: ./media/api-management-howto-aad/api-management-client-id.png
-[api-management-aad-key-before-save]: ./media/api-management-howto-aad/api-management-aad-key-before-save.png
-[api-management-aad-key-after-save]: ./media/api-management-howto-aad/api-management-aad-key-after-save.png
-[api-management-client-secret]: ./media/api-management-howto-aad/api-management-client-secret.png
-[api-management-client-allowed-tenants]: ./media/api-management-howto-aad/api-management-client-allowed-tenants.png
-[api-management-client-allowed-tenants-save]: ./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png
-[api-management-aad-delegated-permissions]: ./media/api-management-howto-aad/api-management-aad-delegated-permissions.png
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
-[api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
-[api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
-[api-management-aad-consent]: ./media/api-management-howto-aad/api-management-aad-consent.png
-[api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
-[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
-[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
-[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
-[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
-[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
-[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
-[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md

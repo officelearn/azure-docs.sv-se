@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e420c837f9635b2386ca3b52bef487864d1aa2c1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Kom igång med Bing Search-koppling
 Ansluta till Bing-sökning för att söka efter nyheter och videor för sökning. Med Bing Search kan du: 
@@ -28,7 +28,7 @@ Ansluta till Bing-sökning för att söka efter nyheter och videor för sökning
 * Skapa ditt företag flödet som baseras på de data som du får från din sökning. 
 * Använd åtgärder för att söka igenom bilder, söka nyheter och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Du kan exempelvis söka efter en video och sedan använda Twitter för att anslå som video till ett Twitter-flöde.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connector-specific-details"></a>Connector-specifik information
 

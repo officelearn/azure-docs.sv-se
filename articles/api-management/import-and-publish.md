@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera din första API 
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig hur man:
 
 ![Nya API](./media/api-management-get-started/created-api.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md).
 
@@ -54,9 +54,9 @@ Det här avsnittet visar hur du importerar och publicera en OpenAPI specifikatio
 
     |Inställning|Värde|Beskrivning|
     |---|---|---|
-    |**OpenAPI specifikation**|http://conferenceapi.azurewebsites.NET?format=JSON|Refererar till tjänsten implementerar API: et. API-hantering vidarebefordrar begäranden till den här adressen.|
+    |**OpenAPI specifikation**|http://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten implementerar API: et. API-hantering vidarebefordrar begäranden till den här adressen.|
     |**Visningsnamn**|*Demo konferens API*|Om du trycker på fliken när du har angett tjänstens Webbadress, ska APIM fylla i det här fältet baserat på vad som finns i json. <br/>Det här namnet visas i Developer-portalen.|
-    |**Namn**|*demo-konferens-api*|Ger ett unikt namn för API: et. <br/>Om du trycker på fliken när du har angett tjänstens Webbadress, ska APIM fylla i det här fältet baserat på vad som finns i json.|
+    |**Namn**|*demo-conference-api*|Ger ett unikt namn för API: et. <br/>Om du trycker på fliken när du har angett tjänstens Webbadress, ska APIM fylla i det här fältet baserat på vad som finns i json.|
     |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens Webbadress, ska APIM fylla i det här fältet baserat på vad som finns i json.|
     |**URL för API-suffix**|*konferens*|Suffixet läggs till en bas-URL för API management-tjänsten. API Management särskiljer API: er av deras suffix och därmed suffixet måste vara unikt för alla API: et för en viss utgivare.|
     |**URL-schema**|*HTTPS*|Anger vilket protokoll som kan användas för åtkomst till API. |
@@ -67,13 +67,10 @@ Det här avsnittet visar hur du importerar och publicera en OpenAPI specifikatio
 
 Åtgärder kan anropas direkt från Azure-portalen, vilket ger ett bekvämt sätt att visa och testa driften av ett API.  
 1. Välj API som du skapade i föregående steg.
-2. Tryck på den **Test** fliken.
-
-    ![Test-API](./media/api-management-get-started/test-api.png)
+2. Tryck på den **Test** fliken.  ![Test-API](./media/api-management-get-started/test-api.png)
 3. Klicka på **GetSpeakers**.
-
-    Sidan visar fälten för frågeparametrar men i detta fall det finns inte något. Sidan visar även fält för sidhuvudena. Ett av huvudena är ”Ocp-Apim-prenumeration-Key”, för nyckeln prenumeration av produkten som är associerad med detta API. Om du har skapat APIM instans är du administratör redan så nyckeln fylls i automatiskt. 
-4. Tryck på **skicka**.
+    Sidan visar fälten för frågeparametrar men i detta fall det finns inte något. Sidan visar även fält för sidhuvudena. Ett av huvudena är ”Ocp-Apim-prenumeration-Key”, för nyckeln prenumeration av produkten som är associerad med detta API. Nyckeln fylls i automatiskt.
+4. Tryck på **Skicka**.
 
     Backend svarar med **200 OK** och vissa data.
 
@@ -93,7 +90,7 @@ Det här avsnittet visar hur du importerar och publicera en OpenAPI specifikatio
     
     Sidan visar fälten för frågeparametrar men i detta fall det finns inte något. Sidan visar även fält för sidhuvudena. Ett av huvudena är ”Ocp-Apim-prenumeration-Key”, för nyckeln prenumeration av produkten som är associerad med detta API. Om du har skapat APIM instans är du administratör redan så nyckeln fylls i automatiskt.
 6. Tryck på **prova**.
-7. Tryck på **skicka**.
+7. Tryck på **Skicka**.
     
     När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 

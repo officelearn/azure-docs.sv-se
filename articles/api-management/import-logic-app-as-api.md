@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importera en Logikapp som en API
 
@@ -30,10 +30,10 @@ I den här artikeln får du lära dig hur du:
 > * Testa API: et i Azure-portalen
 > * Testa API: N i Developer-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför följande Snabbstart: [skapa en instans av Azure API Management](get-started-create-service-instance.md)
-+ Kontrollera att det finns en Logikapp i din prenumeration. Mer information [skapa din första Logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
++ Kontrollera att det finns en Logikapp i din prenumeration. Mer information [skapa din första Logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -65,7 +65,7 @@ I den här artikeln får du lära dig hur du:
 3. Välj en åtgärd.
 
     Sidan visar för frågeparametrar och fält för sidhuvudena. Ett av huvudena är ”Ocp-Apim-prenumeration-Key”, för nyckeln prenumeration av produkten som är associerad med detta API. Om du har skapat APIM instans är du administratör redan så nyckeln fylls i automatiskt. 
-1. Tryck på **skicka**.
+1. Tryck på **Skicka**.
 
     Backend svarar med **200 OK** och vissa data.
 
@@ -80,7 +80,7 @@ I den här artikeln får du lära dig hur du:
 3. Välj den **API** som du skapade.
 4. Klicka på åtgärden som du vill testa.
 5. Tryck på **prova**.
-6. Tryck på **skicka**.
+6. Tryck på **Skicka**.
     
     När en åtgärd har anropats visas **svarsstatus**, **svarshuvuden** och eventuellt **svarsinnehåll** på utvecklarportalen.
 

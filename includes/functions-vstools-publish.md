@@ -1,8 +1,8 @@
-1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **Skapa ny** och klicka sedan på **Publicera**. 
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **skapa nya** och sedan **publicera**. 
 
     ![Skapa och publicera ny funktionsapp](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
 
-2. Om du inte redan har anslutit Visual Studio till ditt Azure-konto klickar du på **Lägg till ett konto...**.  
+2. Om du inte har redan anslutit Visual Studio till ditt Azure-konto, Välj **Lägg till ett konto...** .  
 
 3. I dialogrutan **Create App Service** (Skapa apptjänst) använder du **värdinställningarna** på det sätt som beskrivs i tabellen nedan. 
 
@@ -12,10 +12,14 @@
     | ------------ |  ------- | -------------------------------------------------- |
     | **Appnamn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. |
     | **Prenumeration** | Välj din prenumeration | Den Azure-prenumeration som ska användas. |
-    | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Namnet på resursgruppen som funktionsappen ska skapas i. |
-    | **[App Service-plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Se till att du väljer **Förbrukning** under **Storlek** när du skapar en ny plan.  |
-    | **[Lagringskonto](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Globalt unikt namn | Använd ett befintligt lagringskonto eller skapa ett nytt.   |
+    | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Namnet på resursgruppen som funktionsappen ska skapas i. Välj **ny** att skapa en ny resursgrupp.|
+    | **[App Service-plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Se till att välja den **förbrukning** under **storlek** när du klickar på **ny** att skapa en ny plan. Också välja en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster dina funktioner har åtkomst till.  |
 
-4. Klicka på **Skapa** för att skapa en funktionsapp i Azure med de här inställningarna. Anteckna värdet för **Plats-URL** när etableringen är slutförd. Det är adressen till funktionsappen i Azure. 
+    >[!NOTE]
+    >Ett Azure storage-konto krävs av Functions-runtime. Därmed skapas ett nytt Azure Storage-konto för dig när du skapar en funktionsapp.
+
+4. Klicka på **skapa** att skapa en funktionsapp och relaterade resurser i Azure med dessa inställningar och distribuera ditt projekt funktionskoden. 
+
+5. När installationen är klar, notera den **Webbadress** -värde som är adressen till appen funktionen i Azure.
 
     ![Lokal Azure-körningsmiljö](./media/functions-vstools-publish/functions-vstools-publish-profile.png)

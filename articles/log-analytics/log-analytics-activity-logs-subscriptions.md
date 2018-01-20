@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Samla in Azure aktivitetsloggar till logganalys alla prenumerationer
 
@@ -27,7 +27,7 @@ Om logganalys-arbetsytan i samma Azure-prenumerationen, eller i en annan prenume
 
 ## <a name="overview"></a>Översikt
 
-Den strategi som används i det här scenariot är att Azure-aktivitetsloggen skicka händelser till en [Händelsehubb](../event-hubs/event-hubs-what-is-event-hubs.md) där en [Logikapp](../logic-apps/logic-apps-what-are-logic-apps.md) skickar dem till logganalys-arbetsytan. 
+Den strategi som används i det här scenariot är att Azure-aktivitetsloggen skicka händelser till en [Händelsehubb](../event-hubs/event-hubs-what-is-event-hubs.md) där en [Logikapp](../logic-apps/logic-apps-overview.md) skickar dem till logganalys-arbetsytan. 
 
 ![Bild av dataflöde från aktiviteten loggen till logganalys](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Följ stegen i att få händelsen hubb och anslutningssträngen [Kontrollera Hä
 
 Logic Apps Designer visas nu tillgängliga kopplingar och utlösare, som du använder för att starta arbetsflödet logik app.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Lägga till Event Hub-utlösare
 
@@ -305,7 +305,7 @@ Den [Azure Log Analytics datainsamlaren](https://docs.microsoft.com/connectors/a
    |---------------|---------------------------|--------------|
    |Brödtext i JSON-begäran  | **Utdata** från den **Compose** åtgärd | Hämtar poster från brödtexten i Skriv-åtgärd. |
    | Anpassat loggnamn | AzureActivity | Namn på anpassad logg-tabellen för att skapa i Log Analytics för att rymma den importerade informationen. |
-   | tid genererade fält | time | Markera inte JSON-fältet för **tid** -skriver word-tid. Om du väljer fältet JSON designern placerar den **skicka Data** åtgärd i en *för varje* skapas, vilket inte är vad du vill. |
+   | Time-generated-field | time | Markera inte JSON-fältet för **tid** -skriver word-tid. Om du väljer fältet JSON designern placerar den **skicka Data** åtgärd i en *för varje* skapas, vilket inte är vad du vill. |
 
 
 

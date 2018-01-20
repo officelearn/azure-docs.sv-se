@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Kom igång med HTTP-åtgärd
 
@@ -30,7 +30,7 @@ Du kan:
 * Skapa logik app arbetsflöden som aktiverar (utlösare) när en webbplats som du hanterar kraschar.
 * Valfri slutpunkt att kommunicera via HTTP utökar dina arbetsflöden till andra tjänster.
 
-Om du vill komma igång med HTTP-åtgärden i en logikapp, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Om du vill komma igång med HTTP-åtgärden i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Använda HTTP-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare](connectors-overview.md).
@@ -113,21 +113,21 @@ A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Metoden * |Metoden |HTTP-verbet som ska användas |
-| URI * |URI: N |URI för HTTP-begäran |
-| Rubriker |Rubriker |HTTP-huvuden med ett JSON-objekt |
-| Innehåll |Brödtext |Texten på HTTP-begäran |
-| Autentisering |Autentisering |Information i den [autentisering](#authentication) avsnitt |
+| Metoden * |metod |HTTP-verbet som ska användas |
+| URI * |URI |URI för HTTP-begäran |
+| Sidhuvuden |rubriker |HTTP-huvuden med ett JSON-objekt |
+| Innehåll |brödtext |Texten på HTTP-begäran |
+| Autentisering |autentisering |Information i den [autentisering](#authentication) avsnitt |
 
 <br>
 
-#### <a name="output-details"></a>Information för utdata
+#### <a name="output-details"></a>Utdatainformation
 Nedan visas utdata information för HTTP-svaret.
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |Objektet |Svarsrubriker |
-| Innehåll |Objektet |Objektet Response |
+| Sidhuvuden |objekt |Svarshuvud |
+| Innehåll |objekt |Objektet Response |
 | Statuskod |int |HTTP-statuskod |
 
 ## <a name="authentication"></a>Autentisering
@@ -169,7 +169,7 @@ Följande autentiseringsobjekt krävs för autentisering av klientcertifikat. A 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
 | Typen * |typ |Typ av autentisering (måste vara `ClientCertificate` för SSL-klientcertifikat) |
-| PFX * |Pfx |Base64-kodad innehållet i filen Personal Information Exchange (PFX) |
+| PFX* |pfx |Base64-kodad innehållet i filen Personal Information Exchange (PFX) |
 | Lösenord * |lösenord |Lösenord för åtkomst till PFX-filen |
 
 > [!TIP]
@@ -192,10 +192,10 @@ Följande autentiseringsobjekt krävs för Azure AD OAuth-autentisering. A * inn
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
 | Typen * |typ |Typ av autentisering (måste vara `ActiveDirectoryOAuth` för Azure AD OAuth) |
-| Klient * |Klient |Klient-ID för Azure AD-klient |
+| Klient * |klient |Klient-ID för Azure AD-klient |
 | Målgruppen * |målgrupp |Den resurs som du begär tillstånd att använda. Exempel: `https://management.core.windows.net/` |
 | Klient -ID * |clientId |Klient-ID för Azure AD-program |
-| Hemligt * |hemligt |Hemligheten för klienten som begär token |
+| Secret* |hemlighet |Hemligheten för klienten som begär token |
 
 > [!TIP]
 > Du kan använda en `securestring` parameter och `@parameters()` [definition arbetsflödesfunktion](http://aka.ms/logicappdocs) att använda en parameter som inte läsas i definitionen när du har sparat.
@@ -215,5 +215,5 @@ Exempel:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Du kan utforska andra tillgängliga kopplingar i Logic Apps genom att titta på vår [API: er listan](apis-list.md).
+Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i Logic Apps genom att titta på vår [API: er listan](apis-list.md).
 

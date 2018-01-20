@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Övervaka, ta emot och skicka händelser med Händelsehubbar connector
 
@@ -30,7 +30,7 @@ Om du vill konfigurera en Händelseövervakare så att din logikapp kan identifi
 
 * Du måste ha en [Händelsehubbar namnområde och Event Hub](../event-hubs/event-hubs-create.md) i Azure. Läs [hur du skapar ett namnområde för Händelsehubbar och Händelsehubb](../event-hubs/event-hubs-create.md). 
 
-* Att använda [alla anslutningar](https://docs.microsoft.com/azure/connectors/apis-list) i din logikapp, behöver du först skapa en logikapp. Läs [hur du skapar en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+* Att använda [alla anslutningar](https://docs.microsoft.com/azure/connectors/apis-list) i din logikapp, behöver du först skapa en logikapp. Läs [hur du skapar en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Kontrollera behörigheter för Händelsehubbar namnområde och hitta anslutningssträngen
@@ -64,7 +64,7 @@ Följ dessa steg för att kontrollera dina behörigheter och hämta anslutningss
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Starta arbetsflödet när din Event Hub tar emot nya händelser
 
-En [ *utlösaren* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) är en händelse som startar ett arbetsflöde i din logikapp. Följ dessa steg för att lägga till utlösare som identifierar den här händelsen om du vill starta ett arbetsflöde när nya händelser skickas till din Event Hub.
+En [ *utlösaren* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en händelse som startar ett arbetsflöde i din logikapp. Följ dessa steg för att lägga till utlösare som identifierar den här händelsen om du vill starta ett arbetsflöde när nya händelser skickas till din Event Hub.
 
 1.  I den [Azure-portalen](https://portal.azure.com "Azure-portalen"), gå till din befintliga logikapp eller skapa en tom logikapp.
 
@@ -94,7 +94,7 @@ En [ *utlösaren* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-co
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Skicka händelser till din Event Hub från din logikapp
 
-En [*åtgärd*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) är en aktivitet som utförs av logikapparbetsflödet. När du lägger till en utlösare i logikappen kan du lägga till en åtgärd för att utföra åtgärder med data som genereras av den utlösaren. Följ dessa steg om du vill skicka en händelse till din Event Hub från din logikapp.
+En [*åtgärd*](../logic-apps/logic-apps-overview.md#logic-app-concepts) är en aktivitet som utförs av logikapparbetsflödet. När du lägger till en utlösare i logikappen kan du lägga till en åtgärd för att utföra åtgärder med data som genereras av den utlösaren. Följ dessa steg om du vill skicka en händelse till din Event Hub från din logikapp.
 
 1.  I logik App Designer under din logik apputlösare väljer **nytt steg** > **lägga till en åtgärd**.
 

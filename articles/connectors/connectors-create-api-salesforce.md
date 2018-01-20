@@ -1,6 +1,6 @@
 ---
 title: "Lär dig hur du använder Salesforce-anslutningsprogrammet i dina logic apps | Microsoft Docs"
-description: "Skapa logikappar med Azure App service. Anslutningsappen för Salesforce ger en API som fungerar med Salesforce-objekt."
+description: "Skapa logikappar med Azure App service. Salesforce-anslutningen tillhandahåller ett API som fungerar med Salesforce-objekt."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb865924191418c12b9fea37edfbfb282f334eb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Kom igång med Salesforce-anslutningsprogrammet
-Anslutningsappen för Salesforce ger en API som fungerar med Salesforce-objekt.
+Salesforce-anslutningen tillhandahåller ett API som fungerar med Salesforce-objekt.
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-salesforce-connector"></a>Ansluta till Salesforce-anslutningsprogrammet
 Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
@@ -35,7 +35,7 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 > 
 
 ## <a name="use-a-salesforce-connector-trigger"></a>Använda en utlösare för Salesforce-koppling
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
@@ -47,7 +47,7 @@ En utlösare är en händelse som kan användas för att starta arbetsflödet so
 > 
 
 ## <a name="use-a-salesforce-connector-action"></a>Använda en åtgärd för Salesforce-koppling
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 > [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
@@ -58,5 +58,5 @@ En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en lo
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/salesforce/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

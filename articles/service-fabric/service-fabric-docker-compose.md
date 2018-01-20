@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: subramar
-ms.openlocfilehash: 92d1951de8c8c80f7b47033dc751cd65a63c43f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6275cee87455bf8a226a51a6b2093b67c3159d0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose distributionen stöd i Azure Service Fabric (förhandsgranskning)
 
@@ -91,13 +91,13 @@ sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 
 Om du vill starta en uppgradering för distribution av Skriv använder du följande kommando:
 
-```powershell
+```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
 När uppgraderingen har accepterats kan uppgradering pågår spåras med följande kommando:
 
-```powershell
+```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
@@ -112,7 +112,7 @@ Den här förhandsversionen stöder en delmängd av konfigurationsalternativ fr�
     * -minne
     * -minne-byte
 * Tjänster > kommandon
-* Tjänster > miljö
+* Services > Environment
 * Tjänster > portar
 * Tjänster > bild
 * Tjänster > isolering (endast för Windows)

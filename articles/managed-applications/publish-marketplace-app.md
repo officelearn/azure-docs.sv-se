@@ -3,18 +3,18 @@ title: Azure hanterade program i Marketplace | Microsoft Docs
 description: "Beskriver Azure hanterade program som är tillgängliga via Marketplace."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure hanterade program i Marketplace
 
@@ -36,26 +36,18 @@ Dessutom finns flera förutsättningar för företag. De är:
 * Acceptera villkoren i avtalet för utgivaren och Azure Marketplace deltagande principer.
 * Acceptera att uppfylla den användningsvillkoren och sekretesspolicyn för Microsoft certifierade programavtalet för Microsoft Azure.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Konfigurera ditt konto för publishing portal
+## <a name="become-a-publisher"></a>Bli en utgivare
 
-Publishing portal används för att publicera och hantera dina erbjudanden. För att publicera en marketplace-program, måste du ha en godkända Microsoft Developer för Azure Marketplace. Om du inte har registrerats för ett godkänt konto, se [skapa ett konto på Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Om du vill bli en utgivare i Azure Marketplace, måste du:
 
-Om du har en godkänd **Microsoft Developer Center** konto, men inte har använt den [Azure Publishing Portal](https://cloudpartner.azure.com/), måste du registrera dig för publishing portal.
-
-1. Öppna en ny Chrome Incognito eller Internet Explorer InPrivate-surfning session för att säkerställa att du inte är inloggad till ett personligt konto.
-2. Gå till [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Om du är en ny användare och logga in på publicering Företagsportalen för första gången kan sedan du måste logga in med samma e-post-ID som developer center-konto. Nu länkas developer center-konto och publishing portal konto.
-
-Du kan senare lägga till andra medlemmar i företaget som en [medadministratör](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) i publishing portal. Om du har lagts till som medadministratör i publishing portal, kan du logga in med ditt medadministratör.
-
-> [!TIP]
-> Principer för deltagande beskrivs på den [Azure-webbplatsen](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Skapa ett Microsoft-ID - skapa ditt Microsoft-konto med hjälp av en e-postadress som hör till företagets domän, men inte till enskilda användare. E-postadressen används för både Microsoft Developer Center och molnet Partner-portalen. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Skicka [Azure Marketplace kandidat formuläret](https://aka.ms/ampnomination) – **lösning som du vill publicera?**väljer **hanterat program**. När formuläret skickas Marketplace Onboarding-teamet har granskat programmet och verifierar begäran. Godkännandeprocessen kan ta en till tre dagar. När din kandidat har godkänts får du följer en kod för att avstå från registreringsavgift för developer center. Om du gör **inte** Slutför formuläret Marketplace kandidat du uppmanas att betala en avgift för registrering av $99.
+1. Registrera i [Developer Center](https://developer.microsoft.com) -Microsoft bekräftar att din organisation är en giltig juridisk person med ett giltigt SKATTE-ID för det land där de är registrerade. Godkännandeprocessen kan ta 5 till 10 dagar. Använd kampanjkoden som du fick i e-post från kandidat processen för att undvika registreringsavgift. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Logga in på [moln partnerportalen](https://cloudpartner.azure.com) – i profilen för utgivaren associera Developer Center-konto med profilen Marketplace utgivare. Mer information finns i [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Skapa ett nytt erbjudande för Azure-program
 
-Efter att du uppfyller kraven som är du redo att skapa erbjudandet hanterade program.
+När du har skapat ditt partner-portalen konto är du redo att skapa erbjudandet hanterade program.
 
 ### <a name="set-up-an-offer"></a>Konfigurera ett erbjudande
 
@@ -65,11 +57,7 @@ Erbjudande för ett hanterat program motsvarar en klass av produkten erbjudande 
 
 1. I navigeringsfönstret till vänster, Välj **+ nytt erbjudande** > **Azure program**.
 
-   ![Nytt erbjudande](./media/publish-marketplace-app/newOffer.png)
-
 1. I den **Editor** kan du se de nödvändiga formulär. Varje formulär beskrivs senare i den här artikeln.
-
-   ![Erbjudandeinställningar](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Erbjudande inställningar för formulär
 
@@ -95,13 +83,9 @@ En SKU visas under överordnade erbjudandet på marketplace. Det verkar som sin 
 
 1. Välj **SKU: er** > **nya SKU**.
 
-   ![Välj ny SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Ange en **SKU ID**. En SKU-ID är en unik identifierare för SKU: N i ett erbjudande. Detta ID visas i produkten URL: er, Resource Manager-mallar och fakturering rapporter. Det kan bara består av gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett streck och är begränsat till högst 50 tecken. När ett erbjudande lanseras är i det här fältet låst. Du kan ha flera SKU: er i ett erbjudande. Du behöver en SKU för varje avbildning som du planerar att publicera.
 
 1. Fyll i den **SKU information** avsnitt i följande format:
-
-   ![Ange nya SKU](./media/publish-marketplace-app/sku-settings.png)
 
    Fylla i följande fält:
 
@@ -110,14 +94,9 @@ En SKU visas under överordnade erbjudandet på marketplace. Det verkar som sin 
    * **Beskrivning**: Ange en detaljerad beskrivning av SKU: N.
    * **SKU-typen**: de tillåtna värdena är *hanterat program* och *Lösningsmallar*. Det här fallet markerar *hanterat program*.
    * **Land/Region tillgänglighet**: Välj de länder där det hanterade programmet är tillgängligt.
-
-      ![Välj land](./media/publish-marketplace-app/select-country.png)
-
    * **Priser**: Ange ett pris för hanteringen av programmet. Välj de tillgängliga länderna innan du anger priset.
 
 1. Lägg till ett nytt paket. Fyll i den **Paketinformation** avsnitt i följande format:
-
-   ![Paket](./media/publish-marketplace-app/new-package.png)
 
    Fylla i följande fält:
 

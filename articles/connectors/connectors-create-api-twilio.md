@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Kom igång med Twilio-koppling
 Anslut till Twilio skicka och ta emot globala IP, SMS och MMS-meddelanden. Med Twilio kan du:
@@ -27,7 +27,7 @@ Anslut till Twilio skicka och ta emot globala IP, SMS och MMS-meddelanden. Med T
 * Skapa ditt företag flödet som baseras på de data som du får från Twilio. 
 * Använd åtgärder som får ett meddelande och listmeddelanden. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. När du får ett nytt Twilio-meddelande kan du exempelvis ta meddelandet och använda den ett Service Bus-arbetsflöde. 
 
-Kom igång genom att skapa en logikapp; Se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Kom igång genom att skapa en logikapp; Se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-twilio"></a>Skapa en anslutning till Twilio
 När du lägger till den här anslutningen dina logic apps kan du ange följande Twilio-värden:
@@ -35,7 +35,7 @@ När du lägger till den här anslutningen dina logic apps kan du ange följande
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
 | Konto-ID |Ja |Ange ditt Twilio-konto-ID |
-| Åtkomst-Token |Ja |Ange ditt Twilio-åtkomsttoken |
+| Åtkomsttoken |Ja |Ange ditt Twilio-åtkomsttoken |
 
 > [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
 > 

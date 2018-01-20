@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Arkivera Azure övervakningsdata
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -66,11 +66,11 @@ Du är nu redo att börja ställa in Azure-miljön för att skicka övervaknings
 
 Nu vi konfigurera resursnivå data (resurs mått och diagnostikloggar) dirigeras till lagringskontot genom att ställa in **diagnostiska resursinställningar**.
 
-1. Klicka på den **övervakaren** knapp hittades i listan vänstra navigeringsfönstret och sedan på **diagnostikinställningar**. Här kan du visa en lista över alla resurser i din prenumeration som producerar övervakningsdata via Azure-Monitor. Om du inte har några resurser i den här listan kan du [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md) innan du fortsätter så att du har en resurs som du kan konfigurera en diagnostikinställningen på.
+1. Klicka på den **övervakaren** knapp hittades i listan vänstra navigeringsfönstret och sedan på **diagnostikinställningar**. Här kan du visa en lista över alla resurser i din prenumeration som producerar övervakningsdata via Azure-Monitor. Om du inte har några resurser i den här listan kan du [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) innan du fortsätter så att du har en resurs som du kan konfigurera en diagnostikinställningen på.
 
 2. Klicka på en resurs i listan och klicka sedan på **aktivera diagnostiken**.
    
-   ![Aktivera diagnostik](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+   ![Slå på diagnostik](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Om det redan finns en inställning som konfigurerats i stället ser du de befintliga inställningarna och en knapp för att **lägga till diagnostikinställningen**. Klicka här.
 

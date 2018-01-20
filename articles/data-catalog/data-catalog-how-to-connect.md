@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Så här ansluter du till datakällor
 ## <a name="introduction"></a>Introduktion
@@ -47,7 +47,7 @@ När du använder den ”öppna i...” menyn för datakällor i Azure Data Cata
 | Excel (överst 1000) |.odc |Excel 2010 eller senare |
 | Power Query |.xlsx |Excel 2016 eller Excel 2010 eller Excel 2013 med Power Query för Excel-tillägg installeras |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 eller senare |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 uppdatering 4 eller senare med SQL Server tooling installerad |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 uppdatering 4 eller senare med SQL Server tooling installerad |
 | Report Manager |http:// |Se [Webbläsarkrav för SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Dina data, din verktyg
@@ -67,5 +67,5 @@ Om du vill göra det lättare för användare som identifierar en datakälla men
 ## <a name="summary"></a>Sammanfattning
 Registrera en datakälla med **Azure Data Catalog** gör att data kan identifieras genom att kopiera strukturella och beskrivande metadata från datakällan till katalogtjänsten. När en datakälla har registrerats och identifierade kan användare kan ansluta till datakällan från den **Azure Data Catalog** portal ”öppna i...” ” menyn eller med hjälp av sina Dataverktyg föredrar.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kom igång med Azure Data Catalog](data-catalog-get-started.md) självstudiekursens steg för steg-information om hur du ansluter till datakällor.

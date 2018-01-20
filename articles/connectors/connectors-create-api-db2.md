@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Kom igång med DB2-koppling
 Microsoft-anslutaren för DB2 ansluter Logic Apps till resurser som är lagrade i en IBM DB2-databas. Denna koppling inkluderar en Microsoft-klient för att kommunicera med fjärrdatorer för DB2-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Bluemix dashDB eller IBM DB2 för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-plattformar och versioner (i det här avsnittet).
@@ -35,7 +35,7 @@ DB2-koppling har stöd för följande databasåtgärder för:
 
 Det här avsnittet visar hur du använder kopplingen i en logikapp till databasåtgärder i processen.
 
-Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Tillgängliga åtgärder
 DB2-koppling har stöd för följande logik app åtgärder:
@@ -86,11 +86,11 @@ Den här anslutningen har stöd för anslutningar till databaser som finns på l
 | Egenskap | Beskrivning |
 | --- | --- |
 | server |Krävs. Accepterar ett strängvärde som representerar ett TCP/IP-adress eller ett alias i IPv4- eller IPv6-format, följt (-semikolonavgränsad) av ett TCP/IP-portnummer. |
-| Databasen |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). DB2 för z/OS accepterar en sträng med 16 byte (databas kallas en IBM DB2 för z/OS-plats). DB2 för i5/OS accepterar en 18 byte-sträng (databas kallas en IBM DB2 för i relationell databas). DB2 för LUW accepterar en 8 byte-sträng. |
-| Autentisering |Valfri. Tillåter lista objekt, grundläggande eller Windows (kerberos). |
+| databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). DB2 för z/OS accepterar en sträng med 16 byte (databas kallas en IBM DB2 för z/OS-plats). DB2 för i5/OS accepterar en 18 byte-sträng (databas kallas en IBM DB2 för i relationell databas). DB2 för LUW accepterar en 8 byte-sträng. |
+| autentisering |Valfri. Tillåter lista objekt, grundläggande eller Windows (kerberos). |
 | användarnamn |Krävs. Accepterar ett strängvärde. DB2 för z/OS accepterar en 8 byte-sträng. DB2 för i accepterar en 10 byte-sträng. DB2 för Linux eller UNIX accepterar en 8 byte-sträng. DB2 för Windows accepterar en 30-byte-sträng. |
 | lösenord |Krävs. Accepterar ett strängvärde. |
-| Gateway |Krävs. Accepterar en lista över objekt-värde som representerar lokala datagateway definierad för Logic Apps i lagringsgruppen. |
+| gateway |Krävs. Accepterar en lista över objekt-värde som representerar lokala datagateway definierad för Logic Apps i lagringsgruppen. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutningen
 Den här anslutningen kan komma åt en lokala DB2-databas med lokala gateway. Se gateway avsnitt för mer information. 
@@ -281,5 +281,5 @@ Den här anslutningen har stöd för de följande IBM DB2-plattformar och versio
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
 

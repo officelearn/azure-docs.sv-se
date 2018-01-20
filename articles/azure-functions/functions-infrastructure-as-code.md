@@ -7,7 +7,7 @@ author: ggailey777
 manager: cfowler
 editor: 
 tags: 
-keywords: "Azure functions, funktioner, serverlösa arkitektur, infrastruktur som kod, azure resource manager"
+keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distribution för din funktionsapp i Azure Functions
 
@@ -197,7 +197,7 @@ När du har valt ett skalningsalternativ, skapa en funktionsapp. Appen är behå
 En funktionsapp har många underordnade resurser som du kan använda i din distribution, inklusive inställningar för appen och ange alternativ för källa. Kanske du vill ta bort den **sourcecontrols** underordnade resursen och använda en annan [distributionsalternativet](functions-continuous-deployment.md) i stället.
 
 > [!IMPORTANT]
-> För att distribuera programmet med hjälp av Azure Resource Manager, är det viktigt att förstå hur resurser har distribuerats i Azure. I följande exempel tillämpas på den översta nivån konfigurationer med hjälp av **siteConfig**. Det är viktigt att ange dessa konfigurationer på översta nivån, eftersom de överför information till funktioner-motorn för körning och distribution. Översta information krävs innan underordnat **sourcecontrols/web** resurs används. Även om det är möjligt att konfigurera inställningarna i den underordnade nivån **config/appSettings** resurs, i vissa fall måste du distribuera appen funktionen *innan* **config/appSettings** tillämpas. Till exempel när du använder funktioner med [Logikappar](../logic-apps/index.md), dina funktioner är beroende av en annan resurs.
+> För att distribuera programmet med hjälp av Azure Resource Manager, är det viktigt att förstå hur resurser har distribuerats i Azure. I följande exempel tillämpas på den översta nivån konfigurationer med hjälp av **siteConfig**. Det är viktigt att ange dessa konfigurationer på översta nivån, eftersom de överför information till funktioner-motorn för körning och distribution. Översta information krävs innan underordnat **sourcecontrols/web** resurs används. Även om det är möjligt att konfigurera inställningarna i den underordnade nivån **config/appSettings** resurs, i vissa fall måste du distribuera appen funktionen *innan* **config/appSettings** tillämpas. Till exempel när du använder funktioner med [Logikappar](../logic-apps/index.yml), dina funktioner är beroende av en annan resurs.
 
 ```json
 {
@@ -260,7 +260,7 @@ Du kan använda något av följande sätt att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Distribuera till Azure-knappen

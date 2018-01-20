@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
@@ -66,7 +66,7 @@ Följande utdrag visar olika typer av resurser som kan hanteras via en mall:
 1. Förbered ditt kluster Resource Manager-mall för distribution. Se [skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för mer information.
 2. Tänk på att vissa program som du ska distribuera i klustret. Finns det något som kommer alltid att köra som andra program kan ta beroenden? Planerar du distribuera alla kluster styrning eller installationen program? Dessa typer av program som bäst hanteras via en Resource Manager-mall som beskrivs ovan. 
 3. När du har förstått vilka program som du vill att distribuera det här sättet måste programmen paketeras, zippade och placeras på en filresurs. Resursen måste vara tillgängligt via REST-slutpunkt för Azure Resource Manager för att använda under distributionen.
-4. Beskriv egenskaper för varje program i mallen Resource Manager under din kluster-deklaration. Dessa egenskaper innehåller antalet målrepliker eller instanser och alla beroende kedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i [REST API Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Observera att detta ersätter inte programmet eller tjänsten visar, men i stället beskrivs några av vad som finns i dem som en del av klustrets Resource Manager-mall. Här är en exempelmall som innehåller distribuera tillståndslösa tjänsten *Service1* och en tillståndskänslig service *plats2* som en del av *Application1*:
+4. Beskriv egenskaper för varje program i mallen Resource Manager under din kluster-deklaration. Dessa egenskaper innehåller antalet målrepliker eller instanser och alla beroende kedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i [REST API Swagger-specifikationen](https://aka.ms/sfrpswaggerspec). Observera att detta ersätter inte programmet eller tjänsten visar, men i stället beskrivs några av vad som finns i dem som en del av klustrets Resource Manager-mall. Här är en exempelmall som innehåller distribuera tillståndslösa tjänsten *Service1* och en tillståndskänslig service *plats2* som en del av *Application1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ Följande utdrag visar olika typer av resurser som kan hanteras via en mall:
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/29/2017
+ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykel för Service Fabric-program
 Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradering, underhåll och borttagning. Service Fabric har förstklassigt stöd för fullständiga programmet livscykeln för molnprogram, från utveckling till distribution, dagliga hantering och underhåll för inaktivering av eventuell. Tjänstmodellen gör det möjligt för flera olika roller separat delta i programmet livscykel. Den här artikeln innehåller en översikt över de API: er och hur de används av olika roller i faserna i livscykeln för Service Fabric-programmet.
@@ -97,5 +97,5 @@ Mer information om hur du utvecklar Se testning och hantera Service Fabric-progr
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Distribuera ett program](service-fabric-deploy-remove-applications.md)
-* [Uppgradering av programmet](service-fabric-application-upgrade.md)
+* [Programuppgradering](service-fabric-application-upgrade.md)
 * [Möjlighet att testa översikt](service-fabric-testability-overview.md)

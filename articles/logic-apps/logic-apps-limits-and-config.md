@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
@@ -34,7 +34,7 @@ Dessa begränsningar gäller för en enskild HTTP-begäran eller ett anrop för 
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Tidsgräns för förfrågan | 120 sekunder | En [asynk.mönster](../logic-apps/logic-apps-create-api-app.md) eller [tills loop](logic-apps-loops-and-scopes.md) kan kompensera efter behov |
+| Timeout för begäran | 120 sekunder | En [asynk.mönster](../logic-apps/logic-apps-create-api-app.md) eller [tills loop](logic-apps-loops-and-scopes.md) kan kompensera efter behov |
 |||| 
 
 #### <a name="message-size"></a>Meddelandestorlek
@@ -45,7 +45,7 @@ Dessa begränsningar gäller för en enskild HTTP-begäran eller ett anrop för 
 | Gränsen för utvärdering av uttryck | 131,072 tecken | `@concat()`, `@base64()`, `string` får inte vara längre än den här gränsen. | 
 |||| 
 
-#### <a name="retry-policy"></a>Försök princip
+#### <a name="retry-policy"></a>Återförsöksprincip
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
@@ -123,8 +123,8 @@ Dessa begränsningar gäller för anpassade kopplingar som du kan skapa från we
 
 | Namn | Gräns | 
 | ---- | ----- | 
-| Antal anpassade kopplingar som du kan skapa | 1 000 per Azure-prenumeration | 
-| Antal begäranden per minut för varje anslutning som skapats av en anpassad koppling | 500 begäranden för varje anslutning med connector |
+| Antal anpassade anslutningsappar som du kan skapa | 1 000 per Azure-prenumeration | 
+| Antal begäranden per minut för varje anslutning som skapats av en anpassad anslutningsapp | 500 begäranden för varje anslutning som skapats av anslutningsappen |
 ||| 
 
 ### <a name="integration-account-limits"></a>Gränser för integrering
@@ -133,7 +133,7 @@ Dessa begränsningar gäller för artefakter som du kan lägga till ett konto f�
 
 | Namn | Gräns | Anteckningar | 
 | ---- | ----- | ----- | 
-| Schemat | 8 MB | Du kan använda [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) att överföra filer som är större än 2 MB. | 
+| Schema | 8 MB | Du kan använda [blob-URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) att överföra filer som är större än 2 MB. | 
 | Karta (XSLT-fil) | 2 MB | | 
 | Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Distribuera arbetsbelastningen över flera konton efter behov. | 
 | Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Distribuera arbetsbelastningen över flera konton efter behov. | 
@@ -237,7 +237,7 @@ Anropen som [kopplingar](../connectors/apis-list.md) Se kommer från IP-adresser
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Vanliga exempel och scenarier](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Video: Automatisera affärsprocesser med Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Video: Integrera dina system med Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

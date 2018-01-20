@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Kom igång med ProjectOnline-koppling
 Project Online är en flexibel lösning för online för projekthantering portfölj (PPM) och dagliga arbete från Microsoft. Levereras via Office 365 Project Online gör det möjligt att snabbt komma igång med funktioner för hantering av kraftfulla projekt du planerar, prioritera och hantera projekt och projekt portfölj investeringar – från valfri plats på nästan vilken enhet.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-projectonline"></a>Skapa en anslutning till ProjectOnline
 För att skapa logikappar med ProjectOnline, måste du först skapa en **anslutning** ange detaljer för följande egenskaper: 

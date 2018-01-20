@@ -1,6 +1,6 @@
 ---
-title: "Komma igång med Azure Automation | Microsoft Docs"
-description: "Den här artikeln ger en översikt över Azure Automation-tjänsten och beskriver design, implementeringsdetaljer och förberedelser inför distribution från Azure Marketplace."
+title: "Kom igång med Azure Automation | Microsoft Docs"
+description: "Den här artikeln innehåller en översikt över Azure Automation-tjänsten. Den granskar design och implementeringslösning information inför onboarding erbjudande från Azure Marketplace."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,108 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="getting-started-with-azure-automation"></a>Komma igång med Azure Automation
+# <a name="get-started-with-azure-automation"></a>Kom igång med Azure Automation
 
-Den här guiden för att komma igång beskriver grundläggande begrepp för distribution av Azure Automation. Om Automation i Azure är nytt för dig eller om du har erfarenhet av programvara för automatiserade arbetsflöden (till exempel System Center Orchestrator) kan den här guiden hjälpa dig att förstå hur du ska förbereda och publicera Automation.  Sedan kommer du att vara redo att börja utveckla runbooks som stöd i din processautomation. 
+Den här artikeln introducerar grundläggande begrepp som rör distribution av Azure Automation. Om du har använt automatisering i Azure eller har erfarenhet av automation arbetsflödet program som System Center Orchestrator kan du lära dig hur du förbereder och publicera Automation. När du har läst den här artikeln vara du redo att börja utveckla runbooks för att stödja dina behov för automatisering av processen. 
 
 
 ## <a name="automation-architecture-overview"></a>Översikt över arkitekturen i Automation
 
 ![Översikt över Azure Automation](media/automation-offering-get-started/automation-infradiagram-networkcomms.png)
 
-Azure Automation är ett SaaS-program (programvara som en tjänst) som erbjuder en skalbar, tillförlitlig miljö för flera innehavare för att automatisera processer med runbooks och hantera konfigurationsändringar i Windows- och Linux-system med Desired State Configuration (DSC) på Azure, på andra molntjänster eller lokalt. Enheter i ditt Automation-konto, till exempel runbooks, tillgångar och Kör som-konton är isolerade från andra Automation-konton i din prenumeration och andra prenumerationer.  
+Azure Automation är en programvara som en tjänst (SaaS) som ger en skalbar och tillförlitlig multitenant miljö där du kan använda runbooks för att automatisera processer. Du kan använda önskad tillstånd Configuration (DSC) i Azure, andra molntjänster eller i en lokal miljö för att hantera konfigurationer för ändringar i Windows och Linux-system. Entiteter i ditt Automation-konto, inklusive runbooks, resurser och kör som-konton som är isolerad från andra Automation-konton i din prenumeration och från andra prenumerationer.  
 
-De runbooks som du kör i Azure körs i Automation-sandboxar på virtuella Azure PaaS-datorer (plattform som en tjänst).  Automation-sandboxar ger innehavare isolering för alla aspekter av runbook-körningen – moduler, lagring, minne, nätverkskommunikation, jobbströmmar m.m. Den här rollen hanteras av tjänsten och kan inte nås eller kontrolleras från ditt Azure- eller Azure Automation-konto.         
+Runbooks som körs i Azure körs på Automation sandboxar. Sandboxar finns i Azure-plattformen som en tjänst (PaaS) virtuella datorer. 
 
-Om du vill automatisera distributionen och hanteringen av resurser i ditt lokala datacenter eller andra molntjänster när du har skapat ett Automation-konto, kan du välja en eller flera datorer som kör [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)-rollen.  För varje Hybrid Runbook Worker (HRW) behövs en Microsofts-hanteringsagent (MMA) med anslutning till en Log Analytics-arbetsyta och ett Automation-konto.  Log Analytics används för att starta installationen, underhålla MMA-agenten och övervaka funktionerna i Hybrid Runbook Worker.  Azure Automation tar hand om leveransen av runbooks och instruktionen för att köra dem.
+Automation sandboxar ange klientisolering för alla aspekter av runbook-körningen, inklusive moduler, lagring, minne, nätverkskommunikation och dataströmmar för jobbet. Den här rollen hanteras av tjänsten. Du kan inte komma åt eller hantera rollen från Azure eller Automation-konto.         
 
-Du kan distribuera flera HRW för att tillhandahålla hög tillgänglighet för dina runbooks, belastningsutjämna runbookjobb, och i vissa fall dedikera dem till specifika arbetsbelastningar eller miljöer.  Microsofts-hanteringsagent på Hybrid Runbook Worker startar kommunikationen med Automation-tjänsten via TCP-port 443, och det finns inga krav på brandvägg för inkommande trafik.  Om du har en runbook som körs på en Hybrid Runbook Worker i ditt datacenter och vill att runbooken ska utföra hanteringsuppgifter mot andra datorer eller tjänster i miljön, kan runbooken behöva åtkomst till andra portar.  Om dina IT-säkerhetsprinciper inte tillåter att datorer i nätverket ansluter till Internet kan du läsa artikeln [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md), som agerar som proxy för HRW för insamling av jobbstatus och mottagning av konfigurationsinformation från ditt Automation-konto.
+För att automatisera distribution och hantering av resurser i ditt lokala datacenter eller andra molntjänster, när du har skapat ett Automation-konto kan du ange en eller flera virtuella datorer att köra den [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) roll. Varje Runbook Worker-Hybrid kräver Microsoft-hanteringsagenten som ska installeras och ett Automation-konto. Agenten måste ha en anslutning till en Azure logganalys-arbetsyta. Du kan använda Log Analytics för att starta installationen, underhålla Microsoft-hanteringsagenten och övervaka funktionerna i Runbook Worker-hybriden. Azure Automation utför leveransen av runbooks och anvisningarna för att köra dem.
 
-Runbooks som körs på en HRW körs i kontexten för det lokala systemkontot på datorn, vilket är den säkerhetskontext som rekommenderas när du utför administrativa åtgärder på den lokala Windows-datorn. Om du vill att en runbook ska köra aktiviteter mot resurser utanför den lokala datorn måste du definiera säkra inloggningstillgångar i Automation-kontot. Du kan komma åt dessa från runbooken och använda dem för autentisering med den externa resursen. Du kan använda tillgångar som [autentiseringsuppgifter](automation-credentials.md), [certifikat](automation-certificates.md) och [anslutning](automation-connections.md) i din runbook med cmdlets. På så sätt kan du ange autentiseringsuppgifter så att du kan autentisera dem.
+Du kan distribuera flera Hybrid Runbook Workers. Använd Hybrid Runbook Worker för att tillhandahålla hög tillgänglighet för dina runbooks och belastningsutjämning för runbook-jobb. I vissa fall kan tilldela du runbook-jobb för specifika arbetsbelastningar eller miljöer. Microsoft Monitoring Agent på Hybrid Runbook Worker initierar kommunikation med tjänsten Automation via TCP-port 443. Hybrid Runbook Worker har inga krav för inkommande brandväggen.  
 
-DSC-konfigurationer som lagras i Azure Automation kan tillämpas direkt på virtuella datorer i Azure. Andra fysiska och virtuella datorer kan begära konfigurationer från Azure Automation DSC-hämtningsservern.  När det gäller hantering av konfigurationer för dina lokala fysiska eller virtuella Windows- och Linux-system behöver du inte distribuera någon infrastruktur för att kunna använda Automation DSC-hämtningsservern, endast utgående Internet-åtkomst från varje system som ska hanteras av Automation DSC med kommunikation via port 443 (TCP) till OMS-tjänsten.   
+Du kanske vill en runbook som körs på en Hybrid Runbook Worker att utföra hanteringsuppgifter mot andra datorer eller tjänster i din miljö. I det scenariot kan runbook också behöva åtkomst till andra portar. Om din IT-säkerhetsprinciper inte Tillåt datorer i nätverket för att ansluta till internet, granska [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md). Operations Management Suite (OMS) Gateway fungerar som proxy för Hybrid Runbook Worker. Den samlar in jobbstatus och tar emot konfigurationsinformation från ditt Automation-konto.
+
+Runbooks som körs på en Hybrid Runbook Worker körs i kontexten för det lokala systemkontot på datorn. Vi rekommenderar en säkerhetskontext när du utför administrativa åtgärder på den lokala Windows-datorn. Om du vill att runbook körs åtgärder mot resurser som ligger utanför den lokala datorn kan du behöva definiera säker inloggningstillgångar i Automation-kontot. Du kan komma åt säker inloggningstillgångar från runbook och använda dem för att autentisera med den externa resursen. Du kan använda [autentiseringsuppgifter](automation-credentials.md), [certifikat](automation-certificates.md), och [anslutning](automation-connections.md) tillgångar i din runbook. Använda tillgångar med cmdletar som du kan använda för att ange autentiseringsuppgifter för att autentisera dem.
+
+Du kan använda DSC-konfigurationer som lagras i Azure Automation till virtuella datorer. Andra fysiska och virtuella datorer kan begära konfigurationer från hämtningsservern i Automation DSC. Du behöver inte distribuera en infrastruktur för att stödja hämtningsservern Automation DSC för att hantera konfigurationer av din lokala fysiska eller virtuella Windows- och Linux-system. Du behöver bara utgående Internetåtkomst från varje dator som du tänker hantera med hjälp av Automation DSC. Kommunikationen sker via TCP-port 443 till OMS-tjänsten.   
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="automation-dsc"></a>Automation DSC
-Azure Automation DSC kan användas för att hantera olika datorer:
+Du kan använda Automation DSC för att hantera dessa datorer:
 
-* Virtuella Azure-datorer (klassisk) som kör Windows eller Linux
-* Virtuella Azure-datorer som kör Windows eller Linux
-* Virtuella AWS-datorer (Amazon Web Services) som kör Windows eller Linux
-* Fysiska/virtuella Windows-datorer som körs lokalt, eller i ett annat moln än Azure eller AWS
-* Fysiska/virtuella Linux-datorer som körs lokalt, eller i ett annat moln än Azure eller AWS
+* Virtuella Azure-datorer (klassisk) med Windows eller Linux.
+* Virtuella Azure-datorer med Windows eller Linux.
+* Amazon Web Services (AWS) virtuella datorer som kör Windows eller Linux.
+* Fysiska och virtuella Windows-datorer som är lokalt eller i ett moln än Azure eller AWS.
+* Fysiska och virtuella Linux-datorer som finns lokalt eller i ett moln än Azure eller AWS.
 
-Den senaste versionen av WMF 5 måste vara installerad för PowerShell DSC-agenten för att Windows ska kunna kommunicera med Azure Automation. Den senaste versionen av [PowerShell DSC-agenten för Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) måste vara installerad för att Linux ska kunna kommunicera med Azure Automation.
+Den senaste versionen av Windows Management Framework (WMF) 5 måste installeras för Windows-datorer. För Linux-datorer, den senaste versionen av den [PowerShell DSC-agent för Linux](https://www.microsoft.com/en-us/download/details.aspx?id=49150) måste vara installerad. PowerShell DSC-agenten använder WMF 5 för att kommunicera med Automation. 
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker  
-När du anger att en dator ska köra hybrid runbook-jobb måste datorn ha följande:
+När du anger en dator att köra en hybrid runbook måste datorn uppfylla följande krav:
 
-* Windows Server 2012 eller senare
-* Windows PowerShell 4.0 eller senare.  Vi rekommenderar att du installerar Windows PowerShell 5.0 på datorn för ökad tillförlitlighet. Du kan ladda ned den senaste versionen från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395)
-* .NET Framework 4.6.2 eller senare
-* Minst två kärnor
-* Minst 4 GB RAM-minne
+* Windows Server 2012 eller senare.
+* Windows PowerShell 4.0 eller senare. För ökad tillförlitlighet rekommenderar vi Windows PowerShell 5.0. Du kan [hämta den nya versionen](https://www.microsoft.com/download/details.aspx?id=50395) från Microsoft Download Center.
+* .NET framework 4.6.2 eller senare.
+* Minst två kärnor.
+* Minst 4 GB RAM.
 
-### <a name="permissions-required-to-create-automation-account"></a>Behörighet som krävs för att skapa Automation-konton
-För att kunna skapa eller uppdatera Automation-kontot och slutföra det här avsnittet måste du ha vissa behörigheter.   
+### <a name="permissions-required-to-create-an-automation-account"></a>Behörigheter som krävs för att skapa ett Automation-konto
+Du måste ha följande behörigheter och behörigheter att skapa eller uppdatera ett Automation-konto och slutföra de uppgifter som beskrivs i den här artikeln:   
  
-* Om du ska kunna skapa ett Automation-konto måste ditt AD-användarkonto tilldelas en roll med behörigheter motsvarande ägarrollen för Microsoft.Automation-resurser enligt beskrivningen i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).  
-* Om **Ja** har angetts för inställningen Appregistreringar kan användare som inte är administratörer i din Azure AD-klient [registrera AD-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions).  Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD. 
+* Om du vill skapa ett Automation-konto, ditt användarkonto i Azure Active Directory (AD Azure) måste läggas till en roll med behörigheter som motsvarar rollen ägare för **Microsoft.Automation** resurser. Mer information finns i [rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).  
+* I Azure-portalen under **Azure Active Directory** > **hantera** > **App registreringar**om **App registreringar**  är inställd på **Ja**, icke-administratörer i din Azure AD-klient kan [registrera Active Directory-program](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Om **App registreringar** är inställd på **nr**, användaren som utför den här åtgärden måste vara en global administratör i Azure AD. 
 
-Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till i rollen som global administratör/medadministratör för prenumerationen läggs du till i Active Directory som gäst. I så fall visas varningen ”Du har inte behörighet att skapa ...” på bladet **Lägg till Automation-konto**. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
+Om du inte är medlem i Active Directory-instans för prenumerationens innan du lade till rollen som global administratör/coadministrator prenumerationens läggs du till Active Directory som en gäst. I det här scenariot kan du se det här meddelandet på det **lägga till Automation-konto** sida: ”du har inte behörighet att skapa”. 
+
+Om en användare läggs till rollen global administratör/coadministrator först, kan du ta bort dem från prenumerationens Active Directory-instans och nytt läggs till i användarrollen fullständig i Active Directory.
+
+Att verifiera användarroller:
+1. I Azure-portalen går du till den **Azure Active Directory** fönstret.
+2. Välj **användare och grupper**.
+3. Välj **alla användare**. 
+4. När du väljer en viss användare, markerar du **profil**. Värdet för den **användartyp** attribut under användarens profil får inte vara **gäst**.
 
 ## <a name="authentication-planning"></a>Planera för autentisering
-Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders.  För att en runbook ska kunna utföra sina åtgärder måste den ha behörighet att komma åt resurserna på ett säkert sätt med den minsta behörighet som krävs i prenumerationen.  
+Du kan automatisera uppgifter mot resurser som finns i Azure, lokalt och i andra molntjänster i Azure Automation. För en runbook att utföra åtgärderna som krävs måste den ha behörighet att komma åt resurser på ett säkert sätt. Den måste ha de lägsta möjliga rättigheter som krävs i prenumerationen.  
 
-### <a name="what-is-an-automation-account"></a>Vad är ett Automation-konto? 
-Alla automatiseringsaktiviteter som du utför mot resurser med hjälp av Azure-cmdletar i Azure Automation autentiserar till Azure med hjälp av autentiseringsuppgiftsbaserad autentisering med organisationens Azure Active Directory-ID.  Ett Automation-konto är ett annat konto än det som du använder för att logga in på portalen för att konfigurera och använda Azure-resurser.  Följande Automation-resurser ingår i ett konto:
+### <a name="what-is-an-automation-account"></a>Vad är ett Automation-konto 
+Alla automation-aktiviteter som du utför mot resurser med hjälp av cmdlets i Azure Automation autentisera till Azure med Azure AD organisationens identiteten autentiseringsuppgifterna-baserad autentisering.  Ett Automation-konto är separat från det konto som används för att logga in på portalen för att konfigurera och använda Azure-resurser. 
 
-* **Certifikat** – innehåller ett certifikat som används för autentisering från en runbook eller DSC-konfiguration eller lägger till dem.
-* **Anslutningar** – innehåller information om autentisering och konfiguration som krävs för att ansluta till en extern tjänst eller ett externt program från en runbook eller DSC-konfiguration.
-* **Autentiseringsuppgifter** – är ett PSCredential-objekt som innehåller säkerhetsreferenser, som användarnamn och lösenord, och som krävs för att autentisera från en runbook eller DSC-konfiguration.
-* **Integreringsmoduler** – är PowerShell-moduler som ingår i ett Azure Automation-konto för användning av cmdlets i runbooks och DSC-konfigurationer.
-* **Scheman** – innehåller scheman som startar eller stoppar en runbook vid en angiven tidpunkt, även med återkommande frekvens.
-* **Variabler** – innehåller värden som är tillgängliga från en runbook eller DSC-konfiguration.
-* **DSC-konfigurationer** – är PowerShell-skript som beskriver hur du konfigurerar en funktion eller inställning för operativsystem eller installerar ett program på en Windows- eller Linux-dator.  
-* **Runbooks** – är en uppsättning uppgifter som kör automatiserade processer i Azure Automation baserat på Windows PowerShell.    
+Följande resurser finns inkluderade med ett Automation-konto:
 
-Automation-resurserna för varje Automation-konto associeras med en enda Azure-region, men Automation-konton kan hantera alla resurser i din prenumeration. Skapa Automation-konton i olika regioner om du har principer som kräver att data och resurser är isolerade i en specifik region.
+* **Certifikat**. Innehåller ett certifikat som används för autentisering från en runbook eller DSC-konfigurationen. Du kan också lägga till certifikat.
+* **Anslutningar**. Innehåller information om autentisering och konfiguration som krävs för att ansluta till en extern tjänst eller program från en runbook eller DSC-konfigurationen.
+* **Autentiseringsuppgifter**. Innehåller en **PSCredential** -objekt som har behörighet till exempel användarnamn och lösenord. Autentiseringsuppgifterna som krävs för att autentisera från en runbook eller DSC-konfigurationen.
+* **Integreringsmoduler**. PowerShell-moduler som ingår i ett Automation-konto. Använd PowerShell-moduler för att köra cmdlet: ar i runbooks och DSC-konfigurationer.
+* **Scheman**. Innehåller scheman som kan starta eller stoppa en runbook på en angiven tid, inklusive återkommande frekvenser.
+* **Variabler**. Innehåller värden som är tillgängliga från en runbook eller DSC-konfigurationen.
+* **DSC-konfigurationer**. PowerShell-skript som beskriver hur du konfigurerar en inställning eller funktion i operativsystemet eller hur du installerar ett program på en Windows- eller Linux-dator.  
+* **Runbooks**. En uppsättning uppgifter som utför en automatiserad process i Automation baserat på Windows PowerShell.    
 
-När du skapar ett Automation-konto på Azure Portal skapar du automatiskt två autentiseringsenheter:
+Automation-resurser för varje Automation-konto har associerats med en enda Azure-region. Du kan dock använda Automation-konton för att hantera alla resurser i din prenumeration. Skapa Automation-konton i olika regioner om du har principer som kräver att data och resurser är isolerade i en specifik region.
 
-* Ett Kör som-konto. Det här kontot skapar ett tjänstobjekt i Azure Active Directory (AD Azure) och ett certifikat. Det tilldelar också den rollbaserade åtkomstkontrollen (RBAC) för deltagare, som hanterar Resource Manager-resurser med hjälp av runbookflöden.
-* Ett klassiskt Kör som-konto. Det här kontot överför ett hanteringscertifikat som används för att hantera klassiska resurser med hjälp av runbooks.
+Två entiteter för autentisering skapas automatiskt när du skapar ett Automation-konto i Azure-portalen:
 
-Rollbaserad åtkomstkontroll är tillgängligt i Azure Resource Manager-läge för att bevilja tillåtna åtgärder för ett Azure AD-användarkonto och Kör som-konto för att autentisera tjänstobjektet.  Mer information om hur du utvecklar din modell för att hantera Automation-behörigheter finns i artikeln [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).  
+* **Kör som-konto**. Det här kontot har följande uppgifter:
+  - Skapar ett huvudnamn för tjänsten i Azure AD.
+  - Skapar ett certifikat.
+  - Tilldelar den Contributor Role-Based åtkomstkontroll (RBAC), som hanterar Azure Resource Manager-resurser med hjälp av runbooks.
+* **Klassiska kör som-konto**. Det här kontot Överför ett certifikat. Certifikatet används för att hantera klassiska resurser med hjälp av runbooks.
+
+RBAC är tillgänglig med Resource Manager att bevilja tillåtna åtgärder till en Azure AD-användarkontot och kör som-konto. Du kan också använda RBAC för att verifiera att tjänstens huvudnamn. Mer information och hjälp med att utveckla en modell för att hantera behörigheter för Automation finns [rollbaserad åtkomstkontroll i Azure Automation-artikel](automation-role-based-access-control.md).  
 
 #### <a name="authentication-methods"></a>Autentiseringsmetoder
-Följande tabell sammanfattar de olika autentiseringsmetoderna för varje miljö som stöds av Azure Automation.
+I följande tabell sammanfattas de autentiseringsmetoder som du kan använda för varje miljö som har stöd för Azure Automation.
 
 | Metod | Miljö 
 | --- | --- | 
 | Azure Kör som-konto och klassiskt Kör som-konto |Azure Resource Manager och klassisk Azure-distribution |  
 | Azure AD-användarkonto |Azure Resource Manager och klassisk Azure-distribution |  
-| Windows-autentisering |Lokalt datacenter eller annan molnprovider som använder Hybrid Runbook Worker |  
-| AWS-autentiseringsuppgifter |Amazon Web Services |  
+| Windows-autentisering |Lokala datacenter eller annan cloud services provider med hjälp av Hybrid Runbook Worker-rollen |  
+| Amazon Web Services credentials |Amazon Web Services |  
 
-I avsnittet **How to\Authentication and Security** (Anvisningar\Autentisering och säkerhet) finns artiklar som innehåller en översikt och implementeringssteg för att konfigurera autentisering för dessa miljöer, antingen med ett befintligt eller ett nytt konto som du anger för den aktuella miljön.  I [Uppdatera ett Automation-konto](automation-create-runas-account.md) beskrivs hur du uppdaterar ditt befintliga Automation-konto med Kör som-konton från portalen eller med PowerShell, om inte kontot ursprungligen konfigurerades med ett Kör som-konto eller ett klassiskt Kör som-konto. Om du vill skapa ett Kör som- och ett klassiskt Kör som-konto med ett certifikat utfärdat av din utfärdare av företagscertifikat (CA) kan du läsa om att skapa kontona med den här konfigurationen i den här artikeln.     
+Följande artiklar innehåller översikt och implementering steg för att konfigurera autentisering för dessa miljöer. Artiklarna beskriver använder en befintlig och använder ett nytt konto som du dedikerar för den miljön. 
+* [Skapa en fristående Azure Automation-konto](automation-create-standalone-account.md)
+* [Autentisera Runbooks med Azure klassiska distributionen och Resource Manager](automation-create-aduser-account.md)
+* [Autentisera Runbooks med Amazon Web Services](automation-config-aws-account.md)
+* [Uppdatera Automation kör som-konto](automation-create-runas-account.md)
+
+För Azure kör som och klassiska kör som-konton, [uppdatera Automation kör som-konto](automation-create-runas-account.md) beskriver hur du uppdaterar ett befintligt Automation-konto med Kör som-konton från portalen. Det beskriver också hur du använder PowerShell om Automation-kontot inte ursprungligen konfigurerats med en Kör som- eller klassiska kör som-konto. Du kan skapa ett kör som-konto och klassiska kör som-konto med hjälp av ett certifikat som utfärdas av enterprise-certifikatutfärdare (CA). Granska [uppdatering Automation kör som-konto](automation-create-runas-account.md) information om hur du skapar konton med hjälp av den här konfigurationen.     
  
-## <a name="network-planning"></a>Planera för nätverk
-För att Hybrid Runbook Worker ska kunna ansluta till och registreras med Microsoft Operations Management Suite (OMS) måste den ha åtkomst till portnumret och URL:en som anges nedan.  Detta gäller utöver de [portar och URL:er som krävs för att Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) ska kunna ansluta till OMS. Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du se till att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till Internet måste du konfigurera brandväggen att tillåta åtkomst.
+## <a name="network-planning"></a>Planera ditt nätverk
+För Hybrid Runbook Worker kan ansluta till och registrera med OMS måste den ha åtkomst till portnumret och URL: erna som beskrivs i det här avsnittet. Detta är tillägg till den [portar och URL: er som krävs för Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) ska anslutas till OMS. 
 
-Nedan anges porten och de URL:er som krävs för att Hybrid Runbook Worker ska kunna kommunicera med Automation.
+Om du använder en proxyserver för kommunikation mellan agenten och OMS-tjänsten måste du kontrollera att lämpliga resurser är tillgängliga. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst till.
 
-* Port: Endast TCP 443 krävs för utgående Internet-åtkomst
-* Global URL:  *.azure-automation.net
+Följande porten och URL: er krävs att kommunicera med Automation Hybrid Runbook Worker rollen:
 
-Om du har ett Automation-konto som har definierats för en specifik region och vill begränsa kommunikationen med det regionala datacentret finns DNS-posten för varje region i följande tabell.
+* Port: Endast TCP 443 krävs för utgående Internetåtkomst.
+* Global URL: *.azure-automation.net.
+
+Om du har ett Automation-konto som har definierats för en viss region, kan du begränsa kommunikation till det regionala datacentret. Följande tabell innehåller DNS-post för varje region.
 
 | **Region** | **DNS-post** |
 | --- | --- |
@@ -132,59 +157,61 @@ Om du har ett Automation-konto som har definierats för en specifik region och v
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net |
 | Virginia (USA-förvaltad region) | usge-jobruntimedata-prod-su1.azure-automation.us |
 
-Om du behöver en lista med IP-adresser istället för namn kan du ladda ned och läsa igenom XML-filen med [IP-adresser från Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center. 
+En lista över region IP-adresser i stället för regionnamn, hämta den [Azure Datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) XML-fil från Microsoft Download Center. 
 
 > [!NOTE]
-> Den här filen innehåller de IP-adressintervall (inklusive Compute, SQL och Storage-intervall) som används i Microsoft Azure-datacentren. Varje vecka publiceras en uppdaterad fil med aktuella intervall och eventuella kommande ändringar av IP-adressintervallen. De nya intervall som anges i filen kommer inte att börja användas i datacentren förrän om minst en vecka. Ladda ned den nya XML-filen varje vecka och gör nödvändiga ändringar på din webbplats för att kunna identifiera vilka tjänster som körs i Azure. ExpressRoute-användare minns kanske att den här filen användes för att uppdatera Azures BGP-annonser under den första veckan varje månad. 
+> Azure-Datacenter IP-adress XML-filen visas de IP-adressintervall som används i Microsoft Azure-datacenter. Beräkning, SQL och lagring adressintervall ingår i filen. 
+>
+>En uppdaterad fil skickas varje vecka. Filen visar för tillfället distribuerade intervall och eventuella kommande ändringar till IP-adressintervall. Nya adressintervall som visas i filen används inte i datacenter för minst en vecka. 
+>
+> Det är en bra idé att hämta den nya XML-filen varje vecka. Uppdatera din webbplats om du vill identifiera tjänster som körs i Azure. Azure ExpressRoute användare Observera att den här filen används för att uppdatera Border Gateway Protocol (BGP) annonsen Azure utrymme den första veckan i månaden. 
 > 
 
 ## <a name="creating-an-automation-account"></a>Skapa ett Automation-konto
 
-Du kan skapa ett Automation-konto på Azure Portal på olika sätt.  I följande tabell visas varje typ av distribution och skillnaderna mellan dem.  
+I följande tabell beskrivs metoder för att skapa ett Automation-konto i Azure-portalen. Tabellen innehåller information om varje typ av distribution och skillnader.  
 
 |Metod | Beskrivning |
 |-------|-------------|
-| Välj Automatisering och kontroll från Marketplace | Ett erbjudande som skapar både ett Automation-konto och en OMS-arbetsyta som är länkade till varandra i samma resursgrupp och region.  Vid integrering med OMS kan du även använda Log Analytics till att övervaka och analysera statusen för runbook-jobb och jobbströmmar över tid och använda avancerade funktioner till att eskalera eller undersöka problem. I erbjudandet distribueras också lösningar för spårning av ändringar och uppdateringshantering (aktiverat som standard). |
-| Välj Automation från Marketplace | Skapar ett Automation-konto i en ny eller befintlig resursgrupp som inte är länkad till en OMS-arbetsyta och som inte innehåller några tillgängliga lösningar från erbjudandet Automatisering och kontroll. Detta är en grundläggande konfiguration som ger en introduktion till Automation. Med den kan du lära dig hur du skriver runbooks, DSC-konfigurationer och använder funktionerna i tjänsten. |
-| Valda hanteringslösningar | Om du väljer en lösning (**[Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)**, **[Starta/stoppa virtuella datorer utanför arbetstid](automation-solution-vm-management.md)** eller **[Spårning av ändringar](../log-analytics/log-analytics-change-tracking.md)**) uppmanas du att välja en befintlig Automation- och OMS-arbetsyta, eller så erbjuds du möjligheten att skapa dessa om det behövs för den lösning som ska distribueras i din prenumeration. |
+| Välj **Automation- och kontrollservern** i Azure Marketplace | Ett Azure Marketplace-erbjudande skapas ett Automation-konto och OMS-arbetsyta som är länkade och i samma resursgrupp och region. Integrering med OMS även fördelen med att använda Log Analytics att övervaka och analysera runbook-jobbet status och jobbstatus dataströmmar över tid. Du kan också använda de avancerade funktionerna i logganalys eskalera eller undersöka problem. Erbjudandet distribuerar den **ändringsspårning** och **uppdateringshantering** lösningar, som är aktiverade som standard. |
+| Välj **Automation** i Marketplace | Den här metoden skapar ett Automation-konto i en ny eller befintlig resursgrupp som inte är kopplad till en OMS-arbetsyta. Det innehåller inte några tillgängliga lösningar från den **Automation- och kontrollservern** erbjudande. Den här metoden är en grundläggande konfiguration som ger en introducerar till Automation. Det kan hjälpa dig att lära dig hur du skriver runbooks och DSC-konfigurationer och lär dig att använda funktionerna i tjänsten. |
+| Välj **Management** lösningar | Om du väljer en **Management** lösning, inklusive [uppdateringshantering](../operations-management-suite/oms-solution-update-management.md), [Starta/stoppa virtuella datorer vid låg belastning](automation-solution-vm-management.md), eller [ändringsspårning](../log-analytics/log-analytics-change-tracking.md), lösningen uppmanas du att välja ett befintligt Automation-konto och OMS-arbetsyta. Lösningen kan du skapa ett Automation-konto och OMS-arbetsyta som krävs för lösningen ska distribueras i din prenumeration. |
 
-I det här avsnittet visas hur du skapar ett Automation-konto och en OMS-arbetsyta genom att integrera Automatisering och kontroll.  Om du vill skapa ett fristående Automation-konto för testning eller för att förhandsgranska tjänsten kan du läsa artikeln [Skapa fristående Automation-konto](automation-create-standalone-account.md).  
+### <a name="create-an-automation-account-thats-integrated-with-oms"></a>Skapa ett Automation-konto som är integrerad med OMS
+Att publicera Automation, rekommenderar vi att du väljer den **Automation- och kontrollservern** erbjudande på Marketplace. Med den här metoden skapar ett Automation-konto och upprättar integrering med en OMS-arbetsyta. När du använder den här metoden har också möjlighet att installera hanteringslösningarna som är tillgängliga i erbjudandet.  
 
-### <a name="create-automation-account-integrated-with-oms"></a>Skapa Automation-konto integrerat med OMS
-Den rekommenderade metoden för att integrera Automation är att välja erbjudandet Automatisering och kontroll från Marketplace.  Detta skapar både ett Automation-konto och en integrering med en OMS-arbetsyta, inklusive alternativet att installera hanteringslösningar som är tillgängliga med erbjudandet.  
+[Skapa en fristående Automation-konto](automation-create-standalone-account.md) vägleder dig genom processen att skapa ett Automation-konto och OMS-arbetsytan genom onboarding i **Automation- och kontrollservern** erbjudande. Du kan lära dig hur du skapar en fristående Automation-konto för att testa eller Förhandsgranska tjänsten.  
 
-1. Logga in på Azure Portal med ett konto som är medlem i rollen Prenumerationsadministratörer och som är medadministratör för prenumerationen.
+Skapa ett Automation-konto och OMS-arbetsyta med hjälp av den **Automation- och kontrollservern** Marketplace-erbjudande:
 
-2. Klicka på **Ny**.<br><br> ![Välj alternativet Ny på Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+1. Logga in på Azure-portalen med ett konto som är medlem i rollen administratörer för prenumeration och en coadministrator för prenumerationen.
+2. Välj **nya**.<br><br> ![Välj ny på Azure-portalen](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+3. Sök efter **Automation**. I sökresultaten väljer **Automation- och kontrollservern**.<br><br> ![Sök efter och välj kontrollen & Automation i Azure Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+4. Granska beskrivning för att erbjuda och markera **skapa**.  
+5. Under **Automation- och kontrollservern**väljer **OMS-arbetsytan**. Under **OMS arbetsytor**, Välj en OMS-arbetsyta som är kopplad till Azure-prenumerationen som Automation-kontot. Om du inte har en OMS-arbetsyta, Välj **Skapa ny arbetsyta**. Under **OMS-arbetsytan**: 
+  1. För **OMS-arbetsytan**, ange ett namn för det nya arbetsområdet.
+  2. För **prenumeration**, välja en prenumeration att länka till. Om standardvalet inte den prenumeration som du vill använda, Välj prenumerationen från den nedrullningsbara listan.
+  3. För **resursgruppen**, du kan skapa en resursgrupp eller välja en befintlig resursgrupp.  
+  4. För **plats**, Välj en region. Mer information finns i [vilka regioner som Azure Automation finns i](https://azure.microsoft.com/regions/services/). Lösningar som erbjuds i två nivåer: gratis och per nod (OMS) tjänstnivån. Den kostnadsfria nivån har en gräns på mängden data som har samlats in varje dag, Bevarandeperiod och runbook-jobbet runtime minuter. Den per nod (OMS) nivån inte har en gräns på mängden data som samlas in varje dag.  
+  5. Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta, måste du också skapa ett Automation-konto som är kopplad till den nya OMS-arbetsytan. Ta din Azure-prenumeration, resursgrupp och region. 
+    1. Välj **skapa ett Automation-konto**.
+    2. Under **Automatiseringskontot**i den **namn** , ange namnet på Automation-kontot.
+    Alla andra alternativ fylls i automatiskt baserat på OMS-arbetsyta som valts. Du kan inte ändra dessa alternativ. 
+    3. Ett Azure Kör som-konto är standardmetoden för autentisering för erbjudandet. När du har valt **OK**konfigurationsalternativen verifieras och Automation-kontot har skapats. Om du vill spåra förloppet på menyn Välj **meddelanden**. 
+    4. Annars väljer du ett befintligt Automation Kör som-konto. Det konto som du väljer länkad inte redan till en annan OMS-arbetsyta. Om det är, visas ett meddelande. Om kontot är redan länkad till en OMS-arbetsyta, Välj ett annat Automation kör som-konto eller skapa en.
+    5. När du anger eller väljer du informationen som krävs, Välj **skapa**. Informationen har verifierats och Automation-konto och kör som-konton skapas. Du automatiskt tillbaka till den **OMS-arbetsytan** fönstret.  
+6. När du anger eller väljer du informationen som krävs på den **OMS-arbetsytan** väljer **skapa**.  Informationen har verifierats och att arbetsytan har skapats. Om du vill spåra förloppet på menyn Välj **meddelanden**. Du kommer tillbaka till den **Lägg till lösning** fönstret.  
+7. Under **Automation- och kontrollservern** inställningar, bekräfta att du vill installera de förvalda rekommenderade lösningarna. Om du ändrar något av standardalternativen, kan du installera lösningarna individuellt senare.  
+8. Om du vill fortsätta med onboarding Automation och en OMS-arbetsyta, Välj **skapa**. Alla inställningar verifieras och sedan Azure försöker distribuera erbjudandet i din prenumeration. Den här processen kan ta flera sekunder. Om du vill följa upp förloppet i menyn, Välj **meddelanden**. 
 
-3. Sök efter **Automation** och välj sedan **Automatisering och kontroll*** i sökresultaten.<br><br> ![Sök efter och välj Automatisering och kontroll från Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
-
-4. Klicka på **Skapa** när du har läst beskrivningen för erbjudandet.  
-
-5. Välj **OMS-arbetsyta** på inställningsbladet **Automatisering och kontroll**.  På bladet **OMS-arbetsytor** kan du välja en OMS-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot eller skapa en ny OMS-arbetsyta.  Om du inte har en OMS-arbetsyta väljer du **Skapa ny arbetsyta** och utför följande på bladet **OMS-arbetsyta**: 
-   - Ange ett namn för den nya **OMS-arbetsytan**.
-   - Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
-   - Du kan skapa en **resursgrupp** eller välja en befintlig resursgrupp.  
-   - Välj en **Plats**.  Mer information finns i avsnittet om [tillgängliga regioner för Azure Automation](https://azure.microsoft.com/regions/services/).  Lösningarna är tillgängliga på två nivåer: kostnadsfritt och per nod (OMS).  Den kostnadsfria nivån har en gräns för mängden information som samlas in varje dag, kvarhållningsperioden och körtid för runbook-jobb.  Per nod (OMS) har ingen daglig gräns för insamlad data.  
-   - Välj **Automation-konto**.  Om du skapar en ny OMS-arbetsyta måste du också skapa ett Automation-konto som ska associeras med den nya OMS-arbetsytan, inklusive din Azure-prenumeration, resursgrupp och region.  Du kan välja **Skapa ett Automation-konto** och ange följande på bladet **Automation-konto**: 
-  - I fältet **namn** anger du namnet på Automation-kontot.
-
-    Alla andra alternativ fylls i automatiskt baserat på den valda OMS-arbetsytan. Dessa alternativ kan inte ändras.  Ett Azure Kör som-konto är standardmetoden för autentisering för erbjudandet.  När du klickar på **OK** verifieras konfigurationsalternativen och Automation-kontot skapas.  Du kan spåra förloppet under **Meddelanden** på menyn. 
-
-    Annars väljer du ett befintligt Automation Kör som-konto.  Kontot du väljer får inte redan vara länkat till en annan OMS-arbetsyta. I så fall visas ett meddelande i bladet.  Om det redan är länkat måste du välja ett annat Automation Kör som-konto eller skapa ett nytt.
-
-    När du har angett informationen som behövs klickar du på **Skapa**.  Informationen verifieras och Automation-kontot och Kör som-kontona skapas.  Du återgår automatiskt till bladet **OMS-arbetsyta**.  
-
-6. När du har angett informationen som krävs på bladet **OMS-arbetsyta**, klickar du på **Skapa**.  När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn.  Du kommer tillbaka till bladet **Lägg till lösning**.  
-
-7. På inställningsbladet **Automatisering och kontroll** bekräftar du att du vill installera de rekommenderade förvalda lösningarna. Om du avmarkerar någon av dessa kan du installera dem individuellt senare.  
-
-8. Klicka på **Skapa** för att fortsätta med integreringen av Automation och OMS-arbetsytan. Alla inställningar verifieras och sedan distribueras lösningen i din prenumeration.  Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **Meddelanden** på menyn. 
-
-När erbjudandet har integrerats kan du börja skapa runbooks, arbeta med hanteringslösningarna som du har aktiverat, distribuera rollen [Hybrid Runbook worker](automation-hybrid-runbook-worker.md) eller börja arbeta med [Log Analytics](https://docs.microsoft.com/azure/log-analytics) och samla in data som genereras av resurser i molnet eller som finns lokalt.   
+När erbjudandet har publicerats eller så kan göra du följande:
+* Börja skapa runbooks.
+* Arbeta med hanteringslösningar som du har aktiverat.
+* Distribuera en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) roll.
+* Börjar arbeta med [logganalys](https://docs.microsoft.com/azure/log-analytics) att samla in data som genereras av resurser i molnet eller lokala miljön.   
 
 ## <a name="next-steps"></a>Nästa steg
-* Du kan bekräfta att det nya Automation-kontot kan autentisera mot Azure-resurser genom att granska [testa autentisering av Azure Automation Kör som-konto](automation-verify-runas-authentication.md).
-* Om du vill komma igång med att skapa runbooks ska du först kontrollera vilka [typer av Automation-runbooks](automation-runbook-types.md) som stöds och liknande information innan du börjar skriva.
+* Kontrollera att det nya Automation-kontot kan autentiseras mot Azure-resurser. Mer information finns i [Test Azure Automation kör som-konto autentisering](automation-verify-runas-authentication.md).
+* Lär dig hur du kommer igång med att skapa runbooks och relaterade faktorer innan du börjar redigera. Mer information finns i [runbook automatiseringstyper](automation-runbook-types.md).
 
 

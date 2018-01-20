@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: szark
-ms.openlocfilehash: c829f5d9a90b4260c6f41b2d9e511a0c6cb48f18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e90e928bed41abc00ad4c5b8dcdfad35cb3cbbdc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbered en virtuell SLES- eller openSUSE-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har installerat en SUSE eller openSUSE Linux-operativsystem till en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Instruktioner finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](http://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE installationsinformation
@@ -81,7 +81,7 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 11. Det rekommenderas att redigera filen ”/ etc/sysconfig/nätverk/dhcp” och ändra den `DHCLIENT_SET_HOSTNAME` parameter till följande:
     
-     DHCLIENT_SET_HOSTNAME = ”Nej”
+     DHCLIENT_SET_HOSTNAME="no"
 12. Kommentera ut eller ta bort följande rader om de finns i ”/ etc/sudoers”:
     
      Som standard targetpw # be om lösenordet för målanvändaren d.v.s. rot alla ALL=(ALL) alla # varning! Använd endast denna tillsammans med 'Standardvärden targetpw'!
@@ -95,7 +95,7 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - avetablering
     # <a name="export-histsize0"></a>Exportera HISTSIZE = 0
-    # <a name="logout"></a>Logga ut
+    # <a name="logout"></a>logga ut
 16. Klicka på **åtgärd -> stängs ned** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
 
 - - -
@@ -138,7 +138,7 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
      reservera libata.atapi_enabled=0 = 0x1f0, 0x8
 7. Det rekommenderas att redigera filen ”/ etc/sysconfig/nätverk/dhcp” och ändra den `DHCLIENT_SET_HOSTNAME` parameter till följande:
    
-     DHCLIENT_SET_HOSTNAME = ”Nej”
+     DHCLIENT_SET_HOSTNAME="no"
 8. **Viktigt:** i ”/ etc/sudoers”, kommentera ut eller ta bort följande rader om de finns:
    
      Som standard targetpw # be om lösenordet för målanvändaren d.v.s. rot alla ALL=(ALL) alla # varning! Använd endast denna tillsammans med 'Standardvärden targetpw'!
@@ -152,12 +152,12 @@ Som ett alternativ till att skapa egna VHD SUSE publiceras även BYOS (ta med di
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - avetablering
     # <a name="export-histsize0"></a>Exportera HISTSIZE = 0
-    # <a name="logout"></a>Logga ut
+    # <a name="logout"></a>logga ut
 12. Kontrollera Azure Linux-agenten körs vid start:
     
         # sudo systemctl enable waagent.service
 13. Klicka på **åtgärd -> stängs ned** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att använda din virtuella hårddisk SUSE Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure finns i steg 2 och 3 i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Nu är du redo att använda din virtuella hårddisk SUSE Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure finns i steg 2 och 3 i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

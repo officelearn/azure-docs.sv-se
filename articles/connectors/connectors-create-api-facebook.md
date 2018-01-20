@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27a9297c5d4cfb52f254ceb12e37423403e7f41b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Kom igång med Facebook-koppling
 Ansluta till Facebook och skicka till en tidslinje, hämta ett Sidflöde och mycket mer. Med Facebook kan du:
@@ -28,7 +28,7 @@ Ansluta till Facebook och skicka till en tidslinje, hämta ett Sidflöde och myc
 * Använda en utlösare när en ny post tas emot.
 * Använd åtgärder som gör ett inlägg i tidslinjen hämta ett Sidflöde och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. När det finns ett nytt inlägg på tidslinjen, kan du ta den post och push-installera den Twitter-flöde. 
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Skapa en anslutning till Facebook
 När du lägger till den här anslutningen dina logic apps måste du godkänna logikappar att ansluta till dina Facebook.

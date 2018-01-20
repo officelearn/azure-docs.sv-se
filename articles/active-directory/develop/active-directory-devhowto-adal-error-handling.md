@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Felhantering Metodtips för klienter för Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Det finns en uppsättning fel som genereras av operativsystemet, vilket kan krä
 
 Det är grunden, två fall av AcquireTokenSilent fel:
 
-| Ärende | Beskrivning |
+| Fall | Beskrivning |
 |------|-------------|
 | **Fall 1**: fel kan matchas med en interaktiv inloggning | En interaktiv begäran är nödvändiga för fel som orsakats av brist på giltig token. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken ett AcquireToken-anrop för att lösa.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan du göra en interaktiv begäran omedelbart efter användarinteraktion (till exempel träffa en inloggningsknapp) eller senare. Det beror på önskat beteende för programmet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den.|
 | **Fall 2**: fel kan inte matchas med en interaktiv inloggning | För nätverket och tillfälligt/tillfälliga fel eller andra fel löser utför en interaktiv AcquireToken begäran inte problemet. Onödiga frågor för interaktiv inloggning kan också vara frustrerande för användare. ADAL försöker automatiskt en enda retry för de flesta fel på AcquireTokenSilent fel.<br><br>Klientprogrammet kan även ett nytt försök förr eller senare, men när och hur du gör det är beroende av programmets beteende och önskade slutanvändarens upplevelse. Programmet kan till exempel göra en AcquireTokenSilent försök igen efter några minuter eller som svar på en åtgärd som slutanvändaren. En omedelbara försök resulterar i programmet begränsas och inte ska testas.<br><br>Efterföljande försök igen med samma fel innebär inte klienten gör en interaktiv begäran med hjälp av AcquireToken, eftersom den inte åtgärda felet.<br><br>Visa koden i följande avsnitt för den här specifika fall och de fel som diagnostiserar den. |
@@ -58,8 +58,8 @@ Det är grunden, två fall av AcquireTokenSilent fel:
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - [inaktuell] acquireTokenSilent(...)
 - [inaktuell] acquireTokenByRefreshToken(...) 
 
@@ -102,7 +102,7 @@ catch (AdalException e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
 - [inaktuell] acquireTokenSilent(...)
 
@@ -138,7 +138,7 @@ public void onError(Exception e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 Koden skulle genomföras enligt följande:
 
@@ -208,10 +208,10 @@ Hantera fel i intern program kan definieras av två fall:
 
 Vägledningen innehåller exempel för felhantering tillsammans med alla icke-tysta AcquireToken(...) ADAL-metoder, *utom*: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion,…)   
 
 Koden skulle genomföras enligt följande:
 
@@ -252,7 +252,7 @@ catch (AdalException e) {
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- acquireToken(..., PromptBehavior.Never)
+- acquireToken(…, PromptBehavior.Never)
 
 Koden skulle genomföras enligt följande:
 
@@ -344,7 +344,7 @@ Om du utvecklar en .NET-webbapp som anropar hämtar en token med hjälp av en Au
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 Koden skulle genomföras enligt följande:
 
@@ -413,10 +413,10 @@ För *alla* tjänst-till-tjänst programmet scenarier, inklusive on-behalf-of:
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
 Koden skulle genomföras enligt följande:
 
@@ -441,7 +441,7 @@ För *on-behalf-of* Programscenarier tjänst-till-tjänst.
 
 Vägledningen innehåller exempel för felhantering tillsammans med ADAL-metoder: 
 
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, UserAssertion, …)
 
 Koden skulle genomföras enligt följande:
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 Använd kommentaravsnittet nedan om du vill ge feedback och hjälp oss att förfina och utforma innehållet.
 
+[![Logga in knappen][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Använd kommentaravsnittet nedan om du vill ge feedback och hjälp oss att förf
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[! [Logga in knappen] [AAD-inloggning]] [AAD-inloggning] [AAD-inloggning]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

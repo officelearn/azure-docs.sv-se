@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Utforma, skapa och distribuera Azure Logic Apps i Visual Studio
 
 Även om den [Azure-portalen](https://portal.azure.com/) erbjuder ett bra sätt att skapa och hantera Azure Logic Apps kan du använda Visual Studio för att utforma, skapa och distribuera dina logic apps. Visual Studio innehåller omfattande verktyg som logik App Designer att skapa logikappar, konfigurera mallar för distribution och automatisering och distribuera till vilken miljö. 
 
-Lär dig att komma igång med Azure Logikappar [hur du skapar din första logikapp i Azure portal](logic-apps-create-a-logic-app.md).
+Lär dig att komma igång med Azure Logikappar [hur du skapar din första logikapp i Azure portal](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Installationssteg
 
 Följ dessa steg för att installera och konfigurera Visual Studio tools för Logikappar i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) eller Visual Studio 2015
 * [Den senaste Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 eller senare)
@@ -228,7 +228,7 @@ Om du har en befintlig resursgrupp-projekt kan du lägga till din logikapp proje
     
 4. I den **Lägg till resurs** dialogrutan, lokaliserar och markerar **Logikapp**. Namnge din logikapp och välj **Lägg till**.
 
-    ![Lägga till en resurs](./media/logic-apps-deploy-from-vs/addresource.png)
+    ![Lägg till resurs](./media/logic-apps-deploy-from-vs/addresource.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

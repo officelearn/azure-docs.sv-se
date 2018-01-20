@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9c2ac737c9f4e13b4e5e4f5dba18c7a697f6e6c3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium-lagring (ohanterade diskar)
 
@@ -45,7 +45,7 @@ Slutföra migreringsprocessen i sin helhet kan kräva ytterligare åtgärder bå
 ## <a name="plan-the-migration-to-premium-storage"></a>Planera för migrering till Premium-lagring
 Det här avsnittet säkerställer att du är redo att följa stegen i migreringen i den här artikeln och hjälper dig att göra det bästa på VM- och diskresurser typer.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * Du behöver en Azure-prenumeration. Om du inte har någon, kan du skapa en månad [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/) prenumeration eller besök [priser för Azure](https://azure.microsoft.com/pricing/) fler alternativ.
 * Om du vill köra PowerShell-cmdlets, måste Microsoft Azure PowerShell-modulen. Information om installationsplatser och installationsanvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * När du planerar att använda Azure virtuella datorer som körs på Premium-lagring måste du använda Premium-lagring kan virtuella datorer. Du kan använda Standard- och Premium-lagring diskar med Premium-lagring kan virtuella datorer. Premium-lagringsdiskar kommer att vara tillgänglig med flera VM-typer i framtiden. Läs mer på alla tillgängliga Virtuella Azure-disktyper och storlekar, [storlekar för virtuella datorer](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [storlekar för molntjänster](../../cloud-services/cloud-services-sizes-specs.md).
@@ -61,7 +61,7 @@ Det finns fem typer av diskar som kan användas med den virtuella datorn och var
 
 | Premium diskar typ  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek           | 128 GB| 512 GB| 1 024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 | IOPS per disk       | 500   | 2 300  | 5000           | 7500           | 7500           | 
 | Dataflöde per disk | 100 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund |
 
@@ -94,7 +94,7 @@ Följande avsnitt innehåller riktlinjer för att förbereda virtuella hårddisk
 * [Scenario 1: ”jag migrera befintliga virtuella Azure-datorer till Azure Premium-lagring”.](#scenario1)
 * [Scenario 2: ”jag migrera virtuella datorer från andra plattformar till Azure Premium-lagring”.](#scenario2)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 För att förbereda de virtuella hårddiskarna för migrering, behöver du:
 
 * En Azure-prenumeration, ett lagringskonto och en behållare i det lagringskonto som du kan kopiera den virtuella Hårddisken. Observera att mål-lagringskontot kan vara ett Standard eller Premium-lagring konto utifrån dina behov.
@@ -290,7 +290,7 @@ Mer information om hur du använder AzCopy verktyget, se [överföra data med ko
 ##### <a name="other-options-for-uploading-a-vhd"></a>Andra alternativ för att överföra en virtuell Hårddisk
 Du kan också ladda upp en virtuell Hårddisk till ditt lagringskonto med någon av följande metoder:
 
-* [Azure Storage kopiera Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+* [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 * [Azure Storage Explorer överför Blobbar](https://azurestorageexplorer.codeplex.com/)
 * [Storage Import/Export Service REST API-referens](https://msdn.microsoft.com/library/dn529096.aspx)
 
@@ -760,13 +760,13 @@ Se följande resurser för specifika scenarier för att migrera virtuella datore
 
 * [Migrera Azure virtuella datorer mellan Storage-konton](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Skapa och ladda upp en Windows Server VHD till Azure.](../../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrering av virtuella datorer från Amazon AWS till Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Se även följande resurser för att du lär dig mer om Azure Storage- och virtuella datorer i Azure:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtuella Azure-datorer](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Premium Storage: Lagring med höga prestanda för Azure Virtual Machines-arbetsbelastningar](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="run-custom-mapreduce-programs"></a>Kör anpassade MapReduce-program
+# <a name="run-custom-mapreduce-programs"></a>Köra anpassade MapReduce-program
 
 System för Hadoop-baserade stordata, till exempel HDInsight aktivera databearbetning med hjälp av en mängd olika verktyg och tekniker. I följande tabell beskrivs de huvudsakliga fördelarna och överväganden för var och en.
 
@@ -77,7 +77,7 @@ De vanligaste MapReduce-program är skriven i Java och kompileras till en jar-fi
 
     Det här kommandot skickar MapReduce-jobb att YARN. Indatafilen är `/example/data/sample.log`, och den angivna katalogen är `/example/data/logoutput`. Indatafilen och utgående filer lagras till standardlagring för klustret.
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 * [Använda C# med MapReduce strömning på Hadoop i HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Utveckla Java-MapReduce-program för Hadoop i HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

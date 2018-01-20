@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (Klassisk distribution)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Hur en klient ansluter till SQL Server som körs på en virtuell dator varierar 
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Ansluta till SQL Server i samma molntjänst
-Flera virtuella datorer kan skapas i samma molntjänst. Det här scenariot för virtuella datorer finns [så att ansluta virtuella datorer med virtuella nätverk eller molnet](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server körs på en annan virtuell dator i samma molntjänst.
+Flera virtuella datorer kan skapas i samma molntjänst. Det här scenariot för virtuella datorer finns [så att ansluta virtuella datorer med virtuella nätverk eller molnet](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server körs på en annan virtuell dator i samma molntjänst.
 
 I det här scenariot kan du ansluta med hjälp av den virtuella datorn **namn** (visas även som **datornamn** eller **värdnamn** i portalen). Detta är det namn du angett för den virtuella datorn när du skapar. Till exempel om du har gett din SQL-VM **mysqlvm**, en klient VM i samma molntjänst kan använda följande anslutningssträng för att ansluta:
 

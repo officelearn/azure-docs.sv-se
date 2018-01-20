@@ -29,7 +29,7 @@ Innan du kan koppla bort en disk från en virtuell dator måste du ta reda på L
 3. Notera LUN-numret eller det **logiska enhetsnumret** för den disk som du vill koppla från.
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>Ta bort operativsystemreferenser till disken
-Innan du kopplar bort disken från Linux-gästen kontrollerar du att inga partitioner på disken används. Kontrollera att operativsystemet inte försöker montera om dem efter en omstart. Dessa steg ångrar konfigurationen som du antagligen skapade när du [anslöt](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) disken.
+Innan du kopplar bort disken från Linux-gästen kontrollerar du att inga partitioner på disken används. Kontrollera att operativsystemet inte försöker montera om dem efter en omstart. Dessa steg ångrar konfigurationen som du antagligen skapade när du [anslöt](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) disken.
 
 1. Använd `lsscsi`-kommandot för att identifiera diskens identifierare. `lsscsi` kan installeras med `yum install lsscsi` (Red Hat-baserade distributioner) eller med `apt-get install lsscsi` (Debian-baserade distributioner). Du kan hitta diskidentifieraren som du letar efter med hjälp av LUN-numret. Det sista numret i tuppeln på varje rad är LUN-numret. I följande exempel från `lsscsi` mappar LUN 0 till */dev/sdc*
 

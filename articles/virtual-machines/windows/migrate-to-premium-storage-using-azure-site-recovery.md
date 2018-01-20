@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: ca7489b18c53825bad7790ae4718f2c724716856
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 66e0e7a1fc620d0be9bd7057be4e04d628da174e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium-lagring med hjälp av Azure Site Recovery
 
@@ -68,7 +68,7 @@ Dessa är Azure kraven för den här Migreringsscenario:
 * Azure-nätverk som virtuella datorer ska ansluta till när de skapas under växling vid fel. Virtuella Azure-nätverket måste vara i samma region som Site Recovery körs.
 * Ett Azure standardlagring-konto för att lagra replikeringsloggar. Det kan vara samma lagringskonto för de Virtuella diskar som ska migreras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Förstå komponenterna i relevanta migrering scenariot i föregående avsnitt.
 * Planera din driftstopp genom att lära dig mer om [redundans i Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -199,7 +199,7 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknande till en
 ## <a name="post-migration-steps"></a>Eftermigreringen
 
 1. **Konfigurera replikerade virtuella datorerna till tillgänglighetsuppsättning om tillämpligt**. Site Recovery stöder inte migrera virtuella datorer tillsammans med tillgänglighetsuppsättningen. Beroende på distribution av den replikerade virtuella datorn, gör du något av följande:
-   * För en virtuell dator som skapats via den klassiska distributionsmodellen: lägga till den virtuella datorn till tillgänglighetsuppsättning i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability.md#addmachine).
+   * För en virtuell dator som skapats via den klassiska distributionsmodellen: lägga till den virtuella datorn till tillgänglighetsuppsättning i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability-classic.md).
    * För en virtuell dator som skapats via Resource Manager-distributionsmodellen: spara konfigurationen av den virtuella datorn och ta sedan bort och återskapa de virtuella datorerna i tillgänglighetsuppsättningen. Gör du genom att använda skript på [ange Azure Resource Manager VM Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Innan du kör det här skriptet, kontrollera vissa begränsningar och planera din driftstopp.
 
 2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att diskarna Premium är konsekventa med källan diskar och att de nya virtuella datorerna utför samma funktion som virtuella källdatorer. Ta bort den virtuella datorn och ta bort diskar från källan storage-konton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [Felsöka när du tar bort virtuella hårddiskar](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -217,14 +217,14 @@ Specifika scenarier för att migrera virtuella datorer finns i följande resurse
 
 * [Migrera Azure virtuella datorer mellan Storage-konton](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Skapa och ladda upp en Windows Server VHD till Azure](classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrering av virtuella datorer från Amazon AWS till Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Se även följande resurser för att du lär dig mer om Azure Storage- och virtuella datorer i Azure:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtuella Azure-datorer](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium-lagring: Högpresterande lagring för arbetsbelastningar på virtuella Azure-datorn](premium-storage.md)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Premium Storage: Lagring med höga prestanda för virtuella Azure-datorarbetsbelastningar](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

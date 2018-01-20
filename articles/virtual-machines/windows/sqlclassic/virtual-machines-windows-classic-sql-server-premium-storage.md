@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 ## <a name="overview"></a>Översikt
@@ -132,7 +132,7 @@ Använd följande steg för varje disk:
     ![VirtualDiskPropertyDetails][4]
 6. För varje lagringspool dump ut de associera diskarna:
 
-    Get-StoragePool - FriendlyName AMS1pooldata | Get-PhysicalDisk
+    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
     ![GetStoragePool][5]
 
@@ -270,7 +270,7 @@ Det här scenariot visar där du har befintliga anpassade avbildningar som finns
 
 
 #### <a name="step-3-use-existing-image"></a>Steg 3: Använd befintlig avbildning
-Du kan använda en befintlig avbildning. Du kan [ta en bild av en befintlig dator](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera den datorn som du avbildningen inte behöver DS * dator. När du har bilden följande steg visar hur du kopierar den till Premium Storage-konto med den **Start AzureStorageBlobCopy** PowerShell-kommandot.
+Du kan använda en befintlig avbildning. Du kan [ta en bild av en befintlig dator](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Observera den datorn som du avbildningen inte behöver DS * dator. När du har bilden följande steg visar hur du kopierar den till Premium Storage-konto med den **Start AzureStorageBlobCopy** PowerShell-kommandot.
 
     #Get storage account keys:
     #Standard Storage account
@@ -1096,7 +1096,7 @@ Om du vill lägga till i IP-adress, finns det [bilaga](#appendix-migrating-a-mul
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Azure Premium-lagring](../premium-storage.md)
+* [Azure Premium Storage](../premium-storage.md)
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQLServer i Azure-datorer](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

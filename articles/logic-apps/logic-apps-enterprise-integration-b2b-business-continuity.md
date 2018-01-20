@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Logic Apps B2B mellan region-katastrofåterställning
 
@@ -92,7 +92,7 @@ Om du vill aktivera katastrofåterställning för inkommande meddelanden, välje
 
 ![Välj kontrollen av dubblett-inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Skapa en [logikapp](../logic-apps/logic-apps-create-a-logic-app.md) i en sekundär region.    
+1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
 
 2. Sök på **X12**, och välj **X12-när ett kontrollnummer ändras**.   
 
@@ -115,7 +115,7 @@ Om du vill aktivera katastrofåterställning för inkommande meddelanden, välje
 
 6. Sök på **X12**, och välj **X12-Lägg till eller uppdatera kontroll siffror**.   
 
-   ![Lägg till eller uppdatera kontroll siffror](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Lägg till eller uppdatera kontrollnummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. För att ansluta en åtgärd på en sekundär region integration konto, Välj **ändra anslutningen** > **Lägg till ny anslutning** för en lista över tillgängliga integrationskonton. Ange ett anslutningsnamn, markera din *sekundär region integration konto* i listan, och välj **skapa**. 
 
@@ -147,7 +147,7 @@ Om du vill aktivera katastrofåterställning för inkommande meddelanden, välje
 
 ![Välj kontrollen av dubblett-inställningar](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Skapa en [logikapp](../logic-apps/logic-apps-create-a-logic-app.md) i en sekundär region.    
+1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i en sekundär region.    
 
 2. Sök på **EDIFACT**, och välj **EDIFACT - när ett kontrollnummer ändras**.
 
@@ -170,7 +170,7 @@ Om du vill aktivera katastrofåterställning för inkommande meddelanden, välje
 
 7. Sök på **EDIFACT**, och välj **EDIFACT - Lägg till eller uppdatera kontroll siffror**.   
 
-   ![Lägg till eller uppdatera kontroll siffror](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Lägg till eller uppdatera kontrollnummer](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. För att ansluta en åtgärd på en sekundär region integration konto, Välj **ändra anslutningen** > **Lägg till ny anslutning** för en lista över tillgängliga integrationskonton. Ange ett anslutningsnamn, markera din *sekundär region integration konto* i listan, och välj **skapa**.
 
@@ -199,7 +199,7 @@ Kontinuitet för företag för dokument som använder AS2-protokollet baseras p�
 > [!TIP]
 > Du kan också använda den [AS2 Snabbstart mallen](https://github.com/Azure/azure-quickstart-templates/pull/3302) att skapa logikappar. Skapa primära och sekundära integrationskonton är förutsättningar för att använda mallen. Mallen hjälper dig att skapa en logikapp som har en utlösare och en åtgärd. Logikappen skapar en anslutning från en utlösare på en primär integrering och en åtgärd till en sekundär integration konto.
 
-1. Skapa en [logikapp](../logic-apps/logic-apps-create-a-logic-app.md) i den sekundära regionen.  
+1. Skapa en [logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) i den sekundära regionen.  
 
 2. Sök på **AS2**, och välj **AS2 - när ett MIC värdet skapas**.   
 

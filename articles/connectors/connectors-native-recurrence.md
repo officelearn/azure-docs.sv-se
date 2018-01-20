@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Schemalägga aktiviteter och arbetsflöden som körs regelbundet med logic apps
 
-Om du vill schemalägga aktiviteter, åtgärder, arbetsbelastningar eller processer som körs regelbundet, kan du skapa ett arbetsflöde för logik app som börjar med den **schema - upprepning** [utlösaren](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts). Du kan ange ett datum och tid för att starta återkommande och ett återkommande schema för att utföra uppgifter som att de här exemplen och mer med den här utlösaren:
+Om du vill schemalägga aktiviteter, åtgärder, arbetsbelastningar eller processer som körs regelbundet, kan du skapa ett arbetsflöde för logik app som börjar med den **schema - upprepning** [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts). Du kan ange ett datum och tid för att starta återkommande och ett återkommande schema för att utföra uppgifter som att de här exemplen och mer med den här utlösaren:
 
 * Hämta interna data: [köra en SQL-lagrade procedur](../connectors/connectors-create-api-sqlazure.md) varje dag.
 * Hämta externa data: hämta väderrapporter från NOAA var 15: e minut.
@@ -42,15 +42,15 @@ Den här utlösaren stöder många mönster, till exempel:
 
 När upprepning utlösaren utlöses varje gång, Logic Apps skapar och kör en ny instans av arbetsflödet logik app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Annars kan du [registrera dig för en prenumeration enligt principen Betala per användning](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Lägg till en upprepning utlösare i din logikapp
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Skapa en tom logikapp eller Läs [så här skapar du en tom logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+1. Logga in på [Azure Portal](https://portal.azure.com). Skapa en tom logikapp eller Läs [så här skapar du en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. När Logic Apps Designer visas i sökrutan anger du ”återkommande” som filter. Välj den **schema - upprepning** utlösare. 
 
@@ -147,7 +147,7 @@ Här är ett exempel upprepning utlösardefinition:
 **F:** vad är andra exempel återkommande scheman? </br>
 **S:** följer fler exempel:
 
-| Upprepning | intervall | frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
+| Upprepning | Intervall | Frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
 | Kör varje kvart (inget datum och tid) | 15 | Minut | {Ingen} | {tillgänglig} | {Ingen} | {Ingen} | Det här schemat startar omedelbart och beräknar framtida repetitioner baserat på senaste körning. | 
 | Kör var 15: e minut (med datum och tid) | 15 | Minut | *startDate*T*startTime*Z | {tillgänglig} | {Ingen} | {Ingen} | Det här schemat startar inte *alla snabbare* än angivet datum och tid beräknas framtida repetitioner baserat på senaste körning. | 
@@ -163,7 +163,7 @@ Här är ett exempel upprepning utlösardefinition:
 | Kör på 8:30:00 varje dag (med datum och tid) | 1 | Dag | *startDate*T08:30:00Z | {tillgänglig} | {Ingen} | {Ingen} | Det här schemat startar på det angivna startdatumet kl 8:30. | 
 | Kör på 8:30 och 4:30:00 varje dag | 1 | Dag | {Ingen} | {tillgänglig} | 8, 16 | 30 | | 
 | Kör på 8:30 AM, 8:45 AM, 4:30 PM och 4:45 PM varje dag | 1 | Dag | {Ingen} | {tillgänglig} | 8, 16 | 30, 45 | | 
-| Kör varje lördag kl (inget datum och tid) | 1 | Vecka | {Ingen} | ”Lördag” | 17 | 00 | Schemat körs varje lördag kl: 00. | 
+| Kör varje lördag kl (inget datum och tid) | 1 | Vecka | {Ingen} | ”Lördag” | 17 | 0 | Schemat körs varje lördag kl: 00. | 
 | Kör varje lördag kl (med datum och tid) | 1 | Vecka | *startDate*T17:00:00Z | ”Lördag” | {Ingen} | {Ingen} | Det här schemat startar inte *alla snabbare* än det angivna start datum och tid, i det här fallet 9 September 2017 17:00:00. Framtida repetitioner kör varje lördag kl: 00. | 
 | Kör varje tisdag, torsdag kl | 1 | Vecka | {Ingen} | ”Tisdag”, ”torsdag” | 17 | {Ingen} | Schemat körs varje tisdag och torsdag kl: 00. | 
 | Kör varje timme under arbetstid | 1 | Vecka | {Ingen} | Välj alla dagar utom lördag och söndag. | Välj tidpunkter på dagen som du vill. | Välj några minuter för den som du vill. | Till exempel om din arbetstid 8:00:00 till 5:00, välj ”8, 9, 10, 11, 12, 13, 14, 15, 16, 17” som tidpunkter på dagen. <p>Om din arbetstid är 8:30 AM till 5:30 PM, markerar du de föregående timmarna dagen plus ”30” minuter för timmen. | 
@@ -188,7 +188,7 @@ Här är ett exempel upprepning utlösardefinition:
 
 | Starttid | Aktuell tid | Upprepning | Schema |
 | ---------- | ------------ | ---------- | -------- | 
-| 2017-09 -**07**T14:00:00Z | 2017-09 -**08**T13:00:00Z | Varje 2 dagar | {Ingen} | 
+| 2017-09-**07**T14:00:00Z | 2017-09-**08**T13:00:00Z | Varje 2 dagar | {Ingen} | 
 ||||| 
 
 I det här scenariot Logikappar motorn beräknar körtider baserat på starttid, tar du bort tidigare körtider och använder nästa framtiden starttid för första gången du kör. Efter den första körningen baserat framtida körs på schemat beräknas från starttiden. Här är hur upprepningen ser ut:

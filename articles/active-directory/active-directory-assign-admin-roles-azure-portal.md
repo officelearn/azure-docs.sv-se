@@ -1,6 +1,6 @@
 ---
 title: "Tilldela administratörsroller i Azure Active Directory | Microsoft Docs"
-description: "En administratörsroll kan skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på."
+description: "En administratörsroll kan lägga till användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser eller hantera domäner. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
@@ -65,7 +65,7 @@ Följande administratörsroller är tillgängliga:
 
 * **Samarbeta stöd för nivå 2**: Använd inte. Den här rollen är inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd för användning av ett litet antal Microsoft-partner återförsäljning och är inte avsedd för allmänt bruk.
 
-* **Lösenord för administratör / supportavdelning administratören**: användare med den här rollen kan återställa lösenord, hanterar tjänstbegäranden och övervakar tjänstens hälsa. Lösenordsadministratörer kan bara återställa lösenord för användare och andra lösenordsadministratörer.
+* **Lösenord för administratör / supportavdelning administratören**: användare med den här rollen kan ändra lösenord, hanterar tjänstbegäranden och övervakar tjänstens hälsa. Supportavdelningen administratörer kan endast ändra lösenord för användare och andra supportavdelningen administratörer. 
 
   > [!NOTE]
   > Den här rollen identifieras som ”supportavdelning administratör” i Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell. Det är ”Lösenordsadministratör” i den [Azure-portalen](https://portal.azure.com/).
@@ -91,7 +91,7 @@ Följande administratörsroller är tillgängliga:
   >
   >
 
-* **Användaren kontoadministratör**: användare med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom den här rollen omfattar möjligheten att hantera supportärenden och övervakar tjänsten hälsa. Vissa begränsningar gäller. Till exempel den här rollen kan inte ta bort en global administratör och när du tillåter ändring av lösenord för icke-administratörer, tillåter inte att ändra lösenord för globala administratörer eller andra Privilegierade administratörer.
+* **Användaren kontoadministratör**: användare med den här rollen kan skapa och hantera alla aspekter av användare och grupper. Dessutom den här rollen omfattar möjligheten att hantera supportärenden och övervakar tjänsten hälsa. Vissa begränsningar gäller. Den här rollen tillåter exempelvis inte att ta bort en global administratör. Kontoadministratörer användare kan ändra lösenord för användare, supportavdelning administratörer och andra användarkonto administratörer.
 
 ## <a name="administrator-permissions"></a>Administratörsbehörighet
 
@@ -110,24 +110,24 @@ Följande administratörsroller är tillgängliga:
 ### <a name="global-administrator"></a>Global administratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
-|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Återställa användarlösenord</p><p>Återställa andra administratörslösenord</p> <p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |Saknas |
+|<p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Återställa användarlösenord</p><p>Återställa andra administratörslösenord</p> <p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |Gäller inte |
 
-### <a name="password-administrator"></a>Lösenordsadministratör
+### <a name="password-administrator--helpdesk-administrator"></a>För lösenordsadministratör / supportavdelning administratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
-| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Återställa användarlösenord</p> <p>Återställa andra administratörslösenord</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
+| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
 
 ### <a name="service-administrator"></a>Tjänstadministratör
 | Kan göra | Det går inte att göra |
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p> |<p>Återställa användarlösenord</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p> |
 
-### <a name="user-administrator"></a>Användare med rollen
+### <a name="user-account-administrator"></a>Kontoadministratör för användaren
 | Kan göra | Det går inte att göra |
 | --- | --- |
-| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Återställa användarlösenord med begränsningar.</p><p>Återställa andra administratörslösenord</p><p>Återställa lösenord för andra användare</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
+| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportavdelning administratörer och andra användarkonto administratörer</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
 
-### <a name="security-reader"></a>Säkerhet läsare
+### <a name="security-reader"></a>Säkerhetsläsare
 | i | Kan göra |
 | --- | --- |
 | Identity Protection Center  |Läsa alla säkerhetsrapporter och inställningsinformation om för säkerhet<ul><li>Skräppost<li>Kryptering<li>Skydd mot dataförlust<li>Skadlig kod<li>Avancerat skydd<li>Mot nätfiske<li>Mailflow regler |
@@ -165,12 +165,12 @@ Information om hur du tilldelar administrativa roller till en användare i Azure
 
 Följande roller ska inte användas. De är föråldrad och kommer att tas bort från Azure AD i framtiden.
 
-* Administratör för ad hoc-licens
-* E-post verifierade användaren Creator
+* Ad hoc-licensadministratör
+* E-postverifierad användarskapare
 * Anslut till en enhet
-* Enhetshanteraren
+* Enhetshanterare
 * Användare av enheter
-* Anslut enheten till arbetsplatsen
+* Arbetsplatsenhetskoppling
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Utför olika åtgärder i logikappar med en switch-sats
 
@@ -31,10 +31,10 @@ Du kan använda en switch-sats för att implementera dessa scenarier. Din logika
 > Precis som alla programmeringsspråk stöder switch-satser endast likheten operatörer. Om du behöver andra relationsoperatorer använder du en villkorssatsen, till exempel ”större än”.
 > För att säkerställa deterministiska körningsbeteende måste fall innehålla ett unikt och statiska värde i stället för dynamiska token eller uttryck.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv Azure-prenumeration. Om du inte har en aktiv Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/), eller försök [Logic Apps för kostnadsfri](https://tryappservice.azure.com/).
-- [Grundläggande kunskaper om logikappar](logic-apps-what-are-logic-apps.md)
+- [Grundläggande kunskaper om logikappar](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Lägga till en switch-instruktionen i arbetsflödet
 

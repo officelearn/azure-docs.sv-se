@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Kom igång med frågeåtgärden
 Genom att använda åtgärden fråga kan arbeta du med batchar och matriser för att utföra arbetsflöden för att:
@@ -27,7 +27,7 @@ Genom att använda åtgärden fråga kan arbeta du med batchar och matriser för
 * Skapa en aktivitet för alla viktiga poster från en databas.
 * Spara alla bifogade PDF-filer för e-postmeddelanden till en Azure blob.
 
-Om du vill komma igång med åtgärden fråga i en logikapp, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Om du vill komma igång med åtgärden fråga i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Använd åtgärden fråga
 En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. [Mer information om åtgärder](connectors-overview.md).  
@@ -56,23 +56,23 @@ Här följer information om vad som har stöd för den här anslutningen. Koppli
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| Filtrera matris |Utvärderar ett villkor för varje objekt i en matris och returnerar resultaten |
+| Filtermatris |Utvärderar ett villkor för varje objekt i en matris och returnerar resultaten |
 
 ## <a name="action-details"></a>Åtgärdsinformation
 Åtgärden fråga innehåller en möjlig åtgärd. I följande tabeller beskrivs de obligatoriska och valfria indatafält för åtgärden och detaljer om motsvarande utdata som är associerade med hjälp av åtgärden.
 
-### <a name="filter-array"></a>Filtrera matris
+### <a name="filter-array"></a>Filtermatris
 Följande är inmatningsfält för åtgärden, vilket gör en utgående HTTP-begäran.
 A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Från * |Från |Matrisen för att filtrera |
+| Från * |från |Matrisen för att filtrera |
 | Villkoret * |där |Villkoret ska utvärderas för varje objekt |
 
 <br>
 
-### <a name="output-details"></a>Information för utdata
+### <a name="output-details"></a>Utdatainformation
 Nedan visas utdata information för HTTP-svaret.
 
 | Egenskapsnamn | Datatyp | Beskrivning |
@@ -80,5 +80,5 @@ Nedan visas utdata information för HTTP-svaret.
 | Filtrerade matris |matris |En matris som innehåller ett objekt för varje filtrerade resultat |
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
+Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
 

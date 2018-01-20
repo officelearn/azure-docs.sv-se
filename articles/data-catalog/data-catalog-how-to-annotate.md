@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Så här kommenterar du datakällor
 ## <a name="introduction"></a>Introduktion
@@ -40,7 +40,7 @@ Var och en av dessa perspektiv är värdefullt och Data Catalog använder en tac
 ## <a name="different-types-of-annotations"></a>Olika typer av anteckningar
 Data Catalog stöder följande typer av kommentarer:
 
-| Anteckningen | Anteckningar |
+| Anteckning | Anteckningar |
 | --- | --- |
 | Eget namn |Eget namn kan anges på nivån data tillgång till gör datatillgångarna lättare att förstå. Eget namn är mest användbara när det underliggande objektnamnet är kryptiskt, förkortat eller på annat sätt inte meningsfulla för användare. |
 | Beskrivning |Beskrivningar som kan anges i datatillgång och attributet / kolumn nivåer. Beskrivningarna är Friform kort textanteckningar som beskriver användarens perspektiv på tillgången data eller dess användning. |
@@ -66,5 +66,5 @@ Precis som de metadata som extraherats från datakällan under registreringen ha
 ## <a name="summary"></a>Sammanfattning
 Registrera en datakälla med Data Catalog gör att data kan identifieras genom att kopiera strukturella och beskrivande metadata från datakällan till katalogtjänsten. När en datakälla har registrerats, kan användarna ange anteckningar blir enklare att identifiera och förstå från i Data Catalog-portalen.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Kom igång med Azure Data Catalog](data-catalog-get-started.md) självstudiekursens steg för steg-information om hur du kommenterar du datakällor.

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Kom igång med FTP-anslutningen
 Använd FTP-anslutningen för att övervaka, hantera och skapa filer på en FTP-server. 
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Anslut till FTP
 Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
@@ -35,7 +35,7 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Använda en FTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > FTP-anslutningen kräver en FTP-server som är tillgänglig från Internet och är konfigurerad för att fungera med PASSIVT läge. FTP-anslutningen är också **inte kompatibel med implicit FTPS (FTP över SSL)**. FTP-anslutningen har endast stöd för explicit FTPS (FTP över SSL).  
@@ -61,7 +61,7 @@ Din logikapp har nu konfigurerats med en utlösare som börjar den andra utlösa
 > 
 
 ## <a name="use-a-ftp-action"></a>Använda en FTP-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Nu när du har lagt till en utlösare, Följ dessa steg för att lägga till en åtgärd som kommer att hämta innehållet i den nya eller ändrade filen som hittas av utlösaren.    
 
@@ -73,7 +73,7 @@ Nu när du har lagt till en utlösare, Följ dessa steg för att lägga till en 
    ![Bild 2 till FTP-åtgärd](./media/connectors-create-api-ftp/ftp-action-2.png)  
    Den **hämta filinnehåll** styra öppnas. **Obs**: uppmanas du att godkänna din logikapp för att komma åt ditt konto för FTP-servern om du inte har gjort det tidigare.  
    ![Bild 3 till FTP-åtgärd](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Välj den **filen** kontrollen (det tomma utrymmet som finns under **filen***). Här kan använda du någon av de olika egenskaperna från den nya eller ändrade filen som hittas på FTP-servern.  
+5. Välj den **filen** kontrollen (det tomma utrymmet som finns under ** filen ***). Här kan använda du någon av de olika egenskaperna från den nya eller ändrade filen som hittas på FTP-servern.  
 6. Välj den **filen innehåll** alternativet.  
    ![Bild 4 till FTP-åtgärd](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Kontrollen har uppdaterats, vilket betyder att den **FTP - hämta filinnehåll** åtgärd får den *filen innehåll* av nya eller ändrade filen på FTP-servern.      
@@ -91,5 +91,5 @@ Du kan nu lägga till en annan åtgärd som den [SQL Server - infogningsraden](c
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

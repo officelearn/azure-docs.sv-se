@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Konfigurera Tjänstkarta i Operations Management Suite
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du betrakta dem--som sammanlänkade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitektur med än installation av en agent krävs ingen konfiguration.
@@ -28,8 +28,8 @@ Den här artikeln innehåller information om konfigurera Tjänstkarta och onboar
 ## <a name="dependency-agent-downloads"></a>Hämtar Beroendeagent
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Anslutna källor
@@ -87,7 +87,7 @@ Använd alternativen i följande tabell för att installera från en kommandorad
 | Flaggan | Beskrivning |
 |:--|:--|
 | /? | Hämta en lista över kommandoradsalternativ. |
-| / S | Utföra en tyst installation utan uppmaningar för användaren. |
+| /S | Utföra en tyst installation utan uppmaningar för användaren. |
 
 Filer för Windows Beroendeagent placeras i C:\Program Files\Microsoft beroende agenten som standard.
 
@@ -116,11 +116,11 @@ Filer för Beroendeagent placeras i följande kataloger:
 
 | Filer | Plats |
 |:--|:--|
-| -Filer | /OPT/Microsoft/Dependency-Agent |
-| Loggfiler | /var/OPT/Microsoft/Dependency-Agent/log |
-| Config-filer | /etc/OPT/Microsoft/Dependency-Agent/config |
-| Tjänsten körbara filer | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Binära filer | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| -Filer | /opt/microsoft/dependency-agent |
+| Loggfiler | /var/opt/microsoft/dependency-agent/log |
+| Config-filer | /etc/opt/microsoft/dependency-agent/config |
+| Tjänsten körbara filer | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binära filer | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Exempel på skript för installation
 För att enkelt distribuera agenten beroende på flera servrar samtidigt, hjälper det för att använda ett skript. Du kan använda i följande skriptexempel att ladda ned och installera agenten beroende på Windows- eller Linux.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Azure VM-tillägget
-Du kan enkelt distribuera agenten beroende på din virtuella Azure-datorer med en [Azure VM-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Du kan distribuera beroende agenten till din virtuella dator via ett PowerShell-skript eller direkt i Azure Resource Manager-mall för den virtuella datorn med Azure VM-tillägg.  Det är ett tillägg för både Windows (DependencyAgentWindows) och Linux (DependencyAgentLinux).  Om du distribuerar via Azure VM-tillägget kan dina agenter uppdateras automatiskt till de senaste versionerna.
+Du kan enkelt distribuera agenten beroende på din virtuella Azure-datorer med en [Azure VM-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Du kan distribuera beroende agenten till din virtuella dator via ett PowerShell-skript eller direkt i Azure Resource Manager-mall för den virtuella datorn med Azure VM-tillägg.  Det är ett tillägg för både Windows (DependencyAgentWindows) och Linux (DependencyAgentLinux).  Om du distribuerar via Azure VM-tillägget kan dina agenter uppdateras automatiskt till de senaste versionerna.
 
 Du kan använda följande exempel för att distribuera Azure VM-tillägget via PowerShell:
 ```PowerShell

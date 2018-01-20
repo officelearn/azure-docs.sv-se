@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 2369bc893d28cf6f6174376eb961049b651c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Det här avsnittet innehåller en översikt över en FreeBSD virtuell dator som körs i Azure.
@@ -29,9 +29,9 @@ FreeBSD för Microsoft Azure är en avancerad operativsystem används för att p
 
 Microsoft Corporation gör avbildningar av FreeBSD tillgängligt på Azure med den [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) förkonfigurerade. För närvarande erbjuds följande FreeBSD-versioner som avbildningar av Microsoft:
 
-- FreeBSD 10.3-versionen
+- FreeBSD 10.3-RELEASE
 - FreeBSD 11.0-versionen
-- FreeBSD 11,1-versionen
+- FreeBSD 11.1-RELEASE
 
 Agenten är ansvarig för kommunikation mellan FreeBSD VM och Azure-strukturen för till exempel etablering av den virtuella datorn vid första användning (användarnamn, lösenord eller SSH-nyckel, värdnamn, etc.) och aktiverar funktioner för selektiv VM-tillägg.
 
@@ -134,4 +134,3 @@ Den [Azure VM-Gästagent](https://github.com/Azure/WALinuxAgent/) version 2.2.2 
 
 ## <a name="next-steps"></a>Nästa steg
 * Gå till [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) att skapa en FreeBSD VM.
-* Om du vill ta med din egen FreeBSD till Azure, se [skapa och ladda upp en FreeBSD VHD till Azure](classic/freebsd-create-upload-vhd.md).

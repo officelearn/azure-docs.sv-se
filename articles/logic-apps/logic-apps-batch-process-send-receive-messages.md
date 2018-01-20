@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Skicka, ta emot och batch-bearbeta meddelanden i logikappar
 
@@ -39,7 +39,7 @@ Om du vill följa det här exemplet är vad du behöver:
 
 * En Azure-prenumeration. Om du inte har en prenumeration kan du [börja med ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Annars kan du [registrera dig för en prenumeration enligt principen Betala per användning](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Ett e-postkonto med alla [e-providern stöds av Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Avsändaren logikappar måste veta var att skicka objekt när mottagaren logic a
       Om du har ett arbets- eller skolkonto konto väljer du exempelvis Office 365 Outlook connector. 
       Om du har en Gmail-konto, Välj den Gmail-anslutningen.
 
-   3. Väljer den här åtgärden för din connector:  **{*e-providern*} – skicka ett e-post **
+   3. Väljer den här åtgärden för din connector: **{*e-providern*} – skicka ett e-postmeddelande**
 
       Exempel:
 
       ![Välj ”Skicka ett e-postmeddelande” åtgärd för din e-provider](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Om du inte tidigare skapade en anslutning för e-post-providern, ange din e-post-autentiseringsuppgifter för autentisering när du uppmanas. Lär dig mer om [autentisera dina autentiseringsuppgifter för e-](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Om du inte tidigare skapade en anslutning för e-post-providern, ange din e-post-autentiseringsuppgifter för autentisering när du uppmanas. Lär dig mer om [autentisera dina autentiseringsuppgifter för e-](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Ange egenskaper för den åtgärd som du just lagt till.
 

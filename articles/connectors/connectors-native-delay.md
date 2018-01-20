@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Kom igång med fördröjning och fördröjning-tills åtgärder
 Med hjälp av fördröjningen och ”fördröjning-tills” åtgärder, kan du slutföra arbetsflödet scenarier.
@@ -29,7 +29,7 @@ Du kan till exempel:
 * Vänta tills en veckodag att skicka en statusuppdatering via e-post.
 * Fördröjer arbetsflödet tills ett HTTP-anrop har tid att slutföra innan du fortsätter och hämta resultatet.
 
-Om du vill komma igång med åtgärden fördröjning i en logikapp, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Om du vill komma igång med åtgärden fördröjning i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Använd åtgärderna fördröjning
 En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. [Mer information om åtgärder](connectors-overview.md).
@@ -54,7 +54,7 @@ A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Antal * |Antal |Antalet tidsenheter fördröjning |
+| Antal * |antal |Antalet tidsenheter fördröjning |
 | A * |enhet |Tidsenhet: `Second`, `Minute`, `Hour`, eller`Day` |
 
 <br>
@@ -72,5 +72,5 @@ A * innebär att det är ett obligatoriskt fält.
 <br>
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
+Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
 

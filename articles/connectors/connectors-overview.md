@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f7d8f99bfa09847c01831a06efa8b94c1c0a89a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Med hjälp av anslutningar i en logikapp
 Kopplingar ger snabb åtkomst till händelser, data och åtgärder över tjänster, protokoll och plattformar.  En fullständig lista över kopplingar som har stöd för Logic Apps kan [finns här](apis-list.md).  Kopplingar kan användas som en utlösare eller en åtgärd i en logikapp och kan kräva en konfigurerad *anslutning* att använda (till exempel: auktorisera ett Twitter-konto för att komma åt eller efter åt dig).
@@ -37,7 +37,7 @@ Om du vill integrera med en tjänst eller API som inte är ännu en koppling, du
 Vissa kopplingar har en utlösare, vilket innebär att en händelse från kopplingen ska utlösa en logikapp som skickas i alla data som en del av utlösaren.  En utlösare är alltid det första steget i en logikapp.  Populära utlösare är åtgärder som:
 
 * Återkommande - köras varje timme
-* När en HTTP-förfrågan tas emot
+* När en HTTP-begäran tas emot
 * När ett objekt läggs till en kö
 * När ett e-postmeddelande tas emot
 
@@ -56,7 +56,7 @@ De flesta kopplingar måste du konfigurera en *anslutning* innan du kan använda
 Anslutningar kan visas och hanteras i Azure genom att klicka på **Bläddra** och välja **API anslutningar**.  Från resursen för API-anslutningar kan du visa, redigera, uppdatera eller att återauktorisera alla anslutningar som du har skapat.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Läs vanliga användningsområden och exempel på logikappar](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Kom igång med enterprise integration-utlösare och åtgärder](../logic-apps/logic-apps-enterprise-integration-overview.md)
 

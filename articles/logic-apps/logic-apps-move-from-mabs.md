@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Flytta från BizTalk-tjänst till Logic Apps
 
@@ -39,7 +39,7 @@ Följande tabell innehåller en mappning av BizTalk-tjänst-funktioner för Logi
 
 | BizTalk Services   | Logic Apps            | Syfte                  |
 | ------------------ | --------------------- | ---------------------------- |
-| koppling          | koppling             | Skicka och ta emot data   |
+| Anslutning          | Anslutning             | Skicka och ta emot data   |
 | Platslänksbrygga             | Logikapp             | Pipeline-processor           |
 | Validera fas     | XML-verifiering åtgärd      | Validera ett XML-dokument mot ett schema             |
 | Utöka fas       | Data-token      | Befordra egenskaper i meddelanden eller för beslut om routning             |
@@ -64,9 +64,9 @@ Varje brygga har en HTTP-slutpunkt som standard, som är konfigurerad med Runtim
 En brygga i BizTalk-tjänst är detsamma som en pipeline för bearbetning. En brygga kan ta data från en koppling och göra några arbetar med data och skicka den till en annan dator. Logic Apps har samma genom att stödja pipeline-baserade interaktion samma mönster som BizTalk-tjänst och innehåller också ett antal andra integration mönster. Den [XML-Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) i BizTalk Services kallas en VETER pipeline som består av faser som kan:
 
 * V Validera
-* (E) utöka
+* (E) Enrich
 * (T) transformera
-* (E) utöka
+* (E) Enrich
 * (R) väg
 
 Som det visas i följande bild, bearbetning delas mellan begäran och svar och ger kontroll över begäran och svar sökvägar separat (till exempel med hjälp av olika kartor för varje):
@@ -108,9 +108,9 @@ BizTalk-tjänster omfattar EDI och B2B bearbetning med stöd för AS2 tillämpli
 
 I Logic Apps den här funktionen ingår i den [Enterprise-Integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md). Det här består av Integration konto och B2B-åtgärder för EDI och B2B-bearbetning. Den [integrering konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) används för att skapa och hantera [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md). När du skapar ett konto för Integration kan associera du en eller flera logikappar till kontot. När associerat, kan du använda B2B-åtgärder för att komma åt handel partnerinformation i din logikapp. Det finns följande åtgärder:
 
-* AS2 koda
+* AS2 Encode
 * AS2 avkoda
-* Koda X12
+* X12 Encode
 * Avkoda X12
 * EDIFACT koda
 * EDIFACT avkoda
@@ -126,6 +126,6 @@ Logic Apps ger bättre spårning och övervakning av funktioner i den [Azure-por
 För att uppnå hög tillgänglighet (HA) i BizTalk-tjänst måste använda du mer än en instans i en viss region för att dela belastningen. Hög tillgänglighet i region med logic apps är inbyggda och kommer utan extra kostnad. En process för säkerhetskopiering och återställning krävs för out av region katastrofåterställning för B2B bearbetning i BizTalk-tjänst. I Logic Apps mellan region aktiv/passiv [DR kapaciteten](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) tillhandahålls; som tillåter synkronisering av B2B-data över Integrationskonton i olika regioner för verksamhetskontinuitet.
 
 ## <a name="next"></a>Nästa
-* [Vad är Logic Apps?](logic-apps-what-are-logic-apps.md)
-* [Skapa din första logikapp](logic-apps-create-a-logic-app.md), eller kom snabbt igång med en [färdig mall](logic-apps-create-logic-apps-from-templates.md)  
+* [Vad är Logic Apps?](logic-apps-overview.md)
+* [Skapa din första logikapp](quickstart-create-first-logic-app-workflow.md), eller kom snabbt igång med en [färdig mall](logic-apps-create-logic-apps-from-templates.md)  
 * [Visa alla tillgängliga anslutningsprogram](../connectors/apis-list.md) du kan använda i en logikapp

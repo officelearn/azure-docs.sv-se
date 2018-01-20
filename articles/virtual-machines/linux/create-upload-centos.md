@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e003d31b42c7a9518668fb8ddfb6accb9c158c90
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/19/2018
@@ -331,5 +331,5 @@ Förbereda en virtuell dator för CentOS 7 för Azure liknar CentOS 6, men det f
 14. Klicka på **åtgärd -> stängs ned** i Hyper-V Manager. Din Linux VHD är nu redo att överföras till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att använda din virtuella hårddisk CentOS Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure Se [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](upload-vhd.md#option-1-upload-a-vhd).
+Nu är du redo att använda din virtuella hårddisk CentOS Linux för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure Se [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](upload-vhd.md).
 

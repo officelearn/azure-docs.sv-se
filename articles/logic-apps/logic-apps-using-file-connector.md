@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Ansluta till lokalt filsystem från logikappar med filsystemet connector
 
 För att hantera data och säker åtkomst till lokala resurser, kan dina logic apps använda lokala datagateway. Den här artikeln visar hur du kan ansluta till ett filsystem lokalt via den här enkla Exempelscenario: kopiera en fil som överförs till Dropbox till en filresurs och sedan skicka ett e-postmeddelande.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ladda ned senaste [lokala datagateway](https://www.microsoft.com/download/details.aspx?id=53127).
 
 * Installera och ställa in senaste lokala datagateway, version 1.15.6150.1 eller senare. Anvisningar finns i avsnittet [Anslut till datakällor på lokala](http://aka.ms/logicapps-gateway). Du måste installera gatewayen på en lokal dator innan du kan fortsätta med de här stegen.
 
-* Grundläggande kunskaper om [skapa logikappar](../logic-apps/logic-apps-create-a-logic-app.md)
+* Grundläggande kunskaper om [skapa logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Lägga till utlösare och åtgärder för att ansluta till filsystemet
 
@@ -81,14 +81,14 @@ Försök att utforska andra funktioner som kopplingen erbjuder:
 
 - Skapa fil
 - Listar filer i mappen
-- Lägg till fil
+- Lägg till filen
 - Ta bort fil
-- Hämta innehåll
+- Hämta filinnehåll
 - Hämta filinnehåll med hjälp av sökväg
-- Hämta filens metadata
+- Hämta filmetadata
 - Hämta metadata för fil med hjälp av sökväg
 - Listar filer i rotmappen
-- Uppdatera-filen
+- Uppdatera filen
 
 ## <a name="view-the-swagger"></a>Visa swagger
 

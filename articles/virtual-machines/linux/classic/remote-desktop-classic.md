@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 65098dbad2cfb2de1f2e5156fbcc3d6477311867
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Använd Fjärrskrivbord för att ansluta till en virtuell Microsoft Azure Linux-dator
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Den här vägledningen ger svaret! Det hjälper dig att installera och config xr
 Verktyget xrdp är en öppen källkod RDP-server som kan du ansluta din Linux-server med fjärrskrivbord från en Windows-dator. RDP har bättre prestanda än VNC (virtuella nätverk datorer). VNC återger använder JPEG-kvalitet grafik och kan vara långsam, RDP är snabb och crystal Rensa.
 
 > [!NOTE]
-> Du måste redan ha en Microsoft Azure-dator som kör Linux. Om du vill skapa och konfigurera en Linux-VM finns i [virtuella Azure Linux-datorn kursen](createportal.md).
+> Du måste redan ha en Microsoft Azure-dator som kör Linux. Om du vill skapa och konfigurera en Linux-VM finns i [virtuella Azure Linux-datorn kursen](createportal-classic.md).
 > 
 > 
 

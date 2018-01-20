@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Dataströmmen stordata i ett data warehouse
 
@@ -64,7 +64,7 @@ Händelsen rutnätet distribuerar händelsedata prenumeranter. I följande exemp
 ]
 ```
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här kursen behöver du:
 
@@ -144,7 +144,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 8. Hämta URL för funktionen. När du skapar händelseprenumerationen måste denna URL.
 
-   ![Hämta funktions-URL](media/event-grid-event-hubs-integration/get-function-url.png)
+   ![Hämta funktionswebbadress](media/event-grid-event-hubs-integration/get-function-url.png)
 
 9. Kopiera värdet.
 
@@ -170,10 +170,14 @@ Du kan använda Azure CLI eller portalen för att prenumerera på händelsen. De
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill prenumerera på händelsen, kör du följande kommando:
+Kör följande kommandon för att prenumerera på händelsen (som kräver version 2.0.24 eller senare av Azure CLI):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>Kör appen för att generera data

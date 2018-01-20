@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 97cd46819a4547ec743270871bcb6b4eef3eb365
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Klassificera Iris del 3: Distribuera en modell
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys för datatekniker. Datatekniker kan använda den för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -158,7 +158,7 @@ Du kan använda _lokalt läge_ för utveckling och testning. Docker-motorn måst
 
 5. Konfigurera miljön.
 
-   När installationen är klar använder du följande kommando för att ställa in de miljövariabler som behövs för operationalisering av miljön. Använd samma miljönamn som du använde tidigare i steg 4. Använd samma resursgruppnamn som angavs i kommandofönstret när installationen slutfördes.
+   När installationen är klar använder du följande kommando för att ställa in de miljövariabler som behövs för operationalisering av miljön. Använd samma miljönamn, som du använde tidigare i steg 2. Använd samma resursgruppnamn som angavs i kommandofönstret när installationen slutfördes.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>

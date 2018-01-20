@@ -1,6 +1,6 @@
 ---
 title: SendGrid | Microsoft Docs
-description: "Skapa logikappar med Azure App service. Provider för SendGrid anslutning kan du skicka e-post och hantera mottagande listor."
+description: "Skapa logikappar med Azure App service. Anslutningsprovidern SendGrid låter dig skicka e-post och hantera mottagarlistor."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0773750f24b18aa55874a215cac7ccdfc5c1182
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Kom igång med SendGrid-anslutningen
-Provider för SendGrid anslutning kan du skicka e-post och hantera mottagande listor.
+Anslutningsprovidern SendGrid låter dig skicka e-post och hantera mottagarlistor.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sendgrid"></a>Skapa en anslutning till SendGrid
 För att skapa logikappar med SendGrid, måste du först skapa en **anslutning** ange detaljer för följande egenskaper: 
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| apiKey |Ja |Ange din SendGrid Api-nyckel |
+| apiKey |Ja |Ange din SendGrid-API-nyckel |
 
 > [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 

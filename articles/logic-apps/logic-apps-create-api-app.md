@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Skapa anpassade API: er som du kan anropa från logik app arbetsflöden
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 I princip kopplingar är web API: er som använder REST för anslutningsbara gränssnitt [Swagger metadataformat](http://swagger.io/specification/) för dokumentation och JSON som exchange format. Eftersom kopplingar REST API: er som kommunicerar via HTTP-slutpunkter kan använda du alla språk som .NET, Java eller Node.js, för att skapa kopplingar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/app-service-web-overview.md), en plattform-som-en tjänst (PaaS) erbjudande som ger ett sätt bästa enklaste och mest skalbara för API-värd. 
 
-För anpassade API: er att arbeta med logic apps din API kan tillhandahålla [ *åtgärder* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) som utför olika uppgifter i logik app arbetsflöden. Din API kan också fungera som en [ *utlösaren* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) som startar en logik app arbetsflödet när nya data eller en händelse uppfyller ett angivet villkor. Det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på det beteende som du vill att ditt API för att tillhandahålla.
+För anpassade API: er att arbeta med logic apps din API kan tillhandahålla [ *åtgärder* ](./logic-apps-overview.md#logic-app-concepts) som utför olika uppgifter i logik app arbetsflöden. Din API kan också fungera som en [ *utlösaren* ](./logic-apps-overview.md#logic-app-concepts) som startar en logik app arbetsflödet när nya data eller en händelse uppfyller ett angivet villkor. Det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på det beteende som du vill att ditt API för att tillhandahålla.
 
 Du kan vara värd för dina API: er på [Azure App Service](../app-service/app-service-web-overview.md), en plattform som-en-tjänst (PaaS) erbjudande som ger mycket skalbar och lätt API värd.
 
@@ -73,7 +73,7 @@ Många bibliotek som [Swashbuckle](https://github.com/domaindrivendev/Swashbuckl
 
 ## <a name="action-patterns"></a>Åtgärden mönster
 
-För logic apps arbetsuppgifter, anpassat API bör ge [ *åtgärder*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Varje åtgärd i ditt API mappar till en åtgärd. En grundläggande åtgärd är en domänkontrollant som accepterar HTTP-begäranden och returnerar HTTP-svar. Exempelvis skickar en logikapp en HTTP-begäran till webbprogrammet eller API-app. Din app returnerar ett HTTP-svar, tillsammans med innehåll som kan bearbeta logikappen.
+För logic apps arbetsuppgifter, anpassat API bör ge [ *åtgärder*](./logic-apps-overview.md#logic-app-concepts). Varje åtgärd i ditt API mappar till en åtgärd. En grundläggande åtgärd är en domänkontrollant som accepterar HTTP-begäranden och returnerar HTTP-svar. Exempelvis skickar en logikapp en HTTP-begäran till webbprogrammet eller API-app. Din app returnerar ett HTTP-svar, tillsammans med innehåll som kan bearbeta logikappen.
 
 För en åtgärd som standard kan skriva en metod för HTTP-begäran i ditt API och beskriver den metoden i en Swagger-fil. Du kan sedan anropa din API direkt med en [HTTP-åtgärd](../connectors/connectors-native-http.md) eller en [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) åtgärd. Som standard måste svar returneras inom den [tidsgränsen för begäran](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Konfigurera två slutpunkter på styrenheten för det här mönstret: `subscribe
 
 ## <a name="trigger-patterns"></a>Utlösaren mönster
 
-Anpassat API som kan fungera som en [ *utlösaren* ](./logic-apps-what-are-logic-apps.md#logic-app-concepts) som startar en logikapp när nya data eller en händelse uppfyller ett angivet villkor. Den här utlösaren kan antingen Kontrollera regelbundet, eller vänta och lyssna efter nya data eller händelser på tjänsteslutpunkt. Om nya data eller en händelse uppfyller de angivna villkoren, utlöses utlösaren och startar logikappen som lyssnar på den här utlösaren. Logikappar sätt din API kan så startar den [ *avsökning utlösaren* ](#polling-triggers) eller [ *webhook utlösaren* ](#webhook-triggers) mönster. Dessa mönster liknar motsvarigheterna för [avsökning åtgärder](#async-pattern) och [webhook-åtgärder](#webhook-actions). Dessutom lär dig mer om [användningsmätning för utlösare](logic-apps-pricing.md).
+Anpassat API som kan fungera som en [ *utlösaren* ](./logic-apps-overview.md#logic-app-concepts) som startar en logikapp när nya data eller en händelse uppfyller ett angivet villkor. Den här utlösaren kan antingen Kontrollera regelbundet, eller vänta och lyssna efter nya data eller händelser på tjänsteslutpunkt. Om nya data eller en händelse uppfyller de angivna villkoren, utlöses utlösaren och startar logikappen som lyssnar på den här utlösaren. Logikappar sätt din API kan så startar den [ *avsökning utlösaren* ](#polling-triggers) eller [ *webhook utlösaren* ](#webhook-triggers) mönster. Dessa mönster liknar motsvarigheterna för [avsökning åtgärder](#async-pattern) och [webhook-åtgärder](#webhook-actions). Dessutom lär dig mer om [användningsmätning för utlösare](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -170,8 +170,8 @@ Här följer specifika steg för en avsökning utlösare som beskrivs ur API: er
 
 | Hitta nya data eller händelsen?  | API-svar | 
 | ------------------------- | ------------ |
-| Hitta | Returnera ett HTTP `200 OK` status med nyttolasten (indata för nästa steg) i svaret. <br/>Det här svaret skapar en logik app-instansen och startar arbetsflödet. | 
-| Det gick inte att hitta | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` huvud. <br/>För utlösare, den `location` huvud måste även innehålla en `triggerState` frågeparameter som vanligtvis är ”tidsstämpel”. Din API kan använda den här identifieraren för att spåra den senaste gången logikappen utlöstes. | 
+| Hittad | Returnera ett HTTP `200 OK` status med nyttolasten (indata för nästa steg) i svaret. <br/>Det här svaret skapar en logik app-instansen och startar arbetsflödet. | 
+| Hittades inte | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` huvud. <br/>För utlösare, den `location` huvud måste även innehålla en `triggerState` frågeparameter som vanligtvis är ”tidsstämpel”. Din API kan använda den här identifieraren för att spåra den senaste gången logikappen utlöstes. | 
 ||| 
 
 För att regelbundet kontrollera din tjänst för nya filer, kan du exempelvis skapa en avsökning utlösare som har dessa beteenden:
@@ -223,7 +223,7 @@ När du har konfigurerat autentisering, konfigurera distribution för dina API: 
 
 ## <a name="publish-custom-apis-to-azure"></a>Publicera anpassade API: er till Azure
 
-För att göra dina anpassade API: er med andra Logic Apps i Azure, måste du lägga till säkerhet och registrera dem som Logikapp kopplingar. Mer information finns i [anpassade kopplingar översikt](../logic-apps/custom-connector-overview.md). 
+För att göra dina anpassade API: er med andra Logic Apps i Azure, måste du lägga till säkerhet och registrera dem som Logikapp kopplingar. Mer information finns i [Översikt över anpassade anslutningsappar](../logic-apps/custom-connector-overview.md). 
 
 För att dina anpassade API: er ska vara tillgängliga för alla användare i Logic Apps och Microsoft Flow Microsoft PowerApps du lägger till säkerhet, registrera dina API: er som Logikapp kopplingar och utse kopplingar för den [Microsoft Azure-certifierad programmet](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
@@ -233,7 +233,7 @@ För att dina anpassade API: er ska vara tillgängliga för alla användare i Lo
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* För att förbättra Logic Apps, rösta eller skicka in förslag på den [Logic Apps användaren feedbackwebbplats](http://aka.ms/logicapps-wish). 
+* På [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish) kan du hjälpa till med att förbättra Logic Apps genom att rösta på förslag eller komma med egna förslag på förbättringar. 
 
 ## <a name="next-steps"></a>Nästa steg
 

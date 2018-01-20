@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools för Visual Studio  
 
-Azure Functions-verktyg för Visual Studio-2017 är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C#-funktioner till Azure. Om det här är din första upplevelse med Azure Functions kan du läsa mer i [en introduktion till Azure Functions](functions-overview.md).
+Azure Functions-verktyg för Visual Studio-2017 är ett tillägg för Visual Studio som låter dig utveckla, testa och distribuera C#-funktioner till Azure. Om det här upplevelsen är först med Azure Functions, kan du läsa mer i [en introduktion till Azure Functions](functions-overview.md).
 
 Azure Functions verktyg ger följande fördelar: 
 
@@ -61,9 +61,9 @@ När du skapar ett nytt projekt med hjälp av Azure Functions-mall kan få du et
     
 * **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de används av den [Azure Functions grundläggande verktyg](functions-run-local.md). Använd den här filen för att ange inställningar, till exempel anslutningssträngar till andra Azure-tjänster. Lägg till en ny nyckel till den **värden** matris för varje anslutning som krävs av funktionerna i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i avsnittet om Azure Functions grundläggande verktyg.
 
-Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa typer än HTTP och webhooks, måste du ange den **Values.AzureWebJobsStorage** nyckel till en giltig anslutningssträng för Azure Storage-konto.
+Functions-runtime används internt i ett Azure Storage-konto. För alla utlösa typer än HTTP och webhooks, måste du ange den **Values.AzureWebJobsStorage** nyckel till en giltig anslutningssträng för Azure Storage-konto. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  Ange anslutningssträngen för lagring konto:
 
@@ -83,7 +83,7 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    En anslutning strängnyckel som heter **QueueStorage** har angetts som definieras i filen local.settings.json. 
+    Den här utlösaren exempel används en anslutningssträng med en nyckel som heter **QueueStorage**. Den här inställningen för anslutningssträngen måste definieras i filen local.settings.json. 
  
 3. Granska nyligen tillagda klassen. Du ser en statisk **kör** metod som har den **FunctionName** attribut. Det här attributet anger att metoden är startpunkten för funktionen. 
 
@@ -113,7 +113,7 @@ I förväg kompilerade funktioner definieras de bindningar som används av funkt
 
 Med Azure Functions Core Tools kan du köra Azure Functions-projekt på din lokala utvecklingsdator. Du uppmanas att installera de här verktygen första gången du startar en funktion från Visual Studio.  
 
-Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg.  Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
+Tryck på F5 för att testa funktionen. Acceptera begäran från Visual Studio för att ladda ned och installera Azure Functions Core (CLI)-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
 
 Du kan testa din kod som du vill testa distribuerade funktionen med projektet körs. Mer information finns i [strategier för att testa din kod i Azure Functions](functions-test-a-function.md). När du kör i felsökningsläge nådde brytpunkter i Visual Studio som förväntat. 
 
@@ -125,12 +125,23 @@ Mer information om hur du använder Azure Functions grundläggande verktygen fin
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsapp i Azure. De här inställningarna läggs inte automatiskt. Du kan lägga till nödvändiga inställningar i appen funktion i något av följande sätt:
->
->* [Med hjälp av Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Med hjälp av den `--publish-local-settings` alternativet Publicera i Azure Functions Core verktyg](functions-run-local.md#publish).
->* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
+## <a name="function-app-settings"></a>Funktionsappinställningar   
+
+Alla inställningar som du lade till i local.settings.json måste också läggas till funktionsapp i Azure. De här inställningarna överförs inte automatiskt när du publicerar projektet. 
+
+Det enklaste sättet att överföra nödvändiga inställningar i appen funktionen i Azure är att använda den **hantera programinställningar...**  länk som visas när du har publicerat projektet. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+Visar den **programinställningar** dialogrutan för funktionsapp, där du kan lägga till nya programinställningar eller ändra befintliga.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+Du kan också hantera inställningar för program på något av dessa andra sätt:
+
+* [Med hjälp av Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Med hjälp av den `--publish-local-settings` alternativet Publicera i Azure Functions Core verktyg](functions-run-local.md#publish).
+* [Med hjälp av Azure CLI](/cli/azure/functionapp/config/appsettings#set). 
 
 ## <a name="next-steps"></a>Nästa steg
 

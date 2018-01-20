@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Kom igång med SFTP-koppling
 Använda SFTP-anslutningen för att komma åt en SFTP-konto för att skicka och ta emot filer. Du kan utföra olika åtgärder så som att skapa, uppdatera, hämta eller ta bort filer.  
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sftp"></a>Anslut till SFTP
 Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
@@ -35,7 +35,7 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Använd en SFTP-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 I det här exemplet i **SFTP - när en fil har lagts till eller ändrats** utlösare används för att initiera en logik app arbetsflödet när en fil har lagts till eller ändras på en SFTP-server. Du också lägga till ett villkor som kontrollerar du innehållet i den nya eller ändrade filen och gör ett beslut att extrahera filen om innehållet visar ska extraheras innan du använder innehållet. Slutligen lägger du till en åtgärd för att extrahera innehållet i en fil och placerar du extraherade innehållet i en mapp på SFTP-servern. 
 
@@ -51,7 +51,7 @@ Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya fil
 > 
 
 ## <a name="use-an-sftp-action"></a>Använd en SFTP-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 

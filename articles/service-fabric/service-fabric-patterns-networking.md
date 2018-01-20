@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric nätverk mönster
 Du kan integrera Azure Service Fabric-kluster med andra funktioner för Azure. I den här artikeln hur vi du kan skapa kluster som använder följande funktioner:
@@ -36,7 +36,7 @@ Om port 19080 inte är tillgänglig från Service Fabric-resursprovidern, ett me
 
 ## <a name="templates"></a>Mallar
 
-Alla Service Fabric-mallar finns i [en nedladdning filen](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Du ska kunna distribuera mallar som-är med hjälp av följande PowerShell-kommandon. Om du distribuerar mallen befintliga Azure-nätverk eller statiska offentliga IP-mall, läser du först den [inledande installationen](#initialsetup) i den här artikeln.
+Alla Service Fabric-mallar finns i [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Du ska kunna distribuera mallar som-är med hjälp av följande PowerShell-kommandon. Om du distribuerar mallen befintliga Azure-nätverk eller statiska offentliga IP-mall, läser du först den [inledande installationen](#initialsetup) i den här artikeln.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Installationen
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric-mall
 
-I exemplen i den här artikeln använder vi Service Fabric-template.json. Du kan använda guiden för standard-portal för att hämta mallen från portalen innan du skapar ett kluster. Du kan också använda en av mallar i den [mallgalleriet](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), till exempel den [Service Fabric-kluster med fem noder](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+I exemplen i den här artikeln använder vi Service Fabric-template.json. Du kan använda guiden för standard-portal för att hämta mallen från portalen innan du skapar ett kluster. Du kan också använda en av de [exempel mallar](https://github.com/Azure-Samples/service-fabric-cluster-templates), till exempel den [säker Service Fabric-kluster med fem noder](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Befintligt virtuellt nätverk eller undernät

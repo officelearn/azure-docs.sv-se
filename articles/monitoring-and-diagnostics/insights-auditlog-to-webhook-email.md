@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 341ab32ad0ec691285fbf1537ee298ab30156a5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08467aed4e1601b32598fc42515d9c38b601a9d4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Anropa en webhook i Azure-aktivitetsloggen aviseringar
 Webhooks kan du dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skicka SMS, logga programfel, meddela ett team via chatt/meddelandetjänster eller göra en mängd olika andra åtgärder. Den här artikeln beskriver hur du ställer in en webhook anropas när en varning utlöses Azure-aktivitetsloggen. Den visar även hur nyttolasten för HTTP POST till en webhook ser ut. Mer information om installation och schemat för en Azure mått avisering [se den här sidan i stället](insights-webhooks-alerts.md). Du kan också ställa in en avisering i aktivitetsloggen att skicka e-post när aktiverad.
@@ -39,51 +39,66 @@ Webhooken kan autentisera med någon av följande metoder:
 ## <a name="payload-schema"></a>Nyttolasten i schemat
 POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktivitetsloggen-baserade aviseringar. Det här schemat liknar den som används av måttet-baserade aviseringar.
 
-```
+```json
 {
-        "status": "Activated",
-        "context": {
-                "resourceProviderName": "Microsoft.Web",
-                "event": {
-                        "$type": "Microsoft.WindowsAzure.Management.Monitoring.Automation.Notifications.GenericNotifications.Datacontracts.InstanceEventContext, Microsoft.WindowsAzure.Management.Mon.Automation",
-                        "authorization": {
-                                "action": "Microsoft.Web/sites/start/action",
-                                "scope": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest"
-                        },
-                        "eventDataId": "327caaca-08d7-41b1-86d8-27d0a7adb92d",
-                        "category": "Administrative",
-                        "caller": "myname@mycompany.com",
-                        "httpRequest": {
-                                "clientRequestId": "f58cead8-c9ed-43af-8710-55e64def208d",
-                                "clientIpAddress": "104.43.166.155",
-                                "method": "POST"
-                        },
-                        "status": "Succeeded",
-                        "subStatus": "OK",
-                        "level": "Informational",
-                        "correlationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "eventDescription": "",
-                        "operationName": "Microsoft.Web/sites/start/action",
-                        "operationId": "4a40beaa-6a63-4d92-85c4-923a25abb590",
-                        "properties": {
-                                "$type": "Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage",
-                                "statusCode": "OK",
-                                "serviceRequestId": "f7716681-496a-4f5c-8d14-d564bcf54714"
-                        }
-                },
-                "timestamp": "Friday, March 11, 2016 9:13:23 PM",
-                "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/alertonevent2",
-                "name": "alertonevent2",
-                "description": "test alert on event start",
-                "conditionType": "Event",
-                "subscriptionId": "s1",
-                "resourceId": "/subscriptions/s1/resourcegroups/rg1/providers/Microsoft.Web/sites/leoalerttest",
-                "resourceGroupName": "rg1"
-        },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
+    "WebhookName": "Alert1515526229589",
+    "RequestBody": {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "authorization": {
+                        "action": "Microsoft.Compute/virtualMachines/deallocate/action",
+                        "scope": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1"
+                    },
+                    "channels": "Operation",
+                    "claims": {
+                        "aud": "https://management.core.windows.net/",
+                        "iss": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "iat": "1234567890",
+                        "nbf": "1234567890",
+                        "exp": "1234567890",
+                        "aio": "Y2NgYBD8ZLlhu27JU6WZsXemMIvVAAA=",
+                        "appid": "00000000-0000-0000-0000-000000000000",
+                        "appidacr": "2",
+                        "e_exp": "262800",
+                        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/00000000-0000-0000-0000-000000000000/",
+                        "http://schemas.microsoft.com/identity/claims/objectidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "00000000-0000-0000-0000-000000000000",
+                        "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                        "uti": "XnCk46TrDkOQXwo49Y8fAA",
+                        "ver": "1.0"
+                    },
+                    "caller": "00000000-0000-0000-0000-000000000000",
+                    "correlationId": "00000000-0000-0000-0000-000000000000",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-01-09T20:11:25.8410967+00:00",
+                    "eventDataId": "00000000-0000-0000-0000-000000000000",
+                    "level": "Informational",
+                    "operationName": "Microsoft.Compute/virtualMachines/deallocate/action",
+                    "operationId": "00000000-0000-0000-0000-000000000000",
+                    "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+                    "resourceGroupName": "ContosoVM",
+                    "resourceProviderName": "Microsoft.Compute",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                    "submissionTimestamp": "2018-01-09T20:11:40.2986126+00:00",
+                    "resourceType": "Microsoft.Compute/virtualMachines"
+                }
+            },
+            "properties": {}
         }
+    },
+    "RequestHeader": {
+        "Expect": "100-continue",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "IcMBroadcaster/1.0",
+        "X-CorrelationContext": "RkkKACgAAAACAAAAEADlBbM7x86VTrHdQ2JlmlxoAQAQALwazYvJ/INPskb8S5QzgDk=",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
 }
 ```
 
@@ -91,31 +106,30 @@ POST-åtgärden innehåller följande JSON-nyttolast och schemat för alla aktiv
 | --- | --- |
 | status |Används för mått aviseringar. Alltid inställt på ”Aktivera” för aktivitetsloggen aviseringar. |
 | Kontexten |Kontexten för händelsen. |
-| resourceProviderName |Resursprovidern för resursen påverkas. |
-| conditionType |Alltid ”Event”. |
-| namn |Namnet på regeln. |
-| id |Resurs-ID för aviseringen. |
+| activityLog | Loggegenskaperna för händelsen.|
+| Auktorisering |RBAC-egenskaperna för händelsen. Dessa omfattar vanligtvis ”åtgärd”, ”roll” och ”omfattningen”. |
+| åtgärd | Åtgärd som avbildas av aviseringen. |
+| Omfång | Omfånget för aviseringen (dvs resurs).|
+| kanaler | Åtgärd |
+| Anspråk | En samling information som finns på relaterar till anspråk. |
+| uppringare |GUID eller användarnamnet för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
+| correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis delar en correlationId. |
 | description |Aviseringsbeskrivningen som angetts under skapandet av aviseringen. |
-| subscriptionId |Azure prenumerations-ID. |
-| tidsstämpel |Tid då händelsen skapades av Azure-tjänsten som bearbetade förfrågan. |
+| eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
+| eventTimestamp |Tid som händelsen inträffade. |
+| eventDataId |Unik identifierare för händelsen. |
+| nivå |Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig”. |
+| operationName |Namnet på åtgärden. |
+| operationId |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | resourceId |Resurs-ID för resursen påverkas. |
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas |
-| properties |En uppsättning `<Key, Value>` par (d.v.s. `Dictionary<String, String>`) som innehåller information om händelsen. |
-| Händelse |Element som innehåller metadata om händelsen. |
-| Auktorisering |RBAC-egenskaperna för händelsen. Dessa omfattar vanligtvis ”åtgärd”, ”roll” och ”omfattningen”. |
-| category |Kategori för händelsen. Värden som stöds omfattar: administrativa, varning, säkerhet, ServiceHealth och rekommendation. |
-| Anroparen |E-postadressen för användaren som utförde åtgärden, UPN-anspråk eller SPN-anspråk baserat på tillgänglighet. Kan vara null för vissa system-anrop. |
-| correlationId |Vanligtvis ett GUID i strängformat. Händelser med correlationId tillhör samma större åtgärd och vanligtvis delar en correlationId. |
-| eventDescription |Statisk textbeskrivning av händelsen. |
-| eventDataId |Unik identifierare för händelsen. |
-| eventSource |Namnet på Azure-tjänsten eller infrastruktur som genererade händelsen. |
-| httpRequest |Inkluderar vanligtvis ”clientRequestId”, ”clientIpAddress” och ”metod” (HTTP-metoden anger t.ex.). |
-| nivå |Ett av följande värden: ”kritiska”, ”Error”, ”varning”, ”information” och ”utförlig”. |
-| Åtgärds-ID |Vanligtvis ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
-| operationName |Namnet på åtgärden. |
-| properties |Egenskaper för händelsen. |
+| resourceProviderName |Resursprovidern för resursen påverkas. |
 | status |Sträng. Status för åtgärden. Vanliga värden är: ”starta”, ”pågående”, ”Succeeded”, ”misslyckades”, ”aktiv”, ”löst”. |
 | subStatus |Normalt innehåller HTTP-statuskod för motsvarande REST-anrop. Det kan även innehålla andra strängar som beskriver en sådan. Vanliga understatus värden är: OK (HTTP-statuskod: 200), skapade (HTTP-statuskod: 201), godkända (HTTP-statuskod: 202), inte innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400), inte att hitta (HTTP-statuskod: 404), konflikt (HTTP-statuskod: 409), internt serverfel (HTTP-statuskod: 500), tjänsten är inte tillgänglig (HTTP-statuskod: 503), Gateway-Timeout (HTTP-statuskod: 504) |
+| subscriptionId |Azure prenumerations-ID. |
+| submissionTimestamp |Tid då händelsen skapades av Azure-tjänsten som bearbetade förfrågan. |
+| resourceType | Typ av resurs som genererade händelsen.|
+| properties |En uppsättning `<Key, Value>` par (d.v.s. `Dictionary<String, String>`) som innehåller information om händelsen. |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Mer information om aktivitetsloggen](monitoring-overview-activity-logs.md)

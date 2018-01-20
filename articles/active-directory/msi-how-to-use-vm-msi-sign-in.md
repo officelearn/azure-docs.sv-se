@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 6c9e3ce4bbe33d06af64d97e1455ec20902d0ff4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 2e4da8cd02a1d07a3225a0c1fda4c60928dba8a4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Hur du använder en Azure VM hanterade tjänsten identitet (MSI) för inloggning 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
 Den här artikeln innehåller exempel på PowerShell och CLI skript för att logga in med ett MSI tjänstens huvudnamn och vägledning om viktiga ämnen, till exempel felhantering.
 
 ## <a name="prerequisites"></a>Förutsättningar

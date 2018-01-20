@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c037f0bdb4e80d92f9ef51601ea331b3aba870c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Kom igång med Office365 Video-anslutning
 Ansluta till Office 365 Video om du vill få information om en Office 365 video hämta en lista över filmer och mycket annat. Med Office 365 Video kan du:
@@ -27,7 +27,7 @@ Ansluta till Office 365 Video om du vill få information om en Office 365 video 
 * Skapa ditt företag flödet som baseras på de data som du får från Office 365 Video. 
 * Använd åtgärder som statuskontroll video portal, hämta en lista över alla video i en kanal med mera. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Du kan till exempel använda Bing Search-anslutningen för att söka efter Office 365-videor och sedan använda Office 365 videoutgång för att få information om att videon. Om videon uppfyller dina krav, kan du publicera den här videon på Facebook. 
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office365-video-connector"></a>Skapa en anslutning till Office365 Video-anslutning
 När du lägger till den här anslutningen dina logic apps kan måste du logga in på ditt Office 365 Video-konto och Tillåt logikappar att ansluta till ditt konto.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
 > [!IMPORTANT] 
@@ -80,7 +80,7 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
 | **Reporting Services enhetligt läge** |Ja |Installerats men måste konfigurationen, inklusive URL: en för report manager. Se avsnittet [konfigurera Reporting Services](#configure-reporting-services). |
 | **Reporting Services SharePoint-läge** |Nej |Bild för virtuell dator i Microsoft Azure-galleriet inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 | **Analysis Services flerdimensionella och Data utvinningsmodellen (OLAP)** |Ja |Installeras och konfigureras som standard Analysis Services-instans |
-| **Analysis Services-tabell** |Nej |Stöds i SQL Server 2012, installeras 2014 2016 bilder, men den inte som standard. Installera en annan instans av Analysis Services. Se avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
+| **Analysis Services Tabular** |Nej |Stöds i SQL Server 2012, installeras 2014 2016 bilder, men den inte som standard. Installera en annan instans av Analysis Services. Se avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
 | **Analysis Services Power Pivot för SharePoint** |Nej |Bild för virtuell dator i Microsoft Azure-galleriet inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 
 <sup>1</sup> ytterligare information om Azure virtuella datorer och SharePoint finns [Microsoft Azure arkitekturer för SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) och [SharePoint-distributionen på Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -98,7 +98,7 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
   * Enhetens princip för standardenheten för cachelagring av **C**: är inte optimalt för att arbeta med data.
   * Den **D**: enheten är en temporär enhet som används främst för växlingsfilen. Den **D**: enheten är inte beständiga och sparas inte i blob storage. Hanteringsuppgifter, till exempel en ändring av den virtuella datorn storlek Återställ den **D**: enheten. Det rekommenderas att **inte** använder den **D**: enheten för databasfilerna, inklusive tempdb.
     
-    Mer information om hur du skapar och bifogar diskar finns [hur du kopplar en datadisk till en virtuell dator](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Mer information om hur du skapar och bifogar diskar finns [hur du kopplar en datadisk till en virtuell dator](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Stoppa eller avinstallera tjänster som du inte tänker använda. För exempel om den virtuella datorn bara används för Reporting Services, stoppar eller avinstallerar Analysis Services och SQL Server Integration Services. Följande bild är ett exempel på de tjänster som startas som standard.
   
     ![SQL Server-tjänster](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -152,7 +152,7 @@ Det finns två vanliga arbetsflöden för att ansluta till en virtuell dator i A
   1. Typ av **molntjänstnamnet** som datornamn.
   2. Ange kolon (:) och det offentliga portnumret som har konfigurerats för TCP skrivbord fjärrslutpunkten.
      
-      Myservice.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Mer information finns i [vad är en molnbaserad tjänst?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
@@ -339,7 +339,7 @@ Följande diagram illustrerar portarna som ska öppnas i brandväggen för VM at
 * [SQLServer på Azure virtuella datorer – översikt](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Etablering av en SQL Server-dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Så här kopplar du en datadisk till en virtuell dator](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Så här kopplar du en datadisk till en virtuell dator](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrera en databas till SQLServer på en virtuell dator i Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Fastställa serverläge för en Analysis Services-instans](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Flerdimensionella modellering (Adventure Works självstudier)](https://technet.microsoft.com/library/ms170208.aspx)

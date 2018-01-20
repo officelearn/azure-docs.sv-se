@@ -4,7 +4,7 @@ description: "Lär dig hur du skapar och konfigurerar domänanslutna HDInsight-k
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurera domänanslutna HDInsight begränsat läge
 
@@ -49,7 +49,7 @@ Använder en fristående Active Directory ingår körs på Azure IaaS i den här
 ## <a name="option-1-one-step-approach"></a>Alternativ 1: ett enda metod
 I det här avsnittet öppna en mall för Azure-resurs management från Azure-portalen. Mallen används för att skapa en fristående Active Directory, och ett HDInsight-kluster. För närvarande kan du skapa domänanslutna Hadoop-kluster, Spark-kluster och interaktiva frågan kluster.
 
-1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure QuickStart mallar](https://azure.microsoft.com/resources/templates/).
+1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
    
     Skapa ett Spark-kluster:
 

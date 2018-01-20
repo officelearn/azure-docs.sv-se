@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Ambari och optimera klusterkonfigurationer för HDInsight
 
@@ -183,7 +183,7 @@ Av tillgängliga komprimeringstyper är:
 
 | Format | Verktyget | Algoritmen | Filnamnstillägg | Delbara? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .GZ | Nej |
+| Gzip | Gzip | DEFLATE | .gz | Nej |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Ja |
 | LZO | Lzop | LZO | .lzo | Ja, om indexerade |
 | snygga | Gäller inte | snygga | snygga | Nej |
@@ -234,7 +234,7 @@ Spekulativ exekvering startar antalet duplicerade uppgifter för att identifiera
 
 Spekulativ exekvering får inte aktiveras för MapReduce tidskrävande uppgifter med stora mängder indata.
 
-1. Om du vill aktivera spekulativ exekvering, navigera till registreringsdatafilen **konfigurationerna** fliken och ange sedan den `hive.mapred.reduce.tasks.speculative.execution` parameter till true. Standardvärdet är false.
+* Om du vill aktivera spekulativ exekvering, navigera till registreringsdatafilen **konfigurationerna** fliken och ange sedan den `hive.mapred.reduce.tasks.speculative.execution` parameter till true. Standardvärdet är false.
 
     ![Hive mapred minska uppgifter spekulativ exekvering](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -453,10 +453,10 @@ Memstore storlek definieras av den `hbase.regionserver.global.memstore.UpperLimi
 
 Memstore lokala allokering av buffert användning bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När aktiverat (SANT), Detta förhindrar heap fragmentering under tung skrivåtgärd. Standardvärdet är true.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 * [Hantera HDInsight-kluster med Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 68727976358e81094e2d841948ae09c2c4949e35
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Kortkommandon för Azure Data Catalog
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kortkommandon för Data Catalog data source registreringsverktyget
 ### <a name="general-keyboard-shortcuts"></a>Allmänna kortkommandon
 | Åtgärd | Tryck på |
 | --- | --- |
-| Fliken för alla kontroller på en sida |fliken |
+| Fliken för alla kontroller på en sida |Tab |
 | Välj ett alternativ |Ange eller blanksteg |
 | Maximera sidan |WIN + UPPIL |
 | Återställ/Minimera sidan |WIN + NEDPIL |
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/03/2017
 | Inkludera Data profil kryssrutan (om tillgängligt) |ALT + D |
 | Navigera till varje listobjekt |UPPIL eller NEDPIL |
 | Serverhierarki, expandera noden en trädvy |HÖGERPIL |
-| Flytta valda objekt för **tillgängliga objekt** eller **objekt som ska registreras** |BLANKSTEG |
+| Flytta valda objekt för **tillgängliga objekt** eller **objekt som ska registreras** |SPACEBAR |
 
 ### <a name="publish-progress-page"></a>Publicera sidan för Installationsförlopp
 | Åtgärd | Tryck på |

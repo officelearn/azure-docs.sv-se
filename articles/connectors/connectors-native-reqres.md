@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Kom igång med komponenter för förfrågan och svar
 Med förfrågan och svar komponenterna i en logikapp, kan du svara i realtid på händelser.
@@ -30,7 +30,7 @@ Du kan till exempel:
 * Utlös en logikapp från en extern webhook-händelse.
 * Anropa en logikapp med en åtgärd för förfrågan och svar från inom en annan logikapp.
 
-Om du vill komma igång med åtgärder för förfrågan och svar i en logikapp, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Om du vill komma igång med åtgärder för förfrågan och svar i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Använda HTTP-begäran-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare](connectors-overview.md).
@@ -86,7 +86,7 @@ Följande är ett inmatningsfält för utlösaren från en inkommande HTTP-begä
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| JSON-Schema |Schemat |JSON-schema av text för HTTP-begäran |
+| JSON-Schema |schema |JSON-schema av text för HTTP-begäran |
 
 <br>
 
@@ -96,18 +96,18 @@ Nedan visas information för utdata för begäran.
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |Objektet |Huvuden för begäran |
-| Innehåll |Objektet |Request-objektet |
+| Sidhuvuden |objekt |Begärandehuvud |
+| Innehåll |objekt |Request-objektet |
 
 #### <a name="response-action"></a>Svaret åtgärd
 Följande är inmatningsfält för åtgärden HTTP-svar. A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Status kod * |statusCode |HTTP-statuskod |
-| Rubriker |Rubriker |Ett JSON-objekt för alla svarshuvuden att inkludera |
-| Innehåll |Brödtext |Svarstexten |
+| Status kod * |statuskod |HTTP-statuskod |
+| Sidhuvuden |rubriker |Ett JSON-objekt för alla svarshuvuden att inkludera |
+| Innehåll |brödtext |Svarstexten |
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
+Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
 

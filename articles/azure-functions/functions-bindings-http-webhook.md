@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -240,7 +240,7 @@ Finns i det språkspecifika:
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
-### <a name="webhook---c-example"></a>Webhook - C#-exempel
+### <a name="webhook---c-example"></a>Webhook - C# example
 
 Följande exempel visar en [C#-funktionen](functions-dotnet-class-library.md) som skickar en HTTP-200 som svar på en allmän JSON-begäran.
 
@@ -527,6 +527,10 @@ Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-ut
 
 - **Frågesträng**: providern skickar nyckelnamnet i den `clientid` frågesträngparametern, t.ex `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Förfrågningshuvudet**: providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
+
+## <a name="trigger---limits"></a>Utlösaren - gränser
+
+Längden för HTTP-begäranden är begränsad till 100 kilobyte (102,400) och URL-längd är begränsad till 4 kB (4 096). Dessa värden anges av den `httpRuntime` elementet av runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 ## <a name="trigger---hostjson-properties"></a>Utlösaren - host.json egenskaper
 

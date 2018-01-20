@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -28,7 +28,7 @@ I det här avsnittet kan du lära dig att definiera vilka erbjudanden och deras 
 
 Ett erbjudande är överordnat alla sina SKU:er. Du kan ha flera erbjudanden. Hur du väljer att strukturera dina erbjudanden är upp till dig. När ett erbjudande skickas till mellanlagringen, skickas det tillsammans med alla SKU:er. Du noga överväga din SKU-identifierare, eftersom de kommer att vara synliga i URL-Adressen:
 
-* Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Azure preview portal: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
 
 En SKU är kommersiella namnet för en VM-avbildning. En VM-avbildning som innehåller en operativsystemdisk och noll eller flera datadiskar. Det är i grund och botten den fullständiga lagringsprofilen för en virtuell dator. En virtuell Hårddisk krävs per disk. Även tomt datadiskar kräver en virtuell Hårddisk som ska skapas.
@@ -58,7 +58,7 @@ När du har lagt till ett erbjudande, måste du definiera och identifiera din SK
 3. Om du använder Windows-baserade SKU:er följer du de rekommenderade länkarna för att hämta godkända versioner av Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Skapa en virtuell Hårddisk på Azure-kompatibel (Linux-baserat)
-Det här avsnittet fokuserar på bästa praxis för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns följande dokumentation: [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Det här avsnittet fokuserar på bästa praxis för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns följande dokumentation: [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Skapa en virtuell Hårddisk på Azure-kompatibel (Windows-baserade)
 Det här avsnittet fokuserar på hur du skapar en SKU baserat på Windows Server för Azure Marketplace.
@@ -300,7 +300,7 @@ SAS-URL kan skapas på flera olika sätt att dela den virtuella Hårddisken för
 Följande är 3 rekommenderade verktyg:
 
 1.  Azure Lagringsutforskaren
-2.  Microsoft Lagringsutforskaren
+2.  Microsoft Storage Explorer
 3.  Azure CLI
 
 **Azure Lagringsutforskaren (rekommenderas för Windows-användare)**
@@ -510,19 +510,19 @@ När du har skapat ditt erbjudande och SKU, ska du ange avbildningsinformation s
 
 ## <a name="common-sas-url-issues--fixes"></a>Vanliga problem med SAS-URL & korrigeringar
 
-|Problem|Felmeddelande|Åtgärda|Länk till dokumentation|
+|Problem|Felmeddelande|Korrigera|Länk till dokumentation|
 |---|---|---|---|
-|Det gick inte att kopiera bilder - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera bilder - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med Start- och slutdatum på den|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri|Uppdatera SAS-Url med behörigheter som har angetts som ”läsa” och ”lista|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar - SAS-url har blanksteg i vhd-namn|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url utan blanksteg|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar – Url-auktorisering för SAS-fel|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av Behörighetsfel|Återskapa SAS-Url|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Det gick inte att kopiera avbildningar – SAS-Url: ”a” och ”se” parametrar har inte datum tid specifikation|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av felaktig SAS-Url |SAS-URL: en Start- och slutdatum parametrar (”a”, ”SA”) måste ha fullständig datum / tid-specifikationen som 11-02-2017T00:00:00Z, och inte bara datum eller kortare versioner för tiden. Det är möjligt att få det här scenariot använder Azure CLI 2.0 (az kommandot). Se till att ange specifikationen datum tid och återskapa SAS-Url.|[https://Azure.microsoft.com/Documentation/articles/Storage-DotNet-Shared-Access-Signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera bilder - ””? hittades inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med rekommenderade verktyg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera bilder - ”a” och ”se” parametrar inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url med Start- och slutdatum på den|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - ”sp = rl” inte i SAS-url|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri|Uppdatera SAS-Url med behörigheter som har angetts som ”läsa” och ”lista|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar - SAS-url har blanksteg i vhd-namn|Fel: Kopiera avbildningar. Det går inte att hämta blob att använda som SAS-Uri.|Uppdatera SAS-Url utan blanksteg|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar – Url-auktorisering för SAS-fel|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av Behörighetsfel|Återskapa SAS-Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Det gick inte att kopiera avbildningar – SAS-Url: ”a” och ”se” parametrar har inte datum tid specifikation|Fel: Kopiera avbildningar. Det går inte att hämta blob på grund av felaktig SAS-Url |SAS-URL: en Start- och slutdatum parametrar (”a”, ”SA”) måste ha fullständig datum / tid-specifikationen som 11-02-2017T00:00:00Z, och inte bara datum eller kortare versioner för tiden. Det är möjligt att få det här scenariot använder Azure CLI 2.0 (az kommandot). Se till att ange specifikationen datum tid och återskapa SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Nästa steg
 När du är klar med SKU-uppgifter du kan gå till den [administratörshandboken för Azure Marketplace marketing content][link-pushstaging]. I steget publiceringsprocessen och ger du marknadsföring innehållet priser och annan information som krävs före **steg3: testa den virtuella datorn erbjuder i Förproduktion**, där du kan testa olika användningsfall scenarier innan du distribuerar erbjudanden på Azure Marketplace för offentliga synlighet och inköp.  
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Komma igång: hur du publicerar ett erbjudande på Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

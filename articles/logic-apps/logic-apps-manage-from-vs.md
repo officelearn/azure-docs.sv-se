@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Hantera dina logic apps med Visual Studio Cloud Explorer
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 Innan du kan komma åt och hantera dina logic apps i Visual Studio, installera och konfigurera de här Visual Studio-verktygen för Logikappar i Azure. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2015 eller Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Den senaste Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 eller senare)
@@ -69,7 +69,7 @@ Cloud Explorer kan du öppna en för tillfället distribuerade logikapp i samma 
 
 * Om du vill starta ett nytt kör väljer **köra utlösaren**.
 
-![Logic Apps Designer](./media/logic-apps-manage-from-vs/designer.png)
+![Logikappdesigner](./media/logic-apps-manage-from-vs/designer.png)
 
 Från designer kan du också **hämta** en logikapp. Den här åtgärden automatiskt parameterizes logik app definition och sparar definitionen som en Distributionsmall av Azure Resource Manager. Du kan lägga till den här mallen för distribution till Azure-resursgrupp-projekt.
 
@@ -77,7 +77,7 @@ Från designer kan du också **hämta** en logikapp. Den här åtgärden automat
 
 Om du vill visa körningshistorik för din logikapp, högerklicka på din logikapp och välj **öppna kör historik**. Om du vill ordna om historiken kör baserat på någon av egenskaperna som visas markerar du kolumnrubriken.
 
-![Kör historik](media/logic-apps-manage-from-vs/runs.png)
+![Körn.historik](media/logic-apps-manage-from-vs/runs.png)
 
 Dubbelklicka på någon av instanserna kör om du vill visa körningshistorik för en instans så att du kan granska kör resultat, inklusive indata och utdata från varje steg.
 
@@ -85,7 +85,7 @@ Dubbelklicka på någon av instanserna kör om du vill visa körningshistorik f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa din första logiska app](logic-apps-create-a-logic-app.md)
+* [Skapa din första logiska app](quickstart-create-first-logic-app-workflow.md)
 * [Utforma, skapa och distribuera logikappar i Visual Studio](logic-apps-deploy-from-vs.md)
 * [Visa vanliga exempel och scenarier](logic-apps-examples-and-scenarios.md)
 * [Video: Automatisera affärsprocesser med Azure Logikappar](http://channel9.msdn.com/Events/Build/2016/T694)

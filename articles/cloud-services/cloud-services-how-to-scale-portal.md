@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 264f68b879653f4168637e19cc886524c4af8557
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en tjänst i molnet i portalen
 
 Villkor kan anges för en cloud service-arbetsroll som utlöser en skala in eller ut igen. Villkor för rollen kan baseras på CPU, disk eller nätverksbelastningen för rollen. Du kan också ange ett villkor baserat på en meddelandekö eller mått för vissa andra Azure-resurs som är associerade med prenumerationen.
 
 > [!NOTE]
-> Den här artikeln fokuserar på Molntjänsten webb- och arbetsroller roller. När du skapar en virtuell dator (klassisk) direkt finns det i en molntjänst. Du kan skala en vanliga virtuell dator genom att associera den med en [tillgänglighetsuppsättning](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) och aktivera dem manuellt eller inaktivera.
+> Den här artikeln fokuserar på Molntjänsten webb- och arbetsroller roller. När du skapar en virtuell dator (klassisk) direkt finns det i en molntjänst. Du kan skala en vanliga virtuell dator genom att associera den med en [tillgänglighetsuppsättning](../virtual-machines/windows/classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) och aktivera dem manuellt eller inaktivera.
 
 ## <a name="considerations"></a>Överväganden
 Innan du konfigurerar skalning för ditt program bör du tänka på följande information:

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eeef5b522996146eed6be393692b3c0a4a8747f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Detaljerad SSH felsökningssteg för problem som ansluter till en Linux-VM i Azure
 Det finns många möjliga orsaker till att SSH-klienten inte kanske kan nå SSH-tjänsten på den virtuella datorn. Om du har följt via mer [allmänna SSH felsökningssteg](troubleshoot-ssh-connection.md), du behöver ytterligare felsöka problemet. Den här artikeln hjälper dig att detaljerade felsökningssteg för att fastställa om SSH-anslutningen inte fungerar och hur man löser problemet.
@@ -71,7 +71,7 @@ Om något av dessa villkor gäller tillfälligt inaktivera programmen och en SSH
 Om du använder certifikatautentisering kan du kontrollera att du har följande behörigheter till .ssh-mappen i din hemkatalog:
 
 * Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/\*pub
+* Chmod 644 ~/.ssh/\*.pub
 * Chmod 600 ~/.ssh/id_rsa (eller andra filer som har dina privata nycklar lagras i dem)
 * Chmod 644 ~/.ssh/known_hosts (innehåller värdar som du har anslutit till via SSH)
 
@@ -120,7 +120,7 @@ Senaste källan för möjliga problem är den virtuella Azure-datorn sig själv.
 
 ![Diagram som visar Linux-baserade virtuell Azure-dator](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Om du inte redan har gjort så, följ instruktionerna [att återställa ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Om du inte redan har gjort så, följ instruktionerna [att återställa ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Försök ansluta igen från datorn. Om det fortfarande inte följer några möjliga problem:
 

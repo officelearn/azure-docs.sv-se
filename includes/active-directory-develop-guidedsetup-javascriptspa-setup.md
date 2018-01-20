@@ -9,7 +9,7 @@
 >
 > Och gå sedan till den [konfigurationssteget](#create-an-application-express) konfigurera kodexemplet innan den körs.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 En lokal webbserver som [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), eller IIS Express integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/) krävs för att köra interaktiva installationen. 
 
 Anvisningarna i guiden är baserade på både Python och Visual Studio 2017 men passa på att använda något annat utvecklingsmiljö eller webbserver.

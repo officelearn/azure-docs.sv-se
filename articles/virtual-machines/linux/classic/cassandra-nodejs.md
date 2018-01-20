@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Kör en Cassandra kluster på Linux i Azure med Node.js
 
@@ -156,7 +156,7 @@ Ange följande information på skärmen ”konfiguration av virtuell dator” #2
 <table>
 <tr><th>FÄLTNAMN             </th><th> FÄLTVÄRDE                       </th><th> KOMMENTARER                                 </th></tr>
 <tr><td> MOLNTJÄNSTEN    </td><td> Skapa en ny molntjänst    </td><td>Molntjänst är en behållare beräkningsresurser som virtuella datorer</td></tr>
-<tr><td> DNS-MOLNTJÄNSTNAMNET    </td><td>Ubuntu template.cloudapp.net    </td><td>Ge en datorn storleksoberoende belastningsutjämnarens namn</td></tr>
+<tr><td> DNS-MOLNTJÄNSTNAMNET    </td><td>ubuntu-template.cloudapp.net    </td><td>Ge en datorn storleksoberoende belastningsutjämnarens namn</td></tr>
 <tr><td> REGION/TILLHÖRIGHETSGRUPP/VIRTUELLT NÄTVERK </td><td>    Västra USA    </td><td> Välj en region som ditt webbprogram till Cassandra klustret</td></tr>
 <tr><td>LAGRINGSKONTO </td><td>    Använd standard    </td><td>Använda standardkontot för lagring eller ett befintligt lagringskonto i en viss region</td></tr>
 <tr><td>TILLGÄNGLIGHETSUPPSÄTTNING </td><td>    Ingen </td><td>    Lämna det tomt</td></tr>
@@ -279,7 +279,7 @@ Redigera cassandra.yaml på varje virtuell konfiguration som krävs av alla virt
 
 <table>
 <tr><th>Fältnamn   </th><th> Värde  </th><th>    Kommentarer </th></tr>
-<tr><td>klusternamn </td><td>    ”CustomerService”    </td><td> Använda namn som motsvarar din distribution</td></tr>
+<tr><td>klusternamn </td><td>    “CustomerService”    </td><td> Använda namn som motsvarar din distribution</td></tr>
 <tr><td>listen_address    </td><td>[lämna det tomt]    </td><td> Ta bort ”localhost” </td></tr>
 <tr><td>rpc_addres   </td><td>[lämna det tomt]    </td><td> Ta bort ”localhost” </td></tr>
 <tr><td>frö    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Lista över alla IP-adresser som är avsedda som frö.</td></tr>
@@ -292,7 +292,7 @@ Logga in på den virtuella datorn med värdnamn (hk-cas-template.cloudapp.net) o
 Kör följande sekvens med åtgärder för att avbilda:
 
 ##### <a name="1-deprovision"></a>1. Avetablering
-Använd kommandot ”sudo waagent – avetablering + användare” ta bort virtuella instansen specifik information. Se för [så här skapar du en virtuell Linux-dator](capture-image.md) ska användas som en mall för mer information på image-hämtningen.
+Använd kommandot ”sudo waagent – avetablering + användare” ta bort virtuella instansen specifik information. Se för [så här skapar du en virtuell Linux-dator](capture-image-classic.md) ska användas som en mall för mer information på image-hämtningen.
 
 ##### <a name="2-shut-down-the-vm"></a>2: stänga av den virtuella datorn
 Kontrollera att den virtuella datorn har markerats och klicka på länken avstängning från kommandofältet längst ned.
@@ -307,7 +307,7 @@ Den här processen tar några sekunder och avbildningen ska vara tillgänglig un
 
 <table>
 <tr><th>VM attributets namn</th><th>Värde</th><th>Kommentarer</th></tr>
-<tr><td>Namn</td><td>vnet-fråga-Väst-oss</td><td></td></tr>
+<tr><td>Namn</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Västra USA</td><td></td></tr>
 <tr><td>DNS-servrar</td><td>Ingen</td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
 <tr><td>Adressutrymme</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -319,7 +319,7 @@ Lägg till följande undernät:
 
 <table>
 <tr><th>Namn</th><th>Starta IP</th><th>CIDR</th><th>Kommentarer</th></tr>
-<tr><td>webben</td><td>10.1.1.0</td><td>/24 (251)</td><td>Undernät för webbservergrupp</td></tr>
+<tr><td>webb</td><td>10.1.1.0</td><td>/24 (251)</td><td>Undernät för webbservergrupp</td></tr>
 <tr><td>data</td><td>10.1.2.0</td><td>/24 (251)</td><td>Undernät för databasnoder</td></tr>
 </table>
 
@@ -329,16 +329,16 @@ Data och Web undernät kan skyddas via nätverkssäkerhetsgrupper täckning som 
 
 <table>
 <tr><th>Datornamn    </th><th>Undernät    </th><th>IP-adress    </th><th>Tillgänglighetsuppsättning</th><th>DC/Rack</th><th>Startvärde för?</th></tr>
-<tr><td>HK-c1-Väst-oss    </td><td>data    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ja</td></tr>
-<tr><td>HK-c2-Väst-oss    </td><td>data    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Nej </td></tr>
-<tr><td>HK-c3-Väst-oss    </td><td>data    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ja</td></tr>
-<tr><td>HK-c4-Väst-oss    </td><td>data    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Nej </td></tr>
-<tr><td>HK-c5-Väst-oss    </td><td>data    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ja</td></tr>
-<tr><td>HK-c6-Väst-oss    </td><td>data    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Nej </td></tr>
-<tr><td>HK-c7-Väst-oss    </td><td>data    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ja</td></tr>
-<tr><td>HK-c8-Väst-oss    </td><td>data    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Nej </td></tr>
-<tr><td>HK-w1-Väst-oss    </td><td>webben    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Gäller inte</td></tr>
-<tr><td>HK-w2-Väst-oss    </td><td>webben    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Gäller inte</td></tr>
+<tr><td>hk-c1-west-us    </td><td>data    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack1 </td><td>Ja</td></tr>
+<tr><td>hk-c2-west-us    </td><td>data    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack1    </td><td>Nej </td></tr>
+<tr><td>hk-c3-west-us    </td><td>data    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Ja</td></tr>
+<tr><td>hk-c4-west-us    </td><td>data    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS rack = rack2    </td><td>Nej </td></tr>
+<tr><td>hk-c5-west-us    </td><td>data    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Ja</td></tr>
+<tr><td>hk-c6-west-us    </td><td>data    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack3    </td><td>Nej </td></tr>
+<tr><td>hk-c7-west-us    </td><td>data    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Ja</td></tr>
+<tr><td>hk-c8-west-us    </td><td>data    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = WESTUS rack = rack4    </td><td>Nej </td></tr>
+<tr><td>hk-w1-west-us    </td><td>webb    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>Gäller inte</td></tr>
+<tr><td>hk-w2-west-us    </td><td>webb    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>Gäller inte</td></tr>
 </table>
 
 Skapa listan ovan för virtuella datorer kräver följande process:
@@ -451,7 +451,7 @@ Använd följande steg för att testa klustret:
 Du bör se något liknande följande resultat:
 
 <table>
-  <tr><th> customer_id </th><th> Förnamn </th><th> Efternamn </th></tr>
+  <tr><th> customer_id </th><th> firstname </th><th> Efternamn </th></tr>
   <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
@@ -466,7 +466,7 @@ Logga in på Azure portal och skapa ett virtuellt nätverk med attribut visas i 
 
 <table>
 <tr><th>Attributnamn    </th><th>Värde    </th><th>Kommentarer</th></tr>
-<tr><td>Namn    </td><td>vnet-fråga-Öst-oss</td><td></td></tr>
+<tr><td>Namn    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Region    </td><td>Östra USA</td><td></td></tr>
 <tr><td>DNS-servrar        </td><td></td><td>Ignorera detta eftersom vi inte använder en DNS-Server</td></tr>
 <tr><td>Konfigurera en punkt-till-plats-VPN</td><td></td><td>        Ignorera detta</td></tr>
@@ -480,7 +480,7 @@ Lägg till följande undernät:
 
 <table>
 <tr><th>Namn    </th><th>Starta IP    </th><th>CIDR    </th><th>Kommentarer</th></tr>
-<tr><td>webben    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Undernät för webbservergrupp</td></tr>
+<tr><td>webb    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Undernät för webbservergrupp</td></tr>
 <tr><td>data    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Undernät för databasnoder</td></tr>
 </table>
 
@@ -492,16 +492,16 @@ Skapa två lokala nätverk per följande information:
 
 | Nätverksnamn | VPN Gateway-adress | Adressutrymme | Kommentarer |
 | --- | --- | --- | --- |
-| HK-lnet-Map-to-East-US |23.1.1.1 |10.2.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i östra USA. |
-| HK-lnet-Map-to-West-US |23.2.2.2 |10.1.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i USA, västra region. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i östra USA. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |När du skapar ge det lokala nätverket en platshållare för gateway-adress. Verklig gateway-adressen är fylld när gatewayen har skapats. Se till att adressutrymmet exakt matchar respektive Fjärrnätverket; i det här fallet skapas VNET i USA, västra region. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Steg 3: Karta ”lokalt” nätverk till respektive Vnet
 Markera varje virtuellt nätverk från Azure-portalen, klickar du på ”Konfigurera”, kontrollera ”ansluta till det lokala nätverket” och väljer du de lokala nätverk per följande information:
 
 | Virtual Network | Lokalt nätverk |
 | --- | --- |
-| HK-vnet-Väst-oss |HK-lnet-Map-to-East-US |
-| HK-vnet-Öst-oss |HK-lnet-Map-to-West-US |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Steg 4: Skapa Gateways på VNET1 och VNET2
 Klicka på Skapa GATEWAY för att starta en VPN-gateway etableringsprocessen från instrumentpanelen för virtuella nätverk. Efter några minuter visas på instrumentpanelen i varje virtuellt nätverk bör faktiska gateway-adress.
@@ -511,8 +511,8 @@ Redigera både de lokala nätverk för att ersätta platshållare gateway IP-adr
 
 <table>
 <tr><th>Lokalt nätverk    </th><th>Virtuell nätverksgateway</th></tr>
-<tr><td>HK-lnet-Map-to-East-US </td><td>Gateway för hk-vnet-Väst-oss</td></tr>
-<tr><td>HK-lnet-Map-to-West-US </td><td>Gateway för hk-vnet-Öst-oss</td></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>Gateway för hk-vnet-Väst-oss</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>Gateway för hk-vnet-Öst-oss</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Steg 6: Uppdatera delad nyckel
@@ -526,15 +526,15 @@ Skapa avbildningen Ubuntu enligt beskrivningen i region #1 distribution genom at
 
 | Datornamn | Undernät | IP-adress | Tillgänglighetsuppsättning | DC/Rack | Startvärde för? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Öst-oss |data |10.2.2.4 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
-| HK-c2-Öst-oss |data |10.2.2.5 |HK-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
-| HK-c3-Öst-oss |data |10.2.2.6 |HK-c-aset-1 |DC = EASTUS rack = rack2 |Ja |
-| HK-c5-Öst-oss |data |10.2.2.8 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Ja |
-| HK-c6-Öst-oss |data |10.2.2.9 |HK-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
-| HK-c7-Öst-oss |data |10.2.2.10 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
-| HK-c8-Öst-oss |data |10.2.2.11 |HK-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
-| HK-w1-Öst-oss |webben |10.2.1.4 |HK-w-aset-1 |Gäller inte |Gäller inte |
-| HK-w2-Öst-oss |webben |10.2.1.5 |HK-w-aset-1 |Gäller inte |Gäller inte |
+| hk-c1-east-us |data |10.2.2.4 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Ja |
+| hk-c2-east-us |data |10.2.2.5 |hk-c-aset-1 |DC = EASTUS rack = rack1 |Nej |
+| hk-c3-east-us |data |10.2.2.6 |hk-c-aset-1 |DC = EASTUS rack = rack2 |Ja |
+| hk-c5-east-us |data |10.2.2.8 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Ja |
+| hk-c6-east-us |data |10.2.2.9 |hk-c-aset-2 |DC = EASTUS rack = rack3 |Nej |
+| hk-c7-east-us |data |10.2.2.10 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Ja |
+| hk-c8-east-us |data |10.2.2.11 |hk-c-aset-2 |DC = EASTUS rack = rack4 |Nej |
+| hk-w1-east-us |webb |10.2.1.4 |hk-w-aset-1 |Gäller inte |Gäller inte |
+| hk-w2-east-us |webb |10.2.1.5 |hk-w-aset-1 |Gäller inte |Gäller inte |
 
 Följ samma anvisningar som region #1 men använda 10.2.xxx.xxx adressutrymme.
 
@@ -551,8 +551,8 @@ Logga in på varje virtuell dator och starta Cassandra i bakgrunden genom att k�
 Nu har Cassandra distribuerats till 16 noder med 8 noder i varje Azure-region. Dessa noder finns i samma kluster tack vare vanliga klusternamnet och nodkonfiguration startvärde. Du kan använda följande process för att testa klustret:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Steg 1: Hämta den intern belastningsutjämnaren IP-Adressen för båda regioner med hjälp av PowerShell
-* Get-AzureInternalLoadbalancer - ServiceName ”hk-c-svc-Väst-oss”
-* Get-AzureInternalLoadbalancer - ServiceName ”hk-c-svc-Öst-oss”  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
   
     Observera de IP-adresserna (för exempel Väst - 10.1.2.101, Öst - 10.2.2.101) visas.
 
@@ -564,7 +564,7 @@ Nu har Cassandra distribuerats till 16 noder med 8 noder i varje Azure-region. D
 
 Du bör se en skärm som liknar den nedan:
 
-| customer_id | Förnamn | Efternamn |
+| customer_id | firstname | Efternamn |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
@@ -577,7 +577,7 @@ Du bör se en skärm som liknar den nedan:
 
 Du bör se samma skärm som visas för regionen Väst:
 
-| customer_id | Förnamn | Efternamn |
+| customer_id | firstname | Efternamn |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |

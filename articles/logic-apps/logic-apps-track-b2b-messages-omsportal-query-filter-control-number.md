@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 2748d3d3daf7c13dca05f663a4a088598e1b3605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Fråga efter AS2-, X 12- och EDIFACT-meddelanden i Microsoft Operations Management Suite (OMS)
 
@@ -26,7 +26,7 @@ Om du vill hitta AS2 X12 eller EDIFACT meddelanden som du spårar med [Azure log
 
 ## <a name="requirements"></a>Krav
 
-* En logikapp som har konfigurerats med diagnostikloggning. Läs [hur du skapar en logikapp](../logic-apps/logic-apps-create-a-logic-app.md) och [hur du ställer in loggning för att logikapp](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* En logikapp som har konfigurerats med diagnostikloggning. Läs [hur du skapar en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för att logikapp](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Ett integration-konto som har konfigurerats med övervakning och loggning. Läs [hur du skapar ett konto för integrering](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -46,7 +46,7 @@ Det här exemplet visar hur du kan hitta meddelanden baserat på deras interchan
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
-   ![Hitta logganalys](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Find Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
 2. Under **logganalys**, söka efter och välj din OMS-arbetsyta.
 

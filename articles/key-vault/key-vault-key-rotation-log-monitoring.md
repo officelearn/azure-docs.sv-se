@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckelgranskning och -rotation från slutpunkt till slutpunkt
 ## <a name="introduction"></a>Introduktion
@@ -416,11 +416,11 @@ Funktionen är nu klar. Se till att växla tillbaka till den **utveckla** fliken
 ### <a name="azure-logic-app"></a>Azure logikapp
 Nu måste du skapa ett Azure logikappen som hämtar händelser att funktionen är push-installation till Service Bus-kö, tolkar innehållet och skickar ett e-post baserat på ett villkor som matchas.
 
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md) genom att gå till **New > Logikapp**.
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) genom att gå till **New > Logikapp**.
 
 När logikappen har skapats, navigera till den och välj **redigera**. I Redigeraren för logik-app väljer **Service Bus-kö** och ange dina autentiseringsuppgifter för Service Bus för att ansluta till kön.
 
-![Logik för Azure App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
+![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
 Välj nästa **Lägg till ett villkor**. Växla till redigeraren i villkoret och ange följande kod, ersätta APP_ID med den faktiska APP_ID av ditt webbprogram:
 

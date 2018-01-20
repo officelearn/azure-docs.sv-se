@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Kom igång med Azure SQL Database-koppling
 Med Azure SQL Database-kopplingen kan skapa arbetsflöden för din organisation som hanterar data i tabeller. 
@@ -31,7 +31,7 @@ Med SQL-databas måste du:
 
 Det här avsnittet beskrivs hur du använder SQL Database-anslutningen i en logikapp och visar även åtgärderna.
 
-Läs mer om Logic Apps i [vad är logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) och [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Läs mer om Logic Apps i [vad är logic apps](../logic-apps/logic-apps-overview.md) och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-sql-database"></a>Anslut till Azure SQL Database
 Innan din logikapp får åtkomst till alla tjänster måste du först skapa en *anslutning* till tjänsten. En anslutning kan du ansluta en logikapp och en annan tjänst. Till exempel för att ansluta till SQL-databas måste du först skapa en SQL-databas *anslutning*. Om du vill skapa en anslutning kan du ange de autentiseringsuppgifter som du vanligtvis använder för att få åtkomst till tjänsten som du ansluter till. Så ange dina autentiseringsuppgifter för SQL-databas för att skapa anslutningen i SQL-databas. 
@@ -42,10 +42,10 @@ Innan din logikapp får åtkomst till alla tjänster måste du först skapa en *
 > 
 
 ## <a name="use-a-trigger"></a>Använda en utlösare
-Den här anslutningen har inte utlösare. Använd andra utlösare för att starta logikapp, till exempel en upprepning utlösare, en HTTP-Webhook-utlösare, utlösare som är tillgängliga med övriga kopplingar och mycket mer. [Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md) innehåller ett exempel.
+Den här anslutningen har inte utlösare. Använd andra utlösare för att starta logikapp, till exempel en upprepning utlösare, en HTTP-Webhook-utlösare, utlösare som är tillgängliga med övriga kopplingar och mycket mer. [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md) innehåller ett exempel.
 
 ## <a name="use-an-action"></a>Använda en åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Klicka på plustecknet. Du ser flera alternativ: **lägga till en åtgärd**, **Lägg till ett villkor**, eller en av de **mer** alternativ.
    
@@ -71,5 +71,5 @@ En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en lo
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
 

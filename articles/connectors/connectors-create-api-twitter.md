@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Kom igång med Twitter-anslutningen
 Med Twitter-anslutningen kan du:
@@ -28,7 +28,7 @@ Med Twitter-anslutningen kan du:
 * Åtkomst tidslinjer, vänner och blandare
 * Utför någon av de andra åtgärder och utlösare som beskrivs nedan  
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/logic-apps-create-a-logic-app.md).  
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Ansluta till Twitter
 Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En [anslutning](connectors-overview.md) tillhandahåller anslutningen mellan en logikapp och en annan tjänst.  
@@ -39,7 +39,7 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Använda en Twitter-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 I det här exemplet jag visar hur du använder den **när en ny tweet skickas** trigger för att söka efter #Seattle och om #Seattle hittas, uppdaterar en fil på Dropbox med text från tweet. I enterprise exempelvis kan du söka efter namnet på ditt företag och uppdatera en SQL-databas med text från tweet.
 
@@ -80,7 +80,7 @@ Eftersom vi bara är intresserad av tweets från användare med mer än 50 anvä
    ![Twitter villkoret bild 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Använda en Twitter-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Nu när du har lagt till en utlösare, Följ dessa steg för att lägga till en åtgärd som kommer efter nya tweets med innehållet i tweets som hittades av utlösaren. Endast tweets från användare med mer än 50 blandare för den här genomgången kommer att publiceras.  
 
@@ -104,5 +104,5 @@ I nästa steg ska du lägga till en Twitter-åtgärd som kommer efter tweets med
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

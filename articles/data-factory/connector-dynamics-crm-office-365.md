@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Kopiera data från/till Dynamics 365 / Dynamics CRM med hjälp av Azure Data Factory
 
@@ -50,7 +50,7 @@ För Dynamics 365 mer specifikt kan stöds följande programtyper:
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Dynamics.
 
@@ -111,7 +111,7 @@ Följande egenskaper stöds för Dynamics länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Dynamics**. | Ja |
 | deploymentType | Typen av distribution av Dynamics-instans. Måste vara **”OnPremisesWithIfd”** för Dynamics lokalt med IFD.| Ja |
-| **Värdnamn** | Värdnamnet för lokal Dynamics server. | Ja |
+| **hostName** | Värdnamnet för lokal Dynamics server. | Ja |
 | **port** | Porten för lokal Dynamics server. | Nej, standard är 443 |
 | Organisationsnamn | Organisationsnamn Dynamics-instans. | Ja |
 | AuthenticationType | Autentiseringstypen att ansluta till Dynamics-servern. Ange **”Ifd”** för Dynamics lokalt med IFD. | Ja |
@@ -331,7 +331,7 @@ Konfigurera motsvarande Data Factory-datatypen i datauppsättningsstrukturen bas
 | AttributeType.Customer | GUID | ✓ |  |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | dubbla | ✓ | ✓ |
+| AttributeType.Double | Dubbel | ✓ | ✓ |
 | AttributeType.EntityName | Sträng | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |

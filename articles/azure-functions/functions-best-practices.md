@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -40,7 +40,7 @@ När det är möjligt, flytta stora funktionerna i mindre funktionen anger som f
 
 ### <a name="cross-function-communication"></a>Funktionen kommunikation mellan
 
-[Beständiga funktioner](durable-functions-overview.md) och [Azure Logikappar](../logic-apps/logic-apps-what-are-logic-apps.md) har byggts för att hantera tillståndsövergångar och kommunikation mellan flera funktioner.
+[Beständiga funktioner](durable-functions-overview.md) och [Azure Logikappar](../logic-apps/logic-apps-overview.md) har byggts för att hantera tillståndsövergångar och kommunikation mellan flera funktioner.
 
 Om du inte använder beständiga funktioner eller Logic Apps kan integreras med flera funktioner, är det vanligtvis en bra idé att använda lagringsköer för mellan funktionen kommunikation.  Det främsta skälet är lagringsköer är billigare och enklare att etablera. 
 

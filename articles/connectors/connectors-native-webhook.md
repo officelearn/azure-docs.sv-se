@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Kom igång med webhook-koppling
 
@@ -81,27 +81,27 @@ Här finns mer information om utlösare och åtgärder som webhook har stöd fö
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| HTTP-Webhook |Prenumerera på en motringning URL till en tjänst som kan anropa Webbadressen för att utlösa logikapp efter behov. |
+| HTTP-webhook |Prenumerera på en motringning URL till en tjänst som kan anropa Webbadressen för att utlösa logikapp efter behov. |
 
 ### <a name="trigger-details"></a>Information om utlösaren
 
-#### <a name="http-webhook"></a>HTTP-Webhook
+#### <a name="http-webhook"></a>HTTP-webhook
 
 Prenumerera på en motringning URL till en tjänst som kan anropa Webbadressen för att utlösa logikapp efter behov.
 Ett * innebär obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Prenumerera metoden * |Metoden |HTTP-metod som ska användas för prenumerera begäran |
-| Prenumerera URI * |URI: N |HTTP-URI att använda för prenumerera begäran |
-| Avbryta prenumerationen metoden * |Metoden |HTTP-metod som ska användas för unsubscribe begäran |
-| Avbryta prenumerationen URI * |URI: N |HTTP-URI att använda för unsubscribe begäran |
-| Prenumerera brödtext |Brödtext |Text för HTTP-begäran för prenumerera |
-| Prenumerera rubriker |Rubriker |HTTP-huvuden för begäran för prenumerera |
-| Prenumerera autentisering |Autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
-| Avbryta prenumerationen brödtext |Brödtext |Text för HTTP-begäran för unsubscribe |
-| Avbryta prenumerationen rubriker |Rubriker |HTTP-huvuden för begäran för unsubscribe |
-| Avbryta prenumerationen autentisering |Autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Prenumerera metoden * |metod |HTTP-metod som ska användas för prenumerera begäran |
+| Prenumerera URI * |URI |HTTP-URI att använda för prenumerera begäran |
+| Avbryta prenumerationen metoden * |metod |HTTP-metod som ska användas för unsubscribe begäran |
+| Avbryta prenumerationen URI * |URI |HTTP-URI att använda för unsubscribe begäran |
+| Prenumerera brödtext |brödtext |Text för HTTP-begäran för prenumerera |
+| Prenumerera rubriker |rubriker |HTTP-huvuden för begäran för prenumerera |
+| Prenumerera autentisering |autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen brödtext |brödtext |Text för HTTP-begäran för unsubscribe |
+| Avbryta prenumerationen rubriker |rubriker |HTTP-huvuden för begäran för unsubscribe |
+| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
 
 **Information för utdata**
 
@@ -109,35 +109,35 @@ Webhook-begäran
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |Objektet |Webhook-huvuden för begäran |
-| Innehåll |Objektet |Webhook request-objektet |
+| Sidhuvuden |objekt |Webhook-huvuden för begäran |
+| Innehåll |objekt |Webhook request-objektet |
 | Statuskod |int |Webhook statuskod för begäran |
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| HTTP-Webhook |Prenumerera på en motringning URL till en tjänst som kan anropa URL Om du vill återuppta ett arbetsflödessteg efter behov. |
+| HTTP-webhook |Prenumerera på en motringning URL till en tjänst som kan anropa URL Om du vill återuppta ett arbetsflödessteg efter behov. |
 
 ### <a name="action-details"></a>Åtgärdsinformation
 
-#### <a name="http-webhook"></a>HTTP-Webhook
+#### <a name="http-webhook"></a>HTTP-webhook
 
 Prenumerera på en motringning URL till en tjänst som kan anropa URL Om du vill återuppta ett arbetsflödessteg efter behov.
 Ett * innebär obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Prenumerera metoden * |Metoden |HTTP-metod som ska användas för prenumerera begäran |
-| Prenumerera URI * |URI: N |HTTP-URI att använda för prenumerera begäran |
-| Avbryta prenumerationen metoden * |Metoden |HTTP-metod som ska användas för unsubscribe begäran |
-| Avbryta prenumerationen URI * |URI: N |HTTP-URI att använda för unsubscribe begäran |
-| Prenumerera brödtext |Brödtext |Text för HTTP-begäran för prenumerera |
-| Prenumerera rubriker |Rubriker |HTTP-huvuden för begäran för prenumerera |
-| Prenumerera autentisering |Autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
-| Avbryta prenumerationen brödtext |Brödtext |Text för HTTP-begäran för unsubscribe |
-| Avbryta prenumerationen rubriker |Rubriker |HTTP-huvuden för begäran för unsubscribe |
-| Avbryta prenumerationen autentisering |Autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Prenumerera metoden * |metod |HTTP-metod som ska användas för prenumerera begäran |
+| Prenumerera URI * |URI |HTTP-URI att använda för prenumerera begäran |
+| Avbryta prenumerationen metoden * |metod |HTTP-metod som ska användas för unsubscribe begäran |
+| Avbryta prenumerationen URI * |URI |HTTP-URI att använda för unsubscribe begäran |
+| Prenumerera brödtext |brödtext |Text för HTTP-begäran för prenumerera |
+| Prenumerera rubriker |rubriker |HTTP-huvuden för begäran för prenumerera |
+| Prenumerera autentisering |autentisering |HTTP-autentisering ska användas för att prenumerera. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
+| Avbryta prenumerationen brödtext |brödtext |Text för HTTP-begäran för unsubscribe |
+| Avbryta prenumerationen rubriker |rubriker |HTTP-huvuden för begäran för unsubscribe |
+| Avbryta prenumerationen autentisering |autentisering |HTTP-autentisering ska användas för unsubscribe. [HTTP-anslutningen finns](connectors-native-http.md#authentication) information |
 
 **Information för utdata**
 
@@ -145,11 +145,11 @@ Webhook-begäran
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |Objektet |Webhook-huvuden för begäran |
-| Innehåll |Objektet |Webhook request-objektet |
+| Sidhuvuden |objekt |Webhook-huvuden för begäran |
+| Innehåll |objekt |Webhook request-objektet |
 | Statuskod |int |Webhook statuskod för begäran |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Sök efter andra kopplingar](apis-list.md)

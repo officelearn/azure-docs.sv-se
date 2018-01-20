@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med kopplingen Oracle-databas
 
@@ -30,7 +30,7 @@ Med kopplingen Oracle-databas kan skapa du organisationens arbetsflöden som anv
 
 Det här avsnittet visar hur du använder kopplingen Oracle-databas i en logikapp.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Oracle-versioner stöds: 
     * Oracle 9 och senare
@@ -134,4 +134,4 @@ Du kan förbättra Logic Apps och kopplingar genom röstning och skicka dina id�
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md), och utforska de tillgängliga kopplingarna i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), och utforska de tillgängliga kopplingarna i Logic Apps på vår [API: er listan](apis-list.md).

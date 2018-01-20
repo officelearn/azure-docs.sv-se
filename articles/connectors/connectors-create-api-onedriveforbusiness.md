@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 783d6a640d9626508bcabc5f991dc5b6fc22eaf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bd447b59e8fd3573dad26ae6600e4b5c9cb7a7e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Kom igång med OneDrive för Business connector
 Ansluta till OneDrive för företag att hantera dina filer. Du kan utföra olika åtgärder, till exempel överföra, uppdatera, hämta och ta bort på filer.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Skapa en anslutning till OneDrive för företag
 För att skapa logikappar med OneDrive för företag, måste du först skapa en **anslutning** ange detaljer för följande egenskaper:
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Ange OneDrive för företag-autentiseringsuppgifter |
+| Token |Ja |Ange autentiseringsuppgifter för OneDrive för företag |
 
 Du kan använda den köra åtgärder och lyssna för utlösare som beskrivs i den här artikeln när du har skapat anslutningen.
 

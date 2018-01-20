@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Vanliga scenarier, exempel, självstudier och genomgång för Azure Logic Apps
 
-[Med Azure Logikappar](../logic-apps/logic-apps-what-are-logic-apps.md) hjälper dig att samordna och integrera olika tjänster genom att tillhandahålla [100 + färdiga att använda kopplingar](../connectors/apis-list.md), räckvidd från lokala SQLServer eller SAP på kognitiva Microsoft-tjänster. Tjänsten Logic Apps är ”serverlösa”, så du inte behöver bekymra dig om skala eller instanser. Allt du behöver göra är att definiera arbetsflödet med en utlösare och åtgärder som utförs av arbetsflödet. Den underliggande plattformen hanterar skala, tillgänglighet och prestanda. Logic Apps är särskilt användbart för användningsfall och scenarier där du behöver samordna flera åtgärder över flera system.
+[Med Azure Logikappar](../logic-apps/logic-apps-overview.md) hjälper dig att samordna och integrera olika tjänster genom att tillhandahålla [100 + färdiga att använda kopplingar](../connectors/apis-list.md), räckvidd från lokala SQLServer eller SAP på kognitiva Microsoft-tjänster. Tjänsten Logic Apps är ”serverlösa”, så du inte behöver bekymra dig om skala eller instanser. Allt du behöver göra är att definiera arbetsflödet med en utlösare och åtgärder som utförs av arbetsflödet. Den underliggande plattformen hanterar skala, tillgänglighet och prestanda. Logic Apps är särskilt användbart för användningsfall och scenarier där du behöver samordna flera åtgärder över flera system.
 
-För att lära dig mer om många mönster och funktioner som [Azure Logikappar](../logic-apps/logic-apps-what-are-logic-apps.md) stöder, här är vanliga exempel och scenarier.
+För att lära dig mer om många mönster och funktioner som [Azure Logikappar](../logic-apps/logic-apps-overview.md) stöder, här är vanliga exempel och scenarier.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Vanliga startpunkter för logik app arbetsflöden
 
-Varje logikappen som börjar med en [ *utlösaren*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts), och endast en utlösare som startar logik app arbetsflödet och godkänns i alla data som en del av denna utlösare. Vissa anslutningar innehåller utlösare som kommer i de här typerna:
+Varje logikappen som börjar med en [ *utlösaren*](../logic-apps/logic-apps-overview.md#logic-app-concepts), och endast en utlösare som startar logik app arbetsflödet och godkänns i alla data som en del av denna utlösare. Vissa anslutningar innehåller utlösare som kommer i de här typerna:
 
 * *Avsökningen utlösare*: regelbundet kontrollerar en tjänstslutpunkt för nya data. När det finns nya data, utlösaren skapar och kör en ny arbetsflödesinstans med data som indata.
 

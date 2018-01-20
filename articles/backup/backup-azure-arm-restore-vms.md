@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Använda Azure portal för att återställa virtuella datorer
 Skydda dina data genom att ta ögonblicksbilder av data vid angivna intervall. Dessa kallas återställningspunkter och de lagras i Recovery Services-valv. Om det är nödvändigt att reparera eller återskapa en virtuell dator (VM), kan du återställa den virtuella datorn från någon av de sparade återställningspunkterna. När du återställer en återställningspunkt kan du:
@@ -70,7 +70,7 @@ Den här artikeln beskriver hur du återställer en virtuell dator till en ny vi
 
     Den **återställa** blad öppnas.
 
-    ![återställa bladet](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![Återställ blad](./media/backup-azure-arm-restore-vms/restore-blade.png)
 7. På den **återställa** bladet väljer **återställningspunkt**. Den **Välj återställningspunkt** blad öppnas.
 
     ![Välj återställningspunkt](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
@@ -196,7 +196,7 @@ Hämta den mall som skapades som en del av alternativet Återställ diskar:
    ![Skicka malldistribution](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Efter återställning steg
-* Om du använder en init-molnbaserade Linux-distribution, till exempel Ubuntu, av säkerhetsskäl lösenordet blockeras efter återställningen. Använder VMAccess-tillägget på den återställda virtuella datorn till [återställa lösenordet](../virtual-machines/linux/classic/reset-access.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner för att undvika att återställa lösenordet efter återställningen.
+* Om du använder en init-molnbaserade Linux-distribution, till exempel Ubuntu, av säkerhetsskäl lösenordet blockeras efter återställningen. Använder VMAccess-tillägget på den återställda virtuella datorn till [återställa lösenordet](../virtual-machines/linux/classic/reset-access-classic.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner för att undvika att återställa lösenordet efter återställningen.
 * Tillägg finns under konfigurationen för säkerhetskopiering är installerade, men de kommer inte aktiveras. Om du ser ett problem kan du installera om tilläggen. 
 * Om den säkerhetskopierade virtuella datorn har statiska IP-efter återställning, har den återställda virtuella datorn en dynamisk IP-adress att undvika konflikter när du skapar en återställd VM. Mer information om hur du kan [lägga till en statisk IP-adress till en återställd VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * En återställd VM har inte en tillgänglighet värdet. Vi rekommenderar att du använder alternativ för återställning-diskar till [lägga till en tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från PowerShell eller mallar med hjälp av återställts diskar. 

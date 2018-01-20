@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdateringar för **Azure Data Catalog** släpps regelbundet. Inte alla viktig innehåller nya funktioner för användarinriktad, vissa versioner fokuserar på funktioner för backend-tjänst. Den här sidan visar nya funktioner som användarinriktad har lagts till tjänsten Azure Data Catalog.
@@ -169,7 +169,7 @@ Följande funktioner har lagts till Azure Data Catalog januari 2016:
   * OData - funktionen, Entitetsuppsättning och Entitetsbehållaren
   * HTTP - fil, slutpunkt, rapporten och plats
   * Filsystem - fil
-  * SharePoint - lista
+  * SharePoint - List
   * FTP - filer och kataloger
   * Salesforce.com - objekt
   * DB2 - tabellen, vyn och databas
@@ -208,7 +208,7 @@ Från och med November 2015 har följande funktioner lagts till Azure Data Catal
 * Stöd för att definiera och redigera kolumnnivå scheman för manuellt registrerade datatillgångar. När du har skapat en datatillgång med hjälp av Azure Data Catalog-portalen manuellt, användare kan lägga till kolumndefinitionerna dataegenskaper för tillgången.
 * Stöd för ”har” frågor när du söker Azure Data Catalog, om du vill aktivera identifiering av registrerade datatillgångar som har specifika metadata. Azure Data Catalog frågesyntaxen innehåller nu:
 
-| Frågesyntaxen | Syfte |
+| Frågesyntax | Syfte |
 | --- | --- |
 | `has:previews` |Söker efter datatillgångar som innehåller en förhandsgranskning |
 | `has:documentation` |Söker efter datatillgångar som dokumentationen har angetts |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure Database via Azure Blob Storage med hjälp av Azure Data Factory (ADM).
@@ -67,7 +67,7 @@ Vi använder den [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_tax
 Du kan anpassa det förfarande som anges här till en uppsättning med dina egna data eller Följ stegen som beskrivs med NYC Taxi dataset. Överför NYC Taxi dataset till din lokala SQL Server-databas genom att följa proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en virtuell dator i Azure, men proceduren för att ladda upp till den lokala SQL Server är samma.
 
 ## <a name="create-adf"></a>Skapa ett Azure Data Factory
-Instruktioner för att skapa en ny Azure Data Factory och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa ett Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Namnge den nya instansen ADF *adfdsp* och kalla resursgruppen skapade *adfdsprg*.
+Instruktioner för att skapa en ny Azure Data Factory och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa ett Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Namnge den nya instansen ADF *adfdsp* och kalla resursgruppen skapade *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Installera och konfigurera upp Data Management Gateway
 Om du vill aktivera din pipelines i ett Azure data factory för att arbeta med en lokal SQL Server som du behöver lägga till den som en länkad tjänst datafabriken. Om du vill skapa en länkad tjänst för en lokal SQL Server, måste du:

@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Kom igång med Slack-koppling
-Slack är ett team kommunikationsverktyg som sammanför alla meddelanden i ett team placera, direkt sökbara och tillgänglig överallt. 
+Slack är ett team-kommunikationsverktyg som sammanför hela ditt teams kommunikation på en och samma plats, där du kan söka och ha tillgång till den var du än befinner dig. 
 
-Kom igång genom att skapa en logikapp nu. Se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Kom igång genom att skapa en logikapp nu. Se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Skapa en anslutning till Slack
 Om du vill använda Slack-anslutningstjänsten måste du först skapa en **anslutning** ange detaljer för dessa egenskaper: 
 
 | Egenskap | Krävs | Beskrivning |
 | --- | --- | --- |
-| Token |Ja |Ange Slack autentiseringsuppgifter |
+| Token |Ja |Ange autentiseringsuppgifter för Slack |
 
 Följ dessa steg för att logga in till Slack och slutför konfigurationen av slacket **anslutning** i din logikapp:
 

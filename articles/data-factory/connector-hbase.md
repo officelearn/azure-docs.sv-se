@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: dac4e926868e76d73512bc8b16856bfff2a889aa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ea2258b953925116f759655583d9601c5a55db7c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Kopiera data från HBase med hjälp av Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till HBase-anslutningen.
 
@@ -45,9 +45,9 @@ Följande egenskaper stöds för HBase länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **HBase** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på HBase-server. (d.v.s. 192.168.222.160)  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på HBase-server. (i.e. 192.168.222.160)  | Ja |
 | port | TCP-porten som HBase-instans som används för att lyssna efter anslutningar. Standardvärdet är 9090.  | Nej |
-| httpPath | Partiell URL som motsvarar HBase-server. (d.v.s. /gateway/sandbox/hbase/version)  | Nej |
+| httpPath | Partiell URL som motsvarar HBase-server. (i.e. /gateway/sandbox/hbase/version)  | Nej |
 | AuthenticationType | Autentiseringsmekanism för att ansluta till HBase-servern. <br/>Tillåtna värden är: **anonym**, **grundläggande** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till HBase-instans.  | Nej |
 | lösenord | Lösenordet för användarnamnet. Du kan välja att markera det här fältet som en SecureString att lagra den säkert i ADF eller lagra lösenord i Azure Key Vault och låta kopieringsaktiviteten hämtar därifrån vid kopiering av data - mer information från [lagra autentiseringsuppgifter i Nyckelvalvet](store-credentials-in-key-vault.md). | Nej |

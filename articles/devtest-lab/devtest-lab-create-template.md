@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Skapa en anpassad avbildning från en VHD-fil
 
@@ -57,7 +57,16 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 1. Välj en **VHD** från den nedrullningsbara menyn. Det här är den virtuella Hårddisken som ska användas för att skapa nya anpassade avbildningen. Om det behövs väljer att **överföra en virtuell Hårddisk med hjälp av PowerShell**.
 
-1. Du kan också ange ett namn för energischema, plan erbjudandet och plan publisher om bilden används för att skapa den anpassade avbildningen inte har publicerats av Microsoft.
+1. Du kan också ange ett namn för energischema, plan erbjudandet och plan publisher om bilden används för att skapa den anpassade avbildningen inte är en licensierad bild (som publicerats av Microsoft).
+
+   - **Planera name:** anger namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
+   - **Planera erbjudande:** ange Marketplace-avbildning som den här anpassade avbildningen skapas från produkten (erbjudandet) 
+   - **Planera utgivare:** ange utgivaren av Marketplace-avbildning som den här anpassade avbildningen skapas från
+
+   > [!NOTE]
+   > Om bilden som du använder för att skapa en anpassad avbildning är **inte** licensierade avbildningen och sedan dessa fält är tomma och kan fyllas i om du väljer. Om avbildningen **är** licensierade avbildningen och sedan fälten är fylls i med planinformation om automatiskt. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
+   >
+   >
 
 1. Välj **OK** att skapa den anpassade avbildningen.
 

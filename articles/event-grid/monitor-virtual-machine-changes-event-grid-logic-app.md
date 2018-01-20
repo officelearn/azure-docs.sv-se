@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Övervaka ändringar av virtuella datorer med Azure händelse rutnätet och Logic Apps
 
-Du kan starta en automatiserad [logik app arbetsflöde](../logic-apps/logic-apps-what-are-logic-apps.md) när specifika händelser inträffar i Azure-resurser eller resurser från tredje part. Dessa resurser kan publicera dessa händelser till en [Azure händelse rutnätet](../event-grid/overview.md). I sin tur händelse rutnätet skickar händelser till prenumeranter som har köer, webhooks, eller [händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md) som slutpunkter. Som en prenumerant kan din logikapp vänta på dessa händelser från rutnätet händelse innan du kan köra automatiska arbetsflöden för att utföra uppgifter - utan att du skriva någon kod.
+Du kan starta en automatiserad [logik app arbetsflöde](../logic-apps/logic-apps-overview.md) när specifika händelser inträffar i Azure-resurser eller resurser från tredje part. Dessa resurser kan publicera dessa händelser till en [Azure händelse rutnätet](../event-grid/overview.md). I sin tur händelse rutnätet skickar händelser till prenumeranter som har köer, webhooks, eller [händelsehubbar](../event-hubs/event-hubs-what-is-event-hubs.md) som slutpunkter. Som en prenumerant kan din logikapp vänta på dessa händelser från rutnätet händelse innan du kan köra automatiska arbetsflöden för att utföra uppgifter - utan att du skriva någon kod.
 
 Här är till exempel vissa händelser som utgivare kan skicka till prenumeranter via tjänsten Azure händelse rutnätet:
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig hur man:
 > * Lägg till ett villkor som specifikt söker efter ändringar av virtuell dator.
 > * Skicka e-post när den virtuella datorn ändras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett e-postkonto från [valfri e-provider som stöds av Azure Logikappar](../connectors/apis-list.md), till exempel Office 365 Outlook, Outlook.com eller Gmail för att skicka meddelanden. Den här självstudien använder Office 365 Outlook.
 
@@ -61,10 +61,10 @@ Skapa en logikapp och lägga till en händelseutlösare rutnät som övervakar r
 
    | Inställning | Föreslaget värde | Beskrivning | 
    | ------- | --------------- | ----------- | 
-   | **Namn** | *{logik-appens-namn}* | Ange ett unikt namn för logikappen. | 
-   | **Prenumeration** | *{din Azure-prenumerationer}* | Välj samma Azure-prenumerationen för alla tjänster i den här kursen. | 
-   | **Resursgrupp** | *{din Azure-resurs-grupp}* | Välj samma Azure resursgrupp för alla tjänster i den här kursen. | 
-   | **Plats** | *{din Azure-region}* | Välj samma region för alla tjänster i den här kursen. | 
+   | **Namn** | *{your-logic-app-name}* | Ange ett unikt namn för logikappen. | 
+   | **Prenumeration** | *{your-Azure-subscription}* | Välj samma Azure-prenumerationen för alla tjänster i den här kursen. | 
+   | **Resursgrupp** | *{your-Azure-resource-group}* | Välj samma Azure resursgrupp för alla tjänster i den här kursen. | 
+   | **Plats** | *{your-Azure-region}* | Välj samma region för alla tjänster i den här kursen. | 
    | | | 
 
 4. När du är klar, Välj **fäst på instrumentpanelen**, och välj **skapa**.
@@ -79,7 +79,7 @@ Skapa en logikapp och lägga till en händelseutlösare rutnät som övervakar r
 
    ![Välja mall för logikapp](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Logic Apps Designer visas nu [ *kopplingar* ](../connectors/apis-list.md) och [ *utlösare* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) som du kan använda för att starta logikapp och även åtgärder som att du kan lägga till efter en utlösare för att utföra uppgifter. En utlösare är en händelse som skapar en logik app-instansen och startar logik app arbetsflödet. 
+   Logic Apps Designer visas nu [ *kopplingar* ](../connectors/apis-list.md) och [ *utlösare* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) som du kan använda för att starta logikapp och även åtgärder som att du kan lägga till efter en utlösare för att utföra uppgifter. En utlösare är en händelse som skapar en logik app-instansen och startar logik app arbetsflödet. 
    Din logikapp måste en utlösare som det första objektet.
 
 6. I sökrutan anger du ”händelse rutnätet” som filter. Välj den här utlösaren: **Azure händelse rutnät - på en resurs-händelse**
@@ -99,9 +99,9 @@ Skapa en logikapp och lägga till en händelseutlösare rutnät som övervakar r
 
    | Inställning | Föreslaget värde | Beskrivning | 
    | ------- | --------------- | ----------- | 
-   | **Prenumeration** | *{virtual machine-Azure-prenumerationer}* | Välj den händelseutfärdare Azure-prenumeration. Välj Azure-prenumeration för den virtuella datorn för den här självstudiekursen. | 
+   | **Prenumeration** | *{virtual-machine-Azure-subscription}* | Välj den händelseutfärdare Azure-prenumeration. Välj Azure-prenumeration för den virtuella datorn för den här självstudiekursen. | 
    | **Resurstyp** | Microsoft.Resources.resourceGroups | Välj den händelseutfärdare resurstypen. Välj det angivna värdet för den här självstudiekursen så logikappen övervakar enbart resursgrupper. | 
-   | **Resursnamn** | *{virtuella-datorn-resource-group-name}* | Välj utgivarens resursnamnet. Välj namnet på resursgruppen för den virtuella datorn för den här självstudiekursen. | 
+   | **Resursnamn** | *{virtual-machine-resource-group-name}* | Välj utgivarens resursnamnet. Välj namnet på resursgruppen för den virtuella datorn för den här självstudiekursen. | 
    | Valfria inställningar, väljer **visa avancerade alternativ**. | *{finns beskrivningar}* | * **Prefixet Filter**: den här kursen kan lämna inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange prefix-strängen som ett filter, till exempel en sökväg och en parameter för en viss resurs. <p>* **Suffix Filter**: den här kursen kan lämna inställningen tom. Standardbeteendet matchar alla värden. Du kan dock ange en suffixsträng som ett filter, till exempel ett filnamnstillägg, när du vill att endast specifika filtyper.<p>* **Prenumerationsnamn**: Ange ett unikt namn för din händelseprenumeration. |
    | | | 
 
@@ -154,7 +154,7 @@ Ange det här uttrycket:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Skicka e-post när den virtuella datorn ändras
 
-Lägg nu till en [ *åtgärd* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) så att du får ett e-postmeddelande när det angivna villkoret är sant.
+Lägg nu till en [ *åtgärd* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) så att du får ett e-postmeddelande när det angivna villkoret är sant.
 
 1. I villkoret **om värdet är true** väljer **lägga till en åtgärd**.
 
@@ -182,7 +182,7 @@ Lägg nu till en [ *åtgärd* ](../logic-apps/logic-apps-what-are-logic-apps.md#
 
    | Inställning | Föreslaget värde | Beskrivning | 
    | ------- | --------------- | ----------- | 
-   | **Till** | *{mottagaren-e-postadress}* |Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. | 
+   | **Till** | *{recipient-email-address}* |Ange mottagarens e-postadress. I testsyfte kan du använda din egen e-postadress. | 
    | **Ämne** | Resursen uppdateras: **ämne**| Ange innehållet för e-postmeddelandets ämne. Ange den föreslagna texten för den här kursen och väljer du händelsen **ämne** fältet. Här är innehåller din e-postmeddelandets ämne namnet på för den uppdaterade resursen (virtuell dator). | 
    | **Brödtext** | Resursgrupp: **avsnittet** <p>Händelsetyp: **händelsetyp**<p>Händelse-ID: **ID**<p>Tid: **Händelsetid** | Ange innehållet för e-postmeddelandets ämne. Ange den föreslagna texten för den här kursen och väljer du händelsen **avsnittet**, **händelsetyp**, **ID**, och **Händelsetid** fält så att din e-post innehåller resursgruppens namn, typ, händelse tidsstämpel och händelse-ID för uppdateringen. <p>Tryck på SKIFT + RETUR för att lägga till tomma rader i ditt innehåll. | 
    | | | 

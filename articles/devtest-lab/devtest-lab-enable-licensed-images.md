@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Aktivera en licensierad avbildning i ditt labb i Azure DevTest Labs
 
@@ -29,7 +29,7 @@ Det första steget för att tillåta användare att skapa virtuella datorer frå
 
 1. Logga in på [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **Fler tjänster** och välj sedan **DevTest Labs** från listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** från listan.
 
 1. Lista över labs, Välj önskade labbet.  
 
@@ -76,7 +76,15 @@ Du kan aktivera programdistribution för en licensierad avbildning genom att fö
    >
 
 
-1. Välj **Spara**. I listan över marketplace-bilder som bild nu visar **accepterat villkoren** och är tillgänglig för användare att skapa virtuella datorer.
+1. Välj **Spara**. 
+
+    I listan över marketplace-bilder som bild nu visar **accepterat villkoren** och är tillgänglig för användare att skapa virtuella datorer.
+
+> [!NOTE]
+> Användare kan skapa en anpassad avbildning från en licensierad avbildning. Se [skapa en anpassad avbildning från en VHD-fil](devtest-lab-create-template.md) för mer information.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
 
@@ -85,4 +93,6 @@ Du kan aktivera programdistribution för en licensierad avbildning genom att fö
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Skapa en anpassad avbildning från en virtuell dator](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Skapa en anpassad avbildning från en VHD-fil](devtest-lab-create-template.md)
 - [Lägga till en virtuell dator i labbet](devtest-lab-add-vm.md)

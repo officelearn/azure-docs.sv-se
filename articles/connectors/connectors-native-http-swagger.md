@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Kom igång med HTTP + Swagger åtgärd
 
 Du kan skapa en förstklassig koppling till valfri REST-slutpunkt via en [Swagger-dokument](https://swagger.io) när du använder HTTP + Swagger åtgärd i logik app arbetsflödet. Du kan också utöka logikappar för att anropa en REST-slutpunkt förstklassigt logik App Designer upplevelse.
 
-Information om hur du skapar logikappar med kopplingar finns [skapa en ny logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Information om hur du skapar logikappar med kopplingar finns [skapa en ny logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Använd HTTP + Swagger som en utlösare eller en åtgärd
 
@@ -79,29 +79,29 @@ En utlösare är en händelse som kan användas för att starta arbetsflödet so
 
 | Utlösare | Beskrivning |
 | --- | --- |
-| HTTP- + Swagger |Gör ett HTTP-anrop och returnera svar innehållet |
+| HTTP + Swagger |Gör ett HTTP-anrop och returnera svar innehållet |
 
 ## <a name="http--swagger-actions"></a>HTTP- + Swagger-åtgärder
 En åtgärd är en åtgärd som utförs av arbetsflödet som definieras i en logikapp. [Mer information om åtgärder.](connectors-overview.md) HTTP- + Swagger koppling har en möjlig åtgärd.
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| HTTP- + Swagger |Gör ett HTTP-anrop och returnera svar innehållet |
+| HTTP + Swagger |Gör ett HTTP-anrop och returnera svar innehållet |
 
 ### <a name="action-details"></a>Åtgärdsinformation
 HTTP- + Swagger connector medföljer en möjlig åtgärd. Följande är information om var och en av åtgärderna, sina obligatoriska och valfria inmatningsfält och detaljer om motsvarande utdata som är associerade med deras användning.
 
-#### <a name="http--swagger"></a>HTTP- + Swagger
+#### <a name="http--swagger"></a>HTTP + Swagger
 Göra en utgående HTTP-begäran med hjälp av Swagger-metadata.
 En asterisk (*) innebär ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Metoden * |Metoden |HTTP-verbet som ska användas. |
-| URI * |URI: N |URI för HTTP-begäran. |
-| Rubriker |Rubriker |Ett JSON-objekt med HTTP-rubriker för att inkludera. |
-| Innehåll |Brödtext |Texten på HTTP-begäran. |
-| Autentisering |Autentisering |Autentisering som ska användas för begäran. Mer information finns i [HTTP-anslutningen](connectors-native-http.md#authentication). |
+| Metoden * |metod |HTTP-verbet som ska användas. |
+| URI * |URI |URI för HTTP-begäran. |
+| Sidhuvuden |rubriker |Ett JSON-objekt med HTTP-rubriker för att inkludera. |
+| Innehåll |brödtext |Texten på HTTP-begäran. |
+| Autentisering |autentisering |Autentisering som ska användas för begäran. Mer information finns i [HTTP-anslutningen](connectors-native-http.md#authentication). |
 
 **Information för utdata**
 
@@ -109,8 +109,8 @@ HTTP-svar
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Rubriker |Objektet |Svarsrubriker |
-| Innehåll |Objektet |Objektet Response |
+| Sidhuvuden |objekt |Svarshuvud |
+| Innehåll |objekt |Objektet Response |
 | Statuskod |int |HTTP-statuskod |
 
 ### <a name="http-responses"></a>HTTP-svar
@@ -118,16 +118,16 @@ När du anropar olika åtgärder, kan du få vissa svar. Följande är en tabell
 
 | Namn | Beskrivning |
 | --- | --- |
-| 200 |OKEJ |
-| 202 |Godkänt |
-| 400 |Felaktig begäran |
+| 200 |Ok |
+| 202 |Accepterad |
+| 400 |Felaktig förfrågan |
 | 401 |Behörighet saknas |
-| 403 |Tillåts inte |
-| 404 |Det gick inte att hitta |
+| 403 |Förbjudna |
+| 404 |Kunde inte hittas |
 | 500 |Internt serverfel. Okänt fel uppstod. |
 
 - - -
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Sök efter andra kopplingar](apis-list.md)

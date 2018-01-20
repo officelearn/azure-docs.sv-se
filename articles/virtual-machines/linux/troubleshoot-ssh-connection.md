@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsökning av SSH-anslutningar till en Azure Linux-dator som misslyckas, fel, eller nekas
 Det finns olika orsaker till att det uppstår fel på SSH (Secure Shell), SSH anslutningsfel eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och åtgärda problemen. Du kan använda Azure-portalen, Azure CLI eller tillägg för virtuell dator åtkomst för Linux för att felsöka och lösa anslutningsproblem med.
@@ -234,7 +234,7 @@ Gör så här för att lösa de vanligaste SSH-anslutningsfel för virtuella dat
 * Distribuera den virtuella datorn till en ny nod i Azure. Information om hur du distribuerar en virtuell dator finns [omdistribuera virtuell dator till en ny Azure nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     När den här åtgärden har slutförts tillfälliga data kommer att gå förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn kommer att uppdateras.
-* Följ instruktionerna i [hur du återställer ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) till:
+* Följ instruktionerna i [hur du återställer ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) till:
   
   * Återställ lösenord eller SSH-nyckel.
   * Skapa en *sudo* användarkonto.
@@ -245,5 +245,5 @@ Gör så här för att lösa de vanligaste SSH-anslutningsfel för virtuella dat
 ## <a name="additional-resources"></a>Ytterligare resurser
 * Om du fortfarande inte kan SSH till den virtuella datorn efter åtgärderna efter, se [mer detaljerad felsökning](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se ytterligare steg för att lösa problemet.
 * Mer information om hur du felsöker programåtkomst finns [Felsök åtkomst till ett program som körs på en virtuell Azure-dator](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Mer information om felsökning av virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen finns [hur du återställer ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Mer information om felsökning av virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen finns [hur du återställer ett lösenord eller SSH för Linux-baserade virtuella datorer](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

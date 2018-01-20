@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2797085d1e675f0e6608b6192736f939952ed98b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg för virtuell dator och funktioner för Linux
 
@@ -39,7 +39,7 @@ Det finns flera olika Virtuella Azure-tillägg, var och en med en specifik anvä
 Förutom processpecifika tillägg är ett tillägg för anpassat skript tillgängligt för både Windows och Linux virtuella datorer. Tillägget för anpassat skript för Linux kan alla Bash-skript ska köras på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration efter vilken interna Azure verktygsuppsättning kan ge. Mer information finns i [tillägget för anpassat skript för Linux Virtuella](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Varje tillägg för virtuell dator kan ha en egen uppsättning krav. Docker VM-tillägget har till exempel en förutsättning för en Linux-fördelning som stöds. Krav för enskilda tillägg beskrivs i dokumentationen för tillägget-specifika.
 
@@ -47,7 +47,7 @@ Varje tillägg för virtuell dator kan ha en egen uppsättning krav. Docker VM-t
 
 Virtuella Azure-agenten hanterar samverkan mellan en virtuell Azure-dator och Azure-infrastrukturkontrollanten. Den Virtuella datoragenten är ansvarig för många funktioner för att distribuera och hantera virtuella Azure-datorer, inklusive kör VM-tillägg. Virtuella Azure-agenten är förinstallerat på Azure Marketplace-bilder och kan installeras manuellt på operativsystem som stöds.
 
-Information om operativsystem som stöds och installationsanvisningar finns [virtuella Azure-datorn agent](../windows/classic/agents-and-extensions.md).
+Information om operativsystem som stöds och installationsanvisningar finns [virtuella Azure-datorn agent](../windows/classic/agents-and-extensions-classic.md).
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 

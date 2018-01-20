@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8cb24357bb24c48dceda714a040427fcc0c0ba4d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologi för Azure Data Catalog
-## <a name="catalog"></a>Katalogen
+## <a name="catalog"></a>Katalog
 Azure Data Catalog är en molnbaserad metadata-databasen där källor och data tillgångar kan registreras. Katalogen fungerar som en central lagringsplats för strukturella metadata som extraherats från datakällorna och beskrivande metadata som lagts till av användare.
 
 ## <a name="data-source"></a>Datakälla
@@ -52,7 +52,7 @@ En datatillgång beskrivande metadata kan innehålla information om hur du begä
 En förhandsgranskning i Azure Data Catalog är en ögonblicksbild av upp till 20 poster som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Förhandsgranskningen hjälper användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. Med andra ord ser exempeldata kan vara mer användbart än ser bara kolumnnamn och datatyper.
 Förhandsversioner stöds endast för tabeller och vyer och du måste uttryckligen välja av användaren under registreringen.
 
-## <a name="data-profile"></a>Data-profil
+## <a name="data-profile"></a>Dataprofil
 En profil för data i Azure Data Catalog är en ögonblicksbild av tabellen nivå och på kolumnnivå metadata om en registrerade datatillgångar som kan extraheras från datakällan under registreringen och lagras i katalogen med data tillgångens metadata. Profilen data hjälper användare som identifierar en datatillgång bättre förstå dess funktionen och syftet. Liknar förhandsgranskningar, data-profiler måste uttryckligen välja av användaren under registreringen.
 
 > [!NOTE]
@@ -79,6 +79,6 @@ En användare som har ytterligare behörigheter för att hantera en datatillgån
 ## <a name="registration"></a>Registrering
 Registreringen är att extrahera data tillgångens metadata från en datakälla och kopiera den till Azure Data Catalog-tjänsten. Datatillgångar som har registrerats kan sedan kommenterats och identifieras.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Vad är Azure Data Catalog?](data-catalog-what-is-data-catalog.md) -Den här artikeln innehåller en översikt över tjänsten Azure Data Catalog och dess värde scenarier som stöds.
 * [Kom igång med Azure Data Catalog](data-catalog-get-started.md) -den här artikeln innehåller en vägledning för slutpunkt-till-slutpunkt som visar hur du använder Azure Data Catalog för upptäckt av datakälla.  

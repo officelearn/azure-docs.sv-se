@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
-När du [skapa och köra en logikapp](../logic-apps/logic-apps-create-a-logic-app.md), du kan kontrollera dess körs historik, utlösare historik, status och prestanda. För händelseövervakning och bättre felsökning, ställa in [diagnostikloggning](#azure-diagnostics) för din logikapp. På så sätt kan du kan [söka efter och visa händelser](#find-events), t.ex. utlösaren händelser, kör händelser och händelser för åtgärden. Du kan också använda detta [diagnostikdata med andra tjänster](#extend-diagnostic-data), t.ex. Azure Storage och Händelsehubbar i Azure. 
+När du [skapa och köra en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), du kan kontrollera dess körs historik, utlösare historik, status och prestanda. För händelseövervakning och bättre felsökning, ställa in [diagnostikloggning](#azure-diagnostics) för din logikapp. På så sätt kan du kan [söka efter och visa händelser](#find-events), t.ex. utlösaren händelser, kör händelser och händelser för åtgärden. Du kan också använda detta [diagnostikdata med andra tjänster](#extend-diagnostic-data), t.ex. Azure Storage och Händelsehubbar i Azure. 
 
 Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [aviseringar](#add-azure-alerts). Du kan till exempel skapa en avisering som identifierar ”när fler än fem körs inte på en timme”. Du kan även konfigurera övervakning, spårning och loggning programmässigt med hjälp av [egenskaper och inställningar för Azure-diagnostik händelse](#diagnostic-event-properties).
 
@@ -111,7 +111,7 @@ Om du vill söka efter och visa händelser i din logikapp, t.ex. utlösa händel
 
 1. I den [Azure-portalen](https://portal.azure.com), Välj **fler tjänster**. Sök efter ”logganalys” och välj sedan **logganalys** som visas här:
 
-   ![Välj ”logganalys”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
+   ![Choose "Log Analytics"](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
 2. Under **logganalys**, söka efter och välj din OMS-arbetsyta. 
 

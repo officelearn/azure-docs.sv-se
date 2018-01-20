@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 9d272072ce77aca159edb36a6b7a78c94aee476d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 440a644e0b43fd42a446ec3e1a6a8d32a0b247cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Kopiera data från Presto med hjälp av Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ Azure Data Factory innehåller en inbyggd drivrutin att tillåta anslutningar, m
 
 ## <a name="getting-started"></a>Komma igång
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter till Presto connector.
 
@@ -48,7 +48,7 @@ Följande egenskaper stöds för Presto länkade tjänsten:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen type måste anges till: **Presto** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på servern Presto. (d.v.s. 192.168.222.160)  | Ja |
+| värd | IP-adressen eller värdnamnet namnet på servern Presto. (i.e. 192.168.222.160)  | Ja |
 | serverVersion | Versionen av Presto server. (d.v.s. 0.148-t)  | Ja |
 | katalog | Kontexten katalog för alla begäranden mot servern.  | Ja |
 | port | TCP-porten som Presto servern använder för att lyssna efter anslutningar. Standardvärdet är 8080.  | Nej |

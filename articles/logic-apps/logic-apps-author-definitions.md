@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Skapa arbetsflödesdefinitioner för logic apps med JSON
 
-Du kan skapa arbetsflödesdefinitioner för [Azure Logikappar](logic-apps-what-are-logic-apps.md) med enkla, deklarativa JSON-språk. Om du inte redan gjort först granska [hur du skapar din första logikapp med logik App Designer](logic-apps-create-a-logic-app.md). Se även den [fullständig referens för arbetsflödet Definition Language](http://aka.ms/logicappsdocs).
+Du kan skapa arbetsflödesdefinitioner för [Azure Logikappar](logic-apps-overview.md) med enkla, deklarativa JSON-språk. Om du inte redan gjort först granska [hur du skapar din första logikapp med logik App Designer](quickstart-create-first-logic-app-workflow.md). Se även den [fullständig referens för arbetsflödet Definition Language](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Upprepa steg över en lista
 

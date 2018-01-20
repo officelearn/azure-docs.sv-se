@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b57b30688d6ca3b9c1a0fc8e87db80fc051c4f90
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig (GA). 
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). 
 
 Den här artikeln innehåller felsökningstips för problem när du använder Azure Data Factory. Den här artikeln innehåller inte alla möjliga problem när du använder tjänsten, men omfattar vissa problem och allmänna felsökningstips.   
 
@@ -117,7 +117,7 @@ Se [felsöka en pipeline med anpassad aktivitet](data-factory-use-custom-activit
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Använd Azure-portalen för att felsöka
 ### <a name="using-portal-blades"></a>Med hjälp av portalen blad
-Se [övervakaren pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) anvisningar.
+Se [övervakaren pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) anvisningar.
 
 ### <a name="using-monitor-and-manage-app"></a>Övervaka och hantera app
 Se [övervaka och hantera data factory pipelines med övervaka och hantera appen](data-factory-monitor-manage-app.md) mer information.

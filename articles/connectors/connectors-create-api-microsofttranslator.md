@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: f36cd801a0572d671977e2e48a7f1e743e38e768
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 257f03f8ac71e2c88856864a6b1ff055ab08c347
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Kom igång med Microsoft Translator connector
 Ansluta till Microsoft Translator att översätta text, identifiera ett språk och mycket mer. Med Microsoft Translator kan du: 
@@ -28,7 +28,7 @@ Ansluta till Microsoft Translator att översätta text, identifiera ett språk o
 * Skapa ditt företag flödet som baseras på de data som du får från Microsoft Translator. 
 * Använd åtgärder för att översätta text, identifiera ett språk och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Du kan till exempel översätta text i filen till ett annat språk med hjälp av Microsoft Translator när en ny fil skapas i Dropbox.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-microsoft-translator"></a>Skapa en anslutning till Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]

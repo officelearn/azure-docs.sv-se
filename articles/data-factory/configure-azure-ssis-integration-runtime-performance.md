@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure SSIS-integrering Runtime för hög prestanda
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du konfigurerar en Azure-SSIS Integration Runtim
 
 Följande delen av ett konfigurationsskript visar de egenskaper som du kan konfigurera när du skapar en Azure-SSIS-integrering körning. Fullständig PowerShell-skript och beskrivning finns [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -42,7 +42,7 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ Om du har många paket ska köras och du är mest intresserad av det totala geno
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-När du redan använder en kraftfull arbetsnod och köra paket, öka **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala genomflödet av körningsmiljön integrering. Du kan beräkna rätt värde baserat på paketet och följande konfigurationer för arbetarnoder kostnad. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
+När du redan använder en kraftfull arbetsnod och köra paket, öka **AzureSSISMaxParallelExecutionsPerNode** kan öka det totala genomflödet av körningsmiljön integrering. Standard_D1_v2 noder stöder 1-4 parallella körningar per nod. För andra typer av noder stöds 1 – 8 parallella körningar per nod.
+Du kan beräkna rätt värde baserat på paketet och följande konfigurationer för arbetarnoder kostnad. Mer information finns i [allmänna virtuella datorstorlekar](../virtual-machines/windows/sizes-general.md).
 
 | Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

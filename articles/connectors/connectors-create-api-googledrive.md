@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Kom igång med Google Drive-koppling
 Ansluta till Google-enhet för att skapa filer och hämta rader. Med Google Drive kan du: 
@@ -28,7 +28,7 @@ Ansluta till Google-enhet för att skapa filer och hämta rader. Med Google Driv
 * Skapa ditt företag flödet som baseras på de data som du får från din sökning. 
 * Använd åtgärder för att söka igenom bilder, söka nyheter och mycket mer. De här åtgärderna få svar och utdata gör tillgängligt för andra åtgärder. Du kan exempelvis söka efter en video och sedan använda Twitter för att anslå som video till ett Twitter-flöde.
 
-Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Du kan komma igång genom att skapa en logikapp nu, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>Skapa en anslutning till Google Drive
 När du lägger till den här anslutningen dina logic apps måste du godkänna logikappar att ansluta till Google-enhet.

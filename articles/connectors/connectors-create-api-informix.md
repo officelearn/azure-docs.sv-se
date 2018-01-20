@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-informix-connector"></a>Kom igång med Informix-koppling
 Microsoft-anslutaren för Informix ansluter Logic Apps till resurser som lagras i en IBM Informix-databas. Informix-kopplingen innehåller ett Microsoft-klienten att kommunicera med fjärrdatorer för Informix-server i ett TCP/IP-nätverk. Detta omfattar molntjänster databaser, till exempel IBM Informix för Windows körs i Azure virtualisering och lokala databaser med hjälp av lokala datagateway. Finns det [stöds listan](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix-plattformar och versioner (i det här avsnittet).
@@ -35,7 +35,7 @@ Kopplingen har stöd för följande databasåtgärder för:
 
 Det här avsnittet visar hur du använder kopplingen i en logikapp till databasåtgärder i processen.
 
-Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md).
+Läs mer om Logic Apps i [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Tillgängliga åtgärder
 Den här anslutningen har stöd för följande logik app åtgärder:
@@ -86,11 +86,11 @@ Den här anslutningen har stöd för anslutningar till databasen på lokalt och 
 | Egenskap | Beskrivning |
 | --- | --- |
 | server |Krävs. Accepterar ett strängvärde som representerar en TCP/IP-adress eller ett alias i IPv4- eller IPv6-format, följt (-semikolonavgränsad) av ett TCP/IP-portnummer. |
-| Databasen |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix accepterar en 128 byte-sträng (databas kallas en IBM Informix databasnamnet (dbname)). |
-| Autentisering |Valfri. Tillåter lista objekt, grundläggande eller Windows (kerberos). |
+| databas |Krävs. Accepterar ett strängvärde som representerar en DRDA relationell databas namn (RDBNAM). Informix accepterar en 128 byte-sträng (databas kallas en IBM Informix databasnamnet (dbname)). |
+| autentisering |Valfri. Tillåter lista objekt, grundläggande eller Windows (kerberos). |
 | användarnamn |Krävs. Accepterar ett strängvärde. |
 | lösenord |Krävs. Accepterar ett strängvärde. |
-| Gateway |Krävs. Accepterar en lista över objekt-värde som representerar lokala datagateway definierad för Logic Apps i lagringsgruppen. |
+| gateway |Krävs. Accepterar en lista över objekt-värde som representerar lokala datagateway definierad för Logic Apps i lagringsgruppen. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Skapa lokalt gateway-anslutningen
 Den här anslutningen har åtkomst till en lokal Informix-databas med hjälp av lokala datagateway. Se gateway avsnitt för mer information. 
@@ -276,5 +276,5 @@ Den här anslutningen stöder följande IBM Informix-versioner när konfigurerad
 Visa alla utlösare och åtgärder som definierats i swagger och även se några gränser i den [connector information](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
+[Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Utforska andra tillgängliga kopplingar i Logic Apps på vår [API: er listan](apis-list.md).
 

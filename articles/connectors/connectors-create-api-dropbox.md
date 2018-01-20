@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Kom igång med Dropbox-koppling
 Ansluta till Dropbox att hantera dina filer. Du kan utföra olika åtgärder, till exempel ladda upp, uppdatera, hämta och ta bort filer i Dropbox.
 
-Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/logic-apps-create-a-logic-app.md).
+Att använda [alla anslutningar](apis-list.md), måste du först skapa en logikapp. Du kan komma igång med [att skapa en logikapp nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Ansluta till Dropbox
 Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *anslutning* till tjänsten. En anslutning kan du ansluta en logikapp och en annan tjänst. Till exempel för att ansluta till Dropbox, måste du först en Dropbox *anslutning*. Om du vill skapa en anslutning skulle du behöva ange autentiseringsuppgifter som du vanligtvis använder för att få åtkomst till tjänsten som du vill ansluta till. Så i Dropbox-exemplet skulle du behöva autentiseringsuppgifterna Dropbox-konto för att skapa anslutningen till Dropbox. [Mer information om anslutningar]()
@@ -35,7 +35,7 @@ Innan din logikapp kan komma åt någon tjänst, måste du först skapa en *ansl
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Använda en Dropbox-utlösare
-En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En utlösare är en händelse som kan användas för att starta arbetsflödet som definierats i en logikapp. [Mer information om utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 I det här exemplet ska vi använda den **när en fil skapas** utlösare. När den här utlösaren uppstår kan vi ringer den **hämta innehåll med sökvägen** Dropbox-åtgärd. 
 
@@ -45,7 +45,7 @@ I det här exemplet ska vi använda den **när en fil skapas** utlösare. När d
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Använda en Dropbox-åtgärd
-En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+En åtgärd är en åtgärd som utförs av arbetsflödet som definierats i en logikapp. [Mer information om åtgärder](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Nu när utlösaren har lagts till, Följ dessa steg för att lägga till en åtgärd som får den nya filen innehåll.
 

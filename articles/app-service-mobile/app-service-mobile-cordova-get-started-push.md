@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Lägg till push-meddelanden i din Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Kör följande kommando:
 
 2. Klicka på pilen bredvid installationskälla.
 3. I **SENDER_ID**, om du redan har ett numeriskt projekt-ID för Google Developer Console-projekt, du kan lägga till den här. Annars kan du ange en platshållarvärde, till exempel 777777.  Om du utvecklar för Android, kan du uppdatera det här värdet i config.xml senare.
+     Observera att från och med version 2.0.0 SENDER_ID har tagits bort från installera tid och google-services.json måste vara installerad i rotmappen för ditt projekt.  Mer information finns i [här.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Klicka på **Lägg till**.
 
 Push-plugin-programmet har installerats.
@@ -332,9 +333,9 @@ Kontrollera att ett meddelande tas emot när objektet har lagts till.
 
 Lär dig hur du använder SDK: er.
 
-* [Apache Cordova-SDK][15]
-* [ASP.NET Server-SDK][1]
-* [Node.js Server-SDK][16]
+* [Apache Cordova SDK][15]
+* [ASP.NET Server SDK][1]
+* [Node.js Server SDK][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

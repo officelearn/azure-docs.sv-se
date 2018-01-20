@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 04fa529a0d84f0413c825fef04eadea2496c02cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introduktion till skapar tabeller i Azure SQL Data Warehouse
 
@@ -37,34 +37,27 @@ En [stjärnschema](https://en.wikipedia.org/wiki/Star_schema) organiserar data i
 ## <a name="schema-and-table-names"></a>Schema och tabellnamn
 I SQL Data Warehouse är ett informationslager en typ av databas. Alla tabeller i datalagret ingår i samma databas.  Du kan inte ansluta till tabeller över flera datalager. Det här beteendet skiljer sig från SQL Server som har stöd för flera databaser kopplingar. 
 
-Du kan använda fakta, dim, eller integrera för schemanamn i en SQL Server-databas. Om du överför en SQL Server-databas till SQL Data Warehouse det fungerar bäst att migrera lagra alla tabeller fakta, dimensionen och integrering med ett schema i SQL Data Warehouse. Du kan till exempel lagra alla tabeller i den [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) exempel datalager i ett schema som kallas WWI. Följande kod skapar en [användardefinierade schemat](/sql/t-sql/statements/create-schema-transact-sql) kallas WWI.
+Du kan använda fakta, dim, eller integrera för schemanamn i en SQL Server-databas. Om du överför en SQL Server-databas till SQL Data Warehouse det fungerar bäst att migrera lagra alla tabeller fakta, dimensionen och integrering med ett schema i SQL Data Warehouse. Du kan till exempel lagra alla tabeller i den [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) exempel datalager i ett schema som kallas wwi. Följande kod skapar en [användardefinierade schemat](/sql/t-sql/statements/create-schema-transact-sql) kallas wwi.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-Om du vill visa organisationen för tabellerna i SQL Data Warehouse, använda fakta och dimension int som prefix tabellnamnen. Följande tabell visar några av namnen på schema och tabellen för WideWorldImportersDW. Den jämför namnen i SQL Server och SQL Data Warehouse. 
+Om du vill visa organisationen för tabellerna i SQL Data Warehouse, kan du använda fakta och dimension int som prefix tabellnamnen. Följande tabell visar några av namnen på schema och tabellen för WideWorldImportersDW. Den jämför namnen i SQL Server med namnen i SQL Data Warehouse. 
 
-| WWI dimensionstabeller  | SQL Server | SQL Data Warehouse |
+| WideWorldImportersDW tabell  | Tabelltypen | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| Ort | Dimension.City | WWI. DimCity |
-| Kund | Dimension.Customer | WWI. DimCustomer |
-| Date | Dimension.Date | WWI. DimDate |
-
-| WWI faktatabeller | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Ordning | Fact.Order | WWI. FactOrder |
-| Försäljning  | Fact.Sale  | WWI. FactSale  |
-| Köp | Fakta | WWI. FactPurchase |
+| Ort | Dimensionen | Dimension.City | wwi.DimCity |
+| Ordning | Fakta | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>Tabelldefinitionen 
+## <a name="table-persistence"></a>Tabell beständiga 
 
-Följande begrepp beskrivs viktiga aspekter att definiera tabeller. 
+Tabeller lagra data permanent i Azure Storage, tillfälligt i Azure Storage, eller i ett dataarkiv som är externa för datalagret.
 
-### <a name="standard-table"></a>Standardtabell
+### <a name="regular-table"></a>Vanlig tabell
 
-En tabell som standard lagras i Azure Storage som en del av datalagret. Tabellen och data som kvarstår oavsett om en session är öppen.  Det här exemplet skapar en tabell med två kolumner. 
+En vanlig tabell lagrar data i Azure Storage som en del av datalagret. Tabellen och data som kvarstår oavsett om en session är öppen.  Det här exemplet skapar en vanlig tabell med två kolumner. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -76,17 +69,30 @@ Det finns endast en tillfällig tabell för hela sessionen. Du kan använda en t
 ### <a name="external-table"></a>Extern tabell
 En extern tabell pekar på data som finns i Azure blob storage eller Azure Data Lake Store. När den används tillsammans med instruktionen CREATE TABLE AS SELECT, importerar välja från en extern tabell data till SQL Data Warehouse. Externa tabeller kan därför användbart för att läsa in data. En självstudiekurs inläsning finns [Använd PolyBase för att läsa in data från Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
-### <a name="data-types"></a>Datatyper
+## <a name="data-types"></a>Datatyper
 SQL Data Warehouse stöder vanligaste de datatyper. En lista över datatyperna som stöds, se [datatyper](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktion. Minimera storlek på datatyper för hjälper till att förbättra frågeprestanda. Information om datatyper finns [datatyper](sql-data-warehouse-tables-data-types.md).
 
-### <a name="distributed-tables"></a>Distribuerade tabeller
-En grundläggande funktion i SQL Data Warehouse är hur det kan lagra tabeller över 60 distribuerade platser, distributioner, med namnet på det distribuerade systemet.  SQL Data Warehouse kan lagra en tabell i något av följande tre sätt:
+## <a name="distributed-tables"></a>Distribuerade tabeller
+En grundläggande funktion i SQL Data Warehouse är hur det kan lagra tabeller över 60 distribuerade platser, distributioner, med namnet på det distribuerade systemet.  Tabellen distribueras med en metod för resursallokering, hash eller replikering.
 
-- **Resursallokering** lagrar tabell rader slumpmässigt, men jämnt mellan distributioner. Tabellen resursallokering ger snabb inläsning prestanda, men kräver mer dataflyttning än de andra metoderna för frågor som ansluta till kolumner. 
-- **Hash** distribution distribuerar raderna baserat på värdet i kolumnen distribution. Distribuerade hash-tabellen har mest möjlig att uppnå hög prestanda för frågan kopplar på stora tabeller. Det finns flera faktorer som påverkar valet av kolumnen distribution. Mer information finns i [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
-- **Replikerade** tabeller göra en fullständig kopia av tabellen tillgänglig på varje Compute-nod. Frågor som körs på snabb replikerade tabeller eftersom kopplingar i replikerade tabeller inte kräver dataflyttning. Replikering kräver extra lagring, och är inte praktiskt för stora tabeller. Mer information finns i [utforma vägledning för replikerade tabeller](design-guidance-for-replicated-tables.md).
+### <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
+Hash-distribution distribuerar raderna baserat på värdet i kolumnen distribution. Distribuerade hash-tabellen har mest möjlig att uppnå hög prestanda för frågan kopplar på stora tabeller. Det finns flera faktorer som påverkar valet av kolumnen distribution. 
 
-Kategorin tabellen anger ofta vilket alternativ du väljer för att distribuera tabellen.  
+Mer information finns i [utforma vägledning för distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
+
+### <a name="replicated-tables"></a>Replikerade tabeller
+En replikerad tabell har en fullständig kopia av tabellen tillgänglig på varje beräkningsnod. Frågor som körs på snabb replikerade tabeller eftersom kopplingar i replikerade tabeller inte kräver dataflyttning. Replikering kräver extra lagring, och är inte praktiskt för stora tabeller. 
+
+Mer information finns i [utforma vägledning för replikerade tabeller](design-guidance-for-replicated-tables.md).
+
+### <a name="round-robin-tables"></a>Resursallokering tabeller
+En tabell med resursallokering fördelar tabellraderna jämnt över alla distributioner. Raderna distribueras slumpmässigt. Läsa in data i en tabell med resursallokering är mycket snabbt.  Frågor kräver dock mer dataflyttning än de andra metoderna för distribution. 
+
+Mer information finns i [utforma vägledning för distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
+
+
+### <a name="common-distribution-methods-for-tables"></a>Vanliga distributionsmetoder för register
+Kategorin tabellen anger ofta vilket alternativ du väljer för att distribuera tabellen. Tabeller är vanligtvis fördelade enligt tabellen. 
 
 | Tabellkategori | Rekommenderade distributionsalternativ |
 |:---------------|:--------------------|
@@ -94,18 +100,18 @@ Kategorin tabellen anger ofta vilket alternativ du väljer för att distribuera 
 | Dimensionen      | Använd replikeras för mindre tabeller. Om du för stort för att lagra på varje beräkningsnod, Använd hash-distribueras. |
 | Mellanlagring        | Använda resursallokering för mellanlagringstabellen. Belastningen med CTAS går snabbt. När data är i mellanlagringstabellen, använda INSERT... Välj det här alternativet om du vill flytta data till en produktions-tabeller. |
 
-### <a name="table-partitions"></a>Tabellpartitioner
+## <a name="table-partitions"></a>Tabellpartitioner
 En partitionerad tabell lagrar och utför åtgärder på tabellraderna enligt dataområden. En tabell kan till exempel vara partitionerade per dag, månad eller år. Du kan förbättra frågan prestanda partition eliminering, vilket begränsar en fråga genomsökning data inom en partition. Du kan också behålla data genom att växla partition. Eftersom data i SQL Data Warehouse redan har distribuerats långsamma för många partitioner prestanda för frågor. Mer information finns i [partitionering vägledning](sql-data-warehouse-tables-partition.md).
 
-### <a name="columnstore-indexes"></a>Columnstore-index
+## <a name="columnstore-indexes"></a>Columnstore-index
 Som standard lagrar en tabell i SQL Data Warehouse som ett grupperat columnstore-index. Det här formuläret för datalagring uppnår hög komprimering och frågeprestanda för stora tabeller.  Grupperade columnstore-indexet är vanligtvis det bästa valet, men i vissa fall ett grupperat index eller en heap är lämplig lagringsstruktur.
 
 En lista över columnstore-funktioner, se [vad är nytt för columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). För att förbättra prestanda för columnstore-index, se [maximera radgrupps kvalitet för columnstore-index](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### <a name="statistics"></a>Statistik
+## <a name="statistics"></a>Statistik
 Frågeoptimeringen använder statistik på kolumnnivå när den skapar plan för att köra en fråga. Om du vill förbättra frågeprestanda är det viktigt att skapa statistik på enskilda kolumner, särskilt de kolumner som används i frågan kopplar. Skapa och uppdatera statistik sker inte automatiskt. [Skapa statistik](/sql/t-sql/statements/create-statistics-transact-sql) när du har skapat en tabell. Uppdatera statistiken efter att ett stort antal rader läggs till eller ändras. Till exempel uppdatera statistiken efter att en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
 
-## <a name="ways-to-create-tables"></a>Sätt att skapa tabeller
+## <a name="commands-for-creating-tables"></a>Kommandon för att skapa tabeller
 Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en select-instruktion. Följande är T-SQL-kommandon för att skapa en tabell.
 
 | T-SQL-uttryck | Beskrivning |

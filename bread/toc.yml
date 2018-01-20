@@ -122,7 +122,7 @@
     - name: CDN
       tocHref: /azure/cdn/
       topicHref: /azure/cdn/
-    - name: Molntjänster
+    - name: Cloud Services
       tocHref: /azure/cloud-services/
       topicHref: /azure/cloud-services/
     - name: Cognitive Services
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/

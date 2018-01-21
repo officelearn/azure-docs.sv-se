@@ -33,8 +33,7 @@ Ett Azure-lagringskonto innehåller lagringsutrymme för operativsystemsdisken o
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>Vilka typer av virtuella hårddiskar kan jag använda?
 Azure har bara stöd för fasta virtuella hårddiskar i VHD-format. Om du har en VHDX-disk som du vill använda i Azure måste du först konvertera den med hjälp av Hyper-V Manager eller cmdleten [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656). När du har gjort det använder du cmdleten [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) (i Service Management-läge) för att ladda upp VHD-disken till ett lagringskonto i Azure så att du kan använda den med virtuella datorer.
 
-* Linux-instruktioner finns i [Skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-* Windows-instruktioner finns i [Skapa och ladda upp en virtuell Windows Server-hårddisk till Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Linux-instruktioner finns i [Skapa och ladda upp en virtuell hårddisk som innehåller operativsystemet Linux](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>Är de här virtuella datorerna samma sak som virtuella Hyper-V-datorer?
 På många sätt liknar de virtuella Hyper-V-datorer i ”Generation 1”, men de är inte exakt samma. Båda typerna tillhandahåller virtualiserad maskinvara och de virtuella hårddiskarna i VHD-format är kompatibla. Det innebär att du kan flytta dem mellan Hyper-V och Azure. Det finns tre huvudsakliga skillnader som ibland överraskar Hyper-V-användare:

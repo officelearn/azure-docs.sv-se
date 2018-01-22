@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Jämför Azure IoT-alternativ
 
@@ -29,7 +29,7 @@ För att implementera den här arkitekturen erbjuder Azure IoT flera olika alter
 
 * [Azure IoT Suite](index.md) är en samling [förkonfigurerade lösningar](iot-suite-what-are-preconfigured-solutions.md) i företagsklass som bygger på Azure PaaS (plattform som en tjänst) som gör det möjligt att påskynda utvecklingen av anpassade IoT-lösningar.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) är en SaaS-lösning som använder en modellbaserad metod så att du kan skapa IoT-lösningar i företagsklass utan att kräva expertis om utveckling av molnlösningar.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) är en SaaS (Programvara som en tjänst)-lösning som använder en modellbaserad metod så att du kan skapa IoT-lösningar i företagsklass utan att kräva expertis om utveckling av molnlösningar.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 

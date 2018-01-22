@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: jirwin
-ms.openlocfilehash: 7f07734433694999d38429ca264c58c5f3c619e1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
 ## <a name="overview"></a>Översikt
+
 Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Det är viktigt att alla användare utvärderar skillnaderna för att komma fram till det alternativ som passar dem bäst.  Följande tre alternativ erbjuds:
 
 * **GPv2-konton (General Purpose v2)** innehåller alla de senaste funktionerna och har stöd för blobbar, filer, köer och tabeller. De senaste funktionerna innefattar i dag blobnivåindelning, arkivlagring, större tillåtna kontoutrymmen och lagringshändelser. Prisstrukturen har utformats med låga GB-priser och konkurrenskraftiga transaktionspriser.
@@ -31,7 +32,7 @@ Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och o
 * **GPv1-konton (General Purpose v1)** gör det möjligt att använda alla Azure Storage-tjänster, men vissa av de senaste funktionerna kan saknas och GB-priserna är högre. Lågfrekvent lagring och arkivlagring är två exempel på funktioner som inte stöds av GPv1.  Transaktionspriserna är lägre, så arbetsbelastningar med hög omsättning eller många läsåtgärder kan ha nytta av den här kontotypen.
 
 ### <a name="changing-account-kind"></a>Ändra kontotyp
-Användare kan när som helst uppgradera ett GPv1- eller Blob Storage-konto till ett GPv2-konto via portalen, CLI eller PowerShell. Den här ändringen kan inte ångras och inga andra ändringar tillåts.
+Användare kan när som helst uppgradera ett GPv1-konto till ett GPv2-konto via Portal, CLI eller PowerShell. Den här ändringen kan inte ångras och inga andra ändringar tillåts. Möjlighet att uppgradera Blob Storage-konton till GPv2 kommer snart.
 
 ## <a name="general-purpose-v2"></a>General Purpose v2
 **GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktioner för alla lagringstjänster, inklusive blobbar, filer, köer och tabeller. För blockblobbar kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. Ett GPv1-konto kan alltid uppgraderas till ett GPv2-konto i portalen, CLI eller PowerShell. GPv2-konton stöder alla API:er och funktioner som stöds i Blob Storage- och GPv1-konton, och har samma goda egenskaper vad gäller hållbarhet, tillgänglighet, skalbarhet och prestanda som dessa kontotyper.
@@ -130,7 +131,7 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 11. Skapa lagringskontot genom att klicka på **Skapa**.
 
-### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Konvertera ett GPv1- eller Blob Storage-konto till ett GPv2-lagringskonto med Azure Portal
+### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Konvertera ett GPv1-konto till ett GPv2-lagringskonto med Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -247,7 +248,7 @@ När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöv
 
 ## <a name="migrating-existing-data"></a>Migrera befintliga data
 
-Ett GPv1- eller Blob Storage-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver flytta data. Detta är en av de främsta fördelarna med GPv2 jämfört med Blob Storage-konton.
+Ett GPv1-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver flytta data. Detta är en av de främsta fördelarna med GPv2 jämfört med Blob Storage-konton.
 
 Om du behöver migrera till ett Blob Storage-konto kan du använda instruktionerna nedan.
 
@@ -280,21 +281,25 @@ Mer information finns i [Komma igång med Azure Blob Storage](../blobs/storage-d
 
 **Är de befintliga lagringskontona fortfarande tillgängliga?**
 
-Ja, de befintliga lagringskontona är fortfarande tillgängliga. Varken priserna eller funktionerna har ändrats.  Du kan inte välja lagringsnivå med dessa konton och du kommer inte heller att kunna göra det i framtiden.
+Ja, de befintliga lagringskontona (GPv1) är fortfarande tillgängliga. Varken priserna eller funktionerna har ändrats.  Du kan inte välja lagringsnivå med GPv1-konton och du kommer inte heller att kunna göra det i framtiden.
 
 **När och varför ska jag börja använda GPv2-konton?**
 
 GPv2-konton är särskilt utformade för att tillhandahålla låga GB-lagringskostnader och konkurrenskraftiga kostnader för transaktioner och dataåtkomst. Vi rekommenderar att du använder GPv2-konton i fortsättningen för att lagra blobbar eftersom framtida funktioner, t.ex. ändringsmeddelanden, kommer att läggas till för den här kontotypen. Det är naturligtvis upp till dig när du vill uppgradera beroende på dina affärsbehov.  Du kan till exempel välja att optimera dina transaktionsmönster innan du uppgraderar.
 
+Eftersom du inte kan nedgradera från GPv2 bör du fundera över vad detta har för påverkan på kostnaderna innan du uppgraderar dina konton till GPv2.
+
 **Kan jag uppgradera mitt befintliga lagringskonto till ett GPv2-lagringskonto?**
 
-Ja. Det är enkelt att uppgradera GPv1- eller Blob Storage-konton till GPv2 i portalen.
+Ja. GPv1-konton kan enkelt uppgraderas till GPv2 i Portal, eller med PowerShell eller CLI. Blob Storage-konton kan uppgraderas till GPv2 med PowerShell eller CLI. Möjlighet att uppgradera ett Blob Storage-konto till GPv2 i Portal kommer snart.
+
+Eftersom du inte kan nedgradera från GPv2 bör du fundera över vad detta har för påverkan på kostnaderna innan du uppgraderar dina konton till GPv2.
 
 **Kan jag lagra objekt på båda lagringsnivåerna i samma konto?**
 
 Ja. Attributet **Åtkomstnivå** anger standardlagringsnivån som används för alla objekt i kontot som inte har en angiven nivå. Med blobnivåindelningen kan du ange åtkomstnivå på objektnivå oavsett vilken åtkomstnivå som angetts för kontot. Blobar från alla tre lagringsnivåer (frekvent, lågfrekvent eller arkiv) kan finnas samtidigt i samma konto.
 
-**Kan jag ändra lagringsnivå för mitt GPv2-konto?**
+**Kan jag ändra lagringsnivå för mitt GPv2-lagringskonto?**
 
 Ja, du kan ändra lagringsnivå för kontot med attributet **Åtkomstnivå** för lagringskontot. Ändringar av lagringsnivån för kontot gäller för alla objekt som lagras i kontot och som inte har en uttryckligen inställd nivå. Om du ändrar lagringsnivån från frekvent till lågfrekvent tillkommer avgifter för skrivåtgärder (per 10 000) (gäller endast GPv2-konton). Om du ändrar från lågfrekvent till frekvent tillkommer avgifter för både läsåtgärder (per 10 000) och datahämtning (per GB) för läsning av alla data på kontot.
 
@@ -315,6 +320,8 @@ Nej. Blob Storage-konton stöder endast block- och tilläggsblobbar, inte sidblo
 **Måste jag ändra mina befintliga appar/program för att använda GPv2-konton?**
 
 GPv2-konton är 100 % API-konsekventa med GPv1- och Blob Storage-konton. Så länge ditt program använder blockblobbar eller tilläggsblobbar, och du använder 2014-02-14-versionen av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) eller senare ska ditt program fungera korrekt. Om du använder en äldre version av protokollet måste du uppdatera appen till den nya versionen för att den ska fungera smidigt med båda typerna av lagringskonton. Normalt rekommenderar vi att du använder den senaste versionen oavsett vilken lagringskontotyp du använder.
+
+Priserna för GPv2 är vanligtvis högre än GPv1 när det gäller transaktioner och bandbredd. Du kan därför behöva optimera dina transaktionsmönster innan du uppgraderar för att undvika att den totala kostnaden ökar.
 
 **Ändras användarupplevelsen?**
 

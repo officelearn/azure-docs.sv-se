@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
 
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning i Resource Manager-distributionsmodellen med PowerShell. Den här konfigurationen använder certifikat för autentisering. I den här konfigurationen utförs certifikatverifieringen av Azure VPN-gatewayen, i stället för en RADIUS-server. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -165,7 +165,7 @@ Konfigurera och skapa VNet-gatewayen för ditt VNet.
 
 * -GatewayType måste vara **Vpn** och -VpnType måste vara **RouteBased**.
 * -VpnClientProtocol används för att ange vilka typer av tunnlar som ska aktiveras. De två tunnelalternativen är **SSTP** och **IKEv2**. Du kan välja att aktivera den ena typen eller båda. Om du vill aktivera båda anger du båda namnen avgränsade med kommatecken. Strongswan-klienten i Android och Linux och den inbyggda IKEv2 VPN-klienten i iOS och OSX använder endast IKEv2-tunnlar för att ansluta. Windows-klienter provar IKEv2 först, och går över till SSTP om det inte går att ansluta.
-* Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken [gateway-sku](vpn-gateway-about-vpn-gateway-settings.md) du väljer. Det här exemplet använder IKEv2, som för närvarande finns som förhandsversion.
+* Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken [gateway-sku](vpn-gateway-about-vpn-gateway-settings.md) du väljer. I det här exemplet används IKEv2.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

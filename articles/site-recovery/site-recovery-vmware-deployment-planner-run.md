@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Köra Distributionshanteraren för Azure Site Recovery för VMware till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -85,7 +85,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om du inte anger något värde nu uppmanas du att ange det när kommandot körs.|
 |-Port|(Valfritt) Portnummer för anslutning till vCenter/ESXi-värden. Standardporten är 443.|
 |-Protocol| (Valfritt) Ange protokollet, antingen http eller https, för anslutning till vCenter. Standardprotokollet är https.|
-| -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas.|
+| -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas. Lagringskontot måste antingen vara för generell användning v1 eller storageV2 (generell användning v2)|
 | -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*lagringskontots namn*> > Inställningar > Åtkomstnycklar > Key1. |
 | -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina. |
 
@@ -263,7 +263,7 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 | -Operation | GetThroughput |
 |-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
-| -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. |
+| -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste antingen vara för generell användning v1 eller storageV2 (generell användning v2).|
 | -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-målregion är antingen Azure för amerikanska myndigheter eller Azure-moln för Kina. |

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med certifikatautentisering: den klassiska Azure-portalen
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 Den här artikeln visar dig hur du skapar ett virtuellt nätverk med en punkt-till-plats-anslutning med den klassiska distributionsmodellen i Azure Portal. Den här konfigurationen använder certifikat för att autentisera den anslutande klienten. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -59,7 +59,7 @@ Mer information om punkt-till-plats-anslutningar finns i [Vanliga frågor och sv
 Du kan använda följande värden till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
 * **Namn: VNet1**
-* **Adressutrymme: 192.168.0.0/16**<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk.
+* **Adressutrymme: 192.168.0.0/16**<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk (se diagrammet).
 * **Undernätsnamn: FrontEnd**
 * **Adressintervall för undernätet: 192.168.1.0/24**
 * **Prenumeration:** Kontrollera att du använder rätt prenumeration om du har mer än en.
@@ -77,7 +77,7 @@ Kontrollera att du har en Azure-prenumeration innan du börjar. Om du inte har n
 
 ### <a name="createvnet"></a>Del 1: Skapa ett virtuellt nätverk
 
-Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
+Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna. Följ stegen nedan för att skapa ett VNet med Azure Portal:
 
 1. Navigera till [Azure-portalen](http://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Klicka på **Ny**. Skriv ”Virtuella nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
@@ -103,7 +103,7 @@ Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som
 
 ### <a name="gateway"></a>Del 2: Skapa gateway-undernät och en dynamisk routningsgateway
 
-I det här steget skapar du ett gateway-undernät och en dynamisk routningsgateway. I Azure-portalen för den klassiska distributionsmodellen, kan du skapa gateway-undernätet och gatewayen genom samma konfigurationssidor.
+I det här steget skapar du ett gateway-undernät och en dynamisk routningsgateway. I Azure-portalen för den klassiska distributionsmodellen, kan du skapa gateway-undernätet och gatewayen genom samma konfigurationssidor. Gateway-undernätet används endast för gateway-tjänsterna. Distribuera aldrig något direkt till gateway-undernätet (till exempel virtuella datorer eller andra tjänster).
 
 1. I portalen, går du till det virtuella nätverket som du vill skapa en gateway för.
 2. På sidan för ditt virtuella nätverk, på sidan **Översikt**, i avsnittet VPN-anslutningar, klickar du på **Gateway**.
@@ -112,25 +112,22 @@ I det här steget skapar du ett gateway-undernät och en dynamisk routningsgatew
 3. På sidan **Ny VPN-anslutning** väljer du **Punkt-till-plats**.
 
   ![Punkt-till-plats-anslutningstyp](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. Lägg till IP-adressutrymme för **klientens adressutrymme**. Detta är intervallet från vilket VPN-klienterna får en IP-adress när de ansluter. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Du kan ta bort det automatiskt ifyllda intervallet och sedan lägga till det intervall med privata IP-adresser som du vill använda.
+4. Lägg till IP-adressutrymme för **klientens adressutrymme**. Detta är intervallet från vilket VPN-klienterna får en IP-adress när de ansluter. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Du kan ta bort det automatiskt ifyllda intervallet och sedan lägga till det intervall med privata IP-adresser som du vill använda. Det här exemplet visar intervallet som fylls i automatiskt. Ta bort det om du vill lägga till ett eget valfritt värde.
 
   ![Adressutryme för klienten](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. Välj kryssutan **Skapa gateway omedelbart**.
-
-  ![Skapa gatewayen omedelbart](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. Klicka på **Valfri gatewaykonfiguration** för att öppna sidan **Gatewaykonfiguration**.
+5. Välj kryssutan **Skapa gateway omedelbart**. Klicka på **Valfri gatewaykonfiguration** för att öppna sidan **Gatewaykonfiguration**.
 
   ![Klicka på valfri gatewaykonfiguration](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. Klicka på **Konfigurera obligatoriska inställningar för undernät**, för att lägga till **Gateway-undernätet**. Även om det är möjligt att skapa ett gateway-subnät som är så litet som /29 så rekommenderar vi att du skapar ett större subnät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden. När du arbetar med gateway-undernät, bör du undvika att associera en nätverkssäkerhetsgrupp (NSG) till gateway-undernätet. Om du kopplar en nätverkssäkerhetsgrupp (NSG) till det här undernätet så kan din VPN-gateway sluta fungera som förväntat.
+6. Klicka på **Konfigurera obligatoriska inställningar för undernät**, för att lägga till **Gateway-undernätet**. Även om det är möjligt att skapa ett gateway-subnät som är så litet som /29 så rekommenderar vi att du skapar ett större subnät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden. När du arbetar med gateway-undernät, bör du undvika att associera en nätverkssäkerhetsgrupp (NSG) till gateway-undernätet. Om du kopplar en nätverkssäkerhetsgrupp (NSG) till det här undernätet så kan din VPN-gateway sluta fungera som förväntat.
 
   ![Lägg till GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. Välj gateway-**storlek**. Storleken är SKU-gatewayen för det virtuella nätverkets gateway. I portalen är standard-SKU:n **Basic**. För mer information om gateway-SKU:er, kan du se [Om VPN-gatewayinställningar](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+7. Välj gateway-**storlek**. Storleken är SKU-gatewayen för det virtuella nätverkets gateway. I portalen är standard-SKU:n **Basic**. För mer information om gateway-SKU:er, kan du se [Om VPN-gatewayinställningar](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Gateway-storlek](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. Välj **Routningstyp** för din gateway. P2S konfigurationer kräver en **Dynamisk** routningstyp. Klicka på **OK** när du har konfigurerat den här sidan.
+8. Välj **Routningstyp** för din gateway. P2S konfigurationer kräver en **Dynamisk** routningstyp. Klicka på **OK** när du har konfigurerat den här sidan.
 
   ![Konfigurera routningstyp](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. På sidan **Ny VPN-anslutning** klickar du på **OK** längst ned på sidan för att börja skapa din virtuella nätverksgateway. Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken gateway-sku du väljer.
+9. På sidan **Ny VPN-anslutning** klickar du på **OK** längst ned på sidan för att börja skapa din virtuella nätverksgateway. Det kan ta upp till 45 minuter innan en VPN-gateway är klar, beroende på vilken gateway-sku du väljer.
 
 ## <a name="generatecerts"></a>2. Skapa certifikat
 
@@ -202,7 +199,7 @@ Om du vill skapa en P2S-anslutning från en annan klientdator än den som du anv
 
 ### <a name="verifyvpnconnect"></a>Verifiera VPN-anslutningen
 
-1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
+1. Om du vill verifiera att VPN-anslutningen är aktiv öppnar du en upphöjd kommandotolk från klientdatorn och kör *ipconfig/all*.
 2. Granska resultaten. Observera att den IP-adress som du har fått är en av adresserna inom adressintervallet för punkt-till-plats-anslutningen som du angav när du skapade ditt VNet. Resultatet bör likna det här exemplet:
 
   ```
@@ -261,7 +258,7 @@ Du kan återkalla ett klientcertifikat genom att lägga till tumavtrycket i list
 
 ## <a name="faq"></a>Vanliga frågor och svar om punkt-till-plats
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 När anslutningen är klar kan du lägga till virtuella datorer till dina virtuella nätverk. Mer information finns i [Virtuella datorer](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Mer information om virtuella datorer och nätverk finns i [Azure and Linux VM network overview](../virtual-machines/linux/azure-vm-network-overview.md) (Översikt över nätverk för virtuella Azure- och Linux-datorer).

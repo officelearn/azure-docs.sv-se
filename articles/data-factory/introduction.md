@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2017
+ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ac1ecf8ef9f1e30eb5bdd2fe86433a4981d73d8d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,4 +127,13 @@ Exempelvis kan vi anta att dina beräkningsmiljöer, som t.ex. Azure HDInsight-k
 En lista över skillnaderna mellan version 1 och version 2 av Data Factory-tjänsten finns i [Jämför med version 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig skapa en datafabrik med stegvisa instruktioner i följande snabbstarter: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST-API](quickstart-create-data-factory-rest-api.md) och Azure Portal. 
+Kom igång med att skapa en Data Factory-pipeline med något av följande verktyg/SDK:er: 
+
+- [Data Factory-gränssnittet i Azure Portal](quickstart-create-data-factory-portal.md)
+- [Verktyget för att kopiera data i Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [.NET](quickstart-create-data-factory-dot-net.md)
+- [Python](quickstart-create-data-factory-python.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
+- [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md)
+ 

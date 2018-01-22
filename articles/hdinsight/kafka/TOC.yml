@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Utveckla
       items:
+        - name: Använda Kafka-producent och konsument-API
+          href: apache-kafka-producer-consumer-api.md
+        - name: Använda Kafka Streams-API
+          href: apache-kafka-streams-api.md
         - name: Använda tomma kantnoder
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

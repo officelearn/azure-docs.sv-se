@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Analysera stordata
       items:
+        - name: Använda Spark för att läsa och skriva HBase-data
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analysera loggar i Application Insights Telemetry
           href: apache-spark-analyze-application-insight-logs.md
     - name: Utöka kluster
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: Hantera
       items:
+        - name: Optimera Spark-jobb
+          href: apache-spark-perf.md
         - name: Kapacitetsplanering för kluster
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

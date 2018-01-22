@@ -52,9 +52,15 @@
     - name: 2 – Konfigurera enhet
       href: tutorial-set-up-device.md
     - name: 3 - Etablera en enhet till en IoT-hubb
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Etablera enheter till flera hubbar
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 – etablera gruppregistreringar
+      href: tutorial-group-enrollments.md
 - name: Begrepp
   items:
     - name: Enhetskoncept
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Återkalla enhetsåtkomst
       href: how-to-revoke-device-access-portal.md
+    - name: Avetablera enheter
+      href: how-to-unprovision-devices.md
     - name: Använda HSM med SDK
       href: use-hsm-with-sdk.md
     - name: Styra åtkomsten till etableringstjänsten

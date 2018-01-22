@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: R Server på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: r-server-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -44,6 +44,8 @@
         - name: Verktyg för VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Skicka jobb från R Tools för Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap

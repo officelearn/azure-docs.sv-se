@@ -1,6 +1,6 @@
 - name: Dokumentation för virtuella Windows-datorer
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Virtual Machines
       href: overview.md
@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Migrera till Premium Storage med Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Hitta icke anslutna diskar
+          href: find-unattached-disks.md
         - name: Använda fillagring
           href: mount-azure-file-storage.md
         - name: Distribuera diskar med mall

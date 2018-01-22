@@ -1,6 +1,6 @@
 - name: Azure Automation användardokumentation
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Vad är Automation?
       href: automation-intro.md
@@ -131,10 +131,10 @@
       items:
         - name: Runbook-galleri
           href: automation-runbook-gallery.md
+        - name: Starta ett runbook-flöde med Azure-aviseringar
+          href: automation-create-alert-triggered-runbook.md
         - name: Skapa virtuella Amazon Web Service-datorer
           href: automation-scenario-aws-deployment.md
-        - name: Åtgärda varning från virtuell Azure-dator
-          href: automation-azure-vm-alert-integration.md
         - name: Starta/stoppa virtuell dator med JSON-taggar
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Ta bort resursgrupp

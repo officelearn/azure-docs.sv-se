@@ -2,7 +2,7 @@
   href: /azure/hdinsight
 - name: HBase på HDInsight
   items:
-    - name: Översikt
+    - name: "Översikt\r\n"
       href: apache-hbase-overview.md
     - name: Hadoop-komponenter på HDInsight
       href: ../hdinsight-component-versioning.md
@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Använda REST SDK för Phoenix Query Server
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Analysera stordata
+      items:
+        - name: Använda Spark för att läsa och skriva HBase-data
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap

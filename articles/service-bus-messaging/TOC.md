@@ -29,13 +29,13 @@
 ### [Rollbaserad åtkomstkontroll (förhandsgranskning)](service-bus-role-based-access-control.md)
 ### [Premium-meddelandetjänster](service-bus-premium-messaging.md)
 ### [Jämför Azure-köer och Service Bus-köer](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Skapa en Service Bus-flernivåapp](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Optimera prestanda](service-bus-performance-improvements.md)
 ### [Geo-haveriberedskap och geo-replikering](service-bus-geo-dr.md)
 ### [Asynkrona meddelanden och hög tillgänglighet](service-bus-async-messaging.md)
 ### [Hantera avbrott och katastrofer](service-bus-outages-disasters.md)
 
 ## Utveckla
+### [Skapa en Service Bus-flernivåapp](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Meddelandehantering
 #### [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 #### [Meddelanden, nyttolaster och serialisering](service-bus-messages-payloads.md)

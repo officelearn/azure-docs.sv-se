@@ -341,7 +341,7 @@
         - name: Hantera nycklar och konsekvens
           href: manage-account.md
         - name: Azure Lagringsutforskaren
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Säkerhet
           items:
             - name: Vilande kryptering

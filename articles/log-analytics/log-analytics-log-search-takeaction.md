@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Utför en åtgärd med en Automation-Runbook från ett sökresultat för logganalys-logg
 
@@ -30,7 +30,7 @@ Loggen sökningen i Azure Log Analytics, du kan nu välja **åtgärda** att kör
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Att starta runbook från loggen sökning
 
-Om du vill vidta åtgärder för en händelse och startar en runbook i sökresultaten loggen, börja med att skapa en logg-sökning och du kan anropa en runbook på begäran från resultaten.  Du kan göra detta från loggen sökfunktionen i Azure eller [OMS-portalen](../log-analytics/log-analytics-log-searches.md).  I det här exemplet söka vi loggen från Azure-portalen med en enkel demonstration av den här funktionen.
+Om du vill vidta åtgärder för en händelse och startar en runbook i sökresultaten loggen, börja med att skapa en logg-sökning och du kan anropa en runbook på begäran från resultaten.  Du kan göra detta från loggen sökfunktionen i den [Azure-portalen](../log-analytics/log-analytics-log-search-new.md).  I det här exemplet söka vi loggen från Azure-portalen med en enkel demonstration av den här funktionen.
 
 1. I Azure-portalen på navmenyn klickar du på **fler tjänster** och välj **logganalys**.  
 2. I bladet logganalys väljer logganalys-arbetsytan och i bladet arbetsytan väljer **loggen Sök**.  
@@ -49,4 +49,4 @@ Om du väljer en runbook som har konfigurerats för att vara [anropas från en a
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska de [logganalys logga Sök referens](log-analytics-search-reference.md) att visa alla sökfält och aspekter som är tillgängliga i logganalys.
-* Om du vill lära dig mer om att anropa en Automation-runbook automatiskt, granska [anropa en Azure Automation-runbook från en OMS logganalys-avisering](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Om du vill lära dig mer om att anropa en Automation-runbook automatiskt, granska [anropa en Azure Automation-runbook från en avisering om logganalys](../automation/automation-invoke-runbook-from-omsla-alert.md).  

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Parametrarna-avsnittet i Azure Resource Manager-mallar
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurserna. Dessa värden kan du anpassa distributionen med värden som är anpassade för en viss miljö (t.ex dev, test- och). Du behöver inte ange parametrarna i mallen, men utan parametrar mallen skulle distribuera alltid samma resurser med samma namn, platser och egenskaper.
@@ -88,8 +88,8 @@ Föregående exempel visade endast några av de egenskaper som du kan använda i
 | typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **secureString**, **int**, **bool**, **objektet**, **secureObject**, och **matris**. |
 | Standardvärde |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att kontrollera att rätt värde har angetts. |
-| MinValue |Nej |Det lägsta värdet för int typparametrar det här värdet är inklusiva. |
-| MaxValue |Nej |Det maximala värdet för int typparametrar det här värdet är inklusiva. |
+| minValue |Nej |Det lägsta värdet för int typparametrar det här värdet är inklusiva. |
+| maxValue |Nej |Det maximala värdet för int typparametrar det här värdet är inklusiva. |
 | minLength |Nej |Den minsta längden för string, secureString och array typparametrar detta värde är inklusiva. |
 | maxLength |Nej |Den maximala längden för string, secureString och array typparametrar detta värde är inklusiva. |
 | description |Nej |Beskrivning av den parameter som visas för användarna via portalen. |
@@ -131,6 +131,7 @@ Definiera parametern i mallen och ange en JSON-objekt i stället för ett värde
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Sedan, referera subegenskaper för parametern med hjälp av punktoperatorn.
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ Följande information kan vara användbart när du arbetar med parametrar:
    }
    ```
 
-* Använd inte en parameter anger platsen när det är möjligt. Använd i stället de **plats** -egenskapen för resursgruppen. Med hjälp av den **resourceGroup () .location** uttryck för alla dina resurser, resurserna i mallen distribueras på samma plats som resursgruppen:
+* Använder en parameter för att ange plats och dela det parametervärdet så mycket som möjligt med resurser som kan förväntas finnas på samma plats. Denna metod minimerar antalet gånger som användare uppmanas att ange platsinformation. Om en resurstyp stöds i endast ett begränsat antal platser, kanske du vill ange en giltig plats direkt i mallen, eller Lägg till en annan platsparametern. När en organisation begränsar tillåtna områden för sina användare den **resourceGroup () .location** uttryck kan förhindra att användare från att kunna distribuera mallen. Till exempel skapar en användare en resursgrupp i en region. En annan användare måste distribuera till resursgruppen men har inte åtkomst till regionen. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ Följande information kan vara användbart när du arbetar med parametrar:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Om en resurstyp stöds i endast ett begränsat antal platser, kanske du vill ange en giltig plats direkt i mallen. Om du måste använda en **plats** parameter, dela att parametervärdet så mycket som möjligt med resurser som kan förväntas finnas på samma plats. Denna metod minimerar antalet gånger som användare uppmanas att ange platsinformation.
+    
 * Undvik att använda en parameter eller variabel för API-version för en resurstyp. Egenskaper för resursen och värdena kan variera efter versionsnummer. IntelliSense i en redigerare kan inte avgöra korrekt schema när API-version anges som en parameter eller variabel. I stället hårdkoda API-version i mallen.
 * Undvik att ange namnet på en parameter i mallen som matchar en parameter i kommandot distribution. Hanteraren för filserverresurser löser den här namnkonflikt genom att lägga till username@Domain **från mall** till mallparameter. Till exempel om du lägger till en parameter med namnet **ResourceGroupName** i mallen, den orsakar en konflikt med den **ResourceGroupName** parametern i den [ny AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Under distributionen kan du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**.
 

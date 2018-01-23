@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hög densitet värd i Azure App Service
 När du använder App Service, frikopplas programmet från den kapacitet som tilldelas av två begrepp:
@@ -38,12 +38,12 @@ När flera appar delar en apptjänstplan, kör en instans av appen på varje fö
 Per app skalas skalning appen oberoende av App Service-plan som är värd för den. På så sätt kan en App Service-plan kan skalas till 10 instanser, men en app kan ställas in att använda bara fem.
 
    >[!NOTE]
-   >Per app skalning är bara tillgängligt för **Premium** SKU App Service-planer
+   >Per app-skalning, är bara tillgängligt för **Standard**, **Premium**, **Premium V2** och **isolerad** SKU App Service-planer
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Per app skalning med PowerShell
 
-Du kan skapa en plan som konfigurerats som en *Per app skalning* plan genom att passera i den ```-perSiteScaling $true``` attribut till den ```New-AzureRmAppServicePlan``` cmdleten igen
+Skapa en plan som konfigurerats som en *Per app skalning* plan genom att passera i den ```-perSiteScaling $true``` attribut till den ```New-AzureRmAppServicePlan``` cmdleten igen
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Vi behöver konfigurera antalet instanser som appen kan använda i app service-plan på app-nivå.
+Konfigurera antalet instanser som appen kan använda i app service-plan på app-nivå.
 
 Appen är begränsad till två instanser oavsett hur många instanser underliggande apptjänstplan skalas ut till i exemplet nedan.
 

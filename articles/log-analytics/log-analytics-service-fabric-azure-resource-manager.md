@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Utvärdera Service Fabric-program och micro-tjänster med Azure-portalen
 
@@ -37,7 +37,7 @@ Service Fabric-lösningen använder Azure-diagnostik data från din Service Fabr
 Du måste ansluta Service Fabric-klustret till logganalys-arbetsytan för att komma igång med lösningen. Här följer tre scenarier att tänka på:
 
 1. Om du inte har distribuerat Service Fabric-kluster använder du stegen i ***distribuera ett Service Fabric-kluster som är ansluten till logganalys-arbetsytan*** att distribuera ett nytt kluster och den är konfigurerad för att rapportera till logganalys.
-2. Om du behöver samla in prestandaräknare från värdar att använda andra OMS-lösningar, till exempel säkerhet på Service Fabric-kluster, följer du stegen i ***distribuera ett Service Fabric-kluster som är ansluten till logganalys-arbetsytan med VM-tillägg som är installerad.***
+2. Om du behöver samla in prestandaräknare från värdar att använda andra hanteringslösningar, till exempel säkerhet på Service Fabric-kluster, följer du stegen i ***distribuera ett Service Fabric-kluster som är ansluten till logganalys-arbetsytan med VM-tillägg installerad.***
 3. Om du redan har distribuerat din Service Fabric-kluster och vill ansluta till logganalys följer du stegen i ***att lägga till ett befintligt lagringskonto till logganalys.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Distribuera ett Service Fabric-kluster som ansluten till logganalys-arbetsytan.

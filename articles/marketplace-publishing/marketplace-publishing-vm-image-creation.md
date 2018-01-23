@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide för att skapa en avbildning av virtuell dator för Azure Marketplace
 Den här artikeln **steg 2**, vägleder dig genom förbereder de virtuella hårddiskar (VHD) som du ska distribuera till Azure Marketplace. De virtuella hårddiskarna är grunden för dina SKU: N. Processen skiljer sig åt beroende på om du tillhandahåller en Linux- eller Windows-baserade SKU. Den här artikeln täcker båda scenarierna. Den här processen kan utföras parallellt med [skapande av konton och registrering][link-acct-creation].
@@ -58,7 +58,7 @@ När du har lagt till ett erbjudande, måste du definiera och identifiera din SK
 3. Om du använder Windows-baserade SKU:er följer du de rekommenderade länkarna för att hämta godkända versioner av Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Skapa en virtuell Hårddisk på Azure-kompatibel (Linux-baserat)
-Det här avsnittet fokuserar på bästa praxis för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns följande dokumentation: [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Det här avsnittet fokuserar på bästa praxis för att skapa en Linux-baserade VM-avbildning för Azure Marketplace. En stegvis genomgång finns följande dokumentation: [skapa en anpassad Linux VM-avbildning](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Skapa en virtuell Hårddisk på Azure-kompatibel (Windows-baserade)
 Det här avsnittet fokuserar på hur du skapar en SKU baserat på Windows Server för Azure Marketplace.

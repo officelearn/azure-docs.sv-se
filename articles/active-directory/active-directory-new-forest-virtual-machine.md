@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installera en ny Active Directory-skog på Azure-nätverk
 Den här artikeln visar hur du skapar en ny Windows Server Active Directory-miljö på en virtuell dator (VM) på en [virtuella Azure-nätverket](../virtual-network/virtual-networks-overview.md). I det här fallet är virtuella Azure-nätverket inte ansluten till ett lokalt nätverk.
@@ -57,7 +57,7 @@ Det finns inte mycket skillnaden mellan att installera en domänkontrollant på 
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Skapa virtuella datorer om du vill köra en domänkontrollant och DNS-server-roller
 Upprepa följande steg för att skapa virtuella datorer som värd för rollen DC efter behov. Du bör distribuera minst två virtuella domänkontrollanter för att ge feltolerans och redundans. Om virtuella Azure-nätverket innehåller minst två domänkontrollanter som är konfigurerad på samma sätt (som är de båda global katalog kör DNS-servern, och inget innehar FSMO-rollen, och så vidare) placera de virtuella datorer som kör de domänkontrollanter i en tillgänglighetsuppsättning för förbättrad feltolerans.
 
-För att skapa de virtuella datorerna med hjälp av Windows PowerShell i stället för Gränssnittet, se [Använd Azure PowerShell för att skapa och förkonfigurera Windows-baserade virtuella datorer](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+För att skapa de virtuella datorerna med hjälp av Windows PowerShell i stället för Gränssnittet, se den [skapar en virtuell dator med PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md) exempel.
 
 1. Välj i Azure-portalen **ny** > **Compute**, och välj sedan en virtuell dator. Använd följande värden för att slutföra guiden. Acceptera standardvärdet för en inställning om inte ett annat värde förslag eller krävs.
 
@@ -67,7 +67,7 @@ För att skapa de virtuella datorerna med hjälp av Windows PowerShell i ställe
    |  **Konfiguration av virtuell dator** |<p>Namn på virtuell dator: Skriv ett enkelt namn (till exempel AzureDC1).</p><p>Nytt användarnamn: Ange namnet på en användare. Den här användaren ska vara medlem i gruppen lokala administratörer på den virtuella datorn. Du behöver det här namnet att logga in på den virtuella datorn för första gången. Inbyggt konto med namnet administratör fungerar inte.</p><p>Nytt lösenord/bekräfta: Ange ett lösenord</p> |
    |  **Konfiguration av virtuell dator** |<p>Molntjänsten: Välj <b>skapa en ny molntjänst</b> för den första virtuella datorn och välj att samma molntjänstnamn när du skapar flera virtuella datorer som ska vara värd DC-rollen.</p><p>Molnet tjänsten DNS-namn: Ange ett globalt unikt namn</p><p>Region/Tillhörighetsgrupp/virtuellt nätverk: Ange det virtuella nätverksnamnet (till exempel WestUSVNet).</p><p>Storage-konto: Välj <b>använda ett automatiskt genererat lagringskonto</b> för den första virtuella datorn och välj sedan det samma lagringskontonamnet när du skapar flera virtuella datorer som ska vara värd DC-rollen.</p><p>Tillgänglighetsuppsättningen: Välj <b>skapa en tillgänglighetsuppsättning</b>.</p><p>Namn på tillgänglighetsuppsättning: Ange ett namn för tillgänglighetsuppsättning när du skapar den första virtuella datorn och välj sedan att samma namn när du skapar flera virtuella datorer.</p> |
    |  **Konfiguration av virtuell dator** |<p>Välj <b>installera den Virtuella Datoragenten</b> och andra tillägg som du behöver.</p> |
-2. Ansluta en disk på varje virtuell dator som kör serverrollen för domänkontrollanten. Det ytterligare diskutrymme krävs för att lagra AD-databasen, loggfilerna och SYSVOL. Ange en storlek för disken (till exempel 10 GB) och lämna den **värden Cache inställningar** inställd på **ingen**. Anvisningar finns i avsnittet [hur du ansluter en datadisk till en virtuell Windows-dator](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Ansluta en disk på varje virtuell dator som kör serverrollen för domänkontrollanten. Det ytterligare diskutrymme krävs för att lagra AD-databasen, loggfilerna och SYSVOL. Ange en storlek för disken (till exempel 10 GB) och lämna den **värden Cache inställningar** inställd på **ingen**. Anvisningar finns i avsnittet [hur du ansluter en datadisk till en virtuell Windows-dator](../virtual-machines/windows/attach-managed-disk-portal.md).
 3. När du först logga in på den virtuella datorn, öppna **Serverhanteraren** > **fil- och lagringstjänster** att skapa en volym på disken med NTFS.
 4. Reservera en statisk IP-adress för virtuella datorer som rollen ska köras på domänkontrollanten. Ladda ned Microsoft Web Platform Installer om du vill reservera en statisk IP-adress och [installera Azure PowerShell](/powershell/azure/overview) och köra cmdlet Set-AzureStaticVNetIP. Exempel:
 

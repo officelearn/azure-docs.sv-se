@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT-hubb operations övervakning
 
 IoT-hubb operations övervakning kan du övervaka status för åtgärder för din IoT-hubb i realtid. IoT-hubb spårar händelser över flera kategorier av åtgärder. Du kan välja att skicka händelser från en eller flera kategorier för en slutpunkt av din IoT-hubb för bearbetning. Du kan övervaka data för fel eller ställa in mer komplexa bearbetning baserat på datamönster.
 
 >[!NOTE]
->IoT-hubb operations övervakning är föråldrad och kommer att tas bort från IoT-hubb i framtiden. Övervaka åtgärder och hälsotillståndet för IoT-hubb finns [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt][lnk-monitor]. Läs mer om utfasning tidslinjen [övervaka dina Azure IoT-lösningar med Azure-Monitor och Azure Resource Health][lnk-blog-announcement].
+>IoT-hubb operations övervakning är föråldrad och kommer att tas bort från IoT-hubb på den 10 oktober 2018. Övervaka åtgärder och hälsotillståndet för IoT-hubb finns [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt][lnk-monitor]. Läs mer om utfasning tidslinjen [övervaka dina Azure IoT-lösningar med Azure-Monitor och Azure Resource Health][lnk-blog-announcement].
 
 IoT-hubb övervakar sex kategorier av händelser:
 
@@ -291,7 +291,7 @@ class Program
 Om du vill utforska ytterligare funktionerna i IoT-hubb, se:
 
 * [Utvecklarhandbok för IoT-hubb][lnk-devguide]
-* [Distribuera AI till enheter med Azure IoT kant][lnk-iotedge]
+* [Distribuera AI till gränsenheter med Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

@@ -4,7 +4,7 @@ description: "Lär dig mer om att utföra automatisk säkerhetskopiering och åt
 keywords: "säkerhetskopiering och återställning, säkerhetskopiering online"
 services: cosmos-db
 documentationcenter: 
-author: RahulPrasad16
+author: mimig1
 manager: jhubbard
 editor: monicar
 ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: raprasa
-ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mimig
+ms.openlocfilehash: f88bdd6ffb70ccd2aa48453747964c4afb5bea46
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatisk online säkerhetskopiering och återställning med Azure Cosmos DB
 Azure Cosmos-DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Automatisk säkerhetskopiering tas utan att påverka prestanda eller tillgänglighet för dina databasåtgärder. Alla säkerhetskopior lagras separat i en annan storage-tjänst och dessa säkerhetskopieringar replikeras globalt för återhämtning mot regionala katastrofer. Automatisk säkerhetskopiering är avsedda för situationer när du av misstag tar bort Cosmos-DB-behållaren och senare behöver återställa data eller en lösning för katastrofåterställning.  
@@ -27,7 +27,7 @@ Azure Cosmos-DB tar automatiskt säkerhetskopior av dina data med jämna mellanr
 Den här artikeln börjar med en snabb sammanfattning dataredundans och tillgänglighet i Cosmos-DB och beskriver säkerhetskopieringar. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Hög tillgänglighet med Cosmos-DB - en sammanfattning
-Cosmos DB är avsedd att vara [globalt distribuerade](distribute-data-globally.md) – du kan skala genomströmning över flera Azure-regioner tillsammans med principen som drivs redundans och transparent flera API: er. Auzre Cosmos DB erbjuder [99,99% tillgänglighet SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla enskild region och konton för alla flera region med en avvikelse konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen. Alla skrivningar i Azure Cosmos DB genomförs varaktigt till lokala diskar genom att ett kvorum av replikerna i ett lokalt Datacenter innan bekräftades till klienten. Observera att den höga tillgängligheten för Cosmos DB förlitar sig på lokal lagring och inte är beroende av någon extern lagringstekniker. Dessutom, om ditt konto är kopplat till mer än en Azure-region, replikeras din skrivningar samt andra regioner. Om du vill skala din genomflöde och komma åt data på låg latens, kan du ha många läsa regioner som är kopplad till ditt konto som du vill. I varje skrivskyddade region sparas varaktigt (replikerade) data i en replik.  
+Cosmos DB är avsedd att vara [globalt distribuerade](distribute-data-globally.md) – du kan skala genomströmning över flera Azure-regioner tillsammans med principen som drivs redundans och transparent flera API: er. Azure Cosmos-DB erbjuder [99,99% tillgänglighet SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) för alla enskild region och konton för alla flera region med en avvikelse konsekvens och 99,999% läsa tillgänglighet för alla konton i flera regioner databasen. Alla skrivningar i Azure Cosmos DB genomförs varaktigt till lokala diskar genom att ett kvorum av replikerna i ett lokalt Datacenter innan bekräftades till klienten. Observera att den höga tillgängligheten för Cosmos DB förlitar sig på lokal lagring och inte är beroende av någon extern lagringstekniker. Dessutom, om ditt konto är kopplat till mer än en Azure-region, replikeras din skrivningar samt andra regioner. Om du vill skala din genomflöde och komma åt data på låg latens, kan du ha många läsa regioner som är kopplad till ditt konto som du vill. I varje skrivskyddade region sparas varaktigt (replikerade) data i en replik.  
 
 Enligt beskrivningen i följande diagram, en enskild Cosmos-DB-behållare är [vågrätt partitionerade](partition-data.md). En ”partition” markeras med en cirkel i följande diagram och varje partition görs högtillgänglig via en replik. Det här är den lokala distributionsplatsen i ett enda Azure-region (betecknas med X-axeln). Dessutom kan distribueras varje partition (med dess motsvarande replikuppsättningen) sedan globalt över flera regioner som är kopplad till ditt konto (till exempel i den här bilden till tre regioner – östra USA, västra USA och centrala Indien). ”Ange partitionen” är ett globalt distribuerade entitet som består av flera kopior av dina data i varje region (betecknas med Y-axeln). Du kan tilldela prioritet till de regioner som är kopplad till ditt konto och Cosmos DB att transparent redundansväxla till nästa område händelse av katastrof. Du kan också manuellt simulerar redundans för att testa tillgängligheten för slutpunkt till slutpunkt för ditt program.  
 

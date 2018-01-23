@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 5b48bf913145e212e65a3b0a4372185d4f711f58
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7802ac701dfb865186beac3889ea2a5b4d0c4770
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en Debian VHD för Azure
 ## <a name="prerequisites"></a>Förutsättningar
@@ -93,5 +93,5 @@ Det finns ett verktyg för att generera Debian virtuella hårddiskar på Azure, 
 4. Klicka på **åtgärd** i Hyper-V Manager -> stängs ned. Din Linux VHD är nu redo att överföras till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu är du redo att använda din Debian virtuell hårddisk för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure finns i steg 2 och 3 i [skapa och ladda upp en virtuell hårddisk som innehåller Linux-operativsystem](classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Nu är du redo att använda din Debian virtuell hårddisk för att skapa nya virtuella datorer i Azure. Om att du överföra VHD-filen till Azure Se [skapa ett Linux VM från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
 

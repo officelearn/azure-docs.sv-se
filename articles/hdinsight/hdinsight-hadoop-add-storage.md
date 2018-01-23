@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 68229487f45c3246500875303105b0ebcc8079cb
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägga till ytterligare lagringskonton i HDInsight
 
@@ -116,7 +116,7 @@ Kör skriptet igen har __inte__ uppdatera nyckeln, som skriptet kontrollerar om 
 
 Om du vill undvika det här problemet måste du ta bort den befintliga posten för lagringskontot. Använd följande steg för att ta bort den befintliga posten:
 
-1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. URI: N är https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på klustret.
+1. Öppna Ambari-Webbgränssnittet för ditt HDInsight-kluster i en webbläsare. The URI is https://CLUSTERNAME.azurehdinsight.net. Ersätt __CLUSTERNAME__ med namnet på klustret.
 
     När du uppmanas du ange HTTP-inloggning och lösenord för klustret.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure DB Cosmos databaskryptering i vila
 
@@ -26,7 +26,7 @@ Kryptering i vila är en fras som ofta refererar till kryptering av data på non
 
 Eftersom det är mycket enkelt att använda en PaaS-tjänst, Cosmos DB. Eftersom alla data som lagras i Cosmos-databasen är krypterat i vila och under transport, som du inte behöver göra något. Ett annat sätt att placera det är att kryptering i vila är ”på” som standard. Det finns inga kontroller för att aktivera den eller inaktivera. Vi använder den här funktionen medan vi fortsätter att uppfylla våra [tillgänglighet och prestanda SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implementera kryptering i vila
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementering av kryptering i vila för Azure Cosmos DB
 
 Kryptering i vila implementeras med hjälp av ett antal säkerhetstekniker, inklusive system för säker lagring av nycklar, krypterade nätverk och kryptografiska API: er. System som kan dekryptera och bearbeta data måste kommunicera med system som hanterar nycklar. Diagrammet visar hur lagring av krypterade data och hantering av nycklar är åtskilda. 
 

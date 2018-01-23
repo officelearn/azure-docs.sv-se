@@ -3,7 +3,7 @@ title: "Hanterade tjänstidentiteten (MSI) för Azure Active Directory"
 description: "En översikt över hanterade tjänstidentiteten för Azure-resurser."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Hanterad Service identitet (MSI) för Azure-resurser
 
@@ -62,7 +62,8 @@ Försök hanterade tjänstidentiteten självstudiekursen Läs slutpunkt till slu
 |                    | [Åtkomst till Azure Storage via SAS med en virtuell Linux-dator hanterade tjänstidentiteten](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Åtkomst till en Azure-AD resurs med en hanterade tjänstidentiteten i Linux VM och Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure-funktion     | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Användaren hanterade tjänstidentiteten med Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Hanterade tjänstidentiteten stöd för vilka Azure-tjänster?
 
@@ -85,12 +86,12 @@ Följande tjänster stöder Azure AD-autentisering och har testats med klienttj�
 
 | Tjänst | Resurs-ID | Status | Date | Tilldela åtkomst |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Tillgänglig | September 2017 | [Azure-portalen](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Tillgänglig | September 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Tillgänglig | September 2017 | |
-| Azure SQL | https://Database.Windows.NET/ | Tillgänglig | Oktober 2017 | |
-| Azure Event Hubs | https://eventhubs.Azure.NET/ | Tillgänglig | December 2017 | |
-| Azure Service Bus | https://servicebus.Azure.NET/ | Tillgänglig | December 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Tillgänglig | September 2017 | [Azure-portalen](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Tillgänglig | September 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Tillgänglig | September 2017 | |
+| Azure SQL | https://database.windows.net/ | Tillgänglig | Oktober 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Tillgänglig | December 2017 | |
+| Azure Service Bus | https://servicebus.azure.net/ | Tillgänglig | December 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Hur mycket kostar hanterade tjänstidentiteten?
 

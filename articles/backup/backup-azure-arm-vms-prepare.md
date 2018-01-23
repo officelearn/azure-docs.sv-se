@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -54,7 +54,7 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Säkerhetskopiering av virtuella datorer med data storlekar för diskar som är större än 1,023 GB stöds inte.
 
   > [!NOTE]
-  > Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med ohanterad diskar för 1 TB (eller högre). Mer information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB diskar. Mer information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Säkerhetskopiering av virtuella datorer med en reserverad IP-adress och ingen definierad slutpunkt stöds inte.
@@ -181,7 +181,7 @@ När du har aktiverat säkerhetskopieringen, körs din princip för säkerhetsko
 Om du har problem med att registrera den virtuella datorn finns i följande information på VM-agenten installeras och nätverksanslutningen. Förmodligen behöver inte du följande information om du skyddar virtuella datorer som skapats i Azure. Men om du har migrerat virtuella datorer till Azure, se till att du installerade VM-agenten och att den virtuella datorn kan kommunicera med det virtuella nätverket.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installera VM-agenten på den virtuella datorn
-För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
+För säkerhetskopiering tillägg fungerar, Azure [VM-agenten](../virtual-machines/windows/agent-user-guide.md) måste vara installerad på den virtuella Azure-datorn. Om den virtuella datorn har skapats från Azure Marketplace, är VM-agenten redan finns på den virtuella datorn. 
 
 Den här informationen för situationer där du har *inte* använda en virtuell dator som skapats från Azure Marketplace. Till exempel migrerat du en virtuell dator från ett lokalt datacenter. I sådana fall måste VM-agenten installeras för att skydda den virtuella datorn.
 
@@ -219,7 +219,7 @@ Du kan tillåta anslutningar till lagring av specifik region med hjälp av [tjä
 ![NSG med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Storage-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).
+> Storage service-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Använda en HTTP-proxy för VM-säkerhetskopieringar
 När du säkerhetskopierar en virtuell dator, skickas säkerhetskopiering tillägget på den virtuella datorn ögonblicksbild management till Azure Storage med hjälp av en HTTPS-API. Vidarebefordra trafik reservanknytning via HTTP-proxy eftersom det är den enda komponenten som konfigurerats för åtkomst till internet.

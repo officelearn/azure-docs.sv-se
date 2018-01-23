@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introduktion till Azure Cosmos DB: API för MongoDB
 
@@ -33,13 +33,13 @@ Azure DB Cosmos-databaser kan användas som datalager för appar som skrivits f�
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Vad är fördelen med att använda Azure Cosmos DB för MongoDB program?
 
-**Elastiska och skalbara dataflöden och lagring:** uppfyller dina program behöver genom att enkelt skala uppåt eller nedåt MongoDB-databas. Dina data lagras på SSD-diskar (SSD) för korta och förutsägbara svarstider. Azure Cosmos-DB stöder MongoDB samlingar som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerat dataflöde. Du kan skala Azure Cosmos DB elastiskt och smidigt med förutsägbara prestanda allteftersom programmet växer. 
+**Elastiska och skalbara dataflöden och lagring:** uppfyller dina program behöver genom att enkelt skala uppåt eller nedåt MongoDB-databas. Dina data lagras på SSD-diskar (Solid State Disk) för korta och förutsägbara svarstider. Azure Cosmos-DB stöder MongoDB samlingar som kan skalas till praktiskt taget obegränsade lagringsstorlekar och etablerat dataflöde. Du kan skala Azure Cosmos DB elastiskt och smidigt med förutsägbara prestanda allteftersom programmet växer. 
 
 **Flera regioner replikering:** Azure Cosmos DB transparent replikerar data till alla områden som du har kopplat till ditt konto för MongoDB, så att du kan utveckla program som kräver global åtkomst till data samtidigt som man kompromisser mellan konsekvens, tillgänglighet och prestanda, alla med motsvarande garantier. Azure Cosmos DB tillhandahåller transparent regional redundans med flera API:er, och möjligheten att elastiskt skala dataflöde och lagring i hela världen. Läs mer i [distribuera data globalt](distribute-data-globally.md).
 
 **Inga serverhantering**: du behöver hantera och skala MongoDB-databaser. Azure Cosmos-DB är en helt hanterad tjänst, vilket innebär att du inte behöver hantera någon infrastruktur och de virtuella datorerna själv. Azure Cosmos-DB är tillgänglig i 30 + [Azure-regioner](https://azure.microsoft.com/regions/services/).
 
-**Justerbara konsekvensnivåer:** Välj fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
+**Justerbara konsekvensnivåer:** Välj mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Azure Cosmos DB erbjuder fem olika konsekvensnivåer för frågor och läsåtgärder: stark, bunden utgång, session, enhetligt prefix och slutlig. Med de här detaljerade, väldefinierade konsekvensnivåerna kan du själv avgöra balansen mellan konsekvens, tillgänglighet och svarstid. Läs mer om hur du [maximerar tillgänglighet och prestanda med hjälp av konsekvensnivåer](consistency-levels.md).
 
 **Automatisk indexering**: som standard, Azure Cosmos DB indexerar automatiskt alla egenskaper i dokument i din MongoDB-databas och inte förväntar sig eller kräver något schema eller att sekundärindex. Kapacitet för unikt index möjliggör dessutom en unikhetsbegränsningen på dokumentfält som redan är auto-indexerat i Azure Cosmos-databasen.
 
@@ -63,7 +63,7 @@ Följ MongoDB-Snabbstart för att skapa ett Azure DB som Cosmos-konto och migrer
 Information om Azure Cosmos DB MongoDB API är integrerat i den övergripande dokumentationen för Azure Cosmos DB, men här följer några tips för att komma igång:
 
 * Följ den [Anslut till ett konto med MongoDB](connect-mongodb-account.md) kursen för att lära dig hur du hämtar information om anslutningssträngar ditt konto.
-* Följ den [MongoChef för användning med Azure Cosmos DB](mongodb-mongochef.md) kursen lär dig hur du skapar en anslutning mellan Azure Cosmos-DB-databas och MongoDB-app i MongoChef.
+* Följ den [Använd Studio 3T (MongoChef) med Azure Cosmos DB](mongodb-mongochef.md) kursen lär dig hur du skapar en anslutning mellan Azure Cosmos-DB-databas och MongoDB-app i Studio 3 T.
 * Följ den [migrera data till Azure Cosmos DB med protokollet stöd för MongoDB](mongodb-migrate.md) självstudiekursen för att importera data till en API för MongoDB-databas.
 * Ansluta till en API för MongoDB kontot med [Robomongo](mongodb-robomongo.md).
 * Lär dig hur många RUs åtgärderna använder med den [GetLastRequestStatistics kommando och Azure portal mått](request-units.md#GetLastRequestStatistics).

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Oozie med Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -41,7 +41,7 @@ Du kan också använda Oozie för att schemalägga jobb som är specifika för e
 > [!IMPORTANT]
 > Oozie har inte aktiverats på domänanslutna HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett HDInsight-kluster**: finns [komma igång med HDInsight på Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
@@ -518,7 +518,7 @@ Mer information om hur du använder Oozie REST-API finns [Oozie Web Services API
 Oozie webbgränssnittet ger en webbaserad överblick över status för Oozie-jobb på klustret. Du kan visa följande information med webbgränssnittet:
 
    * Jobbstatus
-   * Jobbdefinitionen
+   * Jobbdefinition
    * Konfiguration
    * Ett diagram över åtgärderna i jobbet
    * Loggar för jobbet
@@ -541,7 +541,7 @@ Utför följande steg för att komma åt webbgränssnittet för Oozie:
 
 5. Markera jobbet om du vill visa mer information om ett jobb.
 
-    ![Jobbinformationen](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Jobbinformation](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
 6. Från den **Jobbinformationen** fliken kan du se grundläggande jobbinformation och enskilda åtgärder i jobbet. Du kan använda flikarna längst upp för att visa den **jobbdefinitionen**, **jobbkonfiguration**, åtkomst på **Jobblogg**, eller visa en riktat acykliskt diagram (DAG) av jobb under **Jobbet DAG**.
 

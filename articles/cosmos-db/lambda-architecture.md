@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: denlee
-ms.openlocfilehash: 612a586a2f260221cd407ab8611596306d9e7361
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: f88f3fb05495b0f3330d5a4cde7718fe89b2f694
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="implement-a-lambda-architecture-on-the-azure-platform"></a>Implementera ett lambda-arkitekturen i Azure-plattformen 
+# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera ett lambda-arkitektur på Azure-plattformen 
 
 Lambda-arkitekturer aktivera effektiva data bearbetning av stora datamängder. Lambda-arkitekturer Använd gruppbearbetning, dataström-bearbetning och ett betjänar lager för att minimera svarstiden ingår i ett stort datafrågor. 
 

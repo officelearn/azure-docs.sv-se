@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: fe7966d1817dc7f7896435f9202d2bcea981b5f3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d31eae21a246be97f0b50b9b773fcc63dfcbd084
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replikera virtuella Azure-datorer till en annan region efter migrering till Azure med hjälp av Azure Site Recovery
 
@@ -51,7 +51,7 @@ Efter migreringen behöver du inte spara eller ta bort en växling vid fel. I st
 2. Den **slutföra migreringen** åtgärden har slutförts migreringsprocessen, tar bort replikering för datorn och stoppar Site Recovery-faktureringen för datorn.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Steg 2: Installera Azure VM-agenten på den virtuella datorn
-Azure [VM-agenten](../../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) måste vara installerad på den virtuella datorn för Site Recovery-tillägget ska fungera och för att skydda den virtuella datorn.
+Azure [VM-agenten](../../virtual-machines/windows/agent-user-guide.md) måste vara installerad på den virtuella datorn för Site Recovery-tillägget ska fungera och för att skydda den virtuella datorn.
 
 >[!IMPORTANT]
 >Från och med version 9.7.0.0, på Windows-datorer installerar Mobilitetstjänstens installationsprogram också den senaste tillgängliga Virtuella Azure-agenten. Den virtuella datorn uppfyller installationen av nödvändiga för att använda alla VM-tillägg, inklusive tillägget Site Recovery på migreringen. Virtuella Azure-agenten måste installeras manuellt endast om mobilitetstjänsten installeras på den migrerade datorn är version 9,6 eller tidigare.

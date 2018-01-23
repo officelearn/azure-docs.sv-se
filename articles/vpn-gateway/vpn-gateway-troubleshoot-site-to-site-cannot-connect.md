@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Felsökning: Azure plats-till-plats VPN-anslutningen kan inte ansluta och slutar fungera
 
@@ -52,7 +52,7 @@ Jämför den delade nyckeln för lokala VPN-enhet till Azure virtuella nätverk 
 
 Använd någon av följande metoder om du vill visa den delade nyckeln för Azure VPN-anslutningen:
 
-**Azure Portal**
+**Azure-portalen**
 
 1. Gå till VPN-gateway för plats-till-plats-anslutningen som du skapade.
 
@@ -92,7 +92,7 @@ Sök efter och ta bort användardefinierade routning (UDR) eller Nätverkssäker
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Steg 7. Kontrollera hälsoavsökningen Azure gateway
 
-1. Gå till den [hälsoavsökningen](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Gå till hälsoavsökningen.
 
 2. Klicka dig igenom certifikatvarningen.
 3. Om du får ett svar, anses VPN-gatewayen felfritt. Om du inte får ett svar, gatewayen kanske inte är felfri eller en NSG på gateway-undernätet som orsakar problemet. Följande är ett exempelsvar:

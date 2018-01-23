@@ -3,7 +3,7 @@
 
 Använda Azure Backup för att säkerhetskopiera virtuella Azure-datorer kör produktionsarbetsbelastningar. Azure Backup stöder programkonsekvent säkerhetskopiering för både Windows och Linux virtuella datorer. Azure-säkerhetskopiering skapar återställningspunkter som är lagrade i geo-redundant recovery-valv. När du återställer från en återställningspunkt kan du återställa hela VM eller bara vissa filer. 
 
-En enkel, praktiska introduktion till Azure Backup för virtuella Azure-datorer finns i ”Säkerhetskopiera Windows virtuella datorer kursen” [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md)
+En enkel, praktiska introduktion till Azure Backup för virtuella Azure-datorer finns i ”Säkerhetskopiera virtuella datorer i Azure” självstudierna för [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) eller [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
 
 Mer information om hur Azure Backup fungerar finns [planera din infrastruktur för VM-säkerhetskopiering i Azure](../articles/backup/backup-azure-vms-introduction.md)
 

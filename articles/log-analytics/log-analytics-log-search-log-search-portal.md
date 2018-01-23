@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Skapa loggen sökningar i Azure Log Analytics med hjälp av loggen Sök-portalen
 
@@ -30,18 +30,18 @@ Den här artikeln innehåller en genomgång som beskriver hur du skapar loggen s
 
 För att skapa sökningar i Advanced Analytics-portalen i stället för att logga Sök-portalen, se [komma igång med Analytics-portalen](https://go.microsoft.com/fwlink/?linkid=856587).  Båda portaler använda samma frågespråket tillgång till samma data i logganalys-arbetsytan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här kursen förutsätter att du redan har en logganalys-arbetsytan med minst en ansluten datakälla som genererar data för frågor för att analysera.  
 
 - Om du inte har en arbetsyta, du kan skapa en kostnadsfri med hjälp av proceduren på [komma igång med en logganalys-arbetsytan](log-analytics-get-started.md).
 - Ansluta minst ett [Windows-agenten](log-analytics-windows-agent.md) eller en [Linux-agenten](log-analytics-linux-agents.md) till arbetsytan.  
 
 ## <a name="open-the-log-search-portal"></a>Öppna loggen Sök-portalen
-Starta genom att öppna loggen Sök-portalen.  Du kan komma åt den i Azure-portalen eller OMS-portalen.
+Starta genom att öppna loggen Sök-portalen. 
 
-1. Öppna Azure-portalen.
+1. Öppna Azure Portal.
 2. Navigera till logganalys och markera arbetsytan.
-3. Välj antingen **loggen Sök** förblir i Azure-portalen eller starta OMS-portalen genom att välja **OMS-portalen** och sedan klicka på knappen Sök i loggfilen.
+3. Välj **logga Sök**.
 
 ![Logga sökknappen](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

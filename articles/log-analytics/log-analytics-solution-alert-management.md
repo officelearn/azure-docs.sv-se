@@ -1,6 +1,6 @@
 ---
-title: "Varna hanteringslösning i Operations Management Suite (OMS) | Microsoft Docs"
-description: "Aviseringen hanteringslösning i logganalys hjälper dig att analysera alla aviseringar i din miljö.  Förutom att konsolidera aviseringar som genereras inom OMS importerar det aviseringar från anslutna hanteringsgrupper för System Center Operations Manager till logganalys."
+title: "Varna hanteringslösning i Azure Log Analytics | Microsoft Docs"
+description: "Aviseringen hanteringslösning i logganalys hjälper dig att analysera alla aviseringar i din miljö.  Förutom konsolidering aviseringar som genereras inom logganalys importerar det aviseringar från anslutna hanteringsgrupper för System Center Operations Manager till logganalys."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Lösning för avisering i Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Aviseringen hanteringslösning i Azure Log Analytics
 
 ![Varningsikon för hantering](media/log-analytics-solution-alert-management/icon.png)
 
 Alert Management-lösningen hjälper dig att analysera alla aviseringar i logganalys-databasen.  Dessa aviseringar kan komma från olika källor, inklusive dessa källor [skapas av logganalys](log-analytics-alerts.md) eller [importeras från Nagios eller Zabbix](log-analytics-linux-agents.md).  Lösningen också importerar aviseringar från alla [anslutna hanteringsgrupper för System Center Operations Manager](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Lösningen fungerar med alla poster i logganalys-databasen med en typ av **avisering**, så du måste utföra konfigurationen som krävs för att samla in dessa poster.
 
 - För Log Analytics aviseringar [skapa Varningsregler](log-analytics-alerts.md) att skapa aviseringen poster direkt i databasen.
@@ -34,10 +34,10 @@ Lösningen fungerar med alla poster i logganalys-databasen med en typ av **avise
 - För System Center Operations Manager-aviseringar [Anslut din Operations Manager-hanteringsgrupp till logganalys-arbetsytan](log-analytics-om-agents.md).  Alla aviseringar som skapats i System Center Operations Manager importeras till logganalys.  
 
 ## <a name="configuration"></a>Konfiguration
-Lägg till avisering hanteringslösningen i OMS-arbetsytan med processen som beskrivs i [lägga till lösningar](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
+Lägg till avisering hanteringslösningen i logganalys-arbetsytan med processen som beskrivs i [lägga till lösningar](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="management-packs"></a>Hanteringspaket
-Om din hanteringsgrupp för System Center Operations Manager är ansluten till din OMS-arbetsyta, installeras följande hanteringspaket i System Center Operations Manager när du lägger till den här lösningen.  Det finns ingen konfiguration eller underhåll av de hanteringspaket som krävs.  
+Om din hanteringsgrupp för System Center Operations Manager är ansluten till logganalys-arbetsytan, installeras följande hanteringspaket i System Center Operations Manager när du lägger till den här lösningen.  Det finns ingen konfiguration eller underhåll av de hanteringspaket som krävs.  
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 - Aviseringen data skickas från Operations Manager-hanteringsgrupp till logganalys tre minuters mellanrum.  
 
 ## <a name="using-the-solution"></a>Använda lösningen
-När du lägger till avisering hanteringslösningen OMS-arbetsytan i **Alert Management** panel har lagts till OMS-instrumentpanelen.  Den här panelen visar antalet och grafisk representation av antalet aktiva aviseringar som genererades under de senaste 24 timmarna.  Du kan inte ändra den här tidsintervall.
+När du lägger till avisering hanteringslösningen logganalys-arbetsytan i **Alert Management** panel har lagts till på instrumentpanelen.  Den här panelen visar antalet och grafisk representation av antalet aktiva aviseringar som genererades under de senaste 24 timmarna.  Du kan inte ändra den här tidsintervall.
 
 ![Alert Management sida vid sida](media/log-analytics-solution-alert-management/tile.png)
 
@@ -110,11 +110,11 @@ Följande tabell innehåller exempel loggen söker efter avisering innehåller i
 
 | Fråga | Beskrivning |
 |:--- |:--- |
-| Typ = avisering SourceSystem = OpsManager AlertSeverity = fel TimeRaised > nu 24 timmar |Kritiska aviseringar som genererats under de senaste 24 timmarna |
+| Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR |Kritiska aviseringar som genererats under de senaste 24 timmarna |
 | Typ = avisering AlertSeverity = varning TimeRaised > nu 24 timmar |Varningsaviseringar som genererats under de senaste 24 timmarna |
-| Typ = avisering SourceSystem = OpsManager in AlertState! = stängd TimeRaised > nu 24 TIMMARS &#124; måttet count() som antal av SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName |Källor med aktiva aviseringar som genererats under de senaste 24 timmarna |
 | Typ = avisering SourceSystem = OpsManager AlertSeverity = fel TimeRaised > nu 24 TIMMARS in AlertState! = stängd |Kritiska aviseringar som genererats under de senaste 24 timmarna som fortfarande är aktiva |
-| Typ = avisering SourceSystem = OpsManager TimeRaised > nu 24 TIMMARS in AlertState = stängd |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed |Aviseringar som genererats under de senaste 24 timmarna som nu har stängts |
 | Typ = avisering SourceSystem = OpsManager TimeRaised > nu 1 dag &#124; måttet count() som antal av AlertSeverity |Aviseringar som genererats under de senaste 1 dagen grupperat efter allvarlighetsgrad |
 | Typ = avisering SourceSystem = OpsManager TimeRaised > nu 1 dag &#124; Sortera RepeatCount desc |Aviseringar som genererats under de senaste 1 dagen sorterat efter upprepat antalsvärde |
 

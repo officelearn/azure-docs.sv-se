@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nya logganalys logga Sök vanliga frågor och kända problem
 
@@ -86,11 +86,11 @@ Du kan se en jämförelse mellan två portaler på [portaler för att skapa och 
 
 Din webbläsare kräver åtkomst till följande adresser till logganalys frågor efter uppgraderingen.  Om din webbläsare har åtkomst till Azure-portalen via en brandvägg, måste du aktivera åtkomst till dessa adresser.
 
-| URI: N | IP-adress | Portar |
+| URI | IP-adress | Portar |
 |:---|:---|:---|
-| Portal.loganalytics.IO | Dynamisk | 80,443 |
-| API.loganalytics.IO    | Dynamisk | 80,443 |
-| docs.loganalytics.IO   | Dynamisk | 80,443 |
+| portal.loganalytics.io | Dynamisk | 80,443 |
+| api.loganalytics.io    | Dynamisk | 80,443 |
+| docs.loganalytics.io   | Dynamisk | 80,443 |
 
 
 
@@ -160,11 +160,10 @@ Nej. Loggdata som är tillgängliga för din arbetsyta sökningar påverkas inte
 Innan allmän tillgänglighet kan du återställa din arbetsyta efter uppgraderingen.  Nu när det nya språket har nått allmän tillgänglighet, har tagits bort den här funktionen när vi börjar att ta bort den äldra plattformen.
 
 
-
 ## <a name="views"></a>Vyer
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Fråga: Hur skapar jag en ny vy med Vydesigner?
-Före uppgraderingen måste kan du skapa en ny vy med Vydesigner från en panel på huvudinstrumentpanelen.  När din arbetsyta uppgraderas tas den här panelen bort.  Du kan skapa en ny vy med Vydesigner i OMS-portalen genom att klicka på den gröna + knappen i den vänstra menyn.
+Före uppgraderingen måste kan du skapa en ny vy med Vydesigner från en panel på huvudinstrumentpanelen i OMS-portalen.  När din arbetsyta uppgraderas tas den här panelen bort.  Du kan skapa en ny vy med Vydesigner i OMS-portalen genom att klicka på den gröna + knappen i den vänstra menyn.  Du kan fortsätta att skapa en ny vy med Azure-portalen genom att klicka på panelen View Designer.
 
 
 ## <a name="next-steps"></a>Nästa steg

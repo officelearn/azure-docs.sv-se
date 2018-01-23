@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 76ec4f6d2f4471f2e8399c3e028321754ea7c160
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e5719cd81408f6732826c90505a3ce8aa10f8ed
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsökning av problem med Virtuella Azure-Azure-replikering
 
@@ -109,13 +109,13 @@ En ny disk ansluten till den virtuella datorn måste initieras.
 
 **Felkod** | **Möjliga orsaker** | **Rekommendationer**
 --- | --- | ---
-150039<br></br>**Meddelandet**: Azure-datadisk (DiskName) (DiskURI) med logiska enhetsnummer (LUN) (LUNValue) inte har kopplats till en motsvarande disk som har rapporterats från den virtuella datorn som har samma LUN-värdet. | -En ny datadisk har kopplats till den virtuella datorn, men det fanns inte initierats.</br></br>-Datadisken inuti den virtuella datorn är inte rapporterar LUN-värdet som disken var kopplad till den virtuella datorn.| Kontrollera att datadiskar som har initierats och försök sedan igen.</br></br>För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>För Linux: [initierar en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Meddelandet**: Azure-datadisk (DiskName) (DiskURI) med logiska enhetsnummer (LUN) (LUNValue) inte har kopplats till en motsvarande disk som har rapporterats från den virtuella datorn som har samma LUN-värdet. | -En ny datadisk har kopplats till den virtuella datorn, men det fanns inte initierats.</br></br>-Datadisken inuti den virtuella datorn är inte rapporterar LUN-värdet som disken var kopplad till den virtuella datorn.| Kontrollera att datadiskar som har initierats och försök sedan igen.</br></br>För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>För Linux: [initierar en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Se till att datadiskar som har initierats och försök sedan igen:
 
-- För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- För Linux: [initierar en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
+- För Windows: [Anslut och initiera en ny disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- För Linux: [lägger till en ny datadisk i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Kontakta supporten om problemet kvarstår.
 

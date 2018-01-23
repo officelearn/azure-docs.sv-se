@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Viktig information för Microsoft Azure Lagringsutforskaren (förhandsversion)
 
-Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.3 (förhandsgranskning) samt viktig information för tidigare versioner.
+Den här artikeln innehåller versionen viktig information för Azure Lagringsutforskaren 0.9.4 (förhandsgranskning) samt viktig information för tidigare versioner.
 
 [Microsoft Azure Lagringsutforskaren (förhandsversion)](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
-## <a name="version-093"></a>Version 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Version 0.9.4 / 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Hämta Azure Lagringsutforskaren 0.9.3 (förhandsgranskning)
-- [Azure Lagringsutforskaren 0.9.3 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.3 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Lagringsutforskaren (förhandsversion) för 0.9.3 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Hämta Azure Lagringsutforskaren 0.9.4 (förhandsgranskning)
+- [Azure Lagringsutforskaren 0.9.4 (förhandsversion) för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.4 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Lagringsutforskaren (förhandsversion) för 0.9.4 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Ny
 * Din befintliga lagring Utforskaren ska återanvändas när:
@@ -44,6 +44,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
     * För Mac finns det ett 'nytt fönster och' alternativet App-menyn.
 
 ### <a name="fixes"></a>Korrigeringar
+* Fast ett säkerhetsproblem. Uppgradera till 0.9.4 när tidigaste dig.
 * Gamla aktiviteter har inte korrekt rensas. Detta påverkade prestanda för tidskrävande jobb. De är nu rensas på rätt sätt.
 * Åtgärder som inbegriper stort antal filer och kataloger kan ibland orsaka Lagringsutforskaren att låsa. Begäranden till Azure för filresurser är nu trottled att begränsa system Resursanvändning.
 
@@ -94,7 +95,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 
 ### <a name="new"></a>Ny
 * Förhandsgranska stöd för Azure Cosmos DB:
-    * [Onlinedokumentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Onlinedokumentation](./cosmos-db/storage-explorer.md)
     * Skapa databaser och samlingar
     * Ändra data
     * Fråga, skapa eller ta bort dokument
@@ -174,7 +175,7 @@ Den här artikeln innehåller versionen viktig information för Azure Lagringsut
 10/20/2017
 ### <a name="new"></a>Ny
 * Förhandsgranska stöd för Azure Cosmos DB:
-    * [Onlinedokumentation](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Onlinedokumentation](./cosmos-db/storage-explorer.md)
     * Skapa databaser och samlingar
     * Ändra data
     * Fråga, skapa eller ta bort dokument

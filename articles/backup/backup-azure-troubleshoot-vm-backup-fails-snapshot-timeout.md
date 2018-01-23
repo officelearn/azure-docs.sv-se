@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Felsöka Azure Backup-fel: problem med agenten och/eller tillägg
 
@@ -78,7 +78,7 @@ När du registrerar och schemalägga en virtuell dator för Azure Backup-tjänst
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Den angivna diskkonfigurationen stöds inte
 
 > [!NOTE]
-> Det finns en privat förhandsgranskning som stöder säkerhetskopiering av virtuella datorer med > 1 TB ohanterade diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Vi har en privat förhandsgranskning för att stödja säkerhetskopieringar för virtuella datorer med > 1TB diskar. Information finns i [privat förhandsgranskning för stora diskstöd för säkerhetskopiering av VM](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Sekundär anknytning kräver anslutning till Azure offentliga IP-adresser ska fu
 
 ####  <a name="solution"></a>Lösning
 Lös problemet, försök med något av de metoder som anges här.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Tillåt åtkomst till Azure-datacenter IP-adressintervall
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Tillåt åtkomst till Azure storage som motsvarar regionen
 
-1. Hämta den [lista över Azure-datacenter IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653) som ger åtkomst till.
-2. Avblockera IP-adresser genom att köra den **ny NetRoute** cmdlet i virtuella Azure-datorn i ett upphöjt PowerShell-fönster. Kör cmdlet som administratör.
-3. Om du vill tillåta åtkomst till IP-adresser att lägga till regler till nätverkssäkerhetsgruppen, om du har en.
+Du kan tillåta anslutningar till lagring av specifik region med hjälp av [tjänsten taggar](../virtual-network/security-overview.md#service-tags). Se till att den regel som tillåter åtkomst till lagringskontot har högre prioritet än den regel som blockerar Internetåtkomst. 
+
+![NSG med lagring taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Storage service-taggar är bara tillgängliga i vissa regioner och finns i förhandsgranskningen. En lista över regioner finns [tjänsten taggar för lagring](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Skapa en sökväg för HTTP-trafik
 
@@ -166,8 +169,6 @@ Följande villkor kan orsaka ögonblicksbild aktivitet, fel:
 | --- | --- |
 | Den virtuella datorn har konfigurerats för SQL Server-säkerhetskopiering. | Standard körs VM-säkerhetskopiering ett VSS fullständig säkerhetskopiering på virtuella Windows-datorer. På virtuella datorer som kör SQL Server-baserade servrar och på vilka SQL Server är säkerhetskopiering konfigurerad, kan det uppstå fördröjningar för körning av ögonblicksbild.<br><br>Om det uppstår ett fel för säkerhetskopiering på grund av ett problem med ögonblicksbilder, anger du följande registernyckel:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] ”USEVSSCOPYBACKUP” = ”TRUE”** |
 | VM-statusen rapporteras felaktigt eftersom den virtuella datorn stängs av i RDP. | Om du stänger av den virtuella datorn i Remote Desktop Protocol (RDP), kontrollera portal för att avgöra om VM-statusen är korrekt. Om det inte är korrekt, stänger du den virtuella datorn i portalen med hjälp av den **avstängning** alternativet på VM-instrumentpanelen. |
-| Många virtuella datorer från samma molntjänst är konfigurerad för att säkerhetskopiera på samma gång. | Det är en bra idé att sprida ut scheman för säkerhetskopiering för virtuella datorer från samma Molntjänsten. |
-| Den virtuella datorn körs på hårt CPU eller minne. | Om den virtuella datorn körs på hög CPU-användning (mer än 90 procent) eller hög minnesanvändning uppgiften ögonblicksbild i kö och fördröjd och slutligen tidsgränsen uppnås. Försök i så fall kan en säkerhetskopiering på begäran. |
 | Den virtuella datorn kan inte hämta värden/fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera.  Om den virtuella datorn inte kan hämta värden/fabric-adress från DHCP-svar 245, kan inte den hämta eller köra alla tillägg. Om du behöver en statisk privat IP-adress kan konfigurera du det via plattformen. DHCP-alternativet inuti den virtuella datorn ska aktiveras vänster. Mer information finns i [ange en statisk IP för interna privata](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Tillägget säkerhetskopiering misslyckas med att uppdatera eller läsa in
@@ -192,24 +193,6 @@ Om du vill avinstallera tillägget gör du följande:
 6. Klicka på **avinstallera**.
 
 Den här proceduren medför att tillägg installeras under nästa säkerhetskopiering.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Klassiska virtuella Azure-datorer kan kräva ytterligare steg för att slutföra registreringen
-Agenten i klassiska virtuella Azure-datorer måste registreras för att upprätta en anslutning till tjänsten för säkerhetskopiering och starta säkerhetskopieringen
-
-#### <a name="solution"></a>Lösning
-
-När du har installerat VM-gästagent starta Azure PowerShell <br>
-1. Logga in i Azure-konto med hjälp av <br>
-       `Login-AzureAsAccount`<br>
-2. Kontrollera om Virtuella datorns ProvisionGuestAgent egenskap är inställd på True, med följande kommandon <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Om egenskapen är inställd på FALSE, följ nedan kommandon ska anges till TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Kör följande kommando för att uppdatera den virtuella datorn <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Försök att initiera säkerhetskopieringen. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av resursgruppen Lås
 Det här problemet är specifikt för hanterade virtuella datorer där användaren låser resursgruppen och Backup-tjänsten går inte att ta bort äldre återställningspunkter. På grund av detta starta nya säkerhetskopior misslyckas eftersom det finns en gräns på högsta 18 återställningspunkter införts från serverdelen.

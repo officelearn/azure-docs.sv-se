@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analysera svarta fördröjning data med hjälp av Hive på Linux-baserat HDInsight
 
@@ -29,7 +29,7 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
 > [!IMPORTANT]
 > Stegen i det här dokumentet kräver ett HDInsight-kluster som använder Linux. Linux är det enda operativsystem som används på Azure HDInsight version 3.4 eller senare. Mer information finns i [HDInsight-avveckling på Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett HDInsight-kluster**. Se [komma igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) stegvisa instruktioner för hur du skapar ett nytt Linux-baserat HDInsight-kluster.
 
@@ -47,7 +47,7 @@ Lär dig hur du analyserar svarta fördröjning data med hjälp av Hive på Linu
    | --- | --- |
    | Filtrera år |2013 |
    | Filtrera Period |Januari |
-   | Fält |År, FlightDate, UniqueCarrier, operatör, FlightNum, OriginAirportID, ursprung, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Fält |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Avmarkera alla andra fält. 
 
 3. Välj **hämta**.
@@ -200,9 +200,7 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 > Det finns många sätt att ansluta till SQL-databas och skapa en tabell. Följande steg används [FreeTDS](http://www.freetds.org/) från HDInsight-klustret.
 
 
-1. Använda SSH för att ansluta till Linux-baserat HDInsight-kluster och kör följande steg från SSH-session.
-
-2. Använd följande kommando för att installera FreeTDS:
+1. Använd följande kommando från en SSH-anslutning till klustret för att installera FreeTDS:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Om du inte redan har en SQL-databas kan använda informationen i [skapa en Azure
 3. När installationen är klar använder du följande kommando för att ansluta till SQL Database-server. Ersätt **serverName** med SQL Database-servernamn. Ersätt **adminLogin** och **adminPassword** med inloggningen för SQL-databas. Ersätt **databaseName** med namnet på databasen.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    När du uppmanas, ange lösenordet för administratörsinloggning SQL-databas.
 
     Visas utdata som liknar följande:
 

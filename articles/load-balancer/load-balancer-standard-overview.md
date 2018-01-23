@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Load Balancer Standard översikt över Azure (förhandsversion)
 
@@ -217,7 +217,7 @@ När utgående anslutningar används med en zonredundant frontend, anslutningarn
 
 Den nya algoritmen i Load Balancer Standard preallocates SNAT portar till nätverkskort på varje virtuell dator. När ett nätverkskort läggs till i poolen, förallokerade SNAT portar är baserat på poolstorleken. I följande tabell visas port preallocations för sex nivåer med backend-adresspool:
 
-| Poolstorleken (VM-instanser) | Förallokerade SNAT port |
+| Poolstorleken (VM-instanser) | Förallokerade antalet SNAT portar |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -335,7 +335,7 @@ Load Balancer Standard finns för närvarande i regionerna:
 
 ## <a name="sku-service-limits-and-abilities"></a>SKU-tjänsten begränsningar och förmåga
 
-Azure [Tjänstbegränsningarna för nätverk](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) gäller per region per prenumeration. 
+Azure [Tjänstbegränsningarna för nätverk](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) gäller per region per prenumeration. 
 
 I följande tabell jämförs de gränser och förmågor belastningen belastningsutjämnaren Basic och Standard-SKU: er:
 

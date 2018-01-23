@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Hitta data med hjälp av loggen sökningar i logganalys
 
@@ -30,7 +30,7 @@ Kärnan i logganalys är loggen sökfunktionen där du kan kombinera och korrele
 
 Du kan skapa en fråga på sidan Sök efter och sedan när du söker kan du filtrera resultaten genom att använda aspekten kontroller. Du kan också skapa avancerade frågor för att transformera, filter och rapporten på dina resultat.
 
-Vanliga loggen sökfrågor visas på de flesta sidor för lösningen. I OMS-konsolen kan du klicka på paneler eller detaljer till andra objekt att visa detaljer om objektet genom att söka i loggen.
+Vanliga loggen sökfrågor visas på de flesta sidor för lösningen. I hela OMS-portalen du klicka på paneler eller detaljer till andra objekt att visa detaljer om objektet genom att söka i loggen.
 
 I den här självstudiekursen kommer går vi igenom exemplen innehåller alla grundläggande information när du använder loggen sökning.
 
@@ -39,7 +39,7 @@ Vi börjar med enkla, praktiska exempel och bygga på dem så att du kan få en 
 När du är bekant med sökmetoder kan du läsa den [logganalys logga Sök referens](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Grundläggande filter
-Det första du behöver veta är att den första delen av en sökning fråga innan någon ”|” lodräta vertikalstrecket är alltid en *filter*. Du kan se den som en WHERE-sats i TSQL--den avgör *vad* delmängd av data och hämtar utanför OMS-datalagret. Söka i datalagret är i stort sett information om hur du anger egenskaperna för de data som du vill extrahera, så är det naturligt att en fråga börjar med WHERE-satsen.
+Det första du behöver veta är att den första delen av en sökning fråga innan någon ”|” lodräta vertikalstrecket är alltid en *filter*. Du kan se den som en WHERE-sats i TSQL--den avgör *vad* delmängd av data och hämtar utanför og Analytics-arbetsyta. Söka i datalagret är i stort sett information om hur du anger egenskaperna för de data som du vill extrahera, så är det naturligt att en fråga börjar med WHERE-satsen.
 
 De mest grundläggande filter som du kan använda *nyckelord*, till exempel 'fel' eller 'timeout- eller ett datornamn. Dessa typer av enkla frågor returnerar vanligtvis olika former av data i samma resultatmängden. Detta beror på att Log Analytics har olika *typer* av data i systemet.
 
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Använda avg-funktionen med kommandot mått
 Avg() statistisk funktionen som används med mått kan du beräkna medelvärdet för vissa fält och gruppera resultat från samma eller andra fält. Detta är användbart i en mängd fall, till exempel prestandadata.
 
-Vi börjar med prestandadata. Observera att OMS för närvarande samlas in prestandaräknare för både Windows- och Linux-datorer.
+Vi börjar med prestandadata. Observera att Log Analytics för närvarande samlas in prestandaräknare för både Windows- och Linux-datorer.
 
 Sök efter *alla* prestandadata, mest grundläggande frågan är:
 
@@ -551,7 +551,7 @@ Funktionen countdistinct räknar antalet distinkta värden inom varje grupp. Til
 * | measure countdistinct(Computer) by Type
 ```
 
-![OMS countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
+![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Använd kommandot mått intervall
 Med nästan realtid prestandadatainsamling, kan du samla in och visualisera alla prestandaräknare i logganalys. Att bara ange frågan **typ: Perf** returnerar tusentals mått diagram baserat på antalet räknare och servrar i logganalys-miljö. Med på begäran mått aggregering tittar du på den övergripande måtten i din miljö vid en hög nivå och ingående till mer detaljerade data som du behöver.

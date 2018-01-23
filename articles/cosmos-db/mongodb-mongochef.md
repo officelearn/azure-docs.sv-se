@@ -1,7 +1,7 @@
 ---
-title: "Använd MongoChef för Azure Cosmos DB | Microsoft Docs"
-description: "Lär dig hur du använder MongoChef med en Azure-Cosmos-DB: API för MongoDB-konto"
-keywords: mongochef
+title: "Använd Studio 3T (MongoChef) med Azure Cosmos DB | Microsoft Docs"
+description: "Lär dig mer om Studio 3T med ett konto i Azure Cosmos DB MongoDB API"
+keywords: mongochef studio 3T
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
@@ -13,58 +13,58 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 01/18/2018
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0341fbf668bbbc8f02e78bc1f6c7a00ecc939cc2
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Använda MongoChef med en Azure-Cosmos-DB: API för MongoDB-konto
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Använd Studio 3T med ett konto med MongoDB-API
 
-Att ansluta till en Azure-Cosmos-DB: API för MongoDB-konto, måste du:
+För att ansluta till ett Azure Cosmos DB MongoDB API-konto, måste du:
 
-* Hämta och installera [MongoChef](http://3t.io/mongochef)
-* Har Azure Cosmos-DB: API för MongoDB konto [anslutningssträngen](connect-mongodb-account.md) information
+* Hämta och installera [Studio 3T](https://studio3t.com/) (kallades tidigare MongoChef)
+* Har Azure Cosmos-DB [anslutningssträngen](connect-mongodb-account.md) information för ditt konto för MongoDB
 
-## <a name="create-the-connection-in-mongochef"></a>Skapa anslutningen i MongoChef
-Att lägga till Azure Cosmos-DB: API MongoDB-kontot Anslutningshanteraren MongoChef utför följande steg.
+## <a name="create-the-connection-in-studio-3t"></a>Skapa anslutningen i Studio 3T
+Utför följande steg för att lägga till ditt konto i Azure Cosmos DB Studio 3T connection manager:
 
-1. Hämta Azure Cosmos-DB: API: et för MongoDB anslutningsinformationen med instruktioner [här](connect-mongodb-account.md).
+1. Hämta Azure Cosmos DB-anslutningsinformationen för ditt konto för MongoDB-API med hjälp av anvisningarna i den [ansluta ett MongoDB-program till Azure Cosmos DB](connect-mongodb-account.md) artikel.
 
-    ![Skärmbild av bladet anslutning sträng](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Skärmbild av sidan sträng](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Klicka på **Anslut** öppna Connection Manager och sedan klicka på **ny anslutning**
 
-    ![Skärmbild av MongoChef Anslutningshanteraren](./media/mongodb-mongochef/ConnectionManager.png)
-3. I den **ny anslutning** fönstret på den **Server** ange värden (FQDN) på Azure Cosmos DB: API för MongoDB-kontot och PORT.
+    ![Skärmbild av Anslutningshanteraren för Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
+3. I den **ny anslutning** fönstret på den **Server** ange värden (FQDN) för kontot som Azure Cosmos DB och PORT.
 
-    ![Skärmbild av fliken MongoChef anslutning manager server](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. I den **ny anslutning** fönstret på den **autentisering** väljer autentiseringsläge **Standard (CR MONGODB eller SCARM-SHA-1)** och ange användarnamn och lösenord.  Acceptera standardvärdet autentisering db (admin) eller ange ett eget värde.
+    ![Skärmbild som visar fliken Studio 3T anslutning manager server](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. I den **ny anslutning** fönstret på den **autentisering** väljer autentiseringsläge **Basic (CR MONGODB eller SCARM-SHA-1)** och ange användarnamn och lösenord.  Acceptera standardvärdet autentisering db (admin) eller ange ett eget värde.
 
-    ![Skärmbild av fliken MongoChef connection manager autentisering](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Skärmbild som visar fliken Studio 3T connection manager autentisering](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. I den **ny anslutning** fönstret på den **SSL** markerar den **Använd SSL-protokollet för att ansluta** kryssrutan och **accepterar server självsignerade SSL-certifikat** knappen.
 
-    ![Skärmbild av fliken MongoChef connection manager SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Skärmbild av fliken Studio 3T connection manager SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Klicka på den **Testa anslutning** för att verifiera informationen klickar du på **OK** återgå till fönstret Ny anslutning och klicka sedan på **spara**.
 
-    ![Skärmdump av fönstret MongoChef Testa anslutning](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Skärmdump av fönstret Studio 3T Testa anslutning](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Använd MongoChef för att skapa en databas, samling och dokument
-Utför följande steg för att skapa en databas, samling och dokument med hjälp av MongoChef.
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Använd Studio 3T för att skapa en databas, samling och dokument
+Om du vill skapa en databas, samling och dokument med hjälp av Studio 3T, utför du följande steg:
 
 1. I **Connection Manager**, markera anslutningen och klicka på **Anslut**.
 
-    ![Skärmbild av MongoChef Anslutningshanteraren](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Skärmbild av Anslutningshanteraren för Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Högerklicka på värden och välj **lägga till databas**.  Ange ett namn och klicka på **OK**.
 
-    ![Skärmdump av alternativet MongoChef lägga till databas](./media/mongodb-mongochef/AddDatabase1.png)
+    ![Skärmdump av alternativet Studio 3T lägga till databas](./media/mongodb-mongochef/AddDatabase1.png)
 3. Högerklicka på databasen och välj **lägga till samlingen**.  Ange ett samlingsnamn och klicka på **skapa**.
 
-    ![Skärmdump av alternativet MongoChef lägga till samlingen](./media/mongodb-mongochef/AddCollection.png)
+    ![Skärmdump av alternativet Studio 3T lägga till samlingen](./media/mongodb-mongochef/AddCollection.png)
 4. Klicka på den **samling** menyn, klicka på **Lägg till dokument**.
 
-    ![Skärmbild som visar menyalternativet MongoChef Lägg till dokument](./media/mongodb-mongochef/AddDocument1.png)
+    ![Skärmbild som visar menyalternativet Studio 3T Lägg till dokument](./media/mongodb-mongochef/AddDocument1.png)
 5. Klistra in följande i dialogrutan Lägg till dokument och klicka sedan på **Lägg till dokument**.
 
         {
@@ -83,7 +83,7 @@ Utför följande steg för att skapa en databas, samling och dokument med hjälp
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Lägg till ett annat dokument nu med följande innehåll.
+6. Lägg till ett annat dokument nu med följande innehåll:
 
         {
         "_id": "WakefieldFamily",
@@ -115,4 +115,4 @@ Utför följande steg för att skapa en databas, samling och dokument med hjälp
     ![Skärmbild av Mongo Chef frågeresultat](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Utforska Azure Cosmos DB: API för MongoDB [exempel](mongodb-samples.md).
+* Utforska Azure Cosmos DB MongoDB API [exempel](mongodb-samples.md).

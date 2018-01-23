@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -106,7 +106,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Automation
 * Azure Cosmos DB
 * Batch
-* Bing Maps
+* Bing-kartor
 * CDN
 * Molntjänster - Se [klassisk distribution begränsningar](#classic-deployment-limitations)
 * Cognitive Services
@@ -120,7 +120,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * HDInsight-kluster - finns [HDInsight begränsningar](#hdinsight-limitations)
 * IoT-hubbar
 * Key Vault
-* Belastningsutjämnare
+* Belastningsutjämning
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -131,7 +131,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 * Power BI
 * Redis Cache
 * Scheduler
-* Söka
+* Search
 * Serverhantering
 * Service Bus
 * Service Fabric
@@ -150,7 +150,7 @@ Tjänster som gör att du flyttar till en ny resursgrupp och en prenumeration ä
 
 De tjänster som för närvarande inte aktiverar flytta en resurs är:
 
-* AD DS
+* AD Domain Services
 * AD-Hybrid-tjänsten för hälsotillstånd
 * Application Gateway
 * BizTalk Services
@@ -162,7 +162,7 @@ De tjänster som för närvarande inte aktiverar flytta en resurs är:
 * Hanterade diskar - Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Recovery Services-ventilen - också vill inte flytta beräknings-, nätverks- och resurser som är associerade med Recovery Services-valvet finns [återställningstjänster begränsningar](#recovery-services-limitations).
 * Säkerhet
-* StorSimple Enhetshanteraren
+* StorSimple Device Manager
 * Virtuella nätverk (klassiskt) - finns [klassisk distribution begränsningar](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
@@ -314,6 +314,12 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 Flytta inte har aktiverats för lagring, nätverk, eller beräkningsresurser som används för att ställa in katastrofåterställning med Azure Site Recovery.
 
 Anta att du har ställt in replikering av din lokala datorer till ett lagringskonto (Storage1) och vill att den skydda datorn att starta efter en redundansväxling till Azure som en virtuell dator (VM1) ansluten till ett virtuellt nätverk (Network1). Du kan inte flytta resurserna Azure - Storage1 VM1 och Network1 - över resursgrupper inom samma prenumeration eller alla prenumerationer.
+
+Att flytta en virtuell dator har registrerats i **Azure backup** mellan resursgrupper:
+ 1. Tillfälligt stoppa säkerhetskopiering och behåller säkerhetskopierade data
+ 2. Flytta den virtuella datorn till målresursgruppen
+ 3. Skydda den på nytt under samma/nya valvet användare kan återställa från tillgängliga återställningspunkter som skapats före flyttningen.
+Om användaren flyttar den virtuella datorn säkerhetskopierade alla prenumerationer, desamma steg 1 och 2. Användaren behöver skydda den virtuella datorn under ett nytt valv finns / i målprenumerationen i steg 3. Recovery Services valvet valvautentiseringsuppgifter support mellan säkerhetskopieringar för prenumerationen.
 
 ## <a name="hdinsight-limitations"></a>HDInsight-begränsningar
 

@@ -14,11 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: tamram
-ms.openlocfilehash: 3a21d87cee714dbc3aab6d4106544e45d91a3193
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: c4c6d47511acdae7afaf4a535c24c6fcc7e389b1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-blob-storage-from-ruby"></a>Använda Blob Storage från Ruby
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -35,7 +35,7 @@ Den här guiden visar hur du utför vanliga scenarier med Blob storage. Exemplen
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Skapa ett Ruby-program
-Skapa ett Ruby program. Instruktioner finns i [Ruby på spår webbprogram på en Azure VM](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)
+Skapa ett Ruby program. Instruktioner finns i [skapa en Ruby-App i App Service på Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
 
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program åtkomst till lagring

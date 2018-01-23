@@ -1,11 +1,14 @@
 
 
 
-**Dokumentera senaste uppdatering**: 12 januari 3:00 PM PST.
+**Dokumentera senaste uppdatering**: 22 januari 3:00 PM PST.
 
 Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) spekulativ exekvering sida-kanal attacker som kallas har resulterat i frågor från kunder som vill ha mer tydlighets skull.  
 
 Den infrastruktur som kör Azure och isolerar kundens arbetsbelastningar från varandra är skyddad.  Detta innebär att andra kunder som körs på Azure inte kan angrepp ditt program med hjälp av dessa problem.
+
+> [!NOTE] 
+> Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den senaste [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen av Intel.
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Uppdatera ditt operativsystem kontinuerligt
 

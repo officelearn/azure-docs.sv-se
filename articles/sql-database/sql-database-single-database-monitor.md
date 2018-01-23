@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Övervaka databasprestanda i Azure SQL Database
 Prestandaövervakning för en SQL-databas i Azure startar med att övervaka resursutnyttjandet i förhållande till nivån på databasprestanda som du valt. Övervakning hjälper dig att avgöra om din databas har överflödig kapacitet eller har problem på grund av att resurserna är överutnyttjade och därefter bestämma när det är dags att justera prestandanivån och [tjänstnivån](sql-database-service-tiers.md) för databasen. Du kan övervaka din databas med grafiska verktyg i [Azure-portalen](https://portal.azure.com) eller med SQL [dynamiska hanteringsvyer](https://msdn.microsoft.com/library/ms188754.aspx).
@@ -83,7 +83,7 @@ Eftersom den här vyn innehåller en mer detaljerad titt på Resursanvändning, 
 Andra frågor finns i exemplen i [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
 #### <a name="sysresourcestats"></a>sys.resource_stats
-Den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa i den **master** databasen innehåller ytterligare information som kan hjälpa dig att övervaka prestanda för SQL-databasen på den specifika tjänstnivå och prestandanivå nivån. Data samlas in var femte minut och underhålls i cirka 35 dagar. Den här vyn är användbar för en långsiktiga historiska analys av hur SQL-databasen använder resurser.
+Den [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visa i den **master** databasen innehåller ytterligare information som kan hjälpa dig att övervaka prestanda för SQL-databasen på den specifika tjänstnivå och prestandanivå nivån. Data samlas in var femte minut och upprätthålls för ungefär 14 dagar. Den här vyn är användbar för en långsiktiga historiska analys av hur SQL-databasen använder resurser.
 
 Följande diagram visar CPU resursanvändningen för en Premium-databas med P2 prestandanivå för varje timme under en vecka. Det här diagrammet startar på en måndag, visar 5 arbetsdagar och sedan visas en helger, när mycket mindre sker på programmet.
 

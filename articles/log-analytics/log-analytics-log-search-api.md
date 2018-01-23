@@ -1,6 +1,6 @@
 ---
-title: "Logganalys logga Sök REST API | Microsoft Docs"
-description: "Den här guiden innehåller en grundläggande genomgång som beskriver hur du kan använda logganalys Sök REST API i Operations Management Suite (OMS) och den innehåller exempel som visar hur du använder kommandon."
+title: "Azure logganalys logga Sök REST API | Microsoft Docs"
+description: "Den här guiden innehåller en grundläggande genomgång som beskriver hur du kan använda Azure logganalys sökningen REST-API med exempel som visar hur du använder kommandon."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Logganalys logga Sök REST API
 
 > [!IMPORTANT]
 > Om ditt arbetsområde har uppgraderats till den [nya Log Analytics-frågespråket](log-analytics-log-search-upgrade.md), läser du bör den [dokumentationen för den nya versionen av loggen sökningen API](https://dev.loganalytics.io/).  Den här äldre API kan fortsätta att arbeta med en uppgraderad arbetsyta, men det kommer snart att depracated.  Du bör ändra några befintliga lösningar för att använda det nya API: T.
 
-Den här guiden innehåller en grundläggande självstudier, inklusive exempel på hur du kan använda Log Analytics Sök REST API. Log Analytics är en del av Operations Management Suite (OMS).
+Den här guiden innehåller en grundläggande självstudier, inklusive exempel på hur du kan använda Log Analytics Sök REST API. 
 
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Översikt över loggen sökningen REST-API
-Log Analytics Sök REST API är RESTful och kan nås via Azure Resource Manager API. Den här artikeln innehåller exempel på åtkomst till API via [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient är en av många alternativ för att komma åt Log Analytics Sök-API. Ett annat alternativ är att använda Azure PowerShell-modulen för OperationalInsights som innehåller cmdlets för att komma åt sökningen. Med dessa verktyg kan du använda Azure Resource Manager API för att göra anrop till OMS arbetsytor och utföra sökkommandon i dem. API: et matar ut sökresultat i JSON-format, så att du kan använda sökresultatet på många olika sätt programmässigt.
+Log Analytics Sök REST API är RESTful och kan nås via Azure Resource Manager API. Den här artikeln innehåller exempel på åtkomst till API via [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg för öppen källkod som förenklar anropar API: et för Azure Resource Manager. Användning av ARMClient är en av många alternativ för att komma åt Log Analytics Sök-API. Ett annat alternativ är att använda Azure PowerShell-modulen för OperationalInsights som innehåller cmdlets för att komma åt sökningen. Med dessa verktyg kan du använda Azure Resource Manager API för att göra anrop till logganalys arbetsytor och utföra sökkommandon i dem. API: et matar ut sökresultat i JSON-format, så att du kan använda sökresultatet på många olika sätt programmässigt.
 
 Azure Resource Manager kan användas en [-biblioteket för .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) och [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Granska de länkade webbsidorna om du vill veta mer.
 

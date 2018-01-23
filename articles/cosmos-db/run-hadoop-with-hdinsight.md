@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Kör ett Apache Hive, Pig eller Hadoop-jobb med hjälp av Azure Cosmos DB och HDInsight
 Den här kursen visar hur du kör [Apache Hive][apache-hive], [Apache Pig][apache-pig], och [Apache Hadoop] [ apache-hadoop] MapReduce-jobb på Azure HDInsight med Cosmos DB Hadoop-anslutningen. Cosmos DB Hadoop-anslutningen kan Cosmos-Databsen ska fungera som både käll- och mottagarnoderna för Hive, Pig och MapReduce-jobb. Den här kursen använder Cosmos DB som både källa och mål för Hadoop-jobb.
+
+> [!IMPORTANT] 
+> Spark på Azure DB som Cosmos-kopplingen är det rekommenderade alternativet för att ansluta Azure HDInsight till Azure Cosmos DB. Mer information finns i [accelerera realtid stordata med Spark på Azure Cosmos DB kopplingen](spark-connector.md).
 
 När du har slutfört den här självstudiekursen kommer du att kunna besvara följande frågor:
 
@@ -49,7 +52,7 @@ Inte har tid att slutföra kursen, och bara vill hämta fullständigt exempelpro
     <tr><th>Hadoop Connector-Version</th>
         <td>1.2.0</td></tr>
     <tr><th>Skript-Uri</th>
-        <td>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Ändrad den</th>
         <td>04/26/2016</td></tr>
     <tr><th>Stöds HDInsight-versioner</th>
@@ -122,7 +125,7 @@ Fältet måste vara en sträng mellan 3 och 63 tecken.</td></tr>
              <td>Ange ett namn för skriptåtgärden.</td></tr>
          <tr><td>Skript-URI</td>
              <td>Ange URI till det skript som anropas för att anpassa klustret.</br></br>
-Ange: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
+Ange: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Huvud</td>
              <td>Klicka på kryssrutan för att köra PowerShell-skript på huvudnoden.</br></br>
              <strong>Den här kryssrutan</strong>.</td></tr>

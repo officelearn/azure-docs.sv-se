@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 2797085d1e675f0e6608b6192736f939952ed98b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30e606154830b867382ea1ea439b97749370a1f6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Tillägg för virtuell dator och funktioner för Linux
 
@@ -47,7 +47,7 @@ Varje tillägg för virtuell dator kan ha en egen uppsättning krav. Docker VM-t
 
 Virtuella Azure-agenten hanterar samverkan mellan en virtuell Azure-dator och Azure-infrastrukturkontrollanten. Den Virtuella datoragenten är ansvarig för många funktioner för att distribuera och hantera virtuella Azure-datorer, inklusive kör VM-tillägg. Virtuella Azure-agenten är förinstallerat på Azure Marketplace-bilder och kan installeras manuellt på operativsystem som stöds.
 
-Information om operativsystem som stöds och installationsanvisningar finns [virtuella Azure-datorn agent](../windows/classic/agents-and-extensions-classic.md).
+Information om operativsystem som stöds och installationsanvisningar finns [virtuella Azure-datorn agent](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 

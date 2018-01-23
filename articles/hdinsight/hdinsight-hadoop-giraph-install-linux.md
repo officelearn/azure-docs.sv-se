@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta stora diagram
 
@@ -76,7 +76,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
    * **NAMNET**: Ange ett eget namn för skriptåtgärden.
 
-   * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **HEAD**: Kontrollera posten
 
@@ -140,7 +140,7 @@ När klustret har skapats kan du använda följande steg för att köra exemplet
 
     I följande tabell beskrivs de parametrar som används med det här kommandot:
 
-   | Parameter | Vad verktyget gör |
+   | Parameter | Vad läget gör |
    | --- | --- |
    | `jar` |Jar-filen som innehåller exemplen. |
    | `org.apache.giraph.GiraphRunner` |Den klass som används för att starta exemplen. |

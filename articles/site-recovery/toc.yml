@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Ta bort ett valv
           href: delete-vault.md
-    - name: Felsöka
+    - name: Övervaka och felsöka
       items:
         - name: Replikeringsproblem med Azure till Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problem med redundans till Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Samla in loggar och felsöka lokala problem
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Övervaka Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Referens
   items:
     - name: Azure PowerShell

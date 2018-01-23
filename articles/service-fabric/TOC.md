@@ -312,6 +312,7 @@
 ### Prestandaövervakning
 #### [Prestandaövervakning med WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Referens
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -329,6 +330,7 @@
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
 ## [Java-API](/java/api/overview/azure/servicefabric)
+### [API för Java REST-klient](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [XML-schema för tjänstmodell](service-fabric-service-model-schema.md)

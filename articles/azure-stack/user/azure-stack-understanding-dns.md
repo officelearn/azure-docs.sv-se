@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduktion till IDN: er för Azure-Stack
 
@@ -30,7 +30,7 @@ Du kan också registrera interna virtuella nätverksnamn. På så sätt, kan du 
 Det är något som har alltid varit det i Azure, men den är tillgänglig i Windows Server 2016 och Azure-stacken för.
 
 ## <a name="what-does-idns-do"></a>Vad är IDN: er?
-Med IDN: er i Azure-stacken får du följande funktioner utan att ange anpassade poster i DNS-server.
+Med IDN: er i Azure-stacken får du följande funktioner utan att ange anpassade poster i DNS-server:
 
 * Delade tjänster för DNS-namnmatchning för klienternas arbetsbelastningar.
 * Auktoritära DNS-tjänsten för namnmatchning och DNS-registrering i innehavarens virtuella nätverk.
@@ -47,7 +47,7 @@ I Azure har möjlighet att ange ett DNS-namnetikett som kan associeras med en of
 
 I bilden ovan Azure skapar en A-post i DNS för DNS-namnetikett som anges under zonen **westus.cloudapp.azure.com**. Prefixet och suffixet tillsammans utgöra ett fullständigt kvalificerat domännamn (FQDN) som kan matchas från var som helst på Internet.
 
-Azure-stacken stöder bara IDN: er för interna namnregistrering, så det går inte att göra följande.
+Azure-stacken stöder bara IDn för interna namnregistrering, så det går inte att göra följande:
 
 * Skapa en DNS-post i en befintlig värdbaserade DNS-zon (till exempel local.azurestack.external).
 * Skapa en DNS-zon (t.ex Contoso.com).

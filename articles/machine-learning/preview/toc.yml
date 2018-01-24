@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure Machine Learning (förhandsversion)
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   expanded: true
   items:
     - name: Vad är Azure Machine Learning?
@@ -21,7 +21,7 @@
       href: tutorial-classifying-iris-part-3.md
     - name: 4 – Avancerad databearbetning
       href: tutorial-bikeshare-dataprep.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Viktiga begrepp
       href: overview-general-concepts.md
@@ -182,6 +182,8 @@
           href: release-notes-sprint-2.md
         - name: Sprint 2 QFE – december 2017
           href: release-notes-sprint-2.1.md
+        - name: Sprint 3 – januari 2018
+          href: release-notes-sprint-3.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar
@@ -194,7 +196,7 @@
       href: ../data-science-virtual-machine/overview.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'

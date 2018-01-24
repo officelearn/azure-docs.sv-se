@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure-dokumentation
 description: "Lär dig att skapa och hantera kraftfulla program med Microsoft Azure-molntjänster. Hämta dokumentation, exempelkod, självstudier och annat."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Skalningsuppsättningar för Virtual Machines</h3>
-                                                    <p>Hantera och skala tiotals till tusentals virtuella Linux- och Windows-datorer</p>
+                                                    <p>Hantera och skala upp till tusentals virtuella datorer med Linux och Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Distribuera webbappar i Linux med behållare</p>
+                                                    <p>Skapa snabbt kraftfulla molnappar för webben och mobilen</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Kör behållarbaserat program efter behov med Kubernetes</p>
+                                                    <p>Förenkla distributionen, hanteringen och åtgärderna för Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>
-Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveranskontroll </p>
+                                                    <p>Skapa säkra, skalbara och högtillgängliga frontwebbservrar i Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Leverera innehåll till slutanvändare via ett robust nätverk med globala datacenter</p>
+                                                    <p>Säkerställ säker och tillförlitlig innehållsleverans med bred global räckvidd</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Övervaka och diagnostisera villkor på nätverksscenarionivå</p>
+                                                    <p>Övervakning av nätverksprestanda och diagnostiklösningar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Extremt skalbar objektlagring för ostrukturerade data</p>
+                                                    <p>REST-baserad objektlagring för ostrukturerade data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Disklagring</h3>
-                                                    <p>Disklagring för virtuella datorer</p>
+                                                    <p>Alternativ för beständiga, skyddade diskar med stöd för virtuella datorer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Queue Storage</h3>
-                                                    <p>Hållbara köer för molntjänster för stora volymer</p>
+                                                    <p>Skala appar effektivt med hänsyn till trafiken</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
-                                                    <p>Enkelt, distribuerat filsystem mellan plattformar</p>
+                                                    <p>Filresurser som använder standardprotokollet SMB 3.0</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybridlagring i molnet för företag förbättrar datasäkerheten</p>
+                                                    <p>Sänk kostnaderna med en lösning för hybridmolnlagring för företag</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1845,8 +1844,8 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Webbplatsåterställning</h3>
-                                                    <p>Samordna haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar</p>
+                                                    <h3>Site Recovery</h3>
+                                                    <p>Dirigera skydd och återställning av privata moln</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Content Delivery Network</h3>
-                                                    <p>Leverera innehåll till slutanvändare via ett robust nätverk med globala datacenter </p>
+                                                    <p>Säkerställ säker och tillförlitlig innehållsleverans med bred global räckvidd</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>En skalbar motor som snabbt kan skicka miljontals push-meddelanden</p>
+                                                    <p>Skicka push-meddelanden till valfri plattform från valfri serverdel</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Kör behållarbaserat program efter behov med Kubernetes</p>
+                                                    <p>Förenkla distributionen, hanteringen och åtgärderna för Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Hanterad relationsdatabas som tjänst</p>
+                                                    <p>Hanterad relationell SQL-databas som en tjänst</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Globalt distribuerad databas för flera datamodeller oavsett skala</p>
+                                                    <p>NoSQL-nyckelvärdeslagring med halvstrukturerade datauppsättningar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Redis Cache</h3>
-                                                    <p>Dataåtkomst med stora dataflöden och korta svarstider för snabba/skalbara program</p>
+                                                    <p>Kraftfulla program med dataåtkomst med stora dataflöden och låg fördröjning</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Datamodeller i företagsklass i molnet</p>
+                                                    <p>Analysmotor i företagsklass som en tjänst</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Kraftfullt verktyg för molnbaserad förutsägelseanalys som möjliggör förutsägande underhåll</p>
+                                                    <p>Skapa, distribuera och hantera enkelt lösningar för förutsägelseanalys</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Aktivera självbetjäning av datakällsidentifiering i hela företaget</p>
+                                                    <p>Få ut mer värde av företagets datatillgångar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning-tjänster</h3>
-                                                    <p>Kraftfullt verktyg för molnbaserad förutsägelseanalys som möjliggör förutsägande underhåll</p>
+                                                    <p>Låt alla ta del av AI med en skalbar, tillförlitlig plattform från slutpunkt till slutpunkt med experimentering och modellhantering</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Utöka intelligenta molntjänster till Edge-enheter</p>
+                                                    <p>Utöka intelligensen från molnet till gränsenheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Kartor, beskrivningar, sökningar och andra pålitliga geospatiala tjänster</p>
+                                                    <p>Enkla och säkra plats-API:er ger geospatial kontext till data</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning-tjänster</h3>
-                                                    <p>Kraftfullt verktyg för molnbaserad förutsägelseanalys som möjliggör förutsägande underhåll</p>
+                                                    <p>Låt alla ta del av AI med en skalbar, tillförlitlig plattform från slutpunkt till slutpunkt med experimentering och modellhantering</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>En skalbar motor som snabbt kan skicka miljontals push-meddelanden</p>
+                                                    <p>Skicka push-meddelanden till valfri plattform från valfri serverdel</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Hybridlagring i molnet för företag förbättrar datasäkerheten</p>
+                                                    <p>Sänk kostnaderna med en lösning för hybridmolnlagring för företag</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Aktivera självbetjäning av datakällsidentifiering i hela företaget</p>
+                                                    <p>Få ut mer värde av företagets datatillgångar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Förhindra, identifiera och svara på hot med ökad insyn</p>
+                                                    <p>Enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Key Vault</h3>
-                                                    <p>Lär dig hantera kryptografiska nycklar och hemligheter</p>
+                                                    <p>Skydda och behåll kontrollen över nycklar och andra hemligheter</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Skydda åtkomsten till dina data och appar med en extra autentiseringsnivå</p>
+                                                    <p>Förbättra säkerhet för dina data och appar utan ytterligare besvär för dina användare</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Skapa, tilldela och hantera principdefinitioner </p>
+                                                    <p>Implementera företagsstyrning och standarder för Azure-resurser</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cost Management</h3>
-                                                    <p>Spåra molnanvändning och utgifter</p>
+                                                    <p>Optimera dina molnkostnader och maximera potentialen med molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Lär dig att omvandla maskindata till driftsinformation</p>
+                                                    <p>Samla in, sök i och visualisera maskindata från lokala program och molnet</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Öka kostnadseffektiviteten, prestandan, tillgängligheten och säkerheten för dina Azure-resurser</p>
+                                                    <p>Din personligt anpassade Azure-rekommendationsmotor</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Ger anpassad vägledning och support om du upplever problem med Azures tjänster.</p>
+                                                    <p>Få personliga råd och support när du påverkas av problem i Azure-tjänster</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Layer 7 belastningsutjämnare med inbyggd HTTP-belastningsutjämning och leveran
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hanterade program</h3>
-                                                    <p>Hantera distribuerade lösningar för dina kunder</p>
+                                                    <p>Förenkla hanteringen av molnerbjudanden</p>
                                                 </div>
                                             </div>
                                         </div>

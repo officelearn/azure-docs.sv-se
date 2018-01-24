@@ -76,10 +76,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Skicka meddelanden från moln till enhet
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Ladda upp filer från enheter
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -89,11 +91,13 @@
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-twin-getstarted.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-twin-getstarted.md)
 ### Använda direkta metoder
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-direct-methods.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-direct-methods.md)
 #### [.NET-serverdel/.NET-enhet](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java-serverdel/Java-enhet](iot-hub-java-java-direct-methods.md)
+#### [Python-serverdel/Python-enhet](iot-hub-python-python-direct-methods.md)
 ### Komma igång med enhetshantering
 #### [Node.js-serverdel/Node.js-enhet](iot-hub-node-node-device-management-get-started.md)
 #### [.NET-serverdel/Node.js-enhet](iot-hub-csharp-node-device-management-get-started.md)

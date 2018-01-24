@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Använd Azure CLI för att hantera enhetsetableringstjänsten
       href: how-to-manage-dps-with-cli.md
+    - name: Använd SDK-verktyg för att utveckla
+      href: how-to-use-sdk-tools.md
 - name: Referens
   items:
     - name: REST

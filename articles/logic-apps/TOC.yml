@@ -222,7 +222,7 @@
           href: logic-apps-enterprise-integration-xml-validation.md
     - name: Hantera
       items:
-        - name: Hantera logikappar – VS
+        - name: Hantera logikappar – Visual Studio
           href: logic-apps-manage-from-vs.md
         - name: Hantera integrationskonton
           href: logic-apps-enterprise-integration-accounts.md

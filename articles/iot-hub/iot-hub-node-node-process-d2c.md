@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: 5a80195dd474414626cc54623945393c6f88093d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Vidarebefordra meddelanden med IoT-hubben (nod)
 
@@ -89,7 +89,7 @@ I det här avsnittet kan du ändra appen för enheter som du skapade i den [Kom 
     };
     ```
    
-    Den här metoden lägger slumpmässigt till egenskapen `"level": "critical"` och `"level": "storage"` på meddelanden som skickas av enheten, som simulerar ett meddelande som kräver omedelbar åtgärd som programmet backend- eller som behöver lagras permanent. Programmet Överför denna information i egenskaperna för meddelandet i stället för i meddelandetexten, så att IoT-hubb kan vidarebefordra meddelandet till rätt meddelandets mål.
+    Den här metoden lägger slumpmässigt till egenskapen `"level": "critical"` och `"level": "storage"` på meddelanden som skickas av enheten, som simulerar ett meddelande som kräver omedelbar åtgärd som programmet backend- eller som behöver lagras permanent. Programmet stöder vidarebefordra meddelanden utifrån meddelandetexten.
    
    > [!NOTE]
    > Du kan använda meddelandeegenskaper skicka meddelanden för olika scenarier, inklusive kall sökväg bearbetning, förutom varm sökväg exemplet som visas här.
@@ -264,4 +264,4 @@ Läs mer om meddelanderoutning i IoT-hubb i [skicka och ta emot meddelanden med 
 [lnk-c2d]: iot-hub-node-node-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-free-trial]: https://azure.microsoft.com/free/
-[lnk-storage]: https://docs.microsoft.com/en-us/azure/storage/
+[lnk-storage]: https://docs.microsoft.com/azure/storage/

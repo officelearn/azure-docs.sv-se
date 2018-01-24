@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics felsökning
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure-diagnostik. Läs mer om Azure diagnostics [översikt över Azure-diagnostik](azure-diagnostics.md).
@@ -36,25 +36,25 @@ Följande är sökvägar till vissa viktiga loggar och artefakter. Vi refererar 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure Diagnostics-konfigurationsfil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \Config.txt |
-| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > \ |
-| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Monitoring agent-konfigurationsfil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Azure Diagnostics extension-paketet** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version > |
+| **Azure Diagnostics-konfigurationsfil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Monitoring agent-konfigurationsfil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Azure Diagnostics extension-paketet** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Verktyget loggsökvägen-samling** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost loggfil** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **MonAgentHost loggfil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \RuntimeSettings |
-| **Loggfiler** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \Logs\ |
-| **Lokal lagring för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Monitoring agent-konfigurationsfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Statusfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \Status |
-| **Azure Diagnostics extension-paketet** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Loggfiler** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Lokal lagring för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Monitoring agent-konfigurationsfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Statusfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Azure Diagnostics extension-paketet** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Verktyget loggsökvägen-samling** | C:\WindowsAzure\Packages |
-| **MonAgentHost loggfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
+| **MonAgentHost loggfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Mått data visas inte i Azure-portalen
 Azure Diagnostics tillhandahåller mått data som kan visas i Azure-portalen. Om du har problem med se data i portalen kontrollerar WADMetrics\* tabell i Azure-diagnostik storage-konto att se om motsvarande mått poster förekommer. 
@@ -72,10 +72,10 @@ Kontrollera om det finns inga data för den specifika måtten, **diagnostik Conf
 - \ASP.NET\Requests avvisade
 - \Processor(W3wp)\% processortid
 - \Process (w3wp) \Private byte
-- \Process(WaIISHost)\% processortid
-- \Process (WaIISHost) \Private byte
-- \Process(WaWorkerHost)\% processortid
-- \Process (WaWorkerHost) \Private byte
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
 - \Memory\Page fel per sekund
 - \.NET CLR-minne (_globala_)\% tid i GC i
 - \LogicalDisk (C:) \Disk skrivna byte/s
@@ -154,7 +154,7 @@ Om du funderar att kontakta supporten, är det första kanske du ombeds att saml
 ## <a name="diagnostics-data-tables-not-found"></a>Diagnostik datatabeller hittades inte
 Tabellerna i Azure storage som innehar ETW-händelser är namngivna med hjälp av följande kod:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -205,9 +205,9 @@ Här är ett exempel:
 ```
 Den här koden genererar fyra tabeller:
 
-| Händelse | Tabellnamnet |
+| Händelse | Tabellnamn |
 | --- | --- |
-| Provider = ”prov1” &lt;händelse-id = ”1” /&gt; |WADEvent + MD5("prov1") + ”1” |
+| Provider = ”prov1” &lt;händelse-id = ”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | Provider = ”prov1” &lt;händelse-id = ”2” eventDestination = ”dest1” /&gt; |WADdest1 |
 | Provider = ”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
 | Provider = ”prov2” &lt;DefaultEvents eventDestination = ”dest2” /&gt; |WADdest2 |

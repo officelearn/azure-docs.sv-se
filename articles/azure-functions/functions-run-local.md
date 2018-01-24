@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3fd392a3f5b48d6b8d19af530c949d91cd461099
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Platskod och testa Azure Functions lokalt
 
@@ -130,7 +130,7 @@ Filen local.settings.json lagrar app-inställningar, anslutningssträngar och in
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Om värdet är **SANT**, alla värden som är krypterade med en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
 | **Värden** | Samling av programinställningar som används när du kör lokalt. **AzureWebJobsStorage** och **AzureWebJobsDashboard** är exempel, en fullständig lista, se [app inställningsreferens](functions-app-settings.md).  |
-| **Värden** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. | 
+| **Värd** | Inställningarna i det här avsnittet Anpassa värdprocess funktioner när du kör lokalt. | 
 | **LocalHttpPort** | Anger den standardport som används när du kör den lokala värden funktioner (`func host start` och `func run`). Den `--port` kommandoradsalternativet har högre prioritet än detta värde. |
 | **CORS** | Definierar det ursprung som tillåts för [resursdelning för korsande ursprung (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med inga blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från alla ursprung. |
 | **ConnectionStrings** | Innehåller databasanslutningssträngar för dina funktioner. Anslutningssträngar i det här objektet har lagts till i miljön med providern **System.Data.SqlClient**.  | 
@@ -216,7 +216,7 @@ När värden funktioner startar anger URL: en för HTTP-utlösta funktioner:
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
-ob host started
+Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 

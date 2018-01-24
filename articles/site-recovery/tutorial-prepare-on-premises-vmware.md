@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Förbereda lokal VMware-servrar för katastrofåterställning till Azure
 
@@ -53,7 +53,7 @@ Skapa kontot enligt följande:
 **Aktivitet** | **Rollbehörigheter /** | **Detaljer**
 --- | --- | ---
 **VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center objektet –> Sprid till underordnade objekt rollen = skrivskyddad | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
-**Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och sedan tilldela rollen till en VMware-användare eller grupp<br/><br/> Data Center objektet –> Sprid till underordnade objekt rollen = Azure_Site_Recovery<br/><br/> DataStore -> allokera utrymme, bläddra datalagret, låg nivå filåtgärder, ta bort filen och uppdatera filer för virtuella datorer<br/><br/> Nätverk -> nätverk tilldela<br/><br/> Resurs -> Tilldela VM resurspool, migrera är avstängt VM, migrera driven på den virtuella datorn<br/><br/> Aktiviteter -> Skapa uppgift, uppdatera uppgift<br/><br/> Konfiguration av virtuell dator -><br/><br/> Virtual machine -> interagera -> fråga enhetsanslutning, konfigurera CD-skivor, konfigurera diskettenheter media, stänga av, slå på strömmen, installera för VMware-verktyg<br/><br/> Virtual machine -> Lager -> Skapa, registrera, avregistrera<br/><br/> Etablering av virtuell dator -> -> Tillåt virtuella hämtning, tillåter Överför filer för virtuella datorer<br/><br/> Virtual machine -> ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
+**Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och sedan tilldela rollen till en VMware-användare eller grupp<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> DataStore -> allokera utrymme, bläddra datalagret, låg nivå filåtgärder, ta bort filen och uppdatera filer för virtuella datorer<br/><br/> Nätverk -> nätverk tilldela<br/><br/> Resurs -> Tilldela VM resurspool, migrera är avstängt VM, migrera driven på den virtuella datorn<br/><br/> Aktiviteter -> Skapa uppgift, uppdatera uppgift<br/><br/> Konfiguration av virtuell dator -><br/><br/> Virtual machine -> interagera -> fråga enhetsanslutning, konfigurera CD-skivor, konfigurera diskettenheter media, stänga av, slå på strömmen, installera för VMware-verktyg<br/><br/> Virtual machine -> Lager -> Skapa, registrera, avregistrera<br/><br/> Etablering av virtuell dator -> -> Tillåt virtuella hämtning, tillåter Överför filer för virtuella datorer<br/><br/> Virtual machine -> ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på nivån för datacenter och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten, tilldela den **ingen åtkomst** roll med den **Sprid till underordnad** objekt till underordnade objekt (vSphere-värdar, datastores, virtuella datorer och nätverk).
 
 ## <a name="prepare-an-account-for-mobility-service-installation"></a>Förbereda ett konto för installationen av Mobility
 
@@ -71,7 +71,7 @@ Kontrollera att följande krav är uppfyllda VMware-servrar.
 
 **Komponent** | **Krav**
 --- | ---
-**vCenter-servern** | vCenter 6.5, 6.0 eller 5.5
+**vCenter server** | vCenter 6.5, 6.0 eller 5.5
 **vSphere-värd** | vSphere 6.5, 6.0, 5.5
 
 ## <a name="check-vmware-vm-requirements"></a>Kontrollera kraven för VMware VM
@@ -88,7 +88,7 @@ Kontrollera att den virtuella datorn uppfyller kraven för Azure sammanfattas i 
 **Delad virtuell Hårddisk** | Stöds inte
 **FC-disk** | Stöds inte
 **Format för hårddisk** | VHD- eller VHDX.<br/><br/> Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer kan du fortsätta att använda VHDX-format.
-**BitLocker** | Stöds inte. Inaktivera innan du aktiverar replikering för en virtuell dator.
+**Bitlocker** | Stöds ej. Inaktivera innan du aktiverar replikering för en virtuell dator.
 **Namn på virtuell dator** | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck. VM-namn måste börja och sluta med en bokstav eller siffra.
 **VM-typ** | Generation 1 - Linux eller Windows<br/><br/>Generation 2 - endast Windows
 
@@ -110,7 +110,7 @@ För att ansluta till virtuella Linux-datorer med hjälp av SSH efter växling v
 1. Kontrollera att Secure Shell-tjänsten är inställd att starta automatiskt på datorn startar på den lokala datorn före redundans. Kontrollera att brandväggsreglerna tillåter en SSH-anslutning.
 
 2. Tillåta inkommande anslutningar till SSH-porten för reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn och Azure-undernätet som den är ansluten på Azure-VM efter växling vid fel.
-   [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) för den virtuella datorn. Du kan kontrollera **starta diagnostik** att visa en skärmbild av den virtuella datorn.
+   [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn. Du kan kontrollera **starta diagnostik** att visa en skärmbild av den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

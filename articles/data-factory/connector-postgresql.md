@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Följande egenskaper stöds för PostgreSQL länkade tjänsten:
 | typ | Egenskapen type måste anges till: **PostgreSql** | Ja |
 | server | Namnet på PostgreSQL-server. |Ja |
 | databas | Namnet på PostgreSQL-databas. |Ja |
-| Schemat | Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
+| schema | Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | användarnamn | Ange användarnamn för att ansluta till PostgreSQL-databasen. |Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString. |Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
@@ -173,7 +173,7 @@ När du kopierar data från PostgreSQL, används följande mappningar från Post
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [], sträng ' |
+| `bit varying [ (n) ]` | `varbit |Byte[], String` |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;
@@ -189,7 +189,7 @@ När du kopierar data från PostgreSQL, används följande mappningar från Post
 | `intarry` | |`String` |&nbsp;
 | `int4range` | |`String` |&nbsp;
 | `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32' |
+| `integer` | ' int, int4 |Int32` |
 | `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
 | `json` | | `String` |&nbsp;
 | `jsonb` | | `Byte[]` |&nbsp;

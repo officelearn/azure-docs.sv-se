@@ -14,25 +14,25 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 66bcd738b86f846eae3499b289a6629323009a44
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Autentisera med Mobile Engagement REST API: er
 
 ## <a name="overview"></a>Översikt
 
-Det här dokumentet beskriver hur du hämta en giltig Azure AD Oauth-token för autentisering med Mobile Engagement REST-API: er.
+Det här dokumentet beskriver hur du hämta en giltig Azure Active Directory (AD Azure) OAuth-token för autentisering med Mobile Engagement REST-API: er.
 
-Det förutsätts att du har en giltig Azure-prenumeration och du har skapat en Mobile Engagement-app med en av de [Developer självstudier](mobile-engagement-windows-store-dotnet-get-started.md).
+Den här proceduren förutsätter att du har en giltig Azure-prenumeration och har skapat en Mobile Engagement-app med någon av de [developer självstudier](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="authentication"></a>Autentisering
 
-Microsoft Azure Active Directory baserat OAuth-token används för autentisering. 
+En Microsoft Azure Active Directory-baserad OAuth-token används för autentisering. 
 
-För att en API autentiseringsbegäran måste ett authorization-huvud läggas till alla begäranden, vilket är av följande format:
+Ett authorization-huvud måste läggas till varje begäran för att autentisera en API-begäran. Authorization-huvud är i följande format:
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
@@ -41,14 +41,17 @@ För att en API autentiseringsbegäran måste ett authorization-huvud läggas ti
 > 
 > 
 
-Det finns flera sätt att hämta en token. Eftersom API: er anropas från en molnbaserad tjänst, som du vill använda en API-nyckel. En API-nyckel i Azure-terminologi kallas Service principal lösenord. Följande procedur beskriver ett sätt att ställa in manuellt.
+Det finns flera sätt att hämta en token. Eftersom API: er anropas från en molnbaserad tjänst, som du vill använda en API-nyckel. En API-nyckel i Azure-terminologi kallas ett huvudnamn för tjänsten lösenord. Följande procedur beskriver ett sätt att konfigurera den manuellt.
 
-### <a name="one-time-setup-using-script"></a>Enstaka installationen (med hjälp av skript)
+### <a name="one-time-setup-using-a-script"></a>Enstaka installationen (med ett skript)
 
-Följ anvisningarna nedan för att utföra installationen med hjälp av ett PowerShell-skript som tar Minimitiden för installationen, men använder mest tillåtna standardvärdena uppsättning. Alternativt kan du också följa instruktionerna i den [manuell installation](mobile-engagement-api-authentication-manual.md) för att göra detta från Azure-portalen direkt och vill ha bättre konfiguration.
+Vidta åtgärder i följande instruktioner för att utföra installationen genom att använda ett PowerShell-skript. Ett PowerShell-skript kräver den minsta mängden tid för installationen, men använder mest tillåtna standardvärdena. 
 
-1. Hämta den senaste versionen av Azure PowerShell från [här](http://aka.ms/webpi-azps). Mer information om anvisningarna kan se detta [länk](/powershell/azure/overview).
-2. När Azure PowerShell har installerats kan använda följande kommandon för att säkerställa att du har den **Azure-modulen** installerad:
+Alternativt kan du också följa instruktionerna i den [manuell installation](mobile-engagement-api-authentication-manual.md) för att göra detta direkt från Azure-portalen. Du kan göra en mer detaljerad konfiguration när du ställer in från Azure-portalen.
+
+1. Hämta den senaste versionen av Azure PowerShell med [ladda ned den](http://aka.ms/webpi-azps). Mer information om anvisningarna finns [översikten](/powershell/azure/overview).
+
+2. När PowerShell har installerats kan använda följande kommandon för att säkerställa att du har den **Azure-modulen** installerad:
 
     a. Kontrollera att Azure PowerShell-modulen finns i listan över tillgängliga moduler.
 
@@ -59,40 +62,50 @@ Följ anvisningarna nedan för att utföra installationen med hjälp av ett Powe
     b. Om du inte hittar Azure PowerShell-modulen i listan ovan, måste du köra:
 
         Import-Module Azure
-3. Logga in till Azure Resource Manager från PowerShell genom att köra följande kommando och ditt användarnamn och lösenord för kontot: 
+3. Logga in till Azure Resource Manager via PowerShell genom att köra följande kommando. Ange användarnamn och lösenord för kontot: 
 
         Login-AzureRmAccount
-4. Om du har flera prenumerationer, bör du köra:
+4. Om du har flera prenumerationer, gör du följande:
 
-    a. Hämta en lista över alla prenumerationer och kopiera prenumerations-ID för den prenumeration som du vill använda. Kontrollera att den här prenumerationen är samma som har Mobile Engagement-App som du kommer att interagera med hjälp av API: erna. 
+    a. Hämta en lista över alla prenumerationer. Kopiera den **SubscriptionId** för den prenumeration som du vill använda. Kontrollera att den här prenumerationen har Mobile Engagement-app. Du ska använda appen för att interagera med API: erna. 
 
         Get-AzureRmSubscription
 
-    b. Kör följande kommando för att tillhandahålla SubscriptionId att konfigurera prenumerationen som ska användas.
+    b. Kör följande kommando. Ange den **SubscriptionId** så här konfigurerar du den prenumeration som du ska använda:
 
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
-5. Kopiera texten för den [ny AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) skript till din lokala dator och spara den som en PowerShell-cmdlet (t.ex. `APIAuth.ps1`) och kör den `.\APIAuth.ps1`.
-6. Skriptet blir du ombedd att ange indata för **huvudkontot**. Ange ett lämpligt namn som du vill använda för att skapa Active Directory-program (t.ex. APIAuth). 
-7. När skriptet har slutförts visas följande fyra värden som du behöver för att autentisera programmässigt med AD så se till att kopiera dem. 
+5. Kopiera texten för den [ny AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) skript för att den lokala datorn. Spara den som en PowerShell-cmdlet (till exempel `APIAuth.ps1`), och kör den.
 
-    **TenantId**, **SubscriptionId**, **ApplicationId**, och **hemlighet**.
+         `.\APIAuth.ps1`.
 
-    Du kommer att använda TenantId som `{TENANT_ID}`, ApplicationId som `{CLIENT_ID}` och hemliga som `{CLIENT_SECRET}`.
+6. Skriptet begär du ange indata för **huvudkontot**. Ange ett lämpligt namn som du vill använda för ditt Active Directory-program (till exempel APIAuth). 
+
+7. När skriptet är klar visas följande fyra värdena. Glöm inte att kopiera dem, eftersom du behöver dem för att autentisera programmässigt med Active Directory: 
+
+   - **TenantId**
+   - **Prenumerations-ID**
+   - **ApplicationId**
+   - **Hemlighet**
+
+   Du använder TenantId som `{TENANT_ID}`, ApplicationId som `{CLIENT_ID}` och hemliga som `{CLIENT_SECRET}`.
 
    > [!NOTE]
-   > Säkerhetsprinciperna standard kan blockeras från att köra ett PowerShell-skript. I så fall, konfigurerar du tillfälligt din körningsprincipen för att tillåta körning av skript med hjälp av följande kommando:
+   > Säkerhetsprinciperna standard kanske hindrar dig från att köra PowerShell-skript. I så fall använder du följande kommando tillfälligt konfigurera din körningsprincipen för att tillåta körning av skript:
    > 
    > Set-ExecutionPolicy RemoteSigned
-8. Här är hur uppsättning PS-cmdlets skulle se ut.
-    ![][3]
-9. Gå till Active Directory på Azure-portalen, klicka på **App registreringar** och Sök efter appen för att se till att det finns![][4]
+8. Här är hur uppsättning PowerShell-cmdlets för ser ut.
+    ![PowerShell-cmdletar][3]
+9. I Azure-portalen går du till Active Directory, Välj **App registreringar**, och sedan söker du efter din app så att den finns.
+    ![Sök efter appen][4]
 
 ### <a name="steps-to-get-a-valid-token"></a>Steg för att hämta en giltig token
 
-1. Anropa API: et med följande parametrar och Ersätt INNEHAVAREN\_, klient-ID\_-ID och klienten\_HEMLIGHET:
+1. Anropa API: et med följande parametrar. Ersätt **klient\_ID**, **klienten\_ID**, och **klienten\_HEMLIGHET**:
    
    * **URL-begäran** som`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+
    * **HTTP Content-Type-huvud** som`application/x-www-form-urlencoded`
+   
    * **HTTP-begäran brödtext** som`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Följande är en exempelbegäran:
@@ -103,7 +116,7 @@ Följ anvisningarna nedan för att utföra installationen med hjälp av ett Powe
     grant_type=client_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&reso
     urce=https%3A%2F%2Fmanagement.core.windows.net%2F
     ```
-    Här är ett exempelsvar:
+    Följande är ett exempelsvar:
     ```
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -112,28 +125,29 @@ Följ anvisningarna nedan för att utföra installationen med hjälp av ett Powe
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
     ```
-     Det här exemplet ingår URL-kodning av parametrarna efter `resource` värdet är `https://management.core.windows.net/`. Var noga med att även URL koda `{CLIENT_SECRET}` som den kan innehålla specialtecken.
+     Det här exemplet innehåller URL-kodning av parametrarna efter där `resource` värdet är `https://management.core.windows.net/`. Var noga med att även URL-koda `{CLIENT_SECRET}`eftersom den kan innehålla specialtecken.
 
      > [!NOTE]
-     > För att testa, kan du använda en HTTP-klientverktyg som [Fiddler](http://www.telerik.com/fiddler) eller [Chrome Postman tillägg](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) 
+     > För att testa, kan du använda en HTTP-klientverktyg som [Fiddler](http://www.telerik.com/fiddler) eller [Chrome Postman tillägget](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop). 
      > 
      > 
 2. Innehåller nu begärandehuvudet auktorisering i varje API-anrop:
    
         Authorization: Bearer {ACCESS_TOKEN}
    
-    Om du får ett 401 statuskoden Kontrollera svarstexten, den kan informera om token har upphört att gälla. I så fall får en ny token.
+    Om din begäran returnerar statuskod 401, kontrollera svarstexten. Det kan informera om token har upphört att gälla. I så fall får en ny token.
 
-## <a name="using-the-apis"></a>Med hjälp av API: er
+## <a name="use-the-apis"></a>API: er i
 Nu när du har en giltig token är du redo att göra API-anrop.
 
-1. I varje API-begäran behöver du ange en giltiga token som du hämtade i föregående avsnitt.
-2. Behöver du ansluter vissa parametrar i URI som identifierar ditt program. Förfrågan URI ser ut ungefär så här
+1. Du måste skicka en giltiga token i varje API-begäran. Du kan hämta det återstående token i föregående avsnitt.
+
+2. Anslut vissa parametrar till URI som identifierar ditt program. Förfrågan URI som ser ut som följande kod:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    Hämta parametrar, klicka på programmets namn och klicka på instrumentpanelen och du ser en sida som följande med parametrarna som 3.
+    Välj programnamnet för att hämta parametrar. Välj sedan **instrumentpanelen**. Du ser en sida med alla tre parametrar:
    
    * **1** `{subscription-id}`
    * **2** `{app-collection}`
@@ -141,10 +155,9 @@ Nu när du har en giltig token är du redo att göra API-anrop.
    * **4** din resursgruppens namn kommer att vara **MobileEngagement** om du har skapat en ny. 
 
 > [!NOTE]
-> <br/>
+> Ignorera API rot-adress, eftersom det var för tidigare API: er.
 > 
-> 1. Ignorera API rot-adress som det var för tidigare API: er.<br/>
-> 2. Om du har skapat appen med Azure-portalen måste du använda programmet resursnamnet som skiljer sig från namnet på programmet sig själv. Om du skapade appen i Azure portal bör du använda namnet på appen sig själv (det finns ingen skillnad mellan programmets resursnamn och programnamn för appar som har skapats i den nya portalen).  
+> Om du har skapat appen med hjälp av Azure-portalen måste du använda programmet resursnamnet, vilket skiljer sig från namnet på appen sig själv. Om du skapade appen i Azure-portalen, bör du använda namnet på appen. (Det finns ingen skillnad mellan programmets resursnamn och namnet på appen för appar som skapas i den nya portalen.)
 > 
 > 
 

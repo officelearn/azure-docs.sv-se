@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 0452dcaa039c23b9e41f78a43df88f61d13033be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 449b322089ed3881df6d87276c3461d18d697edf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med Hadoop Streaming activity i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,13 +78,13 @@ Om du har använt Azure Data Factory, Läs igenom [introduktion till Azure Data 
 | description       | Text som beskriver aktiviteten är det som används för | Nej       |
 | typ              | För Hadoop Streaming Activity är aktivitetstypen HDInsightStreaming | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel. | Ja      |
-| Mapper            | Anger namnet på den körbara mapparen | Ja      |
+| mapper            | Anger namnet på den körbara mapparen | Ja      |
 | Reducer           | Anger namnet på den körbara reducer | Ja      |
 | combiner          | Anger namnet på den körbara combiner | Nej       |
 | fileLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Mapper och Combiner Reducer program som ska köras. Om du inte anger den här länkade tjänsten används Azure länkade lagringstjänsten definieras i länkad HDInsight-tjänst. | Nej       |
 | filePath          | Ge en matris med sökvägen till Mapper, Combiner, och Reducer program lagras i Azure Storage som anges av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
 | Indata             | Anger WASB sökvägen till filen för mapparen. | Ja      |
-| Utdata            | Anger WASB sökväg till utdatafilen för Reducer. | Ja      |
+| utdata            | Anger WASB sökväg till utdatafilen för Reducer. | Ja      |
 | getDebugInfo      | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges av scriptLinkedService. Tillåtna värden: None, alltid eller fel. Standardvärde: Ingen. | Nej       |
 | Argument         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som argument på kommandoraden för varje aktivitet. | Nej       |
 | definierar           | Ange parametrar som nyckel/värde-par för refererar till i Hive-skript. | Nej       | 

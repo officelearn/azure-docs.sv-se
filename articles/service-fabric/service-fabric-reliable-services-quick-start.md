@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -188,7 +188,7 @@ Tillförlitliga samlingar kan lagra alla .NET-typ, inklusive din anpassade typer
 Tillförlitliga Tillståndshanterarens hanterar tillförlitliga samlingar åt dig. Du kan bara be tillförlitliga Tillståndshanterarens för en tillförlitlig samling med namnet när som helst och var som helst i din tjänst. Den tillförlitliga tillstånd Manager ser till att du får en referens tillbaka. Inte rekommenderar vi att du sparar referenser till tillförlitliga samling instanser i klassmedlem egenskaper eller variabler. Särskild försiktighet måste vidtas för att säkerställa att referensen har angetts till en instans alltid i livscykeln för tjänsten. Tillförlitliga Tillståndshanterarens hanterar det här fungerar och har optimerats för Upprepa besök.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transaktionell och asynkrona åtgärder
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

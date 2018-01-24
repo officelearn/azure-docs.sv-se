@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Konfigurera brandväggar för Azure-lagring och virtuella nätverk (förhandsgranskning)
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell som gör att du kan skydda dina lagringskonton för en specifik uppsättning tillåtna nätverk.  Om Nätverksregler är konfigurerade bara program från tillåtna nätverk kan komma åt ett lagringskonto.  Vid anrop från ett nätverk med tillåtna fortfarande program kräver att rätt behörighet (en giltig snabbtangent eller SAS-token) att komma åt lagringskontot.
@@ -300,7 +300,6 @@ När ”betrodda Microsoft Services” undantaget aktiveras har följande tjäns
 |Azure DevTest Labs|Microsoft.DevTestLab|Anpassad bild skapas och artefakt installation.  [Läs mer](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Aktivera publicering för Blob Storage-händelse.  [Läs mer](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arkivering av data med Event Hubs avbilda.  [Lär dig mer](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Klusteretablering och installation.  [Läs mer](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure-nätverk|Microsoft.Networking|Lagra och analysera loggar med webbtrafik.  [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

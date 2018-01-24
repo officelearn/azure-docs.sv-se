@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till Molntjänsten övervakning
 
@@ -39,7 +39,7 @@ Grundläggande övervakning kräver inte ett lagringskonto.
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Avancerad övervakning är med hjälp av Azure-diagnostik-tillägget (och eventuellt Application Insights SDK) på vilken roll som du vill övervaka. Tillägget diagnostik använder en konfigurationsfil (per roll) med namnet **diagnostics.wadcfgx** att konfigurera diagnostik-mätvärden som övervakas. Data som Azure diagnostisk tillägget samlar in lagras i Azure Storage-konto som har konfigurerats i den **.wadcfgx** och i den [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) och [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) filer. Detta innebär att det finns en extra kostnader som är associerade med avancerad övervakning.
+Avancerad övervakning är med hjälp av den **Azure Diagnostics** tillägget (och eventuellt Application Insights SDK) på vilken roll som du vill övervaka. Tillägget diagnostik använder en konfigurationsfil (per roll) med namnet **diagnostics.wadcfgx** att konfigurera diagnostik-mätvärden som övervakas. Data som Azure diagnostisk tillägget samlar in lagras i Azure Storage-konto som har konfigurerats i den **.wadcfgx** och i den [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) och [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) filer. Detta innebär att det finns en extra kostnader som är associerade med avancerad övervakning.
 
 När varje roll skapas lägger Visual Studio till Azure-diagnostik tillägget till den. Det här tillägget kan samla in följande typer av information:
 
@@ -52,22 +52,24 @@ När varje roll skapas lägger Visual Studio till Azure-diagnostik tillägget ti
 * Krasch minnesdumpar
 * Kunden felloggar
 
-Den här informationen sammanställs till storage-konto, men portalen innehåller inte ett enhetligt sätt att diagrammets data. Du kan använda en annan tjänst som Application Insights för att korrelera och visa data.
+> [!IMPORTANT]
+> När dessa data slås samman till lagringskontot på portalen har **inte** ett enhetligt sätt att diagrammets data. Vi rekommenderar starkt att du integrerar en annan tjänst som Application Insights i ditt program.
 
 ### <a name="use-application-insights"></a>Använda Application Insights
 
-När du publicerar Molntjänsten från Visual Studio, ges möjlighet att skicka diagnostisk data till Application Insights. Du kan skapa Application Insights-resursen samtidigt eller skicka data till en befintlig resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är viktiga mest för dig. Rollen instans kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns [Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
+När du publicerar Molntjänsten från Visual Studio, ges möjlighet att skicka diagnostisk data till Application Insights. Du kan skapa Application Insights Azure-resurshanteraren då eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till Application Insights så att du kan se data som är viktiga mest för dig. Rollen instans kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns [Application Insights med molntjänster](../application-insights/app-insights-cloudservices.md).
 
 Observera att du kan använda Application Insights för att visa prestandaräknare (och andra inställningar) du har angett via tillägg för Windows Azure-diagnostik du endast får en bättre upplevelse genom att integrera Application Insights SDK i worker och webbtjänst roller.
 
-
-## <a name="add-advanced-monitoring"></a>Lägg till avancerad övervakning
+## <a name="setup-diagnostics-extension"></a>Konfigurera diagnostik-tillägg
 
 Första, om du inte har en **klassiska** lagringskonto [skapar du en](../storage/common/storage-create-storage-account.md#create-a-storage-account). Kontrollera att lagringskontot har skapats med den **klassiska distributionsmodellen** angivna.
 
 Gå sedan till den **Storage-konto (klassisk)** resurs. Välj **inställningar** > **åtkomstnycklar** och kopiera den **primära anslutningssträngen** värde. Du behöver det här värdet för Molntjänsten. 
 
-Det finns två config-filer måste du ändra för avancerad diagnostik för att aktivera **ServiceDefinition.csdef** och **ServiceConfiguration.cscfg**. Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.cscfg** för att distribuera till Azure och som heter **ServiceConfiguration.local.cscfg** som används för lokal debug-distributioner. Ändra båda.
+Det finns två config-filer måste du ändra för avancerad diagnostik för att aktivera **ServiceDefinition.csdef** och **ServiceConfiguration.cscfg**.
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 I den **ServiceDefinition.csdef** lägger du till en ny inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om den saknas, kan du lägga till den nu. 
 
@@ -78,7 +80,9 @@ I den **ServiceDefinition.csdef** lägger du till en ny inställning med namnet 
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Detta definierar en ny inställning måste läggas till varje **ServiceConfiguration.cscfg** fil. Öppna och ändra varje **.cscfg** fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ange värdet till antingen den **primära anslutningssträngen** klassiska storage-konto, eller till `UseDevelopmentStorage=true`, om du vill använda lokal lagring på utvecklingsdatorn.
+Detta definierar en ny inställning måste läggas till varje **ServiceConfiguration.cscfg** fil. 
+
+Troligen har två **.cscfg** filer, en med namnet **ServiceConfiguration.cloud.cscfg** för att distribuera till Azure och som heter **ServiceConfiguration.local.cscfg** som används för lokala distributioner i emulerade miljö. Öppna och ändra varje **.cscfg** fil. Lägg till en inställning med namnet `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Ange värdet till antingen den **primära anslutningssträngen** för klassiska storage-konto. Om du vill använda lokal lagring på utvecklingsdatorn använda `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ Detta definierar en ny inställning måste läggas till varje **ServiceConfigura
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>Nästa steg

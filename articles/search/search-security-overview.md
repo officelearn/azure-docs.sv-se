@@ -4,7 +4,7 @@ description: "Azure Search-säkerhet baseras på SOC 2 kompatibilitet, krypterin
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Datasäkerhet och kontrollerad åtkomst till Azure-sökningar
+# <a name="security-and-controlled-access-in-azure-search"></a>Säkerhet och kontrollerad åtkomst i Azure Search
 
 Azure Search är [SOC 2 kompatibla](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), med en omfattande arkitektur spanning fysisk säkerhet, krypterade överföringar, krypterade lagring och plattform hela programvara skydd. Azure Search funktionsmässigt krävs accepterar bara autentiserade begäranden. Du kan också kan du lägga till kontroller för varje användare åtkomst för innehåll. Den här artikeln vidrör på säkerheten på varje nivå, men är i första hand på hur data och åtgärder skyddas i Azure Search.
 
 ![Blockdiagram där säkerhetslager](media/search-security-overview/azsearch-security-diagram.png)
-
-Azure Search ärver skydd och skydd av Azure-plattformen, är primära mekanismen som används av själva tjänsten nyckeln-baserad autentisering, där typ av nyckel avgör vilken åtkomstnivå. En nyckel är en administrationsnyckel eller en fråga nyckel för skrivskyddad åtkomst.
-
-Åtkomst till din tjänst baseras på en rad med behörigheter som visas med hjälp av nyckeln (fullständig eller skrivskyddad), plus en kontext som definierar en omfattning operations tabell. Varje begäran består av en obligatorisk för en åtgärd och ett objekt. När kopplats samman räcker två behörighetsnivåer plus kontexten för att tillhandahålla fullständig spektrumet säkerhet på tjänståtgärder. 
 
 ## <a name="physical-security"></a>Fysisk säkerhet
 
@@ -38,11 +34,17 @@ Microsoft-datacenter ger branschledande fysisk säkerhet och är kompatibla med 
 
 ## <a name="encrypted-transmission-and-storage"></a>Krypterad överföring och lagring
 
-Azure Search lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster krypteras över hela plattformen. 
+Kryptering utökar under hela den hela pipelinen för fulltextindexering: från anslutningar via överföring och nedåt indexerade data som lagras i Azure Search.
 
-På backend-lagring som används för index och andra konstruktioner, utnyttjar Azure Search kryptering funktionerna för dessa plattformar. Fullständig [AICPA SOC 2 kompatibilitet](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) är tillgänglig för alla söktjänster (nya och befintliga) i alla datacenter som erbjuder Azure Search. Om du vill granska hela rapporten, gå till [Azure- och Azure Government SOC 2 II rapport](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Säkerhetsskiktet | Beskrivning |
+|----------------|-------------|
+| Kryptering under överföring | Azure Search lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster krypteras över hela plattformen. |
+| Vilande kryptering | Kryptering är fullständigt internalized i indexering processen utan mätbara inverkan på indexering tid för slutförande eller Indexstorlek. Det sker automatiskt på alla indexering, inklusive på inkrementella uppdateringar till ett index som inte är fullständigt krypterade (som skapats före januari 2018).<br><br>Internt, kryptering baseras på [Azure Storage Service-kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), med hjälp av 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
+| [Kompatibilitet för SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Alla search-tjänster är fullständigt AICPA SOC 2 kompatibla, alla Datacenter tillhandahåller Azure Search. Om du vill granska hela rapporten, gå till [Azure- och Azure Government SOC 2 II rapport](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
-Kryptering är transparent, med krypteringsnycklar hanteras internt och tillämpas universellt. Du kan inte stänga av specifika search-tjänster eller index, eller hantera nycklar direkt, eller ange egna. 
+Kryptering är interna för Azure Search med certifikat och krypteringsnycklar hanteras internt av Microsoft och tillämpas universellt. Du kan inte aktivera kryptering eller inaktivera, hantera eller ersätta egna nycklar eller visa krypteringsinställningar i portalen eller programmässigt. 
+
+Kryptering i vila har angivits i 24 januari 2018 och gäller för alla servicenivåer, inklusive delade (kostnadsfritt), i alla regioner. För fullständig kryptering index som skapades före denna tidpunkt släppas och återskapas för att kryptering ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.
 
 ## <a name="azure-wide-logical-security"></a>Azure hela logisk säkerhet
 
@@ -53,15 +55,15 @@ Flera säkerhetsmekanismer finns tillgängliga via Azure-stacken och därmed aut
 
 Alla Azure-tjänster stöder rollbaserad åtkomstkontroll (RBAC) för att ställa in åtkomstnivåer konsekvent över alla tjänster. Till exempel är visa känsliga data, till exempel admin-nyckel begränsad till ägare och deltagare roller, visa Tjänststatus för är tillgänglig för medlemmar i någon roll. RBAC ger ägare, deltagare och läsare. Som standard är alla administratörer medlemmar i rollen som ägare.
 
-## <a name="service-authentication"></a>Autentiseringen av tjänsten
+## <a name="service-access-and-authentication"></a>Åtkomst till tjänsten och autentisering
 
-Azure Search tillhandahåller en egen metod för autentisering. Autentisering sker vid varje förfrågan och baseras på snabbtangent som avgör vilka åtgärder. En giltig åtkomstnyckel anses bevis begäran kommer från en betrodd enhet. 
+Medan Azure Search ärver säkerhetsåtgärder i Azure-plattformen, ger också en egen nyckel för autentisering. Typ av nyckel (admin eller fråga) avgör vilken åtkomstnivå. Överföring av en giltig nyckel anses bevis begäran kommer från en betrodd enhet. 
 
-Autentiseringen av per tjänsten finns på två nivåer: fullständiga rättigheter, endast fråga. Typ av nyckel avgör vilken åtkomstnivå är aktiverat.
+Autentisering krävs för varje begäran, där varje begäran består av en obligatorisk för en åtgärd och ett objekt. När kopplats samman räcker två behörighetsnivåer (fullständig eller skrivskyddad) plus kontexten för att tillhandahålla fullständig spektrumet säkerhet på tjänståtgärder. 
 
 |Nyckel|Beskrivning|Begränsningar|  
 |---------|-----------------|------------|  
-|Administratör|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort **index**, **indexerare**, och **datakällor**.<br /><br /> Två admin **api-nycklar**, kallas *primära* och *sekundära* i portalen genereras när tjänsten har skapats och individuellt genereras på begäran . Har två nycklar kan du återställa över en nyckel när du använder den andra nyckeln för fortsatt tillgång till tjänsten.<br /><br /> Admin nycklar endast anges i HTTP-huvuden för begäran. Du kan inte placera en administratör **api-nyckel** i en URL.|Maximalt 2 per tjänst|  
+|Administratör|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor.<br /><br /> Två admin **api-nycklar**, kallas *primära* och *sekundära* i portalen genereras när tjänsten har skapats och individuellt genereras på begäran . Har två nycklar kan du återställa över en nyckel när du använder den andra nyckeln för fortsatt tillgång till tjänsten.<br /><br /> Admin nycklar endast anges i HTTP-huvuden för begäran. Du kan placera en admin api-nyckel i en URL.|Maximalt 2 per tjänst|  
 |Fråga|Ger läsbehörighet till index och dokument och distribueras vanligen till klientprogram som kan utfärda search-begäranden.<br /><br /> Frågan nycklar skapas på begäran. Du kan skapa dem manuellt på portalen eller programmässigt via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Frågan nycklar kan anges i ett HTTP-huvud för begäran för sökning, förslag eller sökning. Du kan också ange en fråga nyckel som en parameter på en URL. Beroende på hur ditt klientprogram formulates begäran, kan det vara enklast att överföra nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per tjänst|  
 
  Visuellt, görs ingen åtskillnad mellan en administrationsnyckeln eller Frågenyckeln. Båda nycklarna genereras strängar som består av 32 slumpmässigt alfanumeriska tecken. Om du tappar bort reda på vilken typ av nyckel har angetts i ditt program kan du [Kontrollera nyckelvärdena i portalen](https://portal.azure.com) eller använda den [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) att returnera värdet och nyckeltyp.  
@@ -124,7 +126,7 @@ I följande tabell sammanfattas de åtgärder som tillåts i Azure Search och vi
 | Hantera frågenycklar |  Administrationsnyckeln RBAC ägare eller deltagare för resursen. RBAC läsare kan visa frågan nycklar. |
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Kom igång .NET (visas hur du använder en administratör för att skapa ett index)](search-create-index-dotnet.md)
 + [Kom igång REST (visas hur du använder en administratör för att skapa ett index)](search-create-index-rest-api.md)

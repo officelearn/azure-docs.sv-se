@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker 
 Det finns ingen skillnad i runbooks som körs i Azure Automation och de som körs på en Hybrid Runbook Worker-strukturen. Runbooks som du använder med varje troligen påtagligt skiljer sig dock eftersom runbooks inriktning på en Hybrid Runbook Worker vanligtvis hantera resurser på den lokala datorn sig själv eller mot resurser i den lokala miljön där den distribueras, medan runbooks i Azure Automation kan vanligtvis hantera resurser i Azure-molnet.
@@ -59,7 +59,7 @@ I stället för med runbooks sin egen autentisering till lokala resurser, kan du
 
 Användarnamn för autentiseringsuppgifter måste vara i något av följande format:
 
-* domän\användarnamn
+* domain\username
 * username@domain
 * användarnamn (för konton som är lokala för lokal dator)
 
@@ -144,7 +144,7 @@ Följande PowerShell-runbook *Export RunAsCertificateToHybridWorker*, exporterar
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Spara den *Export RunAsCertificateToHybridWorker* runbook på datorn med en `.ps1` tillägg.  Importera den till ditt Automation-konto och redigera runbook, ändra värdet för variabeln `$Password` med ditt eget lösenord.  Publicera och sedan köra runbook riktad Hybrid Worker-grupp som körs och autentisera runbooks med Kör som-kontot.  Jobbet dataströmmen rapporterar försök att importera certifikatet till lokala datorns Arkiv och följer med flera rader beroende på hur många Automation-konton har definierats i din prenumeration och om autentiseringen har lyckats.  
 

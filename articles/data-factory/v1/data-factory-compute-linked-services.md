@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7733ea111de896ab0f825c85b89be25ebafdbd85
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 071d593108dd96605897cffe179d6451f8789ce6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -34,7 +34,7 @@ Följande tabell innehåller en lista över compute-miljöer som stöds av Data 
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQLServer](#sql-server-linked-service) | [Lagrad procedur](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Lagrad procedur](data-factory-stored-proc-activity.md) |
 
 ## <a name="supported-hdinsight-versions-in-azure-data-factory"></a>HDInsight-versioner som stöds i Azure Data Factory
 Azure HDInsight har stöd för flera Hadoop-klusterversioner som kan distribueras när som helst. Varje version alternativ skapas en viss version av Hortonworks Data Platform (HDP)-distribution och en uppsättning komponenter som ingår i distributionen. Microsoft håller uppdaterar listan över versioner som stöds av HDInsight för att ange senaste Hadoop-ekosystemet komponenterna och korrigeringar. Detaljerad information finns i [HDInsight-versioner som stöds](../../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -121,7 +121,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight länkad tjän
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Typegenskapen bör anges till **HDInsightOnDemand**. | Ja      |
 | ClusterSize                  | Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för ytterligare information om Standard_D3-nivå. | Ja      |
-| TimeToLive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 bort klustret som kör aktiviteten har slutförts. Men om du anger ett högt värde kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Om egenskapen timetolive-värdet är korrekt, delar flera pipelines instans av HDInsight-kluster på begäran. | Ja      |
+| timetolive                   | Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 bort klustret som kör aktiviteten har slutförts. Men om du anger ett högt värde kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Om egenskapen timetolive-värdet är korrekt, delar flera pipelines instans av HDInsight-kluster på begäran. | Ja      |
 | version                      | Versionen av HDInsight-kluster finns i [HDInsight-versioner som stöds](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) tillåts för HDInsight-versioner. Om inget anges används den [senaste HDI-standardversionen](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Nej       |
 | linkedServiceName            | Azure Storage länkade tjänsten som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som Azure Storage-konto.<p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight som bearbetas i en Azure Data Lake Store kan du använda en Kopieringsaktiviteten för att kopiera data från Azure Blobblagring till Azure Data Lake Store. </p> | Ja      |
 | additionalLinkedServiceNames | Anger ytterligare lagringskonton för till HDInsight länkade tjänsten så att Data Factory-tjänsten kan registrera dem å dina vägnar. Dessa storage-konton måste vara i samma region som HDInsight-kluster som skapas i samma region som lagringskontot som anges av linkedServiceName. | Nej       |
@@ -209,7 +209,7 @@ Om du vill skapa D4 storlek huvudnoderna och arbetsnoder ange **Standard_D4** so
 "dataNodeSize": "Standard_D4",
 ```
 
-Om du anger ett felaktigt värde för dessa egenskaper visas följande **fel:** gick inte att skapa klustret. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Meddelande: 'PreClusterCreationValidationFailure'. När du får det här felet kan du se till att du använder den **CMDLET & API: er** namn från tabellen i den [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md) artikel.  
+Om du anger ett felaktigt värde för dessa egenskaper visas följande **fel:** gick inte att skapa klustret. Undantag: Unable to complete the cluster create operation. (Det går inte att slutföra åtgärden att skapa ett kluster.) Operation failed with code '400'. (Åtgärden misslyckades med koden 400). Cluster left behind state: 'Error'. (Klustret efterlämnade status: Fel.) Message: 'PreClusterCreationValidationFailure'. När du får det här felet kan du se till att du använder den **CMDLET & API: er** namn från tabellen i den [storlekar för virtuella datorer](../../virtual-machines/linux/sizes.md) artikel.  
 
 > [!NOTE]
 > Azure Data Factory stöder för närvarande inte HDInsight-kluster med Azure Data Lake Store som primär store. Använd Azure Storage som primär lagringsplats för HDInsight-kluster. 
@@ -226,9 +226,9 @@ Den här typen av konfiguration stöds för följande beräknings-miljöer:
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
-* Azure SQL DB, Azure SQL DW, SQLServer
+* Azure SQL DB, Azure SQL DW, SQL Server
 
-## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight länkade tjänsten
+## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight Linked Service
 Du kan skapa en Azure HDInsight länkad tjänst för att registrera ditt eget kluster i HDInsight med Data Factory.
 
 ### <a name="example"></a>Exempel
@@ -257,7 +257,7 @@ Du kan skapa en Azure HDInsight länkad tjänst för att registrera ditt eget kl
 | lösenord          | Ange lösenordet för användarkontot.   | Ja      |
 | linkedServiceName | Namn på länkad Azure Storage-tjänst som refererar till Azure blob storage som används av HDInsight-klustret. <p>För närvarande kan du ange ett Azure Data Lake Store länkade tjänsten för den här egenskapen. Om HDInsight-klustret har åtkomst till Data Lake Store, kan du komma åt data i Azure Data Lake Store från Hive/Pig-skript. </p> | Ja      |
 
-## <a name="azure-batch-linked-service"></a>Azure Batch länkade tjänsten
+## <a name="azure-batch-linked-service"></a>Azure Batch Linked Service
 Du kan skapa en Azure Batch länkad tjänst för att registrera en Batch-pool med virtuella datorer (VM) till en data factory. Du kan köra .NET anpassade aktiviteter med hjälp av Azure Batch eller Azure HDInsight.
 
 Se följande avsnitt om du har använt Azure Batch-tjänsten:
@@ -330,7 +330,7 @@ Du kan skapa en Azure Machine Learning länkad tjänst för att registrera en Ma
 | mlEndpoint | URL för batchbedömningsjobbet.                   | Ja      |
 | apiKey     | Den publicerade arbetsytemodellens API.     | Ja      |
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics länkade tjänsten
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics Linked Service
 Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka ett Azure Data Lake Analytics compute-tjänst till ett Azure data factory. Data Lake Analytics U-SQL-aktivitet i pipelinen refererar till den här länkade tjänsten. 
 
 Följande tabell innehåller beskrivningar för allmänna egenskaper som används i JSON-definitionen. Du kan ytterligare välja mellan tjänstens huvudnamn och autentiseringsuppgifter för användarautentisering.
@@ -339,8 +339,8 @@ Följande tabell innehåller beskrivningar för allmänna egenskaper som använd
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | **Kontonamn**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nej                                       |
-| **prenumerations-ID**       | Azure prenumerations-id                    | Nej (om den inte anges data factory-prenumeration används). |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Nej                                       |
+| **subscriptionId**       | Azure prenumerations-id                    | Nej (om den inte anges data factory-prenumeration används). |
 | **resourceGroupName**    | Azure resursgruppens namn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
 
 ### <a name="service-principal-authentication-recommended"></a>Tjänstens huvudnamn autentisering (rekommenderas)
@@ -382,7 +382,7 @@ Alternativt kan du använda användarautentisering för autentiseringsuppgifter 
 | Egenskap          | Beskrivning                              | Krävs |
 | :---------------- | :--------------------------------------- | :------- |
 | **auktorisering** | Klicka på den **auktorisera** i den Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL till den här egenskapen. | Ja      |
-| **sessions-ID**     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
+| **sessionId**     | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja      |
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**
 ```json
@@ -439,12 +439,12 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 Se [AzureDataLakeStoreLinkedService klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), och [AuthorizationSessionGetResponse klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) avsnitt hittar du information om Data Factory-klasser som används i koden. Lägg till en referens till: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll för WindowsFormsWebAuthenticationDialog-klassen. 
 
-## <a name="azure-sql-linked-service"></a>Azure SQL länkade tjänsten
+## <a name="azure-sql-linked-service"></a>Azure SQL Linked Service
 Du skapar en Azure SQL-länkade tjänst och använda den med den [lagrade Proceduraktiviteten](data-factory-stored-proc-activity.md) att anropa en lagrad procedur från Data Factory-pipelinen. Se [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) artikeln för information om den här länkade tjänsten.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse länkad tjänst
 Du skapar en länkad Azure SQL Data Warehouse-tjänst och använda den med den [lagrade Proceduraktiviteten](data-factory-stored-proc-activity.md) att anropa en lagrad procedur från Data Factory-pipelinen. Se [Azure SQL Data Warehouse-Anslutningsapp](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) artikeln för information om den här länkade tjänsten.
 
-## <a name="sql-server-linked-service"></a>SQLServer länkade tjänsten
+## <a name="sql-server-linked-service"></a>SQL Server Linked Service
 Du skapar en SQL Server som är länkad tjänst och använda den med den [lagrade Proceduraktiviteten](data-factory-stored-proc-activity.md) att anropa en lagrad procedur från Data Factory-pipelinen. Se [SQL Server-anslutningen](data-factory-sqlserver-connector.md#linked-service-properties) artikeln för information om den här länkade tjänsten.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. Den [core-paketet](http://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) ange telemetri *moduler* och *initierare* för automatiskt spåra telemetri från ditt program och dess kontext. Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetri moduler och initierare och ange parametrar för några av dem.
@@ -237,7 +237,7 @@ Om du vill ange nyckeln dynamiskt – till exempel om du vill skicka resultaten 
 
 Om du vill ange nyckeln för alla instanser av TelemetryClient, ange inklusive standard telemetri moduler, nyckeln i TelemetryConfiguration.Active. Gör så här i en initieringsmetod, till exempel global.aspx.cs i en ASP.NET-tjänst:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -250,7 +250,7 @@ Om du vill ange nyckeln för alla instanser av TelemetryClient, ange inklusive s
 
 Om du vill skicka en viss uppsättning händelser till en annan resurs anger du nyckeln för en specifik TelemetryClient:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln gäller för version 2 av Azure Data Factory-tjänsten. Den innehåller svar på vanliga frågor om Data Factory.  
@@ -31,7 +31,7 @@ Data Factory är en helt hanterad, molnbaserad, dataintegrering-tjänst som auto
 
 Du kan skapa datadrivna arbetsflöden för att flytta data mellan lokalt och i molnet med hjälp av Azure Data Factory-datalager. Du kan bearbeta och transformera data med hjälp av compute-tjänster som Azure HDInsight, Azure Data Lake Analytics och SQL Server Integration Services (SSIS) integration runtime. 
 
-Du kan köra din databehandling på en Azure-baserade molntjänst eller i din egen automatisk beräkning värdmiljö, till exempel SSIS, SQL Server eller Oracle med Data Factory. När du har skapat en pipeline som utför den åtgärd som du behöver schemalägga du ska köras regelbundet (t.ex, per timme, varje dag eller varje vecka) eller utlösa pipeline från en händelseförekomst. Mer information finns i [introduktion till Azure Data Factory](introduction.md).
+Du kan köra din databehandling på en Azure-baserade molntjänst eller i din egen automatisk beräkning värdmiljö, till exempel SSIS, SQL Server eller Oracle med Data Factory. När du har skapat en pipeline som utför den åtgärd som du behöver schemalägga du ska köras regelbundet (t.ex, per timme, varje dag eller varje vecka) eller utlösa pipeline från en händelseförekomst. Mer information finns i [Introduktion till Azure Data Factory](introduction.md).
 
 ## <a name="whats-different-in-version-2"></a>Vad är nytt i version 2?
 Azure Data Factory version 2 bygger vidare på den ursprungliga dataöverförings- och omvandlingstjänsten och utökar med en bredare uppsättning molninriktade dataintegreringsscenarier. Azure Data Factory version 2 innehåller följande funktioner:
@@ -93,7 +93,7 @@ Integration runtime är beräkningsinfrastrukturen som används av Azure Data Fa
 
 Du kan distribuera en eller flera instanser av integration runtime som krävs för att flytta och transformera data. Integration körning kan köras på ett Azure offentligt nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuella privat moln [Virtual PC]). 
 
-Mer information finns i [integrering körning i Azure Data Factory](concepts-integration-runtime.md).
+Mer information finns i [Integration Runtime i Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Vad är gränsen för antalet integration körningar?
 Det finns ingen hård gräns för antalet integration runtime-instanser i en datafabrik. Det finns dock en gräns för antalet Virtuella kärnor integration körningen kan använda per prenumeration för körning av SSIS-paket. Mer information finns i [Data Factory begränsar](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Ja. Du kan länka aktiviteter i version 2 utan datamängder. Du kopplar aktivite
 Ja, stöds alla version 1 aktiviteter i version 2.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Hur kan jag schemalägga en version 2-pipeline? 
-Du kan använda Schemaläggaren utlösaren för att schemalägga en version 2-pipeline. Utlösaren använder ett schema för brandvägg klockan kalender och du kan använda för att schemalägga pipelines regelbundet eller genom att använda kalender-baserade återkommande mönster (t.ex, för varje vecka på måndagen vid 18: 00 och torsdagen vid 21: 00). Mer information finns i [Pipeline körning och utlösare](concepts-pipeline-execution-triggers.md).
+Du kan använda Schemaläggaren utlösaren för att schemalägga en version 2-pipeline. Utlösaren använder ett schema för brandvägg klockan kalender och du kan använda för att schemalägga pipelines regelbundet eller genom att använda kalender-baserade återkommande mönster (t.ex, för varje vecka på måndagen vid 18: 00 och torsdagen vid 21: 00). Mer information finns i [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Kan jag skicka parametrar för en pipeline som körs i version 2?
 Ja, kan ett förstklassigt, översta koncept i version 2. Du kan definiera parametrar nivån pipeline och skicka argument när du kör pipeline kör på begäran eller genom att använda en utlösare.  

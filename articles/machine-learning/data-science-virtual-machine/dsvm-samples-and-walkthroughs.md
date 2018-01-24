@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Exempel på datavetenskap virtuella datorer (DSVM)
 
@@ -34,7 +34,7 @@ DSVMs medföljer inkluderade fullständigt arbetat ut exempel i form av Jupyter-
 | **Python** språk  | Exempel på **Python** förklarar scenarier som ansluter till Azure-molnet datalager och arbeta med **Azure Machine Learning**.  <br/> [Skärmbild](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Julia** språk  | Exempel på **Julia** som innehåller information om Plotting i Julia djupt Lär i Julia, anropa C och Python från Julia osv. <br/> [Skärmbild](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft kognitiva Toolkit)  | Djup learning prover som publicerats av kognitiva Toolkit-team på Microsoft.  <br/> [Skärmbild](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** bärbara datorer  | Djupt Learning exempel som använder **MXnet** baserat neurala nätverk. Det finns en mängd bärbara datorer, från nybörjare till avancerade scenarier.  <br/> [Skärmbild](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** bärbara datorer  | Djupt Learning exempel som använder **MXNet** baserat neurala nätverk. Det finns en mängd bärbara datorer, från nybörjare till avancerade scenarier.  <br/> [Skärmbild](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interaktion med **Azure Machine Learning** Studio och skapa webbtjänsten slutpunkter från lokalt tränade modeller för molnbaserade bedömningsprofil arbetsflöden. <br/> [Skärmbild](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Djupt Learning exempel som använder **caffe2** baserat neurala nätverk. Det finns flera anteckningsböcker som utformats för att bekanta användare med caffe2 och hur du använder den på ett effektivt sätt, inklusive exempel som bild förbearbetning dataset skapas, Regression, och använder tränas före modeller. <br/> [Skärmbild](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Python-baserade exempel som använder **H2O** för många verkligt scenario problem. <br/> [Skärmbild](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -83,13 +83,13 @@ Logga in med samma lösenord som din inloggningsinformation för DSVM.
 <br/>![CNTK-exempel](./media/cntk-samples2.png)<br/>
 <br/>![CNTK-exempel](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![MXnet-exempel](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
-<br/>![AzurekML-exempel](./media/azureml-samples.png)<br/>
+<br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
 
-## <a name="caffe2"></a>Caffe2 
+## <a name="caffe2"></a>caffe2 
 <br/>![caffe2-exempel](./media/caffe2-samples.png)<br/>
 
 ## <a name="h2o"></a>H2O 

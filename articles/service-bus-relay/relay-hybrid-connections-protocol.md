@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
 Azure Relay är en av kapaciteten för viktiga pelare i Azure Service Bus-plattformen. Den nya *Hybridanslutningar* möjligheterna för vidarebefordran är en säker, öppna protokoll utvecklingen baserat på http- och WebSockets. Det ersätter den tidigare lika med namnet *BizTalk-tjänst* funktion som har byggt på protokoll. Integrering av Hybridanslutningar i Azure App Service fortsätter att fungera som-är.
@@ -96,9 +96,9 @@ Om WebSocket-anslutningen misslyckas på grund av Hybridanslutning sökvägen in
 
 | Kod | Fel | Beskrivning |
 | --- | --- | --- |
-| 404 |Det gick inte att hitta |Hybridanslutningen sökväg är ogiltig eller den grundläggande Webbadressen är felaktig. |
+| 404 |Kunde inte hittas |Hybridanslutningen sökväg är ogiltig eller den grundläggande Webbadressen är felaktig. |
 | 401 |Behörighet saknas |Säkerhetstoken är saknas eller felaktig eller ogiltig. |
-| 403 |Tillåts inte |Säkerhetstoken är inte giltig för den här sökvägen för den här åtgärden. |
+| 403 |Förbjudna |Säkerhetstoken är inte giltig för den här sökvägen för den här åtgärden. |
 | 500 |Internt fel |Något gick fel i tjänsten. |
 
 Om WebSocket-anslutningen avsiktligt stängs av tjänsten efter att det ursprungligen har ställts in orsaken till detta så överförs med hjälp av lämplig WebSocket-protokollet felkoden tillsammans med ett beskrivande felmeddelande som innehåller också en spårnings-ID: t. Tjänsten stängs inte kontrollkanalen utan ett feltillstånd. En ren avstängning är klient kontrolleras.
@@ -161,7 +161,7 @@ Om det uppstår ett fel kan i tjänsten svara på följande sätt:
 
 | Kod | Fel | Beskrivning |
 | --- | --- | --- |
-| 403 |Tillåts inte |URL: en är inte giltig. |
+| 403 |Förbjudna |URL: en är inte giltig. |
 | 500 |Internt fel |Det uppstod ett fel i tjänsten |
 
 När anslutningen har upprättats stängs servern av WebSocket när avsändaren WebSocket stänger, eller med följande status:
@@ -182,7 +182,7 @@ Om du vill avvisa socket klienten tar URI-adress från meddelandet ”accepterar
 
 | Param | Krävs | Beskrivning |
 | --- | --- | --- |
-| statusCode |Ja |Numeriska HTTP-statuskod. |
+| statuskod |Ja |Numeriska HTTP-statuskod. |
 | StatusDescription |Ja |Mänsklig läsbar orsak till att. |
 
 Resulterande URI: N används sedan för att upprätta en WebSocket-anslutning.
@@ -191,7 +191,7 @@ När den har slutförts korrekt, misslyckas denna handskakning avsiktligt med en
 
 | Kod | Fel | Beskrivning |
 | --- | --- | --- |
-| 403 |Tillåts inte |URL: en är inte giltig. |
+| 403 |Förbjudna |URL: en är inte giltig. |
 | 500 |Internt fel |Något gick fel i tjänsten. |
 
 ### <a name="listener-token-renewal"></a>Lyssnare token förnyelse
@@ -248,9 +248,9 @@ Om WebSocket-anslutningen misslyckas på grund av Hybrid anslutningssökvägen i
 
 | Kod | Fel | Beskrivning |
 | --- | --- | --- |
-| 404 |Det gick inte att hitta |Hybridanslutningen sökväg är ogiltig eller den grundläggande Webbadressen är felaktig. |
+| 404 |Kunde inte hittas |Hybridanslutningen sökväg är ogiltig eller den grundläggande Webbadressen är felaktig. |
 | 401 |Behörighet saknas |Säkerhetstoken är saknas eller felaktig eller ogiltig. |
-| 403 |Tillåts inte |Säkerhetstoken är inte giltigt för den här sökvägen och för den här åtgärden. |
+| 403 |Förbjudna |Säkerhetstoken är inte giltigt för den här sökvägen och för den här åtgärden. |
 | 500 |Internt fel |Något gick fel i tjänsten. |
 
 Om WebSocket-anslutningen avsiktligt stängs av tjänsten när den ursprungligen har ställts in orsaken till detta så överförs med hjälp av lämplig WebSocket-protokollet felkoden tillsammans med ett beskrivande felmeddelande som innehåller också en spårnings-ID: t.

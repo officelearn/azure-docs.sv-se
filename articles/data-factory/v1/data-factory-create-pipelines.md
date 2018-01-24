@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8bfdd9d69b6172ff4fae82be6db4a459dd516716
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,10 +99,10 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 | description | Ange texten som beskriver vad pipeline används till. |Ja |
 | activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Finns i nästa avsnitt för mer information om aktiviteter JSON-element. | Ja |  
 | start | Datum-starttiden för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM beräknat<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipeline. Utdata segment som endast produceras med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan båda vara tomma om du vill skapa en pipeline. Du måste ange både värden om du vill ange en aktiv period för pipelinen ska köras. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdlet Set-AzureRmDataFactoryPipelineActivePeriod senare. |
-| End | Datum sluttiden för pipelinen. Om du måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Ange 09-09-9999 som värde för end-egenskapen för att köra pipelinen på obestämd tid. <br/><br/> En pipeline är aktiv endast mellan dess starttid och sluttid. Det utförs inte före starttiden eller efter sluttid. Om pipeline pausas är körs den inte oavsett dess start- och tid. För en rörledning för att köra, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värde för end-egenskapen.<br/><br/>Du hittar information för den **starta** egenskapen. |
+| slut | Datum sluttiden för pipelinen. Om du måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Ange 09-09-9999 som värde för end-egenskapen för att köra pipelinen på obestämd tid. <br/><br/> En pipeline är aktiv endast mellan dess starttid och sluttid. Det utförs inte före starttiden eller efter sluttid. Om pipeline pausas är körs den inte oavsett dess start- och tid. För en rörledning för att köra, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värde för end-egenskapen.<br/><br/>Du hittar information för den **starta** egenskapen. |
 | isPaused | Om värdet är true pipelinen inte körs. Det är i pausläge. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Nej |
 | pipelineMode | Metoden för schemaläggning körs för pipeline. Tillåtna värden är: schemalagda (standard), görs.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). 'Görs ”anger att pipelinen körs bara en gång. Görs pipelines när skapat går inte att ändra/uppdatera för närvarande. Se [Onetime pipeline](#onetime-pipeline) mer information om hur du görs. |Nej |
-| ExpirationTime | Tid när den har skapats för vilka den [enstaka pipeline](#onetime-pipeline) är giltig och vara etablerade. Om den inte har någon aktiv, misslyckades, eller väntande körs pipelinen är automatiskt når bort när den förfallotid. Standardvärde:`"expirationTime": "3.00:00:00"`|Nej |
+| expirationTime | Tid när den har skapats för vilka den [enstaka pipeline](#onetime-pipeline) är giltig och vara etablerade. Om den inte har någon aktiv, misslyckades, eller väntande körs pipelinen är automatiskt når bort när den förfallotid. Standardvärde:`"expirationTime": "3.00:00:00"`|Nej |
 | Datauppsättningar |Lista över datauppsättningar som ska användas av aktiviteter som definierats i pipelinen. Den här egenskapen kan användas för att definiera datauppsättningar som är specifika för den här pipelinen och inte definierats inom datafabriken. Datauppsättningar som definierats i denna pipeline kan endast användas av denna pipeline och kan inte delas. Se [omfång datauppsättningar](data-factory-create-datasets.md#scoped-datasets) mer information. |Nej |
 
 ## <a name="activity-json"></a>Aktivitets-JSON
@@ -296,7 +296,7 @@ Du kan skapa pipelines med någon av dessa verktyg och SDK: er.
 - Visual Studio
 - Azure PowerShell
 - Azure Resource Manager-mall
-- REST API
+- REST-API
 - .NET-API
 
 Se följande kurser stegvisa instruktioner för att skapa pipelines med någon av dessa verktyg och SDK: er.

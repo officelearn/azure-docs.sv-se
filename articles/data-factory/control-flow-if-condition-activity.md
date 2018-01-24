@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om aktiviteten i Azure Data Factory-villkor
-Om villkoret aktiviteten fungerar på samma sätt som en om instruktionen innehåller programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
+If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
 
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten om villkoret. | Sträng | Ja
 typ | Måste anges till **IfCondition** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till true eller false | Ja
+expression | Uttryck som måste utvärderas till true eller false | Ja
 ifTrueActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `true`. | Ja
 ifFalseActivities | Uppsättning aktiviteter som utförs när uttrycket utvärderas till `false`. | Ja
 

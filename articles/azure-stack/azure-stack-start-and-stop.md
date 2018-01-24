@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Starta och stoppa Azure Stack
 
@@ -41,6 +41,15 @@ Stänga av Azure-stacken med följande steg:
 > [!Note]  
 > Du kan kontrollera status för en fysisk nod power genom att följa anvisningarna från OEM-tillverkaren (OEM) som tillhandahåller Azure Stack-maskinvara. 
 
+## <a name="start-azure-stack"></a>Starta Azure-stacken 
+
+Starta Azure-stacken med följande steg. Följ dessa steg oavsett hur Azure-stacken stoppades.
+
+1. Slå på varje fysisk nod i Azure Stack-miljö. Kontrollera slå på instruktioner för fysiska noder genom att följa anvisningarna från OEM-tillverkaren (OEM) som angetts av maskinvaran för Azure-stacken.
+
+2. Vänta tills Stack Azure infrastrukturtjänster startar. Azure infrastrukturtjänster för stacken kan kräva två timmar att slutföra startprocessen. Du kan kontrollera status för start av Azure-stacken med den [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Hämta Start-status för Azure-stacken
 
 Hämta starten för rutinen Azure Stack startades med följande steg:
@@ -52,14 +61,6 @@ Hämta starten för rutinen Azure Stack startades med följande steg:
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Starta Azure-stacken 
-
-Starta Azure-stacken med följande steg. Följ dessa steg oavsett hur Azure-stacken stoppades.
-
-1. Slå på varje fysisk nod i Azure Stack-miljö. Kontrollera slå på instruktioner för fysiska noder genom att följa anvisningarna från OEM-tillverkaren (OEM) som angetts av maskinvaran för Azure-stacken.
-
-2. Vänta tills Stack Azure infrastrukturtjänster startar. Azure infrastrukturtjänster för stacken kan kräva två timmar att slutföra startprocessen. Du kan kontrollera status för start av Azure-stacken med den [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Felsöka start och stopp av Azure-stacken
 

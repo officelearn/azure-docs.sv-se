@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Användningsfall - Kundprofilering
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite solution Accelerator-verktyg.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi enkla användningsfall som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga problem med analytics.
@@ -53,7 +53,7 @@ Allt du behöver för att komma åt och prova att använda den här enkla använ
 
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Lösning: översikt
+## <a name="solution-overview"></a>Lösningsöversikt
 Den här enkla användningsfall kan användas som ett exempel på hur du kan använda Azure Data Factory för att mata in, förbereda, transformera, analysera och publicera data.
 
 ![Arbetsflödet slutpunkt till slutpunkt](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

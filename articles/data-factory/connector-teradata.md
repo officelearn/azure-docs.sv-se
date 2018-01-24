@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -167,14 +167,14 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Datatypen för Teradata | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blob |byte] |
-| Mottagna byte |byte] |
+| Blob |Byte[] |
+| Mottagna byte |Byte[] |
 | ByteInt |Int16 |
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
 | Decimal |Decimal |
-| dubbla |dubbla |
+| Dubbel |Dubbel |
 | Bild |Sträng |
 | Integer |Int32 |
 | Intervall dag |TimeSpan |
@@ -190,21 +190,21 @@ När du kopierar data från Teradata, används följande mappningar från Terada
 | Intervall för andra |TimeSpan |
 | Intervall år |Sträng |
 | Intervall år, månad |Sträng |
-| Tal |dubbla |
+| Tal |Dubbel |
 | Period(Date) |Sträng |
 | Period(Time) |Sträng |
 | Tid (Time med tidszon) |Sträng |
-| Period(timestamp) |Sträng |
+| Period(Timestamp) |Sträng |
 | Tid (tidsstämpel med tidszon) |Sträng |
 | SmallInt |Int16 |
 | Tid |TimeSpan |
 | Tid med tidszon |Sträng |
 | Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
-| VarByte |byte] |
+| VarByte |Byte[] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
-| XML |Sträng |
+| Xml |Sträng |
 
 
 ## <a name="next-steps"></a>Nästa steg

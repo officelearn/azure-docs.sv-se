@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Skydda en MVC-webb-API
 Med Azure Active Directory v2.0-slutpunkten kan du skydda ett webb-API med hjälp av [OAuth 2.0](active-directory-v2-protocols.md) åtkomst-token så att användarna med både personliga Microsoft-konto och arbets- eller skolkonto konton för säker åtkomst webb-API.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Lägg till en OWIN-startklass i TodoListService-projektet som kallas `Startup.cs`.  Högerklicka på projektet--> **Lägg till** --> **nytt objekt** --> Sök efter ”OWIN”.  OWIN-mellanprogrammet anropar `Configuration(…)`-metoden när appen startas.
 * Ändra klassdeklarationen till `public partial class Startup` -vi har implementerat en del av den här klassen som du redan i en annan fil.  I den `Configuration(…)` metod, gör ett anrop till ConfgureAuth(...) du konfigurerar autentisering för ditt webbprogram.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Öppna filen `App_Start\Startup.Auth.cs` och genomföra den `ConfigureAuth(…)` metod som ställer in webb-API för att acceptera token från v2.0-slutpunkten.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Nu kan du använda `[Authorize]` attribut för att skydda dina domänkontrollanter och åtgärder med OAuth 2.0-ägar-autentisering.  Skapa snygga den `Controllers\TodoListController.cs` klass med en auktorisera-tagg.  Detta tvingar användaren att logga in innan sidan.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * När en auktoriserad anroparen har anropar någon av de `TodoListController` API: er, åtgärden kanske behöver åtkomst till information om anroparen.  OWIN ger tillgång till anspråk i ägartoken via den `ClaimsPrincipal` objekt.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the

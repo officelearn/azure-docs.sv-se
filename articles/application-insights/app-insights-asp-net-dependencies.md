@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Konfigurera Application Insights: beroende-spårning
 En *beroende* är en extern komponent som anropas av din app. Det är normalt en tjänst som anropas med HTTP, eller en databas eller ett filsystem. [Application Insights](app-insights-overview.md) mäter hur länge programmet väntar på beroenden och hur ofta en beroendeanropet misslyckas. Du kan undersöka specifika anrop och koppla dem till begäranden och undantag.
@@ -43,9 +43,9 @@ Partiell beroendeinformation som samlas in automatiskt av den [Application Insig
 
 | Plattform | Installera |
 | --- | --- |
-| IIS-servern |Antingen [installera statusövervakaren på servern](app-insights-monitor-performance-live-website-now.md) eller [uppgradera ditt program till .NET framework 4.6 eller senare](http://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
+| IIS Server |Antingen [installera statusövervakaren på servern](app-insights-monitor-performance-live-website-now.md) eller [uppgradera ditt program till .NET framework 4.6 eller senare](http://go.microsoft.com/fwlink/?LinkId=528259) och installera den [Application Insights SDK](app-insights-asp-net.md) i din app. |
 | Azure-webbapp |I Kontrollpanelen web app, [öppna bladet Application Insights i Kontrollpanelen web app](app-insights-azure-web-apps.md) och välj Installera om du uppmanas. |
-| Azure-molntjänst |[Använd startaktivitet](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure Cloud Service |[Använd startaktivitet](app-insights-cloudservices.md) eller [installera .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Var du hittar beroendedata
 * [Programavbildningen](#application-map) visualizes beroenden mellan appen och angränsande komponenter.
@@ -122,7 +122,7 @@ Det verkar vara ett stort mellanrum efter första beroendet anropar, så vi ska 
 
 Ingen idé där tillfälle? Den [Application Insights profiler](app-insights-profiler.md) spårningar http-anrop till din aktiva plats och visar vilka funktioner i koden tog den längsta tid.
 
-## <a name="failed-requests"></a>Misslyckade begäranden
+## <a name="failed-requests"></a>Misslyckade förfrågningar
 Misslyckade begäranden kan även vara associerad med misslyckade anrop till beroenden. Vi kan igen, klicka vidare för att hitta orsaken till problemet.
 
 ![Klicka på diagrammet för misslyckade begäranden](./media/app-insights-asp-net-dependencies/06-fail.png)
@@ -178,7 +178,7 @@ Du kan skriva kod som skickar beroendeinformation använder samma [TrackDependen
 
 Om du skapar din kod med en sammansättning som du inte skriva själv kan du tid alla anrop, ta reda på vad det gör att din svarstider bidrag. Om du vill att dessa data visas i beroendediagrammen i Application Insights skicka den via `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Översikt över Hybrid anslutningar nod API-relä
 
@@ -134,7 +134,7 @@ Konstruktorargument:
 
 `RelayedServer`instanser genererar tre händelser som hjälper dig att hantera inkommande begäranden, upprätta anslutningar och identifiera felvillkor. Måste du prenumerera på `connect` händelsen för att hantera meddelanden. 
 
-##### <a name="headers"></a>Rubriker
+##### <a name="headers"></a>rubriker
 
 ```JavaScript 
 function(headers)

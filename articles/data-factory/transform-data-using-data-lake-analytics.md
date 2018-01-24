@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,8 +41,8 @@ Följande tabell innehåller beskrivningar för allmänna egenskaper som använd
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **typ**                 | Typegenskapen bör anges till: **AzureDataLakeAnalytics**. | Ja                                      |
 | **Kontonamn**          | Azure Data Lake Analytics-kontonamn.  | Ja                                      |
-| **dataLakeAnalyticsUri** | Azure Data Lake Analytics-URI.           | Nej                                       |
-| **prenumerations-ID**       | Azure prenumerations-ID                    | Nej (om den inte anges data factory-prenumeration används). |
+| **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Nej                                       |
+| **subscriptionId**       | Azure prenumerations-ID                    | Nej (om den inte anges data factory-prenumeration används). |
 | **resourceGroupName**    | Azure resursgruppens namn                | Nej (om inget annat anges, resursgruppen av datafabriken används). |
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
@@ -123,10 +123,10 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är specifi
 | description         | Text som beskriver hur aktiviteten ska hantera.  | Nej       |
 | typ                | För Data Lake Analytics U-SQL-aktivitet, aktivitetstypen är **DataLakeAnalyticsU SQL**. | Ja      |
 | linkedServiceName   | Länkade tjänsten Azure Data Lake Analytics. Mer information om den här länkade tjänsten, se [Compute länkade tjänster](compute-linked-services.md) artikel.  |Ja       |
-| ScriptPath          | Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. | Ja      |
+| scriptPath          | Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. | Ja      |
 | scriptLinkedService | Länkade tjänst som länkar den lagring som innehåller skriptet till data factory | Ja      |
 | degreeOfParallelism | Maximalt antal noder samtidigt används för att köra jobbet. | Nej       |
-| Prioritet            | Anger vilka jobb av alla köas ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej       |
+| prioritet            | Anger vilka jobb av alla köas ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej       |
 | parameters          | Parametrar för U-SQL-skript          | Nej       |
 | runtimeVersion      | Körtidsversion U-SQL-motorn att använda | Nej       |
 | compilationMode     | <p>Kompileringsläge för U-SQL. Måste vara ett av följande värden: **semantiska:** endast utföra semantiska kontroller och nödvändiga hälsokontroller **fullständig:** utföra fullständig kompilering, inklusive syntaxkontrollen, optimering, kodgenerering osv., **SingleBox:** utföra fullständig sammanställning med TargetType inställningen till SingleBox. Om du inte anger ett värde för den här egenskapen anger servern optimala kompilering. | Nej |

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -74,31 +74,7 @@ Bilder som du väljer visas i följande fall:
     * Genom att skicka den *wattimmar* parameter till lösenordet Återställ sida som ”https://login.microsoftonline.com/?whr=contoso.com”
     * Genom att skicka den *användarnamn* parametern till lösenordet som återställa sidan ”https://login.microsoftonline.com/?username=admin@contoso.com”
 
-### <a name="graphics-details"></a>Information om grafik
-
-Använd följande inställningar för att ändra de visuella egenskaperna på sidan logga in. Gå till **Azure Active Directory** > **företagets anpassning** > **Redigera företagsinformation**:
-
-* Inloggningssidan bilden ska vara en PNG- eller JPG-fil, 1420 × 1200 bildpunkter och högst 500 KB. För bästa resultat rekommenderar vi att du behåller den runt 200 KB.
-* Bakgrundsfärgen inloggningssidan används på tidsfördröjning anslutningar och måste vara i RGB-hexadecimalt format.
-* Banderoll avbildningen ska vara en PNG- eller JPG-fil, 60 × 280 bildpunkter och inte vara större än 10 KB.
-* Logotypen kvadratisk (normalt och mörkt tema) ska vara en PNG- eller JPG-fil, 240 x 240 (ändringsbara) bildpunkter, och inte större än 10 KB.
-
-### <a name="sign-in-text-options"></a>Textalternativ-inloggning
-
-Använd följande inställningar för att lägga till text på sidan logga in som är relevanta för din organisation. Gå till **Azure Active Directory** > **företagets anpassning** > **Redigera företagsinformation**:
-
-* **Användaren namnet tipset**: ersätter exempeltexten av  *someone@example.com*  med något mer lämpliga för dina användare. Vi rekommenderar att du lämnar standard tips när du stöder interna och externa användare.
-* **Inloggningssidan text**: kan vara högst 256 tecken. Den här texten visas var som helst användarna loggar in online och i Azure AD Workplace Join-upplevelsen i Windows 10. Använd den här texten för villkor för användning, instruktioner och tips för dina användare. 
-
-   >[!IMPORTANT]
-   >Alla kan se din inloggningssidan, så att inte ger någon känslig information.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Inställningen ”Behåll mig inloggad inaktiverad”
-
-Med den **Håll mig inloggad inaktiverats** alternativet användare kan förbli inloggad när de Stäng och öppna sina webbläsarfönster. Det här alternativet påverkar inte sessioners livstid. Gå till **Azure Active Directory** > **företagets anpassning** > **Redigera företagsinformation**.
-
-Vissa funktioner i SharePoint Online och Office 2010 är beroende av användarnas möjlighet att markera den här kryssrutan. Om du dölja det här alternativet kan användarna få ytterligare och oväntat inloggning anvisningarna.
+Hitta information om hur du konfigurerar företagsanpassning i artikeln [lägga till företagsprofilering för din inloggningssidan i Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Katalognamn
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon enkla Storage-tjänsten med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder kopieringsaktiviteten i Azure Data
 
 Du kan kopiera data från Amazon S3 till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data Factory stöder för närvarande endast flytta data från Amazon S3 till andra databaser, men inte flytta data från andra data lagras på Amazon S3.
 
-## <a name="required-permissions"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 Om du vill kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
 * `s3:GetObject`och `s3:GetObjectVersion` för Amazon S3 objekt åtgärder.
@@ -66,7 +66,7 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomstnyckeln. |Sträng |Ja |
+| accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
 | secretAccessKey |Hemlig själva åtkomstnyckeln. |Krypterad hemliga sträng |Ja |
 
 >[!NOTE]
@@ -98,8 +98,8 @@ Avsnitt som struktur, tillgänglighet och principen är liknande för alla datas
 | bucketName |S3-Bucketnamn. |Sträng |Ja |
 | key |S3 objekt nyckeln. |Sträng |Nej |
 | prefix |Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
-| Version |Versionen av objektet S3 om S3 versionshantering är aktiverad. |Sträng |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som-är mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej | |
+| version |Versionen av objektet S3 om S3 versionshantering är aktiverad. |Sträng |Nej |
+| format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som-är mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej | |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 
 

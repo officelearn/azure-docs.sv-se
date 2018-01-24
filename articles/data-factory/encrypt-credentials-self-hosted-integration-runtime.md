@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: eb07deab834f63b48b7441f32521c48b27e549ca
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 0f42d971fcf21d0f719468a8c10ff637f2e523f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Kryptera dina autentiseringsuppgifter för lokalt datalager i Azure Data Factory
 Du kan kryptera och lagra autentiseringsuppgifter för dina lokala datalager (länkade tjänster med känslig information) på en dator med automatisk värdbaserade integration runtime. 
@@ -51,7 +51,7 @@ Ersätt `<servername>`, `<databasename>`, `<username>`, och `<password>` med vä
 }
 ```
 
-## <a name="encrypt-credentials"></a>Kryptera dina autentiseringsuppgifter
+## <a name="encrypt-credentials"></a>Kryptera autentiseringsuppgifter
 För att kryptera känsliga data från JSON-nyttolast på en lokal själva värdbaserade integration körning, kör **ny AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, och vidarebefordra JSON-nyttolast. Denna cmdlet garanterar autentiseringsuppgifterna krypteras med hjälp av DPAPI och lagras i själva värdbaserade integration runtime noden lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet 'encryptedLinkedService.json') som innehåller krypterade autentiseringsuppgifter.
 
 ```powershell

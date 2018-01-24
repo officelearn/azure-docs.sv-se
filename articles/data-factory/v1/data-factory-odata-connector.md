@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a94b02ad2296ba1be6a4194dc49c76bc7332e08
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8ab68fddfd93a92f0f4f5a2904b8e35c409299d1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Flytta data från en OData-datakälla med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OData** |Ja |
-| URL: en |URL för OData-tjänsten. |Ja |
+| url |URL för OData-tjänsten. |Ja |
 | AuthenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För molnet OData är möjliga värden anonym, grundläggande och OAuth (Observera Azure Data Factory för närvarande endast stöder Azure Active Directory-baserad OAuth). <br/><br/> För lokala OData är möjliga värden anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
@@ -149,7 +149,7 @@ Den **typeProperties** avsnitt är olika för varje typ av dataset och innehåll
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Sökväg |Sökvägen till OData-resurs |Nej |
+| sökväg |Sökvägen till OData-resurs |Nej |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapar Pipelines](data-factory-create-pipelines.md) artikel. Egenskaper som namn, beskrivning, ingående och utgående tabeller och principen är tillgängliga för alla typer av aktiviteter.
@@ -172,13 +172,13 @@ När du flyttar data från OData, används följande mappningar från OData-type
 
 | OData-datatyp | .NET-typ |
 | --- | --- |
-| Edm.Binary |byte] |
-| Edm.Boolean |bool |
-| Edm.Byte |byte] |
-| Edm.DateTime |Datum och tid |
+| Edm.Binary |Byte[] |
+| Edm.Boolean |Booleskt |
+| Edm.Byte |Byte[] |
+| Edm.DateTime |DateTime |
 | Edm.Decimal |Decimal |
-| Edm.Double |dubbla |
-| Edm.Single |Enskild |
+| Edm.Double |Dubbel |
+| Edm.Single |Ogift |
 | Edm.Guid |GUID |
 | Edm.Int16 |Int16 |
 | Edm.Int32 |Int32 |

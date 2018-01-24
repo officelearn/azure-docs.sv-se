@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: seohack1
-ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
 Med hjälp av Azure Active Directory (AD Azure) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering i appen skrivbord i några korta steg. Den här artikeln visar hur du skapar ett .NET Windows Presentation Foundation (WPF) ”uppgiftslistan” som innehåller användarregistrering, inloggning och profilhantering. Appen tas stöd för registrering och inloggning med ett användarnamn eller e-post. Den omfattar också stöd för registrering och inloggning med hjälp av sociala konton, till exempel Facebook och Google.
@@ -72,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Ange din B2C-information
 Öppna filen `Globals.cs` och ersätter varje egenskapsvärden med dina egna. Den här klassen används i hela `TaskClient` till referens som ofta används värden.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -93,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Skapa PublicClientApplication
 Den primära klassen för MSAL är `PublicClientApplication`. Den här klassen representerar ditt program i Azure AD B2C-system. När app-initalizes skapar en instans av `PublicClientApplication` i `MainWindow.xaml.cs`. Detta kan användas i hela fönstret.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -111,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Initiera registrering flöde
 När en användare väljer att loggar in, som du vill initiera en anmälan flödet som använder registreringsprincipen som du skapade. Genom att använda MSAL kan du bara anropa `pca.AcquireTokenAsync(...)`. De parametrar som du skickar till `AcquireTokenAsync(...)` avgör vilka token felmeddelandet, den princip som används i begäran om autentisering och mycket mer.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -162,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Initiera ett flöde för inloggning
 Du kan starta ett flöde logga in på samma sätt som du startar en anmälan flöde. När en användare loggar in, göra samma anrop till MSAL, nu med hjälp av din princip för inloggning:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -177,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Initiera ett flöde för Redigera-profil
 Igen, kan du köra en princip för Redigera-profil på samma sätt:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -193,7 +193,7 @@ I alla dessa fall returnerar MSAL antingen en token i `AuthenticationResult` ell
 ### <a name="check-for-tokens-on-app-start"></a>Sök efter token på programstart
 Du kan också använda MSAL för att hålla reda på användarens inloggning tillstånd.  I den här appen som vi vill användaren förblir inloggad även när de stänga appen och öppna den igen.  Tillbaka i den `OnInitialized` åsidosätta använder MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -232,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Anropa aktivitetens API
 Du har nu för MSAL köra principer och hämta token.  När du vill använda en dessa token för att anropa aktivitetens API du igen kan använda MSAL'S `AcquireTokenSilent` metod för att söka efter cachelagrade token:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -277,7 +277,7 @@ private async void GetTodoList()
 
 När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats i cacheminnet, kan du lägga till token för att den `Authorization` rubriken för HTTP-begäran. Uppgiften webb-API använder det här sidhuvudet för att autentisera begäran att läsa användarens att göra-lista:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -290,7 +290,7 @@ När anropet till `AcquireTokenSilentAsync(...)` lyckas och en token har hittats
 ## <a name="sign-the-user-out"></a>Logga ut användaren
 Slutligen kan du använda MSAL för att avsluta en användarsession med appen när användaren väljer **logga ut**.  När du använder MSAL, kan detta åstadkommas genom att avmarkera alla token från token-cache:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

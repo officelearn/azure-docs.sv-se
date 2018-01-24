@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantera och underhålla logganalys-agenten för Windows och Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux-agent
-Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserver eller OMS Gateway till logganalys.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.
+Utför följande steg om Linux-datorer som behöver kommunicera via en proxyserver eller OMS Gateway till logganalys.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Den *proxyhost* egenskapen accepterar ett fullständigt domännamn eller IP-adressen för proxyservern.
 
 1. Redigera filen `/etc/opt/microsoft/omsagent/proxy.conf` genom att köra följande kommandon och ändra värdena enligt dina specifika inställningar.
 

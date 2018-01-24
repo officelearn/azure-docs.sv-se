@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Använda flera indatafiler och egenskaperna för komponenten med Premium-kodare
 ## <a name="overview"></a>Översikt
@@ -47,7 +47,7 @@ Av konfigurationssträngen som ska anges i aktiviteten kodning använder ett XML
 
 Följande är C#-kod som läser XML-konfigurationen från en fil, uppdatera det med rätt video filnamnet och skickar den till aktivitet i ett jobb:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ Klistra sedan in följande XML-data. Du måste ange namnet på filen video för 
 
 Om du använder .NET SDK för att skapa och köra uppgiften, måste den här XML-data skickas som konfigurationssträngen.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ Om du vill koda, följer du dessa steg:
 
 * Den kodade tillgången innehåller flera språk ljud spårar och spåren ska väljas i Azure Media Player.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [Introduktion till Premium-kodning i Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Hur du använder Premium kodning i Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Koda innehåll på begäran med Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

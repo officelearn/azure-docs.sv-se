@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d90b3c6b0ac899bede210d48cd97210ccbe5cc57
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Följande egenskaper stöds för MySQL länkade tjänsten:
 | typ | Egenskapen type måste anges till: **MySql** | Ja |
 | server | Namnet på MySQL-servern. | Ja |
 | databas | Namnet på MySQL-databas. | Ja |
-| Schemat | Namnet på schemat i databasen. | Nej |
+| schema | Namnet på schemat i databasen. | Nej |
 | användarnamn | Ange användarnamn för att ansluta till MySQL-databas. | Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angett. Markera det här fältet som SecureString. | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |

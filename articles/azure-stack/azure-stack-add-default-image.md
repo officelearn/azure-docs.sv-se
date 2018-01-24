@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Lägg till Windows Server 2016 VM-avbildning i Azure-stacken Marketplace
 
@@ -135,19 +135,23 @@ Kör följande krav, antingen från den [development kit](azure-stack-connect-az
 
 Kontrollera att Windows Server 2016 VM-avbildning har den senaste kumulativa uppdateringen, inkluderar den `IncludeLatestCU` parameter när du kör den `New-AzsServer2016VMImage` cmdlet. Information om tillåtna parametrar för den `New-AzsServer2016VMImage` cmdlet, se [parametrar](#parameters). Det tar ungefär en timme att publicera bilden till stacken Azure Marketplace. 
 
-## <a name="parameters"></a>Parametrar
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parameters for New-AzsServer2016VMImage
 
-|Nya AzsServer2016VMImage parametrar|Krävs|Beskrivning|
-|-----|-----|------|
-|ISOPath|Ja|Den fullständiga sökvägen till den hämtade 2016 ISO-Avbildningen för Windows Server.|
-|Net35|Nej|Installerar .NET 3.5-körningsmiljön på Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
-|Version|Nej|Anger **Core**, **fullständig**, eller **både** avbildningar för Windows Server 2016. Det här värdet är som standard **fullständig**.|
-|VHDSizeInMB|Nej|Anger storleken (i MB) för VHD-avbildningen som ska läggas till din Azure Stack-miljö. Det här värdet anges till 40 960 MB som standard.|
-|CreateGalleryItem|Nej|Anger om en Marketplace-objektet ska skapas för Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
-|location |Nej |Anger platsen där Windows Server 2016 avbildningen ska publiceras.|
-|IncludeLatestCU|Nej|Gäller den senaste kumulativa uppdateringen för Windows Server 2016 för den nya virtuella Hårddisken (kontrollera skriptet för att säkerställa att den pekar på den senaste uppdateringen eller Använd ett av följande två alternativ). |
-|CUUri |Nej |Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en specifik URI. |
-|CUPath |Nej |Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en lokal sökväg. Det här alternativet är användbart om du har distribuerat Azure Stack-instans i en frånkopplad miljö.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Skapar och överför en ny Server 2016 Core och, eller hela bilden och skapar en marketplace-objektet för den.
+
+| Parametrar | Krävs | Exempel | Beskrivning |
+|-----|-----|------|---- |
+|ISOPath|Ja| N:\ISO\en_windows_16_x64_dvd | Den fullständiga sökvägen till den hämtade 2016 ISO-Avbildningen för Windows Server.|
+|Net35|Nej| True | Installerar .NET 3.5-körningsmiljön på Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
+|Version|Nej| Fullständig |  Anger **Core**, **fullständig**, eller **både** avbildningar för Windows Server 2016. Det här värdet är som standard **fullständig**.|
+|VHDSizeInMB|Nej| 40,960 | Anger storleken (i MB) för VHD-avbildningen som ska läggas till din Azure Stack-miljö. Det här värdet anges till 40 960 MB som standard.|
+|CreateGalleryItem|Nej| True | Anger om en Marketplace-objektet ska skapas för Windows Server 2016-avbildningen. Det här värdet är som standard **SANT**.|
+|location |Nej | D:\ | Anger platsen där Windows Server 2016 avbildningen ska publiceras.|
+|IncludeLatestCU|Nej| False | Gäller den senaste kumulativa uppdateringen för Windows Server 2016 för den nya virtuella Hårddisken. Kontrollera att skriptet för att säkerställa att den pekar på den senaste uppdateringen eller Använd ett av följande två alternativ. |
+|CUUri |Nej | https://yourupdateserver/winservupdate2016 | Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en specifik URI. |
+|CUPath |Nej | C:\winservupdate2016 | Anger Windows Server 2016 ackumulerade uppdateringen för att köras från en lokal sökväg. Det här alternativet är användbart om du har distribuerat Azure Stack-instans i en frånkopplad miljö.|
 
 ## <a name="next-steps"></a>Nästa steg
 

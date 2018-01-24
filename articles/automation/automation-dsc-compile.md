@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -299,7 +299,7 @@ Du kan lära dig logga nodkonfigurationer på https://msdn.microsoft.com/en-us/p
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Importera en konfiguration av noden i Azure-portalen
 
-1. Från ditt Automation-konto klickar du på **DSC-nodkonfigurationer**.
+1. Från ditt Automation-konto klickar du på **DSC-nodkonfigurationer** under **konfigurationshantering**.
 
     ![DSC-nodkonfigurationer](./media/automation-dsc-compile/node-config.png)
 2. I den **DSC-nodkonfigurationer** bladet, klickar du på **lägga till en NodeConfiguration**.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows Universal-plattformen (UWP/XAML) komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -89,7 +89,7 @@ Den grundläggande principen bakom ADAL är att när appen behöver en åtkomst-
 
 1. Initiera appens `AuthenticationContext`, vilket är den primära klassen av ADAL. Den här åtgärden klarar ADAL koordinaterna behöver kommunicera med Azure AD och hur det kan cachelagra token.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Den grundläggande principen bakom ADAL är att när appen behöver en åtkomst-
 
 2. Leta upp den `Search(...)` metod som anropas när användaren klickar på den **Sök** knapp i appens användargränssnitt. Den här metoden gör en get-begäran till Azure AD Graph API frågan för användare vars UPN-namnet börjar med den angivna söktermen. Inkludera en åtkomst-token i en begäran om du vill fråga Graph API **auktorisering** huvud. Det är där ADAL kommer in.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Den grundläggande principen bakom ADAL är att när appen behöver en åtkomst-
     När appen begär en token genom att anropa `AcquireTokenAsync(...)`, ADAL försöker denna att returnera en token utan att fråga användaren om autentiseringsuppgifter. Om ADAL avgör att användaren måste logga in att hämta en token, den visar inloggning dialogrutan samlar in användarens autentiseringsuppgifter och returnerar en token efter att autentiseringen lyckas. Om ADAL inte kan returnera en token av någon anledning den *AuthenticationResult* status är ett fel.
 3. Nu är det dags att använda den åtkomst-token som du precis har köpt. Även i den `Search(...)` metod, bifoga token till get-begäran för Graph API i den **auktorisering** huvud:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. Du kan använda den `AuthenticationResult` objekt att visa information om användaren i appen, till exempel det användar-ID:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. Du kan också använda ADAL för att logga in användare utanför appen. När användaren klickar på **logga ut** knappen, se till att nästa anrop till `AcquireTokenAsync(...)` visas en vy för inloggning. Den här åtgärden är lika enkelt som att rensa cacheminnet token med ADAL:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

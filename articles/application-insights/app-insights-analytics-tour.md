@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>En genomgång av Analytics i Application Insights
 [Analytics](app-insights-analytics.md) är kraftfull sökfunktionen i [Programinsikter](app-insights-overview.md). Dessa sidor beskrivs Log Analytics-frågespråket.
@@ -538,7 +538,7 @@ Om programmet ansluts [anpassade dimensioner (Egenskaper) och anpassade mått](a
 
 Till exempel om appen innehåller:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Om du använder [trackevent ()](app-insights-api-custom-events-metrics.md#tracke
 
 Låt oss ta ett exempel där app-koden innehåller dessa rader:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},

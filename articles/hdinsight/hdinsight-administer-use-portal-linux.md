@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Hadoop-kluster i HDInsight med hjälp av Azure portal
 
@@ -81,10 +81,10 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
 4. Klicka på ett kluster från listan som ska visas på översiktssidan:
 
     ![Azure portal HDInsight-kluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **översikt-menyn:**
-    * **Instrumentpanelen**: öppnar instrumentpanelen i klustret som är Ambari Web för Linux-baserade kluster.
+    * **Instrumentpanelen**: öppnar det Ambari-webbgränssnittet för klustret.
     * **Secure Shell**: Visar instruktionerna för att ansluta till klustret med SSH (Secure Shell)-anslutning.
     * **Skala klustret**: du kan ändra antalet arbetarnoder för det här klustret.
-    * **Flytta**: flytta klustret till annan resursgrupp eller prenumeration.
+    * **Flytta**: flyttar klustret till en annan resursgrupp eller till en annan prenumeration.
     * **Ta bort**: tar bort klustret.
 
     **Vänstra menyn:**
@@ -98,7 +98,7 @@ Om du får felet NoRegisteredProviderFound eller MissingSubscriptionRegistration
     * **Verktyg för HDInsight**: hjälpinformation för HDInsight relaterade verktyg.
     * **Prenumerationen Core användning**: Visa Använd och tillgänglig kärnor för prenumerationen.
     * **Skala klustret**: öka och minska antalet arbetarnoder i klustret. Se[skala kluster](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + klusterinloggning**: Visar instruktionerna för att ansluta till klustret med SSH (Secure Shell)-anslutning. Mer information finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md), och återställa klustret autentiseringsuppgifter för inloggning.
+    * **SSH + klusterinloggning**: Visar instruktionerna för att ansluta till klustret med SSH (Secure Shell)-anslutning. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
     * **HDInsight-partnern**: Lägg till/ta bort aktuell HDInsight-Partner.
     * **Externa Metastores**: Visa Hive och Oozie metastores. Metastores kan bara konfigureras när klustret skapas. Se [använda Hive/Oozie metastore](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Script åtgärder**: köra Bash-skript på klustret. Se [anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
@@ -226,6 +226,21 @@ Du kan flytta ett HDInsight-kluster till ett annat Azure resursgrupp eller en an
 
 Se [uppgradera HDInsight-kluster till en nyare version](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Öppna Ambari-webbgränssnittet
+
+Ambari innehåller en intuitiv är enkelt att använda Hadoop management webbgränssnittet backas upp av dess RESTful-API: er. Ambari gör det möjligt för systemadministratörer att hantera och övervaka Hadoop-kluster.
+
+1. Öppna ett HDInsight-kluster från Azure-portalen.  Se [listan och visa](#list-and-show-clusters).
+2. Klicka på **kluster instrumentpanelen**.
+
+    ![HDInsight Hadoop-kluster-menyn](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Ange klustret användarnamn och lösenord.  Klustret Standardanvändarnamnet är _admin_. Ambari web UI ser ut:
+
+    ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Mer information finns i [hantera HDInsight-kluster med Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Ändra lösenord
 Ett HDInsight-kluster kan ha två användarkonton. HDInsight-kluster användarkonto (kallas även HTTP-användarkontot) och SSH-användarkontot skapas under skapandeprocessen. Du kan använda Ambari-webbgränssnittet för att ändra klustret användarens användarnamn och lösenord och skriptåtgärder ändra SSH-användarkontot
 
@@ -267,7 +282,7 @@ Ambari och ändrar lösenordet på alla noder i klustret.
    | Fält | Värde |
    | --- | --- |
    | Namn |Ändra ssh lösenord |
-   | Bash-skript URI |URI: N till filen changepassword.sh |
+   | Bash-skript-URI |URI: N till filen changepassword.sh |
    | Noder (Head, Worker, Nimbus, chef, Zookeeper osv.) |✓ för alla nodtyper som anges |
    | Parametrar |Ange SSH-användarnamn och det nya lösenordet. Det bör finnas ett blanksteg mellan användarnamnet och lösenordet. |
    | Spara den här skriptåtgärden... |Lämna det här fältet är avmarkerat. |

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Användningsanalys med Application Insights
 
@@ -59,7 +59,7 @@ Insikter till höger peka ut intressanta mönster i datauppsättningen.
 
 [Mer information om verktyg för användare, sessioner och händelser](app-insights-usage-segmentation.md)  
 
-## <a name="page-views"></a>Sidvisningar
+## <a name="page-views"></a>Sidvisning
 
 Klicka på via panelen sidvisningar få en detaljerad analys av de mest populära sidorna i bladet användning:
 
@@ -110,7 +110,7 @@ Händelser kan loggas från klientsidan av appen:
 
 Eller från serversidan:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ Filtrera i Application Insights-portalen och dela dina data på egenskapsvärden
 
 Gör [ställa in en telemetri initieraren](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Gör [ställa in en telemetri initieraren](app-insights-api-filtering-sampling.m
 
 I web app initieraren, till exempel Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {

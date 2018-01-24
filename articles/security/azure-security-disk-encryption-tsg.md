@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -30,13 +30,13 @@ Linux-operativsystem (OS) diskkryptering måste demontera OS-enhet innan du kör
 
 Detta fel är stor sannolikhet kommer att hända när OS-diskkryptering görs på en målmiljön VM som har ändrats eller har ändrats från dess stöds lager galleriet avbildning. Följande är exempel på avvikelser från bildtyper som kan störa tilläggets möjlighet att demontera OS-enhet:
 - Anpassade avbildningar matchar inte längre ett filsystem som stöds eller partitioneringsschema.
-- Stora program, till exempel SAP, MongoDB eller Apache Cassandra är installerade och körs i OS före kryptering. Tillägget kan inte ha stängts ordentligt dessa program. Om programmen Underhåll öppna filreferenser på OS-enhet, måste enheten omonterade orsakar fel.
+- Stora program, till exempel SAP, MongoDB, Apache Cassandra och Docker stöds inte när de är installerade och körs i OS före kryptering.  Azure Disk Encryption kan inte stänga på ett säkert sätt av dessa processer som krävs som förberedelse för OS-enhet för diskkryptering.  Om det finns fortfarande aktiva processer hålla öppna filreferenser på OS-enhet, får inte enhetens OS vara omonterade resulterar i att kryptera enheten OS. 
 - Anpassade skript som körs i nära tiden närhet till att aktivera kryptering eller om andra ändringar görs på den virtuella datorn under krypteringsprocessen. Den här konflikten kan inträffa när en Azure Resource Manager-mall definierar flera tillägg för att köra samtidigt, eller när tillägget för anpassat skript eller annan åtgärd körs samtidigt för diskkryptering. Serialisering och isolera sådana åtgärder kan lösa problemet.
 - Security Enhanced Linux (SELinux) har inte inaktiverats innan du aktiverar kryptering, så att koppla från steget misslyckas. Vara kan reenabled SELinux när kryptering är klar.
 - OS-disken använder ett schema för logisk volym Manager (LVM). Även om det finns stöd för diskar begränsad LVM data är inte en LVM OS-disk.
 - Minimikraven på minne är inte uppfyllda (7 GB rekommenderas för OS-diskkryptering).
 - Dataenheter är rekursivt monteras under katalogen /mnt/ eller varandra (till exempel /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Andra Azure Disk Encryption [krav](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) för Linux är inte uppfyllda.
+- Andra Azure Disk Encryption [krav](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) för Linux är inte uppfyllda.
 
 ## <a name="unable-to-encrypt"></a>Det gick inte att kryptera
 
@@ -116,6 +116,10 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>Felsöka krypteringsstatus
+
+Om den förväntade krypteringsstatus inte matchar vad som rapporteras i portalen, finns i följande supportartikeln: [krypteringsstatus visas felaktigt på Azure-hanteringsportalen](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet du lära dig mer om några vanliga problem i Azure Disk Encryption och hur du felsöker dessa problem. Mer information om den här tjänsten och dess funktioner finns i följande artiklar:

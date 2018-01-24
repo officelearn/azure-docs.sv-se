@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 
 Du kan kopiera data från ett dataarkiv för lokala Teradata till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från en Teradata-databas till andra databaser, men inte för att flytta data från andra datalager till en Teradata-databasen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data factory stöder anslutning till lokala Teradata källor via Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
 
 Gateway krävs även om Teradata finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS-VM som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -291,20 +291,20 @@ När data flyttas till Teradata, används följande mappningar från Teradata-ty
 | Bild |Sträng |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
-| Blob |byte] |
-| Mottagna byte |byte] |
-| VarByte |byte] |
+| Blob |Byte[] |
+| Mottagna byte |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| dubbla |dubbla |
+| Dubbel |Dubbel |
 | Integer |Int32 |
-| Tal |dubbla |
+| Tal |Dubbel |
 | SmallInt |Int16 |
-| Date |Datum och tid |
+| Date |DateTime |
 | Tid |TimeSpan |
 | Tid med tidszon |Sträng |
-| tidsstämpel |Datum och tid |
+| Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
 | Intervall dag |TimeSpan |
 | Intervall dag till timme |TimeSpan |
@@ -322,9 +322,9 @@ När data flyttas till Teradata, används följande mappningar från Teradata-ty
 | Period(Date) |Sträng |
 | Period(Time) |Sträng |
 | Tid (Time med tidszon) |Sträng |
-| Period(timestamp) |Sträng |
+| Period(Timestamp) |Sträng |
 | Tid (tidsstämpel med tidszon) |Sträng |
-| XML |Sträng |
+| Xml |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
 Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

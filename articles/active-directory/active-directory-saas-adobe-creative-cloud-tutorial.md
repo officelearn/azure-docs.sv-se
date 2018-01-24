@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Självstudier: Azure Active Directory-integrering med Adobe kreativa moln
 
@@ -32,7 +32,7 @@ Integrera Adobe kreativa moln med Azure AD ger dig följande fördelar:
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Adobe kreativa molnet, behöver du följande:
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     | Attributnamn | Attributvärde |
     | ---------------| ----------------|
-    | Förnamn |User.givenName |
+    | Förnamn |user.givenname |
     | Efternamn |User.surname |
     | E-post |User.Mail |
 
@@ -157,11 +157,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Adobe kreativa Molnkonfigurationen](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. I en annan webbläsarfönster inloggning till Adobe kreativa moln-klient som administratör.
+10. I en annan webbläsarfönstret, logga in på [Adobe administratörskonsolen](https://adminconsole.adobe.com) som administratör.
 
-11. Gå till **identitet** i det vänstra navigeringsfönstret och klicka på din domän. Utför följande steg på **enkel inloggning på konfiguration krävs** avsnitt.
+11. Gå till **inställningar** på det övre navigeringsfältet och välj sedan **identitet**. Listan över domäner öppnas. Klicka på **konfigurera** länken mot din domän. Utför följande steg på **enkel inloggning på konfiguration krävs** avsnitt. Mer information finns i [konfigurera en domän](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Inställningar för](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "inställningar")
+    ![Inställningar för](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "inställningar")
     
     a. Klicka på **Bläddra** hämtade certifikatet från Azure AD för att överföra **IDP certifikat**.
     
@@ -176,8 +176,6 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     f. Klicka på **spara** knappen.
 
 12. Instrumentpanelen visas nu XML **”hämta Metadata”** filen. Den innehåller Adobe EntityDescriptor Webbadressen och AssertionConsumerService. Öppna filen och konfigurera dem i Azure AD-program.
-
-    ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Konfigurera enkel inloggning på App-sida](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ För att aktivera Azure AD-användare att logga in på Adobe kreativa molnet, m�
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Utför följande steg för att etablera en användarkonton:
 
-1. Logga in på webbplatsen Adobe kreativa molnet företag som administratör.
+1. Logga in på [Adobe administratörskonsolen](https://adminconsole.adobe.com) platsen som en administratör.
 
-2. Lägga till användaren i Adobe-konsolen som federerad ID och tilldela dem till en grupp för rätt
-
-    ![Länken Adobe kreativa moln i listan med program](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Lägga till användaren i Adobe-konsolen som federerad ID och tilldela dem till en profil för produkten. Detaljerad information om att lägga till användare finns [lägga till användare i administratörskonsolen för Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Nu ange din e-postadress/upn i formuläret Adobe inloggning, tryck på tab och du bör federerad tillbaka till Azure AD:
     * Webbåtkomst: www.adobe.com > Logga in
@@ -278,6 +274,8 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](active-directory
 
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Konfigurera en domän (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Konfigurera Azure för användning med Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

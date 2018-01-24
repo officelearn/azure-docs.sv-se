@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,10 +177,10 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 
 | Datatypen för MongoDB | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| Binär |byte] |
+| Binär |Byte[] |
 | Boolesk |Boolesk |
 | Date |DateTime |
-| NumberDouble |dubbla |
+| NumberDouble |Dubbel |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectId |Sträng |

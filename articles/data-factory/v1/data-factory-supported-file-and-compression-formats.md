@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Fil- och komprimering format som stöds av Azure Data Factory
 *Det här avsnittet gäller följande kopplingar: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [filsystemet](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), och [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [filformat och komprimering codec som stöds i Data Factory version 2](../supported-file-formats-and-compression-codecs.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [filformat och komprimering codec som stöds i Data Factory version 2](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory har stöd för följande filtyper format:
 
@@ -228,7 +228,7 @@ och du vill kopiera den till en Azure SQL-tabell i följande format, genom att e
 Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell definition med endast de relevanta delarna). Mer specifikt:
 
 - Avsnittet `structure` definierar de anpassade kolumnnamnen och den motsvarande datatypen vid konverteringen till data i tabellformat. Det här avsnittet är **valfritt** såvida inte kolumnmappning krävs. Se [mappar dataset källkolumner till målet dataset kolumner](data-factory-map-columns.md) mer information.
-- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Om du vill kopiera data från matrisen kan du använda **matris[x].egenskap** för att extrahera värdet för en viss egenskap från objekt nr x, eller så kan du använda **matris[*].egenskap** för att hitta värdet från alla objekt som innehåller en sådan egenskap.
+- `jsonPathDefinition` anger JSON-sökvägen för varje kolumn och anger var data ska extraheras från. Du kan använda för att kopiera data från en matris **matris [x] .property** att extrahera värdet för den angivna egenskapen från x-objektet, eller om du kan använda **matris [*] .property** att hitta värdet från objekt som innehåller exempel Egenskapen.
 
 ```json
 "properties": {

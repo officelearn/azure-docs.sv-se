@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata för aktiviteten i Azure Data Factory
 GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory. Den här aktiviteten stöds endast för datafabriker för version 2. Den kan användas i följande scenarier:
@@ -96,7 +96,7 @@ För närvarande hämta GetMetadata aktiviteten följande typer av metadata-info
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-Fältlista | Visar typerna av metadatainformation som krävs.  | <ul><li>Storlek</li><li>struktur</li><li>Senast ändrad</li></ul> |    Nej<br/>Om den är tom returnerar alla 3 stöds metadata-information för aktiviteten. 
+Fältlista | Visar typerna av metadatainformation som krävs.  | <ul><li>storlek</li><li>struktur</li><li>Senast ändrad</li></ul> |    Nej<br/>Om den är tom returnerar alla 3 stöds metadata-information för aktiviteten. 
 DataSet | Referensdatauppsättningen vars metadata aktivitet är att hämtas av GetMetadata-aktiviteten. <br/><br/>Typen av som stöds är Azure Blob. Två sub egenskaper är: <ul><li><b>Referensnamn</b>: referens till en befintlig Azure-Blobbdatauppsättning</li><li><b>typen</b>: eftersom datamängden hänvisas är av typen ”DatasetReference”</li></ul> |    <ul><li>Sträng</li><li>DatasetReference</li></ul> | Ja
 
 ## <a name="next-steps"></a>Nästa steg

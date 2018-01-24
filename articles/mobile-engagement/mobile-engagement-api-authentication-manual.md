@@ -1,5 +1,5 @@
 ---
-title: Autentisera med Mobile Engagement REST API - manuell installation
+title: 'Autentisera med Mobile Engagement REST API: er: manuell installation'
 description: "Beskriver hur du manuellt konfigurera autentisering för Mobile Engagement REST API: er"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,89 +14,92 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3b678acbae225c28223a2ee76e5be2462a529362
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Autentisera med Mobile Engagement REST API - manuell installation
-Den här dokumentationen är ett tillägg dokumentationen till [autentisera med Mobile Engagement REST API: er](mobile-engagement-api-authentication.md). Kontrollera att du läser den först för att hämta kontext.
-Beskriver ett annat sätt att göra enstaka installationen för att konfigurera din autentisering för Mobile Engagement REST API: erna med Azure-portalen.
+# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Autentisera med Mobile Engagement REST API: er: manuell installation
+Den här dokumentationen är ett tillägg till [autentisera med Mobile Engagement REST API: er](mobile-engagement-api-authentication.md). Kontrollera att den artikeln först för att förstå kontexten. Här beskrivs också ett annat sätt att göra en autentisering installationen för Mobile Engagement REST-API: er med hjälp av Azure-portalen.
 
 > [!NOTE]
-> Följande instruktioner är baserade på den här [guide för Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md) och anpassas för vad som krävs för autentisering för Mobile Engagement API: er. Därför finns det om du vill förstå stegen nedan i detalj.
+> Följande instruktioner är baserade på [handboken Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md). De är anpassade för autentiseringskraven för Mobile Engagement-API: er. Hänvisa till dem om du vill förstå följande steg i detalj.
 
 1. Logga in på ditt Azure-konto via den [Azure-portalen](https://portal.azure.com/).
 2. Välj **Active Directory** i den vänstra rutan.
 
-     ![Välj Active Directory][1]
+   ![Välj Active Directory][1]
 
-3. Om du vill visa program i din katalog klickar du på **App registreringar**.
+3. Om du vill visa program i din katalog, Välj **App registreringar**.
 
-     ![Visa program][3]
+   ![Visa program][3]
 
-4. Klicka på **nya appregistrering**.
+4. Välj **nya appregistrering**.
 
-     ![Lägg till program][4]
+   ![Lägga till ett program][4]
 
-5. Fyll i namnet på programmet och lämna typ av program som **webb-app/API** och klicka på Nästa. Du kan ange eventuella dummy URL: er för **SIGN-ON-URL**: de används inte för det här scenariot och URL: er själva inte valideras.
-6. När du har gjort, har en Azure AD-app med det namn du angett. Det är din **AD\_APP\_namn**, Lägg märke till den.
+5. Fyll i namnet på programmet. Lämna typ av program som **webb-app/API**, och välj sedan den **nästa** knappen. Du kan ange eventuella dummy URL: er för **SIGN-ON-URL: en**. De används inte för det här scenariot och URL: er själva valideras inte.
 
-     ![appnamn][8]
+   När du är klar har en Azure Active Directory (Azure AD)-app med det namn du angett. Det är din **AD\_APP\_namn**, så bör du anteckna den.
 
-7. Klicka på namnet på appen.
-8. Hitta **program-ID**, notera den, är det att klient-ID som ska användas som **klienten\_ID** för din API-anrop.
+   ![Appnamn][8]
 
-     ![Konfigurera appen][10]
+7. Välj namnet på appen.
+
+8. Hitta **program-ID** och anteckna den. Det är klient-ID som ska användas som **klienten\_ID** för din API-anrop.
+
+   ![Hitta program-ID][10]
 
 9. Hitta de **nycklar** avsnittet till höger.
 
-     ![Konfigurera appen][11]
+   ![Nycklar avsnitt][11]
 
-10. Skapa en ny nyckel och kopiera den omedelbart och spara den för användning. Det visas aldrig igen.
+10. Skapa en ny nyckel och kopiera den direkt. Det är inte visas igen.
 
-     ![Konfigurera appen][12]
+    ![Nycklar rutan med viktig information][12]
 
     > [!IMPORTANT]
-    > Den här nyckeln upphör att gälla i slutet av den varaktighet som du har angett så se till att förnya det när dessa annars API-autentisering inte fungerar längre. Du kan också ta bort och återskapa den här nyckeln om du tror att den har komprometterats.
+    > Den här nyckeln upphör att gälla i slutet av den varaktighet som du angav. Se till att förnya det när dessa, annars API-autentisering fungerar inte längre. Om du tror att den här nyckeln har komprometterats bör du ta bort och skapa den igen.
     >
-    >
-11. Klicka på **slutpunkter** längst upp på sidan och kopiera den **OAUTH 2.0-TOKEN för SLUTPUNKT**.
+    
+11. Välj den **slutpunkter** längst upp på sidan. Kopiera den **OAUTH 2.0-TOKEN för SLUTPUNKT**.
 
-    ![][14]
+    ![Kopiera slutpunkten][14]
 
-16. Den här slutpunkten kommer att vara i formatet där GUID i URL-Adressen är ditt **TENANT_ID** så att anteckna den:`https://login.microsoftonline.com/<GUID>/oauth2/token`
-17. Nu ska vi fortsätta med att konfigurera behörigheterna för den här appen. För detta behöver du öppna den [Azure-portalen](https://portal.azure.com). 
-18. Klicka på **resursgrupper** och Sök efter den **Mobile Engagement** resursgruppen.
+16. Den här slutpunkten är i följande format, där GUID i URL-Adressen är ditt **TENANT_ID**:`https://login.microsoftonline.com/<GUID>/oauth2/token`
 
-    ![][15]
+17. Därefter måste konfigurera du behörigheter på den här appen. Starta processen, gå till den [Azure-portalen](https://portal.azure.com).
 
-19. Klicka på den **Mobile Engagement** resurs gruppen och navigera till den **inställningar** avsnittet här.
+18. Välj **resursgrupper**, och leta reda på den **MobileEngagement** resursgruppen.
 
-    ![][16]
+    ![Find MobileEngagement][15]
 
-20. Klicka på **användare** i inställningarna för avsnittet och klicka sedan på **Lägg till** lägga till en användare.
+19. Välj den **MobileEngagement** resurs gruppen och välj sedan **alla inställningar**.
 
-    ![][17]
+    ![Gå till inställningar för MobileEngagement][16]
+
+20. Välj **användare** i den **inställningar** avsnitt. Om du vill lägga till en användare väljer **Lägg till**.
+
+    ![Lägga till en användare][17]
 
 21. Klicka på **Välj en roll**.
 
-    ![][18]
+    ![Välj en roll][18]
 
-22. Klicka på **ägare**.
+22. Välj **ägare**.
 
-    ![][19]
+    ![Välj en ägare som rollen][19]
 
-23. Sök efter namnet på ditt program **AD\_APP\_namn** i sökrutan. Du kommer inte se det som standard här. När du har hittat markerar du den och klicka på **Välj** längst ned i avsnittet.
+23. Sök efter namnet på ditt program **AD\_APP\_namn**, i sökrutan. Det här namnet är inte här som standard. När du har hittat väljer du den. Klicka på **Välj** längst ned i avsnittet.
 
-    ![][20]
+    ![Välj namnet][20]
 
-24. På den **Lägg till åtkomst** avsnittet den visas som **1 användare, 0 grupper**. Klicka på **OK** på det här avsnittet om du vill bekräfta ändringen.
+24. I den **Lägg till åtkomst** avsnittet visas den som **1 användare, 0 grupper**. Om du vill bekräfta ändringen, Välj **OK**.
 
-    ![][21]
+    ![Bekräfta tillagda användare][21]
 
-Nu har du slutfört de nödvändiga Azure AD-konfiguration och du är klar att anropa API: erna.
+Nu har du slutfört de nödvändiga Azure AD-konfiguration och är inställd på att anropa API: erna.
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication-manual/active-directory.png

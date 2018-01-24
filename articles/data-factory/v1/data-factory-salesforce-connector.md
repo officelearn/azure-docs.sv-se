@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Flytta data från Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Azure Data Factory stöder för närvarande endast flytta data från Salesforce 
 ## <a name="supported-versions"></a>Versioner som stöds
 Den här anslutningen har stöd för följande versioner av Salesforce: Developer Edition, Professional Edition, Enterprise Edition eller obegränsade Edition. Och kopiera från Salesforce produktion, sandbox och anpassade domäner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * API-behörighet måste aktiveras. Se [hur aktivera API-åtkomst i Salesforce av behörighetsgrupp?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Om du vill kopiera data från Salesforce till lokala datalager, du har Data Management Gateway 2.0 är installerat i din lokala miljö.
 
@@ -288,16 +288,16 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | Salesforce-typ | . NET-baserade typ |
 | --- | --- |
 | Automatisk tal |Sträng |
-| Kryssruta |Booleskt värde |
-| Valuta |dubbla |
-| Date |Datum och tid |
-| Datum/tid |Datum och tid |
+| Kryssruta |Boolesk |
+| Valuta |Dubbel |
+| Date |DateTime |
+| Datum/tid |DateTime |
 | E-post |Sträng |
 | Id |Sträng |
 | Uppslagsrelation |Sträng |
 | Flerval listruta |Sträng |
-| Tal |dubbla |
-| Procent |dubbla |
+| Tal |Dubbel |
+| Procent |Dubbel |
 | Telefon |Sträng |
 | Listruta |Sträng |
 | Text |Sträng |
@@ -305,7 +305,7 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | Textområde (Long) |Sträng |
 | Textområde (omfattande) |Sträng |
 | Text (krypterade) |Sträng |
-| URL: EN |Sträng |
+| Webbadress |Sträng |
 
 > [!NOTE]
 > Om du vill mappa kolumner från källan dataset till kolumner från sink dataset finns [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

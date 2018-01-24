@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrering och förbearbetning telemetri i Application Insights SDK
 
@@ -122,7 +122,7 @@ Du kan överföra strängvärden från .config-filen genom att tillhandahålla o
 
 **Du kan också** du kan initiera filter i koden. I en lämplig initieringen Infoga klassen – till exempel AppStart i Global.asax.cs - processorn i kedjan:
 
-```C#
+```csharp
 
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -166,7 +166,7 @@ Filtrera ut robotar och web tester. Även om Metrics Explorer ger dig möjlighet
 #### <a name="failed-authentication"></a>Misslyckad verifiering
 Filtrera ut begäranden med svaret ”401”.
 
-```C#
+```csharp
 
 public void Process(ITelemetry item)
 {
@@ -224,7 +224,7 @@ Om du anger en telemetri initieraren kallas när någon av metoderna Track*() an
 
 *C#*
 
-```C#
+```csharp
 
     using System;
     using Microsoft.ApplicationInsights.Channel;
@@ -263,7 +263,7 @@ Om du anger en telemetri initieraren kallas när någon av metoderna Track*() an
 
 **Läsa in din initieraren**
 
-I ApplicationInsights.config:
+In ApplicationInsights.config:
 
     <ApplicationInsights>
       <TelemetryInitializers>
@@ -275,7 +275,7 @@ I ApplicationInsights.config:
 
 *Du kan också* du kan initiera initierare i koden, till exempel i Global.aspx.cs:
 
-```C#
+```csharp
     protected void Application_Start()
     {
         // ...
@@ -356,7 +356,7 @@ Vad är skillnaden mellan telemetri processorer och telemetri initierare?
 
 ## <a name="sdk-code"></a>SDK-kod
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
-* [SDK FÖR ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Nästa steg

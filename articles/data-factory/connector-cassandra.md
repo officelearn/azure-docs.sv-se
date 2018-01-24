@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5b6a2cde9bea3d3aba9262bb9446d54773cf0297
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -173,10 +173,10 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 |:--- |:--- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |byte] |
+| BLOB |Byte[] |
 | BOOLESKT VÄRDE |Boolesk |
 | DECIMAL |Decimal |
-| DUBBEL |dubbla |
+| DUBBEL |Dubbel |
 | FLYTTAL |Ogift |
 | INET |Sträng |
 | INT |Int32 |
@@ -238,15 +238,15 @@ Följande tabeller visar virtuella register som renormalize data från listan oc
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabell ”ExampleTable_vt_Map”:**
+**Table "ExampleTable_vt_Map":**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
-**Tabell ”ExampleTable_vt_StringSet”:**
+**Table "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |

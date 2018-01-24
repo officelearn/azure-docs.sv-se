@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
-Från och med 2.11 kan Media Services du definiera filter för dina tillgångar. Dessa filter är server sida regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället alla återgivningar som är kopplade till tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
+Från och med 2.17 kan Media Services du definiera filter för dina tillgångar. Dessa filter är server sida regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela video), eller ange bara en del av ljud och video återgivningar som kundens enhet kan hantera (i stället alla återgivningar som är kopplade till tillgången). Den här filtreringen dina tillgångar arkiveras via **dynamiska Manifest**s som skapas på kundens begäran för direktuppspelning av video baserat på angivna filter.
 
-Detta avsnitt beskriver vanliga scenarier som skulle vara mycket bra att kunder och länkar till avsnitt som visar hur du skapar filter programmässigt med hjälp av filter (för närvarande kan du skapa filter med REST API: er endast).
+Detta avsnitt beskriver vanliga scenarier som skulle vara mycket bra att kunder och länkar till avsnitt som visar hur du skapar filter programmässigt med hjälp av filter.
 
 ## <a name="overview"></a>Översikt
 Målet är att tillhandahålla en video av hög kvalitet till olika enheter under olika nätverksförhållanden när du levererar ditt innehåll till kunder som (streaming direktsända händelser eller video-on-demand). Att uppnå det här målet genom att göra följande:
@@ -124,12 +124,12 @@ Dina tillgångar kan innehålla flera ljud språk engelska, spanska, franska, t.
 ![Språk spårar filtrering][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Trimning start för en tillgång
-I de flesta händelser via strömning live kör ansvariga för några test innan den faktiska händelsen. De kan till exempel inkludera en mallen så här före händelsen: ”programmet börjar tillfälligt”. Om programmet arkivering test- och en data också arkiveras och kommer att ingå i presentationen. Den här informationen ska inte visas för klienterna. Du kan skapa ett tidsfilter för start och ta bort oönskade data från manifestet med dynamiska Manifest.
+I de flesta händelser via strömning live kör ansvariga för några test innan den faktiska händelsen. De kan till exempel inkludera en mallen så här före händelsen: ”programmet börjar tillfälligt”. Om programmet arkivering, testning och en data också arkiveras och ingår i presentationen. Den här informationen ska inte visas för klienterna. Du kan skapa ett tidsfilter för start och ta bort oönskade data från manifestet med dynamiska Manifest.
 
 ![Trimning start][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Skapa underordnade klipp (vyer) från en live-Arkiv
-Många direktsända händelser är tidskrävande och live Arkiv kan innehålla flera händelser. När direktsänd händelse kanske ends programföretag vill dela upp live arkivet till logiska programmet startas och stoppa sekvenser. Sedan kan publicera separat dessa virtuella program utan efter bearbetning live arkivet och inte skapa separata resurser (som inte kommer kunna utnyttja befintliga cachelagrade fragment i de andra CDN-lösningar). Exempel på sådana virtuella program (underordnade klipp) är kvartal i en football eller basketmatch, innings i baseball eller enskilda händelser i en här olympiad program.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Skapa underklipp (vyer) från en live-Arkiv
+Många direktsända händelser är tidskrävande och live Arkiv kan innehålla flera händelser. När direktsänd händelse upphör kanske programföretag vill dela upp live arkivet till logiska programmet startas och stoppa sekvenser. Därefter publicera separat dessa virtuella program utan efter bearbetning live arkivet och inte skapa separata resurser (som inte får fördelen att befintliga cachelagrade fragment i de CDN-nät). Exempel på sådana virtuella program är kvartal football eller basketmatch, innings i baseball eller enskilda händelser i alla sport-program.
 
 Du kan skapa filter med start-och sluttider och skapa virtuella vyer över dina live Arkiv med dynamiska Manifest. 
 
@@ -140,24 +140,24 @@ Filtrerade tillgångsinformation:
 ![Skidåkning][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Justera presentationsfönstret (DVR)
-För närvarande erbjuder Azure Media Services cirkulär Arkiv där varaktigheten kan konfigureras mellan 5 minuter – 25 timmar. Manifestet filtrering kan användas för att skapa en rullande fönster för DVR över arkivet, utan att ta bort mediet. Det finns många scenarier där programföretag vill ge ett begränsat DVR fönster som flyttar med levande kant och samtidigt behålla en större arkivering fönster. En broadcast kanske vill använda de data som ligger utanför fönstret DVR om du vill markera klipp eller he\she kanske vill ge olika DVR fönster för olika enheter. De flesta av de mobila enheterna hanteras exempelvis inte stort DVR windows (du kan ha ett två minuter DVR fönster för mobila enheter och 1 timme för skrivbordsklienter).
+För närvarande erbjuder Azure Media Services cirkulär Arkiv där varaktigheten kan konfigureras mellan 5 minuter – 25 timmar. Manifestet filtrering kan användas för att skapa en rullande fönster för DVR över arkivet, utan att ta bort mediet. Det finns många scenarier där programföretag vill ge en begränsad DVR fönster om du vill flytta med levande kant och samtidigt behålla ett större arkivering fönster. En broadcast kanske vill använda de data som ligger utanför fönstret DVR om du vill markera klipp eller he\she kanske vill ge olika DVR fönster för olika enheter. De flesta av de mobila enheterna hanteras exempelvis inte stora DVR windows (du kan ha ett 2 minuter DVR fönster för mobila enheter och en timme för skrivbordsklienter).
 
 ![DVR fönster][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Justera LiveBackoff (direktsända positionen)
-Manifestet filtrering kan användas för att ta bort några sekunder från en direktsänd program live kant. Detta gör att programföretag titta på presentationen preview publikationen pekar på och skapa annonsen infogas punkter innan visningsprogram får den dataström (vanligtvis backas upp av med 30 sekunder). -Kan sedan push dessa annonser till deras klient-ramverk i tid för dem att mottagna och processinformation innan annons affärsmöjligheten.
+Manifestet filtrering kan användas för att ta bort några sekunder från en direktsänd program live kant. Filtrering kan programföretag titta på presentationen preview publikationen pekar på och skapa annonsen infogas punkter innan visningsprogram får den dataström (backas upp av med 30 sekunder). -Kan sedan push dessa annonser till deras klient-ramverk i tid för dem att mottagna och processinformation innan annons affärsmöjligheten.
 
-LiveBackoff kan användas för att justera klienten live download position så att när klienter driva och träffar live kanten kan de fortfarande få fragment från servern i stället för att hämta HTTP-fel 404 eller 412 förutom annons-stöd.
+Förutom annons-stöd användas inställningen LiveBackoff för att anpassa visningsprogram position så att när klienter driva och träffar live kanten kan de fortfarande få fragment från servern i stället för en HTTP 404-eller 412 fel.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Kombinera flera regler i ett enda filter
-Du kan kombinera flera filtreringsregler i ett enda filter. Som exempel kan du definiera en regel för intervallet för att ta bort mallen från en live-Arkiv och även filtrera tillgänglig bithastighet. Slutresultatet är sammansättning (skärningspunkten) av reglerna för flera filtreringsregler.
+Du kan kombinera flera filtreringsregler i ett enda filter. Som exempel kan du definiera ”intervallet regeln” ta bort pekdatorer från ett live-Arkiv och också filtrera bort tillgänglig bithastighet. När du använder flera filtreringsregler, är slutresultatet skärningspunkten för alla regler.
 
 ![flera regler][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Skapa filter programmässigt
-I följande avsnitt beskrivs Media Services-entiteter som är relaterade till filter. Avsnittet visar även hur du programmässigt skapa filter.  
+I följande artikel beskrivs Media Services-entiteter som är relaterade till filter. Artikeln beskriver också hur du skapar programmässigt filter.  
 
 [Skapa filter med REST API: er](media-services-rest-dynamic-manifest.md).
 
@@ -166,15 +166,15 @@ Du kan också kombinera flera filter i en enskild URL.
 
 Följande scenario visar varför du kanske vill kombinera filter:
 
-1. Du vill filtrera din video egenskaper för mobila enheter, till exempel Android eller iPAD (för att begränsa video egenskaper). Om du vill ta bort oönskade egenskaper, skulle du skapa ett globalt filter som är lämplig för profiler för enheter. Som nämnts ovan är kan globala filter användas för alla tillgångar under samma media services-konto utan ytterligare association. 
+1. Du vill filtrera din video egenskaper för mobila enheter, till exempel Android eller iPAD (för att begränsa video egenskaper). Om du vill ta bort oönskade egenskaper, skulle du skapa ett globalt filter passar enhetsprofilerna. Som nämnts tidigare i den här artikeln är kan globala filter användas för alla tillgångar under samma media services-konto utan ytterligare association. 
 2. Du bör också trim start- och tiden för en tillgång. För att uppnå detta skulle du skapa ett lokalt filter och ange starttid/sluttid. 
-3. Du vill kombinera båda dessa filter (utan kombination måste du lägga till kvalitet filtrering trimning-filtret som gör filter användning svårt).
+3. Du vill kombinera båda dessa filter (utan kombination, du måste lägga till kvalitet filtrering på trimning filtret som gör det svårare att filter syntax).
 
 Om du vill kombinera filter, måste du ange filternamn till manifest/spelningslista URL: en med semikolonavgränsad. Antar vi att du har ett filter med namnet *MyMobileDevice* som filtrerar egenskaper och du har en annan med namnet *MyStartTime* för att ange en specifik starttid. Du kan kombinera dem så här:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-Du kan kombinera upp till 3 filter. 
+Du kan kombinera upp till tre filter. 
 
 Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogg.
 

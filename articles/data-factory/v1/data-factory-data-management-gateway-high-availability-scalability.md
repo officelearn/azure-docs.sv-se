@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsgranskning)
 > [!NOTE]
@@ -190,7 +190,7 @@ Namn | Namnet på den logiska gateway och noder som är kopplade till gatewayen.
 Status | Status för logiska gatewayen och gateway-noder. Exempel: Online/Offline/begränsad/etc. Information om dessa statusar finns [gatewaystatusen](#gateway-status) avsnitt. 
 Version | Visar vilken version av den logiska gatewayen och varje gateway-noden. Versionen av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logiska gateway-inställningarna endast noder med samma versionsnummer som funktionen logiska gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (bara om automatisk uppdatering misslyckas). 
 Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
-CPU-användning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
+Processoranvändning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Nätverk (In/ut) | Nätverksanvändning för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Samtidiga jobb (kör / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära realtid ögonblicksbild. Gränsen innebär högsta samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörningen i avancerade scenarier där CPU / minne / nätverket är outnyttjad men aktiviteter uppnådd tidsgräns. Den här funktionen finns också med en enda nod gateway (även om funktionen skalbarhet och tillgänglighet inte är aktiverad). Mer information finns i [skala överväganden](#scale-considerations) avsnitt. 
 Roll | Det finns två typer av roller – Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher nod som används för att hämta uppgifter/jobb från molntjänster och skicka dem till olika arbetsnoder (inklusive sig själv). 
@@ -205,9 +205,9 @@ Status  | Kommentarer-scenarier
 :------- | :------------------
 Online | Noden är ansluten till Data Factory-tjänsten.
 Offline | Noden är offline.
-Uppgradera | Noden håller på att uppdateras automatiskt.
+Uppgraderar | Noden håller på att uppdateras automatiskt.
 Begränsad | På grund av anslutningsproblem. Kan bero på http-porten 8050 problemet, service bus-anslutningsproblem eller autentiseringsuppgifter synkroniseringsproblem. 
-Inaktiva | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
+Inaktiv | Noden är i en konfiguration som skiljer sig från konfigurationen av andra majoritet noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder. 
 
 
 Följande tabell innehåller olika statusar av en **logiska gateway**. Gatewayens status beror på statusen för gateway-noder. 

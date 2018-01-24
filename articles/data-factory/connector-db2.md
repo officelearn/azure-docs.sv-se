@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +67,7 @@ Följande egenskaper stöds för DB2 länkade tjänsten:
 | typ | Egenskapen type måste anges till: **Db2** | Ja |
 | server |Namnet på DB2-server. |Ja |
 | databas |Namnet på DB2-databasen. |Ja |
-| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
+| schema |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtna värde är: **grundläggande**. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till DB2-databasen. |Ja |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som SecureString. |Ja |
@@ -178,8 +178,8 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | Typ av DB2-databas | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binär |byte] |
-| Blob |byte] |
+| Binär |Byte[] |
+| Blob |Byte[] |
 | Char |Sträng |
 | CLOB |Sträng |
 | Date |DateTime |
@@ -187,11 +187,11 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | DbClob |Sträng |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| dubbla |dubbla |
-| flyttal |dubbla |
+| Dubbel |Dubbel |
+| Flyttal |Dubbel |
 | Bild |Sträng |
 | Integer |Int32 |
-| LongVarBinary |byte] |
+| LongVarBinary |Byte[] |
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
 | numeriskt |Decimal |
@@ -199,10 +199,10 @@ När du kopierar data från DB2, används följande mappningar från DB2-datatyp
 | SmallInt |Int16 |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| VarBinary |byte] |
+| VarBinary |Byte[] |
 | VarChar |Sträng |
 | VarGraphic |Sträng |
-| XML |byte] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Nästa steg

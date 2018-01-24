@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a0074bd68dc9714eed9064e42c6e1c6d708d1100
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -226,10 +226,10 @@ Om du vill kopiera data till Azure SQL Database, anger du sink i kopieringsaktiv
 | typ | Egenskapen type för kopiera aktivitet sink måste anges till: **SqlSink** | Ja |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antalet rader). |Nej (standard är 10000) |
 | writeBatchTimeout |Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås.<br/>Tillåtna värden är: timespan. Exempel ”: 00: 30:00” (30 minuter). |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren upserts (uppdateringar/infogar) data i måltabellen. |Nej |
+| preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan skrivningen av data till Azure SQL Database. Det ska bara anropas en gång per kopia kör. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej |
+| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur ska gälla källdata i måltabellen, t.ex. vill upserts eller transformera med hjälp av egna affärslogik. <br/><br/>Observera den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärden som endast körs en gång och har ingenting att göra med källdata som t.ex. Ta bort/trunkera använder `preCopyScript` egenskapen. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är: namn/värde-par. Namn och skiftläge parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 | sqlWriterTableType |Ange ett tabell-typnamn som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data flyttas i en temporär tabell med den här tabellen. Lagrade procedurer kan sedan koppla data kopieras med befintliga data. |Nej |
-| preCopyScript |Ange en SQL-fråga för Kopieringsaktiviteten ska köras innan skrivning av data till Azure SQL Database i varje körning. Du kan använda den här egenskapen för att rensa förinstallerade data. |Nej |
 
 > [!TIP]
 > När du kopierar data till Azure SQL Database lägger kopieringsaktiviteten data till tabellen mottagare som standard. Använd den lagrade proceduren för att utföra en UPSERT eller ytterligare affärslogik i SqlSink. Lär dig mer information från [anropar lagrade proceduren för SQL Sink](#invoking-stored-procedure-for-sql-sink).
@@ -452,17 +452,17 @@ När du kopierar data från/till Azure SQL Database, används följande mappning
 | Azure SQL Database-datatyp | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte[] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| Flyttal |Dubbel |
+| Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -470,19 +470,19 @@ När du kopierar data från/till Azure SQL Database, används följande mappning
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Ogift |
-| ROWVERSION |byte] |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte[] |
 | tinyint |Mottagna byte |
-| Unik identifierare |GUID |
-| varbinary |byte] |
+| uniqueidentifier |GUID |
+| varbinary |Byte[] |
 | varchar |Sträng, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datakällor som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns [stöds datalager](copy-activity-overview.md##supported-data-stores-and-formats).

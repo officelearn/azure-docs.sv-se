@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Anropa ett webb-API från en .NET-webbapp
 Du kan snabbt lägga till autentisering i dina webbprogram och webb-API: er med stöd för både personliga Microsoft-konton och arbets-eller skolkonton med v2.0-slutpunkten.  Här ska vi skapa en MVC-webbapp som loggar användarna in med OpenID Connect med hjälp från Microsofts OWIN mellanprogram.  Webbprogrammet hämta OAuth 2.0-åtkomsttoken för en webb-api som skyddas av OAuth 2.0 som gör att skapa, läsa och ta bort på en viss användares ”uppgiftslistan”.
@@ -68,7 +68,7 @@ Nu konfigurera OWIN-mellanprogram för att använda den [autentiseringsprotokoll
 * Öppna filen `App_Start\Startup.Auth.cs` och Lägg till `using` instruktioner för bibliotek från ovan.
 * I samma fil implementera den `ConfigureAuth(...)` metoden.  De parametrar som du anger i `OpenIDConnectAuthenticationOptions` fungerar som koordinater för din app för att kommunicera med Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ I den `AuthorizationCodeReceived` meddelande ska vi använda [OAuth 2.0 tillsamm
 * Och lägga till en annan `using` -instruktionen för att den `App_Start\Startup.Auth.cs` filen för MSAL.
 * Lägg nu till en ny metod i `OnAuthorizationCodeReceived` händelsehanterare.  Den här hanteraren MSAL ska använda för att få en åtkomsttoken att API för att göra-lista och lagrar token i MSAL'S token-cache för senare:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ Nu är det dags att faktiskt använder access_token som du har införskaffade i 
     `using Microsoft.Identity.Client;`
 * I den `Index` åtgärdens, Använd MSAL `AcquireTokenSilentAsync` metod för att hämta en access_token som kan användas för att läsa data från tjänsten för att göra-lista:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * Exemplet lägger sedan till den resulterande token HTTP GET-begäran som den `Authorization` rubriken, som att göra-lista tjänsten använder för att autentisera begäran.
 * Om tjänsten för att göra-lista returnerar en `401 Unauthorized` svar, access_tokens i MSAL har blivit ogiltigt av någon anledning.  I det här fallet bör du släppa alla access_tokens från MSAL cache och visar användaren ett meddelande om att de kan behöva logga in igen, vilket startar om token förvärv flödet.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * På liknande sätt bör MSAL kan inte returnera en access_token av någon anledning, du instruera användaren att logga in igen.  Detta är lika enkelt som fångar in alla `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {

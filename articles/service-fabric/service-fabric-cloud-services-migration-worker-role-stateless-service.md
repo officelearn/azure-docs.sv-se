@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Att konvertera webb- och arbetsroller till Service Fabric tillståndslösa tjänster
 Den här artikeln beskriver hur du migrerar din Cloud Services webb- och arbetsroller till Service Fabric tillståndslösa tjänster. Detta är den enklaste migreringsvägen från molntjänster till Service Fabric för program som ska vara ungefär samma vars övergripande arkitektur.
@@ -43,20 +43,20 @@ Liknar Arbetsrollen, en Webbroll också representerar en tillståndslös arbetsb
 | ASP.NET Web Forms |Nej |Omvandla till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
 | ASP.NET Webb-API |Med migrering |Använda automatisk värdbaserade servern eller ASP.NET Core 1 |
-| ASP.NET Core 1 |Ja |Saknas |
+| ASP.NET Core 1 |Ja |Gäller inte |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Posten punkt API och livscykel
 Worker-rollen och Service Fabric-API: er erbjuder liknande startpunkter: 
 
 | **Startpunkt** | **Worker-rollen** | **Service Fabric-tjänsten** |
 | --- | --- | --- |
-| Bearbetning av |`Run()` |`RunAsync()` |
-| Starta VM |`OnStart()` |Saknas |
-| Stoppa VM |`OnStop()` |Saknas |
-| Öppna lyssnaren för klientbegäranden |Saknas |<ul><li> `CreateServiceInstanceListener()`för tillståndslösa</li><li>`CreateServiceReplicaListener()`för stateful</li></ul> |
+| Bearbetning |`Run()` |`RunAsync()` |
+| Starta VM |`OnStart()` |Gäller inte |
+| Stoppa VM |`OnStop()` |Gäller inte |
+| Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()`för tillståndslösa</li><li>`CreateServiceReplicaListener()`för stateful</li></ul> |
 
 ### <a name="worker-role"></a>Worker-rollen
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Service Fabric tillståndslösa tjänsten
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -122,8 +122,8 @@ Molntjänster miljön API innehåller information och funktioner för den aktuel
 | Konfigurationsinställningar och ändringsmeddelande |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokal lagring |`RoleEnvironment` |`CodePackageActivationContext` |
 | Slutpunkten |`RoleInstance` <ul><li>Aktuell instans:`RoleEnvironment.CurrentRoleInstance`</li><li>Andra roller och instans:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`för den aktuella noden adressen</li><li>`FabricClient`och `ServicePartitionResolver` för identifiering av tjänst slutpunkt</li> |
-| Miljö emulering |`RoleEnvironment.IsEmulated` |Saknas |
-| Samtidiga Ändringshändelse |`RoleEnvironment` |Saknas |
+| Miljö emulering |`RoleEnvironment.IsEmulated` |Gäller inte |
+| Samtidiga Ändringshändelse |`RoleEnvironment` |Gäller inte |
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 Konfigurationsinställningarna i molntjänster har angetts för en VM-roll och gäller för alla instanser av den Virtuella datorrollen. De här inställningarna är nyckel / värde-par i ServiceConfiguration.*.cscfg filer och kan nås direkt via RoleEnvironment. I Service Fabric inställningarna individuellt för varje tjänst och varje program i stället för en virtuell dator eftersom en virtuell dator kan vara värd för flera tjänster och program. En tjänst består av tre paket:
@@ -135,10 +135,10 @@ Konfigurationsinställningarna i molntjänster har angetts för en VM-roll och g
 Var och en av dessa paket kan vara oberoende versionsnummer och uppgraderade. Liknar Cloud Services, en konfigurationspaketet kan nås via programmering genom en API och händelser som är tillgängliga att meddela tjänsten av en ändring för config-paketet. En Settings.xml-fil kan användas för nyckel / värde-konfiguration och Programmeringsåtkomst liknar avsnittet app inställningar i en App.config-fil. Men till skillnad från molntjänster, kan ett Service Fabric config-paket innehålla konfigurationsfiler i valfritt format, oavsett om det är XML, JSON, YAML eller ett anpassat binärt format. 
 
 ### <a name="accessing-configuration"></a>Åtkomst till konfiguration
-#### <a name="cloud-services"></a>Molntjänster
+#### <a name="cloud-services"></a>Cloud Services
 Konfigurationsinställningar från ServiceConfiguration.*.cscfg kan nås via `RoleEnvironment`. De här inställningarna är globalt tillgängliga för alla rollinstanser i samma molntjänst-distribution.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Varje tjänst har sin egen enskilda konfigurationspaket. Det finns ingen inbyggd
 
 Konfigurationsinställningarna är öppningar i varje tjänstinstans via tjänstens `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -167,10 +167,10 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ```
 
 ### <a name="configuration-update-events"></a>Update-konfigurationshändelser
-#### <a name="cloud-services"></a>Molntjänster
+#### <a name="cloud-services"></a>Cloud Services
 Den `RoleEnvironment.Changed` händelsen används för att meddela alla rollinstanser när en ändring inträffar i miljön, till exempel en konfigurationsändring. Detta används för att använda konfigurationsuppdateringar utan återvinning rollinstanser eller omstart av en arbetsprocess.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Var och en av tre pakettyper i en tjänst - kod, konfiguration och Data - ha hä
 
 Dessa händelser är tillgängliga att använda ändringar i servicepaket utan att starta om tjänstinstansen.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -207,13 +207,13 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Start-uppgifter
 Start-aktiviteter är åtgärder som vidtas innan ett program startas. En startåtgärd normalt används för att köra installationsprogrammet skript med utökade privilegier. Både molntjänster och Service Fabric stöder uppstart uppgifter. Den största skillnaden är att i Cloud Services, en startaktivitet är knuten till en virtuell dator eftersom det är en del av en rollinstans medan i Service Fabric en startaktivitet är knuten till en tjänst som inte är kopplad till någon särskild virtuell dator.
 
-| Molntjänster | Service Fabric |
+| Cloud Services | Service Fabric |
 | --- | --- | --- |
 | Platsen för konfigurationen |ServiceDefinition.csdef |
-| Privilegier |”begränsad” eller ”utökade” |
+| Behörigheter |”begränsad” eller ”utökade” |
 | Sekvensering |”enkla”, ”bakgrund”, ”förgrunden” |
 
-### <a name="cloud-services"></a>Molntjänster
+### <a name="cloud-services"></a>Cloud Services
 I Cloud Services konfigureras en startpunkt för start per roll i ServiceDefinition.csdef. 
 
 ```xml

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - exempel
 > [!NOTE]
@@ -78,7 +78,7 @@ Du kan använda den **exempel pipelines** panelen på startsidan på din data fa
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Exempel i Visual Studio
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Du måste ha följande installerat på datorn:
 
 * Visual Studio 2013 eller Visual Studio 2015

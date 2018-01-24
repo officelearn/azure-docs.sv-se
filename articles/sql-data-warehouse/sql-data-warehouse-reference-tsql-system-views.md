@@ -3,7 +3,7 @@ title: SQL Data Warehouse systemvyer | Microsoft Docs
 description: "Länkar till system visar innehåll för SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Systemvyer
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse katalogvyer
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server av DMV: er gäller för SQL Data Warehouse
 Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras genom att ansluta till den **master** databas.
@@ -98,7 +98,7 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.foreign_keys](http://msdn.microsoft.com/library/ms189807.aspx)
 * [sys.identity_columns](http://msdn.microsoft.com/library/ms187334.aspx)
 * [sys.index_columns](http://msdn.microsoft.com/library/ms175105.aspx)
-* [sys.Indexes](http://msdn.microsoft.com/library/ms173760.aspx)
+* [sys.indexes](http://msdn.microsoft.com/library/ms173760.aspx)
 * [sys.key_constraints](http://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](http://msdn.microsoft.com/library/ms179865.aspx)
 * [sys.Objects](http://msdn.microsoft.com/library/ms190324.aspx)
@@ -116,7 +116,7 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 * [sys.stats](http://msdn.microsoft.com/library/ms177623.aspx)
 * [sys.stats_columns](http://msdn.microsoft.com/library/ms187340.aspx)
 * [sys.symmetric_keys](https://msdn.microsoft.com/library/ms189446.aspx)
-* [sys.SYNONYMS](https://msdn.microsoft.com/library/ms189458.aspx)
+* [sys.synonyms](https://msdn.microsoft.com/library/ms189458.aspx)
 * [sys.syscharsets](https://msdn.microsoft.com/library/ms190300.aspx)
 * [sys.syscolumns](https://msdn.microsoft.com/library/ms186816.aspx)
 * [sys.sysdatabases](https://msdn.microsoft.com/library/ms179900.aspx)
@@ -137,16 +137,14 @@ Följande av DMV: er som gäller för SQL Data Warehouse, men måste köras geno
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server av DMV: er finns i SQL Data Warehouse
 SQL Data Warehouse exponerar många av de dynamiska hanteringsvyer (av DMV: er) för SQL Server. Dessa vyer när en förfrågan i SQL Data Warehouse rapporterar tillståndet för SQL-databaser som körs på distributioner.
 
-Använd samma systemvyer eftersom SQL Data Warehouse bygger på Microsofts MPP-teknik, både SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW).
-
-Det är därför var och en av dessa DMV har specifika kolumnen pdw_node_id. Det här är den identifierare för Compute-nod. Noden är en starkare koncept i arkitekturen i PDW beräkningen. I SQL Data Warehouse bygger arkitekturen virtuellt på distributioner.
+SQL Data Warehouse och Analytics Platform System Parallel Data Warehouse (PDW) använder du samma systemvyer. Varje DMV har en kolumn med namnet pdw_node_id, vilket är identifieraren för Compute-nod. 
 
 > [!NOTE]
-> Om du vill använda dessa visa Infoga 'pdw_nodes_' i namnet som visas i följande tabell.
+> Om du vill använda dessa vyer, infoga 'pdw_nodes_' i namnet som visas i följande tabell:
 > 
 > 
 
-| DMV namn i SQL Data Warehouse | Länka till SQL Server Transact-SQL-avsnittet på MSDN |
+| DMV namn i SQL Data Warehouse | SQL Server Transact-SQL-artikel|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -225,13 +223,13 @@ Det är därför var och en av dessa DMV har specifika kolumnen pdw_node_id. Det
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA vyer
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [KOLUMNER](http://msdn.microsoft.com/library/ms188348.aspx)
-* [PARAMETRAR](http://msdn.microsoft.com/library/ms173796.aspx)
+* [PARAMETERS](http://msdn.microsoft.com/library/ms173796.aspx)
 * [RUTINER](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMAN](https://msdn.microsoft.com/library/ms182642.aspx)
-* [TABELLER](http://msdn.microsoft.com/library/ms186224.aspx)
+* [TABLES](http://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
 * [VIEW_TABLE_USAGE](https://msdn.microsoft.com/library/ms173869.aspx)
-* [VYER](http://msdn.microsoft.com/library/ms181381.aspx)
+* [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer till referens [översikt över SQL Data Warehouse-referens][SQL Data Warehouse reference overview].

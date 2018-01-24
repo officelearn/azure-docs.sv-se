@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights för .NET konsolen program
 [Application Insights](app-insights-overview.md) kan du övervaka ditt webbprogram för tillgänglighet, prestanda och användning.
@@ -31,7 +31,7 @@ Du behöver en prenumeration med [Microsoft Azure](http://azure.com). Logga in m
 * Installera senaste [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) paketet.
 * Ange nyckeln instrumentation i koden innan spåra alla telemetri (eller uppsättning APPINSIGHTS_INSTRUMENTATIONKEY miljövariabeln). Efter att ska du kunna spåra telemetri och finns på Azure-portalen manuellt
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
@@ -45,13 +45,13 @@ Du kan starta och konfigurera Application Insights från koden eller med hjälp 
 
 Som standard söker Application Insights SDK `ApplicationInsights.config` filen i arbetskatalogen när `TelemetryConfiguration` håller på att skapas
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
 Du kan också ange sökväg till konfigurationsfilen.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
@@ -90,7 +90,7 @@ Du kan få ett fullständigt exempel på konfigurationsfilen genom att installer
 
 * Vid start av program skapa och konfigurera `DependencyTrackingTelemetryModule` instans - det måste vara singleton och måste bevaras för programmet livstid.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * Lägg till vanliga telemetri initierare
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -121,7 +121,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesPars
 
 #### <a name="full-example"></a>Fullständigt exempel
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;

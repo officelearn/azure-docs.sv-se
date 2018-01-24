@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1379cbb0ea9b01a20d1974ed08e93b4872ffd92b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 765ca21c7c38fa116e0ca95b3c8dc6a6152834ce
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Flytta data till och från Azure-tabellen med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -478,8 +478,8 @@ När du flyttar data till och från Azure Table följande [mappningar som defini
 | --- | --- | --- |
 | Edm.Binary |byte] |En matris med byte upp till 64 KB. |
 | Edm.Boolean |bool |Ett booleskt värde. |
-| Edm.DateTime |Datum och tid |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det intervall som stöds för den DateTime som börjar från midnatt, 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar vid den 31 December 9999. |
-| Edm.Double |dubbla |En 64-bitars flytande punktvärdet. |
+| Edm.DateTime |DateTime |En 64-bitars värdet uttrycks som Coordinated Universal Time (UTC). Det intervall som stöds för den DateTime som börjar från midnatt, 1 januari, 1601 e. kr. (C.E.) UTC. Intervallet slutar vid den 31 December 9999. |
+| Edm.Double |dubbel |En 64-bitars flytande punktvärdet. |
 | Edm.Guid |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |En 32-bitars heltal. |
 | Edm.Int64 |Int64 |En 64-bitars heltal. |

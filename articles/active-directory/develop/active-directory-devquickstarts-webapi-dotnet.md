@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>.NET Web av Azure AD-API som komma igång
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -73,7 +73,7 @@ Om du vill validera inkommande begäranden och token, måste du konfigurera ditt
 
 3. Ändra klassdeklarationen till `public partial class Startup`. Vi har redan implementerats en del av den här klassen för dig i en annan fil. I den `Configuration(…)` gör ett anrop till metoden `ConfgureAuth(…)` du konfigurerar autentisering för ditt webbprogram.
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -85,7 +85,7 @@ Om du vill validera inkommande begäranden och token, måste du konfigurera ditt
 
 4. Öppna filen `App_Start\Startup.Auth.cs` och genomföra den `ConfigureAuth(…)` metoden. De parametrar som du anger i `WindowsAzureActiveDirectoryBearerAuthenticationOptions` fungerar som koordinater för din app för att kommunicera med Azure AD.
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -99,7 +99,7 @@ Om du vill validera inkommande begäranden och token, måste du konfigurera ditt
 
 5. Nu kan du använda `[Authorize]` attribut för att skydda dina domänkontrollanter och åtgärder med JSON-Webbtoken (JWT) ägar-autentisering. Skapa snygga den `Controllers\TodoListController.cs` klass med en auktorisera-tagg. Detta tvingar användaren att logga in innan sidan.
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -109,7 +109,7 @@ Om du vill validera inkommande begäranden och token, måste du konfigurera ditt
 
 6. Ett vanligt krav för webb-API:er är att validera ”omfång” i token. Detta säkerställer att användaren har godkänt för de behörigheter som krävs för att få åtkomst till att göra tjänsten.
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

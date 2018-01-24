@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Hantera en Azure-SSIS-integrering körning
 Den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-runtime.md) artikeln visar hur du skapar en Azure-SSIS-integrering körning (IR) med hjälp av Azure Data Factory. Den här artikeln innehåller information om hur du konfigurerar om en befintlig Azure-SSIS-integrering körning.  
@@ -25,9 +25,28 @@ Den [skapa en Azure-SSIS-integrering körning](create-azure-ssis-integration-run
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen om Data Factory version 1](v1/data-factory-introduction.md).
 
+
+## <a name="data-factory-ui"></a>Data Factory-användargränssnitt 
+Du kan använda Data Factory UI stoppa, redigera/konfigurera om eller ta bort en Azure-SSIS-IR. 
+
+1. I den **Data Factory UI**, växla till den **redigera** fliken. Om du vill starta Användargränssnittet för Data Factory, klickar du på **författare & övervakaren** på startsidan i din data factory.
+2. I den vänstra rutan klickar du på **anslutningar**.
+3. Växla till i den högra rutan i **integrering körningar**. 
+4. Du kan använda knapparna i kolumnen åtgärder att **stoppa**, **redigera**, eller **ta bort** integrering körningsmiljön. Den **kod** knappen i den **åtgärder** kolumn kan du visa JSON-definition som är associerade med integration körningsmiljön.  
+    
+    ![Åtgärder för Azure SSIS-IR](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Konfigurera om en Azure-SSIS-IR
+1. Stoppa integration runtime genom att klicka på **stoppa** i den **åtgärder** kolumn. Uppdatera listan, klicka på **uppdatera** i verktygsfältet. När IR stoppas kan se du att den första åtgärden kan du starta IR. 
+
+    ![Åtgärder för Azure SSIS IR - när stoppad](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Redigera/reconfigure IR genom att klicka på **redigera** knappen i den **åtgärder** kolumn. I den **integrering Runtime installationsprogrammet** fönster, ändra inställningar (till exempel storleken på noden, antalet noder eller maximal parallella körningar per nod). 
+3. Starta om IR, klicka på **starta** knappen i den **åtgärder** kolumn.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 När du etablera och starta en instans av Azure-SSIS-integrering körning kan du konfigurera om den genom att köra en sekvens av `Stop`  -  `Set`  -  `Start` PowerShell-cmdlets i följd. Till exempel ändrar följande PowerShell-skript antalet noder som allokerats för Azure-SSIS-integrering runtime-instans till fem.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Konfigurera om en Azure-SSIS-IR
+### <a name="reconfigure-an-azure-ssis-ir"></a>Konfigurera om en Azure-SSIS-IR
 
 1. Först stoppa körningen Azure SSIS-integrering med hjälp av [stoppa AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Det här kommandot släpper alla dess noder och stoppar fakturering.
 
@@ -45,7 +64,7 @@ När du etablera och starta en instans av Azure-SSIS-integrering körning kan du
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Ta bort en Azure-SSIS-IR
+### <a name="delete-an-azure-ssis-ir"></a>Ta bort en Azure-SSIS-IR
 1. Lista över alla befintliga Azure SSIS IRs under din data factory först.
 
     ```powershell

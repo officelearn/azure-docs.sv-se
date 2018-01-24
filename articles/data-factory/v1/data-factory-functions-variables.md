@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c0145a5b5c54f5b9e3b5731d52df99c0a80fc271
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f42ba7ed9c07a9d0bc73929db2a095248ad7d56f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - funktioner och systemvariabler
 > [!NOTE]
@@ -30,10 +30,10 @@ Den här artikeln innehåller information om funktioner och variabler som stöds
 ## <a name="data-factory-system-variables"></a>Data Factory systemvariabler
 | Variabelnamn | Beskrivning | Objektets Scope | JSON-Scope och användningsområden |
 | --- | --- | --- | --- |
-| WindowStart |Början av tidsintervall för aktuell aktivitet som kör Windows |Aktivitet |<ol><li>Ange datafrågor val. Se connector artiklar som refereras i den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel.</li> |
-| WindowEnd |Slutet av tidsintervall för aktuell aktivitet som kör Windows |Aktivitet |samma som WindowStart. |
-| SliceStart |Början av tidsintervall för datasektor som skapas |Aktivitet<br/>DataSet |<ol><li>Ange dynamiska sökvägar och filnamn när du arbetar med [Azure Blob](data-factory-azure-blob-connector.md) och [filsystemet datauppsättningar](data-factory-onprem-file-system-connector.md).</li><li>Ange indata beroenden med data factory-funktioner i aktiviteten indata samling.</li></ol> |
-| SliceEnd |Slut på tidsintervall för aktuella datasektorn. |Aktivitet<br/>DataSet |samma som SliceStart. |
+| WindowStart |Början av tidsintervall för aktuell aktivitet som kör Windows |aktivitet |<ol><li>Ange datafrågor val. Se connector artiklar som refereras i den [Data Movement aktiviteter](data-factory-data-movement-activities.md) artikel.</li> |
+| WindowEnd |Slutet av tidsintervall för aktuell aktivitet som kör Windows |aktivitet |samma som WindowStart. |
+| SliceStart |Början av tidsintervall för datasektor som skapas |aktivitet<br/>DataSet |<ol><li>Ange dynamiska sökvägar och filnamn när du arbetar med [Azure Blob](data-factory-azure-blob-connector.md) och [filsystemet datauppsättningar](data-factory-onprem-file-system-connector.md).</li><li>Ange indata beroenden med data factory-funktioner i aktiviteten indata samling.</li></ol> |
+| SliceEnd |Slut på tidsintervall för aktuella datasektorn. |aktivitet<br/>DataSet |samma som SliceStart. |
 
 > [!NOTE]
 > För närvarande kräver datafabriken att schemat som anges i aktiviteten exakt matchar det schema som angetts i tillgängligheten för datamängd för utdata. WindowStart, WindowEnd, och SliceStart och SliceEnd mappas därför alltid till samma tidsperiod och ett enda utflöde segment.
@@ -78,7 +78,7 @@ Se [anpassade datum och tid formatsträngar](https://msdn.microsoft.com/library/
 ### <a name="functions"></a>Funktioner
 I tabellerna nedan listas funktionerna i Azure Data Factory:
 
-| Kategori | Funktionen | Parametrar | Beskrivning |
+| Kategori | Funktion | Parametrar | Beskrivning |
 | --- | --- | --- | --- |
 | Tid |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y timmar angiven tid X. <br/><br/>Exempel:`9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Tid |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Lägger till Y minuter X.<br/><br/>Exempel:`9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -95,8 +95,8 @@ I tabellerna nedan listas funktionerna i Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime |Hämtar den tid som representerar dagen (dagkomponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |Hämtar slutet på månaden som representeras av månadskomponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum tid som motsvarar slutet av September månad) |
 | Date |StartOfDay(X) |X: DateTime |Hämtar början på dagen som representeras av dagkomponenten i parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| Datum och tid |FROM(X) |X: sträng |Parsa strängen X till en datum-tid. |
-| Datum och tid |Ticks(X) |X: DateTime |Hämtar skalstrecken-egenskapen för parametern X. En skalstreck är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet intervall som har förflutit sedan 12:00:00 midnatt den 1 januari 0001. |
+| DateTime |FROM(X) |X: sträng |Parsa strängen X till en datum-tid. |
+| DateTime |Ticks(X) |X: DateTime |Hämtar skalstrecken-egenskapen för parametern X. En skalstreck är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet intervall som har förflutit sedan 12:00:00 midnatt den 1 januari 0001. |
 | Text |Format(X) |X: string-variabel |Formaterar texten (Använd `\\'` kombination för att undvika `'` tecken).|
 
 > [!IMPORTANT]

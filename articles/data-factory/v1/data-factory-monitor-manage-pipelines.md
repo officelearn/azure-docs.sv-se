@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure portal och PowerShell
 > [!div class="op_single_selector"]
@@ -134,7 +134,7 @@ Dataset-segment i datafabriken kan ha en av följande status:
 <td>Klar</td><td>-</td><td>Sektorn är klar att förbrukas.</td>
 </tr>
 <tr>
-<td>Överhoppad</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
+<td>Hoppades över</td><td>Ingen</td><td>Sektorn är inte bearbetas.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>En sektor som brukade finnas med en annan status, men den har återställts.</td>

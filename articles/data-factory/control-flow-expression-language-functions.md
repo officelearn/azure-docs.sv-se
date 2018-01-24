@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -175,7 +175,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 |Längd|Returnerar antalet element i en matris eller sträng. Följande uttryck returnerar till exempel `3`:`length('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: samlingen<br /><br /> **Beskrivning**: krävs. Samlingen för att hämta längden för.|  
 |tom|Returnerar true om objektet, matris eller sträng är tom. Följande uttryck returnerar till exempel `true`:<br /><br /> `empty('')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: samlingen<br /><br /> **Beskrivning**: krävs. Samlingen för att kontrollera om den är tom.|  
 |skärningspunkten|Returnerar en enda matris eller ett objekt med vanliga element mellan matriser eller objekt som överförs till den. Den här funktionen returnerar till exempel `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Parametrar för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn, visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Namnet**: samlingen*n*<br /><br /> **Beskrivning**: krävs. Samlingar att utvärdera. Ett objekt måste vara i alla samlingar som skickades till visas i resultatet.|  
-|Union|Returnerar en enda matris eller ett objekt med alla element i matrisen eller objekt överförs. Den här funktionen returnerar till exempel`[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Parametrar för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn i det slutgiltiga resultatet, visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Namnet**: samlingen*n*<br /><br /> **Beskrivning**: krävs. Samlingar att utvärdera. Ett objekt som visas i någon av samlingarna som visas i resultatet.|  
+|Union|Returnerar en enda matris eller ett objekt med alla element i matrisen eller objekt överförs. Den här funktionen returnerar till exempel`[1, 2, 3, 10, 101]:`<br /><br /> :`union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Parametrar för funktionen kan antingen vara en uppsättning objekt eller en uppsättning matriser (inte en blandning av dessa). Om det finns två objekt med samma namn i det slutgiltiga resultatet, visas det sista objektet med det namnet i det sista objektet.<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Namnet**: samlingen*n*<br /><br /> **Beskrivning**: krävs. Samlingar att utvärdera. Ett objekt som visas i någon av samlingarna som visas i resultatet.|  
 |första|Returnerar det första elementet i matrisen eller sträng skickades. Den här funktionen returnerar till exempel `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: samlingen<br /><br /> **Beskrivning**: krävs. Göra det första objektet från samlingen.|  
 |senaste|Returnerar det sista elementet i matrisen eller sträng skickades. Den här funktionen returnerar till exempel `3`:<br /><br /> `last('0123')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: samlingen<br /><br /> **Beskrivning**: krävs. Göra det sista objektet från samlingen.|  
 |ta|Returnerar först **antal** element från en matris eller sträng skickades, till exempel den här funktionen returnerar `[1, 2]`:`take([1, 2, 3, 4], 2)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: samlingen<br /><br /> **Beskrivning**: krävs. Samlingen för att ta först **antal** objekt från.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: antal<br /><br /> **Beskrivning**: krävs. Antal objekt som ska ta den **samling**. Måste vara ett positivt heltal.|  
@@ -186,7 +186,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
   
 |Funktionsnamn|Beskrivning|  
 |-------------------|-----------------|  
-|är lika med|Returnerar true om två värden är lika. Till exempel om parameter1 foo följande uttryck returnerar `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: objekt-1<br /><br /> **Beskrivning**: krävs. Det objekt som jämför med **objekt 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: objekt 2<br /><br /> **Beskrivning**: krävs. Det objekt som jämför med **objekt 1**.|  
+|lika med|Returnerar true om två värden är lika. Till exempel om parameter1 foo följande uttryck returnerar `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: objekt-1<br /><br /> **Beskrivning**: krävs. Det objekt som jämför med **objekt 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: objekt 2<br /><br /> **Beskrivning**: krävs. Det objekt som jämför med **objekt 1**.|  
 |mindre|Returnerar true om det första argumentet är mindre än andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Följande uttryck returnerar till exempel `true`:`less(10,100)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: objekt-1<br /><br /> **Beskrivning**: krävs. Objektet för att kontrollera om det är mindre än **objekt 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: objekt 2<br /><br /> **Beskrivning**: krävs. Objektet för att kontrollera om det är större än **objekt 1**.|  
 |lessOrEquals|Returnerar true om det första argumentet är mindre än eller lika med andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Följande uttryck returnerar till exempel `true`:`lessOrEquals(10,10)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: objekt-1<br /><br /> **Beskrivning**: krävs. Objektet som ska kontrollera om det är mindre eller lika med **objekt 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: objekt 2<br /><br /> **Beskrivning**: krävs. Objektet för att kontrollera om den är större än eller lika med **objekt 1**.|  
 |större|Returnerar true om det första argumentet är större än andra. Observera att värden kan bara vara av typen heltal, flyttal eller string. Följande uttryck returnerar till exempel `false`:`greater(10,10)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: objekt-1<br /><br /> **Beskrivning**: krävs. Objektet för att kontrollera om det är större än **objekt 2**.<br /><br /> **Parameternummer**: 2<br /><br /> **Namnet**: objekt 2<br /><br /> **Beskrivning**: krävs. Objektet för att kontrollera om det är mindre än **objekt 1**.|  
@@ -203,9 +203,9 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
   
 -   heltal  
   
--   flyttal  
+-   flyt  
   
--   Booleskt värde  
+-   boolesk  
   
 -   matriser  
   
@@ -216,7 +216,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 |int|Konvertera parametern till ett heltal. Exempelvis returnerar följande uttryck 100 som ett tal i stället för en sträng:`int('100')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till ett heltal.|  
 |sträng|Konvertera parametern till en sträng. Följande uttryck returnerar till exempel `'10'`: `string(10)` du kan också konvertera ett objekt till en sträng, till exempel om den **foo** parametern är ett objekt med en egenskap `bar : baz`, och sedan följande skulle returnera `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till en sträng.|  
 |JSON|Konvertera parametern till ett JSON-värde för typen. Det är motsatsen till string(). Följande uttryck returnerar till exempel `[1,2,3]` som en matris i stället för en sträng:<br /><br /> `parse('[1,2,3]')`<br /><br /> På samma sätt kan du konvertera en sträng till ett objekt. Till exempel `json('{"bar" : "baz"}')` returnerar:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: sträng<br /><br /> **Beskrivning**: krävs. Den sträng som konverteras till en inbyggd typ-värde.<br /><br /> Json-funktionen stöder xml-indata. Till exempel parametervärdet för:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> konverteras till följande json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|flyttal|Konvertera argumentet parametern till ett flyttal. Följande uttryck returnerar till exempel `10.333`:`float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
+|flyt|Konvertera argumentet parametern till ett flyttal. Följande uttryck returnerar till exempel `10.333`:`float('10.333')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett flyttal.|  
 |bool|Konvertera parametern till ett booleskt värde. Följande uttryck returnerar till exempel `false`:`bool(0)`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som har konverterats till ett booleskt värde.|  
 |Slå samman|Returnerar det första icke-null-objektet i argument som skickas. Obs: en tom sträng inte är null. Till exempel om parametrar 1 och 2 inte har definierats, returneras `fallback`:`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameternummer**: 1...*n*<br /><br /> **Namnet**: objektet*n*<br /><br /> **Beskrivning**: krävs. Objekt som ska eftersökas `null`.|  
 |Base64|Returnerar base64-representation av Indatasträngen. Följande uttryck returnerar till exempel `c29tZSBzdHJpbmc=`:`base64('some string')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: String 1<br /><br /> **Beskrivning**: krävs. Strängen som koda till base64-representation.|  
@@ -238,7 +238,7 @@ I följande exempel tar pipeline **inputPath** och **outputPath** parametrar. De
 |matris|Konvertera parametern till en matris.  Följande uttryck returnerar till exempel `["abc"]`:`array('abc')`<br /><br /> **Parameternummer**: 1<br /><br /> **Namnet**: värde<br /><br /> **Beskrivning**: krävs. Det värde som konverteras till en matris.|
 |createArray|Skapar en matris av parametrarna.  Följande uttryck returnerar till exempel `["a", "c"]`:`createArray('a', 'c')`<br /><br /> **Parameternummer**: 1... n<br /><br /> **Namnet**: alla n<br /><br /> **Beskrivning**: krävs. Värdena som används för att kombinera till en matris.|
 
-## <a name="math-functions"></a>Matematiska funktioner  
+## <a name="math-functions"></a>Matematikfunktioner  
  Dessa funktioner kan användas för båda typer av siffror: **heltal** och **flyter**.  
   
 |Funktionsnamn|Beskrivning|  

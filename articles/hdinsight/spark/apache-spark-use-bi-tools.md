@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI med hjälp av verktyg för visualisering av data med Azure HDInsight
 
 Lär dig hur du använder [Microsoft Power BI](http://powerbi.microsoft.com) och [Tableau](http://www.tableau.com) visualisera data i Apache Spark-kluster i Azure HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* **Fullständig [köra interaktiva frågor i Spark-kluster i HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Slutföra artikeln [köra interaktiva frågor i Spark-kluster i HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) och [Power BI-utvärderingsprenumeration](https://app.powerbi.com/signupredirect?pbi_source=web) (valfritt).
 * **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) och [Microsoft Spark ODBC-drivrutinen](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ Jupyter-anteckningsbok som du skapade i den [tidigare kursen](apache-spark-load-
 
     ![Visa rader från hvac-tabellen i Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Från den **filen** Klicka på menyn i anteckningsbokens **Stäng och stoppa**. Stänga ned anteckningsboken för att frigöra resurser. 
+3. Öppna menyn **Arkiv** i anteckningsboken och klicka på **Stäng och stoppa**. Stänga ned anteckningsboken för att frigöra resurser. 
 
 
 
@@ -109,7 +109,7 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 
     ![Väck klustret användarnamn och lösenord](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Väck klustret användarnamn och lösenord")
 
-    Power BI Desktop har information som behövs för att ansluta till Spark-klustret och Läs in data från den `hvac` tabell. Tabellen och dess kolumner visas i den **fält** fönstret.  Se följande skärmbild.
+    Power BI Desktop har information som behövs för att ansluta till Spark-klustret och Läs in data från den `hvac` tabell. Tabellen och dess kolumner visas i den **fält** fönstret.  Se följande skärmbild:
 
 6. Visualisera variansen mellan target temperatur- och faktiska temperatur för skapande av varje: 
 
@@ -212,11 +212,11 @@ Din visuella är fäst på instrumentpanelen – du kan lägga till annan visuel
 6. Klicka på den **Blad1** längst till vänster. Gör en visualisering som visar genomsnittlig mål- och faktiska temperaturer för alla byggnader för varje datum. Dra **datum** och **skapa ID** till **kolumner** och **faktiska Temp**/**mål Temp** att **rader**. Under **märken**väljer **område** att använda en mappning för område för Spark datavisualisering.
 
      ![Lägga till fält i Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "lägga till fält i Spark datavisualisering")
-7. Som standard temperatur fält visas som aggregat. Om du vill visa de genomsnittliga temperaturerna i stället kan du göra det från nedrullningsbara som visas i följande skärmbild.
+7. Som standard temperatur fält visas som aggregat. Om du vill visa de genomsnittliga temperaturerna i stället kan du göra det från nedrullningsbara som visas i följande skärmbild:
 
     ![Ta medelvärde för temperaturen för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "ta medelvärde för temperaturen för Spark datavisualisering")
 
-8. Du kan också super-införa en temperatur karta över den andra sätt att få en bättre känsla av skillnaden mellan mål och faktiska temperaturer. Flytta musen till lägre området kartan hörn tills du ser referensen formen markerade med en röd cirkel. Dra kartan till andra kartan högst upp och släpper musknappen när du ser formen markerat i rött rektangel.
+8. Du kan också super-införa en temperatur karta över den andra sätt att få en bättre känsla av skillnaden mellan mål och faktiska temperaturer. Flytta musen till lägre området kartan hörn tills du ser formen referensen markerade med en röd cirkel. Dra kartan till andra kartan högst upp och släpper musknappen när du ser formen markerat i rött rektangel.
 
     ![Sammanfoga för Spark datavisualisering](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "Merge mappar för Spark datavisualisering")
 

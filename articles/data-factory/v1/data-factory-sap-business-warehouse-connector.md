@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6bbae79e59a200897f465e1381fea57a7ecde3f1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b81dc9f13533eaeec56625ede0e4c534b83e7cf7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP BW-instansen finns. | Sträng | Ja
+server | Namnet på den server som SAP BW-instansen finns. | sträng | Ja
 systemNumber | Systemnummer för SAP BW-system. | Två siffror decimaltal representeras som en sträng. | Ja
 clientId | Klient-ID för klienten i systemets SAP-W. | Tre siffror decimaltal representeras som en sträng. | Ja
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | Sträng | Ja
-lösenord | Lösenord för användaren. | Sträng | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP BW-instans. | Sträng | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | Sträng | Nej
+användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
+lösenord | Lösenord för användaren. | sträng | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP BW-instans. | sträng | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).
@@ -291,23 +291,23 @@ När du flyttar data från SAP BW, används följande mappningar från SAP BW ty
 
 Datatypen i ABAP ordlista | .NET-datatyp
 -------------------------------- | --------------
-ACCP |  int
+ACCP |  Int
 CHAR | Sträng
 CLNT | Sträng
-AKTUELLT DATUM | Decimal
+CURR | Decimal
 CUKY | Sträng
 DEC | Decimal
-FLTP | dubbla
+FLTP | Dubbel
 INT1 | Mottagna byte
 INT2 | Int16
-INT4 | int
+INT4 | Int
 LANG | Sträng
 LCHR | Sträng
-LRAW | byte]
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-RÅDATA | byte]
-RAWSTRING | byte]
+RAW | Byte[]
+RAWSTRING | Byte[]
 STRÄNG | Sträng
 ENHET | Sträng
 DATS | Sträng

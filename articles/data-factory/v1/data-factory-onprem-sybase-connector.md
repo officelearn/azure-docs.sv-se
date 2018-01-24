@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19a51c7456df698fa682fdecf1487730e282de19
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Flytta data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 
 Du kan kopiera data från ett dataarkiv för lokala Sybase till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från en Sybase-databas till andra databaser, men inte för att flytta data från andra datalager till en Sybase-databas. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data Factory-tjänsten stöder anslutning till lokala Sybase källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
 
 Gateway krävs även om Sybase-databasen finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS-VM som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -67,8 +67,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesSybase** |Ja |
 | server |Namnet på Sybase-servern. |Ja |
-| Databasen |Namnet på Sybase-databasen. |Ja |
-| Schemat |Namnet på schemat i databasen. |Nej |
+| databas |Namnet på Sybase-databasen. |Ja |
+| schema |Namnet på schemat i databasen. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |

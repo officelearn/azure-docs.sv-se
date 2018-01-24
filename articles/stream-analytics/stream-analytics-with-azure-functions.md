@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Kör Azure Functions med Azure Stream Analytics-jobb 
  
@@ -62,7 +62,7 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
 2. Bläddra till den **run.csx** funktion. Uppdatera den med följande kod. (Ersätt ”\<anslutningssträngen redis-cache här\>” med den primära Azure Redis-Cache-anslutningssträng som du hämtade i föregående avsnitt.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
    När Stream Analytics tar emot ”HTTP-begäran entiteten för stor” undantag från funktionen, minskar storleken på batchar som skickas till funktioner. I din funktion att använda följande kod för att kontrollera att Stream Analytics inte skicka stora batchar. Se till att de maximala batch antal och storlek värden som används i funktionen stämmer överens med de värden som anges i Stream Analytics-portalen.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
@@ -154,8 +154,8 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
    |**Egenskapsnamn**|**Beskrivning**|
    |---|---|
-   |Kolumnalias| Ett användarvänligt namn som du använder i jobbfråga till referens utdata. |
-   |Importera alternativet| Du kan använda funktionen från aktuell prenumeration, eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
+   |Utdataalias| Ett användarvänligt namn som du använder i jobbfråga till referens utdata. |
+   |Importalternativ| Du kan använda funktionen från aktuell prenumeration, eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
    |Funktionsapp| Namnet på appen funktioner. |
    |Funktion| Namnet på funktionen i appen funktioner (namnet på din run.csx funktion).|
    |Maximal batchstorlek|Anger den maximala storleken för varje batch för utdata som skickas till funktionen. Det här värdet är som standard, 256 KB.|
@@ -179,7 +179,7 @@ Följ den [att upptäcka bedrägerier realtid](stream-analytics-real-time-fraud-
 
 5. Starta programmet telcodatagen.exe genom att köra följande kommando på kommandoraden (Använd formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000.2 2**
+   **telcodatagen.exe 1000 .2 2**
     
 6.  Starta Stream Analytics-jobbet.
 

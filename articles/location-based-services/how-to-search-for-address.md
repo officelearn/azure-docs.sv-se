@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Så här hittar du en adress som använder tjänsten Azure baserad platstjänster (förhandsgranskning) Search
 Söktjänsten är en RESTful uppsättning API: er som utformats för utvecklare att söka efter adresser, platser, punkter av intresse, företag och andra geografisk information. Söktjänsten tilldelar latitud/longitud till en specifik adress mellan gata, geografiska funktion eller intressant (POI). Latitud och longitud värden som returneras av söktjänsten API: er kan användas som parametrar i andra Azure baserad platstjänster, till exempel flödet och trafiken flödar API: er.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Installera den [Postman app](https://www.getpostman.com/apps).
+* Installera den [Postman app](https://www.getpostman.com/apps).
 
-En Azure plats Services-konto och prenumeration nyckel. Information om hur du skapar ett konto och hämta en prenumeration för finns [hur du hanterar din Azure plats Services-konto och nycklar](how-to-manage-account-keys.md). 
+* Ha en Azure plats Services-konto och nyckel. Mer information om hur du skapar ett konto och hämta en nyckel finns [hur du hanterar din Azure plats Services-konto och nycklar](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Fuzzy sökning
 
@@ -36,24 +36,24 @@ De flesta sökningar som standard ' maxFuzzyLevel = 1' för att få prestanda oc
 
 2. På fliken Builder väljer du den **hämta** HTTP-metoden och ange URL: en begäran för API-slutpunkt.
 
-    ![Fuzzy sökning ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | GET |
-    | Fråge-URL | https://Atlas.microsoft.com/Search/Fuzzy/JSON? |
+    | Fråge-URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Auktorisering | Ingen autentisering |
 
     Den **json** attribut i en URL-sökväg anger svarsformatet. Du använder json i den här artikeln för att underlätta användning och läsbarhet. Du kan hitta tillgängliga svar-format i den **hämta Sök Fuzzy** definition av [plats baserat Services funktionella API-referens] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i URL: en för begäran:
 
-    ![Fuzzy sökning ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Nyckel | Värde |
     |------------------|-------------------------|
-    | API-version | 1.0 |
-    | prenumerationen-nyckel | *prenumerationen nyckel* |
+    | api-version | 1.0 |
+    | prenumerationen-nyckel | \<din nyckel för Azure baserad platstjänster\> |
     | DocumentDB | pizza |
 
 4. Klicka på **skicka** och granska brödtext för svar. 
@@ -74,7 +74,7 @@ De flesta sökningar som standard ' maxFuzzyLevel = 1' för att få prestanda oc
     
 4. I parametrar, anger du följande nyckel / värde-par och klicka på **skicka**:
 
-    ![Fuzzy sökning ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
     
     | Nyckel | Värde |
     |-----|------------|
@@ -93,7 +93,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | GET |
-    | Fråge-URL | https://Atlas.microsoft.com/Search/Address/JSON? |
+    | Fråge-URL | https://atlas.microsoft.com/search/address/json? |
     | Auktorisering | Ingen autentisering |
 
 2. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i URL: en för begäran:
@@ -102,9 +102,9 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Nyckel | Värde |
     |------------------|-------------------------|
-    | API-version | 1.0 |
-    | prenumerationen-nyckel | *prenumerationen nyckel* |
-    | DocumentDB | 400 breda St, Seattle, WA 98109 |
+    | api-version | 1.0 |
+    | prenumerationen-nyckel | \<din nyckel för Azure baserad platstjänster\> |
+    | DocumentDB | 400 Broad St, Seattle, WA 98109 |
     
 3. Klicka på **skicka** och granska brödtext för svar. 
     
@@ -133,7 +133,7 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | GET |
-    | Fråge-URL | https://Atlas.microsoft.com/Search/Address/reverse/JSON? |
+    | Fråge-URL | https://atlas.microsoft.com/search/address/reverse/json? |
     | Auktorisering | Ingen autentisering |
     
 2. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i URL: en för begäran:
@@ -142,8 +142,8 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     
     | Nyckel | Värde |
     |------------------|-------------------------|
-    | API-version | 1.0 |
-    | prenumerationen-nyckel | *prenumerationen nyckel* |
+    | api-version | 1.0 |
+    | prenumerationen-nyckel | \<din nyckel för Azure baserad platstjänster\> |
     | DocumentDB | 47.59093,-122.33263 |
     
 3. Klicka på **skicka** och granska brödtext för svar. 
@@ -201,15 +201,15 @@ Du kan skicka en fullständig eller partiell gatuadress Sök adress-API: et och 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | GET |
-    | Fråge-URL | https://Atlas.microsoft.com/Search/Address/reverse/crossstreet/JSON? |
+    | Fråge-URL | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Auktorisering | Ingen autentisering |
     
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i URL: en för begäran:
     
     | Nyckel | Värde |
     |------------------|-------------------------|
-    | API-version | 1.0 |
-    | prenumerationen-nyckel | *prenumerationen nyckel* |
+    | api-version | 1.0 |
+    | prenumerationen-nyckel | \<din nyckel för Azure baserad platstjänster\> |
     | DocumentDB | 47.59093,-122.33263 |
     
 4. Klicka på **skicka** och granska brödtext för svar. 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: f490aeef07b142b6a28319581b01c6cfc00054ba
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: be0bdf771327e57a75a4f95b513f9e80aeaef5a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer lagrade Proceduraktiviteten
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 > * [Anpassad aktivitet för .NET](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Azure Data Factory som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory version 2](../transform-data-using-stored-procedure.md).
+> Den här artikeln gäller för version 1 av Azure Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [Transformera data med hjälp av aktiviteten lagrad procedur i Data Factory version 2](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Översikt
 Du kan använda data transformation aktiviteter i en Datafabrik [pipeline](data-factory-create-pipelines.md) att transformera och bearbeta rådata till förutsägelser och insikter. Den lagrade Proceduraktiviteten är en av omvandling av aktiviteter som har stöd för Data Factory. Den här artikeln bygger på den [data transformation aktiviteter](data-factory-data-transformation-activities.md) artikel som presenterar en allmän översikt över data transformation och stöds omvandling aktiviteter i Data Factory.
@@ -93,10 +93,10 @@ Den här genomgången använder aktiviteten lagrad procedur i en pipeline för a
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **ny** på den vänstra menyn klickar du på **Intelligence + analys**, och klicka på **Data Factory**.
 
-    ![Nya data factory](media/data-factory-stored-proc-activity/new-data-factory.png)    
+    ![Ny datafabrik](media/data-factory-stored-proc-activity/new-data-factory.png)    
 3. I den **nya datafabriken** bladet ange **SProcDF** för namnet. Azure Data Factory-namn är **globalt unika**. Du behöver Prefixnamn datafabriken med ditt namn, aktivera fabriken har skapats.
 
-   ![Nya data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
+   ![Ny datafabrik](media/data-factory-stored-proc-activity/new-data-factory-blade.png)         
 4. Välj din **Azure-prenumeration**.
 5. För **resursgruppen**, gör du något av följande steg:
    1. Klicka på **Skapa nytt** och ange ett namn för resursgruppen.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarens registrering och produkt-prenumeration
 Delegering kan du använda din befintliga webbplats för att hantera developer logga-i/sign-upp och din prenumeration på produkter i stället för med inbyggda funktioner i developer-portalen. Detta gör att din webbplats ska äga användardata och utföra valideringen av stegen i ett anpassat sätt.
@@ -44,7 +44,7 @@ Nu måste du skapa den **delegering endpoint**. Det måste genomföra ett antal 
 
 1. Ta emot en begäran i följande format:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=Signin&returnUrl= {URL för datakälla på sidan} & salt = {sträng} & sig = {sträng}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Nu måste du skapa den **delegering endpoint**. Det måste genomföra ett antal 
    * [begär en enkel inloggning (SSO) token] via API Management REST API
    * Lägg till en frågeparameter returnUrl SSO-URL som du har fått från API-anrop ovan:
      
-     > t.ex. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * omdirigera användaren till ovanstående producerade URL
@@ -131,7 +131,7 @@ Följande kodexempel visar hur du tar den *delegering valideringsnyckel*, som ha
 
 **C#-kod för att generera hash för returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory-Kopieringsaktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du kan använda Kopieringsaktiviteten i Azure Da
 
 Data Factory stöder för närvarande endast flytta data från en DB2-databas till en [stöds sink datalagret](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Flytta data från andra data sparas till en DB2-databas inte stöds.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data Factory stöder anslutning till en lokal DB2-databas med hjälp av den [data management gateway](data-factory-data-management-gateway.md). Stegvisa instruktioner för att konfigurera gateway data pipelinen för att flytta data, finns det [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel.
 
 En gateway krävs även om DB2 finns på Azure IaaS-VM. Du kan installera gatewayen på samma IaaS-VM som dataarkiv. Om gatewayen kan ansluta till databasen, kan du installera gatewayen på en annan virtuell dator.
@@ -83,11 +83,11 @@ I följande tabell visas JSON-egenskaper som är specifika för en DB2 länkad t
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
-| **Server** |Namnet på DB2-servern. |Ja |
+| **server** |Namnet på DB2-servern. |Ja |
 | **databasen** |Namnet på DB2-databasen. |Ja |
-| **schemat** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
+| **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänsliga. |Nej |
 | **authenticationType** |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
-| **användarnamn** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
+| **username** |Namnet för användarkontot om du använder grundläggande eller Windows-autentisering. |Nej |
 | **lösenord** |Lösenordet för användarkontot. |Nej |
 | **gatewayName** |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
@@ -191,7 +191,7 @@ Den **externa** egenskapen har värdet ”true”. Den här inställningen infor
 }
 ```
 
-**Azure Blob utdatauppsättningen**
+**Utdatauppsättning för Azure-blob**
 
 Data skrivs till en ny blob varje timme genom att ange den **frekvens** egenskapen till ”timme” och **intervall** egenskap till 1. Den **folderPath** egenskapen för blob utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timme delar av starttiden.
 
@@ -312,42 +312,42 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Enskild |
-| dubbla |dubbla |
-| flyttal |dubbla |
+| Real |Ogift |
+| Dubbel |Dubbel |
+| Flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeriskt |Decimal |
-| Date |Datum och tid |
+| Date |DateTime |
 | Tid |TimeSpan |
-| tidsstämpel |Datum och tid |
-| XML |byte] |
+| Tidsstämpel |DateTime |
+| Xml |Byte[] |
 | Char |Sträng |
 | VarChar |Sträng |
 | LongVarChar |Sträng |
 | DB2DynArray |Sträng |
-| Binär |byte] |
-| VarBinary |byte] |
-| LongVarBinary |byte] |
+| Binär |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
 | Bild |Sträng |
 | VarGraphic |Sträng |
 | LongVarGraphic |Sträng |
 | CLOB |Sträng |
-| Blob |byte] |
+| Blob |Byte[] |
 | DbClob |Sträng |
 | SmallInt |Int16 |
 | Integer |Int32 |
 | BigInt |Int64 |
-| Real |Enskild |
-| dubbla |dubbla |
-| flyttal |dubbla |
+| Real |Ogift |
+| Dubbel |Dubbel |
+| Flyttal |Dubbel |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | numeriskt |Decimal |
-| Date |Datum och tid |
+| Date |DateTime |
 | Tid |TimeSpan |
-| tidsstämpel |Datum och tid |
-| XML |byte] |
+| Tidsstämpel |DateTime |
+| Xml |Byte[] |
 | Char |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Datauppsättningar och länkade tjänster i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Följande länkade tjänst är en länkad Azure Storage-tjänst. Observera att t
 }
 ```
 
-## <a name="dataset-json"></a>Datauppsättnings-JSON
+## <a name="dataset-json"></a>Dataset JSON
 En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 
 ```json
@@ -201,7 +201,7 @@ Egenskap | Beskrivning | Krävs
 namn | Namnet på kolumnen. | Ja
 typ | Datatypen för kolumnen. | Nej
 Kultur | . NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-Format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. | Nej
+format | Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. | Nej
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt.
 

@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 460d37b13a17eaf20d77ad4b1059e0461fb0181f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Vänta aktivitet i Azure Data Factory
-När du använder en väntaktiviteter i en pipeline väntar pipeline på den angivna tidsperioden innan du fortsätter med körning av efterföljande aktiviteter. 
+När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter. 
 
 > [!NOTE]
 > Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [Data Factory V1 dokumentationen](v1/data-factory-introduction.md).
@@ -105,10 +105,10 @@ I det här exemplet har två aktiviteter i pipeline: **tills** och **vänta**. A
 ## <a name="next-steps"></a>Nästa steg
 Se annan kontrollflödesaktiviteter som stöds av Data Factory: 
 
-- [Om Condition-aktivitet](control-flow-if-condition-activity.md)
+- [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)
-- [Förrän aktivitet](control-flow-until-activity.md)
+- [Until-aktivitet](control-flow-until-activity.md)

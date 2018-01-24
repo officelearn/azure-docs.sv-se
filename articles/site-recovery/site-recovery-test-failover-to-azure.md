@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Testa redundans till Azure i Site Recovery
 
@@ -50,7 +50,7 @@ Den här proceduren beskriver hur du kör ett redundanstest för en återställn
     - Om samma IP-adress inte finns i undernätet, får den virtuella datorn en annan tillgänglig IP-adress i undernätet. [Läs mer](#creating-a-network-for-test-failover).
 4. Om du växlar över till Azure och datakryptering är aktiverat i **krypteringsnyckeln**, Välj det certifikat som utfärdades när du har aktiverat kryptering under installationen av providern. Du kan ignorera det här steget kryptering är inte aktiverad.
 5. Följa redundansförloppet på den **jobb** fliken. Du ska kunna se testdatorn för replikering i Azure-portalen.
-6. Om du vill initiera en RDP-anslutning till Azure VM, behöver du [lägga till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) för gränssnitt för den virtuella datorn. 
+6. Om du vill initiera en RDP-anslutning till Azure VM, behöver du [lägga till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för gränssnitt för den virtuella datorn. 
 7. När allt fungerar som förväntat, klickar du på **Rensa redundanstestet**. Detta tar bort de virtuella datorerna som skapades under testning av redundans.
 8. I **anteckningar**, registrera och spara observationer från redundanstestningen. 
 
@@ -74,7 +74,7 @@ Redundanskluster kräver ett extra steg som tar vanligtvis cirka 8 till 10 minut
 * Hyper-V-dator skyddas som fysiska servrar
 * VMware VM där följande drivrutiner inte startdrivrutiner:
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * Intelide
     * ATAPI
@@ -113,9 +113,9 @@ Om du vill ansluta till virtuella Azure-datorer med RDP efter en växling vid fe
 **Växling vid fel** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Azure virtuell dator som kör Windows** | Lokala datorer före redundans | För att komma åt den virtuella Azure-datorn via internet aktiverar du RDP och kontrollera att TCP och UDP-regler har lagts till för **offentliga**, och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **Tillåtna appar**.<br/><br/> För att komma åt den virtuella Azure-datorn via en plats-till-plats-anslutning, aktiverar du RDP på datorn och se till att RDP tillåts i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **Domän och privat** nätverk.<br/><br/>  Kontrollera att operativsystemet SAN-principen anges till **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Kontrollera att det finns ingen Windows-uppdateringar som väntar på den virtuella datorn när du utlösa redundansväxling. Windows update kan börja när du växlar över och du inte kan logga in på den virtuella datorn förrän uppdateringen är klar. 
-**Azure virtuell dator som kör Windows** | Azure VM efter växling vid fel |  [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) för den virtuella datorn.<br/><br/> Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrollera **starta diagnostik** att verifiera en skärmbild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och granska dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Azure virtuell dator som kör Windows** | Azure VM efter växling vid fel |  [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn.<br/><br/> Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrollera **starta diagnostik** att verifiera en skärmbild av den virtuella datorn.<br/><br/> Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och granska dessa [felsökningstips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Azure VM som kör Linux** | Lokala datorer före redundans | Se till att Secure Shell-tjänsten på den virtuella datorn är inställd att starta automatiskt på systemstart.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
-**Azure VM som kör Linux** | Azure VM efter växling vid fel | Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) för den virtuella datorn.<br/><br/> Kontrollera **starta diagnostik** en skärmbild av den virtuella datorn.<br/><br/>
+**Azure VM som kör Linux** | Azure VM efter växling vid fel | Reglerna för nätverkssäkerhetsgrupper på den redundansväxlade virtuella datorn (och Azure-undernätet som den är ansluten) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](site-recovery-monitoring-and-troubleshooting.md) för den virtuella datorn.<br/><br/> Kontrollera **starta diagnostik** en skärmbild av den virtuella datorn.<br/><br/>
 
 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Visuellt övervaka Azure datafabriker
 Azure Data Factory är en molnbaserad dataintegreringstjänst som gör att du kan skapa datadrivna arbetsflöden i molnet för att samordna och automatisera dataförflyttning och dataomvandling. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan föra in data från olika datalager, bearbeta/omvandla data med beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning och publicera utgående data till datalager som Azure SQL Data Warehouse för BI-program (business intelligence) kan använda.
@@ -45,13 +45,13 @@ Listvyn med varje pipeline kör för din data factory v2 pipelines. Inkluderade 
 | Åtgärder | Enskild åtgärd för att visa aktivitet körs. |
 | Att köra Start | Pipeline kör start-datum och tid (MM/DD/ÅÅÅÅ HH: mm: SS AM/PM) |
 | Varaktighet | Kör varaktighet (: mm: ss) |
-| Utlöstes av | Manuell utlösning, schema utlösare |
+| Aktiverad av | Manuell utlösning, schema utlösare |
 | Status | Kunde inte lyckades pågår |
 | Parametrar | Pipeline kör parametrar (namn, värde-par) |
 | Fel | Pipeline kör fel (om/any) |
 | Körnings-ID | ID för den pipeline som kör |
 
-![Övervakaren pipeline körs](media/monitor-visually/pipeline-runs.png)
+![Övervaka pipelinekörningar](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Övervaka aktiviteten körs
 Listvyn med aktivitetskörningar som motsvarar varje pipeline kör. Klicka på **aktiviteten körs** ikon under den **'Åtgärder'** kolumnen visa aktiviteten körs för varje pipelinen körs. Inkluderade kolumner:
@@ -67,7 +67,7 @@ Listvyn med aktivitetskörningar som motsvarar varje pipeline kör. Klicka på *
 | Resultat | JSON-matris som beskriver aktiviteten matar ut |
 | Fel | Aktiviteten kör fel (om/any) |
 
-![Övervaka aktiviteten körs](media/monitor-visually/activity-runs.png)
+![Övervaka aktivitetskörningar](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > Du måste klicka på **”uppdatera”** ikonen längst upp för att uppdatera listan över pipeline och aktiviteter körs. Automatisk uppdatering stöds inte för närvarande.
@@ -97,10 +97,10 @@ Högerklicka på listan Visa sidhuvud och Välj kolumner som ska visas i listan
 #### <a name="reorder-column-widths-in-list-view"></a>Ordna om kolumnbredder i listvy
 Öka och minska kolumnbredd i listan genom att helt enkelt hovra över kolumnrubriken
 
-#### <a name="select-data-factory"></a>Välj data factory
+#### <a name="select-data-factory"></a>Välja datafabrik
 Hovra över ikonen Data Factory på upp till vänster. Klicka på ' pilikonen ' att se en lista över azure-prenumerationer och data fabriker som du kan övervaka.
 
-![Välj data factory](media/monitor-visually/select-datafactory.png)
+![Välja datafabrik](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Interaktiv visningar
 Klicka på 'Informationsikonen' i nedre vänstra hörnet och klicka på 'Interaktiv visningar' för att få stegvisa instruktioner för hur du övervakar din pipeline och aktiviteter körs.
@@ -114,4 +114,4 @@ Klicka på ikonen ”Feedback” om du vill ge oss feedback på olika funktioner
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [övervaka och hantera pipelines programmässigt](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) artikeln innehåller information om övervakning och hantering av pipelines
+Se [övervaka och hantera pipelines programmässigt](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artikeln innehåller information om övervakning och hantering av pipelines

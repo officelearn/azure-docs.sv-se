@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 
 Du kan kopiera data från ett dataarkiv för lokala MySQL till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från en MySQL-databas till andra databaser, men inte för att flytta data från andra datalager till en MySQL-databasen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data Factory-tjänsten stöder anslutning till lokala MySQL källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
 
 Gateway krävs även om MySQL-databasen finns i en Azure IaaS-virtuella (VM). Du kan installera gatewayen på samma virtuella dator som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -71,8 +71,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på MySQL-servern. |Ja |
-| Databasen |Namnet på MySQL-databas. |Ja |
-| Schemat |Namnet på schemat i databasen. |Nej |
+| databas |Namnet på MySQL-databas. |Ja |
+| schema |Namnet på schemat i databasen. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till MySQL-databas. |Ja |
 | lösenord |Ange lösenordet för det användarkonto som du angett. |Ja |
@@ -305,42 +305,42 @@ När du flyttar data att MySQL används följande mappningar från MySQL-typer t
 | bigint osignerade |Decimal |
 | bigint |Int64 |
 | bitar |Decimal |
-| BLOB |byte] |
-| bool |Booleskt värde |
+| blob |Byte[] |
+| bool |Boolesk |
 | Char |Sträng |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| Decimal |Decimal |
-| dubbel precision |dubbla |
-| dubbla |dubbla |
+| datum |DateTime |
+| datetime |DateTime |
+| decimal |Decimal |
+| dubbel precision |Dubbel |
+| dubbel |Dubbel |
 | Enum |Sträng |
-| flyttal |Enskild |
+| flyt |Ogift |
 | int osignerade |Int64 |
 | int |Int32 |
 | heltal osignerade |Int64 |
 | heltal |Int32 |
-| lång varbinary |byte] |
+| lång varbinary |Byte[] |
 | lång varchar |Sträng |
-| longblob |byte] |
+| longblob |Byte[] |
 | LONGTEXT |Sträng |
-| mediumblob |byte] |
+| mediumblob |Byte[] |
 | mediumint osignerade |Int64 |
 | mediumint |Int32 |
 | mediumtext |Sträng |
 | numeriskt |Decimal |
-| Verklig |dubbla |
+| Verklig |Dubbel |
 | Ange |Sträng |
 | smallint osignerade |Int32 |
 | smallint |Int16 |
 | Text |Sträng |
 | time |TimeSpan |
-| tidsstämpel |Datum och tid |
-| tinyblob |byte] |
+| tidsstämpel |DateTime |
+| tinyblob |Byte[] |
 | tinyint osignerade |Int16 |
 | tinyint |Int16 |
 | tinytext |Sträng |
 | varchar |Sträng |
-| År |int |
+| år |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
 Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

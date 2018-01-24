@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 Den [datavetenskap virtuella](http://aka.ms/dsvm) (DSVM) och [djup Learning VM](http://aka.ms/dsvm/deeplearning) stöder ett antal djup learning ramverk för att bygga program styrs av datorn (AI) med förutsägelseanalyser och kognitiva funktioner som bilden och förstå språk. 
@@ -55,8 +55,8 @@ Här följer information på alla djup learning ramverk som är tillgängliga p�
 | Vad är det?   | Djupgående learning framework      |
 | Stöds DSVM versioner      | Windows, Linux     |
 | Hur är det konfigurerade / installerad på DSVM?  | Keras är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
-| Länkar till exempel      | https://github.com/fchollet/keras/Tree/Master/Examples      |
-| Relaterade verktyg på DSVM      | Microsoft kognitiva Toolkit, TensorLlow, Theano      |
+| Länkar till exempel      | https://github.com/fchollet/keras/tree/master/examples      |
+| Relaterade verktyg på DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
 | Hur du använder / kör den?    | Hämta exempel från Github-plats, kopierar den till en katalog under ~/notebooks och öppna den i Jupyter   |
 
 
@@ -117,7 +117,7 @@ Aktivera Python-version som du vill använda i en terminal (_rot_ eller _py35_) 
 | Stöds DSVM versioner      | Linux     |
 | Hur är det konfigurerade / installerad på DSVM?  | Djupgående vattenstämplar är installerat i `/dsvm/tools/deep_water`.   |
 | Länkar till exempel      | Exempel är tillgängliga via djup vattenstämplar-servern.      |
-| Relaterade verktyg på DSVM      | H2o mousserande vattenstämplar      |
+| Relaterade verktyg på DSVM      | H2O mousserande vattenstämplar      |
 
 ### <a name="how-to-use--run-it"></a>Hur du använder / kör den?  
 
@@ -157,7 +157,7 @@ Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och gå t
 
 
 
-## <a name="nvdia-smi"></a>nvdia smi
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

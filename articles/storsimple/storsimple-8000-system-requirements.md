@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-serien programvara, hög tillgänglighet och nätverkskrav
 
@@ -100,19 +100,19 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |Styrenhets-fästa IP-adresser endast |
-| `http://*.deploy.akamaitechnologies.com` |CDN med Akamai |Styrenhets-fästa IP-adresser endast |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Styrenhets-fästa IP-adresser endast |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support-paket |Moln-aktiverat nätverksgränssnitt |
 
 #### <a name="url-patterns-for-azure-government-portal"></a>URL-mönster för Azure Government-portalen
 
 | URL-mönster | Komponenten/funktioner | IP-adresser för enhet |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Moln-aktiverat nätverksgränssnitt |
 | `https://*.backup.windowsazure.us` |Enhetsregistrering |DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Återkallade certifikat |Moln-aktiverat nätverksgränssnitt |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |Moln-aktiverat nätverksgränssnitt |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |Styrenhets-fästa IP-adresser endast |
-| `http://*.deploy.akamaitechnologies.com` |CDN med Akamai |Styrenhets-fästa IP-adresser endast |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Styrenhets-fästa IP-adresser endast |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support-paket |Moln-aktiverat nätverksgränssnitt |
 
 ### <a name="routing-metric"></a>Routning mått
@@ -126,7 +126,7 @@ Routning mått algoritmen som används för uppdatering 2 och senare versioner k
 * En uppsättning förinställda värden har tilldelats nätverksgränssnitt.
 * Överväg att en exempeltabell nedan med värden som hör till olika nätverksgränssnitt när de är moln-aktiverat eller molnet inaktiverad, men med en konfigurerad gateway. Observera värdena som angetts är endast exempelvärden.
 
-    | Nätverksgränssnitt | Moln aktiverat- | Moln-inaktiverad med gateway |
+    | Nätverksgränssnitt | Cloud-enabled | Moln-inaktiverad med gateway |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
     | Data 1  | 2            | 20                       |

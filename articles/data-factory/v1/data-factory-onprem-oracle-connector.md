@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Kopiera data till och från lokala Oracle med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Du kan kopiera data från följande datalager **till en Oracle-databas**:
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Data Factory stöder anslutning till lokal Oracle källor med hjälp av Data Management Gateway. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln innehåller information om Data Management Gateway och [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
 
 Gateway krävs även om Oracle finns i en Azure IaaS-VM. Du kan installera gatewayen på samma IaaS-VM som dataarkiv eller på en annan virtuell dator, förutsatt att gatewayen kan ansluta till databasen.
@@ -572,22 +572,22 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 
 | Oracle-datatyp | .NET framework-datatyp |
 | --- | --- |
-| BFILE |byte] |
-| BLOB |byte]<br/>(endast stöds på Oracle 10g och högre när Microsoft drivrutin) |
+| BFILE |Byte[] |
+| BLOB |Byte[]<br/>(endast stöds på Oracle 10g och högre när Microsoft drivrutin) |
 | CHAR |Sträng |
 | CLOB |Sträng |
-| Datum |DateTime |
+| DATE |DateTime |
 | FLYTTAL |Decimal, sträng (om precision > 28) |
 | HELTAL |Decimal, sträng (om precision > 28) |
 | INTERVALL ÅR, MÅNAD |Int32 |
 | INTERVALL DAG TILL ANDRA |TimeSpan |
 | LÅNG |Sträng |
-| LÅNGT RÅDATA |byte] |
+| LÅNGT RÅDATA |Byte[] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
 | ANTAL |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |Sträng |
-| RÅDATA |byte] |
+| RAW |Byte[] |
 | ROWID |Sträng |
 | TIDSSTÄMPEL |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |

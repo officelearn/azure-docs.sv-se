@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Hur du skapar och konfigurerar Self-hosted integrering Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla data integrationsmöjligheter mellan olika nätverksmiljöer. Mer information om IR finns [integrering Runtime översikt](concepts-integration-runtime.md).
@@ -139,9 +139,9 @@ Vid **företagsbrandvägg** nivån, du behöver konfigurera följande domäner o
 
 Domännamn | Portar | Beskrivning
 ------------ | ----- | ------------
-*. servicebus.windows.net | 443, 80 | Används för kommunikation med Data Movement Service-serverdelen
-*. core.windows.net | 443 | Används för mellanlagrad kopia med Azure Blob (om konfigurerad)
-*. frontend.clouddatahub.net | 443 | Används för kommunikation med Data Movement Service-serverdelen
+*.servicebus.windows.net | 443, 80 | Används för kommunikation med Data Movement Service-serverdelen
+*.core.windows.net | 443 | Används för mellanlagrad kopia med Azure Blob (om konfigurerad)
+*.frontend.clouddatahub.net | 443 | Används för kommunikation med Data Movement Service-serverdelen
 
 Vid **Windows-brandväggen** nivån (datornivån), utgående portarna är normalt aktiverat. Om inte, kan du konfigurera domäner och därefter på egenvärdbaserat portar integration runtime-datorn.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Felsökning av Azure Redis-Cache
 Den här artikeln innehåller anvisningar för felsökning av följande typer av problem med Azure Redis-Cache.
@@ -194,7 +194,7 @@ Det här felmeddelandet innehåller mått som kan hjälpa dig att peka orsaken o
 ### <a name="steps-to-investigate"></a>Steg för att undersöka
 1. Som bästa praxis se till att använder du följande mönster för att ansluta när du använder StackExchange.Redis-klienten.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

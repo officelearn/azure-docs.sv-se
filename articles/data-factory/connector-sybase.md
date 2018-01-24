@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Följande egenskaper stöds för Sybase länkade tjänsten:
 | typ | Egenskapen type måste anges till: **Sybase** | Ja |
 | server | Namnet på Sybase-servern. |Ja |
 | databas | Namnet på Sybase-databasen. |Ja |
-| Schemat | Namnet på schemat i databasen. |Nej |
+| schema | Namnet på schemat i databasen. |Nej |
 | AuthenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **grundläggande**, och **Windows**. |Ja |
 | användarnamn | Ange användarnamn för att ansluta till Sybase-databasen. |Ja |
 | lösenord | Ange lösenordet för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString. |Ja |

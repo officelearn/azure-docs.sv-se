@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webbaktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
 
 > [!NOTE]
-> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig (GA), se [dokumentationen för Data Factory version 1](v1/data-factory-introduction.md).
+> Den här artikeln gäller för version 2 av Data Factory, som för närvarande är en förhandsversion. Om du använder version 1 av Data Factory-tjänsten, som är allmänt tillgänglig, läser du [dokumentationen för Data Factory version 1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Syntax
 
@@ -68,11 +68,11 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten web | Sträng | Ja
 typ | Måste anges till **WebActivity**. | Sträng | Ja
-Metoden | REST API-metoden för mål-slutpunkten. | Sträng. <br/><br/>Typer som stöds: ”GET”, ”publicera”, ”PLACERA” | Ja
-URL: en | Mål-slutpunkten och sökvägen | Sträng (eller uttrycket resultType av sträng) | Ja
-Rubriker | Huvuden som skickas till begäran. Till exempel ange språk och typ för en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttrycket resultType av sträng) | Ja, Content-type-huvudet måste anges. `"headers":{ "Content-Type":"application/json"}`
-Brödtext | Representerar nyttolasten som skickas till slutpunkten. Krävs för POST/PUT metoder.  | Sträng (eller uttryck med resultType av sträng). <br/><br/>Visa schemat för nyttolasten i begäran i [begäran nyttolast schemat](#request-payload-schema) avsnitt. | Nej
-Autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic eller ClientCertificate”. Mer information finns i [autentisering](#authentication) avsnitt. Undanta den här egenskapen om verifiering inte krävs. | Sträng (eller uttrycket resultType av sträng) | Nej
+metod | REST API-metoden för mål-slutpunkten. | Sträng. <br/><br/>Typer som stöds: ”GET”, ”publicera”, ”PLACERA” | Ja
+url | Mål-slutpunkten och sökvägen | Sträng (eller uttrycket resultType av sträng) | Ja
+rubriker | Huvuden som skickas till begäran. Till exempel ange språk och typ för en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttrycket resultType av sträng) | Ja, Content-type-huvudet måste anges. `"headers":{ "Content-Type":"application/json"}`
+brödtext | Representerar nyttolasten som skickas till slutpunkten. Krävs för POST/PUT metoder.  | Sträng (eller uttryck med resultType av sträng). <br/><br/>Visa schemat för nyttolasten i begäran i [begäran nyttolast schemat](#request-payload-schema) avsnitt. | Nej
+autentisering | Autentiseringsmetod som används för att anropa slutpunkten. Typer som stöds är ”Basic eller ClientCertificate”. Mer information finns i [autentisering](#authentication) avsnitt. Undanta den här egenskapen om verifiering inte krävs. | Sträng (eller uttrycket resultType av sträng) | Nej
 Datauppsättningar | Lista över datauppsättningar som skickas till slutpunkten. | Matris med dataset-referenser. Kan vara en tom matris. | Ja
 linkedServices | Lista över länkade tjänster skickas till slutpunkten. | Matris med länkade tjänsten refererar till. Kan vara en tom matris. | Ja
 

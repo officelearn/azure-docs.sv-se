@@ -3,9 +3,9 @@ title: "Azure Disk Encryption vanliga frågor och svar | Microsoft Docs"
 description: "Den här artikeln innehåller svar på vanliga frågor och svar om Microsoft Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption vanliga frågor och svar
 
@@ -65,7 +65,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure D
 | SLES | 12 SP1 | Datadisk |
 | SLES | Prioritet: 12-SP1 | Datadisk |
 | SLES | HPC 12 | Datadisk |
-| SLES | Prioritet: 11-SP4 | Datadisk |
+| SLES | Priority:11-SP4 | Datadisk |
 | SLES | 11 SP4 | Datadisk |
 
 **F:** hur kan jag börja använda Azure Disk Encryption?
@@ -119,7 +119,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure D
 * Kryptera (kan ta flera timmar eller t.o.m. dagar beroende på vm-egenskaper och storleken på eventuella anslutna hårddiskar)
 * Anpassa och lägga till program i bilden efter behov.
 
-Om det här arbetsflödet inte är möjligt att förlita sig på [Lagringstjänstens kryptering](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) på lagringsplatsen plattform konto lager kan vara ett alternativ till fullständig diskkryptering med dm-crypt.
+Om det här arbetsflödet inte är möjligt att förlita sig på [Lagringstjänstens kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) på lagringsplatsen plattform konto lager kan vara ett alternativ till fullständig diskkryptering med dm-crypt.
 
 **F:** vad är disken ”Bek volym” eller ”/ mnt/azure_bek_disk”?
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>SQL-frågor för Azure Cosmos DB
 
@@ -397,7 +397,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -419,7 +419,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -441,7 +441,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -463,7 +463,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -485,7 +485,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
          <td valign="top">
 Odefinierad </td>
@@ -507,7 +507,7 @@ Odefinierad </td>
          <td valign="top">
 Odefinierad </td>
          <td valign="top">
-            <strong>OKEJ</strong>
+            <strong>OK</strong>
          </td>
       </tr>
    </tbody>
@@ -547,7 +547,7 @@ Logiska operatorer fungerar med booleska värden. De logiska tabellerna sanninge
 | False |True |False |Odefinierad |
 | Odefinierad |True |Odefinierad |Odefinierad |
 
-| OCH | True | False | Odefinierad |
+| AND | True | False | Odefinierad |
 | --- | --- | --- | --- |
 | True |True |False |Odefinierad |
 | False |False |False |False |
@@ -828,7 +828,7 @@ I följande exempel utökar här om du vill visa hur du returnerar JSON primitiv
     ]
 
 
-### <a name="-operator"></a>* Operatorn
+### <a name="-operator"></a>* Operator
 Särskilda operatorn (*) går för att projicera dokumentet-är. När den används, måste det vara det enda beräknade fältet. När en fråga som `SELECT * FROM Families f` är giltigt, `SELECT VALUE * FROM Families f ` och `SELECT *, f.id FROM Families f ` är inte giltiga.
 
 **Fråga**
@@ -1425,7 +1425,7 @@ Matematiska funktioner utför en beräkning, baserat på värden som har angetts
 | [COS (num_expr)](#bk_cos) | Returnerar trigonometriska värden cosinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | [BET (num_expr)](#bk_cot) | Returnerar trigonometriska värden cotangens för den angivna vinkeln i radianer i uttryck. |
 | [GRADER (num_expr)](#bk_degrees) | Returnerar en motsvarande vinkel i grader för en vinkel angiven i radianer. |
-| [PI)](#bk_pi) | Returnerar värdet PI konstant. |
+| [PI ()](#bk_pi) | Returnerar värdet PI konstant. |
 | [RADIANER (num_expr)](#bk_radians) | Returnerar radianer när ett numeriskt uttryck i grader anges. |
 | [SIN (num_expr)](#bk_sin) | Returnerar trigonometriska värden sinus för den angivna vinkeln i radianer i det angivna uttrycket. |
 | [TAN (num_expr)](#bk_tan) | Returnerar tangens för input-uttryck i det angivna uttrycket. |
@@ -1451,11 +1451,11 @@ Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL
   <td><strong>Beskrivning</strong></td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (uttryck)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är en matris.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (uttryck)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är ett booleskt värde.</td>
 </tr>
 <tr>
@@ -1479,7 +1479,7 @@ Typen kontrollerar funktioner kan du kontrollera vilken typ av ett uttryck i SQL
   <td>Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde.</td>
 </tr>
 <tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (uttryck)</a></td>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (expr)</a></td>
   <td>Returnerar ett booleskt värde som anger om värdet är en sträng, siffra, Boolean eller null.</td>
 </tr>
 
@@ -1503,7 +1503,7 @@ Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och re
 | [LÄNGDEN (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Returnerar antalet tecken i angivet stränguttryck |
 | [SAMMANFOGA (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Returnerar en sträng som är resultatet av att sammanfoga två eller flera strängvärden. |
 | [DELSTRÄNGEN (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Returnerar en del av ett stränguttryck. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra |
 | [INNEHÅLLER (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Returnerar ett booleskt värde som anger om först stränguttryck innehåller andra. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Returnerar startpositionen för den första förekomsten av andra stränguttryck inom det första uttrycket i strängen, eller -1 om strängen inte hittas. |
@@ -1515,7 +1515,7 @@ Följande skalärfunktioner utföra en åtgärd på ett inkommande värde och re
 | [ÖVRE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Returnerar ett stränguttryck när gemen data har konverterats till versaler. |
 | [Ersätt (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Ersätter alla förekomster av ett angivet strängvärde med ett annat värde. |
 | [REPLIKERA (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Upprepar ett strängvärde till ett angivet antal gånger. |
-| [OMVÄND (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar ett strängvärde omvänd ordning. |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Returnerar ett strängvärde omvänd ordning. |
 
 Med dessa funktioner kan köra du nu frågor som liknar följande. Exempelvis returnerar gruppnamnet versaler på följande sätt:
 
@@ -1990,7 +1990,7 @@ Cosmos DB visar resurser via ett REST-API som kan anropas med valfritt språk so
 
 Följande exempel visar hur du skapar en fråga och skicka den mot en Cosmos-DB-databaskonto.
 
-### <a id="RestAPI"></a>REST-API
+### <a id="RestAPI"></a>REST API
 Cosmos DB erbjuder en öppen RESTful-programmeringsmiljö via HTTP. Databasen konton kan etableras med hjälp av en Azure-prenumeration. Resursmodell Cosmos DB består av en uppsättning resurser under ett databaskonto som är adresserbara via en logisk och stabil URI. En uppsättning resurser kallas för en feed i det här dokumentet. Ett databaskonto består av en uppsättning databaser som alla innehåller flera samlingar, var och en av vilka i sin tur innehåller dokument, UDF: er och andra typer av resurser.
 
 Modellen grundläggande interaktion med dessa resurser är via HTTP-verb som GET, PUT, POST och DELETE med sina standard tolkning. Verbet POST används för att skapa en ny resurs, för att köra en lagrad procedur eller för att utfärda en Cosmos-DB-fråga. Frågor är alltid skrivskyddade åtgärder med inga sidoeffekter.
@@ -2258,7 +2258,7 @@ I följande exempel visas hur du använder den Frågedokument i JavaScript-serve
 4. [Konsekvensnivåer för Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
-7. JavaScript-specifikationen [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7. Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9. Fråga utvärdering tekniker för stora databaser [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Bearbetning av frågor i parallella relationsdatabassystem, IEEE datorn Society Press, 1994

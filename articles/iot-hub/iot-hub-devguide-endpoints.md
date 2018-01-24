@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens - slutpunkter för IoT-hubb
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Du hittar namnet på IoT-hubb som är värd för dina slutpunkter i portalen på den **översikt** bladet. Som standard är DNS-namnet för en IoT-hubb ser ut som: `{your iot hub name}.azure-devices.net`.
 
-Du kan använda Azure DNS för att skapa en anpassad DNS-namn för din IoT-hubb. Mer information finns i [Använd Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst](../dns/dns-custom-domain.md#azure-iot).
+Du kan använda Azure DNS för att skapa en anpassad DNS-namn för din IoT-hubb. Mer information finns i [Använd Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista över inbyggda IoT-hubb-slutpunkter
 

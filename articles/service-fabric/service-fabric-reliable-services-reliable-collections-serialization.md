@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: mcoskun
-ms.openlocfilehash: c14794b71ce7340d9e90a56d781c712e247ded06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0687baf12a48788d86467b1f1a822b5d9050e5d5
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Tillförlitliga samling objekt serialisering i Azure Service Fabric
 Tillförlitliga samlingar replikera och deras objekt att kontrollera att de är beständig mellan datorn fel och strömavbrott är kvar.
@@ -35,14 +35,14 @@ Inbyggda serializers är effektivare eftersom de redan känner till deras typer 
 Tillförlitlig Tillståndshanterare har inbyggd serialisering för följande typer: 
 - GUID
 - bool
-- Mottagna byte
+- byte
 - sbyte
 - byte]
 - Char
-- Sträng
-- Decimal
-- dubbla
-- flyttal
+- sträng
+- decimal
+- dubbel
+- flyt
 - int
 - uint
 - lång
@@ -56,7 +56,7 @@ Anpassade serializers används ofta för att öka prestandan eller för att kryp
 
 [IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer--1?Microsoft_ServiceFabric_Data_IReliableStateManager_TryAddStateSerializer__1_Microsoft_ServiceFabric_Data_IStateSerializer___0__) används för att registrera en anpassad serialisering för den angivna typen T. Denna registrering ska inträffa i konstruktion StatefulServiceBase så att alla tillförlitliga samlingar innan återställningen startas har åtkomst till relevanta serialiseraren att läsa deras beständiga data.
 
-```C#
+```csharp
 public StatefulBackendService(StatefulServiceContext context)
   : base(context)
   {
@@ -79,7 +79,7 @@ En anpassad serialiserare måste implementera den [IStateSerializer<T> ](https:/
 
 Följande är ett exempel anpassad typ som kallas OrderKey som innehåller fyra egenskaper
 
-```C#
+```csharp
 public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 {
     public byte Warehouse { get; set; }
@@ -98,7 +98,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 Följande är exempel på implementering av IStateSerializer<OrderKey>.
 Observera att läsa och skriva överlagringar som i baseValue, anropa sina respektive överlagring för vidarebefordran kompatibilitet.
 
-```C#
+```csharp
 public class OrderKeySerializer : IStateSerializer<OrderKey>
 {
   OrderKey IStateSerializer<OrderKey>.Read(BinaryReader reader)

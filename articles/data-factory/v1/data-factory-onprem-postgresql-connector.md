@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 
 Du kan kopiera data från ett dataarkiv för lokala PostgreSQL till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten finns [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory stöder för närvarande flytta data från en PostgreSQL-databas till andra databaser, men inte för att flytta data från andra datalager till en PostgreSQL-databas. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Data Factory-tjänsten stöder anslutning till lokala PostgreSQL källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artikeln innehåller information om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar en gateway.
 
@@ -56,7 +56,7 @@ Du kan skapa en pipeline med en kopia-aktivitet som flyttar data från ett dataa
     - Azure PowerShell
     - Azure Resource Manager-mall
     - .NET-API
-    - REST API
+    - REST-API
 
      Se [kopiera aktivitet kursen](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
 
@@ -77,8 +77,8 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-server. |Ja |
-| Databasen |Namnet på PostgreSQL-databas. |Ja |
-| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
+| databas |Namnet på PostgreSQL-databas. |Ja |
+| schema |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Nej |
@@ -307,22 +307,22 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 
 | Typ av PostgreSQL-databas | PostgresSQL alias | .NET framework-typ |
 | --- | --- | --- |
-| abstime | |Datum och tid | &nbsp;
+| abstime | |DateTime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bitars [(n)] | |Byte [], sträng | &nbsp;
 | bit varierande [(n)] |varbit |Byte [], sträng |
-| Booleskt värde |bool |Booleskt värde |
+| boolesk |bool |Boolesk |
 | Rutan | |Byte [], sträng |&nbsp;
 | bytea | |Byte [], sträng |&nbsp;
 | tecknet [(n)] |char [(n)] |Sträng |
 | tecknet varierande [(n)] |varchar [(n)] |Sträng |
 | CID | |Sträng |&nbsp;
-| CIDR | |Sträng |&nbsp;
+| cidr | |Sträng |&nbsp;
 | cirkel | |Byte [], sträng |&nbsp;
-| Datum | |Datum och tid |&nbsp;
+| datum | |DateTime |&nbsp;
 | DateRange | |Sträng |&nbsp;
-| dubbel precision |FLOAT8 |dubbla |
+| dubbel precision |FLOAT8 |Dubbel |
 | inet | |Byte [], sträng |&nbsp;
 | intarry | |Sträng |&nbsp;
 | int4range | |Sträng |&nbsp;
@@ -330,22 +330,22 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | heltal |int, int4 |Int32 |
 | intervallet [fält] [(p)] | |Tidsintervall |&nbsp;
 | JSON | |Sträng |&nbsp;
-| jsonb | |byte] |&nbsp;
+| jsonb | |Byte[] |&nbsp;
 | raden | |Byte [], sträng |&nbsp;
 | lseg | |Byte [], sträng |&nbsp;
 | macaddr | |Byte [], sträng |&nbsp;
 | Money | |Decimal |&nbsp;
 | numeriska [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Sträng |&nbsp;
-| OID | |Int32 |&nbsp;
-| Sökväg | |Byte [], sträng |&nbsp;
+| oid | |Int32 |&nbsp;
+| sökväg | |Byte [], sträng |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | punkt | |Byte [], sträng |&nbsp;
 | polygon | |Byte [], sträng |&nbsp;
-| Verklig |FLOAT4 |Enskild |
+| Verklig |FLOAT4 |Ogift |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Seriell |serial4 |Int32 |
+| serie |serial4 |Int32 |
 | Text | |Sträng |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner

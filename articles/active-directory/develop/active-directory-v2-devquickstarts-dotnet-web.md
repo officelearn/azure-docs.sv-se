@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Lägga till inloggning till en .NET MVC-webbapp
 Du kan snabbt lägga till autentisering till dina webbappar med stöd för både personliga Microsoft-konton och arbets-eller skolkonton med v2.0-slutpunkten.  I ASP.NET-webbprogram, kan du göra detta med hjälp av Microsofts OWIN mellanprogram som ingår i .NET Framework 4.5.
@@ -64,7 +64,7 @@ Här kan konfigurerar vi OWIN-mellanprogrammet att använda autentiseringsprotok
 3. Lägg till en ”OWIN-startklass” projektet kallas `Startup.cs` höger klickar du på projektet--> **Lägg till** --> **nytt objekt** --> Sök efter ”OWIN”.  OWIN-mellanprogrammet anropar `Configuration(...)`-metoden när appen startas.
 4. Ändra klassdeklarationen till `public partial class Startup` -vi har implementerat en del av den här klassen som du redan i en annan fil.  I den `Configuration(...)` metod, gör ett anrop till ConfigureAuth(...) du konfigurerar autentisering för ditt webbprogram  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Här kan konfigurerar vi OWIN-mellanprogrammet att använda autentiseringsprotok
 
 5. Öppna filen `App_Start\Startup.Auth.cs` och genomföra den `ConfigureAuth(...)` metoden.  De parametrar som du anger i `OpenIdConnectAuthenticationOptions` fungerar som koordinater för din app för att kommunicera med Azure AD.  Du måste också konfigurera Cookie-autentisering - mellanprogram OpenID Connect använder cookies djupare.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ Appen har nu konfigurerats korrekt för att kommunicera med v2.0-slutpunkten med
 
 - Du kan använda auktorisera taggar i dina domänkontrollanter kräver att användaren loggar in innan du använder en viss sida.  Öppna `Controllers\HomeController.cs`, och Lägg till den `[Authorize]` tagg om domänkontrollanten.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ Appen har nu konfigurerats korrekt för att kommunicera med v2.0-slutpunkten med
 
 - Du kan också använda OWIN för att skicka autentiseringsbegäranden från direkt i din kod.  Öppna `Controllers\AccountController.cs`.  I SignIn() och SignOut() åtgärder, utfärda du OpenID Connect challenge respektive utloggning begäranden.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ När du autentiserar användare med OpenID Connect returnerar ett id_token till 
 
 - Öppna filen `Controllers\HomeController.cs`.  Du kan komma åt användarens anspråk i din domänkontrollanter via den `ClaimsPrincipal.Current` säkerhetsobjekt.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {

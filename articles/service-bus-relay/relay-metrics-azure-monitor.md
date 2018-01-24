@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay mätvärden i Azure-Monitor (förhandsgranskning)
 
@@ -55,7 +55,7 @@ Alla mätvärden-värden skickas till Azure-Monitor varje minut. Tidskornighet d
 
 ## <a name="connection-metrics"></a>Anslutningen mått
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | ListenerConnections lyckades (förhandsgranskning) | Antal lyckade lyssnare anslutningar till Azure-relä under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |ListenerConnections ClientError (förhandsgranskning)|Antalet klientfel i på lyssnaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
@@ -63,8 +63,8 @@ Alla mätvärden-värden skickas till Azure-Monitor varje minut. Tidskornighet d
 |SenderConnections lyckades (förhandsgranskning)|Antal lyckade avsändaren anslutningar som görs under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |SenderConnections ClientError (förhandsgranskning)|Antalet klientfel i på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |SenderConnections ServerError (förhandsgranskning)|Antalet fel på avsändaren anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|ListenerConnections TotalRequests (förhandsgranskning)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
-|SenderConnections TotalRequests (förhandsgranskning)|Vilka begäranden som gjorts av avsändare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+|ListenerConnections-TotalRequests (preview)|Det totala antalet lyssnare anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
+|SenderConnections-TotalRequests (preview)|Vilka begäranden som gjorts av avsändare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |ActiveConnections (förhandsgranskning)|Antal aktiva anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |ActiveListeners (förhandsgranskning)|Antal aktiva lyssnare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 |ListenerDisconnects (förhandsgranskning)|Antal frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
@@ -72,7 +72,7 @@ Alla mätvärden-värden skickas till Azure-Monitor varje minut. Tidskornighet d
 
 ## <a name="memory-usage-metrics"></a>Användningsstatistik för minne
 
-| Måttnamnet | Beskrivning |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |BytesTransferred (förhandsgranskning)|Antalet byte som överförs under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt <br/> Dimensionen: EntityName|
 

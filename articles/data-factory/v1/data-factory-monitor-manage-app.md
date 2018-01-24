@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0678e9bf6ea9e4161fc291729f1480ac7082796a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av övervakning och hantering av appen
 > [!div class="op_single_selector"]
@@ -209,7 +209,7 @@ Aktiviteten windows kan vara i något av följande status:
 <td>Klar</td><td>-</td><td>Aktivitetsfönstret är redo för användning.</td>
 </tr>
 <tr>
-<td>Överhoppad</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>
+<td>Hoppades över</td><td>-</td><td>Aktivitetsfönstret bearbetas inte.</td>
 </tr>
 <tr>
 <td>Ingen</td><td>-</td><td>En aktivitetsfönstret brukade finnas med en annan status, men har återställts.</td>

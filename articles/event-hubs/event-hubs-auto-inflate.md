@@ -3,7 +3,7 @@ title: "Automatiskt skala upp Azure Event Hubs genomflödesenheter | Microsoft D
 description: "Aktivera automatisk ökar på ett namnområde för att automatiskt skala upp enheter"
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 1cd31e0866ee6088483f88e8f80d01f75764c771
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20ee0e6cff2a07cbd62a79799eada5708c7a0f07
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Automatiskt skala upp Azure Event Hubs genomflödesenheter
 
-Händelsehubbar i Azure är en mycket skalbar dataströmning plattform. Händelsehubbar kunder öka därför ofta sin användning efter onboarding till tjänsten. Detta ökar krävs att du ökar förbestämt genomflödesenheter om du vill skala Event Hubs och hantera större överföringshastighet. Den *automatiskt öka* funktion i Händelsehubbar skalas automatiskt antalet genomflödesenheter användning behov. Öka genomflödesenheter förhindrar begränsning scenarier där:
+Händelsehubbar i Azure är en mycket skalbar dataströmning plattform. Händelsehubbar användning ökar därför ofta när du börjar använda tjänsten. Sådan användning kräver öka förbestämt genomflödesenheter om du vill skala Event Hubs och hantera större överföringshastighet. Den *automatiskt öka* funktion i Händelsehubbar skalas automatiskt antalet genomflödesenheter användning behov. Öka genomflödesenheter förhindrar begränsning scenarier där:
 
 * Ingång överföringshastighet överskrida uppsättning enheter.
 * Överföringshastighet för utgående begäran överskrider uppsättning enheter.
 
 ## <a name="how-auto-inflate-works"></a>Så här fungerar automatiskt öka
 
-Event Hubs trafik styrs av genomflödesenheter. En genomflödesenhet kan 1 MB per sekund på inkommande trafik och två gånger att mängden utgång. Standard Händelsehubbar kan konfigureras med 1-20 genomflödesenheter. Öka automatiskt kan du börja litet med minsta obligatoriska genomflödesenheter. Funktionen skalas sedan automatiskt till den maximala gränsen på genomflödesenheter du behöver, beroende på ökade trafiken. Automatiskt öka ger följande fördelar:
+Event Hubs trafik styrs av genomflödesenheter. En genomflödesenhet kan 1 MB per sekund på inkommande trafik och två gånger att mängden utgång. Standard händelsehubbar kan konfigureras med 1-20 genomflödesenheter. Öka automatiskt kan du börja litet med minsta obligatoriska genomflödesenheter. Funktionen skalas sedan automatiskt till den maximala gränsen på genomflödesenheter du behöver, beroende på ökade trafiken. Automatiskt öka ger följande fördelar:
 
 - En effektiv skalning mekanism börja litet och skala upp medan du växer.
 - Skala automatiskt till den angivna övre gränsen utan begränsning problem.
@@ -37,20 +37,20 @@ Event Hubs trafik styrs av genomflödesenheter. En genomflödesenhet kan 1 MB pe
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Aktivera automatisk ökar på ett namnområde
 
-Du kan aktivera eller inaktivera automatisk ökar på ett namnområde med någon av följande metoder:
+Du kan aktivera eller inaktivera automatisk ökar på ett namnområde för Händelsehubbar med någon av följande metoder:
 
 1. Den [Azure-portalen](https://portal.azure.com).
 2. En Azure Resource Manager-mall.
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Aktivera automatisk öka via portalen
 
-När du skapar ett namnområde för Händelsehubbar kan du aktivera funktionen automatiskt öka på ett namnområde:
+När du skapar ett namnområde för Händelsehubbar kan du aktivera funktionen automatiskt öka:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Med det här alternativet är aktiverat, kan du börja litet på dina enheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar inte prissättning, vilken beror på hur många genomflödesenheter som används per timme.
+Med det här alternativet är aktiverat, kan du börja litet på dina enheter och skala upp som kräver din användning. Den övre gränsen för inflationen påverkar omedelbart inte prissättning, vilken beror på hur många genomflödesenheter som används per timme.
 
-Du kan också aktivera automatisk-ökar med hjälp av den **skala** alternativet på inställningsbladet i portalen:
+Du kan också aktivera automatisk-ökar med hjälp av den **skala** alternativet i rutan inställningar i portalen:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
@@ -106,4 +106,4 @@ Fullständig mallen finns i [skapa Händelsehubbar namnområde och aktivera öka
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
-* [Skapa en händelsehubb](event-hubs-create.md)
+

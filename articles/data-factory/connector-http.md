@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Kopiera data från http-slutpunkten med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Egenskapen ”authenticationType” **grundläggande**, **sammanfattad**, eller 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| Användarnamn | Användarnamnet för åtkomst av HTTP-slutpunkten. | Ja |
+| userName | Användarnamnet för åtkomst av HTTP-slutpunkten. | Ja |
 | lösenord | Lösenord för användare (användarnamn). Markera det här fältet som SecureString. | Ja |
 
 **Exempel**
@@ -166,7 +166,7 @@ Ange egenskapen type för datauppsättningen till för att kopiera data från HT
 | requestMethod | HTTP-metod.<br/>Tillåtna värden är **hämta** (standard) eller **efter**. | Nej |
 | additionalHeaders | Ytterligare HTTP-begärans sidhuvud. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| Format | Om du vill **hämta data från HTTP-slutpunkt som-är** utan parsning den och kopiera till en filbaserad lagring, hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa innehållet i HTTP-svar vid kopiering format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej |
+| format | Om du vill **hämta data från HTTP-slutpunkt som-är** utan parsning den och kopiera till en filbaserad lagring, hoppa över avsnittet format i både inkommande och utgående dataset-definitioner.<br/><br/>Om du vill att parsa innehållet i HTTP-svar vid kopiering format för följande filtyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), och [parkettgolv Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej |
 | Komprimering | Ange typ och kompression för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 **Exempel 1: använder Get-metoden (standard)**

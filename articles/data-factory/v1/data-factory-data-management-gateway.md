@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -139,10 +139,10 @@ På företagets brandvägg nivå måste du konfigurera följande domäner och ut
 
 | Domännamn | Portar | Beskrivning |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Används för kommunikation med Data Movement Service-serverdelen |
-| *. core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om konfigurerad)|
-| *. frontend.clouddatahub.net |443 |Används för kommunikation med Data Movement Service-serverdelen |
-| *. servicebus.windows.net |9350-9354, 5671 |Valfria service bus relay via TCP som används av guiden Kopiera |
+| *.servicebus.windows.net |443, 80 |Används för kommunikation med Data Movement Service-serverdelen |
+| *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om konfigurerad)|
+| *.frontend.clouddatahub.net |443 |Används för kommunikation med Data Movement Service-serverdelen |
+| *.servicebus.windows.net |9350-9354, 5671 |Valfria service bus relay via TCP som används av guiden Kopiera |
 
 
 På Windows-brandväggen nivå aktiveras normalt portarna utgående. Om inte, du kan konfigurera de domäner och portar i enlighet med detta på gateway-datorn.
@@ -315,7 +315,7 @@ Sidan kan du göra följande:
 * **Schemalägga uppdateringar** vid en viss tidpunkt av dagar.
 * Visa det datum då gatewayen **senast uppdaterad**.
 
-### <a name="settings-page"></a>Inställningssidan
+### <a name="settings-page"></a>Sidan Inställningar
 Sidan Inställningar kan du göra följande:
 
 * Visa, ändra och exportera **certifikat** används av gateway. Det här certifikatet används för att kryptera autentiseringsuppgifterna för datakällan.
@@ -363,7 +363,7 @@ Namn | Namnet på den logiska gateway och noder som är kopplade till gatewayen.
 Status | Status för logiska gatewayen och gateway-noder. Exempel: Online/Offline/begränsad/etc. Information om dessa statusar finns [gatewaystatusen](#gateway-status) avsnitt. 
 Version | Visar vilken version av den logiska gatewayen och varje gateway-noden. Versionen av den logiska gatewayen bestäms baserat på version av merparten av noder i gruppen. Om det finns noder med olika versioner i logiska gateway-inställningarna endast noder med samma versionsnummer som funktionen logiska gateway korrekt. Andra är i begränsat läge och måste uppdateras manuellt (bara om automatisk uppdatering misslyckas). 
 Tillgängligt minne | Tillgängligt minne på en gateway-noden. Det här värdet är en nära realtid ögonblicksbild. 
-CPU-användning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
+Processoranvändning | Processoranvändningen för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Nätverk (In/ut) | Nätverksanvändning för en gateway-nod. Det här värdet är en nära realtid ögonblicksbild. 
 Samtidiga jobb (kör / begränsa) | Antal jobb eller aktiviteter som körs på varje nod. Det här värdet är en nära realtid ögonblicksbild. Gränsen innebär högsta samtidiga jobb för varje nod. Det här värdet definieras baserat på storleken på datorn. Du kan höja gränsen att skala upp samtidiga jobbkörningen i avancerade scenarier, om nätverks-CPU/minne är outnyttjad, men aktiviteter uppnådd tidsgräns. Den här funktionen finns också med en enda nod gateway (även om funktionen skalbarhet och tillgänglighet inte är aktiverad).  
 Roll | Det finns två typer av roller i en gateway med flera noder – Dispatcher- och arbetsroller. Alla noder är arbetare, vilket innebär att de kan användas för att köra jobb. Det finns bara en dispatcher nod som används för att hämta uppgifter/jobb från molntjänster och skicka dem till olika arbetsnoder (inklusive sig själv).

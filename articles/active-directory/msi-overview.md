@@ -14,8 +14,8 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2018
@@ -63,7 +63,7 @@ Försök hanterade tjänstidentiteten självstudiekursen Läs slutpunkt till slu
 |                    | [Åtkomst till en Azure-AD resurs med en hanterade tjänstidentiteten i Linux VM och Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [Använda hanterade tjänstidentiteten med Azure App Service eller Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Service Bus  | [Användaren hanterade tjänstidentiteten med Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Service Bus  | [Använda hanterade tjänstidentiteten med Azure Service Bus](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Hanterade tjänstidentiteten stöd för vilka Azure-tjänster?
 

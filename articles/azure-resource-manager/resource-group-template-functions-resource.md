@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -28,7 +28,7 @@ Hanteraren för filserverresurser innehåller följande funktioner för att häm
 * [providers](#providers)
 * [referens](#reference)
 * [resourceGroup](#resourcegroup)
-* [resurs-ID](#resourceid)
+* [resourceId](#resourceid)
 * [prenumeration](#subscription)
 
 Om du vill hämta värden från parametrar, variabler eller den aktuella distributionen finns [distribution värdet funktioner](resource-group-template-functions-deployment.md).
@@ -47,8 +47,8 @@ Returnerar värden för någon resurstyp av som har stöd för listan igen. Den 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |Sträng |Unik identifierare för resursen. |
-| apiVersion |Ja |Sträng |API-versionen av resursen runtime-tillståndet. Normalt i formatet, **åååå-mm-dd**. |
+| resourceName eller resourceIdentifier |Ja |sträng |Unik identifierare för resursen. |
+| apiVersion |Ja |sträng |API-versionen av resursen runtime-tillståndet. Normalt i formatet, **åååå-mm-dd**. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -153,8 +153,8 @@ Returnerar information om en resursprovider och dess resurstyper som stöds. Om 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Ja |Sträng |Namespace av providern |
-| resourceType |Nej |Sträng |Typ av resurs i det angivna namnområdet. |
+| providerNamespace |Ja |sträng |Namespace av providern |
+| resourceType |Nej |sträng |Typ av resurs i det angivna namnområdet. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -241,9 +241,9 @@ Returnerar ett objekt som representerar en resurs runtime-tillståndet.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |Sträng |Namn eller unik identifierare för en resurs. |
-| apiVersion |Nej |Sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är etablerad inom samma mall. Normalt i formatet, **åååå-mm-dd**. |
-| ”Full” |Nej |Sträng |Värde som anger om du vill återställa fullständiga resursobjektet. Om du inte anger `'Full'`, egenskaper för objekt av resursen returneras. Objektet fullständig innehåller värden som resurs-ID och plats. |
+| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. |
+| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är etablerad inom samma mall. Normalt i formatet, **åååå-mm-dd**. |
+| ”Full” |Nej |sträng |Värde som anger om du vill återställa fullständiga resursobjektet. Om du inte anger `'Full'`, egenskaper för objekt av resursen returneras. Objektet fullständig innehåller värden som resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -251,7 +251,7 @@ Varje resurstypen returnerar andra egenskaper för funktionen referens. Funktion
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen referens hämtar sitt värde från en runtime-tillståndet och kan därför inte användas i avsnittet variables. Det kan användas i utdata avsnitt i en mall. 
+Funktionen referens hämtar sitt värde från en runtime-tillståndet och kan därför inte användas i avsnittet variables. Den kan användas i utdata avsnitt i en mall eller [länkad mall](resource-group-linked-templates.md#link-or-nest-a-template). Den kan inte användas i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#link-or-nest-a-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall. 
 
 Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om den refererade resursen etableras inom samma mall. Du behöver inte också använda dependsOn-egenskapen. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
 
@@ -534,10 +534,10 @@ Returnerar den unika identifieraren för en resurs. Du kan använda den här fun
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du vill hämta en resurs i en annan prenumeration. |
-| resourceGroupName |Nej |Sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du vill hämta en resurs i en annan resursgrupp. |
-| resourceType |Ja |Sträng |Typ av resurs inklusive resursleverantörens namnrymd. |
-| resourceName1 |Ja |Sträng |Namnet på resursen. |
-| resourceName2 |Nej |Sträng |Nästa resurs namn segment om resursen är kapslad. |
+| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du vill hämta en resurs i en annan resursgrupp. |
+| resourceType |Ja |sträng |Typ av resurs inklusive resursleverantörens namnrymd. |
+| resourceName1 |Ja |sträng |Namnet på resursen. |
+| resourceName2 |Nej |sträng |Nästa resurs namn segment om resursen är kapslad. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -654,10 +654,10 @@ Utdata från det föregående exemplet med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| sameRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Sträng | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
+| nestedResourceOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 För att distribuera det här exemplet mallen med Azure CLI, använder du:
 

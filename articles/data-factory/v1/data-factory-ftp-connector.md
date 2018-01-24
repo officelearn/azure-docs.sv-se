@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Flytta data från en FTP-server med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,15 +67,15 @@ I följande tabell beskrivs JSON-element som är specifika för en FTP-länkad t
 | Egenskap | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
 | typ |Ange FtpServer. |Ja |&nbsp; |
-| värden |Ange namn eller IP-adressen till FTP-servern. |Ja |&nbsp; |
+| värd |Ange namn eller IP-adressen till FTP-servern. |Ja |&nbsp; |
 | AuthenticationType |Ange vilken autentiseringstyp. |Ja |Grundläggande, anonyma |
 | användarnamn |Ange den användare som har åtkomst till FTP-servern. |Nej |&nbsp; |
 | lösenord |Ange lösenord för användaren (användarnamn). |Nej |&nbsp; |
 | encryptedCredential |Ange krypterade autentiseringsuppgifter för åtkomst till FTP-servern. |Nej |&nbsp; |
 | gatewayName |Ange namnet på gatewayen i Data Management Gateway för att ansluta till en lokal FTP-server. |Nej |&nbsp; |
 | port |Ange den port som FTP-servern lyssnar. |Nej |21 |
-| enableSsl |Ange om du använder FTP över SSL/TLS-kanalen. |Nej |SANT |
-| enableServerCertificateValidation |Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen. |Nej |SANT |
+| enableSsl |Ange om du använder FTP över SSL/TLS-kanalen. |Nej |sant |
+| enableServerCertificateValidation |Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen. |Nej |sant |
 
 ### <a name="use-anonymous-authentication"></a>Använd anonym autentisering
 
@@ -154,10 +154,10 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättningen.
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Underordnad sökväg till mappen. Använda escape-tecknet ' \ ' för specialtecken i strängen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** har mappsökvägar baserat på sektorn start-och sluttider datum. |Ja |
-| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en datamängd för utdata, namnet på den genererade filen är i följande format: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
+| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en datamängd för utdata, namnet på den genererade filen är i följande format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filer i den **folderPath**, i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (valfritt tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** gäller för en inkommande filresursen datauppsättning. Den här egenskapen stöds inte med Hadoop Distributed File System (HDFS). |Nej |
 | partitionedBy |Används för att ange en dynamisk **folderPath** och **fileName** för tid series-data. Du kan till exempel ange en **folderPath** som har fått parametrar för varje timme av data. |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade butiker (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
+| format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som de är mellan filbaserade butiker (binär kopia) kan du hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**, och stöds nivåerna **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om du vill använda binär överföringsläget. Värdena är true för en binär (detta är standardvärdet) och false för ASCII. Den här egenskapen kan endast användas när den associera länkade tjänsttypen är av typen: FtpServer. |Nej |
 

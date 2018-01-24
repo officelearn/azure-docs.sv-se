@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera utbyte av REST API-anspråk i din Azure AD B2C användaren resa som verifiering av indata från användaren
 Med Identity upplevelse Framework, som ligger till grund för Azure Active Directory B2C (Azure AD B2C) som du kan integrera med en RESTful-API i en resa för användaren. I den här genomgången får lära du dig hur Azure AD B2C samverkar med .NET Framework RESTful-tjänster (webb-API).
@@ -53,7 +53,7 @@ I den här genomgången kan du utveckla ett .NET Framework webb-API som validera
 * Skicka tillbaka ett förmåner tal. 
 * Lägg till förmåner numret till en JSON-Webbtoken (JWT).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Utför stegen i den [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) artikel.
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Steg 1: Skapa ett ASP.NET webb-API
@@ -88,7 +88,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
 3. Klassen namnet `InputClaimsModel`, och Lägg sedan till följande egenskaper för att den `InputClaimsModel` klass:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class InputClaimsModel
@@ -102,7 +102,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
 4. Skapa en ny modell `OutputClaimsModel`, och Lägg sedan till följande egenskaper för att den `OutputClaimsModel` klass:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class OutputClaimsModel
@@ -114,7 +114,7 @@ Skapa en modell som representerar inkommande anspråk genom att göra följande:
 
 5. Skapa en mer modell `B2CResponseContent`, där du vill utlösa indata-validering felmeddelanden. Lägg till följande egenskaper för att den `B2CResponseContent` klassen anger referenser som saknas och sedan spara filen:
 
-    ```C#
+    ```csharp
     namespace Contoso.AADB2C.API.Models
     {
         public class B2CResponseContent
@@ -152,7 +152,7 @@ I webb-API, en _domänkontrollant_ är ett objekt som hanterar HTTP-begäranden.
 
 4. Om den *IdentityController.cs* filen inte är öppen redan, dubbelklicka på den och Ersätt Koden i filen med följande kod:
 
-    ```C#
+    ```csharp
     using Contoso.AADB2C.API.Models;
     using Newtonsoft.Json;
     using System;

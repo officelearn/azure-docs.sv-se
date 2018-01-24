@@ -3,9 +3,9 @@ title: "Azure Disk Encryption för Windows och Linux-IaaS-VM | Microsoft Docs"
 description: "Den här artikeln innehåller en översikt över Microsoft Azure Disk Encryption för Windows och Linux virtuella IaaS-datorer."
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
-editor: TomSh
+author: DevTiw
+manager: avibm
+editor: barclayn
 ms.assetid: d3fac8bb-4829-405e-8701-fa7229fb1725
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
-ms.author: kakhan
-ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption för Windows och Linux-IaaS-VM
 Microsoft Azure värnar starkt din datasekretess, data suveränitet och aktiverar du att styra dina Azure värdbaserade data via ett intervall med avancerade tekniker för att kryptera, styra och hantera krypteringsnycklar kontroll & granska åtkomsten till data. Det ger Azure-kunder möjlighet att välja den lösning som bäst uppfyller deras behov av företag. I det här dokumentet, vi innehåller en introduktion till en ny tekniklösning ”Azure Disk Encryption för Windows och Linux IaaS VMS” om du vill skydda och skydda dina data för att uppfylla din organisations säkerhet och efterlevnad åtaganden. Dokumentet ger detaljerad information om hur du använder Azure disk encryption-funktioner inklusive scenarierna som stöds och användaren inträffar.
@@ -167,7 +167,7 @@ Innan du aktiverar Azure Disk Encryption på Azure IaaS-VM för de scenarier som
 | SLES | 12 SP1 | Datadisk |
 | SLES | 12-SP1 (Premium) | Datadisk |
 | SLES | HPC 12 | Datadisk |
-| SLES | 11 SP4 (Premium) | Datadisk |
+| SLES | 11-SP4 (Premium) | Datadisk |
 | SLES | 11 SP4 | Datadisk |
 
 * Azure Disk Encryption kräver att dina nyckelvalvet och virtuella datorer finns i samma Azure-region och prenumeration.
@@ -599,7 +599,7 @@ I följande tabell visas Resource Manager mallparametrar för befintlig eller vi
 | volumeType | Typ av krypteringsåtgärden utförs på volymen. Giltiga värden som stöds är _OS_ eller _alla_ (finns stöd för Linux-distributioner och versioner för Operativsystemet och datadiskarna under prerequisiteis tidigare). |
 | sequenceVersion | Sekvens version av BitLocker-åtgärden. Öka det här versionsnumret varje gång en diskkryptering åtgärden utförs på samma virtuella dator. |
 | vmName | Namnet på den virtuella datorn som krypteringsåtgärden ska utföras på. |
-| Lösenfrasen | Ange ett starkt lösenord som datakrypteringsnyckeln. |
+| passPhrase | Ange ett starkt lösenord som datakrypteringsnyckeln. |
 
 > [!NOTE]
 > _KeyEncryptionKeyURL_ är en valfri parameter. Du kan ge din egen KEK ytterligare säkerhetskontroll datakrypteringsnyckeln (lösenfrasen hemlig) i nyckelvalvet.
@@ -889,7 +889,7 @@ Du kan övervaka förloppet för OS-kryptering på tre sätt:
 
 * Logga in på den virtuella datorn via SSH och hämta tillägget loggen:
 
-    /var/log/Azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
+    /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
  Vi rekommenderar att du inte loggar in till den virtuella datorn när OS-kryptering pågår. Kopiera loggar endast när de två metoderna har misslyckats.
 

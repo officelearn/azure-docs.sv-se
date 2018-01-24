@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,7 +47,7 @@ Följande diagram visar relationerna mellan pipeline, aktivitet, datamängd och 
 
 ![Förhållandet mellan pipeline, aktivitet, dataset, länkade tjänster](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
-## <a name="dataset-json"></a>Datauppsättnings-JSON
+## <a name="dataset-json"></a>Dataset JSON
 En datamängd i Data Factory har definierats i JSON-format på följande sätt:
 
 ```json
@@ -86,7 +86,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | typ |Typ av datauppsättningen. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
 | struktur |Schemat för datauppsättningen.<br/><br/>Mer information finns i [datauppsättningsstrukturen](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typegenskaper är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om typerna som stöds och deras egenskaper finns [datauppsättningstypen](#Type). |Ja |Ej tillämpligt |
-| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. Om den inkommande datamängden för en aktivitet inte produceras av den aktuella pipelinen, kan du ange den här flaggan till true. Ange den här flaggan till true för den första aktiviteten i pipelinen inkommande datauppsättningen.  |Nej |FALSKT |
+| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. Om den inkommande datamängden för en aktivitet inte produceras av den aktuella pipelinen, kan du ange den här flaggan till true. Ange den här flaggan till true för den första aktiviteten i pipelinen inkommande datauppsättningen.  |Nej |falskt |
 | availability | Definierar fönstret bearbetning (till exempel varje timme eller varje dag) eller slicing modellen för produktion dataset. Varje dataenhet förbrukats och produceras av en aktivitet körs kallas en datasektorn. Om tillgängligheten för en datamängd för utdata är varje dag (frekvens - dag, intervallet - 1) skapas ett segment varje dag. <br/><br/>Mer information finns i [Dataset tillgänglighet](#Availability). <br/><br/>Mer information om datauppsättningen segmentering modellen finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikel. |Ja |Ej tillämpligt |
 | policy |Definierar villkoren eller det villkor som dataset-segment måste vara uppfyllda. <br/><br/>Mer information finns i [Dataset princip](#Policy) avsnitt. |Nej |Ej tillämpligt |
 
@@ -198,7 +198,7 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 | namn |Namnet på kolumnen. |Ja |
 | typ |Datatypen för kolumnen.  |Nej |
 | Kultur |. NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Nej |
-| Format |Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
+| format |Formatsträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. |Nej |
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnitt.
 
@@ -286,7 +286,7 @@ Den **princip** avsnitt i datauppsättningsdefinitionen definierar villkoren ell
 | Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validerar att informationen i **Azure Blob storage** uppfyller minsta storlek (i megabyte). |Azure Blob Storage |Nej |Ej tillämpligt |
-| minimumRows |Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL-databas</li><li>Azure-tabellen</li></ul> |Nej |Ej tillämpligt |
+| minimumRows |Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL-databas</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
 
 #### <a name="examples"></a>Exempel
 **minimumSizeMB:**
@@ -322,7 +322,7 @@ Om ett DataSet-objekt produceras av Data Factory, bör det markeras som **extern
 | Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
 | dataDelay |Tid att fördröja kontrollera tillgängligheten för externa data för den angivna sektorn. Du kan till exempel fördröja en kontroll av varje timme med den här inställningen.<br/><br/>Inställningen gäller bara för den aktuella tiden.  Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startas valideringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Sektorer med **sektorn sluttid** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar måste anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). Ange 1:04:00:00 för 1 dag och 4 timmar. |Nej |0 |
-| RetryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
+| retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för närvarande. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra den första verifieringen är 1 minut och åtgärden misslyckades, nästa försök görs 1:00 + 1 min. (varaktighet) + 1 min. (Återförsöksintervall) = 1:02 PM. <br/><br/>Segment tidigare finns det ingen fördröjning. Den här gången sker omedelbart. |Nej |00:01:00 (1 minut) |
 | retryTimeout |Tidsgräns för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter ska verifieringen ha slutförts inom 10 minuter. Om det tar längre tid än 10 minuter att utföra valideringen timeout för och försök igen.<br/><br/>Om alla försök för timeout validering sektorn är markerat som **orsakade**. |Nej |00:10:00 (10 minuter) |
 | maximumRetry |Antal gånger för att kontrollera tillgänglighet för externa data. Det högsta tillåtna värdet är 10. |Nej |3 |
 
@@ -335,7 +335,7 @@ Du kan skapa datauppsättningar på något av dessa verktyg och SDK:
 - Visual Studio
 - PowerShell
 - Azure Resource Manager-mall
-- REST API
+- REST-API
 - .NET-API
 
 Se följande kurser stegvisa instruktioner för att skapa pipelines och datauppsättningar på något av dessa verktyg och SDK:

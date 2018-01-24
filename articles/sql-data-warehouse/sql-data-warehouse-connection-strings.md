@@ -15,22 +15,22 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Drivrutiner för Azure SQL Data Warehouse
 Du kan ansluta till SQL Data Warehouse med flera olika programprotokoll såsom [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] och [JDBC][JDBC]. Nedan följer några exempel på anslutningar strängar för varje protokoll.  Du kan också använda Azure-portalen för att skapa anslutningssträngen.  För att skapa anslutningssträngen med hjälp av Azure portal, navigerar du till ditt databas-blad under *Essentials* klickar du på *visa databasanslutningssträngar*.
 
 ## <a name="sample-adonet-connection-string"></a>Exempel ADO.NET-anslutningssträngen
-```C#
+```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ## <a name="sample-odbc-connection-string"></a>Exempel ODBC-anslutningssträng
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 

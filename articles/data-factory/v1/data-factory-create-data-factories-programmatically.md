@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [kopiera aktivitet kursen i dokumentationen för version 2](../quickstart-create-data-factory-dot-net.md). 
+> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion. 
 
 ## <a name="overview"></a>Översikt
 Du kan skapa, övervaka och hantera Azure datafabriker genom programmering med Data Factory .NET SDK. Den här artikeln innehåller en genomgång som du kan följa om du vill skapa ett exempelkonsol .NET-program som skapar och övervakar en datafabrik. 
@@ -31,7 +31,7 @@ Du kan skapa, övervaka och hantera Azure datafabriker genom programmering med D
 > [!NOTE]
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Se [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) omfattande dokumentation för .NET-API för Data Factory. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2012, 2013 eller 2015
 * Hämta och installera [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET skrivbordet (WPF) komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -74,7 +74,7 @@ Den grundläggande principen bakom ADAL är att när din app behöver en åtkoms
 
 * I den `DirectorySearcher` projektet öppnar `MainWindow.xaml.cs` och leta upp den `MainWindow()` metoden.  Det första steget är att initiera appens `AuthenticationContext` -ADAL vars primära klassen.  Det är där du skickar ADAL koordinaterna behöver kommunicera med Azure AD och hur det kan cachelagra token.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Leta reda på `Search(...)` metod som ska anropas när användaren klickar på knappen ”Sök” i appens användargränssnitt.  Den här metoden gör en GET-begäran till Azure AD Graph API frågan för användare vars UPN-namnet börjar med den angivna söktermen.  Men om du vill fråga Graph API, måste du inkludera ett access_token i den `Authorization` huvud för begäran - detta är där ADAL kommer in.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Observera att den `AuthenticationResult` objektet innehåller en `UserInfo` objekt som kan användas för att samla in information som din app kan behöva.  I DirectorySearcher `UserInfo` används för att anpassa appens användargränssnitt med det användar-id.
 * När användaren klickar på knappen ”Logga ut” vi vill se till att nästa anrop till `AcquireTokenAsync(...)` uppmanas användaren att logga in.  Det är lika enkelt som att rensa cacheminnet token med ADAL:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Om användaren inte klicka på knappen ”Logga ut”, kommer du vill behålla användarens session för nästa gång de kör DirectorySearcher.  Du kan kontrollera ADAL'S token-cache för en befintlig token och uppdateras Användargränssnittet när appen startar.  I den `CheckForCachedToken()` metod, gör ett annat anrop till `AcquireTokenAsync(...)`, nu skicka i den `PromptBehavior.Never` parameter.  `PromptBehavior.Never`ADAL anger att användaren inte ska uppmanas att logga in och ADAL i stället utlösa ett undantag om det inte går att returnera en token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -51,7 +51,7 @@ Följande tabell beskriver egenskaper i pipeline-JSON-definitionen:
 | description |Text som beskriver vilka aktivitet eller pipeline används för | Nej |
 | activities | Innehåller en lista med aktiviteter. | Ja |
 | start |Datum-starttiden för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipeline. Utdata segment som endast produceras med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan båda vara tomma om du vill skapa en pipeline. Du måste ange både värden om du vill ange en aktiv period för pipelinen ska köras. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdlet Set-AzureRmDataFactoryPipelineActivePeriod senare. |
-| End |Datum sluttiden för pipelinen. Om du måste vara i ISO-format. Till exempel: 2014-10-14T17:32:41 <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Ange 09-09-9999 som värde för end-egenskapen för att köra pipelinen på obestämd tid. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värde för end-egenskapen.<br/><br/>Du hittar information för den **starta** egenskapen. |
+| slut |Datum sluttiden för pipelinen. Om du måste vara i ISO-format. Till exempel: 2014-10-14T17:32:41 <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Ange 09-09-9999 som värde för end-egenskapen för att köra pipelinen på obestämd tid. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värde för end-egenskapen.<br/><br/>Du hittar information för den **starta** egenskapen. |
 | isPaused |Om värdet är true pipelinen inte körs. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Nej |
 | pipelineMode |Metoden för schemaläggning körs för pipeline. Tillåtna värden är: schemalagda (standard), görs.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). 'Görs ”anger att pipelinen körs bara en gång. Görs pipelines när skapat går inte att ändra/uppdatera för närvarande. Se [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) mer information om hur du görs. |Nej |
 | ExpirationTime |Tidsperiod efter som pipelinen är giltig och vara etablerade har skapats. Om den inte har någon aktiv, misslyckades, eller väntande körs pipeline tas bort automatiskt när når den förfallotid. |Nej |
@@ -288,7 +288,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | typ | Typ av datauppsättningen. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se [DATALAGER](#data-stores) avsnittet för alla datalager och dataset-typer som stöds av Data Factory. | 
 | struktur | Schemat för datauppsättningen. Den innehåller kolumner, deras typer och så vidare. | Nej |Ej tillämpligt |
 | typeProperties | Egenskaper som motsvarar den valda typen. Se [DATALAGER](#data-stores) för typer som stöds och deras egenskaper. |Ja |Ej tillämpligt |
-| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. |Nej |FALSKT |
+| extern | Boolesk flagga som anger om en datamängd uttryckligen produceras av en data factory-pipelinen eller inte. |Nej |falskt |
 | availability | Definierar fönstret bearbetning eller slicing modellen för produktion dataset. Mer information om datauppsättningen segmentering modellen finns [schemaläggning och körning](data-factory-scheduling-and-execution.md) artikel. |Ja |Ej tillämpligt |
 | policy |Definierar villkoren eller det villkor som dataset-segment måste vara uppfyllda. <br/><br/>Mer information finns i [Dataset princip](#Policy) avsnitt. |Nej |Ej tillämpligt |
 
@@ -319,7 +319,7 @@ Följande tabell beskriver egenskaper som kan användas i den **tillgänglighet*
 | frequency |Anger tidsenheten för dataset sektorn produktion.<br/><br/><b>Stöd för frekvens</b>: minut, timma, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvens<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas.<br/><br/>Om du behöver datamängden som segmenterat timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs</b>: Om du anger frekvens som minut, rekommenderar vi att du anger intervallet till mindre än 15 |Ja |Ej tillämpligt |
 | format |Anger om sektorn ska produceras start/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och stil anges till EndOfInterval producerade sektorn på den sista dagen i månaden. Om formatet som har angetts till StartOfInterval producerade sektorn på den första dagen i månaden.<br/><br/>Om frekvensen är inställd på dagen och stil anges till EndOfInterval producerade sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och stil anges till EndOfInterval producerade sektorn i slutet av en timme. För ett segment för PM 1 – 2 PM period, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
-| anchorDateTime |Definierar absolut placering i tid som används av Schemaläggaren för att beräkna dataset sektorn gränser. <br/><br/><b>Obs</b>: om AnchorDateTime har datumdelar som är mer detaljerad än frekvensen sedan mer detaljerade delar ignoreras. <br/><br/>Till exempel om den <b>intervall</b> är <b>varje timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b> sedan <b>minuter och sekunder</b> delar av AnchorDateTime ignoreras. |Nej |01/01/0001 |
+| anchorDateTime |Definierar absolut placering i tid som används av Schemaläggaren för att beräkna dataset sektorn gränser. <br/><br/><b>Obs</b>: om AnchorDateTime har datumdelar som är mer detaljerad än frekvensen sedan mer detaljerade delar ignoreras. <br/><br/>Till exempel om den <b>intervall</b> är <b>varje timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b> sedan <b>minuter och sekunder</b> delar av AnchorDateTime ignoreras. |Nej |0001-01/01 |
 | förskjutning |TimeSpan som start- och slutdatum för alla dataset segment flyttat. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, resultatet är kombinerade SKIFT. |Nej |Ej tillämpligt |
 
 I följande avsnitt för tillgänglighet anger att datamängd för utdata är producerade varje timme (eller) indata dataset finns varje timme:
@@ -337,7 +337,7 @@ Den **princip** avsnitt i datauppsättningsdefinitionen definierar villkoren ell
 | Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validerar att data i en **Azure blob** uppfyller minsta storlek (i megabyte). |Azure-blobb |Nej |Ej tillämpligt |
-| minimumRows |Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabellen</li></ul> |Nej |Ej tillämpligt |
+| minimumRows |Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
 
 **Exempel:**
 
@@ -596,7 +596,7 @@ Definiera ett Azure Data Lake Store länkade tjänsten genom att ange typ av den
 | resourceGroupName | Azure resursgruppens namn som Datasjölager tillhör. | Krävs för sink |
 | servicePrincipalId | Ange programmets klient-ID. | Ja (för tjänstens huvudnamn autentisering) |
 | servicePrincipalKey | Ange programmets nyckeln. | Ja (för tjänstens huvudnamn autentisering) |
-| Klient | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den håller musen i övre högra hörnet i Azure-portalen. | Ja (för tjänstens huvudnamn autentisering) |
+| klient | Ange information om klient (domain name eller klient ID) under där programmet finns. Du kan hämta den håller musen i övre högra hörnet i Azure-portalen. | Ja (för tjänstens huvudnamn autentisering) |
 | Auktorisering | Klicka på **auktorisera** knappen i den **Data Factory-redigeraren** och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja (för autentisering av autentiseringsuppgifter för användare)|
 | Sessions-ID | OAuth sessions-id från OAuth-auktorisering sessionen. Varje sessions-id är unikt och får endast användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja (för autentisering av autentiseringsuppgifter för användare) |
 
@@ -1228,7 +1228,7 @@ Om du kopierar data till Azure SQL Data Warehouse, anger du den **sink typen** f
 | polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** egenskap är inställd på **SANT**. |&nbsp; |Nej |
 | rejectValue |Anger det antal eller procentandelen rader som kan avvisas innan frågan misslyckas. <br/><br/>Mer information om den PolyBase avvisa alternativ i den **argument** avsnitt i [Skapa extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) avsnittet. |0 (standard), 1, 2... |Nej |
 | rejectType |Anger om alternativet rejectValue har angetts som ett litteralvärde eller ett procentvärde. |Värdet (standard), procent |Nej |
-| rejectSampleValue |Anger antalet rader som ska hämtas innan PolyBase beräknar andelen Avvisade rader. |1, 2, … |Ja, om **rejectType** är **procent** |
+| rejectSampleValue |Anger antalet rader som ska hämtas innan PolyBase beräknar andelen Avvisade rader. |1, 2... |Ja, om **rejectType** är **procent** |
 | useTypeDefault |Anger hur du hanterar saknade värden i avgränsade textfiler när PolyBase hämtar data från filen.<br/><br/>Mer information om denna egenskap från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |SANT, FALSKT (standard) |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antalet rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Vänta tills batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
@@ -1286,7 +1286,7 @@ Definiera ett Azure Search länkade tjänsten genom att ange den **typ** på den
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| URL: en | URL för Azure Search-tjänsten. | Ja |
+| url | URL för Azure Search-tjänsten. | Ja |
 | key | Admin-nyckel för Azure Search-tjänsten. | Ja |
 
 #### <a name="example"></a>Exempel
@@ -1594,7 +1594,7 @@ Definiera en Amazon Redshift länkade tjänsten genom att ange den **typen** på
 | --- | --- | --- |
 | server |IP-adressen eller värdnamnet namnet på Amazon Redshift-servern. |Ja |
 | port |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej, standardvärde: 5439 |
-| Databasen |Namnet på Amazon Redshift-databasen. |Ja |
+| databas |Namnet på Amazon Redshift-databasen. |Ja |
 | användarnamn |Namnet på användaren som har åtkomst till databasen. |Ja |
 | lösenord |Lösenordet för användarkontot. |Ja |
 
@@ -1705,7 +1705,7 @@ Definiera en IBM DB2 länkade tjänsten genom att ange den **typen** på den lä
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på DB2-server. |Ja |
-| Databasen |Namnet på DB2-databasen. |Ja |
+| databas |Namnet på DB2-databasen. |Ja |
 | Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
@@ -1821,7 +1821,7 @@ Definiera en MySQL länkade tjänsten genom att ange den **typen** på den länk
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på MySQL-servern. |Ja |
-| Databasen |Namnet på MySQL-databas. |Ja |
+| databas |Namnet på MySQL-databas. |Ja |
 | Schemat |Namnet på schemat i databasen. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till MySQL-databas. Möjliga värden är: `Basic`. |Ja |
 | användarnamn |Ange användarnamn för att ansluta till MySQL-databas. |Ja |
@@ -2112,7 +2112,7 @@ Definiera en PostgreSQL länkade tjänsten genom att ange den **typ** på den l�
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på PostgreSQL-server. |Ja |
-| Databasen |Namnet på PostgreSQL-databas. |Ja |
+| databas |Namnet på PostgreSQL-databas. |Ja |
 | Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänslig. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
@@ -2230,13 +2230,13 @@ Att definiera en SAP Business Warehouse (BW) länkade tjänsten genom att ange d
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP BW-instansen finns. | Sträng | Ja
+server | Namnet på den server som SAP BW-instansen finns. | sträng | Ja
 systemNumber | Systemnummer för SAP BW-system. | Två siffror decimaltal representeras som en sträng. | Ja
 clientId | Klient-ID för klienten i systemets SAP-W. | Tre siffror decimaltal representeras som en sträng. | Ja
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | Sträng | Ja
-lösenord | Lösenord för användaren. | Sträng | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP BW-instans. | Sträng | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | Sträng | Nej
+användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
+lösenord | Lösenord för användaren. | sträng | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP BW-instans. | sträng | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
 
 #### <a name="example"></a>Exempel
 
@@ -2340,12 +2340,12 @@ Definiera en SAP HANA länkade tjänsten genom att ange den **typen** på den l�
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | Sträng | Ja
+server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | sträng | Ja
 AuthenticationType | Typ av autentisering. | Sträng. ”Basic” eller ”Windows” | Ja 
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | Sträng | Ja
-lösenord | Lösenord för användaren. | Sträng | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP HANA-instans. | Sträng | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | Sträng | Nej
+användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
+lösenord | Lösenord för användaren. | sträng | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP HANA-instans. | sträng | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
 
 #### <a name="example"></a>Exempel
 
@@ -2670,7 +2670,7 @@ Definiera en Sybase länkade tjänsten genom att ange den **typen** på den län
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på Sybase-servern. |Ja |
-| Databasen |Namnet på Sybase-databasen. |Ja |
+| databas |Namnet på Sybase-databasen. |Ja |
 | Schemat |Namnet på schemat i databasen. |Nej |
 | AuthenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden är: anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande eller Windows-autentisering. |Nej |
@@ -2903,7 +2903,7 @@ Om du vill definiera en Cassandra länkad tjänst, ange den **typen** på den l�
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| värden |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| värd |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-porten som används av Cassandra-server för att lyssna efter anslutningar. |Nej, standardvärde: 9042 |
 | AuthenticationType |Grundläggande eller anonym |Ja |
 | användarnamn |Ange användarnamnet för användarkontot. |Ja, om authenticationType anges till Basic. |
@@ -3151,7 +3151,7 @@ Definiera en Amazon S3 länkade tjänsten genom att ange den **typen** på den l
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| accessKeyID |ID för den hemliga åtkomstnyckeln. |Sträng |Ja |
+| accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
 | secretAccessKey |Hemlig själva åtkomstnyckeln. |Krypterad hemliga sträng |Ja |
 
 #### <a name="example"></a>Exempel
@@ -3178,7 +3178,7 @@ Om du vill definiera en datauppsättning för Amazon S3, ange den **typen** på 
 | bucketName |S3-Bucketnamn. |Sträng |Ja |
 | key |S3 objekt nyckeln. |Sträng |Nej |
 | prefix |Prefix för nyckeln S3 objekt. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
-| Version |Versionen av S3 objekt om S3 versionshantering är aktiverat. |Sträng |Nej |
+| version |Versionen av S3 objekt om S3 versionshantering är aktiverat. |Sträng |Nej |
 | Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej | |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 
@@ -3316,7 +3316,7 @@ Du kan länka ett lokalt filsystem till ett Azure data factory med den **lokala 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Se till att egenskapen type har angetts **OnPremisesFileServer**. |Ja |
-| värden |Anger rotsökvägen för den mapp som du vill kopiera. Använda escape-tecknet ' \ ' för specialtecken i strängen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
+| värd |Anger rotsökvägen för den mapp som du vill kopiera. Använda escape-tecknet ' \ ' för specialtecken i strängen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
 | användar-ID |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
 | lösenord |Ange lösenord för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
 | encryptedCredential |Ange de kryptera autentiseringsuppgifter som du kan få genom att köra cmdlet New-AzureRmDataFactoryEncryptValue. |Nej (om du väljer att ange användarnamn och lösenord i klartext) |
@@ -3548,15 +3548,15 @@ Definiera en FTP länkade tjänsten genom att ange den **typen** på den länkad
 
 | Egenskap | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
-| värden |Namn eller IP-adressen till FTP-servern |Ja |&nbsp; |
+| värd |Namn eller IP-adressen till FTP-servern |Ja |&nbsp; |
 | AuthenticationType |Ange autentiseringstyp |Ja |Grundläggande, anonyma |
 | användarnamn |Användare som har åtkomst till FTP-servern |Nej |&nbsp; |
 | lösenord |Lösenord för användare (användarnamn) |Nej |&nbsp; |
 | encryptedCredential |Krypterade autentiseringsuppgifter för åtkomst till FTP-servern |Nej |&nbsp; |
 | gatewayName |Namnet på den Data Management Gateway-gatewayen för att ansluta till en lokal FTP-server |Nej |&nbsp; |
 | port |Port som FTP-servern lyssnar på. |Nej |21 |
-| enableSsl |Ange om du använder FTP över SSL/TLS-kanalen |Nej |SANT |
-| enableServerCertificateValidation |Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen |Nej |SANT |
+| enableSsl |Ange om du använder FTP över SSL/TLS-kanalen |Nej |sant |
+| enableServerCertificateValidation |Ange om du vill aktivera server SSL-certifikatsverifiering när du använder FTP över SSL/TLS-kanalen |Nej |sant |
 
 #### <a name="example-using-anonymous-authentication"></a>Exempel: Använder anonym autentisering
 
@@ -3729,7 +3729,7 @@ Definiera en HDFS länkade tjänsten genom att ange den **typ** på den länkade
 | typ |Egenskapen type måste anges till: **Hdfs** |Ja |
 | URL |URL till HDFS |Ja |
 | AuthenticationType |Anonym, eller Windows. <br><br> Att använda **Kerberos-autentisering** HDFS-anslutningen finns i [i det här avsnittet](#use-kerberos-authentication-for-hdfs-connector) därefter konfigurera din lokala miljö. |Ja |
-| Användarnamn |Användarnamn för Windows-autentisering. |Ja (för Windows-autentisering) |
+| userName |Användarnamn för Windows-autentisering. |Ja (för Windows-autentisering) |
 | lösenord |Lösenordet för Windows-autentisering. |Ja (för Windows-autentisering) |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till HDFS. |Ja |
 | encryptedCredential |[Nya AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) utdata för autentiseringsuppgifterna för åtkomst. |Nej |
@@ -3779,7 +3779,7 @@ Om du vill definiera en datauppsättning för HDFS, ange den **typen** på datam
 | folderPath |Sökvägen till mappen. Exempel:`myfolder`<br/><br/>Använda escape-tecknet ' \ ' för specialtecken i strängen. Till exempel: Ange mapp för folder\subfolder,\\\\undermapp och ange d: för d:\samplefolder,\\\\Exempelmapp.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägar baserat på sektorn börja/sluta datum gånger. |Ja |
 | fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>Om filnamnet inte anges för en datamängd för utdata är namnet på den genererade filen i följande det här formatet: <br/><br/>Data. <Guid>.txt (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för tid series-data. Exempel: folderPath parametriserade varje timme av data. |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
+| format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
@@ -3862,7 +3862,7 @@ Definiera en SFTP länkade tjänsten genom att ange den **typen** på den länka
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- | --- |
-| värden | Namn eller IP-adress till SFTP-server. |Ja |
+| värd | Namn eller IP-adress till SFTP-server. |Ja |
 | port |Port som avlyssnas SFTP-servern. Standardvärdet är: 21 |Nej |
 | AuthenticationType |Ange autentiseringstypen. Tillåtna värden: **grundläggande**, **SshPublicKey**. <br><br> Referera till [använder grundläggande autentisering](#using-basic-authentication) och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
 | skipHostKeyValidation | Ange om du vill hoppa över värden viktiga validering. | Nej. Standardvärde: false |
@@ -3928,7 +3928,7 @@ Om du vill använda grundläggande autentisering, `authenticationType` som `SshP
 | användarnamn |Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till filen för privat nyckel som gateway kan komma åt. | Ange antingen det `privateKeyPath` eller `privateKeyContent`. <br><br> Gäller bara när du kopierar data från en lokal SFTP-server. |
 | privateKeyContent | En serialiserad sträng av privat nyckel innehållet. Guiden Kopiera kan läsa filen för privat nyckel och extrahera privata nyckel innehållet automatiskt. Om du använder någon annan verktyget/SDK, använder du egenskapen privateKeyPath. | Ange antingen det `privateKeyPath` eller `privateKeyContent`. |
-| Lösenfrasen | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. | Ja om filen för privata nyckeln skyddas av ett lösenord. |
+| passPhrase | Ange pass frasen/lösenord för att dekryptera den privata nyckeln om nyckelfilen skyddas av ett lösenord. | Ja om filen för privata nyckeln skyddas av ett lösenord. |
 
 ```json
 {
@@ -3977,10 +3977,10 @@ Om du vill definiera en SFTP datauppsättning, ange den **typen** på datamängd
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Sub sökvägen till mappen. Använda escape-tecknet ' \ ' för specialtecken i strängen. Se [exempel länkad tjänst-och dataset](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägar baserat på sektorn börja/sluta datum gånger. |Ja |
-| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>Om filnamnet inte anges för en datamängd för utdata är namnet på den genererade filen i följande det här formatet: <br/><br/>Data. <Guid>.txt (exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
+| fileName |Ange namnet på filen i den **folderPath** om du vill att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen tabellen pekar på alla filer i mappen.<br/><br/>Om filnamnet inte anges för en datamängd för utdata är namnet på den genererade filen i följande det här formatet: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
 | fileFilter |Ange ett filter som används för att välja en delmängd av filer i mappsökvägen i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (valfritt tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter gäller för en inkommande filresursen datauppsättning. Den här egenskapen stöds inte med HDFS. |Nej |
 | partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath filnamn för tid series-data. Till exempel folderPath som innehåller parametrar för varje timme av data. |Nej |
-| Format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
+| format | Följande format stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typen** egenskap under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som-är** mellan filbaserade butiker (binär kopia), hoppa över avsnittet format i både inkommande och utgående dataset-definitioner. |Nej |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 | useBinaryTransfer |Ange om använder binära överföringsläge. True för en binär och FALSKT ASCII. Standardvärde: True. Den här egenskapen kan endast användas när associerade linked service-typen är av typen: FtpServer. |Nej |
 
@@ -4069,7 +4069,7 @@ Definiera en HTTP länkade tjänsten genom att ange den **typen** på den länka
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| URL: en | Bas-URL till webbservern | Ja |
+| url | Bas-URL till webbservern | Ja |
 | AuthenticationType | Anger vilken autentiseringstyp. Tillåtna värden är: **anonym**, **grundläggande**, **sammanfattad**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
 | enableServerCertificateValidation | Ange om du vill aktivera server SSL-certifikatsverifiering om datakällan är HTTPS-webbserver | Nej, standard är SANT |
 | gatewayName | Namnet på Data Management Gateway för att ansluta till en lokal http-källa. | Ja om du kopierar data från en lokal http-källa. |
@@ -4161,7 +4161,7 @@ Om du vill definiera en HTTP-dataset, ange den **typen** på datamängden som sk
 | requestMethod | HTTP-metod. Tillåtna värden är **hämta** eller **efter**. | Nej. Standardvärdet är `GET`. |
 | additionalHeaders | Ytterligare HTTP-begärans sidhuvud. | Nej |
 | requestBody | Brödtext för HTTP-begäran. | Nej |
-| Format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
+| format | Om du vill bara **hämta data från HTTP-slutpunkt som-är** hoppa över den här formatinställningar utan parsning den. <br><br> Om du vill att parsa innehållet i HTTP-svar vid kopiering, stöds följande format: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [parkettgolv Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Nej |
 | Komprimering | Ange typ och kompression för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 #### <a name="example-using-the-get-default-method"></a>Exempel: med metoden GET (standard)
@@ -4267,7 +4267,7 @@ Definiera en OData länkade tjänsten genom att ange den **typen** på den länk
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| URL: en |URL för OData-tjänsten. |Ja |
+| url |URL för OData-tjänsten. |Ja |
 | AuthenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För molnet OData är möjliga värden anonym, grundläggande och OAuth (Observera Azure Data Factory för närvarande endast stöder Azure Active Directory-baserad OAuth). <br/><br/> För lokala OData är möjliga värden anonym, grundläggande och Windows. |Ja |
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
 | lösenord |Ange lösenordet för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
@@ -4347,7 +4347,7 @@ Om du vill definiera en OData-datauppsättning, ange den **typen** på datamäng
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Sökväg |Sökvägen till OData-resurs |Nej |
+| sökväg |Sökvägen till OData-resurs |Nej |
 
 #### <a name="example"></a>Exempel
 
@@ -4742,8 +4742,8 @@ För att definiera en Web dataset, ange den **typen** på datamängden som ska *
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ |Typ av datauppsättningen. måste anges till **WebTable** |Ja |
-| Sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används den URL som angavs i definitionen länkade tjänsten. |
-| Index |Index för tabellen i resursen. Se [Get-index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet steg för att få index för en tabell i en HTML-sida. |Ja |
+| sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om sökvägen inte anges används den URL som angavs i definitionen länkade tjänsten. |
+| index |Index för tabellen i resursen. Se [Get-index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) avsnittet steg för att få index för en tabell i en HTML-sida. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -4836,8 +4836,8 @@ Följande tabell innehåller beskrivningar för egenskaper som används i Azure 
 | --- | --- | --- |
 | typ |Typegenskapen bör anges till **HDInsightOnDemand**. |Ja |
 | ClusterSize |Antal worker/data noder i klustret. HDInsight-kluster skapas med 2 huvudnoderna tillsammans med antalet arbetarnoder som du anger för den här egenskapen. Noder har storlek Standard_D3 med 4 kärnor, så ett kluster med noder 4 worker tar 24 kärnor (4\*4 = 16 kärnor för arbetarnoder plus 2\*4 = 8 kärnor för huvudnoderna). Se [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för ytterligare information om Standard_D3-nivå. |Ja |
-| TimeToLive |Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 tas klustret bort när aktiviteten körs i bearbetade. Å andra sidan, om du anger ett högt värde för kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Flera pipelines kan dela samma instans av HDInsight-kluster på begäran om egenskapen timetolive-värdet är korrekt inställd |Ja |
-| Version |Version av HDInsight-klustret. Mer information finns i [HDInsight-versioner som stöds i Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Nej |
+| timetolive |Tillåten inaktivitetstid för HDInsight-kluster på begäran. Anger hur länge HDInsight-kluster på begäran förblir aktiva efter slutförande av en aktivitet som kör om det finns inga aktiva jobb i klustret.<br/><br/>Till exempel om en aktivitet kör tar 6 minuter och timetolive är inställd på 5 minuter, förblir klustret aktiv på 5 minuter efter 6 minuter för aktiviteten kör. Om en annan aktivitet kör körs med fönstret 6 minuter, bearbetas men det av samma kluster.<br/><br/>Skapar ett HDInsight-kluster på begäran är en kostsam åtgärd (kan ta en stund), så Använd den här inställningen som krävs för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger timetolive-värdet till 0 tas klustret bort när aktiviteten körs i bearbetade. Å andra sidan, om du anger ett högt värde för kan klustret förblir inaktiva i onödan ledde höga kostnader. Det är därför viktigt att du har angett rätt värde baserat på dina behov.<br/><br/>Flera pipelines kan dela samma instans av HDInsight-kluster på begäran om egenskapen timetolive-värdet är korrekt inställd |Ja |
+| version |Version av HDInsight-klustret. Mer information finns i [HDInsight-versioner som stöds i Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Nej |
 | linkedServiceName |Azure Storage länkade tjänsten som ska användas av klustret på begäran för lagring och bearbetning av data. <p>För närvarande kan du skapa ett HDInsight-kluster med på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra Resultatdata från HDInsight som bearbetas i en Azure Data Lake Store kan du använda en Kopieringsaktiviteten för att kopiera data från Azure Blobblagring till Azure Data Lake Store.</p>  | Ja |
 | additionalLinkedServiceNames |Anger ytterligare lagringskonton för till HDInsight länkade tjänsten så att Data Factory-tjänsten kan registrera dem å dina vägnar. |Nej |
 | osType |Typ av operativsystem. Tillåtna värden är: (standard) för Windows och Linux |Nej |
@@ -4967,11 +4967,11 @@ Följande tabell innehåller beskrivningar för egenskaper som används i JSON-d
 | --- | --- | --- |
 | Typ |Typegenskapen bör anges till: **AzureDataLakeAnalytics**. |Ja |
 | Kontonamn |Azure Data Lake Analytics-kontonamn. |Ja |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics-URI. |Nej |
+| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |Nej |
 | Auktorisering |Auktoriseringskoden hämtas automatiskt när du klickar på **auktorisera** knappen i den Data Factory-redigeraren och slutfört OAuth-inloggningen. |Ja |
 | subscriptionId |Azure prenumerations-id |Nej (om den inte anges data factory-prenumeration används). |
 | resourceGroupName |Azure resursgruppens namn |Nej (om inget annat anges, resursgruppen av datafabriken används). |
-| Sessions-ID |sessions-id från OAuth-auktorisering sessionen. Varje sessions-id är unikt och får endast användas en gång. När du använder Data Factory-redigeraren genereras detta ID automatiskt. |Ja |
+| sessionId |sessions-id från OAuth-auktorisering sessionen. Varje sessions-id är unikt och får endast användas en gång. När du använder Data Factory-redigeraren genereras detta ID automatiskt. |Ja |
 
 
 #### <a name="json-example"></a>JSON-exempel
@@ -5281,10 +5281,10 @@ Du kan ange följande egenskaper i en definition av Hadoop Streaming aktivitets-
 
 | Egenskap | Beskrivning | 
 | --- | --- |
-| Mapper | Namnet på den körbara mapparen. I det här exemplet är cat.exe mapper körbara.| 
+| mapper | Namnet på den körbara mapparen. I det här exemplet är cat.exe mapper körbara.| 
 | Reducer | Namnet på den körbara reducer. I det här exemplet är wc.exe reducer körbara. | 
 | Indata | Indatafilen (inklusive platsen) för mapparen. Exempel ”: wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt”: adfsample är blobbehållare, exempel/data/Gutenberg är mappen och davinci.txt är blob. |
-| Utdata | Utdatafilen (inklusive platsen) för reducer. Utdata för direktuppspelning av Hadoop-jobb skrivs till den plats som anges för den här egenskapen. |
+| utdata | Utdatafilen (inklusive platsen) för reducer. Utdata för direktuppspelning av Hadoop-jobb skrivs till den plats som anges för den här egenskapen. |
 | filePaths | Sökvägar för mappning och reducer körbara filer. Exempel: ”adfsample/example/apps/wc.exe” adfsample är blobbehållare, exempel/appar är mappen och wc.exe är den körbara filen. | 
 | fileLinkedService | Azure Storage länkade tjänst som representerar den Azure-lagring som innehåller de filer som anges i avsnittet filePaths. | 
 | Argument | En lista över kommaavgränsade argument för MapReduce-programmet. Vid körning kan du se några extra argument (till exempel: mapreduce.job.tags) från MapReduce-ramverket. Överväg att använda både alternativet och värde som argument som visas i följande exempel för att skilja dina argument med MapReduce-argument (- s,--indata--utdata osv., är en alternativ direkt följt av deras värden) | 
@@ -5523,11 +5523,11 @@ Du kan ange följande egenskaper i en definition av U-SQL-aktivitet JSON. Type-e
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| ScriptPath |Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. |Nej (om du använder skriptet) |
+| scriptPath |Sökvägen till mappen som innehåller U-SQL-skript. Namnet på filen är skiftlägeskänslig. |Nej (om du använder skriptet) |
 | scriptLinkedService |Länkade tjänst som länkar den lagring som innehåller skriptet till data factory |Nej (om du använder skriptet) |
 | Skriptet |Ange infogat skript i stället för att ange scriptPath och scriptLinkedService. Till exempel: ”skript”: ”skapa databastest”. |Nej (om du använder scriptPath och scriptLinkedService) |
 | degreeOfParallelism |Maximalt antal noder samtidigt används för att köra jobbet. |Nej |
-| Prioritet |Anger vilka jobb av alla köas ska väljas att köras först. Ju lägre nummer, desto högre prioritet. |Nej |
+| prioritet |Anger vilka jobb av alla köas ska väljas att köras först. Ju lägre nummer, desto högre prioritet. |Nej |
 | parameters |Parametrar för U-SQL-skript |Nej |
 
 ### <a name="json-example"></a>JSON-exempel

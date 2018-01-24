@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 05318f85997111fd3301d819084115fef6d00f6a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: d4ea43cb7ca5e9fa50202561c71d6bfb298e2452
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Övervaka dina API: er med Azure API Management och Händelsehubbar Runscope
 Den [API Management-tjänsten](api-management-key-concepts.md) innehåller många funktioner som förbättrar bearbetning av HTTP-begäranden skickas till HTTP-API. Men är i begäran och svar tillfälligt. Begäran gjordes och den förs vidare via API Management-tjänsten till din serverdel API. Din API behandlar begäran och ett svar som flödar tillbaka via för API-konsumenter. API Management-tjänsten håller viktig statistik om API: er för visning i portalens instrumentpanel utgivaren men senare att information försvinner.
@@ -166,7 +166,7 @@ I det här exemplet använder vi den `EventProcessorHost` för enkelhetens skull
 ### <a name="ieventprocessor"></a>IEventProcessor
 När du använder centrala konceptet `EventProcessorHost` är att skapa en implementering av den `IEventProcessor` -gränssnittet, som innehåller metoden `ProcessEventAsync`. Metoden huvudsakligen visas här:
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -193,7 +193,7 @@ En lista över EventData objekt har skickats till metoden och vi iterera över l
 ### <a name="httpmessage"></a>HttpMessage
 Den `HttpMessage` instans innehåller tre delar av data:
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -216,7 +216,7 @@ För det här exemplet jag valt det skulle vara av intresse för push-HTTP-begä
 
 Den `IHttpMessageProcessor` implementeringen ser ut så här,
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;

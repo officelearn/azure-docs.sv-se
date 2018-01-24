@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d1cd846418b0e65b978971526af7b918bd03a7a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory schemaläggning och körning
 > [!NOTE]
@@ -236,7 +236,7 @@ Den **princip** avsnitt i datauppsättningsdefinitionen definierar villkoren ell
 | Principnamn | Beskrivning | Tillämpas på | Krävs | Standard |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Validerar att data i en **Azure blob** uppfyller minsta storlek (i megabyte). |Azure-blobb |Nej |Ej tillämpligt |
-| minimumRows | Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabellen</li></ul> |Nej |Ej tillämpligt |
+| minimumRows | Validerar att data i en **Azure SQL database** eller en **Azure-tabellen** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Nej |Ej tillämpligt |
 
 #### <a name="examples"></a>Exempel
 **minimumSizeMB:**
@@ -266,7 +266,7 @@ Den **princip** avsnitt i datauppsättningsdefinitionen definierar villkoren ell
 
 Mer information om dessa egenskaper och exempel finns [skapa datauppsättningar](data-factory-create-datasets.md) artikel. 
 
-## <a name="activity-policies"></a>Principer för användaraktivitet
+## <a name="activity-policies"></a>Aktivitetsprinciper
 Principer påverkar beteendet körning av en aktivitet, särskilt när segment i en tabell som har bearbetats. Följande tabell innehåller information.
 
 | Egenskap | Tillåtna värden | Standardvärde | Beskrivning |

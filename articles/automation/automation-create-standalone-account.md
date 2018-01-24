@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: 7303c17cfa35043229bb1bdd61ef33647ef60ffa
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 4a6946f34babfd63a2b9a12818761c6d6c74bc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalen Automation-kontot för att utvärdera och lär dig mer om Automation utan att använda ytterligare hanteringslösningar eller integrering med Azure logganalys i Operations Management Suite (OMS). Du kan lägga till dessa hanteringslösningar eller integrera med Log Analytics för avancerad övervakning av runbook-jobb när som helst i framtiden. 
@@ -55,9 +55,9 @@ Att verifiera användarroller:
 Om du vill skapa ett Azure Automation-konto i Azure-portalen, gör du följande:    
 
 1. Logga in på Azure-portalen med ett konto som är medlem i rollen administratörer för prenumeration och en coadministrator för prenumerationen.
-2. Välj **nya**.<br><br> ![Välj ny på Azure-portalen](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
-3. Sök efter **Automation**. I sökresultaten väljer **Automation- och kontrollservern**.<br><br> ![Sök efter och välj kontrollen & Automation i Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-4. Under **Automation-konton**väljer **Lägg till**.
+2. Välj **+ skapa en resurs för**.
+3. Sök efter **Automation**. I sökresultaten väljer **Automation**.<br><br> ![Sök efter och välj kontrollen & Automation i Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+4. På nästa skärm markerar **skapa**.
   ![Lägg till Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   
   > [!NOTE]

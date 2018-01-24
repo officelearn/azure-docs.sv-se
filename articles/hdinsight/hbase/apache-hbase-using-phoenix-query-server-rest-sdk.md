@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: f3b29db2dd74e6b3c0c066045d05cb853d1541f8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f57260b2ee280aa0f49f42cd145477205926cb0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix frågeserver REST-SDK
 
@@ -39,7 +39,7 @@ Microsoft .NET-drivrutin för Apache Phoenix fråge-tillhandahålls som ett NuGe
 
 Om du vill börja använda biblioteket måste initiera en ny `PhoenixClient` objekt som passerar i `ClusterCredentials` som innehåller den `Uri` till klustret och klustrets Hadoop-användarnamn och lösenord.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
@@ -50,7 +50,7 @@ Ersätt KLUSTERNAMN med ditt HDInsight HBase klustrets namn och användarnamn oc
 
 Om du vill skicka ett eller flera begäranden till PQS, måste du inkludera en unik anslutningsidentifierare om du vill associera behandlas med anslutningen.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -60,7 +60,7 @@ Varje exempel först gör ett anrop till den `OpenConnectionRequestAsync` metode
 
 Att anropa `ConnectionSyncRequestAsync`, skicka in en `ConnectionProperties` objekt.
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -102,7 +102,7 @@ HBase som andra RDBMS lagrar data i tabeller. Phoenix använder standard SQL-fr�
 
 Det här exemplet och alla efterföljande exemplen använder den instansierad `PhoenixClient` objekt som har definierats i [instansiera ett nytt objekt i PhoenixClient](#instantiate-new-phoenixclient-object).
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -172,13 +172,13 @@ I föregående exempel skapas en ny tabell med namnet `Customers` med hjälp av 
 
 Det här exemplet illustrerar en enskilda data insert-, refererar till en `List<string>` samling American tillstånd och territorium förkortningar:
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 Tabellens `StateProvince` värde i kolumnen som ska användas i efterföljande select-åtgärden.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -289,7 +289,7 @@ Strukturen för att köra en insert-instruktion liknar skapar en ny tabell. Obse
 
 Följande kod är nästan identisk med koden för att infoga data individuellt. Det här exemplet används den `UpdateBatch` objekt vid ett anrop till `ExecuteBatchRequestAsync`, i stället för att anropa upprepade gånger `ExecuteRequestAsync` med en förberedd instruktion.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -407,7 +407,7 @@ Det här exemplet visar hur du kan återanvända en anslutning för att köra fl
 2. Använda en summarad antalet select-instruktion för att hämta skalära resultatet.
 3. Köra en select-instruktion som returnerar det totala antalet kunder per stat eller territorium.
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 

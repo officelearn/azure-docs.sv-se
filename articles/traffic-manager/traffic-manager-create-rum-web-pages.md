@@ -4,7 +4,7 @@ description: "Konfigurera webbsidor som skickar verkliga användaren mått i Tra
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Hur du skickar verkliga användaren mått till Azure Traffic Manager med hjälp av webbsidor
 
@@ -61,7 +61,7 @@ När du har fått nyckeln ROM, är nästa steg att bädda in den här kopierade 
 1.  Öppna HTML-sidan i en textredigerare
 2.  Klistra in JavaScript-kod som du hade kopierat i tidigare steg i avsnittet BRÖDTEXT i HTML (kopierade koden är på rad 8 & 9, se figur 3).
  
-    ![Bädda in Javascript-kod i webbsida för verklig användare mått](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Bädda in Javascript-kod i webbsida för verklig användare mått](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Bild 3: Enkel HTML med inbäddade verkliga användaren mätningar JavaScript**
 

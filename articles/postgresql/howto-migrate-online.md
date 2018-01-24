@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429828515411986dc7b3586360cb9923a5bb20de
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: efbd4f227880875c11e2c43c84716dfc49c5717d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Minimal avbrottstid migrering till Azure-databas för PostgreSQL
 Du kan migrera dina befintliga PostgreSQL-databas till Azure-databas för PostgreSQL med hjälp av Attunity replikera för Microsoft Migrations. Attunity replikera är en gemensam erbjudande från Attunity och Microsoft. Tillsammans med Azure för migrering databastjänsten ingår det utan extra kostnad för Microsoft-kunder. 
@@ -34,5 +34,5 @@ En översikt över processen för att utföra en migrering med minimal avbrottst
 Mer information om Attunity replikera för Microsoft Migrations erbjudande finns i följande resurser:
  - Gå till den [Attunity replikera för Microsoft Migrations](https://aka.ms/attunity-replicate) webbsidan.
  - Hämta [Attunity replikera för Microsoft migreringar](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Gå till den [Attunity replikera Community](https://microsoft.attunity.com/) för en Snabbstartsguide, självstudier och support.
+ - Gå till den [Attunity replikera Community](https://aka.ms/attunity-community/) för en Snabbstartsguide, självstudier och support.
  - Detaljerade anvisningar om hur du använder Attunity replikera för att migrera från PostgreSQL till Azure-databas för PostgreSQL finns i [databasen Migreringsguide](https://datamigration.microsoft.com/scenario/postgresql-to-azurepostgresql).

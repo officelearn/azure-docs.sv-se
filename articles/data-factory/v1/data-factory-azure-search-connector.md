@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Följande tabell innehåller beskrivningar för JSON-element som är specifika f
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen type måste anges till: **AzureSearch**. | Ja |
-| URL: en | URL för Azure Search-tjänsten. | Ja |
+| url | URL för Azure Search-tjänsten. | Ja |
 | key | Admin-nyckel för Azure Search-tjänsten. | Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -70,7 +70,7 @@ En fullständig lista över egenskaper som är tillgängliga för att definiera 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Egenskapen type måste anges till **AzureSearchIndex**.| Ja |
-| Indexnamn | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
+| indexName | Namnet på det Azure Search-indexet. Data Factory kan inte skapa indexet. Index måste finnas i Azure Search. | Ja |
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -81,7 +81,7 @@ För Kopieringsaktiviteten när sink är av typen **AzureSearchIndexSink**, föl
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Anger om du vill slå samman eller ersätta ett dokument som redan finns i indexet. Finns det [WriteBehavior egenskapen](#writebehavior-property).| sammanfoga (standard)<br/>Ladda upp| Nej |
-| writeBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Finns det [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 till 1 000. Standardvärdet är 1000. | Nej |
+| WriteBatchSize | Överför data till Azure Search index när buffertstorleken når writeBatchSize. Finns det [WriteBatchSize egenskapen](#writebatchsize-property) mer information. | 1 till 1 000. Standardvärdet är 1000. | Nej |
 
 ### <a name="writebehavior-property"></a>Egenskapen WriteBehavior
 AzureSearchSink upserts när data skrivs. När du skriver ett dokument, om dokumentnyckeln finns redan i Azure Search-index kan uppdateras med andra ord Azure Search befintligt dokument i stället för att en konflikt undantag.
@@ -93,7 +93,7 @@ AzureSearchSink innehåller följande två upsert beteenden (med hjälp av Azure
 
 Standardbeteendet är **sammanfoga**.
 
-### <a name="writebatchsize-property"></a>Egenskapen WriteBatchSize
+### <a name="writebatchsize-property"></a>WriteBatchSize Property
 Azure Search-tjänsten stöder skrivning dokument som en batch. En grupp kan innehålla 1 till 1 000 åtgärder. En åtgärd som hanterar ett dokument för att genomföra överföringen/merge-operation.
 
 ### <a name="data-type-support"></a>Stöd för datatypen
@@ -104,8 +104,8 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 | Sträng | Y |
 | Int32 | Y |
 | Int64 | Y |
-| dubbla | Y |
-| Booleskt värde | Y |
+| Dubbel | Y |
+| Boolesk | Y |
 | DataTimeOffset | Y |
 | Strängmatris | N |
 | GeographyPoint | N |

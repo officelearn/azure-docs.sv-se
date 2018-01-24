@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -142,7 +142,7 @@ I det här steget kan du använda Azure-portalen för att skapa en Azure Data Fa
    * Ange en HTTP-proxy som ska användas av gatewayen.     
 9. (valfritt) Växla till den **diagnostik** markerar den **aktivera utförlig loggning** om du vill aktivera utförlig loggning som du kan använda för att felsöka eventuella problem med gatewayen. Loggningsinformationen om finns i **Loggboken** under **program- och tjänstloggar** -> **Data Management Gateway** nod.
 
-    ![Fliken diagnostik](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+    ![Fliken Diagnostik](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
     Du kan också utföra följande åtgärder i den **diagnostik** fliken:
 

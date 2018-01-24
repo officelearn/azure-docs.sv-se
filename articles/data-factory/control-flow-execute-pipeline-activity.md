@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Köra Pipeline aktiviteten i Azure Data Factory
 Aktiviteten kör Pipeline kan Data Factory-pipelinen att anropa en annan pipeline.
@@ -66,9 +66,9 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namnet på aktiviteten kör pipeline. | Sträng | Ja
 typ | Måste anges till: **ExecutePipeline**. | Sträng | Ja
-Pipeline | Pipeline-referens till beroende pipeline som anropar denna pipeline. Ett pipeline referensobjekt har två egenskaper: **referensnamn** och **typen**. Egenskapen referensnamn anger namnet på referens-pipeline. Egenskapen type måste anges till PipelineReference. | PipelineReference | Ja
+pipelina | Pipeline-referens till beroende pipeline som anropar denna pipeline. Ett pipeline referensobjekt har två egenskaper: **referensnamn** och **typen**. Egenskapen referensnamn anger namnet på referens-pipeline. Egenskapen type måste anges till PipelineReference. | PipelineReference | Ja
 parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som matchar parameternamn till argumentvärden | Nej
-waitOnCompletion | Definierar om körning av aktiviteten ska vänta tills beroende pipelinekörningen ska slutföras. | Standardvärdet är false. | Booleskt värde | Nej
+waitOnCompletion | Definierar om körning av aktiviteten ska vänta tills beroende pipelinekörningen ska slutföras. | Standardvärdet är false. | Boolesk | Nej
 
 ## <a name="sample"></a>Exempel
 Det här scenariot har två pipelines:

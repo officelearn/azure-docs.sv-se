@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data med guiden för Azure Data Factory kopiera
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Om du använder version 2 av Data Factory-tjänsten, som finns i förhandsgranskningen, se [kopiera aktivitet kursen i dokumentationen för version 2](../quickstart-create-data-factory-dot-net.md). 
+> Den här artikeln gäller för version 1 av Data Factory, som är allmänt tillgänglig (GA). Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder version 2 av Data Factory-tjänsten, som finns tillgänglig som förhandsversion. 
 
 
 Guiden Kopiera Azure Data Factory är att underlätta processen med vill föra in data, som vanligtvis är ett första steg i ett scenario för integrering av data för slutpunkt till slutpunkt. När du använder guiden Kopiera Azure Data Factory behöver du inte förstå alla JSON-definitioner för länkade tjänster, datauppsättningar och rörledningar. Men när du har slutfört alla steg i guiden skapar guiden automatiskt en pipeline för att kopiera data från den valda datakällan till den angivna platsen. Dessutom kan guiden Kopiera hjälper dig att validera data som inhämtas vid tidpunkten för redigering, vilket sparar mycket tid, särskilt när du mata in data för första gången från datakällan. Starta guiden Kopiera, klicka på den **kopiera data** panelen på startsidan i din data factory.

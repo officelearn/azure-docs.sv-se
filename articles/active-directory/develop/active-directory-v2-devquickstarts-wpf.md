@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Lägga till inloggning till en app för Windows-skrivbordet
 Med den v2.0-slutpunkten du kan snabbt lägga till autentisering för att dina-program med stöd för både personliga Microsoft-konton och arbets-eller skolkonton.  Det gör också att din app för säker kommunikation med en serverdel webb-api, samt [Microsoft Graph](https://graph.microsoft.io) och några av de [Office 365 Unified-API: er](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ Den grundläggande principen bakom MSAL är att när en app måste en åtkomst-t
 
 * I den `TodoListClient` projektet öppnar `MainWindow.xaml.cs` och leta upp den `OnInitialized(...)` metoden.  Det första steget är att initiera appens `PublicClientApplication` -MSALS primära klass som representerar interna program.  Det är där du skickar MSAL koordinaterna behöver kommunicera med Azure AD och hur det kan cachelagra token.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Vi vill att kontrollera om användaren redan har loggat in på app när appen startar.  Dock bör inte att anropa en inloggning UI ännu - vi kommer att användaren klicka på ”Logga In” för att göra det.  Även i den `OnInitialized(...)` metoden:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Om användaren inte är inloggad och de klickar på knappen ”Logga In”, som vi vill anropa en UI-inloggning och se till att användaren anger sina autentiseringsuppgifter.  Implementera knappen hanteraren inloggning:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Om användaren har loggar in, MSAL kommer få och cachelagra en token för dig och du kan fortsätta att anropa den `GetTodoList()` metod med förtroende.  Allt som återstår för att hämta en användares uppgifter är att implementera den `GetTodoList()` metoden.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,

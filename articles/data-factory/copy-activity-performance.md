@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera prestandajustering guide och prestanda för aktiviteten
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,8 +191,8 @@ Konfigurera den **enableStaging** inställning i en Kopieringsaktivitet för att
 | Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
 | **enableStaging** |Ange om du vill kopiera data via en interimistisk mellanlagring store. |False |Nej |
-| **linkedServiceName** |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkade tjänst som refererar till instansen av lagring som du använder som ett tillfälligt fristående Arkiv. <br/><br/> Du kan inte använda lagring med en signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i andra scenarier. |Saknas |Ja, när **enableStaging** har angetts till TRUE |
-| **sökväg** |Ange sökvägen för Blob-lagring som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra temporära data i tjänsten. <br/><br/> Ange en sökväg om du använder lagring med en signatur för delad åtkomst eller tillfälliga data i en specifik plats behöver. |Saknas |Nej |
+| **linkedServiceName** |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkade tjänst som refererar till instansen av lagring som du använder som ett tillfälligt fristående Arkiv. <br/><br/> Du kan inte använda lagring med en signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
+| **sökväg** |Ange sökvägen för Blob-lagring som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra temporära data i tjänsten. <br/><br/> Ange en sökväg om du använder lagring med en signatur för delad åtkomst eller tillfälliga data i en specifik plats behöver. |Gäller inte |Nej |
 | **enableCompression** |Anger om data ska komprimeras innan den kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
 
 Här är en exempel-definition av Kopieringsaktiviteten med de egenskaper som beskrivs i tabellen ovan:
@@ -246,7 +246,7 @@ Vi rekommenderar att du gör följande för att anpassa prestandan för din Data
      * [Stegvis kopia](#staged-copy)
      * [Automatisk värdbaserade Integration Runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Automatisk värdbaserade Integration Runtime](#considerations-for-self-hosted-integration-runtime)
-   * [Källa](#considerations-for-the-source)
+   * [Source](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serialisering och deserialisering](#considerations-for-serialization-and-deserialization)
    * [Komprimering](#considerations-for-compression)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services-meddelanden
 Meddelanden tillåter klienter att spåra ändringar som görs i ett objekt som de är intresserad av. Två typer av objekt som stöder meddelanden: *tillförlitliga Tillståndshanterare* och *tillförlitliga ordlista*.
@@ -51,7 +51,7 @@ Samlingen tillförlitliga Tillståndshanterare återskapas i tre fall:
 
 För att registrera för meddelanden och/eller tillstånd manager meddelanden måste du registrera den **TransactionChanged** eller **StateManagerChanged** händelser på tillförlitliga Tillståndshanterare. En gemensam plats att registrera med dessa händelsehanterare är konstruktören för tillståndskänsliga tjänsten. När du registrerar på konstruktorn kan du inte missar alla aviseringar som orsakas av en ändring under livslängden för **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ Den **TransactionChanged** händelsehanteraren använder **NotifyTransactionChan
 
 Följande är ett exempel **TransactionChanged** händelsehanterare.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -87,11 +87,11 @@ Den **StateManagerChanged** händelsehanteraren använder **NotifyStateManagerCh
 Du använder egenskapen action i **NotifyStateManagerChangedEventArgs** att omvandla **NotifyStateManagerChangedEventArgs** till rätt underklass:
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction.Add** och **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction.Add** and **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
 Följande är ett exempel **StateManagerChanged** meddelandehanteraren.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Tillförlitliga ordlista visar meddelanden för följande händelser:
 För att få tillförlitliga ordlista meddelanden, måste du registrera med den **DictionaryChanged** händelsehanteraren på **IReliableDictionary**. En gemensam plats att registrera med dessa händelsehanterare är i den **ReliableStateManager.StateManagerChanged** lägga till meddelanden.
 Registrera när **IReliableDictionary** har lagts till i **IReliableStateManager** garanterar att du inte missar eventuella meddelanden.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 Föregående koduppsättningar den **IReliableNotificationAsyncCallback** gränssnitt, tillsammans med **DictionaryChanged**. Eftersom **NotifyDictionaryRebuildEventArgs** innehåller en **IAsyncEnumerable** gränssnitt--som behöver räknas asynkront--återskapa meddelanden skickas via  **RebuildNotificationAsyncCallback** i stället för **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ Den **DictionaryChanged** händelsehanteraren använder **NotifyDictionaryChange
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7e57003582dc6190b79e1b4eea38ec4adc1c521c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e5718cfdca4e12edcb98e79807ffe86d7be16b07
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -152,7 +152,7 @@ GO
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antalet rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange en fråga för Kopieringsaktiviteten att köra så att data för ett visst segment har rensats bort. Mer information finns i [repeterbara kopiera](#repeatable-copy). |En frågesats. |Nej |
 | sliceIdentifierColumnName |Ange ett kolumnnamn för Kopieringsaktiviteten med genereras automatiskt segment-ID, som används för att rensa data för ett visst segment när köras på nytt. Mer information finns i [repeterbara kopiera](#repeatable-copy). |Kolumnnamnet för en kolumn med datatypen för binary(32). |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren upserts (uppdateringar/infogar) data i måltabellen. |Namnet på den lagrade proceduren. |Nej |
+| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur ska gälla källdata i måltabellen, t.ex. vill upserts eller transformera med hjälp av egna affärslogik. <br/><br/>Observera den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärden som endast körs en gång och har ingenting att göra med källdata som t.ex. Ta bort/trunkera använder `sqlWriterCleanupScript` egenskapen. |Namnet på den lagrade proceduren. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och skiftläge parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 | sqlWriterTableType |Ange ett tabell-typnamn som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data flyttas i en temporär tabell med den här tabellen. Lagrade procedurer kan sedan koppla data kopieras med befintliga data. |Ett namn för tabellen. |Nej |
 
@@ -639,37 +639,37 @@ När data flyttas till och från Azure SQL Database, används följande mappning
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |byte] |
-| bitar |Booleskt värde |
+| Binär |Byte[] |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
-| DateTimeOffset |DateTimeOffset |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| Flyttal |Dubbel |
+| Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
-| ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| Verklig |Ogift |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte[] |
 | tinyint |Mottagna byte |
-| Unik identifierare |GUID |
-| varbinary |byte] |
+| uniqueidentifier |GUID |
+| varbinary |Byte[] |
 | varchar |Sträng, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner
 Mer information om mappning kolumner i datauppsättningen källan till kolumner i datauppsättning mottagare, se [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

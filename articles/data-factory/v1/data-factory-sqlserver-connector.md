@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Flytta data till och från SQL Server lokalt eller på IaaS (Azure VM) med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -171,7 +171,7 @@ Om du inte anger sqlReaderQuery eller sqlReaderStoredProcedureName, används de 
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antalet rader) |Nej (standard: 10000) |
 | sqlWriterCleanupScript |Ange frågan för Kopieringsaktiviteten att köra så att data för ett visst segment har rensats bort. Mer information finns i [repeterbara kopiera](#repeatable-copy) avsnitt. |En frågesats. |Nej |
 | sliceIdentifierColumnName |Ange kolumnnamnet för Kopieringsaktiviteten med genereras automatiskt segment-ID, som används för att rensa data för ett visst segment när köras på nytt. Mer information finns i [repeterbara kopiera](#repeatable-copy) avsnitt. |Kolumnnamnet för en kolumn med datatypen för binary(32). |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren upserts (uppdateringar/infogar) data i måltabellen. |Namnet på den lagrade proceduren. |Nej |
+| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur ska gälla källdata i måltabellen, t.ex. vill upserts eller transformera med hjälp av egna affärslogik. <br/><br/>Observera den här lagrade proceduren kommer att **anropas per batch**. Om du vill göra åtgärden som endast körs en gång och har ingenting att göra med källdata som t.ex. Ta bort/trunkera använder `sqlWriterCleanupScript` egenskapen. |Namnet på den lagrade proceduren. |Nej |
 | storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och skiftläge parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
 | sqlWriterTableType |Ange tabellen typnamn som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data flyttas i en temporär tabell med den här tabellen. Lagrade procedurer kan sedan koppla data kopieras med befintliga data. |Ett namn för tabellen. |Nej |
 
@@ -248,7 +248,7 @@ Inställningen ”externa”: ”true” informerar Data Factory-tjänsten att d
   }
 }
 ```
-**Azure Blob utdatauppsättningen**
+**Utdatauppsättning för Azure-blob**
 
 Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Sökvägen till mappen för blobben utvärderas dynamiskt baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timmar delar av starttiden.
 
@@ -655,37 +655,37 @@ Mappningen är densamma som SQL-Server-Datatypsmappningen för ADO.NET.
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |byte] |
-| bitar |Booleskt värde |
+| Binär |Byte[] |
+| bitar |Boolesk |
 | Char |Sträng, Char] |
-| Datum |Datum och tid |
-| Datum och tid |Datum och tid |
-| datetime2 |Datum och tid |
-| DateTimeOffset |DateTimeOffset |
+| datum |DateTime |
+| DateTime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| Flyttal |Dubbel |
+| Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
 | ntext |Sträng, Char] |
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
-| Verklig |Enskild |
-| ROWVERSION |byte] |
-| smalldatetime |Datum och tid |
+| Verklig |Ogift |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte[] |
 | tinyint |Mottagna byte |
-| Unik identifierare |GUID |
-| varbinary |byte] |
+| uniqueidentifier |GUID |
+| varbinary |Byte[] |
 | varchar |Sträng, Char] |
-| xml |XML |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Mappning källan till mottagare för kolumner
 Om du vill mappa kolumner från källan dataset till kolumner från sink dataset finns [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).

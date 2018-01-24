@@ -1,8 +1,9 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd (metadata, konfigurationer och villkor). IoT-hubb kvarstår en enhet dubbla för varje enhet som ansluter till den.
 
@@ -14,7 +15,7 @@ Använd enhet twins till:
 * Fråga din enhetsmetadata, konfiguration eller tillstånd.
 
 > [!NOTE]
-> Enheten twins är utformade för synkronisering och för att fråga efter enhetskonfigurationer och villkor. Mer information om när enheten twins finns i [förstå enheten twins][lnk-twins].
+> Enheten twins är utformade för synkronisering och för att fråga efter enhetskonfigurationer och villkor. Mer information om när du använder enheten twins kan hittas i [förstå enheten twins][lnk-twins].
 
 Enheten twins lagras i en IoT-hubb och innehålla:
 

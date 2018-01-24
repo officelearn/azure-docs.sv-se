@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Skapa en tjänst Frontwebb för ditt program med hjälp av ASP.NET Core
 Som standard tillhandahåller Azure Service Fabric-tjänster inte ett offentligt gränssnitt på webben. Du måste skapa ett webbprojekt för att fungera som en startpunkt och sedan kommunicera därifrån till enskilda tjänster för att exponera programfunktioner till http-klienter.
@@ -91,7 +91,7 @@ Börja med att skapa gränssnittet som ska fungera som avtal mellan tillståndsk
 
 4. Skapa ett gränssnitt med en enda metod i klassbiblioteket i `GetCountAsync`, och utökar gränssnittet från `Microsoft.ServiceFabric.Services.Remoting.IService`. Gränssnittet fjärrkommunikation måste härledas från det här gränssnittet för att ange att det är ett gränssnitt för tjänsten fjärrkommunikation.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Nu när vi har definierat i gränssnittet, som vi behöver implementera i tillst
     ![Lägga till en referens till klassbiblioteksprojektet i tillståndskänslig service][vs-add-class-library-reference]
 2. Leta upp den klass som ärver från `StatefulService`, som `MyStatefulService`, och utvidga den att implementera den `ICounter` gränssnitt.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Nu när vi har definierat i gränssnittet, som vi behöver implementera i tillst
     ```
 3. Implementera nu den enda metod som har definierats i den `ICounter` gränssnittet `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ I det här fallet vi ersätta den befintliga `CreateServiceReplicaListeners` met
 
 Den `CreateServiceRemotingListener` metod på den `IService` gränssnittet kan du enkelt skapa en `ServiceRemotingListener` med alla standardinställningar. Om du vill använda denna metod, se till att du har den `Microsoft.ServiceFabric.Services.Remoting.Runtime` namnområde som importeras. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Vår tillståndskänslig service är nu redo att ta emot trafik från andra tjä
 
 4. I den **domänkontrollanter** mapp, öppna den `ValuesController` klass. Observera att den `Get` metoden returnerar för närvarande bara en hårdkodad strängmatris ”value1” och ”value2”--som matchar vad vi såg tidigare i webbläsaren. Ersätt den här implementeringen med följande kod:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

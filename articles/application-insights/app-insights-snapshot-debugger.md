@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsöka ögonblicksbilder på undantag i .NET-appar
 
@@ -29,7 +29,7 @@ Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och i
 * .NET core 2.0 och ASP.NET Core 2.0 program som körs på Windows.
 
 Följande miljöer stöds:
-* Azure Apptjänst.
+* Azure App Service.
 * Molntjänsten Azure kör OS-familjen 4 eller senare.
 * Azure Service Fabric-tjänster som körs på Windows Server 2012 R2 eller senare.
 * Azure virtuella datorer som kör Windows Server 2012 R2 eller senare.
@@ -82,7 +82,7 @@ Följande miljöer stöds:
 
 3. Ändra programmets `Startup` klassen för att lägga till och konfigurera ögonblicksbild insamlarens telemetri processor.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ Följande miljöer stöds:
 2. Lägg till den [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet-paketet i din app.
 
 3. Ögonblicksbilder samlas endast för undantag som har rapporterats till Application Insights. Du kan behöva ändra koden för att rapportera dem. Koden för undantagshantering beror på strukturen för ditt program, men ett exempel är lägre än:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -291,7 +291,7 @@ Följ dessa steg om du vill konfigurera din roll i Molntjänsten med en dedikera
 ```
 
 2. Ändra din roll `OnStart` metod för att lägga till en miljövariabel som pekar på den `SnapshotStore` lokal resurs.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

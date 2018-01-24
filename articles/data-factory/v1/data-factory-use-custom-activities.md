@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Metoden som använder fyra parametrar:
 - **linkedServices**. Den här egenskapen är en enumerable lista över datalager som är länkade tjänster som refereras av in-/ utdata-datauppsättningar för aktiviteten.   
 - **datauppsättningar**. Den här egenskapen är en enumerable lista över datauppsättningar in-/ utdata för aktiviteten. Du kan använda den här parametern för att få platser och scheman som definierats av inkommande och utgående datauppsättningar.
 - **aktiviteten**. Denna egenskap representerar den aktuella aktiviteten. Den kan användas för att få åtkomst till utökade egenskaper som är associerade med den anpassade aktiviteten. Se [åtkomst utökade egenskaper](#access-extended-properties) mer information.
-- **loggaren**. Det här objektet kan du skriva debug kommentarer som yta i användarinloggning för pipeline.
+- **logger**. Det här objektet kan du skriva debug kommentarer som yta i användarinloggning för pipeline.
 
 Metoden returnerar en ordlista som kan användas för att kedja anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats ännu, så returneras en tom ordlista från metoden.  
 

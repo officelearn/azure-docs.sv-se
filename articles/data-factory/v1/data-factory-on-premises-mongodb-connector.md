@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Flytta data från MongoDB med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Den här artikeln förklarar hur du använder aktiviteten kopiera i Azure Data F
 
 Du kan kopiera data från ett lokalt MongoDB-dataarkiv till alla stöds sink-datalagret. En lista över datakällor som stöds som sänkor av kopieringsaktiviteten, finns det [stöds datalager](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flytta data från ett dataarkiv som MongoDB till andra databaser, men inte för att flytta data från andra datalager till en MongoDB-datalagret. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För Azure Data Factory-tjänsten för att kunna ansluta till din lokala MongoDB-databas måste du installera följande komponenter:
 
 - MongoDB-versioner som stöds är: 2.4, 2.6, 3.0 och 3.2.
@@ -296,13 +296,13 @@ När data flyttas till MongoDB används följande mappningar från MongoDB-typer
 
 | MongoDB-typ | .NET framework-typ |
 | --- | --- |
-| Binär |byte] |
-| Booleskt värde |Booleskt värde |
-| Date |Datum och tid |
-| NumberDouble |dubbla |
+| Binär |Byte[] |
+| Boolesk |Boolesk |
+| Date |DateTime |
+| NumberDouble |Dubbel |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| Objekt-ID |Sträng |
+| ObjectId |Sträng |
 | Sträng |Sträng |
 | UUID |GUID |
 | Objekt |Renormalized förenkla i kolumner med ”_” som kapslad avgränsare |

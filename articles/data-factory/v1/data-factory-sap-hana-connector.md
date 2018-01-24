@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Flytta data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | Sträng | Ja
+server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | sträng | Ja
 AuthenticationType | Typ av autentisering. | Sträng. ”Basic” eller ”Windows” | Ja 
-användarnamn | Namnet på den användare som har åtkomst till SAP-server | Sträng | Ja
-lösenord | Lösenord för användaren. | Sträng | Ja
-gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP HANA-instans. | Sträng | Ja
-encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | Sträng | Nej
+användarnamn | Namnet på den användare som har åtkomst till SAP-server | sträng | Ja
+lösenord | Lösenord för användaren. | sträng | Ja
+gatewayName | Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till lokal SAP HANA-instans. | sträng | Ja
+encryptedCredential | Strängen som krypterade autentiseringsuppgifter. | sträng | Nej
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över egenskaper som är tillgängliga för att definiera datauppsättningarna & avsnitt finns i [skapa datauppsättningar](data-factory-create-datasets.md) artikel. Avsnitt som struktur, tillgänglighet och princip på en datamängd JSON är liknande för alla typer av dataset (Azure SQL Azure blob, Azure-tabellen, osv.).
@@ -288,19 +288,19 @@ TINYINT | Mottagna byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-VERKLIG | Enskild
-DUBBEL | Enskild
+VERKLIG | Ogift
+DUBBEL | Ogift
 DECIMAL | Decimal
 BOOLESKT VÄRDE | Mottagna byte
 VARCHAR | Sträng
 NVARCHAR | Sträng
-CLOB | byte]
+CLOB | Byte[]
 ALPHANUM | Sträng
-BLOB | byte]
-DATUM | Datum och tid
+BLOB | Byte[]
+DATE | DateTime
 TID | TimeSpan
-TIDSSTÄMPEL | Datum och tid
-SECONDDATE | Datum och tid
+TIDSSTÄMPEL | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Kända begränsningar
 Det finns några kända begränsningar när du kopierar data från SAP HANA:

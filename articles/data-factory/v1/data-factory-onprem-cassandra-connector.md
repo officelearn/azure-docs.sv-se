@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Du kan kopiera data från ett lokalt Cassandra dataarkiv till alla stöds sink-d
 ## <a name="supported-versions"></a>Versioner som stöds
 Stöder följande versioner av Cassandra för Cassandra-anslutningen: 2.X.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För Azure Data Factory-tjänsten för att kunna ansluta till din lokala Cassandra databas måste du installera en Data Management Gateway på samma dator som värd för databasen eller på en separat dator för att undvika konkurrerar om resurser med databasen. Data Management Gateway är en komponent som ansluter lokala datakällor till molntjänster i en säker och hanterad sätt. Se [Data Management Gateway](data-factory-data-management-gateway.md) artikeln för information om Data Management Gateway. Se [flytta data från lokalt till molnet](data-factory-move-data-between-onprem-and-cloud.md) artikel stegvisa instruktioner om hur du konfigurerar gatewayen som en pipeline för data att flytta data.
 
 Gatewayen måste du använda för att ansluta till en databas för Cassandra även om databasen finns i molnet, till exempel på en Azure IaaS-VM. Y du kan ha gatewayen på samma virtuella dator som är värd för databasen eller på en separat virtuell dator så länge som gatewayen kan ansluta till databasen.  
@@ -68,7 +68,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen type måste anges till: **OnPremisesCassandra** |Ja |
-| värden |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
+| värd |En eller flera IP-adresser eller värdnamn Cassandra servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
 | port |TCP-porten som används av Cassandra-server för att lyssna efter anslutningar. |Nej, standardvärde: 9042 |
 | AuthenticationType |Grundläggande eller anonym |Ja |
 | användarnamn |Ange användarnamnet för användarkontot. |Ja, om authenticationType anges till Basic. |
@@ -262,15 +262,15 @@ Se [RelationalSource Typegenskaper](#copy-activity-properties) lista över egens
 | --- | --- |
 | ASCII |Sträng |
 | BIGINT |Int64 |
-| BLOB |byte] |
-| BOOLESKT VÄRDE |Booleskt värde |
+| BLOB |Byte[] |
+| BOOLESKT VÄRDE |Boolesk |
 | DECIMAL |Decimal |
-| DUBBEL |dubbla |
-| FLYTTAL |Enskild |
+| DUBBEL |Dubbel |
+| FLYTTAL |Ogift |
 | INET |Sträng |
 | INT |Int32 |
 | TEXT |Sträng |
-| TIDSSTÄMPEL |Datum och tid |
+| TIDSSTÄMPEL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
 | VARCHAR |Sträng |
@@ -329,10 +329,10 @@ Följande tabeller visar virtuella register som renormalize data från listan oc
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Tabell ”ExampleTable_vt_StringSet”:
+#### <a name="table-exampletablevtstringset"></a>Table “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

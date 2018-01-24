@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory stöder för närvarande endast flytta data från Amazon Redshift t
 > [!TIP]
 > Om du vill uppnå bästa prestanda vid kopiering av stora mängder data från Amazon Redshift, Överväg att använda den inbyggda Redshift **UNLOAD** kommandot via Amazon enkla Storage-tjänst (Amazon S3). Mer information finns i [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Om du flyttar data till ett lokalt datalager, installera [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway i Amazon Redshift klustret med hjälp av den lokala dator IP-adressen. Instruktioner finns i [auktorisera åtkomst till klustret](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Om du vill flytta data till ett Azure datalager, finns det [Compute IP-adress och SQL-adressintervall som används av Microsoft Azure-Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -64,10 +64,10 @@ Följande tabell innehåller beskrivningar för JSON-element som är specifika f
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Den här egenskapen måste anges till **AmazonRedshift**. |Ja |
-| **Server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
+| **server** |IP-adressen eller värdnamnet namnet på Amazon Redshift-server. |Ja |
 | **port** |Antalet TCP-porten som Amazon Redshift-servern använder för att lyssna efter anslutningar. |Nej (standard är 5439) |
 | **databasen** |Namnet på Amazon Redshift-databasen. |Ja |
-| **användarnamn** |Namnet på den användare som har åtkomst till databasen. |Ja |
+| **username** |Namnet på den användare som har åtkomst till databasen. |Ja |
 | **lösenord** |Lösenordet för användarkontot. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -207,7 +207,7 @@ Den **externa** egenskap är inställd på ”true” för att informera Data Fa
 }
 ```
 
-**Azure Blob utdatauppsättningen**
+**Utdatauppsättning för Azure-blob**
 
 Data skrivs till en ny blob varje timme genom att ange den **frekvens** egenskapen till ”timme” och **intervall** egenskap till 1. Den **folderPath** -egenskapen för blob utvärderas dynamiskt. Egenskapens värde baserat på starttiden för den sektor som bearbetas. Mappsökvägen använder år, månad, dag och timmar delar av starttiden.
 
@@ -335,13 +335,13 @@ Följande mappningar används när Kopieringsaktiviteten konverterar data från 
 | HELTAL |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| VERKLIG |Enskild |
-| DUBBEL PRECISION |dubbla |
+| VERKLIG |Ogift |
+| DUBBEL PRECISION |Dubbel |
 | BOOLESKT VÄRDE |Sträng |
 | CHAR |Sträng |
 | VARCHAR |Sträng |
-| DATUM |Datum och tid |
-| TIDSSTÄMPEL |Datum och tid |
+| DATE |DateTime |
+| TIDSSTÄMPEL |DateTime |
 | TEXT |Sträng |
 
 ## <a name="map-source-to-sink-columns"></a>Karta källan till mottagare för kolumner

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera filter för routning för Microsoft-peering: PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/21/2017
 
 Vägfilter är ett sätt att använda en delmängd av tjänster som stöds via Microsoft-peering. Stegen i den här artikeln hjälpa dig att konfigurera och hantera filter för routning för ExpressRoute-kretsar.
 
-Dynamics 365-tjänster, och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag och Azure-tjänster, till exempel lagring och SQL-databas är tillgängliga via Microsoft-peering. När Microsoft-peering konfigureras i en ExpressRoute-krets, visas alla prefix som är relaterade till tjänsterna i BGP-sessioner som upprättas. Ett värde för BGP-gemenskapen är kopplad till varje prefix för att identifiera den tjänst som erbjuds via prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns [BGP communities](expressroute-routing.md#bgp).
+Dynamics 365-tjänster och Office 365-tjänster som Exchange Online, SharePoint Online och Skype för företag och Azure offentliga tjänster, till exempel lagring och SQL-databas är tillgängliga via Microsoft-peering. Azure offentliga tjänster är valbara på grundval av per region och kan inte definieras per offentlig tjänst. 
+
+När Microsoft-peering har konfigurerats på en ExpressRoute-krets och ett flöde filter är ansluten, visas alla prefix som har valts för dessa tjänster i BGP-sessioner som upprättas. Ett värde för BGP-gemenskapen är kopplad till varje prefix för att identifiera den tjänst som erbjuds via prefixet. En lista över BGP community-värden och de tjänster som de mappas till finns [BGP communities](expressroute-routing.md#bgp).
 
 Om du behöver ansluta till alla tjänster har ett stort antal prefix annonserats via BGP. Detta ökar avsevärt storleken på vägtabeller upprätthålls av routrar i nätverket. Om du planerar att använda endast en delmängd av tjänster som erbjuds via Microsoft peering kan du minska storleken på din vägtabeller på två sätt. Du kan:
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Kör följande kommando för att koppla filtret vägen till ExpressRoute-krets, förutsatt att du har endast Microsoft-peering:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

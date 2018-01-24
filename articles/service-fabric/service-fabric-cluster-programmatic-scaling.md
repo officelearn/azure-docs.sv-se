@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala Service Fabric-klustret via programmering 
 
@@ -57,7 +57,7 @@ Ett huvudnamn för tjänsten kan skapas med följande steg:
 
 Flytande beräknings-biblioteket kan logga in med autentiseringsuppgifterna enligt följande (Observera att core flytande Azure typer som `IAzure` finns i den [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paketet):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ När du loggade in scale set-instanser kan efterfrågas `AzureClient.VirtualMach
 ## <a name="scaling-out"></a>Skala ut
 Med flytande Azure compute SDK, instanser kan läggas till skaluppsättningen för virtuell dator med bara några få anrop-
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Skalning i liknar skala ut. Den faktiska virtuella skaluppsättning ändringar �
 
 Förbereda noden för avstängning innebär att hitta noden ska tas bort (den nyligen tillagda noden) och inaktivera den. För icke-seed noder nyare noder kan hittas genom att jämföra `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Seed noder är olika och följ inte nödvändigtvis konventionen större instans
 
 När noden ska tas bort finns, den kan inaktiveras och tas bort med hjälp av samma `FabricClient` instans och `IAzure` instansen från tidigare.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Som med skala ut PowerShell-cmdlets för att ändra virtuella datorn kan set kapacitet även användas här om en scripting metod är att föredra. När den virtuella instansen har tagits bort, kan tas bort Service Fabric nodens tillstånd.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 

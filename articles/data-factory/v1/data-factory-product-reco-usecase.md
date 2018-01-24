@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Användningsfall - Produktrekommendationer
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite solution Accelerator-verktyg.  Se [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) sidan för ytterligare information om det här paketet. I det här dokumentet beskrivs vanliga användningsfall som Azure användare redan har löst och implementeras med hjälp av Azure Data Factory och andra Cortana Intelligence component services.
@@ -40,7 +40,7 @@ Det tredje måste rekommendationerna vara direkt leverans till användaren för 
 
 Slutligen måste återförsäljare mäta effektiviteten i deras metod genom att spåra övergripande upp säljer mellan säljer Klicka till konvertering försäljning lyckade och justera sina framtida rekommendationer.
 
-## <a name="solution-overview"></a>Lösning: översikt
+## <a name="solution-overview"></a>Lösningsöversikt
 Det här exemplet användningsfall har lösas och implementeras av verkliga Azure-användare med hjälp av Azure Data Factory och andra Cortana Intelligence component services, inklusive [HDInsight](https://azure.microsoft.com/services/hdinsight/) och [Power BI](https://powerbi.microsoft.com/).
 
 Online återförsäljaren använder ett Azure Blob-lagring, en lokal SQLServer, Azure SQL DB och en relationella datamart som deras alternativ för lagring av data i hela arbetsflödet.  Blob-arkivet innehåller kundinformation, beteende kunddata och produkten information data. Produkten information data innefattar produktinformation märke och en produkt katalogen lagras lokalt i en SQL data warehouse. 

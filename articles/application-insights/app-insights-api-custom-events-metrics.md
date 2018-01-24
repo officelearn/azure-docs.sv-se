@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -53,7 +53,7 @@ Om du inte har en referens i Application Insights SDK ännu:
 
     *Visual Basic:*`Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
     
     *Node.js:*`var applicationInsights = require("applicationinsights");`
 
@@ -158,7 +158,7 @@ Så här skickar du ett enda värde:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Här är ett exempel på sammanställa kod:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -334,7 +334,7 @@ Telemetrin är tillgängliga i den `customMetrics` tabell i [Application Insight
 * `valueSum`-Detta är summan av mått. Om du vill ha medelvärdet dividera med `valueCount`.
 * `valueCount`-Antalet mått som har aggregerats till detta `trackMetric(..)` anropa.
 
-## <a name="page-views"></a>Sidvisningar
+## <a name="page-views"></a>Sidvisning
 I en enhet eller en webbsida app skickas sidan Visa telemetri som standard när varje skärmen eller sidan har lästs in. Men du kan ändra det om du vill spåra sidvisningar vid ytterligare eller olika tidpunkter. I en app som visar flikarna eller blad, kanske du vill spåra en sida när användaren öppnar ett nytt blad.
 
 ![Användning linsen på bladet översikt](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -422,7 +422,7 @@ När spårning telemetri manuellt, det enklaste sättet att se till att telemetr
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ Om [provtagning](app-insights-sampling.md) är i drift, egenskapen itemCount vis
 ## <a name="trackdependency"></a>TrackDependency
 Använda TrackDependency-anropet för att spåra svarstider och slutförandefrekvenser för anrop till ett externt kodavsnitt. Resultatet visas i beroendediagrammen i portalen.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ Att *dynamiskt stoppa och starta* insamling och vidarebefordran av telemetri:
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 

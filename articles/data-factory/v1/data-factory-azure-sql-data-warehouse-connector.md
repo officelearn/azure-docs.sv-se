@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -280,7 +280,7 @@ Följande tabell innehåller exempel på hur du anger den **tableName** egenskap
 | dbo |Mytable prefix |Mytable prefix eller dbo. Mytable prefix eller [dbo]. [MyTable] |
 | dbo1 |Mytable prefix |dbo1. Mytable prefix eller [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Om du ser följande fel kan bero det på ett problem med värdet som angetts för egenskapen tableName. Se tabellen på rätt sätt att ange värden för egenskapen tableName JSON.  
 
@@ -310,7 +310,7 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | bitar | bitar |
 | Decimal | Decimal |
 | numeriskt | Decimal |
-| flyttal | flyttal |
+| Flyttal | Flyttal |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
@@ -325,12 +325,12 @@ Data Factory skapas tabellen i målarkivet med samma namn i datalagret källa. D
 | Text | Varchar (upp till 8000) |
 | NText | NVarChar (upp till 4 000) |
 | Bild | VarBinary (upp till 8000) |
-| Unik identifierare | Unik identifierare |
+| UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (upp till 8000) |
 | NVarChar | NVarChar (upp till 4 000) |
-| XML | Varchar (upp till 8000) |
+| Xml | Varchar (upp till 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,17 +347,17 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | SQL Server Database Engine-typ | .NET framework-typ |
 | --- | --- |
 | bigint |Int64 |
-| Binär |byte] |
+| Binär |Byte[] |
 | bitar |Boolesk |
 | Char |Sträng, Char] |
 | datum |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM-attributet (varbinary(max)) |byte] |
-| flyttal |dubbla |
-| Bild |byte] |
+| FILESTREAM-attributet (varbinary(max)) |Byte[] |
+| Flyttal |Dubbel |
+| Bild |Byte[] |
 | int |Int32 |
 | Money |Decimal |
 | nchar |Sträng, Char] |
@@ -365,19 +365,19 @@ Mappningen är samma som den [Datatypsmappningen i SQL Server för ADO.NET](http
 | numeriskt |Decimal |
 | nvarchar |Sträng, Char] |
 | Verklig |Ogift |
-| ROWVERSION |byte] |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objektet * |
 | Text |Sträng, Char] |
 | time |TimeSpan |
-| tidsstämpel |byte] |
+| tidsstämpel |Byte[] |
 | tinyint |Mottagna byte |
-| Unik identifierare |GUID |
-| varbinary |byte] |
+| uniqueidentifier |GUID |
+| varbinary |Byte[] |
 | varchar |Sträng, Char] |
-| xml |XML |
+| xml |Xml |
 
 Du kan också mappa kolumner från källan dataset till kolumner från sink datamängd i aktivitetsdefinitionen kopia. Mer information finns i [mappa dataset kolumner i Azure Data Factory](data-factory-map-columns.md).
 

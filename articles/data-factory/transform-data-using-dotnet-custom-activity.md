@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Det här exemplet visas hur du kan använda referenceObjects och extendedPropert
 
 När aktiviteten har körts lagras referenceObjects och extendedProperties i följande filer som har distribuerats till samma mapp för körning av SampleApp.exe: 
 
-- Activity.JSON
+- activity.json
 
   Lagrar extendedProperties och egenskaperna för den anpassade aktiviteten. 
 
@@ -196,13 +196,13 @@ När aktiviteten har körts lagras referenceObjects och extendedProperties i fö
 
   Lagrar en matris med länkade tjänster som anges i egenskapen referenceObjects. 
 
-- DataSets.JSON
+- datasets.json
 
   Lagrar en matris med datauppsättningar som definierats i egenskapen referenceObjects. 
 
 Följande exempelkod visa hur SampleApp.exe kan komma åt den begärda informationen från JSON-filer: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

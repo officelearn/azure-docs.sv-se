@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8398a261ca33060b7709d818cb64bb1e8e2058b1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3350645d4f173a6d0d007ff9095bb3115600a13b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -46,7 +46,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
 >
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure Blob Storage: experimentet använder Azure Blob Storage (GRS) för att lagra TPC-H tester dataset.  Lär dig mer om du inte har ett Azure storage-konto [hur du skapar ett lagringskonto](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * [TPC-H](http://www.tpc.org/tpch/) data: vi ska använda TPC-H som tester dataset.  För att göra det, måste du använda `dbgen` från TPC-H toolkit som hjälper dig att generera datamängden.  Du kan antingen ladda ned källkoden för `dbgen` från [TPC verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller hämta kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Kör dbgen.exe med följande kommandon för att generera 1 TB flat fil för `lineitem` tabell sprids över 10 filer:
 

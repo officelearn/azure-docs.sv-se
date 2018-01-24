@@ -3,7 +3,7 @@ title: "Använda MySQL-databaser som PaaS på Azure-stacken | Microsoft Docs"
 description: "Lär dig hur du kan distribuera MySQL Resource Provider och ange MySQL-databaser som en tjänst på Azure-stacken"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Använda MySQL-databaser på Microsoft Azure-stacken
 
@@ -69,7 +69,7 @@ System-kontot måste ha följande behörigheter:
     >[!NOTE] 
     > Resource provider build motsvarar Azure Stack-versioner. Du måste ladda ned rätt binärfil för versionen av Azure-stacken som körs.
 
-    | Azure-stacken Build | MySQL RP installer |
+    | Azure Stack Build | MySQL RP installer |
     | --- | --- |
     | 1.0.180102.3 eller 1.0.180106.1 (med flera noder) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
     | 1.0.171122.1 | [MySQL RP version 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
@@ -90,7 +90,7 @@ System-kontot måste ha följande behörigheter:
 
 6. [Installera Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
 
-7. Kör skriptet DeploySqlProvider.ps1.
+7. Kör skriptet `DeployMySqlProvider.ps1`.
 
 Skriptet utför de här stegen:
 
@@ -155,12 +155,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametrar
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parametrar
 Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon parameter valideringen misslyckas, uppmanas du att ange de nödvändiga.
 
 | Parameternamn | Beskrivning | Kommentar eller standardvärde |
 | --- | --- | --- |
-| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt Privleged slutpunkten. | _krävs_ |
+| **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _krävs_ |
 | **AzCredential** | Ange autentiseringsuppgifter för Azure-administratörskonto Stack-tjänsten. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure-stacken). | _krävs_ |
 | **VMLocalCredential** | Definiera autentiseringsuppgifter för det lokala administratörskontot för resursprovidern MySQL VM. | _krävs_ |
 | **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på den privilegierade slutpunkten. |  _krävs_ |
@@ -200,7 +200,7 @@ Beroende på systemets prestanda och hämta hastigheter, kan installationen ta s
 
     Den **MySQL värd servrar** bladet är där du kan ansluta MySQL Server Resource Provider för faktiska instanser av MySQL-Server som fungerar som den resursprovidern backend.
 
-    ![Värdservrar](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+    ![Hosting Servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 3. Fyll i formuläret med anslutningsinformationen för MySQL-Server-instansen. Ange det fullständigt kvalificerade domännamnet (FQDN) eller en giltig IPv4-adress och inte det korta namnet VM. Den här installationen inte längre innehåller en standardinstans MySQL. Storleken som hjälper resursprovidern hantera databaskapacitet. Det bör vara nära den fysiska kapaciteten för databasservern.
 
@@ -323,7 +323,7 @@ Du kan ange dessa parametrar på kommandoraden. Om du inte vill eller någon par
 | **CloudAdminCredential** | Autentiseringsuppgifter för molnadministratören behövs för att komma åt den privilegierade slutpunkten. | _krävs_ |
 | **AzCredential** | Ange autentiseringsuppgifter för Azure-administratörskonto Stack-tjänsten. Använda samma autentiseringsuppgifter som du använde för att distribuera Azure-stacken). | _krävs_ |
 | **VMLocalCredential** | Definiera autentiseringsuppgifter för det lokala administratörskontot för SQL-resursprovidern VM. | _krävs_ |
-| **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på slutpunkten Privleged. |  _krävs_ |
+| **PrivilegedEndpoint** | Ange IP-adress eller DNS-namnet på den privilegierade slutpunkten. |  _krävs_ |
 | **DependencyFilesLocalPath** | Certifikatets PFX-fil måste placeras i den här katalogen samt. | _valfria_ (_obligatoriska_ för flera noder) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat | _krävs_ |
 | **MaxRetryCount** | Ange hur många gånger som du vill försöka utföra varje åtgärd om det finns ett fel.| 2 |

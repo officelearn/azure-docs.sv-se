@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone komma igång
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -93,7 +93,7 @@ Den grundläggande principen bakom ADAL är att när din app behöver en åtkoms
 
 * Det första steget är att initiera appens `AuthenticationContext` -ADAL vars primära klassen.  Det är där du skickar ADAL koordinaterna behöver kommunicera med Azure AD och hur det kan cachelagra token.
 
-```C#
+```csharp
 public MainPage()
 {
     ...
@@ -105,7 +105,7 @@ public MainPage()
 
 * Leta reda på `Search(...)` metod som ska anropas när användaren cliks ”Sök” knappen i appens användargränssnitt.  Den här metoden gör en GET-begäran till Azure AD Graph API frågan för användare vars UPN-namnet börjar med den angivna söktermen.  Men om du vill fråga Graph API, måste du inkludera ett access_token i den `Authorization` huvud för begäran - detta är där ADAL kommer in.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     ...
@@ -128,7 +128,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 * Om interaktiv autentisering krävs ADAL använder Windows Phone Web Authentication Service Broker (Windows Adressbok) och [fortsättning modellen](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) att visa Azure AD-inloggning på sidan.  När användaren loggar in, din app behöver skicka ADAL resultaten av Windows Adressbok interaktion.  Detta är så enkelt som att implementera den `ContinueWebAuthentication` gränssnitt:
 
-```C#
+```csharp
 // This method is automatically invoked when the application
 // is reactivated after an authentication interaction through WebAuthenticationBroker.
 public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
@@ -141,7 +141,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 
 * Nu är det dags att använda den `AuthenticationResult` som ADAL tillbaka till din app.  I den `QueryGraph(...)` motringning, bifoga access_token som du har köpt till GET-begäran i Authorization-huvud:
 
-```C#
+```csharp
 private async void QueryGraph(AuthenticationResult result)
 {
     if (result.Status != AuthenticationStatus.Success)
@@ -158,13 +158,13 @@ private async void QueryGraph(AuthenticationResult result)
 ```
 * Du kan också använda den `AuthenticationResult` objekt att visa information om användaren i din app. I den `QueryGraph(...)` -metoden använder resultatet för att visa användarens ID på sidan:
 
-```C#
+```csharp
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 * Slutligen kan du använda ADAL för att logga användaren utanför programmet samt.  När användaren klickar på knappen ”Logga ut” vi vill se till att nästa anrop till `AcquireTokenSilentAsync(...)` misslyckas.  Det är lika enkelt som att rensa cacheminnet token med ADAL:
 
-```C#
+```csharp
 private void SignOut()
 {
     // Clear session state from the token cache.

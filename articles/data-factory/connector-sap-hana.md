@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Följande egenskaper stöds för SAP HANA länkade tjänsten:
 | typ | Egenskapen type måste anges till: **SapHana** | Ja |
 | server | Namnet på den server som SAP HANA-instansen finns. Om servern använder en anpassad port, ange `server:port`. | Ja |
 | AuthenticationType | Typ av autentisering som används för att ansluta till SAP HANA-databas.<br/>Tillåtna värden är: **grundläggande**, och **Windows** | Ja |
-| Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
+| userName | Namnet på den användare som har åtkomst till SAP-server. | Ja |
 | lösenord | Lösenord för användaren. Markera det här fältet som en SecureString. | Ja |
 | connectVia | Den [integrering Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En Self-hosted integrering Runtime krävs enligt [krav](#prerequisites). |Ja |
 
@@ -167,9 +167,9 @@ När du kopierar data från SAP HANA, används följande mappningar från SAP HA
 |:--- |:--- |
 | ALPHANUM | Sträng |
 | BIGINT | Int64 |
-| BLOB | byte] |
+| BLOB | Byte[] |
 | BOOLESKT VÄRDE | Mottagna byte |
-| CLOB | byte] |
+| CLOB | Byte[] |
 | DATE | DateTime |
 | DECIMAL | Decimal |
 | DUBBEL | Ogift |

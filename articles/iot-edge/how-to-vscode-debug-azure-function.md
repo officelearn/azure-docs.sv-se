@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4344a450d218a7424cd055cf086c1e4865c9af10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: db86a08a19e97f8f415849aa060fe87d77cccf68
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Använda Visual Studio-koden för att felsöka Azure Functions med Azure IoT kant
 
@@ -33,17 +33,36 @@ När du slutför föregående kursen, bör du ha följande till hands,
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Skapa din IoT-Edge-modul för felsökning syfte
 1. Om du vill starta felsökning, måste du använda den **dockerfile.debug** att återskapa docker-avbildning och distribuera lösningar Edge igen. Klicka på mappen Docker för att öppna den i VS kod explorer. Klicka på den `linux-x64` mapp, högerklickar du på den **Dockerfile.debug**, och klicka på **skapa IoT kant modulen Docker bild**.
-3. I den **Välj mappen** och navigera till den **FilterFunction** projektet och klicka på **Välj mapp som EXE_DIR**.
-4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filterfunction:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filterfunction:latest`.
-5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg.
-6. Du kan återanvända den `deployment.json` att distribuera om. Skriv i kommandot paletten, och välj **kant: starta om Edge** att hämta dina filterfunktionen körs med felsökningsversionen.
+
+    ![Skapa Debug-bild](./media/how-to-debug-csharp-function/build-debug-image.png)
+
+2. I den **Välj mappen** och navigera till den **FilterFunction** projektet och klicka på **Välj mapp som EXE_DIR**.
+3. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filterfunction:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filterfunction:latest`.
+
+    ![Push-bild](./media/how-to-debug-csharp-function/push-image.png)
+
+4. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg.
+5. Du kan återanvända den `deployment.json` att distribuera om. Skriv i kommandot paletten, och välj **kant: starta om Edge** att hämta dina filterfunktionen körs med felsökningsversionen.
 
 ## <a name="start-debugging-in-vs-code"></a>Starta felsökning i VS-kod
 1. Gå till VS kod felsökningsfönstret. Tryck på **F5** och välj **IoT Edge(.Net Core)**
+
+    ![Tryck på F5](./media/how-to-debug-csharp-function/f5-debug-option.png)
+
 2. I `launch.json`, gå till **felsöka IoT kant-funktionen (.NET Core)** avsnittet och Fyll i den `<container_name>`under `pipeArgs`. Det bör vara `filterfunction` i den här självstudiekursen.
+
+    ![Uppdatera launch.json](./media/how-to-debug-csharp-function/update-launch-json.png)
+
 3. Gå till run.csx. Lägga till en brytpunkt i funktionen.
-4. Tryck på **F5** igen. Markera processen för att ansluta till.
-5. Du kan se variabler i vänsterpanelen i VS kod Debug-fönstret. 
+4. Navigera till felsökningsfönstret (Ctrl + Skift + D), Välj **felsöka IoT kant-funktionen (.NET Core)** från den nedrullningsbara listan. 
+
+    ![Välj felsökningsläge](./media/how-to-debug-csharp-function/choose-debug-mode.png)
+
+5. Klicka på knappen Start Debugging eller tryck på **F5**, och välj den process för att ansluta till.
+
+    ![Ansluta till en funktion process](./media/how-to-debug-csharp-function/attach-function-process.png)
+
+6. Du kan se variabler i vänsterpanelen i VS kod Debug-fönstret. 
 
 > [!NOTE]
 > Ovanstående exempel visar hur du felsökning .net huvudfunktion IoT kanten på behållaren. Den är baserad på felsökningsversionen av den `Dockerfile.debug`, som innehåller VSDBG (.NET Core kommandoradsverktyget felsökare) i behållaren avbildningen när du skapar den. Vi rekommenderar att du direkt använda eller anpassa den `Dockerfile` utan VSDBG för produktionsklara IoT kant funktionen när du har slutfört felsökning C#-funktionen.

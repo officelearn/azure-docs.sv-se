@@ -36,9 +36,7 @@ Feldomäner definierar den grupp av virtuella datorer som delar samma strömkäl
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning
 Om du för närvarande använder virtuella datorer med ohanterade diskar rekommenderar vi starkt att du [konverterar virtuella datorer i tillgänglighetsuppsättningar för att använda hanterade diskar](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) ger bättre tillförlitlighet för tillgänglighetsuppsättningar genom att säkerställa att diskarna på virtuella datorer i en tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritiska systemdelar. Detta görs automatiskt genom att diskarna placeras i olika lagringskluster. Om ett lagringskluster får problem på grund av ett maskin- eller programvarufel, påverkas endast VM-instanserna med diskar på de stämplarna.
-
-![Feldomäner med hanterade diskar](./media/virtual-machines-common-manage-availability/md-fd.png)
+[Hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) ger bättre tillförlitlighet för tillgänglighetsuppsättningar genom att säkerställa att diskarna på virtuella datorer i en tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritiska systemdelar. Det gör du genom att automatiskt placerar diskarna i olika lagringsplatser feldomäner (stämpeln) och justera dem med VM-feldomän. Endast VM-instans med diskar på lagring feldomänen misslyckas om en lagring feldomän misslyckas på grund av maskinvara eller programvara.
 
 > [!IMPORTANT]
 > Antalet feldomäner för hanterade tillgänglighetsuppsättningar varierar beroende på region – antingen två eller tre per region. I följande tabell ser du antalet per region
@@ -49,7 +47,7 @@ Om du planerar att använda virtuella datorer med [ohanterade diskar](../article
 
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
 2. **Kontrollera [gränserna](../articles/storage/common/storage-scalability-targets.md) för antalet ohanterade diskar i ett Storage-konto** innan du lägger till fler virtuella hårddiskar till ett lagringskonto
-3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Virtuella datorer i olika tillgänglighetsuppsättningar kan dela lagringskonton om rekommendationerna ovan följs
+3. **Använd ett separat lagringskonto för varje virtuell dator i en tillgänglighetsuppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika Tillgänglighetsuppsättningar för att dela lagringskonton om ovan rekommenderade metoder följs ![ohanterad diskar FDs](./media/virtual-machines-common-manage-availability/md-fd.png)
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Konfigurera varje programnivå i separata tillgänglighetsuppsättningar
 Om de virtuella datorerna är nästan identiska och tjänar samma syfte för ditt program rekommenderar vi att du konfigurerar en tillgänglighetsuppsättning för varje nivå av ditt program.  Om du placerar två olika nivåer i samma tillgänglighetsuppsättning kan alla virtuella datorer på samma programnivå startas om samtidigt. Genom att konfigurera minst två virtuella datorer i en tillgänglighetsuppsättning för varje nivå garanterar du att minst en virtuell dator är tillgänglig på varje nivå.
@@ -66,7 +64,7 @@ Om belastningsutjämnaren inte konfigureras för att jämna ut trafiken mellan f
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Använda tillgänglighet zoner för att skydda mot datacenter nivån fel
 
-[Tillgänglighet zoner](../articles/availability-zones/az-overview.md) (förhandsgranskning), ett alternativ till tillgänglighet anger, expandera kontrollnivån som du måste hantera tillgängligheten för program och data på din virtuella dator. En zon för tillgänglighet är ett fysiskt separat zon i en Azure-region. Det finns tre tillgänglighet zoner per Azure-region som stöds. Varje zon tillgänglighet har en distinkt power käll-, nätverks- och kylning och är logiskt åtskild från andra tillgänglighet zoner i Azure-regionen. Du kan bygga dina lösningar för att använda replikerade virtuella datorer i zoner för att skydda dina appar och data från förlust av ett datacenter. Om en zon äventyras, sedan replikerade appar och data är omedelbart tillgängliga i en annan zon. 
+[Tillgänglighet zoner](../articles/availability-zones/az-overview.md) (förhandsgranskning), ett alternativ till tillgänglighet anger, expandera kontrollnivån som du måste hantera tillgängligheten för program och data på din virtuella dator. En tillgänglighetszon är en fysiskt separat zon i en Azure-region. Det finns tre tillgänglighet zoner per Azure-region som stöds. Varje zon tillgänglighet har en distinkt power käll-, nätverks- och kylning och är logiskt åtskild från andra tillgänglighet zoner i Azure-regionen. Du kan bygga dina lösningar för att använda replikerade virtuella datorer i zoner för att skydda dina appar och data från förlust av ett datacenter. Om en zon äventyras, sedan replikerade appar och data är omedelbart tillgängliga i en annan zon. 
 
 ![Tillgänglighet zoner](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 

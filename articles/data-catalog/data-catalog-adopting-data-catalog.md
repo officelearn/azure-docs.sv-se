@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: f5349b0a72dd2bad348ab301745e00065bac310e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.
@@ -151,7 +151,7 @@ Det ultimata testet av projektet är förstås om användarna kan hitta nödvän
 ### <a name="provide-training"></a>Erbjud utbildning
 Utbildningen ska vara precis tillräcklig för att användarna ska komma igång och skräddarsydd för pilotteamets specifika mål och erfarenheter. Du kan följa stegen i artikeln [Kom igång med Azure Data Catalog](data-catalog-get-started.md) för att komma igång med utbildningen. Du kan dessutom ladda ned [Presentation av utbildning för pilotprojekt i Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true). PowerPoint-presentationen bör hjälpa dig att komma igång med att introducera Data Catalog för pilotteamet.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 När pilotteamet fungerar någorlunda smidigt och du har nått dina inledande mål ska användningen av Data Catalog utvidgas till flera team. Använd och utveckla vad du har lärt dig genom pilotprojektet för att utvidga Data Catalog till hela organisationen.
 
 Tidiga brukare som har deltagit i pilotprojektet kan vara till stor nytta när det gäller att sprida information om fördelarna med Data Catalog. De kan berätta för andra team hur Data Catalog har hjälpt deras team lösa verksamhetsproblem och gjort det lättare att hitta datakällor och dela information om datakällorna de använder. Till exempel kan tidiga brukare i Adventure Works pilotteam visa andra hur lätt det är att hitta information om Adventure Works datatillgångar som en gång var svåra att hitta och förstå.

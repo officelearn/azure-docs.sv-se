@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till logganalys med HTTP-Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka data till logganalys från en REST API-klient.  Det beskriver hur du formatera data som samlas in av skript eller program, inkludera den i en begäran och har den begäran som auktoriserad genom logganalys.  Exempel för för PowerShell, C# och Python.
@@ -26,7 +26,7 @@ Den här artikeln visar hur du använder HTTP-Data Collector API för att skicka
 > [!NOTE]
 > Log Analytics HTTP Data Collector API är tillgänglig som förhandsversion.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 Du kan använda HTTP Data Collector-API: et för att skicka data till logganalys från klienter som kan anropa REST-API.  Detta kan bero på en runbook i Azure Automation som samlar in hantering av data från Azure eller ett annat moln, eller så kan vara ett alternativ-system som använder Log Analytics för att sammanställa och analysera data.
 
 Alla data i logganalys-databasen lagras som en post med en viss posttyp.  Du kan formatera dina data ska skickas till http-Data Collector API som flera poster i JSON.  När du skickar data, skapas en enskild post i databasen för varje post i nyttolasten i begäran.
@@ -39,11 +39,11 @@ Alla data i logganalys-databasen lagras som en post med en viss posttyp.  Du kan
 ## <a name="create-a-request"></a>Skapa en förfrågan
 Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran som innehåller data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller anges de attribut som krävs för varje begäran. Vi beskriver varje attribut i detalj senare i artikeln.
 
-### <a name="request-uri"></a>URI-begäran
+### <a name="request-uri"></a>Förfrågans URI
 | Attribut | Egenskap |
 |:--- |:--- |
 | Metod |POST |
-| URI: N |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Innehållstyp |application/json |
 
 ### <a name="request-uri-parameters"></a>URI-parametrar för begäran
@@ -51,15 +51,15 @@ Om du vill använda HTTP Data Collector-API: et kan du skapa en POST-begäran so
 |:--- |:--- |
 | CustomerID |Den unika identifieraren för Microsoft Operations Management Suite-arbetsyta. |
 | Resurs |Resursnamnet API: / api/logs. |
-| API-Version |Versionen av API: et för användning med denna begäran. Det är för närvarande 2016-04-01. |
+| API-version |Versionen av API: et för användning med denna begäran. Det är för närvarande 2016-04-01. |
 
-### <a name="request-headers"></a>Huvuden för begäran
-| Huvudet | Beskrivning |
+### <a name="request-headers"></a>Begärandehuvud
+| Sidhuvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC SHA256-huvud. |
 | Typ |Ange posttyp för de data som skickas. Loggtyp stöder för närvarande endast alfanumeriska tecken. Stöder inte siffror eller specialtecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| tid genererade fält |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
+| time-generated-field |Namnet på ett fält i de data som innehåller dataobjektet tidsstämpel. Om du anger ett fält och dess innehåll används för **TimeGenerated**. Om det här fältet har inte angetts, standard för **TimeGenerated** är den tid som meddelandet inhämtas. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-ddTHH. |
 
 ## <a name="authorization"></a>Auktorisering
 Alla förfrågningar till Log Analytics HTTP Data Collector API måste innehålla ett authorization-huvud. För att autentisera en begäran, måste du registrera begäran med primärt eller den sekundära nyckeln för den arbetsyta som begäran kommer ifrån. Sedan överföra signaturen som en del av begäran.   
@@ -96,7 +96,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Exemplen i nästa avsnitt har exempelkod för att skapa ett authorization-huvud.
 
-## <a name="request-body"></a>Begärandetexten
+## <a name="request-body"></a>Begärandetext
 Innehållet i meddelandet måste vara i JSON. Det måste innehålla en eller flera poster med egenskapen namn och värdepar i det här formatet:
 
 ```
@@ -134,10 +134,10 @@ Lägger till ett suffix till egenskapsnamnet för att identifiera en egenskapens
 
 | Datatypen för egenskapen | Suffix |
 |:--- |:--- |
-| Sträng |_S |
-| Booleskt värde |_b |
-| dubbla |_D |
-| Datum/tid |_Tätt |
+| Sträng |_s |
+| Boolesk |_b |
+| Dubbel |_d |
+| Datum/tid |_t |
 | GUID |_g |
 
 Datatypen som Log Analytics använder för varje egenskap beror på om posttypen för den nya posten redan finns.
@@ -175,18 +175,18 @@ Den här tabellen innehåller en fullständig uppsättning statuskoder som tjän
 
 | Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| 200 |OKEJ | |Begäran har accepterats. |
-| 400 |Felaktig begäran |InactiveCustomer |Arbetsytan har stängts. |
-| 400 |Felaktig begäran |InvalidApiVersion |API-version som du angett kunde inte identifieras av tjänsten. |
-| 400 |Felaktig begäran |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltigt. |
-| 400 |Felaktig begäran |InvalidDataFormat |Ogiltigt JSON har skickats. Svarstexten kan innehålla mer information om hur du åtgärdar felet. |
-| 400 |Felaktig begäran |InvalidLogType |Loggtypen som angetts innehåller specialtecken eller siffror. |
-| 400 |Felaktig begäran |MissingApiVersion |API-versionen har inte angetts. |
-| 400 |Felaktig begäran |MissingContentType |Content-type har inte angetts. |
-| 400 |Felaktig begäran |MissingLogType |Loggtyp obligatoriskt värde har angetts. |
-| 400 |Felaktig begäran |UnsupportedContentType |Content-type har inte angetts **application/json**. |
-| 403 |Tillåts inte |InvalidAuthorization |Det gick inte att autentisera begäran. Kontrollera att arbetsytans ID och anslutningen är giltig. |
-| 404 |Det gick inte att hitta | | Antingen den URL som är felaktig eller begäran är för stor. |
+| 200 |Ok | |Begäran har accepterats. |
+| 400 |Felaktig förfrågan |InactiveCustomer |Arbetsytan har stängts. |
+| 400 |Felaktig förfrågan |InvalidApiVersion |API-version som du angett kunde inte identifieras av tjänsten. |
+| 400 |Felaktig förfrågan |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltigt. |
+| 400 |Felaktig förfrågan |InvalidDataFormat |Ogiltigt JSON har skickats. Svarstexten kan innehålla mer information om hur du åtgärdar felet. |
+| 400 |Felaktig förfrågan |InvalidLogType |Loggtypen som angetts innehåller specialtecken eller siffror. |
+| 400 |Felaktig förfrågan |MissingApiVersion |API-versionen har inte angetts. |
+| 400 |Felaktig förfrågan |MissingContentType |Content-type har inte angetts. |
+| 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har angetts. |
+| 400 |Felaktig förfrågan |UnsupportedContentType |Content-type har inte angetts **application/json**. |
+| 403 |Förbjudna |InvalidAuthorization |Det gick inte att autentisera begäran. Kontrollera att arbetsytans ID och anslutningen är giltig. |
+| 404 |Kunde inte hittas | | Antingen den URL som är felaktig eller begäran är för stor. |
 | 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran senare. |
 | 500 |Internt serverfel |UnspecifiedError |Tjänsten påträffade ett internt fel. Försök att utföra begäran. |
 | 503 |Tjänsten är inte tillgänglig |ServiceUnavailable |Tjänsten är för närvarande inte ta emot begäranden. Försök att utföra din begäran. |
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>C#-exempel

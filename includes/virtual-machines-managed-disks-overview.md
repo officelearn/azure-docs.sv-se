@@ -51,16 +51,16 @@ Låt oss ta en närmare titt på dessa.
 
 Här är storlekar för diskar som är tillgängliga för en hanterad premium-disk:
 
-| **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P 50** | 
+| **Premium hanteras <br>disktyp** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Diskstorlek        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 Här är storlekar för diskar som är tillgängliga för en standard hanterade diskar:
 
 | **Standard hanteras <br>disktyp** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Diskstorlek        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4095 GB (4 TB) | 
+| Diskstorlek        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 
 
 
 **Antal transaktioner**: du debiteras för antal transaktioner som du kan utföra på en standard hanterade disk. Det kostar inget för transaktioner för en hanterad premium-disk.
@@ -72,7 +72,7 @@ Detaljerad information om priser för hanterade diskar finns [hanterade diskar p
 
 ## <a name="managed-disk-snapshots"></a>Hanterade diskbilder
 
-En hanterad ögonblicksbild är en skrivskyddad fullständig kopia av en hanterad disk som lagras som standard hanterade disk som standard. Med ögonblicksbilder, kan du säkerhetskopiera hanterade diskar när som helst i tid. Dessa ögonblicksbilder finns oberoende av källdisken och kan användas för att skapa nya hanterade diskar. De debiteras baserat på används storlek. Om du skapar en ögonblicksbild av en hanterad disk med etablerad kapacitet 64 GB och storleken för data som används på 10 GB, till exempel debiteras ögonblicksbild endast för storleken på 10 GB data som används.  
+En hanterad ögonblicksbild är en skrivskyddad fullständig kopia av en hanterad disk som lagras som standard hanterade disk som standard. Med ögonblicksbilder, kan du säkerhetskopiera hanterade diskar när som helst i tid. Dessa ögonblicksbilder finns oberoende av källdisken och kan användas för att skapa nya hanterade diskar. De debiteras baserat på används storlek. Till exempel om du skapar en ögonblicksbild av en hanterad disk med 64 GiB etablerad kapacitet och storleken för data som används på 10 GiB kommer ögonblicksbild att debiteras endast för 10 GiB data används.  
 
 [Inkrementell ögonblicksbilder](../articles/virtual-machines/windows/incremental-snapshots.md) stöds inte för närvarande för hanterade diskar, men kommer att stödjas framöver.
 

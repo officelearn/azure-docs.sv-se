@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Så här aktiverar du kapslade virtualisering i en Azure VM
 
@@ -31,7 +31,7 @@ Du kan visa regionala tillgängligheten för Dv3 eller Ev3 serie virtuella dator
 
 >[!NOTE]
 >
->Detaljerade instruktioner om hur du skapar en ny virtuell dator finns [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm)
+>Detaljerade instruktioner om hur du skapar en ny virtuell dator finns [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
     
 ## <a name="connect-to-your-azure-vm"></a>Ansluta till din Azure VM
 
@@ -49,7 +49,7 @@ Skapa en fjärrskrivbordsanslutning till den virtuella datorn.
 Du kan konfigurera dessa inställningar manuellt eller så har vi angett ett PowerShell-skript för att automatisera konfigurationen.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Alternativ 1: Använd ett PowerShell-skript för att konfigurera kapslade virtualisering
-Det finns ett PowerShell-skript för att aktivera kapslade virtualisering på en Windows Server 2016-värd på [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar kraven och konfigurerar sedan kapslade virtualisering på Azure VM. En omstart av Azure VM är nödvändigt för att slutföra konfigurationen. Det här skriptet fungerar i andra miljöer, men är inte säkert. Ta en titt på Azure blogginlägget med en levande videodemonstration kapslade virtualisering som körs på Azure! https://aka.MS/AzureNVblog.
+Det finns ett PowerShell-skript för att aktivera kapslade virtualisering på en Windows Server 2016-värd på [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Skriptet kontrollerar kraven och konfigurerar sedan kapslade virtualisering på Azure VM. En omstart av Azure VM är nödvändigt för att slutföra konfigurationen. Det här skriptet fungerar i andra miljöer, men är inte säkert. Ta en titt på Azure blogginlägget med en levande videodemonstration kapslade virtualisering som körs på Azure! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Alternativ 2: Konfigurera kapslade virtualisering manuellt
 
@@ -77,7 +77,7 @@ Skapa ett nytt virtuellt nätverkskort för den virtuella gästdatorn och konfig
 2. Skapa en intern växel.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. Visa egenskaperna för växeln och notera ifIndex för det nya kortet.

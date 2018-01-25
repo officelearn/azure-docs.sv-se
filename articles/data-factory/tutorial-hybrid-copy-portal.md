@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 I den här självstudien använder du användargränssnittet för Azure Data Factory för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
@@ -191,7 +191,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 11. Klicka på **Stäng** i fönstret **Snabbinstallation av Integration Runtime (lokal installation)**. 
 
    ![Integration Runtime har installerats](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. Nu ska du normalt vara tillbaka i fönstret **New Linked Service** (Ny länkad tjänst).
+12. Klicka på **Slutför** i webbläsaren för att stänga installationsfönstret för **Integration Runtime**. 
 
    ![Installationen av Integration Runtime slutförs](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
@@ -266,7 +266,7 @@ Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigg
 1. Välj fliken **Övervaka**. Du kan se pipelinen som du utlöste manuellt i föregående steg. 
 
     ![Pipelinekörningar](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-2. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningarna klickar du på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Action** (Åtgärd). Du ser bara aktivitetskörningar eftersom det bara finns en aktivitet i pipelinen. Om du vill se mer information om kopieringsåtgärden klickar du på länken **Details** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Du kan gå tillbaka till vyn över pipelinekörningar genom att klicka på **Pipeliner** högst upp.
+2. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningarna klickar du på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Action** (Åtgärd). Du ser bara aktivitetskörningar eftersom det bara finns en aktivitet i pipelinen. Om du vill se mer information om kopieringsåtgärden klickar du på länken **Details** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Du kan gå tillbaka till vyn över pipelinekörningar genom att klicka på **Pipeliner** högst upp.
 
     ![Aktivitetskörningar](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 

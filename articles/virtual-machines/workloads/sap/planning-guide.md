@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer planering och implementering för SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Följande ytterligare guider är tillgängliga för avsnittet SAP-distribution p
 
 Följande information för SAP är relaterade till avsnittet SAP i Azure:
 
-| Nummer | Rubrik |
+| Nummer | Namn |
 | --- | --- |
 | [1928533] |SAP-program i Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -1626,7 +1626,7 @@ Minimikravet används för säker kommunikationsprotokoll, till exempel SSL/TLS 
 
 I tabellen nedan vanliga SAP visas kommunikationsportar. Det är i princip räcker för att öppna port för SAP-gateway.
 
-| Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervallet (min max) | Kommentar |
+| Tjänst | Portnamn | Exempel `<nn`> = 01 | Standardintervallet (min max) | Kommentera |
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` finns * |3201 |3200 - 3299 |SAP Dispatcher, används av Java och SAP GUI för Windows |
 | Meddelande-server |sapms`<sid`> finns ** |3600 |ledigt sapms`<anySID`> |SID = SAP-System-ID |
@@ -1965,9 +1965,7 @@ Följande bild illustreras samma liggande med hjälp av hanterade diskar.
 ![SAP NetWeaver programarkitektur hög tillgänglighet med SQLServer i Azure IaaS][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Hög tillgänglighet på Linux
-Arkitekturen för SAP hög tillgänglighet på Linux i Azure är ungefär desamma som för Windows som beskrivs ovan. Jan 2016 det finns ingen SAP (A) SCS HA lösning stöds ännu på Linux på Azure
-
-Följaktligen januari 2016 ett Azure-SAP-Linux-system kan inte få samma tillgänglighet som en SAP Windows Azure-system på grund av saknas hög tillgänglighet för SCS (A)-instans och single instance SAP ASE databas.
+Arkitekturen för SAP hög tillgänglighet på Linux i Azure är ungefär desamma som för Windows som beskrivs ovan. Referera till SAP-kommentar [1928533] för en lista med lösningar för hög tillgänglighet som stöds.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Med hjälp av Autostart för SAP-instanser
 SAP erbjuds funktioner för att starta SAP instanser direkt efter start av Operativsystemet i den virtuella datorn. Vilka de specifika stegen finns dokumenterade i SAP Knowledge Base-artikel [1909114]. Dock SAP inte rekommenderar använder inställningen längre eftersom det finns ingen kontroll i den ordning som instansen startas om, under förutsättning att mer än en virtuell dator har fått påverkas eller flera instanser körde per virtuell dator. Under förutsättning att ett typiskt Azure scenario för en SAP application server-instans i en virtuell dator och fall då en enda virtuell dator så småningom få startas, Autostart är inte mycket viktig och kan aktiveras genom att lägga till den här parametern:

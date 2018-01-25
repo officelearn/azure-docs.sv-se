@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Använda Visual Studio-koden för att utveckla och distribuera Azure Functions Azure IoT kant
 
@@ -140,9 +140,13 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 
 1. I VS kod explorer expanderar den **Docker** mapp. Expandera mappen för din plattform för behållare, antingen **linux x64** eller **windows nano**.
 2. Högerklicka på den **Dockerfile** fil och klicka på **skapa IoT kant modulen Docker bild**. 
+
+    ![Skapa docker-bild](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
+
 3. Navigera till den **FilterFunction** projektmappen, och klicka på **Välj mapp som EXE_DIR**. 
 4. Ange avbildningens namn i popup-textrutan längst upp i fönstret VS-kod. Till exempel: `<your container registry address>/filterfunction:latest`. Om du distribuerar till lokala registret ska `localhost:5000/filterfunction:latest`.
 5. Skicka bilden till Docker-databasen. Använd den **kant: Push-gräns för IoT-modulen Docker bild** kommando och ange bildens URL i popup-textrutan längst upp i fönstret VS-kod. Använd samma bild-URL som du använde i senare steg.
+    ![Push-docker-bild](./media/how-to-vscode-develop-csharp-function/push-image.png)
 
 ### <a name="deploy-your-function-to-iot-edge"></a>Distribuera din funktion IoT kant
 
@@ -172,22 +176,28 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 
 2. Ersätt den **vägar** avsnitt med nedanför innehållet:
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
    > Deklarativ regler i körningsmiljön definiera där dessa meddelanden. I den här kursen behöver du två vägar. Första vägen transporter meddelanden från temperatursensor till filterfunktionen via slutpunkten ”input1”, vilket är den slutpunkt du konfigurerade med FilterMessages-hanteraren. Andra vägen transporter meddelanden från filterfunktionen till IoT-hubb. I den här vägen är överordnad en särskild destination som talar om kant-hubb för att skicka meddelanden till IoT-hubb.
 
 3. Spara filen.
 4. I kommandot paletten väljer **kant: skapa distribution för gränsenheten**. Välj IoT kant enhets-ID att skapa en distribution. Eller högerklicka på enhets-ID i listan över enheter och välj **skapa distribution för gränsenheten**.
+
+    ![Skapa distribution](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
 5. Välj den `deployment.json` du uppdateras. I utdatafönstret visas motsvarande utdata för din distribution.
 6. Starta Edge-körning i kommandot palett. **Kant: Start kant**
 7. Du kan se din IoT-Edge runtime börja köra i Docker explorer med funktionen simulerade sensor och filter.
+
+    ![Lösning som körs](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
 8. Högerklicka på ditt Edge enhets-ID och du kan övervaka D2C meddelanden i VS-kod.
+
+    ![Övervakare-meddelanden](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

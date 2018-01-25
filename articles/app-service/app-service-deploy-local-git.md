@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure Apptjänst
 
@@ -54,18 +54,13 @@ Apptjänst stöder program som skapats i en mängd olika programmeringsspråk.
 
 1. Om databasen inte redan innehåller innehåll, lägger du till en statiska HTML-fil enligt följande; eller hoppa över detta steg:
    * Med hjälp av en textredigerare, skapa en ny fil med namnet **index.html** i roten på Git-lagringsplats
-   * Lägg till följande text som innehållet för index.html filen och spara den: *Hello Git!*
-1. Kontrollera att du är under roten för Git-lagringsplats från kommandoraden. Sedan använder du följande kommando för att lägga till filer i databasen:
+   * Lägg till följande text som innehållet i index.html filen och spara den: *Hello Git!*
+1. Kontrollera att du är under roten för Git-lagringsplats på kommandoraden. Sedan använder du följande kommando för att lägga till filer i databasen:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. Spara ändringarna i databasen med hjälp av följande kommando:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Steg 3: Aktivera databasen för Apptjänst-app
 
@@ -92,7 +87,7 @@ Använd följande steg för att publicera appen i App Service med lokal Git.
 1. Med hjälp av kommandoraden, kontrollera att du är i roten av en lokal Git-lagringsplats.
 1. Använd `git remote` att lägga till den fjärranslutna referens som anges i **URL för Git** från steg 1. Kommandot ser ut ungefär så här:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

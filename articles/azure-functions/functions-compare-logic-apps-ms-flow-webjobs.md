@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e61e664ef5cd9e296016c8fc572d67ec1d62c1f7
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7ffe44828735a5687008ebc5a7d8d9f017f49daa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Välj mellan Flow, Logic Apps, Functions och WebJobs
 I den här artikeln jämförs molntjänster från Microsoft. Samtliga löser problem med integrering och automatisering av affärsprocesser:
@@ -115,7 +115,7 @@ Det går att anropa en logikapp i ett flöde. Du kan också anropa en funktion i
 Kom igång med tjänsterna genom att skapa ditt första flöde, logikapp, funktionsapp eller WebJob. Klicka på någon av följande länkar:
 
 * [Kom igång med Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
-* [Skapa en logikapp](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)
 * [Distribuera WebJobs med hjälp av Visual Studio](../app-service/websites-dotnet-deploy-webjobs.md)
 

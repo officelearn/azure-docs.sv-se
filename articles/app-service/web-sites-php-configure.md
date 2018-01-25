@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 624dd416f37aacdb3d2f6e59afdc2efe646e610b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0467707a46709674d3f5de3346ad242af5c9dcb8
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Så här konfigurerar du PHP i Azure App Service Web Apps
 ## <a name="introduction"></a>Introduktion
@@ -27,14 +27,14 @@ Den här guiden visar hur du konfigurerar för inbyggda PHP-körning för Web Ap
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Så här: ändra inbyggda PHP-version
-Som standard är PHP 5.5 installerat och omedelbart tillgängliga för användning när du skapar en webbapp i Apptjänst. Det bästa sättet att se tillgängliga versionen revision, standardkonfigurationen och aktiverade tillägg är att distribuera ett skript som anropar den [phpinfo()] funktion.
+Som standard är PHP 5.6 installerat och omedelbart tillgängliga för användning när du skapar en webbapp i Apptjänst. Det bästa sättet att se tillgängliga versionen revision, standardkonfigurationen och aktiverade tillägg är att distribuera ett skript som anropar den [phpinfo()] funktion.
 
 PHP 5.6 och PHP 7.0 versioner är också tillgängliga, men inte aktiverad som standard. Uppdatera PHP-version, så en av följande metoder:
 
 ### <a name="azure-portal"></a>Azure Portal
 1. Bläddra till ditt webbprogram i den [Azure Portal](https://portal.azure.com) och klicka på den **inställningar** knappen.
    
-    ![Webbprograminställningarna][settings-button]
+    ![Web App Settings][settings-button]
 2. Från den **inställningar** bladet välj **programinställningar** och välj den nya versionen av PHP.
    
     ![Programinställningar][application-settings]
@@ -125,7 +125,7 @@ Enligt beskrivningen i föregående avsnitt, det bästa sättet att se PHP stand
 3. Distribuera ditt webbprogram.
 4. Bläddra till webbappen i Azure Portal och klicka på den **inställningar** knappen.
    
-    ![Webbprograminställningarna][settings-button]
+    ![Web App Settings][settings-button]
 5. Från den **inställningar** bladet välj **programinställningar** och bläddra till den **appinställningar** avsnitt.
 6. I den **appinställningar** avsnittet, skapa en **PHP_EXTENSIONS** nyckel. Värdet för den här nyckeln skulle vara en sökväg i förhållande till webbplatsroten: **bin\your ext fil**.
    
@@ -146,7 +146,7 @@ I stället för standard PHP-körning kan App Service Web Apps använda en PHP-k
 5. Distribuera ditt webbprogram.
 6. Bläddra till webbappen i Azure Portal och klicka på den **inställningar** knappen.
    
-    ![Webbprograminställningarna][settings-button]
+    ![Web App Settings][settings-button]
 7. Från den **inställningar** bladet välj **programinställningar** och bläddra till den **Hanterarmappningar** avsnitt. Lägg till `*.php` till tillägget och Lägg till sökvägen till den `php-cgi.exe` körbara. Om du placerar PHP-körning i den `bin` katalogen i roten av du programmet sökvägen ska vara `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
    
     ![Ange hanterare i hanterare mappningar][handler-mappings]
@@ -182,7 +182,7 @@ Som standard göra Apptjänst inte något med composer.json, om du har en i PHP-
 Mer information finns i [PHP Developer Center](/develop/php/).
 
 > [!NOTE]
-> Om du vill komma igång med Azure Apptjänst innan du registrerar dig för ett Azure-konto kan du gå till [Prova Apptjänst](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i Apptjänst. Inget kreditkort krävs, och du gör inga åtaganden.
+> Om du vill komma igång med Azure App Service innan du registrerar dig för ett Azure-konto kan du gå till [Prova App Service](https://azure.microsoft.com/try/app-service/). Där kan du direkt skapa en tillfällig startwebbapp i App Service. Inga kreditkort krävs. Inga åtaganden.
 > 
 > 
 

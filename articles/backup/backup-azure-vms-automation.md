@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer
 
@@ -284,7 +284,7 @@ Det finns en viktigaste skillnaden mellan att återställa en virtuell dator med
 >
 >
 
-Om du vill skapa en virtuell dator från disken, finns i avsnittet [skapa den virtuella datorn från lagrade diskar](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). Grundläggande steg för att återställa en Azure VM är:
+Om du vill skapa en virtuell dator från disken, finns i avsnittet [skapa den virtuella datorn från återställda diskar](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Grundläggande steg för att återställa en Azure VM är:
 
 * Välj den virtuella datorn
 * Välj en återställningspunkt

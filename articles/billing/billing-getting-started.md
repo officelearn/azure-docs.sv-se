@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntat avgifter med Azure fakturerings- och kostnaden management
 
@@ -157,6 +157,7 @@ Enterprise kostnaden vyer är för närvarande i förhandsversion. Konfiguration
 - Prenumerationen kostnaderna baseras på användning och hänsyn inte till förskottsinbetalade belopp, överskott, inkluderade kvantiteter, justeringar och skatter. De faktiska debiteringarna beräknas på nivån registrering. 
 - Beloppen som visas i Azure-portalen kan fördröjas jämfört med om du värdena i Enterprise portal.  
 - Om du inte ser kostnader, kan det bero på något av följande skäl:
+    - Du har inte tillräckligt med RBAC-behörighet på prenumerationsnivån. Om du vill se enterprise kostnaden vyer, måste vara fakturering Reader, Reader, deltagare eller ägare på prenumerationsnivån.
     - Du äger konto och din registrering administratör har inaktiverat ”AO visa avgifterna” inställningen.  Kontakta administratören för att få åtkomst till kostnaderna för registrering. 
     - Du är administratör för avdelning och administratören registrering har inaktiverat ”DA visa avgifterna” inställningen.  Administratören registrering för att få åtkomst. 
     - Du har köpt Azure via en kanalpartner och partnern har inte publicerats prisinformation.  

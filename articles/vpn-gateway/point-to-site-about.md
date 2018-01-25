@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats VPN
 
@@ -36,7 +36,7 @@ Punkt-till-plats-VPN kan använda någon av följande protokoll:
 Om du har en blandad klientmiljö som består av Windows och Mac-enheter kan du konfigurera både SSTP och IKEv2.
 
 >[!NOTE]
->IKEv2 för P2S är tillgängligt för Resource Manager-distributionsmodellen. Det är inte tillgänglig för den klassiska distributionsmodellen.
+>IKEv2 för P2S är tillgänglig för den Resource Manager distributionsmodellen. Det är inte tillgänglig för den klassiska distributionsmodellen.
 >
 
 ## <a name="authentication"></a>Hur autentiseras P2S VPN-klienter?
@@ -67,6 +67,10 @@ Användare kan du använda de inbyggda VPN-klienterna på Windows och Mac-enhete
 * För Mac-enheter består det av den mobileconfig-fil som användare installera på sina enheter.
 
 Zip-filen innehåller också värdena för vissa av de viktiga inställningarna på Azure-sidan som du kan använda för att skapa din egen profil för dessa enheter. Vissa värden innehåller VPN-gateway-adress, konfigurerade tunneltyper, vägar och rotcertifikatet för gateway-verifiering.
+
+>[!NOTE]
+>För Windows-klienter måste du ha administratörsbehörighet på klientenheten för att upprätta VPN-anslutningen från klientenheten till Azure.
+>
 
 ### <a name="gwsku"></a>Vilka Gateway-SKU: er stöd P2S VPN?
 

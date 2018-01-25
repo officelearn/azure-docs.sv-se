@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Azure Site Recovery stöd matrix för replikering från lokal till Azure
 
@@ -164,9 +164,9 @@ Multipath (MPIO)<br></br>Testats med: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC 
 **Konfiguration** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
 VMDK | Ja | Gäller inte
-VHD-ELLER VHDX | Gäller inte | Ja
+VHD/VHDX | Gäller inte | Ja
 Generation 2 VM | Gäller inte | Ja
-EFI/UEFI| Nej | Ja
+EFI/UEFI| Migrering till Azure för Windows Server 2012 och senare. </br></br> ** Se anmärkning i slutet av tabellen.  | Ja
 Delad klusterdisk | Nej | Nej
 Krypterade disk | Nej | Nej
 NFS | Nej | Gäller inte
@@ -180,6 +180,12 @@ Lagringsutrymmen | Nej | Ja
 Varm Lägg till/ta bort disken | Nej | Nej
 Uteslut disk | Ja | Ja
 Multipath (MPIO) | Gäller inte | Ja
+
+> [!NOTE]
+> ** UEFI Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
+> - Endast migrering till Azure. Återställning till det lokala VMware-platsen stöds inte.
+> - Mer än 4-partitioner stöds på OS-disken på servern.
+> - Kräver Azure Site Recovery mobilitetstjänstversionen 9.13 eller senare.
 
 **Azure Storage** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
@@ -201,7 +207,7 @@ Generella V2 storage-konton (både frekvent och lågfrekvent nivå) | Nej | Nej
 **Compute-funktion** | **VMware/fysisk server** | **Hyper-V (med/utan Virtual Machine Manager)**
 --- | --- | ---
 Tillgänglighetsuppsättningar | Ja | Ja
-HUBBEN | Ja | Ja  
+HUB | Ja | Ja  
 Hanterade diskar | Ja | Ja<br/><br/>Återställning till det lokala från Azure VM med hanterade diskar stöds inte för närvarande.
 
 ## <a name="failed-over-azure-vm-requirements"></a>Det gick inte över Azure VM krav
@@ -219,8 +225,8 @@ Du kan distribuera Site Recovery för att replikera virtuella datorer och fysisk
 **Nätverkskort** | Flera nätverkskort som stöds |
 **Delad virtuell Hårddisk** | Stöds inte | Kravkontrollen misslyckas om stöds inte
 **FC-disk** | Stöds inte | Kravkontrollen misslyckas om stöds inte
-**Format för hårddisk** | VIRTUELL HÅRDDISK <br/><br/> VHDX | Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
-**BitLocker** | Stöds inte | BitLocker måste inaktiveras innan du skyddar en virtuell dator.
+**Format för hårddisk** | VHD <br/><br/> VHDX | Även om VHDX inte stöds för närvarande i Azure, konverterar Site Recovery automatiskt VHDX till virtuell Hårddisk när du redundansväxlar till Azure. När du växlar tillbaka till lokala virtuella datorer att fortsätta att använda VHDX-format.
+**Bitlocker** | Stöds inte | BitLocker måste inaktiveras innan du skyddar en virtuell dator.
 **Namn på virtuell dator** | Mellan 1 och 63 tecken. Begränsat till bokstäver, siffror och bindestreck. VM-namn måste börja och sluta med en bokstav eller siffra. | Uppdatera värdet i egenskaperna för virtuella datorn i Site Recovery.
 **VM-typ** | Generation 1<br/><br/> Generation 2 – Windows | Generation 2 virtuella datorer med en OS-disktyp av grundläggande (som innehåller en eller två datavolymer som formaterats som VHDX) och mindre än 300 GB diskutrymme stöds.<br></br>Linux Generation 2 virtuella datorer stöds inte. [Läs mer](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
@@ -236,7 +242,7 @@ Flytta lagring, nätverk, virtuella datorer i Azure över resursgrupper<br/><br/
 
 **Namn** | **Beskrivning** | **Senaste versionen** | **Detaljer**
 --- | --- | --- | --- | ---
-**Azure Site Recovery-providern** | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Installerad på lokala Virtual Machine Manager-servrar eller på Hyper-V-servrar om det finns ingen Virtual Machine Manager-server | 5.1.2700.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
+**Azure Site Recovery Provider** | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Installerad på lokala Virtual Machine Manager-servrar eller på Hyper-V-servrar om det finns ingen Virtual Machine Manager-server | 5.1.2700.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 **Azure Site Recovery Unified installationsprogram (VMware till Azure)** | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på lokal VMware-servrar | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 **Mobilitetstjänsten** | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera  | 9.12.4653.1 (tillgänglig från portalen) | [Senaste funktionerna och korrigeringarna](https://aka.ms/latest_asr_updates)
 **Microsoft Azure Recovery Services MARS-agenten** | Samordnar replikering mellan Hyper-V virtuella datorer och Azure<br/><br/> Installerad på lokala Hyper-V-servrar (med eller utan en Virtual Machine Manager-server) | Senaste agenten (tillgänglig från portalen) |

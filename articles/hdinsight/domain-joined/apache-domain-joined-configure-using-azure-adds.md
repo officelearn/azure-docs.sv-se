@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services
 
 Domänanslutna kluster ger flera användare företaget säkerhetsfunktioner i HDInsight. Domänanslutna HDInsight-kluster är anslutna till active directory-domäner, så att användarna kan använda sina domänautentiseringsuppgifter att autentisera med kluster och köra jobb för stordata. 
 
-Det finns tre sätt att konfigurera en domänkontrollant så att en domänansluten HDInsight-kluster kan ansluta till:
+Det finns två sätt att konfigurera en domänkontrollant så att en domänansluten HDInsight-kluster kan ansluta till:
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- Lokalt Active Directory
 - Active Directory-domänkontrollant på Azure IaaS-VM
 
 I den här artikeln får du lära dig hur du konfigurerar en domänansluten HDInsight-kluster med Azure Active Directory Domain Services.

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple-säkerhet och dataskydd
 
@@ -155,7 +155,7 @@ Krypteringsnyckel för tjänstdata ska genereras på endast den första enheten 
 > [!IMPORTANT]
 > Det är mycket viktigt att göra en kopia av krypteringsnyckeln för tjänstdata och spara den på en säker plats. En kopia av krypteringsnyckeln för tjänstdata ska lagras på ett sådant sätt att den kan användas av en behörig person och lätt kan överföras till enhetsadministratören.
 > 
-> Om krypteringsnyckeln för tjänstdata tappas bort, kan en Microsoft-supporten hjälpa dig att hämta den förutsatt att du har minst en enhet i ett onlinetillstånd. Vi rekommenderar att du ändrar krypteringsnyckeln för tjänstdata när den har hämtats. Mer information går du till [ändra krypteringsnyckel för tjänstdata](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Om krypteringsnyckeln för tjänstdata tappas bort, kan en Microsoft-supporten hjälpa dig att hämta den förutsatt att du har minst en enhet i ett onlinetillstånd. Vi rekommenderar att du ändrar krypteringsnyckeln för tjänstdata när den har hämtats.
 
 Om du vill ändra krypteringsnyckeln för tjänstdata och motsvarande certifikat för kryptering av data, följer du stegen i [ändra krypteringsnyckeln för tjänstdata för din StorSimple Enhetshanteraren tjänst](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Ändra krypteringsnycklarna kräver att alla enheter kan uppdateras med den nya nyckeln. Därför rekommenderar vi att du ändrar nyckeln när alla enheter som är online. Om enheter som är offline, kan deras nycklar ändras vid en annan tid. Enheter med inaktuella nycklar kommer fortfarande att kunna köra säkerhetskopieringar, men de kommer inte att kunna återställa data förrän nyckeln har uppdaterats.
 

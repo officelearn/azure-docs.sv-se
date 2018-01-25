@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Använd virtuella nätverk slutpunkter och regler för Azure SQL Database
 
@@ -163,7 +163,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 Många användare vill du ta bort **Tillåt alla Azure-tjänster** från Azure SQL-servrar och ersätta den med en brandväggsregel för virtuella nätverk.
 Men att ta bort detta påverkar följande funktioner i Azure SQLDB:
 
-#### <a name="import-export-service"></a>Importera Export Service
+#### <a name="import-export-service"></a>Import Export Service
 Azure SQLDB importera exportera-tjänsten körs på virtuella datorer i Azure. Dessa virtuella datorer är inte i ditt virtuella nätverk och därför hämta en Azure-IP-adress vid anslutning till databasen. För att ta bort **Tillåt alla Azure-tjänster** dessa virtuella datorer kommer inte att komma åt dina databaser.
 Du kan undvika problemet. Kör BACPAC importera eller exportera direkt i koden med DACFx API. Se till att det är distribuerat i en virtuell dator som är i VNet-undernät som du har angett brandväggsregeln.
 
@@ -184,6 +184,15 @@ PolyBase är vanligt att läsa in data i Azure SQLDW från Storage-konton. Om de
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob granskning
 Blobbgranskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder funktionen för slutpunkter VÄNDNING tjänsten bryts anslutningen från Azure SQLDB till lagringskontot.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en brandväggsregel på VNET till servern utan att slå på VNET slutpunkter
+
+Länge sedan innan den här funktionen har förbättrats du behövde du aktivera VNet tjänstens slutpunkter på innan du kan implementera en levande VNet-regel i brandväggen. Slutpunkterna relaterade till ett visst VNet-undernät till en Azure SQL Database. Men nu från och med januari 2018, du kan kringgå det här kravet genom att ange den **IgnoreMissingServiceEndpoint** flaggan.
+
+Bara ställa en brandväggsregel inte att skydda servern. Du måste också aktivera VNet slutpunkter för säkerhet ska börja gälla. När du aktiverar slutpunkter upplevelser ditt VNet-undernät driftstopp förrän den har slutfört övergången från av till på. Detta är särskilt viktigt i samband med stora Vnet. Du kan använda den **IgnoreMissingServiceEndpoint** flagga för att minska eller eliminera avbrottstid under övergång.
+
+Du kan ange den **IgnoreMissingServiceEndpoint** flaggan med hjälp av PowerShell. Mer information finns i [PowerShell för att skapa ett virtuellt nätverk tjänstslutpunkten och regeln för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615

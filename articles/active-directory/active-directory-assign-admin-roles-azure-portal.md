@@ -12,20 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 01/23/2018
 ms.author: curtand
-ms.reviewer: Vince.Smith
+ms.reviewer: vincesm
 ms.custom: it-pro;
-ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 918e1c535ea8779a8aff3d94c6f1ef2cb2a17fd5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Tilldela administratörsroller i Azure Active Directory
 
 Du kan ange separata administratörer att hantera olika funktioner med Azure Active Directory (AD Azure). Administratörer kan har åtkomst till olika funktioner i Azure-portalen och, beroende på deras roll, skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser och hantera domäner, bland annat. En användare som är tilldelad en administratörsroll har samma behörigheter för alla molntjänster som din organisation prenumererar på, oavsett om du tilldelar rollen i Office 365-portalen eller i Azure-portalen eller med hjälp av Azure AD-modulen för Windows PowerShell.
 
+## <a name="details-about-the-global-administrator-role"></a>Information om rollen global administratör
+Den globala administratören har åtkomst till alla administrativa funktioner. Den person som registrerar sig för en Azure-prenumeration har tilldelats rollen global administratör för katalogen som standard. Endast globala administratörer kan tilldela andra administratörsroller.
+
+## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
+Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns [Tilldela administratörsroller i Azure Active Directory användare](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="available-roles"></a>Tillgängliga roller
 Följande administratörsroller är tillgängliga:
 
 * **Faktureringsadministratör**: gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
@@ -57,6 +64,8 @@ Följande administratörsroller är tillgängliga:
 
 * **Gästen bjuder in**: användare i den här rollen kan hantera Azure Active Directory B2B gästen användaren inbjudningar när inställningen ”medlemmar kan bjuda in” user är inställd på Nej. Mer information om B2B-samarbete när [om i Azure AD B2B-samarbete preview](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Det innehåller inte några andra behörigheter.
 
+* **Administratören för information Protection**: användare med den här rollen kan komma åt Azure Information Protection i Azure-portalen. De kan konfigurera etiketter för Azure Information Protection-principen, hantera skydd mallar och aktivera skydd.
+
 * **Intune-tjänstadministratören**: användarna med den här rollen har globala behörigheter i Microsoft Intune Online när tjänsten finns. Dessutom innehåller den här rollen kan hantera användare och enheter för att associera principen, samt skapa och hantera grupper.
 
 * **Postlåda administratören**: den här rollen används endast som en del av Exchange Online e-postsupport för RIM Blackberry-enheter. Om din organisation inte använder Exchange Online-epost på RIM Blackberry-enheter, Använd inte den här rollen.
@@ -75,6 +84,8 @@ Följande administratörsroller är tillgängliga:
 * **Power BI tjänstadministratör**: användare med den här rollen har globala behörigheter i Microsoft Power BI när tjänsten är tillgänglig, samt möjlighet att hantera supportärenden och övervakar tjänstens hälsa. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Privilegierade rollen Administratör**: användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, såväl i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantering av alla aspekter av Privileged Identity Management.
+
+* **Rapporterar Reader**: användare med den här rollen kan visa rapport data och rapporter instrumentpanel i administrationscentret för Office 365 och införande kontexten hanteringspaket i PowerBI. Dessutom rollen ger åtkomst till inloggning rapporter och aktivitet i Azure AD och rapportering av data som returneras av Microsoft Graph API. En användare som tilldelats rollen Läsare rapporter kan komma åt endast relevanta användning och införande mått. De har inte någon administratörsbehörigheter för att konfigurera inställningar eller produkten specifika administrationscentret som Exchange åtkomst. 
 
 * **Säkerhetsadministratör**: användare med den här rollen har alla läsbehörighet reader säkerhetsrollen plus möjligheten att hantera konfigurationen för säkerhetsrelaterade services: Azure Active Directory-identitetsskydd, Azure Information Protection, Privileged Identity Management och Office 365-säkerhet och efterlevnad Center. Mer information om Office 365 behörigheter finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscentret](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -117,15 +128,16 @@ Följande administratörsroller är tillgängliga:
 | --- | --- |
 | <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare och andra supportavdelningen administratörer</p>|<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa rapporter</p>|
 
-### <a name="service-administrator"></a>Tjänstadministratör
-| Kan göra | Det går inte att göra |
-| --- | --- |
-| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p> |<p>Återställa användarlösenord</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p> |
-
-### <a name="user-account-administrator"></a>Kontoadministratör för användaren
-| Kan göra | Det går inte att göra |
-| --- | --- |
-| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportavdelning administratörer och andra användarkonto administratörer</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
+### <a name="information-protection-administrator"></a>Administratören för information Protection 
+i | Kan göra
+-------- | ---------
+Azure Information Protection | * Konfigurera principer för global, begränsade och etiketter<br>* Hantera, konfigurera, uppdatera mallar för skydd<br>* Skydd aktivera för användning 
+Privileged Identity Management | * Läsbehörighet<br>* Kan inte hantera medlemskap i Azure AD-roller eller inställningar.
+ 
+### <a name="reports-reader"></a>Rapporter läsare 
+Kan göra | Det går inte att göra
+------ | ----------
+Visa Azure AD-inloggning rapporter och granskningsloggar<br>Visa information om företagets och användare<br>Instrumentpanelen för användning av Office 365 | Skapa och hantera användarvyer<br>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser<br>Delegera administrativa roller till andra<br>Hantera information om företaget
 
 ### <a name="security-reader"></a>Säkerhetsläsare
 | i | Kan göra |
@@ -141,8 +153,15 @@ Följande administratörsroller är tillgängliga:
 | Privileged Identity Management |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>**Det går inte att** Hantera medlemskap i Azure AD-roller eller inställningar. |
 | <p>Tjänstens hälsa för Övervakare för Office 365</p><p>Office 365-säkerhet och efterlevnad Center |<ul><li>Alla behörigheter för rollen säkerhet läsare.<li>Kan konfigurera alla inställningar i funktionen Advanced Threat Protection (skydd mot skadlig kod och virus, skadliga URL-config, URL-spårning, etc.). |
 
-## <a name="details-about-the-global-administrator-role"></a>Information om rollen global administratör
-Den globala administratören har åtkomst till alla administrativa funktioner. Den person som registrerar sig för en Azure-prenumeration har tilldelats rollen global administratör för katalogen som standard. Endast globala administratörer kan tilldela andra administratörsroller.
+### <a name="service-administrator"></a>Tjänstadministratör
+| Kan göra | Det går inte att göra |
+| --- | --- |
+| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p> |<p>Återställa användarlösenord</p><p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Visa granskningsloggar</p> |
+
+### <a name="user-account-administrator"></a>Kontoadministratör för användaren
+| Kan göra | Det går inte att göra |
+| --- | --- |
+| <p>Visa information om företagets och användare</p><p>Hantera supportärenden för Office</p><p>Ändra lösenord för användare, supportavdelning administratörer och andra användarkonto administratörer</p><p>Skapa och hantera användarvyer</p><p>Skapa, redigera, ta bort användare och grupper och hantera användarlicenser med begränsningar. Han eller hon kan inte ta bort en global administratör eller skapa andra administratörer.</p> |<p>Utföra fakturerings- och köp åtgärder för Office-produkter</p><p>Hantera domäner</p><p>Hantera information om företaget</p><p>Delegera administrativa roller till andra</p><p>Använda katalogsynkronisering</p><p>Aktivera eller inaktivera multifaktorautentisering</p><p>Visa granskningsloggar</p> |
 
 ### <a name="to-add-a-colleague-as-a-global-administrator"></a>Att lägga till en kollega som global administratör
 
@@ -157,9 +176,6 @@ Den globala administratören har åtkomst till alla administrativa funktioner. D
 4. På bladet användare väljer **Directory rollen**.
  
 5. På bladet directory roll väljer du den **Global administratör** roll, och spara.
-
-## <a name="assign-or-remove-administrator-roles"></a>Tilldela eller ta bort administratörsroller
-Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns [Tilldela administratörsroller i Azure Active Directory preview en användare](active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="deprecated-roles"></a>Föråldrad roller
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 7486e7c6816538fc120fd0b0a8bea0b006fb21f0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -87,11 +87,11 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
    ![Nytt->DataFactory](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
 2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
-     ![Sidan Ny datafabrik](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
-     ![Sidan Ny datafabrik](./media/tutorial-copy-data-portal/name-not-available-error.png)
+     ![Sida för ny datafabrik](./media/tutorial-copy-data-portal/name-not-available-error.png)
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
@@ -109,7 +109,7 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 I det här steget skapar du en pipeline med en kopieringsaktivitet i datafabriken. Kopieringsaktiviteten kopierar data från Azure Blob Storage till en Azure SQL-databas. I [snabbstartssjälvstudien](quickstart-create-data-factory-portal.md) skapade du en pipeline med följande steg:
@@ -415,4 +415,4 @@ Pipeline i det här exemplet kopierar data från en plats till en annan i Azure 
 Fortsätt till följande självstudie och lär dig att kopiera data från en lokal plats till molnet: 
 
 > [!div class="nextstepaction"]
->[Kopiera data från en lokal plats till molnet](tutorial-hybrid-copy-data-tool.md)
+>[Kopiera data från en lokal plats till molnet](tutorial-hybrid-copy-portal.md)

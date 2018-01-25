@@ -8,7 +8,10 @@ Senaste avslöjande av en [ny klass för CPU-säkerhetsrisker](https://portal.ms
 Den infrastruktur som kör Azure och isolerar kundens arbetsbelastningar från varandra är skyddad.  Detta innebär att andra kunder som körs på Azure inte kan angrepp ditt program med hjälp av dessa problem.
 
 > [!NOTE] 
-> Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den senaste [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen av Intel.
+> Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den senaste [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen.
+>
+> Vi kommer att fortsätta att uppdatera tipsen som vi får mikrokod uppdateringar från maskinvarutillverkare. Kontrollera uppdaterade riktlinjer för.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Uppdatera ditt operativsystem kontinuerligt
 
@@ -46,9 +49,6 @@ Om du använder Windows och värd icke betrodd kod, bör du även aktivera en Wi
 ### <a name="linux"></a>Linux
 Om du kör Linux och värd icke betrodd kod kan uppdatera du även Linux till en nyare version som implementerar kernel sidan tabell isolering (KPTI) som särskiljer sidan-tabeller som används av kernel från de som tillhör användaren utrymme. Dessa åtgärder kräver en Linux OS-uppdatering och kan hämtas från leverantören av distributionsplatsen när det är tillgängligt. OS-providern kan berätta om skydd är aktiverade eller inaktiverade som standard.
 
-
-
-Vi kommer att fortsätta att uppdatera tipsen som vi får mikrokod uppdateringar från maskinvarutillverkare. Kontrollera uppdaterade riktlinjer för.
 
 
 ## <a name="next-steps"></a>Nästa steg

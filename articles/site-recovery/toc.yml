@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Hantera
       items:
-        - name: Uppgradera till ett Recovery Services-valv
-          href: upgrade-site-recovery-vaults.md
         - name: Hantera processervrar i Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Hantera konfigurationsservern

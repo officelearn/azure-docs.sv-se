@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 8c566978531ceb9db9aa7c9e2ba3ab83b2dc67cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure-portalen
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 > Azure Files för närvarande stöder Storage Analytics mätvärden, men ännu stöder inte loggning.
 >
-> Storage-konton med en typ av replikering av Zonredundant lagring (ZRS) för närvarande har inte mått eller loggningsfunktioner aktiverad.
+> Storage-konton med en replikeringstyp av zonredundant lagring (ZRS) stöder mått och loggning. De tidigare ZRS-konton som har bytt namn ZRS klassiska, har inte stöd för mått eller loggning. Mer information om ZRS finns [zonen-redundant lagring](storage-redundancy.md#zone-redundant-storage). 
 > 
 > En detaljerad vägledning om använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka problem med Azure Storage finns [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >

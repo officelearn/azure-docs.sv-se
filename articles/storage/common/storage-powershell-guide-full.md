@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Använda Azure PowerShell med Azure Storage
 
@@ -133,7 +133,7 @@ Om du vill ändra inställningarna för ett lagringskonto [Set-AzureRmStorageAcc
 
 * Den **taggar** tilldelats storage-konto. Taggar används ofta för att kategorisera resurser för fakturering.
 
-* Den **SKU** är replikeringsinställningen för lagringskontot, till exempel LRS för lokalt Redundant lagring. Du kan till exempel ändra från standarden\_LRS till Standard\_GRS- eller Standard\_RAGRS. Observera att du inte kan ändra Standard ZRS- eller Premium LRS till andra SKU: er eller ändra andra SKU: er till dessa. 
+* Den **SKU** är replikeringsinställningen för lagringskontot, till exempel LRS för lokalt Redundant lagring. Du kan till exempel ändra från standarden\_LRS till Standard\_GRS- eller Standard\_RAGRS. Observera att du inte kan ändra Standard\_ZRS- eller Premium\_LRS till andra SKU: er, eller ändra andra SKU: er till dessa.
 
 * Den **åtkomstnivå** för Blob storage-konton. Värdet för åtkomstnivå är inställt **varm** eller **kall**, och du kan minska dina kostnader genom att välja den åtkomstnivå som överensstämmer med hur du använder lagringskontot. Mer information finns i [Hot, svalna, och arkivera lagringsnivåer](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,9 +185,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Som standard är alla lagringskonton tillgängliga för några nätverk som har åtkomst till internet. Du kan dock konfigurera Nätverksregler så att bara program från specifika virtuella nätverk att få åtkomst till ett lagringskonto. Mer information finns i [konfigurera brandväggar för Azure-lagring och virtuella nätverk](storage-network-security.md). 
 
 Artikeln visar hur du hanterar dessa inställningar med hjälp av följande PowerShell-cmdlets:
-* [Lägg till AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Uppdatera AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Ta bort AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Använd storage analytics  
 
@@ -223,13 +223,13 @@ Azure Cosmos DB tabell API innehåller premium-funktioner för tabellagring, til
 * Mer information finns i [Azure Cosmos DB tabell API](../../cosmos-db/table-introduction.md). 
 * Information om hur du använder PowerShell för att utföra åtgärder på Azure Cosmos DB tabell API finns [utföra Azure Cosmos DB tabell-API: et med PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Azures oberoende distribueras moln
+## <a name="independent-cloud-deployments-of-azure"></a>Oberoende molndistributioner av Azure
 
 De flesta använder offentliga Azure-molnet för sina globala Azure-distribution. Det finns även vissa oberoende distributioner av Microsoft Azure på grund av suveränitet och så vidare. Dessa oberoende distributioner kallas ”miljöer”. Dessa är de tillgängliga miljöerna:
 
 * [Azure Government-moln](https://azure.microsoft.com/features/gov/)
 * [Kina Azuremolnet drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
-* [Tyska Azuremolnet](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 Mer information om hur du kommer åt dessa moln och deras lagringsutrymmen med PowerShell finns [hantera lagring i Azure oberoende moln med hjälp av PowerShell](storage-powershell-independent-clouds.md).
 

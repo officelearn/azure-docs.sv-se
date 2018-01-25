@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -89,7 +89,7 @@ Du kan ange följande nästa hopptyper när du skapar en användardefinierad vä
     > [!NOTE]
     > Distribuera en virtuell installation till ett annat undernät än det resurserna som dirigeras genom den virtuella installationen har distribuerats i. Om du distribuerar den virtuella installationen till samma undernät och sedan applicerar en routningstabell till undernätet som dirigerar trafik via den virtuella installationen kan det leda till vägloopar, så att trafiken aldrig lämnar undernätet.
 
-    - Den privata IP-adressen till en [intern belastningsutjämnare](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure. En belastningsutjämnare används ofta som en del av en [strategi med hög tillgänglighet för virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - Den privata IP-adressen till en [intern belastningsutjämnare](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure. En belastningsutjämnare används ofta som en del av en [strategi med hög tillgänglighet för virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Du kan definiera en väg med 0.0.0.0/0 som adressprefix och en nästa hopptyp som virtuell installation. Det gör att enheten kan inspektera trafiken och avgöra om den ska vidarebefordras eller tas bort. Om du vill skapa en användardefinierad väg som innehåller adressprefixet 0.0.0.0/0 läser du först [adressprefixet 0.0.0.0/0](#default-route).
 

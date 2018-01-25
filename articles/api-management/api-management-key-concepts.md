@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 08490af077ad92dfa8e4ec248a1416980ac400f3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="what-is-api-management"></a>Vad är API Management?
 
@@ -33,6 +33,7 @@ Följande videoklipp innehåller en översikt över Azure API Management och dem
 Det här avsnittet innehåller en översikt över vanliga scenarier som innefattar APIM.  Det ger också en kort översikt över APIM-systemets huvudkomponenter. Avsnittet ger sedan en detaljerad översikt över varje komponent.
 
 ## <a name="overview"></a>Översikt
+
 
 Administratörer skapar API:er för att använda API Management. Varje API består av en eller flera åtgärder och varje API kan läggas till i en eller flera produkter. För att kunna använda ett API prenumererar utvecklare på en produkt som innehåller API:et och kan sedan anropa API:ets åtgärder, baserat på eventuella användningsprinciper. Här följer exempel på några vanliga scenarier:
 
@@ -92,7 +93,7 @@ Grupper används för att hantera hur produkterna visas för utvecklare. API Man
 * **Utvecklare** – Autentiserade användare av utvecklarportalen hör till den här gruppen. Utvecklare är de kunder som utvecklar program med hjälp av dina API:er. Utvecklare beviljas åtkomst till utvecklarportalen och bygger program som anropar åtgärderna i ett API.
 * **Gäster** – Oautentiserade användare av utvecklarportalen. Potentiella kunder som besöker utvecklarportalen för en API Management-instans hör t.ex. till den här gruppen. De kan beviljas viss skrivskyddad åtkomst, t.ex. möjligheten att visa API:er men inte anropa dem.
 
-Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [använda externa grupper i tillhörande Azure Active Directory-klienter](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Anpassade och externa grupper kan användas tillsammans med systemgrupper för att välja vilka utvecklare som kan se och komma åt API-produkter. Du kan till exempel skapa en anpassad grupp för utvecklare som hör till en specifik partnerorganisation och ge dem åtkomst till API:erna från en produkt som endast innehåller relevanta API:er. En användare kan tillhöra mer än en grupp.
+Utöver dessa systemgrupper kan administratörer skapa anpassade grupper eller [använda externa grupper i tillhörande Azure Active Directory-klienter](api-management-howto-aad.md). Anpassade och externa grupper kan användas tillsammans med systemgrupper för att välja vilka utvecklare som kan se och komma åt API-produkter. Du kan till exempel skapa en anpassad grupp för utvecklare som hör till en specifik partnerorganisation och ge dem åtkomst till API:erna från en produkt som endast innehåller relevanta API:er. En användare kan tillhöra mer än en grupp.
 
 Mer information finns i [Skapa och använda grupper][How to create and use groups].
 

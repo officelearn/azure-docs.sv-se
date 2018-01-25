@@ -51,9 +51,23 @@ Nej. Du kan bara använda den inbyggda VPN-klienten i Windows för SSTP, och den
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Har Azure stöd för IKEv2 VPN-anslutningar i Windows?
 
-Användare kan ansluta till Azure med hjälp av inbyggda VPN-klienten i Windows, som har stöd för IKEv2. IKEv2-anslutningar från Windows-enheter fungerar däremot inte i följande scenario:
+IKEv2 stöds på Windows 10 och Server 2016. För att kunna använda IKEv2, måste du dock installera uppdateringar och ange ett registernyckelvärde lokalt. OS-versioner före Windows 10 stöds inte och kan bara använda SSTP.
 
-  När användarens enhet innehåller ett stort antal betrodda rotcertifikat blir meddelandets nyttolast under IKE-utbytet stor vilket orsakar IP-lagerfragmentering. Fragmenten avvisas hos Azure, vilket resulterar i att anslutningen kopplas ned. Det är svårt att uppskatta exakt vid vilket antal certifikat som det här problemet uppstår. Därför garanteras inte att IKEv2-anslutningar från Windows-enheter fungerar. När du konfigurerar både SSTP och IKEv2 i en blandad miljö (som består av Windows- och Mac-enheter) försöker Windows VPN-profilen alltid med en IKEv2-tunnel först. Om den slutar fungera på grund av problemet som beskrivs här används SSTP istället.
+Förbereda Windows 10 eller Server 2016 för IKEv2:
+
+1. Installera uppdateringen.
+
+  | OS-version | Date | Antal/länk |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 Version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 Version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. Ange registernyckelvärdet. Skapa eller ange ”HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD nyckel i registret till 1.
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>Vad händer när jag konfigurera både SSTP och IKEv2 för P2S VPN-anslutningar?
+
+När du konfigurerar både SSTP och IKEv2 i en blandad miljö (som består av Windows och Mac-enheter), Windows VPN-klienten försöker alltid IKEv2 tunnel först, men kommer att gå SSTP om IKEv2-anslutningen inte lyckas. MacOSX bara ansluter via IKEv2.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>För vilka andra plattformar förutom Windows och Mac har Azure stöd för P2S VPN?
 

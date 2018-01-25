@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med antal samverkande SAML SSO av Microsoft
 
@@ -31,6 +31,10 @@ Integrera växer samman SAML SSO av Microsoft med Azure AD ger dig följande fö
 - Du kan hantera dina konton i en central plats - Azure-portalen
 
 Om du vill veta mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Beskrivning:
+
+Använda Microsoft Azure Active Directory-konto med Atlassian växer samman server för att aktivera enkel inloggning. Det här sättet alla organisationens användare kan använda Azure AD-autentiseringsuppgifterna för att logga in på programmet växer samman. Det här plugin-programmet använder SAML 2.0 för federation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -94,8 +98,6 @@ Du måste lägga till växer samman SAML SSO av Microsoft från galleriet i list
 I det här avsnittet kan du konfigurera och testa Azure AD enkel inloggning med antal samverkande SAML SSO av Microsoft baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste du känna till motsvarande användaren i antal samverkande SAML SSO av Microsoft till en användare i Azure AD för enkel inloggning ska fungera. Med andra ord måste en länk mellan en Azure AD-användare och relaterade användaren växer samman SAML SSO av Microsoft upprättas.
-
-Antal samverkande SAML SSO av Microsoft, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** etablera länken relationen.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med antal samverkande SAML SSO av Microsoft, måste du utföra följande byggblock:
 
@@ -163,7 +165,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Hämta plugin-programmet från [Microsoft Download Center](). Ladda upp plugin-programmet som tillhandahålls av Microsoft genom att använda manuellt **ladda upp tilläggsprogrammet** menyn
+8. Hämta plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Ladda upp plugin-programmet som tillhandahålls av Microsoft genom att använda manuellt **ladda upp tilläggsprogrammet** menyn
     
     ![Konfigurera enkel inloggning](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

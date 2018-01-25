@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 857bbd42fda4abddd9a7551f4de016cecae03868
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Stöd matrix för VMware och fysiska servrar replikering till Azure
 
@@ -43,22 +43,28 @@ I följande tabell sammanfattas replication stöd för datorer. Site Recovery ha
 --- | ---
 Konfigurationen av datorn | Datorer som replikeras till Azure måste uppfylla [krav för Azure](#failed-over-azure-vm-requirements).
 Datorn operativsystem (Windows) | 64-bitars Windows Server 2016 (Server Core, Server med Skrivbordsmiljö)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 med på minst SP1
-Operativsystemets (Linux) | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.3 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.3 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
-Linux kernel-version | Red Hat Enterprise Linux Server 7 + och CentOS 7 + servrar stöds kernel version 3.10.0-514 på version 9.8 av Azure Site Recovery mobilitetstjänsten från.<br/><br/> Kunder med en version av mobilitetstjänsten som är lägre än versionen 9,8 3.10.0-514 kernel krävs för att inaktivera replikering, uppdatera versionen av mobilitetstjänsten till version 9.8 och sedan aktivera replikering igen.
+Operativsystemets (Linux) | Red Hat Enterprise Linux: 5.2 till 5.11, 6.1 6,9, 7.0 7.4 <br/><br/>CentOS: 5.2 till 5.11, 6.1 6,9, 7.0 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS server[ (kernel-versioner som stöds)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 Red Hat kompatibel kernel eller Unbreakable Enterprise Kernel version 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Uppgradering av replikera datorer från SLES 11 SP3 till SLES 11 SP4 stöds inte. Om en replikerad dator har uppgraderats från SLES 11SP3 till SLES 11 SP4, måste du du inaktivera replikering och skydda datorn igen efter uppgraderingen.)
 
+>[!NOTE]
+>
+> - På Linux-distributioner stöds bara lager kernlar som är en del av delversion versionen/uppdatering av distributionen.
+>
+> - Uppgraderingar i större versioner av Linux-distribution på en Azure Site Recovery skyddad virtuell VMware-dator eller fysisk server stöds inte. Inaktivera replikering för datorn vid uppgradering av operativsystemet över viktiga versioner (till exempel CentOS 6.* till CentOS 7.*), uppgradera operativsystemet på datorn och sedan aktivera replikering igen.
+>
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel versions
 
 
 **Versionen som stöds** | **Mobilitetstjänstversionen** | **Kernel-version** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic till 3.13.0-117-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic till 3.13.0-121-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic till 3.13.0-128-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic till 3.13.0-132-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic till 3.13.0-137-generic,<br/>3.16.0-25-Generic till 3.16.0-77-generic,<br/>3.19.0-18-Generic till 3.19.0-80-generic,<br/>4.2.0-18-Generic till 4.2.0-42-generic,<br/>4.4.0-21-Generic till 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic till 4.4.0-81-generic,<br/>4.8.0-34-Generic till 4.8.0-56-generic,<br/>4.10.0-14-Generic till 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic till 4.4.0-91-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic till 4.4.0-96-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic till 4.4.0-104-generic,<br/>4.8.0-34-Generic till 4.8.0-58-generic,<br/>4.10.0-14-Generic till 4.10.0-42-generic |
 
 ## <a name="linux-file-systemsguest-storage-configurations"></a>Linux-filen System/gäst lagringskonfigurationer
 
@@ -70,7 +76,7 @@ Programvara för flera sökvägar | Enheten Mapper
 Paravirtualized lagringsenheter | Enheter som exporteras av paravirtualized drivrutiner som inte stöds.
 Flera kön blockera-i/o-enheter | Stöds ej.
 Fysiska servrar med lagringsstyrenheten HP CCISS | Stöds ej.
-Kataloger | Dessa kataloger (om konfigurerad som separata partitioner /-filsystem) måste vara på samma OS-disk på källservern: / (rot)-/ Boot/usr, /usr/local, /var, / etc
+Kataloger | Dessa kataloger (om konfigurerad som separata partitioner /-filsystem) måste vara på samma OS-disk på källservern: / (rot)-/ Boot/usr, /usr/local, /var, / etc </br></br>  Om / (rot) volymen är LVM volym och sedan/Boot måste finnas på en separat partition på samma disk och inte en LVM volym.<br/><br/>
 XFSv5 | XFSv5 funktioner på XFS filsystem, till exempel kontrollsumma metadata stöds från version 9.10 mobilitetstjänsten och senare. Använda verktyget xfs_info för att kontrollera XFS superblock för partitionen. Om ftype har angetts till 1, är funktioner för XFSv5 används.
 
 
@@ -115,7 +121,7 @@ Värden NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
 SAN-nätverk (ISCSI) värd | Ja
 Värden Multipath (MPIO) | Ja - testats med: Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM för CLARiiON
 Gästen/server VMDK | Ja 
-Gästen/server EFI/UEFI| Nej
+Gästen/server EFI/UEFI| Partiell (migrering till Azure för Windows Server 2012 och senare). </br></br> ** Se anmärkning i slutet av tabellen.
 Delad klusterdisk för gäst-server | Nej 
 Krypterade disk i gäst-server | Nej 
 Gästen/server NFS | Nej 
@@ -124,7 +130,14 @@ Gästen/server RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gästen/server disk > 1 TB | Ja<br/><br/>Upp till 4095 GB 
 Gästen/server disk med 4K logisk och 4 k fysisk sektorstorlek | Ja
 Gästen/server-disk med 4K logisk och fysisk sektorstorlek för 512 byte | Ja 
-Gästen/server-volym med stripe disk > 1 TB<br/><br/> Hantering av LVM logiska volymer gäst/server - lagringsutrymmen | Ingen disk har varm Lägg till/ta bort gäst-server | Ingen gäst/server - utesluta disk | Ja Multipath för gäst-server (MPIO) | EJ TILLÄMPLIGT 
+Gästen/server-volym med stripe disk > 1 TB<br/><br/> Hantering av LVM logiska volymer gäst/server - lagringsutrymmen | Ingen disk har varm Lägg till/ta bort gäst-server | Ingen gäst/server - utesluta disk | Ja Multipath för gäst-server (MPIO) | EJ TILLÄMPLIGT
+
+> [!NOTE]
+> ** UEFI Start virtuella VMware-datorer eller fysiska servrar som kör Windows Server 2012 eller senare, kan migreras till Azure. Följande begränsningar gäller.
+> - Endast migrering till Azure stöds. Återställning till det lokala VMware-platsen stöds inte.
+> - Servern bör inte ha fler än 4 partitioner på OS-disk.
+> - Kräver Azure Site Recovery mobilitetstjänstversionen 9.13 eller senare.
+
 
 ## <a name="azure-storage"></a>Azure-lagring
 

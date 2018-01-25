@@ -1,5 +1,5 @@
 ---
-title: Hur cachelagring fungerar i Azure Content Delivery Network | Microsoft Docs
+title: Hur cachelagring fungerar | Microsoft Docs
 description: "Cachelagring är en process för att lagra data lokalt så att framtida begäranden om att data kan nås snabbare."
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
-Den här artikeln innehåller en översikt över allmänna cachelagring begrepp och hur Azure Content Delivery Network (CDN) använder cachelagring för att förbättra prestanda. Om du vill ha mer information om hur du anpassar cachelagringsbeteendet på CDN-slutpunkten finns [kontroll Azure CDN cachelagring av frågesträngar med cachelagring regler](cdn-caching-rules.md) och [kontroll Azure CDN cachelagring av frågesträngar med frågesträngar](cdn-query-string.md).
+Den här artikeln innehåller en översikt över allmänna cachelagring begrepp och hur [Azure Content Delivery Network (CDN)](cdn-overview.md) använder cachelagring för att förbättra prestanda. Om du vill ha mer information om hur du anpassar cachelagringsbeteendet på CDN-slutpunkten finns [kontroll Azure CDN cachelagring av frågesträngar med cachelagring regler](cdn-caching-rules.md) och [kontroll Azure CDN cachelagring av frågesträngar med frågesträngar](cdn-query-string.md).
 
 ## <a name="introduction-to-caching"></a>Introduktion till cachelagring
 
@@ -57,35 +57,39 @@ Cachelagring är integrerad sätt en CDN fungerar för att påskynda överförin
 
 - Genom att avlasta arbetet till en CDN kan cachelagring minska nätverkstrafiken och belastningen på den ursprungliga servern. Detta minskar kostnader och kraven för programmet, även om det finns många användare.
 
-Liknar en webbläsare, du kan styra hur CDN cachelagring utförs genom att skicka cache-direktiv huvuden. Cache-direktiv huvuden är HTTP-rubriker, vilket vanligtvis för att lägga till den ursprungliga servern. Även om de flesta av dessa huvuden ursprungligen var avsedda att adressera cachelagring i klientwebbläsare, används de nu också av alla mellanliggande cacheminnen, till exempel CDN-nät. Två huvuden kan användas för att definiera cache dokumentens: `Cache-Control` och `Expires`. `Cache-Control`är mer aktuell och företräde framför `Expires`om båda finns. Det finns två typer av huvuden som används för verifiering (kallas verifierare): `ETag` och `Last-Modified`. `ETag`är mer aktuell och företräde framför `Last-Modified`om båda anges.  
+Liknar hur cachelagring implementeras i en webbläsare, du kan styra hur cachelagring utförs i en CDN genom att skicka cache-direktiv huvuden. Cache-direktiv huvuden är HTTP-rubriker, vilket vanligtvis för att lägga till den ursprungliga servern. Även om de flesta av dessa huvuden ursprungligen var avsedda att adressera cachelagring i klientwebbläsare, används de nu också av alla mellanliggande cacheminnen, till exempel CDN-nät. 
+
+Två huvuden kan användas för att definiera cache dokumentens: `Cache-Control` och `Expires`. `Cache-Control`är mer aktuell och företräde framför `Expires`om båda finns. Det finns två typer av huvuden som används för verifiering (kallas verifierare): `ETag` och `Last-Modified`. `ETag`är mer aktuell och företräde framför `Last-Modified`om båda anges.  
 
 ## <a name="cache-directive-headers"></a>Cache-direktiv rubriker
 
+> [!IMPORTANT]
+> Som standard en Azure CDN-slutpunkt som är optimerad för DSA ignorerar cache-direktiv sidhuvuden och kringgår cachelagring. Du kan ändra hur en Azure CDN-slutpunkt behandlar dessa huvuden med CDN cachelagring regler för att aktivera cachelagring. Mer information finns i [kontroll Azure CDN cachelagring av frågesträngar med cachelagring regler](cdn-caching-rules.md).
+
 Azure CDN stöder följande HTTP-cache-direktiv huvuden, som definierar cachelagringens varaktighet och delning av cache: 
 
-`Cache-Control`  
+`Cache-Control`
 - Lanserades i HTTP 1.1 att ge web utgivare mer kontroll över deras innehåll och att adressera begränsningar i `Expires` huvud.
 - Åsidosätter den `Expires` huvudet om både den och `Cache-Control` definieras.
-- När de används i ett huvud: ignoreras av Azure CDN som standard.
-- När de används i en svarshuvud: Azure CDN godkänner följande `Cache-Control` direktiven när den använder Internet leverans, nedladdning av stora filer och allmänna/video-på-demand direktuppspelning optimeringar:  
-   - `max-age`: En cache kan lagra innehållet för antalet sekunder som har angetts. Till exempel `Cache-Control: max-age=5`. Detta direktiv anger den maximala tidsperiod som innehållet ska anses vara ny.
-   - `private`: Innehållet är för en enskild användare. lagra inte innehållet som delade cacheminnen, till exempel CDN.
-   - `no-cache`: Cachelagrar innehållet, men måste verifiera innehållet varje gång innan levereras från cacheminnet. Motsvarar `Cache-Control: max-age=0`.
-   - `no-store`: Cachelagra aldrig innehållet. Ta bort innehåll om det tidigare sparade.
+- När de används i en begärandehuvudet `Cache-Control` ignoreras av Azure CDN som standard.
+- När de används i en svarshuvud Azure CDN har stöd för följande `Cache-Control` direktiven enligt produkten: 
+   - **Azure CDN från Verizon**: har stöd för alla `Cache-Control` direktiven. 
+   - **Azure CDN från Akamai**: stöder endast följande `Cache-Control` direktiven; alla övriga filer ignoreras: 
+      - `max-age`: En cache kan lagra innehållet för antalet sekunder som har angetts. Till exempel `Cache-Control: max-age=5`. Detta direktiv anger den maximala tidsperiod som innehållet ska anses vara ny.
+      - `no-cache`: Cachelagrar innehållet, men Validera innehållet varje gång innan levereras från cacheminnet. Motsvarar `Cache-Control: max-age=0`.
+      - `no-store`: Cachelagra aldrig innehållet. Ta bort innehåll om det tidigare sparade.
 
-`Expires` 
+`Expires`
 - Äldre huvud som introducerades i HTTP 1.0; stöds för bakåtkompatibilitet.
 - Använder ett datumbaserat förfallotid med andra precision. 
 - Liknar `Cache-Control: max-age`.
 - Används när `Cache-Control` finns inte.
 
-`Pragma` 
-   - Som standard inte lösts in av Azure CDN.
+`Pragma`
+   - Hanteras inte av Azure CDN som standard.
    - Äldre huvud som introducerades i HTTP 1.0; stöds för bakåtkompatibilitet.
    - Används som ett huvud för begäran av klienten med följande direktiv: `no-cache`. Detta direktiv instruerar servern att skicka en ny version av resursen.
    - `Pragma: no-cache`motsvarar `Cache-Control: no-cache`.
-
-Som standard Ignorera DSA optimeringar dessa huvuden. Du kan ändra hur Azure CDN behandlar dessa huvuden med CDN cachelagring regler. Mer information finns i [kontroll Azure CDN cachelagring av frågesträngar med cachelagring regler](cdn-caching-rules.md).
 
 ## <a name="validators"></a>Systemhälsoverifierare
 
@@ -110,14 +114,14 @@ Inte alla resurser som kan cachelagras. I följande tabell visas vilka resurser 
 |                   | Azure CDN från Verizon | Azure CDN från Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Statuskoder för HTTP | 200                    | 200, 203, 300, 301, 302 och 401 |
-| HTTP-metod       | HÄMTA                    | HÄMTA                              |
-| Filstorlek         | 300 GB                 | <ul><li>Allmän web leveransoptimering: 1,8 GB</li> <li>Direktuppspelning optimeringar: 1,8 GB</li> <li>Optimering av stora filer: 150 GB</li> |
+| HTTP-metod       | GET                    | GET                              |
+| Filstorlek         | 300 GB                 | -Allmänt web leveransoptimering: 1,8 GB<br />-Direktuppspelning optimeringar: 1,8 GB<br />-Stora filer optimering: 150 GB |
 
-## <a name="default-caching-behavior"></a>Standard funktionssätt för cachelagring
+## <a name="default-caching-behavior"></a>Beteende för standardcachelagring
 
 I följande tabell beskrivs standard cachelagring av frågesträngar för Azure CDN-produkter och deras optimeringar.
 
-|                    | Verizon - webbprogrammets allmänna leverans | Verizon – dynamiska acceleration | Akamai - webbprogrammets allmänna leverans | Akamai - dynamiska acceleration | Akamai - stora Filhämtning | Akamai - Allmänt eller video-on-demand-direktuppspelning |
+|                    | Verizon - general web delivery | Verizon – DSA | Akamai - general web delivery | Akamai - DSA | Akamai - stora Filhämtning | Akamai - Allmänt eller VOD-direktuppspelning |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Respektera ursprung**   | Ja    | Nej   | Ja | Nej | Ja | Ja |
 | **CDN cachelagringens varaktighet** | 7 dagar | Ingen | 7 dagar | Ingen | 1 dag | 1 år |

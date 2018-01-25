@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -38,7 +38,7 @@ Dessa behörigheter ingår inte i den rollen **Deltagare**.
 
 Varje principdefinition har villkor för när den ska tillämpas. Och en tillhörande åtgärd som utförs om villkoren är uppfyllda.
 
-Vi erbjuder några inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
+Vi erbjuder några inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Till exempel:
 
 - **Kräv SQL Server 12.0**: Den här principdefinitionen har villkor/regler för att kontrollera att alla SQL-servrar använder version 12.0. Åtgärden är att neka alla servrar som inte uppfyller dessa villkor.
 - **Tillåtna SKU:er för lagringskonton**: Den här principdefinitionen har en uppsättning villkor/regler som avgör om ett lagringskonto som distribueras finns inom en uppsättning SKU-storlekar. Åtgärden är att neka alla servrar som inte följer uppsättningen med definierade SKU-storlekar.

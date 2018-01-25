@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Uppdatera enheten StorSimple 8000-serien
 > [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Översikt
 StorSimple uppdateringar funktionerna kan du enkelt kan behålla din StorSimple-enhet uppdaterade. Beroende på uppdateringstyp av kan tillämpa du uppdateringar på enheten via den klassiska Azure-portalen eller via Windows PowerShell-gränssnittet. Den här självstudiekursen beskriver uppdateringstyperna och hur du installerar dem.
@@ -116,7 +116,7 @@ Följande procedurer beskriver hur du använder Windows PowerShell för StorSimp
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>Vad händer med uppdateringar om du utför en fabriksåterställning på enheten?
-Om en enhet återställs till fabriksinställningarna, förloras alla uppdateringar. När fabriksåterställning enheten är registrerad och konfigurerad, måste du manuellt installera uppdateringar via den klassiska Azure-portalen och/eller Windows PowerShell för StorSimple. Läs mer om fabriksåterställning [återställa enheten till fabriksinställningarna](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Om en enhet återställs till fabriksinställningarna, förloras alla uppdateringar. När fabriksåterställning enheten är registrerad och konfigurerad, måste du manuellt installera uppdateringar via den klassiska Azure-portalen och/eller Windows PowerShell för StorSimple. Läs mer om fabriksåterställning [återställa enheten till fabriksinställningarna](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [med Windows PowerShell för StorSimple för att administrera din StorSimple-enhet](storsimple-windows-powershell-administration.md).

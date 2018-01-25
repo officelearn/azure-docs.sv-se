@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c5e6381e7abb18c01031e4168c64cfe9aafec7ae
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planera Azure-domänanslutna Hadoop-kluster i HDInsight
 
@@ -47,16 +47,13 @@ Följande skärmbild visar en Organisationsenhet som skapats i contoso.com. Någ
 
 ![Domän ansluten HDInsight-kluster ou](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Tre sätt för att göra egna Active Directory-domänkontrollanter
+### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Två sätt för att göra egna Active Directory-domänkontrollanter
 
-Det finns tre sätt som du kan ta Active Directory-domänkontrollanter för att skapa domänanslutna HDInsight-kluster. 
+Det finns två sätt som du kan ta Active Directory-domänkontrollanter för att skapa domänanslutna HDInsight-kluster. 
 
 - **Azure Active Directory Domain Services**: den här tjänsten tillhandahåller en hanterad Active Directory-domän, som är helt kompatibel med Windows Server Active Directory. Microsoft hand tar om hantering, uppdatering och övervakning av AD-domänen. Du kan distribuera klustret utan att bekymra dig om att hantera domänkontrollanter. Användare, grupper och lösenord synkroniseras från din Azure Active Directory, så att användarna kan logga in till klustret med sina företagsuppgifter. Mer information finns i [konfigurera domänanslutna HDInsight-kluster med Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 - **Active Directory på Azure IaaS-VM**: I det här alternativet kan du distribuera och hantera din egen Windows Server Active Directory-domän på Azure IaaS-VM. Mer information finns i [konfigurera domänanslutna sandbox domänmiljö](./apache-domain-joined-configure.md).
-
-- **Lokala Active Directory**: I det här alternativet kan du integrera HDInsight med din lokala Active Directory-domänkontrollant.
-
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du vill konfigurera ett domänanslutet HDInsight-kluster kan du läsa [Konfigurera domänanslutna HDInsight-kluster](apache-domain-joined-configure.md).

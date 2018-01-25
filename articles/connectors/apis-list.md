@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lista över anslutningsappar
 Du hittar utlösare och åtgärder som definierats av Swagger-beskrivningen för varje anslutningsapp, plus eventuella begränsningar i [Information om anslutningsapp](/connectors/).
@@ -93,7 +93,7 @@ Anslut dina företagsprogram med dina logikappar.
 |[![API-ikon][MQicon]<br/>**MQ**][mqdoc]|[![API-ikon][SAPicon]<br/>**SAP**][sapconnector]|
 
 > [!TIP]
-> För att komma igång med Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart. Inget kreditkort krävs, och du gör inga åtaganden.
+> För att komma igång med Azure Logic Apps innan du registrerar dig för ett Azure-konto går du till [Prova Logic Apps](https://tryappservice.azure.com/?appservice=logic). Du kan skapa en kortvarig startlogikapp omedelbart. Inga kreditkort krävs. Inga åtaganden.
 
 ## <a name="connectors-as-triggers-and-actions"></a>Anslutningsappar som utlösare och åtgärder
 
@@ -143,7 +143,7 @@ På [webbplatsen för Logic Apps-användarfeedback](http://aka.ms/logicapps-wish
 Saknar vi ett avsnitt om anslutningsprogram eller någon annan viktig information? Om Ja, hjälpa oss genom att bidra till våra befintliga avsnitt eller skriv ett nytt. Vår dokumentation är öppen källkod och finns på GitHub. Kom igång på vår [GitHub-lagringsplats](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa din första logiska app](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Skapa din första logiska app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
 * [Övervaka dina logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

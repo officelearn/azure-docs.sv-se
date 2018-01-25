@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure logganalys data till Power BI
 
@@ -86,12 +86,12 @@ När du konfigurerar Power BI med en [äldre logganalys-arbetsytan](log-analytic
 ![Logganalys till Powerbi](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Power BI-scheman
-En *Power BI schema* innehåller en logg sökning som exporterar en uppsättning data från OMS-databasen till en motsvarande dataset i Power BI och ett schema som definierar hur ofta den här sökningen körs om du vill behålla det aktuella datamängden.
+En *Power BI schema* innehåller en logg sökning som exporterar en uppsättning data från logganalys till en motsvarande dataset i Power BI och ett schema som definierar hur ofta den här sökningen körs om du vill behålla det aktuella datamängden.
 
 Fält i datamängden matchar egenskaperna för de poster som returneras av loggen sökningen.  Om sökningen innehåller olika typer av sedan tas datamängden alla egenskaper från var och en av typerna av inkluderade poster.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Ansluter OMS-arbetsytan till Power BI
-Innan du kan exportera från logganalys till Power BI måste du ansluta din OMS-arbetsyta till ditt Power BI-konto med följande procedur.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Logganalys-arbetsytan ansluter till Power BI
+Innan du kan exportera från logganalys till Power BI måste du ansluta din arbetsyta till ditt Power BI-konto med följande procedur.  
 
 1. I OMS-konsolen klickar du på den **inställningar** panelen.
 2. Välj **konton**.

@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda Windows-klienten i Azure för utveckling och testning scenarier
-Du kan använda Windows 7, Windows 8 eller Windows 10 i Azure för utveckling och testning scenarier som du har en lämplig Visual Studio (tidigare MSDN)-prenumeration. Den här artikeln beskrivs behörighetskraven för Windows-klienter som körs i Azure och användning av Azure-galleriet bilder.
+Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utveckling och testning scenarier som du har en lämplig Visual Studio (tidigare MSDN)-prenumeration. Den här artikeln beskrivs behörighetskraven för att köra Windows 7, Windows 8.1, Windows 10 Enterprise i Azure och användning av följande avbildningar i Azure-galleriet.
+
+![Avbildningsinformation från Azure-portalen](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Windows 10 Pro och Windows 10 Pro N avbildning i Azure-galleriet, referera till [hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter](windows-desktop-multitenant-hosting-deployment.md)
+>![Pro avbildningsinformation från Azure-portalen](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>Prenumerationen är behörig
 Aktiva Visual Studio-prenumeranter (personer har skaffat en licens för Visual Studio-prenumeration) kan använda Windows-klient för utveckling och testning. Windows-klient kan användas på maskinvara och Azure virtuella datorer som körs i en typ av Azure-prenumeration. Windows-klienten kan inte distribueras till eller används i Azure för normal produktion eller användas av personer som inte är aktiva Visual Studio-prenumeranter.

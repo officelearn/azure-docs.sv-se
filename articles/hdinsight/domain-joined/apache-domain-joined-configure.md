@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Konfigurera domänanslutna HDInsight begränsat läge
 
@@ -29,7 +29,6 @@ Utan domänanslutna HDInsight-kluster, kan varje kluster bara ha ett konto för 
 
 -   En fristående Active Directory körs på Azure IaaS.
 -   Azure Active Directory.
--   Active Directory som körs på kundens lokala miljö.
 
 Använder en fristående Active Directory ingår körs på Azure IaaS i den här artikeln. Det är den enklaste arkitektur som en kund kan följa för att få stöd för flera användare på HDInsight. Den här artikeln beskrivs två sätt för den här konfigurationen:
 
@@ -71,9 +70,10 @@ I det här avsnittet öppna en mall för Azure-resurs management från Azure-por
     - **Admin Username**: Ange användarnamn för administratör i domänen.
     - **Administratörslösenordet**: Ange administratörslösenordet för domänen.
     - **Domännamn**: standardnamnet är *contoso.com*.  Om du ändrar namnet på en domän måste du uppdatera den **säker LDAP-certifikat** fält och **organisatorisk enhet DN** fältet.
+    - **DNS-Prefix**: Ange DNS-prefix för den offentliga IP-adressen som används av belastningsutjämnaren.
     - **Klusternamn**: Ange namn för HDInsight-kluster.
     - **Klustret typen**: det här värdet ändras inte. Om du vill ändra typen av klustret använder du specifika mall i det sista steget.
-
+    - **Säker Ldap certifikatlösenord**: Använd standardvärdet om du inte ändrar fältet säker LDAP-certifikat.
     Vissa värden är hårdkodat i mallen, till exempel instansantalet worker nod är två.  Så här ändrar du hårdkodade värden **redigera mallen**.
 
     ![HDInsight-domänansluten klustret Redigera mall](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

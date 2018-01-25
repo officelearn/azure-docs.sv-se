@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c7aab313e6c848c97447cde22752cfed945442df
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -40,6 +40,126 @@ Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad 
 -   Planer för ändringar
 
 Den här sidan uppdateras varje månad, så kontrollera igen den regelbundet.
+
+
+## <a name="january-2018"></a>Januari 2018
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nya federerade appar tillgängliga i Azure AD App-galleriet 
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapaciteten:** 3 part-integrering
+ 
+
+Följande nya appar med stöd för identitetsfederation lades till i appgalleriet i januari 2018:
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [OneTrust sekretess hanteringsprogramvara](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk federerad Directory](https://go.microsoft.com/fwlink/?linkid=864699) och [återgivning NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+En fullständig översikt över alla tillgängliga kurser finns [SaaS-programintegrering med Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### <a name="sign-in-with-additional-risk-detected"></a>Inloggning med identifierad ytterligare risk
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Identity Protection  
+**Produkten kapaciteten:** identitet säkerhet och skydd
+ 
+
+Den information som du får en identifierad risk händelse är bundet till din Azure AD-prenumeration. Med Azure AD Premium P2-edition får du den mest detaljerade informationen om alla underliggande identifieringar.
+
+Med Azure AD Premium P1-versionen visas identifieringar som inte omfattas av din licens som händelsen risk logga in med ytterligare risk upptäcktes.
+
+Mer information finns i avsnittet om [Azure Active Directory-riskhändelser](active-directory-reporting-risk-events.md).
+ 
+
+---
+
+### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Dölj Office 365-program från slutanvändarens åtkomst paneler
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Mina appar  
+**Produkten kapaciteten:** enkel inloggning
+ 
+
+Du kan nu bättre hantera hur Office 365-program visas på användarnas åtkomst paneler via en ny Användarinställning. Det här alternativet är användbart för att minska mängden appar i en användares åtkomst panelerna om du vill visa bara Office-appar i Office-portalen. Inställningen finns i den **användarinställningar** och etiketteras **användare kan bara visa Office 365-appar i Office 365-portalen**.
+ 
+
+Mer information finns i [dölja ett program från användarens upplevelse i Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Sömlös logga in på appar som har aktiverats för lösenord SSO direkt från appens URL 
+
+**Typ:** ny funktion  
+**Tjänstekategori:** Mina appar  
+**Produkten kapaciteten:** enkel inloggning
+ 
+
+Webbläsartillägget för Mina appar finns nu tillgänglig via ett enkelt verktyg som ger dig den Mina appar enkel inloggning på kapaciteten som en genväg i webbläsaren. När du installerar användarens ikonen waffle i webbläsaren ger som dem snabb åtkomst till appar. Användare kan nu dra nytta av:
+
+- Möjligheten att direkt logga in på lösenord SSO-baserade appar från appens inloggningssidan
+- Starta alla appar som använder funktionen Snabbsökning
+- Genvägar till nyligen använda appar från tillägget
+- Tillägget är tillgängliga för gräns, Chrome och Firefox.
+ 
+Mer information finns i [Mina appar säker inloggning tillägget](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD-administration upplevelse i klassiska Azure-portalen har tagits bort
+
+**Typ:** föråldrad   
+**Tjänstekategori:** Azure AD  
+**Produkten kapaciteten:** Directory
+ 
+
+Från och med 8 januari 2018, Azure AD-administration upplevelse i den klassiska Azure-portalen har tagits bort. Detta ägde rum tillsammans med tillbakadragningen av den klassiska Azure-portalen sig själv. Framöver, bör du använda den [administrationscentret för Azure AD](https://aad.portal.azure.com) för din portal-baserad administration av Azure AD.
+ 
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Azure AD-administration upplevelse i klassiska Azure-portalen har tagits bort
+
+**Typ:** föråldrad  
+**Tjänstekategori:** Azure AD  
+**Produkten kapaciteten:** Directory
+ 
+
+Från och med den 8 januari 2018 har webbportalen PhoneFactor tagits bort. Den här portalen användes för administration av MFA-server, men de här funktionerna har flyttats till Azure portal på portal.azure.com. 
+
+MFA-konfigurationen finns på: **Azure Active Directory \> MFA-Server**
+ 
+---
+ 
+### <a name="deprecate-azure-ad-reports"></a>Föråldrad Azure AD-rapporter
+
+
+**Typ:** föråldrad  
+**Tjänstekategori:** rapportering  
+**Produkten kapaciteten:** Identitetshantering livscykel  
+
+
+Med den allmänna tillgängligheten för den nya Azure Active Directory-administrationskonsolen och nya API: erna finns nu tillgängligt för både aktivitet och säkerhet kan rapporten API: er under ”/ rapporter” slutpunkt har tagits bort från slutet av den 31 December 2017.
+
+
+**Vad är tillgängliga?**
+
+Som en del av övergången till en ny Administratörskonsol, har vi gjort 2 nya API: er tillgängliga för hämtning av Azure AD-aktivitetsloggar. Ny uppsättning API: er ger bättre filtrera och sortera funktioner förutom att tillhandahålla bättre gransknings- och logga in aktiviteter. Data som tidigare var tillgängliga via säkerhetsrapporter kan nu nås via identitetsskydd riskhändelser API i Microsoft Graph.
+
+Mer information finns i:
+
+- [Kom igång med Azure Active Directory reporting API](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## <a name="december-2017"></a>December 2017
@@ -130,25 +250,11 @@ Mer information finns i [vad är Azure AD Privileged Identity Management?](activ
 **Tjänstekategori:** företagsappar  
 **Produkten kapaciteten:** integration från tredje part
  
-Följande nya appar med stöd för identitetsfederation lades till i appgalleriet i December 2017.
+Följande nya appar med stöd för identitetsfederation lades till i appgalleriet i December 2017:
 
-|Namn|Integrering av typen|Beskrivning|
-|:-- |----------------|:----------|
-|EFI digitala StoreFront|SAML 2.0|[Skriv ut Web 2](https://go.microsoft.com/fwlink/?linkid=861685) program.|
-|Vodeclic|SAML 2.0|Använda Azure AD för att hantera användarnas åtkomst och aktivera enkel inloggning med [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Kräver ett befintligt Vodeclic-konto.|
-|Accredible|SAML 2.0|Använd [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) för att skapa, hantera och ge certifikat, Aktivitetsikoner och blockchain autentiseringsuppgifter.|
-|FactSet|SAML 2.0|Enkel inloggning till den [FactSet FDSWeb programmet](https://go.microsoft.com/fwlink/?linkid=863525).|
-|MobileIron Azure AD-integrering|SAML 2.0|Moderna företag kan använda [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) att skydda och hantera information som flyttas till mobila och molnet medan de bevara sekretess och förtroende.|
-|BILD FUNGERAR|SAML 2.0|Använda Azure AD för att hantera användarnas åtkomst, etablera användarkonton och aktivera enkel inloggning med [AVBILDNINGEN fungerar](https://go.microsoft.com/fwlink/?linkid=863517). Kräver en befintlig avbildning fungerar prenumeration.|
-|SAML SSO för Bitbucket resolution GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) delegater autentisering till Azure AD. Användare som redan är inloggad på Azure AD kan komma åt Bitbucket direkt. Användare kan skapas och uppdateras direkt med data från SAML-attribut.|
-|SAML SSO för bambu resolution GmbH|SAML 2.0|[SSO bambu](https://go.microsoft.com/fwlink/?linkid=863520) delegater autentisering till Azure AD. Användare som redan är inloggad på Azure AD kan komma åt bambu direkt.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) är en komplett funktionalitet och modern sociala intranät som har stöd för anställda och företag.|
-|MOBI|SAML 2.0|Använd [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) genom att förstå och styra ekosystemet för hela enheten.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) är en modern plattform för prestandahantering, realtid feedback och målsättning. |
-|CybSafe|OpenID Connect & OAuth|Den här GCHQ-certifierade cyber medvetenhet om plattformen använder avancerade analyser av teknik och data för att minska mänsklig aspekt av risk för cyber säkerhet och data protection.|
-|WebHR|OpenID Connect & OAuth|Sociala personal programvaran är betrodd av fler än 20 000 företag i 197 länder.|
- |Zenegy Azure AD-integrering|OpenID Connect & OAuth|Du kan använda Azure AD-autentiseringsuppgifterna för ditt företag för att logga in på Zenegy med den här appen.|
-|Adobe Experience Manager|SAML 2.0|Du kan använda denna lösning för omfattande innehållshantering plattform för att skapa webbplatser, mobilappar och formulär för att hantera marknadsföring innehåll och tillgångar.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Adobe upplevelse Manager [EFI digitala StoreFront](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [bild fungerar](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron Azure AD-integrering](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO för bambu resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO för Bitbucket resolution GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR Zenegy Azure AD-integrering.
+
+En fullständig översikt över alla tillgängliga kurser finns [SaaS-programintegrering med Azure Active Directory](https://aka.ms/appstutorial).
 
  
 ---

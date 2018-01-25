@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Jämför V1 och V2 av Azure Data Factory
 Den här artikeln jämför V2 med V1 för Azure Data Factory. En introduktion till V1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). En introduktion till V2 finns i [Introduktion till Data Factory (V2 – förhandsgranskning)](introduction.md).
@@ -128,7 +128,16 @@ Mer information finns i [Difference between custom activity in V1 and V2](transf
 SDK:erna som har uppdaterats för V2 är inte bakåtkompatibla med V1-klienter. 
 
 ## <a name="authoring-experience"></a>Redigeringsupplevelse
-Med Data Factory V1 kan du skapa en pipeline med hjälp av Data Factory-redigeraren i Azure Portal. Data Factory V2 stöder för närvarande endast programmeringsmetoder (till exempel .NET SDK, REST-API, PowerShell och Python) för att skapa datafabriker. Det finns inget stöd för användargränssnitt ännu.  Data Factory V1 stöder också SDK-, REST- och PowerShell-redigering.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Azure Portal | [Ja](quickstart-create-data-factory-portal.md) | [Ja](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
+| REST-API | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [Ja](quickstart-create-data-factory-python.md) | Nej |
+| Resource Manager-mall | [Ja](quickstart-create-data-factory-resource-manager-template.md) | [Ja](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Övervakningsupplevelse
 I V2 kan du även övervaka datafabriker genom att använda [Azure Monitor](monitor-using-azure-monitor.md). De nya PowerShell-cmdletarna har stöd för övervakning av [Integration Runtimes](monitor-integration-runtime.md). Både V1 och V2 har stöd för visuell övervakning via ett övervakningsprogram som kan startas från Azure Portal.

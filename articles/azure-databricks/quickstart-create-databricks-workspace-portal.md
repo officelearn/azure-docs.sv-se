@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a90ac77cd605a41f1fc7d0958662a7e752e3849
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -38,10 +38,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 2. Under **Azure Databricks (Preview)** (Azure Databricks (förhandsversion)) klickar du på **Skapa**.
 
-    > [!NOTE]
-    > Azure Databricks finns för närvarande i en begränsad förhandsversion. Om du vill att din Azure-prenumeration ska vitlistas för förhandsversionen måste du fylla i [registreringsformuläret](https://databricks.azurewebsites.net/).
-
-2. Under **Azure Databricks Service** (Azure Databricks-tjänst) skriver du följande värden:
+3. Under **Azure Databricks Service** (Azure Databricks-tjänst) skriver du följande värden:
 
     ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
@@ -50,7 +47,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     * För **Resursgrupp** anger du om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en behållare som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md).
     * För **Plats** väljer du **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
-3. Klicka på **Skapa**.
+4. Klicka på **Skapa**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 

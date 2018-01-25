@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 Series uppdatering 4 viktig information
 > [!NOTE]
-> Den klassiska portalen för StorSimple är föråldrad. Din StorSimple-enhetshanterare flyttas automatiskt till den nya Azure portalen enligt utfasningen schemat. Du får ett e-postmeddelande och portalmeddelandet för flyttningen. Det här dokumentet kommer också att dragits tillbaka snart. Frågor om flyttningen, se [vanliga frågor och svar: flyttar till Azure-portalen](storsimple-8000-move-azure-portal-faq.md).
+> Den klassiska portalen för StorSimple är inaktuell. Dina StorSimple-enhetshanterare flyttas automatiskt till nya Azure Portal enligt utfasningsschemat. Du kommer att få ett e-postmeddelande och ett portalmeddelande om flytten. Det här dokumentet kommer också att dras tillbaka snart. Om du har frågor om flytten kan du läsa [Vanliga frågor och svar: Flytta till Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 
 ## <a name="overview"></a>Översikt
@@ -59,7 +59,7 @@ Följande viktiga förbättringar och felkorrigeringar har gjorts i uppdatering 
 
 * **Uppdatera ändringarna i** – i den här versionen buggar som rör uppdatera fel har åtgärdats.
 
-* **Avisering för diskfel** -en ny avisering som varnar användare för nära förestående diskfel har lagts till i den här versionen. Om du stöter på den här aviseringen ska du kontakta Microsoft Support för att leverera en ersättningsdisken. Mer information finns på [maskinvara meddelanden på din StorSimple-enhet](storsimple-manage-alerts.md#hardware-alerts).
+* **Avisering för diskfel** -en ny avisering som varnar användare för nära förestående diskfel har lagts till i den här versionen. Om du stöter på den här aviseringen ska du kontakta Microsoft Support för att leverera en ersättningsdisken. Mer information finns på [maskinvara meddelanden på din StorSimple-enhet](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Domänkontrollanten ersättning ändringar** -en cmdlet som används att fråga status för processen för att byta domänkontrollant läggs till i den här versionen. Mer information finns i [för att fråga status för ersättning av domänkontrollanten](https://technet.microsoft.com/library/dn688168.aspx).
 

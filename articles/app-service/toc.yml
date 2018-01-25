@@ -1,6 +1,6 @@
 - name: Dokumentation om App Service
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Web Apps
       href: app-service-web-overview.md
@@ -31,6 +31,8 @@
   items:
     - name: 1 – App med DB
       items:
+        - name: .NET Core med SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET med SQL DB
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP med MySQL
@@ -53,7 +55,7 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Så här fungerar App Service
       href: app-service-how-works-readme.md
@@ -173,7 +175,7 @@
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
-    - name: REST API
+    - name: REST-API
       href: /rest/api/appservice/
 - name: Resurser
   items:

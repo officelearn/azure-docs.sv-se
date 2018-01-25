@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 8/20/2017
+ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant värd rättigheter 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbordet åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration) kan Multitenant värd rättigheter för Windows 10 du hämta din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> Den här artikeln lär du implementera licensierings-förmån för Windows 10 Desktop-avbildningar. Du kan referera till följande för [Azure Hybrid använda fördelar för Windows Server-avbildningar](hybrid-use-benefit-licensing.md).
+> Den här artikeln lär du implementera licensierings-förmån för Windows 10 Pro Desktop-avbildningar på Azure Marketplace.
+> - Windows 7, 8.1, 10 Enterprise (x64) bilder på Azure Marketplace för MSDN-prenumeration, referera till [Windows-klient i Azure för utveckling och testning scenarier](client-images.md)
+> - Windows Server-licensiering fördelar, referera till [Azure Hybrid använda fördelar för Windows Server-avbildningar](hybrid-use-benefit-licensing.md).
 >
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Distribuera Windows 10-avbildning från Azure Marketplace 
@@ -32,8 +34,10 @@ Windows 10-avbildning hittar du med följande publishername, erbjudande, sku fö
 
 | Operativsystem  |      PublisherName      |  Erbjudande | Sku |
 |:----------|:-------------:|:------|:------|
-| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows 10  | RS2 Pro   |
-| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows 10  | RS2 ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |
+| Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
+| Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Överför Windows 10-VHD till Azure
 Om du överför en generaliserad Windows 10-VHD, Lägg märke till Windows 10 inte har inbyggda administratörskontot aktiverat som standard. Om du vill aktivera det inbyggda administratörskontot lägga in följande kommando som en del av tillägget för anpassat skript.
@@ -108,7 +112,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [konfigurera VDA för Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation)
+- Lär dig mer om [konfigurera VDA för Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
 - Lär dig mer om [Multitenant värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

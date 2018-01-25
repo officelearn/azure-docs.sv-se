@@ -3,8 +3,8 @@ title: "Så här skapar du en webbapp med Redis Cache | Microsoft Docs"
 description: "Lär dig hur du skapar en webbapp med Redis Cache"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Så här skapar du en webbapp med Redis Cache
 > [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
@@ -41,7 +41,7 @@ Du får lära dig:
 * Så här etablerar du Azure-resurserna för programmet med en Resource Manager-mall.
 * Hur du publicerar programmet till Azure med Visual Studio.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att kunna slutföra den här självstudien behöver du följande.
 
 * [Azure-konto](#azure-account)
@@ -102,7 +102,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
     ![Lägg till modellklass][cache-model-add-class-dialog]
 3. Ersätt `using`-satserna överst i `Team.cs`-filen med följande `using`-satser.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
 
 1. Ersätt definitionen av `Team`-klassen med följande kodfragment som innehåller en uppdaterad `Team`-klassdefinition samt vissa andra Entity Framework-hjälpklasser. Mer information om den första kodmetoden för Entity Framework som används i den här självstudien finns i [Kod först till en ny databas](https://msdn.microsoft.com/data/jj193542).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
     ![Global.asax.cs][cache-global-asax]
 6. Lägg till följande två `using`-satser längst upp i filen under de andra `using`-satserna.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
 
 1. Lägg till följande kodrad i slutet av `Application_Start`-metoden.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Ersätt `controller = "Home"` i följande kod i `RegisterRoutes`-metoden med `controller = "Teams"` som visas i följande exempel.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ I det här avsnittet av självstudierna konfigurerar du exempelprogrammet till a
     ![Teamkontrollant][cache-teamscontroller]
 4. Lägg till följande två `using`-satser i **TeamsController.cs**.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Lägg till följande två egenskaper i `TeamsController`-klassen.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
 1. Lägg till följande två `using`-satser längst upp i `TeamsController.cs`-filen tillsammans med de andra `using`-satserna.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Ersätt den befintliga `public ActionResult Index()`-metodimplementeringen med följande implementering.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
    
     `PlayGames`-metoden uppdaterar teamstatistiken genom att simulera en spelsäsong, spara resultaten i databasen och rensa inaktuella data från cachen.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `RebuildDB`-metoden återinitierar databasen med en standarduppsättning av team, genererar statistik för dem och rensar inaktuella data från cachen.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `ClearCachedTeams`-metoden tar bort cachelagrad teamstatistik från cachen.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
    
     `GetFromDB`-metoden läser teamstatistiken från databasen.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `GetFromList`-metoden läser teamstatistiken från cachen som en serialiserad `List<Team>`. Om det finns en cachemiss, läses teamstatistiken från databasen och lagras sedan i cacheminnet till nästa gång. I det här exemplet använder vi JSON.NET-serialisering för att serialisera .NET-objekt till och från cacheminnet. Mer information finns i [Så här arbetar du med .NET-objekt i Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `GetFromSortedSet`-metoden läser teamstatistiken från en cachelagrad sorterad uppsättning. Om det finns en cachemiss, läses teamstatistiken från databasen och lagras i cacheminnet som en sorterad uppsättning.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ I det här exemplet kan teamstatistik hämtas från databasen eller från cachen
 
     `GetFromSortedSetTop5`-metoden läser de översta 5 teamen från den cachelagrade sorterade uppsättningen. Den startar genom att kontrollera cacheminnet efter förekomsten av `teamsSortedSet`-nyckeln. Om den här nyckeln inte finns, anropas `GetFromSortedSet`-metoden för att läsa teamstatistiken och lagra den i cacheminnet. Därefter efterfrågas den cachelagrade sorterade uppsättningens översta 5 team som returneras.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
 
 1. Bläddra till `Create(Team team)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
 
 1. Bläddra till `Edit(Team team)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
 
 1. Bläddra till `DeleteConfirmed(int id)`-metoden i `TeamsController`-klassen. Lägg till ett anrop till `ClearCachedTeams`-metoden enligt följande exempel.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]

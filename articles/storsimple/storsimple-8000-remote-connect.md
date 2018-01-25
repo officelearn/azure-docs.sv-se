@@ -4,7 +4,7 @@ description: "Beskriver hur du konfigurerar enheten för fjärrhantering och hur
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärransluta till enheten StorSimple 8000-serien
 
@@ -84,7 +84,10 @@ Utför följande steg på enhetens seriekonsol för att aktivera fjärrhantering
 Utför följande steg på klienten för att aktivera fjärrhantering.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Så här förbereder du klienten för fjärranslutning
-1. Starta en Windows PowerShell-session som administratör.
+1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient som standard anges Windows Remote Management-tjänsten manuellt. Du kan behöva starta tjänsten genom att skriva:
+
+    `Start-Service WinRM`
+    
 2. Skriv följande kommando för att lägga till IP-adressen för StorSimple-enhet i listan över betrodda värdar klientens:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -212,7 +215,10 @@ Använda Windows PowerShell och SSL för att ange en SSAdmin session på din enh
 Utför följande procedur på den dator som du vill göra fjärranslutning i Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Ange en SSAdmin session på enheten med hjälp av Windows PowerShell och SSL
-1. Starta en Windows PowerShell-session som administratör.
+1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient som standard anges Windows Remote Management-tjänsten manuellt. Du kan behöva starta tjänsten genom att skriva:
+
+    `Start-Service WinRM`
+
 2. Lägg till enhetens IP-adress i klientens betrodda värdar genom att skriva:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`

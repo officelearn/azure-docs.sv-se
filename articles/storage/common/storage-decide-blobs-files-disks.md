@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du behöver använda Azure BLOB, Azure-filer eller Azure-diskar
 
@@ -41,7 +41,7 @@ I följande tabell jämförs Azure-filer med Azure BLOB.
 ||||  
 |-|-|-|  
 |**Attributet**|**Azure Blobs**|**Azure Files**|  
-|Alternativ för hållbarhet|LRS-, ZRS-, GRS (och RA-GRS för högre tillgänglighet)|LRS, GRS|  
+|Alternativ för hållbarhet|LRS-, ZRS-GRS, RA-GRS|LRS, ZRS, GRS|  
 |Hjälpmedel|REST API:er|REST API:er<br /><br /> SMB 2.1 och SMB 3.0 (standard filsystem API: er)|  
 |Anslutning|REST-API: er – globalt|REST API: er – globalt<br /><br /> SMB 2.1 – inom region<br /><br /> SMB 3.0 – globalt|  
 |Slutpunkter|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  

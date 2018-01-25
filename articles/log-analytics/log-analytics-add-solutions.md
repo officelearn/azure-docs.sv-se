@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Lägg till Azure logganalys hanteringslösningar i arbetsytan
 
@@ -74,40 +74,40 @@ Alla lösningar i följande tabell är tillgängliga i Azure-portalen och lösni
 
 | Lösning                                                                       | Erbjudande                                                                     | Prisnivåer<sup>1</sup>                                                 | Anteckningar |
 | ---                                                                                       | ---                                                                       | ---                                                                                                       | ---   |
-| [Activity Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | 90 dagars data är tillgängliga gratis<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning |
-| [AD-bedömning](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [AD-replikeringsstatus](log-analytics-ad-replication-status.md)                           | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [Varningshantering](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [Application Insights Connector (förhandsgranskning)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
-| [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Azure Nätverkssäkerhetsgruppen Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br>Per&nbsp;nod&nbsp;(OMS)                                                                          | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto|
-| [Azure Web Apps-analys](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-|[Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)                                                                       | Kräver en klassiska Backup-valvet.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [Kapacitet och prestanda (förhandsgranskning)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Spårning av ändringar](log-analytics-change-tracking.md)                                       | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
-| [Behållare](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [IT Service Management-anslutningstjänsten (förhandsgranskning)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)     | |
-| HDInsight HBase övervakning <br>(Förhandsversion)                                                  | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Key Vault-analys](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Activity Log Analytics](log-analytics-activity.md)                                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | 90 dagars data är tillgängliga gratis<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning |
+| [AD-bedömning](log-analytics-ad-assessment.md)                                           | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [AD-replikeringsstatus](log-analytics-ad-replication-status.md)                           | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Agenthälsa](../operations-management-suite/oms-solution-agenthealth.md)                                                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Varningshantering](log-analytics-solution-alert-management.md)                            | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Application Insights Connector (förhandsgranskning)](log-analytics-app-insights-connector.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md)                                                                     | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md)    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Azure Nätverkssäkerhetsgruppen Analytics](log-analytics-azure-networking-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Azure SQL Analytics (förhandsgranskning)](log-analytics-azure-sql.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br>Per&nbsp;nod&nbsp;(OMS)                                                                          | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto|
+| [Azure Web Apps-analys](log-analytics-azure-web-apps-analytics.md)     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+|[Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)                                                                                 | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)                                                                       | Kräver en klassiska Backup-valvet.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Kapacitet och prestanda (förhandsgranskning)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Spårning av ändringar](log-analytics-change-tracking.md)                                       | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Behållare](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [IT Service Management Connector](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)     | |
+| HDInsight HBase övervakning <br>(Förhandsversion)                                                  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Key Vault-analys](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Logic Apps B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
 | [Utvärdering av skadlig kod](log-analytics-malware.md)                                            | <ul><li>Säkerhet och efterlevnad</li></ul>                                 | Kostnadsfri<br> Fristående<br>Per&nbsp;nod&nbsp;(OMS)                                                                           | Om du lägger till säkerhet och efterlevnad lösningar efter 19 juni 2017 [faktureringen är per nod](https://azure.microsoft.com/pricing/details/security-compliance/), oavsett arbetsytan prisnivån. De första 60 dagarna är kostnadsfri.  |
 | [Övervakning av nätverksprestanda](log-analytics-network-performance-monitor.md) <br>  | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | |
-| [Office 365 Analytics (förhandsgranskning)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Office 365 Analytics (förhandsgranskning)](../operations-management-suite/oms-solution-office-365.md)                                                       | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [Säkerhet och granskning](../operations-management-suite/oms-security-getting-started.md)      | <ul><li>Säkerhet&nbsp;och&nbsp;kompatibilitet</li></ul>                       | Kostnadsfri<br> Fristående<br>Per&nbsp;nod&nbsp;(OMS)                                                                           | Samla in säkerhetshändelser kräver den här lösningen<br>Om du lägger till säkerhet och efterlevnad lösningar efter 19 juni 2017 [faktureringen är per nod](https://azure.microsoft.com/pricing/details/security-compliance/), oavsett arbetsytan prisnivån. De första 60 dagarna är kostnadsfri. |
-| [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Service Fabric Analytics (förhandsgranskning)](log-analytics-service-fabric.md)                     | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [Tjänstmappning (förhandsgranskning)](../operations-management-suite/operations-management-suite-service-map.md) | <ul><li>Insikter och analys</li></ul>                      | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Tillgängligt i östra USA, västra Europa och West centrala USA    |
-| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)                                                                       | Kräver en klassiska Site Recovery-valvet.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [SQL-bedömning](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| Starta/stoppa virtuella datorer utanför arbetstid<br>(Förhandsversion)                                              | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
-| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [System Center Operations Manager Assessment (förhandsgranskning)](log-analytics-scom-assessment.md)  | <ul><li>Insikter och analys</li><li>Log Analytics</li></ul>        | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
-| [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automatisering och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
-| [Uppdateringsefterlevnad (förhandsgranskning)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [Uppgraderingsberedskap](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
-| [VMware övervakning (förhandsgranskning)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(fristående)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Site Recovery](../site-recovery/site-recovery-overview.md)                                                                               | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)                                                                       | Kräver en klassiska Site Recovery-valvet.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [SQL-bedömning](log-analytics-sql-assessment.md)                                         | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| Starta/stoppa virtuella datorer utanför arbetstid<br>(Förhandsversion)                                              | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [SurfaceHub](log-analytics-surface-hubs.md)                                               | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [System Center Operations Manager Assessment (förhandsgranskning)](log-analytics-scom-assessment.md)  | <ul><li>Insikter och analys</li><li>Log Analytics</li></ul>        | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
+| [Hantering av uppdateringar](../operations-management-suite/oms-solution-update-management.md)                                                                         | <ul><li>Automation och kontroll</li></ul>                                  | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| [Uppdateringsefterlevnad (förhandsgranskning)](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)                                                             | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [Uppgraderingsberedskap](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)                                                          | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | Utan kostnad för data eller noder<br>Data som inte omfattas av den kostnadsfria nivån fjärrskrivbordsanslutning.<br> Inte tillgängligt för att lägga till från Azure portal/marketplace. |
+| [VMware övervakning (förhandsgranskning)](log-analytics-vmware.md)                                | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(Standalone)<br> Per&nbsp;nod&nbsp;(OMS)   | |
 | [Wire-Data 2.0 (förhandsgranskning)](log-analytics-wire-data.md)                                                                 | <ul><li>Insikter och analys</li></ul>                                   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)                                                                         | Tillgängligt i östra USA, västra Europa och West centrala USA |
 
 <sup>1</sup> den *Standard* och *Premium (OMS)* prisnivåer är bara tillgängliga för kunder som skapade sina logganalys-arbetsytan innan den 21 September 2016.
@@ -118,7 +118,7 @@ Gemenskapen tillhandahålls lösningar som är tillgängliga från den [Azure ma
 
 | Lösning               | Erbjudande                                                                     | Prisnivåer                         | Anteckningar |
 | ---                               | ---                                                                       | ---                                   | ---   |
-| Alla community tillhandahålls lösningar  | <ul><li>Insight&nbsp;och&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)     |   Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
+| Alla community tillhandahålls lösningar  | <ul><li>Insight&nbsp;and&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Kostnadsfri<br> Per&nbsp;nod&nbsp;(OMS)     |   Kräver logganalys-arbetsytan ska kopplas till ett Automation-konto |
 
 
 
@@ -137,12 +137,12 @@ Log Analytics Windows-agenten och System Center Operations Manager-agenten är i
 
 ### <a name="insight--analytics--log-analytics"></a>Insight & Analytics / Log Analytics
 
-| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Aktivitetslogganalys | Azure |   |   |   |   |   | på meddelande |
 | AD-bedömning |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dagar |
 | AD-replikeringsstatus |Windows |&#8226; |&#8226; |  |  |&#8226; |fem dagar |
-| Agenthälsa | Windows- och Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minut |
+| Agenthälsa | Windows och Linux | &#8226; | &#8226; |   |   | &#8226; | 1 minut |
 | Alert Management (Nagios) |Linux |&#8226; |  |  |  |  |anländer |
 | Alert Management (Zabbix) |Linux |&#8226; |  |  |  |  |1 minut |
 | Alert Management (Operations Manager) |Windows |  |&#8226; |  |&#8226; |&#8226; |3 minuter |
@@ -151,12 +151,12 @@ Log Analytics Windows-agenten och System Center Operations Manager-agenten är i
 | Azure Nätverkssäkerhetsgruppen Analytics | Azure |   |   |   |   |   | på meddelande |
 | Azure SQL Analytics (förhandsgranskning) |Windows |  |  |  |  |  | 10 minuter |
 | Kapacitetshantering |Windows |&#8226; |&#8226; |  |  |&#8226; |anländer |
-| Behållare | Windows- och Linux | &#8226; | &#8226; |   |   |   | 3 minuter |
+| Behållare | Windows och Linux | &#8226; | &#8226; |   |   |   | 3 minuter |
 | Key Vault Analytics |Windows |  |  |  |  |  |på meddelande |
 | Övervakning av nätverksprestanda | Windows | &#8226; | &#8226; |   |   |   | TCP-handskakningar på var femte sekund data skickas var 3: e minut |
 | Office 365 Analytics (förhandsgranskning) |Windows |  |  |  |  |  |på meddelande |
 | Service Fabric Analytics |Windows |  |  |&#8226; |  |  |5 minuter |
-| Tjänstkarta | Windows- och Linux | &#8226; | &#8226; |   |   |   | 15 sekunder |
+| Tjänstkarta | Windows och Linux | &#8226; | &#8226; |   |   |   | 15 sekunder |
 | SQL-bedömning |Windows |&#8226; |&#8226; |  |  |&#8226; |7 dagar |
 | SurfaceHub |Windows |&#8226; |  |  |  |  |anländer |
 | System Center Operations Manager Assessment (förhandsgranskning) | Windows | &#8226; | &#8226; |   |   | &#8226; | sju dagar |
@@ -167,7 +167,7 @@ Log Analytics Windows-agenten och System Center Operations Manager-agenten är i
 
 ### <a name="automation--control"></a>Automatisering och kontroll
 
-| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Automation Hybrid Worker | Windows | &#8226; | &#8226; |   |   |   | Saknas |
 | Spårning av ändringar |Windows |&#8226; |&#8226; |  |  |&#8226; |varje timme |
@@ -176,10 +176,10 @@ Log Analytics Windows-agenten och System Center Operations Manager-agenten är i
 
 ### <a name="security--compliance"></a>Säkerhet och efterlevnad
 
-| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Bedömning av program mot skadlig kod |Windows |&#8226; |&#8226; |  |  |&#8226; |varje timme |
-| Säkerhet och granska<sup>1</sup> | Windows- och Linux | partiell | partiell | partiell |   | partiell | olika |
+| Säkerhet och granska<sup>1</sup> | Windows och Linux | partiell | partiell | partiell |   | partiell | olika |
 
 <sup>1</sup> på säkerhet och granska lösningen kan samla in loggar från Windows, Operations Manager och Linux-agenter. Se [datakällor](#data-sources) data samling information om:
 
@@ -192,16 +192,16 @@ Log Analytics Windows-agenten och System Center Operations Manager-agenten är i
 
 ### <a name="protection--recovery"></a>Skydd och återställning
 
-| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Lösning | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Säkerhetskopiering | Azure |   |   |   |   |   | Saknas |
+| Backup | Azure |   |   |   |   |   | Saknas |
 | Azure Site Recovery | Azure |   |   |   |   |   | Saknas |
 
 
 ### <a name="data-sources"></a>Datakällor
 
 
-| Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure Storage | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
+| Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data som skickas via management-grupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Azure aktivitetsloggar |Windows |  |  |  |  |  |på meddelande |
 | Azure diagnostikloggar |Windows |  |  |  |  |  |på meddelande |

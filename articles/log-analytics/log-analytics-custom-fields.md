@@ -1,6 +1,6 @@
 ---
-title: "Anpassade fält i Log Analytics | Microsoft Docs"
-description: "Funktionen anpassade fält i logganalys kan du skapa egna sökbara fält från OMS-data som lägger till egenskaperna för en post som samlats in.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genomgång en exempelhändelse."
+title: "Anpassade fält i Azure Log Analytics | Microsoft Docs"
+description: "Funktionen anpassade fält i logganalys kan du skapa egna sökbara fält från logganalys-poster som lägger till egenskaperna för en post som samlats in.  Den här artikeln beskriver processen för att skapa ett anpassat fält och ger en detaljerad genomgång en exempelhändelse."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Anpassade fält i logganalys
-Den **anpassade fält** funktionen för Log Analytics kan du utöka befintliga poster i OMS-databasen genom att lägga till egna sökbara fält.  Anpassade fält fylls automatiskt i från data som hämtats från andra egenskaper i samma post.
+Den **anpassade fält** funktionen för Log Analytics kan du utöka befintliga poster i logganalys genom att lägga till egna sökbara fält.  Anpassade fält fylls automatiskt i från data som hämtats från andra egenskaper i samma post.
 
 ![Översikt över anpassade fält](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ När du skapar ett anpassat fält förstå logganalys vilka data som ska använd
 Följande avsnitt innehåller proceduren för att skapa ett anpassat fält.  Är en genomgång av en exempel-extrahering längst ned i den här artikeln.
 
 > [!NOTE]
-> Det anpassade fältet fylls när poster som matchar de angivna kriterierna läggs till datalagret OMS så visas endast på poster som samlas in när det anpassade fältet har skapats.  Anpassat fält kommer inte att lägga till poster som redan finns i datalagret när den skapas.
-> 
+> Det anpassade fältet fylls när poster som matchar de angivna kriterierna läggs till logganalys, så visas endast på poster som samlas in när det anpassade fältet har skapats.  Anpassat fält kommer inte att lägga till poster som redan finns i datalagret när den skapas.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Steg 1 – identifiera vilka poster som har anpassade fält
@@ -72,7 +71,7 @@ När du har utfört den inledande extrahera visas logganalys resultaten baserat 
 7. Använd det anpassade fältet precis som andra poster egenskapen.  Du kan använda den för att aggregera och gruppera data och även använda den för att skapa nya insikter.
 
 ## <a name="viewing-custom-fields"></a>Visa anpassade fält
-Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **inställningar** panelen på OMS-instrumentpanelen.  Välj **Data** och sedan **anpassade fält** en lista över alla anpassade fält i arbetsytan.  
+Du kan visa en lista över alla anpassade fält i hanteringsgruppen från den **avancerade inställningar** -menyn i logganalys-arbetsytan i Azure-portalen.  Välj **Data** och sedan **anpassade fält** en lista över alla anpassade fält i arbetsytan.  
 
 ![Anpassade fält](media/log-analytics-custom-fields/list.png)
 

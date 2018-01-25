@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: f5384b4fa0a1baaafd8b2dbf3ed4d7776f4d80ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,7 @@ I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory 
 > Den här artikeln förutsätter att du har gått igenom [Introduktion till Azure Data Factory](introduction.md) och [snabbstartsguiden](quickstart-create-data-factory-powershell.md).
 
 ## <a name="overview"></a>Översikt
+
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Till exempel kan en pipeline innehålla en uppsättning aktiviteter som infogar och rensar loggdata och sedan startar ett Spark-jobb på ett HDInsight-kluster för att analysera loggdata. Det fina med detta är att pipelinen låter dig hantera aktiviteterna som en grupp i stället för enskilt. Du kan till exempel distribuera och schemalägga en hel pipeline i stället för att göra detta separat för varje aktivitet.  
 
 Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta/transformera data från Blob Storage för att producera utdata. Till sist använder du en andra kopieringsaktivitet för att kopiera utdata till ett Azure SQL Data Warehouse som Business Intelligence-rapporteringslösningar har skapats på.
@@ -99,7 +100,7 @@ Så här definieras en pipeline i JSON-format:
 
 Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
-namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>•   Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
+namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstav, en siffra eller ett understreck (_)</li><li>•   Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
 description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Nej

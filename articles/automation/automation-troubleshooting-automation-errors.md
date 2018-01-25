@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Felsökning av vanliga problem i Azure Automation 
 Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automation och ger förslag på lösningar för att lösa problemen.
@@ -152,7 +152,7 @@ Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automatio
   * Använd om du vill tilldela en nod med hjälp av PowerShell-cmdlet för konfiguration av noden **Set AzureRmAutomationDscNode** cmdlet
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Scenario: Inga nodkonfigurationer (MOF-filer) skapas när en konfiguration kompileras
-**Fel:** DSC-Kompileringsjobb pausar med fel: ”kompilering slutfördes, men ingen nod configuration .mofs genererades”.
+**Fel:** DSC-Kompileringsjobb pausar med fel: ”kompilering slutfördes, men ingen nod configuration.mofs genererades”.
 
 **Orsaken till felet:** när följande uttryck i **nod** nyckelord i DSC-konfigurationen utvärderas till `$null`, och inga nodkonfigurationer produceras.
 
@@ -190,6 +190,16 @@ Felet innebär att sparad sökning datorn grupp frågan som används för att ri
 **Felsökningstips:**
 
 Du kan ta bort frågan för den här lösningen och reonboard lösning som återskapar frågan. Frågan kan hittas i din arbetsyta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**, och kategorin i frågan är namnet på den lösning som är associerade med den här frågan. Om flera lösningar är aktiverade på **MicrosoftDefaultComputerGroup** visas flera gånger under **sparade sökningar**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Orsaken till felet:**
+
+Felet innebär att distributionen misslyckades på grund av bryter mot en princip.
+
+**Felsökningstips:**
+
+Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till den resursgrupp som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den misslyckade distribution. För mer information om Azure princip besök: [översikt över Azure princip](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Nästa steg
 

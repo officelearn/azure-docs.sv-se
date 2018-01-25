@@ -4,7 +4,7 @@ description: "Visa en lista över ett program som stöder enkel inloggning i Azu
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mtillman
+manager: mbaldwin
 editor: 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,86 +12,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 0c324829469b9babe6608480204bd46691f84228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb09aa8f8e22ad6fbda6a490d251c500bedf3ee
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Visar en lista över ditt program i Azure Active Directory-programgalleriet
-Att visa ett program som stöder enkel inloggning med Azure Active Directory i den [Azure AD-galleriet](https://azure.microsoft.com/marketplace/active-directory/all/), programmet först måste implementera ett av följande integration lägen:
 
-* **OpenID Connect** -Direktintegrering med Azure AD med OpenID Connect för autentisering och Azure AD medgivande API för konfigurationen. Om du bara startar en integration och programmet har inte stöd för SAML är rekommenderar-läge.
-* **SAML** – ditt program redan har möjlighet att konfigurera från tredje part identitetsleverantörer med SAML-protokoll.
 
-Lista över kraven för varje läge är nedan.
+##  <a name="what-is-azure-ad-app-gallery"></a>Vad är Azure AD app gallery?
 
-## <a name="openid-connect-integration"></a>OpenID Connect integrering
-Integrera programmet med Azure AD, efter den [developer instruktioner](active-directory-authentication-scenarios.md). Sedan slutföra frågorna nedan och skicka till waadpartners@microsoft.com.
+Azure AD är en molnbaserad identitetstjänst. [Azure AD app-galleriet](https://azure.microsoft.com/marketplace/active-directory/all/) är en gemensam lagring där alla program kopplingar publiceras för enkel inloggning och användaretablering. Våra ömsesidiga kunder som använder Azure AD som identitetsprovider leta efter olika SaaS-program kopplingar, vilka publiceras här. IT-administratören lägger till koppling från galleriet appen och konfigurerar och använder den för enkel inloggning och etablering. Azure AD stöder alla större federation protokoll som SAML 2.0, OpenID Connect, OAuth och WS-Fed för enkel inloggning. 
 
-* Ange autentiseringsuppgifter för en Testklient eller ett konto med ditt program som kan användas av Azure AD-teamet för att testa integreringen.  
-* Ger instruktioner för hur Azure AD-teamet kan logga in och ansluta en instans av Azure AD till appen med den [Azure AD medgivande framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Ange eventuella ytterligare instruktioner som krävs för Azure AD-teamet och testa enkel inloggning med ditt program. 
-* Ange informationen nedan:
+## <a name="what-are-the-benefits-of-listing-the-application-in-the-gallery"></a>Vilka är fördelarna med att visa en lista över program i galleriet?
 
-> Företagsnamn:
-> 
-> Företagets webbplats:
-> 
-> Programnamn:
-> 
-> Programbeskrivningen (200 tecken):
-> 
-> Programmet webbplats (information):
-> 
-> Programmet tekniska avdelningen eller kontaktinformation:
-> 
-> Program-ID för programmet, enligt programinformation på https://portal.azure.com:
-> 
-> URL som programmet var för kunder för att registrera sig för och/eller köpa programmet:
-> 
-> Välj upp till tre kategorier för ditt program ska visas (för tillgängliga kategorier Se Azure Active Directory Marketplace):
-> 
-> Koppla liten ikon (PNG-fil, 45px av 45px bakgrundsfärg):
-> 
-> Koppla stora programikonen (PNG-fil, 215px av 215px bakgrundsfärg):
-> 
-> Koppla programmet logotyp (PNG-fil, 150px av 122px transparent bakgrundsfärg):
-> 
-> 
+*  Ge bästa möjliga enkel inloggning till kunder.
 
-## <a name="saml-integration"></a>SAML-integrering
-Alla appar som stöder SAML 2.0 kan integreras direkt med en Azure AD-klient med hjälp av [dessa instruktioner för att lägga till ett anpassat program](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). När du har testat att integrera dina appar fungerar med Azure AD kan skicka följande information till < mailto:waadpartners@microsoft.com >.
+*  Enkel och minsta konfiguration av programmet.
 
-* Ange autentiseringsuppgifter för en Testklient eller ett konto med ditt program som kan användas av Azure AD-teamet för att testa integreringen.  
-* Ange SAML inloggnings-URL, utfärdar-URL (enhets-ID) och Reply URL (assertion konsumenten service) värden för ditt program enligt [här](../application-config-sso-how-to-configure-federated-sso-non-gallery.md). Om du vanligtvis ange dessa värden som en del av en SAML-metadatafil, sedan skicka som också.
-* Ange en kort beskrivning av hur du konfigurerar Azure AD som en identitetsleverantör i ditt program använder SAML 2.0. Om ditt program har stöd för att konfigurera Azure AD som en identitetsleverantör via en administrativa självbetjäningsportalen kan sedan kontrollera att de autentiseringsuppgifter som anges ovan omfattar möjligheten att ställa in.
-* Ange informationen nedan:
+*  Kunder kan Sök efter programmet och Sök i galleriet. 
 
-> Företagsnamn:
-> 
-> Företagets webbplats:
-> 
-> Programnamn:
-> 
-> Programbeskrivningen (200 tecken):
-> 
-> Programmet webbplats (information):
-> 
-> Programmet tekniska avdelningen eller kontaktinformation:
-> 
-> URL som programmet var för kunder för att registrera sig för och/eller köpa programmet:
-> 
-> Välj upp till tre kategorier för ditt program ska visas (tillgängliga kategorier finns i [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
-> 
-> Koppla liten ikon (PNG-fil, 45px av 45px bakgrundsfärg):
-> 
-> Koppla stora programikonen (PNG-fil, 215px av 215px bakgrundsfärg):
-> 
-> Koppla programmet logotyp (PNG-fil, 150px av 122px transparent bakgrundsfärg):
-> 
-> 
+*  Kunder kan använda den här integreringen oavsett Azure AD-SKU lediga, Basic eller Premium.
+
+*  Steg för steg configuration självstudier för gemensamma kunder.
+
+*  Aktivera användare etableringen för samma app om du använder SCIM.
+
+
+##  <a name="what-are-the-pre-requisites"></a>Vilka är kraven?
+
+Om du vill visa ett program i Azure AD-galleriet måste programmet först implementera ett av de federation protokoll som stöds av Azure AD. Läs villkoren för Azure AD application gallery härifrån. Om du använder: 
+
+*   **OpenID Connect** – skapa flera innehavare program i Azure AD och implementera [Azure AD medgivande framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) för ditt program. Skicka inloggningsbegäran om till vanliga slutpunkten så att en kund kan ge medgivande till programmet. Du kan styra kunden användaråtkomst baserat på klient-ID och användarens UPN togs emot i token. Om du vill integrera ditt program med Azure AD kan du följa den [developer instruktioner](active-directory-authentication-scenarios.md).
+
+*   **SAML 2.0 eller WS-Fed** – ditt program bör ha en möjlighet att göra SAML/WS-Fed SSO-integrering i SP eller IDP-läge. Alla appar som stöder SAML 2.0 kan integreras direkt med en Azure AD-klient med hjälp av den [instruktioner för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+
+*   **Lösenord SSO** – skapa ett webbprogram som har en HTML-inloggningssida konfigurera [lösenordsbaserade enkel inloggning](../active-directory-appssoaccess-whatis.md). Lösenordsbaserade SSO, även kallat lösenord vaulting, kan du hantera åtkomst och lösenord till webbprogram som inte har stöd för identitetsfederation. Det är också användbara för situationer där flera användare behöva dela ett enda konto som din organisation sociala medier app konton. 
+
+## <a name="process-for-submitting-the-request-in-the-portal"></a>Processen för att skicka begäran på portalen
+
+När du har testat att integrera dina appar fungerar med Azure AD, måste du skicka din begäran om åtkomst på vår [programmet nätverket Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har en Office 365-konto kan använda du som att logga in på den här portalen annars använder ditt Microsoft-ID (Live ID, Outlook, Hotmail o.s.v.) för inloggning. Du ser följande sida att begära din åtkomst. Ange en motivering i textrutan och klicka på **åtkomstbegäran**. Vårt team granskar alla detaljer och ge dig åtkomst i enlighet med detta. Sedan kan du logga in på portalen och skicka detaljerad begäran för programmet.
+
+Om du står inför eventuella problem angående åtkomst kontaktar [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+![Åtkomst-begäran på SharePoint-portalen](./media/active-directory-app-gallery-listing/accessrequest.png)
+
+## <a name="timelines"></a>Tidslinjer
+    
+*   Processen lista SAML 2.0 och WS-Fed programmet till gallery - **7 – 10 arbetsdagar**
+
+   ![Tidslinjen för registrering saml till gallery](./media/active-directory-app-gallery-listing/timeline.png)
+
+*   Processen för att visa en lista över OpenID Connect program till gallery - **2 – 5 arbetsdagar**
+
+   ![Tidslinjen för registrering saml till gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+
+## <a name="escalations"></a>Eskaleringar
+
+Alla eskaleringar släppa i ett e-postmeddelande till [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och vi gå tillbaka till du villkoret så SNART.
 

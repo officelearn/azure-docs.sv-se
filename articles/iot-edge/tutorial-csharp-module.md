@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Utveckla och distribuera en C# IoT kant-modul till den simulerade enheten - förhandsgranskning
 
@@ -31,7 +31,7 @@ Modulen IoT kant som du skapar i den här självstudiekursen filtrerar temperatu
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure IoT gränsenheten som du skapade i Snabbstart eller första självstudierna.
-* Primär nyckel anslutningssträngen för IoT gränsenheten.  
+* Primärnyckelns anslutningssträng för IoT Edge-enheten.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT kant-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# för Visual Studio Code (drivs av OmniSharp) tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -70,6 +70,14 @@ Följande steg visar du hur du skapar en IoT-Edge-modul som baseras på .NET cor
 5. Klicka i VS kod explorer **Program.cs** att öppna den.
 
    ![Öppna Program.cs][1]
+
+6. Längst upp i den **FilterModule** namnområde, lägga till tre `using` instruktioner för typer som används vid ett senare tillfälle:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Lägg till den `temperatureThreshold` variabeln i **programmet** klass. Den här variabeln anger det värde som uppmätta temperaturen får överstiga för data som ska skickas till IoT-hubb. 
 
@@ -244,10 +252,10 @@ Lägg till autentiseringsuppgifterna för registret Edge körningsmiljön på da
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-## <a name="run-the-solution"></a>Köra lösningen
+## <a name="run-the-solution"></a>Kör lösningen
 
 1. I den [Azure-portalen](https://portal.azure.com), navigera till din IoT-hubb.
-2. Gå till **IoT kant (förhandsgranskning)** och välj IoT-Edge-enhet.
+2. Gå till **IoT Edge (förhandsversion)** och välj IoT Edge-enhet.
 3. Välj **ange moduler**. 
 2. Kontrollera att den **tempSensor** modulen fylls i automatiskt. Om inte, Använd följande steg för att lägga till den:
     1. Välj **lägga till IoT kant modul**.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
@@ -160,7 +160,7 @@ END
    ![Nytt->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
 2. På sidan **Ny datafabrik** anger du **ADFIncCopyTutorialDF** som **namn**. 
       
-     ![Sidan Ny datafabrik](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om du ser ett rött utropstecken med följande fel ändrar du namnet på datafabriken (till exempel dittnamnADFIncCopyTutorialDF) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
@@ -182,7 +182,7 @@ END
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
    ![Datafabrikens startsida](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
-10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
+10. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
@@ -284,7 +284,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 26. Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst): 
 
     1. Ange **AzureStorageLinkedService** som **namn**. 
-    2. Välj ditt Azure-lagringskonto i **Lagringskontonamn**.
+    2. Välj ditt Azure Storage-konto i **Lagringskontonamn**.
     3. Klicka på **Spara**. 
 
         ![Länkad Azure-lagringstjänst – inställningar](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
@@ -312,7 +312,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -323,7 +323,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
     ![Knappen Publicera](./media/tutorial-incremental-copy-portal/publish-button.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). 
 
 ![Knappen Trigger Now (Utlös nu)](./media/tutorial-incremental-copy-portal/trigger-now.png)
@@ -447,7 +447,7 @@ I den här självstudien har du fått:
 I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas. 
 
 > [!div class="nextstepaction"]
->[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL-databas](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL-databas](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

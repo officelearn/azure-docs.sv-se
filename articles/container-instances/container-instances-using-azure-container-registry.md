@@ -1,21 +1,21 @@
 ---
-title: "Distribuera till Azure-Behållarinstanser från registret Azure-behållaren"
-description: "Distribuera Azure-Behållarinstanser från registret Azure-behållaren"
+title: "Distribuera till Azure-Behållarinstanser från Azure-behållaren registret"
+description: "Lär dig hur du distribuerar behållare i Azure Container instanser som använder behållaren bilder i ett Azure Container registret."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Distribuera till Azure-Behållarinstanser från registret Azure-behållaren
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure-Behållarinstanser från Azure-behållaren registret
 
 Azure Container registret är en Azure-baserade, privat registret för Docker behållare bilder. Den här artikeln beskriver hur du distribuerar behållare bilderna som lagras i registret för Azure-behållare till Behållarinstanser som Azure.
 
@@ -51,17 +51,23 @@ Om du underhåller behållaren avbildningar i Azure Container registret kan du e
 
 1. Navigera till behållaren registret i Azure-portalen.
 
-2. Välj **databaser**, välj sedan databasen som du vill distribuera, högerklicka på taggen för behållaren-avbildning som du vill distribuera och välj **kör instans**.
+1. Välj **databaser**, välj sedan databasen som du vill distribuera, högerklicka på taggen för behållaren-avbildning som du vill distribuera och välj **kör instans**.
 
     ![”Kör instans” i registret för Azure-behållaren i Azure-portalen][acr-runinstance-contextmenu]
 
-3. Ange ett namn för behållaren och ett namn för resursgruppen. Du kan också ändra standardvärden om du vill.
+1. Ange ett namn för behållaren och ett namn för resursgruppen. Du kan också ändra standardvärden om du vill.
 
     ![Skapa meny för Azure-Behållarinstanser][acr-create-deeplink]
 
-4. När distributionen är klar kan du gå till behållargruppen från fönstret meddelanden för att hitta sin IP-adress och andra egenskaper.
+1. När distributionen är klar kan du gå till behållargruppen från fönstret meddelanden för att hitta sin IP-adress och andra egenskaper.
 
     ![Detaljvyn för Azure-behållare instansgrupp behållare][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
+
+Om användaren administratör för Azure-behållaren registernyckeln har inaktiverats kan du använda ett Azure Active Directory [tjänstens huvudnamn](../container-registry/container-registry-auth-service-principal.md) att autentisera till registret när du skapar en instans i behållaren. Du bör också använda ett huvudnamn för tjänsten för autentisering i fjärradministrerade scenarier, till exempel ett skript eller program som skapar behållarinstanser i oövervakat.
+
+Mer information finns i [autentisera med Azure Container registret från Azure Behållarinstanser](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

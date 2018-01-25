@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: 8bd9382ed5a855368533c6bf2305682861c109c0
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: c2ec6706c92f229bb05ad9a19246c6ffe5f615c9
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med Spark-aktivitet och en länkad HDInsight-tjänst på begäran. I den här självstudiekursen får du göra följande:
@@ -25,7 +25,7 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
 > * Skapa en pipeline med en Spark-aktivitet
-> * Utlösa en pipelinekörning
+> * Utlös en pipelinekörning
 > * Övervaka pipelinekörningen.
 
 > [!NOTE]
@@ -83,7 +83,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    ![Nytt->DataFactory](./media/tutorial-transform-data-spark-portal/new-azure-data-factory-menu.png)
 2. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **namn**. 
       
-     ![Sidan Ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
@@ -115,7 +115,7 @@ Du har skapat två länkade tjänster i det här avsnittet:
 
 ### <a name="create-an-azure-storage-linked-service"></a>Skapa en länkad Azure Storage-tjänst
 
-1. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild: 
+1. På sidan **Kom igång** växlar du till fliken **Redigera** på den vänstra panelen, som på följande bild: 
 
     ![Ikonen Skapa en pipeline](./media/tutorial-transform-data-spark-portal/get-started-page.png)
 
@@ -180,8 +180,10 @@ Du har skapat två länkade tjänster i det här avsnittet:
     
     ![Verifieringsknapp](./media/tutorial-transform-data-spark-portal/validate-button.png)
 7. Klicka på **Publicera**. Data Factory-gränssnittet publicerar entiteter (länkade tjänster och pipeline) till Azure Data Factory-tjänsten. 
+    
+    ![Knappen Publicera](./media/tutorial-transform-data-spark-portal/publish-button.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 Klicka på **Utlösare** i verktygsfältet och klicka på **Trigger Now** (Utlös nu). 
 
 ![Utlös nu](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
@@ -219,7 +221,7 @@ Pipelinen i det här exemplet transformerar data med en Spark-aktivitet och en l
 > [!div class="checklist"]
 > * Skapa en datafabrik. 
 > * Skapa en pipeline med en Spark-aktivitet
-> * Utlösa en pipelinekörning
+> * Utlös en pipelinekörning
 > * Övervaka pipelinekörningen.
 
 Gå vidare till nästa självstudiekurs för att lära dig hur du transformerar data genom att köra Hive-skript på ett Azure HDInsight-kluster som är i ett virtuellt nätverk. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 0414ee0f93b71446992bb5687795b75cd2e32386
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4b8f7a66f220b57ac914a9f5475c680679b8bf03
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
@@ -76,7 +76,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    ![Nytt->DataFactory](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-data-factory-menu.png)
 3. På sidan **Ny datafabrik** anger du **ADFTutorialHiveFactory** som **namn**. 
       
-     ![Sidan Ny datafabrik](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnMyAzureSsisDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
@@ -148,7 +148,7 @@ Eftersom Hadoop-klustret är inne i ett virtuellt nätverk måste du installera 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 Du skapar och distribuerar två länkade tjänster i det här avsnittet:
-- En **länkad Azure Storage-tjänst** som länkar ett Azure Storage-konto till datafabriken. Den här lagringen är den som primärt används av ditt HDInsight-kluster. I det här fallet använder du det här Azure Storage-kontot för att lagra Hive-skriptet och dess utdata.
+- Den **länkade Azure Storage-tjänsten** som länkar ditt Azure Storage-konto till datafabriken. Den här lagringen är den som primärt används av ditt HDInsight-kluster. I det här fallet använder du det här Azure Storage-kontot för att lagra Hive-skriptet och dess utdata.
 - En **länkad HDInsight-tjänst**. Azure Data Factory skickar Hive-skriptet till det här HDInsight-klustret för körning.
 
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
@@ -232,7 +232,7 @@ Observera följande punkter:
 
     ![Publicera](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
 1. Verifiera först pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **högerpil (>>)**. 
 
@@ -272,7 +272,7 @@ I den här självstudien har du fått:
 Fortsätt till följande självstudie och lär dig att transformera data med ett Spark-kluster på Azure:
 
 > [!div class="nextstepaction"]
->[Förgrening och länkning av Data Factory-kontrollflöde](tutorial-control-flow.md)
+>[Förgrening och länkning av Data Factory-kontrollflöde](tutorial-control-flow-portal.md)
 
 
 

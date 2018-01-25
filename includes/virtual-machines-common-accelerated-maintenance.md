@@ -45,7 +45,7 @@ Azure-plattformstjänster inklusive webb & mobile, datatjänster IoT, serverlös
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel publicerat ytterligare vägledning om januari 22, 2018 rör säkerhetsproblemen.  Kommer den här vägledningen eventuella ytterligare underhållsaktiviteter av Azure?  
 
-Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen av Intel.
+Azure åtgärder tidigare annonserats på 3 januari 2018 påverkas inte av den [uppdaterade riktlinjer](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) från Intel. Det görs inga ytterligare underhållsåtgärd på kundens virtuella datorer på grund av den här nya informationen.
  
 
 ## <a name="next-steps"></a>Nästa steg

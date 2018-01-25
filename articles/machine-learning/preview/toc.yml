@@ -92,6 +92,8 @@
           href: deployment-setup-configuration.md
         - name: Skala kluster och tjänster
           href: how-to-scale-clusters.md
+        - name: Konfigurera SSL på ett MLC-kluster
+          href: how-to-setup-ssl-on-mlc.md
         - name: Distribuera en webbtjänst
           href: model-management-service-deploy.md
         - name: Distribuera till en IoT Edge-enhet

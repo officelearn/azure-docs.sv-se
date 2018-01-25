@@ -1,6 +1,6 @@
 - name: Jenkins på Azure
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Jenkins på Azure
       href: overview.md
@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Använda Jenkins med VSTS
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Distribuera Service Fabric-appar
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Exempel
   items:
     - name: Exempeljobb och skript
@@ -50,6 +53,8 @@
       items:
         - name: Azure App Service-pluginprogram
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Plugin-program för Azure AD
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Azure Container Agents-pluginprogram
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Azure Container Service-pluginprogram
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Azure Function-pluginprogram
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Plugin-program för Azure Service Fabric
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Azure Storage-pluginprogram
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Pluginprogram för Azure VM-agenter
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Plugin-program för Azure VM Scale Sets
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jenkins-startsida

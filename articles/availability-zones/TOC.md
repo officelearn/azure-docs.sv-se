@@ -33,6 +33,9 @@
 #### [Skapa en offentlig IP-adress i en tillgänglighetszon med PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Skapa en offentlig IP-adress i en tillgänglighetszon med CLI](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Lagring
+#### [Zonredundant lagring](../storage/common/storage-redundancy.md#zone-redundant-storage)
+
 # Haveriberedskap
 ## [Använd Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)
 

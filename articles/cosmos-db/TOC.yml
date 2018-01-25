@@ -248,7 +248,7 @@
           items:
             - name: Anslut till MongoDB-kontot
               href: connect-mongodb-account.md
-            - name: Använda MongoChef
+            - name: Använda Studio 3T
               href: mongodb-mongochef.md
             - name: Använda Robomongo
               href: mongodb-robomongo.md

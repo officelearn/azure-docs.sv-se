@@ -3,7 +3,6 @@
 ## Översikt
 
 ### [Vad är lösningen?](storsimple-ova-overview.md)
-### [Regional tillgänglighet](storsimple-regions.md)
 
 ## Kom igång
 ### Planera
@@ -14,6 +13,7 @@
 ### Distribuera
 #### [Förbered distributionen](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Använd StorSimple Manager-tjänsten](storsimple-virtual-array-manage-service.md)
+##### [Ny autentisering](storsimple-virtual-array-aad-registration-key.md)
 #### [Etablera i Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Etablera i VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Konfigurera som filserver](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -81,6 +81,7 @@
 
 ### Distribuera
 #### [StorSimple Device Manager-tjänsten](storsimple-8000-manage-service.md)
+#### [Ny autentisering för tjänsten](storsimple-8000-aad-registration-key.md)
 #### [Fysisk enhet i Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Fysisk enhet i Government Portal](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Molninstallation i Azure](storsimple-8000-cloud-appliance-u2.md)

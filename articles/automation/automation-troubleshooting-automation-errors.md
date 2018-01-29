@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Felsökning av vanliga problem i Azure Automation 
 Du får hjälp med att felsöka vanliga fel som du kan uppleva i Azure Automation och ger förslag på lösningar för att lösa problemen.
@@ -195,11 +195,19 @@ Du kan ta bort frågan för den här lösningen och reonboard lösning som åter
 
 **Orsaken till felet:**
 
-Felet innebär att distributionen misslyckades på grund av bryter mot en princip.
+Felet innebär att distributionen misslyckades på grund av överträdelse av en eller flera principer.
 
 **Felsökningstips:**
 
-Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till den resursgrupp som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den misslyckade distribution. För mer information om Azure princip besök: [översikt över Azure princip](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+För att distribuera lösningen, måste du överväga att ändra den angivna principen. Eftersom många olika typer av principer som kan definieras beror de ändringar som krävs på den princip som har överskridits. Till exempel om en princip har definierats i en resursgrupp som nekas behörighet att ändra innehållet i vissa typer av resurser i resursgruppen, kan du till exempel göra något av följande:
+
+*   Ta bort principen helt och hållet.
+* Försök att publicera till en annan resursgrupp.
+* Ändra principen av, till exempel:
+   * Nytt riktad principen till en en viss resurs (till exempel ett visst Automation-konto).
+   * Ändra uppsättningen av resurser som principen har konfigurerats för att neka.
+
+Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till den resursgrupp som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den misslyckade distribution. Läs mer om Azure princip besök: [översikt över Azure princip](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 

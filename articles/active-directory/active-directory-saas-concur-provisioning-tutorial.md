@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Concur | Microsoft Docs"
+title: "Självstudier: Konfigurera Concur för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f39013785f000c7055aaa28f4c6f41998644cb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 743d974c3711d5359cf7664c6a8709f7eaaeee20
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-concur-for-user-provisioning"></a>Självstudier: Konfigurera verklig för Användaretablering
+# <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Concur för automatisk användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver göra i Concur och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Concur.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -98,7 +98,7 @@ Av följande skäl bör den här åtgärden inte utföras med den profil som de 
 
 9. Ange den **Etableringsläge** till **automatisk**. 
  
-    ![Etablering](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
 10. Under den **administratörsautentiseringsuppgifter** ange den **användarnamn** och **lösenord** av administratören Concur.
 

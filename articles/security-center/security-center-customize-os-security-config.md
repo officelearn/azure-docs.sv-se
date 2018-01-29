@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS säkerhetskonfigurationer i Azure Security Center (förhandsgranskning)
 
@@ -26,7 +26,7 @@ Den här genomgången visar hur du anpassar bedömning av konfigurationen för O
 
 ## <a name="what-are-os-security-configurations"></a>Vad är OS säkerhetskonfigurationer?
 
-Azure Security Center Övervakare säkerhetskonfigurationer genom att använda en uppsättning över 150 rekommenderade regler för härdning av Operativsystemet, inklusive regler rör brandväggar, granskning, lösenordsprinciper och mycket mer. Om en dator har en sårbar konfiguration, genererar en säkerhetsrekommendation Security Center.
+Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning [över 150 rekommenderas regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för härdning av Operativsystemet, inklusive regler rör brandväggar, granskning, lösenordsprinciper och mycket mer. Om en dator har en sårbar konfiguration, genererar en säkerhetsrekommendation Security Center.
 
 Organisationer kan genom att anpassa regler kan styra vilka konfigurationsalternativ som är mer lämpliga för deras miljö. Du kan ange en princip för anpassad bedömning och tillämpa den på alla tillämpliga datorer i prenumerationen.
 
@@ -60,8 +60,8 @@ Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Cent
 3.  Välj den prenumeration som du vill utföra anpassning av.
 
 4. Under **princip komponenter**väljer **redigera säkerhetskonfigurationer**.  
-    Den **redigera säkerhetskonfigurationer** öppnas. 
-    
+    Den **redigera säkerhetskonfigurationer** öppnas.
+
     ![Fönstret ”Redigera säkerhetskonfigurationer”](media/security-center-customize-os-security-config/blade.png)
 
 5. I den högra rutan, följer du stegen för att hämta, redigera och ladda upp den ändrade filen.
@@ -70,7 +70,7 @@ Om du vill anpassa den OS standardkonfigurationen för säkerhet i Security Cent
    > Som standard är den konfigurationsfil som du hämtar i *json* format. Anvisningar om hur du ändrar den här filen finns i [anpassa konfigurationsfilen](#customize-the-configuration-file).
    >
 
-   När filen har sparats, används konfigurationen på alla virtuella datorer och datorer som är anslutna till alla arbetsytor för den här prenumerationen. Processen vanligtvis tar några minuter, men kan ta längre tid beroende på storleken för infrastruktur. 
+   När filen har sparats, används konfigurationen på alla virtuella datorer och datorer som är anslutna till alla arbetsytor för den här prenumerationen. Processen vanligtvis tar några minuter, men kan ta längre tid beroende på storleken för infrastruktur.
 
 6. För att genomföra ändringen, Välj **spara**. Annars kan lagras inte.
 

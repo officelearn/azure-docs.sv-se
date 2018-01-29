@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 2ee66e0f41868d7d5411605596a22c00b5712896
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare Konfigurationsschemat
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > - Azure Virtual Machines 
 > - Skalningsuppsättningar för Virtual Machines
 > - Service Fabric 
-> - Molntjänster 
+> - Cloud Services 
 > - Nätverkssäkerhetsgrupper
 > 
 > Den här sidan gäller endast om du använder någon av dessa tjänster.
@@ -411,7 +411,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Beskrivning|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | Den maximala mängden lokalt diskutrymme som kan användas av de olika typerna av diagnostiska data som samlas in av Azure-diagnostik. Standardinställningen är 5 120 MB.<br />
+| **overallQuotaInMB** | Den maximala mängden lokalt diskutrymme som kan användas av de olika typerna av diagnostiska data som samlas in av Azure-diagnostik. Standardinställningen är 4 096 MB.<br />
 |**useProxyServer** | Konfigurera Azure-diagnostik för att använda inställningarna för proxyservern som angetts i Internet Explorer-inställningar.|  
 
 <br /> <br />
@@ -532,7 +532,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters elementet  
+## <a name="performancecounters-element"></a>PerformanceCounters Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - prestandaräknarna*
 
  Aktiverar insamlingen av prestandaräknare.  
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
-|**Namn**|Sträng|En sträng som identifierar sinkname.|  
+|**Namn**|sträng|En sträng som identifierar sinkname.|  
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Application Insights**|Sträng|Används endast när data skickades till Application Insights. Innehåller den Instrumentation nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
-|**Kanaler**|Sträng|En för varje ytterligare filtrering strömma som du|  
+|**Application Insights**|sträng|Används endast när data skickades till Application Insights. Innehåller den Instrumentation nyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
+|**Kanaler**|sträng|En för varje ytterligare filtrering strömma som du|  
 
 ## <a name="channels-element"></a>Kanaler Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanaler*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Element|Typ|Beskrivning|  
 |-------------|----------|-----------------|  
-|**Kanal**|Sträng|Se beskrivning på annan plats på den här sidan.|  
+|**Channel**|sträng|Se beskrivning på annan plats på den här sidan.|  
 
 ## <a name="channel-element"></a>Kanal Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - kanaler - kanal*

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 Den här artikeln beskrivs olika lokalt och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect-synkronisering som viktiga integrationslösning. Den här artikeln innehåller både stöds och som inte stöds.
@@ -110,10 +110,11 @@ I det här scenariot skogsförtroenden (minst) resurs alla kontoskogarna. Resurs
 Vissa Office 365-arbetsbelastningar har vissa begränsningar på topologier som stöds:
 
 | Arbetsbelastning | Begränsningar |
---------- | ---------
+| --------- | --------- |
 | exchange online | Mer information om hybridtopologier som stöds av Exchange Online finns [hybriddistributioner med flera Active Directory-skogar](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype för företag | När du använder flera lokala skogar stöds endast skogstopologi konto-resurs. Mer information finns i [miljökrav för Skype för Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Om du är en större organisation, så bör du använda den [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) funktion. Det kan du definiera i vilken region datacenter användarens resocues finns.
 
 ## <a name="staging-server"></a>Server för Förproduktion
 ![Mellanlagring server i en topologi](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

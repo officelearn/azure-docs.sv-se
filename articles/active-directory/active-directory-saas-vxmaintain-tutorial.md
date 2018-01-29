@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Integrera Azure Active Directory med vxMaintain | Microsoft Docs"
+title: "Självstudier: Azure Active Directory-integrering med vxMaintain | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vxMaintain."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a987247d2c8a76161f9c8a5a027e34b3a8e25b30
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Självstudier: Integrera Azure Active Directory med vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integrering med vxMaintain
 
 I kursen får lära du att integrera vxMaintain med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Den här integreringen ger flera viktiga fördelar. Du kan:
 
 Mer information om integrering av SaaS-app med Azure AD finns [vad är programåtkomst och enkel inloggning med Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med vxMaintain, behöver du följande:
 

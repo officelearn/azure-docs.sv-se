@@ -1,6 +1,6 @@
 ---
 title: "Precis i tid virtuella datorn åtkomst till i Azure Security Center | Microsoft Docs"
-description: "Det här dokumentet får du via hur precis i tid VM komma åt i Azure Security Center kan du styra åtkomsten till din virtuella Azure-datorer."
+description: "Det här dokumentet visar hur precis i tid VM åtkomst i Azure Security Center hjälper dig att styra åtkomsten till din virtuella Azure-datorer."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Hantera virtuella åtkomst med hjälp av precis i tid (förhandsgranskning)
 
@@ -50,11 +50,13 @@ När en användare begär åtkomst till en virtuell dator, Security Center kontr
 
 ## <a name="using-just-in-time-access"></a>Med hjälp av just-in-time-åtkomst
 
-Den **precis i tid VM access** panelen **Security Center** visar hur många virtuella datorer som konfigurerats för just-in-time-åtkomst och antalet godkända åtkomstbegäranden som görs i den senaste veckan.
+1. Öppna instrumentpanelen för **Security Center**.
+
+2. I den vänstra rutan, Välj **precis i tid VM access**.
 
 ![Precis i tid VM åtkomst panelen][2]
 
-Välj den **precis i tid VM access** panelen och **precis i tid VM access** öppnas.
+Den **precis i tid VM access** öppnas.
 
 ![Precis i tid VM åtkomst panelen][10]
 

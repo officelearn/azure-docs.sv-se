@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="duplicate-detection"></a>Identifiering av dubbletter
 
-Om ett program påträffar ett allvarligt fel omedelbart efter den skickar ett meddelande och startas om programinstansen därför tror felaktigt att den tidigare meddelandeleverans inte förekommer, gör att en efterföljande skicka samma meddelande ska visas i systemet två gånger.
+Om ett program råkar ut för ett allvarligt fel omedelbart efter den skickar ett meddelande och startas om programinstansen tror felaktigt att den tidigare meddelandeleverans inte förekommer, gör att en efterföljande skicka samma meddelande visas två gånger i systemet.
 
-Det är också möjligt för ett fel på klienten eller nätverket ska ske en tidigare tidpunkt och ett skickade meddelande som ska allokeras till kön med bekräftelsen inte att göra det tillbaka till klienten har. Det här scenariot lämnar klienten tveksam om resultatet av send-åtgärden.
+Det är också möjligt för ett fel på klienten eller nätverket ska ske en kort stund tidigare och för ett meddelande som skickades till allokeras till kön med bekräftelsen gick inte att returneras till klienten. Det här scenariot lämnar klienten tveksam om resultatet av send-åtgärden.
 
 Identifiering av dubbletter tar osäker utanför dessa situationer genom att aktivera den avsändaren att skicka samma meddelande och kön eller avsnittet ignoreras eventuella dubbletter.
 
@@ -35,7 +35,7 @@ För en process där flera meddelanden skickas under hantering av vissa programk
 
 Den *MessageId* kan alltid vissa GUID, men inställningen identifierare till business-processen ger förutsägbar repeterbarhet som behövs för att kunna utnyttja funktionen för dubblettidentifiering effektivt.
 
-## <a name="enable-duplicate-detection"></a>Aktivera identifiering av dubbletter
+## <a name="enable-duplicate-detection"></a>Aktivera dubblettidentifiering
 
 I portalen funktionen är aktiverad när entiteten skapas med den **aktivera dubblettidentifiering** kryssrutan som är inaktiverat som standard. Inställningen för att skapa nya avsnitt är likvärdiga.
 

@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt av Azure App Service-diagnostik 
 
 När du kör ett webbprogram som du vill att förbereda för eventuella problem som kan uppstå i 500 fel till dina användare säger som webbplatsen är igång. Apptjänst diagnostics är en intelligent och interaktiva upplevelse för att felsöka ditt webbprogram med krävs ingen konfiguration. När du stöter på problem med ditt webbprogram, peka Apptjänst diagnostik reda på vad är fel att guida dig till rätt information för att snabbt och enkelt kan felsöka och lösa problemet. 
  
 Även om det här upplevelsen är användbart när du har problem med ditt webbprogram under de senaste 24 timmarna, blir alla diagnostiska diagram tillgängliga för dig att analysera hela tiden. Ytterligare verktyg för felsökning och länkar till användbar dokumentation och forum finns på den högra kolumnen.
+
+## <a name="open-app-service-diagnostics"></a>Öppna App Service-diagnostik
+
+För att komma åt Apptjänst diagnostik, navigera till din Apptjänst-webbapp i den [Azure-portalen](https://portal.azure.com). 
+
+I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.
 
 ![Startsida](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Om du vill ha mer information när du har kört en [hälsa checkup](#health-chec
 
 ![Diagnostisk rapport](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Öppna App Service-diagnostik
-
-För att komma åt Apptjänst diagnostik, navigera till din Apptjänst-webbapp i den [Azure-portalen](https://portal.azure.com). 
-
-I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.

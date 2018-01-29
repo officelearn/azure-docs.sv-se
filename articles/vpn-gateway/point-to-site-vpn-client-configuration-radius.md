@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 01/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
@@ -56,7 +56,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att hämta 'VpnClientConfiguration.zip'. Packa upp filen om du vill visa följande mappar: 
  
 * **WindowsAmd64** och **WindowsX86** -mapparna innehåller Windows 64-bitars och 32-bitars installer-paket. 
-* **GenericDevice** -den här mappen innehåller allmän information som används för att skapa din egen konfiguration för VPN-klienten. Den här mappen krävs inte för konfigurationer för autentisering av användarnamn/lösenord.
+* **Allmän** -den här mappen innehåller allmän information som används för att skapa din egen konfiguration för VPN-klienten. Den här mappen krävs inte för konfigurationer för autentisering av användarnamn/lösenord.
 * **Mac** -om IKEv2 konfigurerades när du har skapat den virtuella nätverksgatewayen ser du en mapp med namnet 'Mac' som innehåller en **mobileconfig** fil. Den här filen används för att konfigurera Mac-klienter.
 
 Om du redan skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av cmdleten 'Get-AzureRmVpnClientConfiguration'. Men om du gör några ändringar i konfigurationen för P2S VPN, till exempel den VPN-protokoll eller autentiseringstyp, uppdateras konfigurationen inte automatiskt. Du måste köra cmdleten 'Ny AzureRmVpnClientConfiguration' om du vill skapa en ny konfiguration hämtning.
@@ -125,7 +125,7 @@ Du kan skapa VPN-klienten konfigurationsfilerna för RADIUS-autentisering som an
 Generera VPN-klientkonfigurationsfiler för användning med certifikatautentisering. Du kan generera konfigurationsfiler för VPN-klienten med följande kommando:
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att hämta 'VpnClientConfiguration.zip'. Packa upp filen om du vill visa följande mappar:
@@ -138,7 +138,7 @@ Om du redan skapat klienten konfigurationsfiler, kan du hämta dem med hjälp av
 Om du vill hämta konfigurationsfiler för tidigare genererade klienten använder du följande kommando:
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
 ## <a name="setupusername"></a> 2. Konfigurera Windows- och Mac-VPN-klienter

@@ -4,7 +4,7 @@ description: Hur du drar nytta av RDMA-kompatibla eller GPU-aktiverade Virtuella
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
-ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Använda RDMA-kompatibla eller GPU-aktiverade instanser i Batch-pooler
 
@@ -47,25 +47,25 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pooler för Linux - konfiguration av virtuell dator
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, eller<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC-serien *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.0 drivrutiner | Gäller inte | 
+| [NC NCv2, ND serien *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (varierar mellan serier) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit 9.1 drivrutiner | Gäller inte | 
 | [NV serien](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, eller<br/>CentOS-baserad 7.3<br/>(Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Gäller inte |
 
-* RDMA-anslutningar på NC24r virtuella datorer stöds på Ubuntu 16.04 LTS eller CentOS-baserade 7.3 HPC (från Azure Marketplace) med Intel MPI.
+* RDMA-anslutningar på NC24r och NC24r_v2 ND24r virtuella datorer stöds på Ubuntu 16.04 LTS eller CentOS-baserade 7.3 HPC (från Azure Marketplace) med Intel MPI.
 
 
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pooler för Windows - konfiguration av virtuell dator
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-tillägget | Aktivera kommunikationen mellan noder, inaktivera samtidiga uppgiftskörningen |
-| [NC-serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 eller <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller CUDA Toolkit 9.0 drivrutiner| Gäller inte | 
+| [NC NCv2, ND serien *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar mellan serier) | Windows Server 2016 eller <br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA Tesla drivrutiner eller CUDA Toolkit 9.1 drivrutiner| Gäller inte | 
 | [NV serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>Windows Server 2012 R2 (Azure Marketplace) | NVIDIA RUTNÄTET 4.3 drivrutiner | Gäller inte |
 
-* RDMA-anslutningar på NC24r virtuella datorer stöds i Windows Server 2012 R2 (från Azure Marketplace) med tillägget HpcVMDrivers och Microsoft MPI eller Intel MPI.
+* RDMA-anslutningar på NC24r och NC24r_v2 ND24r virtuella datorer stöds i Windows Server 2012 R2 (från Azure Marketplace) med tillägget HpcVMDrivers och Microsoft MPI eller Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows - pooler i Cloud services-konfiguration
 
@@ -73,7 +73,7 @@ Beräkningsintensiva storlekar RDMA och GPU funktioner stöds endast i vissa ope
 > N-serien storlekar stöds inte i Batch-pooler med cloud services-konfiguration.
 >
 
-| Storlek | Funktion | Operativsystem | Programvara som krävs | Inställningar för programpool |
+| Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, or<br/>Windows Server 2008 R2 (gäst-OS-familjen) | Microsoft MPI 2012 R2 eller senare, eller<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM-tillägget | Aktivera kommunikationen mellan noder,<br/> inaktivera samtidiga uppgiftskörningen |
 

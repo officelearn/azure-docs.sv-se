@@ -5,8 +5,7 @@ keywords: datakryptering krypteringsnyckeln molnet kryptering
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Skydda känsliga data i SQL-databasen och lagra krypteringsnycklar i Azure Key Vault
 
@@ -38,7 +37,7 @@ Följ stegen i den här artikeln och lär dig hur du ställer in Always Encrypte
 * Skapa en databastabell och kryptera kolumner.
 * Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här kursen behöver du:
 
 * Ett Azure-konto och prenumeration. Om du inte har någon registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
@@ -48,30 +47,18 @@ Den här kursen behöver du:
 * [Azure PowerShell](/powershell/azure/overview), version 1.0 eller senare. Typen **(Get-Module azure - ListAvailable). Version** att se vilken version av PowerShell som du kör.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Aktivera ditt klientprogram att komma åt SQL Database-tjänsten
-Du måste aktivera ditt klientprogram att komma åt SQL Database-tjänsten genom att ställa in nödvändig autentisering och hämtning av den *ClientId* och *hemlighet* som du behöver att autentisera din program i följande kod.
+Du måste aktivera ditt klientprogram att komma åt SQL Database-tjänsten genom att skapa ett program med Azure Active Directory (AAD) och kopiera den *program-ID* och *nyckeln* som du behöver autentisera ditt program.
 
-1. Öppna den [klassiska Azure-portalen](http://manage.windowsazure.com).
-2. Välj **Active Directory** och klicka på Active Directory-instans som programmet ska använda.
-3. Klicka på **program**, och klicka sedan på **lägga till**.
-4. Skriv ett namn för ditt program (till exempel: *myClientApp*), Välj **WEBBPROGRAM**, och klicka på pilen för att fortsätta.
-5. För den **SIGN-ON-URL** och **APP-ID URI** du kan ange en giltig URL (t.ex, *http://myClientApp*) och fortsätta.
-6. Klicka på **konfigurera**.
-7. Kopiera ditt **klient-ID**. (Du behöver det här värdet i koden senare.)
-8. I den **nycklar** väljer **1 års** från den **Markera varaktighet** listrutan. (Du kommer att kopiera nyckeln när du har sparat i steg 13.)
-9. Bläddra nedåt och klicka **lägga till program**.
-10. Lämna **visa** inställd på **Microsoft Apps** och välj **Microsoft Azure Service Management API**. Klicka på bockmarkeringen för att fortsätta.
-11. Välj **åtkomsthantering för Azure-tjänst...**  från den **delegerade behörigheter** listrutan.
-12. Klicka på **SPARA**.
-13. När det är klar att spara, kopiera nyckelvärdet i den **nycklar** avsnitt. (Du behöver det här värdet i koden senare.)
+Att hämta den *program-ID* och *nyckeln*, följer du stegen i [och skapa ett Azure Active Directory applikationen eller tjänsten säkerhetsobjekt som kan komma åt resurser](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Skapa ett nyckelvalv för att lagra dina nycklar
-Nu när du har klient-ID och din klientapp konfigureras är det dags att skapa en nyckelvalvet och konfigurera dess åtkomstprincip så att du och ditt program kan komma åt på valvet hemligheter (Always Encrypted nycklarna). Den *skapa*, *hämta*, *lista*, *logga*, *Kontrollera*, *wrapKey*, och *unwrapKey* behörigheter som krävs för att skapa en ny kolumnhuvudnyckel och konfigurera kryptering med SQL Server Management Studio.
+Nu när du har program-ID och din klientapp konfigureras är det dags att skapa en nyckelvalvet och konfigurera dess åtkomstprincip så att du och ditt program kan komma åt på valvet hemligheter (Always Encrypted nycklarna). Den *skapa*, *hämta*, *lista*, *logga*, *Kontrollera*, *wrapKey*, och *unwrapKey* behörigheter som krävs för att skapa en ny kolumnhuvudnyckel och konfigurera kryptering med SQL Server Management Studio.
 
 Du kan snabbt skapa en nyckelvalv genom att köra följande skript. En detaljerad förklaring av dessa cmdletar och mer information om hur du skapar och konfigurerar ett nyckelvalv finns [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,13 +72,13 @@ Du kan snabbt skapa en nyckelvalv genom att köra följande skript. En detaljera
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Gå till **nya** > **Data + lagring** > **SQL-databas**.
 3. Skapa en **tom** databas med namnet **kurs** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure portal finns [första Azure SQL database](sql-database-get-started-portal.md).
    
@@ -233,7 +220,7 @@ Följande kod visar hur du registrerar Azure Key Vault-providern med ADO.NET-dri
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Kör appen att se Always Encrypted fungerar.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Kör appen att se Always Encrypted fungerar.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);

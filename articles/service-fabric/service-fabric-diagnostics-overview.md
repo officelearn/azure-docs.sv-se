@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 43a45a31efffcd623e6381049876c3607663ec4f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervaknings- och diagnostikfunktionerna för Azure Service Fabric
 
@@ -136,5 +136,6 @@ Om du vill anpassa diagrammen, följ instruktionerna i [mått i Microsoft Azure]
 
 * Lär dig mer om hur du övervakar plattformen och händelserna Service Fabric ger du vid [plattform nivån händelse och logga generation](service-fabric-diagnostics-event-generation-infra.md)
 * Komma igång med instrumentering dina program, finns [programmet nivån händelse och logga generation](service-fabric-diagnostics-event-generation-app.md)
-* Gå igenom kursen [övervaka och diagnostisera programmet ASP.NET Core på Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Gå igenom stegen för att ställa in AI för ditt program med [övervaka och diagnostisera programmet ASP.NET Core på Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
+* Lär dig hur du ställer in OMS Log Analytics för övervakning av behållare- [övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)
 

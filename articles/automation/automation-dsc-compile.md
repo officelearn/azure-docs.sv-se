@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; gwallace
-ms.openlocfilehash: 63120614f2a2ef6b366bc2d92ec9a0dd430a3fb4
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c84f1671d8e23e5ff222455192e020700f1ff51e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Kompilera konfigurationer i Azure Automation DSC
 
@@ -40,14 +40,14 @@ Du kan sammanställa önskad tillstånd Configuration (DSC) konfigurationer på 
 * Skicka ConfigurationData
 * Kompilera konfigurationer som använder autentiseringsuppgifterna
 
-När du har valt en metod för kompilering, kan du följa respektive procedurerna nedan för att starta kompilering.
+När du har valt en metod för kompilering, Använd följande procedurer för att starta kompilering.
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Kompilering av DSC-konfigurationen med Azure-portalen
 
 1. Från ditt Automation-konto klickar du på **DSC-konfigurationer**.
 2. Klicka på en konfiguration för att öppna dess bladet.
 3. Klicka på **Kompilera**.
-4. Om konfigurationen har inga parametrar, uppmanas du att bekräfta om du vill använda den. Om konfigurationen har parametrar av **kompilera konfiguration** öppnas i blad så att du kan ange parametervärden. Finns det [ **grundläggande parametrar** ](#basic-parameters) avsnittet nedan för mer information om parametrar.
+4. Om konfigurationen har inga parametrar, uppmanas du att bekräfta om du vill använda den. Om konfigurationen har parametrar av **kompilera konfiguration** öppnas i blad så att du kan ange parametervärden. Se följande [ **grundläggande parametrar** ](#basic-parameters) ytterligare information om parametrar.
 5. Den **Kompileringsjobbet** öppnas bladet så att du kan spåra kompilering jobbstatus och nodkonfigurationer (MOF configuration dokument) det orsakade placeras på Azure Automation DSC Pull-servern.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Kompilering av DSC-konfigurationen med Windows PowerShell
@@ -131,10 +131,10 @@ Information om skicka PSCredentials som parametrar finns <a href="#credential-as
 
 ## <a name="composite-resources"></a>Sammansatta resurser
 
-**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. Detta gör att du kan använda flera konfigurationer för en enskild resurs.  Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
+**Sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. Detta gör att du kan använda flera konfigurationer för en enskild resurs. Se [sammansatta resurser: med hjälp av DSC-konfigurationen som en resurs](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) att lära dig mer om **sammansatta resurser**
 
 > [!NOTE]
-> För att **sammansatta resurser** kompilera korrekt måste du först kontrollera att DSC resurser som är beroende av sammansatt installeras först i Azure Automation-konto moduler databasen eller den importeras inte korrekt.
+> För att **sammansatta resurser** kompilera korrekt måste du först kontrollera att alla DSC-resurser som sammansatt förlitar sig på installeras först i Azure Automation-konto moduler databasen eller den importeras inte korrekt.
 
 Att lägga till en DSC **sammansatta resurs**, måste du lägga till modulen resurs till ett arkiv (* .zip). Gå till moduler-databas på Azure Automation-kontot. Klicka på knappen ”Lägg till en modul'.
 
@@ -144,7 +144,7 @@ Gå till den katalog där arkivet finns. Välj arkivfilen och klicka på OK.
 
 ![Välj modul](./media/automation-dsc-compile/select_dscresource.png)
 
-Sedan tas du tillbaka till katalogen moduler där du kan övervaka statusen för din **sammansatta resurs** medan den packas upp och registreras med Azure Automation.
+Du kommer tillbaka till katalogen moduler, där du kan övervaka statusen för din **sammansatta resurs** medan den packas upp och registreras med Azure Automation.
 
 ![Importera sammansatta resurs](./media/automation-dsc-compile/register_composite_resource.png)
 
@@ -174,7 +174,7 @@ Du kan anropa den **sammansatta resurs** i konfigurationen t.ex:
 ```
 
 ## <a name="configurationdata"></a>ConfigurationData
-**ConfigurationData** kan du avgränsa strukturella konfigurationen från miljön specifik konfiguration när du använder PowerShell DSC. Se [avgränsa ”vad” från ”där” i PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) att lära dig mer om **ConfigurationData**.
+**ConfigurationData** kan du avgränsa strukturella konfigurationen från alla miljö konfiguration när du använder PowerShell DSC. Se [avgränsa ”vad” från ”där” i PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) att lära dig mer om **ConfigurationData**.
 
 > [!NOTE]
 > Du kan använda **ConfigurationData** vid kompilering i Azure Automation DSC med hjälp av Azure PowerShell, men inte i Azure-portalen.
@@ -200,7 +200,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Du kan sammanställa DSC-konfigurationen ovan med PowerShell. Den nedan PowerShell lägger till två nodkonfigurationer i Azure Automation DSC Pull-Server: **ConfigurationDataSample.MyVM1** och **ConfigurationDataSample.MyVM3**:
+Du kan sammanställa föregående DSC-konfigurationen med PowerShell. Följande PowerShell lägger till två nodkonfigurationer i Azure Automation DSC Pull-Server: **ConfigurationDataSample.MyVM1** och **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -238,7 +238,7 @@ Referenser för tillgången är samma i Azure Automation DSC-konfigurationer och
 
 ### <a name="credential-assets"></a>Inloggningstillgångar
 
-När DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar med **Get-AzureRmAutomationCredential**, inloggningstillgångar kan också överföras via parametrar, om så önskas. Om en konfiguration tar en parameter av **PSCredential** skriver, måste du skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång som att parametervärdet, i stället för ett PSCredential-objekt. Azure Automation-autentiseringsuppgiftstillgång med detta namn kommer hämtas och skickades till konfigurationen i bakgrunden.
+När DSC-konfigurationer i Azure Automation kan referera till inloggningstillgångar med **Get-AzureRmAutomationCredential**, inloggningstillgångar kan också överföras via parametrar, om så önskas. Om en konfiguration tar en parameter av **PSCredential** skriver, måste du skicka sträng namnet på en Azure Automation-autentiseringsuppgiftstillgång som att parametervärdet, i stället för ett PSCredential-objekt. I bakgrunden, hämtas och skickades till konfigurationen Azure Automation-autentiseringsuppgiftstillgång med det namnet.
 
 Att hålla autentiseringsuppgifter kräver säker nodkonfigurationer (MOF configuration dokument) kryptering av autentiseringsuppgifter i noden configuration MOF-filen. Azure Automation tar ytterligare ett steg och krypterar hela MOF-filen. Men måste för närvarande du ange PowerShell DSC går bra autentiseringsuppgifter mängden i klartext under noden configuration MOF generation, eftersom PowerShell DSC inte vet att Azure Automation kryptera hela MOF-filen efter dess generation via en kompileringsjobbet.
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-Du kan sammanställa DSC-konfigurationen ovan med PowerShell. Den nedan PowerShell lägger till två nodkonfigurationer i Azure Automation DSC Pull-Server: **CredentialSample.MyVM1** och **CredentialSample.MyVM2**.
+Du kan sammanställa föregående DSC-konfigurationen med PowerShell. Följande PowerShell lägger till två nodkonfigurationer i Azure Automation DSC Pull-Server: **CredentialSample.MyVM1** och **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{

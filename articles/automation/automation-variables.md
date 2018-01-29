@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabeln tillgångar i Azure Automation
 
@@ -51,23 +51,23 @@ Här följer en lista över variabla typer som är tillgängliga i Automation:
 * Boolesk
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>Skapa och hantera variabler-skript
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
+För AzureRM för cmdlets i följande tabell att skapa och hantera automatisering inloggningstillgångar med Windows PowerShell.  De levereras som en del av den [AzureRM.Automation modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
 
-Cmdlets i följande tabell används för att skapa och hantera automatisering variabler med Windows PowerShell. De levereras som en del av den [Azure PowerShell-modulen](../powershell-install-configure.md) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationen.
-
-|Cmdlet: ar|Beskrivning|
+| Cmdlet: ar | Beskrivning |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Hämtar värdet för en befintlig variabel.|
-|[Ny AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Skapar en ny variabel och anger dess värde.|
-|[Ta bort AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Tar bort en befintlig variabel.|
-|[Ange AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Anger värdet för en befintlig variabel.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Skapar en ny variabel och anger dess värde.|
+|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Tar bort en befintlig variabel.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Anger värdet för en befintlig variabel.|
 
-Arbetsflödesaktiviteter i följande tabell används för åtkomst till automationsvariabler i en runbook. De är bara tillgängliga för användning i en runbook eller DSC-konfigurationen och levereras inte som en del av Azure PowerShell-modulen.
+## <a name="activities"></a>Aktiviteter
+Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgifter i en runbook och DSC-konfigurationer.
 
-|Arbetsflödesaktiviteter|Beskrivning|
+| Aktiviteter | Beskrivning |
 |:---|:---|
-|Get-automationvariable|Hämtar värdet för en befintlig variabel.|
-|Set-automationvariable|Anger värdet för en befintlig variabel.|
+|Get-AutomationVariable|Hämtar värdet för en befintlig variabel.|
+|Set-AutomationVariable|Anger värdet för en befintlig variabel.|
 
 > [!NOTE] 
 > Du bör undvika att använda variabler i – Name-parametern i **Get-automationvariable,** i en runbook eller DSC-konfigurationen eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfiguration och automatisering variabler i designläge.
@@ -205,4 +205,3 @@ Följande bild visar exempel aktiviteter att uppdatera en variabel med ett enkel
 
 * Mer information om hur du ansluter aktiviteter tillsammans i grafiska redigering finns [länkar i grafiska redigering](automation-graphical-authoring-intro.md#links-and-workflow)
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md) 
-

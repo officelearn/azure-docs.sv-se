@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Förstå Autoskala inställningar
 Autoskala inställningar kan du kontrollera att du har rätt antal resurser som körs för att hantera varierar belastningen på ditt program. Du kan konfigurera Autoskala inställningar ska utlösas baserat på mått som anger belastningen eller prestanda eller -utlösare på schemalagd dag och tid. Den här artikeln tar en närmare titt på en autoskalningsinställning uppbyggnad. Artikeln startar förstå schemat och egenskaperna för en inställning och sedan går igenom de olika profiltyper som kan konfigureras och slutligen beskrivs hur Autoskala utvärderar vilken profil som ska köras vid en given tidpunkt.
@@ -107,14 +107,14 @@ Följande autoskalningsinställning används för att illustrera Autoskala inst�
 | Profil | Capacity.minimum | Den minsta kapaciteten som tillåts. Det garanterar att Autoskala när du kör den här profilen skalas inte för din resurs under det här värdet. |
 | Profil | Capacity.default | Om det inte går att läsa resurs mått (i det här fallet processorn ”vmss1”) och den aktuella kapaciteten är standard-kapaciteten sedan att säkerställa tillgängligheten för resursen, Autoskala skala ut till standardinställningarna. Om den aktuella kapaciteten redan är högre än standardkapaciteten Autoskala kommer inte skala in. |
 | Profil | regler | Autoskala skalas automatiskt mellan de högsta och lägsta kapaciteter med regler i profilen. Du kan ha flera regler i en profil. Grundläggande scenario är att ha två regler, en för att avgöra när du ska skalbar och den andra för att avgöra när du ska skala i. |
-| Regeln | metricTrigger | Definierar mått villkoren i regeln. |
+| regel | metricTrigger | Definierar mått villkoren i regeln. |
 | metricTrigger | metricName | Namnet på måttet. |
 | metricTrigger |  metricResourceUri | Resurs-ID för den resurs som genererar måttet. I de flesta fall är det samma som den resurs som skalas. I vissa fall kan det vara olika, till exempel kan du skala en skaluppsättning för virtuell dator baserat på antalet meddelanden i en kö för lagring. |
-| metricTrigger | Tidskorn | Mått provtagning varaktighet. Till exempel Tidskorn = ”PT1M” innebär att mätvärdena som ska aggregeras varje minut med hjälp av sammanställningsmetod som anges i ”statistik”. |
+| metricTrigger | timeGrain | Mått provtagning varaktighet. Till exempel Tidskorn = ”PT1M” innebär att mätvärdena som ska aggregeras varje minut med hjälp av sammanställningsmetod som anges i ”statistik”. |
 | metricTrigger | statistik | Sammanställningsmetod inom Tidskorn period. Exempelvis statistik = ”genomsnittliga” och Tidskorn = ”PT1M” innebär att mätvärdena som ska aggregeras varje 1 minut med medelvärdet. Den här egenskapen anger hur måttet samplas. |
-| metricTrigger | värdet timeWindow | Hur lång tid att gå tillbaka för mått. Till exempel värdet timeWindow = ”PT10M” innebär att varje gång Autoskala körs frågar mått för de senaste 10 minuterna. Tidsfönstret kan din mått anges och undviker att reagera på tillfälliga toppar. |
+| metricTrigger | timeWindow | Hur lång tid att gå tillbaka för mått. Till exempel värdet timeWindow = ”PT10M” innebär att varje gång Autoskala körs frågar mått för de senaste 10 minuterna. Tidsfönstret kan din mått anges och undviker att reagera på tillfälliga toppar. |
 | metricTrigger | timeAggregation | Aggregeringen-metod som används för att aggregera provade mått. Till exempel TimeAggregation = ”genomsnittliga” bör aggregera provade mått genom att ta medelvärdet. Ta tio 1 minut exemplen i fallet ovan och genomsnittlig dem. |
-| Regeln | scaleAction | Åtgärd att vidta när metricTrigger regelns utlöses. |
+| regel | scaleAction | Åtgärd att vidta när metricTrigger regelns utlöses. |
 | scaleAction | riktning | ”Öka” om du vill skala ut, ”minska” om du vill skala i|
 | scaleAction | värde | Hur mycket att öka eller minska resursens kapacitet |
 | scaleAction | cooldown | Hur lång tid ska vänta efter en skalningsåtgärden innan skalning igen. Till exempel om cooldown = ”PT10M” och sedan efter en skalningsåtgärden sker Autoskala inte försöker skala igen för en annan 10 minuter. Cooldown är att tillåta mått att hålla efter tillägg eller borttagning av instanser. |
@@ -125,7 +125,7 @@ Det finns tre typer av autoskalningsprofiler:
 
 1. **Vanliga profil:** vanligaste profil. Om du inte behöver skala din resurs på olika sätt beroende på dag i veckan eller på en viss dag endast måste du ställa in en vanlig profil i din autoskalningsinställning. Den här profilen kan sedan konfigureras med mått regler som bestämmer när att skala ut och när skala in. Du bör bara ha en vanlig profil som har definierats.
 
-    Exempelprofil som används tidigare i den här artikeln är ett exempel på en vanlig profil. Gör inte det är också möjligt att ställa in en profil för att skala med en statisk instansantal för din resurs.
+    Exempelprofil som används tidigare i den här artikeln är ett exempel på en vanlig profil. Observera att det är också möjligt att ställa in en profil för att skala med en statisk instansantal för din resurs.
 
 2. **Fast datum profil:** med vanlig profilen definierats anta att du har en viktig händelse kommande på 26 December 2017 (PST) och du vill minsta/högsta kapacitet för din resurs för att skilja den dagen, men fortfarande skala på samma mått . I det här fallet bör du lägga till en fast datum profil din inställning profiler lista. Profilen som är konfigurerad för att köras endast på händelsens dag. För varje dag utförs regelbundna profilen.
 

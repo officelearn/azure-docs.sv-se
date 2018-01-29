@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions proxyservrar
 
@@ -62,6 +62,11 @@ Det finns för närvarande inga portaler för att ändra svar. Information om hu
 
 Konfigurationen för en proxy behöver inte vara statisk. Du kan villkor och använda variabler från den ursprungliga klientbegäran, backend-svar eller programinställningar.
 
+### <a name="reference-localhost"></a>Referens för lokala funktioner
+Du kan använda `localhost` att referera till en funktion i appen med samma funktion direkt, utan en proxy tur och RETUR-begäran.
+
+`"backendurl": "localhost/api/httptriggerC#1"`kommer att referera till en lokal HTTP utlöses funktion på vägen`/api/httptriggerC#1`
+
 ### <a name="request-parameters"></a>Parametrarna som referens
 
 Du kan använda parametrarna som indata till backend-URL: en egenskap eller som en del av att ändra begäranden och -svar. Vissa parametrar kan bindas från flödesmallen som anges i grundläggande proxykonfigurationen och andra kan komma från egenskaperna för den inkommande begäranden.
@@ -94,6 +99,18 @@ Till exempel backend-URL: en *https://%ORDER_PROCESSING_HOST%/api/orders* skulle
 
 > [!TIP] 
 > Använd programinställningar för backend-värdar när du har flera distributioner eller testmiljöer. På så sätt kan kan du se till att du alltid talar till rätt serverdel för den miljön.
+
+## <a name="debugProxies"></a>Felsöka proxyservrar
+
+Genom att lägga till flaggan `"debug":true` till en proxyserver i ditt `proxy.json` ska du Aktivera felsökningsloggning. Loggfilerna lagras i `D:\home\LogFiles\Application\Proxies\DetailedTrace` och kan nås via de avancerade verktyg (kudu). HTTP-svar innehåller också en `Proxy-Trace-Location` huvud med en URL för att få åtkomst till loggfilen.
+
+Du kan felsöka en proxy från klientsidan genom att lägga till en `Proxy-Trace-Enabled` huvudet inställt på `true`. Detta kommer även logga en spårning i filsystemet och returnera trace-URL som rubrik i svaret.
+
+### <a name="block-proxy-traces"></a>Blockera proxy spårningar
+
+Av säkerhetsskäl kan du inte vill att alla anropar din tjänst om du vill skapa en spårning. De kommer inte att komma åt trace innehållet utan att dina inloggningsuppgifter, men genererar spårningen förbrukar resurser och visar att du använder funktionen proxyservrar.
+
+Inaktivera spårningar helt och hållet genom att lägga till `"debug":false` till någon särskild proxyserver i ditt `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -130,6 +147,24 @@ Varje proxy har ett eget namn som *proxy1* i föregående exempel. Objektet för
 
 > [!NOTE] 
 > Den *väg* egenskap i Azure Functions proxyservrar inte att behandla den *routePrefix* -egenskapen för Värdkonfiguration Funktionsapp. Om du vill ha ett prefix som `/api`, det måste ingå i den *väg* egenskapen.
+
+### <a name="disableProxies"></a>Inaktivera enskilda proxyservrar
+
+Du kan inaktivera enskilda proxyservrar genom att lägga till `"disabled": true` till proxy i den `proxies.json` filen. Detta innebär att alla förfrågningar som uppfyller matchCondidtion att returnera 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Definiera ett requestOverrides-objekt
 

@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Hur du använder Azure hanterade tjänstidentiteten (förhandsversion) i App Service och Azure Functions
 
@@ -56,7 +56,7 @@ Om du vill ställa in en hanterad tjänstidentitet med hjälp av Azure CLI, beh�
 
 Följande steg beskriver hur du skapar en webbapp och tilldela den en identitet med hjälp av CLI:
 
-1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera programmet:
+1. Om du använder Azure CLI i den lokala konsolen först logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera programmet:
 
     ```azurecli-interactive
     az login
@@ -162,7 +162,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. Om du vill 
 > |Parameternamn|i|Beskrivning|
 > |-----|-----|-----|
 > |resurs|Fråga|AAD-resurs-URI för resursen för som en token ska hämtas.|
-> |API-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
+> |api-version|Fråga|Versionen av token API som ska användas. ”2017-09-01” är för närvarande den enda version som stöds.|
 > |hemlighet|Sidhuvud|Värdet för miljövariabeln MSI_SECRET.|
 
 

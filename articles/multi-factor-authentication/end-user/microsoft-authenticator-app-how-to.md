@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Kom igång med Microsoft Authenticator-appen
 Ger en extra nivå av säkerhet i arbets-eller skolkonto för Microsoft Authenticator-appen (till exempel bsimon@contoso.com) eller Microsoft-konto (till exempel bsimon@outlook.com).
@@ -42,7 +42,7 @@ Du måste ställa in tvåstegsverifiering själv för ett personligt konto. Om d
 Du kan också använda Microsoft Authenticator med icke-Microsoft konton. De kan anropa funktionen något annat än tvåstegsverifiering, men du bör kunna hitta under inloggning inställningar eller säkerhet.
 
 ## <a name="install-the-app"></a>Installera appen
-Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Lägga till konton till appen
 Använd någon av följande procedurer för varje konto som du vill lägga till Microsoft Authenticator-appen:
@@ -100,7 +100,7 @@ Om du vill konfigurera Touch ID för Microsoft Authenticator som du behöver utf
 
 Peka framåt från som, när du måste verifiera din inloggning, väljer mottagna push-meddelanden och söka igenom ditt fingeravtryck istället för att ange din PIN-kod.
 
-![Push-meddelanden](./media/authenticator-app-how-to/touchid2.png)
+![Push-meddelande](./media/authenticator-app-how-to/touchid2.png)
 
 ## <a name="use-the-app-when-you-sign-in"></a>Använda appen när du loggar in
 

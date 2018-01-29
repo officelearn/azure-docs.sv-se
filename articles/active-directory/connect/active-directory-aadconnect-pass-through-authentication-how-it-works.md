@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/24/2018
 ms.author: billmath
-ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory direkt-autentisering: Tekniska ingående
 Den här artikeln är en översikt över hur Azure Active directory (AD Azure) direkt autentisering fungerar. Djup tekniska och säkerhetsinformation finns i [säkerhet ingående](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) artikel.
@@ -31,7 +31,7 @@ När en användare försöker logga in på ett program som skyddas av Azure AD o
 2. Om användaren inte redan har signerats användaren omdirigeras till Azure AD **användarinloggning** sidan.
 3. Användaren anger sitt användarnamn och lösenord i Azure AD-inloggningssidan och väljer sedan den **inloggning** knappen.
 4. Azure AD på begäran att logga in, placerar användarnamn och lösenord (krypterade med hjälp av en offentlig nyckel) i en kö.
-5. En lokal autentiseringsagent hämtar användarnamn och lösenord för krypterade från kön. Observera att agenten inte ofta avsökas begäranden från kön, men hämtar begäranden via en i förväg upprättade persistant-anslutning.
+5. En lokal autentiseringsagent hämtar användarnamn och lösenord för krypterade från kön. Observera att agenten inte ofta avsökas begäranden från kön, men hämtar begäranden via en i förväg upprättade beständig anslutning.
 6. Agenten dekrypterar lösenordet med dess privata nyckel.
 7. Agenten verifierar användarnamnet och lösenordet mot Active Directory med hjälp av standard Windows API: er, vilket är en liknande mekanism för vilka Active Directory Federation Services (AD FS) använder. Användarnamnet kan vara antingen lokalt Standardanvändarnamnet, vanligtvis `userPrincipalName`, eller ett annat attribut som konfigurerats i Azure AD Connect (kallas även `Alternate ID`).
 8. Lokala Active Directory-domänkontrollant (DC) utvärderar begäran och returnerar lämplig respons (lyckad, misslyckad, lösenord upphört att gälla eller användaren utelåst) till agenten.

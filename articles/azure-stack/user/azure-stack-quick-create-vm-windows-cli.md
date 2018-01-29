@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 36930cc38b6c1933b58651f6c63e7d5d453c447d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ea972db9ce3488d9a46a7d059714c8bbe820d47d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>Skapa en virtuell dator för Windows Azure-stacken med Azure CLI
 
 Azure CLI används för att skapa och hantera Azure-stacken resurser från kommandoraden. Den här guiden information med Azure CLI för att skapa en virtuell Windows Server 2016-dator i Azure-stacken. När du har skapat den virtuella datorn ska du ansluta med fjärrskrivbord kan installera IIS, sedan visa standardwebbplatsen. 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 * Kontrollera att Azure Stack-operator har lagt till ”Windows Server 2016” bilden Stack för Azure marketplace.  
 
@@ -33,7 +33,7 @@ Azure CLI används för att skapa och hantera Azure-stacken resurser från komma
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk behållare i vilka Azure-stacken resurser distribueras och hanteras. Från din development kit eller Azure-stacken integrerat system som kör den [az gruppen skapa](/cli/azure/group#create) kommando för att skapa en resursgrupp. Vi har tilldelat värden för alla variabler i det här dokumentet kan du använda dem som är eller tilldela ett annat värde. I följande exempel skapas en resursgrupp med namnet myResourceGroup i den lokala platsen.
+En resursgrupp är en logisk behållare i vilka Azure-stacken resurser distribueras och hanteras. Från din development kit eller Azure-stacken integrerat system som kör den [az gruppen skapa](/cli/azure/group#az_group_create) kommando för att skapa en resursgrupp. Vi har tilldelat värden för alla variabler i det här dokumentet kan du använda dem som är eller tilldela ett annat värde. I följande exempel skapas en resursgrupp med namnet myResourceGroup i den lokala platsen.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-Skapa en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#create) kommando. I följande exempel skapas en virtuell dator med namnet myVM. Det här exemplet används Demouser för ett användarnamn och Demouser@123 som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. Dessa värden krävs när du ansluter till den virtuella datorn.
+Skapa en virtuell dator med hjälp av den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. I följande exempel skapas en virtuell dator med namnet myVM. Det här exemplet används Demouser för ett användarnamn och Demouser@123 som lösenord. Uppdatera dessa värden till något som är lämpligt för din miljö. Dessa värden krävs när du ansluter till den virtuella datorn.
 
 ```cli
 az vm create \
@@ -88,7 +88,7 @@ Du kan använda en webbläsare som du själv väljer för att visa standardvälk
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```cli
 az group delete --name myResourceGroup

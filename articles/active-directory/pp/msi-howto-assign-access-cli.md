@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 6e3bab5356812c256cfd147e42f065f381e0f63d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Tilldela en Användartilldelad hanteras Service identitet (MSI) åtkomst till en resurs med hjälp av Azure CLI
 
@@ -33,7 +33,7 @@ När du har skapat en Användartilldelad MSI, kan du ge MSI-åtkomst till en ann
 Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) från Azure-portalen, eller via knappen ”prova den” finns i det övre högra hörnet av varje kodblock.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/#login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
+- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
 
    ```azurecli
    az login

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 2bff4dcb3e72113b2ae808959562e87823f8948b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 150e4e5023379deab457487df1fd2a53d43b1875
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-thousandeyes-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ThousandEyes för automatisk Användaretablering
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ThousandEyes för automatisk användaretablering
 
 
 Syftet med den här kursen är att visa de steg som du behöver göra i ThousandEyes och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ThousandEyes. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 

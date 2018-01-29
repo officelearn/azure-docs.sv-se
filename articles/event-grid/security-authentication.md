@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: e2f48b6e72072ce6bf019b3adc138ae83c162f25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510e578f3ebeb6ad7a4d81249cdfd7ce1d3684ad
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Händelsen rutnätet säkerhet och autentisering 
 
@@ -24,7 +24,7 @@ Azure händelse rutnätet har tre typer av autentisering:
 
 ## <a name="webhook-event-delivery"></a>WebHook-händelse leverans
 
-Webhooks är en av många olika sätt att ta emot händelser i realtid från Azure Event rutnät. Varje gång det finns en ny händelse som är redo att levereras, lägger händelse rutnätet Webhooken en HTTP-begäran till den konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
+Webhooks är en av många olika sätt att ta emot händelser i realtid från Azure Event rutnät. Varje gång det finns en ny händelse som är redo att levereras, skickar händelse rutnätet Webhooken en HTTP-begäran till konfigurerade HTTP-slutpunkten med händelsen i brödtexten.
 
 När du registrerar WebHook slutpunkten med händelsen rutnät skickar den en POST-begäran med en enkel verifiering kod för att bevisa att du äger för slutpunkten. Din app behöver svara genom eko tillbaka verifieringskoden. Händelsen rutnätet inte leverera händelser till WebHook-slutpunkter som inte har klarat valideringen.
 

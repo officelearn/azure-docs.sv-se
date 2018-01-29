@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Jive | Microsoft Docs"
+title: "Självstudier: Konfigurera Jive för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jive."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 930b64d8c119f468a18ab5736983365aaf5f03c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 67bbf48c0ce67b0fef5cc2b1c61e3612e0201534
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-jive-for-user-provisioning"></a>Självstudier: Konfigurera Jive för Användaretablering
+# <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Jive för automatisk användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver göra i Jive och Azure AD till automatiskt etablera och avinstallation etablera användarkonton från Azure AD till Jive.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -65,7 +65,7 @@ Som en del av den här proceduren måste måste du tillhandahålla en säkerhets
 
 4. Ange den **Etableringsläge** till **automatisk**. 
 
-    ![Etablering](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** och ange följande inställningar:
    

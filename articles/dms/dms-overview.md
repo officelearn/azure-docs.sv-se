@@ -10,11 +10,11 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/13/2017
-ms.openlocfilehash: 80ec9e177e5c1408eb28338c0c0acae9c672eeb1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 2aae105b7454209131db79c60d74740ce97c21ce
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Vad är Azure databas migrering Service Preview?
 Tjänsten Azure Database migrering är en helt hanterad tjänst som utformats för att aktivera sömlös migrering från flera databaskällor till Azure Data plattformar med minimal avbrottstid. Tjänsten är för närvarande i förhandsversion, med utvecklingsarbete fokuserar på:
@@ -34,6 +34,11 @@ Offentliga förhandsversionen av Azure-databastjänst för migrering är tillgä
 - Södra Brasilien
 - Västra Europa
 - Norra Europa
+- Sydostasien
+- Indien, västra
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en instans av tjänsten Azure Database migrering med hjälp av Azure portal](quickstart-create-data-migration-service-portal.md).
+- [Migrera SQLServer till Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
+- [Översikt över krav för att använda tjänsten Azure Database migrering](pre-reqs.md).
+- [Vanliga frågor och svar om hur du använder tjänsten Azure Database migrering](faq.md).

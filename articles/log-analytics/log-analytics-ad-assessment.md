@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimera din Active Directory-miljö med Active Directory Health Check-lösningen i logganalys
 
@@ -39,7 +39,7 @@ När du har lagt till lösningen och en kontroll är slutförd, Sammanfattning v
 
 ![Bild av AD Health Check instrumentpanelen](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Active Directory Health Check-lösning kräver en version som stöds av .NET Framework 4.5.2 eller senare installerat på varje dator som har den Microsoft Monitoring Agent (MMA) installerad.  MMA agent används av System Center 2016 - Operations Manager och Operations Manager 2012 R2 och Log Analytics-tjänsten. 
 * Lösningen har stöd för domänkontrollanter som kör Windows Server 2008 och 2008 R2, Windows Server 2012 och 2012 R2 och Windows Server 2016.
@@ -64,7 +64,7 @@ Active Directory Health Check samlar in data från följande källor med agenten
 
 - Register 
 - LDAP 
-- .NET framework
+- .NET Framework
 - Händelseloggen 
 - Active Directory Service interfaces (ADSI)
 - Windows PowerShell
@@ -108,10 +108,8 @@ När den har installerats kan du visa sammanfattning av rekommendationer med hj�
 Visa sammanfattade efterlevnad bedömningar för din infrastruktur och gå till rekommendationer.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
-3. Välj en arbetsyta i fönstret logganalys prenumerationer och klicka sedan på den **OMS-portalen** panelen.  
-4. På den **översikt** klickar du på den **AD Health Check** panelen. 
+3. Klicka på den **översikt** panelen för logganalys-arbetsytan i Azure-portalen.
+4. På den **översikt** klickar du på den **Active Directory Health Check** panelen. 
 5. På den **Health Check** , Granska sammanfattningen i ett fokus området blad och klickar sedan på en om du vill visa rekommendationer för området fokus.
 6. På någon av sidorna fokus område, kan du visa prioriterad rekommendationer för din miljö. Klicka på en rekommendation enligt **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av Health Check rekommendationer](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Du kan vidta åtgärder i **föreslagna åtgärder**. När objektet har behandlats senare bedömningar poster som rekommenderade åtgärder som utförts och kompatibilitet poängen ökar. Korrigerade objekt visas som **skickades objekt**.

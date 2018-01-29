@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 986c3b62426949f1e4c2009aabbfec2f1130f821
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation-runbooks återställningsplaner
 I den här artikeln beskrivs hur Azure Site Recovery kan integreras med Azure Automation kan du utöka din återställningsplaner. Återställningsplaner kan samordna återställning av virtuella datorer som är skyddade med Site Recovery. Återställningsplaner fungerar både för replikering till en sekundär molnet och för replikering till Azure. Återställningsplaner även gör återställningen **konsekvent korrekt**, **repeterbara**, och **automatiserad**. Om du växlar över dina virtuella datorer till Azure utökar-integrering med Azure Automation din återställningsplaner. Du kan använda den för att köra runbooks, som ger kraftfulla automation-aktiviteter.
 
-Om du är nybörjare på Azure Automation kan du [registrering](https://azure.microsoft.com/services/automation/) och [hämta skriptexempel](https://azure.microsoft.com/documentation/scripts/). Mer information och lär dig hur du samordnar återställning till Azure med hjälp av [återställningsplaner](https://azure.microsoft.com/blog/?p=166264), se [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
+Om du är nybörjare på Azure Automation kan du [registrering](https://azure.microsoft.com/services/automation/) och [hämta skriptexempel](https://azure.microsoft.com/documentation/scripts/). Mer information och lär dig hur du samordnar återställning till Azure med hjälp av [återställningsplaner](./site-recovery-create-recovery-plans.md), se [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/).
 
 I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks i din återställningsplaner. Vi använder exempel för att automatisera grundläggande uppgifter som tidigare krävde manuella åtgärder. Vi beskriver också hur du konverterar en återställning av flera steg till en enda musklick återställningsåtgärd.
 
@@ -99,7 +99,7 @@ I den här artikeln beskriver vi hur du kan integrera Azure Automation-runbooks 
     | SubscriptionId |Azure prenumerations-ID som den virtuella datorn skapades. |
     | RoleName |Namnet på den virtuella Azure-datorn som återställs. |
     | CloudServiceName |Azure-molntjänstnamn som har skapats för den virtuella datorn. |
-    | resourceGroupName|Azure resursgruppens namn som har skapats för den virtuella datorn. |
+    | ResourceGroupName|Azure resursgruppens namn som har skapats för den virtuella datorn. |
     | RecoveryPointId|Tidsstämpel för när den virtuella datorn återställs. |
 
 * Kontrollera att Automation-kontot har följande moduler:
@@ -256,8 +256,10 @@ Ett annat exempel finns i följande videoklipp. Den visar hur du återställer e
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 
 
-
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Azure Automation-tjänsten kör som-konto](../automation/automation-sec-configure-azure-runas-account.md)
+* [Azure Automation-tjänsten kör som-konto](../automation/automation-create-runas-account.md)
 * [Översikt över Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation-översikt")
 * [Azure Automation-exempelskript](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation-exempelskript")
+
+## <a name="next-steps"></a>Nästa steg
+[Lär dig mer](site-recovery-failover.md) om att köra redundansväxlingar.

@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database? 
 
@@ -156,7 +156,7 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
 - [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): Ställ tekniska frågor
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): Rapportera fel och kom med förslag
+- [Feedback](http://aka.ms/sqlfeedback): Rapportera fel och kom med förslag
 - [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQL Server
 
 ## <a name="next-steps"></a>Nästa steg

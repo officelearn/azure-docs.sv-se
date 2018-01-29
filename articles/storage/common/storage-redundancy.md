@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -72,7 +72,7 @@ ZRS klassiska konton kan inte konverteras till eller från LRS-, GRS- eller RA-G
 När ZRS är allmänt tillgänglig i en region kan du inte längre kommer att kunna skapa ett ZRS klassiska konto från portalen i regionen, men du kan skapa en på annat sätt.  
 En process för automatisk migrering från den klassiska ZRS att ZRS anges i framtiden.
 
-ZRS-konton stöder manuellt flytta en ZRS-konto i den regionen till eller från ett LRS-, GRS- eller RAGRS-konto. Du kan utföra den här manuell migrering med hjälp av AzCopy, Azure Lagringsutforskaren, Azure PowerShell, Azure CLI eller ett Azure Storage-klientbibliotek.
+Du kan migrera ZRS kontodata manuellt till eller från ett LRS-, ZRS klassiska, GRS eller RAGRS-konto. Du kan utföra den här manuell migrering med hjälp av AzCopy, Azure Lagringsutforskaren, Azure PowerShell, Azure CLI eller ett Azure Storage-klientbibliotek.
 
 > [!NOTE]
 > ZRS klassiska konton planeras för nödvändiga migrering 31 mars 2021 och utfasningen. Microsoft skickar mer information till den klassiska ZRS kunder innan utfasningen.

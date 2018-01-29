@@ -39,9 +39,9 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Säkerhetsgrupper för program som kan anges i alla säkerhetsregler för en nätverkssäkerhetsgrupp |50 |100 |
 | Användardefinierade vägtabeller |100 |200 |
 | Användardefinierade vägar vägtabell |100 |400 |
-| Offentliga IP-adresser – dynamisk |60 (grundläggande) |kontakta supporten |
-| Offentliga IP-adresser – statiska |20 (grundläggande) |kontakta supporten |
-| Offentliga IP-adresser – statiska |20 (standard) |kontakta supporten |
+| Offentliga IP-adresser – dynamisk |(Basic) 60 |kontakta supporten |
+| Offentliga IP-adresser – statiska |(Basic) 20 |kontakta supporten |
+| Offentliga IP-adresser – statiska |(Standard) 20 |kontakta supporten |
 | Punkt-till-plats-rotcertifikat per VPN-gateway |20 |20 |
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
@@ -55,7 +55,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Frontend-IP-konfigurationer, Basic | 10 | kontakta supporten |
 | Frontend-IP-konfigurationer, Standard | 10 | 600 |
 | Serverdelspool Basic | 100, enkel Tillgänglighetsuppsättning | - |
-| Serverdelspool, Standard | 1000, enkel VNet | kontakta supporten |
+| Serverdelspool, Standard | 1000, enkel VNet | - |
 | Hög tillgänglighet portar, Standard | 1 per interna klientdel | - |
 
 [Kontakta supporten](../articles/azure-supportability/resource-manager-core-quotas-request.md ) om du måste öka gränserna från standardvärdet.

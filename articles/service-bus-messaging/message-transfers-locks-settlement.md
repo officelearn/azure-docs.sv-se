@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och betalning
 
-De viktigaste möjligheterna för förhandlare meddelande som Service Bus är att ta emot meddelanden i en kö eller ett ämne och hålla dem tillgängliga för hämtning av senare. *Skicka* är term som används ofta för överföring av ett meddelande i Service broker meddelandet. *Ta emot* är termen används ofta för överföring av ett meddelande till en klient som hämtades.
+Central möjligheterna för förhandlare meddelande som Service Bus är att ta emot meddelanden i en kö eller ett ämne och hålla dem tillgängliga för hämtning av senare. *Skicka* är term som används ofta för överföring av ett meddelande i Service broker meddelandet. *Ta emot* är termen används ofta för överföring av ett meddelande till en klient som hämtades.
 
 När en klient skickar ett meddelande, vill det vanligtvis veta om meddelandet korrekt har överförts till och accepteras av Service broker eller om någon form av fel uppstod. Den här positiv eller negativ bekräftelse reglerar klienten och Service broker förstå om tillståndet för överföringen av meddelandet och därför kallas *betalning*.
 

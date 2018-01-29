@@ -1,298 +1,372 @@
 ---
-title: "Skapa en Programgateway med hjälp av URL: en routningsregler | Microsoft Docs"
-description: "Den här sidan innehåller instruktioner för att skapa och konfigurera en gateway för Azure-program med hjälp av regler för routning av URL: en."
-documentationcenter: na
+title: "Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure PowerShell | Microsoft Docs"
+description: "Lär dig skapa URL-sökväg-baserade regler för routning för ett program gateway och den virtuella datorn skaluppsättningen med hjälp av Azure PowerShell."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: d141cfbb-320a-4fc9-9125-10001c6fa4cf
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-by-using-path-based-routing"></a>Skapa en Programgateway med sökväg-baserad Routning
+# <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Skapa en Programgateway med URL-sökväg-baserade routningsregler med hjälp av Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-url-route-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Du kan använda Azure PowerShell för att konfigurera [URL-sökväg-baserade regler för routning](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med hjälp av en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan kan du skapa regler för routning som kontrollerar Internet-trafik anländer till rätt servrar i poolerna.
 
-Sökväg-baserad routning associerar rutter baserat på en URL-sökväg för en HTTP-begäran. Den kontrollerar om det finns en väg till en backend-adresspool som konfigurerats för den URL som visas i programgatewayen och skickar sedan nätverkstrafiken till definierade backend-poolen. Ett vanligt användningsområde för URL-baserade routning är att belastningsutjämna förfrågningar för olika typer av innehåll till olika backend-serverpooler.
+I den här artikeln får du lära dig hur du:
 
-Azure Application Gateway har två regeltyper: grundläggande Routning och sökväg-baserad routning. Basic innehåller resursallokering för backend-pooler. Sökväg-baserade routning, förutom resursallokering, använder också sökvägar för den begärda Webbadressen välja backend-poolen.
+> [!div class="checklist"]
+> * Konfigurera nätverket
+> * Skapa en Programgateway med URL-mappning
+> * Skapa virtuella datorer med backend-pooler
 
-## <a name="scenario"></a>Scenario
+![Exempel på URL: en Routning](./media/application-gateway-create-url-route-arm-ps/scenario.png)
 
-I följande exempel Programgateway hanterar trafik för contoso.com med två backend-server-adresspooler: en video serverpool och en bild serverpoolen.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Begäranden för http://contoso.com/image * dirigeras till serverpoolen bild (**pool1**), och begäranden för http://contoso.com/video * dirigeras till video serverpoolen (**pool2**). Om ingen sökväg mönster matchar poolen server standard (**pool1**) är markerad.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-![URL-väg](./media/application-gateway-create-url-route-arm-ps/figure1.png)
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Om du vill ta reda på vilken version du kör ` Get-Module -ListAvailable AzureRM` . Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
-2. Skapa ett virtuellt nätverk och undernät för en Programgateway. Se till att inga virtuella datorer eller molndistributioner använder det undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
-3. Se till att de servrar som har lagts till i backend-poolen för Programgateway finns eller att de har sina slutpunkter har skapats i det virtuella nätverket eller med en offentlig IP-adress/VIP tilldelad.
+En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en Azure-resurs med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
 
-## <a name="requirements-to-create-an-application-gateway"></a>Krav för att skapa en Programgateway
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
 
-* **Backend-serverpoolen**: listan över IP-adresser för backend-servrar. IP-adresser som anges bör tillhöra undernät för virtuellt nätverk eller vara en offentlig IP-adress/VIP.
-* **Backend-server poolinställningarna**: till exempel port och protokoll cookie-baserad tillhörighet. Dessa är knutna till poolen och tillämpas på alla servrar i poolen.
-* **Frontend-port**: den offentliga porten som öppnas på programgatewayen. Trafik träffar den här porten och sedan omdirigeras till en backend-server.
-* **Lyssnare**: lyssnaren har en frontend-port, ett protokoll (Http eller Https, som är skiftlägeskänsliga) och SSL-certifikatets namn (om hur du konfigurerar SSL-avlastning).
-* **Regeln**: regeln Binder lyssnaren och backend-serverpoolen och definierar vilka poolen trafiken ska dirigeras till när den når en lyssnare.
+## <a name="create-network-resources"></a>Skapa nätverksresurser
+
+Skapa undernät konfigurationer *myAGSubnet* och *myBackendSubnet* med [ny AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) med konfigurationer för undernät. Slutligen, skapa offentlig IP-adress med namnet *myAGPublicIPAddress* med [ny AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Dessa resurser används för att ge nätverksanslutning till gateway för programmet och dess associerade resurser.
+
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.2.0/24
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+$pip = New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Skillnaden mellan att använda den klassiska distributionsmodellen och Azure Resource Manager är den ordning som du kan skapa programgatewayen och de objekt som ska konfigureras.
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationer och klientdelsport
 
-Med Resource Manager konfigureras alla objekt som bildar en programgateway separat och sätts sedan ihop för att skapa en programgatewayresurs.
+Associera *myAGSubnet* som du skapade tidigare till programmet gateway med [ny AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela den *myAGPublicIPAddress* till programmet gateway med [ny AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
-Följ dessa steg om du vill skapa en Programgateway:
-
-1. Skapa en resursgrupp för Resource Manager.
-2. Skapa ett virtuellt nätverk, ett undernät och en offentlig IP för programgatewayen.
-3. Skapa ett konfigurationsobjekt för programgatewayen.
-4. Skapa en resurs för en programgateway.
-
-## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
-
-Kontrollera att du använder den senaste versionen av Azure PowerShell. Hitta mer information på [med hjälp av Windows PowerShell med Resource Manager](../powershell-azure-resource-manager.md).
-
-### <a name="step-1"></a>Steg 1
-
-Logga in på Azure.
-
-```powershell
-Login-AzureRmAccount
-```
-
-Du uppmanas att autentisera med dina autentiseringsuppgifter.<BR>
-
-### <a name="step-2"></a>Steg 2
-
-Kontrollera prenumerationerna för kontot.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-### <a name="step-3"></a>Steg 3
-
-Välj vilka av dina Azure-prenumerationer som du vill använda. <BR>
-
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-```
-
-### <a name="step-4"></a>Steg 4
-
-Skapa en resursgrupp. (Hoppa över det här steget om du använder en befintlig resursgrupp.)
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US"
-```
-
-Du kan också skapa taggar för en resursgrupp för en Programgateway:
-
-```powershell
-$resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
-```
-
-Azure Resource Manager kräver att resursgrupper anger standardplatsen, som används för alla resurser i gruppen. Se till att alla kommandon för att skapa en Programgateway använder samma resursgrupp.
-
-I föregående exempel vi skapa en resursgrupp med namnet ”appgw RG” och använde ”USA, västra”.
-
-> [!NOTE]
-> Om du behöver konfigurera en anpassad avsökningsåtgärd för din Programgateway går du till [skapa en Programgateway med anpassade avsökningar med hjälp av PowerShell](application-gateway-create-probe-ps.md). Se [ Programgateway hälsoövervakning översikt](application-gateway-probe-overview.md) för mer information.
-> 
-> 
-
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa ett virtuellt nätverk och ett undernät för programgatewayen
-
-Följande exempel illustrerar hur du skapar ett virtuellt nätverk med hjälp av Resource Manager. Det här exemplet skapar ett virtuellt nätverk för programgatewayen. Programgateway kräver sin egen undernät. Undernät som skapats för Programgateway är mindre än virtuella nätverkets adressutrymme. Detta gör att andra resurser, inklusive men inte begränsat till webbservrar, konfigureras i samma virtuella nätverk.
-
-### <a name="step-1"></a>Steg 1
-
-Tilldela adressintervallet 10.0.0.0/24 till undernätsvariabeln som ska användas för att skapa ett virtuellt nätverk.  Detta skapar undernät konfigurationsobjektet för Programgateway som används i nästa exempel.
-
-```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-```
-
-### <a name="step-2"></a>Steg 2
-
-Skapa ett virtuellt nätverk med namnet **appgwvnet** i resursgruppen **appgw rg** för regionen USA, västra med prefixet 10.0.0.0/16 med undernätet 10.0.0.0/24. Nu är du klar med konfigurationen av det virtuella nätverket med ett enda undernät för Programgateway finns.
-
-```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-```
-
-### <a name="step-3"></a>Steg 3
-
-Tilldela variabeln undernät i nästa steg. Detta har överförts till den `New-AzureRMApplicationGateway` cmdlet i ett kommande steg.
-
-```powershell
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
 $subnet=$vnet.Subnets[0]
+$pip = Get-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAGPublicIPAddress
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Skapa en offentlig IP-adress för frontend-konfigurationen
+### <a name="create-the-default-pool-and-settings"></a>Skapa standardadresspool och inställningar
 
-Skapa en offentlig IP-resurs, **publicIP01**, i resursgruppen **appgw-rg** för regionen USA, västra. Programgateway kan använda en offentlig IP-adress, en intern IP-adress eller båda för att ta emot begäranden för belastningsutjämning.  Det här exemplet används endast en offentlig IP-adress. I följande exempel konfigureras inget DNS-namn för att skapa den offentliga IP-adressen eftersom Programgateway inte stöder anpassade DNS-namn på den offentliga IP-adresser.  Om det krävs ett eget namn för offentlig slutpunkt, skapa en CNAME-post för att peka DNS-namn som skapas automatiskt för den offentliga IP-adressen.
+Skapa serverdelspoolen standard heter *appGatewayBackendPool* för programmet gateway med [ny AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för backend-pool med [ny AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
-```powershell
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-En IP-adress tilldelas till programgatewayen när tjänsten startas.
+### <a name="create-the-default-listener-and-rule"></a>Skapa standard lyssnare och regel
 
-## <a name="create-the-application-gateway-configuration"></a>Skapa program gateway-konfiguration
+En lyssnare krävs för att aktivera Programgateway att dirigera trafik korrekt till serverdelspoolen. I den här självstudiekursen skapar du två lyssnare. Den första grundläggande lyssnaren som du skapar lyssnar efter trafik på rot-URL. Andra lyssnaren som du skapar lyssnar efter trafik på specifika URL: er.
 
-Alla konfigurationsobjekt måste ställas in innan du skapar programgatewayen. Följande steg skapar du konfigurationsobjekt som behövs för en gateway programresursen.
+Skapa standard lyssnaren med namnet *myDefaultListener* med [ny AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med klientdel konfiguration och klientdelsport som du skapade tidigare. En regel måste anges för lyssnaren att veta vilka serverdelspool som ska användas för inkommande trafik. Skapa en enkel regel med namnet *regel 1* med [ny AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
 
-### <a name="step-1"></a>Steg 1
-
-Skapa en IP-konfiguration för programgatewayen med namnet **gatewayIP01**. När Programgateway startar den hämtar en IP-adress från undernätet som är konfigurerade och skickar nätverkstrafik till IP-adresser i backend-IP-adresspool. Tänk på att varje instans använder en IP-adress.
-
-```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name myDefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-### <a name="step-2"></a>Steg 2
+### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Konfigurera backend-IP-adresspool med namnet **pool1** och **pool2** med IP-adresser för **pool1** och **pool2**. Detta är IP-adresserna för de resurser som värd för webbprogram som ska skyddas av programgatewayen. Dessa backend-poolmedlemmar verifieras alla som felfri av grundläggande eller anpassat avsökningar. Sedan dirigeras trafiken till dem när begäranden kommer till programgatewayen. Backend-pooler kan användas av flera regler i programgatewayen. Detta innebär en backend-adresspool kan användas för flera webbprogram som finns på samma värd.
+Nu när du har skapat de nödvändiga stödresurser ange parametrar för Programgateway med namnet *myAppGateway* med [ny AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku), och sedan skapa den med hjälp av [ Nya AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
 
-```powershell
-$pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-
-$pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 134.170.186.47, 134.170.189.222, 134.170.186.51
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
 ```
 
-I det här exemplet vidarebefordra två backend-adresspooler nätverkstrafik baserat på en URL-sökväg. En pool tar emot trafik från URL-sökvägen ”/ video-” och andra poolen tar emot trafik från sökvägen ”/ image”. Ersätt IP-adresserna med IP-adresslutpunkterna för dina egna program. 
+### <a name="add-image-and-video-backend-pools-and-port"></a>Lägg till bild- och videofiler serverdelspooler och port
 
-### <a name="step-3"></a>Steg 3
+Du kan lägga till serverdelspooler med namnet *imagesBackendPool* och *videoBackendPool* till din Programgateway med hjälp av [Add-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/add-azurermapplicationgatewaybackendaddresspool). Du lägger till klientdelsport för pooler med [Lägg till AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport). Du skickar ändringarna till programmet gateway med [Set AzureRmApplicationGateway](/powershell/module/azurerm.network/set-azurermapplicationgateway).
 
-Konfigurera inställningar för Programgateway **poolsetting01** och **poolsetting02** för nätverkstrafik Utjämning av nätverksbelastning i backend-poolen. I det här exemplet kan du konfigurera inställningarna för olika backend-pool för backend-pooler. Varje backend-pool kan ha sina egna inställningar.  Regler använder backend-HTTP-inställningar för att dirigera trafik till rätt backend-poolmedlemmar. Anger protokoll och port som används för att skicka trafik till backend-poolmedlemmar. Cookie-baserad sessioner också bestäms av backend-HTTP-inställningar. Om aktiverad, skickar cookie-baserad session tillhörighet trafik till samma serverdelen som tidigare begäranden för varje paket.
-
-```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-$poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting02" -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 240
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool 
+Add-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+Add-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport `
+  -Port 8080
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-4"></a>Steg 4
+### <a name="add-backend-listener"></a>Lägg till backend-lyssnare
 
-Konfigurera frontend IP-Adressen med den offentliga IP-slutpunkter. En lyssnare använder frontend IP-konfigurationsobjekt för att relatera passiv-riktade IP-adress med lyssnaren.
+Lägg till backend-lyssnaren med namnet *backendListener* som behövs för att dirigera trafik med hjälp av [Lägg till AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
 
-```powershell
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPort = Get-AzureRmApplicationGatewayFrontendPort `
+  -ApplicationGateway $appgw `
+  -Name bport
+$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $backendPort
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-5"></a>Steg 5
+### <a name="add-url-path-map"></a>Lägga till mappningen för URL-sökväg
 
-Konfigurera klientdelsporten för en programgateway. Lyssnaren använder konfigurationsobjektet frontend-port för att definiera vilken port som programgatewayen lyssnar efter trafik på lyssnaren.
+URL-sökväg maps se till att specifika URL-adresser dirigeras till specifika serverdelspooler. Du kan skapa URL-sökväg maps med namnet *imagePathRule* och *videoPathRule* med [ny AzureRmApplicationGatewayPathRuleConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewaypathruleconfig) och [ Lägg till AzureRmApplicationGatewayUrlPathMapConfig](/powershell/module/azurerm.network/add-azurermapplicationgatewayurlpathmapconfig).
 
-```powershell
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$poolSettings = Get-AzureRmApplicationGatewayBackendHttpSettings `
+  -ApplicationGateway $appgw `
+  -Name myPoolSettings
+$imagePool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name imagesBackendPool
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name videoBackendPool
+$defaultPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -ApplicationGateway $appgw `
+  -Name appGatewayBackendPool
+$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name imagePathRule `
+  -Paths "/images/*" `
+  -BackendAddressPool $imagePool `
+  -BackendHttpSettings $poolSettings
+$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig `
+  -Name videoPathRule `
+    -Paths "/video/*" `
+    -BackendAddressPool $videoPool `
+    -BackendHttpSettings $poolSettings
+Add-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap `
+  -PathRules $imagePathRule, $videoPathRule `
+  -DefaultBackendAddressPool $defaultPool `
+  -DefaultBackendHttpSettings $poolSettings
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-6"></a>Steg 6
+### <a name="add-routing-rule"></a>Lägg till regel för vidarebefordran
 
-Konfigurera lyssnaren för offentliga IP-adressen och porten som används för att ta emot inkommande nätverkstrafik. I följande exempel tar tidigare konfigurerade frontend IP-konfigurationen och frontend portkonfiguration ett protokoll (Http eller Https, som är skiftlägeskänsliga) och konfigurerar lyssnaren. I det här exemplet lyssnar lyssnaren efter HTTP-trafik på port 80 på den offentliga IP-adressen som skapades tidigare.
+Regel för vidarebefordran associerar URL-karta med lyssnare som du skapade. Du kan lägga till regeln med namnet **regel 2* med [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
 
-```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
+```azurepowershell-interactive
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendlistener = Get-AzureRmApplicationGatewayHttpListener `
+  -ApplicationGateway $appgw `
+  -Name backendListener
+$urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig `
+  -ApplicationGateway $appgw `
+  -Name urlpathmap
+Add-AzureRmApplicationGatewayRequestRoutingRule `
+  -ApplicationGateway $appgw `
+  -Name rule2 `
+  -RuleType PathBasedRouting `
+  -HttpListener $backendlistener `
+  -UrlPathMap $urlPathMap
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
-### <a name="step-7"></a>Steg 7
+## <a name="create-virtual-machine-scale-sets"></a>Skapa virtuella datorer
 
-Konfigurera URL: en regel sökvägar för backend-pooler. Det här steget konfigurerar du den relativa sökvägen som används av Programgateway och definierar mappningen mellan en URL-sökväg och backend-poolen som har tilldelats för den inkommande trafiken.
+I det här exemplet kan du skapa tre skalningsuppsättningar i virtuella datorer som har stöd för de tre serverdelspooler som du skapade. Skaluppsättningar som du skapar namnges *myvmss1*, *myvmss2*, och *myvmss3*. Varje skaluppsättning innehåller två instanser för virtuella datorer som du installerar IIS. Du kan tilldela skaluppsättningen till serverdelspoolen när du konfigurerar IP-inställningar.
 
-> [!IMPORTANT]
-> Varje sökväg måste börja med ”/” och en asterisk tillåts endast i slutet. Giltiga exempel är /xyz /xyz*, eller /xyz/*. Strängen som skickas till sökvägen matcher innehåller inte någon text efter först ””? eller ”#”, och dessa tecken är inte tillåtna. 
-
-I följande exempel skapas två regler: en för en ”/ bild /” sökväg routning trafik till backend- **pool1**, och en annan för en ”/ video /” sökväg dirigera trafiken till backend- **pool2**. Dessa regler kan du kontrollera att trafik för varje uppsättning URL-adresser dirigeras till serverdelen. Till exempel http://contoso.com/image/figure1.jpg går till **pool1** och http://contoso.com/video/example.mp4 **pool2**.
-
-```powershell
-$imagePathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule1" -Paths "/image/*" -BackendAddressPool $pool1 -BackendHttpSettings $poolSetting01
-
-$videoPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule2" -Paths "/video/*" -BackendAddressPool $pool2 -BackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
+$imagesPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name imagesBackendPool `
+  -ApplicationGateway $appgw
+$videoPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name videoBackendPool `
+  -ApplicationGateway $appgw
+for ($i=1; $i -le 3; $i++)
+{
+  if ($i -eq 1)
+  {
+     $poolId = $backendPool.Id
+  }
+  if ($i -eq 2) 
+  {
+    $poolId = $imagesPool.Id
+  }
+  if ($i -eq 3)
+  {
+    $poolId = $videoPool.Id
+  }
+  $ipConfig = New-AzureRmVmssIpConfig `
+    -Name myVmssIPConfig$i `
+    -SubnetId $vnet.Subnets[1].Id `
+    -ApplicationGatewayBackendAddressPoolsId $poolId
+  $vmssConfig = New-AzureRmVmssConfig `
+    -Location eastus `
+    -SkuCapacity 2 `
+    -SkuName Standard_DS2 `
+    -UpgradePolicyMode Automatic
+  Set-AzureRmVmssStorageProfile $vmssConfig `
+    -ImageReferencePublisher MicrosoftWindowsServer `
+    -ImageReferenceOffer WindowsServer `
+    -ImageReferenceSku 2016-Datacenter `
+    -ImageReferenceVersion latest
+  Set-AzureRmVmssOsProfile $vmssConfig `
+    -AdminUsername azureuser `
+    -AdminPassword "Azure123456!" `
+    -ComputerNamePrefix myvmss$i
+  Add-AzureRmVmssNetworkInterfaceConfiguration `
+    -VirtualMachineScaleSet $vmssConfig `
+    -Name myVmssNetConfig$i `
+    -Primary $true `
+    -IPConfiguration $ipConfig
+  New-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmssConfig
+}
 ```
 
-Om sökvägen inte matchar någon av de fördefinierade sökvägsreglerna, konfigurerar regelkonfigurationen sökväg kartan även en standard backend-adresspool. Till exempel http://contoso.com/shoppingcart/test.html går till **pool1** eftersom det har definierats som standard för omatchade trafik.
+### <a name="install-iis"></a>Installera IIS
 
-```powershell
-$urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $videoPathRule, $imagePathRule -DefaultBackendAddressPool $pool1 -DefaultBackendHttpSettings $poolSetting02
+```azurepowershell-interactive
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+
+for ($i=1; $i -le 3; $i++)
+{
+  $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss$i
+  Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+
+  Update-AzureRmVmss `
+    -ResourceGroupName myResourceGroupAG `
+    -Name myvmss$i `
+    -VirtualMachineScaleSet $vmss
+}
 ```
 
-### <a name="step-8"></a>Steg 8
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Skapa en regel inställning. Det här steget konfigurerar Programgateway för att använda URL-sökväg-baserade routning. Den `$urlPathMap` variabel som anges i tidigare steg nu användas för att skapa regeln baserat på sökvägen. Vi associera regeln med en lyssnare och URL: en sökvägsmappning skapade tidigare i det här steget.
+Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. T.ex, *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm*, eller *http://52.168.55.24:8080/video/test.htm*.
 
-```powershell
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-### <a name="step-9"></a>Steg 9
+![Testa bas-URL i Programgateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Konfigurera antalet instanser av och storleken på programgatewayen.
+Ändra URL: en till http://<ip-address>:8080/video/test.htm till slutet av den grundläggande Webbadressen och du bör se något som liknar följande exempel:
 
-```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name "Standard_Small" -Tier Standard -Capacity 2
-```
+![Testa URL: en för bilder i Programgateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-## <a name="create-an-application-gateway"></a>Skapa en programgateway
+Ändra URL: en till http://<ip-address>:8080/video/test.htm och du bör se något som liknar följande exempel:
 
-Skapa en Programgateway med alla konfigurationsobjekt från föregående steg.
-
-```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener -UrlPathMaps $urlPathMap -RequestRoutingRules $rule01 -Sku $sku
-```
-
-## <a name="get-an-application-gateway-dns-name"></a>Hämta ett program gateway DNS-namn
-
-När du har skapat en gateway, konfigurerar du klientdelen för kommunikation. När du använder en offentlig IP-adress, kräver en dynamiskt tilldelad DNS-namn som inte är eget Application Gateway. Du kan använda en CNAME-post så att den pekar till offentlig slutpunkt för programgatewayen så kunder kan träffa programgatewayen. Mer information finns i [konfigurera ett anpassat domännamn för en Azure-molntjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
-
-Hämta information om programgatewayen och dess tillhörande IP DNS-namn om du vill konfigurera frontend IP CNAME-posten med hjälp av PublicIPAddress-element som är kopplade till programgatewayen. Använda den Programgateway DNS-namn för att skapa en CNAME-post. Vi rekommenderar inte användning av A-poster eftersom VIP kan ändras på omstart av Application Gateway.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
-```
-
-```
-Name                     : publicIP01
-ResourceGroupName        : appgw-RG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/appgw-RG/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
+![Testa video-URL i Programgateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta om Secure Sockets Layer (SSL)-avlastning, se [konfigurera en Programgateway för SSL-avlastning med hjälp av Azure Resource Manager](application-gateway-ssl-arm.md).
+I den här artikeln får du lära dig hur du:
 
+> [!div class="checklist"]
+> * Konfigurera nätverket
+> * Skapa en Programgateway med URL-mappning
+> * Skapa virtuella datorer med backend-pooler
+
+Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

@@ -1,5 +1,7 @@
 # Översikt
+
 ## [Om Database Migration Service](dms-overview.md)
+## [Översikt över förutsättningar](pre-reqs.md)
 
 # Snabbstarter
 ## [Skapa tjänst – portal](quickstart-create-data-migration-service-portal.md)
@@ -16,3 +18,4 @@
 ## [Guide för databasmigrering](https://aka.ms/datamigration)
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [Prissättning](https://aka.ms/dms-pricing)
+## [Vanliga frågor och svar](faq.md)

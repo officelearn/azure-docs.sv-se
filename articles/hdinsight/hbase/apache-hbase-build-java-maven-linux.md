@@ -4,7 +4,7 @@ description: "Lär dig hur du använder Apache Maven för att skapa ett Java-bas
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Skapa Java-program för Apache HBase
 
@@ -154,7 +154,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 
     Maven-skugga-plugin-programmet ger också en uber jar som innehåller alla beroenden som krävs för programmet.
 
-4. Spara den `pom.xml` filen.
+4. Spara filen `pom.xml`.
 
 5. Skapa en katalog med namnet `conf` i den `hbaseapp` directory. Den här katalogen används för lagring av konfigurationsinformation för att ansluta till HBase.
 
@@ -244,7 +244,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 
     Den här koden är den **CreateTable** -klassen, som skapar en tabell med namnet **personer** och fylla det med vissa fördefinierade användare.
 
-3. Spara den `CreateTable.java` filen.
+3. Spara filen `CreateTable.java`.
 
 4. I den `hbaseapp/src/main/java/com/microsoft/examples` directory, skapa en fil med namnet `SearchByEmail.java`. Använd följande text som innehållet i den här filen:
 
@@ -323,7 +323,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 
     Den **SearchByEmail** klassen kan användas för att söka efter rader av e-postadress. Eftersom den använder ett reguljärt uttryck för filter kan du ange en sträng eller ett reguljärt uttryck när du använder klassen.
 
-5. Spara den `SearchByEmail.java` filen.
+5. Spara filen `SearchByEmail.java`.
 
 6. I den `hbaseapp/src/main/hava/com/microsoft/examples` directory, skapa en fil med namnet `DeleteTable.java`. Använd följande text som innehållet i den här filen:
 
@@ -351,7 +351,7 @@ Stegen i det här dokumentet används [Maven](http://maven.apache.org/) att skap
 
     Den här klassen rensar HBase-tabeller som skapats i det här exemplet genom att inaktivera och släppa tabellen som skapats av den `CreateTable` klass.
 
-7. Spara den `DeleteTable.java` filen.
+7. Spara filen `DeleteTable.java`.
 
 ## <a name="build-and-package-the-application"></a>Skapa och paketera programmet
 
@@ -626,7 +626,7 @@ Följande steg använda Azure PowerShell för att överföra JAR till standardla
    * **Lägg till HDInsightFile** – används för att överföra filer till klustret
    * **Start-HBaseExample** – används för att köra de klasser som skapades tidigare
 
-2. Spara den `hbase-runner.psm1` filen.
+2. Spara filen `hbase-runner.psm1`.
 
 3. Öppna ett nytt Azure PowerShell-fönster, ändra kataloger till den `hbaseapp` katalog och kör sedan följande kommando:
 
@@ -642,7 +642,7 @@ Följande steg använda Azure PowerShell för att överföra JAR till standardla
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Ersätt `hdinsightclustername` med namnet på klustret. Kommandot laddar upp den `hbaseapp-1.0-SNAPSHOT.jar` till den `example/jars` plats i den primära lagringsplatsen för klustret.
+    Ersätt `hdinsightclustername` med namnet på klustret. När du uppmanas, ange inloggningsnamn för klustret (admin) och lösenord. Kommandot laddar upp den `hbaseapp-1.0-SNAPSHOT.jar` till den `example/jars` plats i den primära lagringsplatsen för klustret.
 
 5. Skapa en tabell med hjälp av den `hbaseapp`, använder du följande kommando:
 
@@ -650,7 +650,7 @@ Följande steg använda Azure PowerShell för att överföra JAR till standardla
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Ersätt `hdinsightclustername` med namnet på klustret.
+    Ersätt `hdinsightclustername` med namnet på klustret. När du uppmanas, ange inloggningsnamn för klustret (admin) och lösenord.
 
     Det här kommandot skapar en tabell med namnet **personer** i HBase på HDInsight-kluster. Det här kommandot visar inte några utdata i konsolfönstret.
 
@@ -660,7 +660,7 @@ Följande steg använda Azure PowerShell för att överföra JAR till standardla
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Ersätt `hdinsightclustername` med namnet på klustret.
+    Ersätt `hdinsightclustername` med namnet på klustret. När du uppmanas, ange inloggningsnamn för klustret (admin) och lösenord.
 
     Detta kommando använder den `SearchByEmail` klassen för att söka efter alla rader där den `contactinformation` kolumnfamilj och `email` kolumnen innehåller strängen `contoso.com`. Du bör få följande resultat:
 

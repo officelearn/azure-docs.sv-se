@@ -1,91 +1,181 @@
 ---
-title: Konfigurera SSL-avlastning - Azure Application Gateway - Azure-portalen | Microsoft Docs
-description: "Den här artikeln innehåller instruktioner för att skapa en Programgateway med SSL-avlastning med hjälp av Azure portal"
-documentationcenter: na
+title: Skapa en Programgateway med SSL-avslutning - Azure-portalen | Microsoft Docs
+description: "Lär dig hur du skapar en Programgateway och lägga till ett certifikat för SSL-avslutning med Azure-portalen."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: daab3ada5ef0cc20883130e4c12b1dc3570e63b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Konfigurera en Programgateway för SSL-avlastning med hjälp av Azure portal
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Skapa en Programgateway med SSL-avslutning med Azure-portalen
 
-> [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-ssl-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [Azure klassiska PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+Du kan använda Azure-portalen för att skapa en [Programgateway](application-gateway-introduction.md) med ett certifikat för SSL-avslutning som använder virtuella datorer för backend-servrar.
 
-Azure Application Gateway kan konfigureras att avsluta SSL-sessionen (Secure Sockets Layer) på gatewayen så att du undviker kostsamma SSL-dekrypteringsaktiviteter i webbservergruppen. SSL-avlastning förenklar också frontend-serverkonfigurationen och hanteringen av webbappen.
+I den här artikeln får du lära dig hur du:
 
-## <a name="scenario"></a>Scenario
+> [!div class="checklist"]
+> * Skapa ett självsignerat certifikat
+> * Skapa en Programgateway med certifikatet
+> * Skapa de virtuella datorerna som används som backend-servrar
 
-Följande scenario tar dig igenom hur du konfigurerar SSL-avlastning på en befintlig Programgateway. Scenariot förutsätter att du redan har följt stegen för att [skapa en Programgateway](application-gateway-create-gateway-portal.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Ett certifikat krävs för att konfigurera SSL-avlastning med en Programgateway. Det här certifikatet har lästs in på programgatewayen och används för att kryptera och dekryptera den trafik som skickas via SSL. Certifikatet måste vara i formatet Personal Information Exchange (.pfx). Det här filformatet kan du exportera den privata nyckeln som krävs av programgatewayen att genomföra kryptering och dekryptering av trafik.
+Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="add-an-https-listener"></a>Lägg till en HTTPS-lyssnare
+## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-HTTPS-lyssnaren söker efter trafik baserat på dess konfiguration och hjälper till att vidarebefordra trafiken till backend-pooler. Så här lägger du till en HTTPS-lyssnare:
+I det här avsnittet kan du använda [ny SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) att skapa ett självsignerat certifikat som du överför till Azure-portalen när du skapar en lyssnare för programgatewayen.
 
-   1. Bläddra till Azure-portalen och välj en befintlig gateway för programmet.
+Öppna en Windows PowerShell-fönster som administratör på den lokala datorn. Kör följande kommando för att skapa certifikatet:
 
-   2. Välj **lyssnare**, och välj sedan den **Lägg till** för att lägga till en lyssnare.
+```powershell
+New-SelfSignedCertificate \
+  -certstorelocation cert:\localmachine\my \
+  -dnsname www.contoso.com
+```
 
-   ![Programmet Gateway översiktsrutan][1]
+Du bör se något som liknar detta svar:
 
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 
-   3. Fyll i följande information som behövs för lyssnaren och ladda upp PFX-certifikat:
-      - **Namnet**: det egna namnet för lyssnaren.
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 
-      - **Frontend-IP-konfiguration**: frontend IP-konfigurationen som används för lyssnaren.
+Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
+```
 
-      - **Klientdelsport (namn/Port)**: ett eget namn för den port som används på klientdelen för programgatewayen och den faktiska porten som används.
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+Export-PfxCertificate \
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 \
+  -FilePath c:\appgwcert.pfx \
+  -Password $pwd
+```
 
-      - **Protokollet**: en växel för att avgöra om HTTPS eller HTTP används för klientdelen.
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-      - **Certifikatet (och lösenord)**: avlastning om SSL används, ett PFX-certifikat krävs för den här inställningen. Ett eget namn och lösenord krävs också.
+Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar. Två undernät skapas i det här exemplet: en för programgatewayen och en för backend-servrarna. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-   4. Välj **OK**.
+1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+2. Välj **nätverk** och välj sedan **Programgateway** i listan över aktuella.
+3. Ange *myAppGateway* för namnet på programgatewayen och *myResourceGroupAG* för den nya resursgruppen.
+4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange sedan värdena för det virtuella nätverket:
 
-![Lägg till en lyssnare fönstret][2]
+    - *myVNet* – namnet på det virtuella nätverket.
+    - *10.0.0.0/16* - för virtuella nätverkets adressutrymme.
+    - *myAGSubnet* - för undernätsnamnet.
+    - *10.0.0.0/24* - för undernätsadressutrymmet.
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Skapa en regel och koppla den till lyssnaren
+    ![Skapa det virtuella nätverket](./media/application-gateway-ssl-portal/application-gateway-vnet.png)
 
-Lyssnaren har skapats. Skapa sedan en regel för att hantera trafik från lyssnaren. Används för att definiera hur trafik dirigeras till backend-pooler baserat på flera konfigurationsinställningar. Inställningarna omfattar protokollet, porten och hälsoavsökningar, och om cookie-baserad session tillhörighet ska använda. Följ dessa steg för att skapa och koppla en regel till lyssnaren:
+6. Klicka på **OK** att skapa virtuella nätverk och undernät.
+7. Klicka på **Välj en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+8. Klicka på **HTTPS** för protokollet för lyssnaren och se till att porten som har definierats som **443**.
+9. Klicka på mappikonen och bläddra till den *appgwcert.pfx* certifikat som du tidigare skapade för att ladda upp den.
+10. Ange *mycert1* för namnet på certifikatet och *Azure123456!* lösenord och klicka sedan på **OK**.
 
+    ![Skapa nya Programgateway](./media/application-gateway-ssl-portal/application-gateway-create.png)
 
-   1. Välj den **regler** Programgateway och välj sedan **Lägg till**.
+11. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** skapa nätverksresurser och programgatewayen. Det kan ta flera minuter för Programgateway skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
-   ![Rutan för programmet Gateway-regler][3]
+### <a name="add-a-subnet"></a>Lägg till ett undernät
 
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
+2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-   2. Under **Lägg till regel**, ange ett eget namn för regeln i den **namn** och välj sedan den **lyssnare** skapade i föregående steg. Välj lämpliga **serverdelspool** och **HTTP inställningen**, och välj sedan **OK**.
+    ![Skapa ett undernät](./media/application-gateway-ssl-portal/application-gateway-subnet.png)
 
-   ![Inställningar för HTTPS][4]
+3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-Inställningarna sparas nu i programgatewayen. Spara bearbeta för de här inställningarna kan ta en stund innan de kan visa via portalen eller PowerShell. När den har sparats hanterar programgatewayen kryptering och dekryptering av trafik. All trafik mellan programgatewayen och backend-webb-servrar hanteras via HTTP. All kommunikation tillbaka till klienten, returneras om initieras via HTTPS, till klienten krypteras.
+## <a name="create-backend-servers"></a>Skapa backend-servrar
+
+I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
+
+### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+
+1. Klicka på **Ny**.
+2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+3. Ange dessa värden för den virtuella datorn:
+
+    - *myVM* – namnet på den virtuella datorn.
+    - *azureuser* - för administratörsanvändarnamn.
+    - *Azure123456!* för lösenordet.
+    - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
+
+4. Klicka på **OK**.
+5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
+7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
+8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+
+### <a name="install-iis"></a>Installera IIS
+
+1. Öppna det interaktiva gränssnittet och se till att den är inställd på **PowerShell**.
+
+    ![Installera anpassade tillägg](./media/application-gateway-ssl-portal/application-gateway-extension.png)
+
+2. Kör följande kommando för att installera IIS på den virtuella datorn: 
+
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
+
+3. Skapa en andra virtuell dator och installera IIS med hjälp av stegen som du just har avslutats. Ange *myVM2* för dess namn och VMName i Set-AzureRmVMExtension.
+
+### <a name="add-backend-servers"></a>Lägg till backend-servrar
+
+3. Klicka på **alla resurser**, och klicka sedan på **myAppGateway**.
+4. Klicka på **serverdelspooler**. En standardadresspool skapas automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+5. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade i serverdelspoolen.
+
+    ![Lägg till backend-servrar](./media/application-gateway-ssl-portal/application-gateway-backend.png)
+
+6. Klicka på **Spara**.
+
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
+
+1. Klicka på **alla resurser**, och klicka sedan på **myAGPublicIPAddress**.
+
+    ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-ssl-portal/application-gateway-ag-address.png)
+
+2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat, Välj information och fortsätter sedan till webbsidan:
+
+    ![Säker varning](./media/application-gateway-ssl-portal/application-gateway-secure.png)
+
+    Skyddad IIS-webbplatsen visas som i följande exempel:
+
+    ![Testa bas-URL i Programgateway](./media/application-gateway-ssl-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar en anpassad hälsoavsökningen med Azure Programgateway finns [skapa en anpassad hälsoavsökningen](application-gateway-create-gateway-portal.md).
+I den här självstudiekursen lärde du dig att:
 
-[1]: ./media/application-gateway-ssl-portal/figure1.png
-[2]: ./media/application-gateway-ssl-portal/figure2.png
-[3]: ./media/application-gateway-ssl-portal/figure3.png
-[4]: ./media/application-gateway-ssl-portal/figure4.png
+> [!div class="checklist"]
+> * Skapa ett självsignerat certifikat
+> * Skapa en Programgateway med certifikatet
+> * Skapa de virtuella datorerna som används som backend-servrar
 
+Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

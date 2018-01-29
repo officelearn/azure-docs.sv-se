@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: ebe489b6e0993dad42950acdafac48e662da7f77
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 033d696f0d219fef66b4acd523f28a35afcf9929
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Skapa ett virtuellt nätverk peering - olika distributionsmodeller, samma prenumeration 
 
@@ -30,8 +30,8 @@ Stegen för att skapa ett virtuellt nätverk som peering är olika beroende på 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
 |[Båda Resource Manager](virtual-network-create-peering.md) |samma|
-|[Båda Resource Manager](create-peering-different-subscriptions.md) |Olika|
-|[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Olika|
+|[Båda Resource Manager](create-peering-different-subscriptions.md) |Annorlunda|
+|[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Annorlunda|
 
 Att går inte skapa ett virtuellt nätverk som peering mellan två virtuella nätverk som distribuerats via den klassiska distributionsmodellen. Om du behöver ansluta virtuella nätverk som båda har skapats via den klassiska distributionsmodellen kan du använda en Azure [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att ansluta virtuella nätverk. 
 
@@ -51,10 +51,10 @@ Du kan använda den [Azure-portalen](#portal), Azure [kommandoradsgränssnittet]
     - **Prenumerationen**: väljer din prenumeration
     - **Resursgruppen**: Välj **Skapa nytt** och ange *myResourceGroup*
     - **Plats**: *östra USA*
-4. Klicka på **+ ny**. I den **söka Marketplace** skriver *för virtuella nätverk*. Klicka på **för virtuella nätverk** när den visas i sökresultaten. 
+4. Klicka på **+ Ny**. I den **söka Marketplace** skriver *för virtuella nätverk*. Klicka på **för virtuella nätverk** när den visas i sökresultaten. 
 5. I den **för virtuella nätverk** bladet väljer **klassiska** i den **Välj en distributionsmodell** rutan och klicka på **skapa**.
 6. I den **skapa virtuellt nätverk** bladet anger, eller Välj värden för följande inställningar och sedan klickar du på **skapa**:
-    - **Namnet**: *myVnet2*
+    - **Name**: *myVnet2*
     - **Adressutrymmet**: *10.1.0.0/16*
     - **Undernätnamnet**: *standard*
     - **Adressintervall för gatewayundernät**: *10.1.0.0/24*
@@ -209,7 +209,7 @@ De konton som du använder för att skapa ett virtuellt nätverk som peering må
 |Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
 |---|---|---|---|
 |myVnet1|Resource Manager|[Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassisk|[Klassisk nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Saknas|
+| |Klassisk|[Klassisk nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Gäller inte|
 |myVnet2|Resource Manager|[Nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassisk|[Klassisk nätverksdeltagare](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
@@ -268,9 +268,7 @@ När du har läst den här självstudiekursen, kanske du vill ta bort de resurse
 
 ## <a name="register"></a>Registrera sig för globalt virtuella nätverk peering förhandsversion
 
-Möjligheten att peer-virtuella nätverk i olika regioner är för närvarande under förhandsgranskning. Funktionen är tillgänglig i en begränsad uppsättning regioner (inledningsvis oss Väst Central Kanada Central och oss West-2). Peerkopplingar mellan virtuella nätverk skapas mellan virtuella nätverk i olika regioner kan inte ha samma nivå av tillgänglighet och tillförlitlighet som en peering mellan virtuella nätverk i samma region. Du hittar aktuell information om tillgänglighet och status för den här funktionen på [sidan med Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
-
-To-peer-virtuella nätverk över regioner, måste du först registrera för förhandsversionen av genom att utföra följande steg (inom prenumerationen varje virtuella nätverket som du vill peer) med hjälp av Azure PowerShell eller Azure CLI:
+VNET-peering i samma region är allmänt sett tillgängligt. Peering virtuella nätverk i olika regioner är för närvarande under förhandsgranskning. Se [virtuella nätverk uppdateringar](https://azure.microsoft.com/en-us/updates/?product=virtual-network) för tillgängliga regioner. To-peer-virtuella nätverk över regioner, måste du först registrera för förhandsversionen av genom att utföra följande steg (inom prenumerationen varje virtuella nätverket som du vill peer) med hjälp av Azure PowerShell eller Azure CLI:
 
 ### <a name="powershell"></a>PowerShell
 

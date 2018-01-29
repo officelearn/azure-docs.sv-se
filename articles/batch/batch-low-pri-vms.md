@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Med Batch VM med låg prioritet
 
@@ -71,9 +71,12 @@ Azure Batch innehåller flera funktioner som gör det enkelt att använda och dr
 
 -   När uppgifter avbryts Batch identifierar och ställs i kö igen automatiskt att åtgärderna ska köras igen.
 
--   Låg prioritet virtuella datorer har en kvot på separata vCPU, skiljer sig från en för dedikerade virtuella datorer. 
+-   Låg prioritet virtuella datorer har en separat vCPU kvot som skiljer sig från en för dedikerade virtuella datorer. 
     Kvoten för låg prioritet virtuella datorer är högre än kvoten för dedikerade virtuella datorer, eftersom VM med låg prioritet billigare. Mer information finns i [Batch-tjänsten kvoter och gränser](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Låg prioritet virtuella datorer stöds inte för närvarande för Batch-konton som skapats i [prenumeration användarläge](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Skapa och uppdatera pooler
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

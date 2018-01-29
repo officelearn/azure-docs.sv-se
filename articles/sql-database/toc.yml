@@ -60,8 +60,9 @@
 - name: Begrepp
   items:
     - name: Tjänstfunktioner
-      href: sql-database-servers-databases.md
       items:
+        - name: Servrar och databaser
+          href: sql-database-servers-databases.md
         - name: Tjänstnivåer
           href: sql-database-service-tiers.md
         - name: Resursbegränsningar
@@ -105,8 +106,9 @@
         - name: Vanliga funktioner i SQL Server
           href: sql-database-features.md
     - name: Säkerhet
-      href: sql-database-security-overview.md
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-security-overview.md
         - name: Åtkomstkontroll
           href: sql-database-control-access.md
         - name: Azure AD
@@ -122,8 +124,9 @@
     - name: Hög tillgänglighet
       href: sql-database-high-availability.md
     - name: Verksamhetskontinuitet
-      href: sql-database-business-continuity.md
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-business-continuity.md
         - name: Återställning av databaser
           href: sql-database-recovery-using-backups.md
         - name: Konfigurera säkerhet
@@ -139,8 +142,9 @@
         - name: Utföra återställningstest
           href: sql-database-disaster-recovery-drills.md
     - name: Migrera till SQL Database
-      href: sql-database-cloud-migrate.md
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-cloud-migrate.md
         - name: Ändringar i T-SQL
           href: sql-database-transact-sql-information.md
         - name: Hantera databas efter migrering
@@ -156,8 +160,9 @@
         - name: Synkronisera data
           href: sql-database-sync-data.md
     - name: Övervaka och finjustera
-      href: sql-database-troubleshoot-performance.md
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-troubleshoot-performance.md
         - name: Prestandaövervakning
           href: sql-database-single-database-monitor.md
         - name: Prestandarekommendationer
@@ -177,8 +182,9 @@
         - name: Övervaka minnesintern
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Skala ut
-      href: sql-database-elastic-scale-introduction.md
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-elastic-scale-introduction.md
         - name: Shardkartor
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routning för frågor
@@ -205,6 +211,8 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Utveckla databaser
       items:
+        - name: "Översikt\r\n"
+          href: sql-database-develop-overview.md
         - name: JSON-data
           href: sql-database-json-features.md
         - name: Minnesintern
@@ -216,7 +224,6 @@
         - name: Konfigurera minnesintern
           href: sql-database-in-memory-oltp-migration.md
     - name: Utveckla appar
-      href: sql-database-develop-overview.md
       items:
         - name: Anslutning
           href: sql-database-libraries.md

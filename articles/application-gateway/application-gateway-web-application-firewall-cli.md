@@ -1,162 +1,193 @@
 ---
-title: "Konfigurera brandväggar för webbaserade program: Azure Programgateway | Microsoft Docs"
-description: "Den här artikeln innehåller råd om hur du startar med en brandvägg för webbaserade program på en befintlig eller ny application gateway."
-documentationcenter: na
+title: "Skapa en Programgateway med en brandvägg för webbaserade program - Azure CLI | Microsoft Docs"
+description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure CLI."
 services: application-gateway
 author: davidmu1
 manager: timlt
 editor: tysonn
-ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 961642796525223eba4b19d77568d4149ee9d3c6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Konfigurera brandväggar för webbaserade program på en ny eller befintlig Programgateway med Azure CLI
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure CLI
 
-> [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Du kan använda Azure CLI för att skapa en [Programgateway](application-gateway-introduction.md) med en [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md) (Brandvägg) som använder en [virtuella datorns skaluppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Brandvägg använder [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regler för att skydda ditt program. Dessa regler innehåller skydd mot attacker, till exempel SQL injection, webbplatser scripting attacker och sessionen hijacks. 
 
-Lär dig hur du skapar en brandvägg för webbaserade program (Brandvägg)-aktiverat Programgateway. Lär dig också att lägga till en Brandvägg i en befintlig gateway för programmet.
+I den här artikeln får du lära dig hur du:
 
-Brandvägg i Azure Application Gateway skyddar webbprogram från vanliga webbaserade attacker som SQL injection, webbplatser scripting attacker och sessionen hijacks.
+> [!div class="checklist"]
+> * Konfigurera nätverket
+> * Skapa en Programgateway med Brandvägg aktiverat
+> * Skapa en skaluppsättning för virtuell dator
+> * Skapa ett lagringskonto och konfigurera diagnostik
 
- Programgateway är en lager 7 belastningsutjämnare. Det ger redundans, prestanda-routing HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Programgateway innehåller många funktioner i programmet leverans nätverksstyrenheten (ADC):
+![Exempel på brandväggen ett webbprogram](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
 
- * HTTP för belastningsutjämning 
- * Cookie-baserad session tillhörighet 
- * Secure Sockets Layer (SSL)-avlastning 
- * Anpassade hälsoavsökningar 
- * Stöd för multisitefunktionen
- 
- En fullständig lista över funktioner som stöds finns i [översikt för Programgateway](application-gateway-introduction.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här artikeln visar hur du [lägga till en brandvägg för webbaserade program i en befintlig Programgateway](#add-web-application-firewall-to-an-existing-application-gateway). Den visar även hur du [skapa en Programgateway som använder en brandvägg för webbaserade program](#create-an-application-gateway-with-web-application-firewall).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-![scenario-bild][scenario]
+Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Förutsättning: Installera Azure CLI 2.0
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet (Azure CLI) för Mac, Linux och Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
+En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med namnet *myResourceGroupAG* med [az gruppen skapa](/cli/azure/group#az_group_create).
 
-## <a name="waf-configuration-differences"></a>Brandvägg configuration skillnader
-
-Om du har läst [skapa en Programgateway med Azure CLI](application-gateway-create-gateway-cli.md), du förstår SKU-inställningar för att konfigurera när du skapar en Programgateway. Brandvägg ger ytterligare inställningar för att definiera när du konfigurerar SKU: N på en Programgateway. Det finns inga ytterligare ändringar som du gör på Programgateway sig själv.
-
-| **Inställning** | **Detaljer**
-|---|---|
-|**SKU** |Har stöd för en normal Programgateway utan en Brandvägg **Standard\_små**, **Standard\_medel**, och **Standard\_stor**storlekar. Det finns två ytterligare SKU: er, med introduktionen av en Brandvägg, **Brandvägg\_medel** och **Brandvägg\_stor**. En Brandvägg stöds inte på små programgatewayer.|
-|**Läge** | Den här inställningen är läget för Brandvägg. tillåtna värden är **identifiering** och **förebyggande**. När Brandvägg ställs in i **identifiering** läge måste alla hot som lagras i en loggfil. I **förebyggande** läge, händelser loggas fortfarande, men angriparen tar emot ett 403 obehörig svar från programgatewayen.|
-
-## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Lägg till en brandvägg för webbaserade program i en befintlig Programgateway
-
-Följande kommando för att ändra en befintlig standard Programgateway till en Brandvägg-aktiverat Programgateway:
-
-```azurecli-interactive
-#!/bin/bash
-
-az network application-gateway waf-config set \
-  --enabled true \
-  --firewall-mode Prevention \
-  --gateway-name "AdatumAppGateway" \
-  --resource-group "AdatumAppGatewayRG"
+```azurecli-interactive 
+az group create --name myResourceGroupAG --location eastus
 ```
 
-Det här kommandot uppdaterar programgatewayen med en Brandvägg. Information om hur du visar loggar för din Programgateway finns [Programgateway diagnostik](application-gateway-diagnostics.md). Granska loggarna regelbundet för att förstå säkerhetstillståndet webbprogram på grund av säkerhet hur av en Brandvägg.
+## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Skapa en Programgateway med en brandvägg för webbaserade program
-
-Följande kommando skapar en Programgateway med en Brandvägg:
+Virtuella nätverk och undernät används för att ge nätverksanslutning till gateway för programmet och dess associerade resurser. Skapa ett virtuellt nätverk med namnet *myVNet* och undernät med namnet *myAGSubnet* med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create) och [az undernät för virtuellt nätverk skapa](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Skapa en offentlig IP-adress med namnet *myAGPublicIPAddress* med [az nätverket offentliga IP-skapa](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
-#!/bin/bash
+az network vnet create 
+  --name myVNet \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --address-prefix 10.0.0.0/16 \
+  --subnet-name myBackendSubnet \
+  --subnet-prefix 10.0.1.0/24
+az network vnet subnet create 
+  --name myAGSubnet \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --address-prefix 10.0.2.0/24 
+az network public-ip create 
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress
+```
 
+## <a name="create-an-application-gateway-with-a-waf"></a>Skapa en Programgateway med en Brandvägg
+
+Du kan använda [az nätverket Programgateway skapa](/cli/azure/application-gateway#az_application_gateway_create) att skapa Programgateway med namnet *myAppGateway*. När du skapar en Programgateway med hjälp av Azure CLI kan ange du konfigurationsinformation, till exempel kapacitet, sku och HTTP-inställningar. Programgatewayen har tilldelats *myAGSubnet* och *myPublicIPSddress* som du skapade tidigare.
+
+```azurecli-interactive
 az network application-gateway create \
-  --name "AdatumAppGateway2" \
-  --location "eastus" \
-  --resource-group "AdatumAppGatewayRG" \
-  --vnet-name "AdatumAppGatewayVNET2" \
-  --vnet-address-prefix "10.0.0.0/16" \
-  --subnet "Appgatewaysubnet2" \
-  --subnet-address-prefix "10.0.0.0/28" \
- --servers "10.0.0.5 10.0.0.4" \
-  --capacity 2 
-  --sku "WAF_Medium" \
-  --http-settings-cookie-based-affinity "Enabled" \
-  --http-settings-protocol "Http" \
-  --frontend-port "80" \
-  --routing-rule-type "Basic" \
-  --http-settings-port "80" \
-  --public-ip-address "pip2" \
-  --public-ip-address-allocation "dynamic" \
-  --tags "cli[2] owner[administrator]"
+  --name myAppGateway \
+  --location eastus \
+  --resource-group myResourceGroupAG \
+  --vnet-name myVNet \
+  --subnet myAGSubnet \
+  --capacity 2 \
+  --sku WAF_Medium \
+  --http-settings-cookie-based-affinity Disabled \
+  --frontend-port 80 \
+  --http-settings-port 80 \
+  --http-settings-protocol Http \
+  --public-ip-address myAGPublicIPAddress
+az network application-gateway waf-config set --enabled true \
+  --gateway-name myAppGateway \
+  --resource-group myResourceGroupAG \
+  --firewall-mode Detection
 ```
 
-> [!NOTE]
-> Programgatewayer som skapats med den grundläggande konfigurationen av Brandvägg har konfigurerats med CR 3.0 för skydd.
+Det kan ta flera minuter för Programgateway ska skapas. När programgatewayen har skapats kan se du de här nya funktionerna i den:
 
-## <a name="get-an-application-gateway-dns-name"></a>Hämta ett program gateway DNS-namn
+- *appGatewayBackendPool* -en Programgateway måste ha minst en backend-adresspool.
+- *appGatewayBackendHttpSettings* -anger att port 80 och en HTTP-protokollet används för kommunikation.
+- *appGatewayHttpListener* -standard lyssnaren som är associerade med *appGatewayBackendPool*.
+- *appGatewayFrontendIP* -tilldelar *myAGPublicIPAddress* till *appGatewayHttpListener*.
+- *regel 1* - standard routning regel som är associerad med *appGatewayHttpListener*.
 
-När du har skapat, är nästa steg att konfigurera klientdelen för kommunikation. När du använder en offentlig IP-adress, kräver en dynamiskt tilldelad DNS-namn som inte är eget programgatewayen. För att säkerställa att användarna kan träffa programgatewayen, använder du en CNAME-post för att peka till offentlig slutpunkt för programgatewayen. Mer information finns i [konfigurera ett anpassat domännamn för en Azure-molntjänst](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+## <a name="create-a-virtual-machine-scale-set"></a>Skapa en skaluppsättning för virtuell dator
 
-Hämta information om programgatewayen och dess tillhörande IP DNS-namn om du vill konfigurera en CNAME-post med hjälp av PublicIPAddress-element som är kopplade till programgatewayen. Använda den Programgateway DNS-namn för att skapa en CNAME-post som pekar på två webbprogram till DNS-namnet. Vi rekommenderar inte med poster, eftersom VIP kan ändras när programgatewayen startas om.
+I det här exemplet skapar du en skaluppsättning för virtuell dator som ger två servrar för serverdelspoolen i programgatewayen. De virtuella datorerna i skaluppsättning som är associerade med den *myBackendSubnet* undernät. Att skapa skala, kan du använda [az vmss skapa](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
-#!/bin/bash
-
-az network public-ip show \
-  --name pip2 \
-  --resource-group "AdatumAppGatewayRG"
+az vmss create \
+  --name myvmss \
+  --resource-group myResourceGroupAG \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --admin-password Azure123456! \
+  --instance-count 2 \
+  --vnet-name myVNet \
+  --subnet myBackendSubnet \
+  --vm-sku Standard_DS2 \
+  --upgrade-policy-mode Automatic \
+  --app-gateway myAppGateway \
+  --backend-pool-name appGatewayBackendPool
 ```
 
-```
+### <a name="install-nginx"></a>Installera NGINX
+
+Du kan använda valfri redigerare som du vill skapa filen i molnet-gränssnittet. Ange `sensible-editor cloudConfig.json` att se en lista över tillgängliga redigerare för att skapa filen. Skapa en fil med namnet customConfig.json i din aktuella shell och klistra in följande konfiguration:
+
+```json
 {
-  "dnsSettings": {
-    "domainNameLabel": null,
-    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
-    "reverseFqdn": null
-  },
-  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "40.121.167.250",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
-    "name": null,
-    "privateIpAddress": null,
-    "privateIpAllocationMethod": null,
-    "provisioningState": null,
-    "publicIpAddress": null,
-    "resourceGroup": "AdatumAppGatewayRG",
-    "subnet": null
-  },
-  "location": "eastus",
-  "name": "pip2",
-  "provisioningState": "Succeeded",
-  "publicIpAddressVersion": "IPv4",
-  "publicIpAllocationMethod": "Dynamic",
-  "resourceGroup": "AdatumAppGatewayRG",
-  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
-  "tags": {
-    "cli[2] owner[administrator]": ""
-  },
-  "type": "Microsoft.Network/publicIPAddresses"
+  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "commandToExecute": "./install_nginx.sh"
 }
 ```
 
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroupAG \
+  --vmss-name myvmss \
+  --settings @cloudConfig.json
+```
+
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
+
+I den här kursen använder programgatewayen ett lagringskonto för att lagra data för att upptäcka och förhindra syften. Du kan också använda logganalys eller Händelsehubb för att registrera data. 
+
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+
+Skapa ett lagringskonto med namnet *myagstore1* med [az storage-konto skapar](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+
+```azurecli-interactive
+az storage account create \
+  --name myagstore1 \
+  --resource-group myResourceGroupAG \
+  --location eastus \
+  --sku Standard_LRS \
+  --encryption blob
+```
+
+### <a name="configure-diagnostics"></a>Konfigurera diagnostik
+
+Konfigurera diagnostik för att registrera data i ApplicationGatewayAccessLog och ApplicationGatewayPerformanceLog ApplicationGatewayFirewallLog loggar. Ersätt `<subscriptionId>` med prenumerations-ID och sedan konfigurera diagnostik med [az diagnostik-inställningar för övervakning av skapa](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+
+```azurecli-interactive
+az monitor diagnostic-settings create --resource-id '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Network/applicationGateways/myAppGateway' \
+  --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --storage-account '/subscriptions/<subscriptionId>/resourceGroups/myResourceGroupAG/providers/Microsoft.Storage/storageAccounts/myagstore1'
+```
+
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
+
+Offentliga IP-adressen för programgatewayen får använda [az nätverket offentliga ip-visa](/cli/azure/network/public-ip#az_network_public_ip_show). Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+
+```azurepowershell-interactive
+az network public-ip show \
+  --resource-group myResourceGroupAG \
+  --name myAGPublicIPAddress \
+  --query [ipAddress] \
+  --output tsv
+```
+
+![Testa bas-URL i Programgateway](./media/application-gateway-web-application-firewall-cli/application-gateway-nginxtest.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du anpassar Brandvägg regler finns [anpassa web application brandväggsregler via Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
+I den här självstudiekursen lärde du dig att:
 
-[scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
+> [!div class="checklist"]
+> * Konfigurera nätverket
+> * Skapa en Programgateway med Brandvägg aktiverat
+> * Skapa en skaluppsättning för virtuell dator
+> * Skapa ett lagringskonto och konfigurera diagnostik
+
+Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

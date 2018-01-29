@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5fe981b96725917b9cf567ded9ff38a8055fdb4d
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP och webhook bindningar
 
@@ -350,9 +350,6 @@ Här är de bindande data den *function.json* fil:
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 Här är JavaScript-kod:
-
-```javascript
-```
 
 ```javascript
 module.exports = function (context, data) {

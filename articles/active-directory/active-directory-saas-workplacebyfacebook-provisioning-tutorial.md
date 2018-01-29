@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med arbetsplats av Facebook | Microsoft Docs"
+title: "Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbetsplats med Facebook."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för Användaretablering
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudier: Konfigurera arbetsplats av Facebook för automatisk användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver utföra på arbetsplats av Facebook och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till arbetsplatsen med Facebook.
 

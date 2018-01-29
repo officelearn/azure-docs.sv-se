@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15a5ede13aebb039c1d17f118ee1acdcf9031d50
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Virtuell nätverksintegration för Azure-tjänster
 
@@ -53,12 +53,12 @@ Varje tjänst som direkt har distribuerats till virtuella nätverk har särskild
 - [HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [RedisCache](../redis-cache/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [API-hantering](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Programgateway (internt)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fazure%2fvirtual-network%2ftoc.json): I Azure Container Service skapar ett virtuellt standardnätverk. Du kan skapa en anpassad virtuella nätverk som ska användas med den [Azure Container Service Engine](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): endast virtuella nätverk (klassisk)
-- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration): endast virtuella nätverk (klassisk)
+- [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Molntjänster](https://msdn.microsoft.com/library/azure/jj156091): endast virtuella nätverk (klassisk)
 
 Du kan distribuera en [intern Azure belastningsutjämnare](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) att läsa in balansera många resurser i listan ovan. I vissa fall kan tjänsten automatiskt skapar och distribuerar en belastningsutjämnare när du skapar en resurs.

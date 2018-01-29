@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c7516c6d4fa8cfe8e146c325af7ca7ca70475a94
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapaciteten för Hyper-V-virtuella datorer med kapacitet och prestanda för lösning (förhandsgranskning)
 
@@ -47,10 +47,10 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 |---|---|---|
 | [Windows-agenter](log-analytics-windows-agent.md) | Ja | Lösningen samlar in information om kapacitet och prestanda från Windows-agenter. |
 | [Linux-agenter](log-analytics-linux-agents.md) | Nej    | Lösningen samlar inte in information om kapacitet och prestanda från direkt Linux-agenter.|
-| [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Ja |Lösningen samlar in data om kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direkt anslutning från SCOM-agent till OMS krävs inte. Data vidarebefordras från hanteringsgruppen till OMS-databasen.|
+| [SCOM-hanteringsgrupp](log-analytics-om-agents.md) | Ja |Lösningen samlar in data om kapacitet och prestanda från agenter i en ansluten SCOM-hanteringsgrupp. En direkt anslutning från SCOM-agent till logganalys krävs inte.|
 | [Azure Storage-konto](log-analytics-azure-storage.md) | Nej | Azure storage innehåller inte data kapacitet och prestanda.|
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Windows- eller Operations Manager-agenter måste installeras på Windows Server 2012 eller högre Hyper-V-värdar, inte virtuella datorer.
 
@@ -59,11 +59,11 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 Utför följande steg för att lägga till kapacitet och prestanda för lösningen till din arbetsyta.
 
-- Lägg till lösningen kapacitet och prestanda i din OMS-arbetsyta med hjälp av den process som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
+- Lägga till kapacitet och prestanda för lösningen i logganalys-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-Om din SCOM-hanteringsgrupp är ansluten till din OMS-arbetsyta, sedan installeras följande hanteringspaket i SCOM när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket.
+Om din SCOM-hanteringsgrupp är ansluten till logganalys-arbetsytan, sedan installeras följande hanteringspaket i SCOM när du lägger till den här lösningen. Det krävs ingen konfigurering eller underhåll av dessa hanteringspaket.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

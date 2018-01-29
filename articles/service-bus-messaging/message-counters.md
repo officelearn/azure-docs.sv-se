@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5d2aa551bbe77a66459907cf5cd1313bb907981
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-counters"></a>Meddelanderäknare
 
@@ -31,7 +31,7 @@ Med PowerShell kan hämta du antalet på följande sätt:
 
 ## <a name="message-count-details"></a>Antal meddelandeinformation
 
-Att veta antalet aktiva meddelanden är användbar för att avgöra om en kö skapar en eftersläpning som kräver mer resurser för att behandla än vad som har distribuerats. Följande information om prestandaräknare är tillgängliga i den [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klass:
+Att veta antalet aktiva meddelanden är användbart för att fastställa om en kö skapar en eftersläpning som kräver mer resurser för att behandla än vad som har distribuerats. Följande information om prestandaräknare är tillgängliga i den [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klass:
 
 -   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): meddelanden i kön eller prenumerationen som är i aktivt tillstånd och redo för leverans.
 -   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): meddelanden i kö för obeställbara meddelanden.

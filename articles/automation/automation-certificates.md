@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikattillgångar i Azure Automation
 
@@ -28,18 +28,26 @@ Certifikat kan lagras på ett säkert sätt i Azure Automation så att de kan n�
 > Säkra tillgångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure-Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln är krypterad med ett certifikat för master och lagras i Azure Automation. Innan du sparar en säker resurs, nyckeln för automation-kontot dekrypteras med master certifikatet och sedan används för att kryptera tillgången.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
-
-Cmdlets i följande tabell används för att skapa och hantera automatisering certifikattillgångar med Windows PowerShell. De levereras som en del av den [Azure PowerShell-modulen](../powershell-install-configure.md) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdlets
+För AzureRM för cmdlets i följande tabell att skapa och hantera automatisering inloggningstillgångar med Windows PowerShell.  De levereras som en del av den [AzureRM.Automation modulen](/powershell/azure/overview) som är tillgänglig för användning i Automation-runbooks och DSC-konfigurationer.
 
 |Cmdlet: ar|Beskrivning|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Hämtar information om ett certifikat som ska användas i en runbook eller DSC-konfigurationen. Du kan bara hämta själva certifikaten från Get-AutomationCertificate aktivitet.|
-|[Ny AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Skapar ett nytt certifikat till Azure Automation.|
-[Ta bort AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Tar bort ett certifikat från Azure Automation.|Skapar ett nytt certifikat till Azure Automation.
-|[Ange AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikatfilen och inställning av lösenordet för en PFX-fil.|
-|[Lägg till AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Överför ett tjänstcertifikat för den angivna Molntjänsten.|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Skapar ett nytt certifikat till Azure Automation.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Tar bort ett certifikat från Azure Automation.|Skapar ett nytt certifikat till Azure Automation.
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikatfilen och inställning av lösenordet för en PFX-fil.|
+|[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Överför ett tjänstcertifikat för den angivna Molntjänsten.|
 
+## <a name="activities"></a>Aktiviteter
+Aktiviteterna i följande tabell används för att få åtkomst till certifikat i en runbook och DSC-konfigurationer.
+
+| Aktiviteter | Beskrivning |
+|:---|:---|
+|Get-AutomationCertificate|Hämtar ett certifikat som ska användas i en runbook eller DSC-konfigurationen. Returnerar en [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) objekt.|
+
+> [!NOTE] 
+> Du bör undvika att använda variabler i – Name-parametern i **Get-AutomationCertificate** i en runbook eller DSC-konfigurationen eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfiguration och automatisering variabler i designläge.
 
 ## <a name="python2-functions"></a>Python2 funktioner
 

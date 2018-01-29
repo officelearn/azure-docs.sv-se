@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installera uppdatering 5 på din StorSimple-enhet
 
@@ -77,7 +77,7 @@ Du måste hämta och installera följande snabbkorrigeringar i föreskrivna ordn
 
 | Ordning | kB | Beskrivning | Typ av uppdatering | Installationstid |Installera i mappen|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Programuppdatering<br> Ladda ned båda _HcsSfotwareUpdate.exe_ och _CisMSDAgent.exe_ |Vanliga <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
+| 1. |KB4037264 |Programuppdatering<br> Ladda ned båda _HcsSoftwareUpdate.exe_ och _CisMSDAgent.exe_ |Vanliga <br></br>Icke-störande |~ 25 minuter |FirstOrderUpdate|
 
 Om uppdatering från en enhet som kör uppdatering 4, behöver du bara installera OS kumulativa uppdateringar som andra uppdateringar.
 

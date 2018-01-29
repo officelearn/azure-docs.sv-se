@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Salesforce Sandbox | Microsoft Docs"
+title: "Självstudier: Konfigurera Salesforce Sandbox för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce Sandbox."
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ff50ddc2460a94c17b2401f0c8e4ad12c6d23a7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce Sandbox för automatisk användaretablering
+# <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce Sandbox för automatisk användaretablering
 
 Syftet med den här kursen är att visa de steg som du behöver göra i Salesforce Sandbox och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Salesforce Sandbox.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -65,7 +65,7 @@ Syftet med det här avsnittet är att beskriva hur du aktiverar användaretabler
 
 4. Ange den **Etableringsläge** till **automatisk**.
 
-    ![Etablering](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. Under den **administratörsautentiseringsuppgifter** och ange följande inställningar:
    

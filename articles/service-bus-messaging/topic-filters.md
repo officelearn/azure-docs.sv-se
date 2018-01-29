@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: b3fe467b7d6ae9b207956ece4980bf558a69761f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topic-filters-and-actions"></a>Avsnittet Filter och åtgärder
 
-Prenumeranter kan definiera vilka meddelanden som ska ta emot från ett ämne. Dessa meddelanden har angetts i form av en eller flera namngivna prenumerationsregler. Varje regel består av ett villkor som väljer viss meddelanden och en åtgärd som annoterar det markerade meddelandet. Prenumerationen skapas en kopia av meddelandet som får kommenteras på olika sätt för varje matchande regel för varje matchande regelvillkor.
+Prenumeranter kan definiera vilka meddelanden som ska ta emot från ett ämne. Dessa meddelanden har angetts i form av en eller flera prenumerationsregler för namngiven. Varje regel består av ett villkor som väljer viss meddelanden och en åtgärd som annoterar det markerade meddelandet. Prenumerationen skapas en kopia av meddelandet som får kommenteras på olika sätt för varje matchande regel för varje matchande regelvillkor.
 
 Varje nyskapade avsnittet prenumerationen har en inledande Standardregeln för prenumerationen. Om du inte uttryckligen anger ett filtervillkor för regeln, är filtret används den **SANT** filter som gör att alla meddelanden kan väljas i prenumerationen. Standardregeln har ingen associerad anteckningen åtgärd.
 
@@ -39,7 +39,7 @@ Komplexa filterregler kräver bearbetningskapacitet. I synnerhet resulterar anv�
 
 ## <a name="actions"></a>Åtgärder
 
-Med SQL filtervillkor, och endast de, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på SQL-UPPDATERINGEN instruktionen syntax. Åtgärden utförs på meddelandet när den har har matchats och innan meddelandet är markerad i avsnittet. Ändringarna i egenskaperna för meddelandet är privat för meddelandet kopieras till prenumerationen.
+Med SQL filtervillkor, och endast de, kan du definiera en åtgärd som kan kommentera meddelandet genom att lägga till, ta bort eller ersätta egenskaper och deras värden. Åtgärden [använder ett SQL-liknande uttryck](service-bus-messaging-sql-filter.md) som löst leans på SQL-UPPDATERINGEN instruktionen syntax. Åtgärden har utförts på meddelandet när den har matchats och innan meddelandet är markerad i avsnittet. Ändringarna i egenskaperna för meddelandet är privat för meddelandet kopieras till prenumerationen.
 
 ## <a name="usage-patterns"></a>Användningsmönster
 

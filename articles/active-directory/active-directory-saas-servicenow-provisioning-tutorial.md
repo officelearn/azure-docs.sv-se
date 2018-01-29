@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Konfigurera ServiceNow för automatisk Användaretablering med Azure Active Directory | Microsoft Docs"
+title: "Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig etablera och avetablera användarkonton från Azure AD till ServiceNow automatiskt."
 services: active-directory
 documentationCenter: na
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 06772c9e21936d224f721413ccdc1c859b07b940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: de6bddeedbff5fded716db31b1a528466df1d396
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk Användaretablering med Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
 
 Syftet med den här kursen är att visa de steg som du behöver göra i ServiceNow och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -60,7 +60,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Servicenows använ
 
 4. Ange den **etablering** läge för att **automatisk**. 
 
-    ![Etablering](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/active-directory-saas-servicenow-provisioning-tutorial/provisioning.png)
 
 5. Under avsnittet autentiseringsuppgifter som administratör utför du följande steg:
    

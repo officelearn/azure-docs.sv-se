@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativsystemet funktioner i Azure App Service
 Den här artikeln beskrivs vanliga grundläggande operativsystem-funktioner som är tillgänglig för alla appar som körs på [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverket och till registret och diagnostik loggar och händelser. 
@@ -49,7 +49,7 @@ Olika enheter finns i Apptjänst, bland annat lokala enheter och nätverksenhete
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Lokala enheter
-Kärnan är Apptjänst en tjänst som körs på Azure PaaS (plattform som en tjänst)-infrastruktur. Därför är de lokala enheter som ”kopplas” till en virtuell dator på samma enhet typer som är tillgängliga för alla worker-rollen körs i Azure. Detta inkluderar en operativsystemenhet (D:\-enhet), en enhet för program som innehåller Azure cspkg paketfilerna används endast av App Service (och inte tillgängligt för kunder) och en ”användare” enhet (C:\ enheten) vars storlek varierar beroende på storleken på den virtuella datorn .
+Kärnan är Apptjänst en tjänst som körs på Azure PaaS (plattform som en tjänst)-infrastruktur. Därför är de lokala enheter som ”kopplas” till en virtuell dator på samma enhet typer som är tillgängliga för alla worker-rollen körs i Azure. Detta inkluderar en operativsystemenhet (D:\-enhet), en enhet för program som innehåller Azure cspkg paketfilerna används endast av App Service (och inte tillgängligt för kunder) och en ”användare” enhet (C:\ enheten) vars storlek varierar beroende på storleken på den virtuella datorn . Det är viktigt att övervaka din diskanvändning när programmet växer. Den kan ha negativa effekter i tillämpningsprogrammet om diskkvoten har uppnåtts.
 
 <a id="NetworkDrives"></a>
 

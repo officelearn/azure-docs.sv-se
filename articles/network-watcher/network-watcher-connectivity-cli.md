@@ -1,10 +1,10 @@
 ---
-title: "Kontrollera anslutningen till Azure Nätverksbevakaren - Azure CLI 2.0 | Microsoft Docs"
-description: "Den här sidan förklarar hur du använder anslutning kontroll med hjälp av Azure CLI 2.0 Nätverksbevakaren"
+title: "Felsöka anslutningar med Nätverksbevakaren Azure - Azure CLI 2.0 | Microsoft Docs"
+description: "Lär dig hur du använder anslutningen felsöka möjligheterna för Azure Nätverksbevakaren använder Azure CLI 2.0."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Kontrollera anslutningen med Azure Nätverksbevakaren använder Azure CLI 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Felsöka anslutningar med Azure Nätverksbevakaren använder Azure CLI 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Lär dig använda anslutningen för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
+Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-* En instans av Nätverksbevakaren i regionen som du vill kontrollera anslutningen.
-
-* Virtuella datorer om du vill kontrollera anslutningen med.
+* En instans av Nätverksbevakaren i regionen som du vill felsöka en anslutning.
+* Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Kontrollera anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Felsöka anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
 
@@ -122,7 +121,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>Validera routning problem
 
-Exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten.
+Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten.
 
 ### <a name="example"></a>Exempel
 

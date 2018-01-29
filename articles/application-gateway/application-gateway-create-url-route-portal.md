@@ -1,92 +1,180 @@
 ---
-title: "Skapa en sökväg-baserade regel för en Programgateway - Azure-portalen | Microsoft Docs"
-description: "Lär dig hur du skapar en sökväg-baserade regler för en Programgateway med hjälp av Azure portal."
+title: "Skapa en Programgateway med URL-sökväg-baserade regler för routning - Azure-portalen | Microsoft Docs"
+description: "Lär dig mer om att skapa URL-sökväg-baserade routningsregler för en Programgateway och skaluppsättningen för virtuell dator med hjälp av Azure portal."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: eb07b1811b017f71a003be26522e6b213a300321
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Skapa en sökväg-baserade regel för en Programgateway med hjälp av Azure portal
+# <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökväg-baserade regler för routning med Azure-portalen
 
-> [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-create-url-route-portal.md)
-> * [PowerShell och Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+Du kan använda Azure-portalen för att konfigurera [URL-sökväg-baserade regler för routning](application-gateway-url-route-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudiekursen skapar du serverdelspooler med hjälp av virtuella datorer. Sedan kan du skapa regler för routning som kontrollerar Internet-trafik anländer till rätt servrar i poolerna.
 
-Med URL-sökväg-baserade routning, kan du associera rutter baserat på HTTP-begäranden URL-sökvägen. Den kontrollerar om det finns en väg till poolen backend-server som konfigurerats för den URL som visas i programgatewayen och skickar sedan nätverkstrafiken till definierade poolen. Ett vanligt användningsområde för URL-sökväg-baserad routning är att belastningsutjämna förfrågningar för olika typer av innehåll till olika backend-serverpooler.
+I den här artikeln får du lära dig hur du:
 
-Programgatewayer har två regeltyper: basic och regler för URL-sökväg-baserade. Grundläggande regeltypen innehåller resursallokering för backend-pooler. Sökväg-baserade regler, förutom resursallokering, kan du också använda sökvägar för den begärda Webbadressen när du väljer i backend-poolen.
+> [!div class="checklist"]
+> * Skapa en programgateway
+> * Skapa virtuella datorer för backend-servrar
+> * Skapa serverdelspooler med backend-servrar
+> * Skapa en backend-lyssnare
+> * Skapa en sökväg-baserade regel
 
-## <a name="scenario"></a>Scenario
+![Exempel på URL: en Routning](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Följande scenario skapar en sökväg-baserade regel i en befintlig gateway för programmet.
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Programgateway med portalen](application-gateway-create-gateway-portal.md).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-![URL-väg][scenario]
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-## <a name="createrule"></a>Skapa regel sökväg-baserade
+Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
 
-En sökväg-baserade regel kräver sin egen lyssnare. Innan du skapar regeln bör du kontrollera att du har en tillgänglig lyssnare ska användas.
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-### <a name="step-1"></a>Steg 1
+Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar. Två undernät skapas i det här exemplet: en för programgatewayen och en för backend-servrarna. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
-Gå till den [Azure-portalen](http://portal.azure.com) och välj en befintlig gateway för programmet. Klicka på **regler**.
+1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+2. Välj **nätverk** och välj sedan **Programgateway** i listan över aktuella.
+3. Ange värdena för Programgateway:
 
-![Översikt över Application Gateway][1]
+    - *myAppGateway* – namnet på programgatewayen.
+    - *myResourceGroupAG* - för den nya resursgruppen.
 
-### <a name="step-2"></a>Steg 2
+    ![Skapa nya Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
-Klicka på den **sökväg-baserade** för att lägga till en ny sökväg-baserade regel.
+4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange sedan värdena för det virtuella nätverket:
 
-### <a name="step-3"></a>Steg 3
+    - *myVNet* – namnet på det virtuella nätverket.
+    - *10.0.0.0/16* - för virtuella nätverkets adressutrymme.
+    - *myAGSubnet* - för undernätsnamnet.
+    - *10.0.0.0/24* - för undernätsadressutrymmet.
 
-Den **Lägg till sökväg-baserade regler** bladet innehåller två avsnitt. Det första avsnittet är där du har definierat lyssnaren, namnet på regeln och standardinställningarna för sökvägen. Standardinställningarna för sökvägen är för vägar som inte omfattas av anpassade sökväg-baserade vägen. Det andra avsnittet av den **Lägg till sökväg-baserade regler** bladet är där du kan definiera regler baserat på sökvägen sig själva.
+    ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
-**Grundläggande inställningar**
+6. Klicka på **OK** att skapa virtuella nätverk och undernät.
+7. Klicka på **Välj en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+8. Godkänn standardvärdena för Lyssnarkonfigurationen lämna inaktiverad Brandvägg för webbaserade program och klicka sedan på **OK**.
+9. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** skapa nätverksresurser och programgatewayen. Det kan ta flera minuter för Programgateway skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
-* **Namnet**: ett eget namn för regeln som är tillgänglig i portalen.
-* **Lyssnare**: lyssnaren som används för regeln.
-* **Standard serverdelspool**: serverdelen som ska användas för Standardregeln.
-* **Standardinställningarna för HTTP-**: HTTP-inställningar som ska användas för Standardregeln.
+### <a name="add-a-subnet"></a>Lägg till ett undernät
 
-**Sökväg-baserade regelinställningar**
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
+2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-* **Namnet**: ett eget namn för regeln baserat på sökvägen.
-* **Sökvägar**: sökvägen regeln söker efter när vidarebefordrar trafik.
-* **Serverdelspool**: serverdelen som ska användas för regeln.
-* **HTTP-inställningen**: HTTP-inställningar som ska användas för regeln.
+    ![Skapa ett undernät](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
-> [!IMPORTANT]
-> Den **sökvägar** inställningen är listan över sökvägen mönster som matchar. Varje mönster måste börja med ett snedstreck och en asterisk tillåts endast i slutet. Giltiga exempel: /xyz, /xyz*, och /xyz/*.  
+3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-![Lägg till sökväg-baserade regler bladet med information som har fyllt i][2]
+## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Lägger till en sökväg-baserade regel i en befintlig Programgateway är en enkel process via Azure-portalen. När du skapar en regel för baserat på sökvägen kan du redigera den för att inkludera ytterligare regler. 
+I det här exemplet kan du skapa tre virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
-![Lägg till ytterligare sökväg-baserade regler][3]
+1. Klicka på **Ny**.
+2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+3. Ange dessa värden för den virtuella datorn:
 
-Det här steget konfigurerar en väg baserat på sökvägen. Det är viktigt att förstå att begäranden inte på nytt. Begäranden finns, programgatewayen kontrollerar begäran och, baserat på URL-mönster, skickar en begäran till backend-poolen.
+    - *myVM1* – namnet på den virtuella datorn.
+    - *azureuser* - för administratörsanvändarnamn.
+    - *Azure123456!* för lösenordet.
+    - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
+
+4. Klicka på **OK**.
+5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
+7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
+8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
+
+### <a name="install-iis"></a>Installera IIS
+
+1. Öppna det interaktiva gränssnittet och se till att den är inställd på **PowerShell**.
+
+    ![Installera anpassade tillägg](./media/application-gateway-create-url-route-portal/application-gateway-extension.png)
+
+2. Kör följande kommando för att installera IIS på den virtuella datorn: 
+
+    ```azurepowershell-interactive
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -Location eastus `
+      -ExtensionName IIS `
+      -VMName myVM1 `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -Settings $publicSettings
+    ```
+
+3. Skapa två fler virtuella datorer och installera IIS med hjälp av stegen som du just har avslutats. Ange namnen på *myVM2* och *myVM3* för namnen och värdena för VMName i Set-AzureRmVMExtension.
+
+## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
+
+1. Klicka på **alla resurser** och klicka sedan på **myAppGateway**.
+2. Klicka på **serverdelspooler**. En standardadresspool skapas automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+3. Klicka på **Lägg till mål** att lägga till *myVM1* till appGatewayBackendPool.
+
+    ![Lägg till backend-servrar](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
+
+4. Klicka på **Spara**.
+5. Klicka på **serverdelspooler** och klicka sedan på **Lägg till**.
+6. Ange ett namn med *imagesBackendPool* och Lägg till *myVM2* med **Lägg till mål**.
+7. Klicka på **OK**.
+8. Klicka på **Lägg till** igen för att lägga till en annan serverdelspool med namnet *videoBackendPool* och Lägg till *myVM3* till den.
+
+## <a name="create-a-backend-listener"></a>Skapa en backend-lyssnare
+
+1. Klicka på **lyssnare** och klicka på **grundläggande**.
+2. Ange *myBackendListener* för namn, *myFrontendPort* för frontend-porten och sedan *8080* som port för lyssnaren.
+3. Klicka på **OK**.
+
+## <a name="create-a-path-based-routing-rule"></a>Skapa en sökväg-baserade regel
+
+1. Klicka på **regler** och klicka sedan på **sökväg-baserade**.
+2. Ange *regel 2* för namnet.
+3. Ange *bilder* för namnet på den första sökvägen. Ange */images/** för sökvägen. Välj **imagesBackendPool** för serverdelspoolen.
+4. Ange *Video* för namnet på den andra sökvägen. Ange */video/** för sökvägen. Välj **videoBackendPool** för serverdelspoolen.
+
+    ![Skapa en regel som sökväg-baserade](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
+
+5. Klicka på **OK**.
+
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
+
+1. Klicka på **alla resurser**, och klicka sedan på **myAGPublicIPAddress**.
+
+    ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
+
+2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren. Till exempel http://http: / / 40.121.222.19.
+
+    ![Testa bas-URL i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
+
+3. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/video/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
+
+    ![Testa URL: en för bilder i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
+
+4. Ändra Webbadressen till http://&lt;ip-adress&gt;: 8080/video/test.htm, ersätter &lt;ip-adress&gt; med IP-adress, och du bör se något som liknar följande exempel:
+
+    ![Testa video-URL i Programgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar SSL-avlastning med Azure Programgateway finns [konfigurera en Programgateway för SSL-avlastning med hjälp av Azure portal](application-gateway-ssl-portal.md).
+I den här artikeln får du lära dig hur du
 
-[1]: ./media/application-gateway-create-url-route-portal/figure1.png
-[2]: ./media/application-gateway-create-url-route-portal/figure2.png
-[3]: ./media/application-gateway-create-url-route-portal/figure3.png
-[scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
+> [!div class="checklist"]
+> * Skapa en programgateway
+> * Skapa virtuella datorer för backend-servrar
+> * Skapa serverdelspooler med backend-servrar
+> * Skapa en backend-lyssnare
+> * Skapa en sökväg-baserade regel
+
+Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB standardprotokoll. Eftersom Azure Files är fullständigt hanterad är distribuera i produktion scenarier mycket enklare än att distribuera och hantera en filserver eller en NAS-enhet. Den här artikeln tar information att tänka på när du distribuerar en Azure-filresurs för produktion inom din organisation.
@@ -50,7 +50,7 @@ Azure filer erbjuder två inbyggda och praktiskt dataåtkomst metoder som du kan
 
 Följande tabell visar hur användare och program kan komma åt Azure-filresurs:
 
-| | Direkt molnåtkomst | Azure filsynkronisering |
+| | Direkt molnåtkomst | Azure File Sync |
 |------------------------|------------|-----------------|
 | Vilka protokoll du behöver använda? | Azure Files stöder SMB 2.1 och SMB 3.0-filen REST API. | Åtkomst till din Azure-filresursen via alla protokoll som stöds på Windows Server (SMB, NFS, FTPS, etc.) |  
 | Var körs din arbetsbelastning? | **I Azure**: Azure-filer har direkt åtkomst till dina data. | **Lokalt med långsamma nätverk**: Windows, Linux och macOS klienter kan montera en lokal lokala Windows-filresurs som en snabb cache på Azure-filresursen. |
@@ -64,7 +64,7 @@ Azure Files har flera inbyggda alternativen för att säkerställa datasäkerhet
     * Klienter som inte stöder SMB 3.0 kan kommunicera inom datacentret över SMB 2.1 eller SMB 3.0 utan kryptering. Observera att klienter inte kan kommunicera mellan datacenter över SMB 2.1 eller SMB 3.0 utan kryptering.
     * Klienter kan kommunicera över RESTEN av filen med HTTP eller HTTPS.
 * Kryptering i vila ([Azure Storage Service-kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Vi håller på att aktivera kryptering för lagring-tjänsten (SSE) på den underliggande Azure Storage-plattformen. Det innebär att kryptering aktiveras som standard för alla lagringskonton. Om du skapar ett nytt lagringskonto i en region med kryptering i vila på standard behöver du göra något för att aktivera. Data i vila är krypterad med fullständigt hanterade nycklar. Kryptering i vila inte öka kostnader för lagring och minska prestanda. 
-* Valfria behovet av krypterade data under överföring: när du väljer Azure-filer tillåter inte åtkomst till data via okrypterat kanaler. Mer specifikt tillåts endast HTTPS och SMB 3.0 med kryptering anslutningar. 
+* Valfria behovet av krypterade data under överföring: när du väljer Azure-filer nekar åtkomst till data via okrypterat kanaler. Mer specifikt tillåts endast HTTPS och SMB 3.0 med kryptering anslutningar. 
 
     > [!Important]  
     > Kräver säker överföring av data kommer äldre SMB-klienter inte kan kommunicera med SMB 3.0 med kryptering misslyckas. Se [montera på Windows](storage-how-to-use-files-windows.md), [montera på Linux](storage-how-to-use-files-linux.md), [montera på macOS](storage-how-to-use-files-mac.md) för mer information.
@@ -74,10 +74,13 @@ För maximal säkerhet rekommenderar vi att aktivera både kryptering i vila och
 Om du använder Azure filsynkronisering åtkomst till din Azure-filresurs, använder vi alltid HTTPS och SMB 3.0 med kryptering för att synkronisera dina data till din Windows-servrar, oavsett om du kräver kryptering av data i vila.
 
 ## <a name="data-redundancy"></a>Dataredundans
-Azure Files stöder två alternativ för redundans: lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). I följande avsnitt beskrivs skillnaderna mellan lokalt redundant lagring och geo-redundant lagring:
+Azure Files stöder tre alternativ för redundans: lokalt redundant lagring (LRS), zonen redundant lagring (ZRS) och geo-redundant lagring (GRS). I följande avsnitt beskrivs skillnaderna mellan olika redundansalternativ:
 
 ### <a name="locally-redundant-storage"></a>Lokalt redundant lagring
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Zonen redundant lagring
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

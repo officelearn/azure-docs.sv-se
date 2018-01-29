@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Samla in och analysera Azure aktivitetsloggar i logganalys
 
@@ -90,10 +90,10 @@ Loggdata för aktivitet visas bara *när* du har konfigurerat din aktivitetslogg
 
 | Blad | Beskrivning |
 | --- | --- |
-| Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
-| Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |
-| Aktivitetsloggar per resurs | Visar det totala antalet resurser med aktivitetsloggar och visar upp tio resurser med posten antalet för varje resurs. Klicka på området totala om du vill köra en logg sökning efter <code>Type=AzureActivity &#124; measure count() by Resource</code>, vilket visar alla Azure-resurser tillgängliga för lösningen. Klicka på en resurs för att köra en logg sökning returnera alla aktivitetsposter för den här resursen. |
-| Aktivitetsloggar av resursen. | Visar det totala antalet resursproviders som producerar aktivitet loggar och visar en lista över tio främsta. Klicka på området totala om du vill köra en logg sökning efter <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, vilket visar alla Azure-resurs-leverantörer. Klicka på en resursleverantör om du vill köra en logg sökning returnerar alla aktivitetsposter för providern. |
+| Azure aktivitet loggposter | Visar ett liggande diagram över de Azure aktivitetsloggpost poster summor för intervallet som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity</code>. Klicka på en anroparen objekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för objektet. |
+| Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure log aktivitetsstatus för intervallet som du har valt. Visar en lista också en lista över de översta tio status-posterna. Klicka på diagrammet om du vill köra en logg sökning efter <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Klicka på en statusobjekt om du vill köra en logg sökning returnerar alla aktiviteten loggposter för posten status. |
+| Aktivitetsloggar per resurs | Visar det totala antalet resurser med aktivitetsloggar och visar upp tio resurser med posten antalet för varje resurs. Klicka på området totala om du vill köra en logg sökning efter <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, vilket visar alla Azure-resurser tillgängliga för lösningen. Klicka på en resurs för att köra en logg sökning returnera alla aktivitetsposter för den här resursen. |
+| Aktivitetsloggar av resursen. | Visar det totala antalet resursproviders som producerar aktivitet loggar och visar en lista över tio främsta. Klicka på området totala om du vill köra en logg sökning efter <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, vilket visar alla Azure-resurs-leverantörer. Klicka på en resursleverantör om du vill köra en logg sökning returnerar alla aktivitetsposter för providern. |
 
 ![Azure aktivitetsloggar instrumentpanelen](./media/log-analytics-activity/activity-log-dash.png)
 

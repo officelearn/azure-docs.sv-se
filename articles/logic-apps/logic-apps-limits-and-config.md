@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Logic Apps gränser och konfiguration
 
@@ -85,12 +85,12 @@ Dessa begränsningar gäller för en enkel logikapp som körs.
 Dessa begränsningar gäller för en enskild logik app-instansen.
 
 | Namn | Gräns | Anteckningar | 
-| ---- | ----- | ----- | 
-| Åtgärder körningar per 5 minuter | 100,000 | Kan fördela belastningen över flera appar efter behov. | 
+| ----- | ----- | ----- | 
+| Åtgärder körningar per 5 minuter | 100,000 |<p>Gränsen kan du öka upp till 300,000 genom att köra en logikapp i `High Througput` läge och detta kan göras genom att ange den `operationOptions` egenskap under`runtimeConfiguration` av arbetsflödet resursen ska `OptimizedForHighThroughput`. <p>Observera att hög genomströmning läge i förhandsgranskningen. En arbetsbelastning kan också distribueras över flera appar efter behov. | 
 | Åtgärder samtidiga utgående anrop | ~2,500 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
-| Runtime-slutpunkten: samtidiga inkommande samtal | ~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
-| Runtime-slutpunkten: läsa anrop per 5 minuter | 60,000 | Kan fördela belastningen över flera appar efter behov. | 
-| Runtime-slutpunkten: anropa anrop per 5 minuter | 45,000 | Kan fördela belastningen över flera appar efter behov. | 
+| Runtime-slutpunkten: samtidiga inkommande samtal |~1,000 | Minska antalet samtidiga begäranden eller minska tidsåtgången efter behov. | 
+| Runtime-slutpunkten: läsa anrop per 5 minuter  | 60,000 | Kan fördela belastningen över flera appar efter behov. | 
+| Runtime-slutpunkten: anropa anrop per 5 minuter| 45,000 |Kan fördela belastningen över flera appar efter behov. | 
 |||| 
 
 Överskrider gränserna i normala bearbetningen, eller kör belastningen testning som eventuellt överskrider gränserna, [kontaktar du oss](mailto://logicappsemail@microsoft.com) så att vi kan hjälpa dig med dina krav.

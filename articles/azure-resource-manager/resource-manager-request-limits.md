@@ -12,38 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsning av Resource Manager-begäranden
-För varje prenumeration och klient Resource Manager gränser förfrågningar till 15 000 per timme Skriv- och läsbegäranden till 1 200 per timme. Dessa begränsningar gäller för varje Azure Resource Manager-instans; Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  Så i praktiken gränserna är effektivt mycket högre än de som visas ovan, som användare hanteras begäranden vanligtvis av många olika instanser.
+För varje prenumeration och klient Resource Manager gränser förfrågningar till 15 000 per timme Skriv- och läsbegäranden till 1 200 per timme. Dessa begränsningar gäller för varje instans av Azure Resource Manager. Det finns flera instanser i varje Azure-region och Azure Resource Manager distribueras till alla Azure-regioner.  Så i praktiken gränserna är effektivt mycket högre än dessa gränser, som användare hanteras begäranden vanligtvis av många olika instanser.
 
-Om ditt program eller skript når dessa begränsningar, måste du begränsa dina önskemål. Det här avsnittet visar hur du avgör den återstående begäranden som du har innan du når gränsen och hur du svarar när gränsen har uppnåtts.
+Om ditt program eller skript når dessa begränsningar, måste du begränsa dina önskemål. Den här artikeln visar hur du avgör den återstående begäranden som du har innan du når gränsen och hur du svarar när gränsen har uppnåtts.
 
 När du når gränsen visas HTTP-statuskoden **429 för många begäranden**.
 
 Antalet begäranden som har begränsats till din prenumeration eller din klient. Om du har flera samtidiga program som skickar begäranden i din prenumeration begäranden från dessa program läggs tillsammans för att fastställa antalet återstående begäranden.
 
-Som omfattar-prenumerationsbegäranden är de som involve skicka ditt prenumerations-id, till exempel hämtar resursen grupper i din prenumeration. Klient omfång begäranden inkluderar inte ditt prenumerations-id, till exempel hämtar giltig Azure platser.
+Som omfattar-prenumerationsbegäranden är de som ID involve skicka din prenumeration, till exempel hämtar resursgrupper i din prenumeration. Klient omfång begäranden inkluderar inte ditt prenumerations-ID, till exempel hämtar giltig Azure platser.
 
 ## <a name="remaining-requests"></a>Återstående begäranden
 Du kan bestämma antalet återstående begäranden genom att undersöka svarshuvuden. Varje begäran innehåller värden för antalet återstående Läs- och skrivbegäranden. I följande tabell beskrivs svarshuvuden som du kan undersöka för dessa värden:
 
 | Svarshuvud | Beskrivning |
 | --- | --- |
-| x-MS-ratelimit-Remaining-Subscription-Reads |Prenumeration som omfattar läser återstående |
-| x-MS-ratelimit-Remaining-Subscription-Writes |Prenumeration som omfattar skriver återstående |
-| x-MS-ratelimit-Remaining-tenant-Reads |Klient omfång läser återstående |
-| x-MS-ratelimit-Remaining-tenant-Writes |Klient omfång skriver återstående |
-| x-MS-ratelimit-Remaining-Subscription-Resource-Requests |Prenumerationen omfattas resurs typen begäranden kvar.<br /><br />Värdet i huvudet returneras bara om en tjänst har åsidosatt Standardgränsen. Resource Manager lägger till det här värdet i stället för prenumerationen läsning eller skrivning. |
-| x-MS-ratelimit-Remaining-Subscription-Resource-entities-Read |Prenumerationen omfattas resurs typen begäranden om diagnostikdatainsamling kvar.<br /><br />Värdet i huvudet returneras bara om en tjänst har åsidosatt Standardgränsen. Det här värdet visar antalet återstående begäranden om diagnostikdatainsamling (lista över resurser). |
-| x-MS-ratelimit-Remaining-tenant-Resource-Requests |Klient omfång resurs typen begäranden kvar.<br /><br />Den här rubriken läggs endast för begäranden på klient-nivå och endast om en tjänst har åsidosatt Standardgränsen. Resource Manager lägger till det här värdet i stället för klient läsning eller skrivning. |
-| x-MS-ratelimit-Remaining-tenant-Resource-entities-Read |Klient omfattas resurs typen begäranden om diagnostikdatainsamling kvar.<br /><br />Den här rubriken läggs endast för begäranden på klient-nivå och endast om en tjänst har åsidosatt Standardgränsen. |
+| x-ms-ratelimit-remaining-subscription-reads |Prenumeration som omfattar läser återstående |
+| x-ms-ratelimit-remaining-subscription-writes |Prenumeration som omfattar skriver återstående |
+| x-ms-ratelimit-remaining-tenant-reads |Klient omfång läser återstående |
+| x-ms-ratelimit-remaining-tenant-writes |Klient omfång skriver återstående |
+| x-ms-ratelimit-remaining-subscription-resource-requests |Prenumerationen omfattas resurs typen begäranden kvar.<br /><br />Värdet i huvudet returneras bara om en tjänst har åsidosatt Standardgränsen. Resource Manager lägger till det här värdet i stället för prenumerationen läsning eller skrivning. |
+| x-ms-ratelimit-remaining-subscription-resource-entities-read |Prenumerationen omfattas resurs typen begäranden om diagnostikdatainsamling kvar.<br /><br />Värdet i huvudet returneras bara om en tjänst har åsidosatt Standardgränsen. Det här värdet visar antalet återstående begäranden om diagnostikdatainsamling (lista över resurser). |
+| x-ms-ratelimit-remaining-tenant-resource-requests |Klient omfång resurs typen begäranden kvar.<br /><br />Den här rubriken läggs endast för begäranden på klient-nivå och endast om en tjänst har åsidosatt Standardgränsen. Resource Manager lägger till det här värdet i stället för klient läsning eller skrivning. |
+| x-ms-ratelimit-remaining-tenant-resource-entities-read |Klient omfattas resurs typen begäranden om diagnostikdatainsamling kvar.<br /><br />Den här rubriken läggs endast för begäranden på klient-nivå och endast om en tjänst har åsidosatt Standardgränsen. |
 
 ## <a name="retrieving-the-header-values"></a>Hämtar värden i huvudet
 Hämtar dessa värden i huvudet i din kod eller skript är inte annorlunda än att hämta alla huvudvärde. 
@@ -85,7 +85,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 I **Azure CLI**, du hämta huvudets värde med hjälp av alternativet mer utförlig.
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 Som returnerar flera värden, inklusive följande objekt:

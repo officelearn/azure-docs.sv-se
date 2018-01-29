@@ -1,10 +1,10 @@
 ---
-title: "Kontrollera anslutningen till Azure Nätverksbevakaren - PowerShell | Microsoft Docs"
-description: "Den här sidan förklarar hur du testa anslutning med Nätverksbevakaren med hjälp av PowerShell"
+title: "Felsöka anslutningar med Azure Nätverksbevakaren - PowerShell | Microsoft Docs"
+description: "Lär dig hur du använder anslutningen felsöka möjligheterna för Nätverksbevakaren i Azure med hjälp av PowerShell."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: e3ffaca0eab20c973df4969b22dbf56300d0b1ed
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: cdbce4bde08cbff28b9b7c173a203bf699f9b876
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Kontrollera anslutningen med Azure Nätverksbevakaren med hjälp av PowerShell
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,19 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Lär dig använda anslutningen för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
+Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har följande resurser:
-
-* En instans av Nätverksbevakaren i regionen som du vill kontrollera anslutningen.
-
-* Virtuella datorer om du vill kontrollera anslutningen med.
+* En instans av Nätverksbevakaren i regionen som du vill felsöka en anslutning.
+* Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Kontrollera anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Felsöka anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
 
-Det här exemplet kontrollerar anslutningen till en virtuell dator för målet via port 80. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+Det här exemplet kontrollerar en anslutning till en virtuell dator för målet via port 80. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
 
 ### <a name="example"></a>Exempel
 
@@ -137,7 +134,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Validera routning problem
 
-Exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkten. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
 
 ### <a name="example"></a>Exempel
 
@@ -254,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrollera anslutningen till en slutpunkt för lagring
 
-I följande exempel testar anslutningen från en virtuell dator till en blogg storage-konto. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
+I följande exempel kontrollerar anslutningen från en virtuell dator till en blogg lagringskontot. Det här exemplet kräver att du har aktiverat i den region som innehåller den Virtuella källdatorn Nätverksbevakaren.  
 
 ### <a name="example"></a>Exempel
 
@@ -276,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 Följande json är exempel svaret från att köra cmdlet tidigare. Eftersom målet kan nås, den `ConnectionStatus` egenskapen visas som **nåbar**.  Information om antalet hopp som krävs för att nå lagringsblob och fördröjning finns.
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -307,22 +304,6 @@ Hops             : [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](network-watcher-check-ip-flow-verify-portal.md)
+Avgöra om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).
 
 Om trafik blockeras och får inte vara, se [hantera Nätverkssäkerhetsgrupper](../virtual-network/virtual-network-manage-nsg-arm-portal.md) att spåra de grupp och säkerhet Nätverkssäkerhetsregler som har definierats.
-
-<!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

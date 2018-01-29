@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 20614aaabc05513e93eb001c1676a73f85003947
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synkronisering: Förstå och anpassa synkronisering
 Azure Active Directory Connect-synkroniseringstjänster (Azure AD Connect sync) är en komponenten i Azure AD Connect. Det hand tar om alla åtgärder som är relaterade till synkronisera identitetsdata mellan din lokala miljö och Azure AD. Azure AD Connect-synkronisering är efterföljaren till DirSync och Azure AD Sync Forefront Identity Manager med Azure Active Directory-kopplingen konfigurerats.
 
 Det här avsnittet är hem för **Azure AD Connect-synkronisering** (kallas även **Synkroniseringsmotorn**) och ger länkar till andra avsnitt relaterade till den. Länkar till Azure AD Connect finns [integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md).
 
-Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-synkronisering** komponenten och tjänstsidan i Azure AD kallas **Azure AD Connect-synkroniseringstjänsten**. 
+Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-synkronisering** komponenten och tjänstsidan i Azure AD kallas **Azure AD Connect-synkroniseringstjänsten**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect sync-ämnen
 | Avsnitt | Det täcker och när du ska läsa |
@@ -49,6 +49,7 @@ Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-syn
 | [Implementera Lösenordssynkronisering](active-directory-aadconnectsync-implement-password-synchronization.md) |Beskriver så här fungerar Lösenordssynkronisering, hur du implementerar och hur du använder och felsöker. |
 | [Tillbakaskrivning av enhet.](active-directory-aadconnect-feature-device-writeback.md) |Beskriver hur tillbakaskrivning av enheter fungerar i Azure AD Connect. |
 | [Katalogtillägg](active-directory-aadconnectsync-feature-directory-extensions.md) |Beskriver hur du utökar schemat för Azure AD med dina egna anpassade attribut. |
+| [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Beskriver hur du placerar användarens Office 365 resurser i samma region som användaren. |
 | **Sync Service** | |
 | [Azure AD Connect sync-tjänsten-funktioner](active-directory-aadconnectsyncservice-features.md) |Beskriver tjänstsidan synkronisering och hur du ändrar synkroniseringsinställningar i Azure AD. |
 | [Duplicerat attribut återhämtning](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Beskriver hur du aktiverar och använder **userPrincipalName** och **proxyAddresses** dubblettattribut värden återhämtning. |
@@ -64,4 +65,3 @@ Synkroniseringsservern består av två komponenter, lokal **Azure AD Connect-syn
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Integrera dina lokala identiteter med Azure Active Directory](active-directory-aadconnect.md)
-

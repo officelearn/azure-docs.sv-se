@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kombinera kolumner med exempel omvandling
 Den här omvandlingen tillåter användaren att lägga till en ny kolumn genom att kombinera värden från flera kolumner. Användaren kan ange en avgränsare eller ange kombinerade exempelvärden att utföra den här transformationen. När användaren ger exempel på kombination, omvandlingen hanteras av samma **av exempel** motor som används i den **härledd kolumn efter exempel** transformeringen.
@@ -38,6 +38,10 @@ Att välja **exempel** under **kombinera kolumner efter** gör det möjligt för
 
 Användaren kan växla mellan den **grundläggande läget** och **Avancerat läge** genom att klicka på länkarna i Redigeraren för transformeringen.
 
+### <a name="transform-editor-send-feedback"></a>Transformera editor: skicka Feedback
+
+Klicka på den **skicka feedback** länkar öppnas den **Feedback** dialogen med kommentarrutan förväg till exempel användaren har angett. Användaren bör granska innehållet i kommentarrutan och ger mer information som hjälper oss att förstå problemet. Om användaren inte vill dela data med Microsoft användaren bör ta bort förinställd exempeldata innan du klickar på den **skicka Feedback** knappen. 
+
 ### <a name="editing-existing-transformation"></a>Redigera befintliga omvandling
 
 En användare kan redigera en befintlig **kombinera kolumn av exempel** transformera genom att välja **redigera** alternativ för steget omvandling. Klicka på **redigera** öppnar Redigeraren transformeringen i **grundläggande läget**. Användaren kan ange den **Avancerat läge** genom att klicka på länken i huvudet. Alla exemplen som angavs under skapandet av transformeringen visas.
@@ -46,7 +50,7 @@ En användare kan redigera en befintlig **kombinera kolumn av exempel** transfor
 
 Ett komma följt av ett blanksteg används som avgränsare i det här exemplet för att kombinera den *gata*, *Stad*, *tillstånd*, och *ZIP* kolumner.
 
-|Gatuadress|Ort|Status|ZIP-|Kolumn|
+|Gata|Ort|Status|ZIP|Kolumn|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th sätt|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th sätt|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|

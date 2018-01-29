@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrera program med Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ Program som har registrerats i din organisation visas under den ”Mina appar”
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Tar bort ett program för flera innehavare godkända av en annan organisation
 En delmängd av de program som visas under ”alla appar” filter (förutom i ”Mina appar” registreringar) på din klient ”App registreringar” huvudsidan är program med flera klienter. Tekniskt sett dessa program med flera klienter från en annan klient och registrerades i din klient under processen medgivande. Mer specifikt representeras de av bara en service principal objektet i din klient med ingen motsvarande programobjektet. Mer information om skillnaderna mellan program och tjänstens huvudnamn objekt finns [program och tjänstens huvudnamn objekt i Azure AD](active-directory-application-objects.md).
 
-För att ta bort ett program med flera innehavare åtkomsten till din katalog (när du har beviljat medgivande), företagets administratör måste ta bort dess huvudnamn för tjänsten. Administratören måste ha åtkomst till global administratör och kan ta bort via Azure portal på [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) ta bort åtkomst.
+För att ta bort ett program med flera innehavare åtkomsten till din katalog (när du har beviljat medgivande), företagets administratör måste ta bort dess huvudnamn för tjänsten. Administratören måste har åtkomst till global administratör, och kan ta bort via Azure-portalen eller använda den [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) ta bort åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns [Autentiseringsscenarier för Azure AD](active-directory-authentication-scenarios.md).

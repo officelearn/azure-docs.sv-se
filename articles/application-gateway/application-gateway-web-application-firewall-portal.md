@@ -1,166 +1,171 @@
 ---
-title: "Skapa eller uppdatera en Programgateway med en brandvägg för webbaserade program | Microsoft Docs"
-description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av portalen"
+title: "Skapa en Programgateway med en brandvägg för webbaserade program - Azure-portalen | Microsoft Docs"
+description: "Lär dig hur du skapar en Programgateway med en brandvägg för webbaserade program med hjälp av Azure portal."
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med hjälp av portalen
+# <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program som använder Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure-portalen](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
-> * [Azure CLI](application-gateway-web-application-firewall-cli.md)
+Du kan använda Azure-portalen för att skapa en [Programgateway](application-gateway-introduction.md) med en [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md) (Brandvägg). Brandvägg använder [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regler för att skydda ditt program. Dessa regler innehåller skydd mot attacker, till exempel SQL injection, webbplatser scripting attacker och sessionen hijacks.
 
-Lär dig hur du skapar en brandvägg för webbaserade program (Brandvägg)-aktiverat Programgateway.
+I den här artikeln får du lära dig hur du:
 
-Brandvägg i Azure Application Gateway skyddar webbprogram från vanliga webbaserade attacker som SQL injection, webbplatser scripting attacker och sessionen hijacks. En Brandvägg skyddar mot många OWASP översta 10 vanliga web säkerhetsriskerna.
+> [!div class="checklist"]
+> * Skapa en Programgateway med Brandvägg aktiverat
+> * Skapa de virtuella datorerna som används som backend-servrar
+> * Skapa ett lagringskonto och konfigurera diagnostik
 
-## <a name="scenarios"></a>Scenarier
+![Exempel på brandväggen ett webbprogram](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-Den här artikeln beskriver två scenarier. I det första scenariot lär du dig hur du [skapa en Programgateway med en Brandvägg](#create-an-application-gateway-with-web-application-firewall). I det andra scenariot lär du dig hur du [lägga till en Brandvägg i en befintlig Programgateway](#add-web-application-firewall-to-an-existing-application-gateway).
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
-![Exempel på ett scenario][scenario]
+Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com)
 
-> [!NOTE]
-> Du kan lägga till anpassade hälsoavsökningar, adresser backend-poolen och ytterligare regler programgatewayen. Dessa program konfigureras när programgatewayen har konfigurerats och inte under första distributionen.
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-## <a name="before-you-begin"></a>Innan du börjar
+Ett virtuellt nätverk behövs för kommunikation mellan resurser som du skapar. Två undernät skapas i det här exemplet: en för programgatewayen och en för backend-servrarna. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen.
 
- En Programgateway kräver sin egen undernät. När du skapar ett virtuellt nätverk, se till att du lämnar tillräckligt med adressutrymme för att du har flera undernät. När du har distribuerat en Programgateway till ett undernät kan bara ytterligare programgatewayer läggas till undernätet.
+1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+2. Välj **nätverk** och välj sedan **Programgateway** i listan över aktuella.
+3. Ange värdena för Programgateway:
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Lägg till en brandvägg för webbaserade program i en befintlig Programgateway
+    - *myAppGateway* – namnet på programgatewayen.
+    - *myResourceGroupAG* - för den nya resursgruppen.
+    - Välj *Brandvägg* för nivån av programgatewayen.
 
-Det här exemplet uppdaterar en befintlig Programgateway för att stödja en Brandvägg i **förebyggande** läge.
+    ![Skapa nya Programgateway](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-1. I Azure portal **Favoriter** väljer **alla resurser**. På den **alla resurser** bladet Välj befintliga programgatewayen. Om den prenumeration som du har valt redan har flera resurser i den, anger du namnet på den **filtrera efter namn** rutan att enkelt få åtkomst till DNS-zonen.
+4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+5. Klicka på **Välj ett virtuellt nätverk**, klickar du på **Skapa nytt**, och ange sedan värdena för det virtuella nätverket:
 
-   ![Befintliga program gateway markeringen][1]
+    - *myVNet* – namnet på det virtuella nätverket.
+    - *10.0.0.0/16* - för virtuella nätverkets adressutrymme.
+    - *myAGSubnet* - för undernätsnamnet.
+    - *10.0.0.0/24* - för undernätsadressutrymmet.
 
-2. Välj **Brandvägg för webbaserade program**, och uppdatera gatewayen programinställningar. När uppdateringen är klar väljer du **spara**. 
+    ![Skapa det virtuella nätverket](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-3. Använd följande inställningar för att uppdatera en befintlig Programgateway för att stödja en Brandvägg:
+6. Klicka på **OK** att skapa virtuella nätverk och undernät.
+7. Klicka på **Välj en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
+8. Godkänn standardvärdena för Lyssnarkonfigurationen lämna inaktiverad Brandvägg för webbaserade program och klicka sedan på **OK**.
+9. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** att skapa nätverksresurser och programgatewayen. Det kan ta flera minuter för Programgateway skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
-   | **Inställning** | **Värde** | **Detaljer**
-   |---|---|---|
-   |**Uppgradera till Brandvägg nivå**| Markerad | Det här alternativet anger nivån för Programgateway Brandvägg-nivån.|
-   |**Status för brandväggen**| Enabled | Den här inställningen aktiverar brandväggen på Brandvägg.|
-   |**Brandväggsläge** | Prevention (Skydd) | Den här inställningen är hur en Brandvägg behandlar skadlig trafik. **Identifiering av** läge endast loggar händelser. **Förebyggande** läge loggar händelser och stoppar skadlig trafik.|
-   |**Regeluppsättning**|3.0|Den här inställningen avgör den [core regeluppsättning](application-gateway-web-application-firewall-overview.md#core-rule-sets) som används för att skydda medlemmarna backend-adresspool.|
-   |**Konfigurera inaktiverade regler**|Det varierar|För att hindra möjliga falska positiva identifieringar kan du använda den här inställningen för att inaktivera vissa [regler och regelgrupper](application-gateway-crs-rulegroups-rules.md).|
+### <a name="add-a-subnet"></a>Lägg till ett undernät
 
-    >[!NOTE]
-    > När du uppgraderar en befintlig Programgateway till Brandvägg SKU SKU-storleken ändras till **medel**. När konfigurationen är klar kan du konfigurera om den här inställningen.
+1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myVNet** från resurslistan över.
+2. Klicka på **undernät**, och klicka sedan på **undernät**.
 
-    ![Grundläggande inställningar][2-1]
+    ![Skapa ett undernät](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
-    > [!NOTE]
-    > Visa Brandvägg loggar, aktivera diagnostik och välj **ApplicationGatewayFirewallLog**. Välj ett instansantal på **1** endast avsett för testning. Vi rekommenderar inte instansantalet under **2** eftersom det inte omfattas av SLA. Liten gateways är inte tillgängliga när du använder en Brandvägg.
+3. Ange *myBackendSubnet* för namnet på undernätet och klickar sedan på **OK**.
 
-## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Skapa en Programgateway med en brandvägg för webbaserade program
+## <a name="create-backend-servers"></a>Skapa backend-servrar
 
-Det här scenariot kommer:
+I det här exemplet skapar du två virtuella datorer som ska användas som backend-servrar för programgatewayen. Du kan även installera IIS på de virtuella datorerna för att verifiera att programgatewayen har skapats.
 
-* Skapa en medelhög Brandvägg Programgateway med två instanser.
-* Skapa ett virtuellt nätverk med namnet AdatumAppGatewayVNET med en 10.0.0.0/16 reserverade CIDR-blocket.
-* Skapa undernätet Appgatewaysubnet som använder 10.0.0.0/28 som dess CIDR-block.
-* Konfigurera ett certifikat för SSL-avlastning.
+### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion för en månad](https://azure.microsoft.com/free).
+1. Klicka på **Ny**.
+2. Klicka på **Compute** och välj sedan **Windows Server 2016 Datacenter** i listan över aktuella.
+3. Ange dessa värden för den virtuella datorn:
 
-2. I den **Favoriter** rutan på portalen väljer **ny**.
+    - *myVM* – namnet på den virtuella datorn.
+    - *azureuser* - för administratörsanvändarnamn.
+    - *Azure123456!* för lösenordet.
+    - Välj **använda befintliga**, och välj sedan *myResourceGroupAG*.
 
-3. På den **ny** bladet väljer **nätverk**. På den **nätverk** bladet väljer **Programgateway**, enligt följande bild:
+4. Klicka på **OK**.
+5. Välj **DS1_V2** för storleken på den virtuella datorn och klicka på **Välj**.
+6. Se till att **myVNet** har valts för det virtuella nätverket och undernätet är **myBackendSubnet**. 
+7. Klicka på **inaktiverad** att inaktivera startdiagnostikinställningar.
+8. Klicka på **OK**granska inställningarna på sidan Sammanfattning och klicka sedan på **skapa**.
 
-    ![Skapa för program-gateway][1]
+### <a name="install-iis"></a>Installera IIS
 
-4. På den **grunderna** bladet som visas, ange följande värden och välj sedan **OK**:
+1. Öppna det interaktiva gränssnittet och se till att den är inställd på **PowerShell**.
 
-   | **Inställning** | **Värde** | **Detaljer**
-   |---|---|---|
-   |**Namn**|AdatumAppGateway|Namnet på programgatewayen.|
-   |**Nivå**|WAF|Tillgängliga värden är Standard och Brandvägg. Mer information om en Brandvägg finns [Brandvägg för webbaserade program](application-gateway-web-application-firewall-overview.md).|
-   |**SKU-storleken**|Medel|Standardnivån alternativ är **små**, **medel**, och **stor**. Brandvägg nivå alternativ är **medel** och **stor** endast.|
-   |**Instansantal**|2|Antal instanser av programgatewayen för hög tillgänglighet. Använd antalet instanser av 1 endast för testning.|
-   |**Prenumeration**|[Din prenumeration]|Välj en prenumeration för att skapa programgatewayen.|
-   |**Resursgrupp**|**Skapa en ny:** AdatumAppGatewayRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde. Mer information om resursgrupper finns i [översikten över Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
-   |**Plats**|Västra USA||
+    ![Installera anpassade tillägg](./media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 
-   ![Inställningar för grundläggande konfiguration][2-2]
+2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
-5. På den **inställningar** bladet som visas under **för virtuella nätverk**väljer **Välj ett virtuellt nätverk**. På den **Välj virtuellt nätverk** bladet väljer **Skapa nytt**.
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-   ![Val av virtuellt nätverk][2]
+3. Skapa en andra virtuell dator och installera IIS med hjälp av stegen som du just har avslutats. Ange *myVM2* för dess namn och VMName i Set-AzureRmVMExtension.
 
-6. På den **skapa virtuellt nätverk-bladet**, ange följande värden och välj sedan **OK**. Den **undernät** på den **inställningar** bladet fylls med undernät som du har valt.
+### <a name="add-backend-servers"></a>Lägg till backend-servrar
 
-   |**Inställning** | **Värde** | **Detaljer** |
-   |---|---|---|
-   |**Namn**|AdatumAppGatewayVNET|Namnet på programgatewayen.|
-   |**Adressutrymme**|10.0.0.0/16| Det här värdet är adressutrymmet för det virtuella nätverket.|
-   |**Namn på undernät**|AppGatewaySubnet|Namnet på undernätet för programgatewayen.|
-   |**Adressintervall för undernätet**|10.0.0.0/28 | Det här undernätet tillåter flera undernät i det virtuella nätverket för backend-medlemmar.|
+1. Klicka på **alla resurser**, och klicka sedan på **myAppGateway**.
+2. Klicka på **serverdelspooler**. En standardadresspool skapas automatiskt med programgatewayen. Klicka på **appGateayBackendPool**.
+3. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade i serverdelspoolen.
 
-7. På den **inställningar** bladet under **Frontend-IP-konfiguration**väljer **offentliga** som den **IP-adresstypen**.
+    ![Lägg till backend-servrar](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
 
-8. På den **inställningar** bladet under **offentliga IP-adressen**väljer **Välj en offentlig IP-adress**. På den **Välj offentlig IP-adress** bladet väljer **Skapa nytt**.
+4. Klicka på **Spara**.
 
-   ![Val av offentliga IP-adress][3]
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
 
-9. På den **skapa offentlig IP-adress** bladet godkänner du standardvärdet och välj **OK**. Den **offentliga IP-adressen** fylls med den offentliga IP-adressen som du har valt.
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-10. På den **inställningar** bladet under **Lyssnarkonfigurationen**väljer **HTTP** under **protokollet**. Ett certifikat krävs för att använda **HTTPS**. Den privata nyckeln för certifikatet som krävs. Ange en PFX-export av certifikatet och ange lösenordet för filen.
+I den här kursen använder programgatewayen ett lagringskonto för att lagra data för att upptäcka och förhindra syften. Du kan också använda logganalys eller Händelsehubb för att registrera data.
 
-11. Konfigurera inställningar för den **Brandvägg**.
+1. Klicka på **ny** hittades på det övre vänstra hörnet i Azure-portalen.
+2. Välj **lagring**, och välj sedan **lagringskonto - blob, fil, tabell, kö**.
+3. Ange namnet på lagringskontot, Välj **Använd befintliga** för resursgruppen och välj sedan **myResourceGroupAG**. I det här exemplet är lagringskontonamnet *myagstore1*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **skapa**.
 
-   |**Inställning** | **Värde** | **Detaljer** |
-   |---|---|---|
-   |**Status för brandväggen**| Enabled| Den här inställningen inaktiverar Brandvägg eller inaktivera.|
-   |**Brandväggsläge** | Prevention (Skydd)| Den här inställningen avgör vilka åtgärder som Brandvägg tar på sig skadlig trafik. **Identifiering av** läge loggar endast trafik. **Förebyggande** läge loggar och stoppar trafik med ett 403 obehörig svar.|
+## <a name="configure-diagnostics"></a>Konfigurera diagnostik
 
+Konfigurera diagnostik för att registrera data i ApplicationGatewayAccessLog och ApplicationGatewayPerformanceLog ApplicationGatewayFirewallLog loggar.
 
-12. Granska de **sammanfattning** och väljer **OK**. Programgatewayen är nu i kö och skapas.
+1. I den vänstra menyn klickar du på **alla resurser**, och välj sedan *myAppGateway*.
+2. Klicka på under övervakning, **diagnostik loggar**.
+3. Klicka på **Lägg till diagnostik inställningen**.
+4. Ange *myDiagnosticsSettings* som namn på inställningarna för webbprogramdiagnostik.
+5. Välj **arkivet till ett lagringskonto**, och klicka sedan på **konfigurera** att välja den *myagstore1* storage-konto som du skapade tidigare.
+6. Välj gateway programloggarna för att samla in och behålla.
+7. Klicka på **Spara**.
 
-13. Efter gateway har skapats, gå till den i portalen för att fortsätta konfigurationen av programgatewayen.
+    ![Konfigurera diagnostik](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-    ![Programvy gateway resurs][10]
+## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Dessa steg skapar en basic-Programgateway med standardinställningarna för lyssnare, backend-adresspool, backend-HTTP-inställningar och regler. Efter att etablering är slutförd, kan du ändra dessa inställningar så att de passar din distribution.
+1. Hitta den offentliga IP-adressen för Programgateway på skärmen Översikt. Klicka på **alla resurser** och klicka sedan på **myAGPublicIPAddress**.
 
-> [!NOTE]
-> Programgatewayer som skapats med den grundläggande konfigurationen av Brandvägg har konfigurerats med CR 3.0 för skydd.
+    ![Registrera programmet gateway offentlig IP-adress](./media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png)
+
+2. Kopiera den offentliga IP-adressen och klistra in den i adressfältet i webbläsaren.
+
+    ![Testa Programgateway](./media/application-gateway-web-application-firewall-portal/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Så här konfigurerar du en anpassad domän alias för den [offentliga IP-adressen](../dns/dns-custom-domain.md#public-ip-address), du kan använda Azure DNS eller en annan DNS-leverantör.
+I den här artikeln får du lära dig hur du:
 
-För att konfigurera diagnostik loggning för att logga händelser som upptäckts eller förhindras med Brandvägg, se [Programgateway diagnostik](application-gateway-diagnostics.md).
+> [!div class="checklist"]
+> * Skapa en Programgateway med Brandvägg aktiverat
+> * Skapa de virtuella datorerna som används som backend-servrar
+> * Skapa ett lagringskonto och konfigurera diagnostik
 
-För att skapa anpassade hälsoavsökningar, se [skapa en anpassad hälsoavsökningen](application-gateway-create-probe-portal.md).
-
-För att konfigurera SSL-avlastning och dra kostsamma SSL prenumerationen av webbservrar, se [Konfigurera SSL-avlastning](application-gateway-ssl-portal.md).
-
-<!--Image references-->
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[2-1]: ./media/application-gateway-web-application-firewall-portal/figure2-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
+Mer information om programgatewayer och deras associerade resurser fortsätter du att artiklarna.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg är tillämpliga på alla målgrupper.
@@ -82,7 +82,7 @@ Du använder PowerShell-skript för att tillämpa de här inställningarna till 
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-där 
+Där 
 
 **$ObjectDN** = Active Directory-konto som behörigheter behöver höjas.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
-    |CertKeyAlgorithmParams|CertHashString|där|
+    |CertKeyAlgorithmParams|CertHashString|Där|
     |||Med|
 
 * Följande schemaändringar har införts för att skapa anpassade Synkroniseringsregler för att flöda sAMAccountName domainNetBios och domainFQDN för gruppobjekt samt distinguishedName för användarobjekt kunder:
@@ -473,7 +473,7 @@ Azure AD Connect-synkronisering
   * Uppdaterade Standardregeln för synkronisering tilldelas inte exportera attribut **userCertificate** och **userSMIMECertificate** om attribut som har mer än 15 värden.
   * AD-attribut **employeeID** och **msExchBypassModerationLink** ingår nu i regeluppsättningen för standard-synkronisering.
   * AD-attributet **foto** har tagits bort från standard sync regeluppsättning.
-  * Lägga till **preferredDataLocation** metaversumschema och schemat för AAD-koppling. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera anpassade sync regler för att göra det. Om du vill veta mer om attributet finns artikeln avsnittet [Azure AD Connect-synkronisering: hur du gör en ändring i standardkonfiguration – aktivera synkroniseringen av PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Lägga till **preferredDataLocation** metaversumschema och schemat för AAD-koppling. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera anpassade sync regler för att göra det. 
   * Lägga till **userType** metaversumschema och schemat för AAD-koppling. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera anpassade sync regler för att göra det.
 
 * Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som Källfästpunkten attribut för lokala AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen finns i artikeln avsnittet [Azure AD Connect: Designbegreppen - med msDS-ConsistencyGuid som sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

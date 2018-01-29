@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Plats-villkor i Azure Active Directory för villkorlig åtkomst 
 
@@ -100,7 +100,7 @@ När du konfigurerar villkoret plats har möjlighet att skilja mellan:
 
 ### <a name="any-location"></a>Vilken plats som helst
 
-Som standard väljer **var som helst** orsakar en princip som ska tillämpas på alla IP-adresser, vilket innebär att alla adresser på Internet. Den här inställningen är inte begränsat till IP-adresser som du har konfigurerat som namngiven plats inte. När du väljer **var som helst**, du kan fortfarande undanta specifika platser från en princip. Du kan till exempel använda en princip för alla platser excepts betrodda platser för att ange omfång för alla platser, förutom företagets nätverk.
+Som standard väljer **var som helst** orsakar en princip som ska tillämpas på alla IP-adresser, vilket innebär att alla adresser på Internet. Den här inställningen är inte begränsat till IP-adresser som du har konfigurerat som namngiven plats inte. När du väljer **var som helst**, du kan fortfarande undanta specifika platser från en princip. Du kan till exempel använda en princip till alla platser utom betrodda platser för att ange omfång för alla platser, förutom företagets nätverk.
 
 ### <a name="all-trusted-locations"></a>Alla betrodda platser
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 09aee1ba9ec3ce72732cb1f60c9a840ffc4beb2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Inaktivera och återaktivera meddelandeentiteter (inaktivera)
 
-Köer, ämnen och prenumerationer kan vara tillfälligt. Upphävande placerar entiteten i ett inaktiverat tillstånd, där alla meddelanden underhålls i lagringen. Dock meddelanden kan inte tas bort eller lagts till och åtgärderna för respektive protokollet ger fel.
+Köer, ämnen och prenumerationer kan vara tillfälligt. Upphävande placerar entiteten i ett inaktiverat tillstånd där alla meddelanden underhålls i lagringen. Dock meddelanden kan inte tas bort eller lagts till och åtgärderna för respektive protokollet ger fel.
 
 Pausa en entitet normalt görs för brådskande administrativa skäl. Ett scenario är har distribuerat en felaktig mottagare som tar meddelanden från kön, misslyckas bearbetning, och ännu felaktigt Slutför meddelanden och tas bort. Om att problemet har diagnostiserats kön kan inaktiveras för tar emot förrän korrigerade koden har distribuerats och ytterligare dataförlust på grund av felaktiga koden kan förhindras.
 
@@ -31,7 +31,7 @@ I portalen på **egenskaper** avsnittet för respektive enhet kan ändra tillst�
 
 ![][1]
 
-Portalen tillåter endast inaktiveras fullständigt köer. Du kan också inaktivera skicka och ta emot åtgärder separat med hjälp av Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API i .NET Framework SDK eller med en Azure Resource Manager-mall med Azure CLI eller Azure PowerShell.
+Portalen tillåter endast inaktiveras fullständigt köer. Du kan också inaktivera skicka och ta emot åtgärder separat med hjälp av Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er i .NET Framework SDK eller med en Azure Resource Manager-mall med Azure CLI eller Azure PowerShell.
 
 ## <a name="suspension-states"></a>Tillfälligt tillstånd
 

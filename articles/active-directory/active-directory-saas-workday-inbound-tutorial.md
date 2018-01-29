@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Konfigurera Workday för automatisk användaretablering med lokala Active Directory och Azure Active Directory | Microsoft Docs"
+title: "Självstudier: Konfigurera Workday för automatisk användaretablering med Azure Active Directory | Microsoft Docs"
 description: "Lär dig hur du använder Workday som datakälla identitet för Active Directory och Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Självstudier: Konfigurera Workday för automatisk användaretablering med lokala Active Directory och Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
+
 Syftet med den här kursen är att visa de steg som du behöver utföra för att importera personer från Workday till Azure Active Directory- och Active Directory-med valfritt tillbakaskrivning av vissa attribut till Workday. 
 
 
@@ -51,7 +52,7 @@ Workday användaren etablering arbetsflöden stöds av Azure AD-användaren etab
 
 Kontrollera krav nedan och Läs följande riktlinjer om hur du matchar din aktuella Active Directory-arkitektur och krav för användaretablering med solution(s) som tillhandahålls av Azure Active Directory innan du börjar din Workday-integrering.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här kursen förutsätter att du redan har följande objekt:
 
@@ -270,7 +271,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * Operatorn: REGEX-matchning
 
-      * Värde: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exempel: Endast anställda och inte contingent personer 
 
@@ -325,28 +326,28 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 | ARBETSDAGAR ATTRIBUT | ACTIVE DIRECTORY-ATTRIBUT |  MATCHANDE ID? | SKAPA / UPPDATERA |
 | ---------- | ---------- | ---------- | ---------- |
 |  **WorkerID**  |  EmployeeID | **Ja** | Skrivas i Skapa endast | 
-|  **Namnet**   |   L   |     | Skapa och uppdatera |
+|  **Namnet**   |   l   |     | Skapa och uppdatera |
 |  **Företag**         | Företag   |     |  Skapa och uppdatera |
 |  **CountryReferenceTwoLetter**      |   CO |     |   Skapa och uppdatera |
-| **CountryReferenceTwoLetter**    |  C  |     |         Skapa och uppdatera |
+| **CountryReferenceTwoLetter**    |  c  |     |         Skapa och uppdatera |
 | **SupervisoryOrganization**  | Avdelning  |     |  Skapa och uppdatera |
-|  **PreferredNameData**  |  Visningsnamn |     |   Skapa och uppdatera |
-| **EmployeeID**    |  CN    |   |   Skrivas i Skapa endast |
+|  **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
+| **EmployeeID**    |  cn    |   |   Skrivas i Skapa endast |
 | **Fax**      | facsimileTelephoneNumber     |     |    Skapa och uppdatera |
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
-| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  AccountDisabled      |     | Skapa och uppdatera |
+| **Växel (\[Active\],, ”0”, ”True”, ”1”)** |  accountDisabled      |     | Skapa och uppdatera |
 | **Mobile**  |    mobila       |     |       Skapa och uppdatera |
 | **E-postadress**    | E-post    |     |     Skapa och uppdatera |
-| **ManagerReference**   | Manager  |     |  Skapa och uppdatera |
+| **ManagerReference**   | manager  |     |  Skapa och uppdatera |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa och uppdatera |
-| **Postnummer**  |   Postnummer  |     | Skapa och uppdatera |
+| **PostalCode**  |   Postnummer  |     | Skapa och uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa och uppdatera |
-| ** Ersätta (Mid (Ersätt (\[EmployeeID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Skrivas i Skapa endast |
+| **Ersätt (Mid (Ersätt (\[EmployeeID\]”, (\[ \\ \\ / \\ \\ \\ \\ \\ \\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) ””, ”,), 1, 20)”, ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Skrivas i Skapa endast |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **CountryRegionReference** |  St     |     | Skapa och uppdatera |
-| **AddressLineData**    |  StreetAddress  |     |   Skapa och uppdatera |
+| **AddressLineData**    |  streetAddress  |     |   Skapa och uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa och uppdatera |
-| **BusinessTitle**   |  Rubrik     |     |  Skapa och uppdatera |
+| **BusinessTitle**   |  rubrik     |     |  Skapa och uppdatera |
 | **Ansluta (”@”, Ersätt (Ersätt (ersätta (Ersätt (ersätta (Ersätt (ersätta (ersätta (Ersätt ((Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt (Ersätt ( Ersätt (ansluta till (””., [Förnamn], [Efternamn]), ”([Øø])”, ”Outlook Express”,), ”[Ææ]”, ”ae”,), ”([äãàâãåáąÄÃÀÂÃÅÁĄA])”, ”a”,), ”[B]”, ”b”,), ”([CçčćÇČĆ])”, ”c”,), ”([ďĎD])”, ”d”,), ”([ëèéêęěËÈÉÊĘĚE])”, ”e”,), ”[F]”, ”f”,), ”([G])” ”g”,), ”[H]”, ”h”,), ”([ïîìíÏÎÌÍI])”, ”i”,), ”[J]”, ”j”,), ”([K])”, ”k”,), ”([ľłŁĽL])”, ”l”,), ”([M])”, ”m”,), ”([ñńňÑŃŇN])”, ”n”,), ”([öòőõôóÖÒŐÕÔÓO])”, ”o”,), ”([P])”, ”p”,), ”([Q])”, ”q”,),  ”([ŘŘR])”, ”r”,), ”([ßšśŠŚS])”, ”s”,), ”([TŤť])”, ”t”,), ”([üùûúůűÜÙÛÚŮŰU])”, ”u”,), ”([V])”, ”v”,), ”([B])”, ”b”,), ”([ýÿýŸÝY])”, ”y”,), ”([źžżŹŽŻZ])”, ”z”,) ”,”, ””,), ”contoso.com”)**   | userPrincipalName     |     | Skapa och uppdatera                                                   
 | **Växel (\[namnet\]”, OU standardanvändare, OU = = användare, OU = standard, OU = platser, DC = contoso, DC = com”, ”Dallas” ”, OU standardanvändare, OU = = användare, OU Dallas, OU = platser, DC = = contoso, DC = com”, ”Austin” ”OU standardanvändare, OU = = Användare, OU Austin, OU = platser, DC = = contoso, DC = com ”,” Seattle ””, OU standardanvändare, OU = = användare, OU Seattle, OU = = platser, DC = contoso, DC = com ”,” London ””, OU standardanvändare, OU = = användare, OU London, OU = platser, DC = = contoso, DC = com ”)**  | parentDistinguishedName     |     |  Skapa och uppdatera |
   
@@ -366,14 +367,14 @@ När du har installerat agenten, kör Powershell-kommandona nedan att konfigurer
 
 **Kommandot #2**
 
-> Lägg till ADSyncAgentActiveDirectoryConfiguration
+> Add-ADSyncAgentActiveDirectoryConfiguration
 
 * Indata: För ”katalognamn”, ange namnet på AD-skog, som har angetts i del \#2
 * Indata: Admin användarnamn och lösenord för Active Directory-skog
 
 **Kommandot #3**
 
-> Lägg till ADSyncAgentAzureActiveDirectoryConfiguration
+> Add-ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Indata: Global administratörsanvändarnamnet och lösenordet för din Azure AD-klient
 
@@ -522,7 +523,7 @@ I det här avsnittet ska du konfigurera hur informationen flödar från Workday 
 
       * Operatorn: REGEX-matchning
 
-      * Värde: (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Value: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
    * Exempel: Endast contingent arbetare och inte fast anställda
 

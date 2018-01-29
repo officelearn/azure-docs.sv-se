@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Om volymbehållaren har associerade volymer, ta volymerna offline först. Följ stegen i [kopplar från en volym](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). När volymerna som är offline kan du ta bort dem. När volymbehållaren har inga associerade volymer, ta bort volymbehållaren. Utför följande procedur för att ta bort en volymbehållare.
+Om volymbehållaren har associerade volymer, ta volymerna offline först. Följ stegen i [kopplar från en volym](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). När volymerna som är offline kan du ta bort dem. När volymbehållaren har inga associerade volymer, ta bort volymbehållaren. Utför följande procedur för att ta bort en volymbehållare.
 
 #### <a name="to-delete-a-volume-container"></a>Ta bort en volymbehållare
 1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. Välj och klicka på enheten och gå sedan till **Inställningar > Hantera > volymbehållare**.

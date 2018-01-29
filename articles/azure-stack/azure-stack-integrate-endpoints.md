@@ -2,17 +2,18 @@
 title: "Azure stacken datacenter integrering – publicera slutpunkter"
 description: "Lär dig hur du publicerar Azure Stack slutpunkter i ditt datacenter"
 services: azure-stack
-author: troettinger
+author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/16/2018
-ms.author: victorh
+ms.date: 01/26/2018
+ms.author: jeffgilb
+ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: ae59ae74dd6dfe29a077ed5943eb1a16e561078a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure stacken datacenter integrering – publicera slutpunkter
 
@@ -64,49 +65,6 @@ Azure-stacken stöder endast transparent proxy-servrar. I en distribution där e
 |Registrering|https://management.azure.com|HTTPS|443|
 |Användning|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
-## <a name="firewall-publishing"></a>Brandvägg för publicering
-
-Portarna som listas ovan gäller för inkommande kommunikation när du publicerar Azure Stack-tjänster via en befintlig brandvägg.
-
-Vi rekommenderar att du använder en enhet för att säkra Azure-stacken. Det är dock inte policyn. Även om brandväggar kan hjälpa dig med sådant som distribuerade denial of service (DDOS) attacker och innehållsgranskning, blir de också en genomströmning flaskhals för Azure storage-tjänster som blobbar, tabeller och köer.
-
-Baserat på identitetsmodellen (Azure AD eller AD FS), kan eller inte kan krävas för att publicera AD FS-slutpunkten. Om en frånkopplad distributionsläget används, måste du publicera AD FS-slutpunkten. (Mer information finns i avsnittet Datacenter integration identitet).
-
-Azure Resource Manager (administratör), administratörsportalen och Key Vault (administratör) slutpunkter kräver inte nödvändigtvis externa publicering. Det beror på scenariot. Till exempel som en tjänsteleverantör vilja du begränsa risken för angrepp och administrera endast Azure-paketet i nätverket och inte från Internet.
-
-Det externa nätverket kan vara befintliga företagsnätverket för en enterprise-organisation. I ett sådant scenario, måste du publicera dessa slutpunkter för att fungera Azure Stack från företagsnätverket.
-
-## <a name="edge-firewall-scenario"></a>Edge brandväggen scenario
-
-I en kant-distribution distribueras Azure Stack direkt bakom gränsroutern (som tillhandahålls av Internetleverantören) med eller utan en brandvägg framför det.
-
-![Arkitekturdiagram för en Azure-stacken edge-distribution](media/azure-stack-integrate-endpoints/Integrate-Endpoints-02.png)
-
-Normalt har offentligt dirigerbara IP-adresser angetts för den offentliga VIP-poolen vid tidpunkten för distribution i en kant-distribution. Det här scenariot kan en användare har fullständig själva kontrollerade molnet upplevelse som i ett offentligt moln som Azure.
-
-### <a name="using-nat"></a>Med hjälp av NAT
-
-Du rekommenderas inte på grund av arbetet kan du använda NAT (Network Address Translation) för publishing slutpunkter. Detta kräver en NAT-regel per användare VIP som innehåller alla portar som en användare kan använda för slutpunkt-publicering som fullständigt styrs av användare.
-
-Ett annat övervägande är att Azure inte stöder att konfigurera en VPN-tunnel till en slutpunkt med NAT i ett scenario med hybridmoln med Azure.
-
-## <a name="enterpriseintranetperimeter-network-firewall-scenario"></a>Scenariot perimeter-Enterprise/intranät-brandväggen
-
-Azure-stacken distribueras i ett perimeternätverk-enterprise/intranät-distribution, utöver andra brandvägg, som vanligtvis ingår i ett perimeternätverk (även kallat DMZ).
-
-![Azure Stack brandväggen scenario](media/azure-stack-integrate-endpoints/Integrate-Endpoints-03.png)
-
-Om offentligt dirigerbara IP-adresser har angetts för den offentliga VIP-poolen i Azure-stacken, tillhör perimeternätverket adresserna logiskt och kräver publiceringsregler i primära brandväggen.
-
-### <a name="using-nat"></a>Med hjälp av NAT
-
-Om du använder icke-offentligt dirigerbara IP-adresser för en offentlig VIP-pool i Azure-stacken, används NAT i sekundära brandväggen för att publicera Azure Stack-slutpunkter. I det här scenariot måste du konfigurera regler för serverpublicering på primära brandväggen utanför och på sekundära brandväggen. Tänk på följande om du vill använda NAT:
-
-- NAT lägger till användning vid hantering av brandväggsregler eftersom användarna styra sina egna slutpunkter och sina egna regler för serverpublicering i stacken programvarudefinierade nätverksfunktioner (SDN). Användarna måste kontakta Azure-stacken operatorn att få sina VIP: er som har publicerats och uppdatera portlistan över.
-- Vid användning av NAT begränsar användarupplevelsen, ger fullständig behörighet till operatorn över publiceringsförfrågningar.
-- För hybridscenarion moln med Azure, Överväg att Azure inte stöder att konfigurera en VPN-tunnel till en slutpunkt som använder NAT.
-
 
 ## <a name="next-steps"></a>Nästa steg
-
 [Integration av Azure Stack datacenter - säkerhet](azure-stack-integrate-security.md)

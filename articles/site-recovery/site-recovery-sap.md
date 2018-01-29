@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Skydda en flera nivåer SAP NetWeaver programdistribution med hjälp av Azure Site Recovery
 
@@ -32,7 +32,7 @@ Med Azure Site Recovery kan du:
 Den här artikeln beskriver hur du kan skydda SAP NetWeaver programdistributioner med [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskrivs bästa praxis för att skydda en distribution med tre nivåer SAP NetWeaver i Azure genom att replikera till en annan Azure-datacenter med hjälp av Azure Site Recovery scenarier som stöds och konfigurationer och hur du utför redundans, både test växling vid fel (haveriberedskap) och faktiska växling vid fel.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar bör du kontrollera att du känna till följande:
 
 1. [Replikera en virtuell dator till Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Om du använder en statisk IP-adress kan ange du IP-adress som du vill att den v
 En återställningsplan kan ordningsföljd för växling vid fel på olika nivåer i en flernivåapp, därför kan upprätthålla programkonsekvens. Följ stegen som beskrivs [här](site-recovery-create-recovery-plans.md) när du skapar en återställningsplan för ett webbprogram med flera nivåer.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Att lägga till skript återställningsplanen
-Du kan behöva göra vissa åtgärder på virtuella Azure-datorer efter redundans/testa redundans för dina program ska fungera korrekt. Du kan automatisera efter redundansväxlingen, till exempel uppdatera DNS-post och ändra bindningar och anslutningar, genom att lägga till motsvarande skript i återställningsplanen som beskrivs i [i den här artikeln](site-recovery-create-recovery-plans.md#add-scripts).
+Du kan behöva göra vissa åtgärder på virtuella Azure-datorer efter redundans/testa redundans för dina program ska fungera korrekt. Du kan automatisera efter redundansväxlingen, till exempel uppdatera DNS-post och ändra bindningar och anslutningar, genom att lägga till motsvarande skript i återställningsplanen som beskrivs i [i den här artikeln](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>DNS-uppdatering
 Om DNS-servern har konfigurerats för dynamisk DNS-uppdatering och virtuella datorer vanligtvis uppdatera DNS med den nya IP när de startar. Om du vill lägga till ett explicit steg för att uppdatera DNS med den nya IP-adresser för virtuella datorer och lägger till detta [skript för att uppdatera IP-Adressen i DNS](https://aka.ms/asr-dns-update) som en post-åtgärd på recovery planeringsgrupper.  

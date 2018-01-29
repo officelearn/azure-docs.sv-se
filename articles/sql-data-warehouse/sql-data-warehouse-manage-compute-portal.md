@@ -15,22 +15,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f56e62576cae0c594f26bcddf44528032bd5ea69
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Hantera datorkraft i Azure SQL Data Warehouse (Azure portal)
-> [!div class="op_single_selector"]
-> * [Översikt](sql-data-warehouse-manage-compute-overview.md)
-> * [Portal](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
-
+Skala beräkningsresurser i Azure SQL Data Warehouse med hjälp av Azure portal.
 
 ## <a name="scale-compute-power"></a>Skala datorkraft
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
@@ -47,43 +39,6 @@ ms.lasthandoff: 12/21/2017
 
     ![Klicka på Spara][3]
 
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Pausa beräkning
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Så här pausar en-databas:
-
-1. Öppna den [Azure-portalen] [ Azure portal] och öppna databasen. Observera att statusen är **Online**.
-
-    ![Onlinestatus][6]
-2. Om du vill pausa beräknings-och minnesresurser klickar du på **paus**, och sedan visas ett bekräftelsemeddelande. Klicka på **Ja** att bekräfta eller **inga** att avbryta.
-
-    ![Bekräfta paus][7]
-3. Medan SQL Data Warehouse startar databasen status är **pausa**.
-4. När statusen är **pausad**, pausa åtgärden är klar och du inte längre att debiteras för dwu: er.
-
-    ![Pausa status][4]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Återuppta beräkning
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Så här återupptar en-databas:
-
-1. Öppna den [Azure-portalen] [ Azure portal] och öppna databasen. Observera att statusen är **pausad**.
-
-    ![Pausa databas][4]
-2. Att återuppta databasen Klicka **starta**, och sedan visas ett bekräftelsemeddelande. Klicka på **Ja** att bekräfta eller **inga** att avbryta.
-
-    ![Bekräfta återuppta][5]
-3. Medan SQL Data Warehouse startar databasen är status inställd på ”återupptar”.
-4. När statusen är **online**, databasen är klar.
-
-    ![Onlinestatus][6]
-
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [översikt över][Management overview].
@@ -92,10 +47,7 @@ Mer information finns i [översikt över][Management overview].
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
 [2]: ./media/sql-data-warehouse-manage-compute-portal/move-slider.png
 [3]: ./media/sql-data-warehouse-manage-compute-portal/click-save.png
-[4]: ./media/sql-data-warehouse-manage-compute-portal/resume-database.png
-[5]: ./media/sql-data-warehouse-manage-compute-portal/resume-confirm.png
-[6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
-[7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
+
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md

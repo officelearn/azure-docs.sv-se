@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 447844d1779c537eb9e336a32575cb68ac9ad9eb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Vanliga frågor och kända problem med hanterade tjänsten identitet (MSI) för Azure Active Directory
 
@@ -40,7 +40,7 @@ Följande Linux-distributioner har stöd för MSI:
 
 - Virtuell CoreOS stabil
 - CentOS 7.1
-- 7.2 RedHat
+- RedHat 7.2
 - Ubuntu 15.04
 
 Andra Linux-distributioner stöds inte för närvarande och tillägg kan misslyckas på distributioner som inte stöds.
@@ -57,6 +57,20 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Där: 
 - Namn och typ för Windows är: ManagedIdentityExtensionForWindows
 - Namn och typ för Linux är: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Finns det RBAC-roller för tilldelade användaridentiteter?
+Ja:
+1. MSI-deltagare: 
+- Kan: CRUD användartilldelade identiteter. 
+- Kan inte: Tilldela en användare som tilldelats en resurs identitet. (d.v.s. tilldela identitet till en virtuell dator)
+2. MSI-Operator: 
+- Kan: Tilldela en identitet för användaren som har tilldelats till en resurs. (d.v.s. tilldela identitet till en virtuell dator)
+- Det går inte att: CRUD användartilldelade identiteter.
+
+Obs: Inbyggda deltagarrollen kan utföra alla åtgärder som beskrivs ovan: 
+- CRUD användartilldelade identiteter
+- Tilldela en användare som tilldelats en resurs identitet. (d.v.s. tilldela identitet till en virtuell dator)
+
 
 ## <a name="known-issues"></a>Kända problem
 

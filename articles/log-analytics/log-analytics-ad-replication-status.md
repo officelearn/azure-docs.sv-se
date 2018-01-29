@@ -1,6 +1,6 @@
 ---
 title: "Visa replikeringsstatus för Active Directory med Azure Log Analytics | Microsoft Docs"
-description: "Active Directory-replikeringsstatus lösningspaket regelbundet övervakar Active Directory-miljön för eventuella replikeringsfel och rapporterar resultaten på instrumentpanelen OMS."
+description: "Active Directory-replikeringsstatus lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/24/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7ca3b87ea14589aa2c45c8fe49b01d3b10a75aa1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Visa replikeringsstatus för Active Directory med logganalys
 
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/13/2017
 
 Active Directory är en viktig del av ett företags IT-miljö. För att säkerställa hög tillgänglighet och hög prestanda, har varje domänkontrollant sin egen kopia av Active Directory-databasen. Domänkontrollanterna med varandra för att sprida ändringarna över hela företaget. Fel i den här replikeringen kan orsaka en rad olika problem över hela företaget.
 
-Replikeringsstatus för AD-lösningspaket regelbundet övervakar Active Directory-miljön för eventuella replikeringsfel och rapporterar resultaten på instrumentpanelen OMS.
+Replikeringsstatus för AD-lösningspaket övervakar regelbundet Active Directory-miljön för eventuella replikeringsfel.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till OMS. Information om hur du ansluter en Windows-datorer till OMS finns [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). Om domänkontrollanten tillhör redan en befintlig miljö för System Center Operations Manager som du vill ansluta till OMS finns [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
-* Lägg till Active Directory-replikeringsstatus lösningen i OMS-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
+* Du måste installera agenter på domänkontrollanter som är medlemmar i domänen som ska utvärderas. Eller så du måste installera agenter på medlemsservrar och konfigurera agenter för att skicka data för AD-replikering till logganalys. Information om hur du ansluter en Windows-datorer till logganalys finns [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). Om domänkontrollanten tillhör redan en befintlig miljö för System Center Operations Manager som du vill ansluta till Log Analytics, se [ansluta Operations Manager till logganalys](log-analytics-om-agents.md).
+* Lägg till Active Directory-replikeringsstatus lösningen i logganalys-arbetsytan med processen som beskrivs i [lägga till logganalys lösningar från galleriet lösningar](log-analytics-add-solutions.md).  Det krävs ingen ytterligare konfiguration.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD replikeringsstatus data samling information
 I följande tabell visas data collection metoder och annan information om hur data samlas in för AD-replikeringsstatus.
@@ -42,12 +42,12 @@ I följande tabell visas data collection metoder och annan information om hur da
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |var femte dag |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Du kan också aktivera en icke-domänkontrollant AD data ska skickas till OMS
-Om du inte vill att ansluta alla domänkontrollanter direkt till OMS kan du använda andra OMS-anslutna datorer i domänen för att samla in data för AD-replikeringsstatus lösningspaket och det skicka data.
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Du kan också aktivera en icke-domänkontrollant AD data ska skickas till logganalys
+Om du inte vill att ansluta alla domänkontrollanter direkt till Log Analytics, kan du använda andra datorer i din domän som är ansluten till logganalys för att samla in data för AD-replikeringsstatus lösningspaket och det skicka data.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Så här aktiverar du en icke-domänkontrollant AD data ska skickas till OMS
+### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>Så här aktiverar du en icke-domänkontrollant AD data ska skickas till logganalys
 1. Kontrollera att datorn är medlem i den domän som du vill övervaka replikeringsstatus för AD-lösning.
-2. [Ansluta Windows-dator till OMS](log-analytics-windows-agent.md) eller [ansluta den med hjälp av din befintliga miljö för Operations Manager till OMS](log-analytics-om-agents.md), om den inte redan är ansluten.
+2. [Ansluta Windows-datorn till logganalys](log-analytics-windows-agent.md) eller [ansluta den med hjälp av din befintliga Operations Manager-miljö till logganalys](log-analytics-om-agents.md), om den inte redan är ansluten.
 3. Ange följande registernyckel på datorn:
 
    * Nyckel: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupper\<ManagementGroupName > \Solutions\ADReplication**
@@ -60,7 +60,7 @@ Om du inte vill att ansluta alla domänkontrollanter direkt till OMS kan du anv�
    >
 
 ## <a name="understanding-replication-errors"></a>Förstå replikeringsfel
-När du har AD status replikeringsdata som skickas till OMS finns en panel som liknar följande bild på OMS-instrumentpanelen som anger hur många replikeringsfel som du har för närvarande.  
+När du har AD status replikeringsdata som skickas till logganalys kan se du en panel som liknar följande bild i logganalys som anger hur många replikeringsfel som du har för närvarande.  
 ![Replikeringsstatus för AD-panelen](./media/log-analytics-ad-replication-status/oms-ad-replication-tile.png)
 
 **Kritiska replikeringsfel** gäller vid eller över 75% av den [tombstone-livslängden](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) för Active Directory-skogen.
@@ -124,14 +124,14 @@ S: informationen uppdateras var femte dag.
 **F: finns det ett sätt att konfigurera hur ofta dessa data uppdateras?**
 S: inte just nu.
 
-**F: behöver jag lägga till alla domänkontrollanter i OMS-arbetsyta för att visa replikeringsstatus?**
-S: inte måste bara en enda domänkontrollant läggas till. Om du har flera domänkontrollanter i OMS-arbetsytan skickas data från alla till OMS.
+**F: behöver jag lägga till alla domänkontrollanter i logganalys-arbetsytan för att visa replikeringsstatus?**
+S: inte måste bara en enda domänkontrollant läggas till. Om du har flera domänkontrollanter i logganalys-arbetsytan skickas data från alla till logganalys.
 
-**F: Jag vill inte att lägga till alla domänkontrollanter i OMS-arbetsyta. Kan jag fortsätta att använda replikeringsstatus för AD-lösningen?**
-S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [att aktivera en icke-domänkontrollant AD data ska skickas till OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+**F: Jag vill inte att lägga till alla domänkontrollanter i logganalys-arbetsytan. Kan jag fortsätta att använda replikeringsstatus för AD-lösningen?**
+S: Ja. Du kan ange värdet för en registernyckel för att aktivera den. Se [att aktivera en icke-domänkontrollant AD data ska skickas till logganalys](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **F: Vad är namnet på processen som gör datainsamlingen?**
-S: AdvisorAssessment.exe
+A: AdvisorAssessment.exe
 
 **F: hur lång tid tar det för data som samlas in?**
 S: data collection tid beror på storleken på Active Directory-miljö, men tar vanligtvis mindre än 15 minuter.
@@ -146,11 +146,11 @@ S: inte just nu.
 S: normal användarbehörigheter till Active Directory är tillräckliga.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Felsökning av problem med samlingen
-För att samla in data, kräver lösningspaket AD replikeringsstatus minst en domänkontrollant måste vara ansluten till din OMS-arbetsyta. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
+För att samla in data, kräver lösningspaket AD replikeringsstatus minst en domänkontrollant måste vara ansluten till logganalys-arbetsytan. Tills du ansluter en domänkontrollant, visas ett meddelande som anger att **data samlas fortfarande**.
 
 Om du behöver hjälp med att ansluta en av domänkontrollanterna kan du visa dokumentationen på [ansluta Windows-datorer till logganalys](log-analytics-windows-agent.md). Alternativt, om domänkontrollanten är redan ansluten till en befintlig System Center Operations Manager-miljö, kan du visa dokumentationen på [ansluta System Center Operations Manager till logganalys](log-analytics-om-agents.md).
 
-Om du inte vill ansluta alla domänkontrollanter direkt till OMS eller SCOM [att aktivera en icke-domänkontrollant AD data ska skickas till OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Om du inte vill att ansluta alla domänkontrollanter direkt till Log Analytics eller System Center Operations Manager finns [att aktivera en icke-domänkontrollant AD data ska skickas till logganalys](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [logga sökningar i logganalys](log-analytics-log-searches.md) att visa detaljerad statusdata för Active Directory-replikering.

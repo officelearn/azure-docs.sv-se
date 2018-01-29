@@ -6,13 +6,13 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: a4e4ce6a23f9f8a99d8ae5f9e4e2084e3b749017
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Beständiga volymer med Azure-diskarna - dynamiska etablering
 
@@ -51,13 +51,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## <a name="create-persistent-volume-claim"></a>Skapa beständiga volym anspråk
 
 En beständig volym anspråk använder ett lagringsobjekt för klassen för att dynamiskt etablerar en typ av lagring. När du använder en Azure-disken, skapas disken i samma resursgrupp som AKS resurser.
 
 Manifestet för det här exemplet skapar en beständig volym anspråk med hjälp av den `azure-managed-disk` lagringsklass, skapa en disk `5GB` i storlek med `ReadWriteOnce` åtkomst. Mer information om PVC Åtkomstlägen finns [Åtkomstlägen][access-modes].
+
+> [!NOTE]
+> En Azure-disken kan endast monteras med åtkomst läge typen ReadWriteOnce, vilket gör den tillgänglig att endast en AKS nod. Om du behöver att dela en beständig volym över flera noder, kan du använda [Azure Files][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
@@ -110,4 +111,5 @@ Läs mer om Kubernetes beständiga volymer med Azure-diskarna.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

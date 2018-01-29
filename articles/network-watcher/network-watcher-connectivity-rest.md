@@ -1,10 +1,10 @@
 ---
-title: "Kontrollera anslutningen till Azure Nätverksbevakaren - Azure-portalen | Microsoft Docs"
-description: "Den här sidan förklarar hur du kontrollerar anslutningen med Nätverksbevakaren i Azure-portalen"
+title: "Felsöka anslutningar med Nätverksbevakaren Azure - Azure REST API | Microsoft Docs"
+description: "Lär dig hur du använder anslutningen felsöka möjligheterna för Nätverksbevakaren i Azure med hjälp av Azure REST API."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Kontrollera anslutningen med Azure Nätverksbevakaren med Azure-portalen
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Felsöka anslutningar med Azure Nätverksbevakaren med hjälp av Azure REST API
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Lär dig använda anslutningen för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
+Lär dig hur du använder anslutning felsöka för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-* En instans av Nätverksbevakaren i regionen som du vill kontrollera anslutningen.
-
-* Virtuella datorer om du vill kontrollera anslutningen med.
-
-ARMclient används för att anropa REST-API med hjälp av PowerShell. ARMClient hittas på chocolatey på [ARMClient på Chocolatey](https://chocolatey.org/packages/ARMClient).
-
-Det här scenariot förutsätter att du redan har följt stegen i [skapa en Nätverksbevakaren](network-watcher-create.md) att skapa en Nätverksbevakaren.
+* En instans av Nätverksbevakaren i regionen som du vill felsöka en anslutning.
+* Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Kontrollera anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
+> Felsöka anslutningen kräver ett tillägg för virtuell dator `AzureNetworkWatcherExtension`. Installera tillägget på en Windows VM finns [tillägg för virtuell dator i Azure Network Watcher Agent för Windows](../virtual-machines/windows/extensions-nwa.md) och för Linux VM besöka [tillägg för virtuell dator i Azure Network Watcher Agent för Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Logga in med ARMClient
 
@@ -471,11 +466,9 @@ I följande exempel är svaret från kör tidigare API-anrop. När kontrollen ä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md)
+Lär dig att automatisera insamlingar paket med virtuella aviseringar genom att visa [skapar en avisering utlösta paketinsamling](network-watcher-alert-triggered-packet-capture.md).
 
-Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera Kontrollera IP-flöde](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Hitta om vissa trafik tillåts i eller utanför den virtuella datorn genom att besöka [Kontrollera IP-flöde Kontrollera](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

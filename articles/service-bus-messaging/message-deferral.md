@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: f84b870de4b79399d5edc90284c9c56222156b5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-deferral"></a>Meddelandet avstängning
 
@@ -35,9 +35,9 @@ API: et är [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.b
 
 Uppskjuten meddelanden ligger kvar i huvudkön tillsammans med andra aktiva meddelanden (till skillnad från förlorade meddelanden som bor i en underordnad kö), men de kan inte längre tas emot med hjälp av de vanliga ta emot/ReceiveAsync-funktionerna. Uppskjuten meddelanden kan identifieras [meddelandet surfning](message-browsing.md) om ett program förlorar reda på dem.
 
-Om du vill hämta en uppskjuten meddelandet dess ”ägare” ansvarar för att komma ihåg det [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) som den skjuts upp. Alla mottagare som känner av **SequenceNumber** för uppskjuten meddelanden senare ta emot meddelandet explicit med Receive(sequenceNumber).
+Om du vill hämta en uppskjuten meddelandet ägaren ansvarar för att komma ihåg det [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) som den skjuts upp. Alla mottagare som känner sekvensnumret för ett meddelande om uppskjuten senare kan ta emot meddelandet explicit med `Receive(sequenceNumber)`.
 
-Om ett meddelande inte kan bearbetas eftersom en viss resurs för hantering av meddelandet är inte tillgänglig för tillfället men meddelandebehandling bör inte pausas summarily, ett elegant sätt att placera meddelandet på sidan om en stund är att komma ihåg **SequenceNumber** i en [schemalagda meddelandet](message-sequencing.md) läggas upp på några minuter och hämtas uppskjutna meddelandet igen när den schemalagda meddelanden tas emot. Observera att om en meddelandehanteraren är beroende av en databas för alla åtgärder och att databasen är inte tillgänglig för tillfället, den bör inte använda avstängning, men i stället pausa ta emot meddelanden helt och hållet tills databasen är tillgänglig igen.
+Om ett meddelande inte kan bearbetas eftersom en viss resurs för hantering av meddelandet är inte tillgänglig för tillfället men meddelandebehandling bör inte pausas summarily, är ett sätt att placera meddelandet på sidan om en stund att komma ihåg det  **SequenceNumber** i en [schemalagda meddelandet](message-sequencing.md) läggas upp på några minuter och hämtas uppskjutna meddelandet igen när den schemalagda meddelanden tas emot. Observera att om en meddelandehanteraren är beroende av en databas för alla åtgärder och att databasen är inte tillgänglig för tillfället, den bör inte använda avstängning, men i stället pausa ta emot meddelanden helt och hållet tills databasen är tillgänglig igen.
 
 Vänta meddelanden påverkar inte meddelandet upphör att gälla, vilket innebär att uppskjutna meddelanden fortfarande ut vid den ursprungligen schemalagda tiden och sedan flyttas till kön för obeställbara, om detta konfigureras.
 

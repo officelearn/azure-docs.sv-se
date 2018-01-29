@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Konfigurera en Användartilldelad hanteras Service identitet (MSI) för en virtuell dator med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig hur du aktiverar och ta bort en Användart
 Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) från Azure-portalen, eller via knappen ”prova den” finns i det övre högra hörnet av varje kodblock.
-- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/#login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
+- [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda den lokala CLI-konsolen. Logga in på Azure med hjälp av [az inloggningen](/cli/azure/#az_login). Använd ett konto som är associerade med Azure-prenumeration som du vill distribuera Användartilldelad MSI och VM:
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ Om du vill köra CLI skript exemplen i den här kursen har du två alternativ:
 
 Det här avsnittet vägleder dig genom skapandet av den virtuella datorn och tilldelning av Användartilldelad MSI-filerna till den virtuella datorn. Om du redan har en virtuell dator som du vill använda, hoppa över det här avsnittet och gå vidare till nästa.
 
-1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgruppen](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din MSI med [az gruppen skapa](/cli/azure/group/#create). Se till att ersätta den `<RESOURCE GROUP>` och `<LOCATION>` parametervärden med egna värden. :
+1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgruppen](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din MSI med [az gruppen skapa](/cli/azure/group/#az_group_create). Se till att ersätta den `<RESOURCE GROUP>` och `<LOCATION>` parametervärden med egna värden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ Svaret innehåller information för Användartilldelad MSI-filerna skapas liknar
    }
    ```
 
-3. Skapa en virtuell dator med hjälp av [az vm skapa](/cli/azure/vm/#create). I följande exempel skapas en virtuell dator som är associerade med den nya Användartilldelad MSI, som anges av den `--assign-identity` parameter. Se till att ersätta den `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, och `<`MSI-ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id-egenskap som skapats i föregående steg: 
+3. Skapa en virtuell dator med hjälp av [az vm skapa](/cli/azure/vm/#az_vm_create). I följande exempel skapas en virtuell dator som är associerade med den nya Användartilldelad MSI, som anges av den `--assign-identity` parameter. Se till att ersätta den `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, och `<`MSI-ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id-egenskap som skapats i föregående steg: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 04b8d2b8d7d84bd4c6b46507be5d597c03d9dbb0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är en ytterligare säkerhetssteg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln har du förmodligen ett e-postmeddelande från administratören arbets- eller skolkonto om Multifaktorautentisering. Eller kanske du försökte logga in och fick ett meddelande där du vill ställa in ytterligare säkerhetsverifiering. Om så är fallet, **kan inte logga in förrän du har slutfört den automatiska registreringen**.
@@ -43,7 +43,7 @@ Den första frågan i registreringen är hur du vill att vi ska kontakta dig. Ta
 
 | Kontaktmetod | Beskrivning |
 | --- | --- |
-| [Mobilapp](#use-a-mobile-app-as-the-contact-method) |- **Ta emot meddelanden för verifiering.** Det här alternativet om ett meddelande skickas till authenticator-appen på din smartphone eller surfplatta. Visa meddelandet och, om det är tillförlitligt **autentisera** i appen. Ditt arbete eller skola kan kräva att du anger en PIN-kod innan du autentisera.<br>- **Använd verifieringskoden.** I detta läge gäller genererar autentiseringsappen en Verifieringskod som uppdateras var 30: e sekund. Ange den mest aktuella verifieringskoden i gränssnittet för inloggning.<br>Microsoft Authenticator-appen är tillgänglig för [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), och [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobilapp](#use-a-mobile-app-as-the-contact-method) |- **Ta emot meddelanden för verifiering.** Det här alternativet om ett meddelande skickas till authenticator-appen på din smartphone eller surfplatta. Visa meddelandet och, om det är tillförlitligt **autentisera** i appen. Ditt arbete eller skola kan kräva att du anger en PIN-kod innan du autentisera.<br>- **Använd verifieringskoden.** I detta läge gäller genererar autentiseringsappen en Verifieringskod som uppdateras var 30: e sekund. Ange den mest aktuella verifieringskoden i gränssnittet för inloggning.<br>Microsoft Authenticator-appen är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), och [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Mobiltelefon samtal eller textmeddelande](#use-your-mobile-phone-as-the-contact-method) |- **Telefonsamtal** placerar en automatiserad röstsamtal till det telefonnummer som du anger. Besvara samtalet och tryck på # tangenten för att autentisera.<br>- **Textmeddelande** slutar ett SMS med verifieringskoden. Följande fråga i texten, svara på textmeddelandet eller ange verifieringskoden som visas i gränssnittet för inloggning. |
 | [Telefonsamtal till arbete](#use-your-office-phone-as-the-contact-method) |Placerar en automatiserad röstsamtal till det telefonnummer som du anger. Besvara samtalet och trycka på #-tangenten för att autentisera. |
 
@@ -67,7 +67,7 @@ Med den här metoden kräver att du installerar en autentiseringsapp på din tel
    ![Kryssrutan för att ange en PIN-kod](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. När PIN-koden är klar, Välj **Stäng**. Nu ska verifieringen lyckades.
-9. Vi rekommenderar att du anger ditt mobiltelefonnummer ifall du skulle förlora åtkomsten till din mobilapp. Välj land i listrutan och ange ditt mobiltelefonnummer i rutan bredvid namnet på land. Välj **nästa**.
+9. Vi rekommenderar att du anger ditt mobiltelefonnummer ifall du skulle förlora åtkomsten till din mobilapp. Välj land i listrutan och ange ditt mobiltelefonnummer i rutan bredvid namnet på land. Välj **Nästa**.
 10. Nu uppmanas du att ställa in applösenord för icke-webbläsarappar, till exempel Outlook 2010 eller senare, eller den interna e-app på Apple-enheter. Det beror på att vissa appar inte stöder tvåstegsverifiering. Om du inte använder de här apparna klickar du på **klar** och hoppa över resten av stegen.
 11. Om du använder de här apparna kopiera applösenordet tillhandahålls och klistra in den i ditt program i stället för vanliga lösenord. Du kan använda samma applösenord för flera appar. Mer information [hjälp med applösenord].
 12. Klicka på **Klar**.

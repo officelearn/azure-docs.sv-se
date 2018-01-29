@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Meddelande-surfning
 
-Meddelandet surfning (”granskning”) kan en klient att räkna upp alla meddelanden som finns i en kö eller en prenumeration, vanligtvis för diagnostik och felsökning.
+Meddelandet surfning (”granskning”) gör en Service Bus-klienten att räkna upp alla meddelanden som finns i en kö eller en prenumeration, vanligtvis för diagnostik och felsökning.
 
-Åtgärderna titt returnera alla meddelanden som finns i kön eller prenumeration meddelandeloggen, inte bara de tillgängliga för omedelbar med *Receive()* eller *OnMessage()* loop. Den *tillstånd* -egenskapen för varje meddelande som anger om meddelandet är aktiv (tillgänglig som ska tas emot), uppskjutna (Se avstängning [TBD länk]) eller schemalagda (se schemalagda meddelanden [TBD länk]).
+Åtgärderna titt returnera alla meddelanden som finns i kön eller prenumeration meddelandeloggen, inte bara de tillgängliga för omedelbar med `Receive()` eller `OnMessage()` loop. Den `State` -egenskapen för varje meddelande som anger om meddelandet är aktiv (tillgänglig som ska tas emot), [uppskjutna](message-deferral.md), eller [schemalagda](message-sequencing.md).
 
-Förbrukade och upphört att gälla meddelanden rensas upp av en asynkron ”skräpinsamling” kör inte nödvändigtvis exakt när meddelanden upphör att gälla och därför titt verkligen kan returnera meddelanden som redan har upphört att gälla och kommer att tas bort eller förlorade lettered när en Receive-aktivitet därefter startas på kö eller prenumeration.
+Förbrukade och upphört att gälla meddelanden rensas upp av en asynkron ”skräpinsamling” kör och inte nödvändigtvis exakt när meddelanden upphör att gälla, och därför `Peek` verkligen kan returnera meddelanden som redan har upphört att gälla och kommer att tas bort eller förlorade lettered när en mottagningsåtgärd anropas nästa på kö eller prenumeration.
 
 Detta är särskilt viktigt att tänka på när du försöker återställa uppskjutna meddelanden från kön. Ett meddelande som den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) snabbmeddelanden har passerat inte längre är berättigad till vanliga hämtning på annat sätt, även när det är som returneras av titt. Returnera dessa meddelanden är avsiktlig, eftersom titt är en diagnostikverktyget reflektion av det aktuella tillståndet för loggen.
 

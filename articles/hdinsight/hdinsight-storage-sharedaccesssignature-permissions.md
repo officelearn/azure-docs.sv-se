@@ -4,7 +4,7 @@ description: "Lär dig hur du använder signaturer för delad åtkomst för att 
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
@@ -216,7 +216,7 @@ Om du har ett befintligt Linux-baserade kluster kan du lägga till SA till den *
    > [!IMPORTANT]
    > Du måste starta om flera tjänster innan ändringen börjar gälla.
 
-6. Markera i Ambari webbgränssnittet **HDFS** i listan till vänster och välj sedan **starta om alla** från den **tjänståtgärder** listrutan till höger. När du uppmanas, Välj **aktivera underhållsläge** och sedan väljer __Conform starta om alla ”.
+6. Markera i Ambari webbgränssnittet **HDFS** i listan till vänster och välj sedan **starta om alla berörda** från den **tjänståtgärder** listrutan till höger. När du uppmanas, Välj __överensstämmer starta om alla__.
 
     Upprepa processen för MapReduce2 och YARN.
 

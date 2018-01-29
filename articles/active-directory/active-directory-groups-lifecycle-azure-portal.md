@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Konfigurera giltighetstid för Office 365-grupper (förhandsgranskning)
 
@@ -34,11 +34,21 @@ Genom att ange funktioner för förfallodatum för dem kan du nu hantera livscyk
 
 Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph - offentliga förhandsversionen 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## <a name="roles-and-permissions"></a>Roller och behörigheter
+Dessa är de roller som kan konfigurera och använda giltighetstid för Office 365-grupper i Azure AD.
+
+Roll | Behörigheter
+-------- | --------
+Global administratör<br>Användarkonto-administratör | Kan skapa, läsa, uppdatera eller ta bort principinställningarna upphör att gälla för Office 365-grupper
+Användare | Förnya ett Office 365-grupp som de äger<br>Återställa en Office 365-grupp som de äger
+
+Mer information om behörigheter för att återställa borttagna grupper finns [återställa en borttagen grupp för Office 365](active-directory-groups-restore-azure-portal.md).
+
 ## <a name="set-group-expiration"></a>Ange grupp upphör att gälla
 
 1. Öppna den [administrationscentret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör i Azure AD-klienten.
 
-2. Öppna Azure AD, Välj **användare och grupper**.
+2. Välj **användare och grupper**.
 
 3. Välj **gruppinställningarna** och välj sedan **giltighetstid** att öppna inställningarna för förfallodatum.
   
@@ -48,7 +58,7 @@ Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns 
 
   * Ange grupp-livstid i dagar. Du kan välja något av de fördefinierade värdena eller ett anpassat värde (ska vara 31 dagar eller mer). 
   * Ange en e-postadress där förnyelse och förfallodatum meddelanden ska skickas när en grupp har ingen ägare. 
-  * Välj vilka Office 365-grupper att gälla. Du kan aktivera förfallodatum för **alla** Office 365-grupper du kan välja bland Office 365-grupper eller du väljer **ingen** att inaktivera upphör att gälla för alla grupper.
+  * Välj vilka Office 365-grupper att gälla. Du kan aktivera förfallodatum för **alla** Office 365-grupper som du kan välja att aktivera endast **valda** Office 365-grupper eller välja **ingen** att inaktivera upphör att gälla för alla grupper .
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
 

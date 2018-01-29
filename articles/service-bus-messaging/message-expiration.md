@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Utgångna (Time to Live)
 
@@ -25,11 +25,11 @@ Nyttolasten i ett meddelande eller ett kommando eller en förfrågan som meddela
 
 För utveckling och testmiljöer som köer och ämnen används ofta i samband med partiellt körs av program eller program delar är det också önskvärt för tvinnad testmeddelanden ska automatiskt skräpinsamlats så att nästa testkörning kan Starta ren.
 
-Upphör att gälla för alla enskilda meddelanden kan kontrolleras genom att ange den [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) Systemegenskapen som anger en relativ varaktighet. Upphör att gälla blir ett absolut ögonblick när meddelandet är i kö i entiteten. Då den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) egenskap tar på sig värdet [ **EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
+Upphör att gälla för alla enskilda meddelanden kan kontrolleras genom att ange den [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) Systemegenskapen som anger en relativ varaktighet. Upphör att gälla blir ett absolut ögonblick när meddelandet är i kö i entiteten. Då den [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) egenskap tar på sig värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive).
 
 Senaste den **ExpiresAtUtc** snabbmeddelanden, meddelanden blir inte tillgänglig för hämtning. Upphör att gälla påverkar inte meddelanden som för närvarande är låsta för leverans. Dessa meddelanden hanteras fortfarande normalt. Om låset upphör att gälla eller meddelandet överges, tar upphör att gälla omedelbart.
 
-När meddelandet är under lås, kanske programmet som har tillgång till ett meddelande som praktiskt taget har gått ut. Om programmet är villigt att gå vidare med bearbetning eller väljer att avbryta meddelandet är Implementeraren.
+När meddelandet är under lås, kanske programmet som har tillgång till ett meddelande som har upphört att gälla. Om programmet är villigt att gå vidare med bearbetning eller väljer att avbryta meddelandet är Implementeraren.
 
 ## <a name="entity-level-expiration"></a>På entitetsnivå upphör att gälla
 
@@ -47,11 +47,11 @@ Anta till exempel att en webbplats som måste köra jobb på ett tillförlitligt
 
 Service Bus-köer, ämnen och prenumerationer kan skapas som tillfällig enheter som tas bort automatiskt när de inte har använts för en angiven tidsperiod.
  
-Automatisk rensning är användbart i utvecklings- och scenarier där entiteter skapas dynamiskt och inte rensa efter användning, på grund av test- eller felsökning körningen har avbrutits. Det är också användbart när ett program skapar dynamiska entiteter, till exempel en kö för svar, för att ta emot svar tillbaka till en process som webbservern eller till ett annat relativt tillfällig objekt när det är svårt att på ett tillförlitligt sätt Rensa dessa enheter när objektet instansen försvinner.
+Automatisk rensning är användbart i utvecklings- och scenarier där entiteter skapas dynamiskt och inte rensa efter användning, på grund av vissa avbrott i test- eller felsökning kör. Det är också användbart när ett program skapar dynamiska entiteter, till exempel en kö för svar, för att ta emot svar tillbaka till en process som webbservern eller till ett annat relativt tillfällig objekt när det är svårt att på ett tillförlitligt sätt Rensa dessa enheter när objektet instansen försvinner.
 
 Funktionen är aktiverad med hjälp av den [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues) -egenskap som anger den varaktighet som en enhet måste vara inaktiv (som inte används) innan den tas bort automatiskt. Minimilängden är 5 minuter.
  
-Egenskapen måste anges via en Azure Resource Manager-åtgärd och .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er. Det går inte att ange via portalen.
+Den **autoDeleteOnIdle** egenskapen måste anges via en Azure Resource Manager-åtgärd och .NET Framework-klienten [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API: er. Det går inte att ange via portalen.
 
 
 ## <a name="next-steps"></a>Nästa steg

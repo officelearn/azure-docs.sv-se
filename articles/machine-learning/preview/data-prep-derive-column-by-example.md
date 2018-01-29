@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Härledd kolumn av exempel omvandling
 
@@ -68,6 +68,10 @@ I Avancerat läge du kan lägga till en rad som ett exempel rad genom att dubbel
 
 Användaren kan växla mellan den **grundläggande läget** och **Avancerat läge** genom att klicka på länkarna i Redigeraren för transformeringen.
 
+### <a name="transform-editor-send-feedback"></a>Transformera editor: skicka Feedback
+
+Klicka på den **skicka feedback** länkar öppnas den **Feedback** dialogen med kommentarrutan förväg till exempel användaren har angett. Användaren bör granska innehållet i kommentarrutan och ger mer information som hjälper oss att förstå problemet. Om användaren inte vill dela data med Microsoft användaren bör ta bort förinställd exempeldata innan du klickar på den **skicka Feedback** knappen. 
+
 ### <a name="editing-existing-transformation"></a>Redigera befintliga omvandling
 
 En användare kan redigera en befintlig **härledd kolumn av exempel** transformera genom att välja **redigera** alternativ för steget omvandling. Klicka på **redigera** öppnar Redigeraren transformeringen i **Avancerat läge**, och alla exempel som angavs under skapandet av transformeringen visas.
@@ -85,16 +89,16 @@ Antal exempel som krävs för det här fallet: 2
 
 |Indata|Resultat|
 |:-----|:-----|
-|C:\Python35\Tools\pynche\TypeinViewer.PY|**TypeinViewer.py**|
+|C:\Python35\Tools\pynche\TypeinViewer.py|**TypeinViewer.py**|
 |C:\Python35\Tools\pynche\webcolors.txt|webcolors.txt|
 |C:\Python35\Tools\pynche\websafe.txt|websafe.txt|
-|C:\Python35\Tools\pynche\X\rgb.txt|RGB.txt|
+|C:\Python35\Tools\pynche\X\rgb.txt|rgb.txt|
 |C:\Python35\Tools\pynche\X\xlicense.txt|xlicense.txt|
-|C:\Python35\Tools\Scripts\2to3.PY|2to3.PY|
-|C:\Python35\Tools\Scripts\analyze_dxp.PY|**analyze_dxp.PY**|
-|C:\Python35\Tools\Scripts\byext.PY|byext.PY|
-|C:\Python35\Tools\Scripts\byteyears.PY|byteyears.PY|
-|C:\Python35\Tools\Scripts\checkappend.PY|checkappend.PY|
+|C:\Python35\Tools\Scripts\2to3.py|2to3.PY|
+|C:\Python35\Tools\Scripts\analyze_dxp.py|**analyze_dxp.py**|
+|C:\Python35\Tools\Scripts\byext.py|byext.py|
+|C:\Python35\Tools\Scripts\byteyears.py|byteyears.py|
+|C:\Python35\Tools\Scripts\checkappend.py|checkappend.py|
 
 ### <a name="s2-case-manipulation-during-string-extraction"></a>S2. Case manipulering under Extraheringen av sträng
 
@@ -102,7 +106,7 @@ Antal exempel som krävs för det här fallet: 3
 
 |Indata|Resultat|
 |:-----|:-----|
-|RENAR Datafält & DEAD avslutas.  NYA HANNOVER; Station 332; 2015-12-10 @ 17:10:52.|**Nya Hannover**|
+|RENAR Datafält & DEAD avslutas.  NYA HANNOVER; Station 332; 2015-12-10 @ 17:10:52.|**New Hanover**|
 |BRIAR sökväg & WHITEMARSH LN;  HATFIELD TOWNSHIP; Station 345; 2015-12-10 @ 17:29:21.|Hatfield Township|
 |HAWS AVE; NORRISTOWN; 2015-12-10 @ 14:39:21-station: STA27;|**Norristown**|
 |AIRY ST & ST RAPS;  NORRISTOWN; Station 308A; 2015-12-10 @ 16:47:36.|**Norristown**|
@@ -139,21 +143,21 @@ Antal exempel som krävs för det här fallet: 1
 
 |Förnamn|Mellannamn|Efternamn|Resultat|
 |:-----|:-----|:-----|:-----|
-|Laquanda||Lohmann|Laquanda·· Lohmann|
-|Claudio|A|Huvudet|**Claudio· A· Huvudet**|
+|Laquanda||Lohmann|Laquanda··Lohmann|
+|Claudio|A|Huvudet|**Claudio·A·Chew**|
 |Sara Jane|S|Smith|Sara Jane· S· Smith|
 |Brandi||Blumenthal|Brandi·· Blumenthal|
-|Jesusita|R|Resa|Jesusita· R· Resa|
-|Hermina||Hults|Hermina·· Hults|
+|Jesusita|R|Resa|Jesusita·R·Journey|
+|Hermina||Hults|Hermina··Hults|
 |Anna Marie|W|Karlsson|Anna Marie· W· Karlsson|
-|Rico||Ropp|Rico·· Ropp|
-|Lauren kan||Fullmer|Lauren May·· Fullmer|
+|Rico||Ropp|Rico··Ropp|
+|Lauren-May||Fullmer|Lauren-May··Fullmer|
 |Pressrester|t|Maine|Marc· T· Maine|
-|Angie||Adelman|Angie·· Adelman|
-|John Paul||Smith|John Paul·· Smith|
-|Låt|W|Staller|Song· W· Staller|
+|Angie||Adelman|Angie··Adelman|
+|John-Paul||Smith|John-Paul··Smith|
+|Låt|W|Staller|Song·W·Staller|
 |Jill||Jefferies|Jill·· Jefferies|
-|Ruby-Respit|M|Simmons|Ruby-Grace· M· Simmons|
+|Ruby-Grace|M|Simmons|Ruby-Grace·M·Simmons|
 
 ### <a name="s5-generating-initials"></a>S5. Generera initialer
 
@@ -165,7 +169,7 @@ Antal exempel som krävs för det här fallet: 2
 |Claudio huvudet|C.C.|
 |Sara Jane Smith|S.S.|
 |Brandi Blumenthal|B.B.|
-|Jesusita resa|J.J.|
+|Jesusita Journey|J.J.|
 |Hermina Hults|H.H.|
 |Anna Marie Karlsson|A.J.|
 |Rico Ropp|R.R.|
@@ -288,26 +292,26 @@ Dessa datumdelar extraherades med olika av exempel omformningar på samma dataup
 
 |DateTime|veckodag|Date|Månad|År|Timme|Minut|Andra|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-|31-Jan-2031 05:54:18|**Fre**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
+|31-Jan-2031 05:54:18|**Fri**|**31**|**Jan**|**2031**|**5**|**54**|**18**|
 |17-Jan-1990 13:32:01|Ons|17|Jan|1990|13|32|01|
 |14-Feb-2034 05:36:07|Tis|14|Feb|2034|5|36|07|
 |14-Mar-2002 13:16:16|Tor|14|Mar|2002|13|16|16|
 |21-Jan-1985 05:44:43|Mån|21|Jan|1985|5|44|**43**|
-|16-augusti-1985 01:11:56|Fre|16|Aug|1985|1|11|56|
+|16-Aug-1985 01:11:56|Fre|16|Aug|1985|1|11|56|
 |20-Dec-2033 18:36:29|Tis|20|Dec|2033|18|36|29|
 |16-Jul-1984 10:21:59|Mån|16|Jul|1984|10|21|59|
-|13 januari 2038 10:59:36|Ons|13|Jan|2038|10|59|36|
-|14-augusti-1982 15:13:54|Lör|14|Aug|1982|15|13|54|
+|13-Jan-2038 10:59:36|Ons|13|Jan|2038|10|59|36|
+|14-Aug-1982 15:13:54|Lör|14|Aug|1982|15|13|54|
 |22-Nov-2030 08:18:08|Fre|22|Nov|2030|8|18|08|
 |21-dessa – 1997 08:42:58|Tis|21|Okt|1997|8|42|58|
 |28-Nov-2006 14:19:15|Tis|28|Nov|2006|14|19|15|
-|29-april-2031 04:59:45|Tis|29|Apr|2031|4|59|45|
+|29-Apr-2031 04:59:45|Tis|29|Apr|2031|4|59|45|
 |29-Jan-2032 02:38:36|Tor|29|Jan|2032|2|38|36|
 |11-maj-2028 15:31:52|Tor|11|Maj|2028|15|31|52|
 |15-Jul-1977 12:45:39|Fre|15|Jul|1977|12|45|39|
 |27-Jan-2029 05:55:41|Lör|27|Jan|2029|5|55|41|
-|2024-03-Mar 10:17:49|Sön|3|Mar|2024|10|17|49|
-|2010-14-april 00:23:13|Ons|14|Apr|2010|0|23|13|
+|03-Mar-2024 10:17:49|Sön|3|Mar|2024|10|17|49|
+|14-Apr-2010 00:23:13|Ons|14|Apr|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formatering av datum
 
@@ -317,24 +321,24 @@ Dessa datum formattings gjordes med olika av exempel omformningar på samma data
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Jan-2031 05:54:18|**1/31/2031**|**Fredag den 31 januari 2031**|**01312031 5:54**|**31/1/2031 5:54 AM**|**F1 2031**|
 |17-Jan-1990 13:32:01|1/17/1990|Onsdag 17 januari 1990|01171990 13:32|17/1/1990 1:32 PM|F1 1990|
-|14-Feb-2034 05:36:07|2/14/2034|Tisdag 14 februari 2034|02142034 5:36|2034-14/2 5:36 AM|F1 2034
-|14-Mar-2002 13:16:16|3/14/2002|Torsdag 14 mars 2002|03142002 13:16|2002-14-3 1:16 PM|F1 2002
+|14-Feb-2034 05:36:07|2/14/2034|Tisdag 14 februari 2034|02142034 5:36|2034-14/2 5:36 AM|Q1 2034
+|14-Mar-2002 13:16:16|3/14/2002|Torsdag 14 mars 2002|03142002 13:16|2002-14-3 1:16 PM|Q1 2002
 |21-Jan-1985 05:44:43|1/21/1985|Måndagen den 21 januari 1985|01211985 5:44|21/1/1985 5:44 AM|F1 1985
-|16-augusti-1985 01:11:56|8/16/1985|Fredag den 16 augusti 1985|08161985 1:11|16/8/1985 1:11:00|KVARTAL 3 1985
+|16-Aug-1985 01:11:56|8/16/1985|Fredag den 16 augusti 1985|08161985 1:11|16/8/1985 1:11:00|Q3 1985
 |20-Dec-2033 18:36:29|12/20/2033|Tisdag 20 December 2033|12202033 18:36|20/12/2033 6:36 PM|F4 2033
-|16-Jul-1984 10:21:59|7/16/1984|Måndag 16 juli 1984|07161984 10:21|16/7/1984 10:21 AM|KVARTAL 3 1984
-|13 januari 2038 10:59:36|1/13/2038|Onsdag 13 januari 2038|01132038 10:59|2038/1/13 10:59 AM|F1 2038
-|14-augusti-1982 15:13:54|8/14/1982|Lördag 14 augusti 1982|08141982 15:13|1982-14/8 3:13 PM|KVARTAL 3 1982
+|16-Jul-1984 10:21:59|7/16/1984|Måndag 16 juli 1984|07161984 10:21|16/7/1984 10:21 AM|Q3 1984
+|13-Jan-2038 10:59:36|1/13/2038|Onsdag 13 januari 2038|01132038 10:59|2038/1/13 10:59 AM|F1 2038
+|14-Aug-1982 15:13:54|8/14/1982|Lördag 14 augusti 1982|08141982 15:13|1982-14/8 3:13 PM|Q3 1982
 |22-Nov-2030 08:18:08|11/22/2030|Fredag den 22 November 2030|11222030 8:18|2030-22/11 8:18:00|F4 2030
 |21-dessa – 1997 08:42:58|10/21/1997|Tisdag 21 oktober 1997|10211997 8:42|21/10/1997 8:42 AM|KVARTAL 4 1997
-|28-Nov-2006 14:19:15|11/28/2006|Tisdag 28 November 2006|11282006 14:19|28/11/2006 14:19:00|F4 2006
-|29-april-2031 04:59:45|4/29/2031|Tisdag 29 April 2031|04292031 4:59|29/4/2031 04:59:00|K2 2031
-|29-Jan-2032 02:38:36|1/29/2032|Torsdag 29 januari 2032|01292032 2:38|29/1/2032 2:38 AM|F1 2032
-|11-maj-2028 15:31:52|5/11/2028|Torsdag 11 maj 2028|05112028 15:31|2028-11/5 3:31 PM|K2 2028
-|15-Jul-1977 12:45:39|7/15/1977|Fredag den 15 juli 1977|07151977 12:45|15/7/1977 12:45 PM|KVARTAL 3 1977
-|27-Jan-2029 05:55:41|1/27/2029|Lördag 27 januari 2029|01272029 5:55|27/1/2029 5:55 AM|F1 2029
-|2024-03-Mar 10:17:49|3/3/2024|Söndag 3 mars 2024|03032024 10:17|2024-3/3 10:17 AM|F1 2024
-|2010-14-april 00:23:13|4/14/2010|Onsdag 14 April 2010|04142010 0:23|2010-14-4 12:23:00|K2 2010
+|28-Nov-2006 14:19:15|11/28/2006|Tisdag 28 November 2006|11282006 14:19|28/11/2006 14:19:00|Q4 2006
+|29-Apr-2031 04:59:45|4/29/2031|Tisdag 29 April 2031|04292031 4:59|29/4/2031 04:59:00|Q2 2031
+|29-Jan-2032 02:38:36|1/29/2032|Torsdag 29 januari 2032|01292032 2:38|29/1/2032 2:38 AM|Q1 2032
+|11-maj-2028 15:31:52|5/11/2028|Torsdag 11 maj 2028|05112028 15:31|2028-11/5 3:31 PM|Q2 2028
+|15-Jul-1977 12:45:39|7/15/1977|Fredag den 15 juli 1977|07151977 12:45|15/7/1977 12:45 PM|Q3 1977
+|27-Jan-2029 05:55:41|1/27/2029|Lördag 27 januari 2029|01272029 5:55|27/1/2029 5:55 AM|Q1 2029
+|03-Mar-2024 10:17:49|3/3/2024|Söndag 3 mars 2024|03032024 10:17|2024-3/3 10:17 AM|Q1 2024
+|14-Apr-2010 00:23:13|4/14/2010|Wednesday, April 14, 2010|04142010 0:23|2010-14-4 12:23:00|Q2 2010
 
 
 ### <a name="d3-mapping-time-to-time-periods"></a>D3. Mappning av tid tidsperioder
@@ -343,26 +347,26 @@ Dessa datum och tid till period mappningar som gjordes med olika av exempel omfo
 
 |DateTime|Period(seconds)|Period(minutes)|Tid (två timmar)|Tid (30 minuter)|
 |-----:|-----:|-----:|-----:|-----:|
-|31-Jan-2031 05:54:18|**0-20**|**45-60**|**5 AM - 7 AM**|**5:30-6:00**|
-|17-Jan-1990 13:32:01|**0-20**|30-45|1 PM - 15: 00|13:30-14:00|
-|14-Feb-2034 05:36:07|0-20|30-45|5 AM - 7 AM|5:30-6:00|
-|14-Mar-2002 13:16:16|0-20|15-30|1 PM - 15: 00|13:00-13:30|
-|21-Jan-1985 05:44:43|40-60|30-45|5 AM - 7 AM|5:30-6:00|
-|16-augusti-1985 01:11:56|40-60|0-15|1 AM - 3 AM|1:00-1:30|
-|20-Dec-2033 18:36:29|20-40|30-45|17: 00 - 7 PM|18:30-19:00|
-|16-Jul-1984 10:21:59|40-60|15-30|9: 00 - 11: 00|10:00-10:30|
-|13 januari 2038 10:59:36|20-40|45-60|9: 00 - 11: 00|10:30-11:00|
-|14-augusti-1982 15:13:54|40-60|0-15|15: 00 – 17: 00|15:00-15:30|
-|22-Nov-2030 08:18:08|0-20|15-30|7 AM - 9: 00|8:00-8:30|
-|21-dessa – 1997 08:42:58|40-60|30-45|7 AM - 9: 00|8:30-9:00|
-|28-Nov-2006 14:19:15|0-20|15-30|1 PM - 15: 00|14:00-14:30|
-|29-april-2031 04:59:45|40-60|45-60|3 AM - 5 AM|4:30-5:00|
-|29-Jan-2032 02:38:36|20-40|30-45|1 AM - 3 AM|2:30-3:00|
-|11-maj-2028 15:31:52|40-60|30-45|15: 00 – 17: 00|15:30-16:00|
-|15-Jul-1977 12:45:39|20-40|45-60|11: 00 - 1 PM|12:30-13:00|
-|27-Jan-2029 05:55:41|40-60|45-60|5 AM - 7 AM|5:30-6:00|
-|2024-03-Mar 10:17:49|40-60|15-30|9: 00 - 11: 00|10:00-10:30|
-|2010-14-april 00:23:13|0-20|15-30|11 PM - 1 AM|0:00-0:30|
+|31-Jan-2031 05:54:18|**0-20**|**45-60**|**5AM-7AM**|**5:30-6:00**|
+|17-Jan-1990 13:32:01|**0-20**|30-45|1PM-3PM|13:30-14:00|
+|14-Feb-2034 05:36:07|0-20|30-45|5AM-7AM|5:30-6:00|
+|14-Mar-2002 13:16:16|0-20|15-30|1PM-3PM|13:00-13:30|
+|21-Jan-1985 05:44:43|40-60|30-45|5AM-7AM|5:30-6:00|
+|16-Aug-1985 01:11:56|40-60|0-15|1AM-3AM|1:00-1:30|
+|20-Dec-2033 18:36:29|20-40|30-45|5PM-7PM|18:30-19:00|
+|16-Jul-1984 10:21:59|40-60|15-30|9AM-11AM|10:00-10:30|
+|13-Jan-2038 10:59:36|20-40|45-60|9AM-11AM|10:30-11:00|
+|14-Aug-1982 15:13:54|40-60|0-15|3PM-5PM|15:00-15:30|
+|22-Nov-2030 08:18:08|0-20|15-30|7AM-9AM|8:00-8:30|
+|21-dessa – 1997 08:42:58|40-60|30-45|7AM-9AM|8:30-9:00|
+|28-Nov-2006 14:19:15|0-20|15-30|1PM-3PM|14:00-14:30|
+|29-Apr-2031 04:59:45|40-60|45-60|3AM-5AM|4:30-5:00|
+|29-Jan-2032 02:38:36|20-40|30-45|1AM-3AM|2:30-3:00|
+|11-maj-2028 15:31:52|40-60|30-45|3PM-5PM|15:30-16:00|
+|15-Jul-1977 12:45:39|20-40|45-60|11AM-1PM|12:30-13:00|
+|27-Jan-2029 05:55:41|40-60|45-60|5AM-7AM|5:30-6:00|
+|03-Mar-2024 10:17:49|40-60|15-30|9AM-11AM|10:00-10:30|
+|14-Apr-2010 00:23:13|0-20|15-30|11PM-1AM|0:00-0:30|
 
 ## <a name="examples-of-composite-transformations-by-example"></a>Exempel på sammansatta omvandlingar efter exempel
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 32ddb1489c89303ca3d094c1346d5071c7380c56
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Virtuella Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett routeable-internet-nätverk som du styr åtkomst till. Dessa nätverk kan sedan vara ansluten till ditt lokala nätverk med olika VPN-teknologier. Läs mer om Azure Virtual Networks startar med den här informationen: [Azure översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
@@ -79,7 +79,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 >
 
 > [!IMPORTANT]
-> Om du ta bort API-hantering från ett VNET eller ändrar en distribuerad i kan tidigare VNET förbli låsta för upp till fyra timmar. Under denna tid går det inte att ta bort VNET eller distribuera en ny resurs till den.
+> Om du ta bort API-hantering från ett VNET eller ändrar en distribuerad i kan tidigare VNET förbli låsta för upp till två timmar. Under denna tid går det inte att ta bort VNET eller distribuera en ny resurs till den.
 
 ## <a name="enable-vnet-powershell"></a>Aktivera VNET-anslutningen med hjälp av PowerShell-cmdlets
 Du kan också aktivera VNET-anslutning med hjälp av PowerShell-cmdlets
@@ -99,7 +99,7 @@ Nedan följer en lista över vanliga problem som kan uppstå vid distribution av
 * **Anpassade DNS-serverinstallation**: I API Management-tjänsten är beroende av flera Azure-tjänster. När API-hantering finns i ett VNET med en anpassad DNS-server, måste den matcha värdnamn för de Azure-tjänsterna. Följ [detta](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) vägledning om anpassade DNS-inställningarna. Se tabellen portar och andra krav som referens.
 
 > [!IMPORTANT]
-> Det rekommenderas att, om du använder en anpassad DNS-servrar för VNET kan du konfigurera som **innan** distribuera en API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar (s) genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Om du planerar att använda en anpassad DNS-servrar för VNET, bör du konfigurera den **innan** distribuera en API Management-tjänsten till den. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servrar genom att köra den [gäller åtgärden för konfiguration](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Portar som behövs för API Management**: inkommande och utgående trafik i undernätet som API Management har distribuerats kan kontrolleras med [Nätverkssäkerhetsgruppen][Network Security Group]. Om någon av dessa portar är otillgängliga API Management kanske inte fungerar korrekt och kan inte komma åt. Med en eller flera av de här portarna blockeras är ett annat vanligt felkonfiguration problem när du använder API-hantering med ett VNET.
 
@@ -124,7 +124,7 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 
 * **DNS-åtkomst**: utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar. Om en anpassad DNS-server finns på den andra änden av en VPN-gateway, måste DNS-servern vara nåbar från det undernät som är värd för API-hantering.
 
-* **Mått och hälsoövervakning**: utgående nätverksanslutning till Azure-övervakning slutpunkter som löser under följande domäner: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net.
+* **Mått och hälsoövervakning**: utgående nätverksanslutning till Azure-övervakning slutpunkter som löser under följande domäner: global.metrics.nsatc.net, shoebox2.metrics.nsatc.net, prod3.metrics.nsatc.net, Prod.warmpath.msftcloudes.com.
 
 * **Expressinstallationen väg**: en gemensam konfiguration av customer är att definiera egna standardvägen (0.0.0.0/0) som tvingar utgående Internet-trafiken flöda lokalt i stället. Den här trafikflöde bryts utan undantag anslutningen till Azure API Management eftersom utgående trafik är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen är att definiera en (eller flera) användardefinierade vägar ([udr: er][UDRs]) i undernät som innehåller Azure API Management. En UDR definierar undernät-specifika vägar som ska användas i stället för standardväg.
   Om möjligt bör du använder följande konfiguration:
@@ -150,6 +150,13 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 
 * **Resursnavigeringslänkar**: vid distribution i Resource Manager style vnet subnet API Management reserverar undernät, genom att skapa en resurs navigering länk. Om undernätet innehåller redan en resurs från en annan leverantör, distributionen ska **misslyckas**. När du flyttar en API Management-tjänst till ett annat undernät eller ta bort den på samma sätt tar vi bort resurs navigering länken. 
 
+## <a name="subnet-size"></a> Kravet undernät
+Azure reserverar vissa IP-adresser inom varje undernät, och dessa adresser kan inte användas. De första och sista IP-adresserna undernät är reserverade för överensstämmelse med protokollet, tillsammans med tre flera adresser som används för Azure-tjänster. Mer information finns i [finns det några begränsningar med hjälp av IP-adresser inom dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
+Förutom IP-adresser som används av den virtuella Azure-infrastrukturen, varje Api Management instans i de undernät använder två IP-adresserna per enhet av Premium-SKU eller en 1-IP-adressen för utvecklare SKU: N. Varje instans reserverar 1 IP-adress för den externa belastningsutjämnaren. När du distribuerar till interna virtuella nätverk, kräver ytterligare en IP-adress för den interna belastningsutjämnaren.
+
+Beräkningen ovanför den minsta storleken till undernätet där API-hantering kan distribueras är /29 som ger 3 IP-adresser.
+
 ## <a name="routing"></a> Routning
 + Utjämning av nätverksbelastning offentlig IP-adress (VIP) reserveras för att ge åtkomst till alla slutpunkter.
 + En IP-adress från ett intervall med IP-undernät (DIP) används för att komma åt resurser inom vnet och en offentlig IP-adress (VIP) används för att få åtkomst till resurser utanför vnet.
@@ -166,13 +173,14 @@ När en instans för API Management-tjänsten är värd för ett virtuellt nätv
 * [Ansluta ett virtuellt nätverk till backend med hjälp av Vpn-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta ett virtuellt nätverk från olika distributionsmodeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Hur du använder API-Inspector för att spåra anropar i Azure API Management](api-management-howto-api-inspector.md)
+* [Virtual Network Faq](../virtual-network/virtual-networks-faq.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
-[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-private.png
-[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-public.png
+[api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png
+[api-management-vnet-public]: ./media/api-management-using-with-vnet/api-management-vnet-external.png
 
 [Enable VPN connections]: #enable-vpn
 [Connect to a web service behind VPN]: #connect-vpn

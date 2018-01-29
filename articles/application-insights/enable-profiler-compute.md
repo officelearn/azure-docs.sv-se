@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Aktivera Application Insights Profiler för virtuella Azure-datorer, Service Fabric och Cloud Services
 
-Den här artikeln visar hur du aktiverar Azure Application Insights Profiler på ett ASP.NET-program som finns i en Azure compute-resurs. 
+Den här artikeln visar hur du aktiverar Azure Application Insights Profiler på ett ASP.NET-program som finns i en Azure compute-resurs.
 
 Exemplen i den här artikeln har stöd för Azure virtuella datorer, virtuella datorer, Azure Service Fabric och Azure Cloud Services. Exemplen är beroende av mallar som har stöd för den [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) distributionsmodell.  
 
 
 ## <a name="overview"></a>Översikt
 
-Följande bild visar hur Application Insights-profiler fungerar med Azure-resurser. Bilden används en virtuell Azure-dator som exempel.
+Följande bild visar hur Application Insights-profiler fungerar med Azure Compute resurser. Azure beräkningsresurser inkluderar virtuella datorer, Skalningsuppsättningar i virtuella datorer, Cloud Services och Service Fabric-kluster. Bilden används en virtuell Azure-dator som exempel.  
 
   ![Översikt](./media/enable-profiler-compute/overview.png)
 
 Om du vill aktivera profileraren helt måste du ändra konfigurationen på tre platser:
 
-* Fönstret Application Insights-instans i Azure-portalen.
+* Application Insights instans bladet i Azure-portalen.
 * Programmets källkod (exempelvis en ASP.NET-webbprogram).
-* Miljö distribution definition källkoden (till exempel en VM-distribution mallen JSON-fil).
+* Miljö distribution definition källkoden (till exempel en Azure Resource Manager-mall i JSON-fil).
 
 
 ## <a name="set-up-the-application-insights-instance"></a>Konfigurera Application Insights-instans
 
-Skapa eller gå till Application Insights-instans som du vill använda i Azure-portalen. Observera instrumentation instansnyckeln. Du använder nyckeln instrumentation i andra konfigurationssteg.
+[Skapa en ny Application Insights-resurs](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) eller välj en befintlig.
+Navigera till Application Insights-resurs och kopiera nyckeln Instrumentation.
 
   ![Platsen för viktiga instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
-Den här instansen måste vara samma som ditt program. Den är konfigurerad för att skicka telemetridata till för varje begäran.
-Profileraren resultat är tillgängliga i den här instansen.  
-
-I Azure-portalen slutföra stegen som beskrivs i [aktivera profileraren](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) för att konfigurera Application Insights-instans för profileraren. Du behöver inte länka webbprogram till exempel i den här artikeln. Se bara till att profileraren är aktiverat i portalen.
+Följ stegen som beskrivs i [aktivera profileraren](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) för att konfigurera Application Insights-instans för profileraren. Du behöver inte länka webbprogram som de åtgärder som är specifika för Apptjänster resurs. Se bara till att profileraren är aktiverat i den *konfigurera* profileraren bladet.
 
 
 ## <a name="set-up-the-application-source-code"></a>Ställ in programmets källkod
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>ASP.NET-webbprogram, Cloud Services Web-roller eller Service Fabric ASP.NET Web klientdel
 Konfigurera programmet att skicka telemetridata till en Application Insights-instans på varje `Request` igen:  
 
-1. Lägg till den [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) till projektet. Kontrollera att NuGet-paketet versioner är följande:  
+Lägg till den [Application Insights SDK](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) till projektet. Kontrollera att NuGet-paketet versioner är följande:  
   - För ASP.NET-program: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 eller senare.
   - För program som ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 eller senare.
   - För andra .NET och .NET Core program (till exempel en tillståndslös Service Fabric-tjänst eller en arbetsroll i Cloud Services): [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) eller [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 eller senare.  
 
-2. Om ditt program är *inte* ett ASP.NET eller ASP.NET Core program (till exempel, om det är en arbetsroll för molntjänster eller Service Fabric tillståndslös API: er), krävs följande extra instrumentation inställningar:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Cloud Services arbetarroller eller Service Fabric tillståndslös backend
+Om ditt program är *inte* ett ASP.NET eller ASP.NET Core program (till exempel, om det är en arbetsroll för molntjänster eller Service Fabric tillståndslös API: er), följande inställningar för extra instrumentation krävs, utöver vilka steg ovan:  
 
   1. Lägg till följande kod i början av livslängden för programmet:  
 
@@ -155,7 +155,7 @@ Fullständig exempel:
   Information om att lägga till tillägget diagnostik i mallen för distribution finns [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-### <a name="cloud-services"></a>Molntjänster
+### <a name="cloud-services"></a>Cloud Services
 
 1. Att se till att [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare används, det räcker att bekräfta att ServiceConfiguration.\*. cscfg-filer har en `osFamily` värdet för **”5”** eller senare.
 
@@ -204,7 +204,7 @@ Fullständig exempel:
   ```
 
 2. Om den avsedda programmet körs [IIS](https://www.microsoft.com/web/platform/server.aspx), aktivera den `IIS Http Tracing` Windows-funktionen:  
-  
+
   1. Upprätta fjärråtkomst till miljön och sedan använda den [lägga till Windows-funktioner]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) fönster eller kör följande kommando i PowerShell (som administratör):  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,7 +217,7 @@ Fullständig exempel:
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>Aktivera profileraren på lokala servrar
 
-Aktivera profileraren på en lokal server kallas även körs Application Insights-Profiler i fristående läge (inte är den kopplad till Azure-diagnostik tillägget ändringar). 
+Aktivera profileraren på en lokal server kallas även körs Application Insights-Profiler i fristående läge (inte är den kopplad till Azure-diagnostik tillägget ändringar).
 
 Vi har inga planer på att officiellt ge support profileraren för lokala servrar. Om du vill experimentera med det här scenariot kan du [hämtar support](https://github.com/ramach-msft/AIProfiler-Standalone). Vi kan *inte* ansvarar för underhållet av koden eller för att svara på problem och funktionsförfrågningar som rör koden.
 

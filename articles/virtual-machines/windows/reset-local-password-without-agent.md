@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2017
+ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 880f5e5967298401fc2522124af3746d9906ffa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f9efdbaf0ae79781d6f9c7dfa4c8317185be79e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Hur du återställer lokala Windows-lösenord för Azure VM
-Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azure gästagenten är installerad. Den här metoden är det vanligaste sättet att återställa ett lösenord för en Azure VM. Om du får problem med Azure gästagenten inte svarar eller inte kunde installeras efter överföring av en anpassad avbildning, du kan manuellt återställa en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. 
+# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa lokala Windows-lösenord för virtuella Azure-datorn offline
+Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azure gästagenten är installerad. Den här metoden är det vanligaste sättet att återställa ett lösenord för en Azure VM. Om du får problem med Azure gästagenten inte svarar eller inte kunde installeras efter överföring av en anpassad avbildning, du kan manuellt återställa en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. Stegen som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
 
 > [!WARNING]
 > Endast använda den här processen som en sista utväg. Alltid ett försök att återställa ett lösenord med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) första.
@@ -39,6 +39,12 @@ Grundläggande steg för att utföra en lokal återställning av lösenord för 
 * När den nya virtuella datorn startar uppdatera config-filer som du skapar lösenordet för användaren som krävs.
 
 ## <a name="detailed-steps"></a>Detaljerade steg
+
+> [!NOTE]
+> Stegen gäller inte för Windows-domänkontrollanter. Den fungerar bara på fristående server eller en server som är medlem i en domän.
+> 
+> 
+
 Alltid ett försök att återställa ett lösenord med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) innan de försöker med följande steg. Kontrollera att du har en säkerhetskopia av den virtuella datorn innan du börjar. 
 
 1. Ta bort de berörda VM i Azure-portalen. Den virtuella datorn endast tar bort metadata, referensen för den virtuella datorn i Azure. Virtuella diskar bevaras när den virtuella datorn tas bort:
@@ -104,10 +110,9 @@ Alltid ett försök att återställa ett lösenord med hjälp av den [Azure-port
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
     ```
 
-    ![Skapa FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     När du definierar det nya lösenordet måste du uppfylla krav på komplexitet konfigurerat lösenord för den virtuella datorn.
 7. Koppla bort disken från felsökning VM i Azure-portalen:
@@ -137,8 +142,8 @@ Alltid ett försök att återställa ett lösenord med hjälp av den [Azure-port
 11. Ta bort följande filer att rensa miljön från din fjärrsession till den nya virtuella datorn:
     
     * Från %windir%\System32
-      * ta bort FixAzureVM.cmd
-    * Från %windir%\System32\GroupPolicy\Machine\
+      * remove FixAzureVM.cmd
+    * From %windir%\System32\GroupPolicy\Machine\
       * ta bort scripts.ini
     * Från %windir%\System32\GroupPolicy
       * ta bort gpt.ini (om gpt.ini fanns före och du bytt namn till gpt.ini.bak, Byt namn på filen .bak tillbaka till gpt.ini)

@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Begrepp
   items:
+    - name: Datacenter-integrering
+      items:
+        - name: Överväganden för allmänna Azure Stack-integration
+          href: azure-stack-datacenter-integration.md
+        - name: Azure Stack anslutning distributionsmodeller
+          href: azure-stack-connection-models.md
+        - name: Överväganden vid anslutna distribution
+          href: azure-stack-connected-deployment.md
+        - name: Överväganden vid frånkopplade distribution
+          href: azure-stack-disconnected-deployment.md
+        - name: Datacenter nätverksintegration
+          items:
+            - name: Integrering av nätverk
+              href: azure-stack-network.md
+            - name: Kantlinje anslutning
+              href: azure-stack-border-connectivity.md
+            - name: DNS-integrering
+              href: azure-stack-integrate-dns.md
+            - name: Integrering med brandväggen
+              href: azure-stack-firewall.md
+              items:
+                - name: Publicera slutpunkter
+                  href: azure-stack-integrate-endpoints.md
+        - name: Azure Stack PKI distributionskrav
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Hämta PKI-certifikat för distribution av Azure-stacken
+              href: azure-stack-get-pki-certs.md
+        - name: Identitetsintegrering
+          href: azure-stack-integrate-identity.md
+        - name: Registrera Azure Stack
+          href: azure-stack-registration.md
+        - name: Externa övervakning
+          href: azure-stack-integrate-monitor.md
+        - name: Integrering av säkerhet
+          href: azure-stack-integrate-security.md
     - name: Hanteringsprincip
       href: azure-stack-servicing-policy.md
     - name: Huvudfunktioner och koncept
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Skapa en virtuell testdator
           href: azure-stack-provision-vm.md
-    - name: Distribuera Azure-stacken integrerat system
-      items:
-        - name: Överväganden vid planering av distribution
-          href: azure-stack-deployment-planning.md
-        - name: Planeringsbeslut för distribution
-          href: azure-stack-deployment-decisions.md
-        - name: Distribuera ansluten till Azure
-          href: azure-stack-connected-deployment.md
-        - name: Distribuera kopplas bort från Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Azure Stack PKI distributionskrav
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Hämta PKI-certifikat för distribution av Azure-stacken
-              href: azure-stack-get-pki-certs.md
-        - name: Registrera Azure Stack
-          href: azure-stack-registration.md
-    - name: Datacenter-integrering
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identitet
-          href: azure-stack-integrate-identity.md
-        - name: Publicera slutpunkter
-          href: azure-stack-integrate-endpoints.md
-        - name: Externa övervakning
-          href: azure-stack-integrate-monitor.md
-        - name: Säkerhet
-          href: azure-stack-integrate-security.md
     - name: Hantera
       items:
         - name: Regionshantering

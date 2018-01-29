@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3cdb4aa3af3067b27b6a85212e2a3d27542cc3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrera ditt data warehouse till premium-lagring
 Azure SQL Data Warehouse som nyligen lades [premium-lagring för bättre prestanda förutsägbarhet][premium storage for greater performance predictability]. Befintligt datalager för närvarande på standardlagring kan nu migreras till premium-lagring. Du kan dra nytta av automatisk migrering av, eller om du föredrar att reglera när du migrerar (som inbegriper vissa avbrott), kan du göra migreringen själv.
@@ -107,7 +107,7 @@ I detta exempel anta att ditt befintliga data warehouse på standardlagring med 
    ```
 2. [Pausa] [ Pause] ”MyDW_BeforeMigration”. Detta tar en automatisk säkerhetskopiering.
 3. [Återställa] [ Restore] från din senaste ögonblicksbilden en ny databas med namnet tidigare (till exempel ”MyDW”).
-4. Ta bort ”MyDW_BeforeMigration”. **Om du inte gör det här steget, debiteras du för båda datalager.**
+4. Delete "MyDW_BeforeMigration." **Om du inte gör det här steget, debiteras du för båda datalager.**
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -170,7 +170,7 @@ Om det uppstår problem med ditt data warehouse [skapa ett supportärende] [ cre
 [create a support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Azure paired region]: best-practices-availability-paired-regions.md
 [main documentation site]: services/sql-data-warehouse.md
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power

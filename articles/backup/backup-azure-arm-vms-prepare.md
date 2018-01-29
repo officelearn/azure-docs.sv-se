@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Förbereda din miljö för att säkerhetskopiera Resource Manager-distribuerade virtuella datorer
 
@@ -63,7 +63,7 @@ Innan du förbereder din miljö måste du förstå följande begränsningar:
 * Säkerhetskopierade data innehåller monterade nätverksenheter kopplad till en virtuell dator.
 * Att ersätta en befintlig virtuell dator under återställningen stöds inte. Återställningen misslyckas om du försöker återställa den virtuella datorn när den virtuella datorn finns.
 * Region mellan säkerhetskopiering och återställning stöds inte.
-* Säkerhetskopiering och återställning av lagring ACLed virtuella datorer stöds inte från och med nu. Säkerhetskopiering av virtuella datorer stöds inte om du har aktiverat lagring på VNET-funktionen som gör att storage-konton ska kunna nås från vissa Vnet-undernät och/eller IP-adresser.
+* Säkerhetskopiering och återställning av virtuella datorer med hjälp av ohanterade diskar i storage-konton med reglerna för nätverk stöds för närvarande inte. När du konfigurerar säkerhetskopiering, se till att ”brandväggar och virtuella nätverk” inställningarna för storage-konto tillåter åtkomst från ”alla nätverk”.
 * Du kan säkerhetskopiera virtuella datorer i alla offentliga områden av Azure. (Se den [checklista](https://azure.microsoft.com/regions/#services) av regioner som stöds.) Om den region som du letar efter stöds idag visas det inte i den nedrullningsbara listan under skapande av valvet.
 * Återställa en domänkontrollant stöds (DC) virtuell dator som är en del av en multi-DC-konfiguration bara via PowerShell. Läs mer i [återställa en multi-DC-domänkontrollant](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Återställning av virtuella datorer som har följande särskilda nätverkskonfigurationer stöds bara via PowerShell. Virtuella datorer som skapats via återställning arbetsflödet i Användargränssnittet inte dessa nätverkskonfigurationer när återställningen är klar. Läs mer i [återställa virtuella datorer med särskilda nätverkskonfigurationer](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

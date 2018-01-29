@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Skapa mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -107,7 +107,7 @@ Du kan växla distributionsplatser i den **översikt** eller **distributionsplat
 
 2. Kontrollera att växlingen käll- och växling är korrekt inställda. Växlingen målet är vanligtvis produktionsplatsen. Klicka på **OK** att slutföra åtgärden. När åtgärden har slutförts har på distributionsplatser bytts.
 
-    ![Fullständig växling](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Slutför växling](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     För den **växlingen med preview** växla typ, se [växlingen med preview (flera fasen swap)](#Multi-Phase).  
 
@@ -244,7 +244,7 @@ Azure CLI tillhandahåller plattformsoberoende kommandon för att arbeta med Azu
 * Om du vill visa en lista med kommandon som är tillgängliga för Azure App Service i Azure CLI, anropa `azure site -h`.
 
 > [!NOTE] 
-> För [Azure CLI 2.0](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az apptjänst web distributionsplatsen](/cli/azure/appservice/web/deployment/slot).
+> För [Azure CLI 2.0](https://github.com/Azure/azure-cli) kommandon för distributionsplatser, se [az webapp distributionsplatsen](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>Azure platslista

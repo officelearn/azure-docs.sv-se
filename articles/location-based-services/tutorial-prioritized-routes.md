@@ -1,6 +1,6 @@
 ---
-title: "Multipla vägar med Azure baserad platstjänster | Microsoft Docs"
-description: "Hitta vägar för olika lägen för resa med hjälp av Azure baserad platstjänster"
+title: Flera rutter med Azure Location Based Services | Microsoft Docs
+description: "Hitta rutter för olika färdmedel med hjälp av Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,30 +12,30 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Hitta vägar för olika lägen för resa med hjälp av Azure baserad platstjänster
+# <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Hitta rutter för olika färdmedel med hjälp av Azure Location Based Services
 
-Den här kursen visar hur du använder Azure plats Services-konto och väg Service SDK, för att hitta vägen till intressant, prioriteras av läget resor. I den här guiden får du lära dig hur man:
+Den här självstudiekursen visar hur du använder Azure Location Based Services-kontot och Route Service SDK för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Konfigurera Route Service-fråga
-> * Återge vägar prioriteras av läget för resa
+> * Konfigurera Route Service-frågan
+> * Återge vägar prioriterade efter färdmedel
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter, kontrollera att [skapa Azure baserad platstjänster kontot](./tutorial-search-location.md#createaccount), och [hämta nyckel för prenumerationen för ditt konto](./tutorial-search-location.md#getkey). Du kan också se hur du använder Kartkontrollen och API: er för Search-tjänsten enligt beskrivningen i självstudierna [Sök Närliggande intressant med hjälp av Azure baserad platstjänster](./tutorial-search-location.md), samt Lär dig grundläggande användning av flödet Service API: er som beskrivs i kursen [väg till en plats med hjälp av Azure baserad platstjänster intressanta](./tutorial-route-location.md).
+Kom ihåg att [skapa ditt Azure Location Based Services-konto](./tutorial-search-location.md#createaccount) och [hämta en nyckel från ditt konto](./tutorial-search-location.md#getkey) innan du fortsätter. Du kanske också vill läsa mer om hur du använder API:erna Kartkontroll och Search Service som beskrivs i självstudiekursen [Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services](./tutorial-search-location.md) samt lära dig grundläggande användning av Route Service API:erna som beskrivs i kursen [Rutt till en orienteringspunkt med hjälp av Azure Location Bases Services](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
 
-## <a name="configure-your-route-service-query"></a>Konfigurera Route Service-fråga
+## <a name="configure-your-route-service-query"></a>Konfigurera Route Service-frågan
 
-Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats baserat tjänsterna kartan kontroll-API. 
+Använd följande steg för att skapa en statisk HTML-sida inbäddad med API:et Kartkontroll i Location Based Services. 
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapTruckRoute.html**. 
 2. Lägg till följande HTML-komponenter i filen:
@@ -75,19 +75,19 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
 
     </html>
     ```
-    Observera att HTML-huvudet bäddar in resursplatser för CSS- och JavaScript-filer för Azure baserad platstjänster-biblioteket. Notera också den *skriptet* segment som lagts till i brödtexten för HTML-format, som innehåller infogat JavaScript-kod för åtkomst till Azure kartan kontroll-API.
-3. Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel.
+    Observera att HTML-huvudet bäddar in resursplatser för CSS- och JavaScript-filer för Azure Location Based Services-biblioteket. Notera också *script*-segmentet i HTML-filens brödtext som innehåller den infogade JavaScript-koden för att komma åt Azure Location Based Services-API:erna.
+3. Lägg till följande JavaScript-kod i HTML-filens *script*-block. Ersätt platshållaren *<insert-key>* med Location Based Services-kontots primärnyckel.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Den **atlas. Kartan** ger kontrollen för en visual och interaktiva webb och är en komponent i Azure kartan kontroll-API: et.
+    **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta och är en komponent i API:et Azure Kartkontroll.
 
-4. Lägg till följande JavaScript-kod till den *skriptet* block, att lägga till det flöde som visningen på trafik till kartan:
+4. Lägg till följande JavaScript-kod till *script*-blocket för att lägga till visning av trafikflöde på kartan:
 
     ```JavaScript
     // Add Traffic Flow to the Map
@@ -95,9 +95,9 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
         flow: "relative"
     });
     ```
-    Den här koden anger flödet i nätverkstrafiken till `relative`, vilket är hastigheten på vägen i förhållande till kostnadsfri flödet. Du kan också ange den till `absolute` hastigheten på väg, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från kostnadsfri flöde. 
+    Den här koden anger trafikflödet till `relative`, vilket är hastigheten på vägen i förhållande till fritt flöde. Du kan också ange den till `absolute` hastighet på vägen, eller `relative-delay` som visar den relativa hastighet där den skiljer sig från fritt flöde. 
 
-5. Lägg till följande JavaScript-kod för att skapa de PIN-koderna för start- och slutpunkterna för vägen:
+5. Lägg till följande JavaScript-kod för att skapa kartnålar för start- och slutpunkter för rutten:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -113,9 +113,9 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
         icon: "pin-blue"
     });
     ```
-    Den här koden skapar två [GeoJSON objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för vägen. 
+    Den här koden skapar två [GeoJSON-objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för rutten. 
 
-6. Lägg till följande JavaScript-kod för att lägga till lager i *linestrings* att Kartkontrollen att visa rutter baserat på transportsätt, till exempel _bilen_ och _lastbil_.
+6. Lägg till följande JavaScript-kod för att lägga till lager i *linestrings* i Kartkontroll för att visa rutter baserat på färdmedel, till exempel _bil_ och _lastbil_.
 
     ```JavaScript
     // Place route layers on the map
@@ -140,7 +140,7 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
     });
     ```
 
-7. Lägg till följande JavaScript-kod för att lägga till start- och slutpunkter på kartan:
+7. Lägg till följande JavaScript-kod för att lägga till start- och slutpunkterna på kartan:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -160,17 +160,17 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
         textOffset: [0, -20]
     });
     ``` 
-    API: et **map.setCameraBounds** justerar fönstret kartan enligt koordinaterna för start- och slutpunkter. API: et **map.addPins** lägger till punkterna i kartkontrollen som visuella komponenter.
+    API:et **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. API:et **map.addPins** lägger till punkterna i Kartkontroll som visuella komponenter.
 
-8. Spara den **MapTruckRoute.html** fil på din dator. 
+8. Spara filen **MapTruckRoute.html** på din dator. 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge vägar prioriteras av läget för resa
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge rutter prioriterade efter färdmedel
 
-Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg Service API för att söka efter multipla vägar från en viss start peka på ett mål, baserat på din transportsätt. Tjänsten vägen innehåller API: er för att planera de snabbaste kortaste eller eko flödet mellan två platser, med tanke på villkor som realtid trafik. Det gör även att användare att planera vägar i framtiden genom att använda Azures omfattande historiska trafik databasen och förutsäga väg varaktighet för varje dag och tid. 
+Det här avsnittet visar hur du använder API:et Route Service i Azure Location Based Services för att hitta flera rutter från en viss startpunkt till ett mål, beroende på färdmedel. Route Service tillhandahåller API:er för att planera den snabbaste, kortaste eller miljövänligaste rutten mellan två platser, med hänsyn för trafikförhållanden i realtid. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. 
 
-1. Öppna den **MapTruckRoute.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block, att hämta flödet för en lastbil med hjälp av tjänsten vägen.
+1. Öppna filen **MapTruckRoute.html** som skapades i föregående avsnitt och lägg till följande JavaScript-kod i *script*-blocket för att hämta rutten för en lastbil med hjälp av Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting truck route on the map
@@ -195,7 +195,7 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -207,13 +207,13 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
     xhttpTruck.open("GET", truckRouteUrl, true);
     xhttpTruck.send();
     ```
-    Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Den skapar en matris med koordinater för det flöde som returneras för ett lyckat svar och lägger till den på kartan `truckRouteLayerName` lager. 
+    Det här kodfragmentet skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägger till en händelsehanterare för att analysera det inkommande svaret. För ett lyckat svar skapas en matris med koordinater för den återgivna rutten och den läggs till i kartlagret `truckRouteLayerName`. 
     
-    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Följande valfria parametrar används för att ange flödet för en tung lastbil:-parametern `travelMode=truck` anger läget för resa som *lastbil*. Andra former av resa som stöds är *taxi*, *bus*, *van*, *motorcykel*, och standardvärdet *bilen* .  
-        -Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` ange dimensionerna för programuppdatering i mätare och anses endast om läget för resa är *lastbil*.  
-        - `vehicleLoadType` Klassificerar last som farliga och begränsade på vissa vägar. Detta betraktas som för närvarande endast för den *lastbil* läge.  
+    Det här kodstycket skickar också frågan till Route Service för att hämta rutten för angiven start- och slutpunkt, för din kontonyckel. Följande valfria parametrar används för att ange rutten för en tung lastbil: – Parametern `travelMode=truck` anger färdmedlet som *truck* (lastbil). Andra färdmedel som stöds är *taxi*, *bus*, *van*, *motorcycle* och standardvärdet *car* (bil).  
+        – Parametrarna `vehicleWidth`, `vehicleHeight`, och `vehicleLength` anger fordonets dimensioner i meter och beaktas endast om färdmedlet är *truck* (lastbil).  
+        – `vehicleLoadType` klassificerar lasten som farlig och begränsad på vissa vägar. Detta beaktas för närvarande endast för läget *truck* (lastbil).  
 
-2. Lägg till följande JavaScript-kod för att få flödet för en bil med hjälp av tjänsten väg:
+2. Lägg till följande JavaScript-kod för att hämta rutten för en bil med hjälp av Route Service:
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting car route on the map
@@ -238,28 +238,28 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    Det här kodstycket skapar en annan [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Den skapar en matris med koordinater för det flöde som returneras för ett lyckat svar och lägger till den på kartan `carRouteLayerName` lager. 
+    Det här kodfragmentet skapar en till [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägger till en händelsehanterare för att analysera det inkommande svaret. För ett lyckat svar skapas en matris med koordinater för den återgivna rutten och den läggs till i kartlagret `carRouteLayerName`. 
     
-    Det här kodstycket skickar också frågan till tjänsten väg att hämta vägen för start- och slutpunkt för prenumerationen kontonyckel. Eftersom inga andra parametrar används väg att resa standardläget *bilen* returneras. 
+    Det här kodstycket skickar också frågan till Route Service för att hämta rutten för de angivna start- och slutpunkten, för din kontonyckel. Eftersom inga andra parametrar används returneras rutten för standardläget *car* (bil). 
 
-3. Spara den **MapTruckRoute.html** filen lokalt, och sedan öppna den i en webbläsare som du väljer och se resultatet. För en lyckad anslutning med den plats baserat tjänsterna API: er, bör du se en karta som liknar följande. 
+3. Spara filen **MapTruckRoute.html** lokalt och öppna den i valfri webbläsare för att se resultatet. För en lyckad anslutning med den API:er i Location Based Services bör du se en karta som liknar följande. 
 
-    ![Prioriterad vägar med Azure väg Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
+    ![Prioriterade rutter med Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
-    Observera att lastbil flödet i blå färg, medan bil vägen är lila.
+    Observera att lastbilsrutten har blå färg, medan bilrutten är lila.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Route Service-fråga
-> * Återge vägar prioriteras av läget för resa
+> * Konfigurera Route Service-frågan
+> * Återge rutter prioriterade efter färdmedel
 
-Gå vidare till den **begrepp** och **hur man** artiklar för att läsa Azure plats baserat Services SDK i mer detalj. 
+Gå vidare till artiklarna om **begrepp** och **instruktioner** för att lära mer om Azure Location Based Services SDK i mer detalj. 

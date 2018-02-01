@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 511f3327972672deaa321fb34bc5f91d355370a2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Komma igång med Azure Search i Node.js
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ När du har skapat tjänsten går du tillbaka till portalen för att hämta URL:
 ## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
 Använd någon av följande metoder för att hämta exemplet.
 
-1. Gå till [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Gå till [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen och extrahera sedan alla filer som den innehåller.
 
 Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.

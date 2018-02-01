@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: bdabdbbb3037f3325c107a4e6148873a923b4ded
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Skapa ditt första tillståndskänsliga tillförlitliga C# Service Fabric-program
 
-Lär dig hur du distribuerar ditt första Service Fabric-program för .NET i Windows på bara några minuter. När du är klar har du ett lokala kluster som körs med ett tillförlitligt tjänstprogram.
+Lär dig hur du distribuerar ditt första Service Fabric-program för .NET i Windows på bara några minuter. När du är färdig har du ett lokalt kluster som körs med ett tillförlitligt tjänstprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste [konfigurera utvecklingsmiljön](service-fabric-get-started.md) innan du börjar. Detta innefattar hur du installerar Service Fabric-SDK och Visual Studio 2017 eller 2015.
 
@@ -82,7 +82,7 @@ När programmet startar visas loggboken **Diagnostik automatiskt**, där du kan 
    
 ![Loggboken Diagnostik][5]
 
-Om du använder mallen för tillståndskänsliga tjänster visar meddelandena bara antalet som ökar i metoden `RunAsync` i **MyStatefulService.cs**.
+Med mallen för tillståndskänsliga tjänster visas en ökande räknare i metoden `RunAsync` i **MyStatefulService.cs**.
 
 Expandera någon av händelserna om du vill visa mer information, inklusive noden där koden körs. I det här fallet är det \_Node\_0, men det kan skilja sig på din dator.
    

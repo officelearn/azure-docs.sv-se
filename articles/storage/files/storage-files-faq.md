@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e25a6555e06a437259cddcc46c27add5f8b2ad8b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: bae09ffafc14463fa00d0c29dfa6c2628e644773
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Vanliga frågor och svar om Azure-filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via standardmässiga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (även kallat Common Internet File System eller CIFS). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure filsynkronisering (förhandsversion) för snabb åtkomst nära där data används.
@@ -27,7 +27,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 1. Avsnittet kommentarer i den här artikeln.
 2. [Forum för Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft-supporten. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
+4. Microsoft Support. Att skapa en ny supportförfrågan i Azure-portalen på den **hjälp** väljer den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -73,7 +73,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 
 * <a id="redundancy-options"></a>
 **Vilka lagringsalternativ för redundans stöds av Azure-filer?**  
-    Azure Files stöder för närvarande endast lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). Vi planerar att stödja zonredundant lagring (ZRS) och läsbehörighet geo-redundant lagring med (RA-GRS) i framtiden, men det finns ingen tidslinjer att dela just nu.
+    För närvarande stöder Azure-filer lokalt redundant lagring (LRS), zonen redundant lagring (ZRS) och geo-redundant lagring (GRS). Vi planerar att stödja läsbehörighet geo-redundant lagring med (RA-GRS) i framtiden, men det finns ingen tidslinjer att dela just nu.
 
 * <a id="tier-options"></a>
 **Vilka lagringsnivåer stöds i Azure-filer?**  
@@ -86,7 +86,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 **Jag vill verkligen finns en specifik funktion som lagts till i Azure-filer. Kan du lägga till den?**  
     Azure Files team vill höra alla feedback som du har om vår tjänst. Kontrollera rösta på funktioner som efterfrågas på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi söker vidarebefordra till delighting du med många nya funktioner.
 
-## <a name="azure-file-sync"></a>Azure filsynkronisering
+## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
 **Vilka regioner som stöds för Azure filsynkronisering (förhandsgranskning)?**  
@@ -171,9 +171,9 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
 * <a id="afs-files-excluded"></a>
 **Vilka filer och mappar undantas automatiskt av Azure filen synkronisering?**  
     Som standard omfattar Azure filsynkronisering inte följande filer:
-    * Desktop.ini
-    * thumbs.DB
-    * ehthumbs.DB
+    * desktop.ini
+    * thumbs.db
+    * ehthumbs.db
     * ~$\*.\*
     * \*.laccdb
     * \*tmp
@@ -182,7 +182,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure-filer och funkti
     Följande mappar undantas också som standard:
 
     * \System volume Information
-    * \$ÅTERANVÄND. BIN
+    * \$RECYCLE.BIN
     * \SyncShareState
 
 * <a id="afs-os-support"></a>

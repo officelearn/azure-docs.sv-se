@@ -8,7 +8,7 @@
 ## [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
 ## [Nästa hopp](network-watcher-next-hop-overview.md)
 ## [Felsökning av VPN-anslutning](network-watcher-troubleshoot-overview.md)
-## [Anslutningskontroll](network-watcher-connectivity-overview.md)
+## [Felsöka en anslutning](network-watcher-connectivity-overview.md)
 ## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # Kom igång
@@ -47,7 +47,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## Testa anslutning
+## Felsök anslutningar
 ### [Azure-portalen](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)

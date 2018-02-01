@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Komma igång med Azure Automation DSC
 Den här artikeln förklarar hur du utför de vanligaste uppgifterna med Azure Automation önskad tillstånd Configuration (DSC), till exempel att skapa, importera, och kompilering konfigurationer, onboarding datorer för att hantera, och visa rapporter. En översikt över vilka Azure Automation DSC är finns [översikt över Azure Automation DSC](automation-dsc-overview.md). DSC-dokumentation finns [Windows PowerShell Desired Configuration översikt över](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Den här artikeln innehåller stegvisa instruktioner till med hjälp av Azure Automation DSC. Om du vill att en exempel-miljö som redan har konfigurerat utan att följa stegen som beskrivs i den här artikeln kan du använda följande [Resource Manager-mall](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Den här mallen ställer in en slutförd Azure Automation DSC-miljö, inklusive en Azure-dator som hanteras av Azure Automation DSC.
+Den här artikeln innehåller stegvisa instruktioner till med hjälp av Azure Automation DSC. Om du vill att en exempel-miljö som redan har konfigurerat utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: den här mallen ställer in en slutförd Azure Automation DSC-miljö, inklusive en Azure VM är hanteras av Azure Automation DSC.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du vill utföra exemplen i den här artikeln krävs följande:
@@ -134,11 +134,11 @@ Du kan använda Azure Automation DSC för att hantera virtuella Azure-datorer (b
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Publicera en Azure Resource Manager-VM för hantering av Azure Automation DSC
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på vänster, **alla resurser** och sedan namnet på ditt Automation-konto.
-3. På den **automatiseringskontot** klickar du på **DSC-noder** under **konfigurationshantering**...
+3. På den **automatiseringskontot** klickar du på **DSC-noder** under **konfigurationshantering**.
 4. I den **DSC-noder** klickar du på **lägga till Azure VM**.
    
     ![Skärmbild av sidan DSC-noder Markera knappen Lägg till Azure VM](./media/automation-dsc-getting-started/OnboardVM.png)
-5. På den **virtuella datorer** väljer du den virtuella datorn.  **Lägg till virtuella datorer i Azure** klickar du på **Välj virtuella datorer som ska publiceras**.
+5. På sidan för virtuella datorer väljer du den virtuella datorn. **Lägg till virtuella datorer i Azure** klickar du på **Välj virtuella datorer som ska publiceras**.
 6. Klicka på **Anslut**.
    
    > [!IMPORTANT]

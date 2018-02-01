@@ -66,7 +66,7 @@ Komma igång tar mindre än 5 minuter.
 4.  Visa data i minuter med tiden serien insikter explorer.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
-Det här diagrammet visar ett exempel på tidsserier insights-data visas via Utforskaren:! [Tid serien insikter explorer] (media/time-series-insights-explorer/explorer4.png)
+Det här diagrammet visar ett exempel på tidsserier insights-data visas via Utforskaren: ![Tid serien insikter explorer] (media/time-series-insights-explorer/explorer4.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

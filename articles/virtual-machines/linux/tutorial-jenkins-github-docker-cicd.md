@@ -1,6 +1,6 @@
 ---
-title: Skapa en utveckling pipeline i Azure med Jenkins | Microsoft Docs
-description: "Lär dig hur du skapar en Jenkins virtuell dator i Azure som tar emot från GitHub på varje kod genomförande och skapar en ny dockerbehållare om du vill köra appen"
+title: "Skapa en pipeline för utveckling i Azure med Jenkins | Microsoft Docs"
+description: "Lär dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar från GitHub vid varje kodgenomförande och skapar en ny Docker-behållare för att köra din app"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,32 +16,32 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 66dee639ddb1f59199af2905bcd7b1d87a62289c
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Så här skapar du en infrastruktur för utveckling på en Linux-VM i Azure med Jenkins, GitHub och Docker
-Du kan använda en kontinuerlig integrering och distribution (CI/CD) pipeline för att automatisera fasen bygg- och för programutveckling. I den här självstudiekursen skapar du en CI/CD-pipeline på en Azure VM att:
+# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Så här skapar du en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
+Om du vill automatisera versionen och testfasen i programutvecklingen kan du använda en pipeline för kontinuerlig integrering och distribution (CI/CD). I den här självstudien skapar du en CI/CD-pipeline på en virtuell Azure-dator och lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator Jenkins
+> * Skapa en virtuell dator i Jenkins
 > * Installera och konfigurera Jenkins
-> * Skapa webhook integrering mellan GitHub och Jenkins
-> * Skapa och genomför utlösaren Jenkins skapa jobb från GitHub
-> * Skapa en Docker-avbildning för din app
-> * Kontrollera GitHub incheckningar Skapa ny Docker-avbildning och uppdateringar som kör appen
+> * Skapa webhookintegrering mellan GitHub och Jenkins
+> * Skapa och utlösa Jenkins-skapade jobb från GitHub-skrivningar
+> * Skapa en Docker-avbildning för appen
+> * Verifiera att GitHub-incheckningar skapar ny Docker-avbildning och att uppdateringar kör appen
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="create-jenkins-instance"></a>Skapa en instans av Jenkins
-I en tidigare självstudiekurs om [hur du anpassar en Linux-dator vid den första starten](tutorial-automate-vm-deployment.md), du lärt dig hur du automatiserar VM anpassning med molnet initiering. Den här kursen använder en moln-init-fil för att installera Jenkins och Docker på en virtuell dator. Jenkins är en populär öppen källkod automation-server som smidigt kan integreras med Azure för att aktivera kontinuerlig integration (KO) och kontinuerlig leverans (CD). Självstudier om hur du använder Jenkins finns i [Jenkins i Azure-hubb](https://docs.microsoft.com/azure/jenkins/).
+## <a name="create-jenkins-instance"></a>Skapa Jenkins-instans
+I en tidigare självstudie om [hur du anpassar en virtuell Linux-dator vid den första starten](tutorial-automate-vm-deployment.md) lärde du dig att automatisera VM-anpassning med cloud-init. I den här självstudien används en cloud-init-fil för att installera Jenkins och Docker på en virtuell dator. Jenkins, en populär automatiseringsserver med öppen källkod integreras sömlöst med Azure för att möjliggöra kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Fler självstudier om hur du använder Jenkins finns i [Jenkins i Azure-hubben](https://docs.microsoft.com/azure/jenkins/).
 
-Skapa en fil med namnet i din aktuella shell *moln-init-jenkins.txt* och klistra in följande konfiguration. Till exempel skapa filen i molnet Shell inte på den lokala datorn. Ange `sensible-editor cloud-init-jenkins.txt` att skapa filen och se en lista över tillgängliga redigerare. Se till att hela molnet init-filen har kopierats korrekt, särskilt den första raden:
+I ditt nuvarande gränssnitt skapar du en fil med namnet *cloud-init-jenkins.txt* och klistrar in följande konfiguration. Skapa till exempel inte filen i Cloud Shell på din lokala dator. Ange `sensible-editor cloud-init-jenkins.txt` för att skapa filen och visa en lista över tillgängliga redigeringsprogram. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -64,16 +64,17 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
-Innan du kan skapa en virtuell dator, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupJenkins* i den *eastus* plats:
+Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group create](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupJenkins* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Nu skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create). Använd den `--custom-data` parametern för att skicka in din moln-init-konfigurationsfilen. Ange den fullständiga sökvägen till *moln-init-jenkins.txt* om du har sparat filen utanför arbetskatalogen finns.
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init-jenkins.txt* om du har sparat filen utanför din aktuella arbetskatalog.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -84,9 +85,9 @@ az vm create --resource-group myResourceGroupJenkins \
     --custom-data cloud-init-jenkins.txt
 ```
 
-Det tar några minuter för den virtuella datorn skapas och konfigureras.
+Det tar några minuter att skapa och konfigurera den virtuella datorn.
 
-För att Internet-trafik till den virtuella datorn ska använda [az vm öppna port](/cli/azure/vm#open-port) öppna port *8080* för Jenkins trafik och port *1337* för Node.js-app som används för att köra en exempelapp:
+För att webbtrafik ska kunna nå din virtuella dator använder du [az vm open-port](/cli/azure/vm#open-port) för att öppna port *8080* för Jenkins-trafik och port *1337* för Node.js-appen som används för att köra en exempelapp:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -101,79 +102,79 @@ Hämta den offentliga IP-adressen på den virtuella datorn för att komma åt di
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Du måste ange inledande administratörens som lagras i en textfil på den virtuella datorn att starta Jenkins installationen av säkerhetsskäl. Använd den offentliga IP-adressen som hämtades i föregående steg till SSH till den virtuella datorn:
+Av säkerhetsskäl måste du ange det ursprungliga administratörslösenordet som finns lagrat i en textfil i den virtuella datorn för att starta installationen av Jenkins. Använd den offentliga IP-adressen du hämtade i föregående steg för att använda SSH till den virtuella datorn:
 
 ```bash
 ssh azureuser@<publicIps>
 ```
 
-Visa den `initialAdminPassword` för din Jenkins installera och kopiera den:
+Visa `initialAdminPassword` för Jenkins-installationen och kopiera den:
 
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-Om filen är inte tillgängligt ännu, Vänta några minuter för moln-init att slutföra installationen Jenkins och Docker.
+Om filen ännu inte är tillgänglig väntar du ett par minuter till för att cloud-init ska slutföra installationen av Jenkins och Docker.
 
-Öppna en webbläsare och gå till `http://<publicIps>:8080`. Slutför det inledande Jenkins på följande sätt:
+Öppna nu en webbläsare och gå till `http://<publicIps>:8080`. Slutför den initiala Jenkins-konfigurationen så här:
 
-- Ange användarnamnet **admin**, ange den *initialAdminPassword* hämtas från den virtuella datorn i föregående steg.
-- Välj **hantera Jenkins**, sedan **hantera plugin-program**.
-- Välj **tillgänglig**, Sök sedan efter *GitHub* i textrutan längst upp. Markera kryssrutan för *GitHub-plugin-programmet*och välj **nu hämta och installera efter omstart**.
-- Markera kryssrutan för **starta om Jenkins när installationen är klar och inga jobb körs**, och sedan vänta tills plugin-programmet installera processen är klar.
+- Ange användarnamnet **admin** och ange det *initialAdminPassword* du hämtade från den virtuella datorn i föregående steg.
+- Välj **Hantera Jenkins** och sedan **Hantera plugin-program**.
+- Välj **Tillgänglig** och sök efter *GitHub* i textrutan längst upp. Markera rutan för *GitHub-pluginprogrammet* och välj sedan **Ladda ned nu och installera efter omstart**.
+- Markera rutan för att **starta om Jenkins när installationen är klar och inga jobb körs** och vänta tills installationen av plugin-programmet är klar.
 
 
 ## <a name="create-github-webhook"></a>Skapa GitHub-webhook
-För att konfigurera integrationen med GitHub, öppna den [Node.js Hello World exempelapp](https://github.com/Azure-Samples/nodejs-docs-hello-world) från lagringsplatsen för Azure-exempel. Om du vill duplicera lagringsplatsen till ditt GitHub-konto, Välj den **Återställningsförgreningar** -knappen i det övre högra hörnet.
+Om du vill konfigurera integreringen med GitHub öppnar du [exempelappen Node.js Hello World](https://github.com/Azure-Samples/nodejs-docs-hello-world) från exempellagringsplatsen i Azure. Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
 
-Skapa en webhook inuti förgrening som du skapade:
+Skapa en webhook i förgreningen du har skapat:
 
-- Välj **inställningar**och välj **integreringar & tjänster** på vänster sida.
-- Välj **lägga till tjänst**, ange *Jenkins* i filterfältet.
-- Välj *Jenkins (GitHub-plugin-programmet)*
-- För den **Jenkins koppla URL**, ange `http://<publicIps>:8080/github-webhook/`. Kontrollera att du inkluderar avslutande /
-- Välj **lägga till tjänst**
+- Välj **Inställningar** och sedan **Integreringar och tjänster** på vänster sida.
+- Välj **Lägg till tjänst** och skriv *Jenkins* i filterrutan.
+- Välj *Jenkins (GitHub-pluginprogrammet)*
+- Som **Jenkins-hook-URL** anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet 
+- Välj **Lägg till tjänst**
 
-![Lägg till GitHub-webhook till din andelen vridvuxna lagringsplatsen](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
+![Lägga till GitHub-webhook till din förgrenade lagringsplats](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 
-## <a name="create-jenkins-job"></a>Skapa Jenkins jobb
-Om du vill att Jenkins svara på en händelse i GitHub, till exempel när koden, skapar du ett Jenkins-jobb. 
+## <a name="create-jenkins-job"></a>Skapa Jenkins-jobb
+Om du vill att Jenkins ska svara på en händelse i GitHub, som att checka in kod, skapar du ett Jenkins-jobb. 
 
-Välj i webbplatsen Jenkins **skapa nya jobb** från startsidan:
+På Jenkins-webbplatsens startsida väljer du **Skapa nya jobb**:
 
-- Ange *HelloWorld* som jobbnamn. Välj **Freestyle projektet**och välj **OK**.
-- Under den **allmänna** väljer **GitHub** projektet och ange din andelen vridvuxna lagringsplatsen URL, exempelvis *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- Under den **datakällan kod management** väljer **Git**, ange din andelen vridvuxna lagringsplatsen *.git* -URL som *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
-- Under den **Skapa utlösare** väljer **GitHub hook utlösare för GITscm avsökning**.
-- Under den **skapa** väljer **Lägg till build steg**. Välj **köra shell**, ange `echo "Testing"` i kommandofönstret.
-- Välj **spara** längst ned i fönstret jobb.
+- Ange *HelloWorld* som jobbnamn. Välj **Freestyle project** (Freestyle-projekt) och välj **OK**.
+- I avsnittet **Allmänt** väljer du **GitHub**-projekt och anger webbadressen till din förgrenade lagringsplats, som *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- I avsnittet **Källkodshantering** väljer du **Git** och anger *.git*-webbadressen till din förgrenade lagringsplats, som *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- I avsnittet **Build Triggers** (Bygg utlösare) väljer du **GitHub hook trigger for GITscm polling** (GitHub-hookutlösare för GITScm-avsökning).
+- I avsnittet **Skapa** väljer du **Add build step** (Lägg till byggsteg). Välj **Execute shell** (Kör gränssnitt) och ange `echo "Testing"` i kommandofönstret.
+- Välj **Spara** längst ned i jobbfönstret.
 
 
 ## <a name="test-github-integration"></a>Testa GitHub-integrering
-Om du vill testa GitHub-integrering med Jenkins, bekräfta att en ändring i din förgrening. 
+Om du vill testa GitHub-integreringen med Jenkins gör du en ändring i förgreningen. 
 
-Tillbaka i GitHub-webbgränssnitt, Välj din andelen vridvuxna lagringsplatsen och välj sedan den **index.js** fil. Välj pennikonen att redigera filen så läser rad 6:
+När du är tillbaka i GitHub-webbgränssnittet väljer du din förgrenade lagringsplats och sedan filen **index.js**. Välj pennikonen för att redigera filen så att det står följande på rad 6:
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-Om du vill spara ändringarna genom att markera den **genomför ändringar** längst ned.
+Om du vill genomföra ändringarna markerar du knappen för att **spara ändringarna** längst ned.
 
-I Jenkins, startar en ny version den **skapa historik** avsnittet längst ned till vänster på sidan jobb. Att välja länken för bygga och **konsolen utdata** på vänster sida. Du kan visa de steg Jenkins utförs som koden hämtas från GitHub och build-åtgärd matar ut meddelandet `Testing` till konsolen. Varje gång ett genomförande görs i GitHub webhooken når till Jenkins och utlöser en ny version på detta sätt.
+I Jenkins startar en ny version i avsnittet med **versionshistorik** längst ned till vänster på jobbsidan. Välj länken för versionsnummer och välj **konsolens utdata** till vänster. Du kan visa åtgärderna Jenkins vidtar medan koden hämtas från GitHub och byggåtgärden matar ut meddelandet `Testing` till konsolen. Varje gång ett genomförande görs i GitHub anropar webhooken Jenkins och utlöser en ny version.
 
 
-## <a name="define-docker-build-image"></a>Definiera Docker build-bild
-Se Node.js-app som körs baserat på ditt GitHub-incheckningar kan skapa en Docker-avbildning för att köra appen. Avbildningen skapas från en Dockerfile som definierar hur du konfigurerar den behållare som kör appen. 
+## <a name="define-docker-build-image"></a>Definiera Docker-avbildning
+För att du ska kunna se när Node.js-appen körs baserat på dina GitHub-genomföranden ska vi skapa en Docker-avbildning för att köra appen. Avbildningen skapas från en Dockerfile som definierar hur du ska konfigurera behållaren som kör appen. 
 
-Ändra till katalogen Jenkins arbetsytan med namnet efter jobb som du skapade i föregående steg från SSH-anslutningen till den virtuella datorn. I det här exemplet som kallades *HelloWorld*.
+Från SSH-anslutningen till din virtuella dator ändrar du till Jenkins-arbetsytans katalog som är uppkallad efter jobbet du skapade i föregående steg. I det här exemplet var namnet *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Skapa en fil i den här arbetsytan katalogen med `sudo sensible-editor Dockerfile` och klistra in följande innehåll. Se till att hela Dockerfile kopierats på rätt sätt, särskilt den första raden:
+Skapa en fil i den här arbetsytans katalog med `sudo sensible-editor Dockerfile` och klistra in följande innehåll. Se till att hela Docker-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 FROM node:alpine
@@ -186,17 +187,17 @@ RUN npm install
 COPY index.js /var/www/
 ```
 
-Denna Dockerfile använder Node.js basavbildningen med Alpine Linux, visar port 1337 som Hello World-appen körs på, sedan kopierar appfilerna och initierar den.
+Denna Dockerfile använder Node.js-basavbildningen med Alpine Linux, gör port 1337 som Hello World-appen körs på tillgänglig och kopierar appfilerna och initierar den sedan.
 
 
-## <a name="create-jenkins-build-rules"></a>Skapa Jenkins build-regler
-I föregående steg skapa Jenkins build regel som resulterar i ett meddelande till konsolen. Kan skapa build steg för att använda våra Dockerfile och köra appen.
+## <a name="create-jenkins-build-rules"></a>Skapa build-regler för Jenkins
+Tidigare skapade du en grundläggande Jenkins-byggregel som matar ut ett meddelande till konsolen. Nu ska vi skapa ett byggsteg för att använda vår Dockerfile och köra appen.
 
-Välj det jobb som du skapade i föregående steg tillbaka i din Jenkins-instans. Välj **konfigurera** på vänster sida och rulla ned till den **skapa** avsnitt:
+Välj det jobb som du skapade i föregående steg när du är tillbaka i din Jenkins-instans. Välj **Konfigurera** på vänster sida och bläddra ned till avsnittet **Skapa**:
 
-- Ta bort den befintliga `echo "Test"` skapa steg. Markera rött kryss på det övre högra hörnet av den befintliga build steg rutan.
-- Välj **Lägg till build steg**och välj **köra shell**
-- I den **kommandot** rutan, Skriv följande kommandon för Docker och välj sedan **spara**:
+- Ta bort ditt befintliga byggsteg `echo "Test"`. Markera det röda krysset i det övre högra hörnet i den befintliga byggstegsrutan.
+- Välj **Add build step** (Lägg till byggsteg) och sedan **Execute shell** (Kör gränssnitt)
+- I rutan **Kommando** anger du följande Docker-kommandon och väljer sedan **Spara**:
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -204,39 +205,39 @@ Välj det jobb som du skapade i föregående steg tillbaka i din Jenkins-instans
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Docker build steg skapa en avbildning och tagg den med Jenkins build-nummer så att du kan hantera en historik över bilder. Alla befintliga behållare som kör appen stoppas och sedan har tagits bort. En ny behållare har startats sedan med hjälp av avbildningen och kör Node.js-appen baserat på senaste incheckningar i GitHub.
+Docker-byggstegen skapar en avbildning och taggar den med Jenkins-versionsnumret så du kan underhålla en historik för avbildningarna. Eventuella behållare som kör appen stoppas och tas sedan bort. En ny behållare startas sedan med avbildningen och kör Node.js-appen baserat på de senaste genomförandena i GitHub.
 
 
 ## <a name="test-your-pipeline"></a>Testa din pipeline
-Om du vill se hela pipeline i åtgärden Redigera den *index.js* filen i din GitHub-repo-andelen vridvuxna igen och välj **spara ändringen**. Ett nytt jobb startar i Jenkins baserat på webhooken för GitHub. Det tar några sekunder att skapa Docker-avbildning och starta appen i en ny behållare.
+Om du vill se hela pipelinen när den är igång redigerar du filen *index.js* på den förgrenade GitHub-lagringsplatsen igen och väljer alternativet för att **spara ändringen**. Ett nytt jobb startar i Jenkins baserat på webhooken för GitHub. Det tar några sekunder att skapa Docker-avbildningen och starta appen i en ny behållare.
 
-Hämta den offentliga IP-adressen på den virtuella datorn igen om det behövs:
+Om det behövs hämtar du den offentliga IP-adressen för den virtuella datorn på nytt:
 
 ```azurecli-interactive 
 az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publicIps] --o tsv
 ```
 
-Öppna en webbläsare och ange `http://<publicIps>:1337`. Node.js-appen visas och visar de senaste incheckningar i din GitHub-förgrening på följande sätt:
+Öppna en webbläsare och ange `http://<publicIps>:1337`. Din Node.js-app visas och återspeglar de senaste incheckningarna i GitHub-förgreningen enligt följande:
 
-![Node.js-app som körs](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
+![Köra Node.js-app](media/tutorial-jenkins-github-docker-cicd/running_nodejs_app.png)
 
-Nu göra en annan redigeringen av den *index.js* filen i GitHub och tillämpa ändringen. Vänta några sekunder för jobbet skulle bli klart i Jenkins och sedan uppdatera webbläsaren om du vill visa den uppdaterade versionen av appen körs i en ny behållare på följande sätt:
+Nu ska du göra ytterligare en redigering i filen *index.js* i GitHub och genomföra ändringen. Vänta några sekunder för att jobbet ska slutföras i Jenkins. Uppdatera sedan webbläsaren för att se den uppdaterade versionen av din app som körs i en ny behållare så här:
 
-![Node.js-app som körs efter en annan GitHub genomförande](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
+![Köra Node.js-app efter ytterligare ett GitHub-genomförande](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-Du har konfigurerat GitHub för att köra ett Jenkins build-jobb på varje kod genomförande och sedan distribuera en dockerbehållare för att testa din app i den här självstudiekursen. Du har lärt dig att:
+I den här självstudien har du konfigurerat GitHub för att köra ett Jenkins-byggjobb på varje kodgenomförande och sedan distribuerat en Docker-behållare för att testa appen. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell dator Jenkins
+> * Skapa en virtuell dator i Jenkins
 > * Installera och konfigurera Jenkins
-> * Skapa webhook integrering mellan GitHub och Jenkins
-> * Skapa och genomför utlösaren Jenkins skapa jobb från GitHub
-> * Skapa en Docker-avbildning för din app
-> * Kontrollera GitHub incheckningar Skapa ny Docker-avbildning och uppdateringar som kör appen
+> * Skapa webhookintegrering mellan GitHub och Jenkins
+> * Skapa och utlösa Jenkins-skapade jobb från GitHub-skrivningar
+> * Skapa en Docker-avbildning för appen
+> * Verifiera att GitHub-incheckningar skapar ny Docker-avbildning och att uppdateringar kör appen
 
-Gå vidare till nästa kurs lära dig mer om hur du integrerar Jenkins med Visual Studio Team Services.
+Gå vidare till nästa självstudie om du vill lära dig mer om hur du integrerar Jenkins med Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
 > [Distribuera appar med Jenkins och Team Services](tutorial-build-deploy-jenkins.md)

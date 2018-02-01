@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 1514750b13f5108c480d5dd234132d35dc82fdd2
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replikering
 
@@ -49,17 +49,8 @@ Se [priser för Azure Storage](https://azure.microsoft.com/pricing/details/stora
 ## <a name="locally-redundant-storage"></a>Lokalt redundant lagring
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
-## <a name="zone-redundant-storage"></a>Zonredundant lagring
-
-Zonredundant lagring (ZRS) (förhandsversion) är utformad för att förenkla utvecklingen av hög tillgänglighet program. ZRS ger hållbarhet för lagringsobjekt minst 99.9999999999% (12 9's) över ett visst år. ZRS replikeras synkront data över flera tillgänglighet zoner. Överväg att ZRS för scenarier som transaktionella program där driftstopp inte är godkända.
-
-ZRS ger kunder möjlighet att läsa och skriva data, även om en zon är tillgänglig eller så är oåterkalleligt. Infogar och uppdateringar av data görs synkront och är starkt konsekvent.   
-
-ZRS är för närvarande tillgängliga för förhandsgranskning i följande regioner med flera regioner kommer snart:
-
-- Östra USA 2 
-- Centrala USA 
-- Frankrike Central (den här regionen är för närvarande under förhandsgranskning. Se [förhandsgranskning av Microsoft Azure med Azure tillgänglighet zoner är nu öppen i Frankrike](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) att begära åtkomst.)
+## <a name="zone-redundant-storage"></a>Zonen redundant lagring
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>ZRS klassiska konton
 

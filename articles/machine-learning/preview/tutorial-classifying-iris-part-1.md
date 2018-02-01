@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 4e558518a5a1fb7b4cd0a58fe2453fd4c083b46a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Klassificera Iris del 1: Förbereda data
 Azure Machine Learning (förhandsversionen) är en integrerad, avancerad lösning för datavetenskap och analys som datatekniker kan använda för att förbereda data, utveckla experiment och distribuera modeller i molnskala.
@@ -28,7 +28,7 @@ Den här självstudien är del ett i en serie med tre delar. I den här självst
 
 Den här självstudien använder den tidlösa [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set). Skärmbilderna är Windows-specifika, men upplevelsen är nästan identisk i Mac OS.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 - Skapa ett konto för Machine Learning-experimentering.
 - Installera Azure Machine Learning Workbench.
 
@@ -64,26 +64,30 @@ Du kan följa anvisningarna i artikeln [Snabbstarten för att installera och ska
 
    ![Datavy](media/tutorial-classifying-iris/data_view.png)
 
-3. Låt standardvärdena vara kvar och välj sedan knappen **Nästa**.  
+3. Välj **Textfiler (*.csv, .JSON, .txt ...)**  och klicka på **Nästa**.
+   ![Datakälla](media/tutorial-classifying-iris/data-source.png)
+   
+
+4. Bläddra till filen **iris.csv** och klicka på **Nästa**.  
  
    ![Välj iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
    >Se till att du väljer filen **iris.csv** från den aktuella projektkatalogen för den här övningen. Annars kan senare steg misslyckas.
    
-4. När du har markerat filen väljer du knappen **Slutför**.
+5. Lämna standardvärdena och klicka på **Slutför**.
 
-4. Den nya filen som heter **iris-1.dsource** skapas. Filen får ett unikt namn med ”-1”, eftersom exempelprojektet redan har en onumrerad version av filen **iris.dsource**.  
+6. Den nya filen som heter **iris-1.dsource** skapas. Filen får ett unikt namn med ”-1” eftersom exempelprojektet redan har en onumrerad version av filen **iris.dsource**.  
 
    Filen öppnas och data visas. En serie med kolumnrubriker, från **Column1** till **Column5**, läggs automatiskt till i datauppsättningen. Om du rullar ned till slutet ser du att den sista raden i datauppsättningen är tom. Raden är tom på grund av en extra radbrytning i csv-filen.
 
    ![Datavy för iris](media/tutorial-classifying-iris/iris_data_view.png)
 
-5. Välj knappen **Mått**. Här visas histogram. En komplett uppsättning statistik som har beräknats för varje kolumn. Om du vill se data igen kan du välja knappen **Data**. 
+7. Välj knappen **Mått**. Här visas histogram. En komplett uppsättning statistik som har beräknats för varje kolumn. Om du vill se data igen kan du välja knappen **Data**. 
 
    ![Datavy för iris](media/tutorial-classifying-iris/iris_metrics_view.png)
 
-6. Välj knappen **Förbered**. Dialogrutan **Förbered** öppnas. 
+8. Välj knappen **Förbered**. Dialogrutan **Förbered** öppnas. 
 
    Exempelprojektet levereras med en **iris.dprep**-fil. Som standard uppmanas du att skapa ett nytt dataflöde i dataförberedningspaketet **iris.dprep** som redan finns. 
 
@@ -93,27 +97,27 @@ Du kan följa anvisningarna i artikeln [Snabbstarten för att installera och ska
 
    Ett nytt dataförberedningspaket med namnet **iris-1.dprep** skapas och öppnas i redigeraren för dataförberedning.
 
-7. Nu ska vi utföra lite grundläggande databearbetning. Byt namn på kolumnerna. Markera varje kolumnrubrik för att redigera rubriktexten. 
+9. Nu ska vi utföra lite grundläggande databearbetning. Byt namn på kolumnerna. Markera varje kolumnrubrik för att redigera rubriktexten. 
 
    Ange **Sepal Length** (Foderbladlängd), **Sepal Width** (Foderbladbredd), **Petal Length** (Kronbladlängd), **Petal Width** (Kronbladbredd) och **Species** (Typer) för de fem kolumnerna.
 
    ![Byta namn på kolumner](media/tutorial-classifying-iris/rename_column.png)
 
-8. Om du vill räkna ut särskilda värden markerar du kolumnen **Species** (Typer) och sedan högerklickar du för att markera den. Välj **Antal värden** på den nedrullningsbara menyn. 
+10. Om du vill räkna ut särskilda värden markerar du kolumnen **Species** (Typer) och sedan högerklickar du för att markera den. Välj **Antal värden** på den nedrullningsbara menyn. 
 
    ![Välj Antal värden](media/tutorial-classifying-iris/value_count.png)
 
    Den här åtgärden öppnar fönstret **Inspectors** (Kontroller) och visar ett histogram med fyra staplar. Målkolumnen har tre separata värden: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** och ett **(null)**-värde.
 
-9. Filtrera ut null-värden genom att markera stapeln från grafen som representerar null-värdet. Det finns en rad med ett **(null)**-värde. Välj minustecknet (**-**) för att ta bort den här raden.
+11. Filtrera ut null-värden genom att markera stapeln från grafen som representerar null-värdet. Det finns en rad med ett **(null)**-värde. Välj minustecknet (**-**) för att ta bort den här raden.
 
    ![Histogram över antal värden](media/tutorial-classifying-iris/filter_out.png)
 
-10. Lägg märke till de enskilda stegen som beskrivs i fönstret **STEG**. När du ändrade namn på kolumner och filtrerade rader med null-värden registrerades varje åtgärd som ett dataförberedningssteg. Du kan redigera enskilda steg för att justera inställningarna, ändra ordning på stegen eller ta bort steg.
+12. Lägg märke till de enskilda stegen som beskrivs i fönstret **STEG**. När du ändrade namn på kolumner och filtrerade rader med null-värden registrerades varje åtgärd som ett dataförberedningssteg. Du kan redigera enskilda steg för att justera inställningarna, ändra ordning på stegen eller ta bort steg.
 
    ![Steg](media/tutorial-classifying-iris/steps.png)
 
-11. Stäng redigeraren för dataförberedning. Välj **Stäng** (x) på fliken **iris-1** med diagramikonen. Arbetet sparas automatiskt i filen **iris-1.dprep** som visas under rubriken **Data Preparations** (Dataförberedelser).
+13. Stäng redigeraren för dataförberedning. Välj **Stäng** (x) på fliken **iris-1** med diagramikonen. Arbetet sparas automatiskt i filen **iris-1.dprep** som visas under rubriken **Data Preparations** (Dataförberedelser).
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Generera Python/PySpark-kod som anropar ett dataförberedningspaket
 

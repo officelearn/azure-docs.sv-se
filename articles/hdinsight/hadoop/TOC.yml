@@ -207,6 +207,21 @@
             - name: Publicera HDInsight-appar till Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Installera publicerad app – Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Installera publicerad app – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Installera publicerad app – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Installera publicerad app – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Installera publicerad app – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Skydda
       items:
         - name: Använda SSH med HDInsight

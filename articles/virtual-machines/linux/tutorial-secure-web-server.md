@@ -1,6 +1,6 @@
 ---
 title: Skydda en webbserver med SSL-certifikat i Azure | Microsoft Docs
-description: "Lär dig att skydda NGINX-webbserver med SSL-certifikat på en Linux-VM i Azure"
+description: "Lär dig att skydda NGINX-webbservern med SSL-certifikat på en virtuell Linux-dator i Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,40 +16,41 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6b333b75f571e367470037ab9ce8b273fcae5498
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2cebe6dd35e2a20738e2766447451ee32807eb4d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Skydda en webbserver med SSL-certifikat på en virtuell Linux-dator i Azure
-Ett certifikat senare SSL (Secure Sockets) kan användas för kryptering av webbtrafik säker webbserver. Dessa SSL-certifikat kan lagras i Azure Key Vault och tillåta säker distribution av certifikat till Linux virtuella datorer (VM) i Azure. I den här självstudiekursen får du lära du dig att:
+När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Linux-datorer i Azure. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
-> * Generera och överföra ett certifikat till Nyckelvalvet
-> * Skapa en virtuell dator och installera NGINX-webbserver
+> * Generera eller ladda upp ett certifikat till Key Vault
+> * Skapa en virtuell dator och installera NGINX-webbservern
 > * Mata in certifikatet i den virtuella datorn och konfigurera NGINX med en SSL-bindning
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kursen krävs att du använder Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
+Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.22 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0]( /cli/azure/install-azure-cli).  
 
 
 ## <a name="overview"></a>Översikt
-Azure Key Vault skyddar kryptografiska nycklar och hemligheter, dessa certifikat eller lösenord. Key Vault hjälper till att förenkla hanteringen för certifikatet och gör att du kan behålla kontrollen över nycklar som har åtkomst till dessa certifikat. Du kan skapa ett självsignerat certifikat i Nyckelvalvet eller ladda upp en befintlig, betrodda certifikat som du redan äger.
 
-I stället för att använda en anpassad VM-avbildning som inkluderar certifikat inbyggd-modulen Certifikat Injicera i en aktiv virtuell dator. Den här processen säkerställer att de senaste certifikat installeras på en webbserver under distributionen. Om du vill förnya eller ersätta ett certifikat, behöver du också skapa en ny anpassad VM-avbildning. Senaste certifikaten är automatiskt matas in när du skapar ytterligare virtuella datorer. Under hela processen certifikat aldrig lämna Azure-plattformen eller exponeras i ett skript, kommandoradsverktyget historik eller mall.
+Azure Key Vault skyddar kryptografiska nycklar och hemligheter, som certifikat och lösenord. Key Vault förenklar certifikathanteringen och låter dig behålla kontrollen över nycklar som kommer åt certifikaten. Du kan skapa ett självsignerat certifikat i Key Vault eller ladda upp ett befintligt, betrott certifikat som du redan äger.
+
+Istället för att använda en anpassad VM-avbildning med inbyggda certifikat matar du in certifikat till en virtuell dator som körs. Den här processen garanterar att de mest uppdaterade certifikaten är installerade på en webbserver under distributionen. Om du förnyar eller ersätter ett certifikat behöver du inte skapa en ny anpassad VM-avbildning. De senaste certifikaten matas ut automatiskt när du skapar fler virtuella datorer. Under hela processen lämnar certifikaten aldrig Azure-plattformen och exponeras inte i något skript, kommandoradshistorik eller mall.
 
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
-Innan du kan skapa ett Nyckelvalv och certifikat, skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* i den *eastus* plats:
+Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [az group create](/cli/azure/group#create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupSecureWeb* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Skapa sedan ett Nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#create) och aktivera den för användning när du distribuerar en virtuell dator. Varje Key Vault kräver ett unikt namn och bör vara alla gemen. Ersätt * <mykeyvault> * i följande exempel med dina egna unika Key Vault-namn:
+Därefter skapar du ett Key Vault med [az keyvault create](/cli/azure/keyvault#create) och aktiverar den för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt *<mykeyvault>* i följande exempel med ditt eget unika Key Vault-namn:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -59,8 +60,8 @@ az keyvault create \
     --enabled-for-deployment
 ```
 
-## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra i Key Vault
-För produktion, ska du importera ett giltigt certifikat som signerats av en betrodd provider med [az keyvault certifikat import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Den här självstudiekursen i följande exempel visas hur du kan skapa ett självsignerat certifikat med [az keyvault certifikat skapa](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) som använder standardprincipen för certifikat:
+## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generera ett certifikat och lagra det i Key Vault
+För produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider med [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). För den här självstudien visar följande exempel hur du kan generera ett självsignerat certifikat med [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) som använder standardprincipen för certifikat:
 
 ```azurecli-interactive 
 az keyvault certificate create \
@@ -70,7 +71,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-a-certificate-for-use-with-a-vm"></a>Förbereda ett certifikat för användning med en virtuell dator
-Använda certifikatet under den virtuella datorn Skapa process, Hämta ID för certifikatet med [az keyvault lista-versionerna](/cli/azure/keyvault/secret#list-versions). Konvertera certifikatet med [az vm format-hemlighet](/cli/azure/vm#format-secret). I följande exempel tilldelas resultatet av dessa kommandon till variabler för att underlätta användning i nästa steg:
+För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret#list-versions). Konvertera certifikatet med [az vm format-secret](/cli/azure/vm#format-secret). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
 
 ```azurecli-interactive 
 secret=$(az keyvault secret list-versions \
@@ -80,12 +81,12 @@ secret=$(az keyvault secret list-versions \
 vm_secret=$(az vm format-secret --secret "$secret")
 ```
 
-### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Skapa en moln-init-config om du vill skydda NGINX
-[Molnet init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en Linux VM när den startas för första gången. Du kan använda molnet init för att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom molnet init körs under den ursprungliga startprocessen, det inte finns några ytterligare steg krävs agenter att tillämpa konfigurationen.
+### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
 
-När du skapar en virtuell dator, certifikat och nycklar lagras i den skyddade */var/lib/waagent/* directory. Använda molntjänster init för att automatisera lägger till certifikatet till den virtuella datorn och konfigurera webbservern. I det här exemplet, installera och konfigurera webbservern NGINX. Du kan använda samma process för att installera och konfigurera Apache. 
+När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/*. Om du vill automatisera tillägg av certifikat till den virtuella datorn och konfigurera webbservern använder du cloud-init. I det här exemplet installerar och konfigurerar du NGINX-webbservern. Du kan använda samma process för att installera och konfigurera Apache. 
 
-Skapa en fil med namnet *moln-init-webb-server.txt* och klistra in följande konfiguration:
+Skapa en fil med namnet *cloud-init-web-server.txt* och klistra in följande konfiguration:
 
 ```yaml
 #cloud-config
@@ -110,7 +111,7 @@ runcmd:
 ```
 
 ### <a name="create-a-secure-vm"></a>Skapa en säker virtuell dator
-Nu skapa en virtuell dator med [az vm skapa](/cli/azure/vm#create). Certifikatdata injekteras från Nyckelvalvet med den `--secrets` parameter. Du skickar i molnet init-config med den `--custom-data` parameter:
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#create). Certifikatdata matas in från Key Vault med parametern `--secrets`. Du skickar in cloud-init-konfigurationen med parametern `--custom-data`:
 
 ```azurecli-interactive 
 az vm create \
@@ -123,9 +124,9 @@ az vm create \
     --secrets "$vm_secret"
 ```
 
-Det tar några minuter för den virtuella datorn skapas, paket för att installera och starta appen. När den virtuella datorn har skapats, notera den `publicIpAddress` visas av Azure CLI. Den här adressen används för åtkomst till webbplatsen i en webbläsare.
+Det tar några minuter innan den virtuella datorn skapas, paketen installeras och appen startar. När den virtuella datorn har skapats ska du anteckna `publicIpAddress` som visas av Azure CLI. Adressen används för att få åtkomst till din webbplats i en webbläsare.
 
-För att säkra Internet-trafik till den virtuella datorn ska du öppna port 443 från Internet med [az vm öppna port](/cli/azure/vm#open-port):
+För att låta säker webbtrafik nå din virtuella dator ska du öppna port 443 från Internet med [az vm open-port](/cli/azure/vm#open-port):
 
 ```azurecli-interactive 
 az vm open-port \
@@ -135,27 +136,28 @@ az vm open-port \
 ```
 
 
-### <a name="test-the-secure-web-app"></a>Testa det säkra webbprogrammet
-Nu kan du öppna en webbläsare och ange *https://<publicIpAddress> * i adressfältet. Ange dina egna offentliga IP-adress från den virtuella datorn skapa processen. Acceptera säkerhetsvarningen om du använder ett självsignerat certifikat:
+### <a name="test-the-secure-web-app"></a>Testa den säkra webbappen
+Nu kan du öppna en webbläsare och ange *https://<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
-![Acceptera web Säkerhetsvarning för webbläsare](./media/tutorial-secure-web-server/browser-warning.png)
+![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-secure-web-server/browser-warning.png)
 
-Din NGINX-webbplatsen visas som i följande exempel:
+Din skyddade NGINX-webbplats visas sedan som i exemplet nedan:
 
-![Visa körs säker NGINX-webbplats](./media/tutorial-secure-web-server/secured-nginx.png)
+![Visa skyddad NGINX-webbplats som körs](./media/tutorial-secure-web-server/secured-nginx.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen skyddas en NGINX-webbserver med ett SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
+I den här självstudien har du skyddat en NGINX-webbserver med ett SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
-> * Generera och överföra ett certifikat till Nyckelvalvet
-> * Skapa en virtuell dator och installera NGINX-webbserver
+> * Generera eller ladda upp ett certifikat till Key Vault
+> * Skapa en virtuell dator och installera NGINX-webbservern
 > * Mata in certifikatet i den virtuella datorn och konfigurera NGINX med en SSL-bindning
 
-Den här länken om du vill se förskapad virtuella skriptexempel.
+Klicka på den här länken om du vill se inbyggda skriptexempel för virtuella datorer.
 
 > [!div class="nextstepaction"]
-> [Windows skriptexempel för virtuell dator](./cli-samples.md)
+> [Skriptexempel för virtuella Linux-datorer](./cli-samples.md)
+

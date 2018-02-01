@@ -2,70 +2,97 @@
 title: "Alternativ för Azure Storage-konton | Microsoft Docs"
 description: "Information om alternativ för Azure Storage."
 services: storage
-documentationcenter: 
 author: jirwin
 manager: jwillis
-editor: 
 ms.service: storage
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 1b1770e25b4b423466120cb74c08edacf2de3977
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-storage-account-options"></a>Alternativ för Azure Storage-konton
 
 ## <a name="overview"></a>Översikt
 
-Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Det är viktigt att alla användare utvärderar skillnaderna för att komma fram till det alternativ som passar dem bäst.  Följande tre alternativ erbjuds:
+Azure Storage tillhandahåller tre olika kontoalternativ, med olika priser och olika funktioner som stöds. Fundera på de här skillnaderna innan du skapar ett lagringskonto för att komma fram till vilket alternativ som passar bäst för dina behov. Dessa är de tre alternativen av lagringskonton:
 
-* **GPv2-konton (General Purpose v2)** innehåller alla de senaste funktionerna och har stöd för blobbar, filer, köer och tabeller. De senaste funktionerna innefattar i dag blobnivåindelning, arkivlagring, större tillåtna kontoutrymmen och lagringshändelser. Prisstrukturen har utformats med låga GB-priser och konkurrenskraftiga transaktionspriser.
+* **GPv2**-konton (General-purpose v2) 
+* **GPv1**-konton (General-purpose v1)
+* **Blob Storage**-konton
 
-* **Blob Storage**-konton innefattar alla de senaste funktionerna för blockblobbar, men har endast stöd för blockblobbar.  Prisstrukturen liknar den som används för General Purpose v2. Vi rekommenderar de flesta användare att välja GPv2-konton i stället för Blob Storage-konton.
+Varje typ av konto beskrivs mer detaljerat i avsnittet nedan:
 
-* **GPv1-konton (General Purpose v1)** gör det möjligt att använda alla Azure Storage-tjänster, men vissa av de senaste funktionerna kan saknas och GB-priserna är högre. Lågfrekvent lagring och arkivlagring är två exempel på funktioner som inte stöds av GPv1.  Transaktionspriserna är lägre, så arbetsbelastningar med hög omsättning eller många läsåtgärder kan ha nytta av den här kontotypen.
+## <a name="storage-account-options"></a>Alternativ för lagringskontot
 
-### <a name="changing-account-kind"></a>Ändra kontotyp
-Användare kan när som helst uppgradera ett GPv1-konto till ett GPv2-konto via Portal, CLI eller PowerShell. Den här ändringen kan inte ångras och inga andra ändringar tillåts. Möjlighet att uppgradera Blob Storage-konton till GPv2 kommer snart.
+### <a name="general-purpose-v2"></a>General-purpose v2
 
-## <a name="general-purpose-v2"></a>General Purpose v2
-**GPv2-konton (General Purpose v2)** är lagringskonton som stöder alla funktioner för alla lagringstjänster, inklusive blobbar, filer, köer och tabeller. För blockblobbar kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. Ett GPv1-konto kan alltid uppgraderas till ett GPv2-konto i portalen, CLI eller PowerShell. GPv2-konton stöder alla API:er och funktioner som stöds i Blob Storage- och GPv1-konton, och har samma goda egenskaper vad gäller hållbarhet, tillgänglighet, skalbarhet och prestanda som dessa kontotyper.
+GPv2-konton (General-purpose v2) är lagringskonton som stöder alla de senaste funktionerna för blobar, filer, köer och tabeller. GPv2-konton stöder alla API: er och funktioner som stöds av GPv1- och Blob Storage-konton. De har också stöd för samma hållbarhets-, tillgänglighets-, skalbarhets- och prestandafunktioner i dessa kontotyper. Prisstrukturen för GPv2-konton har utformats med låga gigabytepriser och konkurrenskraftiga transaktionspriser.
 
-I Blob Storage-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontonivån som är standard tillämpas på alla blobar som inte har en explicit nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
+Du kan uppgradera ditt GPv1-konto till ett GPv2-konto med PowerShell eller Azure CLI. 
+
+För blockblobar i ett GPv2-lagringskonto kan du ange frekvent och lågfrekvent lagringsnivå på kontonivå, eller ange frekvent eller lågfrekvent nivå eller arkivnivå på blobnivå, baserat på åtkomstmönster. Lagra data som sällan, mer sällan eller ofta används på lagringsnivåerna för frekvent eller lågfrekvent åtkomst eller arkivering för att optimera kostnaderna. 
+
+I GPv2-konton visas attributet **Åtkomstnivå** på kontonivå, vilket innebär att standardlagringsnivån för kontot kan anges till **Frekvent** eller **Lågfrekvent**. Lagringskontonivån som är standard tillämpas på alla blobar som inte har en explicit nivå angiven på blobnivån. Du kan när som helst byta mellan de olika lagringsnivåerna om användningsmönstret förändras. **Arkivnivån** kan endast användas på blobnivån.
 
 > [!NOTE]
 > Ändringar av lagringsnivån kan medför ytterligare avgifter. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
+>
+> Microsoft rekommenderar att du väljer GPv2-lagringskonton framför Blob Storage-konton för de flesta scenarier.
 
-## <a name="blob-storage-accounts"></a>Blob Storage-konton
+### <a name="upgrade-a-storage-account-to-gpv2"></a>Uppgradera ett lagringskonto till GPv2
 
-**Blob Storage-konton** stöder samma funktioner för blockblobbar som GPv2, men stödet är begränsat till blockblobbar. Alla kunder bör granska prisskillnaderna mellan Blob Storage- och GPv2-konton, och överväga att uppgradera till GPv2. Observera att den här uppgraderingen inte kan ångras.
+Användare kan när som helst uppgradera ett GPv1-konto till ett GPv2-konto via PowerShell eller Azure CLI. Den här ändringen kan inte ångras och inga andra ändringar tillåts.
+
+#### <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
+
+Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med hjälp av PowerShell ska du först uppdatera PowerShell så att du använder den senaste versionen av modulen **AzureRm.Storage**. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Anropa sedan följande kommando för att uppgradera kontot, ersätt namnet på resursgruppen och lagringskontot:
+
+```powershell
+Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+```
+
+#### <a name="upgrade-with-azure-cli"></a>Uppgradera med Azure CLI
+
+Om du vill uppgradera ett GPv1-konto till ett GPv2-konto med Azure CLI ska du först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Anropa sedan följande kommando för att uppgradera kontot, ersätt namnet på resursgruppen och lagringskontot:
+
+```cli
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+```` 
+
+### <a name="general-purpose-v1"></a>General-purpose v1
+
+GPv1-konton (General-purpose v1) ger åtkomst till alla Azure Storage-tjänster, men erbjuder kanske inte de senaste funktionerna eller det lägsta gigabytepriset. Lågfrekvent lagring och arkivlagring är två exempel på funktioner som inte stöds av GPv1. Transaktionspriserna är lägre för GPPv1, så arbetsbelastningar med hög omsättning eller många läsåtgärder kan ha nytta av den här kontotypen.
+
+GPv1-lagringskonton (General Purpose v1) är den äldsta typen av lagringskonto, och det är endast denna typ som kan användas i den klassiska distributionsmodellen. 
+
+### <a name="blob-storage-accounts"></a>Blob Storage-konton
+
+Blob Storage-konton stöder samma funktioner för blockblobar som GPv2, men stödet är begränsat till blockblobar. Prisstrukturen liknar den som används för GPv2-konton. Alla kunder bör granska prisskillnaderna mellan Blob Storage- och GPv2-konton, och överväga att uppgradera till GPv2. Uppgraderingen kan inte ångras.
+
+Möjlighet att uppgradera Blob Storage-konton till GPv2 kommer snart.
 
 > [!NOTE]
-> Blob Storage-konton stöder endast block- och tilläggsblobbar, inte sidblobbar.
-
-## <a name="general-purpose-v1"></a>General Purpose v1
-**GPv1-konton (General Purpose v1)** är den äldsta typen av lagringskonto, och det är endast denna typ som kan användas i den klassiska distributionsmodellen. Funktioner som lågfrekvent lagring och arkivlagring är inte tillgängliga i GPv1-konton. För GPv1 gäller vanligtvis högre GB-lagringskostnader men lägre transaktionskostnader än för GPv2- och Blob Storage-konton.
+> Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar.
 
 ## <a name="recommendations"></a>Rekommendationer
 
 Mer information om lagringskonton finns i [Om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Om du endast behöver block- eller tilläggsbloblagring rekommenderar vi att du använder GPv2-konton så att du kan dra nytta av de olika prissättningsmodellerna för olika lagringsnivåer. I vissa fall kan det dock ändå vara bättre att använda GPv1-konton, till exempel om:
+Om du endast behöver block- eller tilläggsbloblagring rekommenderar vi att du använder GPv2-konton så att du kan dra nytta av de olika prissättningsmodellerna för olika lagringsnivåer. Dock kanske du vill använda GPv1 i vissa fall, till exempel:
 
-* Du fortfarande måste använda den klassiska distributionsmodellen. Blob Storage-konton endast är tillgängliga via Azure Resource Manager-distributionsmodellen.
+* Du måste fortfarande använda den klassiska distributionsmodellen. Blob Storage-konton är bara tillgängliga via Azure Resource Manager-distributionsmodellen.
 
 * Du har stora transaktionsvolymer eller behöver stor bandbredd för geo-replikering, vilket ger högre kostnader med GPv2- och Blob Storage-konton än med GPv1, samtidigt som du inte har tillräckligt med lagringsutrymme för att kunna dra nytta av de lägre kostnaderna för GB-lagring.
 
 * Du använder en version av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är äldre än 2014-02-14 eller ett klientbiblioteket med en tidigare version än 4.x och det inte går att uppgradera ditt program.
 
 > [!NOTE]
-> Blob Storage-konton stöds för närvarande i alla Azure-regioner.
+> Blob Storage-konton stöds för närvarande i alla Azure-regionerna.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
@@ -76,7 +103,7 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 
 * **Transaktionskostnader**: Du debiteras en kostnad per transaktion för alla nivåer som ökar när nivån blir mer lågfrekvent.
 
-* **Dataöverföringskostnader för geo-replikering**: Detta gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
+* **Dataöverföringskostnader för geo-replikering**: Den här avgiften gäller endast konton med konfigurerad geo-replikering, inklusive GRS och RA-GRS. Dataöverföring för geo-replikering debiteras per gigabyte.
 
 * **Kostnader för utgående dataöverföring**: Utgående dataöverföringar (data som överförs utanför en Azure-region) debiteras för bandbreddsanvändning per gigabyte, på samma sätt som för allmänna lagringskonton.
 
@@ -107,15 +134,13 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 4. Välj **Resource Manager** som distributionsmodell.
 
-    Nivåindelad lagring kan bara användas med Resource Manager-lagringskonton. Det här är den rekommenderade distributionsmodellen för nya resurser. Mer information finns i [Översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
+    Nivåindelad lagring kan bara användas med Resource Manager-lagringskonton. Resource Manager är den rekommenderade distributionsmodellen för nya resurser. Mer information finns i [översikten över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
-5. I listrutan Typ av konto väljer du**General Purpose v2**.
+5. I listrutan **Typ av konto** väljer du **General-purpose v2**.
 
-    Det är här du väljer typen av lagringskonto. Nivåindelad lagring är inte tillgängligt för allmän lagring. Det är endast tillgängligt med Blob Storage-konton.     
+    När du väljer GPv2 anges prestandanivån till Standard. Nivåindelad lagring är inte tillgängligt med Premium-prestandanivån.
 
-    När du väljer detta anges prestandanivån till Standard. Nivåindelad lagring är inte tillgängligt med Premium-prestandanivån.
-
-6. Välj replikeringsalternativ för lagringskontot: **LRS**, **GRS** eller **RA-GRS**. Standardinställningen är **RA-GRS**.
+6. Välj replikeringsalternativ för lagringskontot: **LRS**, **ZRS**, **GRS** eller **RA-GRS**. Standardinställningen är **RA-GRS**.
 
     LRS = lokalt redundant lagring. GRS = geo-redundant lagring (två regioner). RA-GRS är skrivskyddad geo-redundant lagring (två regioner med läsbehörighet till den andra).
 
@@ -137,11 +162,11 @@ Du kan inte ange arkiv som åtkomstnivå i följande exempel eftersom den här i
 
 2. Gå till ditt lagringskonto genom att välja Alla resurser och välj sedan ditt lagringskonto.
 
-3. På bladet Inställningar klickar du på **Konfiguration**.
+3. Klicka på **Konfiguration** i avsnittet Inställningar.
 
-4. Under Typ av konto klickar du på **Uppgradera**.
+4. Klicka på **Uppgradera** under **Typ av konto**.
 
-5. Ett nytt blad visas till höger för att bekräfta valet. Ange namnet på ditt konto under Bekräfta uppgradering. 
+5. Ange namnet på ditt konto under **Bekräfta uppgradering**. 
 
 5. Klicka på Uppgradera längst ned på bladet.
 
@@ -194,15 +219,15 @@ Om du vill övervaka dina befintliga lagringskonton och samla in dessa data kan 
 Mer information finns i [Om mätvärden i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) och [Schema över måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot. GPv1 ZRS-lagringskonton har inte stöd för mätvärdesdata.
+> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot. ZRS-konton (Zonredundant lagring) har stöd för att samla in mätdata, men det har inte ZRS Classic-lagringskonton. Mer information om ZRS finns i [Zonredundant lagring](storage-redundancy.md#zone-redundant-storage). 
 
-Om du vill övervaka lagringsanvändningen för Blob Storage-tjänsten måste du aktivera kapacitetsmåtten.
+Om du vill övervaka lagringsanvändningen för Blob Storage måste du aktivera kapacitetsmåtten.
 När du har gjort det registreras kapacitetsdata varje dag för ett lagringskontos Blob Service och registreras som en tabellpost som skrivs till tabellen *$MetricsCapacityBlob* i samma lagringskonto.
 
-Om du vill övervaka dataåtkomstmönstret för Blob Storage-tjänsten måste du aktivera transaktionsmått för varje timme på API-nivå. När du har gjort det aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten när du använder RA-GRS-lagringskonton.
+Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera transaktionsmått för varje timme från API:et. Med transaktionsmått för varje timme aktiverat aggregeras transaktioner för varje API varje timme, och registreras som en tabellpost som skrivs till tabellen *$MetricsHourPrimaryTransactionsBlob* i samma lagringskonto. Tabellen *$MetricsHourSecondaryTransactionsBlob* registrerar transaktionerna till den sekundära slutpunkten när du använder RA-GRS-lagringskonton.
 
 > [!NOTE]
-> Om du har ett allmänt lagringskonto (GPvX) där du har lagrat sidblobbar och virtuella datordiskar, eller köer, filer eller tabeller, utöver block- och tilläggsblobdata så gäller inte den här uppskattningsberäkningen. Detta beror på att kapacitetsdata inte visas med åtskillnad mellan blockblobbar och andra typer, och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
+> Om du har ett allmänt lagringskonto (GPvX) där du har lagrat sidblobar och virtuella datordiskar, eller köer, filer eller tabeller, utöver block- och tilläggsblobdata så gäller inte den här uppskattningsberäkningen. I kapacitetsdata görs ingen åtskillnad mellan blockblobar och andra typer, och kapacitetsdata visas inte för andra datatyper. Om du använder dessa typer är en alternativ metod att titta på kvantiteterna på din senaste faktura.
 
 För att få en bra uppskattning av din dataförbrukning och ditt åtkomstmönster rekommenderar vi att du väljer en kvarhållningsperiod för mätvärden som är representativ för din normala användning, och att du utgår därifrån. Ett alternativ är att spara mätvärdena i sju dagar och samla in data varje vecka, för att sedan analysera dessa data i slutet av månaden. Ett annat alternativ är att spara mätvärden i 30 dagar och samla in och analysera dessa data i slutet av 30-dagarsperioden.
 
@@ -213,17 +238,17 @@ Mer information om hur du aktiverar, samlar in och visar mätvärden finns i [Ak
 
 ### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Beräkna kostnader med hjälp av användningsmått
 
-### <a name="storage-costs"></a>Lagringskostnader
+#### <a name="storage-costs"></a>Lagringskostnader
 
 Den senaste posten i kapacitetsmåttstabellen *$MetricsCapacityBlob* med radnyckeln *'data'* visar lagringskapacitet som förbrukats av användardata. Den senaste posten i kapacitetsmåttstabellen *$MetricsCapacityBlob* med radnyckeln *'analytics'* visar lagringskapaciteten som förbrukats av analysloggarna.
 
 Den här totala kapaciteten som förbrukats av både användardata och analysloggar (om detta aktiverats) kan sedan användas för att beräkna kostnaden för datalagring i lagringskontot. Samma metod kan även användas för att uppskatta lagringskostnader för GPv1-konton.
 
-### <a name="transaction-costs"></a>Transaktionskostnader
+#### <a name="transaction-costs"></a>Transaktionskostnader
 
 Summan av *'TotalBillableRequests'*, för alla poster för ett API i tabellen över transaktionsmått, visar det totala antalet transaktioner för API:et i fråga. *Till exempel* kan det totala antalet *'GetBlob'*-transaktioner inom en viss period beräknas baserat på summan av totalt antal debiterbara begäranden för alla poster med radnyckeln *'user;GetBlob'*.
 
-För att kunna beräkna transaktionskostnader för Blob Storage-konton måste du dela in transaktionerna i tre grupper eftersom de prissätts på olika sätt.
+För att kunna beräkna transaktionskostnader för Blob Storage-konton måste du dela in transaktionerna i tre grupper eftersom de har olika pris.
 
 * Skrivtransaktioner som *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* och *'CopyBlob'*.
 * Borttagningstransaktioner som *'DeleteBlob'* och *'DeleteContainer'*.
@@ -248,11 +273,11 @@ När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöv
 
 ## <a name="migrating-existing-data"></a>Migrera befintliga data
 
-Ett GPv1-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver flytta data. Detta är en av de främsta fördelarna med GPv2 jämfört med Blob Storage-konton.
+Ett GPv1-konto kan enkelt uppgraderas till GPv2 utan driftavbrott eller API-ändringar, och utan att du behöver migrera data. Därför rekommenderar vi att du migrerar GPv1-konton till GPv2-konton i stället för till Blob Storage-konton.
 
 Om du behöver migrera till ett Blob Storage-konto kan du använda instruktionerna nedan.
 
-Ett Blob Storage-konto är specialanpassat för lagring av endast block- och tilläggsblobbar. Befintliga allmänna lagringskonton, där du kan lagra tabeller, köer, filer och diskar utöver blobbar, kan inte omvandlas till Blob Storage-konton. Om du vill använda lagringsnivåer måste du skapa Blob Storage-konton och migrera dina befintliga data till de nya kontona.
+Ett Blob Storage-konto är specialanpassat för lagring av endast block- och tilläggsblobar. Allmänna lagringskonton, där du kan lagra tabeller, köer, filer och diskar, och även blobbar, kan inte omvandlas till Blob Storage-konton. Om du vill använda lagringsnivåer måste du skapa Blob Storage-konton och migrera dina befintliga data till de nya kontona.
 
 Med följande metoder kan du migrera befintliga data till Blob Storage-konton från lokala lagringsenheter, från externa molnlagringsleverantörer eller från befintliga allmänna lagringskonton i Azure:
 
@@ -260,11 +285,11 @@ Med följande metoder kan du migrera befintliga data till Blob Storage-konton fr
 
 AzCopy är ett Windows-kommandoradsverktyg för högpresterande kopiering av data till och från Azure Storage. Med AzCopy kan du kopiera data till ditt Blob Storage-konto från dina befintliga allmänna lagringskonton eller överföra data från dina lokala lagringsenheter till ditt Blob Storage-konto.
 
-Mer information finns i [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Mer information finns i [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Bibliotek för flytt av data
 
-Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramverk för flytt av data som används för AzCopy. Biblioteket är utformat för högpresterande, tillförlitliga och enkla åtgärder för dataöverföring och liknar de som används i AzCopy. Du kan utnyttja fördelarna med funktionerna som tillhandahålls av AzCopy direkt i din app utan att du behöver köra och övervaka externa instanser av AzCopy.
+Azure Storage-biblioteket för flytt av data för .NET är baserat på det ramverk för flytt av data som används för AzCopy. Biblioteket är utformat för högpresterande, tillförlitliga och enkla åtgärder för dataöverföring och liknar de som används i AzCopy. Du kan använda det för att utnyttja fördelarna med funktionerna som tillhandahålls av AzCopy direkt i din app utan att du behöver köra och övervaka externa instanser av AzCopy.
 
 Mer information finns i [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
@@ -281,11 +306,11 @@ Mer information finns i [Komma igång med Azure Blob Storage](../blobs/storage-d
 
 **Är de befintliga lagringskontona fortfarande tillgängliga?**
 
-Ja, de befintliga lagringskontona (GPv1) är fortfarande tillgängliga. Varken priserna eller funktionerna har ändrats.  Du kan inte välja lagringsnivå med GPv1-konton och du kommer inte heller att kunna göra det i framtiden.
+Ja, de befintliga lagringskontona (GPv1) är fortfarande tillgängliga. Varken priserna eller funktionerna har ändrats. Du kan inte välja lagringsnivå med GPv1-konton och du kommer inte heller att kunna göra det i framtiden.
 
 **När och varför ska jag börja använda GPv2-konton?**
 
-GPv2-konton är särskilt utformade för att tillhandahålla låga GB-lagringskostnader och konkurrenskraftiga kostnader för transaktioner och dataåtkomst. Vi rekommenderar att du använder GPv2-konton i fortsättningen för att lagra blobbar eftersom framtida funktioner, t.ex. ändringsmeddelanden, kommer att läggas till för den här kontotypen. Det är naturligtvis upp till dig när du vill uppgradera beroende på dina affärsbehov.  Du kan till exempel välja att optimera dina transaktionsmönster innan du uppgraderar.
+GPv2-konton är särskilt utformade för att tillhandahålla låga GB-lagringskostnader och konkurrenskraftiga kostnader för transaktioner och dataåtkomst. Vi rekommenderar att du använder GPv2-konton i fortsättningen för att lagra blobbar eftersom framtida funktioner, t.ex. ändringsmeddelanden, kommer att läggas till för den här kontotypen. Det är naturligtvis upp till dig när du vill uppgradera beroende på dina affärsbehov. Du kan till exempel välja att optimera dina transaktionsmönster innan du uppgraderar.
 
 Eftersom du inte kan nedgradera från GPv2 bör du fundera över vad detta har för påverkan på kostnaderna innan du uppgraderar dina konton till GPv2.
 
@@ -309,13 +334,13 @@ Vi har ingen begränsning för hur ofta du kan ändra lagringsnivån, men observ
 
 **Beter sig blobarna på lågfrekvent lagringsnivå annorlunda än på frekvent lagringsnivå?**
 
-Blobbar på frekvent lagringsnivå i GPv2- och Blob Storage-konton har samma svarstid som blobbar i GPv1-konton. Blobbar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar på frekvent lagringsnivå. Blobar på arkivlagringsnivån har flera timmars svarstid.
+Blobar på frekvent lagringsnivå i GPv2- och Blob Storage-konton har samma svarstid som blobar i GPv1-konton. Blobbar på lågfrekvent lagringsnivå har liknande svarstid (i millisekunder) som blobbar på frekvent lagringsnivå. Blobar på arkivlagringsnivån har flera timmars svarstid.
 
 Blobbar på lågfrekvent lagringsnivå har något lägre tillgänglighetsnivå (enligt SLA) än blobbar som lagras på frekvent lagringsnivå. Mer information finns i [SLA för Storage](https://azure.microsoft.com/support/legal/sla/storage).
 
-**Kan jag lagra sidblobbar och virtuella datordiskar i Blob Storage-konton?**
+**Kan jag lagra sidblobar och virtuella datordiskar i Blob Storage-konton?**
 
-Nej. Blob Storage-konton stöder endast block- och tilläggsblobbar, inte sidblobbar. Virtuella datordiskar i Azure säkerhetskopieras av sidblobbar, vilket gör att Blob Storage-konton inte kan användas för att lagra virtuella datordiskar. Däremot kan du lagra säkerhetskopior av virtuella datordiskar som blockblobbar i ett Blob Storage-konto. Detta är en av anledningarna till att du bör överväga att använda GPv2 i stället för Blob Storage.
+Nej. Blob Storage-konton stöder endast block- och tilläggsblobar, inte sidblobar. Virtuella datordiskar i Azure backas upp av sidblobar, vilket gör att Blob Storage-konton inte kan användas för att lagra virtuella datordiskar. Däremot kan du lagra säkerhetskopior av virtuella datordiskar som blockblobar i ett Blob Storage-konto. Detta är en av anledningarna till att du bör överväga att använda GPv2 i stället för Blob Storage.
 
 **Måste jag ändra mina befintliga appar/program för att använda GPv2-konton?**
 

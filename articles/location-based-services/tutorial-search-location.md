@@ -1,6 +1,6 @@
 ---
-title: "Sökning med Azure-plats-baserade tjänster | Microsoft Docs"
-description: "Sök i närheten intressant med hjälp av Azure baserad platstjänster"
+title: "Söka med Azure Location Based Services | Microsoft Docs"
+description: "Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Sök i närheten intressant med hjälp av Azure baserad platstjänster
+# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services
 
-Den här kursen visar hur du skapar ett konto med Azure baserad platstjänster och sedan använda den tillhandahållna API: er för att söka efter en punkt av intresse. I den här guiden får du lära dig hur man:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Location Based Services och sedan använder tillhandahållna API:er för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa ett konto med Azure baserad platstjänster
-> * Hämta nyckel för prenumerationen för ditt konto
-> * Skapa ny webbsida med kartan kontroll-API
-> * Använda Search-tjänsten för att hitta Närliggande intressant
+> * Skapa ett konto med Azure Location Based Services
+> * Hitta primärnyckeln för ditt konto i Azure Location Based Services
+> * Skapa ny webbsida med API:et Kartkontroll
+> * Använda Search Service för att hitta orienteringspunkter i närheten
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -35,41 +35,41 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
-## <a name="create-an-account-with-azure-location-based-services"></a>Skapa ett konto med Azure baserad platstjänster
+## <a name="create-an-account-with-azure-location-based-services"></a>Skapa ett konto med Azure Location Based Services
 
-Följ dessa steg om du vill skapa ett nytt konto för plats-baserade tjänster.
+Följ dessa steg för att skapa ett nytt konto i Location Based Services.
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
 2. Skriv **location based services** i rutan *Search the Marketplace* (sök på marketplace).
 3. Klicka på **Location Based Services (förhandsversion)** i *Resultat*. Klicka på knappen **Skapa** som visas nedanför kartan. 
-4. På den **skapa plats baserat Services-konto** anger du följande värden:
-    - Den *namn* för ditt nya konto. 
-    - Den *prenumeration* som du vill använda för det här kontot.
-    - Den *resursgruppen* namn för det här kontot. Du kan välja att *Skapa nytt* eller *använda befintliga* resursgruppen.
-    - Välj den *resursgruppsplats*.
-    - Läs den *Förhandsgranskningsvillkoren* och markera kryssrutan för att acceptera villkoren. 
-    - Klicka slutligen på den **skapa** knappen.
+4. Ange följande värden på sidan **Skapa Location Based Services-konto**:
+    - *Namn* för ditt nya konto. 
+    - Den *Prenumeration* som ska användas för det här kontot.
+    - Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
+    - Välj en *Resursgruppsplats*.
+    - Läs *villkoren för förhandsversionen* och markera kryssrutan för att acceptera villkoren. 
+    - Klicka slutligen på knappen **Skapa**.
    
     ![Skapa Location Based Services-konto i portalen](./media/tutorial-search-location/create-lbs-account.png)
 
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Hämta nyckel för prenumerationen för ditt konto
+## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
 
-När ditt konto för plats-baserade tjänster har skapats, Följ stegen för att länka till kartan sökningen API: er:
+När ditt konto för Location Based Services har skapats följer du stegen för att länka det till kartsöknings-API:er:
 
-1. Öppna din plats-baserade tjänster-konto i portalen.
-2. Navigera till ditt konto **inställningar**, och välj sedan **nycklar**.
-3. Kopiera den **primärnyckel** till Urklipp. Spara filen lokalt för att använda i steg om du fortsätter. 
+1. Öppna ditt Location Based Services-konto i portalen.
+2. Navigera till kontots **INSTÄLLNINGAR** och välj sedan **Nycklar**.
+3. Kopiera **Primärnyckel** till Urklipp. Spara lokalt för att använda i senare steg. 
 
     ![Hämta primärnyckel i portalen](./media/tutorial-search-location/lbs-get-key.png)
 
 
 <a id="createmap"></a>
 
-## <a name="create-new-web-page-using-azure-map-control-api"></a>Skapa ny webbsida med Azure kartan kontroll-API
-Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig att enkelt integrera Azure baserad platstjänster i ditt webbprogram. Den döljer komplexiteten i de minimala REST-anrop och ökar produktiviteten med styleable och anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddade med plats baserat tjänsterna kartan kontroll-API. 
+## <a name="create-new-web-page-using-azure-map-control-api"></a>Skapa ny webbsida med API:et Azure Kartkontroll
+API:et Azure Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enkelt integrera Azure Location Based Services i ditt webbprogram. Det döljer komplexiteten i de rena REST-tjänstanropen och ökar produktiviteten med formateringsbara och anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll i Location Based Services. 
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapSearch.html**. 
 2. Lägg till följande HTML-komponenter i filen:
@@ -111,20 +111,20 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
 
     </html>
     ``` 
-    Observera att HTML-huvudet innehåller resursfiler CSS- och JavaScript hos Azure Kartkontrollen-biblioteket. Observera den *skriptet* segment som lagts till i den *brödtext* av HTML-fil. Det här segmentet innehåller inline JavaScript-kod för att komma åt Azure plats baserat tjänstens API: er.
+    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera segmentet *script* som lagts till i HTML-filens *brödtext*. Det här segmentet innehåller infogad JavaScript-kod för att komma åt API:et i Azure Location Based Services.
  
-3.  Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel. 
+3.  Lägg till följande JavaScript-kod i HTML-filens *script*-block. Använd primärnyckeln från ditt Location Based Services-konto i skriptet. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Det här segmentet initierar kartan kontroll-API för din prenumeration nyckel. **Atlas** är det namnområde som innehåller Azure kartan kontroll-API och relaterade visuella komponenter. **Atlas. Kartan** ger kontrollen för en visual och interaktiva webb-karta. Du kan se hur kartans ser ut som genom att öppna HTML-sidan i webbläsaren. 
+    Det här segmentet initierar API:et Kartkontroll för din Azure Location Based Services-kontonyckel. **Atlas** är det namnområde som innehåller API:et Azure Kartkontroll och relaterade visuella komponenter. **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta. Du kan se hur kartan ser ut som genom att öppna HTML-sidan i webbläsaren. 
 
-4. Lägg till följande JavaScript-kod till den *skriptet* block, att lägga till ett lager av Sök PIN-koder i Kartkontrollen:
+4. Lägg till följande JavaScript-kod till *script*-blocket för att lägga till ett lager med sökningskartnålar i Kartkontroll:
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -141,11 +141,11 @@ Azure kartan kontroll-API är ett bekvämt klientbiblioteket som hjälper dig at
 
 <a id="usesearch"></a>
 
-## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Använda Search-tjänsten för att hitta Närliggande intressant
+## <a name="use-search-service-to-find-nearby-point-of-interest"></a>Använda Search Service för att hitta orienteringspunkter i närheten
 
-Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktjänsts-API för att hitta en plats av intresse på kartan. Det är en RESTful-API för utvecklare att söka efter adresser, punkter av intresse och andra geografisk information. Söktjänsten tilldelar en latitud och longitud information till en angiven adress. 
+Det här avsnittet visar hur du API:et Search Service i Azure Location Based Services för att hitta en orienteringspunkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. 
 
-1. Öppna den **MapSearch.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block att illustrera Search-tjänsten. 
+1. Öppna filen **MapSearch.html** som skapades i föregående avsnitt och lägg till följande JavaScript-kod i *script*-blocket för att illustrera Search Service. 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
@@ -185,15 +185,15 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
         }
     };
     ```
-    Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. För ett lyckat svar samlar det in adresser, namn, latitud och logitude information för varje plats returneras i den `searchPins` variabeln. Slutligen lägger den till den här samlingen av plats pekar på `map` kontrollen är PIN-koder. 
+    Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägger till en händelsehanterare för att analysera det inkommande svaret. För ett lyckat svar samlar det in adresser, namn, latitud- och logitudinformation för varje plats som returneras i variabeln `searchPins`. Slutligen lägger det till den här samlingen av platser i kontrollen `map` som kartnålar. 
 
-2. Lägg till följande kod i den *skriptet* block, skicka XMLHttpRequest till Azure plats baserat tjänsterna Search-tjänsten:
+2. Lägg till följande kod i *script*-blocket för att skicka XMLHttpRequest till Search Service i Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,9 +201,9 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Den här fragment använder enkel sökning API för Search-tjänsten som kallas den **Fuzzy Sök**. Den hanterar mest fuzzy av indata som hanterar valfri kombination av adress eller *POI* token. Den söker efter i närheten **bensin station**, för den angivna adressen i latitud och longitud och inom den angivna radien. Ditt konto prenumeration nyckel som anges tidigare i exempel-filen används för att göra anrop till den plats baserat tjänster. Returnerar resultatet som latitud/longitud par för att hitta platser. Du kan se Sök PIN-koder genom att öppna HTML-sidan i webbläsaren. 
+    Det här kodfragmentet använder det enkla söknings-API:et i Search Service som kallas **Fuzzy Search**. Det hanterar de mest otydliga indata, alla kombinationer av adresser eller *orienteringspunkter*. Det söker efter **bensinstationer** i närheten, efter den angivna adressen i latitud och longitud och inom angiven radie. Det använder ditt kontos primärnyckel som angavs tidigare i exempelfilen för att anropa Location Based Services. Det returnerar resultatet som par av latitud/longitud för de funna platserna. Du kan se sökningskartnålarna genom att öppna HTML-sidan i webbläsaren. 
 
-3. Lägg till följande rader till den *skriptet* blockera, skapa popup-fönster för punkter av intresse som returneras av söktjänsten:
+3. Lägg till följande rader i *script*-blocket för att skapa popup-fönster för de orienteringspunkter som returneras av Search Service:
 
     ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
@@ -232,20 +232,20 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna Söktj
         popup.open(map);
     });
     ```
-    API: et **atlas. Popup-fönster** ger information fönstret förankrade till önskad placering på kartan. Det här kodstycket anger innehåll och position för popup-meny som lägger till en händelselyssnaren till den `map` kontroll, väntar på att den _musen_ att rulla över popup-fönstret. 
+    API:et **atlas. Popup** ger ett informationsfönster som är fäst vid motsvarande position på kartan. Det här kodfragmentet anger innehåll och position för popup-fönstret samt lägger till en händelselyssnare i kontrollen `map` som väntar på att _musen_ ska rullas över popup-fönstret. 
 
-4. Spara filen och öppna den **MapSearch.html** filen i en webbläsare som du väljer och se resultatet. Nu visas information popup-fönster i kartan i webbläsaren när du hovrar över någon av de Sök PIN-koder visas liknar följande. 
+4. Spara filen och öppna filen **MapSearch.html** i valfri webbläsare och se resultatet. Nu visas information i popup-fönster på kartan i webbläsaren när du hovrar över någon av de sökningskartnålar som visas, ungefär som nedan. 
 
-    ![Azure Kartkontrollen och söktjänsten](./media/tutorial-search-location/lbs-map-search.png)
+    ![Azure Kartkontroll och Search Service](./media/tutorial-search-location/lbs-map-search.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett konto med Azure baserad platstjänster
-> * Hämta nyckel för prenumerationen för ditt konto
-> * Skapa ny webbsida med kartan kontroll-API
-> * Använda Search-tjänsten för att hitta Närliggande intressant
+> * Skapa ett konto med Azure Location Based Services
+> * Hitta primärnyckeln för ditt konto
+> * Skapa ny webbsida med API:et Kartkontroll
+> * Använda Search Service för att hitta orienteringspunkter i närheten
 
-Gå vidare till självstudiekursen [väg till en plats med hjälp av Azure baserad platstjänster intressanta](./tutorial-route-location.md) att lära dig hur du använder Azure baserad platstjänsterna för att vidarebefordra till intressant. 
+Gå vidare till självstudiekursen om att [visa vägbeskrivning till en orienteringspunkt med hjälp av Azure Location Based Services](./tutorial-route-location.md) för att lära dig hur du använder Azure Location Based Services för att visa en vägbeskrivning till din orienteringspunkt. 

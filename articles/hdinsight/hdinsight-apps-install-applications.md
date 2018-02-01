@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installera Hadoop-program från tredje part i Azure HDInsight
 
@@ -28,14 +28,14 @@ Lär dig hur du installerar en tredje parts Hadoop-programmet på Azure HDInsigh
 
 Ett HDInsight-program är ett program som användarna kan installera på ett HDInsight-kluster. Dessa program kan utvecklas av Microsoft, oberoende programvaruleverantörer och av dig själv.  
 
-Follosing lista visas de publicerade program:
+I följande lista visas de publicerade program:
 
 * **AtScale Intelligence Platform** stängs ditt HDInsight-kluster i en skalbar OLAP-server. Du kan fråga miljarder rader med data interaktivt med BI-verktyg från Microsoft Excel, PowerBI, Tableau programvara till QlikView i programmet.
 * **Cask CDAP för HDInsight** innehåller första enhetlig integrationsplattform för stordata som minskar tid till produktion för program och data sjöar med 80%. Det här programmet stöder endast Standard HBase 3.4-kluster.
 * **DATAIKU DDS på HDInsight** kan data tekniker som prototyp, skapa och distribuera hög specifika tjänster som transformera rådata till effektfulla business förutsägelser.
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) erbjuder analytiker ett interaktivt sätt att identifiera, analysera och visualisera resultat från stordata (Big Data). Hämta enkelt in fler datakällor för att identifiera nya relationer och snabbt få de svar du behöver.
 * **H2O styrs av datorn för HDInsight (Beta)** H2O mousserande vattenstämplar stöder följande distribuerade algoritmer: GLM, Naïve Bayes, distribuerade slumpmässiga skog, toning förstärkning datorn, djupa Neurala nätverk, djupa learning, K-means, PCA, generaliserad låg rangordning modeller, Avvikelseidentifiering och Autoencoders.
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) är en enterprise-redo data warehouse drivs av Apache Kylin och Apache Hadoop, den ger sekund svarstid i massiv skala dataset och förenklar dataanalys för företagsanvändare och analytiker. 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) är ett enterprise-redo datalager som tillhandahålls av Apache Kylin och Apache Hadoop, ger sekund fråga svarstid i massiv skala dataset och förenklar dataanalys för användare i verksamheten och analytiker. 
 * **Förberedelse av Data Paxata självbetjäning**
 * **SnapLogic Hadooplex** i SnapLogic Hadooplex körs på HDInsight ger kunder möjlighet att komma till affärsinsikter snabbare genom att tillhandahålla självbetjäning datapåfyllning och förberedelse från valfri källa för Microsoft Azure cloud-plattformen.
 * **Spark-jobbserver för KNIME Spark utföraren** Spark-jobbserver för KNIME Spark utföraren används för att ansluta KNIME Analytics Platform till HDInsight-kluster.
@@ -44,15 +44,15 @@ Follosing lista visas de publicerade program:
 
 I artikelns instruktioner används Azure-portalen. Du kan också exportera Azure Resource Manager-mallen från portalen eller skaffa en kopia av Resource Manager-mallen från leverantörer och distribuera mallen med Azure PowerShell och Azure CLI.  Se [skapa Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill installera HDInsight-program i ett befintligt HDInsight-kluster måste du ha ett HDInsight-kluster. Om du vill skapa ett läser du [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Du kan även installera HDInsight-program när du skapar ett HDInsight-kluster.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installera program i befintliga kluster
 I följande procedur beskriver vi hur du installerar HDInsight-program i ett befintligt HDInsight-kluster.
 
-**Så här installerar du ett HDInsight-program**
+**Installera ett HDInsight-program**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn.
 3. Klicka på ett HDInsight-kluster.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Klicka på **Program** under kategorin **Konfigurationer**. Du kan se en lista över installerade program. Om du inte kan hitta Program innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
@@ -75,9 +75,9 @@ Du kan välja att installera HDInsight-program när du skapar ett kluster. Under
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Visa en lista med installerade HDInsight-appar och deras egenskaper
 På portalen kan du visa en lista över de installerade HDInsight-programmen för ett kluster och egenskaperna för varje installerat program.
 
-**Så här visar du en lista med HDInsight-program och deras egenskaper**
+**Visa en lista med HDInsight-program och visa egenskaper**
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **HDInsight-kluster** i den vänstra menyn. 
 3. Klicka på ett HDInsight-kluster.
 4. Från **inställningar**, klickar du på **program** under den **allmänna** kategori. Den installerade appar visas till höger. 

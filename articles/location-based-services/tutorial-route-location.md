@@ -1,6 +1,6 @@
 ---
-title: "Hitta vägen med Azure baserad platstjänster | Microsoft Docs"
-description: "Vidarebefordra till en av intresse med hjälp av Azure baserad platstjänster"
+title: Hitta rutten med Azure Location Based Services | Microsoft Docs
+description: "Rutt till en orienteringspunkt med hjälp av Azure Location Based Services"
 services: location-based-services
 keywords: 
 author: dsk-2015
@@ -12,30 +12,30 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Vidarebefordra till en av intresse med hjälp av Azure baserad platstjänster
+# <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Rutt till en orienteringspunkt med hjälp av Azure Location Based Services
 
-Den här kursen visar hur du använder Azure plats Services-konto och väg Service SDK, för att hitta vägen till intressant. I den här guiden får du lära dig hur man:
+Den här självstudiekursen visar hur du använder Azure Location Based-kontot och Route Service SDK för att hitta rutten till en orienteringspunkt. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Hämta adressen koordinater
-> * Fråga väg Service för instruktioner peka intressanta
+> * Hämta adresskoordinater
+> * Fråga Route Service om vägbeskrivning till orienteringspunkt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du fortsätter, kontrollera att [skapa Azure baserad platstjänster kontot](./tutorial-search-location.md#createaccount), och [hämta nyckel för prenumerationen för ditt konto](./tutorial-search-location.md#getkey). Du kan också se hur du använder Kartkontrollen och API: er för Search-tjänsten enligt beskrivningen i självstudierna [Sök Närliggande intressant med hjälp av Azure baserad platstjänster](./tutorial-search-location.md).
+Kom ihåg att [skapa ditt Azure Location Based Services-konto](./tutorial-search-location.md#createaccount) och [hämta prenumerationsnyckeln för ditt konto](./tutorial-search-location.md#getkey) innan du fortsätter. Du kan också notera hur du använder API:er för Kartkontroll och Search Service enligt beskrivningen i självstudiekursen [Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services](./tutorial-search-location.md).
 
 
 <a id="getcoordinates"></a>
 
-## <a name="get-address-coordinates"></a>Hämta adressen koordinater
+## <a name="get-address-coordinates"></a>Hämta adresskoordinater
 
-Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats baserat tjänsterna kartan kontroll-API. 
+Använd följande steg för att skapa en statisk HTML-sida inbäddad med API:et Kartkontroll i Location Based Services. 
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html**. 
 2. Lägg till följande HTML-komponenter i filen:
@@ -75,20 +75,20 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
 
     </html>
     ```
-    Observera hur HTML-huvudet bäddar in resursplatser för CSS- och JavaScript-filer för Azure baserad platstjänster-biblioteket. Notera också den *skriptet* segment i brödtexten för HTML-fil som innehåller infogat JavaScript-kod för att komma åt Azure plats baserat tjänstens API: er.
+    Observera hur HTML-huvudet bäddar in resursplatser för CSS- och JavaScript-filer för Azure Location Based Services-biblioteket. Notera också segmentet *script* i HTML-filens brödtext som innehåller den infogade JavaScript-koden för att komma åt Azure Location Based Services-API:erna.
 
-3. Lägg till följande JavaScript-kod till den *skriptet* block med HTML-fil. Ersätt platshållaren *< INS >* med ditt konto baserat platstjänster primärnyckel.
+3. Lägg till följande JavaScript-kod i HTML-filens *script*-block. Använd primärnyckeln från ditt Location Based Services-konto i skriptet.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Den **atlas. Kartan** ger kontrollen för en visual och interaktiva webb och är en komponent i Azure kartan kontroll-API: et.
+    **atlas.Map** ger kontroll över en visuell och interaktiv webbkarta och är en komponent i API:et Azure Kartkontroll.
 
-4. Lägg till följande JavaScript-kod till den *skriptet* block. Detta lägger till ett lager av *linestrings* att Kartkontrollen att visa vägen:
+4. Lägg till följande JavaScript-kod i *script*-blocket. Detta lägger till ett lager av *linestrings* i Kartkontroll för att visa rutten:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -103,7 +103,7 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
     });
     ```
 
-5. Lägg till följande JavaScript-kod för att skapa start- och slutpunkterna för vägen:
+5. Lägg till följande JavaScript-kod för att skapa start- och slutpunkter för rutten:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -119,9 +119,9 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
         icon: "pin-blue"
     });
     ```
-    Den här koden skapar två [GeoJSON objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för vägen. Slutpunkten är en latitud/longitud kombination av något av de *bensin stationer* sökte i föregående kursen [Sök Närliggande intressant med hjälp av Azure baserad platstjänster](./tutorial-search-location.md).
+    Den här koden skapar två [GeoJSON-objekt](https://en.wikipedia.org/wiki/GeoJSON) som representerar start- och slutpunkterna för rutten. Slutpunkten är en latitud–longitud-kombination för en av de *bensinstationer* som söktes i föregående kurs [Söka efter orienteringspunkter i närheten med hjälp av Azure Location Based Services](./tutorial-search-location.md).
 
-6. Lägg till följande JavaScript-kod för att lägga till PIN-koder för start- och slutpunkter på kartan:
+6. Lägg till följande JavaScript-kod för att lägga till kartnålar för start- och slutpunkterna på kartan:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -141,17 +141,17 @@ Använd följande steg för att skapa en statisk HTML-sida inbäddade med plats 
         textOffset: [0, -20]
     });
     ``` 
-    API: et **map.setCameraBounds** justerar fönstret kartan enligt koordinaterna för start- och slutpunkter. API: et **map.addPins** lägger till punkterna i kartkontrollen som visuella komponenter.
+    API:et **map.setCameraBounds** justerar kartfönstret enligt koordinaterna för start- och slutpunkterna. API:et **map.addPins** lägger till punkterna i Kartkontroll som visuella komponenter.
 
-7. Spara den **MapRoute.html** fil på din dator. 
+7. Spara filen **MapRoute.html** på din dator. 
 
 <a id="getroute"></a>
 
-## <a name="query-route-service-for-directions-to-point-of-interest"></a>Fråga väg Service för instruktioner peka intressanta
+## <a name="query-route-service-for-directions-to-point-of-interest"></a>Fråga Route Service om vägbeskrivning till orienteringspunkt
 
-Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg Service API för att hitta vägen från en viss startpunkt till ett mål. Tjänsten vägen innehåller API: er för att planera de snabbaste kortaste eller eko flödet mellan två platser, med tanke på villkor som realtid trafik. Det gör även att användare att planera vägar i framtiden genom att använda Azures omfattande historiska trafik databasen och förutsäga väg varaktighet för varje dag och tid. 
+Det här avsnittet visar hur du använder API:et Route Service i Azure Location Based Services för att hitta rutten från en viss startpunkt till ett mål. Route Service tillhandahåller API:er för att planera den snabbaste, kortaste eller miljövänligaste rutten mellan två platser, med hänsyn för trafikförhållanden i realtid. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. 
 
-1. Öppna den **MapRoute.html** filen skapas i föregående avsnitt och Lägg till följande JavaScript-kod till den *skriptet* block som illustrerar flödet-tjänsten.
+1. Öppna filen **MapRoute.html** som skapades i föregående avsnitt och lägg till följande JavaScript-kod i *script*-blocket för att illustrera Route Service.
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -172,32 +172,32 @@ Det här avsnittet visar hur du använder Azure plats baserat tjänsterna väg S
         }
     };
     ```
-    Det här kodstycket skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/), och lägger till en händelsehanterare för att analysera inkommande svaret. Ett lyckat svar skapar en matris med koordinater för linjesegment första vägens returneras. Det lägger sedan till den här uppsättningen koordinater för den här vägen på kartan *linestrings* lager.
+    Det här kodfragmentet skapar en [XMLHttpRequest](https://xhr.spec.whatwg.org/) och lägger till en händelsehanterare för att analysera det inkommande svaret. Vid ett lyckat svar skapas en matris med koordinater för linjesegment för den första rutten som returneras. Sedan läggs koordinaterna för den här rutten till i kartlagret *linestrings*.
 
-2. Lägg till följande kod i den *skriptet* block, att skicka XMLHttpRequest till Azure plats baserat tjänsterna väg tjänsten:
+2. Lägg till följande kod i *script*-blocket för att skicka XMLHttpRequest till Route Service i Azure Location Based Services:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    Begäran ovan visar de obligatoriska parametrarna är prenumeration kontonyckel och koordinaterna för start- och slutpunkterna i angiven ordning. 
+    Förfrågan ovan visar de obligatoriska parametrarna, som är din kontonyckel och koordinaterna för start- och slutpunkterna i denna ordning. 
 
-3. Spara den **MapRoute.html** filen lokalt, och sedan öppna den i en webbläsare som du väljer och se resultatet. För en lyckad anslutning med den plats baserat tjänsterna API: er, bör du se en karta som liknar följande. 
+3. Spara filen **MapRoute.html** lokalt och öppna den i valfri webbläsare för att se resultatet. För en lyckad anslutning med den API:er i Location Based Services bör du se en karta som liknar följande. 
 
-    ![Azure Kartkontrollen och Route-tjänsten](./media/tutorial-route-location/lbs-map-route.png)
+    ![Azure Kartkontroll och Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Hämta adressen koordinater
-> * Fråga väg Service för instruktioner peka intressanta
+> * Hämta adresskoordinater
+> * Fråga Route Service om vägbeskrivning till orienteringspunkt
 
-Gå vidare till självstudiekursen [hitta vägar för olika lägen för resa med hjälp av Azure baserad platstjänster](./tutorial-prioritized-routes.md) att lära dig mer om Azure baserad platstjänsterna för att prioritera vägar till intressant, baserat på transportsätt. 
+Gå vidare till självstudiekursen [Hitta rutter för olika färdmedel med hjälp av Azure Location Based Services](./tutorial-prioritized-routes.md) och lär dig mer om att använda Azure Location Based Services för att prioritera rutter till orienteringspunkten beroende på transportsätt. 

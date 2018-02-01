@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1d80796073c0e85bb3475f9182c79ad2129ace8b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Övervaka användning och prestanda för Windows-appar
 
@@ -25,9 +25,9 @@ ms.lasthandoff: 11/01/2017
 Med [Azure Application Insights](app-insights-overview.md) och [HockeyApp](https://hockeyapp.net) kan du övervaka dina distribuerade program för användning och prestanda.
 
 > [!IMPORTANT]
-> Vi rekommenderar [HockeyApp](https://hockeyapp.net) för att distribuera och övervaka appar för dator eller mobila enheter. Med HockeyApp kan du hantera distribution, livetestning och användarfeedback samt övervaka användning och krasher. Du kan också [exportera och fråga din telemetri med Analytics](app-insights-hockeyapp-bridge-app.md).
+> Vi rekommenderar [HockeyApp](https://hockeyapp.net) för att distribuera och övervaka appar för dator eller mobila enheter. Med HockeyApp kan du hantera distribution, livetestning och användarfeedback samt övervaka användning och krascher. Du kan också [exportera och fråga din telemetri med Analytics](app-insights-hockeyapp-bridge-app.md).
 > 
-> Även om telemetri kan skickas till Application Insights från ett program, är detta huvudsakligen användbatr för felsökning och utveckling.
+> Även om telemetri kan skickas till Application Insights från ett program, är detta huvudsakligen användbart för felsökning och utveckling.
 > 
 > 
 
@@ -48,7 +48,7 @@ Med [Azure Application Insights](app-insights-overview.md) och [HockeyApp](https
 6. Kör din app och se telemetri i den resurs du skapat i Azure Portal.
 
 ## <a name="telemetry"></a>Exempelkod
-```C#
+```csharp
 
     public partial class Form1 : Form
     {

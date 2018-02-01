@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduktion till Microsoft Azure Storage
 
@@ -151,17 +151,15 @@ Mer information om hur du skyddar ditt lagringskonto och kryptering finns i [sä
 
 För att säkerställa att dina data är beständiga kan Azure Storage lagra (och hantera) flera kopior av dina data. Det kallas replikering, eller ibland redundans. När du konfigurerar ditt lagringskonto väljer du en replikeringstyp. I de flesta fall kan den här inställningen ändras efter att lagringskontot har konfigurerats.
 
-Alla lagringskonton har **lokalt redundant lagring (LRS)** som är utformat för att tillhandahålla minst 99,999999999 % (elva nior) objektshållbarhet under ett givet år. Det innebär att flera kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar har genomförts uppdateras alla kopior innan information om att åtgärden lyckats returneras. Det innebär att alla kopior alltid är synkroniserade. Dessutom finns kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras.
-
 **Lokalt redundant lagring (LRS)**
 
-Som redan nämnts ovan innebär LRS att du får flera kopior av dina data i ett enda datacenter. Det hanterar problemet med att data blir otillgängliga om en lagringsnod råkar ut för ett fel eller kopplas från för att uppdateras, men inte om ett helt datacenter skulle bli otillgängligt.
+Lokalt redundant lagring (LRS) som är utformad för att tillhandahålla minst 99,999999999 % (elva nior) objektshållbarhet under ett givet år. Det innebär att flera kopior av dina data hanteras av Azure Storage i det datacenter som angavs när lagringskontot konfigurerades. När ändringar har genomförts uppdateras alla kopior innan information om att åtgärden lyckats returneras. Det innebär att alla kopior alltid är synkroniserade. Dessutom finns kopiorna i separata feldomäner och uppgraderingsdomäner, vilket innebär att dina data är tillgängliga även om en lagringsnod med dina data råkar ut för fel eller kopplas från för att uppdateras.
 
-**Zonredundant lagring (ZRS)**
+**Zonredundant lagring (ZRS) (Förhandsversion)**
 
-Zonredundant lagring (ZRS) är utformat för att ge minst 99,9999999999 % (tolv nior) objektshållbarhet under ett givet år genom att både lokala kopior och en separat uppsättning kopior av dina data sparas. Den andra uppsättningen med kopior replikeras asynkront mellan datacenter i en eller två regioner. Observera att ZRS endast är tillgängligt för blockblobbar i allmänna lagringskonton. Och när du har skapat ditt lagringskonto och valt ZRS kan du inte konvertera det för att använda en annan typ av replikering eller tvärtom.
+Zonredundant lagring (ZRS) är utformad för att förenkla utvecklingen av program med hög tillgänglighet. ZRS ger hållbarhet för lagringsobjekt på minst 99,9999999999 % (12 nior) under ett visst år. ZRS replikerar dina data synkront i flera tillgänglighetszoner. Överväg ZRS för scenarier som transaktionsprogram där stilleståndstid är oacceptabelt. Med ZRS kan kunder läsa och skriva data även om en enskild zon är otillgänglig eller oåterkallelig. Infogningar och uppdateringar för data görs synkront och mycket konsekvent.    
 
-ZRS-konton ger högre hållbarhet än LRS, men ZRS-konton har inte mått- eller loggningsfunktioner.
+Den tidigare ZRS-kapaciteten heter nu ZRS Classic. ZRS Classic-konton är endast tillgängliga för blockblobar i allmänna V1-lagringskonton. ZRS Classic replikerar data asynkront i datacenter i en eller två regioner. En replik kanske inte är tillgänglig om inte Microsoft initierar sekundär redundans. Ett ZRS Classic-konto går inte att konvertera till eller från LRS eller GRS, och har inte kapacitet för mått eller loggning.
 
 **Geo-redundant lagring (GRS)**
 
@@ -172,10 +170,10 @@ Geo-redundant lagring (GRS) är utformat för att ge 99,99999999999999 % (16 ni
 Geo-redundant lagring med läsbehörighet är precis som GRS förutom att du får läsbehörighet till data på den sekundära platsen. Om det primära datacentret tillfälligt blir otillgängligt kan du fortsätta att läsa data från den sekundära platsen. Det kan vara mycket användbart. Du kan till exempel ha en webbapp som ändrar till skrivskyddat läge och pekar på den sekundära kopian, vilket ger viss åtkomst även om uppdateringar inte är tillgängliga.
 
 > [!IMPORTANT]
-> Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats, såvida du inte valde ZRS när du skapade kontot. Observera dock att det kan utgå ytterligare engångskostnader för dataöverföring om du växlar från LRS till GRS eller RA-GRS.
+> Du kan ändra hur dina data replikeras när ditt lagringskonto har skapats. Det kan dock tillkomma ytterligare engångskostnader för dataöverföring om du växlar från LRS till ZRS till GRS eller RA-GRS.
 >
 
-Mer information om replikering finns i [Azure Storage-replikering](storage-redundancy.md).
+Mer information om replikeringsalternativ finns i [Azure Storage-replikering](storage-redundancy.md).
 
 Information om haveriberedskap finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](storage-disaster-recovery-guidance.md).
 

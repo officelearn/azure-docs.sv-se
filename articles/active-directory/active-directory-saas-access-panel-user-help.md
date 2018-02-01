@@ -1,6 +1,6 @@
 ---
-title: "Behöver du hjälp med portalen Mina appar i Azure Active Directory | Microsoft Docs"
-description: "Hämta anvisningarna för att utföra vanliga uppgifter när du arbetar med åtkomstpanelen."
+title: "Få hjälp med att få åtkomst till och med hjälp av portalen för Mina appar i Azure Active Directory | Microsoft Docs"
+description: "Få hjälp med att logga in till och utföra vanliga uppgifter på åtkomstpanelen."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Behöver du hjälp med Mina appar portal?
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Felsökning av problem med hjälp av portalen Mina appar och åtkomst till
 
-Du har troligtvis nått den här sidan eftersom du körde tyvärr ett problem när du använder portalen Mina appar. Det finns fall som du behöver kontakta supportavdelningen eller administratören om du vill hämta en problem löst, är här vissa felsökning avsnitt som kan vara till hjälp först.
+Om du har problem med att logga in på eller med hjälp av portalen Mina appar, försök dessa felsökningstips innan du kontaktar supportavdelningen eller administratören om hjälp.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Jag har problem med att logga in på portalen Mina appar
 
-Allmänna problem med att kontrollera:
+Följande allmänna tips i åtanke:
 
-- Kontrollera om du loggar in rätt URL: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- Första, kontrollera för att se om du använder rätt URL [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Försök att lägga till URL: en i webbläsarens betrodda platser.
-
-- Kontrollera att lösenordet inte har upphört att gälla eller har glömt. Kontrollera [här](active-directory-passwords-update-your-own-password.md) för mer information om hur du uppdaterar lösenordet.
-
-- Kontrollera om din kontaktinformation för autentisering är uppdaterade och inte blockerar åtkomsten. Kontrollera [här](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) för mer information om hur du konfigurerar autentisering-information.
-
+- Kontrollera att lösenordet är korrekt och inte har gått ut. Mer information finns i [återställa ditt lösenord för arbetet eller skolan](active-directory-passwords-update-your-own-password.md).
+- Kontrollera att din kontaktinformation för autentisering är uppdaterade och inte blockerar åtkomsten. Mer information finns i [vad Azure Multi-Factor Authentication innebär för mig?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Prova att rensa cookies i webbläsaren och försök sedan logga in igen.
 
-Om det fortfarande uppstår problem vid försök att logga in, kontaktar du administratören för ytterligare hjälp.
+Kontakta administratören om det fortfarande uppstår problem när du försöker logga in.
 
 
-## <a name="how-do-i-update-my-password"></a>Hur uppdaterar lösenordet?
+## <a name="i-seem-to-be-having-password-issues"></a>Det verkar ha lösenordsproblem med
 
-Om du har glömt ditt lösenord aldrig något från din IT-personal, har låsts ute från ditt konto eller vill ändra det, se [hjälp, jag har glömt mitt Azure AD-lösenord](active-directory-passwords-update-your-own-password.md) för mer information.
+Om du har glömt ditt lösenord, aldrig fått ett från din IT-personal, utelåst från ditt konto eller ändra ditt lösenord, se [hjälp, jag har glömt mitt Azure AD-lösenord](active-directory-passwords-update-your-own-password.md).
 
-## <a name="how-do-i-register-for-password-reset"></a>Hur registrerar jag för återställning av lösenord
+## <a name="i-need-to-register-for-password-reset"></a>Jag behöver registrera dig för lösenordsåterställning
 
-Du kan återställa ditt lösenord eller låsa upp ditt konto utan att behöva tala med en person som använder lösenordsåterställning via självbetjäning (SSPR) som en slutanvändare. Innan du kan använda den här funktionen, måste du registrera autentiseringsmetoder eller bekräfta de fördefinierade autentiseringsmetoderna som administratören har fyllt i. Mer information finns i [registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
+Du kan återställa ditt lösenord eller låsa upp ditt konto utan att behöva tala med någon med hjälp av lösenordsåterställning via självbetjäning (SSPR). Innan du kan använda den här funktionen måste du registrera din autentiseringsmetoder eller bekräfta fördefinierade autentiseringsmetoder som kräver din administratör. Mer information finns i [registrera dig för lösenordsåterställning via självbetjäning](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Jag har problem med att installera Mina appar säker inloggning tillägget
 
-Kontrollera om du uppfyller krav på webbläsare:
+Portal för Mina appar kräver en webbläsare som stöder JavaScript och har aktiverat CSS. Om du använder lösenordsbaserad enkel inloggning appar installeras medföljande tillägget också. Det här tillägget laddas ned automatiskt när du startar ett program som har konfigurerats för lösenordsbaserad enkel inloggning appar.
 
-- Portalen kräver en webbläsare som stöder JavaScript och har aktiverat CSS. Om du använder lösenordsbaserad enkel inloggning appar installeras medföljande tillägget också. Det här tillägget laddas ned automatiskt när du startar ett program som har konfigurerats för lösenordsbaserad enkel inloggning appar.
+Kontrollera att du uppfyller följande webbläsarkrav:
+- **Edge**: på Windows 10 årsdagar Edition eller senare.
+- **Chrome**: på Windows 7 eller senare, och på Mac OS X eller senare.
+- **Firefox 26.0 eller senare**: Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare.
+- **Internet Explorer 8, 9, 10, 11**: i Windows 7 eller senare (begränsat stöd).
 
-- Webbläsarkrav för tillägget är:
-    - Kanten på Windows 10 årsdagar Edition eller senare
-    - Chrome på Windows 7 eller senare, och i MacOS X eller senare
-    - Firefox 26.0 eller senare på Windows XP SP2 eller senare, och på Mac OS X 10.6 eller senare
-    - Internet Explorer 8, 9, 10, 11 på Windows 7 eller senare (begränsat stöd)
-
-Du kan också hämta tillägget för Chrome och kanten från direkt med länkarna nedan:
+Du kan också hämta tillägget för Chrome och kanten direkt från följande platser:
 
 - [Chrome-tillägg](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Edge-tillägg](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Efter installationen och försök följande steg om du upptäcker problem:
+Om du har installerat tillägg och fortfarande har problem kan du testa följande:
 
-- Kontrollera i tillägget webbläsarinställningarna att filnamnstillägget är aktiverad.
-
+- Kontrollera tillägget webbläsarinställningarna så att tillägget är aktiverat.
 - Starta om webbläsaren och logga in på Mina appar-portalen.
-
 - Rensa cookies i webbläsaren och logga in på Mina appar-portalen.
-- Följ den [felsöka Access panelen-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) guide för åtkomst till en diagnostik och steg-för-steg-instruktioner om hur du konfigurerar tillägget för Internet Explorer.
+- Åtkomst till en diagnostik och stegvisa instruktioner om hur du konfigurerar tillägget för Internet Explorer finns [felsöka Access panelen-tillägg för Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Hur använder jag Mina appar säker inloggning tillägget?
-Ändra Mina appar standard-URL för tillägget
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Använd den Mina appar säker inloggning tillägg
+* Om du använder en URL för Mina appar än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:
+   1. När du är *inte* inloggad-tillägget, högerklicka på ikonen för tillägget.
+   2. Välj på menyn **Mina appar URL**.
+   3. Välj standard-URL.
+   4. Välj ikonen tillägg.
+   5. Om du vill logga in på tillägget, Välj **logga in att komma igång**.
 
-Om du använder en annan Mina appar URL än https://myapps.microsoft.com måste du konfigurera standard-URL genom följande steg:
-1. Medan inte loggat in på tillägget **Högerklicka** ikonen tillägg.
-2. Klicka på **URL Välj appar** på menyn.
-3. **Välj** standard-URL.
-4. Klicka på ikonen för tillägget.
-5. Logga in på tillägget genom att välja **logga in att komma igång**.
+* Logga in direkt till en app från webbläsaren genom att göra följande:
+   1. När du installerar tillägget för inloggning till den genom att välja **logga in att komma igång**.
+   2. Logga in i appen med URL för inloggning.  
+       URL för inloggning är vanligtvis Webbadressen till den app som visar inloggning formuläret.
+      Tillägget bör ändra tillstånd och att du vet att ett lösenord är tillgänglig.
+   3. Välj ikonen tillägg för att logga in.
 
-Logga in direkt i en app i webbläsaren
-1. När du har installerat tillägget, logga in på tillägget genom att välja **logga in att komma igång**.
-2. Navigera till den **URL inloggning** appen som du vill logga in på detta är vanligtvis Webbadressen till den app som visar inloggningsformulär.
-3. Tillägget bör ändra tillstånd och gör att du vet att ett lösenord är tillgänglig, klicka på den **tillägget ikonen** att logga in
-
-Starta en app från tillägget
-1. När du har installerat tillägget, logga in på tillägget genom att välja **logga in att komma igång**.
-2. Klicka på ikonen tillägget menyn öppnas.
-3. **Sök** för en app som är tillgängliga i portalen Mina appar.
-4. Klicka på appen från den **sökresultat** för att starta.
-5. De tre sista appar startas visas också i den **nyligen använda** genvägen lista
+* Om du vill starta en app från tillägget gör du följande:
+   1. När du installerar tillägget för inloggning till den genom att välja **logga in att komma igång**.
+   2. Välj ikonen tillägget menyn öppnas.
+   3. Sök efter en app som är tillgängliga i portalen Mina appar.
+   4. I listan över sökresultat, Välj appen.  
+       De tre senaste appar som du har använt visas i den **nyligen använda** genvägen lista.
 
 > [!NOTE]
-> Dessa alternativ är bara tillgängliga för gräns, Chrome, Firefox.
+> Dessa alternativ är endast tillgängligt för gräns, Chrome och Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Hur lägger jag till en ny app?
 
-1.  På den **appar** klickar du på **Lägg till App**.
+1.  På den **appar** väljer **Lägg till App**.
+2.  Sök efter den app som du vill lägga till och välj sedan **Lägg till**.
 
-2.  Söka efter den app som du vill lägga till och klicka sedan på **Lägg till**.
-
-**Anmärkning:**
-
-- Du kan bara ha åtkomst till det här alternativet om din administratör har aktiverat detta för ditt konto.
-
-- Om appen kräver behörighet, kan du behöva vänta på godkännande av administratören.
-
+   > [!NOTE]
+   > * Du kan använda det här alternativet endast om din administratör har aktiverat för ditt konto.
+   > * Om appen kräver behörighet, kan du behöva vänta på administratörsgodkännande.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Hur hanterar jag mina gruppmedlemskap
 
-1. Klicka på den **grupper** panelen. 
-2. Om du vill skapa en grupp i grupper som jag äger **Skapa grupp**, och följ sedan instruktionerna.
-3. Om du vill ansluta till en grupp i grupper som jag i, klickar du på **ansluter till en grupp**, och följ sedan instruktionerna.
+Välj den **grupper** panelen och gör sedan något av följande: 
+* Skapa en grupp under **grupper som jag äger**väljer **Skapa grupp**, och följ sedan instruktionerna.
+* Att ansluta till en grupp under **grupper jag i**väljer **ansluter till en grupp**, och följ sedan instruktionerna.
 
-**Anmärkning:**
-
-- Du kan bara ha åtkomst till det här alternativet om din administratör har aktiverat detta för ditt konto.
-
-- Grupper som du är medlem i kan du visa information och lämna gruppen.
-
-- Grupper som du är ägare till kan du visa information, lägga till eller ta bort medlemmar och lämna gruppen.
+   > [!NOTE]
+   > * Du kan använda det här alternativet endast om din administratör har aktiverat för ditt konto.
+   > * Om du är medlem i en grupp kan du visa information och lämna gruppen.
+   > * Om du är ägare till en grupp kan du visa information, lägga till eller ta bort medlemmar och lämna gruppen.
+   >
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Relaterad information om felsökning finns [problem med att använda programmet åtkomst panelen webbplats eller mobila program](active-directory-application-access-panel-content-map.md)
+Mer information om felsökning finns i [problem med att använda programmet åtkomst panelen webbplats eller mobilprogram](active-directory-application-access-panel-content-map.md).
 

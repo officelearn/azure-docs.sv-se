@@ -1,6 +1,6 @@
 ---
 title: Skapa ett Linux Service Fabric-kluster i Azure | Microsoft Docs
-description: "Lär dig hur du distribuerar en Linux Service Fabric-kluster till ett befintligt Azure virtuellt nätverk som använder Azure CLI."
+description: "Lär dig att distribuera ett Linux Service Fabric-kluster till ett befintligt virtuellt nätverk i Azure med Azure CLI."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,154 +12,167 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: de67512a9b03095b793fc82f3b0c348577511d5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric Linux-kluster till ett virtuellt Azure-nätverk
-Den här kursen ingår i en serie. Du kommer lära dig hur du distribuerar en Linux Service Fabric-kluster till ett befintligt Azure virtuellt nätverk (VNET) och underordnad net med Azure CLI. När du är klar kan har du ett kluster som körs i molnet som du kan distribuera program till. För att skapa ett Windows-kluster med hjälp av PowerShell Se [skapa en säker Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Den här självstudien är del ett i en serie. Du lär dig att distribuera ett Linux Service Fabric-kluster till ett [virtuellt nätverk i Azure (VNET)](../virtual-network/virtual-networks-overview.md) och [en nätverkssäkerhetsgrupp (NSG)](../virtual-network/virtual-networks-nsg.md) med Azure CLI och en mall. När du är klar körs ett kluster i molnet som du kan distribuera program till. Om du vill skapa ett Windows-kluster med PowerShell läser du informationen om att [skapa ett säkert Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett VNET i Azure med Azure CLI
-> * Skapa en säker Service Fabric-kluster i Azure med Azure CLI
-> * Skydda klustret med ett X.509-certifikat
-> * Ansluta till klustret med Service Fabric CLI
+> * Skapa ett säkert Service Fabric-kluster i Azure med hjälp av Azure CLI
+> * Gör klustret säkert med ett X.509-certifikat
+> * Anslut till klustret med Service Fabric CLI
 > * Ta bort ett kluster
 
-I den här självstudiekursen serien lär du dig hur du:
+I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa en säker kluster i Azure
-> * [Skala ett kluster in eller ut](service-fabric-tutorial-scale-cluster.md)
-> * [Uppgraderingen av körtiden för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
+> * Skapa ett säkert kluster på Azure
+> * [Skala in eller ut ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [Uppgradera ett klusters körning](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuera API Management med Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Krav
-Innan du börjar den här kursen:
-- Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installera den [Service Fabric CLI](service-fabric-cli.md)
-- Installera den [Azure CLI 2.0](/cli/azure/install-azure-cli)
+## <a name="prerequisites"></a>Nödvändiga komponenter
+Innan du börjar den här vägledningen:
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Installera [Service Fabric CLI](service-fabric-cli.md)
+- Installera [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
-Följande procedurer skapa ett Service Fabric-kluster med fem noder. Att beräkna kostnaden genom att köra ett Service Fabric-kluster i Azure används den [Priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/).
+Följande procedurer skapar ett Service Fabric-kluster med fem noder. Om du vill beräkna kostnaden för att köra ett Service Fabric-kluster i Azure använder du [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="introduction"></a>Introduktion
-Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typ till ett virtuellt nätverk i Azure.
+## <a name="key-concepts"></a>Viktiga begrepp
+Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skala till tusentals datorer. En dator eller virtuell dator som är en del av ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper.
 
-Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper som till exempel placeringsegenskaper.
+En nodtyp definierar storleken, antalet och egenskaperna för en uppsättning virtuella datorer i klustret. Varje definierad nodtyp är konfigurerad som en [VM-skalningsuppsättning](/azure/virtual-machine-scale-sets/), en Azure-beräkningsresurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Nodtyper används för att definiera roller för en uppsättning klusternoder, till exempel en ”klientdel” eller ”serverdel”.  Klustret kan innehålla fler än en nodtyp, men den primära nodtypen måste innehålla minst fem virtuella datorer för produktionskluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric-systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noderna för den primära nodtypen.
 
-En nodtyp definierar storlek, antal och egenskaper för en uppsättning virtuella datorer i klustret. Varje definierade nodtyp har ställts in som en [virtuella datorns skaluppsättning](/azure/virtual-machine-scale-sets/), en Azure compute resursen som du använder för att distribuera och hantera en samling med virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned separat, har olika uppsättningar av öppna portar och kan ha olika kapacitetsdata. Nodtyper används för att definiera roller för en uppsättning noder, till exempel ”klientdel” eller ”serverdel”.  Klustret kan ha fler än en nodtyp, men den primära nodtypen måste ha minst fem datorer för produktion kluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noder av typen primära noden.
+Klustret skyddas av ett klustercertifikat. Ett klustercertifikat är ett X.509-certifikat som används för att skydda nod-till-nod-kommunikation och autentisera klusterhanteringsslutpunkter till en hanteringsklient.  Klustercertifikatet tillhandahåller också en SSL för API för HTTPS-hantering och för Service Fabric Explorer via HTTPS. Självsignerade certifikat är praktiska för testkluster.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustrets certifikat.
 
-## <a name="cluster-capacity-planning"></a>Kapacitetsplanering för kluster
-Den här kursen distribuerar ett kluster med fem noder i en enskild nod-typen.  För alla Produktionsdistribution av klustret är kapacitetsplanering ett viktigt steg. Här följer några saker att tänka på som en del av den här processen.
+Klustrets certifikat måste:
 
-- Antalet nod av typen ditt kluster behöver 
-- Egenskaperna för varje nodtyp (till exempel storlek, primära, mot internet och antal virtuella datorer)
-- Tillförlitlighet och hållbarhet egenskaper i klustret
+- innehålla en privat nyckel.
+- vara skapat för nyckelutbyte, som går att exportera till en Personal Information Exchange-fil (.pfx).
+- ha ett ämnesnamn som överensstämmer med domänen du använder för att få åtkomst till Service Fabric-klustret. Matchningen krävs för att tillhandahålla SSL för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för domänen .cloudapp.azure.com. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
 
-Mer information finns i [klustret kapacitetsplaneringsöverväganden](service-fabric-cluster-capacity.md).
+Azure Key Vault används för att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure hämtar Azure-resursprovidern som ansvarar för att skapa Service Fabric-kluster certifikat från Key Vault och installerar dem på klustrets virtuella datorer.
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Logga in på Azure och välja din prenumeration
-Den här guiden använder Azure CLI. När du startar en ny session, logga in på ditt Azure-konto och välja din prenumeration innan du kan köra kommandon för Azure.
- 
-Kör följande skript för att logga in på kontot väljer din prenumeration:
+Den här självstudiekursen distribuerar ett kluster med fem noder i en enskild nodtyp. Vid distributionskluster till en produktionsmiljö är det emellertid viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). Nedan ser du några saker att tänka på om en del av processen.
 
-```azurecli
-az login
-az account set --subscription <guid>
-```
+- Antalet noder och nodtyper som klustret behöver 
+- Egenskaperna för varje nodtyp (exempelvis storlek, primär, mot internet och antal virtuella datorer)
+- Klustrets egenskaper för tillförlitlighet och hållbarhet
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en ny resursgrupp för din distribution och ge det ett namn och en plats.
+## <a name="download-and-explore-the-template"></a>Ladda ned och titta närmare på mallen
+Ladda ned följande mallfiler för Resource Manager:
+- [vnet-linuxcluster.json][template]
+- [vnet-linuxcluster.parameters.json][parameters]
+
+[vnet-linuxcluster.json][template] distribuerar ett antal resurser, däribland följande.
+
+### <a name="service-fabric-cluster"></a>Service Fabric-kluster
+Ett Linux-kluster distribueras med följande egenskaper:
+- en enkel nodtyp 
+- fem noder i den primära nodtypen (kan konfigureras i mallparametrarna)
+- OS: Ubuntu 16.04 LTS (kan konfigureras i mallparametrarna)
+- skyddat certifikat (kan konfigureras i mallparametrarna)
+- [DNS-tjänst](service-fabric-dnsservice.md) är aktiverad
+- [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
+- [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
+- klientanslutningsslutpunkt: 19000 (kan konfigureras i mallparametrarna)
+- HTTP-gatewayslutpunkt: 19080 (kan konfigureras i mallparametrarna)
+
+### <a name="azure-load-balancer"></a>Azure-belastningsutjämnare
+En belastningsutjämnare distribueras som söker av och reglerar följande portar:
+- klientanslutningsslutpunkt: 19000
+- HTTP-gatewayslutpunkt: 19080 
+- programport: 80
+- programport: 443
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>Virtuellt nätverk, undernät och nätverkssäkerhetsgrupp
+Namnen på det virtuella nätverket, undernätet och nätverkssäkerhetsgrupper deklareras i mallparametrarna.  Adressutrymmen för det virtuella nätverket och undernätet deklareras också i mallparametrarna:
+- det virtuella nätverkets adressutrymme: 10.0.0.0/16
+- Service Fabric-undernätsadressutrymme: 10.0.2.0/24
+
+Följande regler för inkommande trafik är aktiverade i nätverkssäkerhetsgruppen. Du kan ändra portvärdena genom att ändra mallvariablerna.
+- ClientConnectionEndpoint (TCP): 19000
+- HttpGatewayEndpoint (HTTP/TCP): 19080
+- SMB : 445
+- Internodecommunication – 1025, 1026, 1027
+- Tillfälligt portintervall – 49152 till 65534 (minst 256 portar behövs)
+- Portar för programanvändning: 80 och 443
+- Portintervall för program – 49152 till 65534 (används för tjänst-till-tjänst-kommunikation och öppnas inte i belastningsutjämnaren)
+- Blockera alla andra portar
+
+Om det behövs några andra programportar måste du justera resursen Microsoft.Network/loadBalancers och Microsoft.Network/networkSecurityGroups för att låta trafiken komma in.
+
+## <a name="set-template-parameters"></a>Ställa in mallparametrar
+Parameterfilen [vnet-cluster.parameters.json][parameters] deklarerar många värden som används för att distribuera klustret och associerade resurser. Några av parametrarna du kan behöva ändra för distributionen är:
+
+|Parameter|Exempelvärde|Anteckningar|
+|---|---||
+|adminUserName|vmadmin| Administratörsanvändarnamn för virtuella datorer i klustret. |
+|adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret.|
+|clusterName|mysfcluster123| Namnet på klustret. |
+|location|southcentralus| Platsen på klustret. |
+|certificateThumbprint|| <p>Värde bör vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”. </p>| 
+|certificateUrlValue|| <p>Värde bör vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Till exempel ”https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346”.</p>|
+|sourceVaultValue||<p>Värde bör vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera virtuella nätverk och kluster
+Konfigurera därefter nätverkstopologi och distribuera Service Fabric-klustret. Resource Manager-mallen [vnet-linuxcluster.json][template] skapar ett virtuellt nätverk (VNET) och ett undernät och en nätverkssäkerhetsgrupp (NSG) för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverat.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustrets certifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+
+Följande skript använder kommandot [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) och mallen för att distribuera ett nytt kluster som skyddas med ett befintligt certifikat. Kommandot skapar även ett nytt nyckelvalv i Azure och laddar upp certifikatet.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
-Location="southcentralus"
-az group create --name $ResourceGroupName --location $Location
-```
-
-## <a name="deploy-the-network-topology"></a>Distribuera nätverkets topologi
-Därefter konfigurera nätverkets topologi som API Management och Service Fabric-klustret kommer att distribueras. Den [network.json] [ network-arm] Resource Manager-mall har konfigurerats för att skapa ett virtuellt nätverk (VNET) och en undernät och nätverket säkerhetsgrupp (NSG) för Service Fabric och ett undernät, och NSG för API Management . Lär dig mer om Vnet, undernät och NSG: er [här](../virtual-network/virtual-networks-overview.md).
-
-Den [network.parameters.json] [ network-parameters-arm] parameterfilen innehåller namnen på undernät och NSG: er som Service Fabric och API-hantering distribuera till.  API Management har distribuerats i det [följande kursen](service-fabric-tutorial-deploy-api-management.md). Den här guiden behöver inte parametervärden som ska ändras. Service Fabric Resource Manager-mallar använder dessa värden.  Om värdena ändras här, måste du ändra dem i de andra Resource Manager-mallar används i den här kursen och [distribuera API Management kursen](service-fabric-tutorial-deploy-api-management.md). 
-
-Hämta följande Resource Manager-mall och parametrar filen:
-- [Network.JSON][network-arm]
-- [Network.parameters.JSON][network-parameters-arm]
-
-Använd följande skript för att distribuera Resource Manager-mall och parametern-filer för installation av nätverk:
-
-```azurecli
-az group deployment create \
-    --name VnetDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file network.json \
-    --parameters @network.parameters.json
-```
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>Distribuera Service Fabric-kluster
-När nätverksresurser är klar för distribution, är nästa steg att distribuera ett Service Fabric-kluster till VNET i undernät och NSG: N för Service Fabric-klustret. Distribuera ett kluster till ett befintligt VNET och undernät (distribuerad tidigare i den här artikeln) kräver en Resource Manager-mall.  Mer information finns i [skapa ett kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). För den här självstudiekursen serien är mallen förkonfigurerad att använda namnen på virtuella nätverk, undernät och NSG: N som du skapade i föregående steg.  
-
-Hämta följande Resource Manager-mall och parametrar filen:
-- [linuxcluster.JSON][cluster-arm]
-- [linuxcluster.parameters.JSON][cluster-parameters-arm]
-
-Du kan använda mallen för att skapa en säker kluster.  Ett certifikat för klustret är ett X.509-certifikat som används för att skydda kommunikationen nod till nod och autentisera att klustret management slutpunkter management-klienten.  Certifikat för klustret ger också en SSL för HTTPS-hanterings-API och för Service Fabric Explorer via HTTPS. Azure Key Vault används för att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure, Azure resursprovidern ansvarar för att skapa Service Fabric-kluster hämtar certifikat från Nyckelvalvet och installerar dem på klustret virtuella datorer. 
-
-Du kan använda ett certifikat från en certifikatutfärdare (CA) som certifikatet klustret eller för testning, skapa ett självsignerat certifikat. Certifikat för klustret måste:
-
-- innehåller en privat nyckel.
-- skapas för nyckelutbyte, som kan exporteras till en Personal Information Exchange (.pfx)-fil.
-- ha ett ämnesnamn som matchar den domän som du använder för att få åtkomst till Service Fabric-klustret. Den här matchar krävs SSL för att klustrets HTTPS management slutpunkter och Service Fabric Explorer. Du kan skaffa ett SSL-certifikat från en certifikatutfärdare (CA) för det. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en Certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som du använder för klustret.
-
-Fyll i följande tomma parametrar i den *linuxcluster.parameters.json* filen för din distribution:
-
-|Parameter|Värde|
-|---|---|
-|adminPassword|Lösenordet #1234|
-|adminUserName|vmadmin|
-|Klusternamn|mysfcluster|
-
-Lämna den **certificateThumbprint**, **certificateUrlValue**, och **sourceVaultValue** parametrar tomt om du vill skapa ett självsignerat certifikat.  Om du vill använda ett befintligt certifikat som tidigare har överförts till ett nyckelvalv kan fylla i de parametervärdena.
-
-Följande skript använder den [az SA kluster skapa](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) kommandot och mallen för att distribuera ett nytt kluster i Azure. Cmdlet även skapar ett nytt nyckelvalv i Azure, lägger till ett nytt självsignerat certifikat till nyckelvalvet och hämtar certifikatfilen lokalt. Du kan ange ett befintligt certifikat och/eller nyckelvalv med andra parametrar för den [az SA kluster skapa](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) kommando.
-
-```azurecli
+Location="southcentralus"  
 Password="q6D7nN%6ck@6"
-Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates\MyCertificate.pem"
+
+# sign in to your Azure account and select your subscription
+az login
+az account set --subscription <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
 az group create --name $ResourceGroupName --location $Location
 
+# Create the Service Fabric cluster.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
-   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+   --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
-
+   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Ansluta till det säkra klustret
-Anslut till klustret med hjälp av Service Fabric-CLI `sfctl cluster select` med din nyckel.  Observera använder bara den **--Nej-verifiera** alternativ för ett självsignerat certifikat.
+Anslut till klustret med Service Fabric CLI `sfctl cluster select`-kommandot med din nyckel.  Använd enbart alternativet **--no-verify** för ett självsignerat certifikat.
 
 ```azurecli
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Kontrollera att du är ansluten och att klustret är felfri med hjälp av den `sfctl cluster health` kommando.
+Kontrollera att du är ansluten och att klustret är felfritt med kommandot `sfctl cluster health`.
 
 ```azurecli
 sfctl cluster health
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-De andra artiklarna i den här självstudiekursen serien använda kluster som du nyss skapade. Om du inte omedelbart flytta in i nästa artikel kanske du vill ta bort klustret för att undvika kostnader. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
+De andra artiklarna i självstudieserien använder klustret du nyss skapade. Om du inte genast fortsätter till nästa artikel kanske du vill ta bort klustret för att undvika kostnader. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
 
-Logga in på Azure och välj prenumerations-ID som du vill ta bort klustret.  Du hittar prenumerations-ID genom att logga in på [Azure-portalen](http://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med hjälp av den [ta bort grupp az](/cli/azure/group?view=azure-cli-latest#az_group_delete) kommando.
+Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret för.  Du hittar ditt prenumerations-ID genom att logga in på [Azure Portal](http://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med kommandot [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete).
 
 ```azurecli
 az group delete --name $ResourceGroupName
@@ -170,18 +183,15 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett VNET i Azure med Azure CLI
-> * Skapa en säker Service Fabric-kluster i Azure med Azure CLI
-> * Skydda klustret med ett X.509-certifikat
-> * Ansluta till klustret med Service Fabric CLI
+> * Skapa ett säkert Service Fabric-kluster i Azure med hjälp av Azure CLI
+> * Gör klustret säkert med ett X.509-certifikat
+> * Anslut till klustret med Service Fabric CLI
 > * Ta bort ett kluster
 
-Gå sedan till följande kursen lär dig hur du skala ditt kluster.
+Fortsätt sedan till följande självstudie för att lära dig att skala klustret.
 > [!div class="nextstepaction"]
 > [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json

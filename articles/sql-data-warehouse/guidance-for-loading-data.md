@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
 Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Data Warehouse. 
@@ -31,7 +31,7 @@ Rekommendationer och prestandaoptimering för inläsning av data i Azure SQL Dat
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
 Minska svarstiden genom att samplacera ditt lagringsskikt och datalager.
 
-När du exporterar data till ett ORC-filformat kan kolumner med mycket text vara begränsade till bara 50 kolumner på grund av ”slut på minne”-fel i Java. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
+När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
 PolyBase kan inte läsa in rader med data som överstiger 1 000 000 byte. När du placerar data i textfiler i Azure Blob Storage eller Azure Data Lake Store måste dessa data vara mindre än 1 000 000 byte. Den här begränsningen av byte gäller oavsett tabellschemat.
 
@@ -45,14 +45,22 @@ För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget
 
 För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. När du kör en inläsning loggar du in som en av inläsningsanvändarna och kör sedan inläsningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
-Den här koden skapar en inläsningsanvändare för resursklassen staticrc20. Den ger användare kontrollbehörighet på en databas och lägger sedan till användaren som en medlem i staticrc20-databasrollen. När du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du bara in som LoaderRC20 och kör inläsningen. 
+### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
+I det här exemplet skapas en inläsningsanvändare för resursklassen staticrc20. Det första steget är att **ansluta till huvudservern** och skapa en inloggning.
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+Anslut till informationslagret och skapa en användare. Följande kod förutsätter att du är ansluten till databasen mySampleDataWarehouse. Det visar hur du skapar en användare med namnet LoaderRC20 och ger användare kontrollbehörighet på en databas. Det lägger sedan till användaren som en medlem i staticrc20-databasrollen.  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+När du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du bara in som LoaderRC20 och kör inläsningen.
 
 Kör inläsningar under statiska i stället för dynamiska resursklasser. Genom att använda statiska resursklasser ser du till att resurserna är desamma oavsett din [servicenivå](performance-tiers.md#service-levels). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
@@ -60,7 +68,7 @@ Kör inläsningar under statiska i stället för dynamiska resursklasser. Genom 
 
 Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Att läsa in med [CREATE TABLE AS SELECT (Transact-SQL)] [CREATE TABLE AS SELECT (Transact-SQL)] kräver behörighet på databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
-Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användarna användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats fullständiga behörigheter till databasen. De som skapat schema A och B låser nu deras scheman med DENY:
+Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användarna användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats fullständiga behörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -124,7 +132,7 @@ När du har migrerat dina externa tabeller till den nya datakällan utför du f�
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill övervaka inläsningsprocessen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).
+Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).
 
 
 

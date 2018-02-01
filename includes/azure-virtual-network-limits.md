@@ -31,7 +31,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Samtidiga TCP eller UDP flödar per nätverkskort på en virtuell dator eller rollinstans |500 000 |500 000 |
 | Nätverksgränssnitt (NIC) |350 |20000 |
 | Nätverkssäkerhetsgrupper (NSG) |100 |5000 |
-| NSG-regler per NSG |200 |500 |
+| NSG-regler per NSG |200 |1000 |
 | IP-adresser och intervall som angetts för källan eller målet i en säkerhetsgrupp |2000 |4000 |
 | Programsäkerhetsgrupper |200 |500 |
 | Programmet säkerhetsgrupper per IP-konfiguration per NIC |10 |20 |

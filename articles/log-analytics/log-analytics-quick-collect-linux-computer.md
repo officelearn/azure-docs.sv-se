@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/14/2017
+ms.date: 01/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 839fc3a326dca8b60c6750231b06d2369c3de2fc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Samla in data från Linux-datorer i din miljö
 Med [Azure Log Analytics](log-analytics-overview.md) kan du samla in data direkt från fysiska eller virtuella Linux-datorer och andra resurser i din miljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](log-analytics-quick-collect-azurevm.md).  
@@ -59,7 +59,7 @@ Innan du installerar OMS-agenten för Linux behöver du arbetsytans id och nycke
 Med följande steg konfigurerar du installationen av agenten för Log Analytics i Azure- och Azure Government-molnet.  
 
 >[!NOTE]
->OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics--arbetsyta.  
+>OMS-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics-arbetsyta.  
 
 1. Konfigurera Linux-datorn att ansluta till Log Analytics genom att köra följande kommando och ange arbetsytans id och den primära nyckeln som du kopierade tidigare.  Med det här kommandot laddar du ned agenten, verifierar dess kontrollsumma och installerar den. 
     
@@ -75,7 +75,7 @@ Med följande steg konfigurerar du installationen av agenten för Log Analytics 
 
 ## <a name="configure-agent-to-communicate-with-a-proxy-server"></a>Konfigurera agenten att kommunicera med en proxyserver
 
-Utför följande steg om Linux-datorerna måste kommunicera med Log Analytics via en proxyserver.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.
+Utför följande steg om Linux-datorerna måste kommunicera med Log Analytics via en proxyserver.  Konfigurationsvärdet för proxyn har följande syntax `[protocol://][user:password@]proxyhost[:port]`.  Egenskapen *proxyhost* accepterar ett fullständigt domännamn eller en fullständig IP-adress för proxyservern.    
 
 1. Redigera filen `/etc/opt/microsoft/omsagent/proxy.conf` genom att köra följande kommandon och ändra värdena enligt dina specifika inställningar.
 

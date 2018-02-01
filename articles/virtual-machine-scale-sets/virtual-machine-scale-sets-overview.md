@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Vad är skalningsuppsättningar för virtuella datorer i Azure?
 Skalningsuppsättningar för virtuella datorer är en Azure-beräkningsresurs som du kan använda för att distribuera och hantera en uppsättning identiska virtuella datorer. När alla virtuella datorer har konfigurerats på samma sätt skapas skalningsuppsättningar för att stödja sann autoskalning. Ingen företablering av virtuella datorer krävs. Det gör det enklare att skapa storskaliga tjänster som riktar sig mot Big Compute, stordata och arbetsbelastningar i behållare.
@@ -35,10 +35,7 @@ Titta igenom dessa videor för mer information om skalningsuppsättningar:
 ## <a name="creating-and-managing-scale-sets"></a>Skapa och hantera skalningsuppsättningar
 Du kan skapa en skalningsuppsättning i [Azure Portal](https://portal.azure.com) genom att välja **Ny** och skriva in **skalning** i sökfältet. Bland resultaten ser du **Skalningsuppsättning för virtuella datorer**. Därifrån kan du fylla i fälten som krävs för att anpassa och distribuera din skalningsuppsättning. Observera att det även finns alternativ för att ställa in grundläggande regler för automatisk skalning som baseras på processoranvändningen i portalen. Om du vill hantera din skalningsuppsättning kan du använda Azure Portal, [Azure PowerShell-cmdletar](virtual-machine-scale-sets-windows-manage.md) eller Azure CLI 2.0.
 
-Skalningsuppsättningar kan distribueras i en [tillgänglighetszon](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> För närvarande stöder skalningsuppsättningar för virtuella datorer bara distribution till en enda tillgänglighetszon. Distribution till flera zoner kommer att stödjas framöver.
+Skalningsuppsättningar kan distribueras mellan olika [tillgänglighetszoner](virtual-machine-scale-sets-use-availability-zones.md).
 
 Du kan definiera och distribuera skalningsuppsättningar med hjälp av JSON-mallar och [REST API:er](https://msdn.microsoft.com/library/mt589023.aspx) precis som enskilda virtuella Azure Resource Manager-datorer. Därför går det att använda alla standardmetoder för Azure Resource Manager-distribution. Mer information om mallar finns i [Redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ För att upprätthålla konsekvent programprestanda kan du automatiskt öka elle
 
 Du kan använda värdbaserade prestandavärden som CPU-användning eller disk-I/O för grundläggande regler för automatisk skalning. De här värdbaserade måtten är tillgängliga automatiskt, utan ytterligare agenter eller tillägg som måste installeras och konfigureras. Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
 
-- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure-portalen](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Om du behöver visa eller redigera den underliggande JSON-definitionen för en A
 Det här avsnittet innehåller några vanliga scenarier för skalningsuppsättningar. Vissa Azure-tjänster på högre nivåer (som Batch, Service Fabric och Container Service) använder dessa scenarier.
 
 * **Använd RDP eller SSH för att ansluta till skalningsuppsättningsinstanser**: En skalningsuppsättning skapas i ett virtuellt nätverk och enskilda virtuella datorer i skalningsuppsättningen allokeras inte till offentliga IP-adresser som standard. Den här principen undviker utgifts- och administrationskostnader för att allokera separata offentliga IP-adresser för alla noder i rutnätsberäkningen. Om du behöver hänvisa externa anslutningar till skaluppsättningen för virtuella datorer kan du konfigurera en skala som automatiskt tilldelar offentliga IP-adresser till nya virtuella datorer. Du kan alternativt ansluta till dessa virtuella datorer från andra resurser i det virtuella nätverket, till exempel belastningsutjämnare och fristående virtuella datorer, som kan allokeras till offentliga IP-adresser. 
-* **Ansluta till virtuella datorer med NAT-regler**: Du kan skapa en offentlig IP-adress, tilldela den en belastningsutjämnare och definiera en inkommande NAT-pool. De här åtgärderna mappar portar på IP-adressen till en port på en virtuell dator i skalningsuppsättningen. Exempel:
+* **Ansluta till virtuella datorer med NAT-regler**: Du kan skapa en offentlig IP-adress, tilldela den en belastningsutjämnare och definiera en inkommande NAT-pool. De här åtgärderna mappar portar på IP-adressen till en port på en virtuell dator i skalningsuppsättningen. Till exempel:
   
   | Källa | Källport | Mål | Målport |
   | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: "Azure Behållarinstanser tutorial – förbereda registret för Azure-behållare"
-description: "Azure Behållarinstanser självstudiekursen del 2 av 3 – Förbereda registret för Azure-behållare"
+title: "Självstudie om Azure Container Instances – förbereda Azure Container Registry"
+description: "Självstudie om Azure Container Instances del 2 av 3 – förbereda Azure Container Registry"
 services: container-instances
 author: neilpeterson
 manager: timlt
@@ -9,74 +9,74 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c0aad1f9bbaac9a456b34f75633faba92f57f498
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 94ecba44b8281460da4518c146aab814d2eaa850
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container registret
+# <a name="deploy-and-use-azure-container-registry"></a>Distribuera och använda Azure Container Registry
 
-Detta är en del två av tre delar självstudiekursen. I den [föregående steg](container-instances-tutorial-prepare-app.md), en behållare avbildning har skapats för en enkel webbapp som skrivits i [Node.js][nodejs]. I den här självstudiekursen push avbildningen till ett Azure Container registret. Om du inte har skapat behållaren avbildningen återgå till [kursen 1 – skapa behållaren image](container-instances-tutorial-prepare-app.md).
+Det här är del två i en serie självstudier med tre delar. I [föregående steg](container-instances-tutorial-prepare-app.md) skapade du en behållaravbildning för en enkel webbapp som skrivits i [Node.js][nodejs]. I den här självstudien push-överför du avbildningen till ett Azure Container Registry. Om du inte har skapat behållaravbildningen återgår du till [Självstudie 1 – skapa behållaravbildningen](container-instances-tutorial-prepare-app.md).
 
-Azure Container registret är en Azure-baserade, privat registret för Docker behållare bilder. Den här självstudiekursen vägleder dig genom att distribuera en instans av Azure-behållare registret och överföra en behållare avbildning till den.
+Azure Container Registry är ett Azure-baserat och privat register för Docker-behållaravbildningar. I den här självstudien får du hjälp att distribuera en instans av Azure Container Registry och att push-överföra en behållaravbildning till den.
 
-I den här artikeln del två serierna du:
+I den här artikeln, som är del två i serien, får du göra följande:
 
 > [!div class="checklist"]
-> * Distribuera en Azure-behållare registret-instans
-> * Tagga en behållare avbildning för Azure-behållaren registret
-> * Överför avbildningen till registret
+> * distribuera en Azure Container Registry-instans
+> * tagga en behållaravbildning för Azure-behållarregistret
+> * överföra avbildningen till registret.
 
-I nästa artikel sista kurs i serien, distribuera behållaren från din privata registret till Behållarinstanser som Azure.
+I nästa artikel, som är den sista självstudien i serien, distribuerar du behållaren från ditt privata register till Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här kursen kräver att du använder Azure CLI version 2.0.23 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI 2.0][azure-cli-install].
+För den här självstudien krävs att du kör Azure CLI version 2.0.23 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli-install].
 
-Den här kursen behöver en Docker-utvecklingsmiljö installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på någon [Mac][docker-mac], [Windows][docker-windows], eller [Linux] [ docker-linux] system.
+För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö installerad lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 
-Azure Cloud Shell inkluderar inte Docker-komponenter som krävs för att slutföra varje steg den här kursen. På den lokala datorn för att slutföra den här guiden måste du installera Azure CLI och Docker-utvecklingsmiljö.
+Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i den här självstudien. Du måste installera Azure CLI och Docker-utvecklingsmiljön lokalt när du ska gå igenom den här självstudien.
 
-## <a name="deploy-azure-container-registry"></a>Distribuera Azure-behållaren registret
+## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-När du distribuerar ett Azure Container registret, måste du först en resursgrupp. En Azure-resursgrupp är en logisk samling i vilka Azure resurser distribueras och hanteras.
+När du distribuerar ett Azure Container Registry behöver du först en resursgrupp. En Azure-resursgrupp är en logisk samling där du distribuerar och hanterar Azure-resurser.
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. I det här exemplet en resursgrupp med namnet *myResourceGroup* skapas i den *eastus* region.
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en Azure-behållaren registret med den [az acr skapa] [ az-acr-create] kommando. Registret behållarnamn **måste vara unika** i Azure, och måste innehålla 5 50 alfanumeriska tecken. Ersätt `<acrName>` med ett unikt namn för registret:
+Skapa ett Azure-behållarregister med kommandot [az acr create][az-acr-create]. Namnet på behållarregistret måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. Ersätt `<acrName>` med ett unikt namn för ditt register:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Till exempel att skapa ett Azure-behållaren registernyckel med namnet *mycontainerregistry082*:
+Så här skapar du till exempel ett Azure-behållarregister med namnet *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-I resten av den här kursen använder vi `<acrName>` som platshållare för registret behållarnamn som du har valt.
+I resten av den här självstudien använder vi `<acrName>` som platshållare för det behållarregisternamn du väljer.
 
-## <a name="container-registry-login"></a>Behållaren registret inloggning
+## <a name="container-registry-login"></a>Logga in på behållarregistret
 
-Du måste logga in till din instans av Azure-behållare registret innan du skickar bilder till den. Använd den [az acr inloggning] [ az-acr-login] kommando för att slutföra åtgärden. Du måste ange det unika namnet som du angav för behållaren registret när du skapade den.
+Du måste logga in på din Azure Container Registry-instans innan du push-överför avbildningar till den. Använd kommandot [az acr login][az-acr-login] till att slutföra åtgärden. Du måste ange det unika namn du gav till behållarregistret när du skapade det.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar en `Login Succeeded` meddelande när den har slutförts.
+Kommandot returnerar meddelandet `Login Succeeded` när det har slutförts.
 
-## <a name="tag-container-image"></a>Taggen behållaren bild
+## <a name="tag-container-image"></a>Tagga behållaravbildningen
 
-Om du vill distribuera en avbildning för behållaren från ett privat register, måste du tagga avbildningen med det `loginServer` namn i registret.
+När du ska distribuera en behållaravbildning från ett privat register måste du tagga avbildningen med `loginServer`-namnet för registret.
 
-Om du vill se en lista över aktuella bilder i [docker bilder] [ docker-images] kommando.
+Om du vill se en lista med aktuella avbildningar använder du kommandot [docker images][docker-images].
 
 ```bash
 docker images
@@ -89,7 +89,7 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-För att få namnet loginServer köra den [az acr visa] [ az-acr-show] kommando. Ersätt `<acrName>` med namnet på behållaren registret.
+Du hämtar loginServer-namnet genom att köra kommandot [az acr show][az-acr-show]. Ersätt `<acrName>` med namnet på ditt behållarregister.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -103,13 +103,13 @@ Result
 mycontainerregistry082.azurecr.io
 ```
 
-Taggen i *aci kursen app* avbildningen med loginServer behållare registret. Lägg även till `:v1` till slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen. Ersätt `<acrLoginServer>` med resultatet av den [az acr visa] [ az-acr-show] kommando du precis körde.
+Tagga avbildningen *aci-tutorial-app* med loginServer-värdet för behållarregistret. Lägg även till `:v1` i slutet av avbildningens namn. Den här taggen anger versionsnumret för avbildningen. Ersätt `<acrLoginServer>` med resultatet från kommandot [az acr show][az-acr-show] som du körde nyss.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
 ```
 
-När taggade, köra `docker images` att bekräfta åtgärden.
+När taggningen är färdig verifierar du åtgärden genom att köra `docker images`.
 
 ```bash
 docker images
@@ -123,15 +123,15 @@ aci-tutorial-app                                          latest              5c
 mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9dace4e1a17        7 minutes ago       68.1 MB
 ```
 
-## <a name="push-image-to-azure-container-registry"></a>Push-avbildningen till registret för Azure-behållare
+## <a name="push-image-to-azure-container-registry"></a>Push-överför avbildningen till Azure Container Registry
 
-Push den *aci kursen app* avbildningen till registret med den [docker push] [ docker-push] kommando. Ersätt `<acrLoginServer>` med fullständig server inloggningsnamnet hämta i tidigare steg.
+Push-överför avbildningen *aci-tutorial-app* till registret med kommandot [docker push][docker-push]. Ersätt `<acrLoginServer>` med det fullständiga namnet på inloggningsservern från det tidigare steget.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
 ```
 
-Den `push` åtgärden bör ta några sekunder att några minuter beroende på din internet-anslutning och utdata som liknar följande:
+`push`-åtgärden kan ta från några sekunder till några minuter beroende på din internetanslutning och utdata bör likna följande:
 
 ```bash
 The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
@@ -144,9 +144,9 @@ d8fbd47558a8: Pushed
 v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
-## <a name="list-images-in-azure-container-registry"></a>Listan avbildningar i Azure Container registret
+## <a name="list-images-in-azure-container-registry"></a>Lista avbildningar i Azure Container Registry
 
-Om du vill returnera en lista över bilder som har varit pushas till Azure-behållare registret, Använd den [az acr databaslistan] [ az-acr-repository-list] kommando. Uppdatera kommandot med registret behållarnamn.
+Du kan returnera en lista med avbildningar som push-överförts till Azure-behållarregistret med kommandot [az acr repository list][az-acr-repository-list]. Uppdatera kommandot med namnet på behållarregistret.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -160,7 +160,7 @@ Result
 aci-tutorial-app
 ```
 
-Och sedan använda taggar för en viss bild visas den [az acr databasen Visa-taggar] [ az-acr-repository-show-tags] kommando.
+Om du sedan vill se taggar för en viss avbildning använder du kommandot [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
@@ -176,17 +176,17 @@ v1
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen förberedd ett Azure Container registret för användning med Azure Container instanser och pushas en avbildning av behållare till registret. Följande steg har slutförts:
+I den här självstudien förberedde du ett Azure Container Registry för användning med Azure Container Instances och push-överförde en behållaravbildning till registret. Följande steg har slutförts:
 
 > [!div class="checklist"]
-> * Distribuera en Azure-behållare registret-instans
-> * En behållare avbildning har taggats för Azure-behållare registret
-> * Överföra en bild till registret för Azure-behållare
+> * distribuera en Azure Container Registry-instans
+> * tagga en behållaravbildning för Azure Container Registry
+> * ladda upp en avbildning till Azure Container Registry.
 
-Gå vidare till nästa kurs att lära dig om att distribuera behållaren till Azure med Azure Container instanser.
+Gå vidare till nästa självstudie om du vill lära dig att distribuera behållaren till Azure med Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Distribuera behållare till Behållarinstanser som Azure](./container-instances-tutorial-deploy-app.md)
+> [Distribuera behållare till Azure Container Instances](./container-instances-tutorial-deploy-app.md)
 
 <!-- LINKS - External -->
 [docker-build]: https://docs.docker.com/engine/reference/commandline/build/

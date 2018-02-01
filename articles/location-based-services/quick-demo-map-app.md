@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Starta en interaktiv kartsökning som demonstration med Azure Location Based Services (förhandsversion)
 
@@ -38,13 +38,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
     ![Skapa Location Based Services-konto i portalen](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Öppna kontot när det har skapats och navigera till kontots **INSTÄLLNINGAR**. Klicka på **Nycklar** för att hämta primära och sekundära prenumerationsnycklar för ditt konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt. 
+5. Öppna kontot när det har skapats och navigera till kontots **INSTÄLLNINGAR**. Klicka på **Nycklar** för att hämta primär- och sekundärnycklar för ditt Azure Location Based Services-konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Ladda ned demonstrationsprogrammet för Azure Maps
 
 1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Spara innehållet i filen lokalt som **AzureMapDemo.html** och öppna den i ett textredigeringsprogram.
-3. Sök efter strängen **&#60;insert-key&#62;** och ersätt den med värdet för **Primär nyckel** som hämtades i föregående avsnitt. 
+3. Sök efter strängen `<insert-key>` och ersätt den med värdet för **Primärnyckel** som hämtades i föregående avsnitt. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Starta demonstrationsprogrammet för Azure Maps

@@ -14,16 +14,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Komma igång med Azure Search i Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [NET](search-howto-dotnet-sdk.md)
+> * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
@@ -72,7 +72,7 @@ Alla REST API-anrop till Azure Search kräver att du anger tjänstens URL och en
 5. Kopiera tjänstens URL och en administratörsnyckel. Du behöver dem senare när du lägger till dem i filen **config.properties**.
 
 ## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
-1. Gå till [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) på GitHub.
+1. Gå till [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) på GitHub.
 2. Klicka på **Ladda ned ZIP**, spara ZIP-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
 3. Exempelfilerna är skrivskyddade. Högerklicka på Mappegenskaper och ta bort skrivskyddet.
 
@@ -85,7 +85,7 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 2. I **Select root directory** bläddrar du till mappen som innehåller exempelfilerna. Välj mappen som innehåller mappen .project. Projektet bör visas i listan **Projects** som ett markerat objekt.
    
     ![][12]
-3. Klicka på **Finish**.
+3. Klicka på **Slutför**.
 4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och API-nyckel

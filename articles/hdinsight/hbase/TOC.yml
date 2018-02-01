@@ -72,6 +72,21 @@
             - name: Publicera HDInsight-appar till Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Installera publicerad app – Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Installera publicerad app – Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Installera publicerad app – Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Installera publicerad app – H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Installera publicerad app – Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Skydda
       items:
         - name: Använda SSH med HDInsight
@@ -165,6 +180,8 @@
         - name: Uppgradera HDInsight-kluster till nyare version
           href: ../hdinsight-upgrade-cluster.md
           maintainContext: true
+        - name: Migrera HBase-kluster till nyare version
+          href: apache-hbase-migrate-new-version.md
         - name: OS-korrigering för HDInsight-kluster
           href: ../hdinsight-os-patching.md
           maintainContext: true
@@ -227,11 +244,15 @@
           href: apache-hbase-provision-vnet.md
         - name: Replikering av HBase-kluster i ett virtuellt Azure-nätverk
           href: apache-hbase-replication.md
+        - name: Konfigurera säkerhetskopiering och replikering för HBase och Phoenix
+          href: apache-hbase-backup-replication.md
     - name: Övervaka med OMS
       items:
         - name: Använda Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
           maintainContext: true
+        - name: Övervaka HBase med OMS
+          href: apache-hbase-monitor-with-oms.md
         - name: Klusterspecifika instrumentpaneler
           href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
@@ -241,6 +262,8 @@
         - name: Övervaka klusterprestanda
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Metodtips för prestanda för Phoenix
+          href: apache-hbase-phoenix-performance.md
 - name: Referens
   items:
     - name: Kodexempel

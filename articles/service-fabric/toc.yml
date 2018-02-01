@@ -1,0 +1,616 @@
+- name: Dokumentation om Service Fabric
+  href: /azure/service-fabric
+- name: "Översikt\r\n"
+  items:
+    - name: Vad är Service Fabric?
+      href: service-fabric-overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa ett .NET-program
+      href: service-fabric-quickstart-dotnet.md
+    - name: Distribuera ett program för Linux-behållare
+      href: service-fabric-quickstart-containers-linux.md
+    - name: Distribuera ett program för Windows-behållare
+      href: service-fabric-quickstart-containers.md
+    - name: Java-snabbstarter
+      items:
+        - name: Distribuera ett Spring Boot-program
+          href: service-fabric-quickstart-java-spring-boot.md
+        - name: Distribuera ett Reliable Services-program
+          href: service-fabric-quickstart-java-reliable-services.md
+- name: Självstudier
+  items:
+    - name: Distribuera ett .NET-program
+      items:
+        - name: 1- Skapa ett .NET-program
+          href: service-fabric-tutorial-create-dotnet-app.md
+        - name: 2- Distribuera programmet
+          href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+        - name: 3- Konfigurera CI/CD
+          href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
+        - name: 4- Övervaka och diagnostisera
+          href: service-fabric-tutorial-monitoring-aspnet.md
+    - name: Använd en befintlig .NET-app i behållare
+      items:
+        - name: 1- Distribuera en .NET-app med hjälp av Docker Compose
+          href: service-fabric-host-app-in-a-container.md
+        - name: 2- Övervaka din behållare
+          href: service-fabric-tutorial-monitoring-wincontainers.md
+    - name: Skapa en app för Linux-behållare
+      items:
+        - name: 1- Skapa behållaravbildningar
+          href: service-fabric-tutorial-create-container-images.md
+        - name: 2- Paketera och distribuera behållare
+          href: service-fabric-tutorial-package-containers.md
+        - name: 3- Redundans och skalning
+          href: service-fabric-tutorial-containers-failover.md
+    - name: Skapa och hantera ett kluster
+      items:
+        - name: 1- Skapa ett kluster på Azure
+          items:
+            - name: 1a- Skapa ett Windows-kluster
+              href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
+            - name: 1a- Skapa ett Linux-kluster
+              href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+        - name: 2- Skala klustret
+          href: service-fabric-tutorial-scale-cluster.md
+        - name: 3- Uppgradera körningstiden för kluster
+          href: service-fabric-tutorial-upgrade-cluster.md
+        - name: 4- Distribuera API Management med Service Fabric
+          href: service-fabric-tutorial-deploy-api-management.md
+- name: Exempel
+  items:
+    - name: Kodexempel
+      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+    - name: Azure PowerShell
+      href: service-fabric-powershell-samples.md
+    - name: Service Fabric CLI
+      href: samples-cli.md
+- name: Begrepp
+  items:
+    - name: Förstå mikrotjänster
+      href: service-fabric-overview-microservices.md
+    - name: Helhetsbild
+      href: service-fabric-content-roadmap.md
+    - name: Programscenarier
+      href: service-fabric-application-scenarios.md
+    - name: Mönster och scenarier
+      href: service-fabric-patterns-and-scenarios.md
+    - name: Arkitektur
+      href: service-fabric-architecture.md
+    - name: Terminologi
+      href: service-fabric-technical-overview.md
+    - name: Programmeringsmodeller som stöds
+      href: service-fabric-choose-framework.md
+      items:
+        - name: Behållare
+          href: service-fabric-containers-overview.md
+          items:
+            - name: Docker Compose (förhandsversion)
+              href: service-fabric-docker-compose.md
+            - name: Resursstyrning
+              href: service-fabric-resource-governance.md
+        - name: Reliable Services
+          href: service-fabric-reliable-services-introduction.md
+          items:
+            - name: 'Reliable Services-livscykel – C#'
+              href: service-fabric-reliable-services-lifecycle.md
+            - name: Reliable Services-livscykel – Java
+              href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections.md
+            - name: Riktlinjer och rekommendationer för Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections-guidelines.md
+            - name: Arbeta med Reliable Collections
+              href: service-fabric-work-with-reliable-collections.md
+            - name: Transaktioner och lås
+              href: service-fabric-reliable-services-reliable-collections-transactions-locks.md
+            - name: Reliable Concurrent Queue
+              href: service-fabric-reliable-services-reliable-concurrent-queue.md
+            - name: Reliable Collection-serialisering
+              href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Internt i Reliable State Manager och Reliable Collection
+              href: service-fabric-reliable-services-reliable-collections-internals.md
+            - name: Avancerad användning
+              href: service-fabric-reliable-services-advanced-usage.md
+        - name: Reliable Actors
+          href: service-fabric-reliable-actors-introduction.md
+          items:
+            - name: Arkitektur
+              href: service-fabric-reliable-actors-platform.md
+            - name: Livscykel och skräpinsamling
+              href: service-fabric-reliable-actors-lifecycle.md
+            - name: Tillståndshantering
+              href: service-fabric-reliable-actors-state-management.md
+            - name: Polymorfism
+              href: service-fabric-reliable-actors-polymorphism.md
+            - name: Återinträde
+              href: service-fabric-reliable-actors-reentrancy.md
+            - name: Typserialisering
+              href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Program och tjänster
+      items:
+        - name: Programmodell
+          href: service-fabric-application-model.md
+        - name: Program- och tjänstmanifest
+          href: service-fabric-application-and-service-manifests.md
+        - name: Värdmodell
+          href: service-fabric-hosting-model.md
+        - name: Tjänsttillstånd
+          href: service-fabric-concepts-state.md
+        - name: Tjänstpartitionering
+          href: service-fabric-concepts-partitioning.md
+        - name: Skalbarhet för program
+          href: service-fabric-concepts-scalability.md
+        - name: Tillgänglighet för tjänster
+          href: service-fabric-availability-services.md
+        - name: Livscykel för replik och instans
+          href: service-fabric-concepts-replica-lifecycle.md
+        - name: Omkonfiguration
+          href: service-fabric-concepts-reconfiguration.md
+        - name: Tjänstkommunikation
+          href: service-fabric-connect-and-communicate-with-services.md
+          items:
+            - name: DNS-tjänst
+              href: service-fabric-dnsservice.md
+            - name: Omvänd proxy
+              href: service-fabric-reverseproxy.md
+            - name: Konfigurera omvänd proxy för säker kommunikation
+              href: service-fabric-reverseproxy-configure-secure-communication.md
+            - name: Diagnostik för omvänd proxy
+              href: service-fabric-reverse-proxy-diagnostics.md
+            - name: ASP.NET Core
+              href: service-fabric-reliable-services-communication-aspnetcore.md
+        - name: Programlivscykel
+          href: service-fabric-application-lifecycle.md
+          items:
+            - name: Programuppgradering
+              href: service-fabric-application-upgrade.md
+              items:
+                - name: Konfiguration
+                  href: service-fabric-visualstudio-configure-upgrade.md
+                - name: Programuppgraderingsparametrar
+                  href: service-fabric-application-upgrade-parameters.md
+                - name: Dataserialisering i programuppgraderingar
+                  href: service-fabric-application-upgrade-data-serialization.md
+                - name: 'Programuppgraderingar: avancerade ämnen'
+                  href: service-fabric-application-upgrade-advanced.md
+            - name: Hantera program för flera miljöer
+              href: service-fabric-manage-multiple-environment-app-configuration.md
+            - name: Testa appar med felanalys
+              href: service-fabric-testability-overview.md
+            - name: ImageStoreConnectionString-inställningen
+              href: service-fabric-image-store-connection-string.md
+        - name: Tjänstresurser
+          href: service-fabric-service-manifest-resources.md
+    - name: Kluster
+      href: service-fabric-deploy-anywhere.md
+      items:
+        - name: Klustersäkerhet
+          href: service-fabric-cluster-security.md
+        - name: Funktionsskillnader mellan Linux och Windows
+          href: service-fabric-linux-windows-differences.md
+        - name: Kluster i Azure
+          items:
+            - name: Nodtyper och VM Scale Sets
+              href: service-fabric-cluster-nodetypes.md
+            - name: Nätverksmönster för kluster
+              href: service-fabric-patterns-networking.md
+        - name: Klusterresurshanterare
+          href: service-fabric-cluster-resource-manager-introduction.md
+          items:
+            - name: Arkitektur
+              href: service-fabric-cluster-resource-manager-architecture.md
+            - name: Beskriv ett kluster
+              href: service-fabric-cluster-resource-manager-cluster-description.md
+            - name: Översikt över programgrupper
+              href: service-fabric-cluster-resource-manager-application-groups.md
+            - name: Konfigurera inställningar för Cluster Resource Manager
+              href: service-fabric-cluster-resource-manager-configure-services.md
+            - name: Statistik över resursförbrukning
+              href: service-fabric-cluster-resource-manager-metrics.md
+            - name: Använd tjänsttillhörighet
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md
+            - name: Placeringsprinciper av tjänster
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md
+            - name: Hantera ett kluster
+              href: service-fabric-cluster-resource-manager-management-integration.md
+            - name: Klusterdefragmentering
+              href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
+            - name: Balansera ett kluster
+              href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Begränsning
+              href: service-fabric-cluster-resource-manager-advanced-throttling.md
+            - name: Tjänstflöde
+              href: service-fabric-cluster-resource-manager-movement-cost.md
+    - name: Övervakning och diagnostik
+      items:
+        - name: Övervaka och diagnostisera program
+          href: service-fabric-diagnostics-overview.md
+        - name: Generera händelser
+          items:
+            - name: Generera händelser på plattformsnivå
+              href: service-fabric-diagnostics-event-generation-infra.md
+              items:
+                - name: Användningskanal
+                  href: service-fabric-diagnostics-event-generation-operational.md
+                - name: Reliable Services-händelser
+                  href: service-fabric-reliable-services-diagnostics.md
+                - name: Reliable Actors-händelser
+                  href: service-fabric-reliable-actors-diagnostics.md
+                - name: Prestandamått
+                  href: service-fabric-diagnostics-event-generation-perf.md
+                - name: Övervaka Service Remoting
+                  href: service-fabric-reliable-serviceremoting-diagnostics.md
+            - name: Generera händelser på programnivå
+              href: service-fabric-diagnostics-event-generation-app.md
+        - name: Inspektera program- och klusterhälsa
+          items:
+            - name: Övervaka Service Fabrics hälsa
+              href: service-fabric-health-introduction.md
+            - name: Rapportera och kontrollera hälsan hos tjänster
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Lägg till anpassade hälsorapporter
+              href: service-fabric-report-health.md
+            - name: Felsök med systemhälsorapporter
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Visa hälsorapporter
+              href: service-fabric-view-entities-aggregated-health.md
+        - name: Sammanfatta händelser
+          items:
+            - name: Sammanfatta händelser med EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+            - name: Sammanfatta händelser med Azure-diagnostik
+              items:
+                - name: Windows
+                  href: service-fabric-diagnostics-event-aggregation-wad.md
+                - name: Linux
+                  href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Analysera händelser
+          items:
+            - name: Analysera händelser med Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Analysera händelser med OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Felsök ditt lokala kluster
+          href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Integrering med API Management
+      href: service-fabric-api-management-overview.md
+- name: Instruktionsguider
+  items:
+    - name: Ställ in din utvecklingsmiljö
+      items:
+        - name: Windows
+          href: service-fabric-get-started.md
+        - name: Linux
+          href: service-fabric-get-started-linux.md
+        - name: Mac OS
+          href: service-fabric-get-started-mac.md
+        - name: Konfigurera Service Fabric CLI
+          href: service-fabric-cli.md
+    - name: Planera och förbereda
+      items:
+        - name: Planera klusterkapacitet
+          href: service-fabric-cluster-capacity.md
+        - name: Planera för distribution av fristående kluster
+          href: service-fabric-cluster-standalone-deployment-preparation.md
+        - name: Förbereda för haveriberedskap
+          href: service-fabric-disaster-recovery.md
+        - name: Planera programkapacitet
+          href: service-fabric-capacity-planning.md
+    - name: Skapa det första...
+      items:
+        - name: 'C#-programmet i Visual Studio'
+          href: service-fabric-create-your-first-application-in-visual-studio.md
+        - name: Windows-behållarprogrammet
+          href: service-fabric-get-started-containers.md
+        - name: Linux-behållarprogrammet
+          href: service-fabric-get-started-containers-linux.md
+        - name: 'C# Reliable Services-programmet på Windows'
+          href: service-fabric-reliable-services-quick-start.md
+        - name: Java Reliable Services-programmet på Linux
+          href: service-fabric-reliable-services-quick-start-java.md
+        - name: 'C# Reliable Services-programmet på Linux'
+          href: service-fabric-create-your-first-linux-application-with-csharp.md
+        - name: 'C# Reliable Actors-programmet på Windows'
+          href: service-fabric-reliable-actors-get-started.md
+        - name: Java Reliable Actors-programmet på Linux
+          href: service-fabric-create-your-first-linux-application-with-java.md
+        - name: Körbara gästprogrammet på Windows
+          href: quickstart-guest-app.md
+        - name: Fristående kluster
+          href: service-fabric-get-started-standalone-cluster.md
+    - name: Skapa ett program
+      items:
+        - name: Skapa en körbar gästtjänst
+          items:
+            - name: Distribuera en körbar gäst
+              href: service-fabric-deploy-existing-app.md
+            - name: Distribuera flera körbara gäster
+              href: service-fabric-deploy-multiple-apps.md
+        - name: Skapa en behållartjänst
+          items:
+            - name: Behållarsäkerhet
+              href: service-fabric-securing-containers.md
+            - name: Docker Compose (förhandsversion)
+              href: service-fabric-docker-compose.md
+            - name: Resursstyrning för behållare och tjänster
+              href: service-fabric-resource-governance.md
+            - name: Drivrutiner för volym och loggning
+              href: service-fabric-containers-volume-logging-drivers.md
+            - name: Tjänster i behållare
+              href: service-fabric-services-inside-containers.md
+            - name: Nätverkslägen för behållare
+              href: service-fabric-networking-modes.md
+        - name: Skapa en Reliable Service-tjänst
+          items:
+            - name: Reliable Collections
+              items:
+                - name: Arbeta med Reliable Collections
+                  href: service-fabric-work-with-reliable-collections.md
+                - name: Reliable Concurrent Queue
+                  href: service-fabric-reliable-services-reliable-concurrent-queue.md
+                - name: Reliable Collection-serialisering
+                  href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Kommunicera med tjänster
+              items:
+                - name: Kommunicera med Reliable Services
+                  href: service-fabric-reliable-services-communication.md
+                - name: 'Fjärrtjänst – C#'
+                  href: service-fabric-reliable-services-communication-remoting.md
+                - name: Fjärrtjänst – Java
+                  href: service-fabric-reliable-services-communication-remoting-java.md
+                - name: WCF
+                  href: service-fabric-reliable-services-communication-wcf.md
+                - name: 'Säker kommunikation – C#'
+                  href: service-fabric-reliable-services-secure-communication.md
+                - name: Säker kommunikation – Java
+                  href: service-fabric-reliable-services-secure-communication-java.md
+            - name: Konfigurera
+              href: service-fabric-reliable-services-configuration.md
+            - name: Skicka meddelanden
+              href: service-fabric-reliable-services-notifications.md
+            - name: Säkerhetskopiering och återställning
+              href: service-fabric-reliable-services-backup-restore.md
+        - name: Skapa en Reliable Actors-tjänst
+          items:
+            - name: Skicka meddelanden
+              href: service-fabric-reliable-actors-events.md
+            - name: Ställ in timrar och påminnelser
+              href: service-fabric-reliable-actors-timers-reminders.md
+            - name: Konfigurera KvsActorStateProvider
+              href: service-fabric-reliable-actors-kvsactorstateprovider-configuration.md
+            - name: Konfigurera kommunikationsinställningar
+              href: service-fabric-reliable-actors-fabrictransportsettings.md
+            - name: Konfigurera ReliableDictionaryActorStateProvider
+              href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
+        - name: Migrera gamla Java-program som stöder Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
+        - name: Konfigurera omvänd proxy för säker kommunikation
+          href: service-fabric-reverseproxy-configure-secure-communication.md
+        - name: Skapa en ASP.NET Core-tjänst
+          href: service-fabric-add-a-web-frontend.md
+        - name: Konfigurera säkerhet
+          items:
+            - name: Hantera programhemligheter
+              href: service-fabric-application-secret-management.md
+            - name: Konfigurera säkerhetsprinciper för ditt program
+              href: service-fabric-application-runas-security.md
+    - name: Arbeta i en Windows/VS-utvecklarmiljö
+      items:
+        - name: Hantera program i Visual Studio
+          href: service-fabric-manage-application-in-visual-studio.md
+        - name: Konfigurera säkra anslutningar i Visual Studio
+          href: service-fabric-visualstudio-configure-secure-connections.md
+        - name: Felsöka en .NET-tjänst i VS
+          href: service-fabric-debugging-your-application.md
+        - name: Vanliga fel och undantag
+          href: service-fabric-errors-and-exceptions.md
+        - name: Övervaka och diagnostisera lokalt
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+        - name: Konfigurera ett Linux-kluster på Windows
+          href: service-fabric-local-linux-cluster-windows.md
+    - name: Arbeta i en Linux/Eclipse-utvecklarmiljö
+      items:
+        - name: Komma igång med Eclipse-plugin för utveckling med Java
+          href: service-fabric-get-started-eclipse.md
+        - name: Felsök en Java-tjänst i Eclipse
+          href: service-fabric-debugging-your-application-java.md
+        - name: Övervaka och diagnostisera lokalt
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Migrera från Cloud Services
+      items:
+        - name: Jämför Cloud Services med Service Fabric
+          href: service-fabric-cloud-services-migration-differences.md
+        - name: Migrera till Service Fabric
+          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
+        - name: Rekommenderade metoder
+          href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Hantera programlivscykel
+      items:
+        - name: Paketera ett program
+          href: service-fabric-package-apps.md
+        - name: Använda parametrar med konfigurationsfiler
+          href: service-fabric-how-to-parameterize-configuration-files.md
+        - name: Ange portnummer med parametrar
+          href: service-fabric-how-to-specify-port-number-using-parameters.md
+        - name: Ange miljövariabler
+          href: service-fabric-how-to-specify-environment-variables.md
+        - name: Distribuera eller ta bort program
+          items:
+            - name: Distribuera program i ett lokalt kluster
+              href: service-fabric-get-started-with-a-local-cluster.md
+            - name: Azure Resource Manager
+              href: service-fabric-application-arm-resource.md
+            - name: Azure PowerShell
+              href: service-fabric-deploy-remove-applications.md
+            - name: Service Fabric CLI
+              href: service-fabric-application-lifecycle-sfctl.md
+            - name: 'FabricClient-API:er'
+              href: service-fabric-deploy-remove-applications-fabricclient.md
+        - name: Uppgradera program
+          items:
+            - name: Uppgradera med Azure PowerShell
+              href: service-fabric-application-upgrade-tutorial-powershell.md
+            - name: Uppgradera med Visual Studio
+              href: service-fabric-application-upgrade-tutorial.md
+            - name: Felsök programuppgraderingar
+              href: service-fabric-application-upgrade-troubleshooting.md
+        - name: Testa program och tjänster
+          items:
+            - name: Testa tjänst-till-tjänst-kommunikation
+              href: service-fabric-testability-scenarios-service-communication.md
+            - name: Simulera fel
+              items:
+                - name: Använda kontrollerat kaos
+                  href: service-fabric-controlled-chaos.md
+                - name: Använda teståtgärder
+                  href: service-fabric-testability-actions.md
+                - name: Under arbetsbelastningar
+                  href: service-fabric-testability-workload-tests.md
+                - name: Använda testscenarier
+                  href: service-fabric-testability-scenarios.md
+                - name: 'Använda API:er för nodövergång'
+                  href: service-fabric-node-transition-apis.md
+        - name: Konfigurera kontinuerlig integrering
+          items:
+            - name: Konfigurera kontinuerlig integrering med VSTS
+              href: service-fabric-set-up-continuous-integration.md
+            - name: Distribuera ditt Linux-program med Jenkins
+              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+    - name: Skapa och hantera kluster
+      items:
+        - name: Kluster i Azure
+          items:
+            - name: Skapa
+              items:
+                - name: Azure Portal
+                  href: service-fabric-cluster-creation-via-portal.md
+                - name: Azure Resource Manager
+                  href: service-fabric-cluster-creation-via-arm.md
+            - name: Skala
+              items:
+                - name: Manuellt
+                  href: service-fabric-cluster-scale-up-down.md
+                - name: Programmässigt
+                  href: service-fabric-cluster-programmatic-scaling.md
+            - name: Uppgradera
+              href: service-fabric-cluster-upgrade.md
+            - name: Ange åtkomstkontroll
+              href: service-fabric-cluster-security-roles.md
+            - name: Konfigurera
+              href: service-fabric-cluster-fabric-settings.md
+            - name: Öppna en port i belastningsutjämnaren
+              href: create-load-balancer-rule.md
+            - name: Hantera klustercertifikat
+              href: service-fabric-cluster-security-update-certs-azure.md
+            - name: Ta bort
+              href: service-fabric-cluster-delete.md
+        - name: Fristående kluster
+          items:
+            - name: Skapa
+              items:
+                - name: Skapa lokalt
+                  href: service-fabric-cluster-creation-for-windows-server.md
+                - name: Skydda med hjälp av certifikat
+                  href: service-fabric-windows-cluster-x509-security.md
+                - name: Skydda med hjälp av Windows-säkerhet
+                  href: service-fabric-windows-cluster-windows-security.md
+                - name: Innehåll i det fristående paketet
+                  href: service-fabric-cluster-standalone-package-contents.md
+            - name: Skala
+              href: service-fabric-cluster-windows-server-add-remove-nodes.md
+            - name: Ange åtkomstkontroll
+              href: service-fabric-cluster-security-roles.md
+            - name: Konfigurera
+              href: service-fabric-cluster-manifest.md
+            - name: Uppgradera
+              href: service-fabric-cluster-upgrade-windows-server.md
+        - name: Visualisera ett kluster
+          href: service-fabric-visualizing-your-cluster.md
+        - name: Ansluta till ett säkert kluster
+          href: service-fabric-connect-to-secure-cluster.md
+        - name: Korrigera klusternoder
+          href: service-fabric-patch-orchestration-application.md
+    - name: Övervaka och diagnostisera
+      items:
+        - name: OMS
+          items:
+            - name: Konfigurera OMS Log Analytics
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Lägga till OMS-agenten
+              href: service-fabric-diagnostics-oms-agent.md
+            - name: Övervaka behållare
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Prestandaövervakning
+          items:
+            - name: Prestandaövervakning med WAD
+              href: service-fabric-diagnostics-perf-wad.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.servicefabric/
+    - name: PowerShell
+      href: /powershell/module/servicefabric/?view=azureservicefabricps
+    - name: Azure CLI (az sf)
+      href: /cli/azure/sf
+    - name: Service Fabric CLI (sfctl)
+      href: service-fabric-sfctl.md
+      items:
+        - name: sfctl application
+          href: service-fabric-sfctl-application.md
+        - name: sfctl chaos
+          href: service-fabric-sfctl-chaos.md
+        - name: sfctl cluster
+          href: service-fabric-sfctl-cluster.md
+        - name: sfctl compose
+          href: service-fabric-sfctl-compose.md
+        - name: sfctl is
+          href: service-fabric-sfctl-is.md
+        - name: sfctl node
+          href: service-fabric-sfctl-node.md
+        - name: sfctl partition
+          href: service-fabric-sfctl-partition.md
+        - name: sfctl replica
+          href: service-fabric-sfctl-replica.md
+        - name: sfctl rpm
+          href: service-fabric-sfctl-rpm.md
+        - name: sfctl service
+          href: service-fabric-sfctl-service.md
+        - name: sfctl store
+          href: service-fabric-sfctl-store.md
+    - name: Java-API
+      href: /java/api/overview/azure/servicefabric
+      items:
+        - name: API för Java REST-klient
+          href: service-fabric-java-rest-api-usage.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+    - name: REST
+      href: /rest/api/servicefabric
+    - name: XML-schema för tjänstmodell
+      href: service-fabric-service-model-schema.md
+    - name: Miljövariabler
+      href: service-fabric-environment-variables-reference.md
+- name: Resurser
+  items:
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Vanliga frågor
+      href: service-fabric-common-questions.md
+    - name: Utbildningsväg
+      href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Exempelkod
+      href: 'http://aka.ms/servicefabricsamples'
+    - name: Supportalternativ
+      href: service-fabric-support.md
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

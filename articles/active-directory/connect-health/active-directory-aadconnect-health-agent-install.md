@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -103,32 +103,38 @@ För att funktionen Användningsanalys ska kunna samla in och analysera data beh
 2. Gå till mappen **Säkerhetsinställningar\Lokala principer\Tilldelning av användarrättigheter** och dubbelklicka sedan på **Generera säkerhetsgranskningar**.
 3. På fliken **Lokal säkerhetsinställning** kontrollerar du att AD FS 2.0-tjänstkontot visas. Om det inte visas klickar du på **Lägg till användare eller grupp**, lägger till det i listan och klickar på **OK**.
 4. Öppna en kommandotolk med förhöjd behörighet och kör följande kommando för att aktivera granskning: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Stäng **Lokal säkerhetsprincip** och öppna sedan snapin-modulen för **AD FS-hantering**. Öppna snapin-modulen för AD FS-hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på **AD FS 2.0 Management**.
-6. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
-7. Klicka på fliken **Händelser** i dialogrutan **Egenskaper för Federation Service**.
-8. Markera kryssrutorna **Lyckade granskningar** och **Misslyckade granskningar**.
-9. Klicka på **OK**.
+5. Stäng **Lokal säkerhetsprincip**.
+<br>   -- **Följande steg krävs bara för primära AD FS-servrar.** -- </br>
+6. Öppna snapin-modulen **AD FS-hantering**. Öppna snapin-modulen för AD FS-hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på **AD FS 2.0 Management**.
+7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
+8. Klicka på fliken **Händelser** i dialogrutan **Egenskaper för Federation Service**.
+9. Markera kryssrutorna **Lyckade granskningar** och **Misslyckade granskningar**.
+10. Klicka på **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Så här aktiverar du granskning för AD FS i Windows Server 2012 R2
 1. Öppna **Lokal säkerhetsprincip** genom att öppna **Serverhanteraren** på startskärmen, eller Serverhanteraren i verktygsfältet på skrivbordet, och klicka sedan på **Verktyg/lokal säkerhetsprincip**.
 2. Gå till mappen **Säkerhetsinställningar\Lokala principer\Tilldelning av användarrättigheter** och dubbelklicka sedan på **Generera säkerhetsgranskningar**.
 3. På fliken **Lokal säkerhetsinställning** kontrollerar du att AD FS-tjänstkontot visas. Om det inte visas klickar du på **Lägg till användare eller grupp**, lägger till det i listan och klickar på **OK**.
 4. Öppna en kommandotolk med förhöjd behörighet och kör följande kommando för att aktivera granskning: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. Stäng **Lokal säkerhetsprincip** och öppna sedan snapin-modulen för **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS Management).
-6. Klicka på **Redigera egenskaper för Federation Service** i fönstret Åtgärder.
-7. Klicka på fliken **Händelser** i dialogrutan Egenskaper för Federation Service.
-8. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**.
+5. Stäng **Lokal säkerhetsprincip**.
+<br>   -- **Följande steg krävs bara för primära AD FS-servrar.** -- </br>
+6. Öppna snapin-modulen **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS-hantering).
+7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
+8. Klicka på fliken **Händelser** i dialogrutan **Egenskaper för Federation Service**.
+9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Så här aktiverar du granskning för AD FS i Windows Server 2016
 1. Öppna **Lokal säkerhetsprincip** genom att öppna **Serverhanteraren** på startskärmen, eller Serverhanteraren i verktygsfältet på skrivbordet, och klicka sedan på **Verktyg/lokal säkerhetsprincip**.
 2. Gå till mappen **Säkerhetsinställningar\Lokala principer\Tilldelning av användarrättigheter** och dubbelklicka sedan på **Generera säkerhetsgranskningar**.
 3. På fliken **Lokal säkerhetsinställning** kontrollerar du att AD FS-tjänstkontot visas. Om det inte visas klickar du på **Lägg till användare eller grupp** och lägger till AD FS-tjänstkontot i listan, och klickar sedan på **OK**.
 4. Öppna en kommandotolk med förhöjd behörighet och kör följande kommando för att aktivera granskning: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. Stäng **Lokal säkerhetsprincip** och öppna sedan snapin-modulen för **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS Management).
-6. Klicka på **Redigera egenskaper för Federation Service** i fönstret Åtgärder.
-7. Klicka på fliken **Händelser** i dialogrutan Egenskaper för Federation Service.
-8. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**. Detta bör vara aktiverat som standard.
-9. Öppna ett PowerShell-fönstret och kör följande kommando: ```Set-AdfsProperties -AuditLevel Verbose```.
+5. Stäng **Lokal säkerhetsprincip**.
+<br>   -- **Följande steg krävs bara för primära AD FS-servrar.** -- </br>
+6. Öppna snapin-modulen **AD FS-hantering** (klicka på Verktyg i Serverhanteraren och välj sedan AD FS-hantering).
+7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
+8. Klicka på fliken **Händelser** i dialogrutan **Egenskaper för Federation Service**.
+9. Markera kryssrutorna för **lyckade och misslyckade granskningar** och klicka sedan på **OK**. Detta bör vara aktiverat som standard.
+10. Öppna ett PowerShell-fönstret och kör följande kommando: ```Set-AdfsProperties -AuditLevel Verbose```.
 
 Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer om [AD FS-granskningsförbättringen i Windows Server 2016](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
@@ -211,7 +217,7 @@ Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar 
 ![Verifiera Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
-### <a name="agent-registration-using-powershell"></a>Agentregistrering med PowerShell
+## <a name="agent-registration-using-powershell"></a>Agentregistrering med PowerShell
 När du har installerat lämplig agent-setup.exe, kan du utföra steget agentregistrering med hjälp av följande PowerShell-kommandon, beroende på rollen. Öppna ett PowerShell-fönster och kör lämpligt kommando:
 
 ```

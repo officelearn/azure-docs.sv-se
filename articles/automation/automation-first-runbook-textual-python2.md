@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 0cf0b1829c7e1f9b0b8be90983a705d82784c062
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
@@ -63,17 +63,16 @@ print("Hello World!")
 
 Klicka på **spara** att spara runbook.
 
-## <a name="test-the-runbook"></a>Testa runbook
+## <a name="test-the-runbook"></a>Testa runbooken
 
 Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmiljön testar du den och kontrollerar att den fungerar som den ska. När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
 
 1. Öppna testfönstret genom att klicka på **Testfönster**.
-   ![Testfönster](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-test.png)
-1. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
-1. Ett [runbook-jobb](automation-runbook-execution.md) skapas och dess status visas.
+2. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
+3. Ett [runbook-jobb](automation-runbook-execution.md) skapas och dess status visas.
    Jobbets första status är *I kö*, vilket betyder att det väntar på att en runbook-arbetsroll i molnet ska bli tillgänglig. Flyttas till *Start* när en arbetsprocess anspråk jobbet, och sedan *kör* när runbook faktiskt börjar köras.
-1. När runbook-jobbet är klart visas dess utdata. I det här fallet bör du se *Hello World*.
-1. Gå tillbaka till arbetsytan genom att stänga testfönstret.
+4. När runbook-jobbet är klart visas dess utdata. I det här fallet bör du se *Hello World*.
+5. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicera och starta runbook
 
@@ -82,19 +81,18 @@ När du publicerar en runbook kan du skriva över den befintliga publicerade ver
 I så fall måste har du inte en publicerad version ännu eftersom du just har skapat en runbook.
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.
-   ![Knappen Publicera](media/automation-first-runbook-textual-python/automation-runbook-edit-controls-publish.png)
-1. Om du rulla åt vänster om du vill visa runbook i den **Runbooks** fönstret nu visas en **redigering Status** av **publicerade**.
+2. Om du rulla åt vänster om du vill visa runbook i den **Runbooks** fönstret nu visas en **redigering Status** av **publicerade**.
 1. Bläddra till höger för att visa fönstret för **MyFirstRunbook Python**.
    Vi kan använda alternativen längs överkanten för att starta runbooken, visa runbooken, schemalägga den så att den startar senare eller skapa en [webhook](automation-webhooks.md) så att den kan startas via ett HTTP-anrop.
-1. Du vill starta runbook, så klicka på **starta** och klicka sedan på **Ok** när starta Runbook-bladet öppnas.
-1. Ett jobb-fönstret har öppnats för runbook-jobbet som du skapade. Du kan stänga det här fönstret, men i det här fallet du lämna den öppen så att du kan titta på jobbets förlopp.
-1. Jobbet har statusen visas i **jobbsammanfattning** och matchar status som du såg när du har testat runbook.
-1. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Fönstret utdata öppnas och du kan se din *Hello World*.
-1. Stäng utdatafönstret.
-1. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
-1. Stäng fönstret dataströmmar och fönstret jobb att återgå till fönstret MyFirstRunbook Python.
-1. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
-1. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
+2. Du vill starta runbook, så klicka på **starta** och klicka sedan på **Ok** när starta Runbook-bladet öppnas.
+3. Ett jobb-fönstret har öppnats för runbook-jobbet som du skapade. Du kan stänga det här fönstret, men i det här fallet du lämna den öppen så att du kan titta på jobbets förlopp.
+4. Jobbet har statusen visas i **jobbsammanfattning** och matchar status som du såg när du har testat runbook.
+5. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Fönstret utdata öppnas och du kan se din *Hello World*.
+6. Stäng utdatafönstret.
+7. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
+8. Stäng fönstret dataströmmar och fönstret jobb att återgå till fönstret MyFirstRunbook Python.
+9. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
+10. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Lägg till autentisering för att hantera Azure-resurser
 
@@ -194,9 +192,7 @@ async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_n
 async_vm_start.wait()
 ```
 
-När du startar en Python-runbook (antingen på den **Test** bladet eller som en publicerad runbook), kan du ange värden för parametrarna i den **starta Runbook** bladet under **parametrar**.
-
-![Parametern värderutan](media/automation-first-runbook-textual-python/runbook-python-param-highlight.png)
+När du startar en Python-runbook (antingen på den **Test** sidan eller som en publicerad runbook), kan du ange värden för parametrarna i den **starta Runbook** sidan **parametrar** .
 
 När du har startat om du anger ett värde i den första rutan en andra visas, och så vidare, så att du kan ange så många parametervärden som behövs.
 

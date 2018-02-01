@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 926b78bbe1ec8efaf6529a084af47747325f6096
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
+# <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Ett Azure Storage-konto tillhandahåller ett unikt namnområde i molnet där du kan lagra och få åtkomst till dina dataobjekt i Azure Storage. Ett lagringskonto innehåller alla blobar, filer, köer, tabeller och diskar som du skapar med det kontot. 
 
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Skapa ett allmänt lagringskonto
+## <a name="create-a-general-purpose-storage-account"></a>Skapa ett allmänt lagringskonto
 
-Ett allmänt lagringskonto ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Ett allmänt lagringskonto kan skapas på standard- eller premiumnivån. Exemplen i den här artikeln visar hur du skapar ett allmänt lagringskonto på standardnivån (standarden). Mer information om alternativ för lagringskontot finns i [Introduktion till Microsoft Azure Storage](storage-introduction.md).
+Ett allmänt lagringskonto ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Ett allmänt lagringskonto kan skapas på standard- eller premiumnivån. Exemplen i den här artikeln visar hur du skapar ett allmänt lagringskonto på standardnivån (standarden).
+
+Azure Storage erbjuder två typer av lagringskonton för generell användning:
+
+- General-purpose v2-konton (GPv2) 
+- General-purpose v1-konton (GPv1). 
+
+> [!NOTE]
+> Vi rekommenderar att du skapar nya storage-konton som **GPv2-konton**, för att kunna utnyttja nya funktioner som finns tillgängliga för dessa konton.  
+
+Mer information om typer av lagringskonton finns i [Alternativ för Azure Storage-konton](storage-account-options.md).
 
 Tänk på dessa regler när du namnger lagringskontot:
 
@@ -149,43 +159,72 @@ Tänk på dessa regler när du namnger lagringskontot:
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Följ de här stegen för att skapa ett allmänt lagringskonto i Azure Portal:
+Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
 
 1. I Azure-portalen, expanderar du menyn på vänster sida för att öppna tjänstemenyn och välj **fler tjänster**. Rulla ned till **lagring** och välj **lagringskonton**. På fönstret **lagringskonton** som visas, väljer du **lägg till**.
 2. Ange ett namn för lagringskontot.
-3. Behåll standardvärdena för dessa fält: **Distributionsmodell**, **Typ av konto**, **Prestanda**, **Replikering**, **Säker överföring krävs**.
-4. Välj den prenumeration där du vill skapa lagringskontot.
-5. I avsnittet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan den resursgrupp du skapade i föregående avsnitt.
-6. Välj platsen för det nya lagringskontot.
-7. Skapa lagringskontot genom att klicka på **Skapa**.      
+3. Sätt fältet **Typ av konto** till **StorageV2 (generell användning v2)**.
+4. Låt fältet **Replikering** stå som **Lokalt redundant lagring (LRS)**. Alternativt kan du välja **Zonredundant lagring (ZRS förhandsversion)**, **Geo-redundant lagring (GRS)** eller **Read-Access Geo-Redundant Storage (RA-GRS)**.
+5. Behåll standardvärdena för dessa fält: **Distributionsmodell**, **Prestanda**, **Säker överföring krävs**.
+6. Välj den prenumeration där du vill skapa lagringskontot.
+7. I avsnittet **Resursgrupp** väljer du **Använd befintlig** och väljer sedan den resursgrupp du skapade i föregående avsnitt.
+8. Välj platsen för det nya lagringskontot.
+9. Skapa lagringskontot genom att klicka på **Skapa**.      
 
 ![Skärmbild som visar hur du skapar ett lagringskonto i Azure Portal](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill skapa ett allmänt lagringskonto från PowerShell använder du kommandot [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Om du vill skapa ett GPv2-lagringskonto för generell användning från PowerShell med lokalt redundant lagring (LRS) använder du kommandot [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant lagring (ZRS förhandsversion), geo-redundant lagring (GRS) eller read-access geo-redundant storage (RA-GRS) genom att ersätta det önskade värdet i tabellen nedan med **SkuName**-parametern. 
+
+|Replikeringsalternativ  |SkuName-parameter  |
+|---------|---------|
+|Lokalt redundant lagring (LRS)     |Standard_LRS         |
+|Zonredundant lagring (ZRS)     |Standard_ZRS         |
+|Geo-redundant lagring (GRS)     |Standard_GRS         |
+|Read-Access Geo-Redundant Storage (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill skapa ett allmänt lagringskonto från Azure CLI använder du kommandot [az storage account create](/cli/azure/storage/account#create).
+Om du vill skapa ett allmänt GPv2-lagringskonto för generell användning från Azure CLI med lokalt redundant lagring använder du kommandot [az storage account create](/cli/azure/storage/account#create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant lagring (ZRS förhandsversion), geo-redundant lagring (GRS) eller read-access geo-redundant storage (RA-GRS) genom att ersätta det önskade värdet i tabellen nedan med parametern **sku**-parametern. 
+
+|Replikeringsalternativ  |sku-parameter  |
+|---------|---------|
+|Lokalt redundant lagring (LRS)     |Standard_LRS         |
+|Zonredundant lagring (ZRS)     |Standard_ZRS         |
+|Geo-redundant lagring (GRS)     |Standard_GRS         |
+|Read-Access Geo-Redundant Storage (GRS)     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> [Zonredundant lagring](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) finns för närvarande i förhandsversion och är endast tillgängligt på följande platser:
+>    - Östra USA 2
+>    - Centrala USA
+>    - Centrala Frankrike (Den här regionen är en förhandsversion. Läs mer om [förhandsversion av Microsoft Azure med tillgänglighetszoner som öppnats i Frankrike](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) om du vill begära åtkomst.)
+    
+Mer information om olika typer av replikering som är tillgängliga finns i [Alternativ för lagringsreplikering](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

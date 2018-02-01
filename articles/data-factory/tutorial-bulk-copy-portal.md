@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -36,7 +36,7 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-I den här självstudien används Azure-portalen. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
+I den här självstudien används Azure Portal. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill kopiera till SQL Data Warehouse. Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
@@ -79,7 +79,7 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
    ![Nytt->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
 2. På sidan **Ny datafabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
       
-     ![Sidan Ny datafabrik](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
+     ![Sida för ny datafabrik](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
    Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialBulkCopyDF). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
@@ -195,7 +195,7 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
 5. Växla till fliken **Parametrar** och klicka på **+ Ny**
 
     ![Sida för källdatauppsättningsanslutning](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Ange **DWTableName** som parameternamn. 
+6. Ange **DWTableName** som parameternamn. Se till att inga **avslutande blanksteg** följer med i slutet av **DWTableName** om du kopierar/klistrar in det här namnet från sidan. 
 7. I avsnittet **Parametriserade egenskaper** anger du `@{dataset().DWTableName}` för egenskapen **tableName**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
    
     ![Parameternamn](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
@@ -326,7 +326,7 @@ Den här pipelinen utför två steg:
 
     ![Knappen Publicera](./media/tutorial-bulk-copy-portal/publish.png)
 
-## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
+## <a name="trigger-a-pipeline-run"></a>Utlös en pipelinekörning
 
 1. Kontrollera att fliken **GetTableListAndTriggerCopyData** är aktiv. 
 2. Klicka på **Utlösare** i och klicka på **Trigger Now** (Utlös nu). 

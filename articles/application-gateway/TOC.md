@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Vad är Application Gateway](application-gateway-introduction.md)
 ## [Vanliga frågor och svar om Application Gateway](application-gateway-faq.md)
 ## [Brandvägg för webbappar](application-gateway-web-application-firewall-overview.md)
@@ -13,37 +14,39 @@
 ## [WebSocket](application-gateway-websocket.md)
 ## [Tjänstbegränsningar](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Kom igång
-## Skapa en Application Gateway
-### [Azure Portal](application-gateway-create-gateway-portal.md)
-### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-### [Resource Manager-mall](application-gateway-create-gateway-arm-template.md)
-### [Azure CLI](application-gateway-create-gateway-cli.md)
+## [Azure-portalen](application-gateway-create-gateway-portal.md)
+## [Azure PowerShell](application-gateway-create-gateway-arm.md)
+## [Azure CLI](application-gateway-create-gateway-cli.md)
 # Gör så här för att
+## Skapa en programgateway med VMSS
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
+## [Använda en mall](application-gateway-create-gateway-arm-template.md)
 ## Konfigurera brandväggen för webbprogram
-### [Azure Portal](application-gateway-web-application-firewall-portal.md)
+### [Azure-portalen](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
 ### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## Anpassa regler för brandväggen för webbaserade program
-### [Azure Portal](application-gateway-customize-waf-rules-portal.md)
+### [Azure-portalen](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## Konfigurera SSL
-### [Azure Portal](application-gateway-ssl-portal.md)
+### [Azure-portalen](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
 ### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL-princip](application-gateway-configure-ssl-policy-powershell.md)
 ## Konfigurera URL-baserad sökvägsroutning
-### [Azure Portal](application-gateway-create-url-route-portal.md)
+### [Azure-portalen](application-gateway-create-url-route-portal.md)
 ### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
 ### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## Konfigurera värdtjänster för flera webbplatser
-### [Azure Portal](application-gateway-create-multisite-portal.md)
+### [Azure-portalen](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Konfigurera omdirigering
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## Konfigurera webbappar som medlemmar i serverdelspool
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Konfigurera hälsotillståndsavsökningar
-### [Azure Portal](application-gateway-create-probe-portal.md)
+### [Azure-portalen](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Azure Security Center-integration](application-gateway-integration-security-center.md)
 ## [Kombinera tjänster för belastningsutjämning](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)

@@ -140,6 +140,8 @@
           href: data-prep-python-extensibility-overview.md
         - name: Datakällor som stöds
           href: data-prep-appendix2-supported-data-sources.md
+        - name: Läsa Azure Cosmos DB som datakälla
+          href: data-prep-load-azure-cosmos-db.md
         - name: Kontroller som stöds
           href: data-prep-appendix4-supported-inspectors.md
         - name: Datamål som stöds

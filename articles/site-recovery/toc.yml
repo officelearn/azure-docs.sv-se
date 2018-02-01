@@ -123,6 +123,8 @@
           href: site-recovery-create-recovery-plans.md
         - name: Lägga till Azure-runbookflöden i återställningsplaner
           href: site-recovery-runbook-automation.md
+        - name: Lägga till VMM-skript i återställningsplaner
+          href: site-recovery-how-to-add-vmmscript.md
         - name: Redundans
           items:
             - name: Om redundans

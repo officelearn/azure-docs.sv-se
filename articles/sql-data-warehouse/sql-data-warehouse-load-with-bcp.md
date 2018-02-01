@@ -13,52 +13,44 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="load-data-with-bcp"></a>Läsa in data med bcp
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
+# <a name="load-data-with-bcp"></a>Läs in data med bcp
 
-**[bcp][bcp]** är ett kommandoradsverktyg för massinläsning som låter dig kopiera data mellan SQL Server, datafiler och SQL Data Warehouse. Använd bcp för att importera ett stort antal rader till SQL Data Warehouse-tabeller eller exportera data från SQL Server-tabeller till datafiler. Bcp kräver ingen Transact-SQL kunskap förutom när det används med queryout-alternativet.
+**[bcp](/sql/tools/bcp-utility.md)** är ett kommandoradsverktyg för massinläsning som låter dig kopiera data mellan SQL Server, datafiler och SQL Data Warehouse. Använd bcp för att importera ett stort antal rader till SQL Data Warehouse-tabeller eller exportera data från SQL Server-tabeller till datafiler. Bcp kräver ingen Transact-SQL kunskap förutom när det används med queryout-alternativet.
 
-bcp är ett snabbt och enkelt sätt att flytta mindre datauppsättningar in och ut från en SQL Data Warehouse-databas. Den exakta mängden data som rekommenderas att läsa in/extrahera med bcp, beror på din nätverksanslutning till Azure-datacentret.  Generellt sett kan dimensionstabeller enkelt läsas in och extraheras med bcp, men bcp rekommenderas inte för inläsning eller extrahering av stora mängder data.  Polybase rekommenderas för inläsning och extrahering av stora mängder data, eftersom det är bättre på att utnyttja den massivt parallella bearbetningsarkitekturen i SQL Data Warehouse.
+bcp är ett snabbt och enkelt sätt att flytta mindre datauppsättningar in och ut från en SQL Data Warehouse-databas. Den exakta mängden data som du bör läsa in/extrahera via bcp beror på din nätverksanslutning till Azure.  Små dimensionstabeller kan enkelt läsas in och extraheras med bcp. Dock är Polybase, inte bcp, det rekommenderade verktyget för inläsning och extrahering av stora mängder data. PolyBase är utformat för den massivt parallella bearbetningsarkitekturen i SQL Data Warehouse.
 
 Med bcp kan du:
 
-* Använda ett enkelt kommandoradsverktyg för att läsa in data till SQL Data Warehouse.
-* Använda ett enkelt kommandoradsverktyg för att extrahera data från SQL Data Warehouse.
+* Använda ett kommandoradsverktyg till att läsa in data till SQL Data Warehouse.
+* Använda ett kommandoradsverktyg till att extrahera data från SQL Data Warehouse.
 
-De här självstudierna visar hur du:
+I den här självstudien:
 
-* Importerar data till en tabell med bcp in-kommandot
-* Exporterar data från en tabell med bcp out-kommandot
+* importerar du data till en tabell med kommandot bcp in
+* exporterar du data från en tabell med kommandot bcp out
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 För att gå igenom de här självstudierna, behöver du:
 
 * En SQL Data Warehouse-databas
-* Kommandoradsverktyget bcp installerat
-* Kommandoradsverktyget SQLCMD installerat
+* Kommandoradsverktygen bcp och sqlcmd. Du kan ladda ned dessa från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=36433). 
 
-> [!NOTE]
-> Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][Microsoft Download Center].
-> 
-> 
+### <a name="data-in-ascii-or-utf-16-format"></a>Data i ASCII- eller UTF-16-format
+Om du använder egna data i självstudierna, måste de använda sig av ASCII- eller UTF-16-kodning eftersom bcp inte stöder UTF-8. 
+
+PolyBase stöder UTF-8 men har inte än stöd för UTF-16. Om du vill använda bcp för export av data och PolyBase för datainläsning måste du omvandla data till UTF-8 när de har exporterats från SQL Server. 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Importera data till SQL Data Warehouse
 I de här självstudierna kommer du att skapa en tabell i Azure SQL Data Warehouse och importera data till tabellen.
@@ -82,10 +74,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-> [!NOTE]
-> Se [Tabellöversikt][Table Overview] eller [CREATE TABLE-syntax][CREATE TABLE syntax] för ytterligare information om hur man skapar en tabell i SQL Data Warehouse och alternativen som finns i WITH-satsen.
-> 
-> 
+Mer information om att skapa en tabell finns i [Tabellöversikt](sql-data-warehouse-tables-overview.md) och syntaxen för [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse.md).
+ 
 
 ### <a name="step-2-create-a-source-data-file"></a>Steg 2: Skapa en källdatafil
 Öppna Anteckningar och kopiera följande datarader till en ny textfil. Spara sedan filen till din lokala temp-katalog, C:\Temp\DimDate2.txt.
@@ -123,7 +113,7 @@ Du kan verifiera att data lästs in genom att köra följande fråga med hjälp 
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Det ska returnera följande resultat:
+Frågan bör returnera följande resultat:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +131,8 @@ Det ska returnera följande resultat:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Steg 4: Skapa statistik på dina nyinlästa data
-SQL Data Warehouse stöder inte än automatiskt skapande eller uppdatering av statistik. För att få bästa möjliga prestanda från dina frågor, är det viktigt att statistik skapas på alla kolumner i alla tabeller efter den första inläsningen eller vid betydande dataändringar. En detaljerad förklaring av statistik finns i ämnet [Statistik][Statistics] i ämnesgruppen Utveckla. Nedan följer ett enkelt exempel på hur du skapar statistik på tabellerna som lästs in i det här exemplet
+När du har läst in data är det sista steget att skapa eller uppdatera statistik. Det här förbättrar frågeprestandan. Mer information finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande sqlcmd-exempel skapas statistik för den tabell som innehåller nyinlästa data.
 
-Kör följande CREATE STATISTICS-uttryck från en sqlcmd-kommandotolk:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,7 +143,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Exportera data från SQL Data Warehouse
-I de här självstudierna kommer du att skapa en datafil från en tabell i SQL Data Warehouse. Vi kommer att exportera de data vi skapade ovan till en ny datafil som heter DimDate2_export.txt.
+I den här självstudien skapar du en datafil från en tabell i SQL Data Warehouse. Du exporterar de data du importerade i föregående avsnitt. Resultaten hamnar i en fil som heter DimDate2_export.txt.
 
 ### <a name="step-1-export-the-data"></a>Steg 1: Exportera data
 Med bcp-verktyget kan du ansluta och exportera data med hjälp av följande kommando, där du ersätter värdena med lämpliga sådana:
@@ -162,7 +151,7 @@ Med bcp-verktyget kan du ansluta och exportera data med hjälp av följande komm
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. De data som finns i filen ska matcha texten nedan:
+Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. Data i den här filen ska matcha texten nedan:
 
 ```
 20150301,1,3
@@ -185,21 +174,13 @@ Du kan verifiera att data exporterats korrekt genom att öppna den nya filen. De
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Se [Läs in data till SQL Data Warehouse][Load data into SQL Data Warehouse] för en översikt över inläsning.
-För fler utvecklingstips, se [Översikt över SQL Data Warehouse-utveckling][SQL Data Warehouse development overview].
+När du designar din inläsning kan du läsa [Inläsningsöversikt] (sql-data-warehouse-design-elt-data-loading].  
 
-<!--Image references-->
 
-<!--Article references-->
-
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

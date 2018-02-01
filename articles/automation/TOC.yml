@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Skapa och importera Runbooks
           href: automation-creating-importing-runbook.md
+        - name: Skapa en grafisk runbook
+          href: automation-first-runbook-graphical.md
+        - name: Skapa en PowerShell-runbook
+          href: automation-first-runbook-textual-powershell.md
+        - name: Skapa en PowerShell-runbook för arbetsflöden
+          href: automation-first-runbook-textual.md
+        - name: Skapa en Python-runbook
+          href: automation-first-runbook-textual-python2.md
         - name: Redigera Runbooks med text
           href: automation-edit-textual-runbook.md
         - name: Redigera grafiska Runbooks

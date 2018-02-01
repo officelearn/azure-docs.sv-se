@@ -1,6 +1,6 @@
 ---
-title: "Överför ett certifikat för hantering av Azure API | Microsoft Docs"
-description: "Lär dig hur du laddar upp certifikatet Management API för Azure-portalen."
+title: "Ladda upp ett Hanteringscertifikat för Azure-tjänst | Microsoft Docs"
+description: "Lär dig hur man överför Service Management-certifikat för Azure-portalen."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Ladda upp ett Hanteringscertifikat för Azure API för hantering
+# <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett Hanteringscertifikat för Azure-tjänst
 Certifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
 
 > [!WARNING]

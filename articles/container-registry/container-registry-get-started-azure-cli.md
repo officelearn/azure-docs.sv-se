@@ -1,27 +1,27 @@
 ---
-title: Snabbstart - skapa ett privat Docker-register i Azure med Azure CLI
-description: "Lär dig snabbt skapa en privat Docker behållare registret med Azure CLI."
+title: "Snabbstart – skapa ett privat Docker-register i Azure med Azure CLI"
+description: "Lär dig snabbt att skapa ett privat Docker-behållarregister med Azure CLI."
 services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Skapa ett behållarregister med hjälp av Azure CLI
 
-Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden information att skapa en Azure-behållare registret-instans med hjälp av Azure CLI.
+Azure Container Registry är en hanterad Docker-behållarregistertjänst som används för att lagra privata Docker-behållaravbildningar. Den här guiden beskriver hur du skapar en Azure Container Registry-instans med hjälp av Azure CLI.
 
-Denna Snabbstart kräver att du använder Azure CLI version 2.0.21 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera, se [installera Azure CLI 2.0][azure-cli].
+För den här snabbstarten krävs att du kör Azure CLI version 2.0.25 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0][azure-cli].
 
-Du måste också ha Docker installeras lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på någon [Mac][docker-mac], [Windows][docker-windows], eller [Linux] [ docker-linux] system.
+Du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-dator.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -35,13 +35,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Skapa ett behållarregister
 
-I den här snabbstarten skapar vi en *grundläggande* registret. Azure Container registret är tillgänglig i flera olika SKU: er, beskrivs kortfattat i följande tabell. Utökad information om varje finns [behållare registret SKU: er][container-registry-skus].
+I den här snabbstarten skapar vi ett *Grundläggande* register. Azure Container Registry finns i flera olika SKU:er, som beskrivs kortfattat i följande tabell. Mer information om var och en finns i [SKU:er för Container Registry][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Skapa en ACR instans med hjälp av den [az acr skapa] [ az-acr-create] kommando.
+Skapa en ACR-instans med hjälp av kommandot [az acr create][az-acr-create].
 
-Namnet på registret **måste vara unika**. I följande exempel *myContainerRegistry007* används. Uppdatera den till ett unikt värde.
+Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel används *myContainerRegistry007*. Uppdatera det här till ett unikt värde.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -70,39 +70,39 @@ När registret har skapats ser utdata ut ungefär så här:
 }
 ```
 
-I resten av den här snabbstarten vi använder `<acrName>` som platshållare för registret behållarnamn.
+I resten av den här snabbstarten använder vi `<acrName>` som platshållare för namnet på behållarregistret.
 
 ## <a name="log-in-to-acr"></a>Logga in på ACR
 
-Innan du skickar och hämtar behållaravbildningar måste du logga in på ACR-instansen. Det gör du genom att använda den [az acr inloggning] [ az-acr-login] kommando.
+Innan du skickar och hämtar behållaravbildningar måste du logga in på ACR-instansen. Det gör du med hjälp av kommandot [az acr login][az-acr-login].
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar en `Login Succeeded` meddelande när den har slutförts.
+Kommandot returnerar meddelandet `Login Succeeded` när det har slutförts.
 
-## <a name="push-image-to-acr"></a>Push-avbildningen till ACR
+## <a name="push-image-to-acr"></a>Push-överföra avbildning till ACR
 
-Du måste ha en bild för att vidarebefordra en avbildning till en Azure-behållare registret. Om du ännu inte har några lokala behållaren bilder, kör du följande kommando för att hämta en befintlig avbildning från Docker-hubb.
+Innan du kan push-överföra en avbildning till Azure Container Registry måste du ha en avbildning. Om du inte har några lokala behållaravbildningar ännu kan du köra följande kommando för att hämta en befintlig avbildning från Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Innan du kan pressa en bild i registret, måste du tagga den med det fullständigt kvalificerade namnet på din ACR inloggningsserver. Kör följande kommando för att få fullständig inloggningsnamnet server för ACR-instans.
+Innan du kan push-överföra en avbildning till ditt register måste du tagga den med det fullständiga namnet på din ACR-inloggningsserver. Kör följande kommando för att hämta det fullständiga namnet på inloggningsservern för ACR-instansen.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Taggen bild med hjälp av den [docker-taggen] [ docker-tag] kommando. Ersätt `<acrLoginServer>` med inloggningen servernamnet för din ACR-instans.
+Tagga avbildningen med hjälp av kommandot [docker tag][docker-tag]. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för ACR-instansen.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Använd slutligen [docker push] [ docker-push] att skicka bilden till ACR-instans. Ersätt `<acrLoginServer>` med inloggningen servernamnet för din ACR-instans.
+Använd slutligen [docker push][docker-push] för att överföra avbildningen till ACR-instansen. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för ACR-instansen.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -110,7 +110,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 
 ## <a name="list-container-images"></a>Visa lista över behållaravbildningar
 
-I följande exempel visar en lista över databaser i en registret:
+I följande exempel visas lagringsplatserna i ett register:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -124,7 +124,7 @@ Result
 aci-helloworld
 ```
 
-I följande exempel visar taggar på den **aci helloworld** databasen.
+I följande exempel visas taggarna för lagringsplatsen **aci-helloworld**.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
@@ -140,7 +140,7 @@ v1
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda den [ta bort grupp az] [ az-group-delete] för att ta bort resursgruppen, ACR-instans och alla behållare bilder.
+När resursgruppen inte längre behövs kan du använda kommandot [az group delete][az-group-delete] till att ta bort resursgruppen, ACR-instansen och alla behållaravbildningar.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -148,10 +148,10 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapat du ett Azure Container registret med Azure CLI. Om du vill använda Azure Container registret med Azure Container instanser fortsätta att Azure Behållarinstanser kursen.
+I den här snabbstarten skapade du ett Azure Container Registry med Azure CLI. Om du vill använda Azure Container Registry med Azure Container Instances fortsätter du till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Azure Behållarinstanser självstudiekursen][container-instances-tutorial-prepare-app]
+> [Självstudie för Azure Container Instances][container-instances-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

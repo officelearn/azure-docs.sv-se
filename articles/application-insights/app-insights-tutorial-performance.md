@@ -1,6 +1,6 @@
 ---
 title: "Diagnostisera prestandaproblem med hjälp av Azure Application Insights | Microsoft Docs"
-description: "Självstudiekurs om att hitta och diagnostisera prestandaproblem i programmet med hjälp av Azure Application Insights."
+description: "Självstudie om att hitta och diagnostisera prestandaproblem i dina program med hjälp av Azure Application Insights."
 services: application-insights
 keywords: 
 author: mrbullwinkle
@@ -10,24 +10,24 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Hitta och diagnostisera prestandaproblem med Azure Application Insights
 
-Azure Application Insights samlar in telemetri från ditt program för att analysera dess drift och prestanda.  Du kan använda informationen för att identifiera problem som kan uppstå eller för att identifiera förbättringar av programmet som de flesta påverkan användare.  Den här kursen hjälper dig att analysera prestandan för både serverkomponenter för ditt program och klientens perspektiv.  Lär dig att:
+Azure Application Insights samlar in telemetri från ditt program för att analysera dess drift och prestanda.  Du kan använda den här informationen till att identifiera problem som kan uppstå eller till att identifiera vilka förbättringar av programmet som skulle gynna flest användare.  Den här kursen hjälper dig att analysera prestandan både för programmets serverkomponenter och ur klientens perspektiv.  Lär dig att:
 
 > [!div class="checklist"]
-> * Identifiera prestanda för serversidan åtgärder
-> * Analysera åtgärder för att fastställa orsaken till dåliga prestanda
-> * Anger den långsammaste klientsidan åtgärder
-> * Analysera information om sidvisningar med frågespråket
+> * identifiera prestandan för åtgärder på serversidan
+> * analysera åtgärder för att fastställa grundorsaken till den dåliga prestandan
+> * identifiera de långsammaste åtgärderna på klientsidan
+> * analysera information om sidvisningar med frågespråk.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 För att slutföra den här självstudien behöver du:
 
@@ -35,93 +35,101 @@ För att slutföra den här självstudien behöver du:
     - ASP.NET och webbutveckling
     - Azure Development
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](app-insights-asp-net.md).
-- [Aktivera Application Insights profileraren](app-insights-profiler.md#installation) för ditt program.
+- [Aktivera Application Insights-profileraren](app-insights-profiler.md#installation) för ditt program.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="identify-slow-server-operations"></a>Identifiera långsamma åtgärder
-Application Insights samlar in prestandainformation för olika åtgärder i ditt program.  Genom att identifiera dessa åtgärder med den längsta varaktigheten kan diagnostisera problem eller bäst mål din pågående utveckling för att förbättra prestandan för programmet.
+## <a name="identify-slow-server-operations"></a>Identifiera långsamma serveråtgärder
+Application Insights samlar in prestandainformation för de olika åtgärderna i ditt program.  Genom att identifiera vilka åtgärder som tar längst tid kan du diagnostisera potentiella problem och fatta välgrundade beslut kring din pågående utveckling för att förbättra programmets prestanda.
 
-1. Välj **Programinsikter** och sedan välja din prenumeration.  
-1. Öppna den **prestanda** panelen Välj antingen **prestanda** under den **Undersök** -menyn eller klicka på den **serversvarstid** diagram .
+1. Välj **Application Insights** och sedan din prenumeration.  
+1. Du öppnar panelen **Prestanda** genom att antingen välja **Prestanda** på menyn **Undersök** eller klicka på diagrammet **Serversvarstid**.
 
     ![Prestanda](media/app-insights-tutorial-performance/performance.png)
 
-2. Den **prestanda** panelen visas antalet och genomsnittlig varaktighet för varje åtgärd för programmet.  Du kan använda den här informationen för att identifiera dessa åtgärder som påverkar de flesta användare. I det här exemplet den **hämta kunder/detaljer** och **GET-Home/Index** lämpar sig troligt att undersöka på grund av deras relativt hög varaktighet och antalet anrop.  Andra åtgärder kan ha en högre varaktighet men har sällan kallas, så att effekten av deras improvement skulle vara minimal.  
+2. På panelen **Prestanda** visas antal och genomsnittlig varaktighet för varje åtgärd i programmet.  Du kan använda den här informationen till att identifiera vilka åtgärder som påverkar användarna mest. I det här exemplet är **GET Customers/Details** och **GET Home/Index** lämpliga kandidater att undersöka på grund av deras relativt långa varaktighet och antalet anrop.  Andra åtgärder kan ha en längre varaktighet men anropas sällan, så att förbättra dem skulle knappt märkas.  
 
-    ![Panelen prestanda](media/app-insights-tutorial-performance/performance-blade.png)
+    ![Panelen Prestanda](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Diagrammet visar för närvarande Genomsnittlig varaktighet för alla åtgärder över tid.  Lägg till de åtgärder som du är intresserad av genom att fästa dem till diagrammet.  Det visar att det inte finns några toppar värt att undersöka.  Isolera detta ytterligare genom att minska tidsfönstret för diagrammet.
+3. I diagrammet visas den genomsnittliga varaktigheten för alla åtgärder över tid.  Lägg till de åtgärder du är intresserad av genom att fästa dem vid diagrammet.  Det här visar att det finns några toppar värda att undersöka.  Isolera ytterligare genom att minska tidsfönstret för diagrammet.
 
-    ![Åtgärder för PIN-kod](media/app-insights-tutorial-performance/pin-operations.png)
+    ![Fäståtgärder](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Klicka på en åtgärd för att visa dess prestanda panel till höger. Detta visar fördelningen av för olika begäranden.  Användare märka vanligtvis långsam prestanda på ungefär en halv sekund, så Förminskar fönstret till begäranden via 500 millisekunder.  
+4.  Om du klickar på en åtgärd visas dess prestandapanel till höger. Detta visar fördelningen av varaktigheterna för olika förfrågningar.  Användare märker vanligtvis av långsam prestanda på ungefär en halv sekund, så minska fönstret till att visa förfrågningar längre än 500 millisekunder.  
 
-    ![Tid för distribution](media/app-insights-tutorial-performance/duration-distribution.png)
+    ![Varaktighetsfördelning](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  I det här exemplet ser du att ett stort antal begäranden tar över en andra att bearbeta. Du kan se information om den här åtgärden genom att klicka på **driftsinformation**.
+5.  I det här exemplet kan du se att ett stort antal förfrågningar tagit över en sekund att bearbeta. Du kan se information om den här åtgärden genom att klicka på **Åtgärdsinformation**.
 
     ![Åtgärdsinformation](media/app-insights-tutorial-performance/operation-details.png)
 
-6.  Den information som du har samlat in hittills endast bekräftar att det är långsam prestanda, men den visas lite att hämta roten.  Den **Profiler** kan hjälpa dig med detta genom att visa den faktiska koden som körde för åtgärden och den tid som krävs för varje steg. Vissa åtgärder kan inte ha en spårning eftersom profileraren körs regelbundet.  Fler åtgärder ska ha spårningar med tiden.  Starta profiler för åtgärden, klicka på **Profiler-spårningar**.
-5.  Spårningen visar enskilda händelser för varje åtgärd så att du kan diagnostisera orsaken till varaktigheten för övergripande igen.  Klicka på någon av de översta exemplen som har den längsta tid.
-6.  Klicka på **visa varm sökväg** att markera specifika sökvägen för händelser som de flesta bidra till den totala varaktigheten för åtgärden.  I det här exemplet ser du att långsammaste anropet kommer från *FabrikamFiberAzureStorage.GetStorageTableData* metod. Den del som tar de flesta tid är den *CloudTable.CreateIfNotExist* metod. Om kod körs varje gång som funktionen anropas, används onödiga nätverket samtals- och processoranvändning. Det bästa sättet att åtgärda koden är att placera den här raden i vissa startmetod som bara utföras för en gång. 
+    > [!NOTE]
+    Aktivera [förhandsgranskningsupplevelsen](app-insights-previews.md) Unified details: E2E Transaction Diagnostics (Enhetlig information: E2E-transaktionsdiagnostik) om du vill se telemetriliknande förfrågningar, beroenden, undantag, spårningar, händelser och så vidare på serversidan i en enda helskärmsvy. 
+
+    När den här förhandsgranskningen är aktiverad kan du se hur lång tid som tillbringats i beroendeanrop tillsammans med eventuella fel eller undantag i en enda enhetlig vy. När det gäller transaktioner mellan olika komponenter kan du snabbt se vilken komponent, vilket beroende eller undantag som är rotorsak i Gannt-diagrammet och informationsfönstret. Du kan expandera den undre delen om du vill se tidssekvensen för spårningar eller händelser som samlats in för den valda komponentåtgärden. [Läs mer om den nya upplevelsen](app-insights-transaction-diagnostics.md)  
+
+    ![Transaktionsdiagnostik](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
+
+6.  Den information du har samlat in hittills bekräftar bara att programmet har långsam prestanda, men den är inte till så stor nytta när det gäller grundorsaken.  I **Profiler** kan du få hjälp med det här genom att du ser den faktiska kod som körts för åtgärden och hur lång tid som krävdes för varje steg. Vissa åtgärder kanske inte har någon spårning eftersom Profiler körs med jämna mellanrum.  Med tiden bör fler åtgärder ha spårningar.  Du startar Profiler för åtgärden genom att klicka på **Profiler traces** (Profiler-spårningar).
+5.  I spårningen ser du enskilda händelser för varje åtgärd så att du kan diagnostisera vad som gör att åtgärden tar så lång tid att utföra.  Klicka på något av de översta exemplen som har den längsta varaktigheten.
+6.  Klicka på **Show Hot Path** (Visa frekvent sökväg) om du vill framhäva sökvägen till de händelser som mest bidrar till åtgärdens totala varaktighet.  I det här exemplet ser du att det långsammaste anropet kommer från metoden *FabrikamFiberAzureStorage.GetStorageTableData*. Den del som tar mest tid är metoden *CloudTable.CreateIfNotExist*. Om den här raden med kod körs varje gång som funktionen anropas förbrukas onödigt många nätverksanrop och processorresurser. Det bästa sättet att åtgärda koden är att placera den här raden i någon startmetod som bara utförs en gång. 
 
     ![Profiler-information](media/app-insights-tutorial-performance/profiler-details.png)
 
-7.  Den **prestanda tips** stöder bedömningen överdriven varaktighet beror på att vänta överst på skärmen.  Klicka på den **väntar på** länk dokumentation om tolkning av olika typer av händelser.
+7.  **Prestandatipset** längst upp på skärmen underbygger antagandet att den långa varaktigheten beror på väntetider.  Klicka på länken **Väntar** om du vill läsa om att tolka olika typer av händelser.
 
-    ![Tips för prestanda](media/app-insights-tutorial-performance/performance-tip.png)
+    ![Prestandatips](media/app-insights-tutorial-performance/performance-tip.png)
 
-8.  För ytterligare analys, kan du klicka på **hämta etl trace** att ladda ned spårningen i Visual Studio.
+8.  För ytterligare analys kan du klicka på **Download .etl trace** (Ladda ned .etl-spårning) och ladda ned spårningen till Visual Studio.
 
 ## <a name="use-analytics-data-for-server"></a>Använda analysdata för servern
-Application Insights Analytics ger ett rikt frågespråk som hjälper dig att analysera alla data som samlas in av Application Insights.  Du kan använda den för att utföra djupanalys på begäran-och prestandadata.
+Application Insights Analytics har ett funktionsrikt frågespråk som gör att du kan analysera alla data som samlas in av Application Insights.  Du kan använda det till att utföra djupanalys på data om förfrågningar och prestanda.
 
-1. Tillbaka till panelen åtgärden detaljer och klicka på knappen Analytics.
+1. Återgå till panelen med åtgärdsinformation och klicka på knappen Analytics.
 
     ![Knappen Analytics](media/app-insights-tutorial-performance/server-analytics-button.png)
 
-2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem för dina behov.  Den första frågan visar varaktighet för den här åtgärden över tid.
+2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen.  Du kan köra dessa frågor som de är eller ändra dem efter dina behov.  Den första frågan visar åtgärdens varaktighet över tid.
 
     ![Analys](media/app-insights-tutorial-performance/server-analytics.png)
 
 
-## <a name="identify-slow-client-operations"></a>Identifiera långsamma Klientåtgärder
-Förutom att identifiera serverprocesser för att optimera analysera Application Insights klientwebbläsare perspektiv.  Detta kan hjälpa dig att identifiera möjliga förbättringar av klientkomponenter och även identifierar problem med olika webbläsare eller olika platser.
+## <a name="identify-slow-client-operations"></a>Identifiera långsamma klientåtgärder
+Förutom att identifiera serverprocesser att optimera så kan Application Insights även analysera ur ett klientperspektiv.  Detta kan hjälpa dig att identifiera möjliga förbättringar av klientkomponenter och att identifiera problem med olika webbläsare eller platser.
 
-1. Välj **webbläsare** under **Undersök** att öppna webbläsaren sammanfattning.  Detta ger en visuell översikt över olika telemetries för ditt program för webbläsaren.
+1. Välj **Webbläsare** under **Undersök** för att öppna webbläsarsammanfattningen.  Här ges en visuell översikt över olika telemetrivärden i ditt program ur ett webbläsarperspektiv.
 
-    ![Översikt över webbläsare](media/app-insights-tutorial-performance/browser-summary.png)
+    ![Webbläsarsammanfattning](media/app-insights-tutorial-performance/browser-summary.png)
 
-2.  Rulla ned till **vilka är de långsammaste sidorna?**.  Detta visar en lista över sidorna i ditt program som har tagit den längsta tid för klienter att läsa in.  Du kan använda den här informationen för att prioritera de sidor som har störst inverkan på användaren.
-3.  Klicka på någon av sidorna för att öppna den **sidvy** panelen.  I det här exemplet kan den **/FabrikamProd** sidan visas en orimlig Genomsnittlig varaktighet.  Den **sidvy** panelen innehåller information om den här sidan, inklusive en uppdelning av annan varaktighet intervall.
+2.  Bläddra ned till **Vilka är mina långsammaste sidor?**  Här visas en lista med de sidor i ditt program som har tagit längst tid för klienterna att läsa in.  Du kan använda den här informationen till att prioritera de sidor som påverkar användarna mest.
+3.  Klicka på någon av sidorna för att öppna panelen **Sidvisning**.  I det här exemplet har sidan **/FabrikamProd** en längre varaktighet än genomsnittet.  I panelen **Sidvisning** visas information om den här sidan, inklusive en uppdelning av olika varaktighetsintervall.
 
-    ![Vyn sida](media/app-insights-tutorial-performance/page-view.png)
+    ![Sidvisning](media/app-insights-tutorial-performance/page-view.png)
 
-4.  Klicka på den högsta varaktigheten om du vill granska information om dessa begäranden.  Klicka på enskilda begäran om att visa information om klienten begär inklusive typ av webbläsare och dess plats.  Den här informationen kan hjälpa dig att avgöra om det finns prestanda problem relaterade till specifika typer av klienter.
+4.  Klicka på den längsta varaktigheten om du vill se mer information om dessa förfrågningar.  Klicka på enskilda förfrågningar om du vill visa information om klienten som begärde sidan, inklusive typ av webbläsare och plats.  Den här informationen kan hjälpa dig att avgöra om det finns prestandaproblem för specifika typer av klienter.
 
-    ![Information om begäran](media/app-insights-tutorial-performance/request-details.png)
+    ![Information om förfrågan](media/app-insights-tutorial-performance/request-details.png)
 
-## <a name="use-analytics-data-for-client"></a>Använd analysdata för klient
-Som data samlas in för serverprestanda tillgängliggör Application Insights alla Klientdata för djupgående analys med hjälp av Analytics.
+## <a name="use-analytics-data-for-client"></a>Använda analysdata för klienten
+Precis som de data som samlas in kring serverprestanda så gör Application Insights alla klientdata tillgängliga för djupanalys med Analytics.
 
-1. Tillbaka till webbläsaren sammanfattning och klicka på ikonen Analytics.
+1. Återgå till webbläsarsammanfattningen och klicka på ikonen Analytics.
 
-    ![Analytics-ikon](media/app-insights-tutorial-performance/client-analytics-icon.png)
+    ![Ikonen Analytics](media/app-insights-tutorial-performance/client-analytics-icon.png)
 
-2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar hur länge olika visningslägen över tid.
+2. Application Insights Analytics öppnas med en fråga för var och en av vyerna i panelen. Den första frågan visar varaktigheten för olika sidvisningar över tid.
 
-    ![Analys](media/app-insights-tutorial-performance/client-analytics.png)
+    ![Analytics](media/app-insights-tutorial-performance/client-analytics.png)
 
-3.  Smart Diagnostics är en funktion i Application Insights Analytics som identifierar unikt mönster i data.  När du klickar på Smart diagnostik punkt i linjediagrammet körs samma fråga utan de poster som orsakade avvikelseidentifiering.  Information om de posterna som visas i avsnittet kommentar för frågan så att du kan identifiera egenskaper för dessa sidvisningar som orsakar långa varaktighet.
+3.  Smart Diagnostics är en funktion i Application Insights Analytics som identifierar unika mönster i data.  När du klickar på punkten Smart Diagnostics i linjediagrammet körs samma fråga utan de poster som orsakade avvikelsen.  Information om de posterna visas i frågans kommentarsavsnitt så att du kan identifiera egenskaperna för de sidvisningar som orsakar den långa varaktigheten.
 
-    ![Smart diagnostik](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
+    ![Smart Diagnostics](media/app-insights-tutorial-performance/client-smart-diagnostics.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du identifierar körning undantag går du vidare till nästa kurs att lära dig hur du skapar aviseringar som svar på fel.
+Nu när du har lärt dig hur du identifierar körningsundantag går du vidare till nästa självstudie, där du får lära dig hur du skapar aviseringar som skickas när fel inträffar.
 
 > [!div class="nextstepaction"]
-> [Varning i programmets hälsotillstånd](app-insights-tutorial-alert.md)
+> [Aviseringar om programmets hälsotillstånd](app-insights-tutorial-alert.md)

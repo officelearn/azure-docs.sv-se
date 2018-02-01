@@ -1,6 +1,6 @@
 ---
-title: "Skapa en Internetaktiverad Azure-belastningsutjämnare – PowerShell | Microsoft Docs"
-description: "Lär dig hur du skapar en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av PowerShell"
+title: "Skapa en offentlig belastningsutjämnare – PowerShell | Microsoft Docs"
+description: "Lär dig hur du skapar en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Skapa en Internetuppkopplad belastningsutjämnare i Resource Manager med hjälp av PowerShell
+# <a name="get-started"></a>Skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Distribuera lösningen med hjälp av Azure PowerShell
 
-Följande procedurer beskriver hur du skapar en Internetuppkopplad belastningsutjämnare i Azure Resource Manager med hjälp av PowerShell. Med Azure Resource Manager skapas och konfigureras varje resurs separat, och läggs sedan ihop för att skapa en belastningsutjämnare.
+Följande procedurer beskriver hur du skapar en offentlig belastningsutjämnare i Azure Resource Manager med hjälp av PowerShell. Med Azure Resource Manager skapas och konfigureras varje resurs separat, och läggs sedan ihop för att skapa en belastningsutjämnare.
 
 Du måste skapa och konfigurera följande objekt för att distribuera en belastningsutjämnare:
 

@@ -45,12 +45,12 @@
 ### [Anslut till en anpassad domänkontrollant](cloud-services-connect-to-custom-domain.md)
 
 ## Hantera tjänst
-### [Minimera spekulativ körning] (mitigate-se.md}
 ### [Vanliga administrativa uppgifter](cloud-services-how-to-manage-portal.md)
 ### [Konfigurera en molntjänst](cloud-services-how-to-configure-portal.md)
 ### [Hantera en molntjänst med Azure Automation](automation-manage-cloud-services.md)
 ### [Konfigurera automatisk skalning](cloud-services-how-to-scale-portal.md)
 ### [Använd Python för att hantera Azure-resurser](cloud-services-python-how-to-use-service-management.md)
+### [Minimera spekulativ körning](mitigate-se.md)
 
 ### [Gästoperativsystemets korrigeringsfiler](cloud-services-guestos-msrc-releases.md)
 ### Gästoperativsystem, indragning

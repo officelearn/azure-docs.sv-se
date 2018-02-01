@@ -7,6 +7,10 @@
 # Snabbstarter
 
 ## [Skapa och anslut – portalen](create-data-warehouse-portal.md)
+## Pausa och återuppta beräkning
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Självstudier
 ## [1 – Läs in data från blob](load-data-from-azure-blob-storage-using-polybase.md)

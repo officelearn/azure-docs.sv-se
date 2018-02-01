@@ -31,10 +31,10 @@ NCv2 instanserna är nästa generation av NC-serien datorer, drivs av [NVIDIA Te
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | Maximalt antal datadiskar |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24r_v2 * |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = en P100-kort.
 
@@ -50,10 +50,10 @@ ND-serien virtuella datorer är en nyhet i GPU-familjen för AI och djup Learnin
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | Maximalt antal datadiskar |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | 12 |
-| Standard_ND12 |12 |224 | 672 | 2 | 24 |
-| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
-| Standard_ND24r * |24 |1448 | 1344 | 4 | 32 |
+| Standard_ND6s |6 |112 | 336 | 1 | 12 |
+| Standard_ND12s |12 |224 | 672 | 2 | 24 |
+| Standard_ND24s |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24rs* |24 |1448 | 1344 | 4 | 32 |
 
 1 GPU = en P40-kort.
 

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -32,7 +32,7 @@ App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utv
 
 | Språk | Versioner som stöds |
 |---|---|
-| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9–6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
 | .NET Core | 1.0, 1.1 |
 | Ruby | 2.3 |
@@ -73,7 +73,7 @@ Vissa funktioner – till exempel Virtual Network-integration, Azure Active Dire
 App Service i Linux fungerar endast om du har valt någon av App Service-planerna [Basic eller Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) utan [kostnadsfritt eller delat](https://azure.microsoft.com/pricing/details/app-service/plans/) alternativ. Följande utgör också viktiga begränsningar för App Service i Linux:
 
 * Det går inte att skapa Web App for Containers i en App Service-plan som redan agerar värd för webbappar av andra typer än Linux.
-* Om du skapar Web App for Containers i en resursgrupp som innehåller webbappar av andra typer än Linux, måste du skapa en App Service-plan i en annan region än den där du redan har en befintlig App Service-plan.
+* Om du skapar Web App for Containers i en resursgrupp som innehåller webbappar av andra typer än Linux måste du skapa en App Service-plan i en annan resursgrupp än den där du redan har en befintlig App Service-plan.
 
 ## <a name="troubleshooting"></a>Felsökning
 

@@ -214,7 +214,7 @@ public static void SendReport(object obj)
 ```
 
 ### <a name="powershell"></a>PowerShell
-Skicka hälsorapporter med  **skicka ServiceFabric*EntityType*HealthReport **.
+Skicka hälsorapporter med **skicka ServiceFabric*EntityType*HealthReport**.
 
 I följande exempel visas periodiska rapportering om CPU-värden på en nod. Rapporterna ska skickas med 30 sekunders mellanrum, och de har en livstiden på två minuter. Om de upphör att gälla har personen problem, så noden som ska utvärderas vid fel. När Processorn överskrider ett tröskelvärde har rapporten ett hälsotillstånd varning. När Processorn överskrider ett tröskelvärde för mer än den konfigurerade tidpunkten, rapporteras den som ett fel. Annars skickar personen ett hälsotillstånd OK.
 

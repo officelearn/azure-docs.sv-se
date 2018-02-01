@@ -1,6 +1,6 @@
 - name: Dokumentation om Azure Location Based Services
   href: index.yml
-- name: Översikt
+- name: "Översikt\r\n"
   items:
     - name: Om Azure Location Based Services
       href: about-location-based-services.md
@@ -46,7 +46,7 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Priskalkylator

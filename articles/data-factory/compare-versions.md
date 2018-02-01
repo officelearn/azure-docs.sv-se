@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Jämför V1 och V2 av Azure Data Factory
 Den här artikeln jämför V2 med V1 för Azure Data Factory. En introduktion till V1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). En introduktion till V2 finns i [Introduktion till Data Factory (V2 – förhandsgranskning)](introduction.md).
@@ -86,7 +86,7 @@ Du använder Azure-SSIS om du vill flytta dina SIS-arbetsbelastningar till molne
 
 Azure-SSIS Integration Runtime är ett fullständigt hanterat kluster av virtuella Azure-datorer (noder) dedikerade för att köra dina SSIS-paket i molnet. När du etablerar Azure SSIS Integration Runtime kan du använda samma verktyg som du använde för att distribuera SSIS-paket till en lokal SSIS-miljö. 
 
-Du kan till exempel använda SQL Server Data Tools eller SQL Server Management Studio för att distribuera SSIS-paket till den här körningen i Azure. Stegvisa instruktioner finns i guiden [distribuera SQL Server Integration Services-paket till Azure](tutorial-deploy-ssis-packages-azure.md). 
+Du kan till exempel använda SQL Server Data Tools eller SQL Server Management Studio för att distribuera SSIS-paket till den här körningen i Azure. Stegvisa instruktioner finns i guiden [distribuera SQL Server Integration Services-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Flexibel schemaläggning
 I Data Factory V2 behöver du inte definiera scheman för tillgänglighet för datauppsättningar. Du kan definiera en utlösarresurs som kan schemalägga pipeliner från en clock scheduler-paradigm. Du kan även skicka parametrar till en pipeline från en utlösare för en flexibel modell för schemaläggning och körning. 

@@ -37,7 +37,7 @@ Tillförlitlig Tillståndshanterare har inbyggd serialisering för följande typ
 - bool
 - byte
 - sbyte
-- byte]
+- byte
 - Char
 - sträng
 - decimal

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Ansluta säkerhetsprodukter till säkerhets- och granskningslösningen i Operations Management Suite (OMS) 
 Det här dokumentet beskriver hur du ansluter dina säkerhetsprodukter till säkerhets- och granskningslösningen i OMS. Följande källor stöds:
@@ -95,7 +95,7 @@ På agentdatorn måste händelserna skickas från syslog-daemon till den lokala 
 
 ## <a name="reviewing-collected-security-events"></a>Gå igenom de insamlade säkerhetshändelserna
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 När konfigurationen är klar börjar säkerhetshändelsen att matas in av OMS-säkerhetslösningen. Du kan visualisera dessa händelser genom att öppna Loggsökning, skriva kommandot *Type=CommonSecurityLog* i sökfältet och trycka på Retur. Följande exempel visar resultatet av det här kommandot. Observera att i det här fallet har säkerhetsloggar från flera leverantörer redan matats in i OMS-säkerhetslösningen:
    

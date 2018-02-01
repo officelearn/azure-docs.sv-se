@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
 [Skaluppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) stöder nu virtuella datorer med anslutna datadiskar. Datadiskar kan definieras i lagringsprofilen för skalningsuppsättningar som har skapats med Azure Managed Disks. Tidigare var operativsystemsenheter och temp-enheter de enda direktanslutna lagringsalternativen tillgängliga för virtuella datorer i skalningsuppsättningar.
@@ -28,14 +28,14 @@ ms.lasthandoff: 12/20/2017
 >  När du skapar en skalningsuppsättning med anslutna datadiskar behöver du fortfarande montera och formatera diskarna från en virtuell dator för att använda dem (precis som för fristående virtuella Azure-datorer). Ett enkelt sätt att slutföra denna process är att använda ett tillägg för anpassat skript som anropar ett standardskript för att partitionera och formatera alla datadiskar på en virtuell dator.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Skapa en skalningsuppsättning med anslutna datadiskar
-Ett enkelt sätt att skapa en skalningsuppsättning med anslutna diskar är att använda kommandot [az vmss create](/cli/azure/vmss#create). I följande exempel skapas en Azure-resursgrupp och en skalningsuppsättning för en virtuell dator med 10 virtuella Ubuntu-datorer, där var och en har två anslutna datadiskar på 50 GB respektive 100 GB.
+Ett enkelt sätt att skapa en skalningsuppsättning med anslutna diskar är att använda kommandot [az vmss create](/cli/azure/vmss#az_vmss_create). I följande exempel skapas en Azure-resursgrupp och en skalningsuppsättning för en virtuell dator med 10 virtuella Ubuntu-datorer, där var och en har två anslutna datadiskar på 50 GB respektive 100 GB.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Kommandot [az vmss create](/cli/azure/vmss#create) ställer in vissa konfigurationsvärden som standard om du inte själv anger dem. Om du vill se de tillgängliga alternativ som du kan åsidosätta kan du försöka följande:
+Kommandot [az vmss create](/cli/azure/vmss#az_vmss_create) ställer in vissa konfigurationsvärden som standard om du inte själv anger dem. Om du vill se de tillgängliga alternativ som du kan åsidosätta kan du försöka följande:
 
 ```bash
 az vmss create --help

@@ -1,4 +1,5 @@
 # Översikt
+
 ## [Om Azure-nätverk](networking-overview.md)
 ## Arkitektur
 ### [Virtuella datacenter](networking-virtual-datacenter.md)
@@ -14,7 +15,7 @@
 ### [Anslutning på flera platser – VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslutning på flera platser – dedikerad privat](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-##  Koncept
+##  Begrepp
 ### [Virtuella nätverk](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Utjämning av nätverksbelastning](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Belastningsutjämning för program](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -24,7 +25,7 @@
 ### [Anslut lokalt – särskilda](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Kom igång
-## [Skapa ditt första virtuella nätverk](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+## [Skapa ditt första virtuella nätverk](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Gör så här för att
 ## Internetanslutning

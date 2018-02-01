@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 ## <a name="overview"></a>Översikt
@@ -50,7 +50,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | Värd för webb- eller webbtjänstnivå i en arkitektur med flera nivåer |X |X |X |X | |
 | Värd för mellannivå i en arkitektur med flera nivåer |X |X |X |X |En App Service-webbapp kan enkelt vara värd för en REST API-mellannivå och [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226)-funktionen kan vara värd för jobb som bearbetas i bakgrunden. Du kan köra WebJobs på en dedikerad webbplats för att få oberoende skalbarhet för nivån. |
 | Integrerat stöd för MySQL som en tjänst |X |X | | | |
-| Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Stöd för ASP.NET, klassisk ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric stöder skapande av frontwebb med [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) eller så kan du distribuera valfri programtyp (Node.js, Java m.m.) som en [körbar gästfil](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en belastningsutjämnare för att dirigera begäranden mellan datorer och skapa en tillhörighetsgrupp för att förhindra samtidiga omstarter av alla instanser på grund av underhåll eller maskinvarufel. |
 | Stöd för SSL |X |X |X |X |När det gäller App Service-webbappar stöds SSL för anpassade domännamn endast för lägena Basic och Standard. Information om hur du använder SSL med webbappar finns i [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Konfigurera ett SSL-certifikat för en Azure-webbplats). |
 | Integrering med Visual Studio |X |X |X |X | |

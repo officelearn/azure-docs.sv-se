@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: bd96cf7eb1c0c7f51b110da848a8df7914ad85c7
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Utföra åtgärder för Blob Storage med Azure CLI
 
@@ -44,7 +44,7 @@ För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `a
 
 Behållare liknar kataloger på datorn. Du kan använda dem för att ordna grupper med blobar i en behållare precis som du ordnar filer i en katalog. Ett lagringskonto kan ett antal behållare. Du kan lagra upp till 500 TB blobdata i en behållare, vilket är den största mängden data i ett lagringskonto.
 
-Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#create).
+Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -64,7 +64,7 @@ En nyligen skapad behållare är privat som standard. Det innebär att ingen kan
 
 När du ställer in offentlig åtkomst till `blob` eller `container` aktiverar du skrivskyddad åtkomst för alla på Internet. Om du till exempel vill visa bilder som är lagrade som blobar på din webbplats måste du aktivera offentlig läsbehörighet. Om du vill aktivera läs-/skrivbehörighet måste du istället använda en [signatur för delad åtkomst (SAS)](#create-a-shared-access-signature-sas).
 
-Aktivera offentlig läsbehörighet för din behållare med kommandot [az storage container set-permission](/cli/azure/storage/container#create).
+Aktivera offentlig läsbehörighet för din behållare med kommandot [az storage container set-permission](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container set-permission \
@@ -76,7 +76,7 @@ az storage container set-permission \
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är den vanligaste typen av blob som lagras i Azure Storage. Tilläggsblobar används när data måste läggas till i en befintlig blob utan att det befintliga innehållet ändras, som vid loggning. Sidblobar säkerhetskopierar VHD-filerna i virtuella IaaS-datorer.
 
-I det här exemplet har vi laddat upp en blob i behållaren vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#upload).
+I det här exemplet har vi laddat upp en blob i behållaren vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -89,7 +89,7 @@ Den här åtgärden skapar bloben om den inte redan finns, och skriver över den
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
-Lista blobarna i behållaren med kommandot [az storage blob list](/cli/azure/storage/blob#list).
+Lista blobarna i behållaren med kommandot [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -111,7 +111,7 @@ dir1/file1.txt  BlockBlob        6700  application/octet-stream  2017-04-21T18:3
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Ladda ned bloben du laddade upp i ett tidigare steg med kommandot [az storage blob download](/cli/azure/storage/blob#download).
+Ladda ned bloben du laddade upp i ett tidigare steg med kommandot [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -155,7 +155,7 @@ az storage blob copy start \
 
 ## <a name="delete-a-blob"></a>Ta bort en blob
 
-Ta bort bloben från behållaren med kommandot [az storage blob delete](/cli/azure/storage/blob#delete).
+Ta bort bloben från behållaren med kommandot [az storage blob delete](/cli/azure/storage/blob#az_storage_blob_delete).
 
 ```azurecli-interactive
 az storage blob delete \
@@ -177,9 +177,9 @@ az storage blob update
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Visa och ändra blob-egenskaper och metadata
 
-Varje blob har flera tjänstdefinierade egenskaper du kan visa med kommandot [az storage blob show](/cli/azure/storage/blob#show), däribland namn, typ och längd. Du kan också konfigurera en blob med egna egenskaper och deras värden med kommandot [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
+Varje blob har flera tjänstdefinierade egenskaper du kan visa med kommandot [az storage blob show](/cli/azure/storage/blob#az_storage_blob_show), däribland namn, typ och längd. Du kan också konfigurera en blob med egna egenskaper och deras värden med kommandot [az storage blob metadata update](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_update).
 
-I det här exemplet visar vi först en blobs tjänstdefinierade egenskaper och därefter uppdaterar vi bloben med två av våra egna metadataegenskaper. Slutligen visar vi blobens metadataegenskaper och deras värden med kommandot [az storage blob metadata show](/cli/azure/storage/blob/metadata#show).
+I det här exemplet visar vi först en blobs tjänstdefinierade egenskaper och därefter uppdaterar vi bloben med två av våra egna metadataegenskaper. Slutligen visar vi blobens metadataegenskaper och deras värden med kommandot [az storage blob metadata show](/cli/azure/storage/blob/metadata#az_storage_blob_metadata_show).
 
 ```azurecli-interactive
 # Show properties of a blob
@@ -218,7 +218,7 @@ az storage container set-permission \
 
 ### <a name="verify-private-access"></a>Verifiera privat åtkomst
 
-För att verifiera att det inte finns någon offentlig läsbehörighet till blobarna i den behållaren hämtar du URL-adressen för en av dess blobar med kommandot [az storage blob url](/cli/azure/storage/blob#url).
+För att verifiera att det inte finns någon offentlig läsbehörighet till blobarna i den behållaren hämtar du URL-adressen för en av dess blobar med kommandot [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url).
 
 ```azurecli-interactive
 az storage blob url \
@@ -231,7 +231,7 @@ Gå till blobens URL-adress i ett privat webbläsarfönster. Du ser felet `Resou
 
 ### <a name="create-a-sas-uri"></a>Skapa en SAS-URI
 
-Nu ska vi skapa en SAS-URI som tillåter åtkomst till bloben. I följande exempel fyller vi först i en variabel med URL-adressen för bloben med [az storage blob url](/cli/azure/storage/blob#url), och fyller sedan i en annan variabel med en SAS-token som genererats med kommandot [az storage blob generate-sas](/cli/azure/storage/blob#generate-sas). Slutligen matar vi ut blobens fullständiga SAS-URI genom att sammanfoga de två, separerat av frågesträngavgränsaren `?`.
+Nu ska vi skapa en SAS-URI som tillåter åtkomst till bloben. I följande exempel fyller vi först i en variabel med URL-adressen för bloben med [az storage blob url](/cli/azure/storage/blob#az_storage_blob_url), och fyller sedan i en annan variabel med en SAS-token som genererats med kommandot [az storage blob generate-sas](/cli/azure/storage/blob#az_storage_blob_generate_sas). Slutligen matar vi ut blobens fullständiga SAS-URI genom att sammanfoga de två, separerat av frågesträngavgränsaren `?`.
 
 ```azurecli-interactive
 # Get UTC datetimes for SAS start and expiry (Example: 1994-11-05T13:15:30Z)
@@ -266,7 +266,7 @@ Vänta tills URL-adressen slutar gälla (två minuter i det här exemplet) och g
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade och alla blobar som du har laddat upp i den här självstudiekursen tar du bort resursgruppen med kommandot [az group delete](/cli/azure/group#delete).
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade och alla blobar som du har laddat upp i den här självstudiekursen tar du bort resursgruppen med kommandot [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

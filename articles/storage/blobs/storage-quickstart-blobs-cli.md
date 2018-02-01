@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Överföra objekt till och från Azure Blob Storage med hjälp av Azure CLI
 
@@ -37,7 +37,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 Blobar laddas alltid upp till en behållare. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#create).
+Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -50,7 +50,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. De flesta filer
 Skapa först en fil som ska överföras till en blob.
 Om du använder Azure Cloud Shell använder du följande för att skapa en fil: `vi helloworld` när filen öppnas: tryck på **Insert**, skriv "Hello world" och tryck på **Esc** och skriv `:x` och tryck sedan på **Retur**.
 
-I det här exemplet laddar vi upp en blob till den behållare som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#upload).
+I det här exemplet laddar vi upp en blob till den behållare som vi skapade i det senaste steget med kommandot [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -70,11 +70,11 @@ az storage blob upload \
 
 Den här åtgärden skapar bloben om den inte redan finns, och skriver över den om den finns. Ladda upp så många filer som du vill innan du fortsätter.
 
-Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
+Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobbarna i en behållare
 
-Lista blobarna i behållaren med kommandot [az storage blob list](/cli/azure/storage/blob#list).
+Lista blobarna i behållaren med kommandot [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli-interactive
 az storage blob list \
@@ -84,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Använd kommandot [az storage blob download](/cli/azure/storage/blob#download) för att ladda ned den blob som du laddade upp tidigare.
+Använd kommandot [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) för att ladda ned den blob som du laddade upp tidigare.
 
 ```azurecli-interactive
 az storage blob download \
@@ -109,7 +109,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade i den här snabbstarten, kan du ta bort resursgruppen med kommandot [az group delete](/cli/azure/group#delete).
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive lagringskontot som du skapade i den här snabbstarten, kan du ta bort resursgruppen med kommandot [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Skapa behållaravbildningar för Service Fabric
 
-Den här självstudien ingår i en serie som visar hur du använder behållare i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera behållare för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudien får du lära du dig att: 
+Den här självstudien ingår i en serie som visar hur du använder behållare i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera behållare för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att: 
 
 > [!div class="checklist"]
 > * klona programmets källkod från GitHub  
@@ -188,7 +188,7 @@ Docker push-kommandona tar ett par minuter att slutföra.
 
 ## <a name="list-images-in-registry"></a>Lista med avbildningar i registret
 
-Du kan returnera en lista med avbildningar som push-överförts till Azure-behållarregistret med kommandot [az acr repository list](/cli/azure/acr/repository#list). Uppdatera kommandot med namnet på ACR-instansen.
+Du kan returnera en lista med avbildningar som push-överförts till Azure-behållarregistret med kommandot [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Uppdatera kommandot med namnet på ACR-instansen.
 
 ```bash
 az acr repository list --name <acrName> --output table

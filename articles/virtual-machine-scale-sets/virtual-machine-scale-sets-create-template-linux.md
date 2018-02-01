@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Skapa en skalningsuppsättning för virtuella Linux-datorer med en Azure-mall
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt, eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I den här artikeln skapar du en skalningsuppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall. Du kan också skapa en skalningsuppsättning med [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) eller [Azure Portal](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Du kan distribuera mallen [Python HTTP-servern på Linux](https://github.com/Azu
 
 [![Distribuera mall till Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-Du kan också använda Azure CLI 2.0 för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment#create) på följande sätt:
+Du kan också använda Azure CLI 2.0 för att installera Python HTTP-servern på Linux med [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) på följande sätt:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Svara på frågorna och ange namn på skalningsuppsättningen, antal instanser o
 
 
 ## <a name="test-your-sample-application"></a>Testa din exempelapp
-Om du vill testa din app i praktiken erhåller du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip list](/cli/azure/network/public-ip#show) på följande sätt:
+Om du vill testa din app i praktiken erhåller du den offentliga IP-adressen för belastningsutjämnaren med [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) på följande sätt:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i f
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#delete) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser:
+När resurserna inte behövs längre kan du använda [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

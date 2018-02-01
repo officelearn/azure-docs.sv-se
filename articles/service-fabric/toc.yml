@@ -159,8 +159,6 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Diagnostik för omvänd proxy
               href: service-fabric-reverse-proxy-diagnostics.md
-            - name: ASP.NET Core
-              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Programlivscykel
           href: service-fabric-application-lifecycle.md
           items:
@@ -388,8 +386,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: Konfigurera omvänd proxy för säker kommunikation
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: Skapa en ASP.NET Core-tjänst
-          href: service-fabric-add-a-web-frontend.md
+        - name: ASP.NET Core
+          href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: Konfigurera säkerhet
           items:
             - name: Hantera programhemligheter
